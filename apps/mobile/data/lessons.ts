@@ -29,6 +29,7 @@ import { dailyTransportLessons } from "./daily-transport-lesson";
 import { dailyShoppingLessons } from "./daily-shopping-lesson";
 import { dailyPharmacyLessons } from "./daily-pharmacy-lesson";
 import { dailyHotelLessons } from "./daily-hotel-lesson";
+import { dailyPhoneLessons } from "./daily-phone-lesson";
 import type { BundledLesson } from "./cafe-lesson";
 
 export const allLessons: ReadonlyArray<BundledLesson> = [
@@ -60,6 +61,7 @@ export const allLessons: ReadonlyArray<BundledLesson> = [
   ...dailyShoppingLessons,
   ...dailyPharmacyLessons,
   ...dailyHotelLessons,
+  ...dailyPhoneLessons,
 ];
 
 export function getLesson(id: string): BundledLesson | undefined {
