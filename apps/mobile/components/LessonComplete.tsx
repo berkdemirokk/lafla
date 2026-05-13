@@ -7,6 +7,7 @@ import { StatusBar } from "expo-status-bar";
 import { Button } from "./Button";
 import { tokens } from "../theme";
 import { getCurrentProfile } from "../lib/auth";
+import { getLocalProfile } from "../lib/local-progress";
 import type { LessonProgress } from "../lib/engine";
 
 interface Props {
@@ -20,9 +21,13 @@ export function LessonComplete({ progress, onContinue }: Props) {
   const [streak, setStreak] = useState<number | null>(null);
 
   useEffect(() => {
-    getCurrentProfile()
-      .then((p) => setStreak(p?.current_streak ?? 0))
-      .catch(() => setStreak(0));
+    (async () => {
+      const local = await getLocalProfile();
+      setStreak(local.current_streak ?? 0);
+      // Override with cloud if signed in
+      const cloud = await getCurrentProfile().catch(() => null);
+      if (cloud?.current_streak != null) setStreak(cloud.current_streak);
+    })();
   }, []);
 
   return (

@@ -1,6 +1,8 @@
 // Home feed — Cyber-Electric Modern
 // Light bg, dark scene cards, BLUE active nav tab.
+// Filters by user interests + reorders by completion state.
 
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "expo-router";
 import {
   FlatList,
@@ -14,13 +16,40 @@ import {
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { SceneCard } from "../components/SceneCard";
-import { SAMPLE_SCENES } from "../data/scenes";
+import { SAMPLE_SCENES, type Scene } from "../data/scenes";
+import { getCompletedLessonIds, getInterests } from "../lib/local-progress";
 import { tokens } from "../theme";
 
 export default function Feed() {
   const router = useRouter();
   const { height } = useWindowDimensions();
   const pageHeight = height - 200;
+
+  const [interests, setInterests] = useState<string[] | null>(null);
+  const [completed, setCompleted] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    (async () => {
+      const [i, c] = await Promise.all([getInterests(), getCompletedLessonIds()]);
+      setInterests(i);
+      setCompleted(c);
+    })();
+  }, []);
+
+  const orderedScenes = useMemo<Scene[]>(() => {
+    if (interests === null) return SAMPLE_SCENES.slice();
+    const interestModes = new Set(interests);
+    // Match interest ids (like 'flirt', 'work', etc) to scene modes
+    const isMatch = (s: Scene) =>
+      interestModes.size === 0 || interestModes.has(s.mode);
+    const inInterests = SAMPLE_SCENES.filter(isMatch);
+    const others = SAMPLE_SCENES.filter((s) => !isMatch(s));
+    const allOrdered = [...inInterests, ...others];
+    // Move completed lessons toward the end (still accessible for review)
+    const notDone = allOrdered.filter((s) => !completed.has(s.lessonId));
+    const done = allOrdered.filter((s) => completed.has(s.lessonId));
+    return [...notDone, ...done];
+  }, [interests, completed]);
 
   return (
     <SafeAreaView style={styles.safe} edges={["top"]}>
@@ -39,25 +68,28 @@ export default function Feed() {
       </View>
 
       <FlatList
-        data={SAMPLE_SCENES}
+        data={orderedScenes}
         keyExtractor={(item) => item.id}
         pagingEnabled
         showsVerticalScrollIndicator={false}
         snapToAlignment="start"
         decelerationRate="fast"
-        renderItem={({ item }) => (
-          <View style={[styles.page, { height: pageHeight }]}>
-            <SceneCard
-              emoji={item.emoji}
-              title={item.title}
-              description={item.description}
-              durationMin={item.durationMin}
-              isNew={item.isNew}
-              progressLabel={item.progressLabel}
-              onPress={() => router.push(`/lesson/${item.lessonId}`)}
-            />
-          </View>
-        )}
+        renderItem={({ item }) => {
+          const isDone = completed.has(item.lessonId);
+          return (
+            <View style={[styles.page, { height: pageHeight }]}>
+              <SceneCard
+                emoji={item.emoji}
+                title={item.title}
+                description={item.description}
+                durationMin={item.durationMin}
+                isNew={item.isNew && !isDone}
+                progressLabel={isDone ? "✓ Tamamlandı" : item.progressLabel}
+                onPress={() => router.push(`/lesson/${item.lessonId}`)}
+              />
+            </View>
+          );
+        }}
       />
 
       {/* Bottom nav */}

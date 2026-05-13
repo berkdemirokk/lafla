@@ -15,11 +15,17 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { getCurrentProfile, signOut, type Profile } from "../lib/auth";
 import { supabase } from "../lib/supabase";
+import {
+  getCompletedLessonIds,
+  getLocalProfile,
+  type LocalProfile,
+} from "../lib/local-progress";
 import { tokens } from "../theme";
 
 export default function ProfileScreen() {
   const router = useRouter();
   const [profile, setProfile] = useState<Profile | null>(null);
+  const [local, setLocal] = useState<LocalProfile | null>(null);
   const [signedIn, setSignedIn] = useState(false);
   const [lessonsCompleted, setLessonsCompleted] = useState(0);
 
@@ -27,6 +33,12 @@ export default function ProfileScreen() {
     (async () => {
       const { data } = await supabase.auth.getUser();
       setSignedIn(!!data.user);
+      // Always read local
+      const lp = await getLocalProfile();
+      setLocal(lp);
+      const completed = await getCompletedLessonIds();
+      setLessonsCompleted(completed.size);
+      // Override with cloud values if signed in
       if (data.user) {
         const p = await getCurrentProfile();
         setProfile(p);
@@ -35,7 +47,7 @@ export default function ProfileScreen() {
           .select("*", { count: "exact", head: true })
           .eq("user_id", data.user.id)
           .not("completed_at", "is", null);
-        setLessonsCompleted(count ?? 0);
+        if (count !== null && count !== undefined) setLessonsCompleted(count);
       }
     })();
   }, []);
@@ -72,8 +84,8 @@ export default function ProfileScreen() {
     );
   };
 
-  const xp = profile?.total_xp ?? 0;
-  const streak = profile?.current_streak ?? 0;
+  const xp = profile?.total_xp ?? local?.total_xp ?? 0;
+  const streak = profile?.current_streak ?? local?.current_streak ?? 0;
 
   return (
     <SafeAreaView style={styles.safe} edges={["top"]}>

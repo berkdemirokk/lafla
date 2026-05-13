@@ -1,7 +1,18 @@
 // Lafla — Spaced Repetition System
-// Simplified SM-2: interval based on consecutive correct + ease factor.
+// Local-first: writes to AsyncStorage immediately, syncs to Supabase if signed in.
 
 import { supabase } from "./supabase";
+import {
+  bumpDailyActivity,
+  bumpSkillMastery,
+  bumpStreak,
+  bumpXp,
+  getAllLessonState,
+  getLessonState as getLocalLessonState,
+  nextSrsInterval,
+  saveLessonState as saveLocalLessonState,
+  type LessonStateLocal,
+} from "./local-progress";
 
 export type LessonState = {
   user_id: string;
@@ -26,25 +37,11 @@ export type AttemptInput = {
   hints_used?: number;
 };
 
-// Calculate next interval using SM-2 lite.
-// Quality 0-5 mapped from accuracy: <0.6 = 2, 0.6-0.8 = 3, 0.8-0.95 = 4, >0.95 = 5.
-function nextInterval(state: Pick<LessonState, "ease_factor" | "interval_days" | "consecutive_correct">, accuracy: number) {
-  let ease = state.ease_factor;
-  const quality = accuracy < 0.6 ? 2 : accuracy < 0.8 ? 3 : accuracy < 0.95 ? 4 : 5;
-
-  if (quality < 3) {
-    return { ease, interval_days: 1, consecutive_correct: 0 };
-  }
-
-  ease = Math.max(1.3, ease + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02)));
-  const cc = state.consecutive_correct + 1;
-  const interval = cc === 1 ? 1 : cc === 2 ? 3 : Math.round(state.interval_days * ease);
-  return { ease, interval_days: interval, consecutive_correct: cc };
-}
-
 export async function recordAttempt(attempt: AttemptInput) {
+  // Cloud sync (signed in only). Local doesn't need per-attempt detail —
+  // completeLesson aggregates accuracy.
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return; // anonymous — skip persistence
+  if (!user) return;
 
   await supabase.from("attempts").insert({
     user_id: user.id,
@@ -55,7 +52,7 @@ export async function recordAttempt(attempt: AttemptInput) {
     is_correct: attempt.is_correct,
     response_time_ms: attempt.response_time_ms,
     hints_used: attempt.hints_used ?? 0,
-  });
+  }).then(() => {}, () => {});
 }
 
 export async function completeLesson(args: {
@@ -64,30 +61,28 @@ export async function completeLesson(args: {
   accuracy: number;
   exercises_completed: number;
 }) {
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return null;
+  const xpEarned = Math.round(10 + args.accuracy * 20);
 
-  const { data: existing } = await supabase
-    .from("lesson_state")
-    .select("*")
-    .eq("user_id", user.id)
-    .eq("lesson_id", args.lesson_id)
-    .maybeSingle();
+  // ===== LOCAL (always) =====
+  const prev = (await getLocalLessonState(args.lesson_id)) ?? {
+    lesson_id: args.lesson_id,
+    completed_at: null,
+    next_review_at: null,
+    ease_factor: 2.5,
+    interval_days: 0,
+    consecutive_correct: 0,
+    total_attempts: 0,
+    total_correct: 0,
+    last_attempt_at: null,
+  };
 
-  const prev: Pick<LessonState, "ease_factor" | "interval_days" | "consecutive_correct" | "total_attempts" | "total_correct"> =
-    existing ?? {
-      ease_factor: 2.5,
-      interval_days: 0,
-      consecutive_correct: 0,
-      total_attempts: 0,
-      total_correct: 0,
-    };
-
-  const { ease, interval_days, consecutive_correct } = nextInterval(prev, args.accuracy);
+  const { ease, interval_days, consecutive_correct } = nextSrsInterval(
+    prev,
+    args.accuracy,
+  );
   const nextReview = new Date(Date.now() + interval_days * 24 * 60 * 60 * 1000);
 
-  const upsert: Partial<LessonState> = {
-    user_id: user.id,
+  const newLocal: LessonStateLocal = {
     lesson_id: args.lesson_id,
     completed_at: new Date().toISOString(),
     next_review_at: nextReview.toISOString(),
@@ -95,88 +90,59 @@ export async function completeLesson(args: {
     interval_days,
     consecutive_correct,
     total_attempts: prev.total_attempts + args.exercises_completed,
-    total_correct: prev.total_correct + Math.round(args.accuracy * args.exercises_completed),
+    total_correct:
+      prev.total_correct + Math.round(args.accuracy * args.exercises_completed),
     last_attempt_at: new Date().toISOString(),
   };
+  await saveLocalLessonState(newLocal);
+  await bumpSkillMastery(args.skill_id, args.accuracy);
+  await bumpDailyActivity(xpEarned);
+  await bumpXp(xpEarned);
+  await bumpStreak();
 
-  await supabase.from("lesson_state").upsert(upsert);
-
-  // Bump skill mastery (rolling avg of accuracy, capped at 1.0)
-  const { data: mastery } = await supabase
-    .from("skill_mastery")
-    .select("*")
-    .eq("user_id", user.id)
-    .eq("skill_id", args.skill_id)
-    .maybeSingle();
-
-  const newScore = mastery
-    ? Math.min(1, mastery.mastery_score * 0.85 + args.accuracy * 0.15)
-    : args.accuracy * 0.5;
-
-  await supabase.from("skill_mastery").upsert({
-    user_id: user.id,
-    skill_id: args.skill_id,
-    mastery_score: newScore,
-    lessons_completed: (mastery?.lessons_completed ?? 0) + 1,
-    last_practiced_at: new Date().toISOString(),
-  });
-
-  // Daily activity + XP (read-modify-write; single user, no race risk)
-  const today = new Date().toISOString().slice(0, 10);
-  const xpEarned = Math.round(10 + args.accuracy * 20);
-
-  const { data: today_row } = await supabase
-    .from("daily_activity")
-    .select("xp_earned, lessons_completed")
-    .eq("user_id", user.id)
-    .eq("activity_date", today)
-    .maybeSingle();
-
-  await supabase.from("daily_activity").upsert(
-    {
+  // ===== CLOUD (if signed in) =====
+  const { data: { user } } = await supabase.auth.getUser();
+  if (user) {
+    // best-effort cloud mirror; ignore failures
+    const cloudState = {
       user_id: user.id,
-      activity_date: today,
-      xp_earned: (today_row?.xp_earned ?? 0) + xpEarned,
-      lessons_completed: (today_row?.lessons_completed ?? 0) + 1,
-    },
-    { onConflict: "user_id,activity_date" },
-  );
+      lesson_id: args.lesson_id,
+      completed_at: newLocal.completed_at,
+      next_review_at: newLocal.next_review_at,
+      ease_factor: ease,
+      interval_days,
+      consecutive_correct,
+      total_attempts: newLocal.total_attempts,
+      total_correct: newLocal.total_correct,
+      last_attempt_at: newLocal.last_attempt_at,
+    };
+    supabase.from("lesson_state").upsert(cloudState).then(() => {}, () => {});
 
-  // Also bump total_xp on profile
-  await supabase.rpc("increment_xp", { p_amount: xpEarned }).then(
-    () => {},
-    async () => {
-      // Fallback: read-modify-write profile.total_xp
-      const { data: p } = await supabase
-        .from("profiles")
-        .select("total_xp")
-        .eq("id", user.id)
-        .maybeSingle();
-      await supabase
-        .from("profiles")
-        .update({
-          total_xp: (p?.total_xp ?? 0) + xpEarned,
-          last_lesson_at: new Date().toISOString(),
-        })
-        .eq("id", user.id);
-    },
-  );
+    supabase
+      .from("skill_mastery")
+      .upsert({
+        user_id: user.id,
+        skill_id: args.skill_id,
+        mastery_score: args.accuracy,
+        lessons_completed: 1,
+        last_practiced_at: new Date().toISOString(),
+      })
+      .then(() => {}, () => {});
+  }
 
   return { xp_earned: xpEarned, next_review_at: nextReview.toISOString() };
 }
 
 export async function getDueLessons(limit = 20): Promise<string[]> {
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return [];
-
-  const { data, error } = await supabase
-    .from("lesson_state")
-    .select("lesson_id, next_review_at")
-    .eq("user_id", user.id)
-    .lte("next_review_at", new Date().toISOString())
-    .order("next_review_at", { ascending: true })
-    .limit(limit);
-
-  if (error) return [];
-  return (data ?? []).map((r) => r.lesson_id);
+  // Local first (always works, even anonymous)
+  const local = await getAllLessonState();
+  const now = new Date().toISOString();
+  const due = Object.values(local)
+    .filter((s) => s.next_review_at && s.next_review_at <= now)
+    .sort((a, b) =>
+      (a.next_review_at ?? "").localeCompare(b.next_review_at ?? ""),
+    )
+    .slice(0, limit)
+    .map((s) => s.lesson_id);
+  return due;
 }
