@@ -1,10 +1,12 @@
 // Lesson Complete — Cyber-Electric Modern
 // Dark bg, mixed-accent stats grid (yellow + blue), 3D yellow CTA.
 
+import { useEffect, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Button } from "./Button";
 import { tokens } from "../theme";
+import { getCurrentProfile } from "../lib/auth";
 import type { LessonProgress } from "../lib/engine";
 
 interface Props {
@@ -15,6 +17,13 @@ interface Props {
 export function LessonComplete({ progress, onContinue }: Props) {
   const correctCount = progress.results.filter((r) => r.correct).length;
   const total = progress.results.length;
+  const [streak, setStreak] = useState<number | null>(null);
+
+  useEffect(() => {
+    getCurrentProfile()
+      .then((p) => setStreak(p?.current_streak ?? 0))
+      .catch(() => setStreak(0));
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -45,7 +54,12 @@ export function LessonComplete({ progress, onContinue }: Props) {
             label="Kazanıldı"
             accent="yellow"
           />
-          <StatCard value="3" unit="gün" label="Seri" accent="blue" />
+          <StatCard
+            value={`${streak ?? "—"}`}
+            unit="gün"
+            label="Seri"
+            accent="blue"
+          />
         </View>
       </View>
 

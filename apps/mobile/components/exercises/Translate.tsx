@@ -49,7 +49,7 @@ export function Translate({
         onChangeText={setInput}
         multiline
         editable={!result}
-        autoCapitalize="none"
+        autoCapitalize="sentences"
         autoCorrect={false}
       />
 

@@ -9,11 +9,13 @@ import {
   StyleSheet,
   useWindowDimensions,
   Pressable,
+  Alert,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { SceneCard } from "../components/SceneCard";
 import { SAMPLE_SCENES } from "../data/scenes";
+import { signOut } from "../lib/auth";
 import { tokens } from "../theme";
 
 export default function Feed() {
@@ -29,7 +31,22 @@ export default function Feed() {
       <View style={styles.topBar}>
         <View style={styles.avatar} />
         <Text style={styles.brandMark}>Lafla</Text>
-        <Pressable style={styles.iconBtn}>
+        <Pressable
+          style={styles.iconBtn}
+          onPress={() =>
+            Alert.alert("Hesap", "Çıkış yapmak istediğine emin misin?", [
+              { text: "Vazgeç", style: "cancel" },
+              {
+                text: "Çıkış",
+                style: "destructive",
+                onPress: async () => {
+                  await signOut().catch(() => {});
+                  router.replace("/auth");
+                },
+              },
+            ])
+          }
+        >
           <Text style={styles.iconText}>⚙</Text>
         </Pressable>
       </View>

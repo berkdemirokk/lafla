@@ -50,9 +50,15 @@ export function similarity(a: string, b: string): number {
   return 1 - dist / maxLen;
 }
 
+const TR_TO_ASCII: Record<string, string> = {
+  ç: "c", Ç: "c", ğ: "g", Ğ: "g", ı: "i", İ: "i",
+  ö: "o", Ö: "o", ş: "s", Ş: "s", ü: "u", Ü: "u",
+};
+
 export function normalize(s: string): string {
   return s
     .toLowerCase()
+    .replace(/[çğıİöşüÇĞÖŞÜ]/g, (c) => TR_TO_ASCII[c] ?? c)
     .replace(/[.,!?;:'"()—–\-]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
@@ -183,7 +189,9 @@ export function applyResult(
     newResults.reduce((sum, r) => sum + r.score, 0) / newResults.length;
   const newIndex = progress.current_index + 1;
   const completed = newIndex >= lesson.exercises.length;
-  const xpForThis = Math.round((result.score / 100) * 2);
+  // 10 XP for any attempt + 0-10 XP bonus by accuracy = 10-20 XP per exercise.
+  // 7 exercises x ~15 XP = ~100 XP per lesson on average.
+  const xpForThis = 10 + Math.round((result.score / 100) * 10);
 
   return {
     ...progress,

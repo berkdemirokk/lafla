@@ -47,7 +47,7 @@ export function SpotMistake({
         onChangeText={setInput}
         multiline
         editable={!result}
-        autoCapitalize="none"
+        autoCapitalize="sentences"
         autoCorrect={false}
       />
 

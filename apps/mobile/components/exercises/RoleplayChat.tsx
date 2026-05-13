@@ -70,7 +70,11 @@ export function RoleplayChat({
 
   // Auto-scroll
   useEffect(() => {
-    setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 80);
+    const t = setTimeout(
+      () => scrollRef.current?.scrollToEnd({ animated: true }),
+      80,
+    );
+    return () => clearTimeout(t);
   }, [shown]);
 
   const currentTurn = turns[turnIdx];

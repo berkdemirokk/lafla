@@ -1601,28 +1601,4 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     isNew: true,
     progressLabel: "3/3 ders ✓",
   },
-  {
-    id: "scene-flirt-opener",
-    emoji: "💕",
-    title: "Tinder\nopener\natmak",
-    description:
-      "Sıkıcı 'hey'i bırak. 5 farklı tonla açılış mesajı atmayı öğren.",
-    durationMin: 6,
-    mode: "flirt",
-    skillId: "flirt.opener",
-    lessonId: "flirt.opener.1.1",
-    progressLabel: "Yakında",
-  },
-  {
-    id: "scene-daily-airport",
-    emoji: "✈️",
-    title: "Havaalanında\nkayıp valiz",
-    description:
-      "Valizin gelmediğinde donmadan, kibarca sorununu anlatmayı öğren.",
-    durationMin: 4,
-    mode: "daily",
-    skillId: "daily.airport",
-    lessonId: "daily.airport.1.1",
-    progressLabel: "Yakında",
-  },
 ];

@@ -38,7 +38,15 @@ export default function Auth() {
     setError(null);
     try {
       if (mode === "signup") {
-        await signUpWithEmail(email.trim(), password);
+        const result = await signUpWithEmail(email.trim(), password);
+        if (!result.session) {
+          // Email confirmation enabled in Supabase
+          setError(
+            "Email'ine doğrulama linki gönderdik. Linke tıkladıktan sonra tekrar giriş yap.",
+          );
+          setMode("signin");
+          return;
+        }
       } else {
         await signInWithEmail(email.trim(), password);
       }
