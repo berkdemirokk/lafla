@@ -533,10 +533,192 @@ export const restaurantLesson_2_3: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 2.4 — Hesap + Ödeme
+// ============================================================
+export const restaurantLesson_2_4: BundledLesson = {
+  id: "order.restaurant.2.4",
+  skill_id: "order.restaurant",
+  index: 4,
+  title: "Hesap + Ödeme",
+  description:
+    "Hesabı iste, kart/nakit söyle, böl, bahşiş bırak — yemeği kibarca bitirme.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.2.4.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Could we get the check",
+      tr_translation: "Hesabı alabilir miyiz",
+      example: "Could we get the check, please?",
+      example_tr: "Hesabı alabilir miyiz, lütfen?",
+    },
+    {
+      id: "ex.2.4.2",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Hesabı alabilir miyiz, lütfen?",
+      target: "Could we get the check, please?",
+      accepted_variants: [
+        "Could we have the bill, please?",
+        "The check, please.",
+        "The bill, please.",
+        "Could we settle up?",
+        "Can we get the bill?",
+        "Could you bring us the check?",
+        "Check, please.",
+      ],
+      tr_hint:
+        "'Check' (US) ve 'bill' (UK) ikisi de hesap. 'Settle up' = ödeyip ayrılmak.",
+    },
+    {
+      id: "ex.2.4.3",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "We'll be paying ___ card.",
+      answer: "by",
+      distractors: ["with", "on", "in"],
+      tr_hint:
+        "'By card' = kartla. 'By cash' veya 'in cash' ikisi de nakit için.",
+    },
+    {
+      id: "ex.2.4.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Could",
+        "we",
+        "split",
+        "the",
+        "bill",
+        "please",
+      ],
+      correct_sentence: "Could we split the bill please",
+      tr_translation: "Hesabı bölebilir miyiz, lütfen?",
+    },
+    {
+      id: "ex.2.4.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Bring bill now!",
+      correct_sentence: "Could we get the check, please?",
+      tr_explanation:
+        "'Bring bill now!' komut. 'Bill' önünde 'the' eksik. 'Could we get the check, please?' kibar ve doğal.",
+    },
+    {
+      id: "ex.2.4.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Yemek bitti. Hesabı isteyip ödeme yapacaksın. Arkadaşınla bölmek istiyorsun.",
+      npc_role: "Garson",
+      setting: "End of meal",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Was everything alright? Anything else I can get you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can) (we|i) (get|have) the (check|bill)",
+            "the (check|bill)( please)?",
+            "(we'?re|i'm) (done|finished|good)",
+            "(we'?ll|i'll) take the (check|bill)",
+            "(could|can) we settle up",
+            "no thanks(, the bill)?",
+          ],
+          hint_tr: "Hesap isteme: 'Could we get the check, please?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Of course. Here's the check. Will that be on one card or splitting?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can) we split (it|the bill)",
+            "split( it| the bill)?( please)?",
+            "(let'?s|we'?ll|i'll) split",
+            "(separate|two) (cards|checks|bills)",
+            "one card",
+            "all on (one|my) card",
+            "(i'?ll|i will) (get|pay for) (it|this)( one)?",
+          ],
+          hint_tr:
+            "Bölme: 'Could we split it?' veya 'Split, please'. Tek kart: 'One card, all on mine'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure thing. I'll bring the card machine over.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "thank(s| you)( so much)?",
+            "(great|perfect|awesome|amazing|wonderful)( thanks)?",
+            "(thanks|thank you) (so much )?(for everything)?",
+            "appreciate it",
+          ],
+          hint_tr: "Teşekkür: 'Thanks!', 'Thanks so much', 'Appreciate it'.",
+        },
+      ],
+    },
+    {
+      id: "ex.2.4.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Hesap' İngilizce'de nasıl?",
+          options: [
+            "Account (US) veya money (UK)",
+            "Check (US) veya bill (UK)",
+            "Price (US) veya cost (UK)",
+            "Receipt sadece",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "ABD'de 'check', İngiltere'de 'bill'. Receipt = ödedikten sonraki fiş.",
+        },
+        {
+          question: "Arkadaşınla hesabı bölmek için hangisi?",
+          options: [
+            "Divide bill",
+            "Break check",
+            "Could we split the bill?",
+            "Half-half",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Split the bill' yerleşik idiom. 'Divide bill' garip kalır.",
+        },
+        {
+          question: "Bahşiş hakkında ABD'de standart oran?",
+          options: [
+            "%5",
+            "%10-12",
+            "%18-20",
+            "Bahşiş zorunlu değil",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "ABD: %18-20 standart, %15 minimum. UK %10-12, EU yuvarlama. Türkiye'den farklı kültürel kod.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
 // Restaurant lessons registry
 // ============================================================
 export const restaurantLessons: ReadonlyArray<BundledLesson> = [
   restaurantLesson_2_1,
   restaurantLesson_2_2,
   restaurantLesson_2_3,
+  restaurantLesson_2_4,
 ];

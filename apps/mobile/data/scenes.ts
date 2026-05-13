@@ -107,6 +107,19 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     progressLabel: "3/4 ders",
   },
   {
+    id: "scene-order-restaurant-2-4",
+    emoji: "💳",
+    title: "Hesabı iste,\nbölüş,\nödeme yap",
+    description:
+      "Check/bill farkı, hesabı bölme, kart/nakit, bahşiş kültürü — yemeği bitirme.",
+    durationMin: 6,
+    mode: "order",
+    skillId: "order.restaurant",
+    lessonId: "order.restaurant.2.4",
+    isNew: true,
+    progressLabel: "4/4 ders ✓",
+  },
+  {
     id: "scene-flirt-opener",
     emoji: "💕",
     title: "Tinder\nopener\natmak",
