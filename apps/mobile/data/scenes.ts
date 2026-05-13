@@ -120,6 +120,19 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     progressLabel: "4/4 ders ✓",
   },
   {
+    id: "scene-order-custom-3-1",
+    emoji: "⚠️",
+    title: "Alerjim var,\nbu glütensiz mi,\nfıstık içeriyor mu?",
+    description:
+      "Alerji + diyet İngilizcesi. Gıda güvenliği için kritik kalıplar.",
+    durationMin: 5,
+    mode: "order",
+    skillId: "order.custom",
+    lessonId: "order.custom.3.1",
+    isNew: true,
+    progressLabel: "1/3 ders",
+  },
+  {
     id: "scene-flirt-opener",
     emoji: "💕",
     title: "Tinder\nopener\natmak",
