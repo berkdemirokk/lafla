@@ -18,6 +18,7 @@ export default function RootLayout() {
           name="index"
           options={{ contentStyle: { backgroundColor: tokens.bg.onBackground } }}
         />
+        <Stack.Screen name="auth" />
         <Stack.Screen name="onboarding" />
         <Stack.Screen name="feed" />
         <Stack.Screen name="lesson/[id]" />

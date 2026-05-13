@@ -1,35 +1,56 @@
-// Splash screen — dark bg, white wordmark, neon yellow accent line.
-// Mirrors Stitch's "Splash Cool" design.
+// Splash — dark bg, wordmark, glowing yellow line.
+// Auto-routes: signed-in + onboarded → /feed; signed-in only → /onboarding;
+// signed-out → /auth. Tap on screen accelerates routing.
 
 import { useEffect } from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
+import { useSession } from "../lib/useSession";
+import { getCurrentProfile } from "../lib/auth";
 import { tokens } from "../theme";
 
 export default function Splash() {
   const router = useRouter();
+  const { session, loading } = useSession();
 
   useEffect(() => {
-    const t = setTimeout(() => {
-      router.replace("/onboarding");
-    }, 1500);
+    if (loading) return;
+
+    const decide = async () => {
+      if (!session) {
+        router.replace("/auth");
+        return;
+      }
+      const profile = await getCurrentProfile();
+      if (profile?.onboarding_completed_at) {
+        router.replace("/feed");
+      } else {
+        router.replace("/onboarding");
+      }
+    };
+
+    const t = setTimeout(decide, 800);
     return () => clearTimeout(t);
-  }, [router]);
+  }, [session, loading, router]);
+
+  const skip = async () => {
+    if (loading) return;
+    if (!session) {
+      router.replace("/auth");
+      return;
+    }
+    const profile = await getCurrentProfile();
+    router.replace(profile?.onboarding_completed_at ? "/feed" : "/onboarding");
+  };
 
   return (
-    <Pressable
-      style={styles.container}
-      onPress={() => router.replace("/onboarding")}
-    >
+    <Pressable style={styles.container} onPress={skip}>
       <StatusBar style="light" />
 
       <View style={styles.center}>
         <Text style={styles.wordmark}>Lafla</Text>
-
-        {/* Accent underline — glowing yellow */}
         <View style={styles.accentLine} />
-
         <Text style={styles.tagline}>Söyle gitsin.</Text>
       </View>
 

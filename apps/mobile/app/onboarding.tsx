@@ -9,11 +9,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { InterestCard } from "../components/InterestCard";
 import { Button } from "../components/Button";
 import { INTERESTS } from "../data/interests";
+import { completeOnboarding } from "../lib/auth";
 import { tokens } from "../theme";
 
 export default function Onboarding() {
   const router = useRouter();
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [saving, setSaving] = useState(false);
 
   const toggle = (id: string) => {
     const next = new Set(selected);
@@ -22,7 +24,20 @@ export default function Onboarding() {
     setSelected(next);
   };
 
-  const canContinue = selected.size > 0;
+  const canContinue = selected.size > 0 && !saving;
+
+  const handleContinue = async () => {
+    setSaving(true);
+    try {
+      await completeOnboarding(Array.from(selected));
+    } catch (e) {
+      console.warn("[Lafla] onboarding save failed:", e);
+      // Continue anyway — user can still browse with local-only state.
+    } finally {
+      setSaving(false);
+      router.replace("/feed");
+    }
+  };
 
   return (
     <SafeAreaView style={styles.safe}>
@@ -53,8 +68,14 @@ export default function Onboarding() {
 
       <View style={styles.footer}>
         <Button
-          label={canContinue ? "Devam et →" : "En az birini seç"}
-          onPress={() => router.replace("/feed")}
+          label={
+            saving
+              ? "Kaydediliyor..."
+              : canContinue
+              ? "Devam et →"
+              : "En az birini seç"
+          }
+          onPress={handleContinue}
           disabled={!canContinue}
         />
       </View>
