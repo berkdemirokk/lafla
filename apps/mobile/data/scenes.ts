@@ -1303,6 +1303,32 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     progressLabel: "3/3 ders ✓",
   },
   {
+    id: "scene-daily-emergency-22-1",
+    emoji: "🚑",
+    title: "911 / Ambulans —\nemergency at,\nbreathing but unconscious",
+    description:
+      "Hayat kurtaran acil çağrı: ADRES + DURUM + BREATHING — hızla doğru bilgi.",
+    durationMin: 5,
+    mode: "daily",
+    skillId: "daily.emergency",
+    lessonId: "daily.emergency.22.1",
+    isNew: true,
+    progressLabel: "1/2 ders",
+  },
+  {
+    id: "scene-daily-emergency-22-2",
+    emoji: "🚓",
+    title: "Polis raporu —\nfile a theft,\ncase number for insurance",
+    description:
+      "Telefon / cüzdan çalındı — polise rapor + case number alma. Sigorta için kritik.",
+    durationMin: 5,
+    mode: "daily",
+    skillId: "daily.emergency",
+    lessonId: "daily.emergency.22.2",
+    isNew: true,
+    progressLabel: "2/2 ders ✓",
+  },
+  {
     id: "scene-flirt-opener",
     emoji: "💕",
     title: "Tinder\nopener\natmak",
