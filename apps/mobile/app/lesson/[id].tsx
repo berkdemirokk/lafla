@@ -10,6 +10,7 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
+  Alert,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useLocalSearchParams, useRouter } from "expo-router";
@@ -103,7 +104,27 @@ export default function LessonScreen() {
       >
       <View style={styles.header}>
         <View style={styles.topRow}>
-          <Pressable style={styles.exitBtn} onPress={() => router.back()}>
+          <Pressable
+            style={styles.exitBtn}
+            onPress={() => {
+              if (progress.current_index === 0) {
+                router.back();
+                return;
+              }
+              Alert.alert(
+                "Dersten çık?",
+                "İlerlemen kaydedilmedi. Çıkmak istediğine emin misin?",
+                [
+                  { text: "Devam et", style: "cancel" },
+                  {
+                    text: "Çık",
+                    style: "destructive",
+                    onPress: () => router.back(),
+                  },
+                ],
+              );
+            }}
+          >
             <Text style={styles.exitText}>← Çık</Text>
           </Pressable>
           <Text style={styles.lessonTitle} numberOfLines={1}>

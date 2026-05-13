@@ -64,7 +64,7 @@ export default function Feed() {
   }, [interests, completed]);
 
   return (
-    <SafeAreaView style={styles.safe} edges={["top"]}>
+    <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
       <StatusBar style="dark" />
 
       {/* Top app bar */}
@@ -255,9 +255,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    height: 76,
+    height: 64,
     paddingHorizontal: 8,
-    paddingBottom: 12,
     backgroundColor: tokens.bg.surfaceContainer,
     borderTopLeftRadius: tokens.radius.base,
     borderTopRightRadius: tokens.radius.base,
