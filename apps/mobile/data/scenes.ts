@@ -237,6 +237,32 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     progressLabel: "3/3 ders ✓",
   },
   {
+    id: "scene-order-tipping-6-1",
+    emoji: "💵",
+    title: "ABD'de bahşiş\n%18-20,\nKeep the change",
+    description:
+      "ABD bahşiş kültürü — garsonun maaşı bahşişe bağlı, oranlar yüksek.",
+    durationMin: 5,
+    mode: "order",
+    skillId: "order.tipping",
+    lessonId: "order.tipping.6.1",
+    isNew: true,
+    progressLabel: "1/2 ders",
+  },
+  {
+    id: "scene-order-tipping-6-2",
+    emoji: "🇬🇧",
+    title: "UK/EU bahşiş —\nservis dahil mi,\nyuvarla",
+    description:
+      "UK %10-12, EU yuvarlama veya 'service included' — ABD'den farklı kodlar.",
+    durationMin: 5,
+    mode: "order",
+    skillId: "order.tipping",
+    lessonId: "order.tipping.6.2",
+    isNew: true,
+    progressLabel: "2/2 ders ✓",
+  },
+  {
     id: "scene-flirt-opener",
     emoji: "💕",
     title: "Tinder\nopener\natmak",
