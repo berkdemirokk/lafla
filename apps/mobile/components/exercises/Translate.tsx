@@ -1,4 +1,4 @@
-// Translate exercise UI — Türkçe cümleyi İngilizceye çevir (veya tersi).
+// Translate — light bg, yellow accent feedback.
 
 import { useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
@@ -28,8 +28,7 @@ export function Translate({
 
   const submit = () => {
     if (!input.trim()) return;
-    const r = evaluateTranslate(target, acceptedVariants, input);
-    setResult(r);
+    setResult(evaluateTranslate(target, acceptedVariants, input));
   };
 
   return (
@@ -40,12 +39,12 @@ export function Translate({
       <TextInput
         style={[
           styles.input,
-          result && (result.correct ? styles.inputCorrect : styles.inputWrong),
+          result && (result.correct ? styles.inputOk : styles.inputMiss),
         ]}
         placeholder={
           direction === "tr_to_en" ? "İngilizce yaz..." : "Türkçe yaz..."
         }
-        placeholderTextColor={tokens.text.tertiary}
+        placeholderTextColor={tokens.text.secondary}
         value={input}
         onChangeText={setInput}
         multiline
@@ -62,7 +61,9 @@ export function Translate({
           ]}
         >
           <Text style={styles.feedbackTitle}>
-            {result.correct ? `✓ ${result.score}/100` : `✗ ${result.score}/100`}
+            {result.correct
+              ? `✓ ${result.score}/100`
+              : `✗ ${result.score}/100`}
           </Text>
           {result.feedback && (
             <Text style={styles.feedbackText}>{result.feedback}</Text>
@@ -70,9 +71,7 @@ export function Translate({
         </View>
       )}
 
-      {!result && trHint && (
-        <Text style={styles.hint}>💡 {trHint}</Text>
-      )}
+      {!result && trHint && <Text style={styles.hint}>💡 {trHint}</Text>}
 
       <View style={styles.footer}>
         <Button
@@ -88,53 +87,55 @@ export function Translate({
 const styles = StyleSheet.create({
   container: { flex: 1 },
   prompt: {
-    fontSize: 12,
+    fontSize: 14,
     color: tokens.text.secondary,
     textTransform: "uppercase",
     letterSpacing: 1.5,
     fontWeight: tokens.weight.bold,
-    marginBottom: 12,
+    marginBottom: tokens.spacing.sm,
   },
   source: {
-    fontSize: 22,
+    fontSize: 28,
     fontWeight: tokens.weight.bold,
     color: tokens.text.primary,
-    lineHeight: 30,
-    marginBottom: 24,
+    lineHeight: 36,
+    marginBottom: tokens.spacing.md,
   },
   input: {
-    backgroundColor: tokens.bg.card,
+    backgroundColor: tokens.bg.surfaceContainerLowest,
     borderWidth: 2,
-    borderColor: tokens.border.default,
-    borderRadius: tokens.radius.input,
-    padding: 16,
+    borderColor: tokens.bg.surfaceContainerHigh,
+    borderRadius: tokens.radius.base,
+    padding: tokens.spacing.md,
     color: tokens.text.primary,
-    fontSize: 16,
-    minHeight: 100,
+    fontSize: 17,
+    minHeight: 110,
     textAlignVertical: "top",
   },
-  inputCorrect: { borderColor: tokens.semantic.success },
-  inputWrong: { borderColor: tokens.semantic.error },
+  inputOk: { borderColor: tokens.brand.primaryFixed },
+  inputMiss: { borderColor: tokens.semantic.error },
   hint: {
-    color: tokens.text.tertiary,
-    fontSize: 13,
-    marginTop: 16,
+    color: tokens.text.secondary,
+    fontSize: 14,
+    marginTop: tokens.spacing.md,
   },
   feedback: {
-    marginTop: 16,
-    padding: 14,
-    borderRadius: tokens.radius.card,
+    marginTop: tokens.spacing.md,
+    padding: tokens.spacing.md,
+    borderRadius: tokens.radius.base,
   },
   feedbackOk: {
-    backgroundColor: tokens.semantic.successSoft,
+    backgroundColor: "rgba(246, 255, 0, 0.12)",
+    borderWidth: 1,
+    borderColor: tokens.brand.primaryFixed,
   },
   feedbackMiss: {
-    backgroundColor: "rgba(239, 68, 68, 0.12)",
+    backgroundColor: tokens.semantic.errorContainer,
   },
   feedbackTitle: {
     color: tokens.text.primary,
     fontWeight: tokens.weight.extrabold,
-    fontSize: 16,
+    fontSize: 18,
     marginBottom: 4,
   },
   feedbackText: {
@@ -144,6 +145,6 @@ const styles = StyleSheet.create({
   },
   footer: {
     marginTop: "auto",
-    paddingTop: 16,
+    paddingTop: tokens.spacing.md,
   },
 });

@@ -1,6 +1,8 @@
-// Lesson completion screen — score summary, XP gained, next prompt.
+// Lesson Complete — Cyber-Electric Modern
+// Dark bg, mixed-accent stats grid (yellow + blue), 3D yellow CTA.
 
 import { View, Text, StyleSheet } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import { Button } from "./Button";
 import { tokens } from "../theme";
 import type { LessonProgress } from "../lib/engine";
@@ -12,37 +14,79 @@ interface Props {
 
 export function LessonComplete({ progress, onContinue }: Props) {
   const correctCount = progress.results.filter((r) => r.correct).length;
+  const total = progress.results.length;
 
   return (
     <View style={styles.container}>
-      <Text style={styles.icon}>🎯</Text>
-      <Text style={styles.title}>Tamam!</Text>
-      <Text style={styles.subtitle}>Ders tamamlandı.</Text>
+      <StatusBar style="light" />
 
-      <View style={styles.stats}>
-        <StatRow label="Toplam Skor" value={`${progress.total_score}/100`} />
-        <StatRow
-          label="Doğru cevap"
-          value={`${correctCount}/${progress.results.length}`}
-        />
-        <StatRow label="XP Kazandın" value={`+${progress.xp_earned}`} />
-        <StatRow label="🔥 Streak" value="+1 gün" />
+      <View style={styles.content}>
+        <Text style={styles.icon}>🎯</Text>
+        <Text style={styles.title}>Tamam!</Text>
+        <Text style={styles.subtitle}>Harika iş çıkardın.</Text>
+
+        <View style={styles.statsGrid}>
+          <StatCard
+            value={`${progress.total_score}`}
+            unit="/100"
+            label="Doğruluk"
+            accent="yellow"
+          />
+          <StatCard
+            value={`${correctCount}`}
+            unit={`/${total}`}
+            label="Soru"
+            accent="blue"
+          />
+          <StatCard
+            value={`+${progress.xp_earned}`}
+            unit="XP"
+            unitColored
+            label="Kazanıldı"
+            accent="yellow"
+          />
+          <StatCard value="3" unit="gün" label="Seri" accent="blue" />
+        </View>
       </View>
 
-      <Text style={styles.nextHint}>⏰ Sonraki tekrar: yarın 19:00</Text>
-
       <View style={styles.footer}>
-        <Button label="Sıradaki Sahne →" onPress={onContinue} />
+        <Button label="Sıradaki Sahne →" onPress={onContinue} stacked />
       </View>
     </View>
   );
 }
 
-function StatRow({ label, value }: { label: string; value: string }) {
+function StatCard({
+  value,
+  unit,
+  unitColored,
+  label,
+  accent,
+}: {
+  value: string;
+  unit?: string;
+  unitColored?: boolean;
+  label: string;
+  accent: "yellow" | "blue";
+}) {
+  const accentColor =
+    accent === "yellow" ? tokens.brand.primary : tokens.brand.tertiary;
   return (
-    <View style={statStyles.row}>
+    <View style={statStyles.card}>
+      <Text style={[statStyles.value, { color: accentColor }]}>
+        {value}
+        {unit && (
+          <Text
+            style={[
+              statStyles.unit,
+              unitColored && { color: accentColor },
+            ]}
+          >
+            {unit.startsWith("/") ? unit : ` ${unit}`}
+          </Text>
+        )}
+      </Text>
       <Text style={statStyles.label}>{label}</Text>
-      <Text style={statStyles.value}>{value}</Text>
     </View>
   );
 }
@@ -50,60 +94,78 @@ function StatRow({ label, value }: { label: string; value: string }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 24,
+    backgroundColor: tokens.bg.onBackground,
+  },
+  content: {
+    flex: 1,
+    paddingHorizontal: tokens.spacing.md,
+    paddingTop: tokens.spacing.lg,
+    paddingBottom: 120,
+    alignItems: "center",
+    justifyContent: "center",
   },
   icon: {
-    fontSize: 96,
-    textAlign: "center",
-    marginTop: 24,
-    marginBottom: 16,
+    fontSize: 80,
+    marginBottom: 24,
   },
   title: {
     fontSize: 32,
-    fontWeight: tokens.weight.black,
-    color: tokens.text.primary,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.inverseOnSurface,
+    marginBottom: tokens.spacing.base,
     textAlign: "center",
-    letterSpacing: -1,
-    marginBottom: 8,
   },
   subtitle: {
-    fontSize: 15,
-    color: tokens.text.secondary,
+    fontSize: 18,
+    color: tokens.text.secondaryFixedDim,
     textAlign: "center",
-    marginBottom: 32,
+    marginBottom: tokens.spacing.lg,
   },
-  stats: {
-    marginBottom: 24,
-  },
-  nextHint: {
-    fontSize: 13,
-    color: tokens.text.secondary,
-    textAlign: "center",
-    marginBottom: 16,
+  statsGrid: {
+    width: "100%",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 16,
+    justifyContent: "space-between",
   },
   footer: {
-    marginTop: "auto",
-    paddingTop: 16,
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    paddingHorizontal: tokens.spacing.md,
+    paddingTop: tokens.spacing.md,
+    paddingBottom: 36,
   },
 });
 
 const statStyles = StyleSheet.create({
-  row: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+  card: {
+    flexBasis: "47%",
+    flexGrow: 1,
+    backgroundColor: tokens.bg.inverseSurface,
+    borderRadius: tokens.radius.base,
+    borderWidth: 2,
+    borderColor: "rgba(255, 255, 255, 0.06)",
+    padding: tokens.spacing.md,
     alignItems: "center",
-    paddingVertical: 14,
-    borderBottomWidth: 1,
-    borderBottomColor: tokens.border.default,
-  },
-  label: {
-    fontSize: 15,
-    fontWeight: tokens.weight.semibold,
-    color: tokens.text.primary,
+    justifyContent: "center",
   },
   value: {
-    fontSize: 18,
-    fontWeight: tokens.weight.extrabold,
-    color: tokens.brand.accent,
+    fontSize: 32,
+    fontWeight: tokens.weight.bold,
+    marginBottom: 4,
+  },
+  unit: {
+    fontSize: 16,
+    fontWeight: tokens.weight.regular,
+    color: tokens.text.secondaryFixedDim,
+  },
+  label: {
+    fontSize: 12,
+    fontWeight: tokens.weight.semibold,
+    color: tokens.text.secondaryFixedDim,
+    textTransform: "uppercase",
+    letterSpacing: 1.2,
   },
 });

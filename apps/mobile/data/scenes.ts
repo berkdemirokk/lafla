@@ -1,5 +1,5 @@
-// Sample feed scenes. In production these will come from the
-// content packs in content/scenarios/ via the backend API.
+// Sample feed scenes. Production data comes from content/scenarios/ via the backend.
+// Stark Modern theme: single accent color, no per-mode color variation.
 
 export interface Scene {
   id: string;
@@ -12,17 +12,7 @@ export interface Scene {
   lessonId: string;
   isNew?: boolean;
   progressLabel?: string;
-  accentColor?: string;
 }
-
-// Mode → accent color
-export const MODE_COLORS: Record<Scene["mode"], string> = {
-  order: "#FF6B35",   // warm orange — appetite
-  flirt: "#EC4899",   // pink — romance
-  work: "#3B82F6",    // blue — professional
-  banter: "#A855F7",  // purple — playful
-  daily: "#10B981",   // green — practical
-};
 
 export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
   {
@@ -37,7 +27,6 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     lessonId: "order.cafe.1.1",
     isNew: true,
     progressLabel: "1/4 ders",
-    accentColor: MODE_COLORS.order,
   },
   {
     id: "scene-flirt-opener",
@@ -50,7 +39,6 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     skillId: "flirt.opener",
     lessonId: "flirt.opener.1.1",
     progressLabel: "Yeni skill",
-    accentColor: MODE_COLORS.flirt,
   },
   {
     id: "scene-daily-airport",
@@ -62,6 +50,5 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     mode: "daily",
     skillId: "daily.airport",
     lessonId: "daily.airport.1.1",
-    accentColor: MODE_COLORS.daily,
   },
 ];

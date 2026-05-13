@@ -1,4 +1,4 @@
-// Progress indicator at top of lesson screen — one dot per exercise.
+// Progress dots — Cyber-Electric: yellow done, BLUE glowing active, gray pending.
 
 import { View, StyleSheet } from "react-native";
 import { tokens } from "../theme";
@@ -32,19 +32,24 @@ export function ProgressDots({ total, currentIndex }: Props) {
 const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
-    gap: 5,
-    marginBottom: 28,
+    gap: 8,
+    width: "100%",
   },
   dot: {
     flex: 1,
-    height: 4,
-    backgroundColor: tokens.border.default,
-    borderRadius: 2,
+    height: 8,
+    backgroundColor: tokens.bg.surfaceContainerHigh,
+    borderRadius: 4,
   },
   dotDone: {
-    backgroundColor: tokens.semantic.success,
+    backgroundColor: tokens.brand.primary, // yellow = completed
   },
   dotActive: {
-    backgroundColor: tokens.brand.accent,
+    backgroundColor: tokens.brand.tertiary, // BLUE = current focus
+    shadowColor: tokens.brand.tertiary,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 12,
+    elevation: 4,
   },
 });

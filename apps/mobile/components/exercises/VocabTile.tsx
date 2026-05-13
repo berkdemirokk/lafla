@@ -1,4 +1,4 @@
-// Vocab Tile — pasif kart, kullanıcı sadece okur ve devam eder.
+// Vocab Tile — yellow-highlighted word card with example.
 
 import { View, Text, StyleSheet } from "react-native";
 import { Button } from "../Button";
@@ -32,9 +32,9 @@ export function VocabTile({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.prompt}>Yeni kelime</Text>
+      <Text style={styles.prompt}>Yeni Kelime</Text>
 
-      <View style={styles.card}>
+      <View style={styles.heroCard}>
         <Text style={styles.word}>{wordOrPhrase}</Text>
         <View style={styles.divider} />
         <Text style={styles.tr}>{trTranslation}</Text>
@@ -56,24 +56,24 @@ export function VocabTile({
 const styles = StyleSheet.create({
   container: { flex: 1 },
   prompt: {
-    fontSize: 12,
+    fontSize: 14,
     color: tokens.text.secondary,
     textTransform: "uppercase",
     letterSpacing: 1.5,
     fontWeight: tokens.weight.bold,
-    marginBottom: 16,
+    marginBottom: tokens.spacing.md,
   },
-  card: {
-    backgroundColor: tokens.brand.accentSoft,
+  heroCard: {
+    backgroundColor: "rgba(246, 255, 0, 0.18)",
     borderWidth: 2,
-    borderColor: tokens.brand.accent,
-    borderRadius: tokens.radius.card,
-    padding: 28,
+    borderColor: tokens.brand.primaryContainer,
+    borderRadius: tokens.radius.base,
+    padding: 32,
     alignItems: "center",
-    marginBottom: 24,
+    marginBottom: tokens.spacing.md,
   },
   word: {
-    fontSize: 32,
+    fontSize: 36,
     fontWeight: tokens.weight.black,
     color: tokens.text.primary,
     letterSpacing: -0.5,
@@ -81,21 +81,21 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   divider: {
-    height: 1,
+    height: 2,
     width: 40,
-    backgroundColor: tokens.brand.accent,
+    backgroundColor: tokens.brand.primaryFixed,
     marginBottom: 14,
   },
   tr: {
-    fontSize: 22,
-    color: tokens.brand.accent,
+    fontSize: 24,
+    color: tokens.text.primary,
     fontWeight: tokens.weight.bold,
     textAlign: "center",
   },
   exampleBox: {
-    backgroundColor: tokens.bg.card,
-    borderRadius: tokens.radius.card,
-    padding: 16,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderRadius: tokens.radius.base,
+    padding: tokens.spacing.md,
   },
   exampleLabel: {
     fontSize: 11,
@@ -106,11 +106,11 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   exampleEn: {
-    fontSize: 16,
+    fontSize: 17,
     color: tokens.text.primary,
     fontWeight: tokens.weight.semibold,
     marginBottom: 4,
-    lineHeight: 22,
+    lineHeight: 24,
   },
   exampleTr: {
     fontSize: 14,
@@ -120,6 +120,6 @@ const styles = StyleSheet.create({
   },
   footer: {
     marginTop: "auto",
-    paddingTop: 16,
+    paddingTop: tokens.spacing.md,
   },
 });

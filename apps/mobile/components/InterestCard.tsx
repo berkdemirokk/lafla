@@ -1,4 +1,4 @@
-// Onboarding interest selection — multi-select card row
+// Interest card — Cyber-Electric: yellow-tinted selected, soft surface unselected.
 
 import { Pressable, Text, View, StyleSheet } from "react-native";
 import { tokens } from "../theme";
@@ -16,14 +16,19 @@ export function InterestCard({ emoji, label, selected, onPress }: Props) {
       style={[styles.card, selected && styles.cardSelected]}
       onPress={onPress}
     >
-      <Text style={styles.emoji}>{emoji}</Text>
-      <Text style={styles.label}>{label}</Text>
-      <View style={[styles.check, selected && styles.checkSelected]}>
-        <Text
-          style={[styles.checkText, selected && styles.checkTextSelected]}
-        >
-          {selected ? "✓" : "+"}
+      <View style={styles.left}>
+        <Text style={styles.emoji}>{emoji}</Text>
+        <Text style={[styles.label, selected && styles.labelSelected]}>
+          {label}
         </Text>
+      </View>
+      <View
+        style={[
+          styles.check,
+          selected ? styles.checkSelected : styles.checkUnselected,
+        ]}
+      >
+        {selected && <Text style={styles.checkIcon}>✓</Text>}
       </View>
     </Pressable>
   );
@@ -31,47 +36,56 @@ export function InterestCard({ emoji, label, selected, onPress }: Props) {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: tokens.bg.card,
-    borderWidth: 2,
-    borderColor: tokens.border.default,
-    borderRadius: tokens.radius.card,
-    paddingVertical: 16,
-    paddingHorizontal: 18,
-    marginBottom: 10,
     flexDirection: "row",
     alignItems: "center",
-    gap: 14,
+    justifyContent: "space-between",
+    padding: tokens.spacing.md,
+    borderRadius: tokens.radius.base,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.border.light,
   },
   cardSelected: {
-    borderColor: tokens.brand.accent,
-    backgroundColor: tokens.brand.accentSoft,
+    backgroundColor: tokens.brand.primarySoft,
+    borderWidth: 2,
+    borderColor: tokens.brand.primary,
+  },
+  left: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: tokens.spacing.md,
+    flex: 1,
   },
   emoji: {
-    fontSize: 24,
+    fontSize: 28,
   },
   label: {
-    flex: 1,
-    fontSize: 15,
-    fontWeight: tokens.weight.semibold,
+    fontSize: 18,
     color: tokens.text.primary,
+    fontWeight: tokens.weight.regular,
+    flex: 1,
+  },
+  labelSelected: {
+    fontWeight: tokens.weight.semibold,
   },
   check: {
-    width: 26,
-    height: 26,
-    borderRadius: 13,
-    backgroundColor: tokens.bg.input,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
     alignItems: "center",
     justifyContent: "center",
   },
   checkSelected: {
-    backgroundColor: tokens.brand.accent,
+    backgroundColor: tokens.brand.primary,
   },
-  checkText: {
-    color: tokens.text.tertiary,
-    fontWeight: tokens.weight.bold,
+  checkUnselected: {
+    backgroundColor: tokens.bg.surface,
+    borderWidth: 2,
+    borderColor: tokens.border.outlineVariant,
+  },
+  checkIcon: {
+    color: tokens.text.onPrimary,
     fontSize: 14,
-  },
-  checkTextSelected: {
-    color: "white",
+    fontWeight: tokens.weight.black,
   },
 });

@@ -1,15 +1,25 @@
-// Lafla design system — primary button
-// Two variants: primary (orange CTA) and secondary (subtle, on-card)
+// Lafla design system — pill button (Stitch Cool)
+// Primary: neon yellow bg + near-black text, fully rounded pill.
+// Optional "stacked" 3D shadow effect for hero CTAs.
 
-import { Pressable, Text, StyleSheet, ActivityIndicator } from "react-native";
+import { useState } from "react";
+import {
+  Pressable,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+  View,
+} from "react-native";
 import { tokens } from "../theme";
 
 interface Props {
   label: string;
   onPress: () => void;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "ghost";
   disabled?: boolean;
   loading?: boolean;
+  /** Adds a "stacked" 3D shadow effect — for hero CTAs (lesson complete, BAŞLA). */
+  stacked?: boolean;
 }
 
 export function Button({
@@ -18,59 +28,115 @@ export function Button({
   variant = "primary",
   disabled,
   loading,
+  stacked,
 }: Props) {
+  const [pressed, setPressed] = useState(false);
   const isPrimary = variant === "primary";
+  const isGhost = variant === "ghost";
 
   return (
-    <Pressable
-      style={({ pressed }) => [
-        styles.btn,
-        isPrimary ? styles.btnPrimary : styles.btnSecondary,
-        pressed && !disabled && styles.btnPressed,
-        disabled && styles.btnDisabled,
-      ]}
-      onPress={onPress}
-      disabled={disabled || loading}
-    >
-      {loading ? (
-        <ActivityIndicator color={isPrimary ? "white" : tokens.text.primary} />
-      ) : (
-        <Text style={[styles.label, !isPrimary && styles.labelSecondary]}>
-          {label}
-        </Text>
+    <View style={[stacked && styles.stackedWrap]}>
+      {/* Stacked shadow layer */}
+      {stacked && (
+        <View
+          style={[
+            styles.stackedShadow,
+            pressed && styles.stackedShadowPressed,
+          ]}
+        />
       )}
-    </Pressable>
+
+      <Pressable
+        style={[
+          styles.btn,
+          isPrimary && styles.btnPrimary,
+          variant === "secondary" && styles.btnSecondary,
+          isGhost && styles.btnGhost,
+          pressed && stacked && styles.btnPressedStacked,
+          pressed && !stacked && styles.btnPressedFlat,
+          disabled && styles.btnDisabled,
+        ]}
+        onPress={onPress}
+        onPressIn={() => setPressed(true)}
+        onPressOut={() => setPressed(false)}
+        disabled={disabled || loading}
+      >
+        {loading ? (
+          <ActivityIndicator
+            color={isPrimary ? tokens.text.onPrimaryFixed : tokens.text.primary}
+          />
+        ) : (
+          <Text
+            style={[
+              styles.label,
+              isPrimary && styles.labelPrimary,
+              variant === "secondary" && styles.labelSecondary,
+              isGhost && styles.labelGhost,
+            ]}
+          >
+            {label}
+          </Text>
+        )}
+      </Pressable>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  stackedWrap: {
+    position: "relative",
+  },
+  stackedShadow: {
+    position: "absolute",
+    top: 6,
+    left: 0,
+    right: 0,
+    bottom: -6,
+    backgroundColor: tokens.brand.primaryFixedDim,
+    borderRadius: tokens.radius.full,
+  },
+  stackedShadowPressed: {
+    top: 0,
+    bottom: 0,
+  },
   btn: {
     paddingVertical: 18,
     paddingHorizontal: 32,
-    borderRadius: tokens.radius.button,
+    borderRadius: tokens.radius.full,
     alignItems: "center",
     justifyContent: "center",
   },
   btnPrimary: {
-    backgroundColor: tokens.brand.accent,
+    backgroundColor: tokens.brand.primaryContainer,
   },
   btnSecondary: {
-    backgroundColor: tokens.bg.card,
+    backgroundColor: tokens.bg.surfaceContainer,
   },
-  btnPressed: {
-    opacity: 0.85,
+  btnGhost: {
+    backgroundColor: "transparent",
+  },
+  btnPressedFlat: {
+    opacity: 0.88,
     transform: [{ scale: 0.98 }],
+  },
+  btnPressedStacked: {
+    transform: [{ translateY: 6 }],
   },
   btnDisabled: {
     opacity: 0.4,
   },
   label: {
-    color: "white",
     fontSize: 16,
     fontWeight: tokens.weight.extrabold,
     letterSpacing: 0.3,
   },
+  labelPrimary: {
+    color: tokens.text.onPrimaryFixed,
+  },
   labelSecondary: {
     color: tokens.text.primary,
+  },
+  labelGhost: {
+    color: tokens.text.secondary,
   },
 });

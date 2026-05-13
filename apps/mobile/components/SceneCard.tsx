@@ -1,5 +1,5 @@
-// Home feed scene card — TikTok-style full-screen card
-// Tapping "BAŞLA" routes to the lesson runner.
+// Scene card — Cyber-Electric Modern
+// Black card body, yellow top accent + CTA, blue tertiary tag for progress.
 
 import { Pressable, Text, View, StyleSheet } from "react-native";
 import { tokens } from "../theme";
@@ -11,7 +11,6 @@ interface Props {
   durationMin: number;
   isNew?: boolean;
   progressLabel?: string;
-  accentColor?: string;
   onPress: () => void;
 }
 
@@ -22,48 +21,45 @@ export function SceneCard({
   durationMin,
   isNew,
   progressLabel,
-  accentColor = tokens.brand.accent,
   onPress,
 }: Props) {
   return (
-    <View style={[styles.card, { backgroundColor: accentColor }]}>
-      {/* Large background emoji, decorative */}
+    <View style={styles.card}>
+      {/* Yellow top accent bar */}
+      <View style={styles.accentBar} />
+
+      {/* Background emoji watermark */}
       <Text style={styles.emojiBg} pointerEvents="none">
         {emoji}
       </Text>
 
       <View style={styles.content}>
-        <Text style={styles.emojiTop}>{emoji}</Text>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.desc}>{description}</Text>
-
-        <View style={styles.meta}>
+        <View style={styles.tags}>
           <View style={styles.tag}>
             <Text style={styles.tagText}>⏱ {durationMin} dk</Text>
           </View>
-          {isNew ? (
-            <View style={[styles.tag, styles.tagNew]}>
-              <Text style={[styles.tagText, styles.tagNewText]}>🔥 Yeni</Text>
+          {isNew && (
+            <View style={[styles.tag, styles.tagPrimary]}>
+              <Text style={styles.tagPrimaryText}>🔥 Yeni</Text>
             </View>
-          ) : null}
-          {progressLabel ? (
-            <View style={styles.tag}>
-              <Text style={styles.tagText}>📊 {progressLabel}</Text>
+          )}
+          {progressLabel && (
+            <View style={[styles.tag, styles.tagTertiary]}>
+              <Text style={styles.tagTertiaryText}>📊 {progressLabel}</Text>
             </View>
-          ) : null}
+          )}
         </View>
+
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.desc}>{description}</Text>
 
         <Pressable
           style={({ pressed }) => [styles.btn, pressed && styles.btnPressed]}
           onPress={onPress}
         >
-          <Text style={[styles.btnLabel, { color: accentColor }]}>
-            BAŞLA →
-          </Text>
+          <Text style={styles.btnLabel}>BAŞLA →</Text>
         </Pressable>
       </View>
-
-      <Text style={styles.swipeHint}>👆 yukarı kaydır</Text>
     </View>
   );
 }
@@ -71,86 +67,113 @@ export function SceneCard({
 const styles = StyleSheet.create({
   card: {
     flex: 1,
-    borderRadius: 24,
-    padding: 28,
-    justifyContent: "flex-end",
+    borderRadius: tokens.radius.base,
+    backgroundColor: tokens.brand.secondary, // BLACK card (Cyber-Electric)
     overflow: "hidden",
+    position: "relative",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 20 },
+    shadowOpacity: 0.4,
+    shadowRadius: 30,
+    elevation: 12,
+  },
+  accentBar: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 3,
+    backgroundColor: tokens.brand.primary, // yellow accent
+    zIndex: 3,
   },
   emojiBg: {
     position: "absolute",
-    top: 30,
-    right: 24,
-    fontSize: 140,
-    opacity: 0.15,
-    transform: [{ rotate: "-15deg" }],
+    top: 40,
+    right: -20,
+    fontSize: 280,
+    opacity: 0.06,
+    transform: [{ rotate: "-12deg" }],
   },
   content: {
+    flex: 1,
+    justifyContent: "flex-end",
+    padding: tokens.spacing.md,
     zIndex: 2,
   },
-  emojiTop: {
-    fontSize: 56,
-    marginBottom: 20,
-  },
-  title: {
-    fontSize: 30,
-    fontWeight: tokens.weight.black,
-    color: "white",
-    letterSpacing: -1,
-    lineHeight: 34,
-    marginBottom: 12,
-  },
-  desc: {
-    fontSize: 15,
-    color: "rgba(255,255,255,0.9)",
-    marginBottom: 24,
-    lineHeight: 21,
-  },
-  meta: {
+  tags: {
     flexDirection: "row",
-    gap: 8,
-    marginBottom: 24,
     flexWrap: "wrap",
+    gap: 8,
+    marginBottom: tokens.spacing.sm,
   },
   tag: {
-    backgroundColor: "rgba(0,0,0,0.4)",
-    paddingHorizontal: 12,
-    paddingVertical: 7,
-    borderRadius: 100,
+    paddingHorizontal: 16,
+    paddingVertical: 6,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.bg.inverseSurfaceLight,
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.10)",
   },
   tagText: {
-    color: "white",
-    fontSize: 12,
+    color: tokens.text.inverseOnSurface,
+    fontSize: 13,
+    fontWeight: tokens.weight.semibold,
+  },
+  tagPrimary: {
+    backgroundColor: tokens.brand.primary,
+    borderColor: tokens.brand.primary,
+  },
+  tagPrimaryText: {
+    color: tokens.text.onPrimary,
+    fontSize: 13,
     fontWeight: tokens.weight.bold,
   },
-  tagNew: {
-    backgroundColor: "rgba(255,255,255,0.95)",
+  tagTertiary: {
+    backgroundColor: tokens.brand.tertiary,
+    borderColor: tokens.brand.tertiary,
   },
-  tagNewText: {
-    color: tokens.brand.accent,
+  tagTertiaryText: {
+    color: tokens.text.onTertiary,
+    fontSize: 13,
+    fontWeight: tokens.weight.bold,
+  },
+  title: {
+    fontSize: 36,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.inverseOnSurface,
+    letterSpacing: -0.6,
+    lineHeight: 40,
+    marginBottom: tokens.spacing.sm,
+  },
+  desc: {
+    fontSize: 16,
+    color: tokens.text.secondaryFixedDim,
+    lineHeight: 24,
+    marginBottom: tokens.spacing.md,
   },
   btn: {
-    backgroundColor: "white",
+    backgroundColor: tokens.brand.primary,
     paddingVertical: 16,
-    borderRadius: tokens.radius.button,
+    paddingHorizontal: 24,
+    borderRadius: tokens.radius.full,
     alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "center",
+    shadowColor: tokens.brand.primary,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.35,
+    shadowRadius: 14,
+    elevation: 6,
   },
   btnPressed: {
     opacity: 0.9,
     transform: [{ scale: 0.98 }],
   },
   btnLabel: {
+    color: tokens.text.onPrimary,
     fontSize: 16,
     fontWeight: tokens.weight.extrabold,
-    letterSpacing: 0.3,
-  },
-  swipeHint: {
-    position: "absolute",
-    bottom: 16,
-    left: 0,
-    right: 0,
-    textAlign: "center",
-    color: "rgba(255,255,255,0.6)",
-    fontSize: 12,
-    fontWeight: tokens.weight.semibold,
+    letterSpacing: 2,
+    textTransform: "uppercase",
   },
 });

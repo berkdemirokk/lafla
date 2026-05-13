@@ -1,8 +1,9 @@
-// Lesson screen — wires together the lesson runner state with exercise UIs.
-// For MVP loads cafe.1.1 hardcoded. Backend integration comes later.
+// Lesson screen — Stitch "Lesson Exercise Cool" header style.
+// Light bg with thin progress bar at top.
 
 import { useState } from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -27,7 +28,6 @@ export default function LessonScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
 
-  // For MVP, only cafe.1.1 is wired up. Other IDs show placeholder.
   if (id !== "order.cafe.1.1") {
     return <Placeholder lessonId={id} onBack={() => router.back()} />;
   }
@@ -39,12 +39,10 @@ export default function LessonScreen() {
 
   if (progress.completed) {
     return (
-      <SafeAreaView style={styles.safe}>
-        <LessonComplete
-          progress={progress}
-          onContinue={() => router.replace("/feed")}
-        />
-      </SafeAreaView>
+      <LessonComplete
+        progress={progress}
+        onContinue={() => router.replace("/feed")}
+      />
     );
   }
 
@@ -56,22 +54,26 @@ export default function LessonScreen() {
 
   return (
     <SafeAreaView style={styles.safe}>
-      <View style={styles.header}>
-        <Pressable onPress={() => router.back()} hitSlop={12}>
-          <Text style={styles.back}>← Çık</Text>
-        </Pressable>
-        <Text style={styles.title} numberOfLines={1}>
-          {lesson.title}
-        </Text>
-        <View style={{ width: 60 }} />
-      </View>
+      <StatusBar style="dark" />
 
-      <View style={styles.content}>
+      <View style={styles.header}>
+        <View style={styles.topRow}>
+          <Pressable style={styles.exitBtn} onPress={() => router.back()}>
+            <Text style={styles.exitText}>← Çık</Text>
+          </Pressable>
+          <Text style={styles.lessonTitle} numberOfLines={1}>
+            {lesson.title}
+          </Text>
+          <View style={styles.spacer} />
+        </View>
+
         <ProgressDots
           total={lesson.exercises.length}
           currentIndex={progress.current_index}
         />
+      </View>
 
+      <View style={styles.content}>
         <ExerciseRenderer
           key={exercise.id}
           exercise={exercise}
@@ -82,9 +84,6 @@ export default function LessonScreen() {
   );
 }
 
-// ------------------------------------------------------------
-// Dispatcher — picks the right exercise UI based on type
-// ------------------------------------------------------------
 function ExerciseRenderer({
   exercise,
   onComplete,
@@ -138,7 +137,6 @@ function ExerciseRenderer({
   }
 }
 
-// ------------------------------------------------------------
 function Placeholder({
   lessonId,
   onBack,
@@ -148,15 +146,16 @@ function Placeholder({
 }) {
   return (
     <SafeAreaView style={styles.safe}>
+      <StatusBar style="dark" />
       <View style={styles.placeholder}>
         <Text style={styles.placeholderIcon}>🚧</Text>
         <Text style={styles.placeholderTitle}>Ders Henüz Hazır Değil</Text>
         <Text style={styles.placeholderId}>{lessonId}</Text>
         <Text style={styles.placeholderDesc}>
-          Şu an sadece "order.cafe.1.1" çalışıyor. Diğer içerikler yakında.
+          Şu an sadece "order.cafe.1.1" çalışıyor.
         </Text>
-        <Pressable style={styles.placeholderBtn} onPress={onBack}>
-          <Text style={styles.placeholderBtnText}>Akışa Geri Dön</Text>
+        <Pressable style={styles.backBtn} onPress={onBack}>
+          <Text style={styles.backBtnText}>Akışa Geri Dön</Text>
         </Pressable>
       </View>
     </SafeAreaView>
@@ -169,30 +168,39 @@ const styles = StyleSheet.create({
     backgroundColor: tokens.bg.app,
   },
   header: {
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    paddingBottom: 8,
+  },
+  topRow: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 16,
-    paddingTop: 8,
-    paddingBottom: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: tokens.border.default,
+    justifyContent: "space-between",
+    marginBottom: 24,
   },
-  back: {
-    color: tokens.text.secondary,
-    fontSize: 15,
-    fontWeight: tokens.weight.semibold,
+  exitBtn: {
     width: 60,
   },
-  title: {
+  exitText: {
+    color: tokens.text.secondary,
+    fontSize: 14,
+    fontWeight: tokens.weight.semibold,
+  },
+  lessonTitle: {
     flex: 1,
     textAlign: "center",
-    color: tokens.text.primary,
+    color: tokens.text.secondary,
     fontSize: 14,
-    fontWeight: tokens.weight.bold,
+    fontWeight: tokens.weight.semibold,
+    letterSpacing: 1.2,
+    textTransform: "uppercase",
   },
+  spacer: { width: 60 },
   content: {
     flex: 1,
-    padding: 24,
+    paddingHorizontal: 16,
+    paddingTop: 32,
+    paddingBottom: 32,
   },
   placeholder: {
     flex: 1,
@@ -200,10 +208,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  placeholderIcon: {
-    fontSize: 64,
-    marginBottom: 16,
-  },
+  placeholderIcon: { fontSize: 64, marginBottom: 16 },
   placeholderTitle: {
     fontSize: 22,
     fontWeight: tokens.weight.extrabold,
@@ -213,8 +218,7 @@ const styles = StyleSheet.create({
   },
   placeholderId: {
     fontSize: 13,
-    color: tokens.text.tertiary,
-    fontFamily: "monospace",
+    color: tokens.text.secondary,
     marginBottom: 24,
   },
   placeholderDesc: {
@@ -224,13 +228,13 @@ const styles = StyleSheet.create({
     lineHeight: 22,
     marginBottom: 32,
   },
-  placeholderBtn: {
-    backgroundColor: tokens.bg.card,
+  backBtn: {
+    backgroundColor: tokens.bg.surfaceContainer,
     paddingVertical: 16,
     paddingHorizontal: 32,
-    borderRadius: 16,
+    borderRadius: tokens.radius.full,
   },
-  placeholderBtnText: {
+  backBtnText: {
     color: tokens.text.primary,
     fontSize: 16,
     fontWeight: tokens.weight.bold,

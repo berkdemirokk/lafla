@@ -1,4 +1,4 @@
-// Spot Mistake exercise — hatalı cümleyi düzelt.
+// Spot Mistake — light bg, error-tinted incorrect sentence.
 
 import { useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
@@ -31,18 +31,18 @@ export function SpotMistake({
     <View style={styles.container}>
       <Text style={styles.prompt}>Hatayı bul ve düzelt</Text>
 
-      <View style={styles.incorrectBox}>
-        <Text style={styles.incorrectLabel}>❌ Hatalı</Text>
-        <Text style={styles.incorrectText}>{incorrectSentence}</Text>
+      <View style={styles.errorBox}>
+        <Text style={styles.errorLabel}>❌ Hatalı</Text>
+        <Text style={styles.errorText}>{incorrectSentence}</Text>
       </View>
 
       <TextInput
         style={[
           styles.input,
-          result && (result.correct ? styles.inputCorrect : styles.inputWrong),
+          result && (result.correct ? styles.inputOk : styles.inputMiss),
         ]}
         placeholder="Doğrusunu yaz..."
-        placeholderTextColor={tokens.text.tertiary}
+        placeholderTextColor={tokens.text.secondary}
         value={input}
         onChangeText={setInput}
         multiline
@@ -83,59 +83,59 @@ export function SpotMistake({
 const styles = StyleSheet.create({
   container: { flex: 1 },
   prompt: {
-    fontSize: 12,
+    fontSize: 14,
     color: tokens.text.secondary,
     textTransform: "uppercase",
     letterSpacing: 1.5,
     fontWeight: tokens.weight.bold,
-    marginBottom: 12,
+    marginBottom: tokens.spacing.sm,
   },
-  incorrectBox: {
-    backgroundColor: "rgba(239, 68, 68, 0.08)",
-    borderWidth: 1,
-    borderColor: "rgba(239, 68, 68, 0.25)",
-    borderRadius: tokens.radius.card,
-    padding: 16,
-    marginBottom: 16,
+  errorBox: {
+    backgroundColor: tokens.semantic.errorContainer,
+    borderRadius: tokens.radius.base,
+    padding: tokens.spacing.md,
+    marginBottom: tokens.spacing.md,
   },
-  incorrectLabel: {
+  errorLabel: {
     fontSize: 11,
     color: tokens.semantic.error,
     fontWeight: tokens.weight.bold,
     marginBottom: 6,
     letterSpacing: 1,
   },
-  incorrectText: {
-    fontSize: 20,
+  errorText: {
+    fontSize: 22,
     color: tokens.text.primary,
     fontWeight: tokens.weight.semibold,
-    lineHeight: 28,
+    lineHeight: 30,
     textDecorationLine: "line-through",
     opacity: 0.7,
   },
   input: {
-    backgroundColor: tokens.bg.card,
+    backgroundColor: tokens.bg.surfaceContainerLowest,
     borderWidth: 2,
-    borderColor: tokens.border.default,
-    borderRadius: tokens.radius.input,
-    padding: 16,
+    borderColor: tokens.bg.surfaceContainerHigh,
+    borderRadius: tokens.radius.base,
+    padding: tokens.spacing.md,
     color: tokens.text.primary,
-    fontSize: 16,
-    minHeight: 80,
+    fontSize: 17,
+    minHeight: 90,
     textAlignVertical: "top",
   },
-  inputCorrect: { borderColor: tokens.semantic.success },
-  inputWrong: { borderColor: tokens.semantic.error },
+  inputOk: { borderColor: tokens.brand.primaryFixed },
+  inputMiss: { borderColor: tokens.semantic.error },
   feedback: {
-    marginTop: 16,
-    padding: 14,
-    borderRadius: tokens.radius.card,
+    marginTop: tokens.spacing.md,
+    padding: tokens.spacing.md,
+    borderRadius: tokens.radius.base,
   },
   feedbackOk: {
-    backgroundColor: tokens.semantic.successSoft,
+    backgroundColor: "rgba(246, 255, 0, 0.12)",
+    borderWidth: 1,
+    borderColor: tokens.brand.primaryFixed,
   },
   feedbackMiss: {
-    backgroundColor: "rgba(239, 68, 68, 0.12)",
+    backgroundColor: tokens.semantic.errorContainer,
   },
   feedbackTitle: {
     color: tokens.text.primary,
@@ -150,6 +150,6 @@ const styles = StyleSheet.create({
   },
   footer: {
     marginTop: "auto",
-    paddingTop: 16,
+    paddingTop: tokens.spacing.md,
   },
 });

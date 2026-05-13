@@ -1,8 +1,9 @@
-// Onboarding — interest multi-select (no mode picker)
-// User picks N interests; the feed algorithm uses them to weight content.
+// Onboarding — light bg, yellow-tinted selected cards, pill CTA at bottom.
+// Mirrors Stitch's "Onboarding Cool" layout exactly.
 
 import { useState } from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { InterestCard } from "../components/InterestCard";
@@ -23,37 +24,37 @@ export default function Onboarding() {
 
   const canContinue = selected.size > 0;
 
-  const onContinue = () => {
-    // TODO: persist selections (AsyncStorage / Supabase user profile)
-    router.replace("/feed");
-  };
-
   return (
     <SafeAreaView style={styles.safe}>
+      <StatusBar style="dark" />
+
       <ScrollView
-        contentContainerStyle={styles.container}
+        style={styles.scroll}
+        contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
         <Text style={styles.title}>Hangi durumlar seni zorluyor?</Text>
         <Text style={styles.subtitle}>
-          Birden çok seçebilirsin. Akış sana göre şekillenir — "mod" seçmek yok.
+          Sana en uygun içerikleri sunabilmemiz için birkaç konuyu seç.
         </Text>
 
-        {INTERESTS.map((interest) => (
-          <InterestCard
-            key={interest.id}
-            emoji={interest.emoji}
-            label={interest.label}
-            selected={selected.has(interest.id)}
-            onPress={() => toggle(interest.id)}
-          />
-        ))}
+        <View style={styles.list}>
+          {INTERESTS.map((interest) => (
+            <InterestCard
+              key={interest.id}
+              emoji={interest.emoji}
+              label={interest.label}
+              selected={selected.has(interest.id)}
+              onPress={() => toggle(interest.id)}
+            />
+          ))}
+        </View>
       </ScrollView>
 
       <View style={styles.footer}>
         <Button
-          label={canContinue ? "Devam et" : "En az birini seç"}
-          onPress={onContinue}
+          label={canContinue ? "Devam et →" : "En az birini seç"}
+          onPress={() => router.replace("/feed")}
           disabled={!canContinue}
         />
       </View>
@@ -66,31 +67,39 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: tokens.bg.app,
   },
-  container: {
-    paddingHorizontal: 24,
-    paddingTop: 24,
-    paddingBottom: 24,
+  scroll: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingHorizontal: tokens.spacing.md,
+    paddingTop: tokens.spacing.xl,
+    paddingBottom: 120,
   },
   title: {
-    fontSize: 28,
-    fontWeight: tokens.weight.extrabold,
+    fontSize: 32,
+    fontWeight: tokens.weight.bold,
     color: tokens.text.primary,
-    letterSpacing: -0.5,
-    marginBottom: 8,
-    lineHeight: 34,
+    letterSpacing: -0.4,
+    marginBottom: tokens.spacing.xs,
+    lineHeight: 38,
   },
   subtitle: {
-    fontSize: 14,
+    fontSize: 16,
     color: tokens.text.secondary,
-    marginBottom: 28,
-    lineHeight: 20,
+    marginBottom: tokens.spacing.lg,
+    lineHeight: 24,
+  },
+  list: {
+    gap: tokens.spacing.sm,
   },
   footer: {
-    paddingHorizontal: 24,
-    paddingTop: 12,
-    paddingBottom: 16,
-    backgroundColor: tokens.bg.app,
-    borderTopWidth: 1,
-    borderTopColor: tokens.border.default,
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    paddingHorizontal: tokens.spacing.md,
+    paddingTop: tokens.spacing.md,
+    paddingBottom: 28,
+    backgroundColor: "rgba(249, 249, 249, 0.95)",
   },
 });

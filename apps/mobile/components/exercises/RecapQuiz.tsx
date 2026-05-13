@@ -1,4 +1,4 @@
-// Recap Quiz — dersin sonunda 3-5 soruluk hızlı tekrar.
+// Recap Quiz — light bg, multi-question multi-choice, yellow feedback.
 
 import { useState } from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
@@ -33,7 +33,6 @@ export function RecapQuiz({ questions, onComplete }: Props) {
     setAnswers(newAnswers);
 
     if (idx + 1 >= questions.length) {
-      // Compute final result
       const correctCount = newAnswers.filter(
         (a, i) => a === questions[i]!.correct_index,
       ).length;
@@ -113,58 +112,60 @@ export function RecapQuiz({ questions, onComplete }: Props) {
 const styles = StyleSheet.create({
   container: { flex: 1 },
   prompt: {
-    fontSize: 12,
+    fontSize: 14,
     color: tokens.text.secondary,
     textTransform: "uppercase",
     letterSpacing: 1.5,
     fontWeight: tokens.weight.bold,
-    marginBottom: 16,
+    marginBottom: tokens.spacing.md,
   },
   question: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: tokens.weight.bold,
     color: tokens.text.primary,
-    lineHeight: 28,
-    marginBottom: 24,
+    lineHeight: 30,
+    marginBottom: tokens.spacing.md,
   },
   options: {
-    gap: 8,
+    gap: tokens.spacing.sm,
   },
   option: {
-    backgroundColor: tokens.bg.card,
+    backgroundColor: tokens.bg.surfaceContainerLowest,
     borderWidth: 2,
-    borderColor: tokens.border.default,
-    borderRadius: tokens.radius.input,
-    paddingVertical: 14,
-    paddingHorizontal: 16,
+    borderColor: tokens.bg.surfaceContainerHigh,
+    borderRadius: tokens.radius.base,
+    paddingVertical: 16,
+    paddingHorizontal: 18,
   },
   optionSelected: {
-    borderColor: tokens.brand.accent,
-    backgroundColor: tokens.brand.accentSoft,
+    borderColor: tokens.border.outline,
   },
   optionCorrect: {
-    borderColor: tokens.semantic.success,
-    backgroundColor: tokens.semantic.successSoft,
+    borderColor: tokens.brand.primaryFixed,
+    backgroundColor: "rgba(246, 255, 0, 0.12)",
   },
   optionWrong: {
     borderColor: tokens.semantic.error,
+    backgroundColor: tokens.semantic.errorContainer,
   },
   optionText: {
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: tokens.weight.semibold,
     color: tokens.text.primary,
     lineHeight: 22,
   },
   feedback: {
-    marginTop: 16,
-    padding: 14,
-    borderRadius: tokens.radius.card,
+    marginTop: tokens.spacing.md,
+    padding: tokens.spacing.md,
+    borderRadius: tokens.radius.base,
   },
   feedbackOk: {
-    backgroundColor: tokens.semantic.successSoft,
+    backgroundColor: "rgba(246, 255, 0, 0.12)",
+    borderWidth: 1,
+    borderColor: tokens.brand.primaryFixed,
   },
   feedbackMiss: {
-    backgroundColor: "rgba(239, 68, 68, 0.12)",
+    backgroundColor: tokens.semantic.errorContainer,
   },
   feedbackText: {
     color: tokens.text.secondary,
@@ -173,6 +174,6 @@ const styles = StyleSheet.create({
   },
   footer: {
     marginTop: "auto",
-    paddingTop: 16,
+    paddingTop: tokens.spacing.md,
   },
 });
