@@ -172,8 +172,190 @@ export const customLesson_3_1: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 3.2 — Malzeme Modifikasyon
+// ============================================================
+export const customLesson_3_2: BundledLesson = {
+  id: "order.custom.3.2",
+  skill_id: "order.custom",
+  index: 2,
+  title: "Malzeme Modifikasyon",
+  description:
+    "Soğansız, ekstra peynir, soslu/sosuz — siparişi tam istediğin gibi yaptırmak.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.3.2.1",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "without onions",
+      tr_translation: "Soğansız",
+      example: "Could I have it without onions?",
+      example_tr: "Soğansız alabilir miyim?",
+    },
+    {
+      id: "ex.3.2.2",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Soğansız alabilir miyim, lütfen?",
+      target: "Could I have it without onions, please?",
+      accepted_variants: [
+        "Could I get it without onions, please?",
+        "Hold the onions, please.",
+        "No onions, please.",
+        "Without onions, please.",
+        "Can you make it without onions?",
+        "Skip the onions, please.",
+      ],
+      tr_hint:
+        "'Hold the [X]' = sipariş slang'inde 'X koyma'. 'No [X]' kısa. 'Without [X]' kibar.",
+    },
+    {
+      id: "ex.3.2.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Can I get the salad ___ the cheese?",
+      answer: "without",
+      distractors: ["with extra", "instead", "beside"],
+      tr_hint:
+        "Peynirsiz salata için: 'without the cheese'. Veya 'hold the cheese'.",
+    },
+    {
+      id: "ex.3.2.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Could",
+        "you",
+        "swap",
+        "the",
+        "fries",
+        "for",
+        "a",
+        "salad",
+      ],
+      correct_sentence: "Could you swap the fries for a salad",
+      tr_translation: "Patates kızartmasını salatayla değiştirir misin?",
+    },
+    {
+      id: "ex.3.2.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "No want onion.",
+      correct_sentence: "Without onions, please.",
+      tr_explanation:
+        "'No want' yanlış yapı. 'Without onions' veya 'No onions, please' doğal. Çoğul 'onions' standart.",
+    },
+    {
+      id: "ex.3.2.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Sandviç sipariş ediyorsun. Birkaç değişiklik isteyeceksin.",
+      npc_role: "Garson",
+      setting: "Sandwich shop counter",
+      turns: [
+        {
+          speaker: "npc",
+          message: "What can I make you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can) (i|I) (have|get) (a|the) (turkey|chicken|veggie|club|tuna|grilled cheese)",
+            "i('ll have|d like) (a|the) (turkey|chicken|veggie|club)",
+            "(turkey|chicken|veggie|club) (sandwich|please)",
+            "the (turkey|chicken|club|veggie)",
+          ],
+          hint_tr: "Sipariş ver: 'I'll have the turkey, please'.",
+        },
+        {
+          speaker: "npc",
+          message: "Sure thing. Any modifications?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|without|hold) (the )?(onions?|tomatoes?|mayo|mustard|cheese|pickles?|lettuce)",
+            "(could|can) (i|we|you) (get|have|make) it (without|no)",
+            "(extra|more) (cheese|sauce|mayo|mustard|pickles)",
+            "(swap|substitute|change) (the )?(fries|chips) for",
+            "skip the (onions?|tomatoes?|mayo|cheese)",
+            "(easy|light) on the (sauce|mayo|cheese|salt)",
+          ],
+          hint_tr:
+            "Değişiklik: 'No onions', 'Hold the mayo', 'Extra cheese', 'Easy on the sauce'.",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. Anything to drink with that?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(a |the |some )?(water|coke|sprite|juice|lemonade)( please)?",
+            "just water",
+            "(no thanks|no thank you|i'?m good|no drink)",
+            "i('ll have|d like|'ll take) (a |the |some )?(water|coke|sprite|juice)",
+          ],
+          hint_tr: "İçecek seç veya 'No thanks, I'm good'.",
+        },
+        {
+          speaker: "npc",
+          message: "Coming right up.",
+        },
+      ],
+    },
+    {
+      id: "ex.3.2.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Soğansız' demenin EN KISA hali (sipariş slang)?",
+          options: [
+            "Without onion",
+            "No onions",
+            "Skip onion",
+            "Stop onions",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'No onions' fast food/sandwich shop slang'ı — en yaygın kısa form.",
+        },
+        {
+          question: "Patatesini salatayla değiştirmek için?",
+          options: [
+            "Change fries to salad",
+            "Swap salad fries",
+            "Could you swap the fries for a salad?",
+            "Salad instead fries",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Swap [X] for [Y]' = X'i Y ile değiştir. Yerleşik kalıp.",
+        },
+        {
+          question: "'Easy on the sauce' ne demek?",
+          options: [
+            "Sostan bol koy",
+            "Sostan az koy",
+            "Sos yok",
+            "Sosu ayrı ver",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Easy on [X]' = X'ten az koy. 'Heavy on [X]' = bol koy. 'On the side' = ayrı.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
 // Custom lessons registry
 // ============================================================
 export const customLessons: ReadonlyArray<BundledLesson> = [
   customLesson_3_1,
+  customLesson_3_2,
 ];
