@@ -173,8 +173,197 @@ export const restaurantLesson_2_1: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 2.2 — Sipariş Verme
+// ============================================================
+export const restaurantLesson_2_2: BundledLesson = {
+  id: "order.restaurant.2.2",
+  skill_id: "order.restaurant",
+  index: 2,
+  title: "Sipariş Verme",
+  description:
+    "Yemek seç, öneri iste, içecek söyle — menü açıldığından bekleyene kadar.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.2.2.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "I'll have the",
+      tr_translation: "Şunu alacağım",
+      example: "I'll have the steak, please.",
+      example_tr: "Bifteği alacağım, lütfen.",
+    },
+    {
+      id: "ex.2.2.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Önerin var mı?",
+      target: "Do you have any recommendations?",
+      accepted_variants: [
+        "What do you recommend?",
+        "Any recommendations?",
+        "What's good here?",
+        "What would you recommend?",
+        "Could you recommend something?",
+        "What's popular?",
+        "What's the chef's special?",
+      ],
+      tr_hint:
+        "Garsondan öneri istemek için 4-5 farklı doğal kalıp var.",
+    },
+    {
+      id: "ex.2.2.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I'd like my steak ___ rare, please.",
+      answer: "medium",
+      distractors: ["half", "semi", "kind of"],
+      tr_hint:
+        "Biftek pişirme dereceleri: rare, medium rare, medium, medium well, well done.",
+    },
+    {
+      id: "ex.2.2.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Could",
+        "you",
+        "bring",
+        "some",
+        "water",
+        "please",
+      ],
+      correct_sentence: "Could you bring some water please",
+      tr_translation: "Biraz su getirir misiniz, lütfen?",
+    },
+    {
+      id: "ex.2.2.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Bring me steak now.",
+      correct_sentence: "I'd like the steak, please.",
+      tr_explanation:
+        "'Bring me' komut tonu. 'Steak' önünde 'the' eksik. 'Now' kaba. 'Please' yok.",
+    },
+    {
+      id: "ex.2.2.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Garson sipariş almaya geldi. Önce öneri istiyor sonra yemek + içecek söylüyorsun.",
+      npc_role: "Garson",
+      setting: "Restaurant table",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Are you ready to order, or do you need a few more minutes?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|sure)( we are)?",
+            "(yes|yeah) (ready|i('m|am) ready)",
+            "give us (a |another )?(minute|few minutes)",
+            "(a|few) (more )?minute",
+            "could you recommend",
+            "(any|got any) recommend",
+            "what('s| is) (good|popular|the special)",
+          ],
+          hint_tr:
+            "Hazırsan: 'Yes, we're ready'. Süre istersen: 'Could we have a few more minutes?'. Veya öneri sor.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Our chef's special tonight is the pan-seared salmon with roasted vegetables. It's been a hit.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "I('ll have|d like) (the )?(salmon|steak|chicken|special|pasta|burger)",
+            "(salmon|steak|chicken|pasta|burger)( please)?",
+            "(I'll|i will) (have|take|go with) (the )?(salmon|steak|chicken|special)",
+            "sounds good",
+            "i('ll take|d like) (it|that|the special)",
+          ],
+          hint_tr:
+            "Sipariş ver: 'I'll have the salmon, please' veya 'I'd like the special'.",
+        },
+        {
+          speaker: "npc",
+          message: "Great choice. Anything to drink with that?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(water|wine|beer|coke|coffee|tea|juice)( please)?",
+            "(a |the |some )(water|wine|beer|coke|coffee|tea|juice)",
+            "I('ll have|d like) (a |the |some )?(water|wine|beer|coke|coffee|tea)",
+            "just water",
+            "sparkling water",
+            "still water",
+            "house red",
+          ],
+          hint_tr: "İçecek: 'Water, please', 'A glass of red wine', 'Just water'.",
+        },
+        {
+          speaker: "npc",
+          message: "Excellent. I'll get that right in for you.",
+        },
+      ],
+    },
+    {
+      id: "ex.2.2.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Garsondan öneri istemenin en doğal yolu?",
+          options: [
+            "Suggest me food",
+            "What do you recommend?",
+            "Give recommendation",
+            "Tell good food",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'What do you recommend?' veya 'Any recommendations?' — en doğal.",
+        },
+        {
+          question:
+            "Biftek pişirme dereceleri sırasıyla (az pişmişten çoğa)?",
+          options: [
+            "rare → medium → well done",
+            "well done → rare → medium",
+            "medium → rare → well done",
+            "raw → medium → cooked",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "rare (az) → medium rare → medium (orta) → medium well → well done (çok).",
+        },
+        {
+          question: "Hangisi DOĞRU sipariş cümlesi?",
+          options: [
+            "Bring me steak",
+            "I want steak",
+            "I'll have the steak, please",
+            "Give steak now",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'I'll have the [dish], please' — restoranda standart kalıp.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
 // Restaurant lessons registry
 // ============================================================
 export const restaurantLessons: ReadonlyArray<BundledLesson> = [
   restaurantLesson_2_1,
+  restaurantLesson_2_2,
 ];
