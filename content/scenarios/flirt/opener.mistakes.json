@@ -1,0 +1,220 @@
+{
+  "mode": "flirt",
+  "sub_scenario": "opener",
+  "version": 1,
+  "generated_at": "2026-05-13",
+  "generated_by": "claude-opus-4-7",
+  "description": "Türk ESL öğrenenlerin Tinder/Bumble opener'larında yapacağı yaygın hatalar. Bazıları phrase-bağımsız grammar kuralları, bazıları opener context-spesifik. Pattern matcher ve correction engine için.",
+  "mistakes": [
+    {
+      "phrase_id": "general",
+      "mistake": "I have feeling that you are great storyteller.",
+      "correction": "I have A feeling that you are A great storyteller.",
+      "tr_explanation": "Sayılabilir tekil isimlerin önüne A/AN gerekiyor. Türkçe'de \"bir\" çoğu zaman atlanır, İngilizce'de zorunlu.",
+      "rule": "missing_indefinite_article"
+    },
+    {
+      "phrase_id": "general",
+      "mistake": "I bored from this conversation already.",
+      "correction": "I'M bored OF this conversation already.",
+      "tr_explanation": "Türkçe \"senden sıkıldım\" → İngilizce'de \"of\" kullanılır, \"from\" değil. Ayrıca be-fiili (I'm) zorunlu.",
+      "rule": "wrong_preposition_bored"
+    },
+    {
+      "phrase_id": "general",
+      "mistake": "I going to ask you something.",
+      "correction": "I'M going to ask you something.",
+      "tr_explanation": "Şimdiki zaman (present continuous) için be-fiili (am/is/are) zorunlu. Türkçe'de bu eki yok.",
+      "rule": "missing_be_verb"
+    },
+    {
+      "phrase_id": "general",
+      "mistake": "How is going your day?",
+      "correction": "How is your day going?",
+      "tr_explanation": "İngilizce'de soru cümlesinde özne-fiil sıralaması: \"How + is + [özne] + going?\". Türkçe sıralaması farklı.",
+      "rule": "wrong_word_order_question"
+    },
+    {
+      "phrase_id": "general",
+      "mistake": "I want match you for long time.",
+      "correction": "I've wanted to match WITH you FOR A long time.",
+      "tr_explanation": "1) \"want\" sonrası \"to + fiil\" gerekiyor. 2) \"match\" fiil olarak \"with\" alır. 3) \"long time\" önünde \"a\" zorunlu. 4) Geçmişten süregelen istek için present perfect.",
+      "rule": "missing_to_infinitive"
+    },
+    {
+      "phrase_id": "general",
+      "mistake": "Your bio said you love hiking.",
+      "correction": "Your bio SAYS you love hiking.",
+      "tr_explanation": "Yazılı bir şeyi şu an okuyorsan \"says\" (geniş zaman). Bio şu an oradadır, yazılmıştır ama şu an var.",
+      "rule": "tense_says_vs_said"
+    },
+    {
+      "phrase_id": "general",
+      "mistake": "I'm here since 2 years.",
+      "correction": "I've been here FOR 2 years.",
+      "tr_explanation": "Bir süredir devam eden durum için present perfect + \"for\" (süre). \"Since\" başlangıç noktası için.",
+      "rule": "since_for_confusion"
+    },
+    {
+      "phrase_id": "general",
+      "mistake": "Are you a planner or you wing it?",
+      "correction": "Are you a planner, or DO YOU wing it?",
+      "tr_explanation": "İkinci soruda da \"do you\" yapısı tekrarlanmalı. Türkçe'de tek bir \"misin\" yeterli ama İngilizce'de iki ayrı soru.",
+      "rule": "auxiliary_repeat_compound_question"
+    },
+    {
+      "phrase_id": "general",
+      "mistake": "I have one informations to share.",
+      "correction": "I have one PIECE OF information to share.",
+      "tr_explanation": "\"Information\" sayılamayan isim (uncountable). \"Pieces of information\" deyimi kullanılır. Çoğul \"informations\" yanlış.",
+      "rule": "uncountable_noun_information"
+    },
+    {
+      "phrase_id": "general",
+      "mistake": "I make a photo of myself last week.",
+      "correction": "I TOOK a photo of myself last week.",
+      "tr_explanation": "Türkçe \"fotoğraf çekmek\" idiomu İngilizce'de \"TAKE a photo\". \"Make\" değil. Geçmiş zaman da \"took\".",
+      "rule": "take_photo_not_make"
+    },
+    {
+      "phrase_id": "general",
+      "mistake": "I going say something funny.",
+      "correction": "I'M going TO say something funny.",
+      "tr_explanation": "Gelecek için \"going to + fiil\" yapısı: am/is/are + going to + base verb. \"To\" zorunlu.",
+      "rule": "going_to_future_structure"
+    },
+    {
+      "phrase_id": "general",
+      "mistake": "I'm afraid from saying wrong thing.",
+      "correction": "I'm afraid OF saying THE wrong thing.",
+      "tr_explanation": "\"Afraid of\" sabit phrase. Türkçe \"X'den korkmak\" → İngilizce'de \"of\". Ayrıca \"the wrong thing\" — belirli.",
+      "rule": "wrong_preposition_afraid"
+    },
+    {
+      "phrase_id": "general",
+      "mistake": "Always I overthink openers.",
+      "correction": "I always overthink openers.",
+      "tr_explanation": "Sıklık zarfları (always, never, often) özneden sonra, fiilden önce gelir. Türkçe başta serbest, İngilizce sabit pozisyon.",
+      "rule": "adverb_frequency_position"
+    },
+    {
+      "phrase_id": "general",
+      "mistake": "Do you can come Saturday?",
+      "correction": "Can you come Saturday?",
+      "tr_explanation": "Modal fiiller (can, will, should) kendi soruyu kurar — \"do\" yardımcısına gerek yok. \"Can you\" direkt.",
+      "rule": "modal_no_auxiliary_do"
+    },
+    {
+      "phrase_id": "general",
+      "mistake": "It's a unique idea.",
+      "correction": "It's A unique idea.",
+      "tr_explanation": "\"Unique\" /jü-/ sesiyle başlar (konsonant gibi). Bu yüzden \"a\" kullanılır, \"an\" değil. Yazılı u harfine bakma, sese bak.",
+      "rule": "a_an_sound_based"
+    },
+    {
+      "phrase_id": "flirt.opener.001",
+      "mistake": "Best or worst pickup line you have got?",
+      "correction": "Best or worst pickup line you'VE EVER GOTTEN?",
+      "tr_explanation": "Tüm hayatın boyu olan deneyim için present perfect + \"ever\". \"Got\" yerine \"gotten\" (US English doğal).",
+      "rule": "present_perfect_ever_experience"
+    },
+    {
+      "phrase_id": "flirt.opener.005",
+      "mistake": "I have feeling you are great storyteller.",
+      "correction": "I have A feeling you are A great storyteller.",
+      "tr_explanation": "Sayılabilir tekil isimlerden önce A/AN. \"A feeling\" ve \"a great storyteller\".",
+      "rule": "missing_indefinite_article"
+    },
+    {
+      "phrase_id": "flirt.opener.007",
+      "mistake": "Plot twist — I am bad in openers.",
+      "correction": "Plot twist — I am bad AT openers.",
+      "tr_explanation": "\"Bad at\" / \"good at\" sabit preposition. \"In\" değil. Bir konuda yeteneği belirten ifade.",
+      "rule": "bad_at_not_in"
+    },
+    {
+      "phrase_id": "flirt.opener.008",
+      "mistake": "We can meet at middle.",
+      "correction": "We could meet IN THE middle.",
+      "tr_explanation": "\"In the middle\" sabit ifade. \"At middle\" değil. Ayrıca \"could\" daha nazik (hypothetical).",
+      "rule": "in_the_middle_phrase"
+    },
+    {
+      "phrase_id": "flirt.opener.009",
+      "mistake": "I read your profile twice but I didn't.",
+      "correction": "I read your profile twice — and I didn't (come up with one).",
+      "tr_explanation": "\"I did not\" tek başına \"yapamadım\" anlamı veriyor; \"but\" yerine \"and\" veya dash ile daha akıcı.",
+      "rule": "discourse_connector"
+    },
+    {
+      "phrase_id": "flirt.opener.014",
+      "mistake": "I am try to think clever thing.",
+      "correction": "I'M tryING to think OF SOMETHING clever.",
+      "tr_explanation": "1) Be-fiil + -ing (try → trying). 2) \"Think of\" sabit. 3) \"Something clever\" — adjective sonra.",
+      "rule": "verb_ing_after_be"
+    },
+    {
+      "phrase_id": "flirt.opener.017",
+      "mistake": "Photo with the dog made me to smile.",
+      "correction": "THE photo with the dog made me smile.",
+      "tr_explanation": "\"Make + someone + base verb\" — to-infinitive yok. \"Make me smile\" (gülmemi sağladı). Ayrıca belirli fotoğraf için \"the\".",
+      "rule": "make_someone_do"
+    },
+    {
+      "phrase_id": "flirt.opener.020",
+      "mistake": "There is a 60% chance we get along.",
+      "correction": "There's a 60% chance we'D get along.",
+      "tr_explanation": "Olasılık için conditional: \"we would (we'd) get along\". Şu an gerçekleşmediği için \"would\" — Türkçe \"anlaşırdık\".",
+      "rule": "conditional_likelihood"
+    },
+    {
+      "phrase_id": "flirt.opener.026",
+      "mistake": "I match you 3 days before.",
+      "correction": "I matched WITH you 3 days AGO.",
+      "tr_explanation": "1) Past tense: matched. 2) \"Match with\" preposition. 3) Geçmişe referans \"ago\", \"before\" değil.",
+      "rule": "ago_vs_before"
+    },
+    {
+      "phrase_id": "flirt.opener.027",
+      "mistake": "I am here for figure out if you like same dumb things.",
+      "correction": "I'm here TO figure out if you'RE INTO the same dumb things.",
+      "tr_explanation": "1) Amaç için \"to + base verb\" (for değil). 2) \"You are\" → contraction. 3) \"Be into X\" = X'e ilgi duymak (idiom).",
+      "rule": "to_infinitive_purpose"
+    },
+    {
+      "phrase_id": "flirt.opener.029",
+      "mistake": "Your photos look like you are interesting more than me.",
+      "correction": "Your photos look like you'D be MORE interesting than I am.",
+      "tr_explanation": "1) Karşılaştırma: more interesting than. 2) Hypothetical: would (gerçek değil, tahmin). 3) Format: \"more X than Y\".",
+      "rule": "comparative_more_than"
+    },
+    {
+      "phrase_id": "flirt.opener.034",
+      "mistake": "Coffee or cocktail which one you make me to choose wrong?",
+      "correction": "Coffee or cocktails — which one ARE you GOING TO make me CHOOSE wrong?",
+      "tr_explanation": "1) Çoğul \"cocktails\" doğal. 2) Soruda \"are you going to\" yardımcı yapı. 3) \"Make + me + base verb\" — to yok.",
+      "rule": "make_someone_do"
+    },
+    {
+      "phrase_id": "flirt.opener.038",
+      "mistake": "If I ask you for coffee, would you say yes?",
+      "correction": "If I ASKED you OUT for coffee, would you say yes?",
+      "tr_explanation": "1) Hypothetical second conditional: \"if + past, would\". 2) \"Ask someone out\" idiom = romantik olarak teklif et.",
+      "rule": "second_conditional_dating"
+    },
+    {
+      "phrase_id": "flirt.opener.046",
+      "mistake": "Are you here for chat or collect matches?",
+      "correction": "Are you here for THE chat, or (just) TO collect matches?",
+      "tr_explanation": "1) \"For\" sonrası noun (\"the chat\"), \"to\" sonrası verb (\"to collect\"). Karışık yapı.",
+      "rule": "for_to_parallel_structure"
+    },
+    {
+      "phrase_id": "general",
+      "mistake": "i am turkish from istanbul.",
+      "correction": "I'm Turkish, from Istanbul.",
+      "tr_explanation": "1) İlk harf \"I\" her zaman büyük. 2) Milliyet/şehir adları büyük harfle (Turkish, Istanbul). 3) Virgül.",
+      "rule": "capitalization_basics"
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "mode": "flirt",
+  "sub_scenario": "opener",
+  "version": 1,
+  "generated_at": "2026-05-13",
+  "generated_by": "claude-opus-4-7",
+  "description": "50 canonical phrase için 4 varyant — pattern matcher fuzzy match için. Similarity skoru 0.75-0.99. Greeting swap, synonym, structural reword, casual contraction varyasyonları.",
+  "variants": [
+    { "phrase_id": "flirt.opener.001", "variant": "Hey, I have to ask — best or worst pickup line you've ever gotten? I'll judge fairly.", "similarity": 0.97 },
+    { "phrase_id": "flirt.opener.001", "variant": "Okay, I gotta ask — best or worst pickup line you've ever received? I'll judge fairly.", "similarity": 0.93 },
+    { "phrase_id": "flirt.opener.001", "variant": "Quick question — best or worst pickup line you've ever gotten? I promise to judge fairly.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.001", "variant": "Real talk: best or worst pickup line you've ever gotten? I'll be fair.", "similarity": 0.85 },
+
+    { "phrase_id": "flirt.opener.002", "variant": "Quick question — are you more of a 'plan everything' or 'figure it out as we go' person?", "similarity": 0.98 },
+    { "phrase_id": "flirt.opener.002", "variant": "Quick q: are you a planner or a 'wing it as we go' kind of person?", "similarity": 0.87 },
+    { "phrase_id": "flirt.opener.002", "variant": "Are you more of a 'plan everything' type, or do you prefer to figure things out as you go?", "similarity": 0.92 },
+    { "phrase_id": "flirt.opener.002", "variant": "Honest question: are you team 'plan' or team 'wing it'?", "similarity": 0.82 },
+
+    { "phrase_id": "flirt.opener.003", "variant": "Settle a debate — pineapple on pizza: yes, no, or 'we can't be friends'?", "similarity": 0.97 },
+    { "phrase_id": "flirt.opener.003", "variant": "Settle this for me: pineapple on pizza — yes, no, or hard no?", "similarity": 0.90 },
+    { "phrase_id": "flirt.opener.003", "variant": "Quick poll — pineapple on pizza: yes, no, or 'we can't be friends'?", "similarity": 0.92 },
+    { "phrase_id": "flirt.opener.003", "variant": "Important question: pineapple on pizza — friend or enemy?", "similarity": 0.82 },
+
+    { "phrase_id": "flirt.opener.004", "variant": "If you had to describe your week with one emoji, which one?", "similarity": 0.97 },
+    { "phrase_id": "flirt.opener.004", "variant": "Describe your week in one emoji — go.", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.004", "variant": "Pick one emoji that sums up your week.", "similarity": 0.82 },
+    { "phrase_id": "flirt.opener.004", "variant": "Your week in one emoji?", "similarity": 0.78 },
+
+    { "phrase_id": "flirt.opener.005", "variant": "I get the feeling you're either a great storyteller or you just look like one in photos. Which is it?", "similarity": 0.95 },
+    { "phrase_id": "flirt.opener.005", "variant": "You either tell great stories or just look like you do in photos. Which is it?", "similarity": 0.90 },
+    { "phrase_id": "flirt.opener.005", "variant": "I'm betting you're either an amazing storyteller or just photograph like one. Which?", "similarity": 0.87 },
+    { "phrase_id": "flirt.opener.005", "variant": "My theory: you're a great storyteller. Confirm or deny?", "similarity": 0.78 },
+
+    { "phrase_id": "flirt.opener.006", "variant": "Be honest — what's a totally unimpressive talent you secretly think is impressive?", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.006", "variant": "Honest answer — what's a useless talent you secretly think is cool?", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.006", "variant": "Tell me one totally pointless talent you're secretly proud of.", "similarity": 0.83 },
+    { "phrase_id": "flirt.opener.006", "variant": "What's a 'useless' skill you secretly think makes you interesting?", "similarity": 0.85 },
+
+    { "phrase_id": "flirt.opener.007", "variant": "Plot twist — I'm bad at openers. What's a question you wish someone would actually ask you?", "similarity": 0.97 },
+    { "phrase_id": "flirt.opener.007", "variant": "Confession: I'm bad at openers. What's a question you wish someone would actually ask?", "similarity": 0.90 },
+    { "phrase_id": "flirt.opener.007", "variant": "Real talk — I'm bad at openers. What question do you wish people would ask you?", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.007", "variant": "I'm terrible at openers. What's a question you'd actually want to answer?", "similarity": 0.83 },
+
+    { "phrase_id": "flirt.opener.008", "variant": "Your bio says you love hiking. Mine says I love elevators. We could meet somewhere in the middle.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.008", "variant": "Your bio says hiking. Mine says elevators. We could find common ground.", "similarity": 0.83 },
+    { "phrase_id": "flirt.opener.008", "variant": "You love hiking, I love elevators — we could meet halfway.", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.008", "variant": "Your bio: hiking. My bio: elevators. We could compromise on a moderate hill.", "similarity": 0.80 },
+
+    { "phrase_id": "flirt.opener.009", "variant": "I read your profile twice to make sure I had a good opener. I didn't. Hi.", "similarity": 0.97 },
+    { "phrase_id": "flirt.opener.009", "variant": "Read your profile twice trying to come up with a good opener. I failed. Hi.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.009", "variant": "Read your bio twice for inspiration. Got nothing. Hi anyway.", "similarity": 0.83 },
+    { "phrase_id": "flirt.opener.009", "variant": "I read your profile twice trying to think of something clever. Nope. Hi.", "similarity": 0.87 },
+
+    { "phrase_id": "flirt.opener.010", "variant": "I'm normally better at this. I'd offer evidence but you'd have to take my word for it.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.010", "variant": "I'm usually better at this. I'd offer proof but you'd have to take my word for it.", "similarity": 0.93 },
+    { "phrase_id": "flirt.opener.010", "variant": "I'm normally better than this. No evidence available — you'll have to trust me.", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.010", "variant": "Promise I'm usually better at this. Sadly, you'll just have to take my word for it.", "similarity": 0.87 },
+
+    { "phrase_id": "flirt.opener.011", "variant": "Statistically, the more I think about my opener, the worse it gets. So: hi.", "similarity": 0.92 },
+    { "phrase_id": "flirt.opener.011", "variant": "Studies show the longer I think about an opener, the worse it gets. So: hi.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.011", "variant": "The longer I overthink this opener, the worse it gets. Hi.", "similarity": 0.83 },
+    { "phrase_id": "flirt.opener.011", "variant": "I've learned that overthinking openers makes them worse. So — hi.", "similarity": 0.82 },
+
+    { "phrase_id": "flirt.opener.012", "variant": "If I ask 'how's your day going,' would you actually tell me, or do the polite thing?", "similarity": 0.96 },
+    { "phrase_id": "flirt.opener.012", "variant": "When I ask 'how's your day,' would you actually answer or just say 'fine'?", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.012", "variant": "If I asked 'how was your day,' would you tell me the truth or be polite?", "similarity": 0.87 },
+    { "phrase_id": "flirt.opener.012", "variant": "Real question: 'how's your day going' — would you actually answer it?", "similarity": 0.82 },
+
+    { "phrase_id": "flirt.opener.013", "variant": "I'm trying to come across as charming and unhinged in equal measure. How am I doing?", "similarity": 0.95 },
+    { "phrase_id": "flirt.opener.013", "variant": "Going for 'charming but slightly unhinged' here. Let me know how I'm doing.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.013", "variant": "Trying to balance charming and unhinged equally. Verdict?", "similarity": 0.83 },
+    { "phrase_id": "flirt.opener.013", "variant": "My goal here is 'charming and unhinged in equal parts.' Score me out of 10.", "similarity": 0.85 },
+
+    { "phrase_id": "flirt.opener.014", "variant": "Hi. I'm trying to think of something clever, but your bio kind of already nailed it.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.014", "variant": "Hey. Trying to come up with something clever, but your bio already did it.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.014", "variant": "Hi — I was going to say something clever, but your bio beat me to it.", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.014", "variant": "Hi. I wanted to write something witty but your bio already nailed the energy.", "similarity": 0.83 },
+
+    { "phrase_id": "flirt.opener.015", "variant": "I don't really know how to do these. So — hi, what's something good that happened to you this week?", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.015", "variant": "I'm not great at these. So hi — anything good happen this week?", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.015", "variant": "I don't really know how to do openers. Hi — what's been good this week?", "similarity": 0.87 },
+    { "phrase_id": "flirt.opener.015", "variant": "Bad at openers. Hi anyway — what's a good thing from your week?", "similarity": 0.82 },
+
+    { "phrase_id": "flirt.opener.016", "variant": "I usually overthink openers. Decided to just say hi instead.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.016", "variant": "Normally I overthink these. Going with 'hi' this time.", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.016", "variant": "I overthink openers way too much. Decided 'hi' is enough.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.016", "variant": "Usually I overthink these. So — hi.", "similarity": 0.82 },
+
+    { "phrase_id": "flirt.opener.017", "variant": "Your photo with the dog made me smile. That's a real reason for the message, not a line.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.017", "variant": "The dog photo made me smile. That's an honest reason for the message.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.017", "variant": "Your photo with the dog actually made me smile. Not a line — just true.", "similarity": 0.87 },
+    { "phrase_id": "flirt.opener.017", "variant": "The picture with your dog made me smile — that's all this is.", "similarity": 0.83 },
+
+    { "phrase_id": "flirt.opener.018", "variant": "I'd ask how your weekend was, but I'm more curious what you've been excited about lately.", "similarity": 0.95 },
+    { "phrase_id": "flirt.opener.018", "variant": "Skipping 'how was your weekend' — what's something you've been excited about lately?", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.018", "variant": "Instead of asking about your weekend — what's something you've been excited about?", "similarity": 0.83 },
+    { "phrase_id": "flirt.opener.018", "variant": "I could ask about your weekend, but I'd rather know what's been exciting you lately.", "similarity": 0.90 },
+
+    { "phrase_id": "flirt.opener.019", "variant": "Genuine question — what made you swipe right? I'm curious about your reasoning.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.019", "variant": "Honest question — what made you swipe right? Curious what caught your eye.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.019", "variant": "Real question: what made you swipe right? I'm genuinely curious.", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.019", "variant": "Out of curiosity — what made you swipe right on me?", "similarity": 0.83 },
+
+    { "phrase_id": "flirt.opener.020", "variant": "There's a 60% chance we'd get along really well. I'm here for the other 40%.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.020", "variant": "60% chance we'd get along great. I'm in it for the other 40%.", "similarity": 0.92 },
+    { "phrase_id": "flirt.opener.020", "variant": "There's a 60% chance we'd vibe perfectly. I'm here for the other 40%.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.020", "variant": "I'd put us at 60% likely to get along — let's find out about the rest.", "similarity": 0.82 },
+
+    { "phrase_id": "flirt.opener.021", "variant": "I have a theory about you. Want to hear it, or would you rather guess what it is?", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.021", "variant": "I've got a theory about you. Wanna hear it or guess it?", "similarity": 0.87 },
+    { "phrase_id": "flirt.opener.021", "variant": "I have a theory about you — wanna hear it or take a guess?", "similarity": 0.90 },
+    { "phrase_id": "flirt.opener.021", "variant": "I've formed a theory about you. Do you want me to share it, or guess?", "similarity": 0.85 },
+
+    { "phrase_id": "flirt.opener.022", "variant": "Two truths and one lie about your profile — I'll go first if you want.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.022", "variant": "Let's play two truths and a lie about your profile — I'll start.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.022", "variant": "Two truths and a lie — about your profile. I'll go first.", "similarity": 0.87 },
+    { "phrase_id": "flirt.opener.022", "variant": "Wanna play two truths one lie? Theme: your profile. I'll start.", "similarity": 0.82 },
+
+    { "phrase_id": "flirt.opener.023", "variant": "If you had to pick one song to introduce yourself, what would it be?", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.023", "variant": "Pick one song that introduces you. Go.", "similarity": 0.82 },
+    { "phrase_id": "flirt.opener.023", "variant": "One song to introduce yourself — which one?", "similarity": 0.80 },
+    { "phrase_id": "flirt.opener.023", "variant": "If your life had an intro song, what would it be?", "similarity": 0.83 },
+
+    { "phrase_id": "flirt.opener.024", "variant": "I'm going to say 'hey' and pretend it's intentional minimalism.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.024", "variant": "I'll say 'hey' and call it intentional minimalism.", "similarity": 0.92 },
+    { "phrase_id": "flirt.opener.024", "variant": "Saying 'hey' and pretending it's stylistic restraint.", "similarity": 0.83 },
+    { "phrase_id": "flirt.opener.024", "variant": "Just 'hey' — I'm going to call it intentional.", "similarity": 0.82 },
+
+    { "phrase_id": "flirt.opener.025", "variant": "Pre-warning: my conversation is better than my opener. Low bar, but still.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.025", "variant": "Heads up — my actual conversation is better than my opener. Low bar, but still.", "similarity": 0.92 },
+    { "phrase_id": "flirt.opener.025", "variant": "Disclaimer: my conversation beats my opener. Not a high bar, but still.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.025", "variant": "Warning: I'm better in conversation than in openers.", "similarity": 0.82 },
+
+    { "phrase_id": "flirt.opener.026", "variant": "We matched three days ago and I've been thinking of the right opener since. This is it.", "similarity": 0.92 },
+    { "phrase_id": "flirt.opener.026", "variant": "Matched three days ago. Been overthinking my opener since. Here it is.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.026", "variant": "I've been thinking about this opener for three days. This is what I came up with.", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.026", "variant": "Took me three days to come up with this opener. Hope it's worth it.", "similarity": 0.83 },
+
+    { "phrase_id": "flirt.opener.027", "variant": "Look, we both know I'm here to figure out if you're into the same dumb things I am.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.027", "variant": "Let's be real — I'm here to see if we like the same dumb things.", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.027", "variant": "We both know I'm here to figure out if you're into the same nonsense I am.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.027", "variant": "Real talk — I'm trying to find out if we're into the same weird stuff.", "similarity": 0.82 },
+
+    { "phrase_id": "flirt.opener.028", "variant": "I'm aware 'hi' is technically an opener but you deserve better. Working on it.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.028", "variant": "I know 'hi' counts as an opener but you deserve better. Working on it.", "similarity": 0.92 },
+    { "phrase_id": "flirt.opener.028", "variant": "Technically 'hi' is an opener. You deserve a better one. I'm working on it.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.028", "variant": "'Hi' is technically an opener. You deserve more effort though.", "similarity": 0.82 },
+
+    { "phrase_id": "flirt.opener.029", "variant": "Your photos look like you'd be more interesting in person than I am on a Saturday night.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.029", "variant": "Your pics suggest you're more fun in person than I am on a Saturday night.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.029", "variant": "You look more interesting in person than my best Saturday night.", "similarity": 0.83 },
+    { "phrase_id": "flirt.opener.029", "variant": "Your photos look more interesting than my entire weekend.", "similarity": 0.82 },
+
+    { "phrase_id": "flirt.opener.030", "variant": "Warning: I'm one of those people who gets weirdly invested in pet photos. Yours are now a problem.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.030", "variant": "Disclaimer: I get weirdly attached to pet photos. Yours are a problem now.", "similarity": 0.90 },
+    { "phrase_id": "flirt.opener.030", "variant": "Fair warning — I get way too invested in pet photos. Yours just made the list.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.030", "variant": "Pet photos break me. Yours just broke me.", "similarity": 0.78 },
+
+    { "phrase_id": "flirt.opener.031", "variant": "I have approximately zero good lines saved. Improvising — what's a small win you had this week?", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.031", "variant": "I have zero good lines prepared. Improvising — any small wins this week?", "similarity": 0.90 },
+    { "phrase_id": "flirt.opener.031", "variant": "No good lines available. Just curious — what's a small win from your week?", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.031", "variant": "Out of clever lines. Real question — what's a small win you had recently?", "similarity": 0.83 },
+
+    { "phrase_id": "flirt.opener.032", "variant": "I would say something smart, but honesty seems to work better. So: I think your taste in coffee shops is correct.", "similarity": 0.97 },
+    { "phrase_id": "flirt.opener.032", "variant": "Honesty over cleverness — your coffee shop taste is impeccable.", "similarity": 0.82 },
+    { "phrase_id": "flirt.opener.032", "variant": "Skipping the clever line. Your taste in coffee shops is correct, by the way.", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.032", "variant": "Going with honest over witty — your coffee shop choices are great.", "similarity": 0.83 },
+
+    { "phrase_id": "flirt.opener.033", "variant": "I'm objectively bad at small talk. Let's skip it — what's a movie you can rewatch endlessly?", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.033", "variant": "Small talk isn't my thing. What's a movie you've rewatched a million times?", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.033", "variant": "I'm terrible at small talk. Real question — what movie can you rewatch forever?", "similarity": 0.87 },
+    { "phrase_id": "flirt.opener.033", "variant": "Skipping small talk — what movie do you rewatch endlessly?", "similarity": 0.83 },
+
+    { "phrase_id": "flirt.opener.034", "variant": "Coffee or cocktails — which one are you going to make me get wrong on the first date?", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.034", "variant": "Coffee or cocktails — which one am I going to mess up on the first date?", "similarity": 0.90 },
+    { "phrase_id": "flirt.opener.034", "variant": "First date: coffee or cocktails? Which one are you making me pick wrong?", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.034", "variant": "Coffee or cocktails for the first date — which will I get wrong?", "similarity": 0.85 },
+
+    { "phrase_id": "flirt.opener.035", "variant": "Tell me you're as much fun in person as your photos suggest, and I'll plan something.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.035", "variant": "Confirm you're as fun in person as in your photos and I'll plan something.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.035", "variant": "If you're as fun as your photos suggest, I'll plan something good.", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.035", "variant": "Are you as fun in person as your photos? If yes, I'm planning something.", "similarity": 0.83 },
+
+    { "phrase_id": "flirt.opener.036", "variant": "I think we'd either get along instantly or argue about something stupid. Both sound fun.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.036", "variant": "We'd either click immediately or fight over something dumb. Both sound great.", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.036", "variant": "I'm betting we'd either get along instantly or argue about something pointless. Both sound fun.", "similarity": 0.92 },
+    { "phrase_id": "flirt.opener.036", "variant": "Two possible outcomes: instant click or pointless fight. Both work.", "similarity": 0.82 },
+
+    { "phrase_id": "flirt.opener.037", "variant": "Your smile in photo 3 did some damage. Just so you know.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.037", "variant": "Photo 3's smile did real damage. FYI.", "similarity": 0.83 },
+    { "phrase_id": "flirt.opener.037", "variant": "Your smile in your third photo is a problem. Just letting you know.", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.037", "variant": "That smile in photo 3 — yeah, it did something. Just so you know.", "similarity": 0.88 },
+
+    { "phrase_id": "flirt.opener.038", "variant": "If I asked you out for coffee Saturday, would you say yes or politely deflect?", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.038", "variant": "Hypothetically — if I asked you out for coffee Saturday, yes or deflect?", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.038", "variant": "If I were to ask you out for coffee Saturday, would you say yes or politely say no?", "similarity": 0.92 },
+    { "phrase_id": "flirt.opener.038", "variant": "Coffee Saturday — would you say yes or politely deflect?", "similarity": 0.85 },
+
+    { "phrase_id": "flirt.opener.039", "variant": "Quick test: are you better at picking restaurants or making me regret picking the restaurant?", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.039", "variant": "Real question: are you better at picking restaurants or making me regret picking one?", "similarity": 0.92 },
+    { "phrase_id": "flirt.opener.039", "variant": "Test: better at picking restaurants or at making me regret picking the restaurant?", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.039", "variant": "Are you the type who picks the restaurant well or makes me regret picking it?", "similarity": 0.85 },
+
+    { "phrase_id": "flirt.opener.040", "variant": "If we matched by accident, just say the word and I'll unmatch. Otherwise — hi.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.040", "variant": "If this was an accidental match, say the word and I'll unmatch. Otherwise — hi.", "similarity": 0.95 },
+    { "phrase_id": "flirt.opener.040", "variant": "If we matched by mistake, just tell me and I'll unmatch. If not, hi.", "similarity": 0.90 },
+    { "phrase_id": "flirt.opener.040", "variant": "Accidental match? Say so and I'll unmatch. Otherwise, hi.", "similarity": 0.85 },
+
+    { "phrase_id": "flirt.opener.041", "variant": "I don't do long openers. So — what's the next interesting thing happening in your life?", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.041", "variant": "Not into long openers — what's the next interesting thing happening in your life?", "similarity": 0.93 },
+    { "phrase_id": "flirt.opener.041", "variant": "Long openers aren't my thing. What's the next interesting thing on your calendar?", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.041", "variant": "I keep openers short. What's something interesting coming up for you?", "similarity": 0.83 },
+
+    { "phrase_id": "flirt.opener.042", "variant": "I'll skip the small talk. What's something you've been overthinking lately?", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.042", "variant": "Skipping small talk — what's something you've been overthinking?", "similarity": 0.92 },
+    { "phrase_id": "flirt.opener.042", "variant": "No small talk. What's something you've been overthinking lately?", "similarity": 0.90 },
+    { "phrase_id": "flirt.opener.042", "variant": "Skip the small talk — what have you been overthinking recently?", "similarity": 0.88 },
+
+    { "phrase_id": "flirt.opener.043", "variant": "Most of these conversations die in the first three messages. Let's beat the odds.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.043", "variant": "Most of these die in three messages. Let's beat that.", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.043", "variant": "Statistically these die in the first 3 messages. Let's outlast that.", "similarity": 0.87 },
+    { "phrase_id": "flirt.opener.043", "variant": "These conversations usually die in three messages. Let's beat the odds.", "similarity": 0.92 },
+
+    { "phrase_id": "flirt.opener.044", "variant": "I'm not great at openers. I am great at picking restaurants. Want to test the second one?", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.044", "variant": "Bad at openers, great at picking restaurants. Wanna test the second?", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.044", "variant": "Openers — not my strength. Picking restaurants — definitely is. Test me?", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.044", "variant": "I'm bad at openers but excellent at picking restaurants. Want to verify?", "similarity": 0.87 },
+
+    { "phrase_id": "flirt.opener.045", "variant": "I matched with you so I could ask — who hurt the person who wrote your bio's last line?", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.045", "variant": "Matched specifically to ask — who hurt the person who wrote your bio's last line?", "similarity": 0.92 },
+    { "phrase_id": "flirt.opener.045", "variant": "I had to match just to ask — who hurt the person who wrote your bio's ending?", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.045", "variant": "Real reason I matched — who hurt the writer of your bio's last line?", "similarity": 0.85 },
+
+    { "phrase_id": "flirt.opener.046", "variant": "Be straight with me — are you here for the chat or just collecting matches like trading cards?", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.046", "variant": "Honest answer — here to chat or just collecting matches like trading cards?", "similarity": 0.88 },
+    { "phrase_id": "flirt.opener.046", "variant": "Straight up — chatting type or trading-card collector type?", "similarity": 0.83 },
+    { "phrase_id": "flirt.opener.046", "variant": "Be real with me — are you here to talk or just collecting matches?", "similarity": 0.87 },
+
+    { "phrase_id": "flirt.opener.047", "variant": "I have one question. If you can answer it well, I'll commit to a real second message.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.047", "variant": "One question. Answer it well and I'll commit to a real second message.", "similarity": 0.93 },
+    { "phrase_id": "flirt.opener.047", "variant": "I'll ask one question. Good answer earns you a real second message.", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.047", "variant": "Got one question for you. Nail it and the second message will actually be good.", "similarity": 0.83 },
+
+    { "phrase_id": "flirt.opener.048", "variant": "Hi. Tell me something I wouldn't guess from your profile.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.048", "variant": "Hey. Tell me something I couldn't guess from your profile.", "similarity": 0.95 },
+    { "phrase_id": "flirt.opener.048", "variant": "Hi — surprise me with something not in your profile.", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.048", "variant": "Hello. What's something I wouldn't figure out from your bio?", "similarity": 0.85 },
+
+    { "phrase_id": "flirt.opener.049", "variant": "Hey — what's a question you're tired of being asked on these apps?", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.049", "variant": "Hi — what's a question you're sick of being asked on these apps?", "similarity": 0.92 },
+    { "phrase_id": "flirt.opener.049", "variant": "Real question — what's the most overused question on these apps?", "similarity": 0.83 },
+    { "phrase_id": "flirt.opener.049", "variant": "What's a question you're tired of being asked here?", "similarity": 0.85 },
+
+    { "phrase_id": "flirt.opener.050", "variant": "Good morning. Or evening. I have no idea what time you'll see this. Hi anyway.", "similarity": 0.99 },
+    { "phrase_id": "flirt.opener.050", "variant": "Good morning. Or evening. I don't know when you'll read this. Hi anyway.", "similarity": 0.95 },
+    { "phrase_id": "flirt.opener.050", "variant": "Morning. Or evening. Whatever time it is for you — hi.", "similarity": 0.85 },
+    { "phrase_id": "flirt.opener.050", "variant": "Good morning, evening, or whatever it is — hi.", "similarity": 0.82 }
+  ]
+}
