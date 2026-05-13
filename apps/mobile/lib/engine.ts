@@ -1,9 +1,8 @@
 // Lafla Mobile — Engine (Pattern Matcher + Lesson Runner)
 //
-// This file inlines the logic from packages/pattern-matcher and
-// packages/lesson-runner so the mobile bundle can import without
-// monorepo path tricks. When backend exists, this is replaced by
-// API calls.
+// Inlined logic for packages/pattern-matcher + packages/lesson-runner so
+// the mobile bundle doesn't need monorepo path tricks. When backend exists,
+// most of this becomes server-side and the client only renders state.
 
 // ============================================================
 // PATTERN MATCHER
@@ -121,6 +120,24 @@ export function matchPhrase(input: {
   };
 }
 
+// Regex-with-fallback for roleplay acceptable_patterns
+export function matchAgainstPatterns(
+  userInput: string,
+  patterns: string[],
+): boolean {
+  const lowered = userInput.toLowerCase();
+  for (const pattern of patterns) {
+    try {
+      const regex = new RegExp(pattern, "i");
+      if (regex.test(userInput)) return true;
+    } catch {
+      // Malformed regex - fall back to substring match
+      if (lowered.includes(pattern.toLowerCase())) return true;
+    }
+  }
+  return false;
+}
+
 // ============================================================
 // LESSON RUNNER
 // ============================================================
@@ -142,9 +159,10 @@ export interface LessonProgress {
   xp_earned: number;
 }
 
-export type UserInput = string | string[] | number | number[];
-
-export function startLesson(lesson: { id: string; exercises: unknown[] }): LessonProgress {
+export function startLesson(lesson: {
+  id: string;
+  exercises: unknown[];
+}): LessonProgress {
   return {
     lesson_id: lesson.id,
     current_index: 0,
@@ -177,7 +195,9 @@ export function applyResult(
   };
 }
 
-// Evaluator helpers — used by exercise UI components
+// ============================================================
+// PER-TYPE EVALUATORS
+// ============================================================
 
 export function evaluateTranslate(
   target: string,
@@ -207,8 +227,7 @@ export function evaluateTranslate(
 }
 
 export function evaluateFillBlank(answer: string, input: string): ExerciseResult {
-  const correct =
-    input.trim().toLowerCase() === answer.trim().toLowerCase();
+  const correct = input.trim().toLowerCase() === answer.trim().toLowerCase();
   return {
     exercise_id: "fill_blank",
     exercise_type: "fill_blank",
@@ -237,4 +256,32 @@ export function evaluateSpotMistake(
       ? `Doğru düzelttin! ${explanation ?? ""}`
       : `Doğrusu: "${correctSentence}". ${explanation ?? ""}`,
   };
+}
+
+export function evaluateWordOrder(
+  correctSentence: string,
+  builtSentence: string,
+): ExerciseResult {
+  const match = matchPhrase({
+    user_text: builtSentence,
+    canonical: correctSentence,
+    accepted_variants: [],
+  });
+  return {
+    exercise_id: "word_order",
+    exercise_type: "word_order",
+    correct: match.matched,
+    score: Math.round(match.similarity * 100),
+    feedback: match.matched
+      ? `Doğru sıralama!`
+      : `Doğrusu: "${correctSentence}"`,
+  };
+}
+
+export function evaluateRoleplayTurn(
+  patterns: string[],
+  input: string,
+): { matched: boolean; score: number } {
+  const matched = matchAgainstPatterns(input, patterns);
+  return { matched, score: matched ? 100 : 0 };
 }

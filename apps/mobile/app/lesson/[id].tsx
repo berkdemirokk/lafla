@@ -1,5 +1,5 @@
-// Lesson screen — Stitch "Lesson Exercise Cool" header style.
-// Light bg with thin progress bar at top.
+// Lesson screen — wires lesson runner state to exercise UIs.
+// All 7 exercise types now wired in ExerciseRenderer dispatch.
 
 import { useState } from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
@@ -11,7 +11,9 @@ import { ProgressDots } from "../../components/ProgressDots";
 import { VocabTile } from "../../components/exercises/VocabTile";
 import { Translate } from "../../components/exercises/Translate";
 import { FillBlank } from "../../components/exercises/FillBlank";
+import { WordOrder } from "../../components/exercises/WordOrder";
 import { SpotMistake } from "../../components/exercises/SpotMistake";
+import { RoleplayChat } from "../../components/exercises/RoleplayChat";
 import { RecapQuiz } from "../../components/exercises/RecapQuiz";
 import { LessonComplete } from "../../components/LessonComplete";
 
@@ -88,7 +90,8 @@ function ExerciseRenderer({
   exercise,
   onComplete,
 }: {
-  exercise: (typeof cafeLesson_1_1.exercises)[number];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  exercise: any;
   onComplete: (result: ExerciseResult) => void;
 }) {
   switch (exercise.type) {
@@ -123,6 +126,15 @@ function ExerciseRenderer({
           onComplete={onComplete}
         />
       );
+    case "word_order":
+      return (
+        <WordOrder
+          scrambledTokens={exercise.scrambled_tokens}
+          correctSentence={exercise.correct_sentence}
+          trTranslation={exercise.tr_translation}
+          onComplete={onComplete}
+        />
+      );
     case "spot_mistake":
       return (
         <SpotMistake
@@ -132,8 +144,28 @@ function ExerciseRenderer({
           onComplete={onComplete}
         />
       );
+    case "roleplay_chat":
+      return (
+        <RoleplayChat
+          scenarioDescription={exercise.scenario_description}
+          npcRole={exercise.npc_role}
+          setting={exercise.setting}
+          turns={exercise.turns}
+          onComplete={onComplete}
+        />
+      );
     case "recap_quiz":
-      return <RecapQuiz questions={exercise.questions} onComplete={onComplete} />;
+      return (
+        <RecapQuiz questions={exercise.questions} onComplete={onComplete} />
+      );
+    default:
+      return (
+        <View>
+          <Text style={{ color: tokens.text.primary }}>
+            Bilinmeyen alıştırma tipi: {exercise.type}
+          </Text>
+        </View>
+      );
   }
 }
 
@@ -178,9 +210,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginBottom: 24,
   },
-  exitBtn: {
-    width: 60,
-  },
+  exitBtn: { width: 60 },
   exitText: {
     color: tokens.text.secondary,
     fontSize: 14,
@@ -200,7 +230,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 16,
     paddingTop: 32,
-    paddingBottom: 32,
+    paddingBottom: 16,
   },
   placeholder: {
     flex: 1,
