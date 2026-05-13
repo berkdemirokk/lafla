@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
     transform: [{ translateY: -16 }],
   },
   checkIcon: {
-    color: tokens.text.onPrimaryFixed,
+    color: tokens.text.onPrimary,
     fontSize: 18,
     fontWeight: tokens.weight.black,
   },
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
     backgroundColor: tokens.semantic.errorContainer,
   },
   feedbackIconText: {
-    color: tokens.text.onPrimaryFixed,
+    color: tokens.text.onPrimary,
     fontSize: 20,
     fontWeight: tokens.weight.black,
   },

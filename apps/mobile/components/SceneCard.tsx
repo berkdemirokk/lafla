@@ -29,9 +29,7 @@ export function SceneCard({
       <View style={styles.accentBar} />
 
       {/* Background emoji watermark */}
-      <Text style={styles.emojiBg} pointerEvents="none">
-        {emoji}
-      </Text>
+      <Text style={styles.emojiBg}>{emoji}</Text>
 
       <View style={styles.content}>
         <View style={styles.tags}>

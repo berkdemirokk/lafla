@@ -161,7 +161,7 @@ export interface LessonProgress {
 
 export function startLesson(lesson: {
   id: string;
-  exercises: unknown[];
+  exercises: ReadonlyArray<unknown>;
 }): LessonProgress {
   return {
     lesson_id: lesson.id,
@@ -174,7 +174,7 @@ export function startLesson(lesson: {
 }
 
 export function applyResult(
-  lesson: { exercises: unknown[] },
+  lesson: { exercises: ReadonlyArray<unknown> },
   progress: LessonProgress,
   result: ExerciseResult,
 ): LessonProgress {

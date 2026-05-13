@@ -63,7 +63,7 @@ export function Button({
       >
         {loading ? (
           <ActivityIndicator
-            color={isPrimary ? tokens.text.onPrimaryFixed : tokens.text.primary}
+            color={isPrimary ? tokens.text.onPrimary : tokens.text.primary}
           />
         ) : (
           <Text
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
   },
   labelPrimary: {
-    color: tokens.text.onPrimaryFixed,
+    color: tokens.text.onPrimary,
   },
   labelSecondary: {
     color: tokens.text.primary,
