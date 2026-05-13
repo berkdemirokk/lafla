@@ -20,8 +20,24 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: npm
-          cache-dependency-path: apps/mobile/package-lock.json
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
 
       - name: Select latest Xcode
         run: |
@@ -37,11 +53,9 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: Install dependencies
-        working-directory: apps/mobile
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Write App Store Connect API key file
-        working-directory: ${{ github.workspace }}
         run: |
           API_KEY_PATH="$RUNNER_TEMP/AuthKey_${{ secrets.APP_STORE_CONNECT_KEY_ID }}.p8"
           cat > "$API_KEY_PATH" <<'EOF'
@@ -58,7 +72,6 @@ jobs:
           EXPO_APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
           EXPO_APPLE_TEAM_TYPE: INDIVIDUAL
         run: |
-          # Build IPA locally on the runner — EAS manages cert + profile.
           eas build \
             --platform ios \
             --profile production \

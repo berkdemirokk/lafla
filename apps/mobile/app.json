@@ -8,7 +8,9 @@
     "scheme": "lafla",
     "userInterfaceStyle": "dark",
     "newArchEnabled": true,
-    "platforms": ["ios"],
+    "platforms": [
+      "ios"
+    ],
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -19,12 +21,18 @@
       "supportsTablet": true,
       "buildNumber": "1",
       "infoPlist": {
-        "CFBundleLocalizations": ["tr", "en"],
+        "CFBundleLocalizations": [
+          "tr",
+          "en"
+        ],
         "CFBundleDevelopmentRegion": "tr",
         "ITSAppUsesNonExemptEncryption": false
       }
     },
-    "plugins": ["expo-router", "expo-secure-store"],
+    "plugins": [
+      "expo-router",
+      "expo-secure-store"
+    ],
     "experiments": {
       "typedRoutes": true
     },
@@ -32,8 +40,12 @@
       "router": {
         "origin": false
       },
-      "supabaseUrl": "",
-      "supabaseAnonKey": ""
-    }
+      "supabaseUrl": "https://dljlqmzjfewevoxibdlh.supabase.co",
+      "supabaseAnonKey": "sb_publishable_HoL3Tb8U0cQqm0wTf5zBxQ_IYipWD70",
+      "eas": {
+        "projectId": "a7b18723-d431-481b-92cd-18a4c1104171"
+      }
+    },
+    "owner": "berkdemirok"
   }
 }
