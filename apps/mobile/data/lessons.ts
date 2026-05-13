@@ -17,6 +17,7 @@ import { flirtCancelLessons } from "./flirt-cancel-lesson";
 import { flirtDefineLessons } from "./flirt-define-lesson";
 import { flirtRejectionLessons } from "./flirt-rejection-lesson";
 import { flirtRecoveryLessons } from "./flirt-recovery-lesson";
+import { workSlackLessons } from "./work-slack-lesson";
 import type { BundledLesson } from "./cafe-lesson";
 
 export const allLessons: ReadonlyArray<BundledLesson> = [
@@ -36,6 +37,7 @@ export const allLessons: ReadonlyArray<BundledLesson> = [
   ...flirtDefineLessons,
   ...flirtRejectionLessons,
   ...flirtRecoveryLessons,
+  ...workSlackLessons,
 ];
 
 export function getLesson(id: string): BundledLesson | undefined {
