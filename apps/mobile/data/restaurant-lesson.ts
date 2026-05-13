@@ -361,9 +361,182 @@ export const restaurantLesson_2_2: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 2.3 — Yemek Sırasında
+// ============================================================
+export const restaurantLesson_2_3: BundledLesson = {
+  id: "order.restaurant.2.3",
+  skill_id: "order.restaurant",
+  index: 3,
+  title: "Yemek Sırasında",
+  description:
+    "Su tazele, ekstra bir şey iste, garsonun 'Nasıl?' sorusuna cevap ver.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.2.3.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Could we get some more",
+      tr_translation: "Biraz daha alabilir miyiz",
+      example: "Could we get some more water, please?",
+      example_tr: "Biraz daha su alabilir miyiz, lütfen?",
+    },
+    {
+      id: "ex.2.3.2",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Biraz daha su alabilir miyiz?",
+      target: "Could we get some more water, please?",
+      accepted_variants: [
+        "Could we have some more water, please?",
+        "Some more water, please.",
+        "More water, please.",
+        "Could we get a refill?",
+        "Could you bring us more water?",
+        "Can we get more water, please?",
+        "Could I get a refill on water?",
+      ],
+      tr_hint:
+        "'Biraz daha' = 'some more'. 'Refill' = yenileme (boş bardak için).",
+    },
+    {
+      id: "ex.2.3.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Could you ___ the salt, please?",
+      answer: "pass",
+      distractors: ["give", "bring", "send"],
+      tr_hint:
+        "'Pass the salt' yerleşik idiom — masada bir şey istemek için.",
+    },
+    {
+      id: "ex.2.3.4",
+      type: "word_order",
+      difficulty: 2,
+      scrambled_tokens: [
+        "Everything",
+        "is",
+        "great",
+        "thank",
+        "you",
+      ],
+      correct_sentence: "Everything is great thank you",
+      tr_translation: "Herşey harika, teşekkürler.",
+    },
+    {
+      id: "ex.2.3.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Give me bread!",
+      correct_sentence: "Could we have some more bread, please?",
+      tr_explanation:
+        "'Give me' komut. 'Some more bread, please?' kibar ve doğal — restoranda standart kalıp.",
+    },
+    {
+      id: "ex.2.3.6",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Yemeğin yarısındasın. Garson kontrol için gelir.",
+      npc_role: "Garson",
+      setting: "Mid-meal check-in",
+      turns: [
+        {
+          speaker: "npc",
+          message: "How is everything tasting? Need anything else?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "everything('s| is) (great|good|fine|delicious|amazing|perfect)",
+            "(it'?s|its) (great|good|fine|delicious|amazing|perfect)",
+            "(very )?(good|great|delicious)( thanks| thank you)?",
+            "loving (it|everything)",
+            "no thanks",
+            "(we're|we are) (all )?good( thanks)?",
+            "could (we|i) (get|have)",
+          ],
+          hint_tr:
+            "Övgü ile başla: 'Everything is great, thanks'. Eksik bir şey varsa ekle.",
+        },
+        {
+          speaker: "npc",
+          message: "Glad to hear it. Anything I can grab for you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can) (we|I) (get|have) (some |a |more |another )?(water|bread|napkin|fork)",
+            "(more )?(water|bread|napkins?|sauce)( please)?",
+            "(some |another )?(water|bread|napkin)",
+            "i('m| am) good",
+            "we'?re (all |good|set)",
+            "no thanks",
+            "we'?re fine",
+            "could (i|we) get a (refill|fork|knife|spoon)",
+          ],
+          hint_tr:
+            "İstersen: 'Could we get more bread, please?'. İstemiyorsan: 'No thanks, we're good'.",
+        },
+        {
+          speaker: "npc",
+          message: "Of course, I'll be right back.",
+        },
+      ],
+    },
+    {
+      id: "ex.2.3.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question:
+            "Garson 'How's everything?' dedi, yemek beğendin. Doğru cevap?",
+          options: [
+            "Good",
+            "Everything is great, thanks",
+            "Yes",
+            "Continue",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Great, thanks' kısa ama 'Everything is great, thanks' daha tam cevap.",
+        },
+        {
+          question: "'Tuzu uzatır mısın?' (masada) hangisi?",
+          options: [
+            "Send the salt",
+            "Could you bring me salt",
+            "Pass the salt, please",
+            "Give salt",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Pass [item]' — masada yakındaki bir şeyi rica ederken kullanılan sabit idiom.",
+        },
+        {
+          question: "Bardağın boş, su istiyorsun. Hangisi doğal?",
+          options: [
+            "Water now",
+            "Could we get a refill?",
+            "Give water",
+            "Bring water!",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Refill' = yenileme. Boş bardak için doğal kalıp.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
 // Restaurant lessons registry
 // ============================================================
 export const restaurantLessons: ReadonlyArray<BundledLesson> = [
   restaurantLesson_2_1,
   restaurantLesson_2_2,
+  restaurantLesson_2_3,
 ];
