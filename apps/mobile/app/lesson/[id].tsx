@@ -23,14 +23,14 @@ import {
   type LessonProgress,
   type ExerciseResult,
 } from "../../lib/engine";
-import { getCafeLesson } from "../../data/cafe-lesson";
+import { getLesson } from "../../data/lessons";
 import { tokens } from "../../theme";
 
 export default function LessonScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
 
-  const lesson = id ? getCafeLesson(id) : undefined;
+  const lesson = id ? getLesson(id) : undefined;
   if (!lesson) {
     return <Placeholder lessonId={id} onBack={() => router.back()} />;
   }
@@ -183,7 +183,7 @@ function Placeholder({
         <Text style={styles.placeholderTitle}>Ders Henüz Hazır Değil</Text>
         <Text style={styles.placeholderId}>{lessonId}</Text>
         <Text style={styles.placeholderDesc}>
-          Bu ders yakında. Şu an "order.cafe.1.1" ve "order.cafe.1.2" çalışıyor.
+          Bu ders yakında. Hazır olanlar: order.cafe.1.1 - 1.4, order.restaurant.2.1.
         </Text>
         <Pressable style={styles.backBtn} onPress={onBack}>
           <Text style={styles.backBtnText}>Akışa Geri Dön</Text>
