@@ -1,0 +1,15 @@
+{
+  "name": "@lafla/lesson-runner",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Lafla — Lesson state machine + per-exercise evaluators. Drives the Duolingo-style lesson flow.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}
