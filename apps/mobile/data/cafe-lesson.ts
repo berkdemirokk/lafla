@@ -428,12 +428,213 @@ export const cafeLesson_1_3: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 1.4 — For Here / To Go + İsim Yazdırma
+// ============================================================
+export const cafeLesson_1_4: BundledLesson = {
+  id: "order.cafe.1.4",
+  skill_id: "order.cafe",
+  index: 4,
+  title: "Paket / İçeride + İsim",
+  description:
+    "'For here' vs 'to go', kapak ve sleeve, isim heceleme — sipariş bitirme kalıpları.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.1.4.1",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "for here",
+      tr_translation: "Burada içeceğim",
+      example: "For here, please.",
+      example_tr: "Burada içeceğim, lütfen.",
+    },
+    {
+      id: "ex.1.4.2",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Paket olur mu, lütfen?",
+      target: "Can I get it to go, please?",
+      accepted_variants: [
+        "To go, please.",
+        "I'd like it to go.",
+        "Could I get it to go?",
+        "Make it to go, please.",
+        "Take away, please.",
+        "Take-away, please.",
+        "I'll take it to go.",
+      ],
+      tr_hint:
+        "'Paket' = 'to go' (US) veya 'take away' (UK). Tam cümle gerekmez, kısa da kabul.",
+    },
+    {
+      id: "ex.1.4.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Could you ___ that for me?",
+      answer: "spell",
+      distractors: ["write", "say", "repeat"],
+      tr_hint:
+        "Türk ismi söyledin, barista yazamadı. 'Heceler misin?' = 'Could you spell that?'",
+    },
+    {
+      id: "ex.1.4.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Could",
+        "I",
+        "get",
+        "a",
+        "sleeve",
+        "for",
+        "that",
+        "please",
+      ],
+      correct_sentence: "Could I get a sleeve for that please",
+      tr_translation:
+        "Onun için bardak kılıfı alabilir miyim, lütfen?",
+    },
+    {
+      id: "ex.1.4.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Stay here, please.",
+      correct_sentence: "For here, please.",
+      tr_explanation:
+        "'Stay here' = kişiye 'burada dur' (komut). 'For here' = sipariş bağlamında 'burada içeceğim'. İkisi farklı.",
+    },
+    {
+      id: "ex.1.4.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Siparişini verdin, barista bitirici sorular sorar (kart/nakit, isim).",
+      npc_role: "Barista",
+      setting: "Pickup counter",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Anything else with that?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "no thanks",
+            "no thank you",
+            "that('s|s) it",
+            "just (that|the (coffee|latte|drink))",
+            "i('m| am) good",
+            "that('ll| will) be (it|all)",
+            "no, thanks",
+          ],
+          hint_tr:
+            "Hayır demek için: 'No thanks', 'That's it', 'I'm good'.",
+        },
+        {
+          speaker: "npc",
+          message: "Alright. For here or to go?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "for here",
+            "to go",
+            "take away",
+            "take-away",
+            "(for here|to go|take away)( please)?",
+          ],
+          hint_tr: "İki seçenek: 'For here' (burada) veya 'To go' (paket).",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. Card or cash?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "card( please)?",
+            "cash( please)?",
+            "apple pay",
+            "(could|can) I use apple pay",
+            "do you take apple pay",
+            "by card",
+            "credit card",
+            "i'll pay (with )?(card|cash)",
+          ],
+          hint_tr:
+            "Ödeme: 'Card, please', 'Cash, please', 'Do you take Apple Pay?'",
+        },
+        {
+          speaker: "npc",
+          message: "Perfect. What name should I put on the cup?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "it'?s (under )?[a-z]+",
+            "[a-z]+",
+            "(my name is|name is|i'm|i am) [a-z]+",
+            "under [a-z]+",
+          ],
+          hint_tr:
+            "İsmini söyle. Türk ismiyse hecele: 'Berk — B, E, R, K'.",
+        },
+        {
+          speaker: "npc",
+          message: "Perfect, thanks! Should be ready in a minute.",
+        },
+      ],
+    },
+    {
+      id: "ex.1.4.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Barista 'For here or to go?' dedi, içeride içeceksin?",
+          options: [
+            "Stay here, please.",
+            "For here, please.",
+            "Inside, please.",
+            "I'm here.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'For here' = sipariş bağlamında 'burada içeceğim'.",
+        },
+        {
+          question: "Türk ismini yazamayan barista'ya ne dersin?",
+          options: [
+            "Repeat me!",
+            "Could you spell that?",
+            "Say my name again",
+            "I'll spell it: B, E, R, K.",
+          ],
+          correct_index: 3,
+          tr_explanation:
+            "Sen heceleyince barista doğru yazar. 'B as in Boy, E, R, K'.",
+        },
+        {
+          question: "'To go' eşdeğeri (UK İngilizcesinde)?",
+          options: ["For there", "Take out", "Take away", "On the road"],
+          correct_index: 2,
+          tr_explanation:
+            "'To go' (US) = 'Take away' (UK). İkisi de 'paket' demek.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
 // Lesson registry
 // ============================================================
 export const cafeLessons: ReadonlyArray<BundledLesson> = [
   cafeLesson_1_1,
   cafeLesson_1_2,
   cafeLesson_1_3,
+  cafeLesson_1_4,
 ];
 
 export function getCafeLesson(id: string): BundledLesson | undefined {

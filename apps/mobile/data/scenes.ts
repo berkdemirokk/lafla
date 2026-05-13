@@ -55,6 +55,19 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     progressLabel: "3/4 ders",
   },
   {
+    id: "scene-order-cafe-1-4",
+    emoji: "🥡",
+    title: "Paket / İçeride\n+ ismi hecele",
+    description:
+      "Sipariş bitirme: 'for here', 'to go', ödeme, isim yazdırma — Berk'i nasıl hecelersin?",
+    durationMin: 5,
+    mode: "order",
+    skillId: "order.cafe",
+    lessonId: "order.cafe.1.4",
+    isNew: true,
+    progressLabel: "4/4 ders ✓",
+  },
+  {
     id: "scene-flirt-opener",
     emoji: "💕",
     title: "Tinder\nopener\natmak",
