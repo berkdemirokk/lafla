@@ -59,7 +59,9 @@ export function normalize(s: string): string {
   return s
     .toLowerCase()
     .replace(/[çğıİöşüÇĞÖŞÜ]/g, (c) => TR_TO_ASCII[c] ?? c)
-    .replace(/[.,!?;:'"()—–\-]/g, " ")
+    // Apostrophes: contractions stay one token ("I'm" → "im", not "i m")
+    .replace(/['']/g, "")
+    .replace(/[.,!?;:"()—–\-]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
 }

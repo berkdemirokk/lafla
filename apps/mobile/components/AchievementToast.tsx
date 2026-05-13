@@ -16,6 +16,9 @@ export function AchievementToast({ achievement, onDismiss }: Props) {
 
   useEffect(() => {
     if (!achievement) return;
+    // Reset animation state for new achievement
+    translateY.setValue(-120);
+    opacity.setValue(0);
     Animated.parallel([
       Animated.timing(translateY, {
         toValue: 0,

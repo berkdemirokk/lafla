@@ -182,7 +182,7 @@ export default function LessonScreen() {
 
       <View style={styles.content}>
         <ExerciseRenderer
-          key={String(exercise.id)}
+          key={`${lesson.id}.${progress.current_index}`}
           exercise={exercise}
           onComplete={onExerciseDone}
         />

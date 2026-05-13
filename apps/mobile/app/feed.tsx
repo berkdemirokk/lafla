@@ -49,15 +49,16 @@ export default function Feed() {
   }, []);
 
   const orderedScenes = useMemo<Scene[]>(() => {
+    // Default order while interests still loading (avoids flash + re-render)
     if (interests === null) return SAMPLE_SCENES.slice();
     const interestModes = new Set(interests);
-    // Match interest ids (like 'flirt', 'work', etc) to scene modes
     const isMatch = (s: Scene) =>
       interestModes.size === 0 || interestModes.has(s.mode);
     const inInterests = SAMPLE_SCENES.filter(isMatch);
     const others = SAMPLE_SCENES.filter((s) => !isMatch(s));
     const allOrdered = [...inInterests, ...others];
     // Move completed lessons toward the end (still accessible for review)
+    if (completed.size === 0) return allOrdered;
     const notDone = allOrdered.filter((s) => !completed.has(s.lessonId));
     const done = allOrdered.filter((s) => completed.has(s.lessonId));
     return [...notDone, ...done];

@@ -50,7 +50,13 @@ export default function Auth() {
       await signInWithAppleNative();
       router.replace("/onboarding");
     } catch (e: any) {
-      if (e?.code === "ERR_CANCELED") {
+      const msg = (e?.message ?? "").toLowerCase();
+      const isCanceled =
+        e?.code === "ERR_CANCELED" ||
+        e?.code === "ERR_REQUEST_CANCELED" ||
+        msg.includes("canceled") ||
+        msg.includes("cancelled");
+      if (isCanceled) {
         setError(null);
       } else {
         setError(e?.message ?? "Apple Sign-In başarısız.");
