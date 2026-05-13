@@ -1,0 +1,56 @@
+# Node
+node_modules/
+.pnpm-store/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Build outputs
+dist/
+build/
+.next/
+.expo/
+.expo-shared/
+*.tsbuildinfo
+
+# Mobile
+ios/Pods/
+ios/build/
+android/build/
+android/.gradle/
+android/app/build/
+android/app/release/
+*.apk
+*.aab
+*.ipa
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Cloudflare
+.wrangler/
+.dev.vars
+
+# Supabase
+supabase/.branches
+supabase/.temp
+
+# Content (large, generated artifacts)
+content/scenarios/**/raw/
+content/scenarios/**/*.embeddings.bin
