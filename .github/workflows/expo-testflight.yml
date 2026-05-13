@@ -7,9 +7,9 @@ on:
       - "lafla-v*"
 
 jobs:
-  build-and-upload:
-    runs-on: macos-latest
-    timeout-minutes: 90
+  build-and-submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
     env:
       EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
     steps:
@@ -38,12 +38,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-
 
-      - name: Select latest Xcode
-        run: |
-          XCODE_APP=$(find /Applications -maxdepth 1 -name "Xcode*.app" | sort -V | tail -n 1)
-          sudo xcode-select -s "$XCODE_APP/Contents/Developer"
-          xcodebuild -version
-
       - name: Setup Expo / EAS CLI
         uses: expo/expo-github-action@v8
         with:
@@ -54,7 +48,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Write App Store Connect API key file
+      - name: Write App Store Connect API key
         run: |
           API_KEY_PATH="$RUNNER_TEMP/AuthKey_${{ secrets.APP_STORE_CONNECT_KEY_ID }}.p8"
           cat > "$API_KEY_PATH" <<'EOF'
@@ -62,7 +56,7 @@ jobs:
           EOF
           echo "API_KEY_PATH=$API_KEY_PATH" >> "$GITHUB_ENV"
 
-      - name: EAS Build (local IPA)
+      - name: EAS Build (cloud) + submit to TestFlight
         working-directory: apps/mobile
         env:
           EXPO_ASC_API_KEY_PATH: ${{ env.API_KEY_PATH }}
@@ -74,21 +68,6 @@ jobs:
           eas build \
             --platform ios \
             --profile production \
-            --local \
             --non-interactive \
-            --output "$RUNNER_TEMP/lafla.ipa"
-
-      - name: Upload IPA artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: lafla-ios-ipa
-          path: ${{ runner.temp }}/lafla.ipa
-          retention-days: 30
-
-      - name: Upload to TestFlight
-        uses: apple-actions/upload-testflight-build@v3
-        with:
-          app-path: ${{ runner.temp }}/lafla.ipa
-          issuer-id: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
-          api-key-id: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
-          api-private-key: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+            --auto-submit \
+            --wait
