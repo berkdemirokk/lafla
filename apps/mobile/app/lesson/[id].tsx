@@ -1,7 +1,8 @@
 // Lesson screen — wires lesson runner state to exercise UIs.
 // Looks up lesson by ID from cafeLessons registry; supports all 7 types.
+// Persists attempts + lesson completion to Supabase when signed in.
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useLocalSearchParams, useRouter } from "expo-router";
@@ -23,6 +24,7 @@ import {
   type LessonProgress,
   type ExerciseResult,
 } from "../../lib/engine";
+import { recordAttempt, completeLesson } from "../../lib/srs";
 import { getLesson } from "../../data/lessons";
 import { tokens } from "../../theme";
 
@@ -38,6 +40,25 @@ export default function LessonScreen() {
   const [progress, setProgress] = useState<LessonProgress>(() =>
     startLesson(lesson),
   );
+  const lessonSavedRef = useRef(false);
+
+  // When lesson completes, persist to Supabase (once).
+  useEffect(() => {
+    if (!progress.completed || lessonSavedRef.current) return;
+    lessonSavedRef.current = true;
+
+    const accuracy = progress.results.length
+      ? progress.results.reduce((sum, r) => sum + r.score, 0) /
+        (progress.results.length * 100)
+      : 0;
+
+    completeLesson({
+      lesson_id: lesson.id,
+      skill_id: lesson.skill_id,
+      accuracy,
+      exercises_completed: progress.results.length,
+    }).catch((e) => console.warn("[Lafla] completeLesson failed:", e?.message));
+  }, [progress.completed, progress.results, lesson]);
 
   if (progress.completed) {
     return (
@@ -51,6 +72,18 @@ export default function LessonScreen() {
   const exercise = lesson.exercises[progress.current_index]!;
 
   const onExerciseDone = (result: ExerciseResult) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const ex: any = exercise;
+    recordAttempt({
+      exercise_id: ex.id ?? `${lesson.id}.${progress.current_index}`,
+      lesson_id: lesson.id,
+      skill_id: lesson.skill_id,
+      exercise_type: ex.type,
+      is_correct: result.score >= 80,
+      response_time_ms: undefined,
+      hints_used: 0,
+    }).catch((e) => console.warn("[Lafla] recordAttempt failed:", e?.message));
+
     setProgress((prev) => applyResult(lesson, prev, result));
   };
 

@@ -121,21 +121,46 @@ export async function completeLesson(args: {
     last_practiced_at: new Date().toISOString(),
   });
 
-  // Daily activity + XP
+  // Daily activity + XP (read-modify-write; single user, no race risk)
   const today = new Date().toISOString().slice(0, 10);
   const xpEarned = Math.round(10 + args.accuracy * 20);
 
-  await supabase.rpc("upsert_daily_activity", {
-    p_user_id: user.id,
-    p_activity_date: today,
-    p_xp: xpEarned,
-  }).then(() => {}, async () => {
-    // Fallback if RPC doesn't exist yet
-    await supabase.from("daily_activity").upsert(
-      { user_id: user.id, activity_date: today, xp_earned: xpEarned, lessons_completed: 1 },
-      { onConflict: "user_id,activity_date" },
-    );
-  });
+  const { data: today_row } = await supabase
+    .from("daily_activity")
+    .select("xp_earned, lessons_completed")
+    .eq("user_id", user.id)
+    .eq("activity_date", today)
+    .maybeSingle();
+
+  await supabase.from("daily_activity").upsert(
+    {
+      user_id: user.id,
+      activity_date: today,
+      xp_earned: (today_row?.xp_earned ?? 0) + xpEarned,
+      lessons_completed: (today_row?.lessons_completed ?? 0) + 1,
+    },
+    { onConflict: "user_id,activity_date" },
+  );
+
+  // Also bump total_xp on profile
+  await supabase.rpc("increment_xp", { p_amount: xpEarned }).then(
+    () => {},
+    async () => {
+      // Fallback: read-modify-write profile.total_xp
+      const { data: p } = await supabase
+        .from("profiles")
+        .select("total_xp")
+        .eq("id", user.id)
+        .maybeSingle();
+      await supabase
+        .from("profiles")
+        .update({
+          total_xp: (p?.total_xp ?? 0) + xpEarned,
+          last_lesson_at: new Date().toISOString(),
+        })
+        .eq("id", user.id);
+    },
+  );
 
   return { xp_earned: xpEarned, next_review_at: nextReview.toISOString() };
 }
