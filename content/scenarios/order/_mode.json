@@ -1,0 +1,82 @@
+{
+  "id": "order",
+  "title": "Sipariş Modu",
+  "description": "Kafede, restoranda, barda — yemek ve içecek siparişi vermek. En evrensel İngilizce becerisi.",
+  "icon": "🛒",
+  "color": "#FF6B35",
+  "version": 1,
+  "skills": [
+    {
+      "id": "order.cafe",
+      "mode": "order",
+      "title": "Kafe Sipariş",
+      "description": "Starbucks, butik kafe, hızlı zincir — kahve ve içecek siparişi.",
+      "icon": "☕",
+      "prerequisites": [],
+      "lesson_count": 4
+    },
+    {
+      "id": "order.restaurant",
+      "mode": "order",
+      "title": "Restoran Sipariş",
+      "description": "Menüden seçim, garson çağırma, masa rezervasyonu.",
+      "icon": "🍽️",
+      "prerequisites": ["order.cafe"],
+      "lesson_count": 4
+    },
+    {
+      "id": "order.custom",
+      "mode": "order",
+      "title": "Özel Sipariş",
+      "description": "Alerji, vejetaryen, malzeme çıkarma — 'without onions, extra cheese'.",
+      "icon": "🥗",
+      "prerequisites": ["order.restaurant"],
+      "lesson_count": 3
+    },
+    {
+      "id": "order.bill",
+      "mode": "order",
+      "title": "Hesap ve Bölme",
+      "description": "Hesap isteme, kart/nakit, hesabı bölme — 'split the bill'.",
+      "icon": "💳",
+      "prerequisites": ["order.restaurant"],
+      "lesson_count": 3
+    },
+    {
+      "id": "order.complaint",
+      "mode": "order",
+      "title": "Şikayet",
+      "description": "Soğuk yemek, yanlış sipariş, geri gönderme — kibar şikayet İngilizcesi.",
+      "icon": "🚨",
+      "prerequisites": ["order.restaurant"],
+      "lesson_count": 3
+    },
+    {
+      "id": "order.tipping",
+      "mode": "order",
+      "title": "Bahşiş Kültürü",
+      "description": "US %20, UK %10-12, EU yuvarlama — kültürel kodlar.",
+      "icon": "💵",
+      "prerequisites": ["order.bill"],
+      "lesson_count": 2
+    },
+    {
+      "id": "order.bar",
+      "mode": "order",
+      "title": "Bar İçecek",
+      "description": "Cocktail terminolojisi, neat/on the rocks, last call.",
+      "icon": "🍸",
+      "prerequisites": [],
+      "lesson_count": 3
+    },
+    {
+      "id": "order.delivery",
+      "mode": "order",
+      "title": "Delivery App",
+      "description": "Uber Eats, DoorDash — delivery talimatları ve özel notlar.",
+      "icon": "🛵",
+      "prerequisites": [],
+      "lesson_count": 2
+    }
+  ]
+}
