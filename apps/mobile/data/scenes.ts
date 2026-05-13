@@ -302,6 +302,32 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     progressLabel: "3/3 ders ✓",
   },
   {
+    id: "scene-order-delivery-8-1",
+    emoji: "🛵",
+    title: "Uber Eats notu —\nsos ayrı,\nalerjiyi söyle",
+    description:
+      "Delivery uygulamasında özel istek: 'on the side', 'make it hot', alerji bildirimi.",
+    durationMin: 5,
+    mode: "order",
+    skillId: "order.delivery",
+    lessonId: "order.delivery.8.1",
+    isNew: true,
+    progressLabel: "1/2 ders",
+  },
+  {
+    id: "scene-order-delivery-8-2",
+    emoji: "🚪",
+    title: "Kuryeye not —\n'leave at door',\n'buzz apt 4B'",
+    description:
+      "Adres detayı, apartman zili, contactless delivery — kurye iletişimi kalıpları.",
+    durationMin: 5,
+    mode: "order",
+    skillId: "order.delivery",
+    lessonId: "order.delivery.8.2",
+    isNew: true,
+    progressLabel: "2/2 ders ✓",
+  },
+  {
     id: "scene-flirt-opener",
     emoji: "💕",
     title: "Tinder\nopener\natmak",
