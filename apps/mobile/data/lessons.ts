@@ -7,6 +7,7 @@ import { customLessons } from "./custom-lesson";
 import { billLessons } from "./bill-lesson";
 import { complaintLessons } from "./complaint-lesson";
 import { tippingLessons } from "./tipping-lesson";
+import { barLessons } from "./bar-lesson";
 import type { BundledLesson } from "./cafe-lesson";
 
 export const allLessons: ReadonlyArray<BundledLesson> = [
@@ -16,6 +17,7 @@ export const allLessons: ReadonlyArray<BundledLesson> = [
   ...billLessons,
   ...complaintLessons,
   ...tippingLessons,
+  ...barLessons,
 ];
 
 export function getLesson(id: string): BundledLesson | undefined {
