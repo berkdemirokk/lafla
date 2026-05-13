@@ -17,7 +17,15 @@ import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../components/Button";
-import { signInWithEmail, signUpWithEmail, sendPasswordReset } from "../lib/auth";
+import * as AppleAuthentication from "expo-apple-authentication";
+import { useEffect } from "react";
+import {
+  signInWithEmail,
+  signUpWithEmail,
+  sendPasswordReset,
+  isAppleAuthAvailable,
+  signInWithAppleNative,
+} from "../lib/auth";
 import { tokens } from "../theme";
 
 type Mode = "signin" | "signup" | "forgot";
@@ -29,6 +37,28 @@ export default function Auth() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [appleAvailable, setAppleAvailable] = useState(false);
+
+  useEffect(() => {
+    isAppleAuthAvailable().then(setAppleAvailable);
+  }, []);
+
+  const doAppleSignIn = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      await signInWithAppleNative();
+      router.replace("/onboarding");
+    } catch (e: any) {
+      if (e?.code === "ERR_CANCELED") {
+        setError(null);
+      } else {
+        setError(e?.message ?? "Apple Sign-In başarısız.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const submit = async () => {
     if (!email.trim()) {
@@ -180,6 +210,27 @@ export default function Auth() {
               />
             ) : null}
 
+            {appleAvailable && mode !== "forgot" && (
+              <View style={styles.appleWrap}>
+                <View style={styles.dividerRow}>
+                  <View style={styles.dividerLine} />
+                  <Text style={styles.dividerText}>VEYA</Text>
+                  <View style={styles.dividerLine} />
+                </View>
+                <AppleAuthentication.AppleAuthenticationButton
+                  buttonType={
+                    AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN
+                  }
+                  buttonStyle={
+                    AppleAuthentication.AppleAuthenticationButtonStyle.BLACK
+                  }
+                  cornerRadius={28}
+                  style={styles.appleBtn}
+                  onPress={doAppleSignIn}
+                />
+              </View>
+            )}
+
             <Pressable
               onPress={() => {
                 setError(null);
@@ -302,5 +353,29 @@ const styles = StyleSheet.create({
     color: tokens.text.secondary,
     fontSize: 14,
     fontWeight: tokens.weight.medium,
+  },
+  appleWrap: {
+    marginTop: tokens.spacing.md,
+  },
+  dividerRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+    marginVertical: tokens.spacing.md,
+  },
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: tokens.border.light,
+  },
+  dividerText: {
+    color: tokens.text.tertiary,
+    fontSize: 12,
+    fontWeight: tokens.weight.bold,
+    letterSpacing: 1.2,
+  },
+  appleBtn: {
+    height: 56,
+    width: "100%",
   },
 });

@@ -1,5 +1,7 @@
 // Lafla — Auth helpers built on Supabase.
 
+import * as AppleAuthentication from "expo-apple-authentication";
+import { Platform } from "react-native";
 import { supabase } from "./supabase";
 
 export type Profile = {
@@ -27,7 +29,7 @@ export async function signInWithEmail(email: string, password: string) {
   return data;
 }
 
-export async function signInWithApple(identityToken: string, nonce: string) {
+export async function signInWithApple(identityToken: string, nonce?: string) {
   const { data, error } = await supabase.auth.signInWithIdToken({
     provider: "apple",
     token: identityToken,
@@ -35,6 +37,28 @@ export async function signInWithApple(identityToken: string, nonce: string) {
   });
   if (error) throw error;
   return data;
+}
+
+export async function isAppleAuthAvailable(): Promise<boolean> {
+  if (Platform.OS !== "ios") return false;
+  try {
+    return await AppleAuthentication.isAvailableAsync();
+  } catch {
+    return false;
+  }
+}
+
+export async function signInWithAppleNative() {
+  const credential = await AppleAuthentication.signInAsync({
+    requestedScopes: [
+      AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
+      AppleAuthentication.AppleAuthenticationScope.EMAIL,
+    ],
+  });
+  if (!credential.identityToken) {
+    throw new Error("Apple Sign-In: no identity token returned");
+  }
+  return signInWithApple(credential.identityToken);
 }
 
 export async function signOut() {

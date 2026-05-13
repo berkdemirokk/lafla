@@ -20,6 +20,7 @@
       "bundleIdentifier": "com.lafla.app",
       "supportsTablet": true,
       "buildNumber": "1",
+      "usesAppleSignIn": true,
       "infoPlist": {
         "CFBundleLocalizations": [
           "tr",
@@ -31,7 +32,14 @@
     },
     "plugins": [
       "expo-router",
-      "expo-secure-store"
+      "expo-secure-store",
+      "expo-apple-authentication",
+      [
+        "expo-notifications",
+        {
+          "color": "#f6ff00"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

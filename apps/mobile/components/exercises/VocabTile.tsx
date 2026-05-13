@@ -1,7 +1,10 @@
 // Vocab Tile — yellow-highlighted word card with example.
 
+import { useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Button } from "../Button";
+import { SpeakerButton } from "../SpeakerButton";
+import { speak } from "../../lib/tts";
 import { tokens } from "../../theme";
 import type { ExerciseResult } from "../../lib/engine";
 
@@ -30,18 +33,30 @@ export function VocabTile({
     });
   };
 
+  // Auto-speak the word once on mount
+  useEffect(() => {
+    const t = setTimeout(() => speak(wordOrPhrase), 400);
+    return () => clearTimeout(t);
+  }, [wordOrPhrase]);
+
   return (
     <View style={styles.container}>
       <Text style={styles.prompt}>Yeni Kelime</Text>
 
       <View style={styles.heroCard}>
-        <Text style={styles.word}>{wordOrPhrase}</Text>
+        <View style={styles.wordRow}>
+          <Text style={styles.word}>{wordOrPhrase}</Text>
+          <SpeakerButton text={wordOrPhrase} size="lg" />
+        </View>
         <View style={styles.divider} />
         <Text style={styles.tr}>{trTranslation}</Text>
       </View>
 
       <View style={styles.exampleBox}>
-        <Text style={styles.exampleLabel}>Örnek</Text>
+        <View style={styles.exampleHeader}>
+          <Text style={styles.exampleLabel}>Örnek</Text>
+          <SpeakerButton text={example} size="sm" />
+        </View>
         <Text style={styles.exampleEn}>"{example}"</Text>
         <Text style={styles.exampleTr}>"{exampleTr}"</Text>
       </View>
@@ -72,13 +87,24 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: tokens.spacing.md,
   },
+  wordRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 14,
+    marginBottom: 14,
+  },
   word: {
     fontSize: 36,
     fontWeight: tokens.weight.black,
     color: tokens.text.primary,
     letterSpacing: -0.5,
     textAlign: "center",
-    marginBottom: 14,
+  },
+  exampleHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 8,
   },
   divider: {
     height: 2,
@@ -103,7 +129,6 @@ const styles = StyleSheet.create({
     fontWeight: tokens.weight.bold,
     textTransform: "uppercase",
     letterSpacing: 1,
-    marginBottom: 8,
   },
   exampleEn: {
     fontSize: 17,

@@ -19,10 +19,12 @@ export default function RootLayout() {
           options={{ contentStyle: { backgroundColor: tokens.bg.onBackground } }}
         />
         <Stack.Screen name="auth" />
+        <Stack.Screen name="tutorial" />
         <Stack.Screen name="onboarding" />
         <Stack.Screen name="feed" />
         <Stack.Screen name="lesson/[id]" />
         <Stack.Screen name="profile" />
+        <Stack.Screen name="achievements" />
       </Stack>
     </SafeAreaProvider>
   );

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import { Button } from "../Button";
+import { SpeakerButton } from "../SpeakerButton";
 import { tokens } from "../../theme";
 import { evaluateSpotMistake, type ExerciseResult } from "../../lib/engine";
 
@@ -58,11 +59,14 @@ export function SpotMistake({
             result.correct ? styles.feedbackOk : styles.feedbackMiss,
           ]}
         >
-          <Text style={styles.feedbackTitle}>
-            {result.correct
-              ? `✓ ${result.score}/100`
-              : `✗ Doğrusu: "${correctSentence}"`}
-          </Text>
+          <View style={styles.feedbackHeader}>
+            <Text style={styles.feedbackTitle}>
+              {result.correct
+                ? `✓ ${result.score}/100`
+                : `✗ Doğrusu: "${correctSentence}"`}
+            </Text>
+            <SpeakerButton text={correctSentence} size="sm" />
+          </View>
           {trExplanation && (
             <Text style={styles.feedbackText}>{trExplanation}</Text>
           )}
@@ -137,11 +141,18 @@ const styles = StyleSheet.create({
   feedbackMiss: {
     backgroundColor: tokens.semantic.errorContainer,
   },
+  feedbackHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 8,
+    marginBottom: 6,
+  },
   feedbackTitle: {
+    flex: 1,
     color: tokens.text.primary,
     fontWeight: tokens.weight.extrabold,
     fontSize: 16,
-    marginBottom: 6,
   },
   feedbackText: {
     color: tokens.text.secondary,

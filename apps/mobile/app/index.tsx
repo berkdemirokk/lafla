@@ -19,8 +19,7 @@ export default function Splash() {
     if (loading) return;
 
     const decide = async () => {
-      // Auth is OPTIONAL — anonymous users go straight to onboarding/feed.
-      // Signed-in users with onboarding done skip to feed.
+      // Signed-in + onboarding done → feed
       if (session) {
         const profile = await getCurrentProfile();
         if (profile?.onboarding_completed_at) {
@@ -28,11 +27,17 @@ export default function Splash() {
           return;
         }
       }
-      // Check local onboarding state (anonymous mode)
+      // Local state — onboarded? feed
       try {
         const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
         if (localOnboarded === "true") {
           router.replace("/feed");
+          return;
+        }
+        // First-run? Show tutorial. Otherwise onboarding.
+        const tutDone = await AsyncStorage.getItem("lafla.tutorial.done");
+        if (tutDone !== "true") {
+          router.replace("/tutorial" as never);
           return;
         }
       } catch {}
@@ -52,7 +57,16 @@ export default function Splash() {
     }
     try {
       const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
-      router.replace(localOnboarded === "true" ? "/feed" : "/onboarding");
+      if (localOnboarded === "true") {
+        router.replace("/feed");
+        return;
+      }
+      const tutDone = await AsyncStorage.getItem("lafla.tutorial.done");
+      if (tutDone !== "true") {
+        router.replace("/tutorial" as never);
+        return;
+      }
+      router.replace("/onboarding");
     } catch {
       router.replace("/onboarding");
     }

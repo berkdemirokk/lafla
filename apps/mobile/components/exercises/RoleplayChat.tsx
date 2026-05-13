@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import { Button } from "../Button";
 import { tokens } from "../../theme";
+import { speak } from "../../lib/tts";
 import {
   evaluateRoleplayTurn,
   type ExerciseResult,
@@ -52,7 +53,7 @@ export function RoleplayChat({
   const [finished, setFinished] = useState(false);
   const scrollRef = useRef<ScrollView>(null);
 
-  // Auto-show NPC turns until next user turn
+  // Auto-show NPC turns until next user turn + auto-speak last one
   useEffect(() => {
     let i = turnIdx;
     const newShown: ChatMessage[] = [];
@@ -65,6 +66,10 @@ export function RoleplayChat({
     if (newShown.length > 0) {
       setShown((prev) => [...prev, ...newShown]);
       setTurnIdx(i);
+      // Auto-speak the most recent NPC line after a short beat
+      const last = newShown[newShown.length - 1]!.message;
+      const t = setTimeout(() => speak(last), 600);
+      return () => clearTimeout(t);
     }
   }, [turnIdx, turns]);
 
@@ -212,7 +217,8 @@ function ChatBubble({ message }: { message: ChatMessage }) {
         isUser ? bubbleStyles.rowUser : bubbleStyles.rowNpc,
       ]}
     >
-      <View
+      <Pressable
+        onPress={() => speak(message.message)}
         style={[
           bubbleStyles.bubble,
           isUser ? bubbleStyles.bubbleUser : bubbleStyles.bubbleNpc,
@@ -224,9 +230,9 @@ function ChatBubble({ message }: { message: ChatMessage }) {
             isUser ? bubbleStyles.textUser : bubbleStyles.textNpc,
           ]}
         >
-          {message.message}
+          {message.message} 🔊
         </Text>
-      </View>
+      </Pressable>
       {isUser && message.score !== undefined && (
         <View
           style={[

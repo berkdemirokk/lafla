@@ -20,6 +20,11 @@ import {
   getLocalProfile,
   type LocalProfile,
 } from "../lib/local-progress";
+import {
+  disableReminders,
+  enableDailyReminder,
+  isNotificationsEnabled,
+} from "../lib/notifications";
 import { tokens } from "../theme";
 
 export default function ProfileScreen() {
@@ -28,6 +33,7 @@ export default function ProfileScreen() {
   const [local, setLocal] = useState<LocalProfile | null>(null);
   const [signedIn, setSignedIn] = useState(false);
   const [lessonsCompleted, setLessonsCompleted] = useState(0);
+  const [remindersOn, setRemindersOn] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -38,6 +44,7 @@ export default function ProfileScreen() {
       setLocal(lp);
       const completed = await getCompletedLessonIds();
       setLessonsCompleted(completed.size);
+      setRemindersOn(await isNotificationsEnabled());
       // Override with cloud values if signed in
       if (data.user) {
         const p = await getCurrentProfile();
@@ -51,6 +58,28 @@ export default function ProfileScreen() {
       }
     })();
   }, []);
+
+  const toggleReminders = async () => {
+    if (remindersOn) {
+      await disableReminders();
+      setRemindersOn(false);
+      Alert.alert("Bildirimler kapatıldı", "Her gün hatırlatıcı almayacaksın.");
+    } else {
+      const ok = await enableDailyReminder(19);
+      if (ok) {
+        setRemindersOn(true);
+        Alert.alert(
+          "Bildirimler açık ✓",
+          "Her gün saat 19:00'da ders hatırlatıcısı alacaksın.",
+        );
+      } else {
+        Alert.alert(
+          "İzin reddedildi",
+          "Ayarlar > Lafla > Bildirimler yolundan açabilirsin.",
+        );
+      }
+    }
+  };
 
   const handleSignOut = () => {
     Alert.alert("Hesap", "Çıkış yapmak istediğine emin misin?", [
@@ -146,6 +175,15 @@ export default function ProfileScreen() {
 
           <Pressable
             style={styles.row}
+            onPress={() => router.push("/achievements" as never)}
+          >
+            <Text style={styles.rowIcon}>🏆</Text>
+            <Text style={styles.rowText}>Başarımlar</Text>
+            <Text style={styles.rowChevron}>›</Text>
+          </Pressable>
+
+          <Pressable
+            style={styles.row}
             onPress={() =>
               Alert.alert("Yakında", "Premium üyelik yakında geliyor.")
             }
@@ -155,17 +193,14 @@ export default function ProfileScreen() {
             <Text style={styles.rowChevron}>›</Text>
           </Pressable>
 
-          <Pressable
-            style={styles.row}
-            onPress={() =>
-              Alert.alert(
-                "Bildirimler",
-                "Günlük hatırlatıcılar yakında geliyor.",
-              )
-            }
-          >
+          <Pressable style={styles.row} onPress={toggleReminders}>
             <Text style={styles.rowIcon}>🔔</Text>
-            <Text style={styles.rowText}>Bildirimler</Text>
+            <Text style={styles.rowText}>
+              Günlük hatırlatıcı{" "}
+              <Text style={styles.rowBadge}>
+                {remindersOn ? "(Açık)" : "(Kapalı)"}
+              </Text>
+            </Text>
             <Text style={styles.rowChevron}>›</Text>
           </Pressable>
 
@@ -321,6 +356,11 @@ const styles = StyleSheet.create({
   rowChevron: {
     fontSize: 20,
     color: tokens.text.tertiary,
+  },
+  rowBadge: {
+    color: tokens.brand.tertiary,
+    fontSize: 13,
+    fontWeight: tokens.weight.bold,
   },
   rowDanger: {
     marginTop: 8,

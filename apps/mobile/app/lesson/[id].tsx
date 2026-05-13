@@ -33,8 +33,11 @@ import {
   type ExerciseResult,
 } from "../../lib/engine";
 import { recordAttempt, completeLesson } from "../../lib/srs";
+import { evaluateAchievements } from "../../lib/achievements";
+import { AchievementToast } from "../../components/AchievementToast";
 import { getLesson, allLessons } from "../../data/lessons";
 import { tokens } from "../../theme";
+import type { AchievementDef } from "../../lib/achievements";
 
 function findNextInSkill(skillId: string, currentLessonId: string): string | null {
   const inSkill = allLessons
@@ -58,9 +61,11 @@ export default function LessonScreen() {
   const [progress, setProgress] = useState<LessonProgress>(() =>
     startLesson(lesson),
   );
+  const [unlockedToast, setUnlockedToast] = useState<AchievementDef | null>(null);
+  const [unlockQueue, setUnlockQueue] = useState<AchievementDef[]>([]);
   const lessonSavedRef = useRef(false);
 
-  // When lesson completes, persist to Supabase (once).
+  // When lesson completes, persist + evaluate achievements (once)
   useEffect(() => {
     if (!progress.completed || lessonSavedRef.current) return;
     lessonSavedRef.current = true;
@@ -70,28 +75,46 @@ export default function LessonScreen() {
         (progress.results.length * 100)
       : 0;
 
-    completeLesson({
-      lesson_id: lesson.id,
-      skill_id: lesson.skill_id,
-      accuracy,
-      exercises_completed: progress.results.length,
-    }).catch((e) => console.warn("[Lafla] completeLesson failed:", e?.message));
+    (async () => {
+      await completeLesson({
+        lesson_id: lesson.id,
+        skill_id: lesson.skill_id,
+        accuracy,
+        exercises_completed: progress.results.length,
+      }).catch(() => {});
+      const earned = await evaluateAchievements();
+      if (earned.length > 0) setUnlockQueue(earned);
+    })();
   }, [progress.completed, progress.results, lesson]);
+
+  // Drain achievement queue one at a time
+  useEffect(() => {
+    if (unlockedToast === null && unlockQueue.length > 0) {
+      setUnlockedToast(unlockQueue[0]!);
+      setUnlockQueue((q) => q.slice(1));
+    }
+  }, [unlockedToast, unlockQueue]);
 
   const nextLesson = findNextInSkill(lesson.skill_id, lesson.id);
   if (progress.completed) {
     return (
-      <LessonComplete
-        progress={progress}
-        hasNext={!!nextLesson}
-        onContinue={() => {
-          if (nextLesson) {
-            router.replace(`/lesson/${nextLesson}`);
-          } else {
-            router.replace("/feed");
-          }
-        }}
-      />
+      <>
+        <LessonComplete
+          progress={progress}
+          hasNext={!!nextLesson}
+          onContinue={() => {
+            if (nextLesson) {
+              router.replace(`/lesson/${nextLesson}`);
+            } else {
+              router.replace("/feed");
+            }
+          }}
+        />
+        <AchievementToast
+          achievement={unlockedToast}
+          onDismiss={() => setUnlockedToast(null)}
+        />
+      </>
     );
   }
 

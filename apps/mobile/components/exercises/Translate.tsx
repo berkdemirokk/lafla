@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import { Button } from "../Button";
+import { SpeakerButton } from "../SpeakerButton";
 import { tokens } from "../../theme";
 import { evaluateTranslate, type ExerciseResult } from "../../lib/engine";
 
@@ -33,8 +34,19 @@ export function Translate({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.prompt}>Çevir</Text>
+      <View style={styles.promptRow}>
+        <Text style={styles.prompt}>Çevir</Text>
+        {direction === "en_to_tr" && (
+          <SpeakerButton text={source} size="md" />
+        )}
+      </View>
       <Text style={styles.source}>{source}</Text>
+      {result && result.correct && (
+        <View style={styles.answerSpeakerRow}>
+          <SpeakerButton text={target} size="sm" />
+          <Text style={styles.answerHint}>Doğru telaffuz</Text>
+        </View>
+      )}
 
       <TextInput
         style={[
@@ -86,6 +98,23 @@ export function Translate({
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
+  promptRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: tokens.spacing.sm,
+  },
+  answerSpeakerRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    marginTop: tokens.spacing.xs,
+  },
+  answerHint: {
+    fontSize: 13,
+    color: tokens.text.secondary,
+    fontWeight: tokens.weight.medium,
+  },
   prompt: {
     fontSize: 14,
     color: tokens.text.secondary,
