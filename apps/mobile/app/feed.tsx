@@ -17,22 +17,34 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { SceneCard } from "../components/SceneCard";
 import { SAMPLE_SCENES, type Scene } from "../data/scenes";
-import { getCompletedLessonIds, getInterests } from "../lib/local-progress";
+import {
+  getCompletedLessonIds,
+  getInterests,
+  getLocalProfile,
+} from "../lib/local-progress";
 import { tokens } from "../theme";
 
 export default function Feed() {
   const router = useRouter();
   const { height } = useWindowDimensions();
-  const pageHeight = height - 200;
+  const pageHeight = height - 260;
 
   const [interests, setInterests] = useState<string[] | null>(null);
   const [completed, setCompleted] = useState<Set<string>>(new Set());
+  const [xp, setXp] = useState(0);
+  const [streak, setStreak] = useState(0);
 
   useEffect(() => {
     (async () => {
-      const [i, c] = await Promise.all([getInterests(), getCompletedLessonIds()]);
+      const [i, c, p] = await Promise.all([
+        getInterests(),
+        getCompletedLessonIds(),
+        getLocalProfile(),
+      ]);
       setInterests(i);
       setCompleted(c);
+      setXp(p.total_xp);
+      setStreak(p.current_streak);
     })();
   }, []);
 
@@ -57,7 +69,10 @@ export default function Feed() {
 
       {/* Top app bar */}
       <View style={styles.topBar}>
-        <Pressable style={styles.avatar} onPress={() => router.push("/profile" as never)} />
+        <Pressable
+          style={styles.avatar}
+          onPress={() => router.push("/profile" as never)}
+        />
         <Text style={styles.brandMark}>Lafla</Text>
         <Pressable
           style={styles.iconBtn}
@@ -65,6 +80,25 @@ export default function Feed() {
         >
           <Text style={styles.iconText}>⚙</Text>
         </Pressable>
+      </View>
+
+      {/* Stats strip — streak + XP + lessons */}
+      <View style={styles.statsStrip}>
+        <View style={styles.statPill}>
+          <Text style={styles.statEmoji}>🔥</Text>
+          <Text style={styles.statValue}>{streak}</Text>
+          <Text style={styles.statLabel}>gün</Text>
+        </View>
+        <View style={styles.statPill}>
+          <Text style={styles.statEmoji}>⚡</Text>
+          <Text style={styles.statValue}>{xp}</Text>
+          <Text style={styles.statLabel}>XP</Text>
+        </View>
+        <View style={styles.statPill}>
+          <Text style={styles.statEmoji}>📚</Text>
+          <Text style={styles.statValue}>{completed.size}</Text>
+          <Text style={styles.statLabel}>ders</Text>
+        </View>
       </View>
 
       <FlatList
@@ -159,7 +193,35 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 16,
-    height: 64,
+    height: 56,
+  },
+  statsStrip: {
+    flexDirection: "row",
+    gap: 8,
+    paddingHorizontal: 16,
+    paddingBottom: 12,
+  },
+  statPill: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderRadius: tokens.radius.full,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    gap: 4,
+  },
+  statEmoji: { fontSize: 14 },
+  statValue: {
+    fontSize: 15,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.primary,
+  },
+  statLabel: {
+    fontSize: 12,
+    color: tokens.text.secondary,
+    fontWeight: tokens.weight.medium,
   },
   avatar: {
     width: 40,
