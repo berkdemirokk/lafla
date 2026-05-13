@@ -1,141 +1,134 @@
-# Windows PC → App Store / Play Store
+# Windows PC → App Store (iOS Only)
 
-Windows'ta iOS app build edip App Store'a göndermek için **Mac GEREKMİYOR**. Cloud build kullanıyoruz: Expo EAS Build.
+Windows PC'den iOS app build edip App Store'a yüklüyoruz. **Mac gerekmiyor.**
+GitHub Actions'ın `macos-latest` runner'ı bizim için cloud'da derliyor.
 
-## Akış Diyagramı
+## Akış
 
 ```
-Windows PC                GitHub               EAS Cloud             Apple
-   |                        |                    |                       |
-   |--- git push ------->  |                    |                       |
-   |                        |--- trigger ---->  |                       |
-   |                        |                    |--- iOS .ipa build -> |
-   |                                             |                       |
-   |--- eas submit (from Windows) -----------------------------------> App Store Connect
+Windows PC                GitHub Actions          Apple
+   |                        (macos-latest)         |
+   |--- git tag + push -> |                       |
+   |                      |--- npm ci             |
+   |                      |--- eas build --local  |
+   |                      |--- IPA olusturulur    |
+   |                      |--- upload to TF -----> App Store Connect
+   |                                                |
+   |                                                +--> TestFlight beta
+   |                                                +--> App Store review
 ```
 
-Tüm bu adımlar Windows'tan yapılır. EAS Cloud'da Mac VM'ler bizim için derler.
+`.github/workflows/expo-testflight.yml` otomatize ediyor.
 
-## Gerekli Hesaplar / Maliyetler
+## Bir Defalik Kurulum
 
-| Servis | Maliyet | Ne için |
-|---|---|---|
-| **Apple Developer Program** | $99/yıl (~3.500 TL) | App Store yayın için ŞART |
-| **Google Play Console** | $25 tek seferlik (~900 TL) | Play Store için ŞART |
-| **Expo Account** | Ücretsiz | EAS Build için |
-| **EAS Build Free Tier** | 30 build/ay ücretsiz | Başlangıçta yeter |
-| **EAS Production Plan** | $19/ay (opsiyonel) | Ölçek geldiğinde |
+### 1. Apple Developer Program ($99/yıl)
+- https://developer.apple.com/programs/enroll
+- TR kredi kartı kabul
+- Kimlik doğrulama: 1-3 gün
 
-**Toplam ilk yıl maliyeti:** ~4.400 TL (Apple + Google + opsiyonel EAS).
-
-## Adım Adım Yayın (Lansman Anı)
-
-### 1. Apple Developer Hesabı Aç (~30 dakika + bekleme)
-- https://developer.apple.com → "Enroll"
-- Kişisel hesap mı, şirket hesabı mı? Solo founder için **kişisel**
-- $99 öde (TR kredi kartı kabul)
-- Verify süreci 1-3 gün (kimlik doğrulama)
-
-### 2. App Store Connect'te Uygulama Oluştur
+### 2. App Store Connect'te Lafla App Oluştur
 - https://appstoreconnect.apple.com
 - "My Apps" → "+" → "New App"
-- Bundle ID: `com.lafla.app` (önceden register et)
-- Name: Lafla
+- Name: **Lafla**
+- Primary Language: Turkish (Türkçe)
+- Bundle ID: **com.lafla.app** (önce Apple Developer'da register et)
 - SKU: lafla-mvp-001
 
-### 3. Google Play Console Hesabı (paralel)
-- https://play.google.com/console
-- $25 öde, $25'lik internal track açılır
+### 3. App Store Connect API Key Oluştur
+- App Store Connect → Users and Access → Integrations → **Keys** sekmesi
+- "+" → Generate Key
+- Name: `Lafla CI`
+- Access: **Admin**
+- Indir: `AuthKey_XXX.p8` (sadece BİR KEZ indirebilirsin, sakla)
+- Not al:
+  - Key ID (10 karakter)
+  - Issuer ID (UUID)
 
-### 4. Expo / EAS Kurulum (Windows'ta)
-```powershell
-# Expo CLI yükle
-npm install -g expo-cli eas-cli
+### 4. Expo Account (Ücretsiz)
+- https://expo.dev/signup
+- Access token al: Settings → Access Tokens → Create
 
-# Login
-eas login
+### 5. GitHub Secrets'a Ekle
+`.github/SECRETS.md` dokümanı tüm detayları içeriyor. Özet:
 
-# Lafla repo'sunda projeyi EAS'e bağla
-cd C:\Users\berk\eng\lafla\apps\mobile
-eas init
-```
-
-### 5. İlk Build (EAS Cloud)
-```powershell
-# Preview build (TestFlight için, internal)
-eas build --platform ios --profile preview
-
-# Production build (App Store gönderim için)
-eas build --platform ios --profile production
-
-# Android da paralel
-eas build --platform android --profile production
-```
-
-Build EAS Cloud'da çalışır (10-20 dakika). Tamamlanınca link verir.
-
-### 6. App Store'a Gönder
-```powershell
-eas submit --platform ios --profile production
-```
-
-Bu komut .ipa'yı App Store Connect'e yükler.
-
-### 7. App Store Connect'te Review Submit
-- App Store Connect'e gir
-- Uploaded build'i seç
-- Metadata doldur (screenshots, description, keywords, age rating)
-- "Submit for Review"
-- 1-3 gün review süresi
-- Onaylanırsa yayında
-
-## Lokal Geliştirme (Mac Gerekmeden)
-
-### Android Test (Tamamen Windows'ta)
-- **Expo Go uygulaması** indir (telefonda)
-- `npm start` çalıştır
-- QR kodu okut → app telefonda açılır
-- Hot reload, debug — hepsi çalışır
-
-### iOS Test (Windows'ta Sınırlı)
-- **iOS simülatör Windows'ta YOK** (Apple tools sadece Mac'te)
-- Alternatif 1: EAS development build → fiziksel iPhone'a yükle (TestFlight üzerinden)
-- Alternatif 2: Web build ile yaklaşık önizleme (`npm run web`)
-- Alternatif 3: macOS olan arkadaşa Expo Go ile QR gönder
-
-## Lansman Öncesi Checklist
-
-- [ ] Apple Developer hesap aktif
-- [ ] Google Play Console aktif
-- [ ] Bundle ID register: com.lafla.app (Apple + Google)
-- [ ] Expo account aktif
-- [ ] App Store Connect'te app metadata hazır
-- [ ] 5+ screenshot (iPhone 6.7" + 5.5" gerekli)
-- [ ] App icon (1024x1024) hazır
-- [ ] Privacy policy URL hazır
-- [ ] App description (TR + EN)
-- [ ] Keywords (App Store SEO)
-- [ ] Age rating (4+ veya 12+)
-- [ ] Categories: Education, Lifestyle (secondary)
-
-## Tahmini Lansman Süresi
-
-| Aşama | Süre |
+| Secret | Değer |
 |---|---|
-| Hesap açma + doğrulama | 3-7 gün |
-| İlk EAS build | 30 dakika |
-| Metadata + screenshots | 1 gün |
-| App Store review | 1-3 gün |
-| Play Store review | 1-2 gün |
-| **Toplam** | **5-15 gün** lansmandan önce |
+| `EXPO_TOKEN` | Expo dashboard'tan |
+| `APP_STORE_CONNECT_KEY_ID` | Step 3'ten |
+| `APP_STORE_CONNECT_ISSUER_ID` | Step 3'ten |
+| `APP_STORE_CONNECT_PRIVATE_KEY` | `.p8` dosyasının tam içeriği |
+| `APPLE_TEAM_ID` | developer.apple.com/account |
+
+## Her Build Sırasında
+
+**Manuel:**
+```
+GitHub → Actions → "Lafla iOS TestFlight" → "Run workflow"
+```
+
+**Otomatik (tag push):**
+```powershell
+# apps/mobile/package.json'da version bump
+git tag lafla-v0.1.0
+git push origin lafla-v0.1.0
+```
+
+Workflow başlar → ~30 dakika sonra TestFlight'ta build görünür.
+
+## Lokal Geliştirme (Windows'ta)
+
+### Android Yok — iOS-only
+Bu MVP iOS-only. Android Phase 2'de düşünülecek.
+
+### iOS Test Telefonunda
+Mac olmadan iOS test için 2 yol:
+
+**Yol 1: TestFlight Beta**
+- EAS preview build → TestFlight internal
+- iPhone'da TestFlight app'i indir, oradan beta'ya katıl
+- ~30 dakikalık döngü
+
+**Yol 2: Expo Go (sınırlı)**
+- Bazı native modüller çalışmaz ama UI test için yeter
+- `npm start` → QR kod → iPhone'da Expo Go'da aç
+- Hot reload var
+
+## Maliyetler (iOS-only Versiyon)
+
+| Servis | Maliyet |
+|---|---|
+| Apple Developer Program | $99/yıl (~3.500 TL) |
+| Expo Account | Ücretsiz |
+| EAS Build | --local kullandığımız için EAS Cloud minute harcamıyoruz |
+| GitHub Actions macos-latest | Public repo ücretsiz, private 2000 dk/ay ücretsiz |
+
+**Toplam ilk yıl: ~3.500 TL** (Android atlandığı için 900 TL tasarruf).
+
+## Lansman Süreci
+
+1. **Build hazır** (workflow tetikle)
+2. **TestFlight Internal Testing** — sen ve 5-10 arkadaş test eder
+3. **TestFlight External Testing** (opsiyonel) — 100+ beta tester
+4. **App Store Connect** — Metadata + screenshots + description + keywords doldur
+5. **Submit for Review** — 1-3 gün review
+6. **Release** — Approved olduktan sonra yayına al
+
+## Sorun Çıkarsa
+
+| Sorun | Çözüm |
+|---|---|
+| "Bundle ID not registered" | Apple Developer → Identifiers → "+" → com.lafla.app ekle |
+| "Build failed in Xcode" | Workflow log'larında Xcode hatası ara, genelde Swift sürümü |
+| "Invalid signing" | Cert + Profile EAS tarafından otomatik yönetilir, ASC API Key doğru mu kontrol et |
+| "Upload to TestFlight failed" | Key permission'ı Admin mi? Issuer ID doğru mu? |
 
 ## Şu An Hazır Olan
 
-- ✅ `apps/mobile/` iskelet — Expo + RN + TypeScript
-- ✅ `apps/mobile/app.json` — bundle ID locked: `com.lafla.app`
-- ✅ `eas.json` — build + submit profilleri
-- ✅ Dark mode default
-- ✅ TR + EN localization placeholder
-- ⏳ Apple Developer hesabı (kullanıcı açacak, lansman öncesi)
-- ⏳ Expo account (kullanıcı açacak, ilk build öncesi)
-- ⏳ Screenshot + metadata (lansman öncesi)
+- ✅ `.github/workflows/expo-testflight.yml` (CI/CD pipeline)
+- ✅ `.github/SECRETS.md` (secret rehberi)
+- ✅ `apps/mobile/app.json` (iOS-only, bundle ID locked)
+- ✅ `eas.json` (build profilleri)
+- ⏳ Apple Developer hesabı + App Store Connect setup (sen yapacaksın)
+- ⏳ Expo account + token (sen yapacaksın)
+- ⏳ Secret'lar repo'ya eklenmiş (sen yapacaksın)
