@@ -258,11 +258,182 @@ export const cafeLesson_1_2: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 1.3 — Süt + Özelleştirme
+// ============================================================
+export const cafeLesson_1_3: BundledLesson = {
+  id: "order.cafe.1.3",
+  skill_id: "order.cafe",
+  index: 3,
+  title: "Süt + Özelleştirme",
+  description:
+    "Yulaf sütü, kafeinsiz, ekstra shot — siparişini özelleştirmenin İngilizce kalıpları.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.1.3.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "oat milk",
+      tr_translation: "Yulaf sütü",
+      example: "Could I have that with oat milk, please?",
+      example_tr: "Onu yulaf sütüyle alabilir miyim, lütfen?",
+    },
+    {
+      id: "ex.1.3.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Yulaf sütüyle alabilir miyim?",
+      target: "Could I have it with oat milk, please?",
+      accepted_variants: [
+        "Could I have that with oat milk, please?",
+        "Can I get it with oat milk, please?",
+        "Can I have it with oat milk?",
+        "With oat milk, please.",
+        "Make it with oat milk, please.",
+        "I'll have it with oat milk.",
+      ],
+      tr_hint:
+        "'with oat milk' = yulaf sütüyle. 'Make it' veya 'have it' kalıbı.",
+    },
+    {
+      id: "ex.1.3.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Make it a ___, please.",
+      answer: "double",
+      distractors: ["single", "large", "hot", "small"],
+      tr_hint:
+        "'Make it a double' = çift espresso shot. Boyut yerine güç soruyor.",
+    },
+    {
+      id: "ex.1.3.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "I'll",
+        "have",
+        "a",
+        "decaf",
+        "with",
+        "oat",
+        "milk",
+        "please",
+      ],
+      correct_sentence: "I'll have a decaf with oat milk please",
+      tr_translation: "Bir kafeinsiz, yulaf sütüyle alacağım, lütfen.",
+    },
+    {
+      id: "ex.1.3.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I want it without sugar and milk less.",
+      correct_sentence: "I'd like it with no sugar and less milk, please.",
+      tr_explanation:
+        "'I want' kaba; 'I'd like' kibar. 'Milk less' yanlış sıralama — 'less milk' doğru. 'Without sugar' yerine 'with no sugar' daha akıcı.",
+    },
+    {
+      id: "ex.1.3.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Latte sipariş ettin, barista süt ve şeker tercihini soruyor.",
+      npc_role: "Barista",
+      setting: "Café counter",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "One latte coming up — what kind of milk? We've got whole, oat, almond, and soy.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oat|almond|soy|whole|skim).{0,10}(milk|please)?",
+            "(oat|almond|soy|whole|skim) milk",
+            "I('ll take|'ll have|d like) (oat|almond|soy|whole|skim)",
+            "with (oat|almond|soy|whole|skim)",
+            "no milk",
+          ],
+          hint_tr: "Süt çeşidini söyle: '[Type] milk, please'.",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. Sugar?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "no sugar",
+            "no thanks",
+            "without sugar",
+            "(one|two|three) sugar",
+            "just a (little|bit)",
+            "extra sugar",
+            "i'm good",
+            "no thank you",
+          ],
+          hint_tr: "Şeker durumu: 'No sugar', 'One sugar', 'No thanks'.",
+        },
+        {
+          speaker: "npc",
+          message: "Perfect, that'll be just a minute.",
+        },
+      ],
+    },
+    {
+      id: "ex.1.3.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Decaf' ne demek?",
+          options: [
+            "Çok güçlü kahve",
+            "Kafeinsiz kahve",
+            "Soğuk kahve",
+            "Sütsüz kahve",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Decaf' = decaffeinated, kafein çıkarılmış kahve.",
+        },
+        {
+          question: "Hangisi DOĞRU sıralama?",
+          options: [
+            "Milk less, please",
+            "Less milk, please",
+            "Few milk, please",
+            "Less of milk, please",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "İngilizce'de sıfat (less) önce, isim (milk) sonra: 'less milk'.",
+        },
+        {
+          question: "'Make it a double' ne demek?",
+          options: [
+            "İki bardak yap",
+            "Çift espresso shot ekle",
+            "İkişer ikişer ver",
+            "Çift kişilik yap",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Espresso bazlı içeceklerde 'double' = 2x shot.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
 // Lesson registry
 // ============================================================
 export const cafeLessons: ReadonlyArray<BundledLesson> = [
   cafeLesson_1_1,
   cafeLesson_1_2,
+  cafeLesson_1_3,
 ];
 
 export function getCafeLesson(id: string): BundledLesson | undefined {

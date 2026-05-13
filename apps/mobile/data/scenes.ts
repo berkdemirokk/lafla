@@ -42,6 +42,19 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     progressLabel: "2/4 ders",
   },
   {
+    id: "scene-order-cafe-1-3",
+    emoji: "🌾",
+    title: "Yulaf sütlü,\nkafeinsiz,\ndouble shot",
+    description:
+      "Siparişini özelleştir: süt türü, şeker, ekstra shot — alerji ve tercih kalıpları.",
+    durationMin: 6,
+    mode: "order",
+    skillId: "order.cafe",
+    lessonId: "order.cafe.1.3",
+    isNew: true,
+    progressLabel: "3/4 ders",
+  },
+  {
     id: "scene-flirt-opener",
     emoji: "💕",
     title: "Tinder\nopener\natmak",
