@@ -13,9 +13,10 @@ import type { LessonProgress } from "../lib/engine";
 interface Props {
   progress: LessonProgress;
   onContinue: () => void;
+  hasNext?: boolean;
 }
 
-export function LessonComplete({ progress, onContinue }: Props) {
+export function LessonComplete({ progress, onContinue, hasNext }: Props) {
   const correctCount = progress.results.filter((r) => r.correct).length;
   const total = progress.results.length;
   const [streak, setStreak] = useState<number | null>(null);
@@ -69,7 +70,11 @@ export function LessonComplete({ progress, onContinue }: Props) {
       </View>
 
       <View style={styles.footer}>
-        <Button label="Sıradaki Sahne →" onPress={onContinue} stacked />
+        <Button
+          label={hasNext ? "Sıradaki Ders →" : "Akışa Dön →"}
+          onPress={onContinue}
+          stacked
+        />
       </View>
     </View>
   );

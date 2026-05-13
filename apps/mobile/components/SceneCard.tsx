@@ -24,7 +24,10 @@ export function SceneCard({
   onPress,
 }: Props) {
   return (
-    <View style={styles.card}>
+    <Pressable
+      style={({ pressed }) => [styles.card, pressed && styles.cardPressed]}
+      onPress={onPress}
+    >
       {/* Yellow top accent bar */}
       <View style={styles.accentBar} />
 
@@ -51,14 +54,11 @@ export function SceneCard({
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.desc}>{description}</Text>
 
-        <Pressable
-          style={({ pressed }) => [styles.btn, pressed && styles.btnPressed]}
-          onPress={onPress}
-        >
+        <View style={styles.btn}>
           <Text style={styles.btnLabel}>BAŞLA →</Text>
-        </Pressable>
+        </View>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
@@ -74,6 +74,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 30,
     elevation: 12,
+  },
+  cardPressed: {
+    opacity: 0.92,
+    transform: [{ scale: 0.99 }],
   },
   accentBar: {
     position: "absolute",

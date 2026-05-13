@@ -33,8 +33,18 @@ import {
   type ExerciseResult,
 } from "../../lib/engine";
 import { recordAttempt, completeLesson } from "../../lib/srs";
-import { getLesson } from "../../data/lessons";
+import { getLesson, allLessons } from "../../data/lessons";
 import { tokens } from "../../theme";
+
+function findNextInSkill(skillId: string, currentLessonId: string): string | null {
+  const inSkill = allLessons
+    .filter((l) => l.skill_id === skillId)
+    .sort((a, b) => a.index - b.index);
+  const idx = inSkill.findIndex((l) => l.id === currentLessonId);
+  if (idx === -1) return null;
+  const next = inSkill[idx + 1];
+  return next?.id ?? null;
+}
 
 export default function LessonScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -68,11 +78,19 @@ export default function LessonScreen() {
     }).catch((e) => console.warn("[Lafla] completeLesson failed:", e?.message));
   }, [progress.completed, progress.results, lesson]);
 
+  const nextLesson = findNextInSkill(lesson.skill_id, lesson.id);
   if (progress.completed) {
     return (
       <LessonComplete
         progress={progress}
-        onContinue={() => router.replace("/feed")}
+        hasNext={!!nextLesson}
+        onContinue={() => {
+          if (nextLesson) {
+            router.replace(`/lesson/${nextLesson}`);
+          } else {
+            router.replace("/feed");
+          }
+        }}
       />
     );
   }

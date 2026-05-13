@@ -15,6 +15,7 @@ import {
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../components/Button";
 import { signInWithEmail, signUpWithEmail, sendPasswordReset } from "../lib/auth";
 import { tokens } from "../theme";
@@ -80,6 +81,11 @@ export default function Auth() {
     }
   };
 
+  const skipAuth = async () => {
+    const onboarded = await AsyncStorage.getItem("lafla.onboarded");
+    router.replace(onboarded === "true" ? "/feed" : "/onboarding");
+  };
+
   return (
     <SafeAreaView style={styles.safe}>
       <StatusBar style="dark" />
@@ -91,6 +97,9 @@ export default function Auth() {
           contentContainerStyle={styles.scroll}
           keyboardShouldPersistTaps="handled"
         >
+          <Pressable style={styles.skipBtn} onPress={skipAuth}>
+            <Text style={styles.skipText}>Atla →</Text>
+          </Pressable>
           <View style={styles.header}>
             <Text style={styles.wordmark}>Lafla</Text>
             <View style={styles.accentLine} />
@@ -280,6 +289,17 @@ const styles = StyleSheet.create({
   },
   forgotText: {
     color: tokens.brand.tertiary,
+    fontSize: 14,
+    fontWeight: tokens.weight.medium,
+  },
+  skipBtn: {
+    alignSelf: "flex-end",
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    marginBottom: 4,
+  },
+  skipText: {
+    color: tokens.text.secondary,
     fontSize: 14,
     fontWeight: tokens.weight.medium,
   },
