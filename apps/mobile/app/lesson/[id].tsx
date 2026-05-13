@@ -1,5 +1,5 @@
 // Lesson screen — wires lesson runner state to exercise UIs.
-// All 7 exercise types now wired in ExerciseRenderer dispatch.
+// Looks up lesson by ID from cafeLessons registry; supports all 7 types.
 
 import { useState } from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
@@ -23,18 +23,18 @@ import {
   type LessonProgress,
   type ExerciseResult,
 } from "../../lib/engine";
-import { cafeLesson_1_1 } from "../../data/cafe-lesson";
+import { getCafeLesson } from "../../data/cafe-lesson";
 import { tokens } from "../../theme";
 
 export default function LessonScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
 
-  if (id !== "order.cafe.1.1") {
+  const lesson = id ? getCafeLesson(id) : undefined;
+  if (!lesson) {
     return <Placeholder lessonId={id} onBack={() => router.back()} />;
   }
 
-  const lesson = cafeLesson_1_1;
   const [progress, setProgress] = useState<LessonProgress>(() =>
     startLesson(lesson),
   );
@@ -77,7 +77,7 @@ export default function LessonScreen() {
 
       <View style={styles.content}>
         <ExerciseRenderer
-          key={exercise.id}
+          key={String(exercise.id)}
           exercise={exercise}
           onComplete={onExerciseDone}
         />
@@ -90,79 +90,78 @@ function ExerciseRenderer({
   exercise,
   onComplete,
 }: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  exercise: any;
+  exercise: Record<string, unknown>;
   onComplete: (result: ExerciseResult) => void;
 }) {
-  switch (exercise.type) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const ex = exercise as any;
+  switch (ex.type) {
     case "vocab_tile":
       return (
         <VocabTile
-          wordOrPhrase={exercise.word_or_phrase}
-          trTranslation={exercise.tr_translation}
-          example={exercise.example}
-          exampleTr={exercise.example_tr}
+          wordOrPhrase={ex.word_or_phrase}
+          trTranslation={ex.tr_translation}
+          example={ex.example}
+          exampleTr={ex.example_tr}
           onComplete={onComplete}
         />
       );
     case "translate":
       return (
         <Translate
-          source={exercise.source}
-          target={exercise.target}
-          acceptedVariants={exercise.accepted_variants ?? []}
-          direction={exercise.direction}
-          trHint={exercise.tr_hint}
+          source={ex.source}
+          target={ex.target}
+          acceptedVariants={ex.accepted_variants ?? []}
+          direction={ex.direction}
+          trHint={ex.tr_hint}
           onComplete={onComplete}
         />
       );
     case "fill_blank":
       return (
         <FillBlank
-          sentence={exercise.sentence_template}
-          answer={exercise.answer}
-          distractors={exercise.distractors}
-          trHint={exercise.tr_hint}
+          sentence={ex.sentence_template}
+          answer={ex.answer}
+          distractors={ex.distractors}
+          trHint={ex.tr_hint}
           onComplete={onComplete}
         />
       );
     case "word_order":
       return (
         <WordOrder
-          scrambledTokens={exercise.scrambled_tokens}
-          correctSentence={exercise.correct_sentence}
-          trTranslation={exercise.tr_translation}
+          scrambledTokens={ex.scrambled_tokens}
+          correctSentence={ex.correct_sentence}
+          trTranslation={ex.tr_translation}
           onComplete={onComplete}
         />
       );
     case "spot_mistake":
       return (
         <SpotMistake
-          incorrectSentence={exercise.incorrect_sentence}
-          correctSentence={exercise.correct_sentence}
-          trExplanation={exercise.tr_explanation}
+          incorrectSentence={ex.incorrect_sentence}
+          correctSentence={ex.correct_sentence}
+          trExplanation={ex.tr_explanation}
           onComplete={onComplete}
         />
       );
     case "roleplay_chat":
       return (
         <RoleplayChat
-          scenarioDescription={exercise.scenario_description}
-          npcRole={exercise.npc_role}
-          setting={exercise.setting}
-          turns={exercise.turns}
+          scenarioDescription={ex.scenario_description}
+          npcRole={ex.npc_role}
+          setting={ex.setting}
+          turns={ex.turns}
           onComplete={onComplete}
         />
       );
     case "recap_quiz":
-      return (
-        <RecapQuiz questions={exercise.questions} onComplete={onComplete} />
-      );
+      return <RecapQuiz questions={ex.questions} onComplete={onComplete} />;
     default:
       return (
         <View>
           <Text style={{ color: tokens.text.primary }}>
-            Bilinmeyen alıştırma tipi: {exercise.type}
+            Bilinmeyen alıştırma tipi: {ex.type}
           </Text>
         </View>
       );
@@ -184,7 +183,7 @@ function Placeholder({
         <Text style={styles.placeholderTitle}>Ders Henüz Hazır Değil</Text>
         <Text style={styles.placeholderId}>{lessonId}</Text>
         <Text style={styles.placeholderDesc}>
-          Şu an sadece "order.cafe.1.1" çalışıyor.
+          Bu ders yakında. Şu an "order.cafe.1.1" ve "order.cafe.1.2" çalışıyor.
         </Text>
         <Pressable style={styles.backBtn} onPress={onBack}>
           <Text style={styles.backBtnText}>Akışa Geri Dön</Text>

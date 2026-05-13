@@ -1,5 +1,5 @@
 // Sample feed scenes. Production data comes from content/scenarios/ via the backend.
-// Stark Modern theme: single accent color, no per-mode color variation.
+// Cyber-Electric Modern: single brand accent across all scenes.
 
 export interface Scene {
   id: string;
@@ -29,6 +29,19 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     progressLabel: "1/4 ders",
   },
   {
+    id: "scene-order-cafe-1-2",
+    emoji: "🥛",
+    title: "Latte mi,\ncappuccino mu?\nFarkı söyle",
+    description:
+      "Spesifik kahve çeşitleri, boyutlar — barista'ya net sipariş ver.",
+    durationMin: 6,
+    mode: "order",
+    skillId: "order.cafe",
+    lessonId: "order.cafe.1.2",
+    isNew: true,
+    progressLabel: "2/4 ders",
+  },
+  {
     id: "scene-flirt-opener",
     emoji: "💕",
     title: "Tinder\nopener\natmak",
@@ -38,7 +51,7 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     mode: "flirt",
     skillId: "flirt.opener",
     lessonId: "flirt.opener.1.1",
-    progressLabel: "Yeni skill",
+    progressLabel: "Yakında",
   },
   {
     id: "scene-daily-airport",
@@ -50,5 +63,6 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     mode: "daily",
     skillId: "daily.airport",
     lessonId: "daily.airport.1.1",
+    progressLabel: "Yakında",
   },
 ];
