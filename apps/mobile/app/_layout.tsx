@@ -22,6 +22,7 @@ export default function RootLayout() {
         <Stack.Screen name="onboarding" />
         <Stack.Screen name="feed" />
         <Stack.Screen name="lesson/[id]" />
+        <Stack.Screen name="profile" />
       </Stack>
     </SafeAreaProvider>
   );

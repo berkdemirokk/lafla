@@ -6,6 +6,7 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { InterestCard } from "../components/InterestCard";
 import { Button } from "../components/Button";
 import { INTERESTS } from "../data/interests";
@@ -28,15 +29,16 @@ export default function Onboarding() {
 
   const handleContinue = async () => {
     setSaving(true);
-    try {
-      await completeOnboarding(Array.from(selected));
-    } catch (e) {
-      console.warn("[Lafla] onboarding save failed:", e);
-      // Continue anyway — user can still browse with local-only state.
-    } finally {
-      setSaving(false);
-      router.replace("/feed");
-    }
+    const interests = Array.from(selected);
+    // Always save locally
+    await AsyncStorage.multiSet([
+      ["lafla.onboarded", "true"],
+      ["lafla.interests", JSON.stringify(interests)],
+    ]).catch(() => {});
+    // Try cloud sync if signed in (silent fail otherwise)
+    await completeOnboarding(interests).catch(() => {});
+    setSaving(false);
+    router.replace("/feed");
   };
 
   return (

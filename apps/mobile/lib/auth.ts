@@ -78,6 +78,8 @@ export async function updateProfile(updates: Partial<Profile>) {
 }
 
 export async function completeOnboarding(interests: string[]) {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return null; // anonymous mode — local-only
   return updateProfile({
     interests,
     onboarding_completed_at: new Date().toISOString(),

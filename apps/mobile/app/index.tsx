@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useSession } from "../lib/useSession";
 import { getCurrentProfile } from "../lib/auth";
 import { tokens } from "../theme";
@@ -18,16 +19,24 @@ export default function Splash() {
     if (loading) return;
 
     const decide = async () => {
-      if (!session) {
-        router.replace("/auth");
-        return;
+      // Auth is OPTIONAL — anonymous users go straight to onboarding/feed.
+      // Signed-in users with onboarding done skip to feed.
+      if (session) {
+        const profile = await getCurrentProfile();
+        if (profile?.onboarding_completed_at) {
+          router.replace("/feed");
+          return;
+        }
       }
-      const profile = await getCurrentProfile();
-      if (profile?.onboarding_completed_at) {
-        router.replace("/feed");
-      } else {
-        router.replace("/onboarding");
-      }
+      // Check local onboarding state (anonymous mode)
+      try {
+        const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
+        if (localOnboarded === "true") {
+          router.replace("/feed");
+          return;
+        }
+      } catch {}
+      router.replace("/onboarding");
     };
 
     const t = setTimeout(decide, 800);
@@ -36,12 +45,17 @@ export default function Splash() {
 
   const skip = async () => {
     if (loading) return;
-    if (!session) {
-      router.replace("/auth");
+    if (session) {
+      const profile = await getCurrentProfile();
+      router.replace(profile?.onboarding_completed_at ? "/feed" : "/onboarding");
       return;
     }
-    const profile = await getCurrentProfile();
-    router.replace(profile?.onboarding_completed_at ? "/feed" : "/onboarding");
+    try {
+      const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
+      router.replace(localOnboarded === "true" ? "/feed" : "/onboarding");
+    } catch {
+      router.replace("/onboarding");
+    }
   };
 
   return (

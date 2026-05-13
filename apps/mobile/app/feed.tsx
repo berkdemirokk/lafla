@@ -15,7 +15,6 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { SceneCard } from "../components/SceneCard";
 import { SAMPLE_SCENES } from "../data/scenes";
-import { signOut } from "../lib/auth";
 import { tokens } from "../theme";
 
 export default function Feed() {
@@ -29,23 +28,11 @@ export default function Feed() {
 
       {/* Top app bar */}
       <View style={styles.topBar}>
-        <View style={styles.avatar} />
+        <Pressable style={styles.avatar} onPress={() => router.push("/profile" as never)} />
         <Text style={styles.brandMark}>Lafla</Text>
         <Pressable
           style={styles.iconBtn}
-          onPress={() =>
-            Alert.alert("Hesap", "Çıkış yapmak istediğine emin misin?", [
-              { text: "Vazgeç", style: "cancel" },
-              {
-                text: "Çıkış",
-                style: "destructive",
-                onPress: async () => {
-                  await signOut().catch(() => {});
-                  router.replace("/auth");
-                },
-              },
-            ])
-          }
+          onPress={() => router.push("/profile" as never)}
         >
           <Text style={styles.iconText}>⚙</Text>
         </Pressable>
@@ -76,9 +63,31 @@ export default function Feed() {
       {/* Bottom nav */}
       <View style={styles.bottomNav}>
         <NavTab icon="🎓" label="Learn" active />
-        <NavTab icon="💬" label="Chat" />
-        <NavTab icon="📺" label="Social" />
-        <NavTab icon="👤" label="Profile" />
+        <NavTab
+          icon="💬"
+          label="Chat"
+          onPress={() =>
+            Alert.alert(
+              "Chat",
+              "AI chat partner yakında geliyor. Şimdilik ders içindeki roleplay'leri dene.",
+            )
+          }
+        />
+        <NavTab
+          icon="📺"
+          label="Social"
+          onPress={() =>
+            Alert.alert(
+              "Social",
+              "Topluluk ve arkadaşlık özellikleri yakında.",
+            )
+          }
+        />
+        <NavTab
+          icon="👤"
+          label="Profile"
+          onPress={() => router.push("/profile" as never)}
+        />
       </View>
     </SafeAreaView>
   );
@@ -88,13 +97,18 @@ function NavTab({
   icon,
   label,
   active,
+  onPress,
 }: {
   icon: string;
   label: string;
   active?: boolean;
+  onPress?: () => void;
 }) {
   return (
-    <Pressable style={[navStyles.tab, active && navStyles.tabActive]}>
+    <Pressable
+      style={[navStyles.tab, active && navStyles.tabActive]}
+      onPress={onPress}
+    >
       <Text style={navStyles.icon}>{icon}</Text>
       <Text style={[navStyles.label, active && navStyles.labelActive]}>
         {label}
