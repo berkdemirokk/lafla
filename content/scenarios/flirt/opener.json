@@ -1,0 +1,437 @@
+{
+  "mode": "flirt",
+  "sub_scenario": "opener",
+  "version": 1,
+  "generated_at": "2026-05-13",
+  "generated_by": "claude-opus-4-7",
+  "description": "Tinder/Bumble açılış mesajları — 50 native opener, tonsal ve seviyesel çeşitlilik. Türk ESL öğrenenler için kültürel notlar ve sık yapılan tuzaklar dahil.",
+  "phrases": [
+    {
+      "id": "flirt.opener.001",
+      "phrase": "Okay, I have to ask — best or worst pickup line you've ever gotten? I'll judge fairly.",
+      "tone": "playful",
+      "level": "intermediate",
+      "length_class": "long",
+      "tr_note": "Karşıdakini konuşmaya açan klasik soru — kendi sırrını vermez. \"I'll judge fairly\" hafif espri katar.",
+      "tr_trap": "\"I have to ask\" = \"sormak zorundayım\" — \"I must ask\" daha sert kalır, kullanma."
+    },
+    {
+      "id": "flirt.opener.002",
+      "phrase": "Quick question: are you more of a 'plan everything' or 'figure it out as we go' person?",
+      "tone": "playful",
+      "level": "intermediate",
+      "length_class": "long",
+      "tr_note": "Kişilik testi tarzı soru — kavgaya açmaz, eğlenceli. Sonraki konuşmayı dallandırır.",
+      "tr_trap": "\"Figure it out as we go\" = \"yola devam ederken çözeriz\" — direkt çevirisi yok, idiom olarak öğren."
+    },
+    {
+      "id": "flirt.opener.003",
+      "phrase": "Settle a debate for me — pineapple on pizza: yes, no, or 'we can't be friends'?",
+      "tone": "playful",
+      "level": "intermediate",
+      "length_class": "long",
+      "tr_note": "İnternet klasik tartışması — pizzada ananas memesi. Kuşaklar arası ortak referans."
+    },
+    {
+      "id": "flirt.opener.004",
+      "phrase": "If you had to describe your week in one emoji, which one?",
+      "tone": "playful",
+      "level": "beginner",
+      "length_class": "medium",
+      "tr_note": "Basit, kısa, herkesin cevap verebileceği bir soru. Beginner için ideal."
+    },
+    {
+      "id": "flirt.opener.005",
+      "phrase": "I have a feeling you're either a great storyteller or you just look like one in photos. Which is it?",
+      "tone": "playful",
+      "level": "intermediate",
+      "length_class": "long",
+      "tr_note": "Yumuşak iltifat + meraklı soru — defansiyel olmadan ilgi göster.",
+      "tr_trap": "\"I have a feeling\" = \"hissediyorum ki\" — \"I feel\" yerine bu doğal."
+    },
+    {
+      "id": "flirt.opener.006",
+      "phrase": "Be honest — what's a totally unimpressive talent you secretly think is impressive?",
+      "tone": "playful",
+      "level": "advanced",
+      "length_class": "medium",
+      "tr_note": "İlginç soru — kendine güveni olan biri sorar. Eğlenceli cevap çıkarır.",
+      "tr_trap": "\"Be honest\" emir kipi ama dostça — Türkçe \"dürüst ol\" emrinden daha yumuşak ton."
+    },
+    {
+      "id": "flirt.opener.007",
+      "phrase": "Plot twist: I'm bad at openers. What's a question you wish someone would actually ask you?",
+      "tone": "playful",
+      "level": "intermediate",
+      "length_class": "long",
+      "tr_note": "Kendi zayıflığını sahiplenip soruyu karşıya at — confidence göstergesi.",
+      "tr_trap": "\"Plot twist\" = film/dizi terimi, slang olarak \"şaşırtıcı gelişme\". Türkçe direkt yok."
+    },
+    {
+      "id": "flirt.opener.008",
+      "phrase": "Your bio says you love hiking. Mine says I love elevators. We could meet somewhere in the middle.",
+      "tone": "witty",
+      "level": "intermediate",
+      "length_class": "long",
+      "tr_note": "Bio okuduğunu gösterip espri kat — premium opener. \"Meet in the middle\" idiom: orta noktada buluşmak."
+    },
+    {
+      "id": "flirt.opener.009",
+      "phrase": "I read your profile twice to make sure I had a good opener. I did not. Hi.",
+      "tone": "witty",
+      "level": "intermediate",
+      "length_class": "long",
+      "tr_note": "Kendi zayıflığını ironiyle anlat. \"Hi\"yla biten kısa, doğal kapanış.",
+      "tr_trap": "\"I did not\" tek başına = \"hayır, yapamadım\" anlamında. Türkçe direkt \"ben değil\" değil."
+    },
+    {
+      "id": "flirt.opener.010",
+      "phrase": "I'm normally better at this. I'd offer evidence but you'd have to take my word for it.",
+      "tone": "witty",
+      "level": "advanced",
+      "length_class": "long",
+      "tr_note": "Kendinden emin self-deprecation — humble brag.",
+      "tr_trap": "\"Take my word for it\" = \"söylediğime inan\" idiom. Türkçe direkt çevirisi yok."
+    },
+    {
+      "id": "flirt.opener.011",
+      "phrase": "Statistically, the longer I think about my opener, the worse it gets. So: hi.",
+      "tone": "witty",
+      "level": "advanced",
+      "length_class": "medium",
+      "tr_note": "Kendi düşünme sürecini espriye çevir — modern, akıllı ton."
+    },
+    {
+      "id": "flirt.opener.012",
+      "phrase": "If I ask you 'how's your day going,' would you actually tell me, or do the polite thing?",
+      "tone": "witty",
+      "level": "advanced",
+      "length_class": "long",
+      "tr_note": "Sıradan soruyla dalga geç + gerçek bağlantı iste. Üst seviye opener.",
+      "tr_trap": "\"Do the polite thing\" = \"nezaket gereği geçiştirmek\" — phrase'i öğren."
+    },
+    {
+      "id": "flirt.opener.013",
+      "phrase": "I'm trying to come across as charming and unhinged in equal measure. Let me know how I'm doing.",
+      "tone": "witty",
+      "level": "advanced",
+      "length_class": "long",
+      "tr_note": "Çift kişilikli humour — modern, ironik. Risk al, kazan veya kaybet.",
+      "tr_trap": "\"Come across as\" = \"... olarak görünmek/algılanmak\" idiom. \"Look like\" değil."
+    },
+    {
+      "id": "flirt.opener.014",
+      "phrase": "Hi. I'm trying to think of something clever, but your bio kind of already nailed it.",
+      "tone": "sincere",
+      "level": "intermediate",
+      "length_class": "medium",
+      "tr_note": "Bio okuduğunu basitçe göster + iltifat. En güvenli sincere opener.",
+      "tr_trap": "\"Nailed it\" = \"tam isabet, çok iyi yaptın\" slang. Sık kullanılan ifade, ezberle."
+    },
+    {
+      "id": "flirt.opener.015",
+      "phrase": "I don't really know how to do these. So — hi, what's something good that happened to you this week?",
+      "tone": "sincere",
+      "length_class": "long",
+      "level": "intermediate",
+      "tr_note": "Doğrudan, dürüst, ufak soruyla bağlantı kur. Tinder/Bumble en yüksek cevap oranı veren tarz."
+    },
+    {
+      "id": "flirt.opener.016",
+      "phrase": "I usually overthink openers. Decided to just say hi instead.",
+      "tone": "sincere",
+      "level": "intermediate",
+      "length_class": "medium",
+      "tr_note": "Aşırı düşünmeyi kabul edip basit kal — modern dürüstlük.",
+      "tr_trap": "\"Overthink\" = aşırı düşünmek, tek kelime. Türkçe \"çok düşünüyorum\" değil, idiom."
+    },
+    {
+      "id": "flirt.opener.017",
+      "phrase": "Your photo with the dog made me smile. That's a real reason for the message, not a line.",
+      "tone": "sincere",
+      "level": "intermediate",
+      "length_class": "long",
+      "tr_note": "Spesifik bir fotoğrafa odaklan + samimi tonu vurgula. \"Line\" = klişe öpük cümle."
+    },
+    {
+      "id": "flirt.opener.018",
+      "phrase": "I'd ask how your weekend was, but I'm more curious about something you've been excited about lately.",
+      "tone": "sincere",
+      "level": "advanced",
+      "length_class": "long",
+      "tr_note": "Sıradan soruyu reddet, daha derin bir soru sor. Bağlantı niyeti net."
+    },
+    {
+      "id": "flirt.opener.019",
+      "phrase": "Genuine question — what made you swipe right? I'm curious about your reasoning.",
+      "tone": "sincere",
+      "level": "intermediate",
+      "length_class": "medium",
+      "tr_note": "Direkt, dürüst soru — karşıdakini düşünmeye davet et."
+    },
+    {
+      "id": "flirt.opener.020",
+      "phrase": "There's a 60% chance we'd get along really well. I'm here for the other 40%.",
+      "tone": "mysterious",
+      "level": "advanced",
+      "length_class": "long",
+      "tr_note": "Risk + meraklılık — yüksek cevap oranı veren mysterious opener.",
+      "tr_trap": "\"Get along\" = anlaşmak (insan-insan ilişki). Türkçe direkt yok, phrasal verb öğren."
+    },
+    {
+      "id": "flirt.opener.021",
+      "phrase": "I have a theory about you. Want to hear it, or would you rather guess what it is?",
+      "tone": "mysterious",
+      "level": "intermediate",
+      "length_class": "medium",
+      "tr_note": "Merak uyandır, kontrolü karşıya bırak — çift yönlü opener."
+    },
+    {
+      "id": "flirt.opener.022",
+      "phrase": "Two truths and one lie about your profile — I'll go first if you want.",
+      "tone": "mysterious",
+      "level": "intermediate",
+      "length_class": "medium",
+      "tr_note": "Klasik ice-breaker oyunu referansı. Sahne hazır, oyna."
+    },
+    {
+      "id": "flirt.opener.023",
+      "phrase": "If you had to pick one song to introduce yourself, what would it be?",
+      "tone": "mysterious",
+      "level": "intermediate",
+      "length_class": "medium",
+      "tr_note": "Müzik üzerinden kişilik soruşturma — sonraki konuşmaya çok dal açar."
+    },
+    {
+      "id": "flirt.opener.024",
+      "phrase": "I'm going to say 'hey' and pretend it's intentional minimalism.",
+      "tone": "self-aware",
+      "level": "advanced",
+      "length_class": "short",
+      "tr_note": "Kendi tembelliğini sanat seviyesine yükselt — ironik, modern.",
+      "tr_trap": "\"Pretend\" = numaradan yapmak. Türkçe \"rol yapmak\"."
+    },
+    {
+      "id": "flirt.opener.025",
+      "phrase": "Pre-warning: my conversation is better than my opener. Low bar, but still.",
+      "tone": "self-aware",
+      "level": "advanced",
+      "length_class": "medium",
+      "tr_note": "Beklenti düşür ki üstüne çıkasın — strateji.",
+      "tr_trap": "\"Low bar\" = \"düşük beklenti çıtası\" idiom."
+    },
+    {
+      "id": "flirt.opener.026",
+      "phrase": "I matched with you three days ago and have been thinking of the right opener since. This is it.",
+      "tone": "self-aware",
+      "level": "intermediate",
+      "length_class": "long",
+      "tr_note": "Süreç dürüstlüğü — kullanıcı aktif düşündüğünü göster."
+    },
+    {
+      "id": "flirt.opener.027",
+      "phrase": "Look, we both know I'm here to figure out if you're into the same dumb things I am.",
+      "tone": "self-aware",
+      "level": "advanced",
+      "length_class": "long",
+      "tr_note": "Doğrudan amacı sahiplen — confident, modern.",
+      "tr_trap": "\"Be into\" = ilgi duymak, sevmek (informal). \"I'm into pizza\" doğru."
+    },
+    {
+      "id": "flirt.opener.028",
+      "phrase": "I'm aware 'hi' is technically an opener but you deserve better. Working on it.",
+      "tone": "self-aware",
+      "level": "intermediate",
+      "length_class": "medium",
+      "tr_note": "Süreç sahiplenme + iltifat. Eğlenceli ve samimi."
+    },
+    {
+      "id": "flirt.opener.029",
+      "phrase": "Your photos look like you'd be more interesting in person than I am on a Saturday night.",
+      "tone": "self-deprecating",
+      "level": "advanced",
+      "length_class": "long",
+      "tr_note": "Kendiyle dalga + iltifat — confidence belirten klasik humble line.",
+      "tr_trap": "\"Saturday night\" = sosyal yaşamın doruğu çağrışımı, kültürel referans."
+    },
+    {
+      "id": "flirt.opener.030",
+      "phrase": "Warning: I'm one of those people who gets weirdly invested in pet photos. Yours are now a problem.",
+      "tone": "self-deprecating",
+      "level": "advanced",
+      "length_class": "long",
+      "tr_note": "Pet fotoğrafına yumuşak iltifat + kendinle dalga.",
+      "tr_trap": "\"Get invested in\" = bir şeye duygusal olarak bağlanmak. \"Invested\" parasal değil burada."
+    },
+    {
+      "id": "flirt.opener.031",
+      "phrase": "I have approximately zero good lines saved. Improvising — what's a small win you had this week?",
+      "tone": "self-deprecating",
+      "level": "intermediate",
+      "length_class": "long",
+      "tr_note": "Dürüst ol + soruyla devam et. \"Small win\" = küçük başarı, modern slang."
+    },
+    {
+      "id": "flirt.opener.032",
+      "phrase": "I would say something smart, but honesty seems to work better. So: I think your taste in coffee shops is correct.",
+      "tone": "self-deprecating",
+      "level": "intermediate",
+      "length_class": "long",
+      "tr_note": "Strateji açıklayıp basit iltifat — comedy patterning."
+    },
+    {
+      "id": "flirt.opener.033",
+      "phrase": "I'm objectively bad at small talk. Let's skip it — what's a movie you can rewatch endlessly?",
+      "tone": "self-deprecating",
+      "level": "intermediate",
+      "length_class": "long",
+      "tr_note": "Small talk'u reddet, derin soru sor — hızlı bağlantı.",
+      "tr_trap": "\"Objectively\" = \"objektif olarak\", öz-eleştiri yumuşatıcı."
+    },
+    {
+      "id": "flirt.opener.034",
+      "phrase": "Coffee or cocktails — which one are you going to make me get wrong on the first date?",
+      "tone": "flirty",
+      "level": "advanced",
+      "length_class": "long",
+      "tr_note": "Doğrudan ilk randevu kapı aç — confident, oyun gibi.",
+      "tr_trap": "\"Make me get wrong\" = \"yanlış seçmemi sağlayacaksın\" yapısı. Türkçe direkt çevirisi yok."
+    },
+    {
+      "id": "flirt.opener.035",
+      "phrase": "Tell me you're as much fun in person as your photos suggest, and I'll plan something.",
+      "tone": "flirty",
+      "level": "advanced",
+      "length_class": "long",
+      "tr_note": "Şartlı buluşma teklifi — iltifat + tahrik dengesi."
+    },
+    {
+      "id": "flirt.opener.036",
+      "phrase": "I think we'd either get along instantly or argue about something stupid. Both sound fun.",
+      "tone": "flirty",
+      "level": "intermediate",
+      "length_class": "long",
+      "tr_note": "İki ihtimali sahiplen — chemistry vurgusu."
+    },
+    {
+      "id": "flirt.opener.037",
+      "phrase": "Your smile in photo 3 did some damage. Just so you know.",
+      "tone": "flirty",
+      "level": "intermediate",
+      "length_class": "short",
+      "tr_note": "Spesifik iltifat — \"did some damage\" idiom: çok etkiledi.",
+      "tr_trap": "\"Just so you know\" = \"bilgin olsun\" — casual phrase, soğuk değil."
+    },
+    {
+      "id": "flirt.opener.038",
+      "phrase": "If I asked you out for coffee Saturday, would you say yes or politely deflect?",
+      "tone": "flirty",
+      "level": "advanced",
+      "length_class": "medium",
+      "tr_note": "Hipotetik teklif — risk almadan suyu yokla.",
+      "tr_trap": "\"Politely deflect\" = nazikçe geçiştirmek. Türkçe \"kibarca atlamak\" gibi."
+    },
+    {
+      "id": "flirt.opener.039",
+      "phrase": "Quick test: are you better at picking restaurants or making me regret picking the restaurant?",
+      "tone": "flirty",
+      "level": "advanced",
+      "length_class": "long",
+      "tr_note": "Eğlenceli kişilik testi — implicit dating teklifi."
+    },
+    {
+      "id": "flirt.opener.040",
+      "phrase": "If we matched by accident, just say the word and I'll unmatch. Otherwise — hi.",
+      "tone": "confident",
+      "level": "advanced",
+      "length_class": "medium",
+      "tr_note": "Düşük baskı + güçlü karakter — yüksek match retention oranı verir.",
+      "tr_trap": "\"Unmatch\" Tinder slang, tek kelime. \"Say the word\" = \"söyle yeter\" idiom."
+    },
+    {
+      "id": "flirt.opener.041",
+      "phrase": "I don't do long openers. So — what's the next interesting thing happening in your life?",
+      "tone": "confident",
+      "level": "intermediate",
+      "length_class": "medium",
+      "tr_note": "Karakter göster + derinlik talep et.",
+      "tr_trap": "\"I don't do X\" = \"X'i yapmam, benim stilim değil\" idiom."
+    },
+    {
+      "id": "flirt.opener.042",
+      "phrase": "I'll skip the small talk. What's something you've been overthinking lately?",
+      "tone": "confident",
+      "level": "intermediate",
+      "length_class": "medium",
+      "tr_note": "Small talk'u atla, içe gir — vulnerable ama confident."
+    },
+    {
+      "id": "flirt.opener.043",
+      "phrase": "Most of these conversations die in the first three messages. Let's beat the odds.",
+      "tone": "confident",
+      "level": "advanced",
+      "length_class": "medium",
+      "tr_note": "Meta-yorum + takım hissi yarat.",
+      "tr_trap": "\"Beat the odds\" = ihtimallere rağmen başarmak idiom."
+    },
+    {
+      "id": "flirt.opener.044",
+      "phrase": "I'm not great at openers. I am great at picking restaurants. Want to test the second one?",
+      "tone": "confident",
+      "level": "intermediate",
+      "length_class": "medium",
+      "tr_note": "Zayıflığı sahiplen + güçlü yana yönlendir — date teklifi içerir."
+    },
+    {
+      "id": "flirt.opener.045",
+      "phrase": "I matched with you so I could ask — who hurt the person who wrote your bio's last line?",
+      "tone": "sassy",
+      "level": "advanced",
+      "length_class": "long",
+      "tr_note": "Bio'sundaki cynic bir cümleye gönderme yap — sharp humor.",
+      "tr_trap": "\"Who hurt you?\" = \"seni kim incitti?\" — modern Twitter slang, geçmiş travma esprisi."
+    },
+    {
+      "id": "flirt.opener.046",
+      "phrase": "Be straight with me — are you here for the chat or just collecting matches like trading cards?",
+      "tone": "sassy",
+      "level": "advanced",
+      "length_class": "long",
+      "tr_note": "Doğrudan niyet sor — sharp ama eğlenceli.",
+      "tr_trap": "\"Be straight with me\" = dürüst ol, açık konuş. \"Hetero ol\" değil — idiom."
+    },
+    {
+      "id": "flirt.opener.047",
+      "phrase": "I have one question. If you can answer it well, I'll commit to a real second message.",
+      "tone": "sassy",
+      "level": "intermediate",
+      "length_class": "medium",
+      "tr_note": "Oyun gibi soru kur — devam etmek için bahaneye davet."
+    },
+    {
+      "id": "flirt.opener.048",
+      "phrase": "Hi. Tell me something I wouldn't guess from your profile.",
+      "tone": "confident",
+      "level": "intermediate",
+      "length_class": "short",
+      "tr_note": "En kısa-güçlü opener. Karşıdakine kontrol ver."
+    },
+    {
+      "id": "flirt.opener.049",
+      "phrase": "Hey — what's a question you're tired of being asked on these apps?",
+      "tone": "sincere",
+      "level": "intermediate",
+      "length_class": "medium",
+      "tr_note": "Meta-soru — sıradanlıktan kaç. Tinder/Bumble psikolojisi öğret.",
+      "tr_trap": "\"Tired of being asked\" = passive voice + idiom. \"Sorulmaktan bıkmak\"."
+    },
+    {
+      "id": "flirt.opener.050",
+      "phrase": "Good morning. Or evening. I have no idea what time you'll see this. Hi anyway.",
+      "tone": "playful",
+      "level": "beginner",
+      "length_class": "medium",
+      "tr_note": "Zaman dilimi bilmezlikten basit espri. Beginner için doğal opener."
+    }
+  ]
+}
