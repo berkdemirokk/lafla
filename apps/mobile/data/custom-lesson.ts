@@ -353,9 +353,178 @@ export const customLesson_3_2: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 3.3 — Vejetaryen + Vegan + Glütensiz
+// ============================================================
+export const customLesson_3_3: BundledLesson = {
+  id: "order.custom.3.3",
+  skill_id: "order.custom",
+  index: 3,
+  title: "Vejetaryen + Vegan + Glütensiz",
+  description:
+    "Diyet tercihini söyle, menüde seçenek var mı sor — yurtdışında en sık donulan durum.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.3.3.1",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "I'm vegetarian",
+      tr_translation: "Vejetaryenim",
+      example: "I'm vegetarian — do you have any options?",
+      example_tr: "Vejetaryenim — seçenek var mı?",
+    },
+    {
+      id: "ex.3.3.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Veganım, süt ürünü yiyemiyorum.",
+      target: "I'm vegan — I don't eat dairy.",
+      accepted_variants: [
+        "I'm vegan, no dairy please.",
+        "I'm a vegan and don't eat dairy.",
+        "I don't eat any animal products.",
+        "I'm vegan, so no dairy or eggs.",
+        "Vegan here, no dairy.",
+        "I'm fully vegan.",
+      ],
+      tr_hint:
+        "'I'm vegan' tam yapı. 'Dairy' = süt ürünleri (peynir, yoğurt, süt). Vegan = hiç hayvansal ürün.",
+    },
+    {
+      id: "ex.3.3.3",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "Do you have any ___ options?",
+      answer: "vegan",
+      distractors: ["vegans", "vegetable", "veggie"],
+      tr_hint:
+        "Sıfat olarak 'vegan' tekil. 'Veggie' günlük slang ama 'vegan' resmi terim.",
+    },
+    {
+      id: "ex.3.3.4",
+      type: "word_order",
+      difficulty: 2,
+      scrambled_tokens: [
+        "Is",
+        "this",
+        "dish",
+        "gluten",
+        "free",
+      ],
+      correct_sentence: "Is this dish gluten free",
+      tr_translation: "Bu yemek glütensiz mi?",
+    },
+    {
+      id: "ex.3.3.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I no meat eat.",
+      correct_sentence: "I don't eat meat.",
+      tr_explanation:
+        "Olumsuz yapı 'don't' + base verb. Kelime sırası: özne + don't + fiil + nesne. 'I no meat eat' Türkçe sıralaması.",
+    },
+    {
+      id: "ex.3.3.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Yeni bir restorandasin, vejetaryensin. Garson menü öneriyor.",
+      npc_role: "Garson",
+      setting: "Restaurant with vegetarian options",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Welcome! Have you been here before, or should I walk you through the menu?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "i'?m (vegetarian|vegan|pescatarian)",
+            "(do you|got any|any) (have any )?(vegetarian|vegan|veggie|plant[- ]based|gluten[- ]free) (options|dishes|meals)",
+            "what'?s (vegetarian|vegan|gluten[- ]free)",
+            "i don'?t eat (meat|dairy|fish|gluten)",
+            "first time( here)?",
+          ],
+          hint_tr:
+            "Diyetini söyle veya 'Do you have vegetarian options?' diye sor.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Of course. Our pasta primavera is vegetarian, and the falafel plate is fully vegan. The risotto is also gluten-free.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "i('ll have|d like|'ll take) (the )?(pasta|falafel|risotto|primavera)",
+            "(the )?(pasta|falafel|risotto)( sounds good| please)?",
+            "what'?s in the (pasta|falafel|risotto)",
+            "(does|is) (the )?(pasta|risotto) (have|contain)",
+            "is the (pasta|risotto) (vegan|gluten[- ]free)",
+          ],
+          hint_tr:
+            "Sipariş ver veya detay sor: 'What's in the falafel?', 'Is the risotto vegan?'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Great choice. I'll let the kitchen know to prep it carefully.",
+        },
+      ],
+    },
+    {
+      id: "ex.3.3.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Vegetarian ve vegan farkı?",
+          options: [
+            "İkisi aynı şey",
+            "Vegetarian et yemez, vegan hiçbir hayvan ürünü yemez",
+            "Vegan balık yer, vegetarian yemez",
+            "Vegetarian sadece sebze yer",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Vegetarian: et + balık yok ama süt + yumurta olabilir. Vegan: hiçbir hayvansal ürün yok (süt, yumurta, bal dahil).",
+        },
+        {
+          question: "'Bu glütensiz mi?' — en doğal soru?",
+          options: [
+            "Gluten this?",
+            "Without gluten this?",
+            "Is this gluten free?",
+            "No gluten in?",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Gluten free' sıfat olarak yerleşik. 'Is this [X] free?' standart soru kalıbı.",
+        },
+        {
+          question: "'Do you have any ___ options?' — boşluğu doldur",
+          options: [
+            "vegans",
+            "vegan",
+            "vegetabley",
+            "vegies",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Sıfat olarak 'vegan options'. Aynı şekilde 'gluten-free options', 'vegetarian options'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
 // Custom lessons registry
 // ============================================================
 export const customLessons: ReadonlyArray<BundledLesson> = [
   customLesson_3_1,
   customLesson_3_2,
+  customLesson_3_3,
 ];

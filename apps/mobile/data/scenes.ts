@@ -146,6 +146,19 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     progressLabel: "2/3 ders",
   },
   {
+    id: "scene-order-custom-3-3",
+    emoji: "🌱",
+    title: "Vejetaryenim,\nveganım,\nglütensiz var mı?",
+    description:
+      "Diyet tercihini söyle, menüde uygun seçenek var mı sor — kafe/restoranda donmama.",
+    durationMin: 5,
+    mode: "order",
+    skillId: "order.custom",
+    lessonId: "order.custom.3.3",
+    isNew: true,
+    progressLabel: "3/3 ders ✓",
+  },
+  {
     id: "scene-flirt-opener",
     emoji: "💕",
     title: "Tinder\nopener\natmak",
