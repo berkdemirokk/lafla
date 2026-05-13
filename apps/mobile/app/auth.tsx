@@ -16,10 +16,10 @@ import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "../components/Button";
-import { signInWithEmail, signUpWithEmail } from "../lib/auth";
+import { signInWithEmail, signUpWithEmail, sendPasswordReset } from "../lib/auth";
 import { tokens } from "../theme";
 
-type Mode = "signin" | "signup";
+type Mode = "signin" | "signup" | "forgot";
 
 export default function Auth() {
   const router = useRouter();
@@ -30,13 +30,25 @@ export default function Auth() {
   const [error, setError] = useState<string | null>(null);
 
   const submit = async () => {
-    if (!email.trim() || password.length < 6) {
-      setError("Email + 6 karakterden uzun parola gerekli.");
+    if (!email.trim()) {
+      setError("Email gerekli.");
+      return;
+    }
+    if (mode !== "forgot" && password.length < 6) {
+      setError("Parola en az 6 karakter olmalı.");
       return;
     }
     setLoading(true);
     setError(null);
     try {
+      if (mode === "forgot") {
+        await sendPasswordReset(email.trim());
+        setError(
+          "Email'ine parola sıfırlama linki gönderdik. Linke tıkla, yeni parola belirle, sonra giriş yap.",
+        );
+        setMode("signin");
+        return;
+      }
       if (mode === "signup") {
         const result = await signUpWithEmail(email.trim(), password);
         if (!result.session) {
@@ -83,7 +95,11 @@ export default function Auth() {
             <Text style={styles.wordmark}>Lafla</Text>
             <View style={styles.accentLine} />
             <Text style={styles.tagline}>
-              {mode === "signup" ? "Yeni hesap aç" : "Tekrar hoş geldin"}
+              {mode === "signup"
+                ? "Yeni hesap aç"
+                : mode === "forgot"
+                ? "Parolanı sıfırla"
+                : "Tekrar hoş geldin"}
             </Text>
           </View>
 
@@ -101,28 +117,52 @@ export default function Auth() {
               autoComplete="email"
             />
 
-            <Text style={styles.label}>Parola</Text>
-            <TextInput
-              style={styles.input}
-              value={password}
-              onChangeText={setPassword}
-              placeholder="En az 6 karakter"
-              placeholderTextColor={tokens.text.tertiary}
-              secureTextEntry
-              autoComplete={mode === "signup" ? "new-password" : "current-password"}
-            />
+            {mode !== "forgot" && (
+              <>
+                <Text style={styles.label}>Parola</Text>
+                <TextInput
+                  style={styles.input}
+                  value={password}
+                  onChangeText={setPassword}
+                  placeholder="En az 6 karakter"
+                  placeholderTextColor={tokens.text.tertiary}
+                  secureTextEntry
+                  autoComplete={
+                    mode === "signup" ? "new-password" : "current-password"
+                  }
+                />
+              </>
+            )}
 
             {error ? <Text style={styles.error}>{error}</Text> : null}
 
             <View style={{ marginTop: tokens.spacing.md }}>
               <Button
                 label={
-                  loading ? "..." : mode === "signup" ? "Hesap aç" : "Giriş yap"
+                  loading
+                    ? "..."
+                    : mode === "signup"
+                    ? "Hesap aç"
+                    : mode === "forgot"
+                    ? "Reset linki gönder"
+                    : "Giriş yap"
                 }
                 onPress={submit}
                 disabled={loading}
               />
             </View>
+
+            {mode === "signin" && (
+              <Pressable
+                onPress={() => {
+                  setError(null);
+                  setMode("forgot");
+                }}
+                style={styles.forgotRow}
+              >
+                <Text style={styles.forgotText}>Parolamı unuttum</Text>
+              </Pressable>
+            )}
 
             {loading ? (
               <ActivityIndicator
@@ -134,16 +174,28 @@ export default function Auth() {
             <Pressable
               onPress={() => {
                 setError(null);
-                setMode(mode === "signup" ? "signin" : "signup");
+                setMode(
+                  mode === "signup"
+                    ? "signin"
+                    : mode === "forgot"
+                    ? "signin"
+                    : "signup",
+                );
               }}
               style={styles.switchRow}
             >
               <Text style={styles.switchText}>
                 {mode === "signup"
                   ? "Hesabın var mı? "
+                  : mode === "forgot"
+                  ? "Vazgeç? "
                   : "Hesabın yok mu? "}
                 <Text style={styles.switchLink}>
-                  {mode === "signup" ? "Giriş yap" : "Kayıt ol"}
+                  {mode === "signup"
+                    ? "Giriş yap"
+                    : mode === "forgot"
+                    ? "Geri dön"
+                    : "Kayıt ol"}
                 </Text>
               </Text>
             </Pressable>
@@ -221,5 +273,14 @@ const styles = StyleSheet.create({
   switchLink: {
     color: tokens.brand.tertiary,
     fontWeight: tokens.weight.bold,
+  },
+  forgotRow: {
+    alignItems: "center",
+    marginTop: tokens.spacing.sm,
+  },
+  forgotText: {
+    color: tokens.brand.tertiary,
+    fontSize: 14,
+    fontWeight: tokens.weight.medium,
   },
 });
