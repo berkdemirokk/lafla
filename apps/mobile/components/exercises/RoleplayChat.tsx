@@ -9,8 +9,6 @@ import {
   Pressable,
   ScrollView,
   StyleSheet,
-  KeyboardAvoidingView,
-  Platform,
 } from "react-native";
 import { Button } from "../Button";
 import { tokens } from "../../theme";
@@ -120,10 +118,7 @@ export function RoleplayChat({
   };
 
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === "ios" ? "padding" : undefined}
-    >
+    <View style={styles.container}>
       {/* NPC header */}
       <View style={styles.header}>
         <View style={styles.avatar}>
@@ -164,18 +159,23 @@ export function RoleplayChat({
       {!finished ? (
         <View style={styles.inputBar}>
           {currentTurn?.hint_tr && (
-            <Text style={styles.hintText}>💡 {currentTurn.hint_tr}</Text>
+            <View style={styles.hintBox}>
+              <Text style={styles.hintText}>💡 {currentTurn.hint_tr}</Text>
+            </View>
           )}
           <View style={styles.inputRow}>
             <TextInput
               style={styles.input}
               value={input}
               onChangeText={setInput}
-              placeholder="Cevabını yaz..."
+              placeholder="İngilizce cevap yaz..."
               placeholderTextColor={tokens.text.tertiary}
               editable={awaitingUserInput}
               multiline
               autoCapitalize="sentences"
+              returnKeyType="send"
+              blurOnSubmit={false}
+              onSubmitEditing={submitUserTurn}
             />
             <Pressable
               style={[
@@ -194,7 +194,7 @@ export function RoleplayChat({
           <Button label={`Devam et →`} onPress={finalize} />
         </View>
       )}
-    </KeyboardAvoidingView>
+    </View>
   );
 }
 
@@ -313,10 +313,19 @@ const styles = StyleSheet.create({
     borderTopColor: tokens.border.light,
     gap: 6,
   },
+  hintBox: {
+    backgroundColor: tokens.brand.primarySoft,
+    borderLeftWidth: 3,
+    borderLeftColor: tokens.brand.primary,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 8,
+    marginBottom: 4,
+  },
   hintText: {
-    fontSize: 12,
-    color: tokens.text.tertiary,
-    fontStyle: "italic",
+    fontSize: 13,
+    color: tokens.text.primary,
+    lineHeight: 18,
   },
   inputRow: {
     flexDirection: "row",

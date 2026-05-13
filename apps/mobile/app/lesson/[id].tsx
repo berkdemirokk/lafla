@@ -3,7 +3,14 @@
 // Persists attempts + lesson completion to Supabase when signed in.
 
 import { useState, useEffect, useRef } from "react";
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Pressable,
+  StyleSheet,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -88,9 +95,12 @@ export default function LessonScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.safe}>
+    <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
       <StatusBar style="dark" />
-
+      <KeyboardAvoidingView
+        style={styles.flex}
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
+      >
       <View style={styles.header}>
         <View style={styles.topRow}>
           <Pressable style={styles.exitBtn} onPress={() => router.back()}>
@@ -115,6 +125,7 @@ export default function LessonScreen() {
           onComplete={onExerciseDone}
         />
       </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
@@ -231,6 +242,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: tokens.bg.app,
   },
+  flex: { flex: 1 },
   header: {
     paddingHorizontal: 16,
     paddingTop: 16,
