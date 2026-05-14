@@ -1,38 +1,16 @@
-// Lafla — Local push notifications for daily streak reminders.
-// Uses expo-notifications. iOS only (we're iOS-only).
+// Lafla — Notifications stub.
+// Re-enable by adding expo-notifications back to package.json + plugins,
+// then running `eas credentials:configure-build --platform ios` to add
+// aps-environment to the provisioning profile.
 
-import * as Notifications from "expo-notifications";
-import * as Device from "expo-device";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Platform } from "react-native";
 
 const K_NOTIFY_ENABLED = "lafla.notify.enabled";
-const K_NOTIFY_HOUR = "lafla.notify.hour"; // 0-23, default 19
+const K_NOTIFY_HOUR = "lafla.notify.hour";
 const DEFAULT_HOUR = 19;
 
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldShowBanner: true,
-    shouldShowList: true,
-    shouldPlaySound: true,
-    shouldSetBadge: true,
-  }),
-});
-
 export async function requestPermission(): Promise<boolean> {
-  if (!Device.isDevice) return false;
-  if (Platform.OS !== "ios") return false;
-  const settings = await Notifications.getPermissionsAsync();
-  if (settings.granted) return true;
-  const req = await Notifications.requestPermissionsAsync({
-    ios: {
-      allowAlert: true,
-      allowBadge: true,
-      allowSound: true,
-    },
-  });
-  return req.granted;
+  return false;
 }
 
 export async function isNotificationsEnabled(): Promise<boolean> {
@@ -53,42 +31,11 @@ export async function getReminderHour(): Promise<number> {
   }
 }
 
-export async function enableDailyReminder(hour = DEFAULT_HOUR): Promise<boolean> {
-  const ok = await requestPermission();
-  if (!ok) return false;
-
-  await Notifications.cancelAllScheduledNotificationsAsync();
-  await Notifications.scheduleNotificationAsync({
-    content: {
-      title: "Lafla",
-      body: pickReminderBody(),
-      sound: "default",
-    },
-    trigger: {
-      type: Notifications.SchedulableTriggerInputTypes.DAILY,
-      hour,
-      minute: 0,
-    },
-  });
-  await AsyncStorage.multiSet([
-    [K_NOTIFY_ENABLED, "true"],
-    [K_NOTIFY_HOUR, String(hour)],
-  ]).catch(() => {});
-  return true;
+export async function enableDailyReminder(_hour = DEFAULT_HOUR): Promise<boolean> {
+  // Stub: notifications not yet enabled in this build.
+  return false;
 }
 
-export async function disableReminders() {
-  await Notifications.cancelAllScheduledNotificationsAsync();
+export async function disableReminders(): Promise<void> {
   await AsyncStorage.setItem(K_NOTIFY_ENABLED, "false").catch(() => {});
-}
-
-function pickReminderBody(): string {
-  const messages = [
-    "Bugünkü 5 dakikan hazır mı? Söyle gitsin.",
-    "Streak'ini koru — bir ders seni bekliyor.",
-    "İngilizce hayatın bir parçası. Bugün de devam.",
-    "5 dakika = 1 ders. Hadi başlayalım.",
-    "Söyle gitsin. Lafla seni bekliyor.",
-  ];
-  return messages[Math.floor(Math.random() * messages.length)]!;
 }

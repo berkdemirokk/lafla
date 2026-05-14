@@ -17,7 +17,6 @@ import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../components/Button";
-import * as AppleAuthentication from "expo-apple-authentication";
 import { useEffect } from "react";
 import {
   signInWithEmail,
@@ -216,26 +215,7 @@ export default function Auth() {
               />
             ) : null}
 
-            {appleAvailable && mode !== "forgot" && (
-              <View style={styles.appleWrap}>
-                <View style={styles.dividerRow}>
-                  <View style={styles.dividerLine} />
-                  <Text style={styles.dividerText}>VEYA</Text>
-                  <View style={styles.dividerLine} />
-                </View>
-                <AppleAuthentication.AppleAuthenticationButton
-                  buttonType={
-                    AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN
-                  }
-                  buttonStyle={
-                    AppleAuthentication.AppleAuthenticationButtonStyle.BLACK
-                  }
-                  cornerRadius={28}
-                  style={styles.appleBtn}
-                  onPress={doAppleSignIn}
-                />
-              </View>
-            )}
+            {/* Apple Sign-In stubbed in current build; restore once credentials refreshed */}
 
             <Pressable
               onPress={() => {

@@ -1,7 +1,6 @@
 // Lafla — Auth helpers built on Supabase.
+// Apple Sign-In currently stubbed (re-enable with eas credentials refresh).
 
-import * as AppleAuthentication from "expo-apple-authentication";
-import { Platform } from "react-native";
 import { supabase } from "./supabase";
 
 export type Profile = {
@@ -40,25 +39,11 @@ export async function signInWithApple(identityToken: string, nonce?: string) {
 }
 
 export async function isAppleAuthAvailable(): Promise<boolean> {
-  if (Platform.OS !== "ios") return false;
-  try {
-    return await AppleAuthentication.isAvailableAsync();
-  } catch {
-    return false;
-  }
+  return false;
 }
 
-export async function signInWithAppleNative() {
-  const credential = await AppleAuthentication.signInAsync({
-    requestedScopes: [
-      AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
-      AppleAuthentication.AppleAuthenticationScope.EMAIL,
-    ],
-  });
-  if (!credential.identityToken) {
-    throw new Error("Apple Sign-In: no identity token returned");
-  }
-  return signInWithApple(credential.identityToken);
+export async function signInWithAppleNative(): Promise<never> {
+  throw new Error("Apple Sign-In not enabled in this build");
 }
 
 export async function signOut() {
