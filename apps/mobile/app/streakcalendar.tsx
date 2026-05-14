@@ -33,11 +33,11 @@ const TR_MONTHS = [
   "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık",
 ];
 
-const ACHIEVEMENTS: { threshold: number; emoji: string; title: string; subtitle: string }[] = [
-  { threshold: 3, emoji: "🌱", title: "Tohum", subtitle: "3 gün üst üste" },
-  { threshold: 7, emoji: "⚡", title: "Şimşek", subtitle: "7 gün üst üste" },
-  { threshold: 14, emoji: "🔥", title: "Alev", subtitle: "14 gün üst üste" },
-  { threshold: 30, emoji: "💎", title: "Elmas", subtitle: "30 gün üst üste" },
+const ACHIEVEMENTS: { threshold: number; title: string; subtitle: string }[] = [
+  { threshold: 3, title: "3 gün", subtitle: "Üst üste 3 gün" },
+  { threshold: 7, title: "1 hafta", subtitle: "Üst üste 7 gün" },
+  { threshold: 14, title: "2 hafta", subtitle: "Üst üste 14 gün" },
+  { threshold: 30, title: "1 ay", subtitle: "Üst üste 30 gün" },
 ];
 
 function localDateStr(d: Date): string {
@@ -113,7 +113,7 @@ export default function StreakCalendarScreen() {
         <Pressable onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>← Geri</Text>
         </Pressable>
-        <Text style={styles.title}>Seri Takvimi</Text>
+        <Text style={styles.title}>Aktif Günler</Text>
         <View style={styles.spacer} />
       </View>
 
@@ -122,9 +122,8 @@ export default function StreakCalendarScreen() {
         <View style={styles.hero}>
           <View style={styles.heroNumberRow}>
             <Text style={styles.heroNumber}>{currentStreak}</Text>
-            <Text style={styles.heroFlame}>🔥</Text>
           </View>
-          <Text style={styles.heroLabel}>gün üst üste</Text>
+          <Text style={styles.heroLabel}>aktif gün</Text>
           <View style={styles.heroLongestPill}>
             <Text style={styles.heroLongestText}>
               En uzun: {longestStreak} gün
@@ -202,13 +201,13 @@ export default function StreakCalendarScreen() {
             <Text style={[styles.statValue, { color: tokens.brand.tertiary }]}>
               {totalXp30}
             </Text>
-            <Text style={styles.statLabel}>Son 30 gün XP</Text>
+            <Text style={styles.statLabel}>Son 30 gün puan</Text>
           </View>
         </View>
 
         {/* Achievement teasers */}
         <View style={styles.achievementsSection}>
-          <Text style={styles.sectionLabel}>SERİ ROZETLERİ</Text>
+          <Text style={styles.sectionLabel}>KİLOMETRE TAŞLARI</Text>
           <View style={styles.achievementsGrid}>
             {ACHIEVEMENTS.map((a) => {
               const reached = Math.max(currentStreak, longestStreak) >= a.threshold;
@@ -217,9 +216,6 @@ export default function StreakCalendarScreen() {
                   key={a.threshold}
                   style={[styles.achCard, !reached && styles.achCardLocked]}
                 >
-                  <Text style={[styles.achEmoji, !reached && styles.achEmojiLocked]}>
-                    {reached ? a.emoji : "🔒"}
-                  </Text>
                   <Text
                     style={[styles.achTitle, !reached && styles.achTitleLocked]}
                   >
@@ -237,12 +233,12 @@ export default function StreakCalendarScreen() {
           style={styles.cta}
           onPress={() => router.push("/feed" as never)}
         >
-          <Text style={styles.ctaText}>Bugünkü pratiği yap →</Text>
+          <Text style={styles.ctaText}>Bugünkü pratiğe başla</Text>
         </Pressable>
 
         {loaded && unlockedAchievements.length === 0 && currentStreak === 0 && (
           <Text style={styles.emptyHint}>
-            İlk dersini bitir, seri burada görünür.
+            İlk dersini tamamla, seri burada görünür.
           </Text>
         )}
       </ScrollView>
@@ -297,9 +293,6 @@ const styles = StyleSheet.create({
     textShadowColor: tokens.brand.secondary,
     textShadowOffset: { width: 0, height: 2 },
     textShadowRadius: 0,
-  },
-  heroFlame: {
-    fontSize: 56,
   },
   heroLabel: {
     fontSize: 18,
@@ -485,13 +478,6 @@ const styles = StyleSheet.create({
   achCardLocked: {
     borderColor: tokens.border.outlineVariant,
     opacity: 0.6,
-  },
-  achEmoji: {
-    fontSize: 32,
-    marginBottom: 6,
-  },
-  achEmojiLocked: {
-    opacity: 0.55,
   },
   achTitle: {
     fontSize: 14,

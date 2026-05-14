@@ -1,0 +1,148 @@
+// Career Foundations — B1 scenes (10).
+// Pairs with careerFoundationsB1Lessons in career-foundations-b1-lesson.ts.
+// Audience: Turkish young professionals (18-35), foreign-company interview prep.
+
+import type { Scene } from "./scenes";
+
+export const careerFoundationsB1Scenes: Scene[] = [
+  {
+    id: "scene-career-b1-1",
+    emoji: "🎯",
+    title: "Tell me about\nyourself —\n60 saniye",
+    description:
+      "Mülakatın ilk sorusu: rol + deneyim + şu anki iş + ne arıyorsun. 60 saniyede sığar.",
+    durationMin: 6,
+    mode: "career",
+    cefrLevel: "B1",
+    skillId: "career.b1",
+    lessonId: "career.b1.tellme.1",
+    isNew: true,
+    progressLabel: "1/10 ders",
+  },
+  {
+    id: "scene-career-b1-2",
+    emoji: "🏢",
+    title: "Why this\ncompany? —\n3 spesifik sebep",
+    description:
+      "'Neden biz?' sorusuna ürün + ekip + zaman formülü. 'Great company' yetmez — spesifik ol.",
+    durationMin: 6,
+    mode: "career",
+    cefrLevel: "B1",
+    skillId: "career.b1",
+    lessonId: "career.b1.whycompany.1",
+    isNew: true,
+    progressLabel: "2/10 ders",
+  },
+  {
+    id: "scene-career-b1-3",
+    emoji: "📜",
+    title: "Önceki rolleri\nanlat —\npast tense disiplin",
+    description:
+      "Geçmiş rolleri kronolojik anlat: rol + sorumluluk + sonuç. 'Since 2 years' değil, 'for two years'.",
+    durationMin: 7,
+    mode: "career",
+    cefrLevel: "B1",
+    skillId: "career.b1",
+    lessonId: "career.b1.history.1",
+    isNew: true,
+    progressLabel: "3/10 ders",
+  },
+  {
+    id: "scene-career-b1-4",
+    emoji: "💶",
+    title: "Maaş beklentisi —\naralık ver,\ngerekirse ertele",
+    description:
+      "Recruiter maaş soruyor: aralık + flexibility. Erken aşamada 'I'd like to learn more first.'",
+    durationMin: 6,
+    mode: "career",
+    cefrLevel: "B1",
+    skillId: "career.b1",
+    lessonId: "career.b1.salary.1",
+    isNew: true,
+    progressLabel: "4/10 ders",
+  },
+  {
+    id: "scene-career-b1-5",
+    emoji: "⚖️",
+    title: "Güçlü &\nzayıf yan —\nsomut örnekle",
+    description:
+      "Strength + örnek; weakness + ne yaptın. 'I'm a perfectionist' klişesini at — somut konuş.",
+    durationMin: 6,
+    mode: "career",
+    cefrLevel: "B1",
+    skillId: "career.b1",
+    lessonId: "career.b1.strengths.1",
+    isNew: true,
+    progressLabel: "5/10 ders",
+  },
+  {
+    id: "scene-career-b1-6",
+    emoji: "🚪",
+    title: "Neden\nayrılıyorsun? —\ndiplomatik cevap",
+    description:
+      "Mevcut işten neden ayrılıyorsun? Pozitif çerçeve + ileri odak. Eski şirkete sövme.",
+    durationMin: 6,
+    mode: "career",
+    cefrLevel: "B1",
+    skillId: "career.b1",
+    lessonId: "career.b1.whyleaving.1",
+    isNew: true,
+    progressLabel: "6/10 ders",
+  },
+  {
+    id: "scene-career-b1-7",
+    emoji: "❓",
+    title: "Mülakatçıya soru —\nson 5 dakika",
+    description:
+      "'Sorun var mı?' geldiğinde 2-3 hazır sorun olsun. Success metric, ekip kültürü, sonraki adım.",
+    durationMin: 6,
+    mode: "career",
+    cefrLevel: "B1",
+    skillId: "career.b1",
+    lessonId: "career.b1.askquestions.1",
+    isNew: true,
+    progressLabel: "7/10 ders",
+  },
+  {
+    id: "scene-career-b1-8",
+    emoji: "✉️",
+    title: "Follow-up\ne-postası —\n24 saatte",
+    description:
+      "Mülakat sonrası teşekkür: spesifik konu + 'reinforced my interest' + sonraki adım.",
+    durationMin: 6,
+    mode: "career",
+    cefrLevel: "B1",
+    skillId: "career.b1",
+    lessonId: "career.b1.followup.1",
+    isNew: true,
+    progressLabel: "8/10 ders",
+  },
+  {
+    id: "scene-career-b1-9",
+    emoji: "🤝",
+    title: "Teklifi kabul /\nret —\nköprü kalsın",
+    description:
+      "Teklif geldi: kabul ('thrilled to accept') veya nazik ret ('after careful consideration').",
+    durationMin: 6,
+    mode: "career",
+    cefrLevel: "B1",
+    skillId: "career.b1",
+    lessonId: "career.b1.offer.1",
+    isNew: true,
+    progressLabel: "9/10 ders",
+  },
+  {
+    id: "scene-career-b1-10",
+    emoji: "👋",
+    title: "İlk gün —\nstand-up'da\nkendini tanıt",
+    description:
+      "Yeni şirkette ilk gün: ekibe kendini tanıt + small talk + kahve daveti.",
+    durationMin: 6,
+    mode: "career",
+    cefrLevel: "B1",
+    skillId: "career.b1",
+    lessonId: "career.b1.firstday.1",
+    isNew: true,
+    progressLabel: "10/10 ders ✓",
+  },
+];

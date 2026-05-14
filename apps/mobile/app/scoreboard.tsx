@@ -159,7 +159,7 @@ export default function ScoreboardScreen() {
         {/* Weakest mode callout */}
         {loaded && weakest && (
           <View style={styles.calloutCard}>
-            <Text style={styles.calloutLabel}>En zorlandığın alan</Text>
+            <Text style={styles.calloutLabel}>Odaklanılacak alan</Text>
             <View style={styles.calloutRow}>
               <Text style={styles.calloutEmoji}>{weakest.desc.emoji}</Text>
               <Text style={styles.calloutMode}>{weakest.desc.label}</Text>
@@ -168,7 +168,7 @@ export default function ScoreboardScreen() {
               </Text>
             </View>
             <Text style={styles.calloutHint}>
-              Bu modda biraz daha pratik yap, akıcılığını yükselt.
+              Bu alanda daha fazla pratik, akıcılığını yükseltecek.
             </Text>
           </View>
         )}
@@ -177,7 +177,7 @@ export default function ScoreboardScreen() {
           <View style={styles.calloutCard}>
             <Text style={styles.calloutLabel}>Henüz başlamadın</Text>
             <Text style={styles.calloutHint}>
-              İlk sahneni bitir, burası akıcılığını gösterir.
+              İlk sahneni tamamla, burası akıcılığını gösterir.
             </Text>
           </View>
         )}
@@ -188,7 +188,7 @@ export default function ScoreboardScreen() {
           onPress={() => router.push("/feed")}
           accessibilityRole="button"
         >
-          <Text style={styles.ctaText}>Şuradan başla →</Text>
+          <Text style={styles.ctaText}>Pratiğe başla</Text>
         </Pressable>
       </ScrollView>
     </SafeAreaView>

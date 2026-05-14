@@ -1,0 +1,148 @@
+// CEFR A1 — Survival English scene cards.
+// One Scene per lesson in cefr-a1-survival-lesson.ts.
+// All A1 level, "daily" mode — these are everyday survival skills.
+
+import type { Scene } from "./scenes";
+
+export const cefrA1SurvivalScenes: Scene[] = [
+  {
+    id: "scene-a1-survival-1",
+    emoji: "👋",
+    title: "Selamlaşma —\nHello,\nHow are you?",
+    description:
+      "İlk karşılaşmada söylenen 5 temel cümle. Hello, Good morning, I'm fine — tek nefeste söyleyebilmek.",
+    durationMin: 4,
+    mode: "daily",
+    cefrLevel: "A1",
+    skillId: "daily.survival.a1",
+    lessonId: "daily.survival.a1.1",
+    isNew: true,
+    progressLabel: "1/10 ders",
+  },
+  {
+    id: "scene-a1-survival-2",
+    emoji: "🤝",
+    title: "Tanışma —\nMy name is,\nI'm from Turkey",
+    description:
+      "Kendini tanıt: isim ve nereli olduğun. Pasaport kontrolünden bara kadar her yerde işine yarar.",
+    durationMin: 5,
+    mode: "daily",
+    cefrLevel: "A1",
+    skillId: "daily.survival.a1",
+    lessonId: "daily.survival.a1.2",
+    isNew: true,
+    progressLabel: "2/10 ders",
+  },
+  {
+    id: "scene-a1-survival-3",
+    emoji: "🙏",
+    title: "Yes, No,\nThank you,\nSorry",
+    description:
+      "Günde 50 kere kullanacağın dört kelime ve 'Excuse me' bonusu. En temel kibarlık paketi.",
+    durationMin: 4,
+    mode: "daily",
+    cefrLevel: "A1",
+    skillId: "daily.survival.a1",
+    lessonId: "daily.survival.a1.3",
+    isNew: true,
+    progressLabel: "3/10 ders",
+  },
+  {
+    id: "scene-a1-survival-4",
+    emoji: "🕒",
+    title: "Sayılar +\nWhat time\nis it?",
+    description:
+      "1-20 arası sayılar ve saat sorma. 'It's three o'clock' kalıbı. Otobüs, randevu, restoran için kritik.",
+    durationMin: 5,
+    mode: "daily",
+    cefrLevel: "A1",
+    skillId: "daily.survival.a1",
+    lessonId: "daily.survival.a1.4",
+    isNew: true,
+    progressLabel: "4/10 ders",
+  },
+  {
+    id: "scene-a1-survival-5",
+    emoji: "❓",
+    title: "I don't\nunderstand,\nrepeat please",
+    description:
+      "Karşıdaki hızlı konuştuğunda donmamak için: 'I don't understand', 'Slowly please'. Hayat kurtarır.",
+    durationMin: 5,
+    mode: "daily",
+    cefrLevel: "A1",
+    skillId: "daily.survival.a1",
+    lessonId: "daily.survival.a1.5",
+    isNew: true,
+    progressLabel: "5/10 ders",
+  },
+  {
+    id: "scene-a1-survival-6",
+    emoji: "☕",
+    title: "Kafe —\nOne coffee,\nplease",
+    description:
+      "İlk basit kahve siparişin. 'One coffee, please', 'This one', 'How much?'. Kısa, kibar, net.",
+    durationMin: 5,
+    mode: "daily",
+    cefrLevel: "A1",
+    skillId: "daily.survival.a1",
+    lessonId: "daily.survival.a1.6",
+    isNew: true,
+    progressLabel: "6/10 ders",
+  },
+  {
+    id: "scene-a1-survival-7",
+    emoji: "🗺️",
+    title: "Yön —\nWhere is\nthe bus stop?",
+    description:
+      "Kayboldun. 'Where is...?', right, left, straight. Otobüs durağı, metro, otelin yolu — yön sormak.",
+    durationMin: 5,
+    mode: "daily",
+    cefrLevel: "A1",
+    skillId: "daily.survival.a1",
+    lessonId: "daily.survival.a1.7",
+    isNew: true,
+    progressLabel: "7/10 ders",
+  },
+  {
+    id: "scene-a1-survival-8",
+    emoji: "🚑",
+    title: "Acil —\nHelp! Call\nan ambulance",
+    description:
+      "Acil durumda donmamak için: Help, Hospital, I'm sick, Call an ambulance. ABD: 911, UK: 999.",
+    durationMin: 5,
+    mode: "daily",
+    cefrLevel: "A1",
+    skillId: "daily.survival.a1",
+    lessonId: "daily.survival.a1.8",
+    isNew: true,
+    progressLabel: "8/10 ders",
+  },
+  {
+    id: "scene-a1-survival-9",
+    emoji: "📱",
+    title: "Numara +\nAdres —\nMy number is",
+    description:
+      "Telefon ve adres verme: 'My number is...', 'Can you spell that?'. Otelde, doktorda, formda lazım.",
+    durationMin: 5,
+    mode: "daily",
+    cefrLevel: "A1",
+    skillId: "daily.survival.a1",
+    lessonId: "daily.survival.a1.9",
+    isNew: true,
+    progressLabel: "9/10 ders",
+  },
+  {
+    id: "scene-a1-survival-10",
+    emoji: "🚻",
+    title: "Tuvalet,\nEczane,\nSu, Restoran",
+    description:
+      "Her gün lazım olan yer ve şeyler. Toilet, pharmacy, water, restaurant — 'Where is...?' kalıbıyla bul.",
+    durationMin: 5,
+    mode: "daily",
+    cefrLevel: "A1",
+    skillId: "daily.survival.a1",
+    lessonId: "daily.survival.a1.10",
+    isNew: true,
+    progressLabel: "10/10 ders ✓",
+  },
+];

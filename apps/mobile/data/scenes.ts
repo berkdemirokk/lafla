@@ -1,13 +1,48 @@
 // Sample feed scenes. Production data comes from content/scenarios/ via the backend.
 // Cyber-Electric Modern: single brand accent across all scenes.
 
+// Wave 3 imports — CEFR + new modes
+import { cefrA1SurvivalScenes } from "./cefr-a1-survival-scenes";
+import { cefrA2DailyScenes } from "./cefr-a2-daily-scenes";
+import { a2MicroScenes } from "./a2-micro-scenes";
+import { careerFoundationsB1Scenes } from "./career-foundations-b1-scenes";
+import { careerAdvancedB2Scenes } from "./career-advanced-b2-scenes";
+import { travelBureaucracyB1Scenes } from "./travel-bureaucracy-b1-scenes";
+import { travelHospitalityB2Scenes } from "./travel-hospitality-b2-scenes";
+import { academicB2Scenes } from "./academic-b2-scenes";
+import { professionalB1Scenes } from "./professional-b1-scenes";
+import { professionalC1Scenes } from "./professional-c1-scenes";
+import { specializedC1Scenes } from "./specialized-c1-scenes";
+import { personalB1Scenes } from "./personal-b1-scenes";
+import { dailyExpandedScenes } from "./daily-expanded-scenes";
+import { conversationScriptsScenes } from "./conversation-scripts-scenes";
+import { grammarCapsuleScenes } from "./grammar-capsules-scenes";
+import { testIeltsSpeakingScenes } from "./test-ielts-speaking-scenes";
+import { testToeflSpeakingScenes } from "./test-toefl-speaking-scenes";
+
+export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
+
+export type SceneMode =
+  | "flirt"
+  | "work"
+  | "banter"
+  | "order"
+  | "daily"
+  | "travel"
+  | "career"
+  | "academic"
+  | "professional"
+  | "personal"
+  | "testprep";
+
 export interface Scene {
   id: string;
   emoji: string;
   title: string;
   description: string;
   durationMin: number;
-  mode: "flirt" | "work" | "banter" | "order" | "daily";
+  mode: SceneMode;
+  cefrLevel?: CefrLevel;
   skillId: string;
   lessonId: string;
   isNew?: boolean;
@@ -1686,4 +1721,24 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
   { id: "scene-order-grocery-46-2", emoji: "🥩", title: "Et / balık —\nhalf a pound,\ntrim the fat", description: "Deli counter: porsiyon + özelleştirme.", durationMin: 5, mode: "order", skillId: "order.grocery", lessonId: "order.grocery.46.2", isNew: true, progressLabel: "2/4 ders" },
   { id: "scene-order-grocery-46-3", emoji: "💳", title: "Kasiyer —\npaper or plastic,\nrewards card", description: "Kasa sırası: poşet, kart, kuponlar.", durationMin: 5, mode: "order", skillId: "order.grocery", lessonId: "order.grocery.46.3", isNew: true, progressLabel: "3/4 ders" },
   { id: "scene-order-grocery-46-4", emoji: "📱", title: "Self-checkout —\nunexpected item,\nprice check", description: "Self-checkout sorunları çöz.", durationMin: 5, mode: "order", skillId: "order.grocery", lessonId: "order.grocery.46.4", isNew: true, progressLabel: "4/4 ders ✓" },
+  // ============================================================
+  // Wave 3 — CEFR-tagged scenes (new modes + adult pivot)
+  // ============================================================
+  ...cefrA1SurvivalScenes,
+  ...cefrA2DailyScenes,
+  ...a2MicroScenes,
+  ...careerFoundationsB1Scenes,
+  ...careerAdvancedB2Scenes,
+  ...travelBureaucracyB1Scenes,
+  ...travelHospitalityB2Scenes,
+  ...academicB2Scenes,
+  ...professionalB1Scenes,
+  ...professionalC1Scenes,
+  ...specializedC1Scenes,
+  ...personalB1Scenes,
+  ...dailyExpandedScenes,
+  ...conversationScriptsScenes,
+  ...grammarCapsuleScenes,
+  ...testIeltsSpeakingScenes,
+  ...testToeflSpeakingScenes,
 ];

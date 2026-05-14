@@ -55,6 +55,24 @@ import { banterPartyLessons } from "./banter-party-lesson";
 import { flirtSecondDateLessons } from "./flirt-second-date-lesson";
 import { orderFastfoodLessons } from "./order-fastfood-lesson";
 import { orderGroceryLessons } from "./order-grocery-lesson";
+// ---- Wave 3 (CEFR + mode pivot) ----
+import { cefrA1SurvivalLessons } from "./cefr-a1-survival-lesson";
+import { cefrA2DailyLessons } from "./cefr-a2-daily-lesson";
+import { a2MicroLessons } from "./a2-micro-lesson";
+import { careerFoundationsB1Lessons } from "./career-foundations-b1-lesson";
+import { careerAdvancedB2Lessons } from "./career-advanced-b2-lesson";
+import { travelBureaucracyB1Lessons } from "./travel-bureaucracy-b1-lesson";
+import { travelHospitalityB2Lessons } from "./travel-hospitality-b2-lesson";
+import { academicB2Lessons } from "./academic-b2-lesson";
+import { professionalB1Lessons } from "./professional-b1-lesson";
+import { professionalC1Lessons } from "./professional-c1-lesson";
+import { specializedC1Lessons } from "./specialized-c1-lesson";
+import { personalB1Lessons } from "./personal-b1-lesson";
+import { dailyExpandedLessons } from "./daily-expanded-lesson";
+import { conversationScriptsLessons } from "./conversation-scripts-lesson";
+import { grammarCapsuleLessons } from "./grammar-capsules-lesson";
+import { testIeltsSpeakingLessons } from "./test-ielts-speaking-lesson";
+import { testToeflSpeakingLessons } from "./test-toefl-speaking-lesson";
 import type { BundledLesson } from "./cafe-lesson";
 
 export const allLessons: ReadonlyArray<BundledLesson> = [
@@ -112,6 +130,24 @@ export const allLessons: ReadonlyArray<BundledLesson> = [
   ...flirtSecondDateLessons,
   ...orderFastfoodLessons,
   ...orderGroceryLessons,
+  // ---- Wave 3 (CEFR + mode pivot) ----
+  ...cefrA1SurvivalLessons,
+  ...cefrA2DailyLessons,
+  ...a2MicroLessons,
+  ...careerFoundationsB1Lessons,
+  ...careerAdvancedB2Lessons,
+  ...travelBureaucracyB1Lessons,
+  ...travelHospitalityB2Lessons,
+  ...academicB2Lessons,
+  ...professionalB1Lessons,
+  ...professionalC1Lessons,
+  ...specializedC1Lessons,
+  ...personalB1Lessons,
+  ...dailyExpandedLessons,
+  ...conversationScriptsLessons,
+  ...grammarCapsuleLessons,
+  ...testIeltsSpeakingLessons,
+  ...testToeflSpeakingLessons,
 ];
 
 export function getLesson(id: string): BundledLesson | undefined {

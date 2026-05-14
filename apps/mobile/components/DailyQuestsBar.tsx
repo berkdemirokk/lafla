@@ -56,9 +56,9 @@ export function DailyQuestsBar({ onClaimed }: Props) {
   return (
     <View style={styles.wrap}>
       <View style={styles.headerRow}>
-        <Text style={styles.label}>GÜNLÜK GÖREVLER</Text>
+        <Text style={styles.label}>BUGÜNÜN PLANI</Text>
         <Text style={styles.sublabel}>
-          {quests.filter((q) => q.claimed).length}/{quests.length} tamamlandı
+          {quests.filter((q) => q.claimed).length}/{quests.length} tamam
         </Text>
       </View>
       <ScrollView
@@ -85,10 +85,9 @@ export function DailyQuestsBar({ onClaimed }: Props) {
               onPress={() => handleClaim(q.id)}
             >
               <View style={styles.questTop}>
-                <Text style={styles.questEmoji}>
-                  {isClaimed ? "✓" : def.emoji}
+                <Text style={styles.questStatus}>
+                  {isClaimed ? "Tamam" : isDone ? "Hazır" : ""}
                 </Text>
-                <Text style={styles.questReward}>+{def.xpReward} XP</Text>
               </View>
               <Text style={styles.questTitle} numberOfLines={2}>
                 {def.title}
@@ -104,7 +103,6 @@ export function DailyQuestsBar({ onClaimed }: Props) {
               </View>
               <Text style={styles.questProgress}>
                 {Math.min(q.progress, def.target)}/{def.target} {def.unit}
-                {isDone && !isClaimed ? " · AL!" : ""}
               </Text>
             </Pressable>
           );
@@ -162,11 +160,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 8,
   },
-  questEmoji: { fontSize: 22 },
-  questReward: {
+  questStatus: {
     fontSize: 11,
     fontWeight: tokens.weight.bold,
     color: tokens.brand.tertiary,
+    letterSpacing: 0.6,
+    textTransform: "uppercase",
+    minHeight: 14,
   },
   questTitle: {
     fontSize: 13,

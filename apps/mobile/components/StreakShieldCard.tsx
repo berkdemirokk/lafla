@@ -67,7 +67,7 @@ export function StreakShieldCard({ state, refreshKey, onUpsellPress }: Props) {
   const cap = SHIELDS_PER_MONTH_PREMIUM;
   const counterText = isPremium
     ? `${data.available} / ${cap} kullanılabilir bu ay`
-    : `0 — Premium gerekli`;
+    : `0 — Pro üyelik gerekli`;
 
   const handleUpsell = () => {
     if (onUpsellPress) {
@@ -81,21 +81,20 @@ export function StreakShieldCard({ state, refreshKey, onUpsellPress }: Props) {
     <View style={[styles.card, isPremium ? styles.cardActive : styles.cardLocked]}>
       <View style={styles.headerRow}>
         <View style={styles.titleRow}>
-          <Text style={styles.icon}>🛡️</Text>
-          <Text style={styles.title}>Seri Kalkanı</Text>
+          <Text style={styles.title}>Esneklik Günü</Text>
         </View>
         {isPremium ? (
           <View style={styles.premiumBadge}>
-            <Text style={styles.premiumBadgeText}>PREMIUM</Text>
+            <Text style={styles.premiumBadgeText}>PRO</Text>
           </View>
         ) : (
           <Pressable
             style={styles.upsellPill}
             onPress={handleUpsell}
             accessibilityRole="button"
-            accessibilityLabel="Premium ile aç"
+            accessibilityLabel="Pro ile aç"
           >
-            <Text style={styles.upsellPillText}>Premium ile aç</Text>
+            <Text style={styles.upsellPillText}>Pro ile aç</Text>
           </Pressable>
         )}
       </View>
@@ -105,7 +104,7 @@ export function StreakShieldCard({ state, refreshKey, onUpsellPress }: Props) {
       </Text>
 
       <Text style={styles.subtitle}>
-        Bir gün kaçırırsan streak'in korunur.
+        Bir gün kaçırırsan aktif günlerin korunur.
       </Text>
 
       {data.lastUsedAt ? (
@@ -159,7 +158,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 8,
   },
-  icon: { fontSize: 20 },
   title: {
     fontSize: 16,
     fontWeight: tokens.weight.bold,

@@ -36,9 +36,8 @@ export function LessonComplete({ progress, onContinue, hasNext }: Props) {
       <StatusBar style="light" />
 
       <View style={styles.content}>
-        <Text style={styles.icon}>🎯</Text>
-        <Text style={styles.title}>Tamam!</Text>
-        <Text style={styles.subtitle}>Harika iş çıkardın.</Text>
+        <Text style={styles.title}>Tamamlandı.</Text>
+        <Text style={styles.subtitle}>Oturum özeti</Text>
 
         <View style={styles.statsGrid}>
           <StatCard
@@ -55,15 +54,15 @@ export function LessonComplete({ progress, onContinue, hasNext }: Props) {
           />
           <StatCard
             value={`+${progress.xp_earned}`}
-            unit="XP"
+            unit="puan"
             unitColored
-            label="Kazanıldı"
+            label="Eklendi"
             accent="yellow"
           />
           <StatCard
             value={`${streak ?? "—"}`}
             unit="gün"
-            label="Seri"
+            label="Aktif"
             accent="blue"
           />
         </View>
@@ -71,7 +70,7 @@ export function LessonComplete({ progress, onContinue, hasNext }: Props) {
 
       <View style={styles.footer}>
         <Button
-          label={hasNext ? "Sıradaki Ders →" : "Akışa Dön →"}
+          label={hasNext ? "Sonraki ders" : "Akışa dön"}
           onPress={onContinue}
           stacked
         />
@@ -127,10 +126,6 @@ const styles = StyleSheet.create({
     paddingBottom: 120,
     alignItems: "center",
     justifyContent: "center",
-  },
-  icon: {
-    fontSize: 80,
-    marginBottom: 24,
   },
   title: {
     fontSize: 32,

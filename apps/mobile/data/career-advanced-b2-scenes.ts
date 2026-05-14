@@ -1,0 +1,148 @@
+// Career Advanced B2 scenes — 10 standalone scenarios.
+// Hedef: orta-kariyer Turk profesyoneller, yabanci sirketlerde nuanslı durum yönetimi.
+// cefrLevel: "B2", mode: "career". Bagimsiz sahneler (her biri kendi lesson'una point eder).
+
+import type { Scene } from "./scenes";
+
+export const careerAdvancedB2Scenes: Scene[] = [
+  {
+    id: "scene-career-b2-1",
+    emoji: "💰",
+    title: "Maaş müzakeresi —\ncounter-offer,\nwalk away",
+    description:
+      "Teklif geldi, sayı düşük. Data ile karşı teklif, gerekirse zarif geri çekiliş.",
+    durationMin: 7,
+    mode: "career",
+    cefrLevel: "B2",
+    skillId: "career.b2",
+    lessonId: "career.b2.salary_negotiation.1",
+    isNew: true,
+    progressLabel: "1/10 ders",
+  },
+  {
+    id: "scene-career-b2-2",
+    emoji: "🎯",
+    title: "Review alma —\nhaksız noktayı\ndiplomatik sorgula",
+    description:
+      "Manager 'su konuda zayıfsın' dedi. Defansif olmadan dinle, haksız noktayı sorgula.",
+    durationMin: 7,
+    mode: "career",
+    cefrLevel: "B2",
+    skillId: "career.b2",
+    lessonId: "career.b2.review_receiving.1",
+    isNew: true,
+    progressLabel: "2/10 ders",
+  },
+  {
+    id: "scene-career-b2-3",
+    emoji: "✍️",
+    title: "Akrana feedback —\nSBI çerçevesi,\nspesifik",
+    description:
+      "Peer review: yapıcı eleştiri. Karakter değil davranış — Situation/Behavior/Impact.",
+    durationMin: 6,
+    mode: "career",
+    cefrLevel: "B2",
+    skillId: "career.b2",
+    lessonId: "career.b2.feedback_giving_peer.1",
+    isNew: true,
+    progressLabel: "3/10 ders",
+  },
+  {
+    id: "scene-career-b2-4",
+    emoji: "⚖️",
+    title: "Manager'a itiraz —\nI see it differently,\nframe alternative",
+    description:
+      "Manager'in yaklaşımı yanlış sence. Yumuşak pushback + alternatif + otoritesini koru.",
+    durationMin: 6,
+    mode: "career",
+    cefrLevel: "B2",
+    skillId: "career.b2",
+    lessonId: "career.b2.disagree_manager.1",
+    isNew: true,
+    progressLabel: "4/10 ders",
+  },
+  {
+    id: "scene-career-b2-5",
+    emoji: "📈",
+    title: "Terfi talep —\nput my name forward,\nimpact deck",
+    description:
+      "Terfi konuşmasını aç: scope + sayısal impact + timing. Vakayı düzgün sun.",
+    durationMin: 7,
+    mode: "career",
+    cefrLevel: "B2",
+    skillId: "career.b2",
+    lessonId: "career.b2.promotion_ask.1",
+    isNew: true,
+    progressLabel: "5/10 ders",
+  },
+  {
+    id: "scene-career-b2-6",
+    emoji: "🤝",
+    title: "Ekip içi çatışma —\nmediation,\ncommon ground",
+    description:
+      "İki takım arkadaşı çatışmada. Tansiyonu düşür, ortak hedefe çek, çözüm yarat.",
+    durationMin: 6,
+    mode: "career",
+    cefrLevel: "B2",
+    skillId: "career.b2",
+    lessonId: "career.b2.mediation.1",
+    isNew: true,
+    progressLabel: "6/10 ders",
+  },
+  {
+    id: "scene-career-b2-7",
+    emoji: "⏰",
+    title: "Deadline'a itiraz —\nflag a risk,\ntrade-off",
+    description:
+      "Deadline gerçekçi değil. Sus mu, kabul mu? Üçüncü yol: risk bildir + trade-off teklif.",
+    durationMin: 6,
+    mode: "career",
+    cefrLevel: "B2",
+    skillId: "career.b2",
+    lessonId: "career.b2.deadline_pushback.1",
+    isNew: true,
+    progressLabel: "7/10 ders",
+  },
+  {
+    id: "scene-career-b2-8",
+    emoji: "🎁",
+    title: "Delegasyon —\nyou're the DRI,\nloop me in",
+    description:
+      "İşi devret: net sahiplik + outcome + check-in kadansı. Mikromanagement değil.",
+    durationMin: 6,
+    mode: "career",
+    cefrLevel: "B2",
+    skillId: "career.b2",
+    lessonId: "career.b2.delegation.1",
+    isNew: true,
+    progressLabel: "8/10 ders",
+  },
+  {
+    id: "scene-career-b2-9",
+    emoji: "👋",
+    title: "İstifa konuşması —\nmade the decision,\nclean transition",
+    description:
+      "Karar verdin, gidiyorsun. Sıcak ama kesin söyle. Transition planı + minnettarlık.",
+    durationMin: 7,
+    mode: "career",
+    cefrLevel: "B2",
+    skillId: "career.b2",
+    lessonId: "career.b2.resignation.1",
+    isNew: true,
+    progressLabel: "9/10 ders",
+  },
+  {
+    id: "scene-career-b2-10",
+    emoji: "🚪",
+    title: "Counter-offer'a hayır —\nflattered, decision is firm,\ndoor open",
+    description:
+      "İstifa sonrası counter-offer geldi. Esnek olma — kararında kal, ilişkiyi koru.",
+    durationMin: 6,
+    mode: "career",
+    cefrLevel: "B2",
+    skillId: "career.b2",
+    lessonId: "career.b2.counter_offer.1",
+    isNew: true,
+    progressLabel: "10/10 ders ✓",
+  },
+];

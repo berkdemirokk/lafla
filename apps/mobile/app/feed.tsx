@@ -86,20 +86,17 @@ export default function Feed() {
         </Pressable>
       </View>
 
-      {/* Stats strip — streak + XP + lessons */}
+      {/* Stats strip — active days + practice minutes proxy + lessons */}
       <View style={styles.statsStrip}>
         <View style={styles.statPill}>
-          <Text style={styles.statEmoji}>🔥</Text>
           <Text style={styles.statValue}>{streak}</Text>
-          <Text style={styles.statLabel}>gün</Text>
+          <Text style={styles.statLabel}>aktif gün</Text>
         </View>
         <View style={styles.statPill}>
-          <Text style={styles.statEmoji}>⚡</Text>
           <Text style={styles.statValue}>{xp}</Text>
-          <Text style={styles.statLabel}>XP</Text>
+          <Text style={styles.statLabel}>puan</Text>
         </View>
         <View style={styles.statPill}>
-          <Text style={styles.statEmoji}>📚</Text>
           <Text style={styles.statValue}>{completed.size}</Text>
           <Text style={styles.statLabel}>ders</Text>
         </View>
@@ -133,7 +130,7 @@ export default function Feed() {
                 description={item.description}
                 durationMin={item.durationMin}
                 isNew={item.isNew && !isDone}
-                progressLabel={isDone ? "✓ Tamamlandı" : item.progressLabel}
+                progressLabel={isDone ? "Tamamlandı" : item.progressLabel}
                 onPress={() =>
                   router.push(`/preview/${item.lessonId}` as never)
                 }
@@ -145,19 +142,16 @@ export default function Feed() {
 
       {/* Bottom nav */}
       <View style={styles.bottomNav}>
-        <NavTab icon="🎓" label="Akış" active />
+        <NavTab label="Akış" active />
         <NavTab
-          icon="🌳"
           label="Beceri"
           onPress={() => router.push("/skills" as never)}
         />
         <NavTab
-          icon="🏆"
-          label="Başarım"
+          label="Kilometre"
           onPress={() => router.push("/achievements" as never)}
         />
         <NavTab
-          icon="👤"
           label="Profil"
           onPress={() => router.push("/profile" as never)}
         />
@@ -167,12 +161,10 @@ export default function Feed() {
 }
 
 function NavTab({
-  icon,
   label,
   active,
   onPress,
 }: {
-  icon: string;
   label: string;
   active?: boolean;
   onPress?: () => void;
@@ -182,7 +174,6 @@ function NavTab({
       style={[navStyles.tab, active && navStyles.tabActive]}
       onPress={onPress}
     >
-      <Text style={navStyles.icon}>{icon}</Text>
       <Text style={[navStyles.label, active && navStyles.labelActive]}>
         {label}
       </Text>
@@ -219,7 +210,6 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     gap: 4,
   },
-  statEmoji: { fontSize: 14 },
   statValue: {
     fontSize: 15,
     fontWeight: tokens.weight.bold,
@@ -282,14 +272,10 @@ const navStyles = StyleSheet.create({
     borderRadius: tokens.radius.full,
     paddingHorizontal: 16,
   },
-  icon: {
-    fontSize: 22,
-  },
   label: {
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: tokens.weight.semibold,
     color: tokens.text.secondary,
-    marginTop: 4,
   },
   labelActive: {
     color: tokens.brand.tertiary, // BLUE active text

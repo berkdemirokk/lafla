@@ -1,0 +1,148 @@
+// Grammar Capsules — 10 dedicated mini-lesson scenes.
+// B1-level grammar pain points for Turkish learners.
+// Pairs with grammarCapsuleLessons in grammar-capsules-lesson.ts.
+
+import type { Scene } from "./scenes";
+
+export const grammarCapsuleScenes: Scene[] = [
+  {
+    id: "scene-grammar-1",
+    emoji: "⏳",
+    title: "Present Perfect\nvs Past Simple —\n'have you been?'",
+    description:
+      "'I saw him yesterday' mi, 'I have seen him' mi? Türk öğrencinin klasik kafa karışıklığı, net kuralla.",
+    durationMin: 6,
+    mode: "daily",
+    cefrLevel: "B1",
+    skillId: "grammar.b1",
+    lessonId: "grammar.present-perfect.1",
+    isNew: true,
+    progressLabel: "1/10 ders",
+  },
+  {
+    id: "scene-grammar-2",
+    emoji: "📰",
+    title: "a / an / the —\nTürkçede olmayan\ntanımlık",
+    description:
+      "'Mühendisim' DEĞİL, 'I am AN engineer'. Türkçede yok diye atlanan a/an/the kurallarını oturt.",
+    durationMin: 6,
+    mode: "daily",
+    cefrLevel: "B1",
+    skillId: "grammar.b1",
+    lessonId: "grammar.articles.1",
+    isNew: true,
+    progressLabel: "2/10 ders",
+  },
+  {
+    id: "scene-grammar-3",
+    emoji: "🔀",
+    title: "If-clauses —\n1., 2., 3.\nconditional",
+    description:
+      "Gerçek mi, hayali mi, geçmiş pişmanlık mı? Üç koşul kalıbının farkı tek seferde otursun.",
+    durationMin: 7,
+    mode: "daily",
+    cefrLevel: "B1",
+    skillId: "grammar.b1",
+    lessonId: "grammar.conditionals.1",
+    isNew: true,
+    progressLabel: "3/10 ders",
+  },
+  {
+    id: "scene-grammar-4",
+    emoji: "🗣️",
+    title: "Reported speech —\n'He said that\nhe WAS tired'",
+    description:
+      "Türkçede zaman değişmez, İngilizce'de bir adım geri kayar. 'He said he is tired' YANLIŞ.",
+    durationMin: 6,
+    mode: "daily",
+    cefrLevel: "B1",
+    skillId: "grammar.b1",
+    lessonId: "grammar.reported-speech.1",
+    isNew: true,
+    progressLabel: "4/10 ders",
+  },
+  {
+    id: "scene-grammar-5",
+    emoji: "🔗",
+    title: "Phrasal verbs —\ngive up, pick up,\nlook for, run into",
+    description:
+      "Edat değiştirince anlam tamamen değişir. En sık 4 phrasal verb, gerçek kullanım örnekleri.",
+    durationMin: 7,
+    mode: "daily",
+    cefrLevel: "B1",
+    skillId: "grammar.b1",
+    lessonId: "grammar.phrasal-verbs.1",
+    isNew: true,
+    progressLabel: "5/10 ders",
+  },
+  {
+    id: "scene-grammar-6",
+    emoji: "💭",
+    title: "Gerund mu,\ninfinitive mi? —\n'stop smoking' fiyaskosu",
+    description:
+      "'Stop to smoke' = sigara için durdu. 'Stop smoking' = bıraktı. Hangi fiilden sonra hangisi gelir?",
+    durationMin: 6,
+    mode: "daily",
+    cefrLevel: "B1",
+    skillId: "grammar.b1",
+    lessonId: "grammar.gerund-infinitive.1",
+    isNew: true,
+    progressLabel: "6/10 ders",
+  },
+  {
+    id: "scene-grammar-7",
+    emoji: "🎯",
+    title: "Modal verbs —\nmust, should,\nmight, could",
+    description:
+      "Zorunluluk mu, öneri mi, ihtimal mi? Modal verb seçimi tonun yarısı — net ayrım.",
+    durationMin: 6,
+    mode: "daily",
+    cefrLevel: "B1",
+    skillId: "grammar.b1",
+    lessonId: "grammar.modals.1",
+    isNew: true,
+    progressLabel: "7/10 ders",
+  },
+  {
+    id: "scene-grammar-8",
+    emoji: "🔄",
+    title: "Passive voice —\n'It WAS made\nin Turkey'",
+    description:
+      "Türkçe 'yapıldı' = passive. 'They made it' → 'It was made'. Be + V3 formülü, hangi durumda kullanılır.",
+    durationMin: 6,
+    mode: "daily",
+    cefrLevel: "B1",
+    skillId: "grammar.b1",
+    lessonId: "grammar.passive.1",
+    isNew: true,
+    progressLabel: "8/10 ders",
+  },
+  {
+    id: "scene-grammar-9",
+    emoji: "❓",
+    title: "Question tags —\n'isn't it?'\n'don't you?'",
+    description:
+      "Türkçe 'değil mi?' tek; İngilizce zaman ve fiile göre değişir. 11 farklı tag, tek mantık.",
+    durationMin: 6,
+    mode: "daily",
+    cefrLevel: "B1",
+    skillId: "grammar.b1",
+    lessonId: "grammar.question-tags.1",
+    isNew: true,
+    progressLabel: "9/10 ders",
+  },
+  {
+    id: "scene-grammar-10",
+    emoji: "🔤",
+    title: "Word order —\nsıfat sıralaması,\nzarf yeri",
+    description:
+      "'Nice big Turkish carpet' DOĞRU; sırası bozulunca yabancı kulağa kötü gelir. SVO + sıfat dizimi.",
+    durationMin: 6,
+    mode: "daily",
+    cefrLevel: "B1",
+    skillId: "grammar.b1",
+    lessonId: "grammar.word-order.1",
+    isNew: true,
+    progressLabel: "10/10 ders ✓",
+  },
+];

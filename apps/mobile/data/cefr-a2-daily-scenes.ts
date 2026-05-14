@@ -1,0 +1,148 @@
+// CEFR A2 — Daily life scene cards for the feed.
+// Pair 1:1 with lessons in cefr-a2-daily-lesson.ts.
+// Adult tone, Turkish-first context, American English baseline.
+
+import type { Scene } from "./scenes";
+
+export const cefrA2DailyScenes: Scene[] = [
+  {
+    id: "scene-a2-daily-1",
+    emoji: "🛒",
+    title: "Süpermarkette\ntam alışveriş",
+    description:
+      "Reyon sorma, raftaki ürünü işaret etme, paper bag isteme — markette tam bir tur.",
+    durationMin: 6,
+    mode: "daily",
+    cefrLevel: "A2",
+    skillId: "daily.a2.supermarket",
+    lessonId: "daily.a2.supermarket.1",
+    isNew: true,
+    progressLabel: "A2 · 1/10",
+  },
+  {
+    id: "scene-a2-daily-2",
+    emoji: "💊",
+    title: "Eczanede ilaç\nisteme",
+    description:
+      "'I have a headache', aspirin sorma, reçete gerekli mi — eczanede temel diyalog.",
+    durationMin: 6,
+    mode: "daily",
+    cefrLevel: "A2",
+    skillId: "daily.a2.pharmacy",
+    lessonId: "daily.a2.pharmacy.1",
+    isNew: true,
+    progressLabel: "A2 · 2/10",
+  },
+  {
+    id: "scene-a2-daily-3",
+    emoji: "🩺",
+    title: "Doktora basit\nsemptom anlat",
+    description:
+      "'I have a fever', 'since yesterday', 'it hurts when' — doktor muayenehanesinde.",
+    durationMin: 6,
+    mode: "daily",
+    cefrLevel: "A2",
+    skillId: "daily.a2.doctor",
+    lessonId: "daily.a2.doctor.1",
+    isNew: true,
+    progressLabel: "A2 · 3/10",
+  },
+  {
+    id: "scene-a2-daily-4",
+    emoji: "🚖",
+    title: "Taksiyle\nyere gitme",
+    description:
+      "'Take me to', 'how long', 'here is fine', 'keep the change' — yolculuk akışı.",
+    durationMin: 6,
+    mode: "daily",
+    cefrLevel: "A2",
+    skillId: "daily.a2.taxi",
+    lessonId: "daily.a2.taxi.1",
+    isNew: true,
+    progressLabel: "A2 · 4/10",
+  },
+  {
+    id: "scene-a2-daily-5",
+    emoji: "🏨",
+    title: "Otel\ncheck-in",
+    description:
+      "Rezervasyon adınla, twin / double, kahvaltı dahil mi, wifi şifresi — resepsiyonda.",
+    durationMin: 7,
+    mode: "daily",
+    cefrLevel: "A2",
+    skillId: "daily.a2.hotel",
+    lessonId: "daily.a2.hotel.1",
+    isNew: true,
+    progressLabel: "A2 · 5/10",
+  },
+  {
+    id: "scene-a2-daily-6",
+    emoji: "👕",
+    title: "Fiyat + beden\nsorma",
+    description:
+      "'How much is it', medium beden var mı, deneyebilir miyim — kıyafet mağazasında.",
+    durationMin: 6,
+    mode: "daily",
+    cefrLevel: "A2",
+    skillId: "daily.a2.shopping",
+    lessonId: "daily.a2.shopping.1",
+    isNew: true,
+    progressLabel: "A2 · 6/10",
+  },
+  {
+    id: "scene-a2-daily-7",
+    emoji: "📅",
+    title: "Tarih + saat\nifadeleri",
+    description:
+      "'Today is Tuesday, March 5th', 'see you tomorrow at 3' — randevu netleştirme.",
+    durationMin: 6,
+    mode: "daily",
+    cefrLevel: "A2",
+    skillId: "daily.a2.datetime",
+    lessonId: "daily.a2.datetime.1",
+    isNew: true,
+    progressLabel: "A2 · 7/10",
+  },
+  {
+    id: "scene-a2-daily-8",
+    emoji: "🌤️",
+    title: "Hava durumu\nsmall talk",
+    description:
+      "'It's freezing', 'beautiful day', 'do you think it will rain' — sohbet açma.",
+    durationMin: 5,
+    mode: "daily",
+    cefrLevel: "A2",
+    skillId: "daily.a2.weather",
+    lessonId: "daily.a2.weather.1",
+    isNew: true,
+    progressLabel: "A2 · 8/10",
+  },
+  {
+    id: "scene-a2-daily-9",
+    emoji: "🧭",
+    title: "Kayıp eşya /\nyön karıştı",
+    description:
+      "'I lost my', 'I'm looking for', 'I think I'm lost' — yardım isteme.",
+    durationMin: 6,
+    mode: "daily",
+    cefrLevel: "A2",
+    skillId: "daily.a2.lost",
+    lessonId: "daily.a2.lost.1",
+    isNew: true,
+    progressLabel: "A2 · 9/10",
+  },
+  {
+    id: "scene-a2-daily-10",
+    emoji: "🚆",
+    title: "Toplu taşıma —\nbilet, saat",
+    description:
+      "'One-way to', 'return ticket', 'what time is the next train' — gar gişesi.",
+    durationMin: 6,
+    mode: "daily",
+    cefrLevel: "A2",
+    skillId: "daily.a2.transit",
+    lessonId: "daily.a2.transit.1",
+    isNew: true,
+    progressLabel: "A2 · 10/10 ✓",
+  },
+];

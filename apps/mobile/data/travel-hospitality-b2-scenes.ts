@@ -1,0 +1,148 @@
+// Travel + Hospitality — B2 scenes (10).
+// Pairs with travelHospitalityB2Lessons in travel-hospitality-b2-lesson.ts.
+// Audience: B2-level Turkish adults navigating complex cross-border travel friction.
+
+import type { Scene } from "./scenes";
+
+export const travelHospitalityB2Scenes: Scene[] = [
+  {
+    id: "scene-travel-b2-1",
+    emoji: "✈️",
+    title: "Uçuş iptal —\nEU261 ile\ntazminat al",
+    description:
+      "Havayolu temsilcisiyle: rebooking, partner airline, EU261 / DOT yolcu hakları.",
+    durationMin: 8,
+    mode: "travel",
+    cefrLevel: "B2",
+    skillId: "travel.b2",
+    lessonId: "travel.b2.flightcancel.1",
+    isNew: true,
+    progressLabel: "1/10 ders",
+  },
+  {
+    id: "scene-travel-b2-2",
+    emoji: "🏨",
+    title: "Otel double-book —\nmanager'a\nescalate",
+    description:
+      "'Oda yok' dediler. Confirmation + walk policy + comparable room — duty manager'a çıkar.",
+    durationMin: 8,
+    mode: "travel",
+    cefrLevel: "B2",
+    skillId: "travel.b2",
+    lessonId: "travel.b2.hoteldouble.1",
+    isNew: true,
+    progressLabel: "2/10 ders",
+  },
+  {
+    id: "scene-travel-b2-3",
+    emoji: "🛫",
+    title: "Bağlantı kaçtı —\nsame PNR vs\nfarklı bilet",
+    description:
+      "Transfer masasında: hangi durumda havayolu sorumlu, hangi durumda sen — hotel + meal vouchers.",
+    durationMin: 7,
+    mode: "travel",
+    cefrLevel: "B2",
+    skillId: "travel.b2",
+    lessonId: "travel.b2.missedconn.1",
+    isNew: true,
+    progressLabel: "3/10 ders",
+  },
+  {
+    id: "scene-travel-b2-4",
+    emoji: "🛂",
+    title: "Pasaport kayıp —\nkonsolosluğa\nbaşvur",
+    description:
+      "Acil seyahat belgesi (ETD): polis raporu, kimlik kanıtı, fotoğraf, başvuru formu — resmi diyalog.",
+    durationMin: 8,
+    mode: "travel",
+    cefrLevel: "B2",
+    skillId: "travel.b2",
+    lessonId: "travel.b2.lostpassport.1",
+    isNew: true,
+    progressLabel: "4/10 ders",
+  },
+  {
+    id: "scene-travel-b2-5",
+    emoji: "💳",
+    title: "Yurtdışından\nşüpheli işlem —\ndispute aç",
+    description:
+      "Bankayı ara: kart kimliği, unauthorised charge, chargeback, virtual card, provisional credit.",
+    durationMin: 7,
+    mode: "travel",
+    cefrLevel: "B2",
+    skillId: "travel.b2",
+    lessonId: "travel.b2.cardispute.1",
+    isNew: true,
+    progressLabel: "5/10 ders",
+  },
+  {
+    id: "scene-travel-b2-6",
+    emoji: "🥜",
+    title: "Alerji + helal —\nşefe direkt\nkonuş",
+    description:
+      "Restoranda iki kısıtlamayı şefe escalate et: cross-contamination, separate cookware, kitchen ticket.",
+    durationMin: 7,
+    mode: "travel",
+    cefrLevel: "B2",
+    skillId: "travel.b2",
+    lessonId: "travel.b2.diet.1",
+    isNew: true,
+    progressLabel: "6/10 ders",
+  },
+  {
+    id: "scene-travel-b2-7",
+    emoji: "💍",
+    title: "Yurtdışı düğün —\nhediye + dress\ncode etiketi",
+    description:
+      "Kültürel köprü: gift etiquette, dress code, toast geleneği — Türk geleneklerini de paylaş.",
+    durationMin: 7,
+    mode: "travel",
+    cefrLevel: "B2",
+    skillId: "travel.b2",
+    lessonId: "travel.b2.wedding.1",
+    isNew: true,
+    progressLabel: "7/10 ders",
+  },
+  {
+    id: "scene-travel-b2-8",
+    emoji: "🏠",
+    title: "AirBnB host —\n'leke' iddiası\nile dispute",
+    description:
+      "Zaman damgalı fotoğraflarla itiraz: çözüm merkezi, refund, partial charge'ı reddet.",
+    durationMin: 7,
+    mode: "travel",
+    cefrLevel: "B2",
+    skillId: "travel.b2",
+    lessonId: "travel.b2.airbnb.1",
+    isNew: true,
+    progressLabel: "8/10 ders",
+  },
+  {
+    id: "scene-travel-b2-9",
+    emoji: "🎤",
+    title: "Konferans —\n5 dakikalık\nnetworking",
+    description:
+      "Kahve molasında: opener, ortak konu, derinleşme, LinkedIn follow-up — donmadan 5 dakika.",
+    durationMin: 8,
+    mode: "travel",
+    cefrLevel: "B2",
+    skillId: "travel.b2",
+    lessonId: "travel.b2.networking.1",
+    isNew: true,
+    progressLabel: "9/10 ders",
+  },
+  {
+    id: "scene-travel-b2-10",
+    emoji: "🗺️",
+    title: "Travel agent —\n4 şehirli\nkarmaşık plan",
+    description:
+      "Multi-leg gezi: hard constraints (accessibility + allergy + arrival saat), bütçe sınırı, written confirmation.",
+    durationMin: 8,
+    mode: "travel",
+    cefrLevel: "B2",
+    skillId: "travel.b2",
+    lessonId: "travel.b2.travelagent.1",
+    isNew: true,
+    progressLabel: "10/10 ders ✓",
+  },
+];

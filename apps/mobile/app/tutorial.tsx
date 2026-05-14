@@ -29,25 +29,25 @@ const SLIDES: Slide[] = [
   {
     emoji: "🗣️",
     title: "Bağlam temelli İngilizce",
-    body: "Tinder'da flört, Slack'te toplantı, kafede sipariş. Hayatın senaryolarıyla konuşmayı öğren.",
+    body: "Tinder'da flört, Slack'te toplantı, kafede sipariş. Hayatın senaryolarıyla konuşma pratiği yap.",
     bg: tokens.bg.surfaceContainer,
   },
   {
     emoji: "🎯",
     title: "Senin için kişisel",
-    body: "Hangi durumlar seni zorluyor seçersin, akış sana göre düzenlenir. Bildiklerini tekrarlamazsın.",
+    body: "Geliştirmek istediğin alanları seç, akış sana göre düzenlenir. Bildiklerini tekrarlamazsın.",
     bg: tokens.bg.surfaceContainer,
   },
   {
     emoji: "🔊",
-    title: "Native ses + roleplay",
-    body: "Her İngilizce ifadeyi dinle, role-play chat'lerde cevap ver. Konuşmaya kasla.",
+    title: "Native ses ve rol oyunu",
+    body: "Her İngilizce ifadeyi dinle, sohbetlerde cevap ver. Konuşma kasını geliştir.",
     bg: tokens.bg.surfaceContainer,
   },
   {
-    emoji: "🔥",
+    emoji: "📈",
     title: "Günde 5 dakika yeter",
-    body: "Streak'ini koru, XP topla, ustalaş. Söyle gitsin.",
+    body: "Aktif günlerini sürdür, ilerlemeni izle, ustalaş. Konuş, çalış.",
     bg: tokens.bg.surfaceContainer,
   },
 ];
@@ -117,7 +117,7 @@ export default function Tutorial() {
       </View>
 
       <View style={styles.footer}>
-        <Button label={isLast ? "Başla →" : "Devam et →"} onPress={next} />
+        <Button label={isLast ? "Başla" : "Devam"} onPress={next} />
       </View>
     </SafeAreaView>
   );

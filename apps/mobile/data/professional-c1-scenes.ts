@@ -1,0 +1,148 @@
+// Professional C1 scenes — high-stakes executive English scenarios.
+// Adult realistic tone. Target: senior Turkish professionals (directors, founders, executives)
+// needing C1-level English for board, press, investor, crisis, negotiation, conflict situations.
+
+import type { Scene } from "./scenes";
+
+export const professionalC1Scenes: ReadonlyArray<Scene> = [
+  {
+    id: "scene-professional-c1-1",
+    emoji: "🪑",
+    title: "Kurul sunumu —\nsert direktör\nsorularına dayan",
+    description:
+      "Independent director 'rakamlar neden düştü?' diyor. 'For context' + 'I'd push back on the framing' + tripwire dili.",
+    durationMin: 8,
+    mode: "professional",
+    cefrLevel: "C1",
+    skillId: "professional.c1",
+    lessonId: "professional.c1.board.1",
+    isNew: true,
+    progressLabel: "1/10 ders",
+  },
+  {
+    id: "scene-professional-c1-2",
+    emoji: "⏱️",
+    title: "Skip-level'a\n3 dakikada\npitch et",
+    description:
+      "VP'inin VP'sini koridorda yakaladın. Manşet + tek karar + maliyet. 'I'm elevating this to you' kalıbı.",
+    durationMin: 7,
+    mode: "professional",
+    cefrLevel: "C1",
+    skillId: "professional.c1",
+    lessonId: "professional.c1.skip_pitch.1",
+    isNew: true,
+    progressLabel: "2/10 ders",
+  },
+  {
+    id: "scene-professional-c1-3",
+    emoji: "🎤",
+    title: "Keynote açılışı —\nilk 60 saniyede\nsalonu kazan",
+    description:
+      "Hook + credibility + value. 'I'll be honest with you' + 'here's what I want to leave you with'.",
+    durationMin: 7,
+    mode: "professional",
+    cefrLevel: "C1",
+    skillId: "professional.c1",
+    lessonId: "professional.c1.keynote.1",
+    isNew: true,
+    progressLabel: "3/10 ders",
+  },
+  {
+    id: "scene-professional-c1-4",
+    emoji: "🚨",
+    title: "Kriz all-hands —\nşeffaf sahiplen,\nplan ver",
+    description:
+      "Olay devam ederken 800 kişiye konuş. 'Here's what we know — and what we don't' + 'we take full ownership' + somut takvim.",
+    durationMin: 8,
+    mode: "professional",
+    cefrLevel: "C1",
+    skillId: "professional.c1",
+    lessonId: "professional.c1.crisis.1",
+    isNew: true,
+    progressLabel: "4/10 ders",
+  },
+  {
+    id: "scene-professional-c1-5",
+    emoji: "📰",
+    title: "Basın röportajı —\ndüşmanca soruya\nköprü kur",
+    description:
+      "FT muhabiri 'kriz' diyor, sen 'planlı geçiş'. 'I'd push back on the framing' + 'let me put that in context'.",
+    durationMin: 7,
+    mode: "professional",
+    cefrLevel: "C1",
+    skillId: "professional.c1",
+    lessonId: "professional.c1.press.1",
+    isNew: true,
+    progressLabel: "5/10 ders",
+  },
+  {
+    id: "scene-professional-c1-6",
+    emoji: "💼",
+    title: "Yatırımcı cold call —\n15 dakikada\nfit + traction",
+    description:
+      "Tier 1 fund partner ile cold intro. Zaman taahhüdü + qualification + sayı snapshot + tight process.",
+    durationMin: 7,
+    mode: "professional",
+    cefrLevel: "C1",
+    skillId: "professional.c1",
+    lessonId: "professional.c1.investor.1",
+    isNew: true,
+    progressLabel: "6/10 ders",
+  },
+  {
+    id: "scene-professional-c1-7",
+    emoji: "🤝",
+    title: "Yüksek riskli\nmüzakere —\nanchor + BATNA",
+    description:
+      "M&A müzakeresinde 14.5x anchor savun. 'I'd hate for this to fall apart over' + 'help me understand the constraint'.",
+    durationMin: 8,
+    mode: "professional",
+    cefrLevel: "C1",
+    skillId: "professional.c1",
+    lessonId: "professional.c1.negotiation.1",
+    isNew: true,
+    progressLabel: "7/10 ders",
+  },
+  {
+    id: "scene-professional-c1-8",
+    emoji: "⚖️",
+    title: "Üç ekip çatışmasını\nnötr çöz —\nyapısal kapanış",
+    description:
+      "Eng vs Marketing vs Product. 'What I'm hearing from each of you' + 'let me try to land this'.",
+    durationMin: 8,
+    mode: "professional",
+    cefrLevel: "C1",
+    skillId: "professional.c1",
+    lessonId: "professional.c1.conflict.1",
+    isNew: true,
+    progressLabel: "8/10 ders",
+  },
+  {
+    id: "scene-professional-c1-9",
+    emoji: "🪞",
+    title: "Senior peer'a\nzor geri bildirim ver —\nilişkiyi koru",
+    description:
+      "CMO'ya 'ekibi dinlemiyorsun' mesajı. 'I'd be doing you a disservice' + spesifik kanıt + 'I've got your back'.",
+    durationMin: 7,
+    mode: "professional",
+    cefrLevel: "C1",
+    skillId: "professional.c1",
+    lessonId: "professional.c1.feedback.1",
+    isNew: true,
+    progressLabel: "9/10 ders",
+  },
+  {
+    id: "scene-professional-c1-10",
+    emoji: "📼",
+    title: "HR soruşturması —\nkayıt altında\ntemkinli ifade",
+    description:
+      "Recorded interview. 'To the best of my recollection' + 'I'd want to review the documentation'.",
+    durationMin: 7,
+    mode: "professional",
+    cefrLevel: "C1",
+    skillId: "professional.c1",
+    lessonId: "professional.c1.legal.1",
+    isNew: true,
+    progressLabel: "10/10 ders ✓",
+  },
+];

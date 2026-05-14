@@ -79,7 +79,7 @@ export default function Splash() {
       <View style={styles.center}>
         <Text style={styles.wordmark}>Lafla</Text>
         <View style={styles.accentLine} />
-        <Text style={styles.tagline}>Söyle gitsin.</Text>
+        <Text style={styles.tagline}>Konuş, çalış.</Text>
       </View>
 
       <View style={styles.bottomHint}>

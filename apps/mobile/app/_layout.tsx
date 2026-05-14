@@ -40,6 +40,16 @@ export default function RootLayout() {
         <Stack.Screen name="scoreboard" />
         <Stack.Screen name="streakcalendar" />
         <Stack.Screen name="pronunciation/[id]" />
+        {/* Wave 3 — CEFR pivot routes */}
+        <Stack.Screen name="placement-test" />
+        <Stack.Screen name="program-select" />
+        <Stack.Screen name="listening" />
+        <Stack.Screen name="listening/[id]" />
+        <Stack.Screen name="reading" />
+        <Stack.Screen name="reading/[id]" />
+        <Stack.Screen name="review" />
+        <Stack.Screen name="decks" />
+        <Stack.Screen name="deck/[id]" />
       </Stack>
       </ErrorBoundary>
     </SafeAreaProvider>

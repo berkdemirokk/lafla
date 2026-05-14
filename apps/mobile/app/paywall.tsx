@@ -28,12 +28,12 @@ const FEATURES: Array<{ emoji: string; title: string; description: string }> = [
   {
     emoji: "🚫",
     title: "Reklamsız",
-    description: "Tüm reklamları kaldır, kesintisiz öğren.",
+    description: "Tüm reklamları kaldır, kesintisiz pratik.",
   },
   {
     emoji: "🛡️",
-    title: "Streak Kalkanı",
-    description: "Bir gün kaçırırsan streak'in korunur (ayda 2 kez).",
+    title: "Esneklik Günü",
+    description: "Bir gün kaçırırsan aktif günlerin korunur (ayda 2 kez).",
   },
   {
     emoji: "🎯",
@@ -43,7 +43,7 @@ const FEATURES: Array<{ emoji: string; title: string; description: string }> = [
   {
     emoji: "📊",
     title: "Detaylı İstatistik",
-    description: "Hangi konularda zayıfsın, AI önerisi.",
+    description: "Hangi konularda gelişebilirsin, AI önerisi.",
   },
   {
     emoji: "⚡",
@@ -53,7 +53,7 @@ const FEATURES: Array<{ emoji: string; title: string; description: string }> = [
   {
     emoji: "💛",
     title: "Geliştiriciyi Destekle",
-    description: "Tek kişilik takım, premium = Lafla'nın yakıtı.",
+    description: "Tek kişilik takım, Pro üyelik Lafla'nın yakıtı.",
   },
 ];
 
@@ -89,9 +89,9 @@ export default function PaywallScreen() {
       const result = await purchasePackage(plan);
       if (result.ok) {
         Alert.alert(
-          "✨ Premium aktif",
-          "Tüm premium özellikler artık senin. Söyle gitsin!",
-          [{ text: "Devam et", onPress: () => router.back() }],
+          "Pro üyelik aktif.",
+          "Tüm Pro özellikler artık kullanımında.",
+          [{ text: "Devam", onPress: () => router.back() }],
         );
         return;
       }
@@ -116,9 +116,9 @@ export default function PaywallScreen() {
     try {
       const restored = await restorePurchases();
       Alert.alert(
-        restored ? "Geri yüklendi ✓" : "Aktif abonelik yok",
+        restored ? "Geri yüklendi" : "Aktif abonelik yok",
         restored
-          ? "Premium özelliklerine erişebilirsin."
+          ? "Pro özelliklerine erişebilirsin."
           : "Bu Apple ID'de aktif bir Lafla aboneliği bulunmuyor.",
       );
     } catch {
@@ -141,9 +141,9 @@ export default function PaywallScreen() {
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.hero}>
           <Text style={styles.crown}>👑</Text>
-          <Text style={styles.title}>Lafla Premium</Text>
+          <Text style={styles.title}>Lafla Pro</Text>
           <Text style={styles.subtitle}>
-            Reklamsız + ekstra özellikler.{"\n"}Söyle gitsin, sınırsız.
+            Reklamsız, ekstra özellikler.{"\n"}Profesyonel pratik. Sınırsız.
           </Text>
         </View>
 
@@ -194,8 +194,8 @@ export default function PaywallScreen() {
               loading
                 ? "..."
                 : plan === "yearly"
-                ? "Yıllık plan ile başla →"
-                : "Aylık plan ile başla →"
+                ? "Yıllık plan ile başla"
+                : "Aylık plan ile başla"
             }
             onPress={handlePurchase}
             disabled={loading}

@@ -146,3 +146,150 @@ export async function getDueLessons(limit = 20): Promise<string[]> {
     .map((s) => s.lesson_id);
   return due;
 }
+
+// ============================================================
+// DAILY REVIEW SURFACE
+// Helpers powering the /review screen + ReviewBanner.
+// ============================================================
+
+export interface DueItem {
+  lessonId: string;
+  skillId: string;
+  daysOverdue: number;
+  ease: number;
+  reviewType: "fresh" | "due" | "overdue";
+}
+
+const MS_PER_DAY = 24 * 60 * 60 * 1000;
+
+function deriveSkillId(lessonId: string): string {
+  // Lesson IDs follow "{skill_id}.{n}.{m}" — e.g. "order.cafe.1.1".
+  // Strip the trailing ".n.m" so consumers get the skill.
+  const parts = lessonId.split(".");
+  if (parts.length <= 2) return lessonId;
+  return parts.slice(0, parts.length - 2).join(".");
+}
+
+function classifyReview(daysOverdue: number): DueItem["reviewType"] {
+  if (daysOverdue >= 3) return "overdue";
+  if (daysOverdue >= 0) return "due";
+  return "fresh";
+}
+
+export async function getDueReviews(today?: Date): Promise<DueItem[]> {
+  const now = today ?? new Date();
+  const local = await getAllLessonState();
+  const items: DueItem[] = [];
+
+  for (const state of Object.values(local)) {
+    if (!state.next_review_at || !state.completed_at) continue;
+    const nextReview = new Date(state.next_review_at);
+    if (Number.isNaN(nextReview.getTime())) continue;
+    const diffMs = now.getTime() - nextReview.getTime();
+    const daysOverdue = Math.floor(diffMs / MS_PER_DAY);
+    if (daysOverdue < 0) continue; // not yet due
+
+    items.push({
+      lessonId: state.lesson_id,
+      skillId: deriveSkillId(state.lesson_id),
+      daysOverdue,
+      ease: state.ease_factor,
+      reviewType: classifyReview(daysOverdue),
+    });
+  }
+
+  // Most overdue first; ties broken by lower ease (harder cards first).
+  items.sort((a, b) => {
+    if (b.daysOverdue !== a.daysOverdue) return b.daysOverdue - a.daysOverdue;
+    return a.ease - b.ease;
+  });
+  return items;
+}
+
+export async function getDueCount(today?: Date): Promise<number> {
+  const items = await getDueReviews(today);
+  return items.length;
+}
+
+export type ReviewRating = "again" | "hard" | "good" | "easy";
+
+/**
+ * Update SRS state from a user self-rating in a daily review session.
+ * Schedule rules:
+ *  - "again" → reset interval to 1, ease -= 0.2 (min 1.3)
+ *  - "hard"  → interval × 1.2, ease -= 0.15
+ *  - "good"  → interval × ease, ease unchanged
+ *  - "easy"  → interval × ease × 1.3, ease += 0.15
+ */
+export async function recordReview(
+  lessonId: string,
+  rating: ReviewRating,
+): Promise<void> {
+  const prev = await getLocalLessonState(lessonId);
+  if (!prev) return; // nothing to schedule against
+
+  const prevEase = prev.ease_factor || 2.5;
+  const prevInterval = prev.interval_days || 1;
+  let ease = prevEase;
+  let interval = prevInterval;
+  let consecutive = prev.consecutive_correct;
+
+  switch (rating) {
+    case "again":
+      ease = Math.max(1.3, prevEase - 0.2);
+      interval = 1;
+      consecutive = 0;
+      break;
+    case "hard":
+      ease = Math.max(1.3, prevEase - 0.15);
+      interval = Math.max(1, Math.round(prevInterval * 1.2));
+      consecutive = consecutive + 1;
+      break;
+    case "good":
+      // ease unchanged
+      interval = Math.max(1, Math.round(prevInterval * prevEase));
+      consecutive = consecutive + 1;
+      break;
+    case "easy":
+      ease = prevEase + 0.15;
+      interval = Math.max(1, Math.round(prevInterval * prevEase * 1.3));
+      consecutive = consecutive + 1;
+      break;
+  }
+
+  const nextReview = new Date(Date.now() + interval * MS_PER_DAY);
+  const wasCorrect = rating !== "again";
+
+  const newLocal: LessonStateLocal = {
+    lesson_id: lessonId,
+    completed_at: prev.completed_at,
+    next_review_at: nextReview.toISOString(),
+    ease_factor: ease,
+    interval_days: interval,
+    consecutive_correct: consecutive,
+    total_attempts: prev.total_attempts + 1,
+    total_correct: prev.total_correct + (wasCorrect ? 1 : 0),
+    last_attempt_at: new Date().toISOString(),
+  };
+  await saveLocalLessonState(newLocal);
+
+  // Best-effort cloud mirror
+  const { data: { user } } = await supabase.auth.getUser();
+  if (user) {
+    supabase
+      .from("lesson_state")
+      .upsert({
+        user_id: user.id,
+        lesson_id: lessonId,
+        completed_at: newLocal.completed_at,
+        next_review_at: newLocal.next_review_at,
+        ease_factor: ease,
+        interval_days: interval,
+        consecutive_correct: consecutive,
+        total_attempts: newLocal.total_attempts,
+        total_correct: newLocal.total_correct,
+        last_attempt_at: newLocal.last_attempt_at,
+      })
+      .then(() => {}, () => {});
+  }
+}

@@ -1,4 +1,9 @@
-// Profile screen — XP, streak, mastery, settings.
+// Profile screen — adult metric dashboard + account + settings.
+//
+// Pivoted from the XP/streak gamification surface to a Strava/Whoop-style
+// view: real practice minutes, vocab size, scene completion, CEFR
+// sub-skill bars, and a weekly recap card. The legacy auth and settings
+// rows are preserved unchanged.
 
 import { useEffect, useState } from "react";
 import {
@@ -26,6 +31,15 @@ import {
   isNotificationsEnabled,
 } from "../lib/notifications";
 import { tokens } from "../theme";
+import {
+  computeMetrics,
+  getWeeklyReport,
+  type UserMetrics,
+  type WeeklyReport,
+} from "../lib/metrics";
+import { StatsHero } from "../components/StatsHero";
+import { MetricBar } from "../components/MetricBar";
+import { WeeklyReportCard } from "../components/WeeklyReportCard";
 
 export default function ProfileScreen() {
   const router = useRouter();
@@ -34,6 +48,8 @@ export default function ProfileScreen() {
   const [signedIn, setSignedIn] = useState(false);
   const [lessonsCompleted, setLessonsCompleted] = useState(0);
   const [remindersOn, setRemindersOn] = useState(false);
+  const [metrics, setMetrics] = useState<UserMetrics | null>(null);
+  const [weekly, setWeekly] = useState<WeeklyReport | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -55,6 +71,14 @@ export default function ProfileScreen() {
           .eq("user_id", data.user.id)
           .not("completed_at", "is", null);
         if (count !== null && count !== undefined) setLessonsCompleted(count);
+      }
+      // Adult-tone metrics — fully local, no network.
+      try {
+        const [m, w] = await Promise.all([computeMetrics(), getWeeklyReport()]);
+        setMetrics(m);
+        setWeekly(w);
+      } catch {
+        // Soft-fail: profile still renders with — placeholders.
       }
     })();
   }, []);
@@ -113,9 +137,11 @@ export default function ProfileScreen() {
     );
   };
 
-  const xp = profile?.total_xp ?? local?.total_xp ?? 0;
   const streakNum = profile?.current_streak ?? local?.current_streak ?? 0;
-  const streakDisplay = lessonsCompleted === 0 ? "—" : String(streakNum);
+  const consistencyText =
+    lessonsCompleted === 0
+      ? "Henüz başlamadın"
+      : `${streakNum} günlük aktif`;
 
   return (
     <SafeAreaView style={styles.safe} edges={["top"]}>
@@ -130,45 +156,64 @@ export default function ProfileScreen() {
       </View>
 
       <ScrollView contentContainerStyle={styles.content}>
-        {/* Avatar + identity */}
-        <View style={styles.identityCard}>
-          <View style={styles.avatar}>
-            <Text style={styles.avatarText}>
+        {/* Identity strip — slimmer, no oversized avatar tile. */}
+        <View style={styles.identityRow}>
+          <View style={styles.avatarSmall}>
+            <Text style={styles.avatarSmallText}>
               {(profile?.display_name ?? "L")[0]?.toUpperCase()}
             </Text>
           </View>
-          <Text style={styles.name}>
-            {signedIn
-              ? profile?.display_name ?? "Lafla kullanıcısı"
-              : "Misafir"}
-          </Text>
+          <View style={styles.identityCol}>
+            <Text style={styles.name}>
+              {signedIn
+                ? profile?.display_name ?? "Lafla kullanıcısı"
+                : "Misafir"}
+            </Text>
+            <View style={styles.identityMetaRow}>
+              <View style={styles.consistencyDot} />
+              <Text style={styles.consistencyText}>{consistencyText}</Text>
+              <Text style={styles.metaDivider}>·</Text>
+              <Text style={styles.consistencyText}>
+                {profile?.is_premium ? "Premium" : "Free"}
+              </Text>
+            </View>
+          </View>
           {!signedIn && (
             <Pressable
               onPress={() => router.push("/auth")}
               style={styles.signinPill}
             >
-              <Text style={styles.signinPillText}>
-                Giriş yap (ilerlemeyi senkronla)
-              </Text>
+              <Text style={styles.signinPillText}>Giriş</Text>
             </Pressable>
           )}
         </View>
 
-        {/* Stats */}
-        <View style={styles.statsGrid}>
-          <Stat value={`${xp}`} label="Toplam XP" accent="yellow" />
-          <Stat value={streakDisplay} label="Günlük seri" accent="blue" />
-          <Stat
-            value={`${lessonsCompleted}`}
-            label="Ders bitirdi"
-            accent="yellow"
-          />
-          <Stat
-            value={profile?.is_premium ? "Premium" : "Free"}
-            label="Plan"
-            accent="blue"
-          />
+        {/* Adult metric hero — 2x2 real stats grid. */}
+        <StatsHero metrics={metrics} />
+
+        {/* CEFR sub-skill bars. */}
+        <View style={styles.skillsBlock}>
+          <Text style={styles.blockLabel}>BECERİ KIRILIMI</Text>
+          {metrics ? (
+            <>
+              <MetricBar label="Dinleme" level={metrics.skillBreakdown.listening} />
+              <MetricBar label="Konuşma" level={metrics.skillBreakdown.speaking} />
+              <MetricBar
+                label="Telaffuz"
+                level={metrics.skillBreakdown.pronunciation}
+              />
+              <MetricBar
+                label="Kelime"
+                level={metrics.skillBreakdown.vocabulary}
+              />
+            </>
+          ) : (
+            <Text style={styles.blockPlaceholder}>Hazırlanıyor…</Text>
+          )}
         </View>
+
+        {/* Weekly recap card. */}
+        <WeeklyReportCard report={weekly} />
 
         {/* Settings */}
         <View style={styles.section}>
@@ -319,25 +364,6 @@ export default function ProfileScreen() {
   );
 }
 
-function Stat({
-  value,
-  label,
-  accent,
-}: {
-  value: string;
-  label: string;
-  accent: "yellow" | "blue";
-}) {
-  const color =
-    accent === "yellow" ? tokens.brand.primary : tokens.brand.tertiary;
-  return (
-    <View style={statStyles.card}>
-      <Text style={[statStyles.value, { color }]}>{value}</Text>
-      <Text style={statStyles.label}>{label}</Text>
-    </View>
-  );
-}
-
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: tokens.bg.app },
   header: {
@@ -359,51 +385,86 @@ const styles = StyleSheet.create({
     padding: tokens.spacing.md,
     paddingBottom: 80,
   },
-  identityCard: {
+  identityRow: {
+    flexDirection: "row",
     alignItems: "center",
-    paddingVertical: tokens.spacing.lg,
+    gap: 12,
+    marginBottom: tokens.spacing.md,
   },
-  avatar: {
-    width: 88,
-    height: 88,
-    borderRadius: 44,
-    backgroundColor: tokens.brand.secondary,
-    borderWidth: 3,
-    borderColor: tokens.brand.primary,
+  avatarSmall: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: tokens.bg.surfaceContainerHigh,
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 12,
   },
-  avatarText: {
-    fontSize: 36,
-    fontWeight: tokens.weight.black,
-    color: tokens.brand.primary,
-  },
-  name: {
-    fontSize: 22,
+  avatarSmallText: {
+    fontSize: 20,
     fontWeight: tokens.weight.bold,
     color: tokens.text.primary,
-    marginBottom: 8,
+  },
+  identityCol: {
+    flex: 1,
+    gap: 4,
+  },
+  name: {
+    fontSize: 18,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.primary,
+  },
+  identityMetaRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+  },
+  consistencyDot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: tokens.brand.tertiary,
+  },
+  consistencyText: {
+    fontSize: 12,
+    color: tokens.text.secondary,
+    fontWeight: tokens.weight.medium,
+  },
+  metaDivider: {
+    fontSize: 12,
+    color: tokens.text.tertiary,
   },
   signinPill: {
     backgroundColor: tokens.brand.tertiarySoft,
     borderWidth: 1,
     borderColor: tokens.brand.tertiary,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
+    paddingHorizontal: 14,
+    paddingVertical: 6,
     borderRadius: tokens.radius.full,
-    marginTop: 4,
   },
   signinPillText: {
     color: tokens.brand.tertiary,
     fontWeight: tokens.weight.semibold,
-    fontSize: 13,
+    fontSize: 12,
   },
-  statsGrid: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 12,
-    marginBottom: tokens.spacing.lg,
+  skillsBlock: {
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderRadius: tokens.radius.base,
+    borderWidth: 1,
+    borderColor: tokens.border.light,
+    padding: tokens.spacing.md,
+    marginBottom: tokens.spacing.md,
+  },
+  blockLabel: {
+    fontSize: 11,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.tertiary,
+    letterSpacing: 1.2,
+    marginBottom: 8,
+  },
+  blockPlaceholder: {
+    fontSize: 13,
+    color: tokens.text.tertiary,
+    paddingVertical: 12,
   },
   section: {
     backgroundColor: tokens.bg.surfaceContainer,
@@ -455,28 +516,5 @@ const styles = StyleSheet.create({
     color: tokens.text.tertiary,
     fontSize: 12,
     marginTop: tokens.spacing.lg,
-  },
-});
-
-const statStyles = StyleSheet.create({
-  card: {
-    flexBasis: "48%",
-    flexGrow: 1,
-    backgroundColor: tokens.bg.surfaceContainer,
-    borderRadius: tokens.radius.base,
-    padding: tokens.spacing.md,
-    alignItems: "center",
-  },
-  value: {
-    fontSize: 30,
-    fontWeight: tokens.weight.black,
-    marginBottom: 4,
-  },
-  label: {
-    fontSize: 12,
-    color: tokens.text.secondary,
-    fontWeight: tokens.weight.semibold,
-    textTransform: "uppercase",
-    letterSpacing: 1,
   },
 });

@@ -37,13 +37,13 @@ export default function AchievementsScreen() {
         <Pressable onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>← Geri</Text>
         </Pressable>
-        <Text style={styles.title}>Başarımlar</Text>
+        <Text style={styles.title}>Kilometre Taşları</Text>
         <View style={styles.spacer} />
       </View>
 
       <View style={styles.progressBar}>
         <Text style={styles.progressLabel}>
-          {earnedCount}/{totalCount} kazanıldı
+          {earnedCount}/{totalCount} tamamlandı
         </Text>
         <View style={styles.bar}>
           <View

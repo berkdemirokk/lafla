@@ -1,4 +1,5 @@
-// Review banner — shown at top of feed when SRS-due lessons exist.
+// Review banner — shown at top of feed when SRS-due reviews exist.
+// Tapping launches the daily review session at /review.
 
 import { useEffect, useState } from "react";
 import {
@@ -8,59 +9,47 @@ import {
   Pressable,
 } from "react-native";
 import { useRouter } from "expo-router";
-import { getAllLessonState } from "../lib/local-progress";
-import { allLessons } from "../data/lessons";
+import { getDueCount } from "../lib/srs";
 import { tokens } from "../theme";
 
 interface Props {
   onDismiss?: () => void;
 }
 
-export function ReviewBanner({ onDismiss }: Props) {
+export function ReviewBanner(_props: Props = {}) {
   const router = useRouter();
-  const [due, setDue] = useState<{ id: string; title: string } | null>(null);
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     let alive = true;
     (async () => {
-      const states = await getAllLessonState();
-      const now = new Date().toISOString();
-      const dueIds = Object.values(states)
-        .filter((s) => s.next_review_at && s.next_review_at <= now)
-        .sort((a, b) =>
-          (a.next_review_at ?? "").localeCompare(b.next_review_at ?? ""),
-        )
-        .map((s) => s.lesson_id);
-      if (!alive) return;
-      if (dueIds.length === 0) return;
-      const lesson = allLessons.find((l) => l.id === dueIds[0]);
-      if (!lesson) return;
-      setDue({ id: lesson.id, title: lesson.title });
-      setCount(dueIds.length);
+      const c = await getDueCount();
+      if (alive) setCount(c);
     })();
     return () => {
       alive = false;
     };
   }, []);
 
-  if (!due) return null;
+  if (count <= 0) return null;
 
   return (
     <View style={styles.wrap}>
       <Pressable
         style={styles.banner}
-        onPress={() => router.push(`/preview/${due.id}` as never)}
+        onPress={() => router.push("/review" as never)}
       >
-        <Text style={styles.icon}>🔄</Text>
+        <View style={styles.iconWrap}>
+          <Text style={styles.icon}>🧠</Text>
+        </View>
         <View style={styles.text}>
-          <Text style={styles.label}>TEKRAR ZAMANI</Text>
+          <Text style={styles.label}>GÜNLÜK TEKRAR</Text>
           <Text style={styles.title} numberOfLines={1}>
-            {due.title}
+            {count === 1
+              ? "Bugün 1 tekrar bekliyor"
+              : `Bugün ${count} tekrar bekliyor`}
           </Text>
-          {count > 1 && (
-            <Text style={styles.sub}>+{count - 1} ders daha bekliyor</Text>
-          )}
+          <Text style={styles.sub}>Hafızanı taze tut — başla →</Text>
         </View>
         <Text style={styles.chev}>›</Text>
       </Pressable>
@@ -84,7 +73,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 12,
   },
-  icon: { fontSize: 22 },
+  iconWrap: {
+    width: 40,
+    height: 40,
+    borderRadius: tokens.radius.full,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: tokens.brand.tertiary,
+  },
+  icon: { fontSize: 20 },
   text: { flex: 1 },
   label: {
     fontSize: 10,
@@ -94,14 +91,14 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   title: {
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: tokens.weight.bold,
     color: tokens.text.primary,
   },
   sub: {
-    fontSize: 11,
+    fontSize: 12,
     color: tokens.text.secondary,
-    marginTop: 1,
+    marginTop: 2,
   },
   chev: {
     fontSize: 22,

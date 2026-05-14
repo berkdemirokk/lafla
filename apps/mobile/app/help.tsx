@@ -31,16 +31,16 @@ const FAQS: FaqItem[] = [
     a: "Profil > Ayarlar üzerinden çıkış yapabilirsin. Tüm verinin silinmesini istiyorsan hello@lafla.app adresine yaz, 7 gün içinde hesabını ve verini tamamen sileriz.",
   },
   {
-    q: "Premium iptal nasıl?",
-    a: "App Store > Ayarlar > Apple ID > Abonelikler > Lafla > İptal Et yolundan tek dokunuşla iptal edersin. Süre bitene kadar premium özellikler açık kalır.",
+    q: "Pro üyelik iptali nasıl?",
+    a: "App Store > Ayarlar > Apple ID > Abonelikler > Lafla > İptal Et yolundan tek dokunuşla iptal edersin. Süre bitene kadar Pro özellikleri açık kalır.",
   },
   {
     q: "Telaffuz ölçümü doğru mu?",
     a: "Apple Speech framework kullanıyoruz, doğruluk yaklaşık %85. Gürültülü ortamda düşer. Modeli sürekli geliştiriyoruz, hatalı puanları bize bildirebilirsin.",
   },
   {
-    q: "Streak nasıl korunur?",
-    a: "Her gün en az 1 sahneyi tamamla, yeter. Bir gün kaçırırsan streak sıfırlanır. Premium streak kalkanı (1 gün koruma) yakında geliyor.",
+    q: "Aktif gün serisi nasıl korunur?",
+    a: "Her gün en az 1 sahneyi tamamla, yeter. Bir gün kaçırırsan seri sıfırlanır. Pro üyelikte esneklik günü (ayda 2 kez bir gün koruma) yakında geliyor.",
   },
   {
     q: "Push bildirim çalışmıyor?",
@@ -88,7 +88,6 @@ export default function HelpScreen() {
 
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.searchBar} pointerEvents="none">
-          <Text style={styles.searchIcon}>🔍</Text>
           <Text style={styles.searchPlaceholder}>Soru ara…</Text>
         </View>
 
@@ -163,9 +162,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     gap: 10,
     marginBottom: tokens.spacing.sm,
-  },
-  searchIcon: {
-    fontSize: 15,
   },
   searchPlaceholder: {
     fontSize: 14,

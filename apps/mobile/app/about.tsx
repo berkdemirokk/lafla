@@ -69,7 +69,7 @@ export default function AboutScreen() {
           </View>
           <Text style={styles.appName}>Lafla</Text>
           <Text style={styles.version}>v{version}</Text>
-          <Text style={styles.tagline}>Söyle gitsin.</Text>
+          <Text style={styles.tagline}>Konuş, çalış.</Text>
         </View>
 
         <Section title="NİYE LAFLA?">

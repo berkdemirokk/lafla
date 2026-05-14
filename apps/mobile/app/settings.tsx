@@ -74,16 +74,14 @@ export default function SettingsScreen() {
       <ScrollView contentContainerStyle={styles.content}>
         <Section title="TERCİHLER">
           <Toggle
-            icon="🔊"
             label="Otomatik telaffuz"
             description="Yeni kelimelerde sesli okuma"
             value={autoSpeak}
             onValueChange={setAutoSpeakValue}
           />
           <Toggle
-            icon="🔔"
             label="Günlük hatırlatıcı (19:00)"
-            description="Streak'ini korumak için bildirim"
+            description="Aktif günlerini sürdürmek için bildirim"
             value={remindersOn}
             onValueChange={toggleReminders}
           />
@@ -91,27 +89,22 @@ export default function SettingsScreen() {
 
         <Section title="HESAP">
           <Row
-            icon="🏆"
-            label="Başarımlar"
+            label="Kilometre Taşları"
             onPress={() => router.push("/achievements" as never)}
           />
           <Row
-            icon="🌳"
             label="Beceri Ağacı"
             onPress={() => router.push("/skills" as never)}
           />
           <Row
-            icon="🎯"
             label="İlgi alanlarımı değiştir"
             onPress={() => router.push("/onboarding" as never)}
           />
           <Row
-            icon="👤"
             label="Profil"
             onPress={() => router.push("/profile" as never)}
           />
           <Row
-            icon="🗑️"
             label="Hesabımı sil"
             onPress={() =>
               Alert.alert(
@@ -137,7 +130,6 @@ export default function SettingsScreen() {
 
         <Section title="DESTEK">
           <Row
-            icon="✉️"
             label="Bize yaz"
             onPress={() =>
               Linking.openURL("mailto:hello@lafla.app?subject=Lafla geribildirim").catch(() =>
@@ -146,17 +138,15 @@ export default function SettingsScreen() {
             }
           />
           <Row
-            icon="⭐"
             label="App Store'da değerlendir"
             onPress={() =>
               Alert.alert(
                 "Teşekkürler",
-                "App Store'da yayınlandığında ratings alacağız!",
+                "App Store'da yayınlandığında ratings alacağız.",
               )
             }
           />
           <Row
-            icon="🔒"
             label="Gizlilik Politikası"
             onPress={() =>
               Linking.openURL("https://lafla.app/privacy").catch(() =>
@@ -165,7 +155,6 @@ export default function SettingsScreen() {
             }
           />
           <Row
-            icon="📄"
             label="Kullanım Koşulları"
             onPress={() =>
               Linking.openURL("https://lafla.app/terms").catch(() =>
@@ -179,7 +168,7 @@ export default function SettingsScreen() {
           <Text style={styles.version}>
             Lafla v{Constants.expoConfig?.version ?? "0.1.0"}
           </Text>
-          <Text style={styles.tagline}>Söyle gitsin.</Text>
+          <Text style={styles.tagline}>Konuş, çalış.</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -202,17 +191,14 @@ function Section({
 }
 
 function Row({
-  icon,
   label,
   onPress,
 }: {
-  icon: string;
   label: string;
   onPress: () => void;
 }) {
   return (
     <Pressable style={styles.row} onPress={onPress}>
-      <Text style={styles.rowIcon}>{icon}</Text>
       <Text style={styles.rowLabel}>{label}</Text>
       <Text style={styles.rowChevron}>›</Text>
     </Pressable>
@@ -220,13 +206,11 @@ function Row({
 }
 
 function Toggle({
-  icon,
   label,
   description,
   value,
   onValueChange,
 }: {
-  icon: string;
   label: string;
   description?: string;
   value: boolean;
@@ -234,7 +218,6 @@ function Toggle({
 }) {
   return (
     <View style={styles.row}>
-      <Text style={styles.rowIcon}>{icon}</Text>
       <View style={styles.toggleText}>
         <Text style={styles.rowLabel}>{label}</Text>
         {description && (
@@ -300,7 +283,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: tokens.border.light,
   },
-  rowIcon: { fontSize: 20 },
   rowLabel: {
     flex: 1,
     fontSize: 15,

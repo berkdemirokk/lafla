@@ -61,9 +61,8 @@ export function AchievementToast({ achievement, onDismiss }: Props) {
       pointerEvents="box-none"
     >
       <Pressable onPress={onDismiss} style={styles.toast}>
-        <Text style={styles.emoji}>{achievement.emoji}</Text>
         <View style={styles.text}>
-          <Text style={styles.unlocked}>BAŞARIM</Text>
+          <Text style={styles.unlocked}>KİLOMETRE TAŞI</Text>
           <Text style={styles.title}>{achievement.title}</Text>
           <Text style={styles.desc} numberOfLines={2}>
             {achievement.description}
@@ -90,16 +89,13 @@ const styles = StyleSheet.create({
     borderRadius: tokens.radius.base,
     paddingHorizontal: 16,
     paddingVertical: 14,
-    borderWidth: 2,
-    borderColor: tokens.brand.primary,
-    shadowColor: tokens.brand.primary,
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.4,
-    shadowRadius: 16,
-    elevation: 8,
-  },
-  emoji: {
-    fontSize: 40,
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.08)",
+    shadowColor: tokens.brand.secondary,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 4,
   },
   text: {
     flex: 1,

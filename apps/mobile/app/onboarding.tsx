@@ -50,9 +50,9 @@ export default function Onboarding() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <Text style={styles.title}>Hangi durumlar seni zorluyor?</Text>
+        <Text style={styles.title}>Hangi alanlarda gelişmek istiyorsun?</Text>
         <Text style={styles.subtitle}>
-          Sana en uygun içerikleri sunabilmemiz için birkaç konuyu seç.
+          Sana en uygun içeriği seçebilmemiz için birkaç konu seç.
         </Text>
 
         <View style={styles.list}>
@@ -74,7 +74,7 @@ export default function Onboarding() {
             saving
               ? "Kaydediliyor..."
               : canContinue
-              ? "Devam et →"
+              ? "Devam"
               : "En az birini seç"
           }
           onPress={handleContinue}

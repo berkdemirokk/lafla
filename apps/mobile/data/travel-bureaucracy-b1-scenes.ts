@@ -1,0 +1,148 @@
+// Travel Bureaucracy B1 scenes — bureaucratic travel scenarios for Turkish learners.
+// Skill: travel.b1 (10 scenes, one per lesson)
+// High-stakes contexts: visa interviews, customs, lost baggage, hospital, etc.
+
+import type { Scene } from "./scenes";
+
+export const travelBureaucracyB1Scenes: ReadonlyArray<Scene> = [
+  {
+    id: "scene-travel-b1-1",
+    emoji: "🇺🇸",
+    title: "ABD vize\nmülakatı:\n90 saniye",
+    description:
+      "Konsolos camın arkasında. 'Purpose of trip', 'ties to Turkey' — kısa, net, kesin cevap.",
+    durationMin: 8,
+    mode: "travel",
+    cefrLevel: "B1",
+    skillId: "travel.b1",
+    lessonId: "travel.b1.usvisa.1",
+    isNew: true,
+    progressLabel: "1/10 ders",
+  },
+  {
+    id: "scene-travel-b1-2",
+    emoji: "🇬🇧",
+    title: "UK / Schengen\nvize: evraklar\nve cevaplar",
+    description:
+      "Banka dökümü, dönüş bileti, işveren mektubu — üç temel evrak ve sözel savunma.",
+    durationMin: 7,
+    mode: "travel",
+    cefrLevel: "B1",
+    skillId: "travel.b1",
+    lessonId: "travel.b1.ukvisa.1",
+    isNew: true,
+    progressLabel: "2/10 ders",
+  },
+  {
+    id: "scene-travel-b1-3",
+    emoji: "🛃",
+    title: "Gümrük: beyan\netsem mi,\netmesem mi?",
+    description:
+      "JFK gümrük. 'Anything to declare?' Türk lokumu, peynir, $9,000 nakit — yanlış cevap büyük ceza.",
+    durationMin: 6,
+    mode: "travel",
+    cefrLevel: "B1",
+    skillId: "travel.b1",
+    lessonId: "travel.b1.customs.1",
+    isNew: true,
+    progressLabel: "3/10 ders",
+  },
+  {
+    id: "scene-travel-b1-4",
+    emoji: "🧳",
+    title: "Bagajım\nbantta\nçıkmadı",
+    description:
+      "Lost & Found. Baggage tag numarası, PIR formu, tazminat — havayoluna nasıl tutanak tutturursun?",
+    durationMin: 7,
+    mode: "travel",
+    cefrLevel: "B1",
+    skillId: "travel.b1",
+    lessonId: "travel.b1.lostbag.1",
+    isNew: true,
+    progressLabel: "4/10 ders",
+  },
+  {
+    id: "scene-travel-b1-5",
+    emoji: "🏨",
+    title: "Otelde\nsıcak su yok,\noda değiştir",
+    description:
+      "Resepsiyona kibarca şikayet, oda değişikliği iste, partial refund müzakeresi — saldırmadan çözüm.",
+    durationMin: 7,
+    mode: "travel",
+    cefrLevel: "B1",
+    skillId: "travel.b1",
+    lessonId: "travel.b1.hotelissue.1",
+    isNew: true,
+    progressLabel: "5/10 ders",
+  },
+  {
+    id: "scene-travel-b1-6",
+    emoji: "🚗",
+    title: "ABD'de araba\nkirala: sigorta\ntuzakları",
+    description:
+      "CDW, full-to-full benzin, iade saati — Hertz bankosunda neyi imzalamadan önce sor?",
+    durationMin: 8,
+    mode: "travel",
+    cefrLevel: "B1",
+    skillId: "travel.b1",
+    lessonId: "travel.b1.carrental.1",
+    isNew: true,
+    progressLabel: "6/10 ders",
+  },
+  {
+    id: "scene-travel-b1-7",
+    emoji: "📞",
+    title: "Sigorta\ntalebi açma:\nfile a claim",
+    description:
+      "Yurtdışı hastane masrafı 420 euro. Sigorta hattını ara — poliçe no, tarih, evrak, geri ödeme.",
+    durationMin: 7,
+    mode: "travel",
+    cefrLevel: "B1",
+    skillId: "travel.b1",
+    lessonId: "travel.b1.insurance.1",
+    isNew: true,
+    progressLabel: "7/10 ders",
+  },
+  {
+    id: "scene-travel-b1-8",
+    emoji: "🏥",
+    title: "Yurtdışı\nER: semptom,\nalerji, kayıt",
+    description:
+      "Doktor karşısında — ne kadar süredir, nerede, hangi ilaca alerji. İngilizce taburcu raporu iste.",
+    durationMin: 8,
+    mode: "travel",
+    cefrLevel: "B1",
+    skillId: "travel.b1",
+    lessonId: "travel.b1.hospital.1",
+    isNew: true,
+    progressLabel: "8/10 ders",
+  },
+  {
+    id: "scene-travel-b1-9",
+    emoji: "🔁",
+    title: "Önceki vize\nreddedildi —\ntekrar başvur",
+    description:
+      "'What changed since last time?' Terfi, evlilik, mortgage. Önceki kararı eleştirmeden cevap.",
+    durationMin: 7,
+    mode: "travel",
+    cefrLevel: "B1",
+    skillId: "travel.b1",
+    lessonId: "travel.b1.followup.1",
+    isNew: true,
+    progressLabel: "9/10 ders",
+  },
+  {
+    id: "scene-travel-b1-10",
+    emoji: "✈️",
+    title: "Aktarmayı\nkaçırdım:\nrebook iste",
+    description:
+      "Frankfurt transit. Connection 8 dakikayla kaçtı. Ücretsiz rebook + bagaj reroute + voucher.",
+    durationMin: 7,
+    mode: "travel",
+    cefrLevel: "B1",
+    skillId: "travel.b1",
+    lessonId: "travel.b1.transit.1",
+    isNew: true,
+    progressLabel: "10/10 ders ✓",
+  },
+];

@@ -1,0 +1,148 @@
+// Personal B1 — Scene tiles for the 10 adult relationship lessons.
+// Replaces the cartoony "flirt" vibe with mature dating + partnership scenarios
+// for Turkish young adults (22-35) in international or cross-cultural relationships.
+
+import type { Scene } from "./scenes";
+
+export const personalB1Scenes: Scene[] = [
+  {
+    id: "scene-personal-b1-1",
+    emoji: "💬",
+    title: "Tanışma mesajı —\nopener'ı geçip\nortak nokta bul",
+    description:
+      "Bio'ya gerçek bir referans, açık uçlu soru. İlk üç mesaj her şeyi belirler.",
+    durationMin: 7,
+    mode: "personal",
+    cefrLevel: "B1",
+    skillId: "personal.b1.dating-app",
+    lessonId: "personal.b1.dating-app.1",
+    isNew: true,
+    progressLabel: "1/10 ders",
+  },
+  {
+    id: "scene-personal-b1-2",
+    emoji: "🍷",
+    title: "İlk randevu —\ntanış, paylaş,\nfazla açma",
+    description:
+      "Open question + boundary. 'What's a normal week look like for you?' + 'Save that for next time.'",
+    durationMin: 7,
+    mode: "personal",
+    cefrLevel: "B1",
+    skillId: "personal.b1.first-date",
+    lessonId: "personal.b1.first-date.1",
+    isNew: true,
+    progressLabel: "2/10 ders",
+  },
+  {
+    id: "scene-personal-b1-3",
+    emoji: "🌍",
+    title: "Kültürü anlat —\nstereotipsiz,\nonunkini gerçekten sor",
+    description:
+      "'It's more nuanced than that' + 'How does that work where you're from?'",
+    durationMin: 7,
+    mode: "personal",
+    cefrLevel: "B1",
+    skillId: "personal.b1.culture",
+    lessonId: "personal.b1.culture.1",
+    isNew: true,
+    progressLabel: "3/10 ders",
+  },
+  {
+    id: "scene-personal-b1-4",
+    emoji: "🗣️",
+    title: "Zor konuşma —\n'we need to talk'\ndemeden bir endişe aç",
+    description:
+      "I-statement, spesifik an, ne istediğini söyle. 'Always/never' tuzağı yok.",
+    durationMin: 8,
+    mode: "personal",
+    cefrLevel: "B1",
+    skillId: "personal.b1.we-need-to-talk",
+    lessonId: "personal.b1.we-need-to-talk.1",
+    isNew: true,
+    progressLabel: "4/10 ders",
+  },
+  {
+    id: "scene-personal-b1-5",
+    emoji: "🏡",
+    title: "Yabancı aile —\nilk yemeğe gel,\nhediye getir",
+    description:
+      "'Thank you for having me' + 'Help me out — am I doing this right?' Saygılı + meraklı.",
+    durationMin: 7,
+    mode: "personal",
+    cefrLevel: "B1",
+    skillId: "personal.b1.in-laws",
+    lessonId: "personal.b1.in-laws.1",
+    isNew: true,
+    progressLabel: "5/10 ders",
+  },
+  {
+    id: "scene-personal-b1-6",
+    emoji: "📱",
+    title: "Uzak mesafe —\ngünün dokusunu\npaylaş, gerçekten",
+    description:
+      "'How are you / I am fine' ölü. 'Walk me through your day — even the boring bits.'",
+    durationMin: 7,
+    mode: "personal",
+    cefrLevel: "B1",
+    skillId: "personal.b1.long-distance",
+    lessonId: "personal.b1.long-distance.1",
+    isNew: true,
+    progressLabel: "6/10 ders",
+  },
+  {
+    id: "scene-personal-b1-7",
+    emoji: "🤝",
+    title: "Tartışma sonrası —\nkendi payını al,\nsavunmasız",
+    description:
+      "'I've been sitting with what you said' + 'That's on me.' Sıra önce sende.",
+    durationMin: 8,
+    mode: "personal",
+    cefrLevel: "B1",
+    skillId: "personal.b1.repair",
+    lessonId: "personal.b1.repair.1",
+    isNew: true,
+    progressLabel: "7/10 ders",
+  },
+  {
+    id: "scene-personal-b1-8",
+    emoji: "❤️",
+    title: "'Seni seviyorum' +\nsağlıklı sınır —\nikisi bir arada",
+    description:
+      "Aşk ≠ otomatik 'evet'. 'I love you' + 'I need some space tonight — not about you.'",
+    durationMin: 7,
+    mode: "personal",
+    cefrLevel: "B1",
+    skillId: "personal.b1.love-boundaries",
+    lessonId: "personal.b1.love-boundaries.1",
+    isNew: true,
+    progressLabel: "8/10 ders",
+  },
+  {
+    id: "scene-personal-b1-9",
+    emoji: "🚪",
+    title: "Ayrılık konuşması —\nnet, saygılı, kesin —\nbelirsizlik yok",
+    description:
+      "'I've thought about this a lot' + 'This isn't about getting back together.' Dignity intact.",
+    durationMin: 8,
+    mode: "personal",
+    cefrLevel: "B1",
+    skillId: "personal.b1.breakup",
+    lessonId: "personal.b1.breakup.1",
+    isNew: true,
+    progressLabel: "9/10 ders",
+  },
+  {
+    id: "scene-personal-b1-10",
+    emoji: "🌱",
+    title: "Gerçek özür —\nspesifik et,\nsahiplen, değiştir",
+    description:
+      "'Sorry if you felt' yetmez. 'I see now how that landed' + 'Here's what I'll do differently.'",
+    durationMin: 8,
+    mode: "personal",
+    cefrLevel: "B1",
+    skillId: "personal.b1.apology",
+    lessonId: "personal.b1.apology.1",
+    isNew: true,
+    progressLabel: "10/10 ders ✓",
+  },
+];
