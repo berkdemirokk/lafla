@@ -309,28 +309,4 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: tokens.weight.medium,
   },
-  appleWrap: {
-    marginTop: tokens.spacing.md,
-  },
-  dividerRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 12,
-    marginVertical: tokens.spacing.md,
-  },
-  dividerLine: {
-    flex: 1,
-    height: 1,
-    backgroundColor: tokens.border.light,
-  },
-  dividerText: {
-    color: tokens.text.tertiary,
-    fontSize: 12,
-    fontWeight: tokens.weight.bold,
-    letterSpacing: 1.2,
-  },
-  appleBtn: {
-    height: 56,
-    width: "100%",
-  },
 });

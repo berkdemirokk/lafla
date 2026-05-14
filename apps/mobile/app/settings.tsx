@@ -110,6 +110,29 @@ export default function SettingsScreen() {
             label="Profil"
             onPress={() => router.push("/profile" as never)}
           />
+          <Row
+            icon="🗑️"
+            label="Hesabımı sil"
+            onPress={() =>
+              Alert.alert(
+                "Hesabı sil?",
+                "Tüm verilerin silinecek. Bu işlem geri alınamaz.\n\nDevam etmek için:\nhello@lafla.app adresinden silme talebi gönder. 7 gün içinde tüm verilerin kalıcı silinir.",
+                [
+                  { text: "Vazgeç", style: "cancel" },
+                  {
+                    text: "Email gönder",
+                    style: "destructive",
+                    onPress: () =>
+                      Linking.openURL(
+                        "mailto:hello@lafla.app?subject=Hesap silme talebi&body=Hesabımın ve tüm verilerimin kalıcı olarak silinmesini talep ediyorum.",
+                      ).catch(() =>
+                        Alert.alert("Hata", "Mail uygulaması açılamadı."),
+                      ),
+                  },
+                ],
+              )
+            }
+          />
         </Section>
 
         <Section title="DESTEK">

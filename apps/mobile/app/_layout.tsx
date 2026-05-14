@@ -2,11 +2,13 @@
 
 import { Stack } from "expo-router";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { ErrorBoundary } from "../components/ErrorBoundary";
 import { tokens } from "../theme";
 
 export default function RootLayout() {
   return (
     <SafeAreaProvider>
+      <ErrorBoundary>
       <Stack
         screenOptions={{
           headerShown: false,
@@ -39,6 +41,7 @@ export default function RootLayout() {
         <Stack.Screen name="streakcalendar" />
         <Stack.Screen name="pronunciation/[id]" />
       </Stack>
+      </ErrorBoundary>
     </SafeAreaProvider>
   );
 }
