@@ -11,7 +11,6 @@ import {
   StyleSheet,
   useWindowDimensions,
   Pressable,
-  Alert,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";

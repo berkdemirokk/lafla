@@ -106,8 +106,17 @@ export async function bumpSkillMastery(skillId: string, accuracy: number) {
   return all[skillId];
 }
 
+function localDateStr(): string {
+  // YYYY-MM-DD in user's LOCAL timezone (not UTC)
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
 export async function bumpDailyActivity(xp: number) {
-  const today = new Date().toISOString().slice(0, 10);
+  const today = localDateStr();
   const all = await readMap<{ xp: number; lessons: number }>(K_DAILY);
   const prev = all[today] ?? { xp: 0, lessons: 0 };
   all[today] = { xp: prev.xp + xp, lessons: prev.lessons + 1 };
@@ -117,13 +126,15 @@ export async function bumpDailyActivity(xp: number) {
 
 export async function bumpStreak() {
   // Streak rule: if last_lesson_at was yesterday or today, ++ (today only counts once).
-  // If gap ≥ 2 days, reset to 1.
+  // If gap ≥ 2 days, reset to 1. Local timezone.
   const profile = await getLocalProfile();
   const today = new Date();
-  const todayStr = today.toISOString().slice(0, 10);
+  const todayStr = localDateStr();
   const last = profile.last_lesson_at;
   const lastDate = last ? new Date(last) : null;
-  const lastStr = lastDate?.toISOString().slice(0, 10);
+  const lastStr = lastDate
+    ? `${lastDate.getFullYear()}-${String(lastDate.getMonth() + 1).padStart(2, "0")}-${String(lastDate.getDate()).padStart(2, "0")}`
+    : undefined;
 
   let streak = profile.current_streak;
   if (!lastStr) {

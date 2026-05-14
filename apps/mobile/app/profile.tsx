@@ -114,7 +114,8 @@ export default function ProfileScreen() {
   };
 
   const xp = profile?.total_xp ?? local?.total_xp ?? 0;
-  const streak = profile?.current_streak ?? local?.current_streak ?? 0;
+  const streakNum = profile?.current_streak ?? local?.current_streak ?? 0;
+  const streakDisplay = lessonsCompleted === 0 ? "—" : String(streakNum);
 
   return (
     <SafeAreaView style={styles.safe} edges={["top"]}>
@@ -156,7 +157,7 @@ export default function ProfileScreen() {
         {/* Stats */}
         <View style={styles.statsGrid}>
           <Stat value={`${xp}`} label="Toplam XP" accent="yellow" />
-          <Stat value={`${streak}`} label="Günlük seri" accent="blue" />
+          <Stat value={streakDisplay} label="Günlük seri" accent="blue" />
           <Stat
             value={`${lessonsCompleted}`}
             label="Ders bitirdi"

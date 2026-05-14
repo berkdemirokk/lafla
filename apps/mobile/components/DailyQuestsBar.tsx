@@ -32,7 +32,14 @@ export function DailyQuestsBar({ onClaimed }: Props) {
   };
 
   useEffect(() => {
-    refresh();
+    let alive = true;
+    (async () => {
+      const state = await getDailyQuests();
+      if (alive) setQuests(state.quests);
+    })();
+    return () => {
+      alive = false;
+    };
   }, []);
 
   const handleClaim = async (id: QuestId) => {

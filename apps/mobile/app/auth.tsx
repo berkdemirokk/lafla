@@ -17,13 +17,10 @@ import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../components/Button";
-import { useEffect } from "react";
 import {
   signInWithEmail,
   signUpWithEmail,
   sendPasswordReset,
-  isAppleAuthAvailable,
-  signInWithAppleNative,
 } from "../lib/auth";
 import { tokens } from "../theme";
 
@@ -36,34 +33,6 @@ export default function Auth() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [appleAvailable, setAppleAvailable] = useState(false);
-
-  useEffect(() => {
-    isAppleAuthAvailable().then(setAppleAvailable);
-  }, []);
-
-  const doAppleSignIn = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      await signInWithAppleNative();
-      router.replace("/onboarding");
-    } catch (e: any) {
-      const msg = (e?.message ?? "").toLowerCase();
-      const isCanceled =
-        e?.code === "ERR_CANCELED" ||
-        e?.code === "ERR_REQUEST_CANCELED" ||
-        msg.includes("canceled") ||
-        msg.includes("cancelled");
-      if (isCanceled) {
-        setError(null);
-      } else {
-        setError(e?.message ?? "Apple Sign-In başarısız.");
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const submit = async () => {
     if (!email.trim()) {
