@@ -16,6 +16,7 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { SceneCard } from "../components/SceneCard";
 import { DailyQuestsBar } from "../components/DailyQuestsBar";
+import { ReviewBanner } from "../components/ReviewBanner";
 import { SAMPLE_SCENES, type Scene } from "../data/scenes";
 import {
   getCompletedLessonIds,
@@ -101,6 +102,9 @@ export default function Feed() {
           <Text style={styles.statLabel}>ders</Text>
         </View>
       </View>
+
+      {/* Review queue (if any SRS-due) */}
+      <ReviewBanner />
 
       {/* Daily quests */}
       <DailyQuestsBar
