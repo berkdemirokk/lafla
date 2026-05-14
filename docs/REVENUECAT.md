@@ -1,18 +1,30 @@
 # RevenueCat — Production Wiring Guide
 
-**STATUS (May 2026):** SDK is now **WIRED** in `lib/iap.ts`. The code
-auto-detects whether `react-native-purchases` is available + a valid
-RevenueCat API key is in `app.json extra.revenuecatIosKey`. If both are
-present → real billing flows. Otherwise → falls back to AsyncStorage mock.
+**STATUS (May 2026, updated):**
+- ✅ `react-native-purchases` SDK wired in `lib/iap.ts`
+- ✅ Production iOS API key live in `apps/mobile/app.json`
+  (`appl_bqTdlDWgyIlphLIlVGGRuNDtuIu`)
+- ✅ RC entitlement `Lafla Pro` exists; `PREMIUM_ENTITLEMENT` constant in
+  `lib/iap.ts` matches it exactly (note the space + caps — RC identifiers
+  are immutable, code follows the dashboard)
+- ✅ RC offering `default` exists with `$rc_monthly` + `$rc_annual` packages
+- ⚠️  **App Store Connect IAP products NOT yet created**. The two RC products
+  (`monthly`, `yearly`) currently point at RC's internal **Test Store**, not
+  real App Store products. Sandbox / production purchases will fail until
+  the App Store side is wired (see §1 below).
 
-**To go live, you only need to:**
-1. Sign up at https://app.revenuecat.com and complete steps 1-4 below
-2. Replace `"YOUR_REVENUECAT_IOS_KEY"` in `apps/mobile/app.json` with your
-   real public iOS SDK key (starts with `appl_`)
-3. Trigger a new EAS build (Expo Go can't run native modules)
+**Remaining steps to go live:**
+1. In App Store Connect: create `lafla.premium.monthly` + `lafla.premium.yearly`
+   as auto-renewable subscriptions in the same group (see §1)
+2. In RC dashboard → Products → "Lafla (App Store)" → **+ New** (or **Import**)
+   → add both product IDs from step 1
+3. Attach both products to the `Lafla Pro` entitlement
+4. In the `default` offering: replace the Test Store packages with App Store
+   ones (or create new packages bound to the App Store products)
+5. EAS dev build → sandbox test → submit for review
 
-Until you do step 2, the paywall shows real UI but uses the mock backend,
-so you can demo + test the flow without hitting StoreKit.
+Until step 1 lands, the paywall shows real UI but `purchasePackage()` will
+return `{ ok: false, error: "..." }`. Mock fallback (Expo Go) still works.
 
 ---
 
@@ -58,9 +70,11 @@ RevenueCat** — products stay `Waiting for Review` until then.
    Shared Secret).
 2. **Products** → import from App Store Connect. Both
    `lafla.premium.monthly` and `lafla.premium.yearly` should appear.
-3. **Entitlements** → create one entitlement with identifier `premium`.
-   Attach both products to it. This is the string `PREMIUM_ENTITLEMENT`
-   in `lib/iap.ts`.
+3. **Entitlements** → entitlement identifier `Lafla Pro` already exists.
+   Attach the two App Store products created in step 1 to it. This
+   string is mirrored in `PREMIUM_ENTITLEMENT` in `lib/iap.ts`. Note:
+   identifiers are immutable in RC — if you want a different one
+   (e.g. `premium`), delete + recreate AND update the constant.
 4. **Offerings** → create the default offering `default`. Add two packages:
    - Identifier `monthly` (or `$rc_monthly`) → `lafla.premium.monthly`
    - Identifier `yearly`  (or `$rc_annual` ) → `lafla.premium.yearly`

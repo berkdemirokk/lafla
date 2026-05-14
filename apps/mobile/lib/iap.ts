@@ -17,7 +17,7 @@
 //      - Create two products: lafla.premium.monthly (99 TL), lafla.premium.yearly (599 TL)
 //   3. In RevenueCat dashboard:
 //      - Add iOS app with bundle id com.lafla.app
-//      - Create Entitlement "premium"
+//      - Create Entitlement "Lafla Pro" (must match PREMIUM_ENTITLEMENT below)
 //      - Create Offering "default" with two packages: $rc_monthly, $rc_annual
 //      - Attach App Store products to packages
 //   4. Add key to app.json:
@@ -33,7 +33,10 @@ import Constants from "expo-constants";
 
 export type PackageId = "monthly" | "yearly";
 
-export const PREMIUM_ENTITLEMENT = "premium";
+// IMPORTANT: This MUST match the entitlement identifier in the RevenueCat
+// dashboard exactly (case + spaces). Set to "Lafla Pro" to align with the
+// dashboard entry created during initial RC project setup.
+export const PREMIUM_ENTITLEMENT = "Lafla Pro";
 
 export type PurchaseResult = {
   ok: boolean;
