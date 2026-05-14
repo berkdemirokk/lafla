@@ -119,7 +119,7 @@ export default function ReadingDetail() {
 
           <View style={styles.tipBox}>
             <Text style={styles.tipText}>
-              💡 Altı çizili kelimelere dokun — çevirisini ve notunu gör,
+              Altı çizili kelimelere dokun — çevirisini ve notunu gör,
               SRS'e ekleyebilirsin.
             </Text>
           </View>
@@ -128,7 +128,7 @@ export default function ReadingDetail() {
 
           {hasQuestions ? (
             <Button
-              label="Soruları cevapla →"
+              label="Soruları cevapla"
               onPress={() => {
                 hapticSelection();
                 setPhase("questions");
@@ -228,7 +228,7 @@ export default function ReadingDetail() {
             />
           ) : (
             <Button
-              label={isLast ? "Bitir →" : "Sıradaki Soru →"}
+              label={isLast ? "Bitir" : "Sıradaki soru"}
               onPress={() => {
                 if (isLast) {
                   const correctCount = answers.filter(
@@ -253,10 +253,10 @@ export default function ReadingDetail() {
   // ===== COMPLETE =====
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
       <View style={styles.completeWrap}>
-        <Text style={styles.completeEmoji}>🎉</Text>
-        <Text style={styles.completeTitle}>Tebrikler!</Text>
+        <Text style={styles.completeKicker}>Okuma Tamam</Text>
+        <Text style={styles.completeTitle}>Tamamlandı</Text>
         <Text style={styles.completeSubtitle}>{article.title_tr}</Text>
 
         {hasQuestions ? (
@@ -373,7 +373,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     gap: 12,
   },
-  completeEmoji: { fontSize: 72, marginBottom: 8 },
+  completeKicker: {
+    fontSize: 11,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.tertiary,
+    letterSpacing: 1.6,
+    textTransform: "uppercase",
+    marginBottom: 8,
+  },
   completeTitle: {
     fontSize: 32,
     fontWeight: tokens.weight.extrabold,

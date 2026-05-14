@@ -201,13 +201,12 @@ export default function ReviewScreen() {
 
       {empty && (
         <View style={styles.emptyWrap}>
-          <Text style={styles.emptyEmoji}>🌤</Text>
           <Text style={styles.emptyTitle}>Bugün tekrar yok.</Text>
           <Text style={styles.emptySub}>
-            Bir sonraki yarın. Yeni bir ders açmak ister misin?
+            Bir sonraki seans yarın. İstersen yeni bir ders açabilirsin.
           </Text>
           <View style={styles.emptyCta}>
-            <Button label="Akışa Dön" onPress={() => router.replace("/feed")} />
+            <Button label="Akışa dön" onPress={() => router.replace("/feed")} />
           </View>
         </View>
       )}
@@ -389,10 +388,9 @@ function ReviewSummary({
   const accuracy = total > 0 ? Math.round((known / total) * 100) : 0;
   return (
     <ScrollView contentContainerStyle={summaryStyles.content}>
-      <Text style={summaryStyles.icon}>🧠</Text>
-      <Text style={summaryStyles.title}>{total} kelimeyi tekrar ettin.</Text>
+      <Text style={summaryStyles.title}>{total} kelime tekrar edildi.</Text>
       <Text style={summaryStyles.sub}>
-        Hafıza istatistiğin aşağıda. Yarın yeni kartlar seni bekliyor.
+        Hafıza istatistiğin aşağıda. Yarın yeni kartlar gelecek.
       </Text>
 
       <View style={summaryStyles.grid}>
@@ -419,7 +417,7 @@ function ReviewSummary({
       </View>
 
       <View style={summaryStyles.cta}>
-        <Button label="Akışa Dön →" onPress={onContinue} stacked />
+        <Button label="Akışa dön" onPress={onContinue} stacked />
       </View>
     </ScrollView>
   );

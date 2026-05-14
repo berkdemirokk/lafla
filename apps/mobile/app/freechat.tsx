@@ -327,9 +327,23 @@ export default function FreeChatScreen() {
           <Text style={styles.backText}>← Geri</Text>
         </Pressable>
         <Text style={styles.title}>Sohbet</Text>
-        <Pressable onPress={handleNewSession} style={styles.newBtn} hitSlop={8}>
-          <Text style={styles.newBtnText}>Yeni</Text>
-        </Pressable>
+        <View style={styles.headerRight}>
+          <Pressable
+            onPress={() => router.push("/freechat-voice" as never)}
+            style={styles.voiceBtn}
+            hitSlop={8}
+            accessibilityLabel="Sesli sohbet moduna geç"
+          >
+            <Text style={styles.voiceBtnText}>🎙 Sesli sohbet</Text>
+          </Pressable>
+          <Pressable
+            onPress={handleNewSession}
+            style={styles.newBtn}
+            hitSlop={8}
+          >
+            <Text style={styles.newBtnText}>Yeni</Text>
+          </Pressable>
+        </View>
       </View>
 
       <KeyboardAvoidingView
@@ -528,8 +542,25 @@ const styles = StyleSheet.create({
     fontWeight: tokens.weight.extrabold,
     color: tokens.text.primary,
   },
+  headerRight: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+  voiceBtn: {
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
+  },
+  voiceBtnText: {
+    color: tokens.brand.tertiary,
+    fontSize: 12,
+    fontWeight: tokens.weight.bold,
+  },
   newBtn: {
-    width: 70,
     alignItems: "flex-end",
   },
   newBtnText: {

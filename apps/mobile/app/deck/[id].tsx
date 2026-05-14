@@ -127,7 +127,6 @@ export default function DeckScreen() {
           <View style={styles.spacer} />
         </View>
         <View style={styles.missing}>
-          <Text style={styles.missingEmoji}>🤔</Text>
           <Text style={styles.missingTitle}>Bu deste bulunamadı</Text>
           <Text style={styles.missingDesc}>
             Geri dönüp başka bir deste seç.
@@ -288,7 +287,7 @@ function BrowseMode({
         </Pressable>
 
         <View style={{ flex: 1 }}>
-          <Button label="Çalışma moduna geç →" onPress={onStartQuiz} />
+          <Button label="Çalışma moduna geç" onPress={onStartQuiz} />
         </View>
       </View>
     </View>
@@ -420,7 +419,7 @@ function QuizMode({ deck, onDone, onExit }: QuizProps) {
                 isCorrect ? styles.feedbackTitleOk : styles.feedbackTitleBad,
               ]}
             >
-              {isCorrect ? "✓ Doğru!" : "✗ Yanlış"}
+              {isCorrect ? "Doğru" : "Yanlış"}
             </Text>
             {!isCorrect && (
               <Text style={styles.feedbackSub}>
@@ -442,7 +441,7 @@ function QuizMode({ deck, onDone, onExit }: QuizProps) {
         <View style={{ flex: 1 }}>
           <Button
             label={
-              qIdx + 1 >= questions.length ? "Sonuçları gör" : "Sonraki →"
+              qIdx + 1 >= questions.length ? "Sonuçları gör" : "Sonraki"
             }
             onPress={onNext}
             disabled={!answered}
@@ -472,9 +471,6 @@ function ResultMode({
   const missed = total - learnedCount;
   return (
     <ScrollView contentContainerStyle={styles.resultRoot}>
-      <Text style={styles.resultEmoji}>
-        {missed === 0 ? "🏆" : learnedCount >= total * 0.8 ? "🎉" : "💪"}
-      </Text>
       <Text style={styles.resultTitle}>Sonuç</Text>
       <Text style={styles.resultScore}>
         {learnedCount}
@@ -482,7 +478,7 @@ function ResultMode({
       </Text>
       <Text style={styles.resultMessage}>
         {missed === 0
-          ? "Tüm kelimeleri bildin. Süpersin."
+          ? "Tüm kelimeleri doğru bildin."
           : `${missed} kelimeyi SRS'e ekledim, yarın tekrar görürsün.`}
       </Text>
 

@@ -227,7 +227,7 @@ export default function ScenarioScreen() {
                 ALIŞTIRMA · {drillIdx + 1}/{scenario.warmups.length}
               </Text>
               <Pressable onPress={skipDrill} hitSlop={8}>
-                <Text style={styles.drillSkip}>Sahneye atla →</Text>
+                <Text style={styles.drillSkip}>Sahneye atla</Text>
               </Pressable>
             </View>
             <View style={styles.drillBody}>
@@ -389,7 +389,7 @@ function SetupView({
 
       <View style={setupStyles.footer}>
         <Button
-          label={stepIndex + 1 >= total ? "Sahneye geç →" : "Devam"}
+          label={stepIndex + 1 >= total ? "Sahneye geç" : "Devam"}
           onPress={onNext}
         />
       </View>
@@ -411,16 +411,14 @@ function VerdictView({
   const { band } = computeSceneFluency([sceneResult.score]);
   const verdictMsg =
     band === "high"
-      ? "Bu durumu artık halledebilirsin."
+      ? "Bu sahneyi artık akıcı yürütüyorsun."
       : band === "mid"
-      ? "İyi başlangıç. Bu sahne bir süre sonra tekrar gelecek."
-      : "Kasla. Bu sahne yarın seni tekrar bekliyor.";
-  const emoji = band === "high" ? "🎯" : band === "mid" ? "🌱" : "💪";
+      ? "Sağlam başlangıç. Sahne ileride tekrar gelecek."
+      : "Bir tur daha kazandırır. Sahne yarın yine planda.";
 
   return (
     <ScrollView contentContainerStyle={verdictStyles.content}>
-      <Text style={verdictStyles.emoji}>{emoji}</Text>
-      <Text style={verdictStyles.title}>Sahne Tamam</Text>
+      <Text style={verdictStyles.title}>Sahne tamamlandı</Text>
       <Text style={verdictStyles.msg}>{verdictMsg}</Text>
 
       <View style={verdictStyles.scoreCard}>
@@ -431,7 +429,6 @@ function VerdictView({
 
       <View style={verdictStyles.metaRow}>
         <View style={verdictStyles.metaPill}>
-          <Text style={verdictStyles.metaIcon}>📍</Text>
           <Text style={verdictStyles.metaText}>{scenario.title}</Text>
         </View>
       </View>
@@ -442,7 +439,7 @@ function VerdictView({
 
       <View style={verdictStyles.footer}>
         <Button
-          label={hasNext ? "Sıradaki sahne →" : "Akışa Dön →"}
+          label={hasNext ? "Sıradaki sahne" : "Akışa dön"}
           onPress={onContinue}
           stacked
         />
@@ -625,10 +622,6 @@ const verdictStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  emoji: {
-    fontSize: 88,
-    marginBottom: 8,
-  },
   title: {
     fontSize: 26,
     fontWeight: tokens.weight.extrabold,
@@ -690,7 +683,6 @@ const verdictStyles = StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 8,
   },
-  metaIcon: { fontSize: 14 },
   metaText: {
     fontSize: 13,
     color: tokens.text.primary,

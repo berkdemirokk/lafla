@@ -174,7 +174,7 @@ export default function ProfileScreen() {
               <Text style={styles.consistencyText}>{consistencyText}</Text>
               <Text style={styles.metaDivider}>·</Text>
               <Text style={styles.consistencyText}>
-                {profile?.is_premium ? "Premium" : "Free"}
+                {profile?.is_premium ? "Pro" : "Free"}
               </Text>
             </View>
           </View>
@@ -259,8 +259,8 @@ export default function ProfileScreen() {
             style={styles.row}
             onPress={() => router.push("/streakcalendar" as never)}
           >
-            <Text style={styles.rowIcon}>🔥</Text>
-            <Text style={styles.rowText}>Seri Takvimi</Text>
+            <Text style={styles.rowIcon}>📅</Text>
+            <Text style={styles.rowText}>Aktif gün takvimi</Text>
             <Text style={styles.rowChevron}>›</Text>
           </Pressable>
 
@@ -314,7 +314,7 @@ export default function ProfileScreen() {
             onPress={() => router.push("/paywall" as never)}
           >
             <Text style={styles.rowIcon}>👑</Text>
-            <Text style={styles.rowText}>Premium'a Geç</Text>
+            <Text style={styles.rowText}>Pro'ya Geç</Text>
             <Text style={styles.rowChevron}>›</Text>
           </Pressable>
 
@@ -358,7 +358,7 @@ export default function ProfileScreen() {
           )}
         </View>
 
-        <Text style={styles.versionText}>Lafla v0.1.0 · Söyle gitsin.</Text>
+        <Text style={styles.versionText}>Lafla v0.1.0 · Konuş, çalış.</Text>
       </ScrollView>
     </SafeAreaView>
   );

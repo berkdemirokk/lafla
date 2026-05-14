@@ -370,7 +370,7 @@ export default function JournalScreen() {
           yesterdayEntries.length === 0 &&
           weekGroups.length === 0 && (
             <Text style={styles.tipText}>
-              Bir sahne bitirdikçe burada birikecek. Söyle gitsin.
+              Bir sahne tamamladıkça burada birikecek.
             </Text>
           )}
       </ScrollView>

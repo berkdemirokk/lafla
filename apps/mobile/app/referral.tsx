@@ -36,9 +36,9 @@ type Tier = {
 };
 
 const TIERS: Tier[] = [
-  { count: 3, reward: "1 ay premium" },
-  { count: 10, reward: "6 ay premium" },
-  { count: 30, reward: "ömür boyu premium" },
+  { count: 3, reward: "1 ay Pro" },
+  { count: 10, reward: "6 ay Pro" },
+  { count: 30, reward: "Ömür boyu Pro" },
 ];
 
 export default function ReferralScreen() {
@@ -70,7 +70,7 @@ export default function ReferralScreen() {
   const handleShare = async () => {
     if (!refCode) return;
     const link = `https://lafla.app/?ref=${refCode}`;
-    const message = `Lafla'yı dene: lafla.app/?ref=${refCode} — Türkler için, gerçek konuşmalar, sıfır XP saçmalığı. Söyle gitsin.`;
+    const message = `Lafla'yı dene: lafla.app/?ref=${refCode} — koçluk pratiği arkadaşına da gelsin.`;
     try {
       await Share.share({
         message,
@@ -101,19 +101,18 @@ export default function ReferralScreen() {
       <ScrollView contentContainerStyle={styles.content}>
         {/* Hero */}
         <View style={styles.hero}>
-          <Text style={styles.giftEmoji}>🎁</Text>
           <Text style={styles.headline}>
-            Beraber öğrenmek daha eğlenceli
+            Lafla'yı paylaş
           </Text>
           <Text style={styles.subtitle}>
-            Arkadaşına Lafla'yı önerirsen ikiniz de premium kazanır
+            Koçluk pratiği arkadaşına da gelsin. Davet ettiklerin Pro alır; sen de.
           </Text>
         </View>
 
         {/* CTA */}
         <View style={styles.ctaWrap}>
           <Button
-            label="Davet linkini paylaş →"
+            label="Davet linkini paylaş"
             onPress={handleShare}
             variant="primary"
             stacked
@@ -144,7 +143,7 @@ export default function ReferralScreen() {
                 <View style={styles.tierDivider} />
                 <Text style={styles.tierReward}>{tier.reward}</Text>
                 {reached && (
-                  <Text style={styles.tierBadge}>✓ Kazandın</Text>
+                  <Text style={styles.tierBadge}>✓ Tamamlandı</Text>
                 )}
               </View>
             );
@@ -163,8 +162,8 @@ export default function ReferralScreen() {
 
         {/* Disclaimer */}
         <Text style={styles.disclaimer}>
-          Premium şu an pasif — App Store onayından sonra aktif olacak. Davet
-          linkin saklanıyor.
+          Pro üyelik şu an pasif — App Store onayından sonra aktif olacak.
+          Davet linkin saklanıyor.
         </Text>
       </ScrollView>
     </SafeAreaView>
@@ -196,11 +195,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: tokens.spacing.md,
     marginBottom: tokens.spacing.md,
-  },
-  giftEmoji: {
-    fontSize: 96,
-    lineHeight: 110,
-    marginBottom: tokens.spacing.sm,
   },
   headline: {
     fontSize: 24,

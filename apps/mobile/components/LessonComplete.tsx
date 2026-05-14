@@ -36,7 +36,7 @@ export function LessonComplete({ progress, onContinue, hasNext }: Props) {
       <StatusBar style="light" />
 
       <View style={styles.content}>
-        <Text style={styles.title}>Tamamlandı.</Text>
+        <Text style={styles.title}>Tamamlandı</Text>
         <Text style={styles.subtitle}>Oturum özeti</Text>
 
         <View style={styles.statsGrid}>
@@ -53,10 +53,10 @@ export function LessonComplete({ progress, onContinue, hasNext }: Props) {
             accent="blue"
           />
           <StatCard
-            value={`+${progress.xp_earned}`}
-            unit="puan"
+            value={`${progress.xp_earned}`}
+            unit="dk"
             unitColored
-            label="Eklendi"
+            label="Pratik"
             accent="yellow"
           />
           <StatCard

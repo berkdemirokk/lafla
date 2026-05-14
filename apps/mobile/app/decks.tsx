@@ -158,7 +158,6 @@ export default function DecksScreen() {
       {/* Deck grid */}
       {VOCAB_DECKS.length === 0 ? (
         <View style={styles.empty}>
-          <Text style={styles.emptyEmoji}>📚</Text>
           <Text style={styles.emptyTitle}>Desteler henüz hazırlanıyor</Text>
           <Text style={styles.emptyDesc}>
             Kelime kartları yakında burada olacak.
@@ -218,7 +217,6 @@ export default function DecksScreen() {
           }}
           ListEmptyComponent={
             <View style={styles.empty}>
-              <Text style={styles.emptyEmoji}>🔍</Text>
               <Text style={styles.emptyTitle}>Bu seviyede deste yok</Text>
               <Text style={styles.emptyDesc}>
                 Başka bir seviye filtresi dene.

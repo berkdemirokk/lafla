@@ -39,9 +39,6 @@ export function ReviewBanner(_props: Props = {}) {
         style={styles.banner}
         onPress={() => router.push("/review" as never)}
       >
-        <View style={styles.iconWrap}>
-          <Text style={styles.icon}>🧠</Text>
-        </View>
         <View style={styles.text}>
           <Text style={styles.label}>GÜNLÜK TEKRAR</Text>
           <Text style={styles.title} numberOfLines={1}>
@@ -49,7 +46,7 @@ export function ReviewBanner(_props: Props = {}) {
               ? "Bugün 1 tekrar bekliyor"
               : `Bugün ${count} tekrar bekliyor`}
           </Text>
-          <Text style={styles.sub}>Hafızanı taze tut — başla →</Text>
+          <Text style={styles.sub}>Hafızanı taze tut.</Text>
         </View>
         <Text style={styles.chev}>›</Text>
       </Pressable>

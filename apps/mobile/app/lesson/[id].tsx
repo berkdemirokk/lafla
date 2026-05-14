@@ -296,14 +296,14 @@ function Placeholder({
     <SafeAreaView style={styles.safe}>
       <StatusBar style="dark" />
       <View style={styles.placeholder}>
-        <Text style={styles.placeholderIcon}>🚧</Text>
-        <Text style={styles.placeholderTitle}>Ders Henüz Hazır Değil</Text>
+        <Text style={styles.placeholderTitle}>Ders henüz hazır değil</Text>
         <Text style={styles.placeholderId}>{lessonId}</Text>
         <Text style={styles.placeholderDesc}>
-          Bu ders yakında. Hazır olanlar: order.cafe.1.1 - 1.4, order.restaurant.2.1.
+          Bu ders yakında eklenecek. Şu anda hazır olanlar:
+          order.cafe.1.1 - 1.4, order.restaurant.2.1.
         </Text>
         <Pressable style={styles.backBtn} onPress={onBack}>
-          <Text style={styles.backBtnText}>Akışa Geri Dön</Text>
+          <Text style={styles.backBtnText}>Akışa dön</Text>
         </Pressable>
       </View>
     </SafeAreaView>
@@ -355,7 +355,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  placeholderIcon: { fontSize: 64, marginBottom: 16 },
   placeholderTitle: {
     fontSize: 22,
     fontWeight: tokens.weight.extrabold,

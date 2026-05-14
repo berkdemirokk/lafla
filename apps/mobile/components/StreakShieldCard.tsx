@@ -1,7 +1,7 @@
-// Streak Shield card — shown on profile + streakcalendar.
+// Esneklik Günü card — shown on profile + streakcalendar.
 //
-// Visual: rounded card, shield emoji, premium pill or "Premium ile aç",
-// counter "X / 2 kullanılabilir bu ay", subtitle explaining what shields do,
+// Visual: rounded card, Pro pill or "Pro ile aç",
+// counter "X / 2 kullanılabilir bu ay", subtitle explaining what flex days do,
 // and a "[date] kullanıldı" line if the user has spent one before.
 
 import { useEffect, useState } from "react";
@@ -67,7 +67,7 @@ export function StreakShieldCard({ state, refreshKey, onUpsellPress }: Props) {
   const cap = SHIELDS_PER_MONTH_PREMIUM;
   const counterText = isPremium
     ? `${data.available} / ${cap} kullanılabilir bu ay`
-    : `0 — Pro üyelik gerekli`;
+    : `Pro üyelikle açılır`;
 
   const handleUpsell = () => {
     if (onUpsellPress) {

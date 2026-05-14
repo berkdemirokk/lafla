@@ -10,8 +10,18 @@
 //   else        → "miss"
 //
 // Overall score = mean of per-word similarities, mapped to 0..100.
+//
+// The phoneme-level grader (see ./phoneme-grader) is a more granular
+// add-on: it returns per-IPA-symbol bands plus Turkish coaching tips,
+// and is exposed below as gradePronunciationWithPhonemes(). The
+// word-level grader in this file remains the simple fallback callers
+// can use when phoneme detail isn't needed.
 
 import { normalize, similarity } from "./engine";
+import {
+  analyzePhonemes,
+  type PhonemeAnalysisResult,
+} from "./phoneme-grader";
 
 export type PronunciationBand = "good" | "okay" | "miss";
 
@@ -78,3 +88,20 @@ export function gradePronunciation(
 
   return { score, bandsByWord };
 }
+
+/**
+ * Phoneme-level grading. Wrapper around analyzePhonemes() that returns a
+ * Promise so callers can drop it in alongside async STT pipelines without
+ * branching on sync/async.
+ *
+ * The word-level gradePronunciation() above remains the simple fallback
+ * for callers that only need overall + per-word bands.
+ */
+export async function gradePronunciationWithPhonemes(
+  target: string,
+  spoken: string,
+): Promise<PhonemeAnalysisResult> {
+  return analyzePhonemes(target, spoken);
+}
+
+export type { PhonemeAnalysisResult } from "./phoneme-grader";

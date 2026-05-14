@@ -116,7 +116,6 @@ export default function ReadingListing() {
 
       {articles.length === 0 ? (
         <View style={styles.empty}>
-          <Text style={styles.emptyEmoji}>📚</Text>
           <Text style={styles.emptyTitle}>Makaleler hazırlanıyor</Text>
           <Text style={styles.emptyDesc}>
             Yakında seviyene uygun kısa metinler burada olacak.
@@ -190,11 +189,11 @@ function ArticleCard({
       <Text style={cardStyles.title}>{article.title_tr}</Text>
       <View style={cardStyles.footerRow}>
         <Text style={cardStyles.meta}>
-          ⏱ {article.estimated_minutes} dk
-          {done ? "   ·   ✓ Tamamlandı" : ""}
+          {article.estimated_minutes} dk
+          {done ? "  ·  Tamamlandı" : ""}
         </Text>
         <View style={cardStyles.cta}>
-          <Text style={cardStyles.ctaText}>Oku →</Text>
+          <Text style={cardStyles.ctaText}>Oku</Text>
         </View>
       </View>
     </Pressable>

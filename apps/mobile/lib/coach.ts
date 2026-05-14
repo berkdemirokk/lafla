@@ -25,6 +25,14 @@
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import type { CefrLevel } from "../data/scenes";
+import { recordUserText } from "./mistake-tracker";
+import { getPattern } from "./mistake-patterns";
+import {
+  compactHistory,
+  buildMemoryPromptPrefix,
+  getMemorySnapshots,
+  type ConversationTurn,
+} from "./coach-memory";
 
 const K_COACH = "lafla.coach.state";
 
@@ -159,6 +167,46 @@ export async function clearCoach(): Promise<void> {
 }
 
 // ---------------------------------------------------------------------------
+// Mistake-tracker bridge.
+//
+// Free-chat and scenario consumers call this with each user message. It runs
+// the rule-based detector via mistake-tracker.recordUserText, then mirrors
+// any NEWLY-surfaced mistake patterns into coach.weaknesses[] so the LLM
+// system prompt can address them organically (see Memory block).
+//
+// Why mirror into weaknesses[] (vs. only using the tracker)?
+//   - The coach system prompt already has a "Known weak spots" section that
+//     the LLM is trained on; piggybacking keeps the prompt format stable and
+//     lets the existing memory machinery do its job.
+//   - The tracker remains the source of truth for drill generation; this
+//     mirror is purely a teaching cue for Maya's freechat replies.
+//
+// We deliberately don't add weaknesses for every detection — only for the
+// FIRST time a pattern surfaces — to keep the bounded weakness queue useful.
+// ---------------------------------------------------------------------------
+
+export async function autoRecordWeaknessesFromUser(text: string): Promise<void> {
+  if (!text || typeof text !== "string") return;
+  let result: Awaited<ReturnType<typeof recordUserText>>;
+  try {
+    result = await recordUserText(text);
+  } catch {
+    return; // never block chat path
+  }
+
+  if (!result.newMistakes.length) return;
+
+  // For each newly-tracked pattern, push a short human-readable label into
+  // the weakness queue. The pattern's Turkish description is the right
+  // surface to expose because the coach is bilingual.
+  for (const patternId of result.newMistakes) {
+    const pattern = getPattern(patternId);
+    if (!pattern) continue;
+    await addWeakness(pattern.description_tr);
+  }
+}
+
+// ---------------------------------------------------------------------------
 // System prompt builder.
 // Combines the (single) coach persona with the user's stored memory into a
 // system message for chatComplete. We deliberately keep the prompt compact:
@@ -226,6 +274,58 @@ Style rules:
 - Never break character. You are ${state.name}, a coach, not "an AI assistant".${memoryBlock}`;
 }
 
+/**
+ * Voice-mode variant of buildCoachSystemPrompt. Same persona + memory, but
+ * tuned for spoken delivery: shorter replies (one short paragraph, no lists
+ * or markdown of any kind), explicit anti-symbol rule because TTS reads
+ * punctuation literally, and a single follow-up question at the end so the
+ * loop hands back to the user. Used by lib/voice-session.ts and the
+ * /freechat-voice route.
+ */
+export function buildVoiceCoachSystemPrompt(
+  state: CoachState,
+  userLevel: CefrLevel | null,
+): string {
+  const userName = state.userDisplayName ?? "the user";
+  const memoryBits: string[] = [];
+
+  if (state.topicMemory.length > 0) {
+    memoryBits.push(
+      `Recent conversation topics with this user: ${state.topicMemory.slice(0, 3).join(", ")}.`,
+    );
+  }
+  if (state.weaknesses.length > 0) {
+    memoryBits.push(
+      `Known weak spots to coach on when relevant: ${state.weaknesses.slice(0, 4).join(", ")}.`,
+    );
+  }
+  if (state.totalSessions > 0) {
+    memoryBits.push(
+      `This user has chatted with you ${state.totalSessions} session(s) before — treat them as a returning friend, not a stranger.`,
+    );
+  }
+
+  const memoryBlock =
+    memoryBits.length > 0 ? `\n\nMemory:\n${memoryBits.join("\n")}` : "";
+
+  return `You are ${state.name}, a personal English-speaking coach for ${userName}, a Turkish native speaker learning English. This is a VOICE conversation — your reply will be spoken aloud by a TTS engine.
+
+Personality:
+- Warm and supportive, but DIRECT. You correct mistakes kindly — never let a wrong sentence pass silently.
+- You sound like a friend who happens to be fluent in English, not a textbook.
+- You care about ${userName}'s progress. Reference past topics when natural.
+
+Voice style rules (these matter MORE than usual because output is spoken):
+- Reply in English. You may insert AT MOST one very short Turkish phrase per reply, only when ${userName} is clearly stuck.
+- ${levelGuidance(userLevel)}
+- LENGTH: 40-80 words. One short paragraph. Never longer.
+- NO markdown, NO bullet points, NO numbered lists, NO code blocks, NO emoji, NO asterisks, NO hashes. Plain spoken prose only — punctuation gets read aloud.
+- Speak naturally as if on a phone call: contractions ("you're", "I'd"), light filler ("right", "so", "okay"), zero stage directions.
+- End with EXACTLY ONE short follow-up question to keep the conversation flowing. Not two, not zero — one.
+- If ${userName} makes a mistake, briefly restate the correct form in one short clause, then continue (don't lecture).
+- Never break character. You are ${state.name} on a voice call, not "an AI assistant".${memoryBlock}`;
+}
+
 // ---------------------------------------------------------------------------
 // Contextual greeting.
 // Picked client-side (not via LLM) so the user sees something instant on
@@ -282,4 +382,58 @@ export function getCoachGreeting(state: CoachState): string {
 
   // Long-lost return.
   return `Hey${namePart}, tekrar hoşgeldin. Uzun zaman oldu — let's pick up where we left off. What do you want to talk about today?`;
+}
+
+// ---------------------------------------------------------------------------
+// Memory-aware system prompt.
+//
+// Wraps buildCoachSystemPrompt with the smart-summariser pipeline. The caller
+// passes the full conversation turn history; we:
+//   1. Compact it (older turns -> a persisted MemorySnapshot, recent turns
+//      kept verbatim).
+//   2. Build the regular coach system prompt.
+//   3. Prepend the memory recap block so prior-session context survives.
+//
+// We deliberately re-fetch snapshots after compactHistory rather than
+// trusting its returned prefix exclusively — that way even if compaction
+// did nothing this turn (short history), we still surface any pre-existing
+// snapshots in the system prompt.
+//
+// Failure modes: compactHistory is already best-effort (silent fall-back).
+// If reading snapshots throws here for any reason we still return a valid
+// system prompt — just without the memory prefix.
+// ---------------------------------------------------------------------------
+
+export async function buildMemoryAwareSystemPrompt(
+  state: CoachState,
+  userLevel: CefrLevel | null,
+  recentTurns: ConversationTurn[],
+): Promise<{ systemPrompt: string; recentTurns: ConversationTurn[] }> {
+  const basePrompt = buildCoachSystemPrompt(state, userLevel);
+
+  let trimmedTurns: ConversationTurn[] = Array.isArray(recentTurns)
+    ? recentTurns
+    : [];
+  let prefix = "";
+
+  try {
+    const compacted = await compactHistory(trimmedTurns);
+    trimmedTurns = compacted.recentTurns;
+    prefix = compacted.systemMemoryPrefix;
+  } catch {
+    // Fall back to whatever snapshots already exist on disk so the LLM
+    // isn't completely amnesic when compaction fails.
+    try {
+      const existing = await getMemorySnapshots();
+      prefix = buildMemoryPromptPrefix(existing);
+    } catch {
+      prefix = "";
+    }
+  }
+
+  const systemPrompt = prefix
+    ? `${prefix}\n\n${basePrompt}`
+    : basePrompt;
+
+  return { systemPrompt, recentTurns: trimmedTurns };
 }

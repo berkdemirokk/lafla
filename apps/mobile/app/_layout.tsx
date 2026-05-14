@@ -50,6 +50,25 @@ export default function RootLayout() {
         <Stack.Screen name="review" />
         <Stack.Screen name="decks" />
         <Stack.Screen name="deck/[id]" />
+        {/* Wave 4 — Lucida-killer routes */}
+        <Stack.Screen name="freechat-voice" />
+        <Stack.Screen name="drill" />
+        <Stack.Screen name="voip" />
+        <Stack.Screen name="voip/[id]" />
+        <Stack.Screen name="cultural" />
+        <Stack.Screen name="cultural-quiz" />
+        <Stack.Screen name="missions" />
+        <Stack.Screen name="mission/[id]" />
+        <Stack.Screen name="visa-bank" />
+        <Stack.Screen name="visa-question/[id]" />
+        <Stack.Screen name="share/[template]" />
+        <Stack.Screen name="certificate" />
+        <Stack.Screen name="certificate/[id]" />
+        {/* Wave 5 — extension routes */}
+        <Stack.Screen name="bookmarks" />
+        <Stack.Screen name="coach-notes" />
+        <Stack.Screen name="family" />
+        <Stack.Screen name="backup" />
       </Stack>
       </ErrorBoundary>
     </SafeAreaProvider>

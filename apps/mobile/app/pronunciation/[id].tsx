@@ -336,7 +336,7 @@ function PhraseCard({
           ]}
           hitSlop={8}
         >
-          <Text style={styles.listenText}>Dinle 🔊</Text>
+          <Text style={styles.listenText}>Dinle</Text>
         </Pressable>
       </View>
 
@@ -391,7 +391,7 @@ function PhraseCard({
             </View>
             <View style={styles.scoredHalf}>
               <Button
-                label={isLast ? "Bitir →" : "İleri →"}
+                label={isLast ? "Bitir" : "İleri"}
                 onPress={onAdvance}
               />
             </View>
@@ -478,16 +478,14 @@ function FinishedCard({
     average >= 85 ? "good" : average >= 50 ? "okay" : "miss";
   const msg =
     band === "good"
-      ? "Telaffuzun çok iyi. Sahneye hazırsın."
+      ? "Telaffuzun temiz. Sahneye geçebilirsin."
       : band === "okay"
-      ? "Fena değil. Birkaç kelimeyi daha rahat söyleyebilirsin."
-      : "Biraz daha çalış. Tekrar tekrar dinleyip dene.";
-  const emoji = band === "good" ? "🎙️" : band === "okay" ? "👌" : "🌱";
+      ? "Çoğu söyleyişin doğru. Bir iki kelime üstünde durmaya değer."
+      : "Birkaç tur daha dinle ve yine dene. Acele etme.";
 
   return (
     <View style={finishedStyles.wrap}>
-      <Text style={finishedStyles.emoji}>{emoji}</Text>
-      <Text style={finishedStyles.title}>Telaffuz Tamam</Text>
+      <Text style={finishedStyles.title}>Telaffuz tamamlandı</Text>
       <Text style={finishedStyles.msg}>{msg}</Text>
 
       <View style={finishedStyles.scoreCard}>
@@ -517,7 +515,7 @@ function DegradedView({ onSkip }: { onSkip: () => void }) {
         konuşma tanıma şu an aktif değil.
       </Text>
       <View style={degradedStyles.footer}>
-        <Button label="Sahneye geç →" onPress={onSkip} stacked />
+        <Button label="Sahneye geç" onPress={onSkip} stacked />
       </View>
     </View>
   );

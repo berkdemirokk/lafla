@@ -41,12 +41,12 @@ export function SceneCard({
           </View>
           {isNew && (
             <View style={[styles.tag, styles.tagPrimary]}>
-              <Text style={styles.tagPrimaryText}>🔥 Yeni</Text>
+              <Text style={styles.tagPrimaryText}>Yeni</Text>
             </View>
           )}
           {progressLabel && (
             <View style={[styles.tag, styles.tagTertiary]}>
-              <Text style={styles.tagTertiaryText}>📊 {progressLabel}</Text>
+              <Text style={styles.tagTertiaryText}>{progressLabel}</Text>
             </View>
           )}
         </View>
@@ -55,7 +55,7 @@ export function SceneCard({
         <Text style={styles.desc}>{description}</Text>
 
         <View style={styles.btn}>
-          <Text style={styles.btnLabel}>BAŞLA →</Text>
+          <Text style={styles.btnLabel}>BAŞLA</Text>
         </View>
       </View>
     </Pressable>

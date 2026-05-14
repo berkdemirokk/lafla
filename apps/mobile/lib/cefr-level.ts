@@ -110,3 +110,37 @@ export function adjustLevel(
   }
   return CEFR_LEVELS[Math.max(0, idx - 1)];
 }
+
+/**
+ * Auto-award hook — call this whenever the user's CEFR level advances
+ * (e.g. after the placement test completes, or after the heuristic in
+ * metrics.ts bumps them up a band). It mints a certificate via
+ * lib/certificate.ts → awardCertificate. Idempotent at the level grain:
+ * if a certificate already exists for `newLevel`, this is a no-op so we
+ * don't spam the gallery with re-takes.
+ *
+ * Wave 3 integration plan:
+ *   - placement-test.tsx → onComplete: await onLevelAdvanced(detectedLevel)
+ *   - settings.tsx       → "Manually set level" → after setCefrLevel(newLevel)
+ *     call onLevelAdvanced(newLevel) to retro-award.
+ *
+ * Errors are swallowed — certificate award must NEVER block the level-up flow.
+ */
+export async function onLevelAdvanced(newLevel: CefrLevel): Promise<void> {
+  try {
+    // Dynamic require avoids a circular import (certificate.ts -> metrics.ts
+    // -> cefr-level.ts) and keeps the dependency one-way at module load time.
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const cert = require("./certificate") as {
+      hasCertificateForLevel: (
+        l: CefrLevel,
+      ) => Promise<boolean>;
+      awardCertificate: (l: CefrLevel) => Promise<unknown>;
+    };
+    const already = await cert.hasCertificateForLevel(newLevel);
+    if (already) return;
+    await cert.awardCertificate(newLevel);
+  } catch {
+    // Never block the level-up path — certificate award is best-effort.
+  }
+}

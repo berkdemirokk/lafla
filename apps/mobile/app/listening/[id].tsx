@@ -219,7 +219,7 @@ export default function ListeningDramaScreen() {
         <View style={styles.footer}>
           {total > 0 && previewIdx < total - 1 ? (
             <Button
-              label="Sıradaki kelime →"
+              label="Sıradaki kelime"
               onPress={() => {
                 hapticSelection();
                 setPreviewIdx((i) => i + 1);
@@ -366,8 +366,8 @@ export default function ListeningDramaScreen() {
               !showResult
                 ? "Cevapla"
                 : isLast
-                  ? "Sonuçları gör →"
-                  : "Sıradaki soru →"
+                  ? "Sonuçları gör"
+                  : "Sıradaki soru"
             }
             onPress={submit}
             disabled={selected === null}

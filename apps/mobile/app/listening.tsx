@@ -186,7 +186,7 @@ export default function ListeningScreen() {
                   </Text>
                 ) : null}
                 <View style={styles.cta}>
-                  <Text style={styles.ctaLabel}>BAŞLA →</Text>
+                  <Text style={styles.ctaLabel}>BAŞLA</Text>
                 </View>
               </Pressable>
             );
