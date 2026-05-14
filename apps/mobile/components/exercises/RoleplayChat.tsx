@@ -25,12 +25,15 @@ interface RoleplayTurn {
   hint_tr?: string;
 }
 
+export type RoleplayMode = "multi-choice" | "hinted" | "free";
+
 interface Props {
   scenarioDescription: string;
   npcRole: string;
   setting: string;
   turns: RoleplayTurn[];
   onComplete: (result: ExerciseResult) => void;
+  mode?: RoleplayMode;
 }
 
 interface ChatMessage {
@@ -39,12 +42,48 @@ interface ChatMessage {
   score?: number;
 }
 
+// Extract the example English sentence from hint_tr (text between single quotes)
+function extractExampleFromHint(hint?: string): string | null {
+  if (!hint) return null;
+  const match = hint.match(/['']([^'']+)['']/);
+  return match?.[1] ?? null;
+}
+
+// Generic distractor pool — wrong but plausible responses
+const GENERIC_DISTRACTORS = [
+  "I don't understand.",
+  "Sorry, what?",
+  "Let me think about it.",
+  "Maybe later.",
+  "I'm not sure.",
+  "Can you repeat?",
+  "Hold on a sec.",
+  "Yeah, sounds good.",
+];
+
+function buildChoiceOptions(turn: RoleplayTurn): string[] {
+  const example = extractExampleFromHint(turn.hint_tr);
+  const correct = example ?? "(continue)";
+  // 2 random distractors from pool, deterministic by hint length
+  const seed = (turn.hint_tr ?? "").length;
+  const d1 = GENERIC_DISTRACTORS[seed % GENERIC_DISTRACTORS.length]!;
+  const d2 =
+    GENERIC_DISTRACTORS[(seed * 3 + 1) % GENERIC_DISTRACTORS.length]!;
+  const opts = [correct, d1, d2 === d1 ? GENERIC_DISTRACTORS[0]! : d2];
+  // Shuffle deterministically
+  return opts
+    .map((o, i) => ({ o, k: (i * 7 + seed) % 13 }))
+    .sort((a, b) => a.k - b.k)
+    .map((x) => x.o);
+}
+
 export function RoleplayChat({
   scenarioDescription,
   npcRole,
   setting,
   turns,
   onComplete,
+  mode = "free",
 }: Props) {
   const [turnIdx, setTurnIdx] = useState(0);
   const [shown, setShown] = useState<ChatMessage[]>([]);
@@ -164,39 +203,79 @@ export function RoleplayChat({
         )}
       </ScrollView>
 
-      {/* Input or finalize button */}
+      {/* Input or finalize */}
       {!finished ? (
         <View style={styles.inputBar}>
-          {currentTurn?.hint_tr && (
+          {mode !== "free" && currentTurn?.hint_tr && (
             <View style={styles.hintBox}>
               <Text style={styles.hintText}>💡 {currentTurn.hint_tr}</Text>
             </View>
           )}
-          <View style={styles.inputRow}>
-            <TextInput
-              style={styles.input}
-              value={input}
-              onChangeText={setInput}
-              placeholder="İngilizce cevap yaz..."
-              placeholderTextColor={tokens.text.tertiary}
-              editable={awaitingUserInput}
-              multiline
-              autoCapitalize="sentences"
-              returnKeyType="send"
-              blurOnSubmit={false}
-              onSubmitEditing={submitUserTurn}
-            />
-            <Pressable
-              style={[
-                styles.sendBtn,
-                (!input.trim() || !awaitingUserInput) && styles.sendBtnDisabled,
-              ]}
-              onPress={submitUserTurn}
-              disabled={!input.trim() || !awaitingUserInput}
-            >
-              <Text style={styles.sendBtnText}>↑</Text>
-            </Pressable>
-          </View>
+
+          {mode === "multi-choice" && currentTurn ? (
+            <View style={styles.choiceCol}>
+              {buildChoiceOptions(currentTurn).map((opt, i) => (
+                <Pressable
+                  key={`${turnIdx}-${i}`}
+                  style={styles.choiceBtn}
+                  onPress={() => {
+                    setInput(opt);
+                    setTimeout(() => {
+                      // Submit with the chosen option as input
+                      const fakeInput = opt;
+                      if (!currentTurn) return;
+                      const r = evaluateRoleplayTurn(
+                        currentTurn.acceptable_patterns ?? [],
+                        fakeInput,
+                      );
+                      setShown((prev) => [
+                        ...prev,
+                        {
+                          speaker: "user",
+                          message: fakeInput,
+                          score: r.score,
+                        },
+                      ]);
+                      setTurnScores((prev) => [...prev, r.score]);
+                      setInput("");
+                      const nextIdx = turnIdx + 1;
+                      if (nextIdx >= turns.length) setFinished(true);
+                      else setTurnIdx(nextIdx);
+                    }, 50);
+                  }}
+                >
+                  <Text style={styles.choiceText}>{opt}</Text>
+                </Pressable>
+              ))}
+            </View>
+          ) : (
+            <View style={styles.inputRow}>
+              <TextInput
+                style={styles.input}
+                value={input}
+                onChangeText={setInput}
+                placeholder="İngilizce cevap yaz..."
+                placeholderTextColor={tokens.text.tertiary}
+                editable={awaitingUserInput}
+                multiline
+                autoCapitalize="sentences"
+                returnKeyType="send"
+                blurOnSubmit={false}
+                onSubmitEditing={submitUserTurn}
+              />
+              <Pressable
+                style={[
+                  styles.sendBtn,
+                  (!input.trim() || !awaitingUserInput) &&
+                    styles.sendBtnDisabled,
+                ]}
+                onPress={submitUserTurn}
+                disabled={!input.trim() || !awaitingUserInput}
+              >
+                <Text style={styles.sendBtnText}>↑</Text>
+              </Pressable>
+            </View>
+          )}
         </View>
       ) : (
         <View style={styles.finishBar}>
@@ -373,6 +452,23 @@ const styles = StyleSheet.create({
   finishBar: {
     paddingTop: 12,
     paddingBottom: 8,
+  },
+  choiceCol: {
+    gap: 8,
+  },
+  choiceBtn: {
+    backgroundColor: tokens.bg.surfaceContainerLowest,
+    borderWidth: 2,
+    borderColor: tokens.border.outlineVariant,
+    borderRadius: tokens.radius.base,
+    paddingHorizontal: 14,
+    paddingVertical: 14,
+  },
+  choiceText: {
+    color: tokens.text.primary,
+    fontSize: 15,
+    fontWeight: tokens.weight.semibold,
+    lineHeight: 20,
   },
   finalScore: {
     alignSelf: "center",

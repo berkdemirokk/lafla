@@ -7,6 +7,7 @@ const K_LESSON_STATE = "lafla.lessons";       // map: lesson_id -> LessonStateLo
 const K_SKILL_MASTERY = "lafla.skills";       // map: skill_id -> { score, lessons_completed }
 const K_DAILY = "lafla.daily";                // map: YYYY-MM-DD -> { xp, lessons }
 const K_PROFILE = "lafla.profile";            // { total_xp, current_streak, longest_streak, last_lesson_at, interests }
+const K_MODE_FLUENCY = "lafla.mode_fluency";  // map: mode (string) -> { score 0-1, scenes_done }
 
 export type LessonStateLocal = {
   lesson_id: string;
@@ -198,6 +199,39 @@ export async function getCompletedLessonIds(): Promise<Set<string>> {
       .filter((s) => s.completed_at !== null)
       .map((s) => s.lesson_id),
   );
+}
+
+// ============================================================
+// MODE FLUENCY (new in scenario engine)
+// ============================================================
+
+export interface ModeFluency {
+  score: number; // 0..1
+  scenes_done: number;
+}
+
+export async function getAllModeFluency(): Promise<Record<string, ModeFluency>> {
+  return readMap<ModeFluency>(K_MODE_FLUENCY);
+}
+
+export async function getModeFluency(mode: string): Promise<ModeFluency> {
+  const all = await getAllModeFluency();
+  return all[mode] ?? { score: 0, scenes_done: 0 };
+}
+
+export async function bumpModeFluency(mode: string, sceneScore01: number) {
+  const all = await getAllModeFluency();
+  const prev = all[mode] ?? { score: 0, scenes_done: 0 };
+  const newScore =
+    prev.scenes_done === 0
+      ? sceneScore01 * 0.6 // first scene weighted gently
+      : Math.min(1, prev.score * 0.8 + sceneScore01 * 0.2);
+  all[mode] = {
+    score: newScore,
+    scenes_done: prev.scenes_done + 1,
+  };
+  await writeMap(K_MODE_FLUENCY, all);
+  return all[mode];
 }
 
 export async function getInterests(): Promise<string[]> {

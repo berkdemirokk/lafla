@@ -172,7 +172,7 @@ export default function SkillsScreen() {
                             key={lesson.id}
                             disabled={isLocked}
                             onPress={() =>
-                              router.push(`/lesson/${lesson.id}` as never)
+                              router.push(`/scenario/${lesson.id}` as never)
                             }
                             style={[
                               styles.node,

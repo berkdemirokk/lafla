@@ -125,7 +125,9 @@ export default function LessonPreview() {
       <View style={styles.footer}>
         <Button
           label="Başla →"
-          onPress={() => router.replace(`/lesson/${lesson.id}`)}
+          onPress={() =>
+            router.replace(`/scenario/${lesson.id}` as never)
+          }
         />
       </View>
     </SafeAreaView>

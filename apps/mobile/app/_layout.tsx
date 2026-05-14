@@ -29,6 +29,7 @@ export default function RootLayout() {
         <Stack.Screen name="settings" />
         <Stack.Screen name="paywall" />
         <Stack.Screen name="preview/[id]" />
+        <Stack.Screen name="scenario/[id]" />
       </Stack>
     </SafeAreaProvider>
   );
