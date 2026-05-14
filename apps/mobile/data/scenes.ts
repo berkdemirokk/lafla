@@ -19,6 +19,7 @@ import { conversationScriptsScenes } from "./conversation-scripts-scenes";
 import { grammarCapsuleScenes } from "./grammar-capsules-scenes";
 import { testIeltsSpeakingScenes } from "./test-ielts-speaking-scenes";
 import { testToeflSpeakingScenes } from "./test-toefl-speaking-scenes";
+import { testYdsYokdilScenes } from "./test-yds-yokdil-scenes";
 
 export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
 
@@ -1741,4 +1742,5 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
   ...grammarCapsuleScenes,
   ...testIeltsSpeakingScenes,
   ...testToeflSpeakingScenes,
+  ...testYdsYokdilScenes,
 ];

@@ -73,6 +73,7 @@ import { conversationScriptsLessons } from "./conversation-scripts-lesson";
 import { grammarCapsuleLessons } from "./grammar-capsules-lesson";
 import { testIeltsSpeakingLessons } from "./test-ielts-speaking-lesson";
 import { testToeflSpeakingLessons } from "./test-toefl-speaking-lesson";
+import { testYdsYokdilLessons } from "./test-yds-yokdil-lesson";
 import type { BundledLesson } from "./cafe-lesson";
 
 export const allLessons: ReadonlyArray<BundledLesson> = [
@@ -148,6 +149,7 @@ export const allLessons: ReadonlyArray<BundledLesson> = [
   ...grammarCapsuleLessons,
   ...testIeltsSpeakingLessons,
   ...testToeflSpeakingLessons,
+  ...testYdsYokdilLessons,
 ];
 
 export function getLesson(id: string): BundledLesson | undefined {
