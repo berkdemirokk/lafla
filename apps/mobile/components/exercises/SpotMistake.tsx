@@ -5,6 +5,7 @@ import { View, Text, TextInput, StyleSheet } from "react-native";
 import { Button } from "../Button";
 import { SpeakerButton } from "../SpeakerButton";
 import { tokens } from "../../theme";
+import { hapticForScore } from "../../lib/feedback";
 import { evaluateSpotMistake, type ExerciseResult } from "../../lib/engine";
 
 interface Props {
@@ -25,7 +26,9 @@ export function SpotMistake({
 
   const submit = () => {
     if (!input.trim()) return;
-    setResult(evaluateSpotMistake(correctSentence, input, trExplanation));
+    const r = evaluateSpotMistake(correctSentence, input, trExplanation);
+    setResult(r);
+    hapticForScore(r.score);
   };
 
   return (

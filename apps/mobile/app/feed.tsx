@@ -129,7 +129,9 @@ export default function Feed() {
                 durationMin={item.durationMin}
                 isNew={item.isNew && !isDone}
                 progressLabel={isDone ? "✓ Tamamlandı" : item.progressLabel}
-                onPress={() => router.push(`/lesson/${item.lessonId}`)}
+                onPress={() =>
+                  router.push(`/preview/${item.lessonId}` as never)
+                }
               />
             </View>
           );

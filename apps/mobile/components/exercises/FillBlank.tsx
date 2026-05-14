@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { Button } from "../Button";
 import { tokens } from "../../theme";
+import { hapticForScore, hapticSelection } from "../../lib/feedback";
 import { evaluateFillBlank, type ExerciseResult } from "../../lib/engine";
 
 interface Props {
@@ -37,7 +38,9 @@ export function FillBlank({
 
   const submit = () => {
     if (!selected) return;
-    setResult(evaluateFillBlank(answer, selected));
+    const r = evaluateFillBlank(answer, selected);
+    setResult(r);
+    hapticForScore(r.score);
   };
 
   return (
@@ -68,7 +71,12 @@ export function FillBlank({
                 showCorrect && styles.optionCorrect,
                 showWrong && styles.optionWrong,
               ]}
-              onPress={() => !result && setSelected(opt)}
+              onPress={() => {
+                if (!result) {
+                  hapticSelection();
+                  setSelected(opt);
+                }
+              }}
               disabled={!!result}
             >
               <Text

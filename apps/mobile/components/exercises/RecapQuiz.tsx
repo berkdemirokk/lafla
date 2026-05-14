@@ -4,6 +4,7 @@ import { useState } from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { Button } from "../Button";
 import { tokens } from "../../theme";
+import { hapticForScore, hapticSelection } from "../../lib/feedback";
 import type { ExerciseResult } from "../../lib/engine";
 
 interface Question {
@@ -31,6 +32,9 @@ export function RecapQuiz({ questions, onComplete }: Props) {
     if (selected === null) return;
     const newAnswers = [...answers, selected];
     setAnswers(newAnswers);
+
+    const isCorrect = selected === q.correct_index;
+    hapticForScore(isCorrect ? 100 : 0);
 
     if (idx + 1 >= questions.length) {
       const correctCount = newAnswers.filter(
@@ -72,7 +76,12 @@ export function RecapQuiz({ questions, onComplete }: Props) {
                 showAsCorrect && styles.optionCorrect,
                 showAsWrong && styles.optionWrong,
               ]}
-              onPress={() => !showResult && setSelected(i)}
+              onPress={() => {
+                if (!showResult) {
+                  hapticSelection();
+                  setSelected(i);
+                }
+              }}
               disabled={showResult}
             >
               <Text style={styles.optionText}>{opt}</Text>

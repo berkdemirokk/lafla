@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { Button } from "../Button";
 import { tokens } from "../../theme";
+import { hapticForScore, hapticSelection } from "../../lib/feedback";
 import { evaluateWordOrder, type ExerciseResult } from "../../lib/engine";
 
 interface Props {
@@ -39,12 +40,14 @@ export function WordOrder({
 
   const addToBuild = (entry: { token: string; key: string }) => {
     if (result) return;
+    hapticSelection();
     setBuilt([...built, entry]);
     setAvailable(available.filter((a) => a.key !== entry.key));
   };
 
   const removeFromBuild = (entry: { token: string; key: string }) => {
     if (result) return;
+    hapticSelection();
     setBuilt(built.filter((b) => b.key !== entry.key));
     setAvailable([...available, entry]);
   };
@@ -53,7 +56,9 @@ export function WordOrder({
   const canSubmit = available.length === 0;
 
   const submit = () => {
-    setResult(evaluateWordOrder(correctSentence, builtSentence));
+    const r = evaluateWordOrder(correctSentence, builtSentence);
+    setResult(r);
+    hapticForScore(r.score);
   };
 
   return (

@@ -5,6 +5,7 @@ import { View, Text, TextInput, StyleSheet } from "react-native";
 import { Button } from "../Button";
 import { SpeakerButton } from "../SpeakerButton";
 import { tokens } from "../../theme";
+import { hapticForScore } from "../../lib/feedback";
 import { evaluateTranslate, type ExerciseResult } from "../../lib/engine";
 
 interface Props {
@@ -29,7 +30,9 @@ export function Translate({
 
   const submit = () => {
     if (!input.trim()) return;
-    setResult(evaluateTranslate(target, acceptedVariants, input));
+    const r = evaluateTranslate(target, acceptedVariants, input);
+    setResult(r);
+    hapticForScore(r.score);
   };
 
   return (
