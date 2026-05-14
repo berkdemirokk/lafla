@@ -43,6 +43,18 @@ import { dailySalonLessons } from "./daily-salon-lesson";
 import { dailyTaxiLessons } from "./daily-taxi-lesson";
 import { workStandupLessons } from "./work-standup-lesson";
 import { workDisagreeLessons } from "./work-disagree-lesson";
+import { dailyGymLessons } from "./daily-gym-lesson";
+import { dailyTechSupportLessons } from "./daily-tech-support-lesson";
+import { dailyAirportLessons } from "./daily-airport-lesson";
+import { workFeedbackGivingLessons } from "./work-feedback-giving-lesson";
+import { workPromotionAskLessons } from "./work-promotion-ask-lesson";
+import { workNetworkingLessons } from "./work-networking-lesson";
+import { banterTaxiLessons } from "./banter-taxi-lesson";
+import { banterElevatorLessons } from "./banter-elevator-lesson";
+import { banterPartyLessons } from "./banter-party-lesson";
+import { flirtSecondDateLessons } from "./flirt-second-date-lesson";
+import { orderFastfoodLessons } from "./order-fastfood-lesson";
+import { orderGroceryLessons } from "./order-grocery-lesson";
 import type { BundledLesson } from "./cafe-lesson";
 
 export const allLessons: ReadonlyArray<BundledLesson> = [
@@ -88,6 +100,18 @@ export const allLessons: ReadonlyArray<BundledLesson> = [
   ...dailyTaxiLessons,
   ...workStandupLessons,
   ...workDisagreeLessons,
+  ...dailyGymLessons,
+  ...dailyTechSupportLessons,
+  ...dailyAirportLessons,
+  ...workFeedbackGivingLessons,
+  ...workPromotionAskLessons,
+  ...workNetworkingLessons,
+  ...banterTaxiLessons,
+  ...banterElevatorLessons,
+  ...banterPartyLessons,
+  ...flirtSecondDateLessons,
+  ...orderFastfoodLessons,
+  ...orderGroceryLessons,
 ];
 
 export function getLesson(id: string): BundledLesson | undefined {

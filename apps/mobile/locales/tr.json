@@ -1,0 +1,22 @@
+{
+  "common.continue": "Devam et",
+  "common.back": "Geri",
+  "common.cancel": "Vazgeç",
+  "common.confirm": "Onayla",
+  "common.skip": "Atla",
+  "common.try_again": "Tekrar dene",
+  "common.loading": "Yükleniyor",
+  "feed.title": "Akış",
+  "feed.streak_label": "gün",
+  "feed.xp_label": "XP",
+  "feed.lessons_label": "ders",
+  "feed.no_lessons_today": "Bugün henüz ders yapmadın",
+  "profile.title": "Profil",
+  "profile.guest_label": "Misafir",
+  "profile.signin_to_sync": "Giriş yap (ilerlemeyi senkronla)",
+  "scenario.setup_label": "KURULUM",
+  "scenario.drill_label": "ALIŞTIRMA",
+  "scenario.scene_label": "SAHNE",
+  "scenario.verdict_title": "Sahne Tamam",
+  "tagline": "Söyle gitsin."
+}
