@@ -30,6 +30,14 @@ export default function RootLayout() {
         <Stack.Screen name="paywall" />
         <Stack.Screen name="preview/[id]" />
         <Stack.Screen name="scenario/[id]" />
+        <Stack.Screen name="about" />
+        <Stack.Screen name="help" />
+        <Stack.Screen name="freechat" />
+        <Stack.Screen name="journal" />
+        <Stack.Screen name="referral" />
+        <Stack.Screen name="scoreboard" />
+        <Stack.Screen name="streakcalendar" />
+        <Stack.Screen name="pronunciation/[id]" />
       </Stack>
     </SafeAreaProvider>
   );

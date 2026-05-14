@@ -38,6 +38,11 @@ import { banterWhatdoyoudoLessons } from "./banter-whatdoyoudo-lesson";
 import { banterComplimentLessons } from "./banter-compliment-lesson";
 import { banterExitLessons } from "./banter-exit-lesson";
 import { banterOpinionsLessons } from "./banter-opinions-lesson";
+import { dailyBankLessons } from "./daily-bank-lesson";
+import { dailySalonLessons } from "./daily-salon-lesson";
+import { dailyTaxiLessons } from "./daily-taxi-lesson";
+import { workStandupLessons } from "./work-standup-lesson";
+import { workDisagreeLessons } from "./work-disagree-lesson";
 import type { BundledLesson } from "./cafe-lesson";
 
 export const allLessons: ReadonlyArray<BundledLesson> = [
@@ -78,6 +83,11 @@ export const allLessons: ReadonlyArray<BundledLesson> = [
   ...banterComplimentLessons,
   ...banterExitLessons,
   ...banterOpinionsLessons,
+  ...dailyBankLessons,
+  ...dailySalonLessons,
+  ...dailyTaxiLessons,
+  ...workStandupLessons,
+  ...workDisagreeLessons,
 ];
 
 export function getLesson(id: string): BundledLesson | undefined {

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lafla — Söyle gitsin.</title>
+  <meta name="description" content="Türkler için, Türkler'in hayatından, gerçek İngilizce sahneler. 122+ senaryo ile konuşma odaklı İngilizce uygulaması." />
+  <meta property="og:title" content="Lafla — Söyle gitsin." />
+  <meta property="og:description" content="Türkler için gerçek İngilizce sahneler. Sipariş, flört, iş, banter — hepsi tek uygulamada." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231a1c1c'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-family='system-ui' font-weight='900' font-size='56' fill='%23f6ff00'%3EL%3C/text%3E%3C/svg%3E" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'lafla-yellow': '#f6ff00',
+            'lafla-black': '#1a1c1c',
+            'lafla-blue': '#1978e5',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #1a1c1c; color: #fff; }
+    .neon-text { color: #f6ff00; text-shadow: 0 0 24px rgba(246, 255, 0, 0.45), 0 0 4px rgba(246, 255, 0, 0.7); }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(246, 255, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(246, 255, 0, 0.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .btn-primary {
+      background: #f6ff00; color: #1a1c1c; font-weight: 800;
+      transition: transform .15s ease, box-shadow .15s ease;
+      box-shadow: 0 0 0 0 rgba(246, 255, 0, 0.6);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(246, 255, 0, 0.35); }
+    .card { background: #232527; border: 1px solid rgba(255,255,255,0.08); }
+    .card:hover { border-color: rgba(246, 255, 0, 0.4); }
+    .faq-q { cursor: pointer; }
+    .faq-q[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform .2s ease; }
+    .screenshot {
+      aspect-ratio: 9/19;
+      border-radius: 28px;
+      border: 2px solid rgba(246,255,0,0.25);
+      box-shadow: 0 20px 60px rgba(25, 120, 229, 0.2), inset 0 0 80px rgba(246, 255, 0, 0.08);
+    }
+    .lang-en { display: none; }
+    html[data-lang="en"] .lang-tr { display: none; }
+    html[data-lang="en"] .lang-en { display: initial; }
+    html[data-lang="en"] .lang-en.block-en { display: block; }
+    html[data-lang="en"] .lang-en.flex-en { display: flex; }
+    html[data-lang="en"] .lang-en.grid-en { display: grid; }
+  </style>
+</head>
+<body class="bg-lafla-black text-white antialiased">
+
+  <!-- ============ NAV ============ -->
+  <nav class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-lafla-black/80 border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2 group">
+        <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-lafla-yellow text-lafla-black font-black text-xl">L</span>
+        <span class="text-xl font-black tracking-tight">Lafla</span>
+      </a>
+      <div class="flex items-center gap-1 text-sm">
+        <button id="btn-tr" class="px-3 py-1.5 rounded-md font-bold bg-lafla-yellow text-lafla-black">TR</button>
+        <button id="btn-en" class="px-3 py-1.5 rounded-md font-bold text-white/70 hover:text-white">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header id="top" class="relative pt-32 pb-24 sm:pt-40 sm:pb-32 overflow-hidden">
+    <div class="absolute inset-0 grid-bg opacity-60"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-lafla-black"></div>
+    <div class="absolute top-20 -left-32 w-96 h-96 rounded-full bg-lafla-yellow/10 blur-3xl"></div>
+    <div class="absolute bottom-0 -right-32 w-96 h-96 rounded-full bg-lafla-blue/20 blur-3xl"></div>
+
+    <div class="relative max-w-5xl mx-auto px-5 sm:px-8 text-center">
+      <span class="inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-lafla-blue/20 text-lafla-blue border border-lafla-blue/30 mb-6">
+        <span class="lang-tr">iOS · Yakında</span>
+        <span class="lang-en">iOS · Coming Soon</span>
+      </span>
+
+      <h1 class="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight leading-[0.95] mb-6">
+        <span class="neon-text">Söyle</span>
+        <span class="neon-text">gitsin.</span>
+      </h1>
+
+      <p class="lang-tr text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Türkler için, Türkler'in hayatından, gerçek İngilizce sahneler. Ezberden çık, konuşmaya başla.
+      </p>
+      <p class="lang-en text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Real English scenarios from Turkish daily life. Stop memorizing — start speaking.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="#email" class="btn-primary px-8 py-4 rounded-xl text-base inline-flex items-center gap-2">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+          <span class="lang-tr">App Store'da Yakında</span>
+          <span class="lang-en">Coming Soon to App Store</span>
+        </a>
+        <a href="#how" class="px-8 py-4 rounded-xl text-base font-bold text-white border border-white/20 hover:border-lafla-yellow/60 hover:text-lafla-yellow transition">
+          <span class="lang-tr">Nasıl çalışır?</span>
+          <span class="lang-en">How it works</span>
+        </a>
+      </div>
+
+      <div class="mt-16 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-white/40">
+        <span>122+ <span class="lang-tr">senaryo</span><span class="lang-en">scenarios</span></span>
+        <span aria-hidden="true">·</span>
+        <span>5 <span class="lang-tr">mod</span><span class="lang-en">modes</span></span>
+        <span aria-hidden="true">·</span>
+        <span class="lang-tr">Sipariş · Flört · İş · Günlük · Banter</span>
+        <span class="lang-en">Order · Flirt · Work · Daily · Banter</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ PROBLEM ============ -->
+  <section class="py-24 sm:py-32 border-t border-white/5">
+    <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center">
+      <span class="text-xs font-bold tracking-widest uppercase text-lafla-blue mb-4 inline-block">
+        <span class="lang-tr">Sorun</span><span class="lang-en">The Problem</span>
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-black leading-tight mb-8">
+        <span class="lang-tr">
+          İngilizce dersi <span class="text-white/40 line-through">ezberle ezberle…</span>
+          <br /><span class="neon-text">sonra konuşma anında bir kelime çıkmıyor.</span>
+        </span>
+        <span class="lang-en">
+          English class — <span class="text-white/40 line-through">memorize, memorize…</span>
+          <br /><span class="neon-text">then nothing comes out when it matters.</span>
+        </span>
+      </h2>
+      <p class="lang-tr text-lg text-white/60 leading-relaxed">
+        Tinder'da mesaj geliyor — donuyorsun. Kafede sipariş veriyorsun — kafa karışıyor.
+        Slack'te bir laf etmen lazım — cümle bir türlü gelmiyor. Tanıdık geldi mi?
+      </p>
+      <p class="lang-en text-lg text-white/60 leading-relaxed">
+        A Tinder match messages you — you freeze. Ordering at a cafe — your mind blanks.
+        Need to say something on Slack — the sentence won't come. Sound familiar?
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ SOLUTION ============ -->
+  <section class="py-24 sm:py-32 bg-gradient-to-b from-lafla-black to-[#0e1015] border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="text-center mb-16">
+        <span class="text-xs font-bold tracking-widest uppercase text-lafla-yellow mb-4 inline-block">
+          <span class="lang-tr">Çözüm</span><span class="lang-en">The Solution</span>
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black leading-tight">
+          <span class="lang-tr">Lafla farklı.</span>
+          <span class="lang-en">Lafla is different.</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card rounded-2xl p-8 transition">
+          <div class="text-5xl mb-5">🎯</div>
+          <h3 class="text-xl font-black mb-3">
+            <span class="lang-tr">122+ gerçek sahne</span>
+            <span class="lang-en">122+ real scenes</span>
+          </h3>
+          <p class="lang-tr text-white/60 leading-relaxed">
+            Karşına çıkacak olan o anı, daha o an gelmeden konuşmuş ol. Sipariş, flört, iş, banter — hepsi senaryo halinde.
+          </p>
+          <p class="lang-en text-white/60 leading-relaxed">
+            Practice the moment before it happens. Ordering, flirting, work talk, banter — all as scenarios.
+          </p>
+        </div>
+
+        <div class="card rounded-2xl p-8 transition">
+          <div class="text-5xl mb-5">🗣️</div>
+          <h3 class="text-xl font-black mb-3">
+            <span class="lang-tr">Konuşma odaklı</span>
+            <span class="lang-en">Speaking-first</span>
+          </h3>
+          <p class="lang-tr text-white/60 leading-relaxed">
+            "Çiçek-balon-elma" değil. Yapay zekayla konuş, anında geri bildirim al. Duolingo değil — Lafla.
+          </p>
+          <p class="lang-en text-white/60 leading-relaxed">
+            Not "apple-banana-cat" drills. Talk with AI, get instant feedback. Not Duolingo — Lafla.
+          </p>
+        </div>
+
+        <div class="card rounded-2xl p-8 transition">
+          <div class="text-5xl mb-5">🇹🇷</div>
+          <h3 class="text-xl font-black mb-3">
+            <span class="lang-tr">Türk hayatı için</span>
+            <span class="lang-en">For Turkish life</span>
+          </h3>
+          <p class="lang-tr text-white/60 leading-relaxed">
+            Beşiktaş'ta kahve, Bodrum'da plaj, İstanbul'da iş görüşmesi. Senin hayatın — sadece dili değişiyor.
+          </p>
+          <p class="lang-en text-white/60 leading-relaxed">
+            Coffee in Beşiktaş, beach in Bodrum, interview in Istanbul. Your life — just in English.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section id="how" class="py-24 sm:py-32 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="text-center mb-16">
+        <span class="text-xs font-bold tracking-widest uppercase text-lafla-blue mb-4 inline-block">
+          <span class="lang-tr">Nasıl çalışır</span><span class="lang-en">How it works</span>
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black leading-tight">
+          <span class="lang-tr">3 adımda akıcılık.</span>
+          <span class="lang-en">Fluency in 3 steps.</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 relative">
+        <!-- Step 1 -->
+        <div class="card rounded-2xl p-8 relative transition">
+          <div class="absolute -top-5 left-8 w-12 h-12 rounded-xl bg-lafla-yellow text-lafla-black font-black text-2xl flex items-center justify-center">1</div>
+          <div class="mt-6 mb-5">
+            <svg class="w-12 h-12 text-lafla-yellow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          </div>
+          <h3 class="text-xl font-black mb-3">
+            <span class="lang-tr">İlgi alanını seç</span>
+            <span class="lang-en">Pick your scene</span>
+          </h3>
+          <p class="lang-tr text-white/60 leading-relaxed">
+            Flört mü, iş görüşmesi mi, kafede sipariş mi? Bugün hangi sahneye ihtiyacın varsa onu seç.
+          </p>
+          <p class="lang-en text-white/60 leading-relaxed">
+            Flirting, an interview, ordering at a cafe? Pick whatever you need to nail today.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="card rounded-2xl p-8 relative transition">
+          <div class="absolute -top-5 left-8 w-12 h-12 rounded-xl bg-lafla-yellow text-lafla-black font-black text-2xl flex items-center justify-center">2</div>
+          <div class="mt-6 mb-5">
+            <svg class="w-12 h-12 text-lafla-yellow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+          </div>
+          <h3 class="text-xl font-black mb-3">
+            <span class="lang-tr">Senaryolarda konuş</span>
+            <span class="lang-en">Speak the scenario</span>
+          </h3>
+          <p class="lang-tr text-white/60 leading-relaxed">
+            Mikrofona bas, gerçek bir konuşma gibi karşılık ver. Takıldığında ipucu, hata yaptığında düzeltme.
+          </p>
+          <p class="lang-en text-white/60 leading-relaxed">
+            Hit the mic, respond like a real conversation. Hints when you stall, corrections when you slip.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="card rounded-2xl p-8 relative transition">
+          <div class="absolute -top-5 left-8 w-12 h-12 rounded-xl bg-lafla-yellow text-lafla-black font-black text-2xl flex items-center justify-center">3</div>
+          <div class="mt-6 mb-5">
+            <svg class="w-12 h-12 text-lafla-yellow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <h3 class="text-xl font-black mb-3">
+            <span class="lang-tr">Akıcılığını izle</span>
+            <span class="lang-en">Watch your fluency grow</span>
+          </h3>
+          <p class="lang-tr text-white/60 leading-relaxed">
+            Her sahneden sonra konuşma süren, tutukluk anların, kullandığın yeni kelimeler — hepsi takip altında.
+          </p>
+          <p class="lang-en text-white/60 leading-relaxed">
+            Track speaking time, hesitation, and new vocabulary after every scene.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREENSHOTS ============ -->
+  <section class="py-24 sm:py-32 bg-gradient-to-b from-[#0e1015] to-lafla-black border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="text-center mb-16">
+        <span class="text-xs font-bold tracking-widest uppercase text-lafla-yellow mb-4 inline-block">
+          <span class="lang-tr">Uygulama</span><span class="lang-en">The App</span>
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black leading-tight">
+          <span class="lang-tr">Cebinde, hep yanında.</span>
+          <span class="lang-en">Always in your pocket.</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-10 max-w-4xl mx-auto">
+        <div class="screenshot bg-gradient-to-br from-lafla-yellow/20 via-lafla-blue/20 to-black flex flex-col items-center justify-center p-6 text-center">
+          <div class="text-6xl mb-4">🎬</div>
+          <div class="text-sm font-bold text-white/80 uppercase tracking-wider">Screenshot 1</div>
+          <div class="lang-tr text-xs text-white/40 mt-1">Sahne Seçimi</div>
+          <div class="lang-en text-xs text-white/40 mt-1">Scene Picker</div>
+        </div>
+        <div class="screenshot bg-gradient-to-br from-lafla-blue/30 via-lafla-yellow/10 to-black flex flex-col items-center justify-center p-6 text-center sm:translate-y-4">
+          <div class="text-6xl mb-4">🎤</div>
+          <div class="text-sm font-bold text-white/80 uppercase tracking-wider">Screenshot 2</div>
+          <div class="lang-tr text-xs text-white/40 mt-1">Konuşma Anı</div>
+          <div class="lang-en text-xs text-white/40 mt-1">Live Conversation</div>
+        </div>
+        <div class="screenshot bg-gradient-to-br from-lafla-yellow/15 via-purple-500/10 to-black flex flex-col items-center justify-center p-6 text-center">
+          <div class="text-6xl mb-4">📈</div>
+          <div class="text-sm font-bold text-white/80 uppercase tracking-wider">Screenshot 3</div>
+          <div class="lang-tr text-xs text-white/40 mt-1">İlerleme</div>
+          <div class="lang-en text-xs text-white/40 mt-1">Progress</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="py-24 sm:py-32 border-t border-white/5">
+    <div class="max-w-3xl mx-auto px-5 sm:px-8">
+      <div class="text-center mb-12">
+        <span class="text-xs font-bold tracking-widest uppercase text-lafla-blue mb-4 inline-block">
+          FAQ
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black leading-tight">
+          <span class="lang-tr">Sıkça sorulanlar.</span>
+          <span class="lang-en">Frequently asked.</span>
+        </h2>
+      </div>
+
+      <div class="space-y-3" id="faq">
+        <!-- Q1 -->
+        <div class="card rounded-xl overflow-hidden">
+          <button class="faq-q w-full flex items-center justify-between gap-4 p-5 text-left" aria-expanded="false">
+            <span class="font-bold text-base sm:text-lg">
+              <span class="lang-tr">Bu da bir Duolingo klonu mu?</span>
+              <span class="lang-en">Is this another Duolingo clone?</span>
+            </span>
+            <span class="faq-icon text-3xl font-light text-lafla-yellow leading-none">+</span>
+          </button>
+          <div class="px-5 pb-5 text-white/70 leading-relaxed" hidden>
+            <p class="lang-tr">Hayır. Duolingo kelime ve gramer "ezberlet"meye odaklı. Lafla doğrudan konuşmaya, gerçek hayat sahnelerine, Türk hayatına özel diyaloglara odaklı. Hedef akıcılık, puan toplamak değil.</p>
+            <p class="lang-en">No. Duolingo focuses on memorizing vocab and grammar drills. Lafla focuses on speaking — real-life scenes built around Turkish daily life. The goal is fluency, not points.</p>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="card rounded-xl overflow-hidden">
+          <button class="faq-q w-full flex items-center justify-between gap-4 p-5 text-left" aria-expanded="false">
+            <span class="font-bold text-base sm:text-lg">
+              <span class="lang-tr">Hangi seviyedeyim diyenler için uygun mu?</span>
+              <span class="lang-en">Which level is it for?</span>
+            </span>
+            <span class="faq-icon text-3xl font-light text-lafla-yellow leading-none">+</span>
+          </button>
+          <div class="px-5 pb-5 text-white/70 leading-relaxed" hidden>
+            <p class="lang-tr">A2 ve üstü için ideal. Temel cümle kurabiliyorsan başlayabilirsin. Sahneler kolaydan zora doğru ilerliyor; sen kendi temponda gidiyorsun.</p>
+            <p class="lang-en">Best for A2 and above. If you can form basic sentences, you're good to start. Scenes scale from easy to challenging — you set the pace.</p>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="card rounded-xl overflow-hidden">
+          <button class="faq-q w-full flex items-center justify-between gap-4 p-5 text-left" aria-expanded="false">
+            <span class="font-bold text-base sm:text-lg">
+              <span class="lang-tr">Konuştuklarım kaydediliyor mu, güvenli mi?</span>
+              <span class="lang-en">Is what I say private?</span>
+            </span>
+            <span class="faq-icon text-3xl font-light text-lafla-yellow leading-none">+</span>
+          </button>
+          <div class="px-5 pb-5 text-white/70 leading-relaxed" hidden>
+            <p class="lang-tr">Sesini sadece konuşmanı değerlendirmek için işliyoruz. Konuşma kayıtları reklam veya üçüncü taraflarla paylaşılmıyor. Detaylar gizlilik politikamızda.</p>
+            <p class="lang-en">Your voice is processed only to evaluate your speaking. We don't share recordings with advertisers or third parties. Details in our privacy policy.</p>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="card rounded-xl overflow-hidden">
+          <button class="faq-q w-full flex items-center justify-between gap-4 p-5 text-left" aria-expanded="false">
+            <span class="font-bold text-base sm:text-lg">
+              <span class="lang-tr">Ücretsiz mi olacak?</span>
+              <span class="lang-en">Will it be free?</span>
+            </span>
+            <span class="faq-icon text-3xl font-light text-lafla-yellow leading-none">+</span>
+          </button>
+          <div class="px-5 pb-5 text-white/70 leading-relaxed" hidden>
+            <p class="lang-tr">Belli sayıda sahne ücretsiz olacak. Tüm 122+ senaryo ve gelişmiş geri bildirim Lafla Pro abonelik içinde. Fiyatlandırma App Store'a çıkarken netleşecek.</p>
+            <p class="lang-en">A free tier with a starter set of scenes. All 122+ scenarios and advanced feedback live in Lafla Pro. Pricing will be announced at launch.</p>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="card rounded-xl overflow-hidden">
+          <button class="faq-q w-full flex items-center justify-between gap-4 p-5 text-left" aria-expanded="false">
+            <span class="font-bold text-base sm:text-lg">
+              <span class="lang-tr">Android sürümü olacak mı?</span>
+              <span class="lang-en">Will there be an Android version?</span>
+            </span>
+            <span class="faq-icon text-3xl font-light text-lafla-yellow leading-none">+</span>
+          </button>
+          <div class="px-5 pb-5 text-white/70 leading-relaxed" hidden>
+            <p class="lang-tr">İlk olarak iOS ile çıkıyoruz. Android tarafı için bekleme listesi açacağız — email bırak, hazır olduğumuzda ilk sen haber al.</p>
+            <p class="lang-en">Launching iOS first. We'll open an Android waitlist later — drop your email and you'll hear first when it's ready.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EMAIL CAPTURE ============ -->
+  <section id="email" class="py-24 sm:py-32 border-t border-white/5">
+    <div class="max-w-3xl mx-auto px-5 sm:px-8">
+      <div class="card rounded-3xl p-8 sm:p-14 text-center relative overflow-hidden">
+        <div class="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-lafla-yellow/10 blur-3xl"></div>
+        <div class="absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-lafla-blue/15 blur-3xl"></div>
+
+        <div class="relative">
+          <h2 class="text-3xl sm:text-4xl font-black mb-3 neon-text">
+            <span class="lang-tr">Önce sen duy.</span>
+            <span class="lang-en">Hear it first.</span>
+          </h2>
+          <p class="lang-tr text-white/60 mb-8 max-w-md mx-auto">
+            App Store'a çıkınca haberdar olmak için email bırak. Spam yok, sadece launch günü tek bir mesaj.
+          </p>
+          <p class="lang-en text-white/60 mb-8 max-w-md mx-auto">
+            Drop your email to know when we launch on the App Store. No spam — just one message on launch day.
+          </p>
+
+          <form id="email-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" novalidate>
+            <input
+              type="email"
+              required
+              id="email-input"
+              placeholder="ahmet@example.com"
+              class="flex-1 px-5 py-4 rounded-xl bg-lafla-black border border-white/15 text-white placeholder:text-white/30 focus:outline-none focus:border-lafla-yellow transition"
+            />
+            <button type="submit" class="btn-primary px-6 py-4 rounded-xl whitespace-nowrap">
+              <span class="lang-tr">Haber Ver</span>
+              <span class="lang-en">Notify Me</span>
+            </button>
+          </form>
+          <p id="email-msg" class="mt-4 text-sm text-lafla-yellow hidden"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-white/5 py-12">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-2">
+          <span class="inline-flex items-center justify-center w-8 h-8 rounded-md bg-lafla-yellow text-lafla-black font-black">L</span>
+          <span class="font-black">Lafla</span>
+          <span class="text-white/30 text-sm ml-3">© 2026 · Söyle gitsin.</span>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/50">
+          <a href="#" class="hover:text-lafla-yellow transition">
+            <span class="lang-tr">Gizlilik</span><span class="lang-en">Privacy</span>
+          </a>
+          <a href="#" class="hover:text-lafla-yellow transition">
+            <span class="lang-tr">Şartlar</span><span class="lang-en">Terms</span>
+          </a>
+          <a href="mailto:hi@lafla.app" class="hover:text-lafla-yellow transition">
+            <span class="lang-tr">İletişim</span><span class="lang-en">Contact</span>
+          </a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="#" aria-label="Twitter / X" class="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center hover:border-lafla-yellow hover:text-lafla-yellow transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center hover:border-lafla-yellow hover:text-lafla-yellow transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok" class="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center hover:border-lafla-yellow hover:text-lafla-yellow transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.95a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.84-.38z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPTS ============ -->
+  <script>
+    // ---- TR/EN toggle ----
+    const html = document.documentElement;
+    const btnTr = document.getElementById('btn-tr');
+    const btnEn = document.getElementById('btn-en');
+
+    function setLang(lang) {
+      html.setAttribute('data-lang', lang);
+      html.setAttribute('lang', lang);
+      if (lang === 'tr') {
+        btnTr.classList.add('bg-lafla-yellow', 'text-lafla-black');
+        btnTr.classList.remove('text-white/70', 'hover:text-white');
+        btnEn.classList.remove('bg-lafla-yellow', 'text-lafla-black');
+        btnEn.classList.add('text-white/70', 'hover:text-white');
+      } else {
+        btnEn.classList.add('bg-lafla-yellow', 'text-lafla-black');
+        btnEn.classList.remove('text-white/70', 'hover:text-white');
+        btnTr.classList.remove('bg-lafla-yellow', 'text-lafla-black');
+        btnTr.classList.add('text-white/70', 'hover:text-white');
+      }
+      try { localStorage.setItem('lafla-lang', lang); } catch (e) {}
+    }
+
+    btnTr.addEventListener('click', () => setLang('tr'));
+    btnEn.addEventListener('click', () => setLang('en'));
+
+    // Restore saved language
+    try {
+      const saved = localStorage.getItem('lafla-lang');
+      if (saved === 'en' || saved === 'tr') setLang(saved);
+      else setLang('tr');
+    } catch (e) { setLang('tr'); }
+
+    // ---- FAQ accordion ----
+    document.querySelectorAll('#faq .faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        if (expanded) {
+          answer.setAttribute('hidden', '');
+        } else {
+          answer.removeAttribute('hidden');
+        }
+      });
+    });
+
+    // ---- Smooth scroll for anchor links (fallback to scroll-behavior) ----
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if (!id || id === '#') return;
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // ---- Email form (placeholder: no backend yet) ----
+    const form = document.getElementById('email-form');
+    const input = document.getElementById('email-input');
+    const msg = document.getElementById('email-msg');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const value = (input.value || '').trim();
+      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      const lang = html.getAttribute('data-lang') || 'tr';
+      if (!valid) {
+        msg.textContent = lang === 'tr' ? 'Geçerli bir email gir.' : 'Please enter a valid email.';
+        msg.classList.remove('hidden');
+        msg.classList.add('text-red-400');
+        msg.classList.remove('text-lafla-yellow');
+        return;
+      }
+      msg.textContent = lang === 'tr'
+        ? 'Tamam, listeye eklendin. Launch günü ilk sen duyacaksın.'
+        : 'You are on the list. You will hear from us on launch day.';
+      msg.classList.remove('hidden', 'text-red-400');
+      msg.classList.add('text-lafla-yellow');
+      input.value = '';
+      // TODO: POST to /api/waitlist once backend is ready
+    });
+  </script>
+</body>
+</html>

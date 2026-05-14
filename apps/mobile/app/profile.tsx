@@ -194,10 +194,73 @@ export default function ProfileScreen() {
 
           <Pressable
             style={styles.row}
+            onPress={() => router.push("/scoreboard" as never)}
+          >
+            <Text style={styles.rowIcon}>📊</Text>
+            <Text style={styles.rowText}>Akıcılığım</Text>
+            <Text style={styles.rowChevron}>›</Text>
+          </Pressable>
+
+          <Pressable
+            style={styles.row}
+            onPress={() => router.push("/journal" as never)}
+          >
+            <Text style={styles.rowIcon}>📓</Text>
+            <Text style={styles.rowText}>Günlük</Text>
+            <Text style={styles.rowChevron}>›</Text>
+          </Pressable>
+
+          <Pressable
+            style={styles.row}
+            onPress={() => router.push("/streakcalendar" as never)}
+          >
+            <Text style={styles.rowIcon}>🔥</Text>
+            <Text style={styles.rowText}>Seri Takvimi</Text>
+            <Text style={styles.rowChevron}>›</Text>
+          </Pressable>
+
+          <Pressable
+            style={styles.row}
+            onPress={() => router.push("/freechat" as never)}
+          >
+            <Text style={styles.rowIcon}>💬</Text>
+            <Text style={styles.rowText}>AI Sohbet</Text>
+            <Text style={styles.rowChevron}>›</Text>
+          </Pressable>
+
+          <Pressable
+            style={styles.row}
+            onPress={() => router.push("/referral" as never)}
+          >
+            <Text style={styles.rowIcon}>🎁</Text>
+            <Text style={styles.rowText}>Arkadaş Davet</Text>
+            <Text style={styles.rowChevron}>›</Text>
+          </Pressable>
+
+          <Pressable
+            style={styles.row}
             onPress={() => router.push("/settings" as never)}
           >
             <Text style={styles.rowIcon}>⚙️</Text>
             <Text style={styles.rowText}>Ayarlar</Text>
+            <Text style={styles.rowChevron}>›</Text>
+          </Pressable>
+
+          <Pressable
+            style={styles.row}
+            onPress={() => router.push("/about" as never)}
+          >
+            <Text style={styles.rowIcon}>ℹ️</Text>
+            <Text style={styles.rowText}>Hakkında</Text>
+            <Text style={styles.rowChevron}>›</Text>
+          </Pressable>
+
+          <Pressable
+            style={styles.row}
+            onPress={() => router.push("/help" as never)}
+          >
+            <Text style={styles.rowIcon}>❓</Text>
+            <Text style={styles.rowText}>Yardım</Text>
             <Text style={styles.rowChevron}>›</Text>
           </Pressable>
 

@@ -22,7 +22,9 @@ import {
   getCompletedLessonIds,
   getInterests,
   getLocalProfile,
+  getAllModeFluency,
 } from "../lib/local-progress";
+import { allScenarios } from "../lib/scenario";
 import { tokens } from "../theme";
 
 export default function Feed() {
