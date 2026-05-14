@@ -19,6 +19,7 @@
 // because AsyncStorage hiccupped.
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { isArray, parseSafe } from "./json-safe";
 
 const K_SESSIONS = "lafla.voice.sessions";
 const MAX_SESSIONS = 50;
@@ -39,20 +40,27 @@ export interface VoiceSessionLog {
 async function readAll(): Promise<VoiceSessionLog[]> {
   try {
     const raw = await AsyncStorage.getItem(K_SESSIONS);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw) as VoiceSessionLog[];
-    if (!Array.isArray(parsed)) return [];
+    // parseSafe gives us the same "empty list on garbage" guarantee the
+    // module already promised, plus a Sentry breadcrumb if the blob is
+    // ever malformed in prod. The per-element shape check below still
+    // runs because parseSafe only validates the OUTER shape.
+    const parsed = parseSafe<unknown[]>(raw, [], isArray, {
+      source: "voice-session-storage.readAll",
+    });
     // Light shape normalisation — guards against older builds that may not
     // have written every field.
     return parsed
-      .filter((s) => s && typeof s === "object" && typeof s.id === "string")
+      .filter(
+        (s): s is Record<string, unknown> =>
+          s !== null && typeof s === "object" && typeof (s as { id?: unknown }).id === "string",
+      )
       .map((s) => ({
-        id: s.id,
+        id: s.id as string,
         startedAt: typeof s.startedAt === "string" ? s.startedAt : new Date(0).toISOString(),
-        durationSec: Number.isFinite(s.durationSec) ? Math.max(0, s.durationSec) : 0,
-        turnsCount: Number.isFinite(s.turnsCount) ? Math.max(0, s.turnsCount) : 0,
+        durationSec: Number.isFinite(s.durationSec as number) ? Math.max(0, s.durationSec as number) : 0,
+        turnsCount: Number.isFinite(s.turnsCount as number) ? Math.max(0, s.turnsCount as number) : 0,
         topics: Array.isArray(s.topics)
-          ? s.topics.filter((t) => typeof t === "string").slice(0, 8)
+          ? (s.topics as unknown[]).filter((t): t is string => typeof t === "string").slice(0, 8)
           : undefined,
       }));
   } catch {

@@ -37,6 +37,8 @@
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { chatComplete } from "./llm-router";
+import { addBreadcrumb } from "./sentry";
+import { isArray, parseSafe } from "./json-safe";
 
 const K_SNAPSHOTS = "lafla.coach.memory.snapshots";
 const MAX_SNAPSHOTS = 20;
@@ -80,27 +82,34 @@ export interface MemorySnapshot {
 async function readSnapshots(): Promise<MemorySnapshot[]> {
   try {
     const raw = await AsyncStorage.getItem(K_SNAPSHOTS);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw) as MemorySnapshot[];
-    if (!Array.isArray(parsed)) return [];
+    // parseSafe protects against corrupt storage (older builds, partial writes,
+    // a manual edit in Reactotron). Validator only asserts "is array" — the
+    // per-field normalisation below already tolerates missing keys, so a
+    // stricter validator would just throw away salvageable snapshots.
+    const parsed = parseSafe<unknown[]>(raw, [], isArray, {
+      source: "coach-memory.readSnapshots",
+    });
     return parsed
-      .filter((s) => s && typeof s === "object" && typeof s.id === "string")
+      .filter(
+        (s): s is Record<string, unknown> =>
+          s !== null && typeof s === "object" && typeof (s as { id?: unknown }).id === "string",
+      )
       .map((s) => ({
-        id: s.id,
+        id: s.id as string,
         createdAt:
           typeof s.createdAt === "string" ? s.createdAt : new Date(0).toISOString(),
         recap_tr: typeof s.recap_tr === "string" ? s.recap_tr : "",
         recap_en: typeof s.recap_en === "string" ? s.recap_en : "",
         topics: Array.isArray(s.topics)
-          ? s.topics.filter((t) => typeof t === "string").slice(0, 10)
+          ? (s.topics as unknown[]).filter((t): t is string => typeof t === "string").slice(0, 10)
           : [],
         weaknessesObserved: Array.isArray(s.weaknessesObserved)
-          ? s.weaknessesObserved.filter((w) => typeof w === "string").slice(0, 10)
+          ? (s.weaknessesObserved as unknown[]).filter((w): w is string => typeof w === "string").slice(0, 10)
           : [],
         turnsFrom: typeof s.turnsFrom === "string" ? s.turnsFrom : "",
         turnsTo: typeof s.turnsTo === "string" ? s.turnsTo : "",
-        originalTurnCount: Number.isFinite(s.originalTurnCount)
-          ? Math.max(0, Math.floor(s.originalTurnCount))
+        originalTurnCount: Number.isFinite(s.originalTurnCount as number)
+          ? Math.max(0, Math.floor(s.originalTurnCount as number))
           : 0,
       }));
   } catch {
@@ -228,18 +237,44 @@ async function summariseTurnsWithLLM(
   }
 
   const blob = extractJsonBlob(raw);
-  if (!blob) return null;
-
-  let parsed: Partial<SummaryPayload>;
-  try {
-    parsed = JSON.parse(blob) as Partial<SummaryPayload>;
-  } catch {
+  if (!blob) {
+    // Distinguish "model returned no JSON-shaped output" from a parse error.
+    // We log it because a sustained run of empty-blob outputs is a sign the
+    // summariser prompt has drifted out of compliance with the provider.
+    addBreadcrumb({
+      category: "coach-memory",
+      message: "summariseTurnsWithLLM: no JSON blob in model output",
+      data: { rawLength: raw.length },
+    });
     return null;
   }
 
+  // parseSafe wraps JSON.parse so a malformed blob from the LLM no longer
+  // throws SyntaxError up the call chain. Validator asserts the result is
+  // an object (not array / primitive) — the field-level type guards below
+  // remain authoritative for the actual fields.
+  const parsed = parseSafe<Partial<SummaryPayload>>(
+    blob,
+    {},
+    (x): x is Partial<SummaryPayload> =>
+      x !== null && typeof x === "object" && !Array.isArray(x),
+    { source: "coach-memory.summariseTurnsWithLLM" },
+  );
+
   const recap_tr = typeof parsed.recap_tr === "string" ? parsed.recap_tr.trim() : "";
   const recap_en = typeof parsed.recap_en === "string" ? parsed.recap_en.trim() : "";
-  if (!recap_tr && !recap_en) return null; // garbage in, garbage out — bail.
+  if (!recap_tr && !recap_en) {
+    // Either the model returned an empty object after a parse failure (we
+    // fall through here because parseSafe gave us `{}`), or it returned a
+    // technically-valid object missing the load-bearing fields. Both are
+    // "no usable summary"; the snapshot save is skipped and the caller
+    // falls back to silent truncation.
+    addBreadcrumb({
+      category: "coach-memory",
+      message: "summariseTurnsWithLLM: missing recap_tr and recap_en after parse",
+    });
+    return null;
+  }
 
   const topics = Array.isArray(parsed.topics)
     ? parsed.topics

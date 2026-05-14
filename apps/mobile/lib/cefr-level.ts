@@ -4,6 +4,7 @@
 // difficulty in lessons. No runtime LLM — pure local state.
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { trackEvent } from "./analytics";
 
 export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
 
@@ -58,6 +59,7 @@ export async function setCefrLevel(level: CefrLevel): Promise<void> {
   } catch {
     // ignore
   }
+  void trackEvent("level_set", { level }).catch(() => {});
 }
 
 export async function clearCefrLevel(): Promise<void> {

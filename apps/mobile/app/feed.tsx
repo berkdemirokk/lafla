@@ -77,16 +77,12 @@ type ActiveMission = {
   totalSteps: number;
   completedSteps: number;
 };
+// Missions feature was removed in v0.1. Keep type for backward-compat
+// but never resolve a real implementation — feed simply skips that section.
 type MissionApi = {
   getActiveMission?: () => Promise<ActiveMission | null>;
 };
-let missionApi: MissionApi | null = null;
-try {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  missionApi = require("../lib/missions") as MissionApi;
-} catch {
-  missionApi = null;
-}
+const missionApi: MissionApi | null = null;
 
 type CoachAvatarComponent = (props: { size?: number }) => React.ReactElement;
 let CoachAvatar: CoachAvatarComponent | null = null;

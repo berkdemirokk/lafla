@@ -239,28 +239,10 @@ export default function ProfileScreen() {
 
           <Pressable
             style={styles.row}
-            onPress={() => router.push("/scoreboard" as never)}
-          >
-            <Text style={styles.rowIcon}>📊</Text>
-            <Text style={styles.rowText}>Akıcılığım</Text>
-            <Text style={styles.rowChevron}>›</Text>
-          </Pressable>
-
-          <Pressable
-            style={styles.row}
             onPress={() => router.push("/journal" as never)}
           >
             <Text style={styles.rowIcon}>📓</Text>
             <Text style={styles.rowText}>Günlük</Text>
-            <Text style={styles.rowChevron}>›</Text>
-          </Pressable>
-
-          <Pressable
-            style={styles.row}
-            onPress={() => router.push("/streakcalendar" as never)}
-          >
-            <Text style={styles.rowIcon}>📅</Text>
-            <Text style={styles.rowText}>Aktif gün takvimi</Text>
             <Text style={styles.rowChevron}>›</Text>
           </Pressable>
 

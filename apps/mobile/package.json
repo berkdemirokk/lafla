@@ -40,6 +40,8 @@
     "expo-speech-recognition": "^1.1.1",
     "react-native-view-shot": "~4.0.3",
     "react-native-purchases": "^8.10.0",
+    "@sentry/react-native": "~5.33.0",
+    "posthog-react-native": "^3.10.0",
     "@babel/runtime": "^7.25.0"
   },
   "devDependencies": {

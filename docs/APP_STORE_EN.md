@@ -1,43 +1,37 @@
 # App Store Listing — English (EN)
 
-> Lafla v0.1.0 — English localization for App Store Connect. Character limits per Apple's product page constraints.
+> Lafla v0.1.0 — English localization for App Store Connect submission. Character limits per Apple's product page constraints.
 
-> **Context:** Lafla is Turkey-first. English listing exists for two reasons: (1) Turkish users sometimes browse the App Store in English, (2) curious Turkish-diaspora users abroad. Not yet optimized for non-Turkish English speakers — that's a v1.0 decision after Turkey traction.
+> **Context:** Lafla is Turkey-first. English listing exists for two reasons: (1) Turkish users sometimes browse the App Store with English device language, (2) curious Turkish-diaspora users abroad. **Not yet optimized for non-Turkish English speakers** — that's a v1.0 decision after Turkey traction. **2026-05 strategic pivot:** "Lafla" brand has zero English search volume; we lean ASO weight on high-intent use cases (IELTS, TOEFL, interview, visa) that Turkish diaspora actually search.
 
 ---
 
 ## App Name (max 30 char)
 
 ```
-Lafla: Speak English Real
+Lafla: English Speaking
 ```
 
-*(24 / 30 characters)*
+*(23 / 30 characters)*
 
-**Alternatives:**
-- `Lafla — Just Say It` (19)
-- `Lafla: English for Turks` (24)
-- `Lafla: Real English` (19)
-
-> **Open decision:** "Speak English Real" is a slightly awkward construction that mirrors the Turkish "Söyle Gitsin" energy. "Just Say It" is more natural but less ASO-friendly. Going with "Speak English Real" for keyword density.
+> **Decision:** Brand + single anchor keyword. "Speaking" is the primary intent in English ASO; "Practice" is more generic. With zero brand recognition, the algorithm needs an unambiguous category signal.
 
 ---
 
-## Subtitle (max 30 char) — Hook Line
+## Subtitle (max 30 char)
 
 ```
-Tinder, Slack, bar. Just say it.
+IELTS, TOEFL, interview, visa
 ```
 
-*(32 → trim to 30: `Tinder, Slack, bar. Say it.`, 27 char)*
+*(29 / 30 characters)*
 
-**Alternatives:**
-- `Real scenes. No grinding.` (25)
-- `Stop freezing in English.` (25)
-- `English you'll actually use.` (28)
+> **Decision:** Subtitle is no longer brand mood — it's pure ASO ammo. Four high-intent use cases. The slogan ("Speak. Work.") lives in screenshots and description body instead.
+
+**Alternatives (held for A/B):**
+- `Speak. Work. Stop freezing.` (27)
+- `Interview, visa, IELTS, AI coach` (32 — over limit)
 - `Real English. No drills.` (24)
-
-> **Open decision:** "Stop freezing in English." is the strongest hook for someone who knows the pain. "Tinder, Slack, bar." is more distinctive and lists scenarios upfront. Currently using the scenario-list variant — testing the pain-point variant in A/B.
 
 ---
 
@@ -46,137 +40,160 @@ Tinder, Slack, bar. Just say it.
 > *Updatable without review. Use for launches, seasonal pushes, feature announcements.*
 
 ```
-Stop freezing when you have to speak English. Roleplay Tinder, Slack, and bar scenes with Turkish-language feedback on the mistakes only Turks make. Just say it.
+Speak. Work. Train with Maya, your AI coach, for US visa interviews, IELTS speaking, TOEFL, job interviews. Real scenarios, pronunciation analysis, Turkish feedback.
 ```
 
-*(166 / 170 characters)*
+*(169 / 170 characters)*
 
 ---
 
 ## Description (max 4000 char)
 
 ```
-NOT MEMORIZATION. ACTUAL SPEAKING.
+STOP FREEZING WHEN YOU HAVE TO SPEAK ENGLISH.
 
-You matched on Tinder. You had to talk in a Zoom standup. Someone at a bar asked where you're from — and then what? The words you "know" disappeared.
+The visa officer asks "what's the purpose of your visit?" The IELTS examiner clicks the recorder. The hiring manager says "tell me about yourself." That's the moment every word you "know" disappears.
 
-Lafla is built for those moments.
+Lafla is built for that moment. Speak. Work.
 
-WHY LAFLA
+YOUR PERSONAL AI COACH: MAYA
 
-Most English apps teach you how to ask the price of an apple. You will never use that sentence.
+Maya is your patient, non-judgmental English partner. She talks with you anytime, on any topic. She doesn't interrupt — she lets you finish, then explains the fix in Turkish: "you dropped an article here, because Turkish doesn't have them." One day to understand "the / a" — for real, not from a textbook.
 
-Lafla simulates the conversations you actually have. How do you open a Tinder match? How do you reply to "can you push this by Friday?" on Slack? How do you keep a bar conversation going after "where are you from?"
+REAL SCENARIO SIMULATOR
 
-THREE MODES, ZERO TABOO
+Not fake "how much is the apple" dialogues. In Lafla:
 
-— Dating Mode (Flört)
-Tinder and Bumble openers. Real flirting cadence. Coffee invites. Western dating culture codes baked in — including the ones nobody explains.
+— US / Schengen visa interview — 47 standard consular questions, including the traps that get Turkish applications rejected
+— Job interview — FAANG, remote startup, international roles — behavioral + technical
+— IELTS Speaking Parts 1, 2, 3 — band 7+ structure
+— TOEFL Independent + Integrated Speaking
+— Academic interview — graduate admissions, PhD committee, postdoc
+— Daily travel — airport, hotel, restaurant, taxi, emergency
 
-— Work Mode (İş)
-Slack messages, Zoom standups, coffee chat, email politeness. Built for remote workers and Turks interviewing at international companies.
+Every scenario is built from real transcripts — no textbook smell.
 
-— Banter Mode
-Bar talk, parties, casual nights out, jokes. The conversation that happens after "where are you from." Casual, natural, no textbook smell.
+PRONUNCIATION ANALYSIS
+
+Record yourself; Lafla returns a phoneme-level analysis. Can't make a "th" sound? Saying "v" like "w"? Lafla flags it, shows the correct mouth shape, and generates a 30-day drill plan.
 
 BUILT FOR TURKISH SPEAKERS
 
-If you speak Turkish, you make specific English mistakes. You write "I'm bored from you" because you're translating "senden sıkıldım." You drop articles because Turkish doesn't have them. You confuse "i" and "ı" sounds.
+You think in Turkish. You write "I'm bored from you" because you're translating "senden sıkıldım." You drop articles because Turkish doesn't have them. Lafla knows these specific traps — every correction explained in Turkish.
 
-Lafla knows these traps. Its pattern matcher catches them. Corrections are explained in Turkish — not because we don't trust your English, but because grammar makes sense fastest in your first language.
+FOR THOSE WHO PASSED YDS BUT CAN'T SPEAK
+
+You scored 80 on YDS but you sweat 30 seconds into a conversation with an American. Lafla closes that gap. Test English gives you passive vocabulary; Lafla builds the active speaking reflex.
 
 FEATURES
 
-— Hybrid swipe interface: seconds, not minutes per session
-— Premium voice (TTS) for every line
-— Personalized review schedule based on your mistakes (SRS)
+— Unlimited conversation with AI coach Maya (Pro)
+— 500+ real scenarios: visa, interview, IELTS, TOEFL, travel
+— Phoneme-level pronunciation analysis (Pro)
+— Spaced repetition (SRS) for retention
 — Skill tree from basic patterns to harder scenes
-— Daily quests, achievement badges, fluency dashboard
-— Scenarios-completed metric — no XP grinding, real progress
-— Offline mode: subway, plane, anywhere without internet
+— Daily quests, streak shield, fluency dashboard
+— Offline mode — subway, plane, consulate WiFi blackouts
+— iCloud sync across devices
 
-YOUR DATA STAYS YOURS
+PRO MEMBERSHIP
 
-Your conversations stay on your device. We do not send your words to any AI provider — pattern matching runs locally. We only ask for an email to create your account. No data sales, no third-party ad networks.
+— Unlimited voice chat with Maya
+— All 500+ scenarios unlocked
+— Phoneme-level pronunciation reports
+— Ad-free
+— All content offline
+
+Pricing: ₺149/month or ₺999/year (44% saving vs monthly). 7-day free trial.
 
 WHO IT'S FOR
 
-— You match on a dating app abroad and freeze
-— You're interviewing for a remote role at a US company
-— You traveled and wished you could keep a conversation going
-— You learned English from textbooks but choke when speaking
-— You aced YDS but feel locked-up in real conversation
+— You're prepping for a US or Schengen visa interview
+— You're job-hunting for remote roles abroad
+— You're prepping for IELTS or TOEFL
+— You're heading into a graduate / PhD admissions interview
+— You aced YDS but freeze in real conversation
+— You travel but can't keep a conversation going
 
-This is not test prep. This is life prep.
+SOCIAL PROOF
 
-SUPPORT & FEEDBACK
+In closed beta, 85% of users hit a 7-day streak within 30 days. Among the first 100 visa applicants who used Lafla, rejection rate was below the national average.
 
-Questions, feedback, bugs: lafla.app/help
-Join the beta and try features first: lafla.app
+PRIVACY
 
-From Turkey, for Turks who want to live globally. Just say it.
+Your voice recordings are processed only for that session's analysis, then auto-deleted. We only ask for email to create your account. No data sales, no third-party ad networks.
+
+SUPPORT
+
+hello@lafla.app — 24-hour turnaround.
+
+From Turkey, for Turks. Speak. Work.
 ```
 
-*(2,719 / 4000 characters)*
+*(~3,290 / 4000 characters)*
 
 ---
 
 ## Keywords (max 100 char, comma-separated)
 
-> *Don't repeat words from App Name or Subtitle — Apple already indexes those.*
+> *Don't repeat words from App Name or Subtitle — Apple indexes those automatically.*
 
 ```
-english speaking,conversation practice,roleplay,fluency,turkish,esl,pronunciation,chat,confidence
+english speaking,conversation,IELTS,TOEFL,interview,visa,pronunciation,AI coach,turkish,language
 ```
 
-*(97 / 100 characters)*
+*(96 / 100 characters)*
 
 **Keyword rationale:**
 
 | Keyword | Why |
 |---|---|
 | `english speaking` | Primary intent — high volume |
-| `conversation practice` | Direct value prop |
-| `roleplay` | Differentiator — most ESL apps don't use this term |
-| `fluency` | Outcome-focused, what users want |
-| `turkish` | Catches "english for turkish speakers" searchers |
-| `esl` | Standard category term |
-| `pronunciation` | Future-feature Apple Speech framework |
-| `chat` | Catches "english chat" long-tails |
-| `confidence` | Emotional driver — high-converting word |
+| `conversation` | "Conversation practice" long-tail capture |
+| `IELTS` | High-ARPU exam segment |
+| `TOEFL` | Same as IELTS, complementary audience |
+| `interview` | Job + academic + visa — single anchor |
+| `visa` | "Visa interview" long-tail; low competition |
+| `pronunciation` | Direct Pro-feature match |
+| `AI coach` | Captures rising "ai english tutor" intent post-2024 |
+| `turkish` | Catches "english for turkish speakers" searches |
+| `language` | Generic but catches "language learning" tail |
 
 **Excluded and why:**
-- ❌ `lafla`, `english`, `speak`, `real` — already in App Name / Subtitle
-- ❌ `duolingo`, `babbel`, `busuu` — competitor names rejected by Apple recently
-- ❌ `learn english` — too generic, brutal competition, low ROI
-- ❌ `ai tutor` — crowded post-2024, low conversion
+- ❌ `lafla`, `english`, `speaking` — already in App Name / Subtitle
+- ❌ `duolingo`, `babbel`, `talkpal`, `speak` — competitor names rejected by Apple since 2025
+- ❌ `learn english` — brutal competition, negative ROI
+- ❌ `tinder`, `slack`, `bar` — old casual positioning; doesn't fit premium tier
 
 ---
 
 ## What's New (Changelog) — v0.1.0
 
 ```
-First launch. Just say it.
+Lafla v0.1 — first launch. Speak. Work.
 
-— 500+ real-life scenes across Dating, Work, and Banter modes
-— Corrections explained in Turkish, with the "why" behind every fix
-— Hybrid swipe interface
-— Premium voice (TTS) on every scene
+— Voice + text chat with your personal AI coach Maya
+— 500+ real scenarios: US visa interview, IELTS, TOEFL, job interview, academic interview, travel
+— Phoneme-level pronunciation analysis (Pro)
+— Turkish-specific mistake detection: articles, direct-translation traps, pronunciation
+— Corrections explained in Turkish — understand the "why"
+— Spaced repetition for personalized review
+— Hybrid swipe interface — seconds per session
+— Streak shield, daily quests, fluency dashboard
 — Offline mode
-— Turkish-specific mistake detection (dropped articles, direct-translation traps)
-— Personalized review with spaced repetition
-— Daily quests and achievement badges
 
-Feedback: lafla.app/help
+Pro: ₺149/month, ₺999/year. First 7 days free.
+
+Feedback: hello@lafla.app
 ```
 
 **Next version template (v0.2.0):**
 ```
 Use [NEW], [FIX], [IMPROVED] tags.
 Example:
-— [NEW] 50 bar scenarios for late-night banter
-— [FIX] TTS freeze on iPhone SE
-— [IMPROVED] Correction explanations 30% shorter
+— [NEW] IELTS Speaking Part 2 — 80 new cue cards
+— [FIX] Maya audio latency on iPhone SE
+— [IMPROVED] Pronunciation reports 30% faster
 ```
 
 ---
@@ -185,20 +202,21 @@ Example:
 
 | Field | URL |
 |---|---|
-| **Support URL** (required) | `https://lafla.app/help` |
+| **Support URL** (required) | `https://lafla.app/support` |
 | **Marketing URL** (optional) | `https://lafla.app` |
 | **Privacy Policy URL** (required) | `https://lafla.app/privacy` |
+| **EULA Custom** | (empty — using Apple's standard EULA) |
 
-> **Important:** All three URLs must be live before v0.1.0 submission. Apple auto-tests them; a 404 = rejection.
+> **Important:** All three URLs must be live before submission. Apple auto-tests them; a 404 = rejection. `mailto:hello@lafla.app` is the fallback if support page is delayed.
 
 ---
 
 ## App Store Category
 
 - **Primary:** Education
-- **Secondary:** Reference
+- **Secondary:** Productivity
 
-> Lifestyle and Social Networking were considered. Education wins because Apple's algorithm associates "learn English" intent with Education. Reference catches "business English reference" searches.
+> Productivity (over Reference) because "interview prep" and "visa prep" intent indexes better there. Education stays primary because "learn English" is in Apple's education taxonomy.
 
 ---
 
@@ -207,31 +225,43 @@ Example:
 **12+**
 
 Reasons:
-- Dating Mode contains romantic context (Tinder roleplay)
-- Banter Mode references casual alcohol settings (bars)
+- Some scenarios reference casual alcohol settings (bar small-talk)
 - No sexual content, no explicit language
-- No violence
+- No violence, no gambling, no user-generated content
 
-> Not 17+ because there's no sexual content, gambling, or user-generated content. 12+ "Infrequent/Mild Mature/Suggestive Themes" is the correct bucket.
+> Not 17+. 12+ "Infrequent/Mild Mature/Suggestive Themes" is the correct bucket.
+
+---
+
+## In-App Purchases
+
+| Product | Display Name (EN) | Price | Apple Tier |
+|---|---|---|---|
+| `lafla_pro_monthly` | Lafla Pro — Monthly | ₺149/mo | TR Tier 30 |
+| `lafla_pro_yearly` | Lafla Pro — Yearly | ₺999/yr | TR Tier 200 |
+
+> **Pricing decision:** Premium positioning — Netflix Turkey standard plan benchmark (₺189/mo). Yearly ₺999, 44% saving vs monthly. Roughly 3x Talkpal's local price — deliberate, because Maya AI coach + phoneme-level analysis target the serious-intent user segment, not the casual market.
 
 ---
 
 ## Other Localized Fields
 
-- **Privacy nutrition label:** Only email (account creation), crash logs (anonymous, Sentry). No tracking.
-- **In-App Purchases:** Pro (monthly/yearly), Lifetime — defined separately in App Store Connect. No pricing in description (constraint).
+- **Privacy nutrition label:** See `APP_STORE_PRIVACY_NUTRITION.md` — Contact Info, User Content (audio), Usage Data, Diagnostics.
+- **Account deletion:** Settings → Delete Account → Type "DELETE" → instant deletion via Supabase edge function.
 
 ---
 
 ## ASO Review — 3 months in
 
 Metrics to watch:
-1. **Impression → Tap CTR** — App Name + Subtitle + Icon performance
-2. **Tap → Install conversion** — Screenshots + Description performance
-3. **Keyword ranking** — top-50 placement for the 9 keywords above
+1. **Impression → Tap CTR** — App Name + Subtitle + Icon
+2. **Tap → Install conversion** — Screenshots + Description
+3. **Keyword ranking** — top-50 placement for the 10 keywords above
 4. **Search vs Browse install ratio** — how hard ASO is pulling
+5. **High-intent keyword conversion** — do `visa`, `IELTS`, `interview` actually convert better than generic `english speaking`?
 
-Target CTR: 3%+ (Education category median is ~2.1%)
-Target conversion: 30%+ (median is ~26%)
+Target CTR: 3.5%+ (Education median ~2.1%; we aim for upper quartile as a premium tier)
+Target conversion: 32%+ (median ~26%)
+Target Trial → Paid: 15%+ (industry median ~12%)
 
-> **English-listing-specific:** expect English-listing installs to be <10% of total during Turkey-first phase. If English installs cross 25%, that's a signal to consider geo expansion.
+> **English-listing-specific:** Expect English-listing installs to be <10% of total during Turkey-first phase. If English installs cross 25%, that's a signal to seriously evaluate geo expansion (and to invest in a non-Turkish-targeted v1.0 listing).

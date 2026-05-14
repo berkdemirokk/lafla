@@ -32,8 +32,18 @@ import {
   startListening,
   stopListening,
 } from "./speech-recognition";
-import { chatComplete } from "./llm-router";
+import { chatComplete, chatCompleteFast } from "./llm-router";
 import type { ChatMessage } from "./llm-types";
+import {
+  checkUserInput,
+  checkMayaOutput,
+  getMayaSafeFallback,
+  type SafetyCheck,
+} from "./safety-filter";
+
+// Cap the in-memory turns array so a long-running session can't grow without
+// bound. We keep the most-recent MAX_TURNS entries (drop oldest first).
+const MAX_TURNS = 50;
 
 // ---------------------------------------------------------------------------
 // Types
@@ -73,6 +83,13 @@ export interface VoiceSessionAPI {
   onStateChange(cb: (s: VoiceSessionState) => void): () => void;
   onTurn(cb: (t: VoiceTurn) => void): () => void;
   onError(cb: (e: Error) => void): () => void;
+  /**
+   * Fires when the safety filter blocks a user input or a Maya draft reply.
+   * The host UI must react to `check.shouldEscalate === true` by opening the
+   * crisis modal. For non-crisis blocks the session has already injected a
+   * safe Turkish redirect turn — the UI only needs to render it.
+   */
+  onSafetyBlock(cb: (check: SafetyCheck) => void): () => void;
 }
 
 export interface VoiceSessionOptions {
@@ -96,6 +113,13 @@ export interface VoiceSessionOptions {
    * Max tokens for the LLM reply. Default 200 (voice replies should be short).
    */
   maxTokens?: number;
+  /**
+   * If true, race all configured providers and use the first 2xx response.
+   * Burns more free-tier quota but cuts perceived latency by ~50% when the
+   * preferred provider is slow. Reserved for premium users — see /freechat
+   * and /freechat-voice for wiring.
+   */
+  fastMode?: boolean;
 }
 
 // ---------------------------------------------------------------------------
@@ -151,6 +175,7 @@ export function createVoiceSession(
   const silenceTimeoutMs = opts.silenceTimeoutMs ?? 1500;
   const maxListenMs = opts.maxListenMs ?? 15000;
   const maxTokens = opts.maxTokens ?? 200;
+  const fastMode = opts.fastMode === true; // default false — only premium opts in
 
   // --- mutable state -------------------------------------------------------
   let state: VoiceSessionState = "idle";
@@ -162,15 +187,21 @@ export function createVoiceSession(
   let currentTranscript = "";
   let listenStartedAt = 0;
   let silenceTimer: ReturnType<typeof setTimeout> | null = null;
+  // AbortController is plumbed through async work (LLM call, begin/commit) so
+  // stop() can sever any in-flight callback delivery. We re-create it on every
+  // start() / beginListening() so a previous abort can't poison the next loop.
+  let abortController: AbortController | null = null;
 
   // Listener registries.
   const stateListeners = new Set<(s: VoiceSessionState) => void>();
   const turnListeners = new Set<(t: VoiceTurn) => void>();
   const errorListeners = new Set<(e: Error) => void>();
+  const safetyListeners = new Set<(c: SafetyCheck) => void>();
 
   // --- helpers -------------------------------------------------------------
 
   function setState(next: VoiceSessionState): void {
+    if (disposed) return;
     if (state === next) return;
     state = next;
     for (const cb of stateListeners) {
@@ -183,7 +214,14 @@ export function createVoiceSession(
   }
 
   function emitTurn(turn: VoiceTurn): void {
+    if (disposed) return;
     turns.push(turn);
+    // Cap the array so a long voice marathon can't OOM the device. Drop the
+    // oldest turn (FIFO). The LLM call further trims history anyway, so
+    // dropping the head only affects the on-screen transcript drawer.
+    while (turns.length > MAX_TURNS) {
+      turns.shift();
+    }
     for (const cb of turnListeners) {
       try {
         cb(turn);
@@ -193,7 +231,19 @@ export function createVoiceSession(
     }
   }
 
+  function emitSafety(check: SafetyCheck): void {
+    if (disposed) return;
+    for (const cb of safetyListeners) {
+      try {
+        cb(check);
+      } catch {
+        // ignore subscriber errors so one bad listener can't break the loop
+      }
+    }
+  }
+
   function emitError(err: Error): void {
+    if (disposed) return;
     if (__DEV__) console.warn("[voice-session]", err.message);
     for (const cb of errorListeners) {
       try {
@@ -213,7 +263,11 @@ export function createVoiceSession(
 
   function armSilenceTimer(): void {
     clearSilenceTimer();
+    if (disposed) return;
     silenceTimer = setTimeout(() => {
+      // Defensive: stop() may have fired between scheduling and execution.
+      silenceTimer = null;
+      if (disposed) return;
       // User has been silent past the threshold — commit whatever we heard.
       void commitUserTurn();
     }, silenceTimeoutMs);
@@ -224,7 +278,14 @@ export function createVoiceSession(
   async function beginListening(): Promise<void> {
     if (disposed || paused) return;
 
+    // Each fresh listen window gets its own AbortController so callbacks from
+    // the previous window can no-op cleanly.
+    abortController?.abort();
+    abortController = new AbortController();
+    const signal = abortController.signal;
+
     const available = await isSpeechAvailable();
+    if (disposed || signal.aborted) return;
     if (!available) {
       setState("error");
       emitError(new Error("speech recognition not available on this device"));
@@ -238,8 +299,9 @@ export function createVoiceSession(
     await startListening({
       lang: "en-US",
       timeoutMs: maxListenMs,
+      signal,
       onResult: (text, isFinal) => {
-        if (disposed) return;
+        if (disposed || signal.aborted) return;
         // The native module sends interim results frequently; we always take
         // the latest because each event already contains the full transcript
         // up to that point.
@@ -254,7 +316,7 @@ export function createVoiceSession(
         }
       },
       onError: (err) => {
-        if (disposed) return;
+        if (disposed || signal.aborted) return;
         clearSilenceTimer();
         // "no-speech" type errors are not really errors during a voice loop
         // — they just mean the user said nothing within the listen window.
@@ -264,6 +326,8 @@ export function createVoiceSession(
         setState("error");
       },
     });
+
+    if (disposed || signal.aborted) return;
 
     // If the underlying module finished without ever firing onResult, we
     // arm a fallback timer so the loop doesn't stall forever.
@@ -285,6 +349,8 @@ export function createVoiceSession(
       // ignore
     }
 
+    if (disposed) return;
+
     const text = currentTranscript.trim();
     const durationMs = Date.now() - listenStartedAt;
 
@@ -302,6 +368,27 @@ export function createVoiceSession(
       metrics: computeMetrics(text, durationMs),
     };
     emitTurn(userTurn);
+
+    // --- Safety gate: pre-check on user input -----------------------------
+    // Crisis signals and other category-blocks short-circuit BEFORE the LLM
+    // call. We still emit the user's turn (so the transcript shows what
+    // happened), then surface a deterministic Turkish redirect or escalate
+    // to the crisis modal via the safety listener.
+    const inputCheck = checkUserInput(text, "tr");
+    if (!inputCheck.ok) {
+      emitSafety(inputCheck);
+      const safe = inputCheck.suggestedResponse_tr ?? getMayaSafeFallback();
+      const safeTurn: VoiceTurn = {
+        role: "assistant",
+        text: safe,
+        startedAt: new Date().toISOString(),
+      };
+      emitTurn(safeTurn);
+      // Speak the safe redirect in Turkish so the response is intelligible
+      // to the user (Maya normally speaks English).
+      speakReply(safe, "tr-TR");
+      return;
+    }
 
     setState("thinking");
     void requestReply();
@@ -323,7 +410,10 @@ export function createVoiceSession(
     let reply = "";
     const startedAt = Date.now();
     try {
-      reply = (await chatComplete(history, { maxTokens })).trim();
+      // Premium / fastMode races all providers to cut p95 latency by ~50%;
+      // free tier uses the sequential path so we don't burn 3x quota per turn.
+      const completer = fastMode ? chatCompleteFast : chatComplete;
+      reply = (await completer(history, { maxTokens })).trim();
     } catch (err) {
       const e = err instanceof Error ? err : new Error("LLM call failed");
       emitError(e);
@@ -338,23 +428,36 @@ export function createVoiceSession(
     }
     if (disposed) return;
 
+    // --- Safety gate: post-check on Maya's draft reply --------------------
+    // Defence-in-depth: even with the safety preamble in the system prompt,
+    // a misbehaving provider could leak unsafe content. We swap the draft
+    // for a Turkish safe-fallback if the post-check fails.
+    const outputCheck = checkMayaOutput(reply);
+    let finalReply = reply;
+    let replyLocale: "en-US" | "tr-TR" = "en-US";
+    if (!outputCheck.ok) {
+      emitSafety(outputCheck);
+      finalReply = outputCheck.suggestedResponse_tr ?? getMayaSafeFallback();
+      replyLocale = "tr-TR";
+    }
+
     const assistantTurn: VoiceTurn = {
       role: "assistant",
-      text: reply,
+      text: finalReply,
       startedAt: new Date(startedAt).toISOString(),
     };
     emitTurn(assistantTurn);
 
-    speakReply(reply);
+    speakReply(finalReply, replyLocale);
   }
 
-  function speakReply(text: string): void {
+  function speakReply(text: string, language: "en-US" | "tr-TR" = "en-US"): void {
     if (disposed) return;
     setState("speaking");
 
     Speech.stop();
     Speech.speak(text, {
-      language: "en-US",
+      language,
       rate: 0.95,
       pitch: 1.0,
       onDone: () => {
@@ -392,9 +495,19 @@ export function createVoiceSession(
   }
 
   function stop(): void {
+    // CRITICAL: set disposed BEFORE doing any teardown so callbacks fired
+    // during stopListening() / Speech.stop() see disposed === true and bail.
     disposed = true;
     paused = true;
+    abortController?.abort();
     clearSilenceTimer();
+    // Drop all subscribers — after stop(), nothing should hear from us. This
+    // also catches the case where a listener was added by a since-unmounted
+    // component that forgot to call its returned unsubscribe.
+    stateListeners.clear();
+    turnListeners.clear();
+    errorListeners.clear();
+    safetyListeners.clear();
     try {
       void stopListening();
     } catch {
@@ -405,11 +518,13 @@ export function createVoiceSession(
     } catch {
       // ignore
     }
-    setState("idle");
+    // Note: state intentionally not pushed to listeners — we just cleared them.
+    state = "idle";
   }
 
   function pause(): void {
     paused = true;
+    abortController?.abort();
     clearSilenceTimer();
     try {
       void stopListening();
@@ -452,6 +567,13 @@ export function createVoiceSession(
     };
   }
 
+  function onSafetyBlock(cb: (c: SafetyCheck) => void): () => void {
+    safetyListeners.add(cb);
+    return () => {
+      safetyListeners.delete(cb);
+    };
+  }
+
   return {
     start,
     stop,
@@ -462,5 +584,6 @@ export function createVoiceSession(
     onStateChange,
     onTurn,
     onError,
+    onSafetyBlock,
   };
 }

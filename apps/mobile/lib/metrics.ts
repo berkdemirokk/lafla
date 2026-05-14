@@ -11,6 +11,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import type { CefrLevel } from "./cefr-level";
 import { getCefrLevel } from "./cefr-level";
+import { isArray, isObject, parseSafe } from "./json-safe";
 import {
   getAllLessonState,
   getAllModeFluency,
@@ -103,7 +104,12 @@ interface DailyEntry {
 async function readDaily(): Promise<Record<string, DailyEntry>> {
   try {
     const raw = await AsyncStorage.getItem(K_DAILY);
-    return raw ? (JSON.parse(raw) as Record<string, DailyEntry>) : {};
+    // Validator: outer object. Per-entry types are tolerated by the
+    // downstream `sumDaily` / `countActiveDaysWithin` which guard with
+    // `entry?.xp > 0` style checks.
+    return parseSafe<Record<string, DailyEntry>>(raw, {}, isObject, {
+      source: "metrics.readDaily",
+    });
   } catch {
     return {};
   }
@@ -139,9 +145,10 @@ function countActiveDaysWithin(
 async function readCoachMessages(): Promise<{ total: number; sessions: number }> {
   try {
     const raw = await AsyncStorage.getItem(K_FREECHAT_SESSION);
-    if (!raw) return { total: 0, sessions: 0 };
-    const arr = JSON.parse(raw) as Array<{ role?: string }>;
-    const total = Array.isArray(arr) ? arr.length : 0;
+    const arr = parseSafe<unknown[]>(raw, [], isArray, {
+      source: "metrics.readCoachMessages",
+    });
+    const total = arr.length;
     // One persisted session at a time, but if total > 0 we count it as ≥1.
     const sessions = total > 0 ? 1 : 0;
     return { total, sessions };
@@ -180,7 +187,12 @@ async function estimateActiveVocab(
   try {
     const raw = await AsyncStorage.getItem(K_WORDS_SEEN);
     if (raw) {
-      const parsed = JSON.parse(raw) as Record<string, number>;
+      // Validator only checks outer object — the inner number test inside
+      // the loop is the real guard against `undefined` masquerading as a
+      // count when the blob has the wrong shape.
+      const parsed = parseSafe<Record<string, number>>(raw, {}, isObject, {
+        source: "metrics.estimateActiveVocab",
+      });
       let n = 0;
       for (const v of Object.values(parsed)) {
         if (typeof v === "number" && v >= 2) n++;
@@ -213,8 +225,14 @@ async function estimatePronunciationAvg(
   try {
     const raw = await AsyncStorage.getItem(K_PRON_HISTORY);
     if (raw) {
-      const parsed = JSON.parse(raw) as Array<{ score: number; at?: string }>;
-      if (Array.isArray(parsed) && parsed.length > 0) {
+      // Validator: array. The inner `.score ?? 0` already tolerates entries
+      // missing the score field, so per-entry validation here would be
+      // over-restrictive (would discard partially-shaped legacy entries
+      // that still have usable scores).
+      const parsed = parseSafe<Array<{ score: number; at?: string }>>(raw, [], isArray, {
+        source: "metrics.estimatePronunciationAvg",
+      });
+      if (parsed.length > 0) {
         const sum = parsed.reduce((acc, e) => acc + (e.score ?? 0), 0);
         return Math.round(sum / parsed.length);
       }

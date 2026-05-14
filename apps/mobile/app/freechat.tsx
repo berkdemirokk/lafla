@@ -33,7 +33,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { tokens } from "../theme";
 import { speak } from "../lib/tts";
-import { chatComplete } from "../lib/llm-router";
+import { chatComplete, chatCompleteFast } from "../lib/llm-router";
 import type { ChatMessage } from "../lib/llm-types";
 import {
   buildCoachSystemPrompt,
@@ -49,6 +49,12 @@ import {
   startListening,
   stopListening,
 } from "../lib/speech-recognition";
+import {
+  checkUserInput,
+  checkMayaOutput,
+  getMayaSafeFallback,
+} from "../lib/safety-filter";
+import CrisisModal from "../components/CrisisModal";
 
 // ---------------------------------------------------------------------------
 // Storage keys + cap
@@ -94,6 +100,7 @@ export default function FreeChatScreen() {
   const [hydrated, setHydrated] = useState(false);
   const [voiceAvailable, setVoiceAvailable] = useState(false);
   const [listening, setListening] = useState(false);
+  const [crisisOpen, setCrisisOpen] = useState(false);
   const scrollRef = useRef<ScrollView>(null);
 
   const atLimit = !premium && dailyCount >= DAILY_LIMIT;
@@ -282,6 +289,26 @@ export default function FreeChatScreen() {
     }
     void recordMessage();
 
+    // --- Safety gate: pre-check the user input -----------------------------
+    // The LLM is NEVER called for crisis / NSFW / blocked categories — we
+    // splice in a deterministic Turkish redirect and (for crisis) open the
+    // emergency-resources modal. The user message still renders so the
+    // transcript stays coherent.
+    const inputCheck = checkUserInput(text, "tr");
+    if (!inputCheck.ok) {
+      const safeReply =
+        inputCheck.suggestedResponse_tr ?? getMayaSafeFallback();
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: safeReply },
+      ]);
+      if (inputCheck.shouldEscalate) {
+        setCrisisOpen(true);
+      }
+      setSending(false);
+      return;
+    }
+
     // Build API payload — strip transient UI flags and prepend the system
     // prompt built from the live coach state.
     const apiMessages: ChatMessage[] = [
@@ -290,10 +317,25 @@ export default function FreeChatScreen() {
     ];
 
     try {
-      const reply = await chatComplete(apiMessages, { maxTokens: 280 });
+      // Premium users race all providers (chatCompleteFast) so the bubble
+      // appears as soon as ANY provider responds. Free tier uses the
+      // sequential path to keep free-tier quotas alive longer.
+      const completer = premium ? chatCompleteFast : chatComplete;
+      const reply = await completer(apiMessages, { maxTokens: 280 });
+      const trimmed = reply.trim();
+
+      // --- Safety gate: post-check the LLM reply -------------------------
+      // Defence-in-depth — even with the safety preamble baked into the
+      // system prompt, we never render unsafe output. Misbehaving replies
+      // get swapped for the generic safe-fallback string.
+      const outputCheck = checkMayaOutput(trimmed);
+      const finalText = outputCheck.ok
+        ? trimmed
+        : (outputCheck.suggestedResponse_tr ?? getMayaSafeFallback());
+
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: reply.trim() },
+        { role: "assistant", content: finalText },
       ]);
     } catch (err) {
       if (__DEV__) console.warn("[freechat] chatComplete failed", err);
@@ -471,6 +513,8 @@ export default function FreeChatScreen() {
           </View>
         )}
       </KeyboardAvoidingView>
+
+      <CrisisModal visible={crisisOpen} onClose={() => setCrisisOpen(false)} />
     </SafeAreaView>
   );
 }

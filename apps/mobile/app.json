@@ -20,6 +20,7 @@
       "bundleIdentifier": "com.lafla.app",
       "supportsTablet": true,
       "buildNumber": "1",
+      "deploymentTarget": "17.0",
       "infoPlist": {
         "CFBundleLocalizations": [
           "tr",
@@ -29,7 +30,9 @@
         "ITSAppUsesNonExemptEncryption": false,
         "NSMicrophoneUsageDescription": "Telaffuzunu değerlendirmek için mikrofona erişim gerekli.",
         "NSSpeechRecognitionUsageDescription": "Söylediğin İngilizce cümleleri anlamak için konuşma tanıma kullanılır.",
-        "NSUserTrackingUsageDescription": "Sana daha iyi pratik önerileri sunmak için anonim kullanım verileri toplanır."
+        "NSUserTrackingUsageDescription": "Sana daha iyi pratik önerileri sunmak için anonim kullanım verileri toplanır.",
+        "NSPhotoLibraryUsageDescription": "İlerleme kartını galerine kaydedebilmen için izin gerekli.",
+        "UIBackgroundModes": ["audio"]
       },
       "privacyManifests": {
         "NSPrivacyAccessedAPITypes": [
@@ -50,7 +53,11 @@
     },
     "plugins": [
       "expo-router",
-      "expo-secure-store"
+      "expo-secure-store",
+      "expo-av",
+      "expo-file-system",
+      "expo-localization",
+      "expo-speech-recognition"
     ],
     "experiments": {
       "typedRoutes": true
@@ -62,6 +69,9 @@
       "supabaseUrl": "https://dljlqmzjfewevoxibdlh.supabase.co",
       "supabaseAnonKey": "sb_publishable_HoL3Tb8U0cQqm0wTf5zBxQ_IYipWD70",
       "revenuecatIosKey": "appl_bqTdlDWgyIlphLIlVGGRuNDtuIu",
+      "sentryDsn": "YOUR_SENTRY_DSN",
+      "posthogKey": "YOUR_POSTHOG_KEY",
+      "posthogHost": "https://eu.i.posthog.com",
       "eas": {
         "projectId": "a7b18723-d431-481b-92cd-18a4c1104171"
       }

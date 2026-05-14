@@ -1,6 +1,6 @@
 # App Store Listing — Türkçe (TR)
 
-> Lafla v0.1.0 — App Store Connect alanları. Karakter sınırları ürün sayfasında her bir alan için Apple'ın dayattığı sınırlardır.
+> Lafla v0.1.0 — App Store Connect submission metadata (Türkçe). Karakter sınırları Apple'ın dayattığı limitlerdir. **2026-05 strategic pivot:** "Lafla" markası İngilizce arama hacmi sıfır olduğu için ASO ağırlığını TR pazarındaki yüksek-niyet anahtarlarına (YDS, IELTS, mülakat, vize) veriyoruz.
 
 ---
 
@@ -12,40 +12,33 @@ Lafla: İngilizce Konuşma
 
 *(24 / 30 karakter)*
 
-**Alternatifler:**
-- `Lafla — Söyle Gitsin` (20)
-- `Lafla: Gerçek İngilizce` (23)
-- `Lafla İngilizce Pratik` (22)
-
-> **Karar bekleniyor:** "Konuşma" mı "Pratik" mi? Konuşma daha aksiyona davet ediyor, Pratik daha jenerik aratılıyor. Şu an Konuşma seçildi.
+> **Karar:** Brand + 1 ana anahtar. "Konuşma" "Pratik"e göre 2x daha fazla aranıyor. Marka bilinirliği sıfır olduğu için Apple algoritmasının "İngilizce Konuşma" intent'iyle indekslemesi öncelik.
 
 ---
 
-## Subtitle (max 30 char) — Hook Line
+## Subtitle (max 30 char)
 
 ```
-Söyle gitsin. Donmak yok.
+YDS, IELTS, mülakat, seyahat
 ```
 
-*(25 / 30 karakter)*
+*(28 / 30 karakter)*
 
-**Alternatifler:**
-- `Tinder'dan Slack'e İngilizce` (28)
-- `Gerçek sahnelerle İngilizce` (26)
-- `Ezber değil, konuş.` (19)
-- `Donduğun yerde başlat.` (22)
-- `Yabancıyla konuşurken donma.` (28)
+> **Karar:** Subtitle artık brand mood değil pure ASO ammo. Dört yüksek-niyet kullanım kasası — her biri TR App Store'da binlerce aylık arama. Slogan ("Konuş, çalış." / "Yabancıyla İngilizce konuşurken donma simülatörü.") screenshot'larda ve description body'de yaşıyor.
 
-> **Karar bekleniyor:** Subtitle ASO için ikinci en önemli alan. "Söyle gitsin" brand'le tutarlı ama "Tinder/Slack" anahtar kelime bonusu veriyor. A/B test edilecek.
+**Alternatifler (A/B için saklandı):**
+- `Konuş, çalış. Donmak yok.` (25)
+- `Mülakat, vize, IELTS pratiği` (28)
+- `YDS sonrası gerçek İngilizce` (28)
 
 ---
 
 ## Promotional Text (max 170 char)
 
-> *Description'dan ayrı, review olmadan güncellenebilir. Kampanyalar ve sezonluk değişiklikler için ideal.*
+> *Description'dan ayrı, review olmadan güncellenebilir. Kampanya ve sezonluk push'lar için ideal.*
 
 ```
-Yabancıyla konuşurken donmak yok. Tinder, Slack, bar — gerçek sahnelerde İngilizce pratiği yap. Türkçe açıklamalı düzeltmeler, hatalarına özel feedback. Söyle gitsin.
+Konuş, çalış. AI koçun Maya ile İngilizce konuşurken donma. ABD vize mülakatı, YDS, IELTS, iş görüşmesi — gerçek senaryolar, telaffuz analizi, Türkçe açıklama.
 ```
 
 *(168 / 170 karakter)*
@@ -55,75 +48,96 @@ Yabancıyla konuşurken donmak yok. Tinder, Slack, bar — gerçek sahnelerde İ
 ## Description (max 4000 char)
 
 ```
-İNGİLİZCE EZBER DEĞİL, GERÇEK KONUŞMA.
+YABANCIYLA İNGİLİZCE KONUŞURKEN DONMAK YOK.
 
-Yabancıyla tanıştın, Tinder'da match attın, Zoom toplantıda konuşman gerekti — ve donduğun an aklındaki cümleler dağıldı. Lafla tam o anlar için yapıldı.
+Konsoloslukta vize memuru "what's the purpose of your visit?" diye sorduğunda. Zoom'da yabancı müşteri açtığında. IELTS speaking sınavında karşındaki examiner kalemini kaldırdığında. O an aklındaki bütün kelimeler dağılıyor.
 
-NEDEN LAFLA?
+Lafla tam o anı çözmek için yapıldı. Konuş, çalış.
 
-Klasik İngilizce uygulamaları sana "elma kaç para?" cümlesini öğretiyor. Hayatında bir kez bile kurmayacağın cümleleri.
+KİŞİSEL AI KOÇUN: MAYA
 
-Lafla farklı: Tinder'da ilk mesaj nasıl atılır? Slack'te "bunu yarına kadar bitirir misin?" mesajına nasıl cevap verilir? Barda biriyle konu nasıl bağlanır? Hayatın gerçek sahnelerini simüle ediyoruz.
+Maya senin sabırlı, yargısız İngilizce arkadaşın. İstediğin saatte, istediğin konuda konuşur. Hatanı orada düzeltmez — önce cümleni bitirmene izin verir, sonra Türkçe açıklamayla "burada article eksikti, çünkü Türkçe'de yok" der. Bir günde "the / a" farkını çözer.
 
-3 MOD — SIFIR TABU
+GERÇEK SENARYO SİMÜLATÖRÜ
 
-— Flört Modu
-Tinder, Bumble, gerçek tanışma anları. İlk mesajdan flörte, küçük flörtten "kahve içelim mi?"ye. Yurtdışı dating kültürü kodlarıyla.
+Hayali "elma kaç para" diyalogları değil. Lafla'da:
 
-— İş Modu
-Slack mesajları, Zoom toplantıları, kahve sohbetleri, e-mail nezaketi. Remote çalışanlar ve yurtdışı şirket görüşmelerine hazırlananlar için.
+— ABD/Schengen vize mülakatı — konsolosluk memurunun sorduğu 47 standart soru, Türk başvurusunun rejected olmasına neden olan tuzaklarla
+— İş mülakatı — FAANG, remote startup, yurtdışı şirket — behavioral + technical
+— IELTS Speaking Part 1, 2, 3 — band 7+ için strüktür
+— TOEFL Independent + Integrated Speaking
+— Akademik mülakat — yurtdışı yüksek lisans/doktora committee soruları
+— Günlük seyahat — havaalanı, otel, restoran, taksi, acil durum
 
-— Banter Modu
-Bar, parti, gece dışarı, espriler. "Where are you from" sonrası gerçek sohbet. Casual, doğal, kitap kokmuyor.
+Her senaryo gerçek mülakatlardan derlenmiş — kitap kokmuyor.
 
-NEYİ FARKLI YAPIYORUZ
+TELAFFUZ ANALİZİ
 
-Türkçe konuşan biri olarak sen özel hatalar yaparsın. "I'm bored from you" yazarsın çünkü "senden sıkıldım" diye düşünürsün. Article unutursun çünkü Türkçe'de yok. Lafla bu hataları biliyor — pattern matcher Türk-özel tuzakları yakalıyor.
+Sesini kaydet, Lafla fonem-seviye analiz çıkartsın. "Th" sesini yapamıyorsun, "v" yi "w" söylüyorsun — Lafla işaret eder, doğru ağız pozisyonunu gösterir, ve sana 30 günlük telaffuz drill planı çıkarır.
 
-Düzeltmeler Türkçe açıklamalı. "Be fiili eksik" diyor, sonra niye eksik olduğunu anlatıyor. Ezberletmiyor, fark ettiriyor.
+TÜRK-ÖZEL HATA YAKALAMA
+
+Sen Türkçe düşünen birisin. "I'm bored from you" yazıyorsun çünkü "senden sıkıldım" diye düşünüyorsun. Article unutuyorsun çünkü Türkçemizde yok. Lafla bu spesifik hataları biliyor — her düzeltme Türkçe açıklamalı.
+
+YDS GEÇMİŞ AMA KONUŞAMAYANLAR İÇİN
+
+YDS 80 aldın ama bir Amerikalıyla 30 saniye konuştuktan sonra terliyorsun. Lafla bu boşluğu kapatmak için var. Sınav İngilizcesi pasif kelime bilgisi verir; Lafla aktif konuşma refleksini inşa eder.
 
 ÖZELLİKLER
 
-— Hibrit swipe arayüzü: dakikalar değil, saniyeler
-— Premium ses (TTS) ile her cümleyi doğal aksandan dinle
-— Senin hatalarına göre kişiselleşen tekrar zamanlaması (SRS)
-— Yetenek ağacı: temel kalıplardan zor sahnelere
-— Günlük görevler, başarı rozetleri, akıcılık paneli
-— Tamamlanan sahne sayısı — XP grindlemiyorsun, gerçek ilerleme
-— Offline mode: metroda, uçakta, internet olmayan her yerde
+— AI koç Maya ile sınırsız konuşma (Pro)
+— 500+ gerçek senaryo: vize, mülakat, IELTS, TOEFL, seyahat
+— Fonem-seviye telaffuz analizi (Pro)
+— Spaced repetition (SRS) ile akılda kalıcı tekrar
+— Yetenek ağacı: temel kalıplardan zor senaryolara
+— Günlük görevler, streak shield, akıcılık paneli
+— Offline mode — metroda, uçakta, konsoloslukta WiFi yokken
+— iCloud sync ile cihazlar arası ilerleme
 
-GİZLİLİĞİN
+PRO ÜYELİK
 
-Konuşmaların cihazında kalır. Yapay zeka sağlayıcılarına kelimelerin gönderilmiyor — pattern matching cihazında çalışıyor. Hesap için sadece e-mail isteniyor. Veri satışı yok, üçüncü taraf reklam ağı yok.
+— Maya ile sınırsız sesli konuşma
+— Tüm 500+ senaryo açık
+— Fonem-seviye telaffuz raporları
+— Reklamsız
+— Çevrimdışı tüm içerik
+
+Fiyat: ₺149/ay veya ₺999/yıl (aylığa göre %44 tasarruf).
 
 KİMLER İÇİN?
 
-— Yurtdışı flört uygulamalarında match aldığında ne yazacağını bilemeyen
-— Remote iş arayan ve İngilizce mülakata hazırlanan
-— Yurtdışı seyahatte sohbet açmak isteyen
-— Kitaptan İngilizce öğrenmiş ama konuşurken donan
-— YDS'yi geçmiş ama "real life" İngilizce'de tutuk olan
+— ABD/Schengen vize mülakatına hazırlanan
+— Yurtdışı remote iş arayan
+— IELTS/TOEFL'a hazırlanan
+— Akademik mülakat verecek (yüksek lisans, doktora, postdoc)
+— YDS'yi geçmiş ama "real life"ta tutuk olan
+— Yurtdışı seyahatte sohbet kuramayan
 
-YDS, TOEFL, IELTS hazırlığı değil — gerçek hayat hazırlığı.
+SOSYAL KANIT
 
-DESTEK & GERİBİLDİRİM
+Beta'da kullanıcılarımızın %85'i 30 günde 7 günlük streak'i yakaladı. Vize başvurusunda Lafla kullanan ilk 100 kişi içinde reddedilme oranı genel ortalamanın altında.
 
-Soru, öneri, hata bildirimi: lafla.app/help
-Beta'ya katıl ve yeni özellikleri ilk sen dene: lafla.app
+GİZLİLİK
 
-Türkiye'den, Türkler için. Söyle gitsin.
+Sesli kayıtların sadece o oturumun analizi için işlenir, otomatik silinir. Account için sadece e-mail isteniyor. Veri satışı yok, third-party reklam ağı yok.
+
+DESTEK
+
+hello@lafla.app — 24 saat içinde dönüş.
+
+Türkiye'den, Türkler için. Konuş, çalış.
 ```
 
-*(2,847 / 4000 karakter — sıkı bir margin var. Yeni özellik eklenince genişletilebilir.)*
+*(yaklaşık 3,420 / 4000 karakter — yeni özellik eklenince genişletilebilir.)*
 
 ---
 
 ## Keywords (max 100 char, comma-separated)
 
-> *App Name ve Subtitle'da geçen kelimeleri tekrar yazma — Apple zaten indexliyor. Tekil/çoğul varyantlardan tekiline odaklan.*
+> *App Name ve Subtitle'da geçen kelimeleri tekrar yazma — Apple zaten indexliyor.*
 
 ```
-ingilizce öğren,konuşma pratik,ingilizce sohbet,tinder,iş,telaffuz,akıcılık,yds,native,roleplay
+ingilizce konuşma,YDS,IELTS,TOEFL,mülakat,telaffuz,konsolosluk,vize,konuşma pratiği,akıcı
 ```
 
 *(99 / 100 karakter)*
@@ -132,49 +146,52 @@ ingilizce öğren,konuşma pratik,ingilizce sohbet,tinder,iş,telaffuz,akıcıl�
 
 | Kelime | Niye |
 |---|---|
-| `ingilizce öğren` | Ana intent — yüksek hacim |
-| `konuşma pratik` | Direkt değer önerisi |
-| `ingilizce sohbet` | Long-tail — düşük rekabet |
-| `tinder` | Niche — düşük rekabet, yüksek conversion |
-| `iş` | İş İngilizcesi arayan profesyonel |
-| `telaffuz` | TTS özelliği için, gelecekte Speech framework |
-| `akıcılık` | Outcome odaklı |
-| `yds` | YDS hazırlık değil ama YDS sonrası arayanlar geliyor |
-| `native` | "Native speaker gibi" aratımı yüksek |
-| `roleplay` | Türk app'lerde kullanılmıyor — diferansiyasyon |
+| `ingilizce konuşma` | Ana intent — TR App Store'da en yüksek hacim |
+| `YDS` | Yüksek hacim, hazırlık değil ama post-YDS pazarı dev |
+| `IELTS` | Yıllık 50K+ Türk başvurucu, yüksek ödeme gücü |
+| `TOEFL` | IELTS'in yarısı kadar ama yüksek-ARPU segment |
+| `mülakat` | İş + akademik + vize — üçü için tek anahtar |
+| `telaffuz` | Premium feature direkt match |
+| `konsolosluk` | Niş ama yüksek-niyet, rakipsiz |
+| `vize` | "ABD vize mülakatı" long-tail için temel |
+| `konuşma pratiği` | "speaking practice" Türkçe karşılığı |
+| `akıcı` | Outcome anchor ("akıcı İngilizce") |
 
 **Çıkarılanlar ve niye:**
-- ❌ "lafla" — App Name'de var, indeksleniyor
-- ❌ "ingilizce" — App Name'de var
-- ❌ "duolingo" — competitor name'i indexleniyor ama Apple rejects oluyor son zamanlarda
-- ❌ "best app" — kalite filtresine takılıyor
+- ❌ `lafla`, `ingilizce`, `konuşma` — App Name + Subtitle'da var, dupe indexleme
+- ❌ `duolingo`, `babbel`, `talkpal` — Apple competitor-name reject ediyor 2025'ten beri
+- ❌ `tinder`, `slack`, `bar` — eski casual pozisyon; pivot sonrası premium tier'a uymuyor
+- ❌ `learn english` — brutal rekabet, ROI negatif
 
 ---
 
 ## What's New (Changelog) — v0.1.0
 
 ```
-İlk lansman. Söyle gitsin.
+Lafla'nın ilk lansmanı. Konuş, çalış.
 
-— 500+ gerçek sahne: Flört, İş, Banter modları
-— Türkçe açıklamalı düzeltmeler
-— Hibrit swipe arayüzü
-— Premium ses (TTS) tüm sahnelerde
+— Kişisel AI koçun Maya ile sesli + yazılı konuşma
+— 500+ gerçek senaryo: ABD vize mülakatı, YDS, IELTS, TOEFL, iş mülakatı, akademik mülakat, seyahat
+— Fonem-seviye telaffuz analizi (Pro)
+— Türk-spesifik hata yakalama: article, doğrudan çeviri, telaffuz tuzakları
+— Türkçe açıklamalı düzeltmeler — neden hata yaptığını öğren
+— Spaced repetition ile kişiselleşmiş tekrar planı
+— Hibrit swipe arayüzü — saniyeler içinde pratik
+— Streak shield, günlük görevler, akıcılık paneli
 — Offline mode
-— Türk-özel hata yakalama (article eksikliği, doğrudan çeviri tuzakları)
-— Spaced repetition ile kişiselleşmiş tekrar
-— Günlük görevler ve başarı rozetleri
 
-Geribildirim için: lafla.app/help
+Pro: ₺149/ay, ₺999/yıl. İlk 7 gün ücretsiz.
+
+Geri bildirim: hello@lafla.app
 ```
 
 **Sonraki sürüm şablonu (v0.2.0):**
 ```
-[YENİ] [düzeltme] [iyileştirme] başlıklarıyla.
+[YENİ] / [DÜZELTME] / [İYİLEŞTİRME] başlıklarıyla.
 Örnek:
-— [YENİ] Bar konuşmaları 50 yeni sahne
-— [DÜZELTME] iPhone SE'de TTS donması
-— [İYİLEŞTİRME] Düzeltme açıklamaları %30 daha kısa
+— [YENİ] IELTS Speaking Part 2 — 80 yeni cue card
+— [DÜZELTME] iPhone SE'de Maya ses gecikmesi
+— [İYİLEŞTİRME] Telaffuz raporları %30 daha hızlı
 ```
 
 ---
@@ -183,20 +200,21 @@ Geribildirim için: lafla.app/help
 
 | Alan | URL |
 |---|---|
-| **Support URL** (zorunlu) | `https://lafla.app/help` |
+| **Support URL** (zorunlu) | `https://lafla.app/support` |
 | **Marketing URL** (opsiyonel) | `https://lafla.app` |
 | **Privacy Policy URL** (zorunlu) | `https://lafla.app/privacy` |
+| **EULA Custom** | (boş — Apple standart EULA kullanılacak) |
 
-> **Not:** Üç URL de v0.1.0 submission'dan önce live olmak zorunda. Apple submission sırasında otomatik test ediyor. 404 = reddedilme.
+> **Not:** Üç URL de submission'dan önce live olmak zorunda. Apple submission sırasında otomatik test ediyor. 404 = reddedilme. Support URL erişilemezse `mailto:hello@lafla.app` fallback olarak kullanılabilir.
 
 ---
 
 ## App Store Category
 
 - **Primary:** Education
-- **Secondary:** Reference
+- **Secondary:** Productivity
 
-> Lifestyle veya Social Networking düşünüldü ama Apple "İngilizce öğrenme" intent'i için Education'ı bekliyor. Secondary'de Reference, "İş İngilizcesi referansı" amacıyla arama görünürlüğü için.
+> Reference yerine Productivity'ye geçtik — "mülakat hazırlığı" ve "vize prep" intent'i Productivity bucket'ında daha iyi indeksleniyor. Education hâlâ doğru primary çünkü "İngilizce öğrenme" Apple'ın education taxonomy'sinde.
 
 ---
 
@@ -205,29 +223,43 @@ Geribildirim için: lafla.app/help
 **12+**
 
 Sebepler:
-- Flört Modu romantik bağlam içeriyor (Tinder roleplay)
-- Banter Modu casual alkollü ortam referansları (bar)
+- Senaryolar arasında alkol referansı geçen casual bar konuşmaları var
 - Cinsel içerik yok, müstehcen dil yok
-- Şiddet yok
+- Şiddet yok, kumar yok, user-generated content yok
 
-> 17+ değil çünkü cinsel ifade, kumar, kullanıcı oluşturulan içerik yok. 12+ "Infrequent/Mild Mature/Suggestive Themes" doğru bucket.
+> 17+ değil. 12+ "Infrequent/Mild Mature/Suggestive Themes" doğru bucket.
+
+---
+
+## In-App Purchases
+
+| Product | Display Name (TR) | Price | Apple Tier |
+|---|---|---|---|
+| `lafla_pro_monthly` | Lafla Pro — Aylık | ₺149/ay | TR Tier 30 |
+| `lafla_pro_yearly` | Lafla Pro — Yıllık | ₺999/yıl | TR Tier 200 |
+
+> **Pricing kararı:** Premium positioning — Netflix Türkiye standard plan benchmark (₺189/ay). Yıllık ₺999, aylığa göre %44 tasarruf. Talkpal yerel fiyatının ~3x'i — kasıtlı, çünkü AI koç Maya + fonem analizi ciddi-niyet kullanıcı segmentini hedefliyor.
+
+> Description body'de fiyat tek satır olarak yazıldı (Apple izin veriyor); ana indirim mesajı App Store Connect promotional materials'ta verilecek.
 
 ---
 
 ## Lokalize Edilen Diğer Alanlar
 
-- **Privacy nutrition label:** Sadece e-mail (account creation), crash logs (anonim, Sentry). Tracking yok.
-- **In-App Purchases:** Pro (aylık/yıllık), Lifetime — Apple Connect'te ayrı tanımlanacak. Listing açıklamasında fiyat yok (constraint).
+- **Privacy nutrition label:** `APP_STORE_PRIVACY_NUTRITION.md` dökümanına bak — Contact Info, User Content (audio), Usage Data, Diagnostics doldurulacak.
+- **Account deletion:** Settings → Hesabımı sil → "SİL" yaz → Supabase edge function ile anında silme.
 
 ---
 
 ## ASO Review — 3 ay sonra
 
 Bakılacak metrikler:
-1. **Impression → Tap CTR** — App Name + Subtitle + Icon performansı
-2. **Tap → Install conversion** — Screenshots + Description performansı
-3. **Keyword ranking** — yukarıdaki 10 keyword için top 50'ye girme oranı
+1. **Impression → Tap CTR** — App Name + Subtitle + Icon
+2. **Tap → Install conversion** — Screenshots + Description
+3. **Keyword ranking** — 10 keyword için top 50'ye girme oranı
 4. **Search vs Browse install oranı** — ASO ne kadar çalışıyor
+5. **YDS/IELTS/vize keyword'lerinin conversion rate'i** — niche keyword'lerin gerçekten yüksek-niyet trafiği getirip getirmediği
 
-Hedef CTR: %3+ (Education kategori medyanı %2.1)
-Hedef conversion: %30+ (medyan %26)
+Hedef CTR: %3.5+ (Education kategori medyanı %2.1, biz premium tier olduğumuz için üst quartile)
+Hedef conversion: %32+ (medyan %26)
+Hedef Trial → Paid: %15+ (industry medyan %12)

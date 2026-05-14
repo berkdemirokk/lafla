@@ -14,7 +14,7 @@
 //   1. Create RevenueCat project — get iOS public SDK key
 //   2. In App Store Connect → My Apps → Lafla → Subscriptions:
 //      - Create Subscription Group "Lafla Premium"
-//      - Create two products: lafla.premium.monthly (99 TL), lafla.premium.yearly (599 TL)
+//      - Create two products: lafla.premium.monthly (149 TL), lafla.premium.yearly (999 TL)
 //   3. In RevenueCat dashboard:
 //      - Add iOS app with bundle id com.lafla.app
 //      - Create Entitlement "Lafla Pro" (must match PREMIUM_ENTITLEMENT below)
@@ -26,6 +26,8 @@
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Constants from "expo-constants";
+import { captureException } from "./sentry";
+import { isObject, parseSafe } from "./json-safe";
 
 // ------------------------------------------------------------
 // Types — stable contract with callers.
@@ -110,6 +112,10 @@ async function initIfNeeded(): Promise<boolean> {
       // eslint-disable-next-line no-console
       console.warn("[Lafla iap] configure() failed:", err);
     }
+    // A misconfigured RevenueCat SDK silently demotes every user to the
+    // mock plan — surface this so we can see it in prod instead of
+    // discovering it via "why is nobody paying?".
+    captureException(err, { source: "iap.initIfNeeded" });
     _initFailed = true;
     _purchases = null;
     return false;
@@ -125,8 +131,9 @@ const K_MOCK = "lafla.premium.mock";
 async function readMock(): Promise<MockState> {
   try {
     const raw = await AsyncStorage.getItem(K_MOCK);
-    if (!raw) return { active: false };
-    const parsed = JSON.parse(raw) as MockState;
+    const parsed = parseSafe<Partial<MockState>>(raw, { active: false }, isObject, {
+      source: "iap.readMock",
+    });
     return { ...parsed, active: !!parsed.active };
   } catch {
     return { active: false };
@@ -181,6 +188,14 @@ export async function isPremium(): Promise<boolean> {
     return (await readMock()).active;
   }
 
+  // Defensive: initIfNeeded() returning true means we configured the SDK at
+  // least once, but a hot-reload or memory pressure can null out the module
+  // handle. Without this guard the next line throws "Cannot read properties
+  // of null (reading 'getCustomerInfo')" which crashes the paywall screen.
+  if (!_purchases) {
+    return (await readMock()).active;
+  }
+
   try {
     const info = await _purchases.getCustomerInfo();
     return Boolean(info?.entitlements?.active?.[PREMIUM_ENTITLEMENT]);
@@ -216,6 +231,15 @@ export async function purchasePackage(id: PackageId): Promise<PurchaseResult> {
         error: err instanceof Error ? err.message : "Mock purchase failed",
       };
     }
+  }
+
+  // Same defensive null-check as isPremium(): live=true but _purchases nulled
+  // out by RN hot-reload or fast-refresh would otherwise crash mid-purchase.
+  if (!_purchases) {
+    return {
+      ok: false,
+      error: "Billing SDK not available",
+    };
   }
 
   try {
@@ -268,6 +292,9 @@ export async function restorePurchases(): Promise<boolean> {
     return (await readMock()).active;
   }
 
+  // Defensive null-check (see isPremium for rationale).
+  if (!_purchases) return (await readMock()).active;
+
   try {
     const info = await _purchases.restorePurchases();
     return Boolean(info?.entitlements?.active?.[PREMIUM_ENTITLEMENT]);
@@ -282,6 +309,8 @@ export async function restorePurchases(): Promise<boolean> {
 export async function setUserId(userId: string | null): Promise<void> {
   const live = await initIfNeeded();
   if (!live) return;
+  // Defensive null-check (see isPremium for rationale).
+  if (!_purchases) return;
   try {
     if (userId) {
       await _purchases.logIn(userId);
@@ -303,6 +332,8 @@ export async function getOffering(): Promise<{
 } | null> {
   const live = await initIfNeeded();
   if (!live) return null;
+  // Defensive null-check (see isPremium for rationale).
+  if (!_purchases) return null;
   try {
     const offerings = await _purchases.getOfferings();
     const current = offerings?.current;

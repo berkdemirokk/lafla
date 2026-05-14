@@ -33,6 +33,7 @@ import {
   getMemorySnapshots,
   type ConversationTurn,
 } from "./coach-memory";
+import { isObject, parseSafe } from "./json-safe";
 
 const K_COACH = "lafla.coach.state";
 
@@ -70,8 +71,14 @@ const DEFAULT_STATE: CoachState = {
 async function readState(): Promise<CoachState> {
   try {
     const raw = await AsyncStorage.getItem(K_COACH);
-    if (!raw) return { ...DEFAULT_STATE };
-    const parsed = JSON.parse(raw) as Partial<CoachState>;
+    // The coach state is the parasocial anchor of the app — losing it on a
+    // corrupt blob silently turns the user into a stranger to Maya, which
+    // is a terrible UX regression. parseSafe drops to DEFAULT_STATE on parse
+    // failure AND leaves a Sentry breadcrumb so we can spot recurring
+    // corruption in prod telemetry.
+    const parsed = parseSafe<Partial<CoachState>>(raw, {}, isObject, {
+      source: "coach.readState",
+    });
     return {
       ...DEFAULT_STATE,
       ...parsed,
@@ -231,6 +238,25 @@ function levelGuidance(level: CefrLevel | null): string {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Safety preamble.
+//
+// Prepended to BOTH the text and voice system prompts (see Apple App Store
+// Guideline 4.7 — apps with AI-generated chat must moderate content). The
+// preamble is intentionally short so it doesn't dominate Maya's voice; the
+// heavy lifting is still done by lib/safety-filter.ts (deterministic
+// keyword + crisis detection). Both layers run on every turn.
+// ---------------------------------------------------------------------------
+
+const SAFETY_PREAMBLE = `SAFETY POLICY (you must follow):
+- If user asks about NSFW, sexual, violent, illegal, or self-harm topics: redirect to English-learning safely. Example: "Bunu konuşamayız ama bunun yerine 'Burada konuşulan konular' gibi günlük diyalog pratiği yapabiliriz."
+- Never provide medical, legal, or financial advice. Suggest user contacts a qualified expert.
+- Never reproduce copyrighted song lyrics or movie scripts.
+- If user appears in crisis (suicidal ideation, abuse): respond with empathy + provide Turkish emergency line "Tıbbi yardım için: 112. Türkiye'de psikolojik destek: AMATEM 444 0 776."
+- All responses must stay in English coaching context. If pulled off-topic, redirect once, then bow out.
+
+`;
+
 export function buildCoachSystemPrompt(
   state: CoachState,
   userLevel: CefrLevel | null,
@@ -257,7 +283,7 @@ export function buildCoachSystemPrompt(
   const memoryBlock =
     memoryBits.length > 0 ? `\n\nMemory:\n${memoryBits.join("\n")}` : "";
 
-  return `You are ${state.name}, a personal English-speaking coach for ${userName}, a Turkish native speaker learning English.
+  return `${SAFETY_PREAMBLE}You are ${state.name}, a personal English-speaking coach for ${userName}, a Turkish native speaker learning English.
 
 Personality:
 - Warm and supportive, but DIRECT. You correct mistakes kindly — never let a wrong sentence pass silently.
@@ -308,7 +334,7 @@ export function buildVoiceCoachSystemPrompt(
   const memoryBlock =
     memoryBits.length > 0 ? `\n\nMemory:\n${memoryBits.join("\n")}` : "";
 
-  return `You are ${state.name}, a personal English-speaking coach for ${userName}, a Turkish native speaker learning English. This is a VOICE conversation — your reply will be spoken aloud by a TTS engine.
+  return `${SAFETY_PREAMBLE}You are ${state.name}, a personal English-speaking coach for ${userName}, a Turkish native speaker learning English. This is a VOICE conversation — your reply will be spoken aloud by a TTS engine.
 
 Personality:
 - Warm and supportive, but DIRECT. You correct mistakes kindly — never let a wrong sentence pass silently.

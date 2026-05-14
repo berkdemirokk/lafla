@@ -26,6 +26,7 @@ import { SpotMistake } from "../../components/exercises/SpotMistake";
 import { Translate } from "../../components/exercises/Translate";
 import { AchievementToast } from "../../components/AchievementToast";
 
+import { trackEvent } from "../../lib/analytics";
 import { getScenario, computeSceneFluency } from "../../lib/scenario";
 import { completeLesson, recordAttempt } from "../../lib/srs";
 import { bumpModeFluency, getLessonState } from "../../lib/local-progress";
@@ -71,6 +72,11 @@ export default function ScenarioScreen() {
       else if (attempts === 1) setRoleplayMode("hinted");
       else setRoleplayMode("multi-choice");
     })();
+    void trackEvent("scenario_started", {
+      scenario_id: scenario.id,
+      skill_id: scenario.skill_id,
+      mode: scenario.mode,
+    }).catch(() => {});
   }, [scenario]);
   const [unlockedToast, setUnlockedToast] = useState<AchievementDef | null>(null);
   const [unlockQueue, setUnlockQueue] = useState<AchievementDef[]>([]);
@@ -92,6 +98,12 @@ export default function ScenarioScreen() {
     }
     savedRef.current = true;
     const accuracy = sceneResult.score / 100;
+    void trackEvent("scenario_completed", {
+      scenario_id: scenario.id,
+      skill_id: scenario.skill_id,
+      mode: scenario.mode,
+      score: sceneResult.score,
+    }).catch(() => {});
     (async () => {
       await completeLesson({
         lesson_id: scenario.id,

@@ -2,6 +2,7 @@
 // Mirror the Supabase schema in AsyncStorage so the app works without signup.
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { isObject, isStringArray, parseSafe } from "./json-safe";
 
 const K_LESSON_STATE = "lafla.lessons";       // map: lesson_id -> LessonStateLocal
 const K_SKILL_MASTERY = "lafla.skills";       // map: skill_id -> { score, lessons_completed }
@@ -40,7 +41,12 @@ const DEFAULT_PROFILE: LocalProfile = {
 async function readMap<T>(key: string): Promise<Record<string, T>> {
   try {
     const raw = await AsyncStorage.getItem(key);
-    return raw ? (JSON.parse(raw) as Record<string, T>) : {};
+    // Validator only checks "is plain object" — per-value typing is the
+    // caller's responsibility. Storing the raw key as the breadcrumb source
+    // lets us tell at a glance WHICH map died if we see corruption events.
+    return parseSafe<Record<string, T>>(raw, {}, isObject, {
+      source: `local-progress.${key}`,
+    });
   } catch {
     return {};
   }
@@ -57,8 +63,13 @@ async function writeMap<T>(key: string, map: Record<string, T>) {
 export async function getLocalProfile(): Promise<LocalProfile> {
   try {
     const raw = await AsyncStorage.getItem(K_PROFILE);
-    if (!raw) return { ...DEFAULT_PROFILE };
-    return { ...DEFAULT_PROFILE, ...JSON.parse(raw) };
+    // Spread-merge with DEFAULT_PROFILE means a profile object missing some
+    // fields is fine; we only need to guarantee the parsed value is an
+    // object so the spread doesn't blow up on null/array/primitive.
+    const parsed = parseSafe<Partial<LocalProfile>>(raw, {}, isObject, {
+      source: "local-progress.profile",
+    });
+    return { ...DEFAULT_PROFILE, ...parsed };
   } catch {
     return { ...DEFAULT_PROFILE };
   }
@@ -240,7 +251,12 @@ export async function getInterests(): Promise<string[]> {
   if (profile.interests.length > 0) return profile.interests;
   try {
     const raw = await AsyncStorage.getItem("lafla.interests");
-    return raw ? (JSON.parse(raw) as string[]) : [];
+    // Validator narrows to string[] so callers can iterate without per-item
+    // type-checking. A corrupt list (mixed types, e.g. {0: "music"}) falls
+    // back to empty rather than silently producing `undefined` entries.
+    return parseSafe<string[]>(raw, [], isStringArray, {
+      source: "local-progress.interests",
+    });
   } catch {
     return [];
   }

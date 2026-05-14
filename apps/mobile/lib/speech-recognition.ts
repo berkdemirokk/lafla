@@ -115,6 +115,13 @@ export interface StartListeningOpts {
   onError: (e: Error) => void;
   /** Auto-stop after this many ms. Defaults to 8000. */
   timeoutMs?: number;
+  /**
+   * Optional AbortSignal. When fired we tear down listeners and stop the
+   * native recogniser. Callers from useEffect cleanup paths should pass one
+   * so a previous listen window can't deliver callbacks to a stale closure
+   * after the component unmounts.
+   */
+  signal?: AbortSignal;
 }
 
 export async function startListening(opts: StartListeningOpts): Promise<void> {
@@ -134,6 +141,19 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
     clearActive();
   }
 
+  // If the caller already aborted before we got going, bail before touching
+  // permissions or native module state.
+  if (opts.signal?.aborted) {
+    opts.onError(new Error("speech recognition aborted"));
+    return;
+  }
+
+  // Track whether we've handed control over to native listeners. If anything
+  // throws or the signal fires before that point, we must still leave the
+  // module in a clean state — wrapped in try/finally below.
+  let succeeded = false;
+  let abortHandler: (() => void) | null = null;
+
   try {
     const granted = await requestPermission();
     if (!granted) {
@@ -141,7 +161,13 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
       return;
     }
 
+    if (opts.signal?.aborted) {
+      opts.onError(new Error("speech recognition aborted"));
+      return;
+    }
+
     const resultListener = mod.addListener("result", (raw) => {
+      if (opts.signal?.aborted) return;
       const e = raw as SpeechResultEvent;
       const transcript = e.results?.[0]?.transcript ?? "";
       const isFinal = Boolean(e.isFinal);
@@ -149,6 +175,10 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
     });
 
     const errorListener = mod.addListener("error", (raw) => {
+      if (opts.signal?.aborted) {
+        clearActive();
+        return;
+      }
       const e = raw as SpeechErrorEvent;
       const message = e.message ?? e.error ?? "speech recognition error";
       opts.onError(new Error(message));
@@ -166,17 +196,45 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
       void stopListening();
     }, timeoutMs);
 
+    // Wire the abort signal to a native stop + cleanup so an unmount or stop()
+    // upstream severs all callbacks immediately.
+    if (opts.signal) {
+      abortHandler = () => {
+        try {
+          mod.stop();
+        } catch {
+          // ignore
+        }
+        clearActive();
+      };
+      opts.signal.addEventListener("abort", abortHandler, { once: true });
+    }
+
     mod.start({
       lang: opts.lang,
       interimResults: true,
       continuous: false,
     });
     isListening = true;
+    succeeded = true;
   } catch (err) {
-    clearActive();
     opts.onError(
       err instanceof Error ? err : new Error("speech recognition failed"),
     );
+  } finally {
+    // If anything between addListener and mod.start() threw, the registered
+    // listeners would otherwise leak. Guarantee cleanup on the failure path.
+    if (!succeeded) {
+      // Detach the abort handler we may have just attached.
+      if (abortHandler && opts.signal) {
+        try {
+          opts.signal.removeEventListener("abort", abortHandler);
+        } catch {
+          // ignore
+        }
+      }
+      clearActive();
+    }
   }
 }
 

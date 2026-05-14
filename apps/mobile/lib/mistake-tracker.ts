@@ -14,7 +14,9 @@
 // - The drill generator reads the WHOLE state to rank, so a map is natural.
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { trackEvent } from "./analytics";
 import { detectMistakes, getPattern } from "./mistake-patterns";
+import { isObject, parseSafe } from "./json-safe";
 
 const K_MISTAKES = "lafla.mistakes.tracked";
 const MAX_EXAMPLES_PER_MISTAKE = 3;
@@ -45,9 +47,12 @@ type Store = Record<string, TrackedMistake>;
 async function readStore(): Promise<Store> {
   try {
     const raw = await AsyncStorage.getItem(K_MISTAKES);
-    if (!raw) return {};
-    const parsed = JSON.parse(raw) as Store;
-    return parsed && typeof parsed === "object" ? parsed : {};
+    // Validator: outer object. Per-entry shape is not deep-checked because
+    // mistake records have ~6 fields and the listing helpers already
+    // tolerate undefined `weight` / `examples` (they default in code).
+    return parseSafe<Store>(raw, {}, isObject, {
+      source: "mistake-tracker.readStore",
+    });
   } catch {
     return {};
   }
@@ -96,6 +101,10 @@ export async function recordUserText(text: string): Promise<{
         consecutiveCorrect: 0,
       };
       newMistakes.push(hit.patternId);
+      void trackEvent("mistake_detected", {
+        patternId: hit.patternId,
+        firstTime: true,
+      }).catch(() => {});
     } else {
       // Repeat. Bump count, refresh lastSeen, and break any active streak
       // because the user just made the mistake again — they're not "resolving".

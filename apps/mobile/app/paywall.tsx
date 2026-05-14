@@ -14,6 +14,7 @@ import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "../components/Button";
+import { trackEvent } from "../lib/analytics";
 import {
   getOffering,
   isLiveBilling,
@@ -68,6 +69,7 @@ export default function PaywallScreen() {
   } | null>(null);
 
   useEffect(() => {
+    void trackEvent("paywall_viewed").catch(() => {});
     (async () => {
       const isLive = await isLiveBilling();
       setLive(isLive);
@@ -85,9 +87,11 @@ export default function PaywallScreen() {
 
   const handlePurchase = async () => {
     setLoading(true);
+    void trackEvent("purchase_initiated", { plan }).catch(() => {});
     try {
       const result = await purchasePackage(plan);
       if (result.ok) {
+        void trackEvent("purchase_success", { plan }).catch(() => {});
         Alert.alert(
           "Pro üyelik aktif.",
           "Tüm Pro özellikler artık kullanımında.",
@@ -97,14 +101,23 @@ export default function PaywallScreen() {
       }
       if (result.cancelled) {
         // user cancelled — silent
+        void trackEvent("purchase_failed", {
+          plan,
+          reason: "cancelled",
+        }).catch(() => {});
         return;
       }
+      void trackEvent("purchase_failed", {
+        plan,
+        reason: result.error ?? "unknown",
+      }).catch(() => {});
       Alert.alert(
         "Satın alma başarısız",
         result.error ?? "Bilinmeyen bir hata oluştu.",
       );
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : "Bilinmeyen hata";
+      void trackEvent("purchase_failed", { plan, reason: msg }).catch(() => {});
       Alert.alert("Hata", msg);
     } finally {
       setLoading(false);
@@ -165,13 +178,13 @@ export default function PaywallScreen() {
             onPress={() => setPlan("yearly")}
           >
             <View style={styles.savePill}>
-              <Text style={styles.savePillText}>%50 İNDİRİM</Text>
+              <Text style={styles.savePillText}>%44 İNDİRİM</Text>
             </View>
             <Text style={styles.planName}>Yıllık</Text>
             <Text style={styles.planPrice}>
-              {prices?.yearly ?? "599 ₺/yıl"}
+              {prices?.yearly ?? "999 ₺/yıl"}
             </Text>
-            <Text style={styles.planMonthly}>≈ 50 ₺/ay</Text>
+            <Text style={styles.planMonthly}>≈ 83 ₺/ay</Text>
             {plan === "yearly" && <View style={styles.planCheck} />}
           </Pressable>
 
@@ -181,7 +194,7 @@ export default function PaywallScreen() {
           >
             <Text style={styles.planName}>Aylık</Text>
             <Text style={styles.planPrice}>
-              {prices?.monthly ?? "99 ₺/ay"}
+              {prices?.monthly ?? "149 ₺/ay"}
             </Text>
             <Text style={styles.planMonthly}>İstediğin zaman iptal</Text>
             {plan === "monthly" && <View style={styles.planCheck} />}

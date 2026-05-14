@@ -1,143 +1,121 @@
-// Lafla — Sentry crash reporting scaffold.
+// Lafla — Sentry crash reporting (production).
 //
-// This module is a defensive wrapper around @sentry/react-native. The SDK is
-// NOT installed yet; every export here is a safe no-op until you run:
+// Real install of @sentry/react-native. DSN is read from
+// expo-constants extra.sentryDsn (set in app.json). When the DSN is missing
+// or still the placeholder ("YOUR_..."), all functions become safe no-ops
+// so dev / Expo Go sessions don't crash and don't spam Sentry with garbage
+// events.
 //
-//   pnpm --filter mobile add @sentry/react-native
-//   npx @sentry/wizard@latest -i reactNative
-//
-// After install, set EXPO_PUBLIC_SENTRY_DSN in your env (or pass a dsn to
-// initSentry) and call initSentry() once from app/_layout.tsx. The dynamic
-// require below means TypeScript and Metro will not fail when the package
-// is absent — the wrapper just logs to console instead.
-//
-// See docs/SENTRY.md for the full setup walkthrough.
+// Setup walkthrough: see docs/SENTRY.md.
 
-type SentryLike = {
-  init: (opts: Record<string, unknown>) => void;
-  captureException: (err: unknown, ctx?: Record<string, unknown>) => void;
-  addBreadcrumb: (bc: Record<string, unknown>) => void;
-  wrap?: <T>(c: T) => T;
-};
+import * as Sentry from "@sentry/react-native";
+import Constants from "expo-constants";
 
-let sentry: SentryLike | null = null;
+const DSN = Constants.expoConfig?.extra?.sentryDsn as string | undefined;
+
 let initialized = false;
 
-function loadSentry(): SentryLike | null {
-  if (sentry) return sentry;
-  try {
-    // Dynamic require so bundler does not hard-fail when the dep is missing.
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const mod = require("@sentry/react-native");
-    sentry = (mod?.default ?? mod) as SentryLike;
-    return sentry;
-  } catch {
-    return null;
-  }
+function hasValidDsn(): boolean {
+  return !!DSN && !DSN.includes("YOUR_");
 }
 
-export type InitOptions = {
-  dsn?: string;
-  environment?: string;
-  release?: string;
-  tracesSampleRate?: number;
-  debug?: boolean;
-};
-
 /**
- * Initialize Sentry. Safe to call even when @sentry/react-native is not
- * installed — falls back to console logging. Call once at app boot, e.g.
- * inside app/_layout.tsx before the first render.
+ * Initialize Sentry. Call once at app boot from app/_layout.tsx. Subsequent
+ * calls are ignored.
  */
-export function initSentry(opts: InitOptions = {}): void {
+export function initSentry(): void {
   if (initialized) return;
+  if (!hasValidDsn()) {
+    if (__DEV__) console.warn("[sentry] DSN not configured");
+    return;
+  }
+  Sentry.init({
+    dsn: DSN,
+    debug: __DEV__,
+    tracesSampleRate: 0.1,
+    enableAutoSessionTracking: true,
+    enableNativeCrashHandling: true,
+  });
   initialized = true;
+}
 
-  const dsn = opts.dsn ?? process.env.EXPO_PUBLIC_SENTRY_DSN;
-  if (!dsn) {
-    if (__DEV__) console.log("[sentry] no DSN configured — skipping init");
+/**
+ * Report a caught error with optional structured context. Safe to call
+ * before initSentry() — drops to console in that case.
+ */
+export function captureException(
+  err: unknown,
+  context?: Record<string, unknown>,
+): void {
+  if (!initialized) {
+    if (__DEV__) console.error("[sentry] captureException:", err, context ?? "");
     return;
   }
-
-  const s = loadSentry();
-  if (!s) {
-    if (__DEV__) console.log("[sentry] @sentry/react-native not installed — running as no-op");
-    return;
-  }
-
   try {
-    s.init({
-      dsn,
-      environment: opts.environment ?? (__DEV__ ? "development" : "production"),
-      release: opts.release,
-      tracesSampleRate: opts.tracesSampleRate ?? 0.1,
-      debug: opts.debug ?? false,
-      enableAutoSessionTracking: true,
-    });
+    Sentry.captureException(err, context ? { extra: context } : undefined);
   } catch (e) {
-    console.warn("[sentry] init failed", e);
+    if (__DEV__) console.warn("[sentry] captureException failed", e);
   }
 }
 
 /**
- * Report a caught error. The optional `ctx` is attached as extra context
- * (tags, user, extra data). Falls back to console.error when the SDK is
- * not present.
+ * Log a standalone message (no exception) at the given level.
  */
-export function captureException(err: unknown, ctx?: Record<string, unknown>): void {
-  const s = loadSentry();
-  if (!s) {
-    console.error("[sentry] captureException:", err, ctx ?? "");
+export function captureMessage(
+  msg: string,
+  level: "info" | "warning" | "error" = "info",
+): void {
+  if (!initialized) {
+    if (__DEV__) console.log(`[sentry] ${level}: ${msg}`);
     return;
   }
   try {
-    s.captureException(err, ctx ? { extra: ctx } : undefined);
+    Sentry.captureMessage(msg, level);
   } catch (e) {
-    console.warn("[sentry] captureException failed", e);
-    console.error(err);
+    if (__DEV__) console.warn("[sentry] captureMessage failed", e);
   }
 }
 
-export type Breadcrumb = {
-  category: string;
-  message: string;
-  data?: Record<string, unknown>;
-};
+/**
+ * Attach the signed-in user to subsequent events. Pass null on sign-out so
+ * later anonymous events don't bleed PII.
+ */
+export function setUser(user: { id: string; email?: string } | null): void {
+  if (!initialized) return;
+  try {
+    if (user) {
+      Sentry.setUser({ id: user.id, email: user.email });
+    } else {
+      Sentry.setUser(null);
+    }
+  } catch (e) {
+    if (__DEV__) console.warn("[sentry] setUser failed", e);
+  }
+}
 
 /**
  * Record a breadcrumb (navigation event, network call, user action) that
- * will be attached to the next captured exception. No-op when the SDK is
- * not installed.
+ * will be attached to the next captured exception.
  */
-export function addBreadcrumb(bc: Breadcrumb): void {
-  const s = loadSentry();
-  if (!s) {
-    if (__DEV__) console.log(`[sentry] breadcrumb ${bc.category}: ${bc.message}`, bc.data ?? "");
+export function addBreadcrumb(crumb: {
+  category: string;
+  message: string;
+  data?: Record<string, unknown>;
+}): void {
+  if (!initialized) {
+    if (__DEV__) {
+      console.log(`[sentry] breadcrumb ${crumb.category}: ${crumb.message}`, crumb.data ?? "");
+    }
     return;
   }
   try {
-    s.addBreadcrumb({
-      category: bc.category,
-      message: bc.message,
-      data: bc.data,
+    Sentry.addBreadcrumb({
+      category: crumb.category,
+      message: crumb.message,
+      data: crumb.data,
       level: "info",
     });
   } catch {
     // breadcrumbs must never throw upward
-  }
-}
-
-/**
- * Convenience re-export of Sentry.wrap when available. Returns the
- * component unchanged when the SDK is missing, so it is safe to use as
- *   export default wrapRoot(RootLayout);
- */
-export function wrapRoot<T>(component: T): T {
-  const s = loadSentry();
-  if (!s || typeof s.wrap !== "function") return component;
-  try {
-    return s.wrap(component);
-  } catch {
-    return component;
   }
 }

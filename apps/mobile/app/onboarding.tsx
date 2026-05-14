@@ -38,6 +38,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "../components/Button";
 import { InterestCard } from "../components/InterestCard";
 import { ProgressDots } from "../components/ProgressDots";
+import { trackEvent } from "../lib/analytics";
 import { completeOnboarding } from "../lib/auth";
 import {
   CEFR_LEVELS,
@@ -253,7 +254,12 @@ export default function Onboarding() {
   const currentIndex = STEP_ORDER.indexOf(state.step);
 
   // -- Step transitions that need side effects -----------------------------
-  const goNext = () => dispatch({ type: "NEXT" });
+  const goNext = () => {
+    void trackEvent("onboarding_step_completed", { step: state.step }).catch(
+      () => {},
+    );
+    dispatch({ type: "NEXT" });
+  };
   const goBack = () => dispatch({ type: "BACK" });
 
   const handleNameContinue = async () => {

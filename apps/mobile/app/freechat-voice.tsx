@@ -40,6 +40,7 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { tokens } from "../theme";
+import { trackEvent } from "../lib/analytics";
 import {
   buildVoiceCoachSystemPrompt,
   getCoachState,
@@ -60,6 +61,7 @@ import {
   saveVoiceSession,
   type VoiceSessionLog,
 } from "../lib/voice-session-storage";
+import CrisisModal from "../components/CrisisModal";
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -111,11 +113,20 @@ export default function FreeChatVoiceScreen() {
   const [turns, setTurns] = useState<VoiceTurn[]>([]);
   const [transcriptOpen, setTranscriptOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
+  const [crisisOpen, setCrisisOpen] = useState(false);
 
   const sessionRef = useRef<VoiceSessionAPI | null>(null);
   const sessionStartRef = useRef<number>(0);
   const sessionIdRef = useRef<string>("");
   const transcriptScrollRef = useRef<ScrollView>(null);
+  // Guards every async resumption — after any await we check this before
+  // touching state. Set false in the unmount cleanup so straggling promises
+  // don't trigger React warnings ("can't update state on unmounted component").
+  const isMountedRef = useRef(true);
+  // Subscriptions returned by session.onStateChange / onTurn / onError. We
+  // collect them here so a single cleanup call can drop every listener at
+  // once, preventing the post-unmount setState leak.
+  const unsubscribersRef = useRef<Array<() => void>>([]);
 
   const Avatar = useMemo(loadAvatar, []);
   const atDailyLimit =
@@ -133,15 +144,19 @@ export default function FreeChatVoiceScreen() {
           isSpeechAvailable(),
           getVoiceMinutesToday(),
         ]);
+        // Bail if the screen unmounted while we were awaiting — otherwise we'd
+        // call setState on an unmounted component (React warning + ref leak).
+        if (!isMountedRef.current) return;
         setCoach(coachState);
         setPremium(prem);
         setVoiceAvailable(available && Platform.OS === "ios");
         setMinutesToday(mins);
         void recordSession();
       } catch {
+        if (!isMountedRef.current) return;
         setVoiceAvailable(false);
       } finally {
-        setHydrated(true);
+        if (isMountedRef.current) setHydrated(true);
       }
     })();
   }, []);
@@ -161,11 +176,28 @@ export default function FreeChatVoiceScreen() {
   // -------------------------------------------------------------------------
   // Stop the session if the screen unmounts mid-conversation. Also finalises
   // the saved log so the user gets credited for the time they spent.
+  //
+  // Order matters: flip isMountedRef BEFORE calling stop(), so callbacks fired
+  // synchronously by stop() can't reach into a torn-down component. Then drop
+  // every onStateChange / onTurn / onError subscription we collected.
   // -------------------------------------------------------------------------
   useEffect(() => {
     return () => {
+      isMountedRef.current = false;
+      for (const off of unsubscribersRef.current) {
+        try {
+          off();
+        } catch {
+          // ignore — subscriber teardown must never crash unmount
+        }
+      }
+      unsubscribersRef.current = [];
       if (sessionRef.current) {
         sessionRef.current.stop();
+        sessionRef.current = null;
+        // finaliseSessionLog awaits AsyncStorage; we don't await it here
+        // (cleanup must be sync) and it guards its own setState with the
+        // isMountedRef pattern.
         void finaliseSessionLog();
       }
     };
@@ -186,30 +218,70 @@ export default function FreeChatVoiceScreen() {
   // -------------------------------------------------------------------------
 
   const ensureSession = (): VoiceSessionAPI | null => {
+    // Idempotent — if a session already exists, return it. This guards against
+    // a double-tap on "Konuş" creating two sessions racing the same mic.
     if (sessionRef.current) return sessionRef.current;
     if (!systemPrompt) return null;
 
     const api = createVoiceSession({
       systemPrompt,
       autoStart: autoMode,
+      // Premium voice users get the racing LLM path — voice latency is the
+      // single biggest "feels slow" complaint and racing chops it ~50%.
+      fastMode: premium,
     });
-    api.onStateChange((s) => setSessionState(s));
-    api.onTurn((t) => {
-      setTurns((prev) => [...prev, t]);
+    // Collect every subscription so the unmount cleanup can drop them all
+    // atomically (otherwise setState fires after unmount → leak).
+    const offState = api.onStateChange((s) => {
+      if (!isMountedRef.current) return;
+      setSessionState(s);
+    });
+    const offTurn = api.onTurn((t) => {
+      if (!isMountedRef.current) return;
+      setTurns((prev) => {
+        const next = [...prev, t];
+        // Mirror the voice-session in-memory cap so the on-screen transcript
+        // can't grow unbounded for a long auto-mode session.
+        if (next.length > 50) next.shift();
+        return next;
+      });
       // Record user-turn message counts against the coach memory layer.
       if (t.role === "user") void recordMessage();
     });
-    api.onError((e) => {
+    const offError = api.onError((e) => {
+      if (!isMountedRef.current) return;
       if (__DEV__) console.warn("[freechat-voice] session error", e);
       Alert.alert("Sesli sohbet hatası", e.message);
     });
+    // Safety blocks bubble up here. Crisis signals open the full-screen
+    // emergency-resource modal AND pause the session — the user shouldn't
+    // be looped back into a fresh listening window while reading the lines.
+    const offSafety = api.onSafetyBlock((check) => {
+      if (!isMountedRef.current) return;
+      if (check.shouldEscalate) {
+        setCrisisOpen(true);
+        sessionRef.current?.pause();
+      }
+    });
+    unsubscribersRef.current.push(offState, offTurn, offError, offSafety);
     sessionRef.current = api;
     sessionStartRef.current = Date.now();
     sessionIdRef.current = `vs-${Date.now()}-${Math.floor(Math.random() * 1e6)}`;
+    void trackEvent("voice_session_started", {
+      auto_mode: autoMode,
+      premium,
+    }).catch(() => {});
     return api;
   };
 
   const handleStartTalk = async () => {
+    // Idempotent: if we already created a session AND the user is mid-flight,
+    // route to the right control instead of building a second VoiceSession
+    // racing the same recogniser.
+    if (sessionRef.current && sessionState === "listening") {
+      sessionRef.current.pause();
+      return;
+    }
     if (atDailyLimit) {
       Alert.alert(
         "Günlük süre doldu",
@@ -226,11 +298,8 @@ export default function FreeChatVoiceScreen() {
     }
     const api = ensureSession();
     if (!api) return;
-    if (sessionState === "listening") {
-      api.pause();
-    } else {
-      await api.start();
-    }
+    await api.start();
+    if (!isMountedRef.current) return;
   };
 
   const handlePause = () => {
@@ -250,9 +319,17 @@ export default function FreeChatVoiceScreen() {
       durationSec,
       turnsCount: turns.length,
     };
+    void trackEvent("voice_session_ended", {
+      durationMin: Math.round((durationSec / 60) * 10) / 10,
+      turns: turns.length,
+    }).catch(() => {});
     try {
       await saveVoiceSession(log);
+      // Don't bother fetching today's minutes if we've unmounted — the next
+      // mount will read fresh from storage anyway.
+      if (!isMountedRef.current) return;
       const next = await getVoiceMinutesToday();
+      if (!isMountedRef.current) return;
       setMinutesToday(next);
     } catch {
       // ignore
@@ -270,7 +347,18 @@ export default function FreeChatVoiceScreen() {
             sessionRef.current.stop();
             sessionRef.current = null;
           }
+          // Drop any remaining subscriptions — the session is gone but the
+          // unsubscribers array might still hold dead handles.
+          for (const off of unsubscribersRef.current) {
+            try {
+              off();
+            } catch {
+              // ignore
+            }
+          }
+          unsubscribersRef.current = [];
           await finaliseSessionLog();
+          if (!isMountedRef.current) return;
           router.back();
         },
       },
@@ -512,6 +600,8 @@ export default function FreeChatVoiceScreen() {
           onPress={handleEnd}
         />
       </View>
+
+      <CrisisModal visible={crisisOpen} onClose={() => setCrisisOpen(false)} />
     </SafeAreaView>
   );
 }

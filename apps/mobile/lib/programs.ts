@@ -14,6 +14,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { allLessons, type BundledLesson } from "../data/lessons";
 import type { CefrLevel } from "../data/scenes";
+import { trackEvent } from "./analytics";
+import { parseSafe } from "./json-safe";
 
 const K_PROGRAM_STATE = "lafla.program.state";
 
@@ -157,10 +159,22 @@ export interface ProgramState {
 export async function getActiveProgram(): Promise<ProgramState | null> {
   try {
     const raw = await AsyncStorage.getItem(K_PROGRAM_STATE);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw) as ProgramState;
-    if (!parsed.id) return null;
-    return parsed;
+    // Validator enforces the load-bearing fields (id + currentDay) so a
+    // corrupt blob doesn't silently return an unusable ProgramState that
+    // would crash downstream curriculum generators when they hit
+    // `state.currentDay` undefined.
+    const parsed = parseSafe<ProgramState | null>(
+      raw,
+      null,
+      (x): x is ProgramState =>
+        x !== null &&
+        typeof x === "object" &&
+        !Array.isArray(x) &&
+        typeof (x as { id?: unknown }).id === "string" &&
+        typeof (x as { currentDay?: unknown }).currentDay === "number",
+      { source: "programs.getActiveProgram" },
+    );
+    return parsed && parsed.id ? parsed : null;
   } catch {
     return null;
   }
@@ -192,6 +206,11 @@ export async function startProgram(
     completedLessons: [],
   };
   await writeProgramState(state);
+  void trackEvent("program_started", {
+    programId: id,
+    durationWeeks: def.durationWeeks,
+    hasGoalDate: !!goalDate,
+  }).catch(() => {});
 }
 
 export async function recordLessonComplete(lessonId: string): Promise<void> {
