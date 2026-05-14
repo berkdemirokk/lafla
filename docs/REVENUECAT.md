@@ -1,9 +1,22 @@
 # RevenueCat — Production Wiring Guide
 
-Lafla currently ships with a **mock IAP layer** (`apps/mobile/lib/iap.ts`)
-so the app behaves as if purchases work, without hitting StoreKit or the
-RevenueCat network. This document is the runbook for swapping the mock
-out for the real SDK when the App Store paid agreements are in place.
+**STATUS (May 2026):** SDK is now **WIRED** in `lib/iap.ts`. The code
+auto-detects whether `react-native-purchases` is available + a valid
+RevenueCat API key is in `app.json extra.revenuecatIosKey`. If both are
+present → real billing flows. Otherwise → falls back to AsyncStorage mock.
+
+**To go live, you only need to:**
+1. Sign up at https://app.revenuecat.com and complete steps 1-4 below
+2. Replace `"YOUR_REVENUECAT_IOS_KEY"` in `apps/mobile/app.json` with your
+   real public iOS SDK key (starts with `appl_`)
+3. Trigger a new EAS build (Expo Go can't run native modules)
+
+Until you do step 2, the paywall shows real UI but uses the mock backend,
+so you can demo + test the flow without hitting StoreKit.
+
+---
+
+## Original setup runbook (4 sections, ~10 min):
 
 The public surface of `lib/iap.ts` and `lib/premium-gate.ts` is the contract.
 **Do not change those signatures** — change the bodies.

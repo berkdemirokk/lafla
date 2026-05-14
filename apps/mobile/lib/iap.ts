@@ -1,45 +1,120 @@
-// Lafla — In-App Purchase (IAP) abstraction.
+// Lafla — In-App Purchase (IAP) abstraction with RevenueCat.
 //
-// This is a RevenueCat-shaped facade that returns mocked values today.
-// Production wiring lives behind this interface so the rest of the app
-// (paywall, premium gates, settings) never needs to change.
+// PRODUCTION PATH:
+//   - react-native-purchases SDK is loaded dynamically via require()
+//   - Configured with API key from app.json extra.revenuecatIosKey or env
+//   - Calls Purchases.* and returns real entitlement state
 //
-// To switch from mock -> real:
-//   1. `pnpm add react-native-purchases` in apps/mobile (managed Expo dev build).
-//   2. Add iOS bundle ID + RevenueCat API key in app.json `extra` (see docs/REVENUECAT.md).
-//   3. Replace the mock bodies below with `Purchases.*` calls.
-// The public signatures of `isPremium`, `purchasePackage`, `restorePurchases`
-// MUST stay identical so callers don't have to change.
+// FALLBACK PATH:
+//   - If SDK missing (e.g. Expo Go) or API key absent → mock via AsyncStorage
+//   - Mock allows dev testing across reloads
+//   - Key: `lafla.premium.mock` — JSON `{ active: boolean, entitlement?: string, since?: string }`
 //
-// All mock state persists in AsyncStorage so dev testing across reloads works.
-// Key: `lafla.premium.mock` — JSON `{ active: boolean, entitlement?: string, since?: string }`.
+// SETUP CHECKLIST (one-time, see docs/REVENUECAT.md):
+//   1. Create RevenueCat project — get iOS public SDK key
+//   2. In App Store Connect → My Apps → Lafla → Subscriptions:
+//      - Create Subscription Group "Lafla Premium"
+//      - Create two products: lafla.premium.monthly (99 TL), lafla.premium.yearly (599 TL)
+//   3. In RevenueCat dashboard:
+//      - Add iOS app with bundle id com.lafla.app
+//      - Create Entitlement "premium"
+//      - Create Offering "default" with two packages: $rc_monthly, $rc_annual
+//      - Attach App Store products to packages
+//   4. Add key to app.json:
+//        "extra": { "revenuecatIosKey": "appl_xxxxxxxxxxxxxx" }
+//   5. Test with Sandbox testers in App Store Connect → Users and Access → Sandbox.
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Constants from "expo-constants";
 
 // ------------------------------------------------------------
-// Types — keep these stable; they're the contract with callers.
+// Types — stable contract with callers.
 // ------------------------------------------------------------
 
 export type PackageId = "monthly" | "yearly";
 
-/** Entitlement identifier as configured in RevenueCat. */
 export const PREMIUM_ENTITLEMENT = "premium";
 
 export type PurchaseResult = {
   ok: boolean;
   entitlement?: string;
   error?: string;
+  cancelled?: boolean;
 };
 
 type MockState = {
   active: boolean;
   entitlement?: string;
-  since?: string; // ISO timestamp of the mock "purchase"
+  since?: string;
   packageId?: PackageId;
 };
 
 // ------------------------------------------------------------
-// Mock storage helpers
+// SDK loader — defensive, never throws.
+// ------------------------------------------------------------
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let _purchases: any = null;
+let _initialized = false;
+let _initFailed = false;
+
+function loadSdk(): // eslint-disable-next-line @typescript-eslint/no-explicit-any
+any | null {
+  if (_purchases || _initFailed) return _purchases;
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const mod = require("react-native-purchases");
+    _purchases = mod?.default ?? mod;
+    return _purchases;
+  } catch {
+    _initFailed = true;
+    return null;
+  }
+}
+
+function getApiKey(): string | null {
+  const fromExtra = Constants.expoConfig?.extra?.revenuecatIosKey as
+    | string
+    | undefined;
+  const fromEnv = process.env.EXPO_PUBLIC_REVENUECAT_IOS_KEY;
+  const key = fromExtra ?? fromEnv ?? "";
+  return key && key.length > 0 && !key.includes("YOUR_") ? key : null;
+}
+
+async function initIfNeeded(): Promise<boolean> {
+  if (_initialized) return _purchases !== null;
+  _initialized = true;
+
+  const Purchases = loadSdk();
+  if (!Purchases) return false;
+
+  const key = getApiKey();
+  if (!key) {
+    if (__DEV__) {
+      // eslint-disable-next-line no-console
+      console.debug("[Lafla iap] No RevenueCat key — falling back to mock");
+    }
+    _initFailed = true;
+    _purchases = null;
+    return false;
+  }
+
+  try {
+    await Purchases.configure({ apiKey: key });
+    return true;
+  } catch (err) {
+    if (__DEV__) {
+      // eslint-disable-next-line no-console
+      console.warn("[Lafla iap] configure() failed:", err);
+    }
+    _initFailed = true;
+    _purchases = null;
+    return false;
+  }
+}
+
+// ------------------------------------------------------------
+// Mock storage helpers (fallback when SDK unavailable).
 // ------------------------------------------------------------
 
 const K_MOCK = "lafla.premium.mock";
@@ -59,15 +134,14 @@ async function writeMock(next: MockState): Promise<void> {
   try {
     await AsyncStorage.setItem(K_MOCK, JSON.stringify(next));
   } catch {
-    // ignore — mock state is best-effort
+    // ignore
   }
 }
 
 // ------------------------------------------------------------
-// Dev helpers (exported so tests / debug menu can poke state)
+// Dev helpers
 // ------------------------------------------------------------
 
-/** Force a specific mock state. Dev-only — do NOT call from production UI. */
 export async function __setMockPremium(active: boolean): Promise<void> {
   await writeMock({
     active,
@@ -76,7 +150,6 @@ export async function __setMockPremium(active: boolean): Promise<void> {
   });
 }
 
-/** Clear the mock state entirely. Useful for "reset onboarding" debug flows. */
 export async function __clearMockPremium(): Promise<void> {
   try {
     await AsyncStorage.removeItem(K_MOCK);
@@ -85,65 +158,169 @@ export async function __clearMockPremium(): Promise<void> {
   }
 }
 
+// Public — answer "is SDK live?" for paywall UI to show fallback banner
+export async function isLiveBilling(): Promise<boolean> {
+  return await initIfNeeded();
+}
+
 // ------------------------------------------------------------
 // Public API
 // ------------------------------------------------------------
 
 /**
- * Returns true if the user currently has the premium entitlement.
- *
- * Mock: reads `lafla.premium.mock` from AsyncStorage.
- * Prod: `Purchases.getCustomerInfo()` -> check entitlements[PREMIUM_ENTITLEMENT].isActive.
+ * Returns true if the user has the premium entitlement.
+ * Real SDK: Purchases.getCustomerInfo() → entitlements.premium.isActive.
+ * Fallback: read lafla.premium.mock.
  */
 export async function isPremium(): Promise<boolean> {
-  const state = await readMock();
-  return state.active;
+  const live = await initIfNeeded();
+  if (!live) {
+    return (await readMock()).active;
+  }
+
+  try {
+    const info = await _purchases.getCustomerInfo();
+    return Boolean(info?.entitlements?.active?.[PREMIUM_ENTITLEMENT]);
+  } catch {
+    return (await readMock()).active;
+  }
 }
 
 /**
- * Initiate a purchase for the given package.
- *
- * Mock: pretends the purchase succeeded immediately and persists state.
- * Prod: `Purchases.purchasePackage(pkg)` -> handle StoreKit flow, then verify entitlement.
- *
- * @param id  Package identifier — must match the `monthly` / `yearly` offerings
- *            configured in RevenueCat dashboard.
+ * Initiate a purchase.
+ * Real SDK: fetch offerings → find package → purchase → check entitlement.
+ * Fallback: persist mock state.
  */
 export async function purchasePackage(id: PackageId): Promise<PurchaseResult> {
   if (id !== "monthly" && id !== "yearly") {
     return { ok: false, error: `Unknown package id: ${String(id)}` };
   }
 
-  // Simulate a brief StoreKit roundtrip so callers can test loading states.
-  await new Promise((resolve) => setTimeout(resolve, 250));
+  const live = await initIfNeeded();
+  if (!live) {
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    try {
+      await writeMock({
+        active: true,
+        entitlement: PREMIUM_ENTITLEMENT,
+        since: new Date().toISOString(),
+        packageId: id,
+      });
+      return { ok: true, entitlement: PREMIUM_ENTITLEMENT };
+    } catch (err) {
+      return {
+        ok: false,
+        error: err instanceof Error ? err.message : "Mock purchase failed",
+      };
+    }
+  }
 
   try {
-    await writeMock({
-      active: true,
-      entitlement: PREMIUM_ENTITLEMENT,
-      since: new Date().toISOString(),
-      packageId: id,
-    });
-    return { ok: true, entitlement: PREMIUM_ENTITLEMENT };
-  } catch (err) {
-    return {
-      ok: false,
-      error: err instanceof Error ? err.message : "Mock purchase failed",
-    };
+    const offerings = await _purchases.getOfferings();
+    const current = offerings?.current;
+    if (!current) {
+      return { ok: false, error: "No current offering configured" };
+    }
+
+    // Map our PackageId to RevenueCat's identifiers
+    const pkg =
+      id === "monthly"
+        ? current.monthly ?? current.availablePackages?.find((p: { identifier: string }) => p.identifier === "$rc_monthly")
+        : current.annual ?? current.availablePackages?.find((p: { identifier: string }) => p.identifier === "$rc_annual");
+
+    if (!pkg) {
+      return { ok: false, error: `Package ${id} not found in offering` };
+    }
+
+    const { customerInfo } = await _purchases.purchasePackage(pkg);
+    const active = Boolean(
+      customerInfo?.entitlements?.active?.[PREMIUM_ENTITLEMENT],
+    );
+    if (active) {
+      return { ok: true, entitlement: PREMIUM_ENTITLEMENT };
+    }
+    return { ok: false, error: "Purchase did not unlock entitlement" };
+  } catch (err: unknown) {
+    // RevenueCat throws { userCancelled: true } on cancel
+    if (typeof err === "object" && err !== null) {
+      const e = err as { userCancelled?: boolean; message?: string; code?: string };
+      if (e.userCancelled) {
+        return { ok: false, cancelled: true, error: "User cancelled" };
+      }
+      return { ok: false, error: e.message ?? "Purchase failed" };
+    }
+    return { ok: false, error: "Purchase failed" };
   }
 }
 
 /**
- * Restore previous purchases (e.g. user reinstalled the app).
- *
- * Mock: re-reads stored state — returns true iff `lafla.premium.mock` says active.
- * Prod: `Purchases.restorePurchases()` -> check entitlement after restore.
- *
- * @returns true if the user has an active entitlement after restore.
+ * Restore previous purchases.
+ * Real SDK: Purchases.restorePurchases() → check entitlement.
+ * Fallback: re-read mock state.
  */
 export async function restorePurchases(): Promise<boolean> {
-  // Simulate a brief network roundtrip.
-  await new Promise((resolve) => setTimeout(resolve, 200));
-  const state = await readMock();
-  return state.active;
+  const live = await initIfNeeded();
+  if (!live) {
+    await new Promise((resolve) => setTimeout(resolve, 200));
+    return (await readMock()).active;
+  }
+
+  try {
+    const info = await _purchases.restorePurchases();
+    return Boolean(info?.entitlements?.active?.[PREMIUM_ENTITLEMENT]);
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Set the RevenueCat user ID (call after sign-in to attribute purchases).
+ */
+export async function setUserId(userId: string | null): Promise<void> {
+  const live = await initIfNeeded();
+  if (!live) return;
+  try {
+    if (userId) {
+      await _purchases.logIn(userId);
+    } else {
+      await _purchases.logOut();
+    }
+  } catch {
+    // ignore — best effort
+  }
+}
+
+/**
+ * Fetch the current offering for display (prices, etc) without purchasing.
+ * Returns null when SDK unavailable.
+ */
+export async function getOffering(): Promise<{
+  monthly: { price: string; priceAmountMicros?: number } | null;
+  yearly: { price: string; priceAmountMicros?: number } | null;
+} | null> {
+  const live = await initIfNeeded();
+  if (!live) return null;
+  try {
+    const offerings = await _purchases.getOfferings();
+    const current = offerings?.current;
+    if (!current) return null;
+    const monthly = current.monthly?.product;
+    const yearly = current.annual?.product;
+    return {
+      monthly: monthly
+        ? {
+            price: monthly.priceString,
+            priceAmountMicros: monthly.priceAmountMicros,
+          }
+        : null,
+      yearly: yearly
+        ? {
+            price: yearly.priceString,
+            priceAmountMicros: yearly.priceAmountMicros,
+          }
+        : null,
+    };
+  } catch {
+    return null;
+  }
 }

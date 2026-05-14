@@ -1,6 +1,6 @@
-// Premium paywall — Cyber-Electric Modern. RevenueCat-ready scaffold.
+// Premium paywall — Cyber-Electric Modern. RevenueCat wired.
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -8,11 +8,18 @@ import {
   ScrollView,
   Pressable,
   Alert,
+  ActivityIndicator,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "../components/Button";
+import {
+  getOffering,
+  isLiveBilling,
+  purchasePackage,
+  restorePurchases,
+} from "../lib/iap";
 import { tokens } from "../theme";
 
 type Plan = "monthly" | "yearly";
@@ -53,13 +60,72 @@ const FEATURES: Array<{ emoji: string; title: string; description: string }> = [
 export default function PaywallScreen() {
   const router = useRouter();
   const [plan, setPlan] = useState<Plan>("yearly");
+  const [loading, setLoading] = useState(false);
+  const [live, setLive] = useState<boolean | null>(null);
+  const [prices, setPrices] = useState<{
+    monthly: string;
+    yearly: string;
+  } | null>(null);
 
-  const handlePurchase = () => {
-    Alert.alert(
-      "Yakında",
-      "Premium üyelik App Store onayından sonra aktif olacak. Şimdilik tüm özellikler ücretsiz!",
-      [{ text: "Tamam", onPress: () => router.back() }],
-    );
+  useEffect(() => {
+    (async () => {
+      const isLive = await isLiveBilling();
+      setLive(isLive);
+      if (isLive) {
+        const offering = await getOffering();
+        if (offering?.monthly?.price && offering?.yearly?.price) {
+          setPrices({
+            monthly: offering.monthly.price,
+            yearly: offering.yearly.price,
+          });
+        }
+      }
+    })();
+  }, []);
+
+  const handlePurchase = async () => {
+    setLoading(true);
+    try {
+      const result = await purchasePackage(plan);
+      if (result.ok) {
+        Alert.alert(
+          "✨ Premium aktif",
+          "Tüm premium özellikler artık senin. Söyle gitsin!",
+          [{ text: "Devam et", onPress: () => router.back() }],
+        );
+        return;
+      }
+      if (result.cancelled) {
+        // user cancelled — silent
+        return;
+      }
+      Alert.alert(
+        "Satın alma başarısız",
+        result.error ?? "Bilinmeyen bir hata oluştu.",
+      );
+    } catch (e: unknown) {
+      const msg = e instanceof Error ? e.message : "Bilinmeyen hata";
+      Alert.alert("Hata", msg);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleRestore = async () => {
+    setLoading(true);
+    try {
+      const restored = await restorePurchases();
+      Alert.alert(
+        restored ? "Geri yüklendi ✓" : "Aktif abonelik yok",
+        restored
+          ? "Premium özelliklerine erişebilirsin."
+          : "Bu Apple ID'de aktif bir Lafla aboneliği bulunmuyor.",
+      );
+    } catch {
+      Alert.alert("Hata", "Geri yükleme başarısız.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -102,7 +168,9 @@ export default function PaywallScreen() {
               <Text style={styles.savePillText}>%50 İNDİRİM</Text>
             </View>
             <Text style={styles.planName}>Yıllık</Text>
-            <Text style={styles.planPrice}>599 ₺/yıl</Text>
+            <Text style={styles.planPrice}>
+              {prices?.yearly ?? "599 ₺/yıl"}
+            </Text>
             <Text style={styles.planMonthly}>≈ 50 ₺/ay</Text>
             {plan === "yearly" && <View style={styles.planCheck} />}
           </Pressable>
@@ -112,7 +180,9 @@ export default function PaywallScreen() {
             onPress={() => setPlan("monthly")}
           >
             <Text style={styles.planName}>Aylık</Text>
-            <Text style={styles.planPrice}>99 ₺/ay</Text>
+            <Text style={styles.planPrice}>
+              {prices?.monthly ?? "99 ₺/ay"}
+            </Text>
             <Text style={styles.planMonthly}>İstediğin zaman iptal</Text>
             {plan === "monthly" && <View style={styles.planCheck} />}
           </Pressable>
@@ -121,14 +191,34 @@ export default function PaywallScreen() {
         <View style={styles.cta}>
           <Button
             label={
-              plan === "yearly"
+              loading
+                ? "..."
+                : plan === "yearly"
                 ? "Yıllık plan ile başla →"
                 : "Aylık plan ile başla →"
             }
             onPress={handlePurchase}
+            disabled={loading}
           />
+          {loading && (
+            <ActivityIndicator
+              style={{ marginTop: 12 }}
+              color={tokens.brand.primary}
+            />
+          )}
+
+          <Pressable
+            style={styles.restoreBtn}
+            onPress={handleRestore}
+            disabled={loading}
+          >
+            <Text style={styles.restoreText}>Satın alımları geri yükle</Text>
+          </Pressable>
+
           <Text style={styles.disclaimer}>
-            İstediğin zaman iptal. Otomatik yenileme öncesi bildirim.
+            {live === false
+              ? "Demo: gerçek satın alma App Store onayı sonrası aktif."
+              : "İstediğin zaman iptal. Otomatik yenileme öncesi bildirim."}
           </Text>
         </View>
       </ScrollView>
@@ -277,5 +367,16 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 12,
     lineHeight: 16,
+  },
+  restoreBtn: {
+    alignItems: "center",
+    marginTop: tokens.spacing.md,
+    paddingVertical: 8,
+  },
+  restoreText: {
+    color: tokens.text.secondaryFixedDim,
+    fontSize: 13,
+    fontWeight: tokens.weight.medium,
+    textDecorationLine: "underline",
   },
 });
