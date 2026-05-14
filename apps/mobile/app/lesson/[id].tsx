@@ -34,6 +34,7 @@ import {
 } from "../../lib/engine";
 import { recordAttempt, completeLesson } from "../../lib/srs";
 import { evaluateAchievements } from "../../lib/achievements";
+import { recordLessonCompletion } from "../../lib/daily-quests";
 import { AchievementToast } from "../../components/AchievementToast";
 import { getLesson, allLessons } from "../../data/lessons";
 import { tokens } from "../../theme";
@@ -76,12 +77,22 @@ export default function LessonScreen() {
       : 0;
 
     (async () => {
-      await completeLesson({
+      const result = await completeLesson({
         lesson_id: lesson.id,
         skill_id: lesson.skill_id,
         accuracy,
         exercises_completed: progress.results.length,
+      }).catch(() => null);
+
+      // Daily quest progress
+      const hasRoleplay = progress.results.some(
+        (r) => r.exercise_type === "roleplay_chat",
+      );
+      await recordLessonCompletion({
+        xpEarned: result?.xp_earned ?? progress.xp_earned,
+        isRoleplay: hasRoleplay,
       }).catch(() => {});
+
       const earned = await evaluateAchievements();
       if (earned.length > 0) setUnlockQueue(earned);
     })();

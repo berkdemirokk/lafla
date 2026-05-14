@@ -25,6 +25,9 @@ export default function RootLayout() {
         <Stack.Screen name="lesson/[id]" />
         <Stack.Screen name="profile" />
         <Stack.Screen name="achievements" />
+        <Stack.Screen name="skills" />
+        <Stack.Screen name="settings" />
+        <Stack.Screen name="paywall" />
       </Stack>
     </SafeAreaProvider>
   );

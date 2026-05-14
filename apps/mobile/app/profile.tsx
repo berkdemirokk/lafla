@@ -184,11 +184,27 @@ export default function ProfileScreen() {
 
           <Pressable
             style={styles.row}
-            onPress={() =>
-              Alert.alert("Yakında", "Premium üyelik yakında geliyor.")
-            }
+            onPress={() => router.push("/skills" as never)}
           >
-            <Text style={styles.rowIcon}>⭐</Text>
+            <Text style={styles.rowIcon}>🌳</Text>
+            <Text style={styles.rowText}>Beceri Ağacı</Text>
+            <Text style={styles.rowChevron}>›</Text>
+          </Pressable>
+
+          <Pressable
+            style={styles.row}
+            onPress={() => router.push("/settings" as never)}
+          >
+            <Text style={styles.rowIcon}>⚙️</Text>
+            <Text style={styles.rowText}>Ayarlar</Text>
+            <Text style={styles.rowChevron}>›</Text>
+          </Pressable>
+
+          <Pressable
+            style={styles.row}
+            onPress={() => router.push("/paywall" as never)}
+          >
+            <Text style={styles.rowIcon}>👑</Text>
             <Text style={styles.rowText}>Premium'a Geç</Text>
             <Text style={styles.rowChevron}>›</Text>
           </Pressable>

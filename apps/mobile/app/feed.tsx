@@ -16,6 +16,7 @@ import {
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { SceneCard } from "../components/SceneCard";
+import { DailyQuestsBar } from "../components/DailyQuestsBar";
 import { SAMPLE_SCENES, type Scene } from "../data/scenes";
 import {
   getCompletedLessonIds,
@@ -27,7 +28,7 @@ import { tokens } from "../theme";
 export default function Feed() {
   const router = useRouter();
   const { height } = useWindowDimensions();
-  const pageHeight = height - 260;
+  const pageHeight = height - 380;
 
   const [interests, setInterests] = useState<string[] | null>(null);
   const [completed, setCompleted] = useState<Set<string>>(new Set());
@@ -102,6 +103,14 @@ export default function Feed() {
         </View>
       </View>
 
+      {/* Daily quests */}
+      <DailyQuestsBar
+        onClaimed={async () => {
+          const p = await getLocalProfile();
+          setXp(p.total_xp);
+        }}
+      />
+
       <FlatList
         data={orderedScenes}
         keyExtractor={(item) => item.id}
@@ -129,30 +138,20 @@ export default function Feed() {
 
       {/* Bottom nav */}
       <View style={styles.bottomNav}>
-        <NavTab icon="🎓" label="Learn" active />
+        <NavTab icon="🎓" label="Akış" active />
         <NavTab
-          icon="💬"
-          label="Chat"
-          onPress={() =>
-            Alert.alert(
-              "Chat",
-              "AI chat partner yakında geliyor. Şimdilik ders içindeki roleplay'leri dene.",
-            )
-          }
+          icon="🌳"
+          label="Beceri"
+          onPress={() => router.push("/skills" as never)}
         />
         <NavTab
-          icon="📺"
-          label="Social"
-          onPress={() =>
-            Alert.alert(
-              "Social",
-              "Topluluk ve arkadaşlık özellikleri yakında.",
-            )
-          }
+          icon="🏆"
+          label="Başarım"
+          onPress={() => router.push("/achievements" as never)}
         />
         <NavTab
           icon="👤"
-          label="Profile"
+          label="Profil"
           onPress={() => router.push("/profile" as never)}
         />
       </View>
