@@ -232,17 +232,17 @@ export default function SettingsScreen() {
           <Row
             label="Gizlilik Politikası"
             onPress={() =>
-              Linking.openURL("https://lafla.app/privacy").catch(() =>
-                Alert.alert("Hata", "Tarayıcı açılamadı."),
-              )
+              Linking.openURL(
+                "https://berkdemirokk.github.io/lafla/privacy.html",
+              ).catch(() => Alert.alert("Hata", "Tarayıcı açılamadı."))
             }
           />
           <Row
             label="Kullanım Koşulları"
             onPress={() =>
-              Linking.openURL("https://lafla.app/terms").catch(() =>
-                Alert.alert("Hata", "Tarayıcı açılamadı."),
-              )
+              Linking.openURL(
+                "https://berkdemirokk.github.io/lafla/terms.html",
+              ).catch(() => Alert.alert("Hata", "Tarayıcı açılamadı."))
             }
           />
         </Section>

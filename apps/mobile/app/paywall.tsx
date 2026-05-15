@@ -237,13 +237,13 @@ export default function PaywallScreen() {
 
           <View style={styles.termsLinks}>
             <Pressable
-              onPress={() => Linking.openURL("https://lafla.app/terms")}
+              onPress={() => Linking.openURL("https://berkdemirokk.github.io/lafla/terms.html")}
             >
               <Text style={styles.termsLink}>Kullanım koşulları</Text>
             </Pressable>
             <Text style={styles.termsDot}> · </Text>
             <Pressable
-              onPress={() => Linking.openURL("https://lafla.app/privacy")}
+              onPress={() => Linking.openURL("https://berkdemirokk.github.io/lafla/privacy.html")}
             >
               <Text style={styles.termsLink}>Gizlilik politikası</Text>
             </Pressable>
