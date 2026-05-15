@@ -174,6 +174,51 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.cb2-1.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "Based on market data, I was hoping we could land closer to one-eighty.",
+      ipa: "/beɪst ɒn ˈmɑːkɪt ˈdeɪtə aɪ wɒz ˈhəʊpɪŋ wi kʊd lænd ˈkləʊsər tə wʌn ˈeɪti/",
+      tr_hint:
+        "'Based on market data' tek nefes — hazirlanmis duruyor. 'Land closer to' yumusatici fiil. Sayiyi NET soyle ('one-eighty' = 180).",
+    },
+    {
+      id: "ex.cb2-1.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "I'd really love to make this work — is there any flexibility on the base?",
+      voice_hint: "male_us",
+      tr_hint:
+        "Sicak kapanis + spesifik soru. 'Love to make this work' iliski sinyali. 'Flexibility on the base' = standart pazarlik dili.",
+    },
+    {
+      id: "ex.cb2-1.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "I'm afraid that's at the top of our band for this level.",
+      transcription_target: "I'm afraid that's at the top of our band for this level.",
+      tr_hint:
+        "Recruiter klasik defansi. 'Band' = maas araligi/seviye. 'At the top of' = ust limit. 'I'm afraid' yumusatici = HAYIR.",
+    },
+    {
+      id: "ex.cb2-1.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "sign-on bonus",
+      tr_translation: "ise giris bonusu (tek seferlik)",
+      example: "If the base is fixed, would there be room on the sign-on bonus or equity?",
+      example_tr: "Eger baz sabitse, ise giris bonusunda veya hissede esneklik olur mu?",
+    },
+    {
+      id: "ex.cb2-1.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "Your offer is too low. My current salary is 170 so this is insult.",
+      correct_sentence: "Based on my current comp at 170 and market data for this role, I was targeting closer to 180. Is there flexibility?",
+      tr_explanation:
+        "'Insult' = iliski bozucu, profesyonel pazarligda agir kelime. 'Current salary' yerine 'current comp' (total comp ima eder). 'Too low' degil, 'targeting closer to X based on data'. Veri + range = leverage; duygu = leverage kaybi.",
+    },
   ],
 };
 
@@ -344,6 +389,51 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
             "Hmm — you might be right on Q2. Let me revisit my notes. Appreciate you pushing on it.",
         },
       ],
+    },
+    {
+      id: "ex.cb2-2.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "Help me understand the gap — could you walk me through a specific example?",
+      ipa: "/hɛlp miː ˌʌndəˈstænd ðə ɡæp kʊd jʊ wɔːk miː θruː ə spəˈsɪfɪk ɪɡˈzɑːmpəl/",
+      tr_hint:
+        "'Help me understand' = standart defansif olmayan acilis. Yumusak ton — sorgulama gibi degil, anlama isteyi gibi. 'Walk me through' bagli soylenir.",
+    },
+    {
+      id: "ex.cb2-2.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "I'd see Q2 a bit differently — could you share what's coming up for you there?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Diplomatik pushback. 'See it differently' = nazik 'katilmiyorum'. 'What's coming up for you' = senin perspektifin ne. Sakin ton, savunmacı değil.",
+    },
+    {
+      id: "ex.cb2-2.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "I think there's room for you to be more proactive with stakeholders.",
+      transcription_target: "I think there's room for you to be more proactive with stakeholders.",
+      tr_hint:
+        "Klasik review feedback. 'Room for you to' = gelisme alani var. 'Proactive with stakeholders' = paydaslarla insiyatif almak.",
+    },
+    {
+      id: "ex.cb2-2.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "calibration cycle",
+      tr_translation: "performans kalibrasyon donemi",
+      example: "I'd love to know how this maps to the calibration cycle before we close out.",
+      example_tr: "Kapatmadan once bunun kalibrasyon donemine nasil yansidigini bilmek isterim.",
+    },
+    {
+      id: "ex.cb2-2.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "I disagree with this feedback. You don't know my work. Q2 was my project.",
+      correct_sentence: "Thanks for the feedback. I'd see Q2 a bit differently — I drove that alignment. Help me understand what you observed?",
+      tr_explanation:
+        "'I disagree + you don't know' = defansif, iliski bozar. Profesyonel: 'Thanks for the feedback' (acik kapi) + 'I'd see it differently' (yumusak pushback) + 'help me understand' (veri iste). Manager pozisyonu degisebilir.",
     },
   ],
 };
@@ -524,6 +614,51 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
             "I like that. Going to try it next week. Thanks for the candor.",
         },
       ],
+    },
+    {
+      id: "ex.cb2-3.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "One area to grow: pushing back earlier when scope shifts.",
+      ipa: "/wʌn ˈɛəriə tə ɡrəʊ ˈpʊʃɪŋ bæk ˈɜːliər wɛn skəʊp ʃɪfts/",
+      tr_hint:
+        "'Area to grow' = standart yumusatici. 'Pushing back' = itiraz etmek (idiom). Sakin, ekip arkadasi tonu — yargilamayan.",
+    },
+    {
+      id: "ex.cb2-3.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "Where I'd love to see you grow is owning conversations with stakeholders end-to-end.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Modern yapici elestiri kalibi. 'Where I'd love to see you grow' = pozitif cerceveli zayiflik. 'End-to-end' bagli soylenir.",
+    },
+    {
+      id: "ex.cb2-3.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "I wanted to flag something I've noticed that might be worth working on.",
+      transcription_target: "I wanted to flag something I've noticed that might be worth working on.",
+      tr_hint:
+        "Diplomatik feedback acilisi. 'Flag something' = bir konuyu gundeme getirmek. 'Worth working on' = uzerinde calismaya deger.",
+    },
+    {
+      id: "ex.cb2-3.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "constructive feedback",
+      tr_translation: "yapici geri bildirim",
+      example: "I'd love to share some constructive feedback on the launch retro — got two minutes?",
+      example_tr: "Lansman retro'su uzerine yapici geri bildirim paylasmak isterim — iki dakikan var mi?",
+    },
+    {
+      id: "ex.cb2-3.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "You are very bad at communication and the team is complaining about you.",
+      correct_sentence: "One area to grow: looping stakeholders in earlier — in the launch review, the design team felt blindsided.",
+      tr_explanation:
+        "'You are very bad' = saldiri, SBI cercevesi yok. 'Team is complaining' = aktarici suclama. Profesyonel: spesifik durum (launch review) + somut davranis (loop in earlier) + etki (design felt blindsided). Karakter degil, davranis hedef.",
     },
   ],
 };
@@ -709,6 +844,51 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.cb2-4.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I see this differently — could I share my read of the situation?",
+      ipa: "/aɪ siː ðɪs ˈdɪfrəntli kʊd aɪ ʃɛə maɪ riːd ɒv ðə ˌsɪtjuˈeɪʃən/",
+      tr_hint:
+        "Diplomatik anlasmamak. 'I see this differently' = 'sen yanlissin' degil — sadece bakis acisi farkli. 'My read' = benim okumam (yumusatici).",
+    },
+    {
+      id: "ex.cb2-4.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "I can commit to that plan, but I want to flag the risk so we go in eyes open.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Disagree and commit' kalibi. 'Go in eyes open' idiom = bilinclice. Manager'in karari geçerli kalir, sen kayit dustun.",
+    },
+    {
+      id: "ex.cb2-4.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "I appreciate the input, but I'm going to make the call here.",
+      transcription_target: "I appreciate the input, but I'm going to make the call here.",
+      tr_hint:
+        "Manager'in nazik 'son soz benim' cevabi. 'Make the call' = kararı vermek (idiom). Bu noktada commit etmen profesyonel.",
+    },
+    {
+      id: "ex.cb2-4.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "disagree and commit",
+      tr_translation: "katilmamak ama uygulamak (Amazon prensibi)",
+      example: "I disagree on the timeline, but I'll commit and ship by Q3 — wanted that on record.",
+      example_tr: "Zamanlamada katilmiyorum ama commit ediyorum, Q3'te teslim ederim — kayit altina alinsin.",
+    },
+    {
+      id: "ex.cb2-4.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "No, this plan is wrong. I will not do it like this.",
+      correct_sentence: "I see this differently — I'm worried about the timeline. Could I share my read before we lock in?",
+      tr_explanation:
+        "'No, this is wrong + I will not do it' = insubordination algilanir. Profesyonelce: 'I see this differently' (yumusak) + 'I'm worried about X' (spesifik kaygi) + 'Could I share' (izin iste). Manager dinleyebilir.",
+    },
   ],
 };
 
@@ -880,6 +1060,51 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
             "Sounds good. Get me the doc — I'll champion it in calibration.",
         },
       ],
+    },
+    {
+      id: "ex.cb2-5.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I want to put my name forward for senior this cycle.",
+      ipa: "/aɪ wɒnt tə pʊt maɪ neɪm ˈfɔːwəd fə ˈsiːnjə ðɪs ˈsaɪkəl/",
+      tr_hint:
+        "'Put my name forward' tek nefes, kararli ton. 'Senior this cycle' = bu donem senior icin. Sallanmadan soyle — net taleple gel.",
+    },
+    {
+      id: "ex.cb2-5.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "I've been operating at the next level for two quarters — happy to walk through the case.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Asagilik kompleksi olmadan, kibirsiz: 'operating at the next level' = bir ust seviyede calisiyor olmak. 'Walk through the case' = vakayi sun.",
+    },
+    {
+      id: "ex.cb2-5.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "Let's revisit this at the next calibration — what would close the gap?",
+      transcription_target: "Let's revisit this at the next calibration — what would close the gap?",
+      tr_hint:
+        "Manager yumusak ertelemesi. 'Revisit' = tekrar gorusmek. 'Close the gap' = aciği kapatmak. Sana 'ne yaparsam' soruyor — listele.",
+    },
+    {
+      id: "ex.cb2-5.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "impact deck",
+      tr_translation: "etki sunumu (terfi vakasi)",
+      example: "I'll send you an impact deck by Friday — three projects, scope, and outcomes.",
+      example_tr: "Cuma'ya kadar bir etki sunumu yollarim — uc proje, kapsam ve sonuclar.",
+    },
+    {
+      id: "ex.cb2-5.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "I want raise and promotion because I work very hard and I am here long time.",
+      correct_sentence: "I want to put my name forward for senior this cycle — I've owned three workstreams and shipped Q2 alignment end-to-end.",
+      tr_explanation:
+        "'Hard work + long time' = etki yok, scope yok, tenure-based talep = zayif. Modern terfi: somut sahiplenilen islerin + olculmus impact + 'put my name forward' standart kalibi. 'Raise' farkli konu — terfi ile karistirma.",
     },
   ],
 };
@@ -1067,6 +1292,51 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.cb2-6.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "Help me understand the constraints on each side — what's flexible, what's not?",
+      ipa: "/hɛlp miː ˌʌndəˈstænd ðə kənˈstreɪnts ɒn iːtʃ saɪd wɒts ˈflɛksɪbəl wɒts nɒt/",
+      tr_hint:
+        "Mediasyon klasik acilis — herkesin pozisyonunu anla. 'Constraints on each side' = her tarafin kisitlari. Sakin, tarafsiz ton.",
+    },
+    {
+      id: "ex.cb2-6.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "Let's separate the people from the problem — what would unblock this?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Klasik mediasyon ilkesi (Getting to Yes kitabi). 'Separate people from problem' = kisilik degil, sorun konusalim. 'Unblock' = ilerleme aciliyi.",
+    },
+    {
+      id: "ex.cb2-6.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "I think we're talking past each other — can we slow down?",
+      transcription_target: "I think we're talking past each other — can we slow down?",
+      tr_hint:
+        "'Talking past each other' = birbirimizi dinlemiyoruz (idiom). 'Slow down' = sakin ol. Catismayi düsürmek için araci sözü.",
+    },
+    {
+      id: "ex.cb2-6.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "find a middle ground",
+      tr_translation: "ortak nokta / uzlasi bulmak",
+      example: "Could we find a middle ground — a soft freeze on Wednesday with a v2 list?",
+      example_tr: "Bir ortak nokta bulabilir miyiz — Carsamba'ya yumusak freeze ve v2 listesi?",
+    },
+    {
+      id: "ex.cb2-6.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "You both are wrong. Stop fighting and just do the work I say.",
+      correct_sentence: "Help me understand what each of you needs — let's separate the people from the problem and find a path forward.",
+      tr_explanation:
+        "Mediator (sen) tarafsiz olmali. 'You're both wrong + do what I say' = otoriter, gerilimi artirir. Profesyonel: 'help me understand' (acik soru) + 'separate people from problem' (cerceve) + 'path forward' (cozum odakli).",
+    },
   ],
 };
 
@@ -1253,6 +1523,51 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.cb2-7.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I want to flag a risk early so we can plan around it.",
+      ipa: "/aɪ wɒnt tə flæɡ ə rɪsk ˈɜːli səʊ wi kæn plæn əˈraʊnd ɪt/",
+      tr_hint:
+        "'Flag a risk' = riski gundeme getirmek. 'Early' net vurgula — erken konusmak profesyonel. Panik degil, hazirlikli ton.",
+    },
+    {
+      id: "ex.cb2-7.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "If we hold the scope, we can hit the date; if scope grows, we'll need to slip by two weeks.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Klasik scope-time-quality trade-off. 'Hold the scope' = kapsami sabit tut. 'Slip by' = ertelemek. Net 'if X then Y' yapisi.",
+    },
+    {
+      id: "ex.cb2-7.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "What would it take to land this on time?",
+      transcription_target: "What would it take to land this on time?",
+      tr_hint:
+        "Manager standart sorusu. 'What would it take' = ne lazim. 'Land on time' = zamaninda teslim et. Cevapla: kapsam azaltma + ek kaynak + once neyi keselim.",
+    },
+    {
+      id: "ex.cb2-7.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "risk register",
+      tr_translation: "risk listesi (proje yonetimi)",
+      example: "Adding three items to the risk register — happy to walk you through it.",
+      example_tr: "Risk listesine uc kalem ekliyorum — sana anlatabilirim.",
+    },
+    {
+      id: "ex.cb2-7.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "This deadline is impossible. We will not finish. The team is angry.",
+      correct_sentence: "I want to flag a risk early — based on current scope, we're tracking two weeks behind. Could we discuss trade-offs?",
+      tr_explanation:
+        "'Impossible + not finish + team angry' = panik, cozum onerisi yok. Profesyonelce: 'flag a risk' + somut veri ('tracking two weeks behind') + 'discuss trade-offs' (cozum odakli). Manager seninle calisabilir.",
+    },
   ],
 };
 
@@ -1434,6 +1749,51 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
             "Perfect. Plan + status template by Friday, weekly sync starts Monday.",
         },
       ],
+    },
+    {
+      id: "ex.cb2-8.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "You own the outcome — I'm here for unblocks, not status checks.",
+      ipa: "/jʊ əʊn ði ˈaʊtkʌm aɪm hɪər fər ˈʌnˌblɒks nɒt ˈsteɪtəs tʃɛks/",
+      tr_hint:
+        "Modern delegasyon manifestosu. 'Own the outcome' = sonucun sahibi sensin. 'Unblocks' = engelleri kaldirma. Mikro-management yok mesaji.",
+    },
+    {
+      id: "ex.cb2-8.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "Here's the success criteria — how you get there is your call.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Success criteria' = basari olcutleri. 'Your call' idiom = senin kararin. Sonuc/yontem ayrimi netlestir.",
+    },
+    {
+      id: "ex.cb2-8.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "What does done look like for this project?",
+      transcription_target: "What does done look like for this project?",
+      tr_hint:
+        "Delegasyon icin standart soru. 'What does done look like' = bitmis hali nedir. Net cevap: olculebilir kriter listele.",
+    },
+    {
+      id: "ex.cb2-8.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "directly responsible individual",
+      tr_translation: "tek sorumlu kisi (DRI / Apple terimi)",
+      example: "You're the DRI on the migration — own the calls, escalate when stuck.",
+      example_tr: "Migrasyonun DRI'si sensin — kararlari ver, sikistiginda escalate et.",
+    },
+    {
+      id: "ex.cb2-8.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "Do this task and send me update every day. I will check what you did.",
+      correct_sentence: "You own this — here's the outcome we need and the budget. Weekly sync on Mondays; ping me anytime you're blocked.",
+      tr_explanation:
+        "'Every day update + I will check' = mikro-management, sahiplenme yok. Modern delegasyon: sonuc tanimi + kisitlar + duzenli sync ritmi + acik kapi (ping anytime). Kisi sahiplenir.",
     },
   ],
 };
@@ -1622,6 +1982,51 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.cb2-9.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "After careful thought, I've decided to move on — I wanted to tell you in person.",
+      ipa: "/ˈɑːftə ˈkɛəfəl θɔːt aɪv dɪˈsaɪdɪd tə muːv ɒn aɪ ˈwɒntɪd tə tɛl jʊ ɪn ˈpɜːsən/",
+      tr_hint:
+        "Resignation acilisi. 'Move on' = ayrilmak (idiom). 'In person' = yuzyuze — saygi sinyali. Sakin, kararli ton.",
+    },
+    {
+      id: "ex.cb2-9.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "I'd love to make the handover as smooth as possible — what's most useful for the team?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Cikan kisinin standart cumlesi. 'Handover' = devir teslim. 'As smooth as possible' = mumkun oldugunca duzgun. Iliski koru.",
+    },
+    {
+      id: "ex.cb2-9.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "Is there anything we could do to keep you?",
+      transcription_target: "Is there anything we could do to keep you?",
+      tr_hint:
+        "Manager counter-offer sondaji. Bu soruya hazirlikli ol — niyetin netse: 'I've thought about this carefully — my mind is made up.'",
+    },
+    {
+      id: "ex.cb2-9.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "two weeks' notice",
+      tr_translation: "iki haftalik ihbar suresi",
+      example: "Today is my two weeks' notice — last day would be the 28th if that works.",
+      example_tr: "Bugun iki haftalik ihbarim — uygunsa son gunum 28'i olur.",
+    },
+    {
+      id: "ex.cb2-9.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "I quit. I will not come tomorrow. Goodbye.",
+      correct_sentence: "I wanted to tell you in person — I've decided to move on. My last day would be the 28th, and I'd like to make a clean handover.",
+      tr_explanation:
+        "'I quit + not come tomorrow' = koprule yikma, profesyonel iliski biter. Standart: 'tell you in person' (saygi) + 'decided to move on' (karar net) + 'last day' (yasal sure) + 'clean handover' (sorumluluk). Referans icin altin.",
+    },
   ],
 };
 
@@ -1809,6 +2214,51 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
             "Look forward to it. Good luck with what's next.",
         },
       ],
+    },
+    {
+      id: "ex.cb2-10.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I'm flattered, but my mind is made up — this isn't about money.",
+      ipa: "/aɪm ˈflætəd bʌt maɪ maɪnd ɪz meɪd ʌp ðɪs ˈɪzənt əˈbaʊt ˈmʌni/",
+      tr_hint:
+        "Counter-offer'a hayir. 'Flattered' = mutlu oldum (saygili red). 'Mind is made up' idiom = karar verdim. Net ama sicak ton.",
+    },
+    {
+      id: "ex.cb2-10.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "Counter-offers don't address what made me start looking in the first place.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Cok guclu cumle — counter-offer mantigini cürütür. 'In the first place' = en basta. Sebep maas degil mesajini ver.",
+    },
+    {
+      id: "ex.cb2-10.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "What would it take to keep you on the team?",
+      transcription_target: "What would it take to keep you on the team?",
+      tr_hint:
+        "Manager son denemesi. 'What would it take' = ne lazim. Cevap: 'Nothing on this round — my decision is final.' Tutarli kal.",
+    },
+    {
+      id: "ex.cb2-10.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "stay on good terms",
+      tr_translation: "iyi iliskilerle ayrilmak",
+      example: "I'd love to stay on good terms — would you be open to a LinkedIn reference?",
+      example_tr: "Iyi iliskilerle ayrilmak isterim — LinkedIn referansina acik olur musun?",
+    },
+    {
+      id: "ex.cb2-10.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "OK, give me 20% more and I will stay. Otherwise I go.",
+      correct_sentence: "I'm flattered by the counter, but counter-offers don't address what made me start looking — my decision is final.",
+      tr_explanation:
+        "'20% give and I stay' = parayla satin alinabilir izlenimi, leverage kaybeder. Counter-offer kabul edenlerin %80'i 6 ay icinde yine ayrilir (data). Profesyonel: 'flattered' (saygi) + 'final' (netlik) + sebep maas degil.",
     },
   ],
 };

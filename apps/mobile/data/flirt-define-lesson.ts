@@ -164,6 +164,52 @@ export const flirtDefineLesson_6_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd6.1.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Where's your head at on this?",
+      ipa: "weəz jɔːr hed æt ɒn ðɪs",
+      tr_hint:
+        "'Where's your' bağlanır → 'weəz-jɔː'. 'Head at' düz, 't' yumuşak. Casual + samimi soru tonu.",
+    },
+    {
+      id: "ex.fd6.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Wanted to ask — are we still seeing other people or just each other?",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Wanted to ask' yumuşak giriş. 'Or just each other' aşağı ton — açık seçenek sunma. Sakin tempo.",
+    },
+    {
+      id: "ex.fd6.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Honestly I was thinking the same thing — glad we're on the same page.",
+      transcription_target: "Honestly I was thinking the same thing — glad we're on the same page.",
+      tr_hint:
+        "Dinle, yaz. 'On the same page' = aynı düşüncedeyiz. İlişki konuşmalarında çok geçer.",
+    },
+    {
+      id: "ex.fd6.1.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "soft launch",
+      tr_translation: "İlişkiyi sezdirme (sosyal medyada yarı açık)",
+      example: "Are we ready to soft launch this on Instagram?",
+      example_tr: "Bunu Instagram'da yarı açık paylaşmaya hazır mıyız?",
+    },
+    {
+      id: "ex.fd6.1.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I want a serious thing with you. Decide now.",
+      correct_sentence:
+        "I'd love to be exclusive — no pressure, just wanted to share where I'm at.",
+      tr_explanation:
+        "'Decide now' = ültimatom, kaçma tetikler. Doğru: 'I'd love to' (kendi pozisyonun) + 'no pressure' (esneklik) = sağlıklı niyet beyanı.",
+    },
   ],
 };
 
@@ -331,6 +377,52 @@ export const flirtDefineLesson_6_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd6.2.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I'm not comfortable with that.",
+      ipa: "aɪm nɒt ˈkʌmftəbl wɪð ðæt",
+      tr_hint:
+        "'Comfortable' = 'KUMF-tə-bl' (3 hece, 'or' yutulur). 'With that' bağlanır. Net, sakin ton — özür dilemiyorsun.",
+    },
+    {
+      id: "ex.fd6.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Hey, I want to share — I think I'd like to take this slow.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'I want to share' yumuşak başlangıç, samimi. 'Take this slow' her kelime net — sınırı net çiz.",
+    },
+    {
+      id: "ex.fd6.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "I really appreciate you telling me — what pace works for you?",
+      transcription_target: "I really appreciate you telling me — what pace works for you?",
+      tr_hint:
+        "Dinle, yaz. 'Appreciate you telling me' = samimi onay. 'What pace works' = somut soru.",
+    },
+    {
+      id: "ex.fd6.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "love bombing",
+      tr_translation: "Aşırı yoğun ilgi bombardımanı (kırmızı bayrak)",
+      example: "It started feeling like love bombing — I needed to set boundaries.",
+      example_tr: "Aşırı ilgi bombası gibi hissetmeye başladı — sınır çekmem gerekti.",
+    },
+    {
+      id: "ex.fd6.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "You make me uncomfortable. Stop.",
+      correct_sentence:
+        "Hey, when [X] happens, I feel a bit overwhelmed — can we talk about it?",
+      tr_explanation:
+        "'You make me' = suçlama, savunmaya geçirir. Doğru: 'When X happens, I feel Y' (ben formatı, davranışa odaklı) = sağlıklı sınır dili.",
+    },
   ],
 };
 
@@ -494,6 +586,52 @@ export const flirtDefineLesson_6_3: BundledLesson = {
             "Hem niyetini gosteriyor, hem duygunu hem de uzun donem gelecek gorduğunu. Kapsamli.",
         },
       ],
+    },
+    {
+      id: "ex.fd6.3.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I'm looking for something long-term.",
+      ipa: "aɪm ˈlʊkɪŋ fɔː ˈsʌmθɪŋ ˌlɒŋˈtɜːm",
+      tr_hint:
+        "'Looking for' bağlanır → 'LU-kin-fɔː'. 'Long-term' çift vurgu — 'LONG-TERM'. Net + emin ton.",
+    },
+    {
+      id: "ex.fd6.3.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "Cards on the table — I see this going somewhere real. What about you?",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Cards on the table' deyim — emin, dürüst. 'What about you?' yumuşak, baskısız davet — soru tonu yukarı.",
+    },
+    {
+      id: "ex.fd6.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Same — let's just keep building this, no rush.",
+      transcription_target: "Same — let's just keep building this, no rush.",
+      tr_hint:
+        "Dinle, yaz. 'Keep building' = inşa etmeye devam et. 'No rush' = aceleye gerek yok — sağlıklı tempo.",
+    },
+    {
+      id: "ex.fd6.3.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "aligned values",
+      tr_translation: "Uyumlu değerler (uzun dönem uyum temeli)",
+      example: "What I love is we have aligned values — that's the foundation.",
+      example_tr: "Sevdiğim şey, değerlerimizin uyumlu olması — temel bu.",
+    },
+    {
+      id: "ex.fd6.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "When we get married you will see.",
+      correct_sentence:
+        "I can see a future here — want to talk about what we're building?",
+      tr_explanation:
+        "'When we get married you will see' = varsayım + baskı = kaçma tetikler. Doğru: 'I can see a future' (kendi perspektifin) + soru = ortak inşa daveti.",
     },
   ],
 };
@@ -659,6 +797,52 @@ export const flirtDefineLesson_6_4: BundledLesson = {
             "Pacing istegi saygi gormezse uzun donemde de saygi olmaz. Temel uyum konusu.",
         },
       ],
+    },
+    {
+      id: "ex.fd6.4.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I need to pump the brakes a little.",
+      ipa: "aɪ niːd tə pʌmp ðə breɪks ə ˈlɪtl",
+      tr_hint:
+        "'Pump the brakes' deyim — 'p' patlamalı. 'A little' sonda yumuşak — sertlik almaz. Sakin ama net.",
+    },
+    {
+      id: "ex.fd6.4.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "It's not you — it's the pace. I'm feeling a little overwhelmed.",
+      voice_hint: "female_us",
+      tr_hint:
+        "İlk cümle vurgulu — 'NOT you'. İkinci yumuşak, vulnerable. 'Overwhelmed' = duygu paylaşımı.",
+    },
+    {
+      id: "ex.fd6.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "I really appreciate you telling me — we can do that, whatever you need.",
+      transcription_target: "I really appreciate you telling me — we can do that, whatever you need.",
+      tr_hint:
+        "Dinle, yaz. 'Whatever you need' = ne istersen — olgun, destekleyici cevap kalıbı.",
+    },
+    {
+      id: "ex.fd6.4.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "dry texting",
+      tr_translation: "Kuru mesajlaşma (kısa, ilgisiz cevaplar)",
+      example: "Hey — getting some dry texting vibes, everything okay?",
+      example_tr: "Hey — biraz kuru mesajlaşma havası var, her şey yolunda mı?",
+    },
+    {
+      id: "ex.fd6.4.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "You text too much. I get tired.",
+      correct_sentence:
+        "When my phone buzzes nonstop, I get a bit drained — can we cut texts down to a few times a day?",
+      tr_explanation:
+        "'You text too much. I get tired.' = suçlama + soğuk. Doğru: 'When X happens, I feel Y' + spesifik istek = sağlıklı sınır + somut çözüm.",
     },
   ],
 };

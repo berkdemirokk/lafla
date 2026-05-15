@@ -166,6 +166,54 @@ export const banterRoastLesson_25_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.br25.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Honestly, I peaked in high school.",
+      ipa: "ˈɒnəstli aɪ piːkt ɪn haɪ skuːl",
+      tr_hint:
+        "'Honestly' = klasik filler, casual. 'Peaked' = 'piː-kt', 'k' net. Düz, mahcup ton — kahkaha çağırır.",
+    },
+    {
+      id: "ex.br25.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Fair warning — I'm kind of a disaster at karaoke.",
+      voice_hint: "casual_us_female",
+      tr_hint:
+        "'Fair warning' = uyarı + komik. 'Kind of a' = 'kaɪn-də-ə' bağlanır. 'Disaster' eğlenceli vurgu.",
+    },
+    {
+      id: "ex.br25.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "No way you cooked this. Dude, this is actually amazing.",
+      transcription_target:
+        "No way you cooked this. Dude, this is actually amazing.",
+      tr_hint:
+        "'No way' = şaşkınlık. 'Dude' = dostum/abi (gender-neutral US). 'Actually' = gerçekten — küçük şaşkınlıkla.",
+    },
+    {
+      id: "ex.br25.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "honestly",
+      tr_translation: "açıkçası, doğrusu (samimi filler)",
+      example: "Honestly, my apartment looks like a war zone right now.",
+      example_tr: "Açıkçası şu an dairem savaş alanına benziyor.",
+    },
+    {
+      id: "ex.br25.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "I am exceptionally talented in the culinary arts.",
+      correct_sentence:
+        "I'm honestly kinda terrible at cooking — ask my roommate.",
+      tr_explanation:
+        "Aşırı resmi + 'I am exceptionally talented' = LinkedIn profili gibi. Casual: 'I'm kinda terrible' + spesifik tanık = funny + warm.",
+    },
   ],
 };
 
@@ -328,6 +376,52 @@ export const banterRoastLesson_25_2: BundledLesson = {
             "Brady Bunch'tan 'Marcia, Marcia, Marcia' meme'i. Sarcastic onaylama klasigi.",
         },
       ],
+    },
+    {
+      id: "ex.br25.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Sure, Jan — that's totally what happened.",
+      ipa: "ʃʊr dʒæn ðæts ˈtoʊtli wɒt ˈhæpənd",
+      tr_hint:
+        "'Sure, Jan' = sarcastic vurgu, küçük göz devirme tonu. 'Totally' net + alaylı. Dramatik bırak.",
+    },
+    {
+      id: "ex.br25.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Wow, only 40 minutes late — bold of you to assume that's okay.",
+      voice_hint: "casual_us_female",
+      tr_hint:
+        "Sarcastic ama sevgi dolu. 'Wow' alaylı uzun. 'Bold of you' = vurgu 'bold'a. Gülümseyerek söyle.",
+    },
+    {
+      id: "ex.br25.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Dude, you're the worst — and I mean that with love.",
+      transcription_target:
+        "Dude, you're the worst — and I mean that with love.",
+      tr_hint:
+        "Tipik 'love roast' kalıbı. 'The worst' = en kötü (oyun). 'With love' = sevgi notu — atışmanın güvenlik kemeri.",
+    },
+    {
+      id: "ex.br25.2.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "no way",
+      tr_translation: "yok artık, hadi canım (casual itiraz/şaşkınlık)",
+      example: "No way you actually believed that.",
+      example_tr: "Yok artık, buna gerçekten inanmadın.",
+    },
+    {
+      id: "ex.br25.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "You are once again experiencing tardiness.",
+      correct_sentence: "Late again? Bold move, honestly.",
+      tr_explanation:
+        "'Experiencing tardiness' = haber bülteni dili. Atışma için: 'Late again?' + 'bold move' + 'honestly' = doğal arkadaş tonu.",
     },
   ],
 };
@@ -492,6 +586,53 @@ export const banterRoastLesson_25_3: BundledLesson = {
             "Mesaj: 'duygulariniz onemli degil'. Iliski erozyona ugrar.",
         },
       ],
+    },
+    {
+      id: "ex.br25.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Hey, that came out wrong — totally my bad.",
+      ipa: "heɪ ðæt keɪm aʊt rɒŋ ˈtoʊtli maɪ bæd",
+      tr_hint:
+        "Düşük + samimi ton. 'Came out wrong' yumuşak. 'My bad' = casual özür, 'maɪ-bæd' bağlanır.",
+    },
+    {
+      id: "ex.br25.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Didn't mean to hit a nerve there, honestly.",
+      voice_hint: "casual_us_male",
+      tr_hint:
+        "'Didn't mean to' = 'dɪd-n-miːn-tə' bağlanır. 'Hit a nerve' net, kelime kelime. 'Honestly' samimi kapanış.",
+    },
+    {
+      id: "ex.br25.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "For sure, I shouldn't have gone there. My bad.",
+      transcription_target:
+        "For sure, I shouldn't have gone there. My bad.",
+      tr_hint:
+        "Sahiplenme + kabul. 'Gone there' = o konuya değinmek (idiom). 'My bad' = casual hata kabulü.",
+    },
+    {
+      id: "ex.br25.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "totally",
+      tr_translation: "tamamen, kesinlikle (casual onay/yoğunlaştırıcı)",
+      example: "That was totally my fault, sorry.",
+      example_tr: "O tamamen benim hatamdı, özür dilerim.",
+    },
+    {
+      id: "ex.br25.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I am going to formally express my regret for the comment.",
+      correct_sentence: "Hey, I'm sorry — that came out wrong.",
+      tr_explanation:
+        "'Formally express my regret' = mahkeme dili, casual ortamda mesafeli ve samimiyetsiz hisseder. Doğru: 'I'm sorry' + 'came out wrong' = gerçek + warm.",
     },
   ],
 };

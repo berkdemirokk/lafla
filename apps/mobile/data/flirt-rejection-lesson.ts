@@ -164,6 +164,52 @@ export const flirtRejectionLesson_7_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fr7.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I don't feel that spark, honestly.",
+      ipa: "aɪ dəʊnt fiːl ðæt spɑːk ˈɒnɪstli",
+      tr_hint:
+        "'Spark' kısa + güçlü vurgu. 'Honestly' sonda yumuşak iniş — saygıyla kapatma. Üzgün ama net.",
+    },
+    {
+      id: "ex.fr7.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "You're genuinely great, but I'm not feeling a romantic connection.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Genuinely great' sıcak ton. 'But' net dönüş. 'Romantic connection' her kelime ayrı — dürüst, net.",
+    },
+    {
+      id: "ex.fr7.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "I appreciate you saying it directly — thanks for being upfront.",
+      transcription_target: "I appreciate you saying it directly — thanks for being upfront.",
+      tr_hint:
+        "Dinle, yaz. 'Upfront' = açık sözlü. 'Saying it directly' = doğrudan söyleme.",
+    },
+    {
+      id: "ex.fr7.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "emotional honesty",
+      tr_translation: "Duygusal dürüstlük (kendin ve karşıdakine)",
+      example: "Emotional honesty is the kindest thing — drag it out and it just hurts more.",
+      example_tr: "Duygusal dürüstlük en nazik şeydir — uzatırsan daha çok acıtır.",
+    },
+    {
+      id: "ex.fr7.1.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "You are nice but I am not interested in you. Sorry.",
+      correct_sentence:
+        "Really enjoyed meeting you — just not feeling the romantic spark. Wish you the best.",
+      tr_explanation:
+        "'You are nice but I am not interested in you' = doğrudan Türkçe çevirisi — soğuk + reddetme odaklı. Doğru: pozitif duygu + 'not feeling the spark' (duygu odaklı) + iyi dilek.",
+    },
   ],
 };
 
@@ -325,6 +371,52 @@ export const flirtRejectionLesson_7_2: BundledLesson = {
             "Karari saygiyla kabul = en cekici tepki. Israr = saygisizlik.",
         },
       ],
+    },
+    {
+      id: "ex.fr7.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "No hard feelings — take care.",
+      ipa: "nəʊ hɑːd ˈfiːlɪŋz teɪk keə",
+      tr_hint:
+        "'Hard feelings' net iki kelime. 'Take care' sıcak, vurgu 'care'de. Yetişkin + sakin ton.",
+    },
+    {
+      id: "ex.fr7.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Appreciate you saying it directly — respect that. All the best.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Appreciate you' = teşekkür. 'Respect that' = vurgulu. 'All the best' sonda yumuşak — saygıyla kapanış.",
+    },
+    {
+      id: "ex.fr7.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Thanks for being cool about it — seriously, you're a class act.",
+      transcription_target: "Thanks for being cool about it — seriously, you're a class act.",
+      tr_hint:
+        "Dinle, yaz. 'Class act' = sınıflı, olgun insan. Övgü kalıbı.",
+    },
+    {
+      id: "ex.fr7.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "secure attachment",
+      tr_translation: "Güvenli bağlanma (psikoloji)",
+      example: "Handling rejection well is a secure attachment thing — you're good.",
+      example_tr: "Reddi iyi karşılamak güvenli bağlanmadır — sen iyisin.",
+    },
+    {
+      id: "ex.fr7.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Okay. I knew it. Bye.",
+      correct_sentence:
+        "Honestly thanks for telling me — rather know now than wonder. Take care.",
+      tr_explanation:
+        "'Okay. I knew it. Bye.' = pasif-agresif + soğuk. Doğru: minnet + 'rather know than wonder' (olgun çerçeve) + sıcak kapanış.",
     },
   ],
 };
@@ -491,6 +583,52 @@ export const flirtRejectionLesson_7_3: BundledLesson = {
             "Belirsizlik en yikici durum. Netlik = ya yola devam ya yeni yon bul = pozitif.",
         },
       ],
+    },
+    {
+      id: "ex.fr7.3.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Just wanted to give you an out.",
+      ipa: "dʒʌst ˈwɒntɪd tə ɡɪv juː ən aʊt",
+      tr_hint:
+        "'An out' = 'ə-naʊt' (bağlı). 'Wanted to' = 'WAH-nid-tə'. Düşük baskı, samimi ton.",
+    },
+    {
+      id: "ex.fr7.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "No pressure either way — if this isn't the right time, totally get it.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'No pressure' net + yumuşak. 'Either way' = her iki yön. 'Totally get it' empati ile — anladım, sorun yok.",
+    },
+    {
+      id: "ex.fr7.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Honestly things are crazy right now — I shouldn't be dating, tbh.",
+      transcription_target: "Honestly things are crazy right now — I shouldn't be dating, tbh.",
+      tr_hint:
+        "Dinle, yaz. 'tbh' = to be honest (kısaltma). 'Shouldn't be dating' = dating'e hazır değilim.",
+    },
+    {
+      id: "ex.fr7.3.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "breadcrumbing",
+      tr_translation: "Kırıntı bırakma (ilgi gibi davranıp gerçekte mesafeli)",
+      example: "Felt like breadcrumbing — once-a-week 'hey' with zero follow-through.",
+      example_tr: "Kırıntı bırakma gibiydi — haftada bir 'hey', sıfır devam.",
+    },
+    {
+      id: "ex.fr7.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "You are playing with me. I am angry.",
+      correct_sentence:
+        "Sensing some mixed signals — no pressure, but where's your head at?",
+      tr_explanation:
+        "'You are playing with me. I am angry.' = suçlama + duygu patlaması. Doğru: 'sensing mixed signals' (gözlem) + 'no pressure' (saygı) + soru = olgun netlik araması.",
     },
   ],
 };

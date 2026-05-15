@@ -2309,6 +2309,47 @@ export const dailyExpandedLesson_beachsafe: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.dex.beachsafe.1.13",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Is it safe to swim out past the buoys?",
+      tr_hint: "'safe to swim' = 'seyf tu swim'. 'past the buoys' = 'pæst ðə buːiz'. Yüzme bölgesi sınırı sorma tonu.",
+    },
+    {
+      id: "ex.dex.beachsafe.1.14",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Honestly, the current looks pretty strong today.",
+      voice_hint: "male_us",
+      tr_hint: "'Honestly' filler ile başla. 'pretty strong' = oldukça güçlü. Endişeli ama sakin ton.",
+    },
+    {
+      id: "ex.dex.beachsafe.1.15",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Make sure to stay between the red flags.",
+      transcription_target: "Make sure to stay between the red flags.",
+      tr_hint: "'Make sure to' = 'meyk şor tu' = mutlaka. 'between the red flags' = kırmızı bayrakların arasında.",
+    },
+    {
+      id: "ex.dex.beachsafe.1.16",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "rip current",
+      tr_translation: "Çekme akıntısı (kıyıdan denize)",
+      example: "Watch out for rip currents near the rocks.",
+      example_tr: "Kayaların yanında çekme akıntısına dikkat et.",
+    },
+    {
+      id: "ex.dex.beachsafe.1.17",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I think the water is too much cold for swim.",
+      correct_sentence: "I think the water's too cold to swim in.",
+      tr_explanation:
+        "'Too much cold' yanlış — 'too cold' yeterli (sıfat 'cold' tek başına). Ayrıca 'for swim' yerine 'to swim in' (mastar + edat).",
+    },
   ],
 };
 

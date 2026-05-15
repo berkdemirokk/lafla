@@ -164,6 +164,54 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.dd16.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Excuse me, how do I get to Central Park?",
+      ipa: "/ɪkˈskjuːz miː haʊ duː aɪ ɡɛt tu ˈsɛntrəl pɑːrk/",
+      tr_hint:
+        "'Excuse me' = 'ıks-kyuz-mi'. 'How do I' bağlanır = 'hau-du-vay'. 'Get to' = 'get-tı'.",
+    },
+    {
+      id: "ex.dd16.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Sorry to bother you — could you point me toward the subway station?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Saygılı ton. 'Sorry to' = 'sori-tı'. 'Point me toward' bağlanır.",
+    },
+    {
+      id: "ex.dd16.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Head south on 7th Avenue for about ten blocks. You can't miss it.",
+      transcription_target:
+        "Head south on 7th Avenue for about ten blocks. You can't miss it.",
+      tr_hint:
+        "NYC tipik yön. 'Head south' = güneye git. 'You can't miss it' = bulamamak imkansız (sıkça duyulur).",
+    },
+    {
+      id: "ex.dd16.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "by any chance",
+      tr_translation: "Bir ihtimal / acaba",
+      example: "By any chance, do you know where the nearest pharmacy is?",
+      example_tr: "Bir ihtimal en yakın eczane nerede biliyor musun?",
+    },
+    {
+      id: "ex.dd16.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Please say me how to go to Times Square.",
+      correct_sentence: "Could you tell me how to get to Times Square?",
+      tr_explanation:
+        "'Say me' yanlış — 'tell' kullanılır ('say' nesneye direkt değil). 'How to go' kalıbı zayıf; 'how to get to' standart yön sorma. 'Please' yerine 'Could you' kibar.",
+    },
   ],
 };
 
@@ -327,6 +375,54 @@ export const dailyDirectionsLesson_16_2: BundledLesson = {
             "Insan yardimi = backup. Kaliplari ezbersem kayip degil maceradayim.",
         },
       ],
+    },
+    {
+      id: "ex.dd16.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Turn left at the lights and go straight for three blocks.",
+      ipa: "/tɜːrn lɛft ət ðə laɪts ænd ɡəʊ streɪt fɔːr θriː blɒks/",
+      tr_hint:
+        "'Turn left' = 'törn-left'. 'At the lights' bağlanır. 'Three' = 'θri' (th = dilini ısır).",
+    },
+    {
+      id: "ex.dd16.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Maps isn't working — could you walk me through directions to the hotel?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Resepsiyon araması. 'Maps isn't' = 'maps-ız-ınt'. 'Walk me through' = adım adım anlat.",
+    },
+    {
+      id: "ex.dd16.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Walk two blocks west, then take a left on 42nd. It's on the right after the deli.",
+      transcription_target:
+        "Walk two blocks west, then take a left on 42nd. It's on the right after the deli.",
+      tr_hint:
+        "Üç adımlı tarif. 'Take a left' bağlanır. 'Deli' = market/lokanta (NYC standartı).",
+    },
+    {
+      id: "ex.dd16.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "would you mind",
+      tr_translation: "... yapmanın bir sakıncası olur mu?",
+      example: "Would you mind drawing me a quick map?",
+      example_tr: "Bana hızlı bir harita çizmenin bir sakıncası olur mu?",
+    },
+    {
+      id: "ex.dd16.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I am go this street up and turn the right side.",
+      correct_sentence: "Go up this street and turn right.",
+      tr_explanation:
+        "'I am go' yanlış zaman; tarif komutu için Imperative (emir) kullanılır: 'Go up'. 'Turn the right side' direkt çeviri; doğru kalıp 'turn right' (artikel + 'side' fazla).",
     },
   ],
 };
@@ -493,6 +589,55 @@ export const dailyDirectionsLesson_16_3: BundledLesson = {
             "Konum degisti = ayri biri belki daha kesin biliyordur. Yardim israr = sosyal yorgunluk.",
         },
       ],
+    },
+    {
+      id: "ex.dd16.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I think I'm a bit turned around.",
+      ipa: "/aɪ θɪŋk aɪm ə bɪt tɜːrnd əˈraʊnd/",
+      tr_hint:
+        "'I think I'm' bağlanır = 'ay-θink-aym'. 'Bit turned' = 'bit-törnd'. Hafif gülümseyerek söyle.",
+    },
+    {
+      id: "ex.dd16.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Sorry — I must have taken a wrong turn somewhere. Which way is Times Square?",
+      voice_hint: "male_us",
+      tr_hint:
+        "Sakin ve hafif ton. 'Must have' = 'mıst-ıv'. 'Taken a' bağlanır.",
+    },
+    {
+      id: "ex.dd16.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "You went too far north — walk south four blocks until you see the red M&M's store.",
+      transcription_target:
+        "You went too far north — walk south four blocks until you see the red M&M's store.",
+      tr_hint:
+        "Landmark içeren tarif. 'Too far' = 'tuu-far'. 'M&M's' = 'em-ın-emz'.",
+    },
+    {
+      id: "ex.dd16.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "have you got",
+      tr_translation: "(Sende) var mı?",
+      example: "Have you got a sec to point me back on track?",
+      example_tr: "Beni yola döndürmek için bir saniyen var mı?",
+    },
+    {
+      id: "ex.dd16.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I'm losing the road — please help me find my hotel.",
+      correct_sentence:
+        "I'm lost — could you help me find my hotel?",
+      tr_explanation:
+        "'Losing the road' direkt çeviri ('yolu kaybediyorum') — İngilizce'de 'I'm lost' (= kayboldum) standart. 'Please help me' agresif; 'Could you' kibar.",
     },
   ],
 };

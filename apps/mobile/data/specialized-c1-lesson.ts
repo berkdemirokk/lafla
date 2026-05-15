@@ -254,6 +254,58 @@ export const specC1Lesson_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.sc1.1.9",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "For context, the methodology I'd reach for is sharding by tenant.",
+      ipa: "fər ˈkɒntɛkst ðə ˌmɛθəˈdɒlədʒi aɪd riːtʃ fər ɪz ˈʃɑːrdɪŋ baɪ ˈtɛnənt",
+      tr_hint:
+        "Sistem tasarım yaklaşımı. 'Reach for' = başvurmak (idiyom). 'Sharding by tenant' birleşik. Düşünceli, kararlı.",
+    },
+    {
+      id: "ex.sc1.1.10",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "I'd push back on the framing that this is a database problem — for context, the bottleneck is the read pattern.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Sistem dizaynında reframe. 'Push back on the framing' = çerçeveye itiraz. 'Bottleneck is the read pattern' = darboğaz okuma örüntüsünde.",
+    },
+    {
+      id: "ex.sc1.1.11",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "I'd be doing you a disservice if I claimed we could ship that scope in a quarter — the honest estimate is six months.",
+      transcription_target:
+        "I'd be doing you a disservice if I claimed we could ship that scope in a quarter — the honest estimate is six months.",
+      tr_hint:
+        "Mühendislik dürüstlük. 'Ship that scope' = bu kapsamı yetiştir. 'Honest estimate' = dürüst tahmin.",
+    },
+    {
+      id: "ex.sc1.1.12",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "I'd push back on the framing",
+      tr_translation: "Çerçeveye itiraz ederim",
+      example:
+        "I'd push back on the framing that this is a 'simple migration' — for context, we're changing the data model and the API surface in one move.",
+      example_tr:
+        "Bunun 'basit bir geçiş' olarak çerçevelenmesine itiraz ederim — veri modelini ve API yüzeyini aynı anda değiştiriyoruz.",
+    },
+    {
+      id: "ex.sc1.1.13",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "This architecture is bad and the person who designed is not good engineer, we should rewrite everything.",
+      correct_sentence:
+        "I'd push back on the current architecture for two reasons — for context, neither is a criticism of the original engineer; the load profile has changed since then.",
+      tr_explanation:
+        "'Person who designed is not good engineer' = peer review'da kariyer bitirir, kişisel. Senior mühendis dili: 'push back on the architecture' (fikre değil sisteme), 'not a criticism of the original engineer' (peer korunması), 'load profile has changed' (bağlam değişimi gerekçesi). Mühendislikte sistemi eleştir, insanı değil.",
+    },
   ],
 };
 
@@ -460,6 +512,58 @@ export const specC1Lesson_2: BundledLesson = {
             "Profesyonel kapanis: 'Will do, I'll have it in your inbox by Thursday EOD.'",
         },
       ],
+    },
+    {
+      id: "ex.sc1.2.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "With respect, I'd push back on the synchronous approach.",
+      ipa: "wɪð rɪˈspɛkt aɪd pʊʃ bæk ɒn ðə ˈsɪŋkrənəs əˈproʊtʃ",
+      tr_hint:
+        "Tasarım itirazı. 'Synchronous' = 'SİN-krı-nıs'. Saygılı + kararlı + spesifik.",
+    },
+    {
+      id: "ex.sc1.2.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "For context, the methodology we used last time bit us — I'd want to revisit the dependency graph before we commit.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Architecture review reframe. 'Bit us' = bizi vurdu (idiyom). 'Dependency graph' = bağımlılık grafiği.",
+    },
+    {
+      id: "ex.sc1.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "I'd be doing the team a disservice if I rubber-stamped this without flagging the operational cost.",
+      transcription_target:
+        "I'd be doing the team a disservice if I rubber-stamped this without flagging the operational cost.",
+      tr_hint:
+        "Senior mühendis itirazı. 'Rubber-stamped' = göstermelik onayla (idiyom). 'Operational cost' = operasyonel maliyet.",
+    },
+    {
+      id: "ex.sc1.2.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "for context",
+      tr_translation: "Bağlam vermek gerekirse",
+      example:
+        "For context, we tried a similar approach in 2023 and the operational toil ate the team alive — I'd want to know what's different this time.",
+      example_tr:
+        "Bağlam: 2023'te benzer bir yaklaşım denedik, operasyonel yük ekibi bitirdi — bu sefer ne farklı, bilmek isterim.",
+    },
+    {
+      id: "ex.sc1.2.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "This RFC is bad, you don't understand distributed systems, please redesign before I approve.",
+      correct_sentence:
+        "I'd push back on the consistency model — for context, what you're proposing is causal, but the SLA requires linearisability for these endpoints.",
+      tr_explanation:
+        "'You don't understand distributed systems' = peer review'da kariyer bitirir. Mühendislik review dili: somut konuyu adlandır ('consistency model'), bağlam ver ('SLA requires linearisability'), spesifik teknik karşılaştırma. Yetersizlik etiketi değil, teknik denklik.",
     },
   ],
 };
@@ -677,6 +781,58 @@ export const specC1Lesson_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.sc1.3.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I'd push back on that nit, with respect — the convention is local to this module.",
+      ipa: "aɪd pʊʃ bæk ɒn ðæt nɪt wɪð rɪˈspɛkt",
+      tr_hint:
+        "Code review itirazı. 'Nit' = küçük itiraz (mühendislik jargonu). 'Convention is local to' = bu module özgü.",
+    },
+    {
+      id: "ex.sc1.3.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "For context, I'd be doing future-maintainers a disservice if I let this land without the regression test.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Code review titizliği. 'Future-maintainers' = gelecekteki bakımcılar. 'Regression test' = regresyon testi.",
+    },
+    {
+      id: "ex.sc1.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "With respect, the methodology in this PR doesn't match how we handle errors elsewhere — could you align it?",
+      transcription_target:
+        "With respect, the methodology in this PR doesn't match how we handle errors elsewhere — could you align it?",
+      tr_hint:
+        "Senior reviewer kalıbı. 'How we handle errors elsewhere' = başka yerde nasıl ele alıyoruz. 'Align it' = uydur.",
+    },
+    {
+      id: "ex.sc1.3.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "with respect",
+      tr_translation: "Saygıyla (formal yumuşatma)",
+      example:
+        "With respect, the trade-off you've made here optimises for the wrong thing — I'd want to revisit it.",
+      example_tr:
+        "Saygıyla — burada yaptığın takas yanlış şeyi optimize ediyor; yeniden ele almak isterim.",
+    },
+    {
+      id: "ex.sc1.3.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "This code is messy and very bad, who taught you to write like this, please fix everything before I approve.",
+      correct_sentence:
+        "I'd push back on a few patterns here — for context, the error handling and the variable naming are out of step with how we do things in this repo. Happy to pair on it if useful.",
+      tr_explanation:
+        "'Who taught you to write like this' = kişisel saldırı, kariyer bitirir. Senior code review: spesifik konuyu adlandır ('error handling and naming'), bağlam ver ('out of step with this repo'), destek sun ('pair on it if useful'). Eleştiri sistemi geliştirir, insanı küçültmez.",
+    },
   ],
 };
 
@@ -880,6 +1036,58 @@ export const specC1Lesson_4: BundledLesson = {
             "Kapanis: 'Will do — in your inbox by EOD.'",
         },
       ],
+    },
+    {
+      id: "ex.sc1.4.7",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "For context, I'd push back on the system design score.",
+      ipa: "fər ˈkɒntɛkst aɪd pʊʃ bæk ɒn ðə ˈsɪstəm dɪˈzaɪn skɔːr",
+      tr_hint:
+        "Hiring committee itirazı. Sakin, kararlı, somut. Spesifik karara işaret et.",
+    },
+    {
+      id: "ex.sc1.4.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "With respect, the methodology she walked through was non-standard — that's not a weakness, it's a different approach.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Aday savunması. 'Non-standard, not a weakness' = standart dışı, zayıflık değil. Çerçeve değişimi.",
+    },
+    {
+      id: "ex.sc1.4.9",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "I'd be doing the team a disservice if I voted hire on someone who couldn't recover from the curveball.",
+      transcription_target:
+        "I'd be doing the team a disservice if I voted hire on someone who couldn't recover from the curveball.",
+      tr_hint:
+        "İşe alma debrief. 'Voted hire' = işe al oyu. 'Curveball' = beklenmedik soru (idiyom).",
+    },
+    {
+      id: "ex.sc1.4.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "for context",
+      tr_translation: "Bağlam vermek gerekirse",
+      example:
+        "For context, the last three engineers we hired off this signal didn't ramp — I'd want stronger evidence here.",
+      example_tr:
+        "Bağlam: bu sinyalle aldığımız son üç mühendis hızlanamadı — burada daha güçlü kanıt isterim.",
+    },
+    {
+      id: "ex.sc1.4.11",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "This candidate is amazing, I love everything about her, she is perfect for our team, we must hire.",
+      correct_sentence:
+        "I'd push back on hire — for context, the system design depth concerns me, even though her communication and ownership signals were strong.",
+      tr_explanation:
+        "'Amazing, perfect, must hire' = işe alma debrief'inde sinyal değil, gürültü. Senior committee dili: net pozisyon ('push back on hire'), spesifik endişe ('system design depth'), denge ('communication and ownership were strong'). Mühendislik kararı duyguyla değil, sinyalin yapısıyla alınır.",
     },
   ],
 };
@@ -1106,6 +1314,58 @@ export const specC1Lesson_5: BundledLesson = {
             "Kapanis: 'I owe you straight talk. I want this to work out — see you tomorrow.'",
         },
       ],
+    },
+    {
+      id: "ex.sc1.5.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I'd be doing you a disservice if I delayed this conversation.",
+      ipa: "aɪd bi ˈduːɪŋ juː ə dɪsˈsɜːrvɪs ɪf aɪ dɪˈleɪd ðɪs ˌkɒnvərˈseɪʃən",
+      tr_hint:
+        "PIP açılış. Ölçülü + içten. Hızlı geçme — kelime ağırlığını taşı.",
+    },
+    {
+      id: "ex.sc1.5.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "With respect, the gap isn't effort — it's the methodology you're applying to the design problem.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "PIP teşhis. 'Gap isn't effort' = eksiklik çaba değil. 'Methodology you're applying' = uyguladığın yöntem.",
+    },
+    {
+      id: "ex.sc1.5.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "For context, this isn't a referendum on you as a person — it's a fit conversation about this role.",
+      transcription_target:
+        "For context, this isn't a referendum on you as a person — it's a fit conversation about this role.",
+      tr_hint:
+        "PIP çerçeveleme. 'Referendum on you as a person' = kişiliğin üzerinde oylama. 'Fit conversation' = uyum konuşması.",
+    },
+    {
+      id: "ex.sc1.5.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "I'd be doing you a disservice",
+      tr_translation: "Sana iyilik etmemiş olurum",
+      example:
+        "I'd be doing you a disservice if I gave you a 'meets' on this review — the data says otherwise, and you deserve straight talk.",
+      example_tr:
+        "Bu değerlendirmede 'karşılıyor' versem sana iyilik etmemiş olurum — veriler aksini söylüyor ve sen dürüst söze layıksın.",
+    },
+    {
+      id: "ex.sc1.5.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "You are not doing well, you must improve quickly or I will fire you next month.",
+      correct_sentence:
+        "I want to put us on a formal plan — for context, you've missed expectations for two consecutive quarters, and I owe you both clarity and a real shot at recovery.",
+      tr_explanation:
+        "'Must improve or I will fire' = tehdit, hukuki risk + güven kaybı. Olgun PIP: 'put us on a formal plan' (sistem), 'two consecutive quarters' (veri), 'clarity and a real shot at recovery' (saygı). Yönetici hem sınır hem destek sunar.",
     },
   ],
 };
@@ -1341,6 +1601,58 @@ export const specC1Lesson_6: BundledLesson = {
             "Sade kapanis. 'Take care. I'm sorry — reach out when you're ready.'",
         },
       ],
+    },
+    {
+      id: "ex.sc1.6.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I'd be doing you a disservice if I sugar-coated this.",
+      ipa: "aɪd bi ˈduːɪŋ juː ə dɪsˈsɜːrvɪs ɪf aɪ ˈʃʊgərˌkoʊtɪd ðɪs",
+      tr_hint:
+        "Layoff açılışı. 'Sugar-coated' = tatlandırılmış. Ölçülü, duygusal kontrol.",
+    },
+    {
+      id: "ex.sc1.6.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "With respect, this decision is about role-fit at the company level — it isn't a verdict on your work.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Layoff şefkat. 'Role-fit at the company level' = şirket seviyesinde rol-uyum. 'Verdict on your work' = işine dair hüküm.",
+    },
+    {
+      id: "ex.sc1.6.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "For context, the methodology we used to scope this round was based on workload, not performance.",
+      transcription_target:
+        "For context, the methodology we used to scope this round was based on workload, not performance.",
+      tr_hint:
+        "Layoff şeffaflığı. 'Scope this round' = bu turu kapsama. 'Workload, not performance' = iş yükü, performans değil.",
+    },
+    {
+      id: "ex.sc1.6.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "for context",
+      tr_translation: "Bağlam vermek gerekirse",
+      example:
+        "For context, we made this call at the executive level last week — I wanted you to hear it from me, not from HR.",
+      example_tr:
+        "Bağlam: bu kararı geçen hafta üst yönetim seviyesinde verdik — bunu İK'dan değil, benden duymanı istedim.",
+    },
+    {
+      id: "ex.sc1.6.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Sorry but we don't need you anymore, please clean your desk by tomorrow, thank you for your time.",
+      correct_sentence:
+        "I have a hard message — your role is being eliminated as part of a reduction. For context, this isn't about your performance; it's a company-level call. I want to walk you through what comes next.",
+      tr_explanation:
+        "'Don't need you, clean your desk' = yıkıcı, hukuki risk + onur kaybı. Olgun layoff: 'hard message' (önbildirim), pasif yumuşatma ('role is being eliminated'), bağlam ('not about performance'), aksiyon ('what comes next'). İnsana saygı sistem işini geri vermez ama yaşatır.",
     },
   ],
 };
@@ -1583,6 +1895,58 @@ export const specC1Lesson_7: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.sc1.7.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "For context, our last round was $5M seed at fifteen post.",
+      ipa: "fər ˈkɒntɛkst aʊər læst raʊnd wəz faɪv ˈmɪljən siːd",
+      tr_hint:
+        "VC kalibrasyon. 'Five mil seed at fifteen post' = $5M tohum, $15M post-money. Akıcı, nötr ton.",
+    },
+    {
+      id: "ex.sc1.7.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "I'd be doing you a disservice if I told you we have ten enterprise customers — we have three, and they're real.",
+      voice_hint: "male_us",
+      tr_hint:
+        "VC dürüstlük. 'They're real' = gerçek (vurgu). Az ama dürüst, çok ama abartılı'dan iyi.",
+    },
+    {
+      id: "ex.sc1.7.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "With respect, I'd push back on the framing that this is a winner-take-all market — for context, three companies own different layers of the stack.",
+      transcription_target:
+        "With respect, I'd push back on the framing that this is a winner-take-all market — for context, three companies own different layers of the stack.",
+      tr_hint:
+        "VC reframe. 'Winner-take-all market' = kazananın her şeyi aldığı pazar. 'Different layers of the stack' = stack'in farklı katmanları.",
+    },
+    {
+      id: "ex.sc1.7.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "I'd push back on the framing",
+      tr_translation: "Çerçeveye itiraz ederim",
+      example:
+        "I'd push back on the framing that this is a 'technology bet' — for context, the bet is on distribution.",
+      example_tr:
+        "Bunun 'teknoloji bahsi' olarak çerçevelenmesine itiraz ederim — asıl bahis dağıtım üzerine.",
+    },
+    {
+      id: "ex.sc1.7.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "We are the best in this space, no one can compete with us, we will be the next unicorn for sure.",
+      correct_sentence:
+        "For context, the moat we're building is the dataset — I'd push back on anyone who says this is winner-take-all, but the early advantage compounds.",
+      tr_explanation:
+        "'Best in space, no one can compete, next unicorn for sure' = pitch klişesi, VC reddi. Founder dili: somut farklılaştırıcı ('dataset'), çerçeveye itiraz ('push back on winner-take-all'), gerçekçi iyimser ('early advantage compounds'). Spesifiklik ikna eder, slogan değil.",
+    },
   ],
 };
 
@@ -1799,6 +2163,58 @@ export const specC1Lesson_8: BundledLesson = {
             "Kapanis: 'One-pager in your inbox by EOD — thanks for the openness.'",
         },
       ],
+    },
+    {
+      id: "ex.sc1.8.7",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I'd push back on the renewal pause — for context, here's what we're shipping next month.",
+      ipa: "aɪd pʊʃ bæk ɒn ðə rɪˈnjuːəl pɔːz",
+      tr_hint:
+        "Churn save itirazı. 'Renewal pause' = yenileme durakla. 'What we're shipping' = neyi yayınlıyoruz.",
+    },
+    {
+      id: "ex.sc1.8.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "With respect, I'd be doing you a disservice if I promised that feature for Q3 — the honest answer is Q4.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Müşteri dürüstlüğü. 'Doing you a disservice' = sana iyilik etmemiş olurum. Q3 yerine Q4 sözü ver.",
+    },
+    {
+      id: "ex.sc1.8.9",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "For context, the methodology your team flagged is now configurable per workspace — that lands in next week's release.",
+      transcription_target:
+        "For context, the methodology your team flagged is now configurable per workspace — that lands in next week's release.",
+      tr_hint:
+        "Müşteri çözüm bildirimi. 'Configurable per workspace' = workspace bazında yapılandırılabilir. 'Lands in next week's release' = haftaya çıkan sürümde.",
+    },
+    {
+      id: "ex.sc1.8.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "with respect",
+      tr_translation: "Saygıyla (formal yumuşatma)",
+      example:
+        "With respect, the comparison to Competitor X isn't apples-to-apples — we're solving a different problem.",
+      example_tr:
+        "Saygıyla — Rakip X ile karşılaştırma elma-elmaya değil; biz farklı bir problem çözüyoruz.",
+    },
+    {
+      id: "ex.sc1.8.11",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Please please don't leave, we will give you 50% discount and anything you want, just stay.",
+      correct_sentence:
+        "I hear the churn signal, and I'd want to understand what's underneath it before we talk price. For context, discount-first usually doesn't solve the real issue.",
+      tr_explanation:
+        "'Please don't leave, anything you want' = aciliyetli yalvarış, müşteri güvenini kaybeder. CS dili: 'hear the churn signal' (duyduğunu göster), 'understand what's underneath' (kök neden), 'discount-first doesn't solve' (sistematik). Müşteriyi indirimle değil, sorunu çözerek tut.",
     },
   ],
 };
@@ -2025,6 +2441,58 @@ export const specC1Lesson_9: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.sc1.9.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "For context, the incident was caused by a deploy that bypassed our gate.",
+      ipa: "fər ˈkɒntɛkst ði ˈɪnsɪdənt wəz kɔːzd baɪ ə dɪˈplɔɪ",
+      tr_hint:
+        "Müşteri eskalasyon dürüstlüğü. 'Bypassed our gate' = kapımızı atladı. Net, savunmasız.",
+    },
+    {
+      id: "ex.sc1.9.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "I'd be doing you a disservice if I gave you the marketing answer — the honest answer is we missed a check that should have caught this.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Eskalasyon çağrısı. 'Marketing answer' = pazarlama cevabı (içi boş). 'Missed a check' = kontrol atladık.",
+    },
+    {
+      id: "ex.sc1.9.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "With respect, the methodology in our incident-response runbook didn't account for this failure mode — that's on us, and we're fixing it.",
+      transcription_target:
+        "With respect, the methodology in our incident-response runbook didn't account for this failure mode — that's on us, and we're fixing it.",
+      tr_hint:
+        "Postmortem dili. 'Incident-response runbook' = olay müdahale kitabı. 'Failure mode' = arıza biçimi.",
+    },
+    {
+      id: "ex.sc1.9.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "I'd be doing you a disservice",
+      tr_translation: "Sana iyilik etmemiş olurum",
+      example:
+        "I'd be doing you a disservice if I attributed this to a 'rare edge case' — it wasn't rare; it was a class of bug we hadn't tested for.",
+      example_tr:
+        "Buna 'nadir bir uç durum' dersem sana iyilik etmemiş olurum — nadir değildi, test etmediğimiz bir hata sınıfıydı.",
+    },
+    {
+      id: "ex.sc1.9.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Sorry for any problems, our system is usually very good, this was a small bug, please don't worry.",
+      correct_sentence:
+        "I want to own this directly. For context, our SLA was breached for forty-seven minutes — that's on us. The RCA and credit proposal will be in your inbox by Thursday EOD.",
+      tr_explanation:
+        "'Small bug, please don't worry' = küçümseme, müşteri öfkesini büyütür. Senior CS eskalasyon: 'own this directly' (sahiplenme), spesifik veri ('SLA breached for forty-seven minutes'), aksiyon ('RCA and credit proposal Thursday EOD'). Müşteri saygı + somutluk ister, rahatlatma değil.",
+    },
   ],
 };
 
@@ -2250,6 +2718,58 @@ export const specC1Lesson_10: BundledLesson = {
             "Thanks + somut commit + next cadence. Generic 'great team' degil — spesifik bir sey birak.",
         },
       ],
+    },
+    {
+      id: "ex.sc1.10.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I'd be doing this team a disservice if I dressed up a hard quarter.",
+      ipa: "aɪd bi ˈduːɪŋ ðɪs tiːm ə dɪsˈsɜːrvɪs ɪf aɪ drɛst ʌp",
+      tr_hint:
+        "All-hands dürüstlüğü. 'Dressed up' = süslemek. Net, savunmasız, içten.",
+    },
+    {
+      id: "ex.sc1.10.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "For context, we missed plan by twelve percent — I'd push back on anyone who tells you that's not significant.",
+      voice_hint: "female_us",
+      tr_hint:
+        "All-hands dürüst veri. 'Missed plan by twelve percent' = plandan %12 sapma. 'Push back on anyone' = kim olursa olsun itiraz.",
+    },
+    {
+      id: "ex.sc1.10.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "With respect to the leadership team, I'm going to share two numbers we usually don't put on a slide.",
+      transcription_target:
+        "With respect to the leadership team, I'm going to share two numbers we usually don't put on a slide.",
+      tr_hint:
+        "All-hands ön bildirim. 'With respect to' = saygıyla (yapay olmayan açılış). 'Numbers we usually don't put on a slide' = slayta koymadığımız sayılar.",
+    },
+    {
+      id: "ex.sc1.10.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "for context",
+      tr_translation: "Bağlam vermek gerekirse",
+      example:
+        "For context, the last time we shipped a quarter like this we doubled in the next two — I'm not promising that, but I see the same setup.",
+      example_tr:
+        "Bağlam: böyle bir çeyrek yaşadığımızda sonraki ikide ikiye katlanmıştık — söz vermiyorum ama aynı kurguyu görüyorum.",
+    },
+    {
+      id: "ex.sc1.10.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Hello team, everything is amazing, we are crushing it, please keep working hard and don't worry about anything.",
+      correct_sentence:
+        "Hi team — I want to be candid with you. For context, this was a hard quarter, and I'd be doing you a disservice if I papered over it. Here's what I'm seeing and what I'm asking of you.",
+      tr_explanation:
+        "'Everything is amazing, crushing it, don't worry' = senior team güvenini kaybeder, gerçeklikle çelişir. CEO all-hands dili: 'be candid' (önbildirim), 'hard quarter' (gerçek), 'doing you a disservice if I papered over' (öz-eleştiri), 'what I'm asking of you' (net çağrı). Olgun lider gerçekliği taşır.",
     },
   ],
 };

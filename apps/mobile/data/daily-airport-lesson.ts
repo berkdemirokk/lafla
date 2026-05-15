@@ -199,6 +199,53 @@ export const dailyAirportLesson_44_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.da44.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Could I get an aisle seat, please?",
+      ipa: "/kʊd aɪ ɡɛt ən aɪl siːt pliːz/",
+      tr_hint:
+        "'Aisle' = 'ayl' (s sessiz!). 'Could I' bağlanır → 'kud-ay'. Sonda 'please' uzun 'iː'.",
+    },
+    {
+      id: "ex.da44.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Hi, I'm checking in for flight TK0001 to Istanbul — one bag to check.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Checking in for' birleşik, 'TK zero zero zero one' tek tek oku.",
+    },
+    {
+      id: "ex.da44.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Window or aisle? And do you have any liquids in your carry-on?",
+      transcription_target:
+        "Window or aisle? And do you have any liquids in your carry-on?",
+      tr_hint:
+        "Check-in görevlisi tipik soru. 'Window or aisle' hızlı söylenir, 'carry-on' tek kelime gibi.",
+    },
+    {
+      id: "ex.da44.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "is there any way",
+      tr_translation: "Bir şekilde / mümkün mü...",
+      example: "Is there any way to get a seat with extra legroom?",
+      example_tr: "Bir şekilde geniş bacak mesafeli koltuk alabilir miyim?",
+    },
+    {
+      id: "ex.da44.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I have one valise to give.",
+      correct_sentence: "I have one bag to check.",
+      tr_explanation:
+        "'Valise' İngilizce'de günlük kullanımda değil — 'bag' veya 'suitcase'. 'To give' direkt çeviri; doğru kalıp 'to check' (bagaja vermek).",
+    },
   ],
 };
 
@@ -384,6 +431,54 @@ export const dailyAirportLesson_44_2: BundledLesson = {
             "Çoğu havalimanında laptop ve büyük elektronikler ayrı tray. TSA PreCheck/Fast Track'te çıkarmayabilirsin.",
         },
       ],
+    },
+    {
+      id: "ex.da44.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I have a metal implant in my knee.",
+      ipa: "/aɪ hæv ə ˈmɛtəl ˈɪmplænt ɪn maɪ niː/",
+      tr_hint:
+        "'Knee' = 'ni' (k sessiz!). 'Implant' vurgu ilk hecede: ˈIM-plant. 'Metal' = 'me-tıl'.",
+    },
+    {
+      id: "ex.da44.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Quick heads-up — I have a metal implant, so the scanner might beep.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Native ile ritmi yakala. 'Heads-up' tek soluk, 'so the scanner' bağlanır.",
+    },
+    {
+      id: "ex.da44.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Shoes off, belt off, laptops out of the bag. Step into the scanner.",
+      transcription_target:
+        "Shoes off, belt off, laptops out of the bag. Step into the scanner.",
+      tr_hint:
+        "TSA görevli komut listesi. 'Shoes off, belt off' ritmik, 'laptops out of the bag' tek nefes.",
+    },
+    {
+      id: "ex.da44.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "by any chance",
+      tr_translation: "Bir ihtimal / acaba",
+      example: "By any chance, can I keep my shoes on?",
+      example_tr: "Bir ihtimal ayakkabılarımı giyebilir miyim?",
+    },
+    {
+      id: "ex.da44.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "My liquids are over hundred millilitres maybe.",
+      correct_sentence: "Some of my liquids might be over 100ml.",
+      tr_explanation:
+        "'Are over hundred millilitres maybe' karmaşık + 'maybe' yanlış yerde. Doğru: 'might be' (olabilir) + '100ml' günlük kısa form. 'Some of' belirsizliği netleştirir.",
     },
   ],
 };
@@ -586,6 +681,54 @@ export const dailyAirportLesson_44_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.da44.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "My bag didn't make it onto the flight.",
+      ipa: "/maɪ bæɡ ˈdɪdənt meɪk ɪt ˈɒntə ðə flaɪt/",
+      tr_hint:
+        "'Didn't' = 'didınt' kısa. 'Make it' bağlanır = 'meyk-it'. 'Onto the' = 'on-tıv-dı'.",
+    },
+    {
+      id: "ex.da44.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Hi, my bag didn't come out on the belt — I need to file a delayed-baggage report.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Bagaj kayıp gişesinde tipik cümle. 'Didn't come out' bağlanır, 'delayed-baggage' tek kelime gibi.",
+    },
+    {
+      id: "ex.da44.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "We'll deliver it to your hotel within 24 hours. Keep your receipts for essentials.",
+      transcription_target:
+        "We'll deliver it to your hotel within 24 hours. Keep your receipts for essentials.",
+      tr_hint:
+        "Görevli tipik kapanış. 'We'll deliver' bağlanır = 'wil-dı-li-vır'. 'Receipts' = 'ri-sits'.",
+    },
+    {
+      id: "ex.da44.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "have you got",
+      tr_translation: "(Sende) var mı? (UK günlük)",
+      example: "Have you got my baggage claim tag number?",
+      example_tr: "Bagaj etiket numaram sende var mı?",
+    },
+    {
+      id: "ex.da44.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Where is my baggage? I'm waiting since one hour!",
+      correct_sentence: "Where's my bag? I've been waiting for an hour.",
+      tr_explanation:
+        "'I'm waiting since one hour' direkt Türkçe çeviri — yanlış zaman. Doğru: 'I've been waiting for an hour' (Present Perfect Continuous + 'for'). 'Baggage' tekil/uncountable, günlükte 'bag' kısa.",
+    },
   ],
 };
 
@@ -769,6 +912,55 @@ export const dailyAirportLesson_44_4: BundledLesson = {
             "AB EC261, ABD DOT ve çoğu havayolu kuralı: havayolu hatasıyla iptal = otel, yemek, yeniden planlama veya iade. İste — söylemeden vermezler.",
         },
       ],
+    },
+    {
+      id: "ex.da44.4.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "What are my options from here?",
+      ipa: "/wɒt ɑːr maɪ ˈɒpʃənz frɒm hɪər/",
+      tr_hint:
+        "'What are' = 'wat-ır' bağlanır. 'Options' = 'op-şınz'. Sonda 'from here' = 'frım-hir'.",
+    },
+    {
+      id: "ex.da44.4.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "My flight was canceled — could you rebook me on the next available flight?",
+      voice_hint: "male_us",
+      tr_hint:
+        "Sakin ton önemli. 'Was canceled' = 'wız-kın-sıld'. 'Rebook me on' bağlanır.",
+    },
+    {
+      id: "ex.da44.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "Since the cancellation is on us, you're entitled to a hotel voucher and a meal voucher.",
+      transcription_target:
+        "Since the cancellation is on us, you're entitled to a hotel voucher and a meal voucher.",
+      tr_hint:
+        "Önemli ifade: 'on us' = bizim hatamız. 'Entitled to' = hakkın var. Voucher = 'vau-çır'.",
+    },
+    {
+      id: "ex.da44.4.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "would you mind",
+      tr_translation: "... yapmanın bir sakıncası olur mu?",
+      example: "Would you mind putting me on the morning flight?",
+      example_tr: "Beni sabah uçuşuna yazmanın bir sakıncası olur mu?",
+    },
+    {
+      id: "ex.da44.4.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "My flight is cancel. I want to take other plane.",
+      correct_sentence:
+        "My flight was canceled. Could you put me on another flight?",
+      tr_explanation:
+        "'Is cancel' yanlış — passive 'was canceled' lazım. 'Take other plane' direkt çeviri; doğru kalıp 'put me on another flight'. 'I want' kaba, 'Could you' kibar.",
     },
   ],
 };

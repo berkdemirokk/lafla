@@ -169,6 +169,51 @@ export const restaurantLesson_2_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.2.1.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Excuse me, could we get a table for two?",
+      ipa: "ɪkˈskjuːz mi kʊd wi ɡɛt ə ˈteɪbəl fər tuː",
+      tr_hint:
+        "'Excuse me' başlangıçta uzun 'iː'. 'Could we' bağlanır → 'kud-wi'. 'Table' içinde 'a' uzun: 'teɪ-bəl'.",
+    },
+    {
+      id: "ex.2.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Hi, we have a reservation for two under Smith at seven.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Reservation' içinde 'a' uzar, 'under' bağlanır. Rezervasyon vermenin standart formu.",
+    },
+    {
+      id: "ex.2.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Do you have a reservation, or are you walking in?",
+      transcription_target: "Do you have a reservation, or are you walking in?",
+      tr_hint:
+        "Dinle, yaz. 'Walking in' = rezervasyonsuz gelmek. Restoranlarda standart açılış sorusu.",
+    },
+    {
+      id: "ex.2.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "reservation",
+      tr_translation: "Rezervasyon",
+      example: "We have a reservation at seven under Berk.",
+      example_tr: "Saat yediye Berk ismine rezervasyonumuz var.",
+    },
+    {
+      id: "ex.2.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I made reservation for tonight in 8 o'clock.",
+      correct_sentence: "I have a reservation for tonight at eight.",
+      tr_explanation:
+        "Article eksik ('a reservation'). 'In 8 o'clock' yanlış — saat için 'at eight' kullanılır. 'Made' geçmiş, ama 'have' şu anki rezervasyonu vurgular.",
+    },
   ],
 };
 
@@ -357,6 +402,51 @@ export const restaurantLesson_2_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.2.2.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "I'll have the steak, medium rare, please.",
+      ipa: "aɪl hæv ðə steɪk ˈmiːdiəm rɛr pliːz",
+      tr_hint:
+        "'I'll' kısaltma → 'ayl'. 'Steak' = 'steɪk' (uzun 'a'). 'Medium rare' bağlanır: 'mi-di-əm rɛr'.",
+    },
+    {
+      id: "ex.2.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "What do you recommend? It's our first time here.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'What do you' bağlanır → 'wadd-əyə'. Garson öneri için kapı açan klasik kalıp.",
+    },
+    {
+      id: "ex.2.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "How would you like that cooked?",
+      transcription_target: "How would you like that cooked?",
+      tr_hint:
+        "Dinle, yaz. Garsonun biftek/kuzu sipariş ederken sorduğu klasik: 'Nasıl pişsin?'",
+    },
+    {
+      id: "ex.2.2.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "appetizer",
+      tr_translation: "Başlangıç (ana yemekten önce)",
+      example: "Would you like to start with an appetizer?",
+      example_tr: "Başlangıçla başlamak ister misiniz?",
+    },
+    {
+      id: "ex.2.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I take chicken and you bring rice with it.",
+      correct_sentence: "I'll have the chicken with rice on the side, please.",
+      tr_explanation:
+        "'I take' kafede zayıf, restoranda yanlış. 'You bring' suçlayıcı/komut. Doğrusu: 'I'll have [X] with [Y] on the side'.",
+    },
   ],
 };
 
@@ -528,6 +618,51 @@ export const restaurantLesson_2_3: BundledLesson = {
             "'Refill' = yenileme. Boş bardak için doğal kalıp.",
         },
       ],
+    },
+    {
+      id: "ex.2.3.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could we get some more water, please?",
+      ipa: "kʊd wi ɡɛt sʌm mɔːr ˈwɔːtər pliːz",
+      tr_hint:
+        "'Could we' birleşik → 'kud-wi'. 'Some more' yumuşak 'sʌm-mɔːr'. 'Water' içinde 'a' uzun: 'wɔː'.",
+    },
+    {
+      id: "ex.2.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Everything's great so far — could we get a bit more bread?",
+      voice_hint: "male_us",
+      tr_hint:
+        "Native ile aynı anda söyle. Övgü + istek kombosu. 'Everything's' bağlanır, 'a bit more' yumuşatıcı.",
+    },
+    {
+      id: "ex.2.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "How is everything tasting tonight?",
+      transcription_target: "How is everything tasting tonight?",
+      tr_hint:
+        "Dinle, yaz. Garsonun yemek ortasında klasik kontrol sorusu. 'Tasting' = tadı nasıl.",
+    },
+    {
+      id: "ex.2.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "to-go box",
+      tr_translation: "Paket kutusu (artık için)",
+      example: "Could we get a to-go box for the rest?",
+      example_tr: "Kalanı için bir paket kutusu alabilir miyiz?",
+    },
+    {
+      id: "ex.2.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Bring me one fork, mine fell down.",
+      correct_sentence: "Sorry, could I get another fork? Mine fell on the floor.",
+      tr_explanation:
+        "'Bring me' komut. 'Mine fell down' kelimesi kelimesine çeviri. Doğrusu 'Could I get another fork? Mine fell on the floor.' — 'sorry' yumuşatıcı.",
     },
   ],
 };
@@ -709,6 +844,52 @@ export const restaurantLesson_2_4: BundledLesson = {
             "ABD: %18-20 standart, %15 minimum. UK %10-12, EU yuvarlama. Türkiye'den farklı kültürel kod.",
         },
       ],
+    },
+    {
+      id: "ex.2.4.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could we get the check, please?",
+      ipa: "kʊd wi ɡɛt ðə ʧɛk pliːz",
+      tr_hint:
+        "'Could we' bağlanır → 'kud-wi'. 'Check' net 'ʧ' sesi, dilini damağa yapıştır.",
+    },
+    {
+      id: "ex.2.4.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Could we split the bill, please? Two cards.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Split the bill' yerleşik idiom. 'Two cards' kısa ve net.",
+    },
+    {
+      id: "ex.2.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Will that be on one check or separate?",
+      transcription_target: "Will that be on one check or separate?",
+      tr_hint:
+        "Dinle, yaz. Garsonun hesap aşamasında klasik sorusu — tek mi ayrı mı?",
+    },
+    {
+      id: "ex.2.4.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "settle up",
+      tr_translation: "Hesabı kapatmak / ödeyip ayrılmak",
+      example: "Whenever you're ready, we can settle up.",
+      example_tr: "Hazır olduğunda hesabı kapatabiliriz.",
+    },
+    {
+      id: "ex.2.4.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Bill, please. We pay separate, every one own.",
+      correct_sentence:
+        "Could we get the bill, please? We'd like separate checks.",
+      tr_explanation:
+        "Tek kelime + komut tonu. 'Every one own' kırık yapı — doğrusu 'separate checks' (ayrı çek). Tam soru cümlesi kibar.",
     },
   ],
 };

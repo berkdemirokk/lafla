@@ -173,6 +173,52 @@ export const dailyTechSupportLesson_36_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.dts36.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "My internet has been down since this morning.",
+      ipa: "maɪ ˈɪntərnɛt həz bɪn daʊn sɪns ðɪs ˈmɔːrnɪŋ",
+      tr_hint:
+        "Tech support acilis. 'Has been down' = present perfect (kesik durumda). 'Since this morning' = sabahtan beri.",
+    },
+    {
+      id: "ex.dts36.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I'm getting an error code that says E four oh four.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Error code okuma. 'E four oh four' = E-404. Tek tek harf+rakam = net.",
+    },
+    {
+      id: "ex.dts36.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "Can you describe exactly what happens when it crashes?",
+      transcription_target: "Can you describe exactly what happens when it crashes?",
+      tr_hint:
+        "Agent klasik sorusu. 'Describe exactly' = tam tarif et. 'When it crashes' = çöktüğünde.",
+    },
+    {
+      id: "ex.dts36.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "error code",
+      tr_translation: "Hata kodu",
+      example: "The error code reads E-404 — DNS resolution.",
+      example_tr: "Hata kodu E-404 — DNS çözümleme.",
+    },
+    {
+      id: "ex.dts36.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Broken now. Fix.",
+      correct_sentence:
+        "My Wi-Fi has been down for two hours — modem shows a red light and no error code yet.",
+      tr_explanation:
+        "Tek kelime + emir. Doğru: ne (Wi-Fi) + ne kadar (two hours) + gözlem (red light) + kanit (no error code).",
+    },
   ],
 };
 
@@ -341,6 +387,52 @@ export const dailyTechSupportLesson_36_2: BundledLesson = {
             "'Reboot the router' = elektrigi kes. 'Restart the app' = uygulamayi kapat-ac. Ust ust farkli.",
         },
       ],
+    },
+    {
+      id: "ex.dts36.2.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I've already rebooted the router twice.",
+      ipa: "aɪv ɔːlˈrɛdi riːˈbuːtɪd ðə ˈruːtər twaɪs",
+      tr_hint:
+        "Present perfect kalibi. 'I've already' bağlanır → 'ayv-ɔl-rə-di'. 'Rebooted twice' net biten.",
+    },
+    {
+      id: "ex.dts36.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I've cleared the cache and reinstalled the app.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Iki adim ozeti. 'Cleared the cache' birleşik. 'Reinstalled the app' bağlanır.",
+    },
+    {
+      id: "ex.dts36.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "Let me put you on a brief hold while I run diagnostics.",
+      transcription_target: "Let me put you on a brief hold while I run diagnostics.",
+      tr_hint:
+        "Agent gecis cumlesi. 'Brief hold' = kisa bekleme. 'Run diagnostics' = tani calistir.",
+    },
+    {
+      id: "ex.dts36.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "power cycle",
+      tr_translation: "Elektriği kes-aç (cihazi tamamen yeniden başlat)",
+      example: "I already power cycled the modem for sixty seconds.",
+      example_tr: "Modeme zaten 60 saniyelik power cycle yaptım.",
+    },
+    {
+      id: "ex.dts36.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Restart yes did. Same broken.",
+      correct_sentence:
+        "I've already restarted twice — unplugged for thirty seconds each time. Still no connection.",
+      tr_explanation:
+        "Belirsiz + grammatik degil. Doğru: present perfect + spesifik adim (unplugged 30s) + sonuc (still no connection).",
     },
   ],
 };
@@ -512,6 +604,52 @@ export const dailyTechSupportLesson_36_3: BundledLesson = {
             "Yetki sorunu = 'escalate'. Yanlis departman = 'transfer'. Doğru kelimeyi sec = direkt yere gider.",
         },
       ],
+    },
+    {
+      id: "ex.dts36.3.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Could I speak to a supervisor, please?",
+      ipa: "kʊd aɪ spiːk tə ə ˈsuːpərvaɪzər pliːz",
+      tr_hint:
+        "Saygili eskalasyon. 'Could I speak to' birleşik. 'Supervisor' vurgu ilk hece: SU-per-vay-zer.",
+    },
+    {
+      id: "ex.dts36.3.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "I appreciate your help, but I'd like to escalate this.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Diplomatik eskalasyon. 'I appreciate your help' önce tesekkur. 'I'd like to escalate' = saygili istek.",
+    },
+    {
+      id: "ex.dts36.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "I'll transfer you to our tier two support team.",
+      transcription_target: "I'll transfer you to our tier two support team.",
+      tr_hint:
+        "Agent gecis cumlesi. 'Tier two' = ikinci seviye (üst). 'Support team' = destek ekibi.",
+    },
+    {
+      id: "ex.dts36.3.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "escalate this",
+      tr_translation: "Bunu üst kademeye taşı",
+      example: "Could we escalate this to someone with refund authority?",
+      example_tr: "Bunu iade yetkisi olan birine yükseltebilir miyiz?",
+    },
+    {
+      id: "ex.dts36.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Boss now! You no help!",
+      correct_sentence:
+        "I appreciate your time, but this needs higher-level access — could you transfer me to a supervisor?",
+      tr_explanation:
+        "Saldırgan + 'boss'. Doğru: tesekkur + sebep (higher-level access) + saygili transfer istegi.",
     },
   ],
 };
@@ -685,6 +823,52 @@ export const dailyTechSupportLesson_36_4: BundledLesson = {
             "'Hi, calling about ticket TS-77821' = agent kaydi acar = 5 dakikada kaldigin yerden devam.",
         },
       ],
+    },
+    {
+      id: "ex.dts36.4.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Could I get a ticket number for this?",
+      ipa: "kʊd aɪ ɡɛt ə ˈtɪkɪt ˈnʌmbər fər ðɪs",
+      tr_hint:
+        "Cagri kapanis. 'Could I get' bağlanır. 'Ticket number' birleşik vurgu. 'For this' net.",
+    },
+    {
+      id: "ex.dts36.4.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Let me test it before we hang up.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Test isteme kalibi. 'Let me test it' = bir test edeyim. 'Before we hang up' = kapatmadan önce.",
+    },
+    {
+      id: "ex.dts36.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Your refund should process in three to five business days.",
+      transcription_target: "Your refund should process in three to five business days.",
+      tr_hint:
+        "Iade timeline. 'Should process' = islenecek. 'Three to five business days' = 3-5 is günü.",
+    },
+    {
+      id: "ex.dts36.4.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "ticket number",
+      tr_translation: "Destek talep numarası",
+      example: "Save your ticket number in case you need to call back.",
+      example_tr: "Geri ararsan diye destek talep numaranı sakla.",
+    },
+    {
+      id: "ex.dts36.4.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Okay finish bye.",
+      correct_sentence:
+        "Let me test the connection — yes, it's back. Could I get a ticket number in case it breaks again?",
+      tr_explanation:
+        "Test etmeden + kanit istemeden kapanis. Doğru: test (yes back) + ticket number + 'in case' guvenligi.",
     },
   ],
 };

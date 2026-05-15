@@ -178,6 +178,58 @@ export const flirtDateLesson_4_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd4.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Want to grab coffee sometime this week? No pressure if the timing's off.",
+      ipa: "/wɒnt tʊ ɡræb ˈkɒfi ˈsʌmtaɪm ðɪs wiːk — nəʊ ˈprɛʃə ɪf ðə ˈtaɪmɪŋz ɒf/",
+      tr_hint:
+        "Saygıli teklif tonu — kararli + esnek. 'Want to grab' bağli, 'no pressure' yumuşak çıkış kapısı.",
+    },
+    {
+      id: "ex.fd4.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Quick thought — there's this coffee place I've been meaning to try, free Thursday around seven?",
+      voice_hint: "warm_us",
+      tr_hint:
+        "Spesifik teklif ritmi — bahane + gun + saat. 'Been meaning to' bağli kalip. 'Around seven' yumuşak.",
+    },
+    {
+      id: "ex.fd4.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Honestly yes — was hoping you'd ask. What day works for you?",
+      transcription_target:
+        "Honestly yes — was hoping you'd ask. What day works for you?",
+      tr_hint:
+        "Match'in heyecanli kabul cevabi. 'Was hoping you'd ask' = sormani umuyordum. 'What works for you' = hangi gün uygun.",
+    },
+    {
+      id: "ex.fd4.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Got a spot in mind",
+      tr_translation: "Aklimda bir yer var",
+      example:
+        "Got a great spot in mind near the park — Thursday at seven, easy walk-in.",
+      example_tr:
+        "Parkın yanında harika bir yer biliyorum — Persembe yedide, kolayca girilir.",
+    },
+    {
+      id: "ex.fd4.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "We must meet tomorrow at 8pm at the place.",
+      correct_sentence:
+        "Free for coffee tomorrow around seven, or is later this week easier?",
+      tr_explanation:
+        "'We must' + 'at the place' = komut + belirsiz yer = bask + bilgisizlik. Doğru: 'Free for' (esnek) + spesifik zaman + alternatif sunma. Modern dating: secim sunan teklif > komut.",
+    },
   ],
 };
 
@@ -343,6 +395,59 @@ export const flirtDateLesson_4_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd4.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "I know this little Italian place that does ridiculous pasta — Friday night?",
+      ipa: "/aɪ nəʊ ðɪs ˈlɪtəl ɪˈtæljən pleɪs ðæt dʌz rɪˈdɪkjʊləs ˈpɑːstə — ˈfraɪdeɪ naɪt/",
+      tr_hint:
+        "Sahiplenme + heyecan tonu. 'This little place' bağli kalip. 'Ridiculous' = mizahi abarti, vurgulu.",
+    },
+    {
+      id: "ex.fd4.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Round two thoughts — wine bar by the river or that wood-fired pizza place we both kept mentioning?",
+      voice_hint: "warm_us",
+      tr_hint:
+        "Ikinci randevu tonu — kararli, eglenceli secim. 'Round two' bağli, ritmiyle akici.",
+    },
+    {
+      id: "ex.fd4.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Yes please — coffee was way too short. Got a spot in mind?",
+      transcription_target:
+        "Yes please — coffee was way too short. Got a spot in mind?",
+      tr_hint:
+        "Ikinci randevu kabul cevabi. 'Way too short' = cok kisaydi. 'Got a spot in mind' = aklinda yer var mi.",
+    },
+    {
+      id: "ex.fd4.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Save you the menu anxiety",
+      tr_translation: "Menü anksiyetesinden kurtarmak",
+      example:
+        "I'll pick the place — save you the menu anxiety. Italian okay?",
+      example_tr:
+        "Yeri ben sececegim — menü anksiyetesinden kurtarayim. Italyan olur mu?",
+    },
+    {
+      id: "ex.fd4.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Tomorrow you come restaurant with me. I pay everything.",
+      correct_sentence:
+        "Free for dinner Friday? Thinking that wine bar you mentioned — happy to grab the reservation.",
+      tr_explanation:
+        "'You come restaurant' = komut + bozuk. 'I pay everything' = transactional power-play. Doğru: soru + spesifik fikir (onun bahsettigi yer = dinledim sinyali) + 'happy to' (kolaylik teklif, baskinlik degil).",
+    },
   ],
 };
 
@@ -506,6 +611,59 @@ export const flirtDateLesson_4_3: BundledLesson = {
             "'Closes this weekend' = aciliyet. 'Forecast is perfect' = motivator. EVET demek kolaylaşır.",
         },
       ],
+    },
+    {
+      id: "ex.fd4.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Down for a walk through the farmers market Saturday? Forecast actually looks decent.",
+      ipa: "/daʊn fər ə wɔːk θruː ðə ˈfɑːməz ˈmɑːkɪt ˈsætədeɪ — ˈfɔːkɑːst ˈæktʃʊəli lʊks ˈdiːsənt/",
+      tr_hint:
+        "Casual activity teklif tonu. 'Down for' bağli kalip, 'forecast actually' bağli — surpriz nuansi.",
+    },
+    {
+      id: "ex.fd4.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Random thought — there's this rooftop jazz thing on Saturday, low-key cool, totally chill if it's not your scene.",
+      voice_hint: "warm_us",
+      tr_hint:
+        "Yaratici teklif tonu — kararli, çıkış kapısı içerir. 'Low-key cool' bağli slang. 'Not your scene' = senlik degilse.",
+    },
+    {
+      id: "ex.fd4.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Ooh I'm down — haven't been to a farmers market in forever.",
+      transcription_target:
+        "Ooh I'm down — haven't been to a farmers market in forever.",
+      tr_hint:
+        "Match'in heyecanli kabul cevabi. 'I'm down' = varim. 'In forever' = uzun zamandir.",
+    },
+    {
+      id: "ex.fd4.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Make a morning of it",
+      tr_translation: "Sabahi uzatip etkinlik yapalim",
+      example:
+        "Walk through the market, grab brunch after — let's make a morning of it.",
+      example_tr:
+        "Pazardan geç, sonra brunch — sabahi uzatip etkinlik yapalim.",
+    },
+    {
+      id: "ex.fd4.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Saturday we go museum. You like museum or not, I dont care.",
+      correct_sentence:
+        "Down for that photo exhibit Saturday? Closes Sunday — figured it could be fun together.",
+      tr_explanation:
+        "'We go museum' = komut + bozuk. 'I don't care' = saygisiz. Doğru: davet + neden ('closes Sunday' aciliyet) + 'together' (paylasim vurgu). Activity date'in özü ortak deneyim — dayatma degil.",
     },
   ],
 };
@@ -673,6 +831,59 @@ export const flirtDateLesson_4_4: BundledLesson = {
             "Çok yazışma = ideal versiyon hayal eder. Gerçek buluşma o ideal'i karşılayamaz.",
         },
       ],
+    },
+    {
+      id: "ex.fd4.4.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "We've been chatting a while — better way to do this is probably in person.",
+      ipa: "/wiːv biːn ˈtʃætɪŋ ə waɪl — ˈbɛtə weɪ tʊ dʊ ðɪs ɪz ˈprɒbəbli ɪn ˈpɜːsən/",
+      tr_hint:
+        "Olgun gecis tonu — kararli, baski yapmadan. 'We've been chatting' bağli, 'in person' yumusak kapanis.",
+    },
+    {
+      id: "ex.fd4.4.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Quick honest one — I think we'd vibe better in person, not gonna lie. Coffee this week?",
+      voice_hint: "warm_us",
+      tr_hint:
+        "Direkt + olgun ton. 'We'd vibe better in person' bağli yorum. 'Not gonna lie' = bunyemli dürüstlük kalibi.",
+    },
+    {
+      id: "ex.fd4.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Honestly was thinking the same thing. When works for you?",
+      transcription_target:
+        "Honestly was thinking the same thing. When works for you?",
+      tr_hint:
+        "Match'in olumlu yanit cevabi. 'Was thinking the same thing' = ben de ayni seyi dusunuyordum. 'When works' = ne zaman uyar.",
+    },
+    {
+      id: "ex.fd4.4.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Pen-pal phase is real",
+      tr_translation: "Mektup arkadaşi fazi gerçek (uzun yazismadan sonra)",
+      example:
+        "Don't want to hit pen-pal phase — coffee this week, even thirty minutes?",
+      example_tr:
+        "Mektup arkadaşi fazina düşmek istemem — bu hafta kahve, otuz dakika bile olur?",
+    },
+    {
+      id: "ex.fd4.4.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Why we don't meet ever? You don't want me probably.",
+      correct_sentence:
+        "We've been chatting a while — better in person, right? Free for coffee this week?",
+      tr_explanation:
+        "'Why we don't meet ever' = pasif-saldirgan + ezikçe. 'You don't want me probably' = guvensizlik gosterisi = unmatch tetigi. Doğru: pozitif framing + somut teklif. Modern dating'te ozguven = guvenli baglilik sinyali.",
     },
   ],
 };

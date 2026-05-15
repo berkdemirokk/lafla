@@ -226,6 +226,58 @@ export const professionalC1Lesson_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.pc1.1.9",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I'd push back gently on the framing — for context, the comparable isn't apples-to-apples.",
+      ipa: "aɪd pʊʃ bæk ˈdʒɛntli ɒn ðə ˈfreɪmɪŋ fər ˈkɒntɛkst",
+      tr_hint:
+        "Kurul registeri. 'Push back gently' birleşik, ölçülü. 'For context' = bağlam vermek için. 'Apples-to-apples' birleşik idiyom.",
+    },
+    {
+      id: "ex.pc1.1.10",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "With respect, I'd be doing the board a disservice if I let that comparison stand without flagging the timing mismatch.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Yönetici karşı çıkışı. 'With respect' formal yumuşatma. 'I'd be doing you a disservice' = sana iyilik etmemiş olurum. Kararlı + nazik.",
+    },
+    {
+      id: "ex.pc1.1.11",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "For context, the headwinds we're seeing are sector-wide — but I won't use that to dodge the underperformance question.",
+      transcription_target:
+        "For context, the headwinds we're seeing are sector-wide — but I won't use that to dodge the underperformance question.",
+      tr_hint:
+        "C-suite öz-eleştiri. 'Headwinds' = makro zorluklar. 'Sector-wide' = sektör çapında. 'Dodge' = atlatmak.",
+    },
+    {
+      id: "ex.pc1.1.12",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "I'd be doing you a disservice",
+      tr_translation: "Sana iyilik etmemiş olurum (= 'açıkça söylemeliyim')",
+      example:
+        "I'd be doing you a disservice if I told you this is fine — there's a structural problem we need to fix.",
+      example_tr:
+        "Sana bunun yolunda olduğunu söylersem iyilik etmemiş olurum — düzeltmemiz gereken yapısal bir sorun var.",
+    },
+    {
+      id: "ex.pc1.1.13",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Look, I think you don't understand the market, our numbers are actually very good, you are wrong.",
+      correct_sentence:
+        "I'd push back on that read of the numbers — for context, the comparable you're citing predates our pivot, so the headline is misleading.",
+      tr_explanation:
+        "'You don't understand' + 'you are wrong' = kurul registerinde kariyer bitirir. C-suite dili: 'push back on that read' (fikre itiraz), 'for context' (bağlam çerçevesi), 'misleading' (yumuşatılmış 'yanlış'). Şahsiyat değil, çerçeve.",
+    },
   ],
 };
 
@@ -426,6 +478,58 @@ export const professionalC1Lesson_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.pc1.2.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "To put a finer point on it — without this approval, Q3 slips.",
+      ipa: "tə pʊt ə ˈfaɪnər pɔɪnt ɒn ɪt wɪˈðaʊt ðɪs əˈpruːvəl",
+      tr_hint:
+        "Skip-level keskinleştirme. 'Put a finer point on it' = daha keskin söylemek. 'Slips' = kayar. Doğrudan ama saygılı.",
+    },
+    {
+      id: "ex.pc1.2.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "For context, this is the one decision that unblocks three downstream workstreams — that's why I'm bringing it up directly.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Skip-level çerçeve. 'For context' = bağlam için. 'Unblocks downstream workstreams' = aşağı akış işleri açar.",
+    },
+    {
+      id: "ex.pc1.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "I'd be doing you a disservice if I padded the timeline — the honest answer is six weeks, not three.",
+      transcription_target:
+        "I'd be doing you a disservice if I padded the timeline — the honest answer is six weeks, not three.",
+      tr_hint:
+        "Üst yöneticiye doğru sözlülük. 'Padded the timeline' = takvimi şişirmek. 'Honest answer' = dürüst cevap.",
+    },
+    {
+      id: "ex.pc1.2.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "for context",
+      tr_translation: "Bağlam vermek gerekirse",
+      example:
+        "For context, the last time we tried this approach the result was a six-month slip — I'd want guardrails in place.",
+      example_tr:
+        "Bağlam vermek gerekirse, bu yaklaşımı en son denediğimizde sonuç altı ay kaymaydı — koruyucu çiti yerinde isterim.",
+    },
+    {
+      id: "ex.pc1.2.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Please boss, I really need this approval, my team is suffering and we cannot continue like this.",
+      correct_sentence:
+        "I'd push back on the framing of this as a 'nice-to-have' — for context, without your sign-off, Q3 slips by six weeks. That's the trade I'd want to flag.",
+      tr_explanation:
+        "'Please boss, my team is suffering' = duygusal yalvarış, skip-level reddeder. C-suite dili: 'push back on the framing' (yeniden çerçevele), 'for context' (somut maliyet), 'trade I'd want to flag' (dengeli bilgi). Karar verici ekonomik dilden ikna olur, duygusal değil.",
+    },
   ],
 };
 
@@ -613,6 +717,58 @@ export const professionalC1Lesson_3: BundledLesson = {
             "C1 keynote: 'I have experience' = zayıf. 'I've got scars' = somut + duygusal + gerçek = audience güvenir.",
         },
       ],
+    },
+    {
+      id: "ex.pc1.3.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "For context, I'd push back on the premise of that question.",
+      ipa: "fər ˈkɒntɛkst aɪd pʊʃ bæk ɒn ðə ˈprɛmɪs əv ðæt ˈkwɛstʃən",
+      tr_hint:
+        "Panel itirazı. 'Premise of that question' = sorunun temel varsayımı. Kararlı + nazik moderasyon.",
+    },
+    {
+      id: "ex.pc1.3.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "With respect, the easy answer here is 'innovation' — but I'd be doing you a disservice if I left it there.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Keynote substansı. 'With respect' formal yumuşatma. 'Disservice if I left it there' = orada bırakırsam iyilik etmemiş olurum.",
+    },
+    {
+      id: "ex.pc1.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "I want to flag something the marketing slide didn't say — for context, our growth came from a much harder bet than the headline suggests.",
+      transcription_target:
+        "I want to flag something the marketing slide didn't say — for context, our growth came from a much harder bet than the headline suggests.",
+      tr_hint:
+        "Keynote dürüstlük. 'Marketing slide didn't say' = pazarlama gösteriminde söylenmeyen. 'Harder bet' = daha zor bahis.",
+    },
+    {
+      id: "ex.pc1.3.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "with respect",
+      tr_translation: "Saygıyla / saygısızlık etmeden",
+      example:
+        "With respect, I'd push back on the idea that AI is the bottleneck here — the bottleneck is product clarity.",
+      example_tr:
+        "Saygıyla itiraz ederim — buradaki darboğaz AI değil, ürün netliği.",
+    },
+    {
+      id: "ex.pc1.3.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Hi everyone, I am very happy to be here today, I will tell you about success stories from my company.",
+      correct_sentence:
+        "I want to spend the next ten minutes on what we got wrong — for context, I think the failures taught us more than the wins.",
+      tr_explanation:
+        "'Very happy to be here' + 'success stories' = jenerik, dikkat çekmez. C1 keynote açılış: spesifik (somut zaman 'next ten minutes'), karşı-sezgisel ('what we got wrong'), bağlam ('failures taught us more'). 'Tell about' yanlış — 'tell you about' veya 'talk about'.",
     },
   ],
 };
@@ -835,6 +991,58 @@ export const professionalC1Lesson_4: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.pc1.4.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I'd be doing you a disservice if I sugar-coated this.",
+      ipa: "aɪd bi ˈduːɪŋ juː ə dɪsˈsɜːrvɪs ɪf aɪ ˈʃʊgərˌkoʊtɪd ðɪs",
+      tr_hint:
+        "Kriz iletişimi dürüstlük. 'Sugar-coated' birleşik = tatlandırılmış (örtmek). Yavaş, kararlı.",
+    },
+    {
+      id: "ex.pc1.4.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "For context, this is on me — not on the team. I want the company to hear that from me first.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Kriz sahiplenme. 'This is on me' = sorumluluk benim. 'Hear that from me first' = ilk benden duymalı.",
+    },
+    {
+      id: "ex.pc1.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "With respect, I'm not going to give you a vague answer — what happened was a process failure, and here's what we're changing.",
+      transcription_target:
+        "With respect, I'm not going to give you a vague answer — what happened was a process failure, and here's what we're changing.",
+      tr_hint:
+        "Krizde dürüstlük. 'Vague answer' = belirsiz cevap. 'Process failure' = süreç hatası.",
+    },
+    {
+      id: "ex.pc1.4.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "with respect",
+      tr_translation: "Saygıyla (formal itiraz)",
+      example:
+        "With respect, calling this a 'minor incident' would be misleading — it cost three customers their data.",
+      example_tr:
+        "Saygıyla — buna 'küçük olay' demek yanıltıcı olur, üç müşteri verisini kaybetti.",
+    },
+    {
+      id: "ex.pc1.4.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Some mistakes were made and we are sorry for any inconvenience this may have caused.",
+      correct_sentence:
+        "I want to be candid: we made a mistake. For context, the root cause was a process gap I own, and here are the three things we're changing this week.",
+      tr_explanation:
+        "'Mistakes were made' = pasif kaçış (Watergate klişesi). 'Inconvenience' = küçümseyici. C1 kriz iletişimi: aktif sorumluluk ('I own'), spesifik ('process gap'), aksiyon ('three things we're changing'). Üst yönetici hatayı sahiplenmek üzerinden güven kazanır.",
+    },
   ],
 };
 
@@ -1055,6 +1263,58 @@ export const professionalC1Lesson_5: BundledLesson = {
             "Basın'da kelime = çerçeve = okuyucu kafasında bırakılan iz. 'Crisis' demezsin, 'planned transition' dersin — eşit bilgi, farklı iz.",
         },
       ],
+    },
+    {
+      id: "ex.pc1.5.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I'd push back on the framing, with respect — that's not how I'd characterise it.",
+      ipa: "aɪd pʊʃ bæk ɒn ðə ˈfreɪmɪŋ wɪð rɪˈspɛkt",
+      tr_hint:
+        "Basın itirazı. 'Push back on the framing' = çerçeveye itiraz. 'Characterise' = nitelendirmek. Kararlı + nazik.",
+    },
+    {
+      id: "ex.pc1.5.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "For context, the headline you're citing predates the new leadership team — I'd want to address what we're doing now.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Basın'da bridge tekniği. 'Headline you're citing predates' = atıf yaptığın başlık öncesinde. 'Address what we're doing now' = bugün yaptığımıza geçeyim.",
+    },
+    {
+      id: "ex.pc1.5.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "I'd be doing your readers a disservice if I let that comparison stand without flagging the methodology difference.",
+      transcription_target:
+        "I'd be doing your readers a disservice if I let that comparison stand without flagging the methodology difference.",
+      tr_hint:
+        "Press itiraz dili. 'Doing your readers a disservice' = okurlarına iyilik etmemiş olurum. Üst düzey diplomatik.",
+    },
+    {
+      id: "ex.pc1.5.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "I'd push back on the framing",
+      tr_translation: "Çerçeveye itiraz ederim",
+      example:
+        "I'd push back on the framing of this as a 'failure' — it was a controlled experiment, and we got the answer.",
+      example_tr:
+        "Bunun 'başarısızlık' olarak çerçevelenmesine itiraz ederim — kontrollü bir deneydi ve cevabı aldık.",
+    },
+    {
+      id: "ex.pc1.5.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "No comment, please ask another question, this is not for media.",
+      correct_sentence:
+        "I'd rather not speculate on that — what I can speak to is the strategy decision behind it. For context, here's where we landed and why.",
+      tr_explanation:
+        "'No comment' = suçluluk sinyali, basında zarar verir. 'This is not for media' = saldırgan. C1 bridge: yumuşak red ('rather not speculate'), kendi temana köprü ('what I can speak to'), bağlam ver ('for context'). Reddetmek değil, yönlendirmek.",
     },
   ],
 };
@@ -1284,6 +1544,58 @@ export const professionalC1Lesson_6: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.pc1.6.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "For context, our last round was led by Sequoia at a sixty post-money.",
+      ipa: "fər ˈkɒntɛkst aʊər læst raʊnd wəz lɛd baɪ sɪˈkwɔɪə",
+      tr_hint:
+        "VC kalibrasyon. 'Sixty post-money' = $60M değerleme. 'Led by' = liderlik etti. Doğal, ölçülü.",
+    },
+    {
+      id: "ex.pc1.6.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "With respect, I'd push back on the diligence ask — what you're describing would take six weeks of engineering time we don't have.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Yatırımcı itirazı. 'Diligence ask' = inceleme talebi. 'Engineering time we don't have' = mühendislik zamanımız yok.",
+    },
+    {
+      id: "ex.pc1.6.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "I'd be doing you a disservice if I dressed up the unit economics — they're tight, and we have a credible path to fix that.",
+      transcription_target:
+        "I'd be doing you a disservice if I dressed up the unit economics — they're tight, and we have a credible path to fix that.",
+      tr_hint:
+        "Yatırımcı dürüstlük. 'Dressed up' = süslemek. 'Unit economics' = birim ekonomi. 'Credible path' = inandırıcı yol.",
+    },
+    {
+      id: "ex.pc1.6.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "for context",
+      tr_translation: "Bağlam vermek gerekirse",
+      example:
+        "For context, we've been running profitably on $400K MRR for two quarters — this round is for the next bet, not survival.",
+      example_tr:
+        "Bağlam: 2 çeyrektir $400K MRR ile karlı çalışıyoruz — bu tur hayatta kalma için değil, sonraki bahis için.",
+    },
+    {
+      id: "ex.pc1.6.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Our product is revolutionary, we have no competition, please invest, we will be billion dollar company.",
+      correct_sentence:
+        "Here's what's working and what's hard — for context, we're early but the unit economics are real, and I'd push back on anyone who tells you this market is winner-take-all.",
+      tr_explanation:
+        "'Revolutionary, no competition, billion dollar' = pitch klişesi, VC reddi. C1 pitch: dengeli ('working and hard'), bağlam ('we're early but'), itiraz cesareti ('push back on anyone who'). Tedavi etmemiş optimizm değil, dengeli güven.",
+    },
   ],
 };
 
@@ -1505,6 +1817,58 @@ export const professionalC1Lesson_7: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.pc1.7.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "With respect, that number is below our walk-away.",
+      ipa: "wɪð rɪˈspɛkt ðæt ˈnʌmbər ɪz bɪˈloʊ aʊər ˈwɔːkəˈweɪ",
+      tr_hint:
+        "Müzakere sınırı. 'Walk-away' = vazgeçme noktası (BATNA terimi). Kararlı + nazik.",
+    },
+    {
+      id: "ex.pc1.7.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "I'd push back on the framing of 'final offer' — for context, we've moved twice; I'd like to see movement from your side too.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Sert müzakere. 'Push back on the framing of final offer' = 'son teklif' çerçevesine itiraz. 'Movement from your side' = sizin tarafınızdan hareket.",
+    },
+    {
+      id: "ex.pc1.7.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "I'd be doing you a disservice if I let this go to deal without flagging the indemnification clause — it's a serious risk.",
+      transcription_target:
+        "I'd be doing you a disservice if I let this go to deal without flagging the indemnification clause — it's a serious risk.",
+      tr_hint:
+        "Müzakere dürüstlük. 'Indemnification clause' = tazminat maddesi. 'Serious risk' = ciddi risk.",
+    },
+    {
+      id: "ex.pc1.7.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "I'd push back on",
+      tr_translation: "Karşı çıkarım / itiraz ederim",
+      example:
+        "I'd push back on the assumption that we have leverage here — we don't, and pretending otherwise will burn us.",
+      example_tr:
+        "Burada elimizin güçlü olduğu varsayımına itiraz ederim — değil, aksini farzetmek bizi yakar.",
+    },
+    {
+      id: "ex.pc1.7.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Okay fine, I accept your number, just please sign the deal quickly before my CEO changes his mind.",
+      correct_sentence:
+        "I can move to your number, but for context — that's at the edge of what I have authority for. I'll need movement on the indemnification cap to make this work.",
+      tr_explanation:
+        "'Please sign quickly before my CEO changes his mind' = zayıflık sinyali, müzakerede pozisyon kaybı. C1 müzakere: pozisyon koru ('at the edge of what I have authority'), karşılığı iste ('need movement on'), sınırı netle ('to make this work'). Aciliyet kendi tarafından değil, somut yapıdan gelir.",
+    },
   ],
 };
 
@@ -1714,6 +2078,58 @@ export const professionalC1Lesson_8: BundledLesson = {
             "Tek tek soru = kişisel pozisyon savunmasına davet. 'Room' sorusu = ortak çözüm. C1 grup yönetimi.",
         },
       ],
+    },
+    {
+      id: "ex.pc1.8.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I'd push back on the framing — for context, that's a symptom, not the cause.",
+      ipa: "aɪd pʊʃ bæk ɒn ðə ˈfreɪmɪŋ fər ˈkɒntɛkst ðæts ə ˈsɪmptəm",
+      tr_hint:
+        "Yönetim toplantısı reframe. 'Symptom, not the cause' = belirti, sebep değil. Net + nazik.",
+    },
+    {
+      id: "ex.pc1.8.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "With respect, this isn't a hiring problem — it's a prioritisation problem we keep avoiding.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Senior yönetimde reframing. 'Hiring problem' vs 'prioritisation problem we keep avoiding' = etiket farkı.",
+    },
+    {
+      id: "ex.pc1.8.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "I'd be doing the team a disservice if I let us walk out of here with a decision that papers over the real disagreement.",
+      transcription_target:
+        "I'd be doing the team a disservice if I let us walk out of here with a decision that papers over the real disagreement.",
+      tr_hint:
+        "Senior toplantı dürüstlük. 'Papers over' = üstünü örtmek (idiyom). 'Real disagreement' = gerçek anlaşmazlık.",
+    },
+    {
+      id: "ex.pc1.8.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "I'd be doing you a disservice",
+      tr_translation: "Sana iyilik etmemiş olurum",
+      example:
+        "I'd be doing you a disservice if I told you the team is aligned — they're not, and we should address that before launch.",
+      example_tr:
+        "Ekibin uyumlu olduğunu söylersem sana iyilik etmemiş olurum — değiller, ve lansman öncesi bunu çözmeliyiz.",
+    },
+    {
+      id: "ex.pc1.8.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Look, you are all wrong about this strategy, we should do what I said from the beginning.",
+      correct_sentence:
+        "I'd push back on where we're landing — for context, this is the third time we've debated this, and I think we're conflating two different problems.",
+      tr_explanation:
+        "'You are all wrong, do what I said' = C-suite'te otorite kaybı, kibirli. Olgun yönetim: 'push back on where we're landing' (sonucu adlandır), 'third time we've debated' (örüntü), 'conflating two different problems' (analitik teşhis). İddiayı somutlukla taşı.",
     },
   ],
 };
@@ -1931,6 +2347,58 @@ export const professionalC1Lesson_9: BundledLesson = {
             "Senior peer zor mesajı alır, ama 'düşman mı?' diye sorar. Açık destek = ilişki korunur, mesaj sindirir, gerçek değişim mümkün.",
         },
       ],
+    },
+    {
+      id: "ex.pc1.9.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I'd be doing you a disservice if I sat on this for another quarter.",
+      ipa: "aɪd bi ˈduːɪŋ juː ə dɪsˈsɜːrvɪs ɪf aɪ sæt ɒn ðɪs",
+      tr_hint:
+        "Sert geri bildirim. 'Sit on this' = beklemek, ertelemek (idiyom). Ölçülü, kararlı.",
+    },
+    {
+      id: "ex.pc1.9.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "For context, I'd push back on three of the design calls — but the bigger concern is the pattern, not any single one.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Senior peer feedback. 'Push back on the design calls' = tasarım kararlarına itiraz. 'Pattern, not any single one' = örüntü, tek bir karar değil.",
+    },
+    {
+      id: "ex.pc1.9.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "With respect, the feedback isn't about your effort — it's about whether the role still fits where the team is going.",
+      transcription_target:
+        "With respect, the feedback isn't about your effort — it's about whether the role still fits where the team is going.",
+      tr_hint:
+        "Senior peer eleştirisi. 'Role still fits where the team is going' = rol ekibin gittiği yere hâlâ uyuyor mu.",
+    },
+    {
+      id: "ex.pc1.9.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "with respect",
+      tr_translation: "Saygıyla (formal yumuşatma)",
+      example:
+        "With respect, I think we're protecting the wrong person here — let me share what I'm seeing.",
+      example_tr:
+        "Saygıyla — sanırım burada yanlış kişiyi koruyoruz. Ne gördüğümü paylaşayım.",
+    },
+    {
+      id: "ex.pc1.9.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "I think you are not a good fit anymore, your performance is not enough, we should discuss your future.",
+      correct_sentence:
+        "I want to flag something that's been on my mind. For context, I've been carrying a concern about role-fit for two quarters now, and I'd be doing you a disservice if I sat on it any longer.",
+      tr_explanation:
+        "'You are not a good fit, performance not enough' = doğrudan ama formla ham. C1 sert geri bildirim: 'flag something on my mind' (nazik açılış), 'for context, two quarters' (örüntü), 'doing you a disservice if I sat on it' (öz-eleştiri). Kibarlık dürüstlüğü güçlendirir.",
     },
   ],
 };
@@ -2150,6 +2618,58 @@ export const professionalC1Lesson_10: BundledLesson = {
             "Hiçbir suçlamayı kabul etmediğinde bile 'hide' kelimesini söylemek = soruşturmacının kafasına o kelimeyi bırakmak. Kullanma — varlığını ima etme.",
         },
       ],
+    },
+    {
+      id: "ex.pc1.10.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "With respect, I'd like counsel present before I answer that.",
+      ipa: "wɪð rɪˈspɛkt aɪd laɪk ˈkaʊnsəl ˈprɛzənt bɪˈfɔːr aɪ ˈɑːnsər",
+      tr_hint:
+        "Hukuki rezerv. 'Counsel' = avukat (formal). 'Present' = hazır. Sakin, kararlı, savunmacı değil.",
+    },
+    {
+      id: "ex.pc1.10.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "For context, I'd rather not characterise that conversation from memory — I'd want to review my notes first.",
+      voice_hint: "female_us",
+      tr_hint:
+        "HR soruşturmasında dikkat. 'Characterise from memory' = hafızadan nitelendir. 'Review my notes' = notlarımı incele.",
+    },
+    {
+      id: "ex.pc1.10.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "I'd be doing the process a disservice if I speculated on intent — what I can speak to is what I observed.",
+      transcription_target:
+        "I'd be doing the process a disservice if I speculated on intent — what I can speak to is what I observed.",
+      tr_hint:
+        "Hukuki ifadede sınır. 'Speculate on intent' = niyeti tahmin et. 'What I observed' = neyi gözlemledim.",
+    },
+    {
+      id: "ex.pc1.10.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "with respect",
+      tr_translation: "Saygıyla / saygısızlık etmeden",
+      example:
+        "With respect, the question assumes a fact I haven't confirmed — could we separate those?",
+      example_tr:
+        "Saygıyla — soru, doğrulamadığım bir gerçek varsayıyor; ayırabilir miyiz?",
+    },
+    {
+      id: "ex.pc1.10.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Okay yes I remember everything, that meeting was terrible, my colleague said many wrong things and I tried to fix.",
+      correct_sentence:
+        "I have a recollection of that meeting, but I'd want to be careful not to characterise others' statements from memory. With respect, could I review my notes before going on the record?",
+      tr_explanation:
+        "'I remember everything, terrible, colleague said wrong things' = HR/legal'de büyük risk; hafıza güvenilmez, başkasının niyeti yorumlanamaz. C1 hukuki dil: 'recollection of that meeting' (sınırlı iddia), 'careful not to characterise' (epistemik sınır), 'review my notes before going on the record' (kayıt için zaman iste). Söylenen her şey kaydedilir.",
     },
   ],
 };

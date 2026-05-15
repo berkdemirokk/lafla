@@ -165,6 +165,53 @@ export const banterExitLesson_28_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.bex28.1.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Alright everyone — I'm gonna head out.",
+      ipa: "ɔːlˈraɪt ˈevriwʌn aɪm ˈɡʌnə hed aʊt",
+      tr_hint:
+        "'Alright' = casual başlangıç. 'I'm gonna' = 'aɪm-ɡʌn-ə' bağlanır, fast. 'Head out' = çıkıyorum (idiom).",
+    },
+    {
+      id: "ex.bex28.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Yeah, gonna call it — was honestly such a fun night.",
+      voice_hint: "casual_us_male",
+      tr_hint:
+        "'Call it' = günü/akşamı sonlandırmak (idiom). 'Honestly such' samimi vurgu. Sıcak veda enerjisi.",
+    },
+    {
+      id: "ex.bex28.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "For sure, let's do this again soon — text me.",
+      transcription_target:
+        "For sure, let's do this again soon — text me.",
+      tr_hint:
+        "Veda + plan açma. 'Text me' = bana yaz (mesaj at). 'Soon' = yakında — sıcak iliski kapısı.",
+    },
+    {
+      id: "ex.bex28.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "dude",
+      tr_translation: "dostum, abi (casual veda hitap)",
+      example: "Dude, this was awesome — catch you soon!",
+      example_tr: "Dostum, bu harikaydı — yakında görüşürüz!",
+    },
+    {
+      id: "ex.bex28.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "I am hereby taking my leave of this gathering.",
+      correct_sentence: "Alright guys — I'm gonna head out.",
+      tr_explanation:
+        "'Hereby taking my leave' = Shakespeare oyunu. Casual veda: 'Alright guys' + 'gonna head out' = 5 kelime, doğal + warm.",
+    },
   ],
 };
 
@@ -327,6 +374,54 @@ export const banterExitLesson_28_2: BundledLesson = {
             "Yakin grup = 'why did you ghost?' Buyuk grup = 'oh you left? cool'. Skala onemli.",
         },
       ],
+    },
+    {
+      id: "ex.bex28.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Hey, gonna do an Irish goodbye — talk soon!",
+      ipa: "heɪ ˈɡʌnə duː ən ˈaɪrɪʃ ɡʊdˈbaɪ tɔːk suːn",
+      tr_hint:
+        "Telefon/mesaj ile söylenir. 'Irish goodbye' = sessiz veda (idiom). Casual + warm + dürüst.",
+    },
+    {
+      id: "ex.bex28.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Honestly bounced early — was getting kinda crowded.",
+      voice_hint: "casual_us_female",
+      tr_hint:
+        "'Bounced' = çıktım (idiom). 'Was getting kinda crowded' = sebep + casual. Defansif değil, doğal açıklama.",
+    },
+    {
+      id: "ex.bex28.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "No way you bounced! Dude, was kinda looking for you.",
+      transcription_target:
+        "No way you bounced! Dude, was kinda looking for you.",
+      tr_hint:
+        "Sessiz çıkışa şaşırma tepkisi. 'No way' + 'kinda looking for you' = casual sitem + warmlık.",
+    },
+    {
+      id: "ex.bex28.2.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "kinda",
+      tr_translation: "biraz, sayılır (kind of casual)",
+      example: "Was kinda tired so I bounced early.",
+      example_tr: "Biraz yorgundum, erken sıvıştım.",
+    },
+    {
+      id: "ex.bex28.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "I have departed from the social gathering without farewells.",
+      correct_sentence:
+        "Yeah, did an Irish goodbye — was super crowded, sorry!",
+      tr_explanation:
+        "'Departed from social gathering without farewells' = polis raporu. Casual ertesi gün özür: 'Did an Irish goodbye' + 'super crowded' + 'sorry' = warm + doğal.",
     },
   ],
 };
@@ -491,6 +586,54 @@ export const banterExitLesson_28_3: BundledLesson = {
             "Sicak hatirayken connect + 1 cumle ('great chat at X') = guclu network.",
         },
       ],
+    },
+    {
+      id: "ex.bex28.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Honestly, don't want to monopolize you — go mingle.",
+      ipa: "ˈɒnəstli doʊnt wɒnt tə məˈnɒpəlaɪz juː ɡoʊ ˈmɪŋɡəl",
+      tr_hint:
+        "'Monopolize' = tek başına işgal etmek. 'Mingle' = karışmak (party fiili). Empatik + casual.",
+    },
+    {
+      id: "ex.bex28.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "For sure, let's swap cards — I'll ping you next week.",
+      voice_hint: "casual_us_male",
+      tr_hint:
+        "'Swap cards' = kartvizit değiş (idiom). 'Ping you' = ulaşmak (Slack/email casual). Pro-network warmth.",
+    },
+    {
+      id: "ex.bex28.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Totally, gonna grab another drink — was really great chatting.",
+      transcription_target:
+        "Totally, gonna grab another drink — was really great chatting.",
+      tr_hint:
+        "Networking çıkış kalıbı. 'Grab another drink' = içecek bahane (kibar çıkış). 'Was really great chatting' = warm kapanış.",
+    },
+    {
+      id: "ex.bex28.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "for sure",
+      tr_translation: "kesinlikle, tabii (casual onay)",
+      example: "For sure, let's connect on LinkedIn.",
+      example_tr: "Tabii, LinkedIn'den ekleyelim.",
+    },
+    {
+      id: "ex.bex28.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I shall now disengage from our discourse to circulate further.",
+      correct_sentence:
+        "Hey, gonna let you mingle — was awesome chatting, let's connect.",
+      tr_explanation:
+        "'Disengage from discourse to circulate' = akademik konferans kapanışı. Casual networking çıkışı: 'gonna let you mingle' + 'awesome chatting' + 'let's connect' = warm + actionable.",
     },
   ],
 };

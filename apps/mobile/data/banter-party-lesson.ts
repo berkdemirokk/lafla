@@ -182,6 +182,53 @@ export const banterPartyLesson_41_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.bp41.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Hey, how do you know Sarah?",
+      ipa: "heɪ haʊ dʊ jə noʊ ˈsɑːrə",
+      tr_hint:
+        "'How do you' = 'haʊ-dʊ-jə' bağlanır, hızlı. Yumuşak başla. Saygılı meraklı yukarı tonlama.",
+    },
+    {
+      id: "ex.bp41.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "For sure, want to grab a drink? Bar's right there.",
+      voice_hint: "casual_us_female",
+      tr_hint:
+        "Casual partide tanışma. 'Grab a drink' = içecek alalım (idiom). 'Right there' rahat işaret. Warm + collaborative.",
+    },
+    {
+      id: "ex.bp41.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Honestly, this place has way better vibes than I expected.",
+      transcription_target:
+        "Honestly, this place has way better vibes than I expected.",
+      tr_hint:
+        "Çevre yorumu = güvenli açılış. 'Way better vibes' = çok daha iyi atmosfer (idiom). Pozitif + casual.",
+    },
+    {
+      id: "ex.bp41.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "kinda",
+      tr_translation: "biraz, sayılır (casual)",
+      example: "Kinda new here — barely know anyone.",
+      example_tr: "Buraya yeniyim sayılır — neredeyse kimseyi tanımıyorum.",
+    },
+    {
+      id: "ex.bp41.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "May I inquire as to your acquaintance with the host of this event?",
+      correct_sentence: "Hey, how do you know Sarah?",
+      tr_explanation:
+        "'May I inquire as to your acquaintance' = 1900 İngiliz salonu. Casual partide: 'Hey, how do you know Sarah?' = 6 kelime, doğal + warm.",
+    },
   ],
 };
 
@@ -366,6 +413,53 @@ export const banterPartyLesson_41_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.bp41.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Mind if I jump in?",
+      ipa: "maɪnd ɪf aɪ dʒʌmp ɪn",
+      tr_hint:
+        "Saygılı katılım klasiği. 'Mind if I' = 'maɪnd-ɪf-aɪ' bağlanır. 'Jump in' = atlamak (idiom). Yumuşak ton.",
+    },
+    {
+      id: "ex.bp41.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Honestly, I gotta agree with what Mike just said.",
+      voice_hint: "casual_us_male",
+      tr_hint:
+        "'Gotta' = got to = mecburum (casual). Grup konuşmasına ekleme + ismi söyleyerek bağ. Warm + akıllı.",
+    },
+    {
+      id: "ex.bp41.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "For sure, that's kinda what I was gonna say too.",
+      transcription_target:
+        "For sure, that's kinda what I was gonna say too.",
+      tr_hint:
+        "Grupta hemfikirlik kalıbı. 'Kinda what I was gonna say' = ben de aynısını diyecektim. Bağ kuran ifade.",
+    },
+    {
+      id: "ex.bp41.2.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "totally",
+      tr_translation: "tamamen, kesinlikle (grup onayı)",
+      example: "Totally — I was thinking the same thing.",
+      example_tr: "Tamamen — ben de aynısını düşünüyordum.",
+    },
+    {
+      id: "ex.bp41.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Pardon the intrusion, but I should like to contribute to your discourse.",
+      correct_sentence: "Hey, mind if I jump in real quick?",
+      tr_explanation:
+        "'Pardon the intrusion' + 'contribute to your discourse' = avukat sunumu. Casual: 'Mind if I jump in real quick' = doğal + 6 kelime.",
+    },
   ],
 };
 
@@ -548,6 +642,53 @@ export const banterPartyLesson_41_3: BundledLesson = {
             "Partide yemek yorumu = pozitif olmalı. Eleştiri = misafir etiketi bozar.",
         },
       ],
+    },
+    {
+      id: "ex.bp41.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Honestly, the dip is unreal.",
+      ipa: "ˈɒnəstli ðə dɪp ɪz ʌnˈriːəl",
+      tr_hint:
+        "'Unreal' = inanılmaz iyi (casual idiom). Yiyecek övgüsü standart kalıbı. Hayranlık tonu, vurgu 'unreal'.",
+    },
+    {
+      id: "ex.bp41.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Dude, you gotta try the pasta — it's actually wild.",
+      voice_hint: "casual_us_male",
+      tr_hint:
+        "Yiyecek tavsiyesi casual. 'You gotta try' = denemelisin (idiom). 'Actually wild' = gerçekten çılgın iyi.",
+    },
+    {
+      id: "ex.bp41.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "For sure, the drinks here are way better than I expected.",
+      transcription_target:
+        "For sure, the drinks here are way better than I expected.",
+      tr_hint:
+        "İçecek yorumu casual. 'Way better' = çok daha iyi. Pozitif beklenti aşımı = warm + ev sahibine örtük iltifat.",
+    },
+    {
+      id: "ex.bp41.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "that's wild",
+      tr_translation: "vay be, çılgın (lezzet/içecek için)",
+      example: "Tried the wings? That's wild — so good.",
+      example_tr: "Kanatları denedin mi? Vay be — çok iyi.",
+    },
+    {
+      id: "ex.bp41.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "The culinary offerings tonight are of acceptable quality.",
+      correct_sentence: "Honestly, the food is unreal tonight.",
+      tr_explanation:
+        "'Culinary offerings of acceptable quality' = restoran eleştirisi. Casual parti: 'Honestly, the food is unreal' = warm + spesifik + hayranlık.",
     },
   ],
 };
@@ -732,6 +873,54 @@ export const banterPartyLesson_41_4: BundledLesson = {
             "Belirsiz ama içten. 'Sometime' = baskı yok. Karşı taraf isterse takip eder.",
         },
       ],
+    },
+    {
+      id: "ex.bp41.4.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Hey, gonna head out — thanks so much for having me!",
+      ipa: "heɪ ˈɡʌnə hed aʊt θæŋks soʊ mʌtʃ fɔːr ˈhævɪŋ miː",
+      tr_hint:
+        "Klasik parti vedası. 'Gonna head out' = çıkıyorum (idiom). 'Thanks for having me' = davet için sağol. Warm tonlama.",
+    },
+    {
+      id: "ex.bp41.4.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Honestly, was such a fun night — let's grab coffee soon.",
+      voice_hint: "casual_us_female",
+      tr_hint:
+        "Sıcak veda + takip teklifi. 'Such a fun' samimi vurgu. 'Grab coffee soon' = somut plan açar.",
+    },
+    {
+      id: "ex.bp41.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "For sure, text me — I'm gonna do an Irish goodbye.",
+      transcription_target:
+        "For sure, text me — I'm gonna do an Irish goodbye.",
+      tr_hint:
+        "'Irish goodbye' = sessizce sıvışmak (idiom). Büyük partilerde casual. Yakın arkadaşa söylenir.",
+    },
+    {
+      id: "ex.bp41.4.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "for sure",
+      tr_translation: "kesinlikle (veda + takip onayı)",
+      example: "For sure, let's hang next week.",
+      example_tr: "Tabii, gelecek hafta takılalım.",
+    },
+    {
+      id: "ex.bp41.4.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I shall take my leave and extend gratitude for the hospitality extended unto me.",
+      correct_sentence:
+        "Hey, heading out — thanks so much for having me!",
+      tr_explanation:
+        "'Take my leave and extend gratitude for hospitality extended unto me' = İncil dili. Casual: 'Heading out, thanks for having me' = doğal + warm + 7 kelime.",
     },
   ],
 };

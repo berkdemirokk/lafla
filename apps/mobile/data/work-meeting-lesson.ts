@@ -165,6 +165,52 @@ export const workMeetingLesson_10_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.wm10.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "From my perspective, option B is the safer bet.",
+      ipa: "/frʌm maɪ pərˈspɛktɪv ˈɑpʃən bi ɪz ðə ˈseɪfər bɛt/",
+      tr_articulation_hint:
+        "'Perspective' = pır-spek-tiv, vurgu ortada. 'Safer bet' deyim — sigara icmis gibi rahat ton. Kararli ama sert degil.",
+    },
+    {
+      id: "ex.wm10.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I'd lean toward option B — happy to walk through the reasoning.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'I'd lean' = ay-dı-lin (birlesik). 'Walk through' = bas baga gec. Net pozisyon + diyaloga acik kapanis. Toplanti ozguveni.",
+    },
+    {
+      id: "ex.wm10.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Let me throw something out there — what if we ran a quick A/B test?",
+      transcription_target:
+        "Let me throw something out there — what if we ran a quick A/B test?",
+      tr_hint:
+        "'Throw something out there' deyim = fikir at, denemek icin. 'What if' = subjunctive — hipotetik. 'A/B test' = ey-bi test.",
+    },
+    {
+      id: "ex.wm10.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "weigh in on",
+      tr_translation: "Fikir bildirmek / katkı sunmak",
+      example_en: "Want to weigh in on the architecture call?",
+      example_tr: "Mimari karari konusunda fikir bildirmek ister misin?",
+    },
+    {
+      id: "ex.wm10.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "In my think, we should do this.",
+      correct_sentence: "In my view, we should go with this approach.",
+      tr_explanation:
+        "'In my think' yok — Turkce 'bence'i direkt cevirme. Dogrusu: 'In my view', 'In my opinion', 'My take is'. 'Approach' = yaklasim, profesyonel.",
+    },
   ],
 };
 
@@ -330,6 +376,54 @@ export const workMeetingLesson_10_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.wm10.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Respectfully, I see it differently.",
+      ipa: "/rɪˈspɛktfəli aɪ siː ɪt ˈdɪfərəntli/",
+      tr_articulation_hint:
+        "'Respectfully' = ri-spekt-fıl-li, vurgu spek hecesinde. Net + sicak — saldirgan degil. Soluk al, sonra fikrini soyle.",
+    },
+    {
+      id: "ex.wm10.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I hear you, but I'd push back gently on that point.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'I hear you' = anliyorum, kabul. 'But' yumusak gec. 'Push back gently' = nazikce karsi cik. Diyalogu kesmeden bir bakis ekle.",
+    },
+    {
+      id: "ex.wm10.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "Fair point — let's spike both approaches and see which holds up.",
+      transcription_target:
+        "Fair point — let's spike both approaches and see which holds up.",
+      tr_hint:
+        "'Fair point' deyim = mantikli, kabul. 'Spike' tech jargon = hizli prototip. 'Hold up' = dayanmak. Senior tonu, problem cozme dili.",
+    },
+    {
+      id: "ex.wm10.2.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "play devil's advocate",
+      tr_translation: "Şeytanın avukatı olmak (karşı görüş için)",
+      example_en:
+        "Let me play devil's advocate for a second — what if users hate it?",
+      example_tr:
+        "Bir saniye seytanin avukatini oynayim — ya kullanicilar nefret ederse?",
+    },
+    {
+      id: "ex.wm10.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I am not agree with you.",
+      correct_sentence: "I'd see it a bit differently — can I share my take?",
+      tr_explanation:
+        "'Am not agree' yanlis — 'agree' fiil: 'I don't agree' veya 'I disagree'. Ayrıca direkt karsitlik yerine 'see it differently' yumusatici, profesyonel.",
+    },
   ],
 };
 
@@ -494,6 +588,51 @@ export const workMeetingLesson_10_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.wm10.3.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Can you walk me through that?",
+      ipa: "/kæn ju wɔk mi θruː ðæt/",
+      tr_articulation_hint:
+        "'Walk me through' birlesik = 'walkmi-thru'. 'That' sonda hafif vurgu. Sicak, ogrenmeye acik ton — utangaclik yok.",
+    },
+    {
+      id: "ex.wm10.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Sorry, want to make sure I'm tracking — could you say more on the retry logic?",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Tracking' = takip ediyor, jargon. 'Say more' = devam et. Spesifik kismi belirt — toplantida pro davranis. Yumusak ac, net devam.",
+    },
+    {
+      id: "ex.wm10.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Great question — let me unpack that a bit.",
+      transcription_target: "Great question — let me unpack that a bit.",
+      tr_hint:
+        "'Unpack' = ac, detaylandir (metaforik kullanim). 'A bit' = biraz. Karsi tarafin pozitif tepki kalibi — fikrini saygi ile karsiliyor.",
+    },
+    {
+      id: "ex.wm10.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "lost me there",
+      tr_translation: "Beni o noktada kaybettin (anlamadim)",
+      example_en: "You lost me there — can you back up a sec?",
+      example_tr: "Beni o noktada kaybettin — biraz geri donebilir misin?",
+    },
+    {
+      id: "ex.wm10.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Say one more time please.",
+      correct_sentence: "Mind saying that one more time? Want to make sure I caught it.",
+      tr_explanation:
+        "'Say one more time' kirik. 'Mind saying' soru formu kibar. 'Catch' = yakalamak (anlamak). Toplanti tonu profesyonel sicaklik.",
+    },
   ],
 };
 
@@ -657,6 +796,51 @@ export const workMeetingLesson_10_4: BundledLesson = {
             "Last call for alignment. Bir kisi katilmadigini orada soyler, sonra degil.",
         },
       ],
+    },
+    {
+      id: "ex.wm10.4.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Let's wrap this up.",
+      ipa: "/lɛts ræp ðɪs ʌp/",
+      tr_articulation_hint:
+        "'Wrap' = rap (w neredeyse yutulur). 'Up' kisa, sonda inerek bitir. Toparlayici ton — toplantiyi yonetiyorsun.",
+    },
+    {
+      id: "ex.wm10.4.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Before we wrap, let me recap action items — Ali on API, Berk on tests.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Before we wrap' aktif baslangic. 'Recap' (ri-kep, vurgu sonda) = ozet. Kisi-gorev format — kisa, net. PM tonu.",
+    },
+    {
+      id: "ex.wm10.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Let's table this for now and pick it up next week.",
+      transcription_target: "Let's table this for now and pick it up next week.",
+      tr_hint:
+        "'Table this' ABD'de = simdilik biraktil, gec (UK'de tam tersi!). 'Pick it up' = devam et. Toplanti askiya alma kalibi.",
+    },
+    {
+      id: "ex.wm10.4.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "on the same page",
+      tr_translation: "Aynı sayfada / hemfikir",
+      example_en: "Just want to make sure we're on the same page before we close out.",
+      example_tr: "Kapatmadan once ayni sayfada oldugumuza emin olmak istiyorum.",
+    },
+    {
+      id: "ex.wm10.4.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Finish the meeting now please.",
+      correct_sentence: "Let's wrap up — quick recap of action items?",
+      tr_explanation:
+        "'Finish meeting now' emir gibi + saygisiz. 'Let's wrap up' birlikte toparlama. Kapanis dili paylasimci olmali.",
     },
   ],
 };

@@ -165,6 +165,52 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.dp19.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Could you recommend something for a headache?",
+      ipa: "kʊd jə ˌrɛkəˈmɛnd ˈsʌmθɪŋ fər ə ˈhɛdeɪk",
+      tr_hint:
+        "'Could you' bağlanır → 'kud-ya'. 'Recommend' vurgu son hecede. 'Headache' = 'hed-eyk' (iki hece).",
+    },
+    {
+      id: "ex.dp19.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Any side effects I should know about?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Side effects' birleşik ritim. 'Should know about' bağlanır → 'shud-no-ə-baut'.",
+    },
+    {
+      id: "ex.dp19.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Take one tablet every six hours with food.",
+      transcription_target: "Take one tablet every six hours with food.",
+      tr_hint:
+        "Dozaj talimati. 'Every six hours' = altı saatte bir. 'With food' = yemekle. Klasik eczaci kalibi.",
+    },
+    {
+      id: "ex.dp19.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "painkiller",
+      tr_translation: "Agri kesici",
+      example: "I need a mild painkiller for my back.",
+      example_tr: "Sirtim için hafif bir agri kesici lazim.",
+    },
+    {
+      id: "ex.dp19.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I have pain in my head, give pill.",
+      correct_sentence:
+        "I've had a headache since this morning — could you suggest something mild?",
+      tr_explanation:
+        "'Give pill' = emir + grammatik degil. Doğru: süre (since this morning) + tip (mild) + saygili soru.",
+    },
   ],
 };
 
@@ -328,6 +374,52 @@ export const dailyPharmacyLesson_19_2: BundledLesson = {
             "Eczaci sayar. 'Last refill' uyarisinda yeni doktor randevusu zamani.",
         },
       ],
+    },
+    {
+      id: "ex.dp19.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'm here to pick up a prescription.",
+      ipa: "aɪm hɪər tə pɪk ʌp ə prɪˈskrɪpʃən",
+      tr_hint:
+        "'Pick up' birleşik ritim → 'pi-kap'. 'Prescription' vurgu ikinci hecede: pre-SKRIP-shen.",
+    },
+    {
+      id: "ex.dp19.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "My doctor called it in this morning.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Called it in' = telefon ile yolladı. Üç kelime tek ritim → 'kold-i-tin'.",
+    },
+    {
+      id: "ex.dp19.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Your copay today is fifteen dollars.",
+      transcription_target: "Your copay today is fifteen dollars.",
+      tr_hint:
+        "'Copay' = sigortali hastanin cebinden katki payi. Kasada duyacagin standart cumle.",
+    },
+    {
+      id: "ex.dp19.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "copay",
+      tr_translation: "Sigorta katki payi (cep odeme)",
+      example: "What's the copay on this medication?",
+      example_tr: "Bu ilacin katki payi ne kadar?",
+    },
+    {
+      id: "ex.dp19.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Give my medicine fast.",
+      correct_sentence:
+        "Picking up a prescription under Yilmaz — any idea how long it'll take?",
+      tr_explanation:
+        "Emir + belirsiz kim. Doğru: isim + saygili süre sorusu.",
     },
   ],
 };
@@ -493,6 +585,52 @@ export const dailyPharmacyLesson_19_3: BundledLesson = {
             "Eczaci doktor degil ama uyari kriterleri bilir. Hayat kurtarıcı bilgi.",
         },
       ],
+    },
+    {
+      id: "ex.dp19.3.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "On a scale of one to ten, it's about a seven.",
+      ipa: "ɒn ə skeɪl əv wʌn tə tɛn ɪts əˈbaʊt ə ˈsɛvən",
+      tr_hint:
+        "Klinik standart kalip. 'On a scale of' bagli → 'on-ə-skeyl-əv'. 'About a' → 'ə-baw-də'.",
+    },
+    {
+      id: "ex.dp19.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "It's a throbbing pain that comes and goes.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Throbbing' = zonklayan. 'Comes and goes' = gel-git tarif. Üç parça, doğal tempo.",
+    },
+    {
+      id: "ex.dp19.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "If symptoms persist for more than three days, see a doctor.",
+      transcription_target: "If symptoms persist for more than three days, see a doctor.",
+      tr_hint:
+        "Eczaci uyarisi. 'Persist' = devam etmek. 'See a doctor' = doktora git. Standart eskalasyon kriterleri.",
+    },
+    {
+      id: "ex.dp19.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "throbbing pain",
+      tr_translation: "Zonklayan agri",
+      example: "It's a throbbing pain behind my left eye.",
+      example_tr: "Sol gozumun arkasinda zonklayan bir agri.",
+    },
+    {
+      id: "ex.dp19.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Big pain. Many days.",
+      correct_sentence:
+        "Sharp pain in my lower back since Monday — about an 8 out of 10.",
+      tr_explanation:
+        "Belirsiz olcek + sure. Doğru: tip (sharp) + yer (lower back) + sure (since Monday) + skala (8/10).",
     },
   ],
 };

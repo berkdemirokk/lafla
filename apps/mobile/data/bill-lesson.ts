@@ -171,6 +171,51 @@ export const billLesson_4_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.4.1.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "I think there's a mistake on the bill.",
+      ipa: "aɪ θɪŋk ðɛrz ə mɪˈsteɪk ɒn ðə bɪl",
+      tr_hint:
+        "'Think' içinde 'th' sessiz — dilini ön dişlere değdir. 'There's' kısaltma → 'ðɛrz'. 'Mistake' içinde vurgu ikinci hece: mi-STAYK.",
+    },
+    {
+      id: "ex.4.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Could you explain this charge? I don't recognize it.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Could you' bağlanır → 'kud-yə'. 'Recognize' içinde vurgu ilk hece: REK-əg-nayz.",
+    },
+    {
+      id: "ex.4.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "That's actually the service charge for parties of six.",
+      transcription_target: "That's actually the service charge for parties of six.",
+      tr_hint:
+        "Dinle, yaz. 'Parties of six' = 6 kişilik gruplar. ABD'de yaygın bir hesaplama.",
+    },
+    {
+      id: "ex.4.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "double-check",
+      tr_translation: "Tekrar kontrol etmek",
+      example: "Could you double-check the total for us?",
+      example_tr: "Toplamı bir kez daha kontrol eder misiniz?",
+    },
+    {
+      id: "ex.4.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "What is this number? I no order this thing.",
+      correct_sentence: "Could you explain this item? I don't think we ordered it.",
+      tr_explanation:
+        "'I no order' yanlış yapı — doğrusu 'I don't think we ordered'. Yumuşatıcı 'I don't think' suçlamadan sorgulama.",
+    },
   ],
 };
 
@@ -340,6 +385,52 @@ export const billLesson_4_2: BundledLesson = {
             "ABD'de hesabı bölmek standart — garson normal karşılar, kart machine'i her birine getirir.",
         },
       ],
+    },
+    {
+      id: "ex.4.2.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could we split the bill evenly, please?",
+      ipa: "kʊd wi splɪt ðə bɪl ˈiːvənli pliːz",
+      tr_hint:
+        "'Split' = 'splɪt', tek hece + tek heceli ses. 'Evenly' = 'iː-vən-li', ilk hece uzun ve vurgulu.",
+    },
+    {
+      id: "ex.4.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Let's just go fifty-fifty — that's easiest.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Let's' kısaltma + 'just go' bağlanır → 'lets-jəst-goʊ'. Sayı tekrarı 'fifty-fifty' tek nefes.",
+    },
+    {
+      id: "ex.4.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Are you splitting evenly, or by what each of you had?",
+      transcription_target: "Are you splitting evenly, or by what each of you had?",
+      tr_hint:
+        "Dinle, yaz. Garsonun bölme yönteminin nasıl olduğunu sorduğu klasik soru.",
+    },
+    {
+      id: "ex.4.2.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "go Dutch",
+      tr_translation: "Herkes kendi hesabını öder",
+      example: "Let's just go Dutch tonight.",
+      example_tr: "Bu akşam herkes kendi hesabını ödesin.",
+    },
+    {
+      id: "ex.4.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Make bill two pieces, I pay half her pay half.",
+      correct_sentence:
+        "Could we split the bill in half? She'll pay her share, I'll pay mine.",
+      tr_explanation:
+        "'Two pieces' yanlış idiom — doğrusu 'split in half' veya 'in two'. 'Share' = pay; 'her share / my share' standart.",
     },
   ],
 };
@@ -524,6 +615,51 @@ export const billLesson_4_3: BundledLesson = {
             "Tap = temassız ödeme (kartı veya telefonu yaklaştır). Insert = chip okuma. Swipe = manyetik şerit çekme.",
         },
       ],
+    },
+    {
+      id: "ex.4.3.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Do you take Apple Pay or just card?",
+      ipa: "duː juː teɪk ˈæpəl peɪ ɔːr ʤʌst kɑːrd",
+      tr_hint:
+        "'Do you' bağlanır → 'duː-yə'. 'Apple Pay' içinde 'a' kısa: 'æ'. 'Card' uzun 'kɑːrd'.",
+    },
+    {
+      id: "ex.4.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Could I get a receipt emailed to me, please?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Receipt' = 'ri-SİYT' ('p' sessiz). 'Emailed to me' bağlanır.",
+    },
+    {
+      id: "ex.4.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Would you like the receipt printed, emailed, or both?",
+      transcription_target: "Would you like the receipt printed, emailed, or both?",
+      tr_hint:
+        "Dinle, yaz. Modern kasalarda klasik soru. 'Both' = ikisi de.",
+    },
+    {
+      id: "ex.4.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "contactless",
+      tr_translation: "Temassız (ödeme)",
+      example: "Is contactless okay, or do you need me to insert the chip?",
+      example_tr: "Temassız uyar mı, yoksa chip mi takayım?",
+    },
+    {
+      id: "ex.4.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I pay with money, no card.",
+      correct_sentence: "I'll pay with cash, please. No card.",
+      tr_explanation:
+        "'Money' İngilizce'de para — ama kasada özelleştir: 'cash' (nakit). 'Pay with cash' veya 'in cash' standart.",
     },
   ],
 };

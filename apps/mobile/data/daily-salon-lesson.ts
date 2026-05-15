@@ -188,6 +188,52 @@ export const dailySalonLesson_31_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.dsl31.1.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Just a trim, please.",
+      ipa: "dʒʌst ə trɪm pliːz",
+      tr_hint:
+        "Kafede klasik. 'Just a' bağlanır → 'jus-ə'. 'Trim' kısa, net. 'Please' uzun 'iː'.",
+    },
+    {
+      id: "ex.dsl31.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Take about two inches off the length, please.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Take off' = al, kısalt. 'About two inches' birleşik akış. Kuaforde standart.",
+    },
+    {
+      id: "ex.dsl31.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "How much would you like off the back?",
+      transcription_target: "How much would you like off the back?",
+      tr_hint:
+        "Kuafor klasik sorusu. 'Off the back' = arkadan ne kadar al. Net cevap ver.",
+    },
+    {
+      id: "ex.dsl31.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "bangs",
+      tr_translation: "Kahkül",
+      example: "I'd like some bangs that hit just above my eyebrows.",
+      example_tr: "Kaşlarımın hemen üstüne gelen bir kahkül istiyorum.",
+    },
+    {
+      id: "ex.dsl31.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Cut hair short side and back.",
+      correct_sentence:
+        "Could you do a low fade on the sides and back, please?",
+      tr_explanation:
+        "'Cut hair' = emir + grammatik degil. Doğru: 'Could you do' + spesifik stil (low fade) + yer.",
+    },
   ],
 };
 
@@ -377,6 +423,52 @@ export const dailySalonLesson_31_2: BundledLesson = {
             "'Brassy' = sararma/turunculaşma. Mor şampuan (purple shampoo) bunu nötralize eder.",
         },
       ],
+    },
+    {
+      id: "ex.dsl31.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'd like a root touch-up, please.",
+      ipa: "aɪd laɪk ə ruːt ˈtʌtʃ ʌp pliːz",
+      tr_hint:
+        "'I'd like' kibar istek. 'Touch-up' bileşik kelime, kısa çizgi vurguyu birleştirir → 'TUCH-ap'.",
+    },
+    {
+      id: "ex.dsl31.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Could you match my natural color as closely as possible?",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Match my natural color' = doğal rengime uydur. 'As closely as possible' = mümkün olduğunca yakın. Akıcı söyle.",
+    },
+    {
+      id: "ex.dsl31.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Going lighter will require some bleach first.",
+      transcription_target: "Going lighter will require some bleach first.",
+      tr_hint:
+        "Kolorist uyarisi. 'Going lighter' = açmak. 'Require bleach' = beyazlatici lazim. Onay verme oncesi bil.",
+    },
+    {
+      id: "ex.dsl31.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "balayage",
+      tr_translation: "Balyaj (el ile süpürür gibi açma tekniği)",
+      example: "I'd like a soft balayage with warm tones.",
+      example_tr: "Sıcak tonlarda yumuşak bir balyaj istiyorum.",
+    },
+    {
+      id: "ex.dsl31.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Make hair yellow.",
+      correct_sentence:
+        "I'd like to go a few shades lighter — maybe a warm honey blonde?",
+      tr_explanation:
+        "'Yellow' = saç değil meyve rengi. Doğru: 'shades lighter' (kaç ton açık) + spesifik isim (honey blonde).",
     },
   ],
 };
@@ -581,6 +673,52 @@ export const dailySalonLesson_31_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.dsl31.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Could you file them into an almond shape?",
+      ipa: "kʊd jə faɪl ðəm ˈɪntʊ ən ˈɑːmənd ʃeɪp",
+      tr_hint:
+        "'File them' = törpüle onları. 'Almond' içinde 'l' sessiz: 'AH-mənd'. 'Shape' net biten.",
+    },
+    {
+      id: "ex.dsl31.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Gel polish in a soft nude, please.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Nail salon klasigi. 'Gel polish' birleşik vurgu. 'Soft nude' = pastel nude. Akıcı söyle.",
+    },
+    {
+      id: "ex.dsl31.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Would you like to add a top coat for extra shine?",
+      transcription_target: "Would you like to add a top coat for extra shine?",
+      tr_hint:
+        "Teknisyen klasik sorusu. 'Top coat' = üst kat (parlatici). 'Extra shine' = ekstra parlaklik.",
+    },
+    {
+      id: "ex.dsl31.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "cuticles",
+      tr_translation: "Tırnak etleri",
+      example: "Could you push back the cuticles instead of cutting them?",
+      example_tr: "Tırnak etlerini kesmek yerine geri iter misiniz?",
+    },
+    {
+      id: "ex.dsl31.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Make nails square and red.",
+      correct_sentence:
+        "I'd like a square shape with a classic red gel polish, please.",
+      tr_explanation:
+        "'Make nails' = emir. Doğru: 'I'd like' + şekil + spesifik (classic red gel polish).",
+    },
   ],
 };
 
@@ -774,6 +912,52 @@ export const dailySalonLesson_31_4: BundledLesson = {
             "Önce uyarmak en güvenlisi: 'I have sensitive skin — please avoid irritation'.",
         },
       ],
+    },
+    {
+      id: "ex.dsl31.4.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I have sensitive skin, please be gentle.",
+      ipa: "aɪ hæv ˈsɛnsətɪv skɪn pliːz bi ˈdʒɛntəl",
+      tr_hint:
+        "Estetisyen ile ilk cumle. 'Sensitive' = SEN-sə-tiv (üç hece). 'Be gentle' = nazik ol.",
+    },
+    {
+      id: "ex.dsl31.4.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Could we skip the chemical peel today?",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Could we skip' = atlayabilir miyiz. 'Chemical peel' birleşik vurgu. Saygili red.",
+    },
+    {
+      id: "ex.dsl31.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Your skin might be a little red for a few hours.",
+      transcription_target: "Your skin might be a little red for a few hours.",
+      tr_hint:
+        "Yüz bakimi sonrasi uyarisi. 'A little red' = biraz kızaran. 'A few hours' = birkaç saat.",
+    },
+    {
+      id: "ex.dsl31.4.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "hydrating mask",
+      tr_translation: "Nemlendirici maske",
+      example: "Let's finish with a hydrating mask for ten minutes.",
+      example_tr: "On dakika nemlendirici maske ile bitirelim.",
+    },
+    {
+      id: "ex.dsl31.4.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "No strong cream please my face problem.",
+      correct_sentence:
+        "I have sensitive skin — please avoid any harsh ingredients today.",
+      tr_explanation:
+        "'My face problem' = grammatik degil. Doğru: cilt tipi (sensitive skin) + spesifik istek (avoid harsh).",
     },
   ],
 };

@@ -1643,6 +1643,47 @@ export const cefrA2DailyLesson_transit: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a2.tr.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "What time does the next train leave?",
+      tr_hint: "'What time does' birleşir → 'wattaim daz'. 'next train' net. Soru tonu sonda.",
+    },
+    {
+      id: "ex.a2.tr.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "I'd like a return ticket to Paris, please.",
+      voice_hint: "female_us",
+      tr_hint: "'I'd like' = 'ay'd layk'. 'return ticket' tek nefeste. Sonunda 'please' alçak ton.",
+    },
+    {
+      id: "ex.a2.tr.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "The next train leaves from platform seven.",
+      transcription_target: "The next train leaves from platform seven.",
+      tr_hint: "'Leaves from platform seven' = 7. perondan kalkar. 'from' kısa, 'platform' net.",
+    },
+    {
+      id: "ex.a2.tr.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "round-trip",
+      tr_translation: "Gidiş-dönüş (US)",
+      example: "A round-trip ticket to Boston, please.",
+      example_tr: "Boston'a bir gidiş-dönüş bilet, lütfen.",
+    },
+    {
+      id: "ex.a2.tr.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "When the next train comes?",
+      correct_sentence: "When does the next train come?",
+      tr_explanation:
+        "Soru cümlesinde 'does' (auxiliary) gerekli. 'When DOES the next train come?' — fiil çekimi 'come' (does + bare verb).",
+    },
   ],
 };
 

@@ -163,6 +163,52 @@ export const workSlackLesson_9_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.ws9.1.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Excited to be on the team.",
+      ipa: "/ɪkˈsaɪtɪd tu bi ɑn ðə tiːm/",
+      tr_articulation_hint:
+        "'Excited' = ik-say-tıd (vurgu ortada). 'To be on the team' birlestir, akici oku. Samimi tonla — yapay olmasin.",
+    },
+    {
+      id: "ex.ws9.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Hey all — just joined the frontend team, excited to meet everyone!",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Hey all' samimi, hizli ac. 'Just joined' net, gecmis zaman vurgu yok. 'Excited to meet everyone' = enerjik kapanis. Slack mesaj ritmi.",
+    },
+    {
+      id: "ex.ws9.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Welcome aboard! Feel free to DM me if you need anything.",
+      transcription_target:
+        "Welcome aboard! Feel free to DM me if you need anything.",
+      tr_hint:
+        "'Welcome aboard' deyim = aramiza hosgeldin. 'Feel free' = cekinme, davet. 'DM me' = direkt mesaj at — Slack jargon.",
+    },
+    {
+      id: "ex.ws9.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "based out of",
+      tr_translation: "Merkezli / ... şehrinden",
+      example_en: "I'm based out of Istanbul, working CET hours.",
+      example_tr: "Istanbul merkezliyim, CET saatlerinde calisiyorum.",
+    },
+    {
+      id: "ex.ws9.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I am very happy with knowing all of you.",
+      correct_sentence: "Excited to get to know everyone!",
+      tr_explanation:
+        "'Happy with knowing' kirik yapi — gerund yanlis. 'Get to know' deyim = tanimak. Slack intro = enerji + sicaklik.",
+    },
   ],
 };
 
@@ -325,6 +371,53 @@ export const workSlackLesson_9_2: BundledLesson = {
             "'Tried X, didn't work' = saygi sinyali. Hicbir sey denemeden sormak = tembellik.",
         },
       ],
+    },
+    {
+      id: "ex.ws9.2.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "No rush — whenever you get a sec.",
+      ipa: "/noʊ rʌʃ ˌwɛnˈɛvər ju ɡɛt ə sɛk/",
+      tr_articulation_hint:
+        "'No rush' kisa + kararli. 'Whenever' uc heceli, vurgu ortada. 'Get a sec' birlesik = 'ge-tı-sek'. Rahatlatici tonla.",
+    },
+    {
+      id: "ex.ws9.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Quick Q — do you know where the deploy script lives? No rush.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Quick Q' = quick question kisaltma, casual Slack ritmi. 'Lives' = where the code 'is located' (jargon). 'No rush' sona ekleyerek baski kaldir.",
+    },
+    {
+      id: "ex.ws9.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Let me huddle with you real quick — easier than typing it all out.",
+      transcription_target:
+        "Let me huddle with you real quick — easier than typing it all out.",
+      tr_hint:
+        "'Huddle' = Slack icindeki hizli ses gorusmesi (jargon). 'Real quick' deyim = cabucak. 'Type it all out' = uzun uzun yaz.",
+    },
+    {
+      id: "ex.ws9.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "ping me",
+      tr_translation: "Bana mesaj at / haber ver",
+      example_en: "Ping me when you're back at your desk.",
+      example_tr: "Masana dondugunde bana mesaj at.",
+    },
+    {
+      id: "ex.ws9.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Are you there? Please answer fast.",
+      correct_sentence:
+        "Hey — quick question about the API. Whenever works for you.",
+      tr_explanation:
+        "'Are you there? Answer fast' = baskici + saygisiz. Async Slack norm: konteksti hemen ver + baski koyma.",
     },
   ],
 };
@@ -490,6 +583,53 @@ export const workSlackLesson_9_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.ws9.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Blocked on design review.",
+      ipa: "/blɑkt ɑn dɪˈzaɪn rɪˈvjuː/",
+      tr_articulation_hint:
+        "'Blocked' tek hece, geniz t. 'On' kisa, hizla gec. 'Design review' iki vurgu — sade ve net. Standup ritmi: dakikalik.",
+    },
+    {
+      id: "ex.ws9.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Yesterday: shipped the API. Today: writing tests. No blockers.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Standup ritmi — uc kisa cumle, virgulden sonra kisa duraklama. Dakika icinde bilgi yogun. 'Shipped' past, 'writing' progressive.",
+    },
+    {
+      id: "ex.ws9.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "I'll circle back after lunch with an update on the migration.",
+      transcription_target:
+        "I'll circle back after lunch with an update on the migration.",
+      tr_hint:
+        "'Circle back' deyim = sonradan don. 'Migration' = tek t (mi-grey-shın), vurgu basta. Standup follow-up tonu.",
+    },
+    {
+      id: "ex.ws9.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "carry over",
+      tr_translation: "Sonraki güne devret / aktar",
+      example_en: "Carrying over the auth ticket to tomorrow.",
+      example_tr: "Auth biletini yarina aktariyorum.",
+    },
+    {
+      id: "ex.ws9.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Today I will continue to work on stuff.",
+      correct_sentence:
+        "Today: finishing the login flow and starting on settings page.",
+      tr_explanation:
+        "'Continue to work on stuff' = belirsiz + uzun. Standup = spesifik + kisa. 'Today: [aksiyon] + [aksiyon]' format.",
+    },
   ],
 };
 
@@ -653,6 +793,52 @@ export const workSlackLesson_9_4: BundledLesson = {
             "Tum takimin dikkati = degerli kaynak. Thread = o kaynagi koru.",
         },
       ],
+    },
+    {
+      id: "ex.ws9.4.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Let's take this to a thread.",
+      ipa: "/lɛts teɪk ðɪs tu ə θrɛd/",
+      tr_articulation_hint:
+        "'Let's' = lets, hızla gec. 'Thread' = thret (th: dili dislere koy). 'To a thread' birlesik. Yumusak ama yonlendirici ton.",
+    },
+    {
+      id: "ex.ws9.4.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Dropping an eyes emoji — will get back to you in thread by EOD.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Dropping' = ekliyor, casual. 'Eyes emoji' bilesik. 'EOD' (end of day) = harf harf oku ya da 'mesai sonu'. Slack jargon ritmi.",
+    },
+    {
+      id: "ex.ws9.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Appreciate the heads up — keeping the channel clean helps everyone.",
+      transcription_target:
+        "Appreciate the heads up — keeping the channel clean helps everyone.",
+      tr_hint:
+        "'Appreciate' = degerli buluyor (resmi olmayan tesekkur). 'Heads up' = uyari, idiom. 'Keeping clean' progressive form. PM tonu.",
+    },
+    {
+      id: "ex.ws9.4.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "noise in the channel",
+      tr_translation: "Kanalda gürültü / dağınıklık",
+      example_en: "Threading these so we don't add noise in the channel.",
+      example_tr: "Bunlari thread'e koyuyorum ki kanali kirletmesin.",
+    },
+    {
+      id: "ex.ws9.4.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I will reply you in private message.",
+      correct_sentence: "I'll follow up with you in DM.",
+      tr_explanation:
+        "'Reply you' yanlis — 'reply' transitive degil: 'reply TO you'. 'In private message' yerine 'in DM' Slack norm. 'Follow up' = takip et.",
     },
   ],
 };

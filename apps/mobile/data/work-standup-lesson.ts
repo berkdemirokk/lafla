@@ -168,6 +168,59 @@ export const workStandupLesson_33_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.wst33.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Yesterday I wrapped up the login flow, today I'm on unit tests, no blockers.",
+      ipa: "/ˈjɛstədeɪ aɪ ræpt ʌp ðə ˈlɒɡɪn fləʊ təˈdeɪ aɪm ɒn ˈjuːnɪt tɛsts nəʊ ˈblɒkəz/",
+      tr_hint:
+        "Standup ritmi — uc kısa baslik, virgul arasi nefes. 'Wrapped up' bağlı, 'no blockers' kararli kapanis.",
+    },
+    {
+      id: "ex.wst33.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Yesterday: shipped the auth refactor. Today: starting on payment integration. No blockers on my end.",
+      voice_hint: "neutral_us",
+      tr_hint:
+        "Y/T/B baslik formati — her bolum kisa nefesle. Iki nokta ust uste vurguyu degistirir.",
+    },
+    {
+      id: "ex.wst33.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "Alright, who wants to go next? Berk, want to take it?",
+      transcription_target:
+        "Alright, who wants to go next? Berk, want to take it?",
+      tr_hint:
+        "Scrum master'in sira soru sorusu. 'Take it' = sirayi al. Standup'in klasik gecis cumlesi.",
+    },
+    {
+      id: "ex.wst33.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "PR is up for review",
+      tr_translation: "PR review icin acik",
+      example:
+        "Yesterday: PR is up for review. Today: starting on the next ticket.",
+      example_tr:
+        "Dun: PR review icin acik. Bugun: bir sonraki ticket'a basliyorum.",
+    },
+    {
+      id: "ex.wst33.1.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Yesterday I do many works. Today maybe I do other works. Maybe blocker.",
+      correct_sentence:
+        "Yesterday: shipped auth refactor. Today: unit tests. No blockers.",
+      tr_explanation:
+        "'I do many works' tense + kelime sayisi yanlis ('works' bu baglamda 'work'). 'Maybe blocker' belirsiz — Standup'ta blocker varsa SOMUT soyle, yoksa 'no blockers'. Y/T/B = kesin baslik formati.",
+    },
   ],
 };
 
@@ -339,6 +392,59 @@ export const workStandupLesson_33_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.wst33.2.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "I'm blocked on the token refresh — could use a second pair of eyes.",
+      ipa: "/aɪm blɒkt ɒn ðə ˈtəʊkən rɪˈfrɛʃ kʊd juːz ə ˈsɛkənd peər əv aɪz/",
+      tr_hint:
+        "'Blocked on' birleşik vurgu — net. 'Second pair of eyes' = standart idiom, ritmi bozma.",
+    },
+    {
+      id: "ex.wst33.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Hitting a wall on the Stripe webhooks — could anyone pair for twenty minutes after standup?",
+      voice_hint: "neutral_us",
+      tr_hint:
+        "Pair istegi tonu — kararli, mahcup degil. 'Hitting a wall' = idiom, akıcı söyle.",
+    },
+    {
+      id: "ex.wst33.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "I can jump on right after this. Have you tried checking the refresh endpoint logs?",
+      transcription_target:
+        "I can jump on right after this. Have you tried checking the refresh endpoint logs?",
+      tr_hint:
+        "Lead'in ('jump on right after') yardim teklifi + ilk diagnostic sorusu. 'Endpoint logs' = teknik kelime.",
+    },
+    {
+      id: "ex.wst33.2.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "Spinning my wheels",
+      tr_translation: "Yerimde sayiyorum (ilerlemeden)",
+      example:
+        "Been spinning my wheels on this race condition for an hour — anyone seen something similar?",
+      example_tr:
+        "Bir saattir bu race condition'da yerimde sayiyorum — buna benzer gören var mi?",
+    },
+    {
+      id: "ex.wst33.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I have problem with my code. Someone please help me now.",
+      correct_sentence:
+        "Stuck on the token refresh — could anyone pair after standup for 20 minutes?",
+      tr_explanation:
+        "'Have problem' = belirsiz + genel. 'Please help me now' = baski + zaman zorlamasi. Doğru: spesifik konu + spesifik sure + kibar cagri. Ekipte herkes karar verir kim 20 dakika ayirabilir.",
+    },
   ],
 };
 
@@ -504,6 +610,59 @@ export const workStandupLesson_33_3: BundledLesson = {
             "ICYMI = In Case You Missed It. 'Daha once de soyledim' demeden, kibarca yeniden gundeme getirir.",
         },
       ],
+    },
+    {
+      id: "ex.wst33.3.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "Looping in Ali for visibility — dropping the details in a thread.",
+      ipa: "/ˈluːpɪŋ ɪn ˈɑːli fər ˌvɪzɪˈbɪləti — ˈdrɒpɪŋ ðə ˈdiːteɪlz ɪn ə θrɛd/",
+      tr_hint:
+        "'Looping in' = sik kullanilan async fiil. 'For visibility' birleşik söyle. 'Thread' icinde 'th' net.",
+    },
+    {
+      id: "ex.wst33.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Quick async note — auth PR merged yesterday, on onboarding flow today, blocked on the design review. Looping in Ali.",
+      voice_hint: "neutral_us",
+      tr_hint:
+        "Loom kayit ritmi — temposlu, taranabilir. Her cumlecik kisa nefes. 'Async note' acilis kalibi.",
+    },
+    {
+      id: "ex.wst33.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "Saw the auth PR — left a comment about the token expiry edge case.",
+      transcription_target:
+        "Saw the auth PR — left a comment about the token expiry edge case.",
+      tr_hint:
+        "Async cevap. 'Edge case' = sinir durumu, sik teknik kelime. 'Token expiry' = token sona ermesi.",
+    },
+    {
+      id: "ex.wst33.3.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "Posting in thread to keep the channel clean",
+      tr_translation: "Kanali kalabalik etmemek icin thread'e yaziyorum",
+      example:
+        "Posting the details in thread to keep the channel clean — tag me if you need a deeper dive.",
+      example_tr:
+        "Ana kanali kalabalik etmemek icin detaylari thread'e yaziyorum — derinlesirsen beni tag'le.",
+    },
+    {
+      id: "ex.wst33.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "hi team i dont know yesterday i think i did some thing and today maybe similar idk lets see",
+      correct_sentence:
+        ":white_check_mark: Y: auth PR merged\n:construction: T: onboarding flow\n:no_entry: B: blocked on design review (@ali)",
+      tr_explanation:
+        "Async = taranabilir. Kucuk harf + 'idk' + paragraf = profesyonel degil + kimse okumaz. Doğru: emoji + Y/T/B + @mention. 2 saniyede parse edilir.",
     },
   ],
 };
@@ -676,6 +835,59 @@ export const workStandupLesson_33_4: BundledLesson = {
             "'For context' = 1 cumlede arkaplan ver, sonra ana mesaja gec. Standup'ta 'hatirlatma + nokta' formati.",
         },
       ],
+    },
+    {
+      id: "ex.wst33.4.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "Hate to interrupt — let's take this offline and circle back on Thursday.",
+      ipa: "/heɪt tə ˌɪntəˈrʌpt — lɛts teɪk ðɪs ˈɒflaɪn ənd ˈsɜːkəl bæk ɒn ˈθɜːzdeɪ/",
+      tr_hint:
+        "Yumusak ama kararli kesme. 'Hate to interrupt' bağlı kalip — alti tonu hafif uzun. 'Circle back' net.",
+    },
+    {
+      id: "ex.wst33.4.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Great conversation — in the interest of time, let's park this and set up a follow-up sync this week.",
+      voice_hint: "neutral_us",
+      tr_hint:
+        "Diplomatik moderator tonu — saygi + zaman bilinci. 'In the interest of time' kalibinin ritmini yakala.",
+    },
+    {
+      id: "ex.wst33.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "Fair, fair. Yeah, let's set up a separate sync. I'll drop a calendar hold today.",
+      transcription_target:
+        "Fair, fair. Yeah, let's set up a separate sync. I'll drop a calendar hold today.",
+      tr_hint:
+        "Diger katilimcinin kabul cevabi. 'Calendar hold' = takvime tutucu randevu koymak. Native ofis dili.",
+    },
+    {
+      id: "ex.wst33.4.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "In the interest of time",
+      tr_translation: "Zaman icin (zamani kısitlı tutmak adına)",
+      example:
+        "In the interest of time, let's table this and bring it back Thursday with data.",
+      example_tr:
+        "Zaman acisindan, bunu erteleyelim ve Persembe veriyle birlikte geri getirelim.",
+    },
+    {
+      id: "ex.wst33.4.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Stop talking. We are late. Move next person.",
+      correct_sentence:
+        "Hate to interrupt — great topic, but let's circle back so we can hear from everyone.",
+      tr_explanation:
+        "'Stop talking' + 'Move next person' = sert + saygisiz, ekipte morali dusurur. Doğru: kibar kesme + sebep + alternatif. Lider time-keeping yumusaktir, sert degil.",
     },
   ],
 };

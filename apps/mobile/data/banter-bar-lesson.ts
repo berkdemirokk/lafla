@@ -164,6 +164,53 @@ export const banterBarLesson_24_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.bb24.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "That looks unreal — what are you drinking?",
+      ipa: "ðæt lʊks ʌnˈriːəl wɒt ɑːr juː ˈdrɪŋkɪŋ",
+      tr_hint:
+        "'That looks' = 'ðæt-lʊks', bağlanır. 'Unreal' = 'ʌn-riːəl', 'real' kısmı vurgulu. Rahat ton, sondan biraz yukarı.",
+    },
+    {
+      id: "ex.bb24.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Crazy crowd tonight, huh? First time here?",
+      voice_hint: "casual_us_male",
+      tr_hint:
+        "İki kısa cümle, gevşek ritim. 'Tonight' ile 'huh' arasında küçük duraklama. 'First time' yumuşak başla.",
+    },
+    {
+      id: "ex.bb24.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Honestly, the smoked old fashioned here is wild.",
+      transcription_target:
+        "Honestly, the smoked old fashioned here is wild.",
+      tr_hint:
+        "'Honestly' = filler. 'Smoked old fashioned' = kokteyl adı, 3 kelime. 'Wild' = 'çılgın iyi' anlamında casual.",
+    },
+    {
+      id: "ex.bb24.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "kinda",
+      tr_translation: "biraz, sayılır (kind of'un günlük kısaltması)",
+      example: "It's kinda loud in here, isn't it?",
+      example_tr: "Burası biraz gürültülü, değil mi?",
+    },
+    {
+      id: "ex.bb24.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Excuse me sir, I am going to inquire about your beverage.",
+      correct_sentence: "Hey — what're you drinking? Looks good.",
+      tr_explanation:
+        "Bar casual ortam — 'sir' + 'inquire' + 'beverage' çok formal, robot gibi. Doğru: 'Hey' + 'what're you drinking' = doğal sokak dili.",
+    },
   ],
 };
 
@@ -328,6 +375,53 @@ export const banterBarLesson_24_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.bb24.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Can I grab you another? No strings.",
+      ipa: "kæn aɪ ɡræb juː əˈnʌðər noʊ strɪŋz",
+      tr_hint:
+        "'Can I' = 'kə-naɪ', hızlı geç. 'Grab you' = 'græb-jə' bağlı. 'Strings' = 'st' sert. Düşük + samimi ton.",
+    },
+    {
+      id: "ex.bb24.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Hey, no pressure — just thought I'd offer.",
+      voice_hint: "casual_us_female",
+      tr_hint:
+        "'No pressure' arada virgül duraklama. 'Just thought' bağlanır, 'just-θɔt' gibi. Tamamen yumuşak, rahat.",
+    },
+    {
+      id: "ex.bb24.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "That's super sweet of you — honestly, I'm good for now.",
+      transcription_target:
+        "That's super sweet of you — honestly, I'm good for now.",
+      tr_hint:
+        "Reddediş örneği — yine de sıcak. 'Super sweet' = casual övgü. 'I'm good' = 'yeterim, sağol' anlamında.",
+    },
+    {
+      id: "ex.bb24.2.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "for sure",
+      tr_translation: "kesinlikle, tabii ki (casual onay)",
+      example: "Same drink? For sure, coming up.",
+      example_tr: "Aynı içecek mi? Tabii, geliyor.",
+    },
+    {
+      id: "ex.bb24.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "I would like to purchase a beverage for you, madam.",
+      correct_sentence: "Hey — can I grab you another? On me.",
+      tr_explanation:
+        "'Purchase a beverage' + 'madam' = aşırı resmi, 1950 oteli gibi. Casual barda: 'grab you another' + 'on me' = doğal arkadaşça teklif.",
+    },
   ],
 };
 
@@ -491,6 +585,53 @@ export const banterBarLesson_24_3: BundledLesson = {
             "Pozitif suprize ifade. 'Ben de orada calistim' / 'Ben de o okuldaydim' = warm spark.",
         },
       ],
+    },
+    {
+      id: "ex.bb24.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Mind if I jump in? Don't really know anyone.",
+      ipa: "maɪnd ɪf aɪ dʒʌmp ɪn doʊnt ˈrɪli noʊ ˈeniwʌn",
+      tr_hint:
+        "'Mind if I' = bağlı söylenir, 'maɪnd-ɪ-faɪ'. 'Jump in' = 'dʒʌmp-ɪn'. Rahat + biraz mahcup ton.",
+    },
+    {
+      id: "ex.bb24.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "So how do you know Sarah? Small world if you do.",
+      voice_hint: "casual_us_male",
+      tr_hint:
+        "'So' yumuşak filler. 'How do you' = 'haʊ-də-ja' bağlanır. 'Small world' alçak ses, eğlenceli ton.",
+    },
+    {
+      id: "ex.bb24.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "No way — we go way back. College years, totally wild.",
+      transcription_target:
+        "No way — we go way back. College years, totally wild.",
+      tr_hint:
+        "'No way' = inanılmaz ifadesi. 'Go way back' = uzun zamandır tanırız. 'Totally wild' = tam çılgın.",
+    },
+    {
+      id: "ex.bb24.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "that's wild",
+      tr_translation: "vay be, çılgın bir şey (casual şaşkınlık)",
+      example: "Wait, you two worked together? That's wild.",
+      example_tr: "Dur, ikiniz birlikte mi çalışmıştınız? Vay be.",
+    },
+    {
+      id: "ex.bb24.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Pardon me, may I be permitted to join your conversation?",
+      correct_sentence: "Hey, mind if I jump in?",
+      tr_explanation:
+        "'May I be permitted' = kraliyet etiketi, awkward. Doğal: 'Hey' + 'mind if I jump in' = casual + saygılı + 4 kelime.",
     },
   ],
 };

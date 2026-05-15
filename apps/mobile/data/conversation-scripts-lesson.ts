@@ -2663,6 +2663,48 @@ const convoLesson_15: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.convo.15.9",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Honestly, you're not gonna believe what happened next.",
+      tr_translation: "Açıkçası, sıradaki olanı tahmin bile edemezsin.",
+      ipa: "/ˈɒnəstli jɔːr nɒt ˈɡənə bɪˈliːv wɒt ˈhæpənd nɛkst/",
+    },
+    {
+      id: "ex.convo.15.10",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Actually, that totally reminds me of something that happened last week.",
+      voice_hint: "female_us",
+      tr_hint: "'Actually' + 'totally' iki filler. 'reminds me of' birleşir → 'rimaynzmiyəv'. Rahat, hikaye anlatıcı ton.",
+    },
+    {
+      id: "ex.convo.15.11",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "And then, get this, she just walked right out the door.",
+      transcription_target: "And then, get this, she just walked right out the door.",
+      tr_hint: "'Get this' kanca, 'walked right out' = doğruca dışarı çıktı. Anekdot ritmi.",
+    },
+    {
+      id: "ex.convo.15.12",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "long story short",
+      tr_translation: "Uzun lafın kısası",
+      example: "Long story short, we ended up missing the flight.",
+      example_tr: "Uzun lafın kısası, uçağı kaçırdık.",
+    },
+    {
+      id: "ex.convo.15.13",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I want to tell about funny thing happened to me yesterday.",
+      correct_sentence: "I've got to tell you about this hilarious thing that happened to me yesterday.",
+      tr_explanation:
+        "Doğal anekdot girişi: 'I've got to tell you about this [adj] thing that happened'. 'tell about' yanlış — 'tell you about' doğru. 'Funny thing' yerine daha güçlü 'hilarious thing' + 'that' relatif zamir şart.",
+    },
   ],
 };
 

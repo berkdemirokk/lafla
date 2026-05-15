@@ -168,6 +168,53 @@ export const customLesson_3_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.3.1.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "I'm allergic to peanuts.",
+      ipa: "/aɪm əˈlɜrdʒɪk tu ˈpiːnʌts/",
+      tr_articulation_hint:
+        "'Allergic' = ə-ler-cik, vurgu ortada. 'Peanuts' = pi-nats (uzun i). Yutmadan net soyle — garson dogru anlamali.",
+    },
+    {
+      id: "ex.3.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Just a heads up — I have a severe nut allergy.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Heads up' = uyari, sıcak ton. 'Severe' (sıvir, vurgu sonda) — onemli noktayi vurgu ile soyle. Ciddi ama panik degil.",
+    },
+    {
+      id: "ex.3.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "We can absolutely accommodate that — I'll flag it with the kitchen.",
+      transcription_target:
+        "We can absolutely accommodate that — I'll flag it with the kitchen.",
+      tr_hint:
+        "'Accommodate' = uyarlamak (uzun, vurgu kom hecesinde). 'Flag it' deyim = mutfaga bildir. Restoran personeli kalibi.",
+    },
+    {
+      id: "ex.3.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "lactose intolerant",
+      tr_translation: "Laktoz intoleransı var",
+      example_en: "I'm lactose intolerant — could you check if there's milk in this?",
+      example_tr:
+        "Laktoz intoleransim var — bunda sut var mi kontrol eder misin?",
+    },
+    {
+      id: "ex.3.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I have allergy to milk.",
+      correct_sentence: "I have a milk allergy.",
+      tr_explanation:
+        "'Have allergy' yanlis — sayilabilir isim, 'a' gerekli. Ya 'I have a milk allergy' ya da 'I'm allergic to milk' kullan.",
+    },
   ],
 };
 
@@ -349,6 +396,51 @@ export const customLesson_3_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.3.2.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Hold the onions, please.",
+      ipa: "/hoʊld ðə ˈʌnjənz pliːz/",
+      tr_articulation_hint:
+        "'Hold' = hold, l hafif. 'Onions' = ı-niınz (vurgu basta, hafif y sesi). 'Please' yumusatici — sonda inice ton.",
+    },
+    {
+      id: "ex.3.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Could I get that with extra cheese and no pickles?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Iki istek tek cumlede — 'and' ile bagla. 'Extra cheese' bagli, 'no pickles' net. Akici fast food ritmi.",
+    },
+    {
+      id: "ex.3.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "You got it — I'll put the dressing on the side.",
+      transcription_target: "You got it — I'll put the dressing on the side.",
+      tr_hint:
+        "'You got it' = idiom, 'tamamdir/anladim'. 'On the side' = ayrı tabaka — sos/garnitur icin standart. Garson onay tonu.",
+    },
+    {
+      id: "ex.3.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "sub for",
+      tr_translation: "Yerine koy / değiştir",
+      example_en: "Can I sub avocado for the bacon?",
+      example_tr: "Pastirma yerine avokado koyabilir miyim?",
+    },
+    {
+      id: "ex.3.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Put extra to cheese.",
+      correct_sentence: "Could I get extra cheese, please?",
+      tr_explanation:
+        "'Put extra to cheese' Turkce mantik — Ingilizce yapisi degil. 'Extra cheese' sifat + isim. 'Could I get [X], please?' = kibar sipariş kalibi.",
+    },
   ],
 };
 
@@ -516,6 +608,52 @@ export const customLesson_3_3: BundledLesson = {
             "Sıfat olarak 'vegan options'. Aynı şekilde 'gluten-free options', 'vegetarian options'.",
         },
       ],
+    },
+    {
+      id: "ex.3.3.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Is this gluten-free?",
+      ipa: "/ɪz ðɪs ˈɡluːtən friː/",
+      tr_articulation_hint:
+        "'Gluten' = glu-tın (vurgu basta). 'Free' net, agzi yana ac. Tonlama sonda yukseliyor — soru ton.",
+    },
+    {
+      id: "ex.3.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "I'm plant-based — do you have any options I could try?",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Plant-based' tek kelime gibi bagla. 'I could try' sonda yumusak — yardim isteyen ton. Sicak ama net.",
+    },
+    {
+      id: "ex.3.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Our falafel plate is fully vegan and the rice is gluten-free.",
+      transcription_target:
+        "Our falafel plate is fully vegan and the rice is gluten-free.",
+      tr_hint:
+        "'Fully vegan' = tamamen vegan, vurgu vurguda. 'Falafel' = fa-la-fıl. Garson menü tanitim tonu, akici sıralama.",
+    },
+    {
+      id: "ex.3.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "dairy-free",
+      tr_translation: "Sütsüz / süt urunsuz",
+      example_en: "Do you have a dairy-free version of the pasta?",
+      example_tr: "Bu makarnanin sutsuz versiyonu var mi?",
+    },
+    {
+      id: "ex.3.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I am vegan person.",
+      correct_sentence: "I'm vegan.",
+      tr_explanation:
+        "'Vegan' tek basina sifat — 'person' gereksiz. Turkce 'Vegan biriyim' kelime kelime cevirisi. 'I'm vegan' tek basina yeterli.",
     },
   ],
 };

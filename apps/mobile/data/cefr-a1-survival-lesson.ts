@@ -1467,6 +1467,47 @@ export const cefrA1SurvivalLesson_10: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a1s.10.9",
+      type: "pronounce_phrase",
+      difficulty: 1,
+      phrase: "Thank you.",
+      tr_hint: "İki kelime: 'Thank you'. 'th' = dilini dişlerinin arasına koy, hafif üfle.",
+    },
+    {
+      id: "ex.a1s.10.10",
+      type: "speech_shadowing",
+      difficulty: 2,
+      native_text: "Where is the toilet?",
+      voice_hint: "female_us",
+      tr_hint: "Dört kelime. 'Where is' birleşir → 'weriz'. Native ile aynı anda söyle.",
+    },
+    {
+      id: "ex.a1s.10.11",
+      type: "listen_and_transcribe",
+      difficulty: 2,
+      audio_text: "A glass of water, please.",
+      transcription_target: "A glass of water, please.",
+      tr_hint: "Dinle ve yaz. 'A glass of water' = bir bardak su. Sonda 'please'.",
+    },
+    {
+      id: "ex.a1s.10.12",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "water",
+      tr_translation: "Su",
+      example: "Water, please.",
+      example_tr: "Su, lütfen.",
+    },
+    {
+      id: "ex.a1s.10.13",
+      type: "spot_mistake",
+      difficulty: 2,
+      incorrect_sentence: "Where toilet?",
+      correct_sentence: "Where is the toilet?",
+      tr_explanation:
+        "Soru cümlesi 'is' ve 'the' ister. 'Where IS THE toilet?' — atlama.",
+    },
   ],
 };
 

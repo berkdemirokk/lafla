@@ -158,6 +158,51 @@ export const barLesson_7_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.7.1.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "I'll have a pint of the IPA, please.",
+      ipa: "aɪl hæv ə paɪnt ʌv ðiː aɪ piː eɪ pliːz",
+      tr_hint:
+        "'Pint' = 'paɪnt' (~568ml UK, 473ml ABD). 'IPA' tek tek harf: 'ay-pee-ey'. Bira çeşit kısaltması.",
+    },
+    {
+      id: "ex.7.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "What do you have on draft tonight?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'What do you' bağlanır → 'wɒt-də-yə'. 'On draft' = fıçıdan.",
+    },
+    {
+      id: "ex.7.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Do you want to start a tab or pay as you go?",
+      transcription_target: "Do you want to start a tab or pay as you go?",
+      tr_hint:
+        "Dinle, yaz. Bartender'ın klasik sorusu: tab açtırma veya her içkide ayrı ödeme.",
+    },
+    {
+      id: "ex.7.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "pint",
+      tr_translation: "Pint (bira ölçüsü ~473-568ml)",
+      example: "A pint of the lager, please.",
+      example_tr: "Bir pint lager, lütfen.",
+    },
+    {
+      id: "ex.7.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "One big beer, fresh, please.",
+      correct_sentence: "I'll have a pint of whatever's on tap, please.",
+      tr_explanation:
+        "'Big beer' belirsiz. Doğal kalıp: 'pint' (ölçü) + 'on tap' (fıçıdan) + 'whatever' (ne olursa). 'Fresh' bira için tuhaf.",
+    },
   ],
 };
 
@@ -323,6 +368,51 @@ export const barLesson_7_2: BundledLesson = {
             "'Twist' = bartender'ın bardağın kenarına burktuğu limon kabuğu — aroma katar.",
         },
       ],
+    },
+    {
+      id: "ex.7.2.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could I get an Old Fashioned, on the rocks?",
+      ipa: "kʊd aɪ ɡɛt ən oʊld ˈfæʃənd ɒn ðə rɒks",
+      tr_hint:
+        "'Old Fashioned' = klasik viski kokteyli. 'ʃ' sesi 'shun' gibi. 'On the rocks' birleşik söylenir.",
+    },
+    {
+      id: "ex.7.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "I'll have a dry martini, straight up, with a twist.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Dry' = az vermut. 'Straight up' = soğutulmuş ama buzsuz. James Bond ritmi.",
+    },
+    {
+      id: "ex.7.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Do you want that shaken or stirred?",
+      transcription_target: "Do you want that shaken or stirred?",
+      tr_hint:
+        "Dinle, yaz. Martini için klasik bartender sorusu. James Bond hep 'shaken' der.",
+    },
+    {
+      id: "ex.7.2.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "double",
+      tr_translation: "Çift (likör ölçüsü)",
+      example: "Make it a double, please.",
+      example_tr: "Çift yapın, lütfen.",
+    },
+    {
+      id: "ex.7.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Vodka with no ice, no water, just clean.",
+      correct_sentence: "A vodka neat, please. No ice.",
+      tr_explanation:
+        "'Clean' bar terminolojisinde yok — doğrusu 'neat' (sek, oda sıcaklığı). 'No ice' netleştirme için ek.",
     },
   ],
 };
@@ -500,6 +590,52 @@ export const barLesson_7_3: BundledLesson = {
             "'Close me out' = tab'i kapat, hesabı çıkar — bar idiom'u.",
         },
       ],
+    },
+    {
+      id: "ex.7.3.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could you close out my tab, please?",
+      ipa: "kʊd juː kloʊz aʊt maɪ tæb pliːz",
+      tr_hint:
+        "'Close out' = 'kloʊz-awt', iki kelime bağlanır. 'Tab' kısa 'æ' sesi. Bar idiom'u — kapatma kalıbı.",
+    },
+    {
+      id: "ex.7.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Last call! Anyone want one more before we shut it down?",
+      voice_hint: "male_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Last call' bağırılır — bartender anonsudur. 'Shut it down' = kapatma slangi.",
+    },
+    {
+      id: "ex.7.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Your card's on file — want me to keep it open?",
+      transcription_target: "Your card's on file — want me to keep it open?",
+      tr_hint:
+        "Dinle, yaz. Tab açıkken bartender sorgular. 'On file' = saklı / sistemde.",
+    },
+    {
+      id: "ex.7.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "nightcap",
+      tr_translation: "Gece son içki (uyumadan önce)",
+      example: "One nightcap before we head home?",
+      example_tr: "Eve gitmeden önce bir son içki?",
+    },
+    {
+      id: "ex.7.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Pay all drinks now, I want go home.",
+      correct_sentence:
+        "Could you close out my tab? I'm heading out.",
+      tr_explanation:
+        "'Pay all drinks now' kırık komut. 'I want go home' grammar yok. Doğal: 'Close out my tab' + 'I'm heading out' (gidiyorum).",
     },
   ],
 };

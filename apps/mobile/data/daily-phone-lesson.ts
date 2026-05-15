@@ -165,6 +165,52 @@ export const dailyPhoneLesson_21_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.dph21.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'm calling about a charge on my bill.",
+      ipa: "aɪm ˈkɔːlɪŋ əˈbaʊt ə tʃɑːrdʒ ɒn maɪ bɪl",
+      tr_hint:
+        "'I'm calling about' = arama açılışı. 'A charge on my bill' birleşik akış → 'ə-charj-on-may-bil'.",
+    },
+    {
+      id: "ex.dph21.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Could I get a reference number for this call?",
+      voice_hint: "male_us",
+      tr_hint:
+        "Cagri sonu standart. 'Reference number' birleşik vurgu. 'For this call' bağlanır.",
+    },
+    {
+      id: "ex.dph21.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Please hold while I transfer you to a specialist.",
+      transcription_target: "Please hold while I transfer you to a specialist.",
+      tr_hint:
+        "Agent klasik gecis cumlesi. 'Hold' = bekle. 'Transfer' = yonlendir. 'Specialist' = uzman.",
+    },
+    {
+      id: "ex.dph21.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "reference number",
+      tr_translation: "Takip numarasi (cagri referansi)",
+      example: "Can I get a reference number in case I need to call back?",
+      example_tr: "Geri ararsam diye takip numarasi alabilir miyim?",
+    },
+    {
+      id: "ex.dph21.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "You charge me wrong money!",
+      correct_sentence:
+        "I'm calling about a charge from October 5 that doesn't look right — could you check?",
+      tr_explanation:
+        "Saldırgan + belirsiz. Doğru: tarih + spesifik (doesn't look right) + saygili soru.",
+    },
   ],
 };
 
@@ -327,6 +373,52 @@ export const dailyPhoneLesson_21_2: BundledLesson = {
             "Form doldurma + ID gosterme + insurance verification = randevudan once.",
         },
       ],
+    },
+    {
+      id: "ex.dph21.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'd like to schedule an appointment.",
+      ipa: "aɪd laɪk tə ˈʃɛdʒuːl ən əˈpɔɪntmənt",
+      tr_hint:
+        "'I'd like to' = kibar istek. 'Schedule' US: SHE-jool. 'Appointment' vurgu ikinci hece: ə-POYNT-ment.",
+    },
+    {
+      id: "ex.dph21.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "What's your first available slot this week?",
+      voice_hint: "female_us",
+      tr_hint:
+        "'What's your' bağlanır. 'First available' birleşik. 'Slot this week' net vurgu.",
+    },
+    {
+      id: "ex.dph21.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "We have an opening Thursday at two thirty.",
+      transcription_target: "We have an opening Thursday at two thirty.",
+      tr_hint:
+        "Randevu önerisi. 'Opening' = boş slot. 'Two thirty' = 14:30. Klinik sekreteri klasigi.",
+    },
+    {
+      id: "ex.dph21.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "first available",
+      tr_translation: "İlk uygun (slot)",
+      example: "Your first available next week — Tuesday or Wednesday?",
+      example_tr: "Önümüzdeki hafta ilk uygun — Salı mı Çarşamba mı?",
+    },
+    {
+      id: "ex.dph21.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Give appointment tomorrow now.",
+      correct_sentence:
+        "I'd like to schedule a cleaning — what do you have available tomorrow afternoon?",
+      tr_explanation:
+        "Emir kipi + 'now'. Doğru: 'I'd like to' + tip (cleaning) + esnek zaman aralığı.",
     },
   ],
 };
@@ -493,6 +585,52 @@ export const dailyPhoneLesson_21_3: BundledLesson = {
             "Bir kez aramak yerine mesaj at = trafik / meeting'de mesaja cevap verebilirsin.",
         },
       ],
+    },
+    {
+      id: "ex.dph21.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Hi, this is Berk getting back to you.",
+      ipa: "haɪ ðɪs ɪz bɜːrk ˈɡɛtɪŋ bæk tə juː",
+      tr_hint:
+        "Voicemail acilis. 'This is' bağlanır → 'di-siz'. 'Getting back to you' birleşik ritim.",
+    },
+    {
+      id: "ex.dph21.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Please give me a call back when you get a chance.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Voicemail klasigi. 'Give me a call back' birleşik. 'When you get a chance' = uygun olunca.",
+    },
+    {
+      id: "ex.dph21.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Please leave a message after the beep.",
+      transcription_target: "Please leave a message after the beep.",
+      tr_hint:
+        "Standart voicemail karşilama. 'Leave a message' = mesaj birak. 'Beep' = bip sesi.",
+    },
+    {
+      id: "ex.dph21.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "give me a call back",
+      tr_translation: "Beni geri ara",
+      example: "Give me a call back at 555-1234 when you can.",
+      example_tr: "Uygun olunca 555-1234'ten beni geri ara.",
+    },
+    {
+      id: "ex.dph21.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Berk. Friday. Call.",
+      correct_sentence:
+        "Hi, this is Berk leaving a message about Friday's reservation — please call me at 555-1234.",
+      tr_explanation:
+        "Tek kelime parcalari = belirsiz. Doğru: isim + konu + spesifik (Friday's reservation) + numara.",
     },
   ],
 };

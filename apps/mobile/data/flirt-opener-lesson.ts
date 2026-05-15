@@ -168,6 +168,58 @@ export const flirtOpenerLesson_1_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.f1.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Okay, I have to ask — what's your most unimpressive talent?",
+      ipa: "/ˈəʊkeɪ aɪ hæv tə ɑːsk — wɒts jɔː məʊst ʌnɪmˈprɛsɪv ˈtælənt/",
+      tr_hint:
+        "Casual + meraklı ton. 'I have to ask' bağlı söyle. 'Unimpressive' icindeki 'un' kisa, 'press' vurgulu.",
+    },
+    {
+      id: "ex.f1.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Random question — would you rather only do brunch or only do late dinners for the rest of your life?",
+      voice_hint: "warm_us",
+      tr_hint:
+        "Eglenceli opener tonlamasi — hafif yukseltme sonda. 'Would you rather' bağlı kalip, ritmiyle akici.",
+    },
+    {
+      id: "ex.f1.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Honestly more of a wing-it person — my friends say I'm allergic to plans.",
+      transcription_target:
+        "Honestly more of a wing-it person — my friends say I'm allergic to plans.",
+      tr_hint:
+        "Match cevabi. 'Allergic to plans' = plana alerjik (mizah). 'Wing-it' = casual ifade.",
+    },
+    {
+      id: "ex.f1.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Quick question for you",
+      tr_translation: "Sana hızlı bir soru",
+      example:
+        "Quick question for you — coffee snob or 'whatever's hot' kind of person?",
+      example_tr:
+        "Sana hızlı bir soru — kahve uzmani misin yoksa 'ne sicaksa olur' tipinde misin?",
+    },
+    {
+      id: "ex.f1.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Hi beautiful how are you doing today my love?",
+      correct_sentence:
+        "Quick question — what's something you've been into lately?",
+      tr_explanation:
+        "'Beautiful' + 'my love' ilk mesajda = aşırı (creepy hissi). Modern apps'te: spesifik + ucu acik soru = ilgi gösterir, sınırı asmaz.",
+    },
   ],
 };
 
@@ -331,6 +383,59 @@ export const flirtOpenerLesson_1_2: BundledLesson = {
             "'I noticed from your bio' veya 'Saw the X mention' — natural varyasyonlar.",
         },
       ],
+    },
+    {
+      id: "ex.f1.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Saw the travel mention in your bio — what's the next trip on your list?",
+      ipa: "/sɔː ðə ˈtrævəl ˈmɛnʃən ɪn jɔː ˈbaɪəʊ — wɒts ðə nɛkst trɪp ɒn jɔː lɪst/",
+      tr_hint:
+        "Bio referans tonu — gözlemsel, hafif merak. 'Saw the' bağlı, 'next trip on your list' tek nefes.",
+    },
+    {
+      id: "ex.f1.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Your bio reads like someone I'd actually want to grab a drink with — which never happens on here.",
+      voice_hint: "warm_us",
+      tr_hint:
+        "Direkt ama saygili compliment. 'Which never happens on here' kuyruk meta-joke. Akıcı söyle, durma.",
+    },
+    {
+      id: "ex.f1.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Definitely Sushi Zen in Brooklyn — go for the omakase if you ever try it.",
+      transcription_target:
+        "Definitely Sushi Zen in Brooklyn — go for the omakase if you ever try it.",
+      tr_hint:
+        "Match'in oneri cevabi. 'Omakase' = sef onerisi menu (Japonca). 'Go for' = denemekten cekinme.",
+    },
+    {
+      id: "ex.f1.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Caught the X reference in your bio",
+      tr_translation: "Bio'ndaki X referansini yakaladim",
+      example:
+        "Caught the Wes Anderson reference in your bio — Tenenbaums or Grand Budapest?",
+      example_tr:
+        "Bio'ndaki Wes Anderson referansini yakaladim — Tenenbaums mi Grand Budapest mi?",
+    },
+    {
+      id: "ex.f1.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "You have very nice body in pictures, you go to gym?",
+      correct_sentence:
+        "Your bio mentions climbing — what's the best route you've done lately?",
+      tr_explanation:
+        "Vucut yorumu + 'go to gym' = transactional, modern apps'te red flag. Doğru: bio'da yazilana referans + spesifik soru. Insan olarak ilgili, beden olarak degil.",
     },
   ],
 };
@@ -496,6 +601,59 @@ export const flirtOpenerLesson_1_3: BundledLesson = {
             "Self-aware az dalga = charming. Çok = energy vampire. 1 cümle yeter.",
         },
       ],
+    },
+    {
+      id: "ex.f1.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "I'm aware 'hi' is technically an opener, but you deserve better.",
+      ipa: "/aɪm əˈweə haɪ ɪz ˈtɛknɪkli ən ˈəʊpənə bʌt juː dɪˈzɜːv ˈbɛtə/",
+      tr_hint:
+        "Kendinle dalga geçen ton — kuru komedi. 'Technically' icindeki 'tek' net. Sonda 'better' yumuşak.",
+    },
+    {
+      id: "ex.f1.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Disclaimer up front — my opening game is mid at best, but I promise I get more interesting after the first message.",
+      voice_hint: "warm_us",
+      tr_hint:
+        "Self-aware tonu — utangac degil, oz farkindali. 'Mid at best' = ortalama (Gen-Z slang). Akiciligi koru.",
+    },
+    {
+      id: "ex.f1.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Refreshing honesty — okay, ask me something then. Make it good.",
+      transcription_target:
+        "Refreshing honesty — okay, ask me something then. Make it good.",
+      tr_hint:
+        "Match'in self-aware'a olumlu cevabi. 'Refreshing' = ferahlatici. 'Make it good' = iyi bir tane sor (oyuncak).",
+    },
+    {
+      id: "ex.f1.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Opening game is mid at best",
+      tr_translation: "Aciliş atişlarim orta seviye (Gen-Z slang)",
+      example:
+        "Fair warning — my opening game is mid at best, but the actual conversation is decent.",
+      example_tr:
+        "Pesinen uyari — aciliş atişlarim orta seviye, ama asıl sohbet fena değil.",
+    },
+    {
+      id: "ex.f1.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "I am very lonely and bad at talking. Sorry I message you.",
+      correct_sentence:
+        "Pre-warning: I'm not great at openers, but I figured 'hi' didn't do you justice.",
+      tr_explanation:
+        "'Very lonely' = trauma dumping ilk mesajda iter (energy vampire). 'Sorry I message' = oz-iptal. Doğru: hafif oz-farkındali + iltifat. Charming, ezikçe degil.",
     },
   ],
 };
@@ -663,6 +821,59 @@ export const flirtOpenerLesson_1_4: BundledLesson = {
             "Forward + samimi. İlk mesajda risk; 5-10 mesaj sonra perfect — 'enjoying this' demek.",
         },
       ],
+    },
+    {
+      id: "ex.f1.4.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Your photos are giving 'someone I'd lose track of time with' energy.",
+      ipa: "/jɔː ˈfəʊtəʊz ɑː ˈɡɪvɪŋ ˈsʌmwʌn aɪd luːz træk əv taɪm wɪð ˈɛnədʒi/",
+      tr_hint:
+        "Modern flirty — 'giving X energy' kalibi tek nefes. 'Lose track of time' bağlı, ritmi koru.",
+    },
+    {
+      id: "ex.f1.4.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Not gonna pretend this isn't a flirty opener — your bio is way too good not to say something.",
+      voice_hint: "warm_us",
+      tr_hint:
+        "Direkt ama olgun flirt — meta-honesty. 'Not gonna pretend' bağlı, 'way too good not to' tek nefes.",
+    },
+    {
+      id: "ex.f1.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Wow okay, smooth opener — I respect it. What kind of vibe do my photos give you?",
+      transcription_target:
+        "Wow okay, smooth opener — I respect it. What kind of vibe do my photos give you?",
+      tr_hint:
+        "Match'in olumlu cevabi. 'Smooth' = pürüzsüz, ozgüvenli. 'I respect it' = oyunu kabul etme.",
+    },
+    {
+      id: "ex.f1.4.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Reads like trouble in the best way",
+      tr_translation: "İyi anlamda 'sorun çikaracak' tip gibi okunuyor",
+      example:
+        "Your bio reads like trouble in the best way — what's the story behind the bookstore photo?",
+      example_tr:
+        "Bio'n iyi anlamda 'sorun çikaracak' tip gibi okunuyor — kitabevi fotosunun hikayesi ne?",
+    },
+    {
+      id: "ex.f1.4.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Hot pics. DTF? Send better photos to my DMs.",
+      correct_sentence:
+        "Your photos are giving 'spontaneous Sunday adventures' energy — what's your actual ideal Sunday?",
+      tr_explanation:
+        "'DTF' + 'send photos to DMs' = direkt transactional = modern apps'te otomatik unmatch. Doğru: enerji/vibe yorumu + spesifik soru. Olgun flirt fiziksel degil, kisilik üzerine.",
     },
   ],
 };

@@ -164,6 +164,55 @@ export const dailyEmergencyLesson_22_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.de22.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I need an ambulance right now.",
+      ipa: "/aɪ niːd ən ˈæmbjələns raɪt naʊ/",
+      tr_hint:
+        "Acil ton net + sakin. 'Ambulance' = 'EM-bı-lınz' (vurgu ilk hece). 'Right now' = 'rayt-nau'.",
+    },
+    {
+      id: "ex.de22.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Emergency at 245 Park Avenue — my friend collapsed, breathing but unconscious.",
+      voice_hint: "female_us",
+      tr_hint:
+        "911 kalıbı: yer + durum + nefes. 'Collapsed' = 'kı-LAPST'. Net ve hızlı.",
+    },
+    {
+      id: "ex.de22.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "Ambulance is on the way. Stay on the line and don't move him — paramedics four minutes out.",
+      transcription_target:
+        "Ambulance is on the way. Stay on the line and don't move him — paramedics four minutes out.",
+      tr_hint:
+        "Dispatcher tipik talimat. 'On the way' = yolda. 'Stay on the line' = hatta kal. 'Minutes out' = dakika içinde varır.",
+    },
+    {
+      id: "ex.de22.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "is there any way",
+      tr_translation: "Bir yolu var mı?",
+      example: "Is there any way to speed up the ambulance?",
+      example_tr: "Ambulansı hızlandırmanın bir yolu var mı?",
+    },
+    {
+      id: "ex.de22.1.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "My friend is sleep and don't wake up.",
+      correct_sentence:
+        "My friend is unconscious — breathing, but not responding.",
+      tr_explanation:
+        "'Is sleep' yanlış kelime + 'don't wake up' direkt çeviri. Klinik standart: 'unconscious' (= bilinçsiz) + 'not responding' (= tepkisiz). 911 dispatcher bu terimleri bekler.",
+    },
   ],
 };
 
@@ -326,6 +375,55 @@ export const dailyEmergencyLesson_22_2: BundledLesson = {
             "Cogu hirsiz birden cok kez yapar. Birikim halinde yakalama olasiligi.",
         },
       ],
+    },
+    {
+      id: "ex.de22.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'd like to file a theft report.",
+      ipa: "/aɪd laɪk tu faɪl ə θɛft rɪˈpɔːrt/",
+      tr_hint:
+        "'File' fiil burada = 'fayl'. 'Theft' = 'θeft' (th = dilini ısır). 'Report' vurgu ikinci hece: 'ri-PORT'.",
+    },
+    {
+      id: "ex.de22.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "My phone was stolen on the subway about an hour ago — I need to file a report.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Polis karakolu tonu: sakin + net. 'Was stolen' = 'wız-STOU-lın'. 'An hour ago' = 'ı-na-vır-ı-go'.",
+    },
+    {
+      id: "ex.de22.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "I'll file the report and give you a case number for your insurance claim.",
+      transcription_target:
+        "I'll file the report and give you a case number for your insurance claim.",
+      tr_hint:
+        "Polis memuru tipik kapanış. 'Case number' = dava numarası. 'Insurance claim' = sigorta talebi.",
+    },
+    {
+      id: "ex.de22.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "would you mind",
+      tr_translation: "... yapmanın bir sakıncası olur mu?",
+      example: "Would you mind emailing me a copy of the report?",
+      example_tr: "Raporun bir kopyasını mailime atmanızın bir sakıncası olur mu?",
+    },
+    {
+      id: "ex.de22.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Someone stoled my wallet, I want to make complaint.",
+      correct_sentence:
+        "Someone stole my wallet — I'd like to file a complaint.",
+      tr_explanation:
+        "'Stoled' yanlış — 'steal'in geçmişi 'stole' (düzensiz fiil). 'Make complaint' Türkçe etkisi; doğru kalıp 'file a complaint' (= şikayette bulun).",
     },
   ],
 };

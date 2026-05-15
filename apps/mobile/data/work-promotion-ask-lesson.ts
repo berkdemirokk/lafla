@@ -170,6 +170,59 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.wpa38.1.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "Could we set up time to talk about my growth and what's next?",
+      ipa: "/kʊd wi sɛt ʌp taɪm tə tɔːk əˈbaʊt maɪ ɡrəʊθ ənd wɒts nɛkst/",
+      tr_hint:
+        "'Could we set up time' bağlanır → 'kud-wi-set-ap-taim'. 'Growth' içinde 'th' net, 'what's next' kısa stop.",
+    },
+    {
+      id: "ex.wpa38.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Hey — wanted to put a career conversation on the calendar in the next two weeks. I'll send an agenda beforehand.",
+      voice_hint: "neutral_us",
+      tr_hint:
+        "Manager'a Slack DM tonu — sakin, profesyonel. 'Wanted to' bağlı, 'agenda' düz vurguyla.",
+    },
+    {
+      id: "ex.wpa38.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "Sure — what's on your mind specifically? Want to make sure I come prepared.",
+      transcription_target:
+        "Sure — what's on your mind specifically? Want to make sure I come prepared.",
+      tr_hint:
+        "Manager'in standart cevabi. 'What's on your mind' = aklinda ne var. 'Come prepared' = hazirlikli gelmek.",
+    },
+    {
+      id: "ex.wpa38.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Put 30 minutes on the calendar",
+      tr_translation: "Takvime 30 dakika koymak",
+      example:
+        "Can we put 30 minutes on the calendar this week for a growth conversation?",
+      example_tr:
+        "Bu hafta gelisim konusmasi icin takvime 30 dakika koyabilir miyiz?",
+    },
+    {
+      id: "ex.wpa38.1.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I want talk about promotion. You have time tomorrow?",
+      correct_sentence:
+        "Could we set up time this week to talk about my growth? Happy to share an agenda.",
+      tr_explanation:
+        "'I want talk' yapı bozuk — 'I want to talk' veya daha yumusak 'Could we set up'. 'You have time tomorrow' direkt baski — randevu icin 'this week' + agenda teklifi profesyonel.",
+    },
   ],
 };
 
@@ -338,6 +391,59 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
             "En guclu vaka: 'Already operating at the next level — let's make it official.' Manager risk almamis olur.",
         },
       ],
+    },
+    {
+      id: "ex.wpa38.2.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "I've taken on senior-level scope and led the auth redesign end-to-end.",
+      ipa: "/aɪv ˈteɪkən ɒn ˈsiːnjər ˈlɛvəl skəʊp ənd lɛd ði ɔːθ riˈdɪzaɪn ɛnd tə ɛnd/",
+      tr_hint:
+        "Vaka acilis cumlesi — kararli ton. 'Senior-level' birleşik, 'end-to-end' uc kelime tek nefes.",
+    },
+    {
+      id: "ex.wpa38.2.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "Here's the impact I've had this year — led the auth redesign with a 35% drop in errors, mentored two juniors, and owned the API migration end-to-end.",
+      voice_hint: "confident_us",
+      tr_hint:
+        "Vaka sunumu ritmi — virguller arasi kisa nefes. Sayilar net ('thirty-five percent'). Liste ritmiyle calis.",
+    },
+    {
+      id: "ex.wpa38.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "Solid numbers. What about scope outside your own work?",
+      transcription_target:
+        "Solid numbers. What about scope outside your own work?",
+      tr_hint:
+        "Manager'in derinlesme sorusu. 'Scope outside your own work' = bireysel disinda kapsam. Bunu bekle.",
+    },
+    {
+      id: "ex.wpa38.2.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "Drove a measurable impact",
+      tr_translation: "Olculebilir bir etki yarattim",
+      example:
+        "Drove a measurable impact this year — 35% drop in error rates and two engineers ramped.",
+      example_tr:
+        "Bu yil olculebilir bir etki yarattim — hata oranlarinda %35 dusus ve iki engineer'i hizla yetistirme.",
+    },
+    {
+      id: "ex.wpa38.2.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "I helped my team a lot and I am very dedicated worker.",
+      correct_sentence:
+        "I drove the auth redesign, mentored two juniors, and shipped the API migration — operating at senior scope.",
+      tr_explanation:
+        "'Helped' = pasif + olculemez. 'I am very dedicated worker' = oz-etiketleme, kanit yok. Doğru: 'Drove/led/owned' + spesifik sonuc + 'operating at X scope'. Aksiyon fiili + olcum sahiplik gosterir.",
     },
   ],
 };
@@ -508,6 +614,59 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
             "Sirket 'need'-e cevap vermez — 'market value + delivery' verisine cevap verir. Duygusal vs is dili farki.",
         },
       ],
+    },
+    {
+      id: "ex.wpa38.3.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "Market data puts senior comp at 175 to 195 — what's the band for this level?",
+      ipa: "/ˈmɑːkɪt ˈdeɪtə pʊts ˈsiːnjər kɒmp æt wʌn ˈsɛvənti faɪv tə wʌn ˈnaɪnti faɪv — wɒts ðə bænd fər ðɪs ˈlɛvəl/",
+      tr_hint:
+        "Sayilari net soyle — '175 to 195'. 'Band' = kisa, vurgulu. Cumle sonu yukseltme = soru hissi.",
+    },
+    {
+      id: "ex.wpa38.3.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "Based on market data, I'm looking at the upper end of the range given my impact. Could we land closer to one-ninety?",
+      voice_hint: "calm_us",
+      tr_hint:
+        "Muzakere tonu — sakin + kararli, savunmaci degil. 'Upper end' birleşik, 'one-ninety' tek nefes.",
+    },
+    {
+      id: "ex.wpa38.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "The band for senior is 165 to 195. I can probably get you to 180.",
+      transcription_target:
+        "The band for senior is 165 to 195. I can probably get you to 180.",
+      tr_hint:
+        "Manager'in band acikladigi an. Sayilari yaz. 'Get you to 180' = seni 180'a tasiyabilirim.",
+    },
+    {
+      id: "ex.wpa38.3.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "Where's the flex?",
+      tr_translation: "Esneklik nerede? (muzakere alani sorusu)",
+      example:
+        "Appreciate the transparency — where's the flex? Equity, sign-on, or base?",
+      example_tr:
+        "Seffafliga minnet — esneklik nerede? Equity mi, sign-on mu, baz mi?",
+    },
+    {
+      id: "ex.wpa38.3.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Your offer too low. I expected more money for this position.",
+      correct_sentence:
+        "Appreciate the offer — based on market data, senior sits at 175 to 195. Is there room to land closer to the upper end?",
+      tr_explanation:
+        "'Too low' + 'expected more money' = duygusal + kisisel. Doğru: 'Appreciate the offer' (saygi) + market data (objektif) + 'is there room?' (kapi aralik tutar). HR oynamak ister, kavga etmek istemez.",
     },
   ],
 };
@@ -680,6 +839,59 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
             "Tehdit = tek atisli silah. Olgun yol: kriter al, plani uygula, gercek alternatif var ise sessizce hareket et.",
         },
       ],
+    },
+    {
+      id: "ex.wpa38.4.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "What would I need to demonstrate to revisit this in Q3?",
+      ipa: "/wɒt wʊd aɪ niːd tə ˈdɛmənstreɪt tə riːˈvɪzɪt ðɪs ɪn kjuː θriː/",
+      tr_hint:
+        "Olgun cevap kalibi — duraksiz, sakin. 'Demonstrate' icinde 'dem' vurgulu. 'Q3' = 'kyu-three'.",
+    },
+    {
+      id: "ex.wpa38.4.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "Understood — want to document the criteria so we're both aligned. I'll send a one-pager by Friday with milestones.",
+      voice_hint: "professional_us",
+      tr_hint:
+        "Hayri kabul edip plana ceviren ton — kararli ama defansif degil. 'Document the criteria' = anahtar ifade.",
+    },
+    {
+      id: "ex.wpa38.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "Two things — drive a cross-team initiative end-to-end, and mentor at least one engineer through to ramp.",
+      transcription_target:
+        "Two things — drive a cross-team initiative end-to-end, and mentor at least one engineer through to ramp.",
+      tr_hint:
+        "Manager'in iki kriterli cevabi. 'Cross-team initiative' = ekipler arasi proje. 'Through to ramp' = hizlanip yetisene kadar.",
+    },
+    {
+      id: "ex.wpa38.4.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "Concrete criteria",
+      tr_translation: "Somut kriterler",
+      example:
+        "Could we put concrete criteria in writing so we both know the bar?",
+      example_tr:
+        "Somut kriterleri yazili hale getirsek — ikimiz de cizgiyi bilelim?",
+    },
+    {
+      id: "ex.wpa38.4.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Okay, I will wait next year. But this is not fair really.",
+      correct_sentence:
+        "Understood — what would I need to demonstrate to revisit in Q3? Want to document the path so we're aligned.",
+      tr_explanation:
+        "'I will wait' = pasif. 'Not fair' = duygusal. Doğru: kriter sor + zaman cizgisi belirle + yazili sahiplen. Olgun professional 'no'-yu calisma planına cevirir.",
     },
   ],
 };

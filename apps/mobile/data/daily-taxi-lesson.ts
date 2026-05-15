@@ -165,6 +165,52 @@ export const dailyTaxiLesson_32_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.dx32.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Could you take me to JFK Airport?",
+      ipa: "kʊd jə teɪk mi tə dʒeɪ ɛf keɪ ˈɛərpɔːrt",
+      tr_hint:
+        "Taksi acilis. 'Take me to' bağlanır → 'teyk-mi-tə'. JFK harfler ayrı: 'jey-ef-key'.",
+    },
+    {
+      id: "ex.dx32.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I'm running late, as fast as you can please.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Running late' = gecikmis. 'As fast as you can' = elinden gelen hizla. Saygili aciliyet.",
+    },
+    {
+      id: "ex.dx32.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "It'll be about thirty bucks with traffic.",
+      transcription_target: "It'll be about thirty bucks with traffic.",
+      tr_hint:
+        "Soför fiyat tahmini. 'Bucks' = casual 'dollars'. 'With traffic' = trafikle birlikte.",
+    },
+    {
+      id: "ex.dx32.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Take me to",
+      tr_translation: "Beni ... götür",
+      example: "Take me to Grand Central, please.",
+      example_tr: "Beni Grand Central'a götür, lütfen.",
+    },
+    {
+      id: "ex.dx32.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Airport fast! Now!",
+      correct_sentence:
+        "Could you take me to JFK? I'm a bit short on time, as fast as you safely can.",
+      tr_explanation:
+        "Emir + tehlikeli. Doğru: 'Could you take me to' + sebep (short on time) + 'safely can' (güvenli sınırda).",
+    },
   ],
 };
 
@@ -326,6 +372,52 @@ export const dailyTaxiLesson_32_2: BundledLesson = {
             "Şoför app'in gösterdiğine gider. Net landmark = boşa daire atmak yok.",
         },
       ],
+    },
+    {
+      id: "ex.dx32.2.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Are you the Uber for Berk?",
+      ipa: "ɑːr juː ði ˈuːbər fɔːr bɜːrk",
+      tr_hint:
+        "Güvenlik dogrulama. 'Are you' bağlanır → 'ər-yu'. 'Uber for Berk' net vurgular.",
+    },
+    {
+      id: "ex.dx32.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Can I double-check the license plate?",
+      voice_hint: "male_us",
+      tr_hint:
+        "Güvenlik kalibi. 'Double-check' = tekrar dogrula. 'License plate' birleşik vurgu.",
+    },
+    {
+      id: "ex.dx32.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Surge pricing is two times the normal rate.",
+      transcription_target: "Surge pricing is two times the normal rate.",
+      tr_hint:
+        "Uber bildirimi. 'Surge pricing' = yoğunluk zammı. 'Two times' = iki kat. Pahaliyi haber verir.",
+    },
+    {
+      id: "ex.dx32.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "license plate",
+      tr_translation: "Plaka",
+      example: "The license plate ends in 4-5-9.",
+      example_tr: "Plaka 4-5-9 ile bitiyor.",
+    },
+    {
+      id: "ex.dx32.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Uber? Yes? I get in.",
+      correct_sentence:
+        "Hi, are you here for Berk? Mind if I confirm the plate before I get in?",
+      tr_explanation:
+        "Belirsiz + güvensiz. Doğru: isim sor + plaka dogrula (sahte Uber riski gercek).",
     },
   ],
 };
@@ -492,6 +584,52 @@ export const dailyTaxiLesson_32_3: BundledLesson = {
             "'Tops' = en fazla. Süre net = şoför fare metresine bakar, mutlu olur.",
         },
       ],
+    },
+    {
+      id: "ex.dx32.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Mind cranking the AC up a bit?",
+      ipa: "maɪnd ˈkræŋkɪŋ ði eɪ siː ʌp ə bɪt",
+      tr_hint:
+        "Kibar klima istegi. 'Mind' soru başı. 'Cranking up' = yükseltmek (ABD doğal).",
+    },
+    {
+      id: "ex.dx32.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Could we take the next exit?",
+      voice_hint: "male_us",
+      tr_hint:
+        "Rota değişikliği. 'Could we' = yapabilir miyiz. 'Take the next exit' = sonraki çıkışı kullan.",
+    },
+    {
+      id: "ex.dx32.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Traffic looks pretty bad on the bridge today.",
+      transcription_target: "Traffic looks pretty bad on the bridge today.",
+      tr_hint:
+        "Soför yorumu. 'Pretty bad' = oldukca kötü. 'On the bridge' = koprude. Alternatif rota sinyali.",
+    },
+    {
+      id: "ex.dx32.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "pull over",
+      tr_translation: "Yanaş (aracı kenara çek)",
+      example: "Could you pull over up ahead by the deli?",
+      example_tr: "Önümüzdeki şarkütüye yanaşır mısın?",
+    },
+    {
+      id: "ex.dx32.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Music loud stop now! Cold here!",
+      correct_sentence:
+        "Would you mind turning the music down? Also, getting a little chilly — could you ease off the AC?",
+      tr_explanation:
+        "Emir kipi + panik. Doğru: 'Would you mind' + spesifik istek + 'a little chilly' (kibar tarif).",
     },
   ],
 };
@@ -673,6 +811,52 @@ export const dailyTaxiLesson_32_4: BundledLesson = {
             "İş seyahatinde fatura zorunlu. Telefonu unuttuğunda Uber/şirket iletişimi için fiş üzerindeki bilgi şart.",
         },
       ],
+    },
+    {
+      id: "ex.dx32.4.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Keep the change, thanks!",
+      ipa: "kiːp ðə tʃeɪndʒ θæŋks",
+      tr_hint:
+        "Nakit kalibi. 'Keep the change' = üstü kalsın. 'Th' sesi 'thanks' = dilini dişlere koy.",
+    },
+    {
+      id: "ex.dx32.4.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "I'll add a twenty percent tip, please.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Kart kalibi. 'I'll add' = ekleyeyim. 'Twenty percent' birleşik vurgu. ABD standardi.",
+    },
+    {
+      id: "ex.dx32.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Your total comes to forty two fifty.",
+      transcription_target: "Your total comes to forty two fifty.",
+      tr_hint:
+        "Soför toplam söyler. 'Comes to' = ediyor. 'Forty two fifty' = $42.50.",
+    },
+    {
+      id: "ex.dx32.4.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "round it up",
+      tr_translation: "Yuvarla (üst sayıya)",
+      example: "Just round it up to forty bucks, please.",
+      example_tr: "40 dolara yuvarla, lütfen.",
+    },
+    {
+      id: "ex.dx32.4.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "No tip never. Receipt give.",
+      correct_sentence:
+        "I'll add eighteen percent — could I get a receipt too, please?",
+      tr_explanation:
+        "'No tip never' = grammatik degil + ABD kabasi. Doğru: standart tip (%18) + saygili fiş istegi.",
     },
   ],
 };

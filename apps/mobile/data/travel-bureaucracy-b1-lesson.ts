@@ -240,6 +240,51 @@ export const travelB1Lesson_usvisa: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.tb1.1.10",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I have strong ties to Turkey — a full-time job and family in Istanbul.",
+      ipa: "/aɪ hæv strɒŋ taɪz tə ˈtɜːki ə ˈfʊltaɪm dʒɒb ænd ˈfæmɪli ɪn ˌɪstænˈbʊl/",
+      tr_hint:
+        "'Ties to Turkey' = konsolosluğun anahtar kelimesi. Net söyle, gergin yutma. 'Full-time' bağlanır → 'ful-taym'. Kararlı ses tonu — sözüne inansın.",
+    },
+    {
+      id: "ex.tb1.1.11",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "The purpose of my trip is tourism — two weeks, then I return to my job in Istanbul.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Konsolosluk ezbere cevabı. Üç parça net: amaç + süre + dönüş. Ritmi tut, çok hızlı veya çok yavaş söyleme. Konsolos saniyeler içinde karar veriyor.",
+    },
+    {
+      id: "ex.tb1.1.12",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Have you ever been denied a visa to any country?",
+      transcription_target: "Have you ever been denied a visa to any country?",
+      tr_hint:
+        "Konsolos klasik sorusu. 'Denied a visa' = vize reddedilmek. Cevap dürüst olmalı — eski red varsa açıkla. Yalan = kalıcı yasaklama.",
+    },
+    {
+      id: "ex.tb1.1.13",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "consular officer",
+      tr_translation: "konsolosluk görevlisi",
+      example: "The consular officer asked about my employment and ties to Turkey.",
+      example_tr: "Konsolosluk görevlisi işim ve Türkiye bağlarım hakkında sordu.",
+    },
+    {
+      id: "ex.tb1.1.14",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I want to visit America to find a job and maybe stay there.",
+      correct_sentence: "The purpose of my trip is tourism — two weeks visiting friends, then I return to my job in Istanbul.",
+      tr_explanation:
+        "'Find a job + maybe stay' = göçmen niyeti, otomatik RED. B1/B2 vizesi sadece turizm/iş gezisi/aile ziyareti içindir. 'Tourism + return + my job' üç kelime kombosu = onay sinyali.",
+    },
   ],
 };
 
@@ -452,6 +497,51 @@ export const travelB1Lesson_ukvisa: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.tb1.2.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Here's my employer letter, bank statement, and return ticket.",
+      ipa: "/hɪəz maɪ ɪmˈplɔɪə ˈlɛtə bæŋk ˈsteɪtmənt ænd rɪˈtɜːn ˈtɪkɪt/",
+      tr_hint:
+        "Üç temel evrak listele — net, kararlı. 'Employer' = 'em-PLOY-ır'. 'Bank statement' = banka dökümü. Görevli her birini görmek isteyebilir.",
+    },
+    {
+      id: "ex.tb1.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "My return ticket is booked for the twenty-second of June.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "UK formatı: 'the 22nd of June' (US: 'June 22nd'). Net tarih = sigorta. 'Booked' bağlı söylenir.",
+    },
+    {
+      id: "ex.tb1.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Could I see your bank statement for the last three months?",
+      transcription_target: "Could I see your bank statement for the last three months?",
+      tr_hint:
+        "Schengen/UK görevlisinin klasik talebi. 'Bank statement' = döküm. Üç ay = standart kapsam. Yanında bulundur.",
+    },
+    {
+      id: "ex.tb1.2.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "biometric appointment",
+      tr_translation: "biyometrik veri randevusu (parmak izi + fotoğraf)",
+      example: "I had my biometric appointment last week at the visa application centre.",
+      example_tr: "Geçen hafta vize başvuru merkezinde biyometrik randevumu verdim.",
+    },
+    {
+      id: "ex.tb1.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I don't have employer letter because I don't tell my boss about trip.",
+      correct_sentence: "Here's my employer letter confirming my position and approved leave dates for the two-week trip.",
+      tr_explanation:
+        "'Don't tell my boss' = sahte beyan riski, vize görevlisi şüphelenir. Resmi izin mektubu standart şart — gizli seyahat gibi görünmesin. 'Approved leave' netleştirir.",
+    },
   ],
 };
 
@@ -661,6 +751,51 @@ export const travelB1Lesson_customs: BundledLesson = {
             "Taze meyve, et, süt ürünü = USDA yasağı. Vakum/sealed kuru ürünler genelde serbest.",
         },
       ],
+    },
+    {
+      id: "ex.tb1.3.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I have nothing to declare — just personal belongings.",
+      ipa: "/aɪ hæv ˈnʌθɪŋ tə dɪˈklɛə dʒʌst ˈpɜːsənəl bɪˈlɒŋɪŋz/",
+      tr_hint:
+        "'Nothing to declare' = beyan edilecek bir şey yok (yeşil koridor formülü). 'Personal belongings' = kişisel eşyalar. Net, sallanmadan söyle.",
+    },
+    {
+      id: "ex.tb1.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Just one sealed box of Turkish delight as a gift, nothing else.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Lokum hediyesi — yasal. 'Sealed' = mühürlü, kapalı paket. 'Nothing else' netleştir, samimi ton. Memur sealed kelimesini sever.",
+    },
+    {
+      id: "ex.tb1.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Are you carrying any food, plants, or agricultural products?",
+      transcription_target: "Are you carrying any food, plants, or agricultural products?",
+      tr_hint:
+        "JFK gümrük memuru klasik sorusu. 'Carrying' = taşıyor musun. 'Agricultural products' = tarım ürünleri (USDA). Dürüst cevap, yasak değil sadece beyan.",
+    },
+    {
+      id: "ex.tb1.3.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "secondary inspection",
+      tr_translation: "ikincil muayene (bavul açma)",
+      example: "I was pulled aside for secondary inspection — they opened my suitcase.",
+      example_tr: "İkincil muayene için kenara alındım — bavulumu açtılar.",
+    },
+    {
+      id: "ex.tb1.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "No I have nothing important. Just some olives and cheese for my family.",
+      correct_sentence: "I do have some sealed olives and dry cheese in vacuum packs — should I declare these?",
+      tr_explanation:
+        "'Nothing important + olives and cheese' = beyan edilmeyen tarım ürünü, $300-1000 ceza riski. Doğrusu: ne varsa söyle + sealed/vacuum belirt. 'Should I declare' soru memurla işbirliği sinyali.",
     },
   ],
 };
@@ -911,6 +1046,51 @@ export const travelB1Lesson_lostbag: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.tb1.4.9",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "My bag didn't make it — I need to file a property irregularity report.",
+      ipa: "/maɪ bæɡ ˈdɪdənt meɪk ɪt aɪ niːd tə faɪl ə ˈprɒpəti ˌɪrɛɡjuˈlærəti rɪˈpɔːt/",
+      tr_hint:
+        "'Didn't make it' = gelmedi (idiom). 'PIR' = Property Irregularity Report (havayolu standart formu). Bu üç harfli kısaltmayı söyle, memur ne demek istediğini hemen anlar.",
+    },
+    {
+      id: "ex.tb1.4.10",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Here's the baggage tag from my boarding pass — could you check the tracking?",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Baggage tag' = bavul etiketi. 'Boarding pass' arkasındaki kopya hayat kurtarır. 'Tracking' = bavul takip sistemi (World Tracer).",
+    },
+    {
+      id: "ex.tb1.4.11",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "What's your delivery address for the next forty-eight hours?",
+      transcription_target: "What's your delivery address for the next forty-eight hours?",
+      tr_hint:
+        "Bagaj kayıp memur klasik sorusu. Otel adresini ver, sokak adı net hecele. Tarihler önemli — sen taşınacaksan haber ver.",
+    },
+    {
+      id: "ex.tb1.4.12",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "interim expense allowance",
+      tr_translation: "geçici masraf ödeneği (zorunlu ihtiyaçlar)",
+      example: "Do you offer an interim expense allowance for toiletries and one change of clothes?",
+      example_tr: "Tuvalet malzemeleri ve bir takım kıyafet için geçici masraf ödeneği veriyor musunuz?",
+    },
+    {
+      id: "ex.tb1.4.13",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "My bag is lost! Give me money now to buy new clothes!",
+      correct_sentence: "My bag didn't make it onto the flight — could we file a PIR and discuss the interim expense allowance?",
+      tr_explanation:
+        "'Give me money now' = saldırgan, memur defansif olur. Profesyonel: 'PIR' kısaltması + 'interim expense allowance' standart terimler = sen haklarını biliyorsun mesajı, memur hızlı çözer.",
+    },
   ],
 };
 
@@ -1119,6 +1299,51 @@ export const travelB1Lesson_hotelissue: BundledLesson = {
             "'Given the inconvenience' = sorumlu/kibar dil. 'Partial refund or credit' = somut iki seçenek. Personel anında onaylar.",
         },
       ],
+    },
+    {
+      id: "ex.tb1.5.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Could I speak to the duty manager about this, please?",
+      ipa: "/kʊd aɪ spiːk tə ðə ˈdjuːti ˈmænɪdʒər əˈbaʊt ðɪs pliːz/",
+      tr_hint:
+        "Üst yönetici talep et — escalation kalıbı. 'Duty manager' = nöbetçi yönetici (otel terimi). Sakin ama kararlı söyle. 'Please' sonda yumuşatır.",
+    },
+    {
+      id: "ex.tb1.5.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Given the inconvenience, would you consider a partial refund or a complimentary upgrade?",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Resepsiyon profesyonel istek formülü. 'Given the inconvenience' = standart yumuşatıcı. 'Partial refund OR upgrade' = iki seçenek sun (otel birini seçer).",
+    },
+    {
+      id: "ex.tb1.5.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "I apologise for the inconvenience — let me see what we can do.",
+      transcription_target: "I apologise for the inconvenience — let me see what we can do.",
+      tr_hint:
+        "Resepsiyon çalışma sözü. 'Apologise' = özür dilemek (UK yazımı). 'Let me see what we can do' = bir çözüm bulayım sinyali = işin yarısı tamam.",
+    },
+    {
+      id: "ex.tb1.5.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "complimentary upgrade",
+      tr_translation: "ücretsiz oda yükseltme",
+      example: "As a goodwill gesture, they offered a complimentary upgrade to a suite.",
+      example_tr: "Iyi niyet jesti olarak, suite'e ücretsiz yükseltme teklif ettiler.",
+    },
+    {
+      id: "ex.tb1.5.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Your hotel is very bad and I will write bad review on TripAdvisor!",
+      correct_sentence: "I'd like to raise a concern about my room — given the inconvenience, could we discuss a partial refund or an upgrade?",
+      tr_explanation:
+        "TripAdvisor tehdidi = profesyonel ilişki yıkar, resepsiyonist defansif olur. Profesyonel: 'raise a concern' (sakin başla) + 'inconvenience' (yumuşat) + somut talep. Çözüm geldikten sonra iyi yorum yaz — leverage tersine.",
     },
   ],
 };
@@ -1344,6 +1569,51 @@ export const travelB1Lesson_carrental: BundledLesson = {
             "Türk ehliyet İngilizce değil — IDP çevirisidir. Çoğu eyalet ikisini birlikte ister. IDP olmadan trafik kontrolünde ceza alabilirsin.",
         },
       ],
+    },
+    {
+      id: "ex.tb1.6.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I'd like to decline the collision damage waiver — my credit card covers it.",
+      ipa: "/aɪd laɪk tə dɪˈklaɪn ðə kəˈlɪʒən ˈdæmɪdʒ ˈweɪvə maɪ ˈkrɛdɪt kɑːd ˈkʌvəz ɪt/",
+      tr_hint:
+        "Araba kiralama satış reddi. 'Decline' = nazikçe reddetmek. 'CDW' = Collision Damage Waiver (kasko). Kredi kartı zaten kapsar — bilmeyen turist agresif satılır. Net söyle.",
+    },
+    {
+      id: "ex.tb1.6.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Could I do a quick walk-around to document any existing damage before driving off?",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Walk-around' = aracı dolaşarak inceleme. 'Document existing damage' = mevcut hasarı kayda al — iade ederken seni korur. Telefonla foto çek.",
+    },
+    {
+      id: "ex.tb1.6.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Would you like to add the prepaid fuel option for an additional charge?",
+      transcription_target: "Would you like to add the prepaid fuel option for an additional charge?",
+      tr_hint:
+        "Kiralama tezgahı klasik upsell. 'Prepaid fuel' = peşin yakıt (tuzak — neredeyse her zaman daha pahalı). 'Decline' et, 'full to full' politikası seç.",
+    },
+    {
+      id: "ex.tb1.6.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "International Driving Permit",
+      tr_translation: "Uluslararası Sürücü Belgesi (IDP)",
+      example: "Here's my Turkish licence and the International Driving Permit — both originals.",
+      example_tr: "İşte Türk ehliyetim ve Uluslararası Sürücü Belgem — ikisi de orijinal.",
+    },
+    {
+      id: "ex.tb1.6.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "OK I take all insurance, all options. Just give me car fast.",
+      correct_sentence: "I'd like to decline the CDW, the prepaid fuel, and the GPS — my credit card covers collision and I'll use my phone for navigation.",
+      tr_explanation:
+        "'Take all insurance + fast' = $40-$80/gün ekstra, çoğu gereksiz. Kredi kartı CDW'yi (kasko) kapsar; telefon GPS yeterli; prepaid fuel kötü deal. Spesifik 'decline' kalıbı = $300+ tasarruf.",
     },
   ],
 };
@@ -1571,6 +1841,51 @@ export const travelB1Lesson_insurance: BundledLesson = {
             "Sigorta sisteminde tek erişim anahtarın bu numara. 'Could you email me the reference?' her zaman sor.",
         },
       ],
+    },
+    {
+      id: "ex.tb1.7.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Could you email me the claim reference number for my records?",
+      ipa: "/kʊd jʊ ˈiːmeɪl miː ðə kleɪm ˈrɛfrəns ˈnʌmbə fə maɪ ˈrɛkɔːdz/",
+      tr_hint:
+        "Sigorta görüşmesinin kilit cümlesi. 'Claim reference number' = dosya numarası — bunu yazmadan kapatma. 'For my records' standart formal kalıp.",
+    },
+    {
+      id: "ex.tb1.7.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I'll need a medical attestation in English to submit my claim.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Medical attestation in English' = İngilizce tıbbi rapor. Hastane Türkçe veya yerel dilde verirse sigorta reddeder. Mutlaka İngilizce versiyon iste.",
+    },
+    {
+      id: "ex.tb1.7.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Please send all receipts and the medical report within thirty days.",
+      transcription_target: "Please send all receipts and the medical report within thirty days.",
+      tr_hint:
+        "Sigorta temsilcisi standart talimat. '30 days' = son tarih. 'Receipts' = ödeme makbuzları. Eksik belge = ret. Hepsini saklı tut.",
+    },
+    {
+      id: "ex.tb1.7.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "out-of-pocket expense",
+      tr_translation: "ceptan ödenen masraf (geri alınacak)",
+      example: "I paid out-of-pocket at the clinic — could you confirm what's reimbursable?",
+      example_tr: "Klinikte ceptan ödedim — neyin geri ödemesi yapılır onaylar mısınız?",
+    },
+    {
+      id: "ex.tb1.7.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Hi, I am sick in holiday and I pay much money. Insurance should pay me everything fast.",
+      correct_sentence: "I'd like to file a claim — I have receipts, a medical report in English, and the policy number. Could you walk me through the process?",
+      tr_explanation:
+        "'Sick in holiday + pay everything fast' = belirsiz, baskı kurar. Profesyonel: 'file a claim' (resmi terim) + üç belgeyi listele + 'walk me through' (işbirliği). Sigorta uzmanı seninle çalışır.",
     },
   ],
 };
@@ -1807,6 +2122,51 @@ export const travelB1Lesson_hospital: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.tb1.8.9",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I've been running a fever for two days and I'm allergic to penicillin.",
+      ipa: "/aɪv biːn ˈrʌnɪŋ ə ˈfiːvə fə tuː deɪz ænd aɪm əˈlɜːdʒɪk tə ˌpɛnɪˈsɪlɪn/",
+      tr_hint:
+        "İki hayati bilgi: ateş süresi + alerji. 'Running a fever' = doğal İngilizce; 'having fever' bozuk. Alerji bilgisi = doktor ilaç hatası yapmaz. Yavaş, net söyle.",
+    },
+    {
+      id: "ex.tb1.8.10",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Could I get my discharge summary and medication list in English, please?",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Taburcu öncesi olmazsa olmaz cümle. 'Discharge summary' = taburcu raporu. 'Medication list' = ilaç listesi. İkisi de İngilizce — sigorta için hayati.",
+    },
+    {
+      id: "ex.tb1.8.11",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Do you have any pre-existing conditions or current medications?",
+      transcription_target: "Do you have any pre-existing conditions or current medications?",
+      tr_hint:
+        "Acil servis ilk sorusu. 'Pre-existing conditions' = mevcut hastalıklar (kronik). 'Current medications' = şu an aldığın ilaçlar. Dürüst cevap = doğru tedavi.",
+    },
+    {
+      id: "ex.tb1.8.12",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "primary care physician",
+      tr_translation: "aile hekimi / birinci basamak doktor",
+      example: "My primary care physician in Istanbul can fax over my records if needed.",
+      example_tr: "Istanbul'daki aile hekimim gerekirse kayıtlarımı fakslayabilir.",
+    },
+    {
+      id: "ex.tb1.8.13",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I have stomach pain very much. Give me medicine for pain now please.",
+      correct_sentence: "I've been having sharp stomach pain for six hours, mostly on the right side — could the doctor have a look?",
+      tr_explanation:
+        "'Pain very much' = belirsiz, doktor teşhis edemez. Doğru: süre + tipi (sharp/dull) + lokasyon (right side) = tıbbi triage. 'Could the doctor have a look' = profesyonel istek.",
+    },
   ],
 };
 
@@ -2015,6 +2375,51 @@ export const travelB1Lesson_followup: BundledLesson = {
             "Aynı dosyayı tekrar göndermek = aynı RED. En az bir somut bağ değişmiş olmalı: iş, aile, mülk, banka durumu, seyahat geçmişi.",
         },
       ],
+    },
+    {
+      id: "ex.tb1.9.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I understand the previous decision, and I've addressed the concerns since then.",
+      ipa: "/aɪ ˌʌndəˈstænd ðə ˈpriːvjəs dɪˈsɪʒən ænd aɪv əˈdrɛst ðə kənˈsɜːnz sɪns ðɛn/",
+      tr_hint:
+        "Tekrar başvuru altın cümlesi. 'Addressed the concerns' = endişeleri gidermişim. Sakin, olgun ton — savunmacı değil. Bu cümle çoğu rededilmişi onaylar.",
+    },
+    {
+      id: "ex.tb1.9.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Since my last application, I've changed jobs, bought property, and added new bank statements.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Üç somut değişiklik = onay sinyali. 'Changed jobs + bought property + new bank statements' = bağlarım güçlendi mesajı. Sayıyla, net liste halinde.",
+    },
+    {
+      id: "ex.tb1.9.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "What's changed in your circumstances since your last application?",
+      transcription_target: "What's changed in your circumstances since your last application?",
+      tr_hint:
+        "Konsolosluk reentry sorusu. 'Circumstances' = koşullar, hayat durumu. Buna hazır cevap = somut 3 madde: iş, aile, mülk veya seyahat geçmişi.",
+    },
+    {
+      id: "ex.tb1.9.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "consular non-immigrant intent",
+      tr_translation: "göçmen olmayan niyet (vize için kritik kavram)",
+      example: "I'd like to demonstrate my non-immigrant intent — I have a property and family commitments here.",
+      example_tr: "Göçmen olmayan niyetimi göstermek isterim — burada mülküm ve aile sorumluluklarım var.",
+    },
+    {
+      id: "ex.tb1.9.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Last time you reject me wrongly. Now I apply again, please give visa.",
+      correct_sentence: "I understand the previous decision — since then, I've started a new role, bought property, and travelled to Schengen twice. May I share the updates?",
+      tr_explanation:
+        "'You reject me wrongly' = konsolosa hakaret, anında RED. 'Please give visa' = leverage yok. Profesyonel: olgun kabul + somut 3 değişiklik (iş, mülk, seyahat) + 'May I share' nazik izin. Bu cümle vize getirir.",
     },
   ],
 };
@@ -2239,6 +2644,51 @@ export const travelB1Lesson_transit: BundledLesson = {
             "'Checked through' = baggage tag direk nihai varış için. Transitte sen elle taşımayacaksın. Ama uçuş değişince agenta 'reroute it to the new flight' söyle.",
         },
       ],
+    },
+    {
+      id: "ex.tb1.10.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I missed my connection — could you reroute me and my bags to the next available flight?",
+      ipa: "/aɪ mɪst maɪ kəˈnɛkʃən kʊd jʊ ˌriːˈruːt miː ænd maɪ bæɡz tə ðə nɛkst əˈveɪləbəl flaɪt/",
+      tr_hint:
+        "Aktarma kaçıran yolcunun anahtar cümlesi. 'Missed my connection' net. 'Reroute' = yeniden yönlendir. Hem kendin hem bavullar — 'me AND my bags' atlamadan söyle.",
+    },
+    {
+      id: "ex.tb1.10.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "The delay was operational on your end — am I eligible for a hotel voucher and meal vouchers?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Hak iddiası dili. 'Operational on your end' = sizin tarafınızdan kaynaklı. 'Eligible' = hak sahibi. Bu kelimeyi söylediğin an agente seni profesyonel görür.",
+    },
+    {
+      id: "ex.tb1.10.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Your bag was checked through to your final destination on the original ticket.",
+      transcription_target: "Your bag was checked through to your final destination on the original ticket.",
+      tr_hint:
+        "Aktarma agent klasiği. 'Checked through' = nihai varışa kadar etiketli. 'Original ticket' = ilk bilet. Bunu duyduğun an reroute talep et.",
+    },
+    {
+      id: "ex.tb1.10.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "duty of care",
+      tr_translation: "yolcuya bakım yükümlülüğü (havayolu)",
+      example: "Under your duty of care, I'd expect overnight accommodation since the next flight is tomorrow.",
+      example_tr: "Yolcu bakım yükümlülüğünüz altında, sonraki uçuş yarın olduğu için gecelik konaklama beklerim.",
+    },
+    {
+      id: "ex.tb1.10.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I missed plane! Your fault! Give me hotel and food now!",
+      correct_sentence: "I missed my connection due to your delay — could you rebook me on the next flight and confirm hotel and meal vouchers under your duty of care?",
+      tr_explanation:
+        "'Your fault + give me now' = saldırgan, agent defansif. Profesyonel: olgu (due to your delay) + spesifik talep (rebook + hotel + meal) + havayolu terimi (duty of care). Agent sistemde standart kayıt açar.",
     },
   ],
 };

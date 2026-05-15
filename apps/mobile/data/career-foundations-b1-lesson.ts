@@ -142,6 +142,51 @@ export const careerB1Lesson_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.cb1.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Currently based in Istanbul, working remotely for a Berlin SaaS company.",
+      ipa: "/ˈkʌrəntli beɪst ɪn ˌɪstænˈbʊl ˈwɜːkɪŋ rɪˈməʊtli fɔːr ə bɜːˈlɪn sæs ˈkʌmpəni/",
+      tr_hint:
+        "'Currently' = 'KAR-ent-li' (3 hece). 'Based in' bağlanır → 'beyst-in'. 'SaaS' = 'sass'.",
+    },
+    {
+      id: "ex.cb1.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I'm a backend engineer with four years of experience, currently at an e-commerce company.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Backend engineer' birleşik ritim. 'Currently at' bağlanır. 60-saniye pitch'in ilk cümlesi — akıcı olmalı.",
+    },
+    {
+      id: "ex.cb1.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Could you walk me through your most recent role?",
+      transcription_target: "Could you walk me through your most recent role?",
+      tr_hint:
+        "Recruiter klasiği. 'Walk me through' = 'baştan sona anlat'. 'Most recent role' = en son pozisyonun.",
+    },
+    {
+      id: "ex.cb1.1.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "individual contributor",
+      tr_translation: "yönetici olmayan uzman çalışan (IC)",
+      example: "I've been an individual contributor for the past four years and I'm ready to mentor.",
+      example_tr: "Son dört yıldır bireysel uzman olarak çalıştım, şimdi mentorluk yapmaya hazırım.",
+    },
+    {
+      id: "ex.cb1.1.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I am working in software since 4 years and I want make career.",
+      correct_sentence: "I've been working in software for four years, and I'm looking to grow my career.",
+      tr_explanation:
+        "Türk klasik hataları: (1) 'since 4 years' yanlış — süre için 'for'. (2) 'I am working' yerine 'I've been working' (present perfect continuous). (3) 'I want make' → 'to' eksik: 'I want to'. (4) 'make career' Türkçe kalıbı; doğrusu 'grow my career' veya 'build a career'.",
+    },
   ],
 };
 
@@ -275,6 +320,51 @@ export const careerB1Lesson_2: BundledLesson = {
           message: "Solid. That answer tells me you've actually thought about this.",
         },
       ],
+    },
+    {
+      id: "ex.cb1.2.7",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Your async-first engineering culture really stood out to me.",
+      ipa: "/jɔːr ˈeɪsɪŋk fɜːst ˌɛndʒɪˈnɪərɪŋ ˈkʌltʃər ˈrɪəli stʊd aʊt tə miː/",
+      tr_hint:
+        "'Async' = 'EY-sink' (Türkçe 'asınk' DEĞİL). 'Stood out' bağlanır → 'stud-aut'. Vurgu 'CUL-ture' ilk hecede.",
+    },
+    {
+      id: "ex.cb1.2.8",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Three reasons drew me here: I use the product, I follow your eng blog, and the timing makes sense.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Three reasons' net duraklama, sonra üç madde liste ritmi. Profesyonel mülakat hızı — ne hızlı ne yavaş.",
+    },
+    {
+      id: "ex.cb1.2.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "What attracted you to this opportunity in particular?",
+      transcription_target: "What attracted you to this opportunity in particular?",
+      tr_hint:
+        "Hiring manager klasiği. 'Attracted you to' = ne çekti seni. 'In particular' = özellikle.",
+    },
+    {
+      id: "ex.cb1.2.10",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "mission resonates with me",
+      tr_translation: "misyonunuz benimle örtüşüyor",
+      example: "Your mission to make remote work the default really resonates with me.",
+      example_tr: "Uzaktan çalışmayı varsayılan yapma misyonunuz benimle gerçekten örtüşüyor.",
+    },
+    {
+      id: "ex.cb1.2.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I like your company because I need a job and you pay good money.",
+      correct_sentence: "I'm drawn to your company because your work on developer tooling aligns with where I want to grow.",
+      tr_explanation:
+        "'I need a job + you pay good money' = leverage'ı düşürür, kişisel değil. Mülakatta para asla ana sebep olarak söylenmez. Spesifik kültür/ürün referansı + kendi büyüme yönünle bağlantı kur.",
     },
   ],
 };
@@ -424,6 +514,51 @@ export const careerB1Lesson_3: BundledLesson = {
             "Great, that gives me a clear picture.",
         },
       ],
+    },
+    {
+      id: "ex.cb1.3.7",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I was responsible for the checkout service end-to-end.",
+      ipa: "/aɪ wəz rɪˈspɒnsəbəl fə ðə ˈtʃɛkaʊt ˈsɜːvɪs ˈɛnd tə ˈɛnd/",
+      tr_hint:
+        "'Responsible for' tek nefes — 'ris-PON-si-bul-for'. 'End-to-end' bağlanır → 'end-tu-end'. Past tense 'was' net vurgula.",
+    },
+    {
+      id: "ex.cb1.3.8",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I owned the onboarding flow end-to-end and cut drop-off by thirty percent.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Etki cümlesi: rol + somut sonuç. 'Owned ... end-to-end ... cut ... by 30 percent' ritmi. Sayıyı net söyle.",
+    },
+    {
+      id: "ex.cb1.3.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Tell me about a project you're most proud of.",
+      transcription_target: "Tell me about a project you're most proud of.",
+      tr_hint:
+        "Behavioral mülakat klasiği. 'Proud of' = gurur duyduğun. STAR formatı için sinyal.",
+    },
+    {
+      id: "ex.cb1.3.10",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "scoped and shipped",
+      tr_translation: "kapsamını belirledim ve hayata geçirdim",
+      example: "I scoped and shipped the payments rewrite in one quarter.",
+      example_tr: "Ödeme yeniden yazımının kapsamını belirledim ve bir çeyrekte hayata geçirdim.",
+    },
+    {
+      id: "ex.cb1.3.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "In last company, I was making the frontend alone and team was growing.",
+      correct_sentence: "At my last company, I built the frontend on my own, and the team grew from there.",
+      tr_explanation:
+        "Türk hataları: (1) 'in last company' → 'at my last company' (preposition + iyelik). (2) 'I was making' bitmiş tek seferlik olay için yanlış — 'I built'. (3) 'team was growing' belirsiz; 'the team grew from there' (simple past, net). Bitmiş hikaye = simple past.",
     },
   ],
 };
@@ -577,6 +712,51 @@ export const careerB1Lesson_4: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.cb1.4.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Based on market data, I'm targeting seventy to eighty-five thousand euros base.",
+      ipa: "/beɪst ɒn ˈmɑːkɪt ˈdeɪtə aɪm ˈtɑːɡɪtɪŋ ˈsɛvənti tə ˈeɪtifaɪv ˈθaʊzənd ˈjʊərəʊz beɪs/",
+      tr_hint:
+        "'Based on' bağlanır → 'beyst-on'. Sayıları net söyle, mırıldama. 'Thousand' = 'THAU-zınd'. 'Base' uzun 'ey'.",
+    },
+    {
+      id: "ex.cb1.4.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I'd love to learn more about the role first. What range do you have in mind?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Ertele + soru sor formülü. Sakin, kontrollü ton. 'In mind' bağlanır → 'in-maynd'. Kendine güvenli ama saygılı.",
+    },
+    {
+      id: "ex.cb1.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "What are your salary expectations for this role?",
+      transcription_target: "What are your salary expectations for this role?",
+      tr_hint:
+        "Recruiter'ın klasik sorusu. 'Salary expectations' = maaş beklentin. Bu cümleyi mutlaka anlamalısın.",
+    },
+    {
+      id: "ex.cb1.4.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "equity grant",
+      tr_translation: "hisse senedi tahsisi (RSU/ESOP)",
+      example: "Is the equity grant on top of base, and what's the vesting schedule?",
+      example_tr: "Hisse tahsisi baz maaşın üstüne mi, ve hak ediş takvimi nasıl?",
+    },
+    {
+      id: "ex.cb1.4.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "How much will you pay me? I cannot accept less than 100K.",
+      correct_sentence: "Could you share the range for this role? I'm targeting around 90K base with some flexibility on the total package.",
+      tr_explanation:
+        "İlk soru = leverage kaybı + ultimatum. Profesyonel: önce 'Could you share the range?' + 'I'm targeting around X with flexibility'. 'Cannot accept less' kapı kapatır — esneklik göster.",
+    },
   ],
 };
 
@@ -711,6 +891,51 @@ export const careerB1Lesson_5: BundledLesson = {
             "Appreciate that — concrete actions, not just self-awareness. Good answer.",
         },
       ],
+    },
+    {
+      id: "ex.cb1.5.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Where I really thrive is in ambiguous problems with no clear playbook.",
+      ipa: "/wɛər aɪ ˈrɪəli θraɪv ɪz ɪn æmˈbɪɡjuəs ˈprɒbləmz wɪð nəʊ klɪər ˈpleɪbʊk/",
+      tr_hint:
+        "'Thrive' = 'thrayv' — Türk 'th' zorlanır, dilini hafifçe dişlere koy. 'Ambiguous' = 'am-BIG-yu-ıs'. Yavaş söyle, vurgulu.",
+    },
+    {
+      id: "ex.cb1.5.8",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Delegating earlier is something I've been actively working on this year.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Zayıflık + aksiyon formülü. 'Working on' bağlanır. 'Actively' netleştirir. Savunmacı değil, gelişim odaklı ton.",
+    },
+    {
+      id: "ex.cb1.5.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "What's an area you're actively working on improving?",
+      transcription_target: "What's an area you're actively working on improving?",
+      tr_hint:
+        "'Weakness' kelimesini söylemeden zayıflık soran modern versiyon. Cevapla: 'X is something I've been working on.'",
+    },
+    {
+      id: "ex.cb1.5.10",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "punch above my weight",
+      tr_translation: "kategorimin üstünde performans göstermek",
+      example: "I'm used to punching above my weight — at the startup, I took on staff-level work as a senior.",
+      example_tr: "Kategorimin üstünde performans göstermeye alışkınım — startup'ta senior'ken staff seviyesi iş aldım.",
+    },
+    {
+      id: "ex.cb1.5.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "My weakness is that I am too perfectionist and I work very hard always.",
+      correct_sentence: "Something I've been working on is letting go of small details — I now time-box code reviews to thirty minutes.",
+      tr_explanation:
+        "'Too perfectionist + work hard always' = klişe + humble-brag (zayıflık değil gizli övgü). Mülakatçı bunu fark eder. Gerçek zayıflık + somut aksiyon iste: 'time-box reviews to 30 minutes'.",
     },
   ],
 };
@@ -848,6 +1073,51 @@ export const careerB1Lesson_6: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.cb1.6.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I'm leaving on good terms and ready for the next step.",
+      ipa: "/aɪm ˈliːvɪŋ ɒn ɡʊd tɜːmz ænd ˈrɛdi fɔː ðə nɛkst stɛp/",
+      tr_hint:
+        "'On good terms' tek nefes idiom. 'Next step' bağlanır → 'nekst-step'. Diplomatik ton — pozitif vurgula.",
+    },
+    {
+      id: "ex.cb1.6.8",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I've learned a lot, but growth has plateaued and I'm looking for broader scope.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'But growth has plateaued' kritik geçiş. 'Plateaued' = 'pla-TOHD'. Şikayet değil, ileriye dönük — ton dengeli kalmalı.",
+    },
+    {
+      id: "ex.cb1.6.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "What prompted you to start looking for a new role?",
+      transcription_target: "What prompted you to start looking for a new role?",
+      tr_hint:
+        "'What prompted you' = 'seni ne tetikledi'. 'Why are you leaving' sorusunun yumuşatılmış hali.",
+    },
+    {
+      id: "ex.cb1.6.10",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "broader scope",
+      tr_translation: "daha geniş kapsam / sorumluluk alanı",
+      example: "I'm ready for broader scope — owning a workstream rather than features.",
+      example_tr: "Daha geniş kapsama hazırım — feature'lar yerine bir iş akışı sahiplenmeye.",
+    },
+    {
+      id: "ex.cb1.6.11",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "My boss is not good and salary is low so I am searching new job actively.",
+      correct_sentence: "I've grown a lot in this role, but I'm ready for broader scope and an international team.",
+      tr_explanation:
+        "Eski şirkete sövmek + 'salary is low' = kırmızı bayrak. 'Searching new job actively' Türk kalıbı; doğrusu 'looking for the next step'. Pozitif çerçeve + ileriye dönük sebep. Para asla ilk sebep değil.",
+    },
   ],
 };
 
@@ -983,6 +1253,51 @@ export const careerB1Lesson_7: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.cb1.7.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "What does success look like in the first six months for this role?",
+      ipa: "/wɒt dʌz səkˈsɛs lʊk laɪk ɪn ðə fɜːst sɪks mʌnθs fə ðɪs rəʊl/",
+      tr_hint:
+        "'What does' = 'wad-dız' bağlanır. 'Look like' = 'luk-layk'. 'Success' = 'sık-SES' vurgu ikinci hecede. Akıcı sor.",
+    },
+    {
+      id: "ex.cb1.7.8",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "What's the biggest challenge the team is facing right now?",
+      voice_hint: "female_us",
+      tr_hint:
+        "'What's the' = 'wats-dı'. 'Biggest challenge' net vurgula. Meraklı, ilgili ton — robotik değil.",
+    },
+    {
+      id: "ex.cb1.7.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "We've got about five minutes left — any questions for me?",
+      transcription_target: "We've got about five minutes left — any questions for me?",
+      tr_hint:
+        "Mülakatın bitişi sinyali. 'We've got' = 'wiv-gat'. 'Any questions' = senin sıran. Mutlaka 2-3 hazır sorun olsun.",
+    },
+    {
+      id: "ex.cb1.7.10",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "cross-functional collaboration",
+      tr_translation: "fonksiyonlar arası işbirliği (mühendislik + ürün + tasarım)",
+      example: "How does cross-functional collaboration work between engineering and product here?",
+      example_tr: "Burada mühendislik ve ürün arasında fonksiyonlar arası işbirliği nasıl işliyor?",
+    },
+    {
+      id: "ex.cb1.7.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I have a question — when can I start to work and how much is the salary?",
+      correct_sentence: "I have a few questions, actually — what does success look like in the first six months, and how does the team handle disagreement?",
+      tr_explanation:
+        "Maaş + başlangıç tarihi = teklif sonrası soru, mülakat sonrası değil. Mülakat sonu = SEN değerlendiriyorsun: rol, ekip, kültür. 'Start to work' yerine 'start' (infinitive yeterli) — ama mülakat sonu yine yanlış yer.",
+    },
   ],
 };
 
@@ -1115,6 +1430,51 @@ export const careerB1Lesson_8: BundledLesson = {
             "Will share with the team. Should hear back soon.",
         },
       ],
+    },
+    {
+      id: "ex.cb1.8.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Our conversation reinforced my interest in the role.",
+      ipa: "/aʊə ˌkɒnvəˈseɪʃən ˌriːɪnˈfɔːst maɪ ˈɪntrəst ɪn ðə rəʊl/",
+      tr_hint:
+        "'Reinforced' = 'ri-in-FORST' — 'in' nazal, 'forst' net. 'Interest' = 'IN-trıst' (2 hece, Türkçedeki 3-hece DEĞİL).",
+    },
+    {
+      id: "ex.cb1.8.8",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Thanks for taking the time today — I'm looking forward to next steps.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Sıcak kapanış. 'Thanks for' = 'thanks-fır'. 'Next steps' birlikte vurgulu. Profesyonel ama içten.",
+    },
+    {
+      id: "ex.cb1.8.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "We'll circle back with you by the end of the week.",
+      transcription_target: "We'll circle back with you by the end of the week.",
+      tr_hint:
+        "'Circle back' = geri döneceğiz (idiom). 'By the end of the week' = haftanın sonuna kadar. Süreç sinyali.",
+    },
+    {
+      id: "ex.cb1.8.10",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "touch base",
+      tr_translation: "kısaca temas kurmak / kontrol etmek",
+      example: "Just wanted to touch base on next steps for the engineering role.",
+      example_tr: "Mühendislik rolünün sonraki adımları için kısaca temas kurmak istedim.",
+    },
+    {
+      id: "ex.cb1.8.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Hello sir, I am writing to ask if I get the job or not. Please answer fast.",
+      correct_sentence: "Hi — just a quick follow-up. Wanted to check in on next steps when you have a moment.",
+      tr_explanation:
+        "'Sir' = aşırı formal, Türk klasiği — modern e-postada 'Hi [name]'. 'Get the job or not' agresif. 'Please answer fast' kaba ve baskı kurar. Doğru: 'quick follow-up' + 'when you have a moment' yumuşatıcı.",
     },
   ],
 };
@@ -1269,6 +1629,51 @@ export const careerB1Lesson_9: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.cb1.9.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I'm thrilled to accept the offer.",
+      ipa: "/aɪm θrɪld tə əkˈsɛpt ði ˈɒfər/",
+      tr_hint:
+        "'Thrilled' = 'thrıld' (tek hece) — Türk 'th' zorlanır, dilini hafifçe dişlere koy. 'Accept' = 'ık-SEPT' vurgu son hecede. Coşkulu söyle.",
+    },
+    {
+      id: "ex.cb1.9.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "After careful consideration, I've decided to go with another opportunity.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Red cümlesi — sakin, profesyonel ton. 'After careful' bağlanır. 'Another opportunity' net — somut isim verme.",
+    },
+    {
+      id: "ex.cb1.9.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Could you take a few days to review the written offer?",
+      transcription_target: "Could you take a few days to review the written offer?",
+      tr_hint:
+        "Recruiter teklif sonrası klasiği. 'Written offer' = yazılı teklif (e-posta). 'Take a few days' = düşünme süresi tanıyor.",
+    },
+    {
+      id: "ex.cb1.9.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "vesting schedule",
+      tr_translation: "hisse hak ediş takvimi",
+      example: "Could you walk me through the vesting schedule — is it the standard four-year with a one-year cliff?",
+      example_tr: "Hak ediş takvimini anlatabilir misiniz — bir yıllık cliff ile standart dört yıl mı?",
+    },
+    {
+      id: "ex.cb1.9.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "OK I accept. When can I start? Also, can you increase the salary 20%?",
+      correct_sentence: "Thanks so much — I'm thrilled to accept. Before we lock in, could we discuss a slight adjustment to the base?",
+      tr_explanation:
+        "'OK I accept + maaş artışı' = kabul ile pazarlığı karıştırıyor. Önce 'thrilled to accept' veya pazarlık AYRI tut. '20%' agresif kalır — 'slight adjustment' diplomatik. Kabul ettin mi, etmedin mi netleştir.",
+    },
   ],
 };
 
@@ -1411,6 +1816,51 @@ export const careerB1Lesson_10: BundledLesson = {
             "Perfect, I'll send something over today. Welcome to the team!",
         },
       ],
+    },
+    {
+      id: "ex.cb1.10.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Hi everyone, I just joined the backend team this week.",
+      ipa: "/haɪ ˈɛvrɪwʌn aɪ dʒʌst dʒɔɪnd ðə ˈbækˌɛnd tiːm ðɪs wiːk/",
+      tr_hint:
+        "'Just joined' = 'cıst-coynd' bağlanır. 'Backend team' tek nefes vurgulu. Sıcak, samimi ton — robotik değil.",
+    },
+    {
+      id: "ex.cb1.10.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Looking forward to working with all of you.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Standart ekip kapanışı. 'Looking forward to' bağlanır → 'lukin-FORrd-tu'. Tüm tanıtım sonu — sıcak son.",
+    },
+    {
+      id: "ex.cb1.10.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "What time zone are you working from?",
+      transcription_target: "What time zone are you working from?",
+      tr_hint:
+        "Remote ekip klasik sorusu. 'Time zone' = saat dilimi. 'Working from' bağlanır. Türkiye için: 'GMT+3' veya 'Istanbul time'.",
+    },
+    {
+      id: "ex.cb1.10.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "ramp up",
+      tr_translation: "uyum sağlamak / hızlanmak",
+      example: "I'd like to ramp up on the codebase before owning a workstream.",
+      example_tr: "Bir iş akışı sahiplenmeden önce kod tabanına uyum sağlamak istiyorum.",
+    },
+    {
+      id: "ex.cb1.10.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Hello, my name is Berk, I am 28 years old and I am married with two children.",
+      correct_sentence: "Hi everyone, I'm Berk — I just joined the backend team this week. Based in Istanbul, last three years in fintech.",
+      tr_explanation:
+        "Türk CV alışkanlığı: yaş + medeni durum + çocuk = İş yerinde uygunsuz/illegal (West). İş tanıtımı = rol + lokasyon + kısa background. Kişisel detayları sosyal ortamda doğal şekilde paylaş.",
     },
   ],
 };

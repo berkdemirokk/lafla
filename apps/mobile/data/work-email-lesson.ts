@@ -164,6 +164,52 @@ export const workEmailLesson_11_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we11.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Hope this finds you well.",
+      ipa: "/hoʊp ðɪs faɪndz ju wɛl/",
+      tr_articulation_hint:
+        "'Hope this' birlesir = 'houp-this'. 'Finds you well' yumusak ritm. Sicakkanli tonla — email aciliminin standart ifadesi.",
+    },
+    {
+      id: "ex.we11.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Hi Sarah, hope your week's going well — quick ask on the Q3 data.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Hope your week's going well' = casual hatir sorma. 'Quick ask' = kisa istek (jargon). Email diline donus — virgulden sonra ana konu.",
+    },
+    {
+      id: "ex.we11.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Could you loop me in on the Q4 planning thread?",
+      transcription_target: "Could you loop me in on the Q4 planning thread?",
+      tr_hint:
+        "'Loop me in' deyim = beni dahil et. 'Q4' = harf+rakam, 'kiu-for'. 'Thread' = email zinciri/Slack. Profesyonel istem kalibi.",
+    },
+    {
+      id: "ex.we11.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "circle back with",
+      tr_translation: "Geri dönüş yapmak / tekrar iletişim kurmak",
+      example_en:
+        "Will circle back with you once design lands.",
+      example_tr: "Tasarim gelince sana geri donus yapacagim.",
+    },
+    {
+      id: "ex.we11.1.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Dear Mr Sarah, I want the data immediately.",
+      correct_sentence: "Hi Sarah — quick ask: could I get access to the Q3 data?",
+      tr_explanation:
+        "'Dear Mr Sarah' yanlis (Sarah kadin ismi, ayrica modern is emaili formal degil). 'Immediately' baskici. Modern is dili: 'Hi + isim' + kibar istek.",
+    },
   ],
 };
 
@@ -325,6 +371,52 @@ export const workEmailLesson_11_2: BundledLesson = {
             "Saglikli profesyonel norm. 'Just' kelimesi acilkayi yumusatir.",
         },
       ],
+    },
+    {
+      id: "ex.we11.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Just bumping this up.",
+      ipa: "/dʒʌst ˈbʌmpɪŋ ðɪs ʌp/",
+      tr_articulation_hint:
+        "'Just' = casti, hafif. 'Bumping' = bam-ping, vurgu basta. 'Up' kisa. Hafif + utangaci olmayan ton — hatirlatma.",
+    },
+    {
+      id: "ex.we11.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Quick nudge on this — wondering if you've had a chance to look.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Quick nudge' = nazik hatirlatma. 'Had a chance' = firsatin oldu mu (kibar). Baskici degil, anlayisli. Email takibinin altin standardi.",
+    },
+    {
+      id: "ex.we11.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Sorry, this slipped my mind — looking into it now.",
+      transcription_target: "Sorry, this slipped my mind — looking into it now.",
+      tr_hint:
+        "'Slipped my mind' deyim = aklimdan cikti. 'Looking into' = inceliyor (jargon). Kibar geri donus tonu — savunma yapmadan kabul.",
+    },
+    {
+      id: "ex.we11.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "any traction on",
+      tr_translation: "... konusunda ilerleme var mı?",
+      example_en: "Any traction on the design review?",
+      example_tr: "Tasarim incelemesinde ilerleme var mi?",
+    },
+    {
+      id: "ex.we11.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I am waiting your answer since 3 days.",
+      correct_sentence:
+        "Following up on my note from earlier this week — any update when you can?",
+      tr_explanation:
+        "'Waiting your answer' yanlis: 'wait FOR'. 'Since 3 days' yanlis: 'for 3 days'. Suclayici ton agir — yumusak takip standardi: 'Following up... when you can'.",
     },
   ],
 };
@@ -493,6 +585,55 @@ export const workEmailLesson_11_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we11.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I want to own this.",
+      ipa: "/aɪ wɑnt tu oʊn ðɪs/",
+      tr_articulation_hint:
+        "'Own' = oun, uzun o. 'Want to' birlesir = 'wana'. Kararli, kosumayan ton — sahiplenme dolaysiz olmali.",
+    },
+    {
+      id: "ex.we11.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Apologies for the slip — owning that, and here's the recovery plan.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Slip' kisa, hata icin yumusak kelime. 'Owning' kararli — savunma yok. 'Recovery plan' net + somut. Profesyonel ozur tonu.",
+    },
+    {
+      id: "ex.we11.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "Appreciate the ownership — let's regroup tomorrow with the new ETA.",
+      transcription_target:
+        "Appreciate the ownership — let's regroup tomorrow with the new ETA.",
+      tr_hint:
+        "'Ownership' = sahiplenme. 'Regroup' = tekrar toplan. 'ETA' = harf harf 'i-ti-ey' (estimated time of arrival). Manager onay tonu.",
+    },
+    {
+      id: "ex.we11.3.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "course-correct",
+      tr_translation: "Yön düzeltmek / yola sokmak",
+      example_en:
+        "Course-correcting now — building in QA buffer for next cycle.",
+      example_tr:
+        "Simdi yolu duzeltiyorum — bir sonraki donemde QA tampon ekliyorum.",
+    },
+    {
+      id: "ex.we11.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Sorry sorry sorry it will not happen again I promise.",
+      correct_sentence:
+        "Apologies for the miss — owning it. Here's the recovery plan + steps to prevent recurrence.",
+      tr_explanation:
+        "Cok kez ozur dile = panik + zayif. Profesyonel ozur: tek sahiplenme + somut plan. 'I promise' fazlaca duygusal — aksiyon kanitlamak yeterli.",
+    },
   ],
 };
 
@@ -655,6 +796,53 @@ export const workEmailLesson_11_4: BundledLesson = {
             "Mail her seyi cozemez. Telefonda bes dakikada cozulebilir. Bu kapi = saglikli.",
         },
       ],
+    },
+    {
+      id: "ex.we11.4.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Looking forward to hearing from you.",
+      ipa: "/ˈlʊkɪŋ ˈfɔrwərd tu ˈhɪrɪŋ frʌm ju/",
+      tr_articulation_hint:
+        "'Looking forward to' birlesik akici. 'Hearing from you' sicak ton — sabirsiz degil ama umutlu. Email kapanis melodyasi.",
+    },
+    {
+      id: "ex.we11.4.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Happy to hop on a call if it's easier — Cheers, Berk.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Hop on a call' = telefonda hizli gorus (idiom, 'jump' yerine 'hop' daha samimi). 'Cheers' UK/tech kapanisi — yumusak ve sicak.",
+    },
+    {
+      id: "ex.we11.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Talk soon — let me know if anything else comes up.",
+      transcription_target: "Talk soon — let me know if anything else comes up.",
+      tr_hint:
+        "'Talk soon' = casual kapanis, gorusuruz. 'Comes up' deyim = cikar/ortaya cikar. Casual email final cumlesi.",
+    },
+    {
+      id: "ex.we11.4.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "in the meantime",
+      tr_translation: "Bu arada / o süre içinde",
+      example_en:
+        "Will keep you posted; in the meantime, let me know if questions.",
+      example_tr:
+        "Sizi haberdar edecegim; bu arada sorulariniz olursa bana bildirin.",
+    },
+    {
+      id: "ex.we11.4.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Bye bye thanks see you",
+      correct_sentence: "Thanks for your time — Best, Berk.",
+      tr_explanation:
+        "'Bye bye see you' email kapanisi olarak cocuksu + dagiltik. Standart: tek bir kapanis ifadesi + signoff + isim.",
     },
   ],
 };

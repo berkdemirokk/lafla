@@ -174,6 +174,52 @@ export const complaintLesson_5_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.5.1.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "I'm sorry, but this is a bit undercooked.",
+      ipa: "aɪm ˈsɒri bʌt ðɪs ɪz ə bɪt ˌʌndərˈkʊkt",
+      tr_hint:
+        "'I'm sorry' yumuşak başlangıç, üzgün tonla. 'Undercooked' içinde vurgu 'kook' üstünde: ʌn-dər-KUKT.",
+    },
+    {
+      id: "ex.5.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Excuse me, this is a little cold — could it go back for a minute?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Excuse me' nazik açılış. 'A little cold' yumuşatıcı; agresif değil.",
+    },
+    {
+      id: "ex.5.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "I'm so sorry — let me take that back to the kitchen right away.",
+      transcription_target: "I'm so sorry — let me take that back to the kitchen right away.",
+      tr_hint:
+        "Dinle, yaz. Garsonun şikayet sonrası klasik tepkisi. 'Right away' = hemen.",
+    },
+    {
+      id: "ex.5.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "overcooked",
+      tr_translation: "Fazla pişmiş",
+      example: "I'm sorry, but the steak is a little overcooked.",
+      example_tr: "Üzgünüm ama biftek biraz fazla pişmiş.",
+    },
+    {
+      id: "ex.5.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Meat too much cooked. Cook again less.",
+      correct_sentence:
+        "I asked for medium rare, but this came out well done. Could I get another?",
+      tr_explanation:
+        "'Too much cooked' yapısal hata — doğrusu 'overcooked' veya 'well done'. 'Cook again less' kırık komut — 'Could I get another?' kibar + spesifik.",
+    },
   ],
 };
 
@@ -343,6 +389,52 @@ export const complaintLesson_5_2: BundledLesson = {
             "'Excuse me' veya 'Sorry' — şikayeti yumuşatır, garsonu defansa sokmaz.",
         },
       ],
+    },
+    {
+      id: "ex.5.2.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "I think there's been a mix-up with my order.",
+      ipa: "aɪ θɪŋk ðɛrz bɪn ə ˈmɪksʌp wɪð maɪ ˈɔːrdər",
+      tr_hint:
+        "'Mix-up' birleşik kelime, vurgu ilk hece: 'MIKS-ʌp'. 'There's been' kısaltma + bağlama.",
+    },
+    {
+      id: "ex.5.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Sorry, I ordered the salmon — not the chicken.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Not the chicken' kısa duraklı + vurgulu. Karşıtlık net.",
+    },
+    {
+      id: "ex.5.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Oh no, I'm so sorry — let me grab the right one for you.",
+      transcription_target: "Oh no, I'm so sorry — let me grab the right one for you.",
+      tr_hint:
+        "Dinle, yaz. 'Let me grab' = 'getireyim'. Garsonun standart düzeltme tepkisi.",
+    },
+    {
+      id: "ex.5.2.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "mix-up",
+      tr_translation: "Karışıklık (sipariş için)",
+      example: "Sorry, I think there's been a mix-up.",
+      example_tr: "Üzgünüm, sanırım bir karışıklık olmuş.",
+    },
+    {
+      id: "ex.5.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "This not my plate, take back!",
+      correct_sentence:
+        "Sorry, I don't think this is mine — I ordered the pasta.",
+      tr_explanation:
+        "'Take back!' komut + agresif. 'Plate' yerine 'dish' veya yemek adı. 'I don't think this is mine' yumuşatıcı + spesifik.",
     },
   ],
 };
@@ -526,6 +618,52 @@ export const complaintLesson_5_3: BundledLesson = {
             "'On the house' = restoran ikramı, bedava. Genelde özür/jest olarak verilir.",
         },
       ],
+    },
+    {
+      id: "ex.5.3.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could I speak to the manager, please?",
+      ipa: "kʊd aɪ spiːk tə ðə ˈmænɪʤər pliːz",
+      tr_hint:
+        "'Speak' uzun 'iː' sesi. 'Manager' vurgusu ilk hece: 'MÆN-ə-jər'. Sakin tonla konuş.",
+    },
+    {
+      id: "ex.5.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "I'd appreciate it if you could take this off the bill.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'I'd appreciate it' kibar baskı. 'Take this off' bağlanır → 'teyk-ðis-ɔf'.",
+    },
+    {
+      id: "ex.5.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Of course — I'll take that off and bring you something on the house.",
+      transcription_target: "Of course — I'll take that off and bring you something on the house.",
+      tr_hint:
+        "Dinle, yaz. Manager'ın klasik çözümü: bedava ürün + indirim. 'On the house' = ikram.",
+    },
+    {
+      id: "ex.5.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "comp the meal",
+      tr_translation: "Yemeği bedava saymak (ücretsiz)",
+      example: "The manager comped our meal after the wait.",
+      example_tr: "Bekleme yüzünden manager yemeği bedava saydı.",
+    },
+    {
+      id: "ex.5.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Manager come here! I am angry customer!",
+      correct_sentence:
+        "Excuse me — could I speak to the manager? I'd like to address something.",
+      tr_explanation:
+        "'Come here!' komut. 'Angry customer' kendini etiketleme — geri tepme yaratır. Doğrusu sakin + kibar: 'Could I speak to...?' + 'address something'.",
     },
   ],
 };

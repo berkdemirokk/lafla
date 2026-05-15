@@ -250,6 +250,51 @@ export const grammarLesson_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.gr1.13",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I've been living in Istanbul for ten years.",
+      ipa: "/aɪv bɪn ˈlɪvɪŋ ɪn ˌɪstænˈbʊl fə tɛn jɪəz/",
+      tr_hint:
+        "Present perfect continuous + 'for'. 'I've been' bağlanır → 'ayv-bin'. Türk hata: 'since 10 years' yerine 'for 10 years'. Süre miktari için 'for'.",
+    },
+    {
+      id: "ex.gr1.14",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I saw her yesterday, but I haven't spoken to her since Monday.",
+      voice_hint: "female_us",
+      tr_hint:
+        "İki tense bir cümlede. 'I saw' (past simple, yesterday=belli) + 'haven't spoken since' (present perfect, devam eden). 'Yesterday' vs 'since' = anahtar fark.",
+    },
+    {
+      id: "ex.gr1.15",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Have you ever been to London before?",
+      transcription_target: "Have you ever been to London before?",
+      tr_hint:
+        "Hayat tecrubesi sorusu — present perfect + 'ever'. 'Have you been' = gidip geldin mi (tecrübe). 'Did you go' belli zaman gerektirir, burada yok.",
+    },
+    {
+      id: "ex.gr1.16",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "for vs since",
+      tr_translation: "süre miktarı (for) vs başlangıç noktası (since)",
+      example: "I've worked here for five years (süre). I've worked here since 2021 (başlangıç).",
+      example_tr: "Beş yıldır burada çalışıyorum (süre). 2021'den beri burada çalışıyorum (başlangıç).",
+    },
+    {
+      id: "ex.gr1.17",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I am living in Istanbul since 10 years and I have visited Paris last summer.",
+      correct_sentence: "I've been living in Istanbul for 10 years, and I visited Paris last summer.",
+      tr_explanation:
+        "İki klasik Türk hatası: (1) 'since 10 years' = yanlış. Süre miktarı = 'for'. (2) 'have visited last summer' = yanlış. Belli zaman (last summer) = past simple zorunlu, present perfect değil.",
+    },
   ],
 };
 
@@ -473,6 +518,51 @@ export const grammarLesson_2: BundledLesson = {
           message: "Nice story — sounds like a good fit.",
         },
       ],
+    },
+    {
+      id: "ex.gr2.13",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'm an engineer at a startup in Istanbul.",
+      ipa: "/aɪm ən ˌɛndʒɪˈnɪər æt ə ˈstɑːtʌp ɪn ˌɪstænˈbʊl/",
+      tr_hint:
+        "İki tanımlık tek cümlede. 'an engineer' (sesli harf 'e') + 'a startup'. Türk hata: 'I am engineer' = tanımlık atlama. Mesleğin önüne A/AN zorunlu.",
+    },
+    {
+      id: "ex.gr2.14",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "The CEO of the company sent me an email about a new role.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Tanımlık kombosu: 'THE CEO' (belirli) + 'THE company' (belirli) + 'AN email' (ilk geçen) + 'A new role' (ilk geçen). Türk için en zor yapı.",
+    },
+    {
+      id: "ex.gr2.15",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "She works as a teacher at an international school.",
+      transcription_target: "She works as a teacher at an international school.",
+      tr_hint:
+        "İki tanımlık. 'a teacher' (T sessiz) + 'an international' ('i' sesli → an). Türk hata: 'works as teacher' = tanımlık atlama. 'as a [meslek]' kalıbı sabit.",
+    },
+    {
+      id: "ex.gr2.16",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "a vs an (vowel sound, not letter)",
+      tr_translation: "ses kuralı: a/an seçimi yazıma değil sese bağlı",
+      example: "an MBA (em-bi-ey, sesli ses) ama a university (yu-nivırsiti, sessiz ses 'yu').",
+      example_tr: "'an MBA' (em-bi-ey M sesli okunur). 'a university' (yu sessiz başlar).",
+    },
+    {
+      id: "ex.gr2.17",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I am engineer. I work at company in Istanbul. I drive car to office.",
+      correct_sentence: "I'm an engineer. I work at a company in Istanbul. I drive a car to the office.",
+      tr_explanation:
+        "Türkçe tanımlık atlama klasiği — 3 hatada da A/AN/THE eksik. Kural: meslek/iş/eşya tekil + ilk geçen = 'a/an'. Belirli/bilinen = 'the'. 'I am engineer' aksanlı İngilizcede en bariz Türk işareti.",
     },
   ],
 };
@@ -732,6 +822,51 @@ export const grammarLesson_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.gr3.14",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "If I were you, I'd take the offer.",
+      ipa: "/ɪf aɪ wɜː juː aɪd teɪk ði ˈɒfə/",
+      tr_hint:
+        "2nd conditional kalıbı — tavsiye. 'If I WERE' (was DEĞİL, were — formal). 'I'd' = 'I would' kısaltma. Hayali durumda subjunctive 'were' kullan.",
+    },
+    {
+      id: "ex.gr3.15",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "If I had known earlier, I would have applied sooner.",
+      voice_hint: "female_us",
+      tr_hint:
+        "3rd conditional — geçmiş pişmanlık. 'If I had known' (past perfect) + 'I would have applied' (would have + V3). Yapı zor — yavaş çalış.",
+    },
+    {
+      id: "ex.gr3.16",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "If you finish the report by Friday, I'll review it over the weekend.",
+      transcription_target: "If you finish the report by Friday, I'll review it over the weekend.",
+      tr_hint:
+        "1st conditional — gerçek gelecek. 'If you finish' (present simple) + 'I'll review' (will + V1). Türk hata: 'If you will finish' = yanlış. If clause'da WILL kullanma.",
+    },
+    {
+      id: "ex.gr3.17",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "in your shoes (idiom)",
+      tr_translation: "senin yerinde olsam (2nd conditional kalıbı)",
+      example: "If I were in your shoes, I'd negotiate harder on the equity.",
+      example_tr: "Senin yerinde olsam, hisse konusunda daha sıkı pazarlık ederdim.",
+    },
+    {
+      id: "ex.gr3.18",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "If I will have time tomorrow, I would call you and we will talk.",
+      correct_sentence: "If I have time tomorrow, I'll call you and we can talk.",
+      tr_explanation:
+        "Conditional klasik Türk hataları: (1) 'If I WILL have' yanlış — if-clause'da WILL yok, present simple. (2) Tense karışımı: 1st conditional (real future) = 'if + present, will + V1'. Tutarsız kullanım yaygın.",
+    },
   ],
 };
 
@@ -965,6 +1100,51 @@ export const grammarLesson_4: BundledLesson = {
           message: "Thanks for the recap.",
         },
       ],
+    },
+    {
+      id: "ex.gr4.13",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "She said she would send the report by Friday.",
+      ipa: "/ʃi sɛd ʃi wʊd sɛnd ðə rɪˈpɔːt baɪ ˈfraɪdeɪ/",
+      tr_hint:
+        "Reported speech backshift: 'will' → 'would'. 'She said she WILL send' yerine 'she WOULD send'. 'Said' bağlanır → 'sed'. Söylenen kişinin direkt cümlesi 'I will send it Friday' idi.",
+    },
+    {
+      id: "ex.gr4.14",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "He told me he was working on a new project and would share details soon.",
+      voice_hint: "male_us",
+      tr_hint:
+        "İki backshift: present continuous 'is working' → 'was working'. 'Will share' → 'would share'. 'Told me' bağlanır → 'told-mi'.",
+    },
+    {
+      id: "ex.gr4.15",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "She asked if I had finished the proposal.",
+      transcription_target: "She asked if I had finished the proposal.",
+      tr_hint:
+        "Reported question. 'Did you finish?' → 'asked IF I HAD finished' (past simple → past perfect). 'Asked if' kalıbı standart — 'asked that' YANLIŞ.",
+    },
+    {
+      id: "ex.gr4.16",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "say vs tell (object farkı)",
+      tr_translation: "'say (something)' nesnesiz; 'tell (someone) (something)' nesneli",
+      example: "He said the meeting was cancelled. He told me the meeting was cancelled.",
+      example_tr: "'Said' birinden bahsetmiyor (cümleyi söyledi). 'Told' kime söylediği kişi var.",
+    },
+    {
+      id: "ex.gr4.17",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "He said me that he will come tomorrow and asked that did I have time.",
+      correct_sentence: "He told me he would come tomorrow and asked if I had time.",
+      tr_explanation:
+        "Üç klasik Türk hatası: (1) 'said me' YANLIŞ — 'tell + somebody' veya 'said (no object)'. (2) Backshift atlama: 'will come' → 'would come'. (3) 'asked that did I' = soru yapısı yanlış; doğrusu 'asked if/whether I had'.",
     },
   ],
 };
@@ -1221,6 +1401,51 @@ export const grammarLesson_5: BundledLesson = {
           message: "Cool, talk soon!",
         },
       ],
+    },
+    {
+      id: "ex.gr5.15",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Could you follow up with the team and figure out what's going on?",
+      ipa: "/kʊd jʊ ˈfɒləʊ ʌp wɪð ðə tiːm ænd ˈfɪɡər aʊt wɒts ˈɡəʊɪŋ ɒn/",
+      tr_hint:
+        "Üç phrasal verb tek cümlede: 'follow up', 'figure out', 'going on'. 'Follow up' = takip et. 'Figure out' = anla, çöz. 'Going on' = oluyor.",
+    },
+    {
+      id: "ex.gr5.16",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I ran into an old colleague yesterday and we caught up over coffee.",
+      voice_hint: "female_us",
+      tr_hint:
+        "İki idiomatik phrasal verb. 'Ran into' = tesadüfen karşılaşmak. 'Caught up' = haberlesmek, görüşmek. Phrasal verb'ler doğal İngilizcenin can damarı.",
+    },
+    {
+      id: "ex.gr5.17",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Let me look into it and get back to you tomorrow.",
+      transcription_target: "Let me look into it and get back to you tomorrow.",
+      tr_hint:
+        "İş yeri klasik vaadi. 'Look into' = araştır, incele. 'Get back to' = geri dön (yanıtla). İki phrasal verb tek cümlede — profesyonel İngilizce.",
+    },
+    {
+      id: "ex.gr5.18",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "phrasal verb separability",
+      tr_translation: "ayrilabilir/ayrilamaz phrasal verb farki",
+      example: "Pick it up (ayrılabilir, zamir arada). Look into it (ayrılamaz, zamir sonra).",
+      example_tr: "'Pick up the box' VEYA 'pick the box up'. Ama 'look into it', 'look it into' YANLIS.",
+    },
+    {
+      id: "ex.gr5.19",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I will research about this problem and answer to you soon.",
+      correct_sentence: "I'll look into this problem and get back to you soon.",
+      tr_explanation:
+        "Türk tercih hatası: 'research about' yerine native İngilizce 'look into'. 'Answer to you' yerine 'get back to you' (phrasal verb). Türk konuşmacı düz fiil kullanır; native phrasal verb tercih eder = daha doğal.",
     },
   ],
 };
@@ -1483,6 +1708,51 @@ export const grammarLesson_6: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.gr6.14",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I enjoy working remotely but I prefer to meet the team in person quarterly.",
+      ipa: "/aɪ ɪnˈdʒɔɪ ˈwɜːkɪŋ rɪˈməʊtli bʌt aɪ prɪˈfɜː tə miːt ðə tiːm ɪn ˈpɜːsən ˈkwɔːtəli/",
+      tr_hint:
+        "Iki fiil farkli yapida. 'Enjoy + V-ing' (gerund zorunlu). 'Prefer + to V' (infinitive). Türk hata: 'enjoy to work' YANLIS. 'Enjoy' her zaman -ing alir.",
+    },
+    {
+      id: "ex.gr6.15",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I decided to take the offer because I want to grow my career.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Iki infinitive. 'Decided + to take' + 'want + to grow'. Bu iki fiilden sonra gerund (V-ing) YANLIS. 'Decided taking' = yanlis.",
+    },
+    {
+      id: "ex.gr6.16",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "She avoids talking about politics at work.",
+      transcription_target: "She avoids talking about politics at work.",
+      tr_hint:
+        "'Avoid + V-ing' kalibi sabit. 'Avoid to talk' YANLIS. -ing alan fiil grubunda: avoid, enjoy, finish, mind, suggest, consider.",
+    },
+    {
+      id: "ex.gr6.17",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "stop + V-ing vs stop + to V",
+      tr_translation: "anlam degisikligi: durdurma vs durdurup baska sey yapma",
+      example: "I stopped smoking (sigarayi biraktim). I stopped to smoke (durup sigara icmeye gittim).",
+      example_tr: "'Stop V-ing' = aksiyonu bitir. 'Stop to V' = duruyorum, baska bir sey yapmaya gittim.",
+    },
+    {
+      id: "ex.gr6.18",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I enjoy to learn new languages and I avoid to speak in meetings.",
+      correct_sentence: "I enjoy learning new languages and I avoid speaking in meetings.",
+      tr_explanation:
+        "Klasik Türk hatasi: 'enjoy + to' yerine 'enjoy + V-ing'. 'Avoid + to' yerine 'avoid + V-ing'. Bu iki fiil her zaman gerund alir — istisna yok. Ezbere bilmen lazim, mantik yok.",
+    },
   ],
 };
 
@@ -1726,6 +1996,51 @@ export const grammarLesson_7: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.gr7.14",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "You should probably double-check the spec — it might be outdated.",
+      ipa: "/jʊ ʃʊd ˈprɒbəbli ˈdʌbəltʃɛk ðə spɛk ɪt maɪt biː ˌaʊtˈdeɪtɪd/",
+      tr_hint:
+        "Iki modal tek cümlede. 'Should' = tavsiye (orta güç). 'Might be' = ihtimal (zayıf). 'Probably' yumuşatıcı. Direktif değil, öneri tonu.",
+    },
+    {
+      id: "ex.gr7.15",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "You must wear a badge in this area — and you can't bring food in.",
+      voice_hint: "female_us",
+      tr_hint:
+        "İki modal — kural. 'Must' = zorunluluk (yasal). 'Can't' = yasak. 'Have to' alternatif ama 'must' resmi yazıda daha güçlü.",
+    },
+    {
+      id: "ex.gr7.16",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Could you possibly send the report by end of day?",
+      transcription_target: "Could you possibly send the report by end of day?",
+      tr_hint:
+        "Çok kibar istek. 'Could you possibly' = en yumuşak kalıp (formal). 'Can you' nötr, 'could you' kibar, 'could you possibly' aşırı kibar.",
+    },
+    {
+      id: "ex.gr7.17",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "must vs have to (külçesel fark)",
+      tr_translation: "must = içsel/yazılı kural; have to = dışsal/durumsal mecburiyet",
+      example: "I must call my mom (içimden geliyor). I have to call my mom (annem bekliyor).",
+      example_tr: "'Must' = içsel kuvvet veya yazılı yasa. 'Have to' = dışsal koşul.",
+    },
+    {
+      id: "ex.gr7.18",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "You must not to come late and you should to finish the report today.",
+      correct_sentence: "You must not come late, and you should finish the report today.",
+      tr_explanation:
+        "Modal verb sonrasi ASLA 'to' kullanma. 'Must not TO come' ve 'should TO finish' = klasik Türk hatasi. Modal'dan sonra bare infinitive (to'suz fiil) zorunlu: must come, should finish, can do, will go.",
+    },
   ],
 };
 
@@ -1946,6 +2261,51 @@ export const grammarLesson_8: BundledLesson = {
           message: "Yes — over 300 buildings are attributed to him.",
         },
       ],
+    },
+    {
+      id: "ex.gr8.13",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "The report was sent yesterday and the feedback will be shared next week.",
+      ipa: "/ðə rɪˈpɔːt wəz sɛnt ˈjɛstədeɪ ænd ðə ˈfiːdbæk wɪl biː ʃɛəd nɛkst wiːk/",
+      tr_hint:
+        "İki passive bir cümlede. 'Was sent' (past passive) + 'will be shared' (future passive). Türk hata: 'will share' aktif — kim share edecek belli değilse passive zorunlu.",
+    },
+    {
+      id: "ex.gr8.14",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "The decision was made by the board after the data was reviewed.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Iki past passive. 'Was made by' (kimin yaptığı belli — by board). 'Was reviewed' (kimin yaptığı önemsiz — sadece olay). Passive kullanım sebebi: aktör belli değil veya önemsiz.",
+    },
+    {
+      id: "ex.gr8.15",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "All meeting notes will be uploaded to the shared drive by Friday.",
+      transcription_target: "All meeting notes will be uploaded to the shared drive by Friday.",
+      tr_hint:
+        "İş yeri klasiği. 'Will be uploaded' = future passive. Aktör (kim upload edecek) önemsiz — eylem önemli. Türk konuşmacı 'I will upload' diye aktif kullanır, ama notes konusunda passive doğal.",
+    },
+    {
+      id: "ex.gr8.16",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "passive in resumes",
+      tr_translation: "CV'de passive yerine aktif tercih (impact)",
+      example: "PASSIVE: 'A new system was implemented.' ACTIVE: 'I implemented a new system.'",
+      example_tr: "CV'de aktif 'I' + güçlü fiil + impact. Passive zayıf gelir. Bilimsel yazıda ise passive tercih edilir.",
+    },
+    {
+      id: "ex.gr8.17",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "The report has been finish yesterday and now is sending to client.",
+      correct_sentence: "The report was finished yesterday and is being sent to the client now.",
+      tr_explanation:
+        "İki Türk hatası: (1) 'has been finish' = 'finish' yerine 'finished' (V3 zorunlu, past participle). (2) 'is sending' aktif yapı — passive olmalı: 'is being sent' (present continuous passive: is/are being + V3).",
     },
   ],
 };
@@ -2170,6 +2530,51 @@ export const grammarLesson_9: BundledLesson = {
           message: "Ha, good to know. We have great coffee here.",
         },
       ],
+    },
+    {
+      id: "ex.gr9.14",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "You're joining the standup, aren't you?",
+      ipa: "/jɔːr ˈdʒɔɪnɪŋ ðə ˈstændʌp ˈɑːrənt jʊ/",
+      tr_hint:
+        "Pozitif cümle → negatif tag. 'You ARE joining' → 'AREN'T you?'. Tag yüksek ton (gerçekten soru). Sıradan ton (sadece teyit istegi).",
+    },
+    {
+      id: "ex.gr9.15",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "She doesn't usually take Mondays off, does she?",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Negatif cümle → pozitif tag. 'She DOESN'T take' → 'DOES she?'. Auxiliary verb (do/does/did/be/have) eşleşir. 'Take' yerine değil — soru sonuna uygun yardımcı.",
+    },
+    {
+      id: "ex.gr9.16",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "We haven't met before, have we?",
+      transcription_target: "We haven't met before, have we?",
+      tr_hint:
+        "Networking klasiği. 'Haven't met' (negatif present perfect) → 'have we?' (pozitif). Have + we — bu yapı korunur. 'Did we' = yanlış, çünkü cümle present perfect.",
+    },
+    {
+      id: "ex.gr9.17",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "question tag intonation",
+      tr_translation: "tag tonlaması: yüksek = gerçek soru; düşük = teyit",
+      example: "'You're tired, aren't you?' yüksekse cevap bekliyor; düşükse 'evet yorgunsun' diyor.",
+      example_tr: "Tag'in tonu anlamı değiştirir — sadece dilbilgisi değil, dinleme alıştırması da.",
+    },
+    {
+      id: "ex.gr9.18",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "You are coming tomorrow, no? And she works here, no?",
+      correct_sentence: "You're coming tomorrow, aren't you? And she works here, doesn't she?",
+      tr_explanation:
+        "Türk hatasi: cümle sonuna 'no?' ekleme (Türkçedeki 'değil mi?'). İngilizcede tag system gerekli: pozitif cümle → negatif tag; auxiliary verb eşleşir. 'No?' = İspanyolca/İtalyanca, anglo değil.",
     },
   ],
 };
@@ -2415,6 +2820,51 @@ export const grammarLesson_10: BundledLesson = {
           message: "Send me a photo when you can.",
         },
       ],
+    },
+    {
+      id: "ex.gr10.13",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "She speaks English fluently and writes reports clearly.",
+      ipa: "/ʃi spiːks ˈɪŋɡlɪʃ ˈfluːəntli ænd raɪts rɪˈpɔːts ˈklɪəli/",
+      tr_hint:
+        "Manner zarfı kuralı: fiil + nesne + manner zarf. 'Speaks fluently English' YANLIS. 'Speaks English fluently' DOĞRU. Türk hatası — nesneden ÖNCE zarf koyma.",
+    },
+    {
+      id: "ex.gr10.14",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I usually have a big black coffee in the morning.",
+      voice_hint: "female_us",
+      tr_hint:
+        "İki kural: (1) Sıklık zarfı 'usually' = özne + zarf + fiil. (2) Sıfat sıralaması: size (big) + color (black). 'Black big coffee' YANLIS — boyut renkten önce.",
+    },
+    {
+      id: "ex.gr10.15",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "He's been working hard on a beautiful old Italian car.",
+      transcription_target: "He's been working hard on a beautiful old Italian car.",
+      tr_hint:
+        "Sıfat sıralaması: opinion (beautiful) + age (old) + origin (Italian) + noun (car). Bu sıra İngilizcede zorunlu. Türk için doğal değil — ezbere bil.",
+    },
+    {
+      id: "ex.gr10.16",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "Royal Order of Adjectives",
+      tr_translation: "sifat sıralamasi: OSASCOMP (Opinion, Size, Age, Shape, Color, Origin, Material, Purpose)",
+      example: "A lovely (op) small (sz) old (ag) round (sh) red (col) Italian (or) leather (mat) running (pur) shoe.",
+      example_tr: "Çok sıfat varsa bu sıra. Native otomatik bilir, sen ezberle: OSASCOMP.",
+    },
+    {
+      id: "ex.gr10.17",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I speak well English and I drive carefully always my new red big car.",
+      correct_sentence: "I speak English well and I always drive my big new red car carefully.",
+      tr_explanation:
+        "İki Türk hatasi: (1) Manner zarfı nesneden önce konmaz: 'speak well English' YANLIS, 'speak English well' DOĞRU. (2) Sifat sirasi: size (big) + age (new) + color (red) + noun. 'New red big' tamamen yanlış sıra.",
     },
   ],
 };

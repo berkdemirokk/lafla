@@ -105,6 +105,51 @@ export const cafeLesson_1_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.1.1.6",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could I have a coffee, please?",
+      ipa: "kʊd aɪ hæv ə ˈkɒfi pliːz",
+      tr_hint:
+        "'Could I' bağlanır → 'kud-ai'. 'Coffee' içinde 'o' kısa, 'fi' net. Sonda 'please' uzun 'iː'.",
+    },
+    {
+      id: "ex.1.1.7",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Hi, could I get a small coffee to go, please?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'To go' kısaltılmış, 'small' içinde 'sm' birleşik. Ritmi yakala.",
+    },
+    {
+      id: "ex.1.1.8",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "What size would you like — small, medium, or large?",
+      transcription_target: "What size would you like — small, medium, or large?",
+      tr_hint:
+        "Dinle, yaz. 'What size' = hangi boy. Üç boy seçeneği üst üste sayılır.",
+    },
+    {
+      id: "ex.1.1.9",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "for here or to go",
+      tr_translation: "Burada mı, paket mi?",
+      example: "For here or to go?",
+      example_tr: "Burada mı, paket mi içeceksiniz?",
+    },
+    {
+      id: "ex.1.1.10",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I will take one coffee.",
+      correct_sentence: "I'll have a coffee, please.",
+      tr_explanation:
+        "'I will take' kafede garip — eşya alır gibi. Doğrusu 'I'll have a [drink], please'. 'One' yerine 'a' doğal.",
+    },
   ],
 };
 
@@ -253,6 +298,51 @@ export const cafeLesson_1_2: BundledLesson = {
             "'I'll have' + 'a' + içecek + 'please' — restoran/kafede en doğal.",
         },
       ],
+    },
+    {
+      id: "ex.1.2.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could I get a flat white to go, please?",
+      ipa: "kʊd aɪ ɡɛt ə flæt waɪt tə ɡoʊ pliːz",
+      tr_hint:
+        "'Flat white' = düz beyaz (yoğun sütlü espresso). 'th' sesi için dilini ön dişlerinin arasına koy — 'wayt' değil 'waɪt'.",
+    },
+    {
+      id: "ex.1.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "I'll have an iced cappuccino, medium, please.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Iced' kısa 'ayst', 'cappuccino' içinde 'cha-pu-chi-no' ritmi.",
+    },
+    {
+      id: "ex.1.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Would you like that hot or iced?",
+      transcription_target: "Would you like that hot or iced?",
+      tr_hint:
+        "Dinle, yaz. 'Hot or iced?' = sıcak mı buzlu mu. Barista'nın çok sorduğu standart soru.",
+    },
+    {
+      id: "ex.1.2.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "iced",
+      tr_translation: "Buzlu (içecek için)",
+      example: "Could I get an iced latte, please?",
+      example_tr: "Bir buzlu latte alabilir miyim, lütfen?",
+    },
+    {
+      id: "ex.1.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I want a cold latte with much ice.",
+      correct_sentence: "I'll have an iced latte with extra ice, please.",
+      tr_explanation:
+        "'Cold latte' direkt çeviri — doğrusu 'iced latte' (sabit kalıp). 'Much ice' yanlış — 'extra ice' veya 'lots of ice' doğal.",
     },
   ],
 };
@@ -423,6 +513,51 @@ export const cafeLesson_1_3: BundledLesson = {
             "Espresso bazlı içeceklerde 'double' = 2x shot.",
         },
       ],
+    },
+    {
+      id: "ex.1.3.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could I have that with oat milk, please?",
+      ipa: "kʊd aɪ hæv ðæt wɪð oʊt mɪlk pliːz",
+      tr_hint:
+        "'Oat' = 'oʊt' (uzun 'o', sonunda 't'). 'With' içinde 'th' yumuşak — dilini hafif arada tut.",
+    },
+    {
+      id: "ex.1.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Hi, can I get a tall oat milk latte, no sugar?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Tall' = küçük boy (Starbucks). 'No sugar' kısa ve net.",
+    },
+    {
+      id: "ex.1.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "We're out of oat milk — would almond milk work?",
+      transcription_target: "We're out of oat milk — would almond milk work?",
+      tr_hint:
+        "Dinle, yaz. 'We're out of' = bitmek, kalmamak. 'Would [X] work?' = [X] olur mu?",
+    },
+    {
+      id: "ex.1.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "extra shot",
+      tr_translation: "Ekstra espresso shot",
+      example: "Could I get an extra shot in that, please?",
+      example_tr: "İçine ekstra shot ekleyebilir misiniz?",
+    },
+    {
+      id: "ex.1.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I want sugar free latte with little milk.",
+      correct_sentence: "Could I have a latte with no sugar and a little less milk?",
+      tr_explanation:
+        "'Sugar free' diet ürün etiketi — sipariş için 'with no sugar' veya 'unsweetened' kullanılır. 'Little milk' tekil — 'a little less milk' daha doğal.",
     },
   ],
 };
@@ -623,6 +758,51 @@ export const cafeLesson_1_4: BundledLesson = {
             "'To go' (US) = 'Take away' (UK). İkisi de 'paket' demek.",
         },
       ],
+    },
+    {
+      id: "ex.1.4.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could I get that to go, please?",
+      ipa: "kʊd aɪ ɡɛt ðæt tə ɡoʊ pliːz",
+      tr_hint:
+        "'To go' birleşik söylenir: 'tə-goʊ'. 'That' içinde 'th' net — dilini ön dişlere değdir.",
+    },
+    {
+      id: "ex.1.4.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "It's under Berk — B as in boy, E, R, K.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Native ile aynı anda söyle. İsim heceleme ritmi önemli: tek tek harfler arasında kısa duraklar.",
+    },
+    {
+      id: "ex.1.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Sorry, could you spell that for me?",
+      transcription_target: "Sorry, could you spell that for me?",
+      tr_hint:
+        "Dinle, yaz. Barista'nın klasik tepkisi: 'Spell that' = 'hecele'. Türk ismi söylersen %90 duyarsın.",
+    },
+    {
+      id: "ex.1.4.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "under the name",
+      tr_translation: "(Şu) ismine yazdırmak",
+      example: "It's under the name Berk.",
+      example_tr: "Berk ismine yazdırdım.",
+    },
+    {
+      id: "ex.1.4.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Write my name Berk on cup.",
+      correct_sentence: "Could you put it under Berk? B-E-R-K.",
+      tr_explanation:
+        "'Write on cup' komut tonu. Doğrusu 'put it under [name]' veya 'it's for [name]'. Heceleme şart — Türk ismi olduğu için.",
     },
   ],
 };

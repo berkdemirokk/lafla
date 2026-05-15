@@ -185,6 +185,54 @@ export const dailyBankLesson_30_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.db30.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "The ATM swallowed my card.",
+      ipa: "/ði ˌeɪ tiː ˈɛm ˈswɒləʊd maɪ kɑːrd/",
+      tr_hint:
+        "'ATM' harf harf: 'ey-ti-em'. 'Swallowed' = 'sva-loud'. 'My card' bağlanır.",
+    },
+    {
+      id: "ex.db30.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Hi, the ATM ate my card — I entered the wrong PIN three times.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Banka şubesinde tipik açılış. 'Ate my card' bağlanır = 'eyt-may-kard'. PIN = 'pin' kısa.",
+    },
+    {
+      id: "ex.db30.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Your card will be cancelled — we'll order a new one. Five to seven business days.",
+      transcription_target:
+        "Your card will be cancelled — we'll order a new one. Five to seven business days.",
+      tr_hint:
+        "Banka memuru standart cevap. 'Will be cancelled' = pasif. 'Business days' = iş günü.",
+    },
+    {
+      id: "ex.db30.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "is there any way",
+      tr_translation: "Bir yolu var mı?",
+      example: "Is there any way to get my card back today?",
+      example_tr: "Bugün kartımı geri almanın bir yolu var mı?",
+    },
+    {
+      id: "ex.db30.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I need to get money from my account in cash.",
+      correct_sentence: "I'd like to withdraw some cash, please.",
+      tr_explanation:
+        "'Get money from my account in cash' direkt çeviri ve uzun. Bankacılıkta sabit kalıp: 'withdraw cash' (= nakit çek). 'I'd like' kibar.",
+    },
   ],
 };
 
@@ -388,6 +436,54 @@ export const dailyBankLesson_30_2: BundledLesson = {
             "'Bank statement' = aylık ekstre, gelir-gider hareketleri.",
         },
       ],
+    },
+    {
+      id: "ex.db30.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'd like to open a checking account.",
+      ipa: "/aɪd laɪk tu ˈəʊpən ə ˈtʃɛkɪŋ əˈkaʊnt/",
+      tr_hint:
+        "'I'd' = 'ayd' kısa. 'Open a' bağlanır = 'oupı-nı'. 'Account' = 'ı-kaunt'.",
+    },
+    {
+      id: "ex.db30.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "I'd like to open a savings account — what documents do I need?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Şube önünde sakin ton. 'Savings' = 'sey-vingz'. 'Documents' = 'do-kyu-mıntz'.",
+    },
+    {
+      id: "ex.db30.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "You'll need a photo ID, proof of address, and a minimum deposit of 25 dollars.",
+      transcription_target:
+        "You'll need a photo ID, proof of address, and a minimum deposit of 25 dollars.",
+      tr_hint:
+        "Banka memuru gereklilik listesi. 'You'll need' = 'yul-nid'. 'Photo ID' = 'fou-tov-ay-di'.",
+    },
+    {
+      id: "ex.db30.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "have you got",
+      tr_translation: "(Sende) var mı?",
+      example: "Have you got online banking with this account?",
+      example_tr: "Bu hesapla birlikte internet bankacılığı var mı?",
+    },
+    {
+      id: "ex.db30.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I want to do an account in your bank.",
+      correct_sentence: "I'd like to open an account with your bank.",
+      tr_explanation:
+        "'Do an account' yanlış — Türkçe 'hesap yapmak' kalıbından. Doğru: 'open an account'. 'In your bank' yerine 'with your bank' doğal. 'I want' yerine 'I'd like'.",
     },
   ],
 };
@@ -596,6 +692,55 @@ export const dailyBankLesson_30_3: BundledLesson = {
             "Fee = ücret. Uluslararası wire transfer'da $20–$50 arası komisyon olağan.",
         },
       ],
+    },
+    {
+      id: "ex.db30.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'd like to send a wire transfer to Turkey.",
+      ipa: "/aɪd laɪk tu sɛnd ə ˈwaɪər ˈtrænsfɜːr tu ˈtɜːki/",
+      tr_hint:
+        "'Wire' = 'vayr', tek hece. 'Transfer' vurgu ilk hecede: 'TRANS-fır'. 'To Turkey' = 'tı-tör-ki'.",
+    },
+    {
+      id: "ex.db30.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "The recipient's name is spelled exactly as on the passport, and here's the IBAN.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Recipient's' = 'ri-si-pıntz'. 'Exactly as on the' bağlanır. IBAN = harf harf 'ay-bi-ey-en'.",
+    },
+    {
+      id: "ex.db30.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "The transfer fee is forty dollars and funds will arrive in two to three business days.",
+      transcription_target:
+        "The transfer fee is forty dollars and funds will arrive in two to three business days.",
+      tr_hint:
+        "Banka memuru standart havale bilgisi. 'Funds will arrive' = 'fındz-vil-ı-rayv'. 'Business days' = iş günü.",
+    },
+    {
+      id: "ex.db30.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "by any chance",
+      tr_translation: "Bir ihtimal / acaba",
+      example: "By any chance, could you waive the transfer fee?",
+      example_tr: "Bir ihtimal, havale ücretinden vazgeçebilir misiniz?",
+    },
+    {
+      id: "ex.db30.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I want to send money to my friend who lives in Turkey by wire.",
+      correct_sentence:
+        "I'd like to wire money to my friend in Turkey.",
+      tr_explanation:
+        "Uzun + 'by wire' yanlış edat — 'wire' fiil olarak kullanılır: 'to wire money'. 'Who lives in' fazla; 'in Turkey' yeterli. 'I'd like' kibar standart.",
     },
   ],
 };
@@ -817,6 +962,55 @@ export const dailyBankLesson_30_4: BundledLesson = {
             "Replacement = yenisi. Kart kaybolur/iptal olur — banka yeni kart yollar (5–10 iş günü).",
         },
       ],
+    },
+    {
+      id: "ex.db30.4.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "There's a charge I don't recognize.",
+      ipa: "/ðɛərz ə tʃɑːrdʒ aɪ dəʊnt ˈrɛkəɡnaɪz/",
+      tr_hint:
+        "'There's a' = 'derz-ı' bağlanır. 'Charge' = 'çardz'. 'Recognize' vurgu ilk hecede: 'REK-ığ-nayz'.",
+    },
+    {
+      id: "ex.db30.4.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Hi, I've lost my debit card — could you block it and order a replacement?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Acil duruma uygun ton, hızlı ama net. 'I've lost' = 'ayv-lost'. 'Order a' bağlanır.",
+    },
+    {
+      id: "ex.db30.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "I'll block the card and open a fraud dispute. Your replacement arrives in two business days.",
+      transcription_target:
+        "I'll block the card and open a fraud dispute. Your replacement arrives in two business days.",
+      tr_hint:
+        "Banka müşteri hizmetleri standart cevap. 'Fraud dispute' = sahtekarlık itirazı. 'Replacement' = 'ri-pleys-mınt'.",
+    },
+    {
+      id: "ex.db30.4.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "would you mind",
+      tr_translation: "... yapmanın bir sakıncası olur mu?",
+      example: "Would you mind expediting the replacement card?",
+      example_tr: "Yeni kartı hızlandırmanızın bir sakıncası olur mu?",
+    },
+    {
+      id: "ex.db30.4.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Someone make payment with my card without me!",
+      correct_sentence:
+        "There's an unauthorized charge on my card — I'd like to dispute it.",
+      tr_explanation:
+        "'Make payment without me' direkt Türkçe çeviri + 'make' yanlış fiil. Doğru bankacılık dili: 'unauthorized charge' (= izinsiz işlem) + 'dispute it' (= itiraz et). Sakin ton banka için kritik.",
     },
   ],
 };

@@ -166,6 +166,52 @@ export const flirtCancelLesson_5_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fc5.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Something came up — can we reschedule?",
+      ipa: "ˈsʌmθɪŋ keɪm ʌp kæn wi ˌriːˈʃedʒuːl",
+      tr_hint:
+        "'Came up' bağlanır → 'keɪm-ʌp'. 'Reschedule' iki vurgu: 'ree-SHED-yool'. Soru tonu yukarı.",
+    },
+    {
+      id: "ex.fc5.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Hey, I feel terrible — something came up and I have to cancel tonight.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'I feel terrible' yumuşak, hızlı. 'Something came up' bağlı. Empatili ton, suçlu değil yorgun.",
+    },
+    {
+      id: "ex.fc5.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "No worries — stuff happens. What's your schedule like later this week?",
+      transcription_target: "No worries — stuff happens. What's your schedule like later this week?",
+      tr_hint:
+        "Dinle, yaz. 'Stuff happens' kalıbı. 'What's your schedule like' = uygunluk sorma.",
+    },
+    {
+      id: "ex.fc5.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "emotional bandwidth",
+      tr_translation: "Duygusal kapasite",
+      example: "I don't have the emotional bandwidth for a date tonight — sorry.",
+      example_tr: "Bu akşam randevu için duygusal kapasitem yok — özür dilerim.",
+    },
+    {
+      id: "ex.fc5.1.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I am tired today. No date.",
+      correct_sentence:
+        "Hey, I'm running on empty today — would you be open to rescheduling?",
+      tr_explanation:
+        "'I am tired today. No date.' direkt Türkçe çevirisi — duygusuz + emredici. Doğru: 'running on empty' (deyim) + 'would you be open to' (saygılı sorma).",
+    },
   ],
 };
 
@@ -329,6 +375,52 @@ export const flirtCancelLesson_5_2: BundledLesson = {
             "'Lock down' = sabitle, ertelenmesin. Plan yapmanın CASUAL versiyonu.",
         },
       ],
+    },
+    {
+      id: "ex.fc5.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Let's lock down a new time this week.",
+      ipa: "lets lɒk daʊn ə njuː taɪm ðɪs wiːk",
+      tr_hint:
+        "'Lock down' tek nefes, vurgu 'lock'ta. 'Down a' bağlanır → 'daʊn-ə'. Soğukkanlı, kararlı ton.",
+    },
+    {
+      id: "ex.fc5.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Round 2 attempt — when works for you this week?",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Round 2' eğlenceli ton — hafif gülümseme. 'When works for you' yukarı tonlama, açık davet.",
+    },
+    {
+      id: "ex.fc5.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Honestly I was about to text you the same thing — let's try again.",
+      transcription_target: "Honestly I was about to text you the same thing — let's try again.",
+      tr_hint:
+        "Dinle, yaz. 'I was about to' = tam onu yapacaktım. 'The same thing' kalıbı.",
+    },
+    {
+      id: "ex.fc5.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "rain check",
+      tr_translation: "Sonraya bırakma sözü (ileri tarih için kupon mecazı)",
+      example: "Can I take a rain check on tonight? Free Friday instead?",
+      example_tr: "Bu akşam için sonraya bırakabilir miyiz? Cuma uygun mu?",
+    },
+    {
+      id: "ex.fc5.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "We try again later when you want.",
+      correct_sentence:
+        "Want to try this again? I'm thinking Thursday or Friday — what works?",
+      tr_explanation:
+        "'When you want' = sorumluluk karşı tarafa yıkma, momentum öldürür. Doğru: spesifik gün öner + 'what works' (esneklik).",
     },
   ],
 };
@@ -496,6 +588,52 @@ export const flirtCancelLesson_5_3: BundledLesson = {
             "24 saat içinde yeniden temas + telafi planı = niyetin samimi olduğunu gösterir.",
         },
       ],
+    },
+    {
+      id: "ex.fc5.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'll make it up to you, I promise.",
+      ipa: "aɪl meɪk ɪt ʌp tə juː aɪ ˈprɒmɪs",
+      tr_hint:
+        "'Make it up to you' tek akış — 'meɪk-ɪt-ʌp-tə-juː'. 'Promise' = sonda samimi düşüş.",
+    },
+    {
+      id: "ex.fc5.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Worst timing but I have to bail — emergency just came up.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Worst timing' nefes nefese, üzgün. 'Have to bail' kararlı. 'Emergency' kelimesine vurgu.",
+    },
+    {
+      id: "ex.fc5.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Take care of yourself first — text me when you're free again.",
+      transcription_target: "Take care of yourself first — text me when you're free again.",
+      tr_hint:
+        "Dinle, yaz. 'Take care of yourself' = empati. 'Text me when' = sıcak kapanış.",
+    },
+    {
+      id: "ex.fc5.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "hold space",
+      tr_translation: "Birine alan tutmak (duygusal varlık)",
+      example: "Thanks for holding space for me tonight — really means a lot.",
+      example_tr: "Bu akşam bana alan tuttuğun için teşekkürler — çok değerli.",
+    },
+    {
+      id: "ex.fc5.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Big problem at home. Bye bye date.",
+      correct_sentence:
+        "Family thing just came up — I'm so sorry, I'll make this right.",
+      tr_explanation:
+        "'Big problem at home. Bye bye date.' = drama + soğuk hoşçakal. Doğru: 'family thing' (samimi, detaysız) + telafi sözü = saygılı kapanış.",
     },
   ],
 };

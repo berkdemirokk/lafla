@@ -164,6 +164,66 @@ export const ydsYokdilLesson_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.yds1.10",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "urbanization reflects a fundamental shift in social structure",
+      tr_hint:
+        "YDS yüksek frekans akademik vocab cümlesi. 'Urbanization' = 'ur-ban-i-ZAY-shun' dört hece, son hece vurgulu. 'Fundamental' = 'fun-da-MEN-tal'. Sınavda kelime tanıma için seslendirme şart.",
+    },
+    {
+      id: "ex.yds1.11",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Sociologists argue that physical proximity alone does not guarantee meaningful social connection.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Pasajdaki ana iddia cümlesi. Anahtar kelime stress: 'PROX-i-mity', 'GUAR-antee'. Cümle ritmi yakalanırsa okuma sırasında ana fikir hızla yakalanır.",
+    },
+    {
+      id: "ex.yds1.12",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to reflect a shift",
+      tr_translation: "bir değişimi yansıtmak",
+      example:
+        "Migration patterns reflect a shift in economic opportunities.",
+      example_tr:
+        "Göç örüntüleri, ekonomik fırsatlardaki bir değişimi yansıtır.",
+    },
+    {
+      id: "ex.yds1.13",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Despite of urbanization grow rapidly, social bonds are getting weaker.",
+      correct_sentence:
+        "Despite the rapid growth of urbanization, social bonds are getting weaker.",
+      tr_explanation:
+        "YDS klasik tuzağı: (1) 'Despite of' yanlış — 'despite' (edat) sonrası 'of' YOK. 'Despite + N/V-ing'. (2) 'Urbanization grow' fiil yapısı yanlış — 'the rapid growth of urbanization' (nominalizasyon). YDS gramer sorularının favori hatası.",
+    },
+    {
+      id: "ex.yds1.14",
+      type: "recap_quiz",
+      difficulty: 4,
+      questions: [
+        {
+          question:
+            "'A fundamental shift' kalıbı YDS pasajlarında en sık hangi anlamda kullanılır?",
+          options: [
+            "Yüzeysel, geçici değişim",
+            "Temel, köklü değişim",
+            "Tamamen önemsiz değişim",
+            "Sadece teknik düzeyde değişim",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Fundamental' = temel, köklü. Akademik İngilizcede 'surface-level' karşıtı. YDS'de tezi formüle eden klasik sıfat.",
+        },
+      ],
+    },
   ],
 };
 
@@ -329,6 +389,67 @@ export const ydsYokdilLesson_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.yds2.10",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "coral reefs are increasingly vulnerable to anthropogenic threats",
+      tr_hint:
+        "YDS fen pasajı tipik cümlesi. 'Vulnerable' = 'VUL-ner-a-ble' (üç hece). 'Anthropogenic' = 'an-thro-po-GEN-ic' (beş hece, dördüncü vurgulu) — YDS'nin sınadığı yüksek-zorluk akademik kelime.",
+    },
+    {
+      id: "ex.yds2.11",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Marine biodiversity is at considerable risk due to human-induced environmental pressures.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Pasaj özet cümlesi. Anahtar kelime stress: 'bi-o-di-VER-sity', 'CON-sid-er-able', 'pres-SURES'. Cümle ritmi tezi yakalama hızını arttırır.",
+    },
+    {
+      id: "ex.yds2.12",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "anthropogenic",
+      tr_translation: "insan kaynaklı (çevre/iklim bağlamı)",
+      example:
+        "Anthropogenic climate change has accelerated coral bleaching worldwide.",
+      example_tr:
+        "İnsan kaynaklı iklim değişikliği, dünya genelinde mercan ağarmasını hızlandırmıştır.",
+    },
+    {
+      id: "ex.yds2.13",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "The coral reefs is affected by the climate change since many years.",
+      correct_sentence:
+        "Coral reefs have been affected by climate change for many years.",
+      tr_explanation:
+        "YDS gramer tuzakları: (1) 'The coral reefs' yerine genel kullanımda makalesiz 'Coral reefs'. (2) 'Is' yerine 'have been' (çoğul + present perfect passive — uzun süredir devam eden eylem). (3) 'The climate change' yerine 'climate change' (sayılamaz abstract). (4) 'Since many years' yerine 'for many years'.",
+    },
+    {
+      id: "ex.yds2.14",
+      type: "recap_quiz",
+      difficulty: 4,
+      questions: [
+        {
+          question:
+            "'Vulnerable to X' kalıbının YDS pasajındaki tipik anlamı?",
+          options: [
+            "X'e karşı bağışık",
+            "X'e karşı savunmasız, kırılgan",
+            "X'e karşı agresif",
+            "X'ten kaçınan",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Vulnerable to' = ...e karşı savunmasız/kırılgan. YDS fen pasajlarında risk + tehdit bağlamında defalarca karşımıza çıkar.",
+        },
+      ],
+    },
   ],
 };
 
@@ -456,6 +577,66 @@ export const ydsYokdilLesson_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.yds3.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "globalisation is far from a recent phenomenon",
+      tr_hint:
+        "YDS tarih-kültür pasajı kapanış kalıbı. 'Globalisation' = 'glo-ba-li-SAY-shun' (UK 's'). 'Far from a recent phenomenon' = 'phenomenon' = 'fe-NOM-e-non' dört hece, ikinci vurgulu — YDS'nin sık sınadığı sözlüksel kelime.",
+    },
+    {
+      id: "ex.yds3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "The Silk Road exemplifies how ancient civilizations engaged in extensive cross-cultural exchange.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Tarih pasajı tezi. Stress: 'ex-EM-pli-fies', 'ci-vi-li-ZA-tions', 'ex-TEN-sive'. Ritim okuma anlama hızını artırır.",
+    },
+    {
+      id: "ex.yds3.10",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to exemplify",
+      tr_translation: "örneklemek, somutlaştırmak",
+      example:
+        "The Silk Road exemplifies pre-modern global trade networks.",
+      example_tr:
+        "İpek Yolu, modern öncesi küresel ticaret ağlarını somutlaştırır.",
+    },
+    {
+      id: "ex.yds3.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "The Silk Road, that connected East and West, were a important trade route in the past.",
+      correct_sentence:
+        "The Silk Road, which connected East and West, was an important trade route in the past.",
+      tr_explanation:
+        "YDS gramer kompleti: (1) Non-defining relative clause'da 'that' YASAK — 'which' kullan. (2) 'Were' yerine 'was' (özne tekil: 'The Silk Road'). (3) 'A important' yerine 'an important' (sesli harf öncesi). Üçü de YDS'nin favori ceza alanı.",
+    },
+    {
+      id: "ex.yds3.12",
+      type: "recap_quiz",
+      difficulty: 4,
+      questions: [
+        {
+          question:
+            "'Far from a recent phenomenon' kalıbının anlamı?",
+          options: [
+            "Çok yeni bir olgu",
+            "Hiç de yeni olmayan, eski bir olgu",
+            "Yakın gelecekte ortaya çıkacak olgu",
+            "Lokal düzeyde kalan olgu",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Far from X' = X'ten uzak, hiç de X değil. YDS'de negatif vurgu için kullanılan deyimsel kalıp.",
+        },
+      ],
+    },
   ],
 };
 
@@ -580,6 +761,67 @@ export const ydsYokdilLesson_4: BundledLesson = {
           correct_index: 0,
           tr_explanation:
             "'What matters most... is whether educational systems can adapt quickly enough.' Eğitim → adaptasyon → sonuç. Inference.",
+        },
+      ],
+    },
+    {
+      id: "ex.yds4.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "what matters most is whether systems can adapt quickly enough",
+      tr_hint:
+        "YDS bilim-teknoloji pasajı sonuç cümlesi. 'What matters most' = en önemli olan. 'Whether...can adapt' embedded soru. Stress: 'MAT-ters', 'a-DAPT', 'QUICK-ly e-NOUGH'.",
+    },
+    {
+      id: "ex.yds4.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Artificial intelligence is reshaping the technological landscape at an unprecedented pace.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Bilim pasajı tezi. Anahtar kelime stress: 'ar-ti-FI-cial', 're-SHAP-ing', 'un-PRE-ce-den-ted'. Ritmi yakalama = vocab tanıma hızlanır.",
+    },
+    {
+      id: "ex.yds4.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "unprecedented",
+      tr_translation: "eşi görülmemiş, emsalsiz",
+      example:
+        "AI development is occurring at an unprecedented pace.",
+      example_tr:
+        "Yapay zekâ gelişimi, eşi görülmemiş bir hızla gerçekleşiyor.",
+    },
+    {
+      id: "ex.yds4.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "AI is develop so fast that schools cannot to adapt.",
+      correct_sentence:
+        "AI is developing so fast that schools cannot adapt.",
+      tr_explanation:
+        "YDS gramer çift tuzağı: (1) 'Is develop' yanlış — 'is + V-ing': 'is developing' (present continuous). (2) 'Cannot to adapt' yanlış — modal sonrası bare infinitive: 'cannot adapt'. YDS modal + V kurallarının favori soruları.",
+    },
+    {
+      id: "ex.yds4.12",
+      type: "recap_quiz",
+      difficulty: 4,
+      questions: [
+        {
+          question:
+            "'Reshape' fiilinin YDS pasajındaki anlamı en yakın olarak?",
+          options: [
+            "Yeniden şekillendirmek, dönüştürmek",
+            "Tamamen yok etmek",
+            "Aynısını korumak",
+            "Eskiye döndürmek",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Reshape' = re- (yeniden) + shape (şekillendirmek). YDS'de teknoloji ve toplum pasajlarında defalarca karşımıza çıkan üst sözlüksel kelime.",
         },
       ],
     },
@@ -720,6 +962,66 @@ export const ydsYokdilLesson_5: BundledLesson = {
           correct_index: 1,
           tr_explanation:
             "'I'm afraid' kibarlık katar. YDS dialogue'da resmî/kibar dil tercih edilir.",
+        },
+      ],
+    },
+    {
+      id: "ex.yds5.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I'm afraid I have to disagree with you on that point",
+      tr_hint:
+        "YDS diyalog tamamlama için tipik kibar muhalefet kalıbı. 'I'm afraid' = 'maalesef' — yumuşatıcı. 'Disagree' = 'dis-a-GREE' üçüncü hece vurgulu. Resmî tonla tüm ifade akıcı tek nefeste söylenir.",
+    },
+    {
+      id: "ex.yds5.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "While I see your point, I think we should consider an alternative approach.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Diyalog 'kibar muhalefet' kalıbı. 'While I see your point' yumuşatıcı + zıt görüş. Stress: 'AL-ter-na-tive', 'a-PPROACH'. Ritmi yakalanırsa diyalog soruları kolaylaşır.",
+    },
+    {
+      id: "ex.yds5.10",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "I'm afraid",
+      tr_translation: "maalesef / korkarım ki (kibar muhalefet)",
+      example:
+        "I'm afraid that's not quite what I had in mind.",
+      example_tr:
+        "Korkarım ki tam aklımdaki bu değildi.",
+    },
+    {
+      id: "ex.yds5.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I am agree with you but I think differently in some points.",
+      correct_sentence:
+        "I agree with you, but I think differently on some points.",
+      tr_explanation:
+        "YDS diyalog tipik hatası: (1) 'I am agree' yanlış — 'agree' fiildir, 'be' fiili kullanılmaz: 'I agree'. (2) 'Differently in' yerine 'differently on' (collocation: 'on some points'). Diyalog tamamlama sorularında register de önemli.",
+    },
+    {
+      id: "ex.yds5.12",
+      type: "recap_quiz",
+      difficulty: 4,
+      questions: [
+        {
+          question:
+            "Resmî YDS diyalogunda muhalefet için en uygun başlangıç hangisidir?",
+          options: [
+            "You're totally wrong about this.",
+            "I'm afraid I have to disagree with you on that.",
+            "No way! That's nonsense.",
+            "Whatever, I don't care.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'I'm afraid' + 'have to' + 'disagree' = en kibar muhalefet zinciri. YDS yazılı diyalog formal register bekler.",
         },
       ],
     },
@@ -884,6 +1186,67 @@ export const ydsYokdilLesson_6: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.yds6.9",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "provided that the conditions are met, the experiment will yield reliable results",
+      tr_hint:
+        "YDS cümle tamamlamada bağlaç + ana cümle yapısı. 'Provided that' = '...şartıyla'. 'Yield' = 'YEELD' (uzun e). 'Reliable' = 're-LI-a-ble' dört hece, ikinci vurgulu. Sınav cümlesi ritmi.",
+    },
+    {
+      id: "ex.yds6.10",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Had the researchers analyzed the data more carefully, they would have reached a different conclusion.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "YDS'nin favori inversion + 3. tip conditional cümlesi. 'Had + S + V3' = if + had + V3. Stress: 'A-na-lyzed', 'CARE-fully', 'CON-clu-sion'. İnversiyon ritmi sınavda hızlı tanıma şart.",
+    },
+    {
+      id: "ex.yds6.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to yield results",
+      tr_translation: "sonuç vermek, sonuç doğurmak",
+      example:
+        "Their long-term efforts finally yielded positive results.",
+      example_tr:
+        "Uzun vadeli çabaları nihayet olumlu sonuçlar doğurdu.",
+    },
+    {
+      id: "ex.yds6.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "If I would have known the answer, I will tell you immediately.",
+      correct_sentence:
+        "If I had known the answer, I would have told you immediately.",
+      tr_explanation:
+        "YDS conditional klasik tuzağı: (1) 3. tip if-clause'unda 'would have' YASAK — sadece 'had + V3'. (2) Ana cümlede 'will tell' yanlış — 'would have + V3'. Yapı: 'If + S + had + V3, S + would have + V3'. YDS'nin neredeyse her yıl sınadığı kalıp.",
+    },
+    {
+      id: "ex.yds6.13",
+      type: "recap_quiz",
+      difficulty: 4,
+      questions: [
+        {
+          question:
+            "'Had the researchers analyzed the data...' — bu yapı hangi conditional tipidir?",
+          options: [
+            "1. tip (real future)",
+            "2. tip (unreal present)",
+            "3. tip (unreal past, inversion ile)",
+            "Mixed conditional",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Inversion ile 3. tip: 'Had + S + V3' = 'If + S + had + V3'. YDS'nin her yıl en az bir cümle tamamlamada sınadığı yapı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1009,6 +1372,66 @@ export const ydsYokdilLesson_7: BundledLesson = {
           correct_index: 1,
           tr_explanation:
             "Pasajın son cümlesi: 'development of new antibiotics' + 'fundamental shift in how existing ones are used'.",
+        },
+      ],
+    },
+    {
+      id: "ex.yokdil7.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "antimicrobial resistance poses a grave threat to public health",
+      tr_hint:
+        "YÖKDİL sağlık pasajı tipik cümlesi. 'Antimicrobial' = 'an-ti-mi-CRO-bi-al' altı hece. 'Resistance' = 're-SIS-tance'. 'Pose a threat' YÖKDİL'in altın collocation'ı.",
+    },
+    {
+      id: "ex.yokdil7.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Overuse of antibiotics has accelerated the emergence of multi-drug-resistant strains.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Sağlık pasajı tezi. Stress: 'O-ver-use', 'a-CCE-le-ra-ted', 'e-MER-gence', 'multi-drug-resistant'. Birleşik akademik kelimelerin doğru hece bölümü.",
+    },
+    {
+      id: "ex.yokdil7.10",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to pose a threat",
+      tr_translation: "tehdit oluşturmak",
+      example:
+        "Antibiotic resistance poses a serious threat to modern medicine.",
+      example_tr:
+        "Antibiyotik direnci, modern tıp için ciddi bir tehdit oluşturur.",
+    },
+    {
+      id: "ex.yokdil7.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "The bacterias has became resistant to many antibiotic over the years.",
+      correct_sentence:
+        "Bacteria have become resistant to many antibiotics over the years.",
+      tr_explanation:
+        "YÖKDİL sağlık tuzakları: (1) 'Bacterias' yanlış — 'bacteria' zaten çoğul (tekil 'bacterium'); 'bacterias' YOK. (2) 'Has' yerine 'have' (çoğul). (3) 'Became' yerine 'become' (V3 — present perfect). (4) 'Antibiotic' yerine 'antibiotics' (çoğul). Sayılabilirlik + zaman cezası.",
+    },
+    {
+      id: "ex.yokdil7.12",
+      type: "recap_quiz",
+      difficulty: 4,
+      questions: [
+        {
+          question:
+            "'Antimicrobial resistance' YÖKDİL pasajlarında nasıl bir tehdittir?",
+          options: [
+            "Lokal ve geçici",
+            "Küresel ve giderek artan",
+            "Sadece tarımla ilgili",
+            "Tamamen çözülmüş",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "AMR (antimicrobial resistance) YÖKDİL sağlık pasajlarının en sık konusu; daima küresel/sistemik tehdit olarak çerçevelenir.",
         },
       ],
     },
@@ -1140,6 +1563,67 @@ export const ydsYokdilLesson_8: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.yokdil8.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "the debate over migration is unlikely to lose its urgency any time soon",
+      tr_hint:
+        "YÖKDİL sosyal pasajı kapanış kalıbı. 'Unlikely to' = pek olası değil. 'Urgency' = 'UR-gen-cy' üç hece, ilk vurgulu. 'Any time soon' = yakında — sabit kalıp.",
+    },
+    {
+      id: "ex.yokdil8.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Migration patterns have been reshaping social and economic structures across the globe.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Göç pasajı tezi. Stress: 'mi-GRA-tion', 're-SHAP-ing', 'STRUC-tures', 'GLOBE'. Present perfect continuous ritmi.",
+    },
+    {
+      id: "ex.yokdil8.10",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to lose urgency",
+      tr_translation: "aciliyetini yitirmek",
+      example:
+        "The climate debate is unlikely to lose its urgency in the coming decades.",
+      example_tr:
+        "İklim tartışmasının önümüzdeki on yıllarda aciliyetini yitirmesi pek olası değildir.",
+    },
+    {
+      id: "ex.yokdil8.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Migrations are effecting the society in many ways and have so much impact.",
+      correct_sentence:
+        "Migration is affecting society in many ways and is having a significant impact.",
+      tr_explanation:
+        "YÖKDİL sosyal pasajı tuzakları: (1) 'Migrations' yerine 'migration' (sayılamaz abstract noun). (2) 'Effecting' yanlış — 'affect' fiil, 'effect' isim: 'affecting'. (3) 'The society' yerine 'society' (genel kavram). (4) 'So much impact' yerine 'a significant impact' (akademik register). Sayılabilirlik + word choice.",
+    },
+    {
+      id: "ex.yokdil8.12",
+      type: "recap_quiz",
+      difficulty: 4,
+      questions: [
+        {
+          question:
+            "'Affect' ve 'effect' arasındaki YDS/YÖKDİL klasik farkı?",
+          options: [
+            "Affect = isim, effect = fiil",
+            "Affect = fiil (etkilemek), effect = isim (etki)",
+            "İkisi tamamen aynı kelimedir",
+            "Affect = pozitif, effect = negatif",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Affect' fiil = etkilemek. 'Effect' isim = etki. YDS/YÖKDİL yazımı her yıl sınar — kelime sınıfı + collocation.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1267,6 +1751,67 @@ export const ydsYokdilLesson_9: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.yokdil9.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase:
+        "scalable quantum computing may finally be within reach within this decade",
+      tr_hint:
+        "YÖKDİL fen pasajı kapanış cümlesi. 'Scalable' = 'SCA-la-ble' üç hece. 'Quantum' = 'KWAN-tum'. 'Within reach' = elinin altında, ulaşılabilir. 'Within this decade' = bu on yıl içinde.",
+    },
+    {
+      id: "ex.yokdil9.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "Quantum computers exploit the principles of superposition and entanglement to perform calculations beyond classical limits.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Fen pasajı teknik cümle. Stress: 'KWAN-tum', 'ex-PLOIT', 'su-per-po-SI-tion', 'en-TAN-gle-ment'. Beş heceli akademik kelimelerin doğru ritmi.",
+    },
+    {
+      id: "ex.yokdil9.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "to be within reach",
+      tr_translation: "ulaşılabilir mesafede olmak",
+      example:
+        "Practical fusion energy may finally be within reach.",
+      example_tr:
+        "Pratik füzyon enerjisi nihayet ulaşılabilir hâle geliyor olabilir.",
+    },
+    {
+      id: "ex.yokdil9.11",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Despite of researches have made great progress, quantum computers is not ready yet.",
+      correct_sentence:
+        "Despite considerable progress in research, quantum computers are not ready yet.",
+      tr_explanation:
+        "YÖKDİL fen tuzakları: (1) 'Despite of' yanlış — 'despite' edat, 'of' YOK. (2) 'Researches' yanlış — 'research' sayılamaz; 'considerable research/progress in research'. (3) 'Is not' yerine 'are not' (çoğul). YDS/YÖKDİL favori gramer cezası seti.",
+    },
+    {
+      id: "ex.yokdil9.12",
+      type: "recap_quiz",
+      difficulty: 5,
+      questions: [
+        {
+          question:
+            "'Within reach' deyimi YÖKDİL pasajında en sık ne anlamında kullanılır?",
+          options: [
+            "Tamamen imkânsız",
+            "Yakın zamanda mümkün, ulaşılabilir",
+            "Çok pahalı",
+            "Sadece geçmişte mümkün",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Within reach' = elinin altında, ulaşılabilir. YÖKDİL fen pasajlarında teknolojik atılım umut tonunu işaretler.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1387,6 +1932,66 @@ export const ydsYokdilLesson_10: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.yksdil10.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "such an unprecedented event had never been recorded before",
+      tr_hint:
+        "YKS-DİL restatement tipik cümlesi. 'Such an unprecedented' = öyle eşi görülmemiş — sıralı vurgu: 'SUCH an un-PRE-ce-den-ted'. 'Had never been recorded' past perfect passive ritmi.",
+    },
+    {
+      id: "ex.yksdil10.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Despite numerous attempts, the experiment failed to produce conclusive evidence.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Restatement bağlam cümlesi. Stress: 'NU-me-rous', 'at-TEMPTS', 'con-CLU-sive', 'EV-i-dence'. Anlamca yakın cümle sorusunda paralel yapı yakalama.",
+    },
+    {
+      id: "ex.yksdil10.10",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "conclusive evidence",
+      tr_translation: "kesin kanıt, nihai kanıt",
+      example:
+        "The researchers could not find conclusive evidence for their hypothesis.",
+      example_tr:
+        "Araştırmacılar hipotezleri için kesin kanıt bulamadı.",
+    },
+    {
+      id: "ex.yksdil10.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "It was so an interesting book that I couldn't put down it.",
+      correct_sentence:
+        "It was such an interesting book that I couldn't put it down.",
+      tr_explanation:
+        "YKS-DİL klasik çift tuzağı: (1) 'So an interesting' yanlış — isim önünde 'such a/an + adj + noun'; 'so' sıfat önünde kullanılır ('so interesting'). (2) 'Put down it' yanlış — phrasal verb + zamir: zamir ARASINA girer: 'put it down'. İki kural sıkça birlikte sorulur.",
+    },
+    {
+      id: "ex.yksdil10.12",
+      type: "recap_quiz",
+      difficulty: 4,
+      questions: [
+        {
+          question:
+            "'So' ile 'Such' arasındaki YKS-DİL'in sınadığı temel fark?",
+          options: [
+            "İkisi de aynı şey, fark yok",
+            "So + sıfat/zarf; Such + (a/an) + sıfat + isim",
+            "So sadece soru cümlelerinde",
+            "Such sadece geçmiş zamanda",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'So + adj/adv': so beautiful, so quickly. 'Such + (a/an) + adj + noun': such a beautiful day. YKS-DİL en sevdiği yapı sorusu.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1504,6 +2109,66 @@ export const ydsYokdilLesson_11: BundledLesson = {
           correct_index: 1,
           tr_explanation:
             "'Had no choice but to V' — mastar. 'But to accept' doğru, 'but accepting' yanlış.",
+        },
+      ],
+    },
+    {
+      id: "ex.yksdil11.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "she had no choice but to accept the outcome",
+      tr_hint:
+        "YKS-DİL anlamca yakın cümle kalıbı. 'Had no choice but to V' = '...mektan başka çaresi yoktu'. Stress: 'NO CHOICE', 'ac-CEPT', 'OUT-come'. Sınav kalıp ezberi.",
+    },
+    {
+      id: "ex.yksdil11.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Not only did they fail the test, but they also lost their scholarship.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Inversion + paralel yapı. 'Not only did + S + V' = inversion. Stress: 'NOT ON-ly', 'FAIL the TEST', 'LOST', 'SCHO-lar-ship'. Anlamca yakın cümle sorusunda en sık formül.",
+    },
+    {
+      id: "ex.yksdil11.10",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to have no choice but to",
+      tr_translation: "...mekten/...maktan başka çaresi olmamak",
+      example:
+        "We had no choice but to postpone the meeting.",
+      example_tr:
+        "Toplantıyı ertelemekten başka çaremiz yoktu.",
+    },
+    {
+      id: "ex.yksdil11.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Not only she failed the exam, but also she lost her scholarship.",
+      correct_sentence:
+        "Not only did she fail the exam, but she also lost her scholarship.",
+      tr_explanation:
+        "YKS-DİL inversion klasik tuzakları: (1) 'Not only' cümle başına gelirse INVERSION zorunlu: 'did she fail' (auxiliary önce, özne sonra), 'she failed' YANLIŞ. (2) İkinci cümlede 'also' özne ile fiil arasına gelir: 'she also lost'. İki kural birlikte sınanır.",
+    },
+    {
+      id: "ex.yksdil11.12",
+      type: "recap_quiz",
+      difficulty: 4,
+      questions: [
+        {
+          question:
+            "'Not only... but also' yapısı cümle başına gelirse YKS-DİL hangi kuralı bekler?",
+          options: [
+            "Hiçbir değişiklik gerekmez",
+            "Inversion (yardımcı fiil + özne) zorunlu",
+            "Sadece geçmiş zaman olur",
+            "Fiil pasif olmak zorunda",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Negatif/sınırlayıcı ifadeler cümle başında: inversion zorunlu. 'Not only', 'Never', 'Hardly', 'Seldom' — hepsi auxiliary önce, subject sonra.",
         },
       ],
     },
@@ -1679,6 +2344,66 @@ export const ydsYokdilLesson_12: BundledLesson = {
           correct_index: 1,
           tr_explanation:
             "'Carry out + research/experiment/investigation' = yapmak/yürütmek. YDS'nin altın kollokasyonu.",
+        },
+      ],
+    },
+    {
+      id: "ex.yds12.10",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "the team carried out a thorough investigation into the matter",
+      tr_hint:
+        "YDS phrasal verb + collocation kalıbı. 'Carried out' = yürüttü. 'Thorough' = 'THUR-uh' (zor telaffuz, iki hece). 'Investigation into' = ...e dair araştırma. Sınav kelime + edat kombinasyonu.",
+    },
+    {
+      id: "ex.yds12.11",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Researchers have come up with a novel approach to address this longstanding problem.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Phrasal verb cümlesi. 'Come up with' = bulmak/ortaya çıkarmak. Stress: 'RE-search-ers', 'COME UP with', 'NO-vel', 'LONG-stand-ing'. YDS'nin en sevdiği phrasal verb seti.",
+    },
+    {
+      id: "ex.yds12.12",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to come up with",
+      tr_translation: "bulmak, ortaya çıkarmak (fikir, çözüm)",
+      example:
+        "She came up with an innovative solution to the problem.",
+      example_tr:
+        "Soruna yenilikçi bir çözüm buldu.",
+    },
+    {
+      id: "ex.yds12.13",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I am looking forward to hear from you about the result.",
+      correct_sentence:
+        "I am looking forward to hearing from you about the result.",
+      tr_explanation:
+        "YDS phrasal verb klasik tuzağı: 'Look forward to' kalıbındaki 'to' MASTAR DEĞİL, EDATTIR. Edattan sonra GERUND (V-ing) gelir: 'hearing'. 'Hear' yanlış. Aynı kural: 'be used to + V-ing', 'object to + V-ing'. Her yıl sınanır.",
+    },
+    {
+      id: "ex.yds12.14",
+      type: "recap_quiz",
+      difficulty: 4,
+      questions: [
+        {
+          question:
+            "'Look forward to' kalıbından sonra hangi yapı gelir? (YDS klasik soru)",
+          options: [
+            "Bare infinitive (V1)",
+            "To-infinitive (to V)",
+            "Gerund (V-ing)",
+            "Past participle (V3)",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Look forward to + V-ing'. Buradaki 'to' edattır, mastar değil. 'Looking forward to hearing/seeing/meeting'. YDS'nin her yıl en az bir kez sınadığı kalıp.",
         },
       ],
     },

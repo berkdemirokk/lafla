@@ -209,6 +209,52 @@ export const orderFastfoodLesson_43_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.off43.1.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "I'll have the number one combo, large, please.",
+      ipa: "aɪl hæv ðə ˈnʌmbər wʌn ˈkɒmboʊ lɑːrʤ pliːz",
+      tr_hint:
+        "'Combo' = 'KOM-boʊ', vurgu ilk hece. 'Number' içinde 'b' net. Drive-thru'da hızlı + net konuş.",
+    },
+    {
+      id: "ex.off43.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Can I get a Big Mac meal, no pickles, with a Coke?",
+      voice_hint: "male_us",
+      tr_hint:
+        "Native ile aynı anda söyle. Drive-thru ritmi: hızlı + virgülle ayrılmış parçalar. 'No pickles' net.",
+    },
+    {
+      id: "ex.off43.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Would you like to make that a meal for an extra two dollars?",
+      transcription_target: "Would you like to make that a meal for an extra two dollars?",
+      tr_hint:
+        "Dinle, yaz. Drive-thru'da klasik upsell sorusu. 'Make that a meal' = menü yap.",
+    },
+    {
+      id: "ex.off43.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "hold the",
+      tr_translation: "(Şunu) ekleme / koyma",
+      example: "Hold the onions, please.",
+      example_tr: "Soğan koymayın, lütfen.",
+    },
+    {
+      id: "ex.off43.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Burger with potato and Coca, big size, no salad.",
+      correct_sentence:
+        "I'll have the burger combo, large, with a Coke — no lettuce.",
+      tr_explanation:
+        "'Potato' yerine 'fries'. 'Coca' yerine 'Coke'. 'Big size' yerine 'large'. 'Salad' yanlış kelime — 'lettuce' (marul).",
+    },
   ],
 };
 
@@ -447,6 +493,52 @@ export const orderFastfoodLesson_43_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.off43.2.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could I get extra guac on the side, please?",
+      ipa: "kʊd aɪ ɡɛt ˈɛkstrə ɡwɒk ɒn ðə saɪd pliːz",
+      tr_hint:
+        "'Guac' = 'gwɒk', guacamole kısaltması. 'Extra' içinde vurgu ilk hece. Chipotle'da klasik istek.",
+    },
+    {
+      id: "ex.off43.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "I'll do a chicken bowl with brown rice and black beans.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'I'll do' = 'yapayım' (counter standardı). 'With' bağlayıcı, hızlı ritim.",
+    },
+    {
+      id: "ex.off43.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Light on the rice or regular?",
+      transcription_target: "Light on the rice or regular?",
+      tr_hint:
+        "Dinle, yaz. Counter chain'lerde standart soru. 'Light' = az, 'regular' = normal.",
+    },
+    {
+      id: "ex.off43.2.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "the works",
+      tr_translation: "Her şey ekli (tüm malzemeler)",
+      example: "Give me the works on that sandwich.",
+      example_tr: "O sandviçe her şeyi koyun.",
+    },
+    {
+      id: "ex.off43.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Put everything inside, but onion no, much rice.",
+      correct_sentence:
+        "I'll do the works — but hold the onions, and easy on the rice.",
+      tr_explanation:
+        "'Everything inside' belirsiz — 'the works' yerleşik idiom. 'Onion no' kırık — 'hold the onions'. 'Much rice' yerine 'easy on the rice' (az koy) ya da 'extra rice' (çok).",
+    },
   ],
 };
 
@@ -646,6 +738,52 @@ export const orderFastfoodLesson_43_3: BundledLesson = {
             "'Do you have a [X] option?' — diyet/alerji sorusu için kibar ve net.",
         },
       ],
+    },
+    {
+      id: "ex.off43.3.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "I'm allergic to peanuts — please be careful.",
+      ipa: "aɪm əˈlɜːrʤɪk tə ˈpiːnʌts pliːz biː ˈkɛrfəl",
+      tr_hint:
+        "'Allergic' = 'ə-LUR-jik', vurgu orta hece. 'To peanuts' bağlanır → 'tə-PİY-nʌts'. Yavaş + net söyle, alerji ciddidir.",
+    },
+    {
+      id: "ex.off43.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Could I sub the fries for a side salad, please?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Sub' kısaltma (substitute) → tek hece. 'Side salad' birleşik.",
+    },
+    {
+      id: "ex.off43.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "We'll change our gloves to keep it safe — anything else?",
+      transcription_target: "We'll change our gloves to keep it safe — anything else?",
+      tr_hint:
+        "Dinle, yaz. Alerji bildirimi sonrası çalışanların standart yanıtı. 'Keep it safe' = güvenli tut.",
+    },
+    {
+      id: "ex.off43.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "cross-contamination",
+      tr_translation: "Çapraz bulaşma (alerjenler için)",
+      example: "Please watch out for cross-contamination with nuts.",
+      example_tr: "Fıstıkla çapraz bulaşmaya dikkat edin.",
+    },
+    {
+      id: "ex.off43.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I have nut allergic, no put inside food.",
+      correct_sentence:
+        "I'm allergic to nuts — please make sure there's none in my order.",
+      tr_explanation:
+        "'Have nut allergic' yanlış yapı — doğrusu 'I'm allergic to [X]' (sıfat) veya 'I have a [X] allergy' (isim). 'No put inside' kırık komut.",
     },
   ],
 };
@@ -852,6 +990,52 @@ export const orderFastfoodLesson_43_4: BundledLesson = {
             "'Could I get a refund, please?' — kibar + standart. 'I'd like a refund' de doğal.",
         },
       ],
+    },
+    {
+      id: "ex.off43.4.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "I think there's been a mix-up with my order.",
+      ipa: "aɪ θɪŋk ðɛrz bɪn ə ˈmɪksʌp wɪð maɪ ˈɔːrdər",
+      tr_hint:
+        "'Mix-up' birleşik kelime, vurgu ilk hece: 'MIKS-ʌp'. Yumuşatıcı 'I think' agresif değil.",
+    },
+    {
+      id: "ex.off43.4.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "I came back because my fries were missing from the bag.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Came back' bağlanır → 'keym-bæk'. 'Missing from' net + spesifik.",
+    },
+    {
+      id: "ex.off43.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "We'll remake it fresh and throw in an extra fry for the trouble.",
+      transcription_target: "We'll remake it fresh and throw in an extra fry for the trouble.",
+      tr_hint:
+        "Dinle, yaz. Manager'ın klasik özür çözümü. 'Throw in' = ekleme yap, 'for the trouble' = sorun için.",
+    },
+    {
+      id: "ex.off43.4.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "remake",
+      tr_translation: "Yeniden yapmak (siparişi)",
+      example: "Could you remake that one, please?",
+      example_tr: "Onu yeniden yapabilir misiniz?",
+    },
+    {
+      id: "ex.off43.4.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I want my money back, food is wrong totally!",
+      correct_sentence:
+        "Could I get a refund or have it remade? This isn't what I ordered.",
+      tr_explanation:
+        "'I want my money back' agresif. 'Totally wrong' belirsiz. Doğrusu seçenek sunmak: 'refund OR remade'. Spesifik: 'isn't what I ordered'.",
     },
   ],
 };

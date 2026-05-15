@@ -206,6 +206,58 @@ export const academicB2Lesson_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.ab2.1.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "My research interests centre on causal inference.",
+      ipa: "maɪ rɪˈsɜːtʃ ˈɪntrəsts ˈsɛntər ɒn ˈkɔːzəl ˈɪnfərəns",
+      tr_hint:
+        "'Research' = 'ri-SÖRÇ', vurgu ikinci hecede. 'Centre on' = 'sentər-on' bağlı. 'Causal' = 'kozıl' kısa.",
+    },
+    {
+      id: "ex.ab2.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "I'd like to pursue a PhD because the methodology your group develops aligns closely with my thesis direction.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Akademik ritim: 'I'd like to pursue' yumuşak başlangıç, 'aligns closely with' ortada vurgu. Native ile birlikte söyle.",
+    },
+    {
+      id: "ex.ab2.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "Could you say a little more about your methodological approach and how it would replicate to other settings?",
+      transcription_target:
+        "Could you say a little more about your methodological approach and how it would replicate to other settings?",
+      tr_hint:
+        "Akademik mülakat sorusu. 'Methodological' = 'metodolojikıl'. 'Replicate' = tekrar üretmek, jenerellenebilirlik.",
+    },
+    {
+      id: "ex.ab2.1.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "methodology",
+      tr_translation: "Metodoloji / yöntembilim",
+      example:
+        "The methodology section needs to address how we handle missing data and what robustness checks we plan.",
+      example_tr:
+        "Metodoloji bölümünün eksik verilerle nasıl başa çıkacağımızı ve hangi sağlamlık kontrollerini planladığımızı ele alması gerek.",
+    },
+    {
+      id: "ex.ab2.1.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I want to do researches about causal inference and my supervisor will be very interesting.",
+      correct_sentence:
+        "I'd like to pursue research on causal inference, and I think my supervisor will be very interested.",
+      tr_explanation:
+        "'Researches' yanlış — 'research' uncountable, çoğul almaz. 'Make/do researches' Türkçeden direkt çeviri. 'Interesting' = ilgi çekici (nesne); 'interested' = ilgili (özne). Akademik bağlamda 'pursue research on' standart.",
+    },
   ],
 };
 
@@ -409,6 +461,58 @@ export const academicB2Lesson_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.ab2.2.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Could we narrow the scope before our next meeting?",
+      ipa: "kʊd wi ˈnæroʊ ðə skoʊp bɪˈfɔːr aʊər nɛkst ˈmiːtɪŋ",
+      tr_hint:
+        "'Narrow the scope' = kapsamı daralt. 'Narrow' = 'NEH-roh', kısa. 'Scope' uzun 'oʊ'. Önerici, yumuşak ton.",
+    },
+    {
+      id: "ex.ab2.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "I'd like to flag a methodological limitation before we commit to that direction.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Supervisor'a uyarı tonu — 'I'd like to flag' = nazikçe işaret etmek. 'Limitation' = sınır, kısıt. Ölçülü, profesyonel ritim.",
+    },
+    {
+      id: "ex.ab2.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "Let's narrow the scope and define a concrete deliverable for our next supervision meeting.",
+      transcription_target:
+        "Let's narrow the scope and define a concrete deliverable for our next supervision meeting.",
+      tr_hint:
+        "Supervisor cümlesi. 'Deliverable' = somut teslim. 'Supervision meeting' = danışman görüşmesi.",
+    },
+    {
+      id: "ex.ab2.2.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "scope",
+      tr_translation: "Kapsam",
+      example:
+        "I think the scope is too ambitious for one chapter; could we narrow it to two case studies?",
+      example_tr:
+        "Sanırım kapsam bir bölüm için fazla iddialı; iki vaka çalışmasına daraltabilir miyiz?",
+    },
+    {
+      id: "ex.ab2.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I have a question about the limitation of my thesis, can you give me your comments?",
+      correct_sentence:
+        "I have a question about a limitation in my thesis — could I get your thoughts on it?",
+      tr_explanation:
+        "'The limitation' yanlış determiner; ilk kez bahsediliyorsa 'a limitation' doğru. 'Give me your comments' Türkçeden çeviri — 'could I get your thoughts' daha doğal akademik kalıp.",
+    },
   ],
 };
 
@@ -598,6 +702,58 @@ export const academicB2Lesson_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.ab2.3.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I'd push back on that framing for two reasons.",
+      ipa: "aɪd pʊʃ bæk ɒn ðæt ˈfreɪmɪŋ fər tuː ˈriːzənz",
+      tr_hint:
+        "Q&A klasik karşı çıkış kalıbı. 'Push back' = 'puşh-bek' bağlı. 'Framing' = 'FREY-ming'. Kararlı ama saygılı ton.",
+    },
+    {
+      id: "ex.ab2.3.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "That's a fair point, but I'd gently push back on the assumption that the effect is homogeneous across subgroups.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Akademik karşı çıkışta tipik yumuşatma. 'That's a fair point' kabul, 'but I'd gently push back' itiraz. Ritmi ve tonlamayı yakala.",
+    },
+    {
+      id: "ex.ab2.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "Have you considered the possibility that your effect is driven by unobserved confounders rather than your treatment?",
+      transcription_target:
+        "Have you considered the possibility that your effect is driven by unobserved confounders rather than your treatment?",
+      tr_hint:
+        "Q&A'da klasik metodolojik itiraz. 'Confounders' = karıştırıcılar. 'Driven by' = sebebiyet veren.",
+    },
+    {
+      id: "ex.ab2.3.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "peer-review",
+      tr_translation: "Hakem değerlendirmesi",
+      example:
+        "The paper is currently under peer-review at a top-tier journal, so I can't share the latest revisions just yet.",
+      example_tr:
+        "Makale şu an üst düzey bir dergide hakem değerlendirmesinde, bu yüzden son revizyonları henüz paylaşamam.",
+    },
+    {
+      id: "ex.ab2.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I don't agree with you, your methodology is wrong because you didn't think about confounders.",
+      correct_sentence:
+        "I'd push back on the framing here — I'm not sure the methodology fully accounts for potential confounders.",
+      tr_explanation:
+        "'I don't agree, you are wrong' akademide kaba ve şahsi. 'Push back on the framing' fikre itiraz; 'fully accounts for' yumuşatıcı. Akademik kültür: kişiye değil, argümana karşı çık.",
+    },
   ],
 };
 
@@ -768,6 +924,58 @@ export const academicB2Lesson_4: BundledLesson = {
       phrase: "Our methodology follows Chen et al., but with finer-grained data.",
       tr_hint:
         "'Chen et al.' = 'Chen et al' veya 'Chen and others'. 'Finer-grained' = daha hassas, detaylı.",
+    },
+    {
+      id: "ex.ab2.4.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "The scope of this paper is deliberately narrow.",
+      ipa: "ðə skoʊp əv ðɪs ˈpeɪpər ɪz dɪˈlɪbərətli ˈnæroʊ",
+      tr_hint:
+        "Reading group savunması. 'Deliberately' = 'di-LİBER-ıt-li' 4 hece, ortada vurgu. 'Narrow' = 'NEH-roh'.",
+    },
+    {
+      id: "ex.ab2.4.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "I think the contribution would be sharper if the authors replicated their results on a held-out sample.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Hakem yorumu tonu — 'would be sharper if' = daha keskin olurdu. 'Replicated... on a held-out sample' = bağımsız örnekte tekrarlamak.",
+    },
+    {
+      id: "ex.ab2.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "What I find compelling is the methodology, but the limitation in external validity is significant.",
+      transcription_target:
+        "What I find compelling is the methodology, but the limitation in external validity is significant.",
+      tr_hint:
+        "Paper discussion ifadesi. 'Compelling' = çekici, ikna edici. 'External validity' = dış geçerlilik.",
+    },
+    {
+      id: "ex.ab2.4.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "replicate",
+      tr_translation: "Yeniden üretmek / kopyalamak",
+      example:
+        "Before we cite this finding, I'd want someone to replicate it on an independent sample.",
+      example_tr:
+        "Bu bulguya atıf yapmadan önce, birinin bağımsız bir örnek üzerinde tekrar üretmesini isterdim.",
+    },
+    {
+      id: "ex.ab2.4.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "This paper has many limitations and the author didn't do a good job, I don't like it.",
+      correct_sentence:
+        "The paper has some clear limitations, particularly around external validity, though the methodological contribution is genuine.",
+      tr_explanation:
+        "'Didn't do a good job, I don't like it' akademide subjektif ve kişisel. Reading group dili: 'has some clear limitations' + 'though X is genuine' (denge). Argümana spesifik referans gerek ('external validity' gibi).",
     },
   ],
 };
@@ -957,6 +1165,58 @@ export const academicB2Lesson_5: BundledLesson = {
             "Başkalarını rakip olarak küçültmek = karakter sorunu sinyali. Kendini, başkalarına atıfta bulunmadan anlat.",
         },
       ],
+    },
+    {
+      id: "ex.ab2.5.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I'd like to take a moment to address that question carefully.",
+      ipa: "aɪd laɪk tə teɪk ə ˈmoʊmənt tu əˈdrɛs ðæt ˈkwɛstʃən ˈkɛərfəli",
+      tr_hint:
+        "Burs paneli yumuşatıcı. 'Take a moment' = bir an alayım. 'Carefully' = 'KER-fıl-li'. Sakin, ölçülü tempo.",
+    },
+    {
+      id: "ex.ab2.5.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Honestly, the scholarship would make the difference between pursuing this research and putting it on hold for a year.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Burs mülakatı dürüstlük tonu. 'Make the difference between X and Y' = X ile Y arasındaki fark. 'On hold' = beklemede.",
+    },
+    {
+      id: "ex.ab2.5.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "How does your proposed research replicate the methodology you used in your master's thesis?",
+      transcription_target:
+        "How does your proposed research replicate the methodology you used in your master's thesis?",
+      tr_hint:
+        "Burs paneli sorusu. 'Proposed research' = önerilen araştırma. 'Replicate the methodology' = metodolojiyi yeniden üretmek.",
+    },
+    {
+      id: "ex.ab2.5.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "limitation",
+      tr_translation: "Sınırlılık / kısıt",
+      example:
+        "The main limitation of my master's work was sample size, and this proposal addresses that directly.",
+      example_tr:
+        "Yüksek lisans çalışmamın temel sınırlılığı örneklem büyüklüğüydü ve bu öneri onu doğrudan ele alıyor.",
+    },
+    {
+      id: "ex.ab2.5.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I really need this scholarship because I am poor and my family cannot pay my education.",
+      correct_sentence:
+        "The scholarship would enable me to focus on research full-time without the financial pressure of part-time work.",
+      tr_explanation:
+        "'I am poor, my family cannot pay' burs panelinde duygusal ve dezavantajlı kalır. Akademik dil: somut etki ('enable me to focus on research') + pratik gerekçe ('without financial pressure'). Acındırma değil, fonksiyon.",
     },
   ],
 };
@@ -1161,6 +1421,58 @@ export const academicB2Lesson_6: BundledLesson = {
             "Net açılış formülü: 'Literature exists on X, but Y has a gap — I address that.' Bir cümle, üç ögeli.",
         },
       ],
+    },
+    {
+      id: "ex.ab2.6.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "The scope is intentionally narrow but the contribution is generalisable.",
+      ipa: "ðə skoʊp ɪz ɪnˈtɛnʃənəli ˈnæroʊ bʌt ðə ˌkɒntrɪˈbjuːʃən ɪz ˌdʒɛnərəˈlaɪzəbəl",
+      tr_hint:
+        "Proposal pitch kalıbı. 'Intentionally' = 'in-TEN-şın-li'. 'Generalisable' = 'cen-ır-ı-LAY-zı-bıl', 5 hece.",
+    },
+    {
+      id: "ex.ab2.6.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "My methodology builds on existing work, but I'm extending it to a setting where the assumptions haven't been tested.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Pitch ritmi. 'Builds on' birleşik, 'extending it to' akıcı, 'haven't been tested' net. Profesyonel akademik tempo.",
+    },
+    {
+      id: "ex.ab2.6.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "Could you spell out the gap in the literature your proposal aims to address?",
+      transcription_target:
+        "Could you spell out the gap in the literature your proposal aims to address?",
+      tr_hint:
+        "Panel sorusu. 'Spell out' = açıklamak, netleştirmek. 'Gap in the literature' = literatürdeki boşluk.",
+    },
+    {
+      id: "ex.ab2.6.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "peer-review",
+      tr_translation: "Hakem değerlendirmesi",
+      example:
+        "Two of the three chapters have been through peer-review; the third is currently under revision.",
+      example_tr:
+        "Üç bölümün ikisi hakem değerlendirmesinden geçti; üçüncüsü şu an revizyonda.",
+    },
+    {
+      id: "ex.ab2.6.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "My proposal is unique because nobody made this research before in the world.",
+      correct_sentence:
+        "To my knowledge, this combination of methodology and setting hasn't been examined in the existing literature.",
+      tr_explanation:
+        "'Nobody made this research before' Türkçeden çeviri + iddialı. Akademik dil: 'to my knowledge' (mütevazı hedge), 'examined in the existing literature' (somut iddia). 'Made research' yanlış — 'conducted/examined' doğru.",
     },
   ],
 };
@@ -1370,6 +1682,58 @@ export const academicB2Lesson_7: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.ab2.7.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I intend to return to Turkey after completing my research.",
+      ipa: "aɪ ɪnˈtɛnd tə rɪˈtɜːn tə ˈtɜːki ˈæftər kəmˈpliːtɪŋ maɪ rɪˈsɜːtʃ",
+      tr_hint:
+        "Vize mülakatı kilit cümlesi. 'Intend' = 'in-TEND'. 'Return' = 'ri-TÖRN'. Net, kararlı, içten ton.",
+    },
+    {
+      id: "ex.ab2.7.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "My funding is secured through a research assistantship, and my supervisor has confirmed it covers tuition and living costs.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Vize finansal kanıt cümlesi. 'Secured through' = ile güvence altına alınmış. 'Confirmed it covers' = karşıladığını teyit etti.",
+    },
+    {
+      id: "ex.ab2.7.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "What is the scope of your research and how does it relate to your previous studies in Turkey?",
+      transcription_target:
+        "What is the scope of your research and how does it relate to your previous studies in Turkey?",
+      tr_hint:
+        "Konsolos sorusu. 'Scope of your research' = araştırmanın kapsamı. 'Relate to' = ile ilişkili olmak.",
+    },
+    {
+      id: "ex.ab2.7.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "supervisor",
+      tr_translation: "Danışman (akademik)",
+      example:
+        "My prospective supervisor is Professor Hale; we've corresponded since February and she has agreed to take me on.",
+      example_tr:
+        "Olası danışmanım Profesör Hale; Şubat'tan beri yazışıyoruz ve beni kabul etmeyi onayladı.",
+    },
+    {
+      id: "ex.ab2.7.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I want make my master in UK because Turkey universities are not good for me.",
+      correct_sentence:
+        "I'd like to pursue my master's in the UK because the methodological training in my field is particularly strong there.",
+      tr_explanation:
+        "Vize mülakatında 'Turkey universities are not good' kötü sinyal verir (ülke kaçışı izlenimi). 'Make my master' yanlış — 'pursue my master's'. Pozitif gerekçe ('methodological training is strong') daha güvenli.",
+    },
   ],
 };
 
@@ -1574,6 +1938,58 @@ export const academicB2Lesson_8: BundledLesson = {
             "Somut süre = küçük yük. 'A meeting' belirsiz ve büyük. 'Twenty minutes' = bağlanması kolay rica.",
         },
       ],
+    },
+    {
+      id: "ex.ab2.8.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Would it be possible to request a short extension on the deadline?",
+      ipa: "wʊd ɪt bi ˈpɒsəbəl tə rɪˈkwɛst ə ʃɔːrt ɪkˈstɛnʃən ɒn ðə ˈdɛdlaɪn",
+      tr_hint:
+        "Süre uzatma kalıbı. 'Would it be possible' = mümkün olur mu, en kibar açılış. 'Extension' = 'ik-STEN-şın'.",
+    },
+    {
+      id: "ex.ab2.8.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "I appreciate your patience — I'd like to flag a concern about the scope of the methodology section.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Danışmana endişe iletme. 'Appreciate your patience' yumuşak başlangıç. 'I'd like to flag' = nazikçe işaret etmek.",
+    },
+    {
+      id: "ex.ab2.8.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "Could we narrow the scope of this chapter and revisit the broader argument in the next supervision?",
+      transcription_target:
+        "Could we narrow the scope of this chapter and revisit the broader argument in the next supervision?",
+      tr_hint:
+        "Danışman önerisi. 'Narrow the scope' = kapsamı daralt. 'Revisit' = yeniden ele al.",
+    },
+    {
+      id: "ex.ab2.8.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "scope",
+      tr_translation: "Kapsam / sınır",
+      example:
+        "I think the scope of the chapter has drifted; could we sit down and re-bound it?",
+      example_tr:
+        "Bölümün kapsamı dağıldı sanırım; oturup yeniden sınırlandırabilir miyiz?",
+    },
+    {
+      id: "ex.ab2.8.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I cannot finish the deadline because I have many problems in my life, please give me more time.",
+      correct_sentence:
+        "I'd like to request a short extension — I've run into a methodological complication I'd rather address properly than rush.",
+      tr_explanation:
+        "Akademik kültürde kişisel sorunlar değil, akademik gerekçe gerek. 'Methodological complication' somut, 'rather address properly than rush' kalite gerekçesi. 'Cannot finish the deadline' yanlış — 'meet the deadline' doğru kalıp.",
     },
   ],
 };
@@ -1793,6 +2209,58 @@ export const academicB2Lesson_9: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.ab2.9.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Could I introduce myself? I'm a doctoral candidate at Boğaziçi.",
+      ipa: "kʊd aɪ ˌɪntrəˈdjuːs maɪˈsɛlf aɪm ə ˈdɒktərəl ˈkændɪdət",
+      tr_hint:
+        "Networking açılışı. 'Doctoral candidate' = doktora adayı, formal. 'Introduce' = 'in-trı-DYUS', vurgu son hecede.",
+    },
+    {
+      id: "ex.ab2.9.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Your keynote really resonated — particularly the methodological point about replicating findings across populations.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Konferans iltifatı + spesifik. 'Resonated' = 'REZ-ı-ney-tıd' = yankı buldu. 'Particularly' = özellikle.",
+    },
+    {
+      id: "ex.ab2.9.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "What's the scope of your dissertation, and have you had a chance to present at a peer-reviewed venue yet?",
+      transcription_target:
+        "What's the scope of your dissertation, and have you had a chance to present at a peer-reviewed venue yet?",
+      tr_hint:
+        "Network ortamında akademik sondaj. 'Peer-reviewed venue' = hakemli yayın yeri (konferans/dergi).",
+    },
+    {
+      id: "ex.ab2.9.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "methodology",
+      tr_translation: "Metodoloji",
+      example:
+        "Your methodology is what caught my attention — it's the cleanest identification strategy I've seen on this question.",
+      example_tr:
+        "Dikkatimi çeken metodolojin oldu — bu konuda gördüğüm en temiz tanımlama stratejisi.",
+    },
+    {
+      id: "ex.ab2.9.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Hello professor, I am big fan of your work and I want you to be my supervisor for PhD.",
+      correct_sentence:
+        "I really enjoyed your talk — your work on causal inference is something I've drawn on in my master's thesis. I'd be curious to hear if you take on PhD students in this area.",
+      tr_explanation:
+        "'Big fan' networking için fazla samimi. 'Want you to be my supervisor' baskı yaratır. Akademik kibarlık: spesifik referans ('I've drawn on'), açık uçlu soru ('I'd be curious to hear if'). İlişki kurma değer, talep değil.",
+    },
   ],
 };
 
@@ -1966,6 +2434,58 @@ export const academicB2Lesson_10: BundledLesson = {
         "Let me take that critique seriously before I push back on parts of it.",
       tr_hint:
         "Komitede ölçülü savunma kalıbı. Tonlama: 'take that critique seriously' yumuşak; 'push back on parts of it' kararlı.",
+    },
+    {
+      id: "ex.ab2.10.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I accept the limitation, but the contribution remains generalisable.",
+      ipa: "aɪ əkˈsɛpt ðə ˌlɪmɪˈteɪʃən bʌt ðə ˌkɒntrɪˈbjuːʃən rɪˈmeɪnz ˌdʒɛnərəˈlaɪzəbəl",
+      tr_hint:
+        "Tez savunması ölçülü kabul. 'Accept' = 'ık-SEPT'. 'Generalisable' = 5 hece, vurgu 4. hecede. Net + güvenli ton.",
+    },
+    {
+      id: "ex.ab2.10.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "Let me concede that point and then push back on a related framing my colleagues haven't addressed.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Defans ritmi. 'Concede that point' kabul + 'push back on a related framing' itiraz. Akademik dengeyi yakala.",
+    },
+    {
+      id: "ex.ab2.10.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "How would you respond to a peer-reviewer who said your methodology cannot be replicated outside this dataset?",
+      transcription_target:
+        "How would you respond to a peer-reviewer who said your methodology cannot be replicated outside this dataset?",
+      tr_hint:
+        "Sözlü savunma sorusu. 'Peer-reviewer' = hakem. 'Replicated outside this dataset' = bu veri setinin dışında tekrar edilebilir.",
+    },
+    {
+      id: "ex.ab2.10.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "limitation",
+      tr_translation: "Sınırlılık",
+      example:
+        "I want to flag a limitation up front — the external validity of these findings is bounded by the sample I drew from.",
+      example_tr:
+        "Bir sınırlılığı baştan belirtmek istiyorum — bu bulguların dış geçerliliği aldığım örnekle sınırlı.",
+    },
+    {
+      id: "ex.ab2.10.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "The committee is wrong, my methodology is perfect and they didn't understand what I did.",
+      correct_sentence:
+        "I'd push back on that reading of my methodology — I think there's a misunderstanding I can clarify, but I'll also concede where the limitation is genuine.",
+      tr_explanation:
+        "'Committee is wrong, they didn't understand' karakter sinyali — defansif ve kibirli. Doktora savunmasında dil: 'push back on that reading' (fikre itiraz), 'misunderstanding I can clarify' (açıklama fırsatı), 'concede where the limitation is genuine' (mütevazı kabul). Denge gerek.",
     },
   ],
 };

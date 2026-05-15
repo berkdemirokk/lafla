@@ -154,6 +154,57 @@ export const toeflSpeakingLesson_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.toefl.1.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "In my opinion, working with a team is far more productive.",
+      tr_hint:
+        "Task 1 açılışı için tipik geçiş kalıbı. 'In my opinion' = bence (TOEFL'da güvenli; 'I think' yerine band 4). 'Far more productive' karşılaştırmalı vurgu — 'FAR' güçlü, 'productive' yavaş ve net.",
+    },
+    {
+      id: "ex.toefl.1.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "I'd say teamwork is far more beneficial than working alone, mainly because it sparks creativity and improves problem-solving.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Task 1 model band 4 cevabı. 'I'd say' yumuşak öncül. 'Sparks creativity' güçlü collocation. 'Mainly because' = ana sebep işaretçisi. Ritmi yakala: 45 saniyeye sığacak hız.",
+    },
+    {
+      id: "ex.toefl.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "Some people prefer working alone, while others prefer working with a team. Which do you prefer and why?",
+      transcription_target:
+        "Some people prefer working alone, while others prefer working with a team. Which do you prefer and why?",
+      tr_hint:
+        "TOEFL Task 1 prompt'unun standart yapısı. 'While others' bağlacı yutulur. 'Which do you prefer and why' — son ek hızlı.",
+    },
+    {
+      id: "ex.toefl.1.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to spark creativity",
+      tr_translation: "yaratıcılığı tetiklemek",
+      example:
+        "Group brainstorming sessions tend to spark creativity in a way solo work cannot.",
+      example_tr:
+        "Grup beyin fırtınası, bireysel çalışmanın yapamadığı şekilde yaratıcılığı tetikler.",
+    },
+    {
+      id: "ex.toefl.1.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I am agree with working in team because is more better.",
+      correct_sentence:
+        "I agree with working on a team because it's much better.",
+      tr_explanation:
+        "Üç TOEFL Delivery/Language Use hatası: (1) 'I am agree' yanlış — 'agree' fiildir, 'I agree'. (2) 'In team' yerine 'on a team' (US) veya 'in a team' (UK); makale eksik. (3) 'More better' double comparative — sadece 'better' veya 'much better'. Net puan kaybı.",
+    },
   ],
 };
 
@@ -298,6 +349,58 @@ export const toeflSpeakingLesson_2: BundledLesson = {
             "45 sn'ye 2 spesifik sebep + örnek sığar. 1 sebep yetersiz, 3+ yüzeysel olur.",
         },
       ],
+    },
+    {
+      id: "ex.toefl.2.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "According to the reading, online classes offer significant flexibility.",
+      tr_hint:
+        "Task 3/4 referans kalıbı ama Task 1'de de geçiş için kullanışlı. 'According to' = '...e göre'; 'ac-COR-ding' ikinci hece vurgulu. 'Significant flexibility' band 4 collocation.",
+    },
+    {
+      id: "ex.toefl.2.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "Personally, I'd argue that in-person classes are more effective, primarily because they foster meaningful interaction.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Task 1 band 4 model. 'I'd argue that' güvenli academic register. 'Primarily because' ana sebep. 'Foster meaningful interaction' = yüksek-seviye collocation; 'foster' band 4 fiili.",
+    },
+    {
+      id: "ex.toefl.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "Do you agree or disagree with the statement that online classes are just as effective as in-person classes?",
+      transcription_target:
+        "Do you agree or disagree with the statement that online classes are just as effective as in-person classes?",
+      tr_hint:
+        "Task 1 Agree/Disagree prompt'u. 'Just as effective as' = aynı ölçüde etkili (eşitlik karşılaştırması). 'Statement that' clauselı yapı.",
+    },
+    {
+      id: "ex.toefl.2.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to foster interaction",
+      tr_translation: "etkileşimi teşvik etmek",
+      example:
+        "In-person classes foster interaction between students and instructors.",
+      example_tr:
+        "Yüz yüze dersler, öğrenciler ile eğitmenler arasındaki etkileşimi teşvik eder.",
+    },
+    {
+      id: "ex.toefl.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Online classes is more better for the students because they can to learn in home.",
+      correct_sentence:
+        "Online classes are better for students because they can learn at home.",
+      tr_explanation:
+        "Dört hata: (1) 'Classes is' yerine 'classes are' (çoğul). (2) 'More better' yanlış — sadece 'better'. (3) 'Can to learn' yanlış — 'can' modal sonrası bare infinitive: 'can learn'. (4) 'In home' yerine 'at home' (sabit kalıp). Language Use cezası.",
     },
   ],
 };
@@ -453,6 +556,56 @@ export const toeflSpeakingLesson_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.toefl.3.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "From my perspective, job satisfaction outweighs a high salary in the long run.",
+      tr_hint:
+        "Task 1 görüş açılışı. 'From my perspective' = bana göre — formal. 'Outweighs' = ağır basar; 'OUT-weighs' ilk hece vurgulu. 'In the long run' = uzun vadede, sabit kalıp.",
+    },
+    {
+      id: "ex.toefl.3.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "I'd much rather pursue job satisfaction over a high salary, mainly because fulfillment drives long-term success.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Band 4 Task 1 cevabı. 'I'd much rather X over Y' = X'i Y'ye tercih ederim. 'Drives long-term success' güçlü collocation. Ritim: 'fulfillment' yavaş, 'success' kapanış vurgusu.",
+    },
+    {
+      id: "ex.toefl.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "Some people choose a job with a high salary, while others choose one that brings personal satisfaction. Which would you choose?",
+      transcription_target:
+        "Some people choose a job with a high salary, while others choose one that brings personal satisfaction. Which would you choose?",
+      tr_hint:
+        "Task 1 Choice prompt yapısı. 'One that brings personal satisfaction' ilgi cümleciği. 'Which would you choose' kapanış.",
+    },
+    {
+      id: "ex.toefl.3.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to outweigh",
+      tr_translation: "ağır basmak, daha önemli olmak",
+      example: "The benefits of satisfaction outweigh the appeal of money.",
+      example_tr: "Tatminin faydaları, paranın cazibesinden ağır basar.",
+    },
+    {
+      id: "ex.toefl.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Satisfaction is more important from salary because make you happy.",
+      correct_sentence:
+        "Satisfaction is more important than salary because it makes you happy.",
+      tr_explanation:
+        "Üç TOEFL Language Use hatası: (1) 'More important from' yerine 'more important than' (karşılaştırma). (2) Özne eksik — 'because make' yerine 'because it makes'. Türk öğrenci subject drop. (3) 'Make' yerine 'makes' (3. tekil -s). Net puan kaybı.",
+    },
   ],
 };
 
@@ -602,6 +755,58 @@ export const toeflSpeakingLesson_4: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.toefl.4.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "According to the reading, the library will extend its operating hours.",
+      tr_hint:
+        "Task 2 signpost — zorunlu. 'According to the reading' = okumaya göre; tüm Task 2-3-4'te kullanılır. 'Extend its operating hours' = saatleri uzatmak; 'OP-er-at-ing' dört hece.",
+    },
+    {
+      id: "ex.toefl.4.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "The woman strongly supports the new policy, primarily because she believes extended hours will help students prepare for finals.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Task 2 band 4 model. 'The woman strongly supports' = açık görüş atıfı. 'Primarily because' ana sebep. 'Prepare for finals' collocation. 60 sn ritmi yakala.",
+    },
+    {
+      id: "ex.toefl.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "The woman expresses her opinion about the university's new policy. State her opinion and explain the reasons she gives.",
+      transcription_target:
+        "The woman expresses her opinion about the university's new policy. State her opinion and explain the reasons she gives.",
+      tr_hint:
+        "Task 2 prompt'unun klasik yapısı. 'State her opinion and explain' — iki adımlı emir cümlesi. 'The reasons she gives' ilgi cümleciği.",
+    },
+    {
+      id: "ex.toefl.4.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "according to the reading",
+      tr_translation: "okumaya göre",
+      example:
+        "According to the reading, the new policy will benefit graduate students the most.",
+      example_tr:
+        "Okumaya göre, yeni politika en çok yüksek lisans öğrencilerine fayda sağlayacak.",
+    },
+    {
+      id: "ex.toefl.4.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "The woman is agree with the proposal because she think it help students.",
+      correct_sentence:
+        "The woman agrees with the proposal because she thinks it will help students.",
+      tr_explanation:
+        "Üç hata: (1) 'Is agree' yanlış — 'agree' fiildir: 'agrees' (3. tekil -s). (2) 'She think' yerine 'she thinks'. (3) 'It help' yerine 'it will help' (future tense — politika gelecekte). Language Use'da net puan kaybı.",
+    },
   ],
 };
 
@@ -745,6 +950,57 @@ export const toeflSpeakingLesson_5: BundledLesson = {
             "'Give priority to X' = X'e öncelik tanımak. TOEFL akademik kelime.",
         },
       ],
+    },
+    {
+      id: "ex.toefl.5.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "The professor explains that priority parking will benefit commuters most.",
+      tr_hint:
+        "Task 2/3/4 atıf kalıbı. 'The professor explains that' = profesör açıklıyor. 'Priority parking' = öncelikli park; 'PRY-o-ri-ty' dört hece. 'Benefit commuters most' güçlü collocation.",
+    },
+    {
+      id: "ex.toefl.5.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "The man disagrees with the new parking rule, mainly because he feels it discriminates against students who live off-campus.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Task 2 band 4 model. 'Discriminates against' = ayrımcılık yapar — akademik fiil. 'Off-campus' = kampüs dışı, sabit terim. 60 sn'lik ritmi yakala.",
+    },
+    {
+      id: "ex.toefl.5.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "Briefly summarize the proposed change, then state the man's opinion and explain the reasons he gives.",
+      transcription_target:
+        "Briefly summarize the proposed change, then state the man's opinion and explain the reasons he gives.",
+      tr_hint:
+        "Task 2 üç adımlı prompt. 'Briefly summarize' başlangıç. 'Then state... and explain' iki ek adım. Yavaş ve net ritim.",
+    },
+    {
+      id: "ex.toefl.5.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to discriminate against",
+      tr_translation: "...e karşı ayrımcılık yapmak",
+      example:
+        "The new rule discriminates against students without cars.",
+      example_tr: "Yeni kural, arabası olmayan öğrencilere karşı ayrımcılık yapıyor.",
+    },
+    {
+      id: "ex.toefl.5.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "The man don't agree because is unfair for the students which live far.",
+      correct_sentence:
+        "The man doesn't agree because it's unfair to students who live far away.",
+      tr_explanation:
+        "Dört hata: (1) 'Don't' yerine 'doesn't' (3. tekil). (2) 'Is unfair' başında özne eksik — 'it's unfair'. (3) 'Unfair for' yerine 'unfair to' (insanlara karşı). (4) 'Which' yerine 'who' (kişi için). TOEFL Language Use cezası.",
     },
   ],
 };
@@ -894,6 +1150,57 @@ export const toeflSpeakingLesson_6: BundledLesson = {
             "Eksik bilgi = Topic Development cezası. 60 sn'yi iki sebebe paylaştır.",
         },
       ],
+    },
+    {
+      id: "ex.toefl.6.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "According to the announcement, the cafeteria will eliminate fried food entirely.",
+      tr_hint:
+        "Task 2 reading özetleme kalıbı. 'According to the announcement' = duyuruya göre. 'Eliminate entirely' = tamamen kaldırmak; 'EL-i-mi-nate' dört hece, 'en-TIRE-ly' ikinci hece vurgulu.",
+    },
+    {
+      id: "ex.toefl.6.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "The woman opposes the menu change, primarily because she believes students should have the freedom to choose what they eat.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Task 2 band 4 model. 'Opposes the menu change' güçlü görüş fiili. 'Should have the freedom to choose' = seçme özgürlüğüne sahip olmalı. Akademik ama doğal ton.",
+    },
+    {
+      id: "ex.toefl.6.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "The students discuss the cafeteria's new menu policy. State the woman's opinion and the reasons she provides.",
+      transcription_target:
+        "The students discuss the cafeteria's new menu policy. State the woman's opinion and the reasons she provides.",
+      tr_hint:
+        "Task 2 prompt yapısı. 'Discuss' = tartışıyor (devam eden eylem). 'The reasons she provides' ilgi cümleciği — Task 2 standart kapanışı.",
+    },
+    {
+      id: "ex.toefl.6.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to have the freedom to",
+      tr_translation: "...e özgürlüğü olmak",
+      example:
+        "Students should have the freedom to choose their own meals.",
+      example_tr: "Öğrencilerin kendi yemeklerini seçme özgürlüğü olmalı.",
+    },
+    {
+      id: "ex.toefl.6.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "She is not agree because cafeteria must to respect students choices.",
+      correct_sentence:
+        "She doesn't agree because the cafeteria must respect students' choices.",
+      tr_explanation:
+        "Dört hata: (1) 'Is not agree' yerine 'doesn't agree' ('agree' fiildir). (2) 'Cafeteria' yerine 'the cafeteria' (definite article). (3) 'Must to respect' yanlış — modal sonrası bare infinitive: 'must respect'. (4) 'Students choices' yerine 'students' choices' (apostrophe). Language Use cezası.",
     },
   ],
 };
@@ -1049,6 +1356,58 @@ export const toeflSpeakingLesson_7: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.toefl.7.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "The professor illustrates this concept with a concrete example from her own research.",
+      tr_hint:
+        "Task 3 kavram + örnek bağlama kalıbı. 'Illustrates this concept' = bu kavramı örneklendiriyor. 'Concrete example' band 4 collocation; 'CON-crete' ilk hece vurgulu. 'From her own research' yumuşak.",
+    },
+    {
+      id: "ex.toefl.7.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "According to the reading, anchoring bias occurs when individuals rely too heavily on the first piece of information they receive.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Task 3 reading tanım kalıbı. 'Anchoring bias occurs when' = ankraj yanlılığı...durumunda meydana gelir. 'Rely too heavily on' = aşırı güvenmek. 'First piece of information' tipik akademik tanım.",
+    },
+    {
+      id: "ex.toefl.7.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "Using the example from the lecture, explain the concept of anchoring bias presented in the reading.",
+      transcription_target:
+        "Using the example from the lecture, explain the concept of anchoring bias presented in the reading.",
+      tr_hint:
+        "Task 3 prompt'unun klasik yapısı. 'Using the example' = ders örneğini kullanarak. 'Presented in the reading' passive — reading'e referans.",
+    },
+    {
+      id: "ex.toefl.7.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to illustrate a concept",
+      tr_translation: "bir kavramı örneklendirmek",
+      example:
+        "The professor uses a classroom experiment to illustrate the concept.",
+      example_tr:
+        "Profesör, kavramı örneklendirmek için bir sınıf deneyi kullanır.",
+    },
+    {
+      id: "ex.toefl.7.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "The professor say that this bias happen when people are influenced from first number.",
+      correct_sentence:
+        "The professor says that this bias happens when people are influenced by the first number.",
+      tr_explanation:
+        "Dört hata: (1) 'Say' yerine 'says' (3. tekil). (2) 'Happen' yerine 'happens' (3. tekil). (3) 'Influenced from' yanlış — 'influenced by' (passive partner). (4) 'First number' yerine 'the first number' (definite). Language Use'da TOEFL'ın en sık cezalandırdığı paket.",
+    },
   ],
 };
 
@@ -1199,6 +1558,58 @@ export const toeflSpeakingLesson_8: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.toefl.8.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "The lecture supports the theory through Skinner's famous experiment with rats.",
+      tr_hint:
+        "Task 3 reading-listening bağlama kalıbı. 'Supports the theory through' = teoriyi...yoluyla destekler. 'Skinner's famous experiment' kalıbı; 'SKIN-ner's' kısalt. 'With rats' yumuşak son ek.",
+    },
+    {
+      id: "ex.toefl.8.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "According to the reading, reinforcement is the process by which behaviors are strengthened through consistent rewards.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Task 3 tanım kalıbı. 'The process by which' = ...süreci. 'Behaviors are strengthened' passive. 'Consistent rewards' band 4 collocation. Yavaş, akademik ton.",
+    },
+    {
+      id: "ex.toefl.8.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "Explain how the example from the professor's lecture demonstrates the principle described in the reading.",
+      transcription_target:
+        "Explain how the example from the professor's lecture demonstrates the principle described in the reading.",
+      tr_hint:
+        "Task 3 prompt'u — teori + deney bağlama. 'Demonstrates the principle' = ilkeyi gösterir. 'Described in the reading' passive — referans.",
+    },
+    {
+      id: "ex.toefl.8.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to demonstrate a principle",
+      tr_translation: "bir ilkeyi göstermek",
+      example:
+        "Skinner's box demonstrates the principle of operant conditioning.",
+      example_tr:
+        "Skinner kutusu, edimsel koşullanma ilkesini gösterir.",
+    },
+    {
+      id: "ex.toefl.8.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Skinner experiment prove the theory because rats learned to press lever for getting food.",
+      correct_sentence:
+        "Skinner's experiment proves the theory because the rats learned to press the lever to get food.",
+      tr_explanation:
+        "Dört hata: (1) 'Skinner experiment' yerine 'Skinner's experiment' (possessive). (2) 'Prove' yerine 'proves' (3. tekil). (3) Definite article eksik: 'the rats', 'the lever'. (4) 'For getting' yerine 'to get' (purpose infinitive). TOEFL akademik İngilizcede klasik hata.",
+    },
   ],
 };
 
@@ -1345,6 +1756,58 @@ export const toeflSpeakingLesson_9: BundledLesson = {
             "Spesifik + numerated + ana konu = band 4 opener.",
         },
       ],
+    },
+    {
+      id: "ex.toefl.9.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "The professor describes two distinct types of symbiotic relationships.",
+      tr_hint:
+        "Task 4 ders özetleme açılışı. 'Describes two distinct types' = iki farklı tür tanımlıyor — kategorize edici opener. 'Symbiotic' = 'sim-bi-OT-ic' üçüncü hece vurgulu. 'Relationships' = 're-LA-tion-ships'.",
+    },
+    {
+      id: "ex.toefl.9.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "The professor explains that mutualism benefits both organisms, whereas commensalism benefits only one without harming the other.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Task 4 contrast model. 'Whereas' = oysa ki — akademik karşılaştırma. 'Benefits only one without harming the other' = sadece birine fayda, diğerine zarar vermeden. Net ve yavaş.",
+    },
+    {
+      id: "ex.toefl.9.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "Using points and examples from the lecture, explain the two types of symbiosis the professor discusses.",
+      transcription_target:
+        "Using points and examples from the lecture, explain the two types of symbiosis the professor discusses.",
+      tr_hint:
+        "Task 4 prompt klasik yapısı. 'Using points and examples' = noktalar ve örnekler kullanarak. 'The professor discusses' ilgi cümleciği son ek.",
+    },
+    {
+      id: "ex.toefl.9.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "mutualism",
+      tr_translation: "karşılıklı yarar (biyoloji)",
+      example:
+        "Mutualism is a key example of cooperation in nature.",
+      example_tr:
+        "Karşılıklı yarar, doğadaki iş birliğinin temel örneklerindendir.",
+    },
+    {
+      id: "ex.toefl.9.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Professor talk about two type of relationship and give two examples about bees and shark.",
+      correct_sentence:
+        "The professor talks about two types of relationships and gives two examples involving bees and sharks.",
+      tr_explanation:
+        "Dört hata: (1) 'Professor' yerine 'The professor' (definite article). (2) 'Talk/give' yerine 'talks/gives' (3. tekil). (3) 'Two type' yerine 'two types' (plural). (4) 'About bees and shark' yerine 'involving bees and sharks' (collocation + plural). Topic Development cezası.",
     },
   ],
 };
@@ -1493,6 +1956,58 @@ export const toeflSpeakingLesson_10: BundledLesson = {
             "Task 4 = 20 sn hazırlık + 60 sn konuşma (reading yok).",
         },
       ],
+    },
+    {
+      id: "ex.toefl.10.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "The professor distinguishes between short-term and long-term memory.",
+      tr_hint:
+        "Task 4 psikoloji opener. 'Distinguishes between' = arasında ayrım yapıyor. 'Short-term and long-term' kısa duraklarla. 'Memory' kapanış net.",
+    },
+    {
+      id: "ex.toefl.10.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "Short-term memory holds information for a brief period, whereas long-term memory stores it more permanently through repeated rehearsal.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Task 4 band 4 contrast model. 'Holds X for a brief period' kalıbı. 'Repeated rehearsal' = tekrarlı pratik — akademik. 'Whereas' karşılaştırma sinyali.",
+    },
+    {
+      id: "ex.toefl.10.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "Using the examples from the lecture, explain the two types of memory the professor describes.",
+      transcription_target:
+        "Using the examples from the lecture, explain the two types of memory the professor describes.",
+      tr_hint:
+        "Task 4 prompt yapısı. 'The two types of memory the professor describes' iki kademeli ilgi cümleciği.",
+    },
+    {
+      id: "ex.toefl.10.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "to distinguish between",
+      tr_translation: "ayrım yapmak, ayırt etmek",
+      example:
+        "It is essential to distinguish between correlation and causation.",
+      example_tr:
+        "Korelasyon ile nedensellik arasında ayrım yapmak şarttır.",
+    },
+    {
+      id: "ex.toefl.10.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Professor explain that memory have two type and each one work different.",
+      correct_sentence:
+        "The professor explains that memory has two types and each one works differently.",
+      tr_explanation:
+        "Dört hata: (1) 'Professor' yerine 'The professor'. (2) 'Explain/have/work' yerine 'explains/has/works' (3. tekil -s). (3) 'Two type' yerine 'two types' (plural). (4) 'Work different' yerine 'works differently' (adverb). Language Use'da TOEFL'ın net cezalandırdığı hata yığını.",
     },
   ],
 };

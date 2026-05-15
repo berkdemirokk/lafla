@@ -183,6 +183,51 @@ export const orderGroceryLesson_46_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.og46.1.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Which aisle is the rice in?",
+      ipa: "/wɪtʃ aɪl ɪz ðə raɪs ɪn/",
+      tr_articulation_hint:
+        "'Aisle' = 'ayl' (s sessiz). 'Which' = 'wiç'. 'In' sonda yukseliyor — soru tonu.",
+    },
+    {
+      id: "ex.og46.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Hey, do you know where the soy sauce is?",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Do you know where' birlestir, hizli oku. 'Soy sauce' = 'soy sos'. Sicak ve rahat ton, market personeline normal hız.",
+    },
+    {
+      id: "ex.og46.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "It's all the way down at the end of aisle twelve.",
+      transcription_target: "It's all the way down at the end of aisle twelve.",
+      tr_hint:
+        "'All the way down' = ta dipte, yon tarifi deyimi. 'Aisle twelve' = 'ayl twelv' — 'aisle' icindeki s yutulur.",
+    },
+    {
+      id: "ex.og46.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "stocked up on",
+      tr_translation: "Stogunda var / bol miktarda var",
+      example_en: "Are you guys stocked up on tahini?",
+      example_tr: "Tahin stogunuz var mi?",
+    },
+    {
+      id: "ex.og46.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Where is exist the rice?",
+      correct_sentence: "Where can I find the rice?",
+      tr_explanation:
+        "'Where is exist' Turkce 'var mi?' yapisinin direkt cevirisi — Ingilizce'de 'exist' bu baglamda kullanilmaz. 'Where can I find [X]?' standart sorudur.",
+    },
   ],
 };
 
@@ -379,6 +424,52 @@ export const orderGroceryLesson_46_2: BundledLesson = {
             "'Is this fresh?' standart. 'When did it come in?' = 'Ne zaman geldi?' devamı doğal.",
         },
       ],
+    },
+    {
+      id: "ex.og46.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Could you trim the fat, please?",
+      ipa: "/kʊd ju trɪm ðə fæt pliːz/",
+      tr_articulation_hint:
+        "'Trim' = 'trim' (kisa i). 'Fat' = 'fæt' — agzi yana ac. 'Could you' birlesir: 'kudju'.",
+    },
+    {
+      id: "ex.og46.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I'll take half a pound of turkey, sliced thin please.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Tek nefeste oku. 'Half a pound' = 'hæfə paund'. Virgulden sonra hafif duraklama, sonra 'sliced thin' net.",
+    },
+    {
+      id: "ex.og46.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "The salmon came in this morning — it's good to go.",
+      transcription_target: "The salmon came in this morning — it's good to go.",
+      tr_hint:
+        "'Good to go' = idiom, 'sorunsuz/hazir' demek. 'Salmon' icindeki l yutulur — 'sæmən'. 'Came in' = stok geldi.",
+    },
+    {
+      id: "ex.og46.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "wild-caught",
+      tr_translation: "Doğal avlanmış (çiftlik degil)",
+      example_en: "Is this salmon wild-caught or farm-raised?",
+      example_tr: "Bu somon dogadan mi yoksa ciftlik mi?",
+    },
+    {
+      id: "ex.og46.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I want fish 1 kilogram, no bones in.",
+      correct_sentence:
+        "Could I get about two pounds of fish, deboned please?",
+      tr_explanation:
+        "ABD marketlerinde kg yok — pound. 'No bones in' kirik gramer, 'deboned' tek kelime is gorur. 'I want' yerine 'Could I get' kibar.",
     },
   ],
 };
@@ -583,6 +674,51 @@ export const orderGroceryLesson_46_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.og46.3.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Did you find everything okay?",
+      ipa: "/dɪd ju faɪnd ˈɛvriθɪŋ oʊˈkeɪ/",
+      tr_articulation_hint:
+        "'Did you' birlesir = 'dɪdʒə'. 'Everything' uc heceli — 'ev-ri-thing'. Tonlama sonda yukseliyor.",
+    },
+    {
+      id: "ex.og46.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "I brought my own bags, thanks.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Brought' past tense — geniz t hafif. 'Thanks' sonda inice ton — nazik kapanis. Kayar gibi soyle.",
+    },
+    {
+      id: "ex.og46.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Your total comes to twenty-three eighty-six.",
+      transcription_target: "Your total comes to twenty-three eighty-six.",
+      tr_hint:
+        "Dolar miktari: $23.86 = 'twenty-three eighty-six'. 'Comes to' = toplam yapiyor (sabit kalip). 'Twenty-three' bagli telaffuz.",
+    },
+    {
+      id: "ex.og46.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "tap to pay",
+      tr_translation: "Temassız öde (kart/telefon)",
+      example_en: "Can I just tap to pay with my phone?",
+      example_tr: "Telefonumla temassiz odeyebilir miyim?",
+    },
+    {
+      id: "ex.og46.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I will pay with the cash.",
+      correct_sentence: "I'll pay with cash, thanks.",
+      tr_explanation:
+        "Genel kavramlarda 'the' kullanilmaz — 'with cash' veya 'in cash' standart. 'I'll' kasilma sozlu Ingilizce'de daha dogal.",
+    },
   ],
 };
 
@@ -769,6 +905,53 @@ export const orderGroceryLesson_46_4: BundledLesson = {
             "'Could I skip the bagging, please?' = 'Poşetleme adımını atlayabilir miyim?' Görevliye söyleyince makineyi 'skip bagging' moduna alır.",
         },
       ],
+    },
+    {
+      id: "ex.og46.4.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Unexpected item in the bagging area.",
+      ipa: "/ˌʌnɪkˈspɛktɪd ˈaɪtəm ɪn ðə ˈbæɡɪŋ ˈɛəriə/",
+      tr_articulation_hint:
+        "'Unexpected' = un-ek-spek-tıd, vurgu uçuncu hece. 'Bagging area' robotik ses gibi monoton oku — makine sesi pratik.",
+    },
+    {
+      id: "ex.og46.4.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Excuse me, could you do a price check on this?",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Excuse me' yumusak ac. 'Price check' birlestir = 'praɪs tʃɛk' — tek isim gibi. 'On this' sonda hafif yukseliyor.",
+    },
+    {
+      id: "ex.og46.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "You're gonna want to look up the PLU code for the avocados.",
+      transcription_target:
+        "You're gonna want to look up the PLU code for the avocados.",
+      tr_hint:
+        "'Gonna' = casual 'going to'. 'Look up' = bul/ara (idiom). 'PLU code' = sebze-meyve kodu (4 haneli). Hizli akan sokak Ingilizcesi.",
+    },
+    {
+      id: "ex.og46.4.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "void this item",
+      tr_translation: "Bu urunu iptal et (kasada)",
+      example_en: "Could you void this item? I changed my mind.",
+      example_tr: "Bu urunu iptal eder misin? Fikrimi degistirdim.",
+    },
+    {
+      id: "ex.og46.4.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "The machine is not working good.",
+      correct_sentence:
+        "The machine isn't scanning properly — could you help me out?",
+      tr_explanation:
+        "'Not working good' yanlis — sifat degil zarf gerekli: 'well' veya 'properly'. Ayrica spesifik problem belirt: 'isn't scanning'.",
     },
   ],
 };

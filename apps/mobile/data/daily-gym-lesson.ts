@@ -194,6 +194,54 @@ export const dailyGymLesson_35_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.dgl35.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Could I get a tour of the gym, please?",
+      ipa: "/kʊd aɪ ɡɛt ə tʊər əv ðə dʒɪm pliːz/",
+      tr_hint:
+        "'Could I' bağlanır = 'kud-ay'. 'Tour' = 'tur' (kısa). 'Gym' = 'cim' (j sesi yumuşak).",
+    },
+    {
+      id: "ex.dgl35.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "I'd like a month-to-month membership — no contract, if possible.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Month-to-month' tek soluk söylenir. 'No contract' = 'no-KON-trakt' (vurgu ilk hece).",
+    },
+    {
+      id: "ex.dgl35.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "It's forty-nine a month plus a one-time fifty-dollar initiation fee.",
+      transcription_target:
+        "It's forty-nine a month plus a one-time fifty-dollar initiation fee.",
+      tr_hint:
+        "Resepsiyon fiyat bilgisi. 'One-time' = tek seferlik. 'Initiation fee' = giriş ücreti.",
+    },
+    {
+      id: "ex.dgl35.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "is there any way",
+      tr_translation: "Bir yolu var mı?",
+      example: "Is there any way to waive the initiation fee?",
+      example_tr: "Giriş ücretinden vazgeçmenin bir yolu var mı?",
+    },
+    {
+      id: "ex.dgl35.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I want to enter the gym as a member, please.",
+      correct_sentence: "I'd like to sign up for a gym membership.",
+      tr_explanation:
+        "'Enter the gym as a member' direkt çeviri ('üye olarak gym'e girmek'). İngilizce'de 'sign up for a membership' standart kalıp. 'I want' kaba; 'I'd like' kibar.",
+    },
   ],
 };
 
@@ -385,6 +433,54 @@ export const dailyGymLesson_35_2: BundledLesson = {
             "'Build muscle' (tekil, uncountable) = kas yapmak. 'Make muscles' Türkçe etkisi, yanlış.",
         },
       ],
+    },
+    {
+      id: "ex.dgl35.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Could you check my form on squats?",
+      ipa: "/kʊd juː tʃɛk maɪ fɔːrm ɒn skwɒts/",
+      tr_hint:
+        "'Could you' bağlanır = 'ku-cu'. 'Squats' = 'skwats' (tek hece). 'Form' = 'form' (kısa).",
+    },
+    {
+      id: "ex.dgl35.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "I'm trying to build muscle and lose some fat before the summer.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Trainer'a hedef anlatma. 'Build muscle' bağlanır. 'Before the summer' = 'bi-FOR-dı-sa-mır'.",
+    },
+    {
+      id: "ex.dgl35.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Go down nice and slow, knees tracking over your toes. Looking good!",
+      transcription_target:
+        "Go down nice and slow, knees tracking over your toes. Looking good!",
+      tr_hint:
+        "Trainer squat talimatı. 'Knees tracking' = 'niz-TRAK-ing'. 'Over your toes' = 'OU-vır-yor-touz'.",
+    },
+    {
+      id: "ex.dgl35.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "have you got",
+      tr_translation: "(Sende) var mı?",
+      example: "Have you got a beginner program for me?",
+      example_tr: "Benim için başlangıç programın var mı?",
+    },
+    {
+      id: "ex.dgl35.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I want to do sport for take muscle.",
+      correct_sentence: "I want to lift weights to build muscle.",
+      tr_explanation:
+        "'Do sport' direkt çeviri ('spor yapmak'); İngilizce'de spesifik: 'lift weights' (= ağırlık çalış). 'For take muscle' yanlış edat + 'take' yanlış fiil; doğru: 'to build muscle'.",
     },
   ],
 };
@@ -581,6 +677,53 @@ export const dailyGymLesson_35_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.dgl35.3.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Are you using this?",
+      ipa: "/ɑːr juː ˈjuːzɪŋ ðɪs/",
+      tr_hint:
+        "'Are you' bağlanır = 'ar-yu'. 'Using' = 'YU-zing' (vurgu ilk hece). Rahat ton.",
+    },
+    {
+      id: "ex.dgl35.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Mind if I work in with you between sets?",
+      voice_hint: "male_us",
+      tr_hint:
+        "Gym etiketi temel kalıbı. 'Mind if I' bağlanır = 'maynd-i-fay'. 'Work in' = tek soluk.",
+    },
+    {
+      id: "ex.dgl35.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "I've got two more sets. You wanna work in? I can swap plates with you.",
+      transcription_target:
+        "I've got two more sets. You wanna work in? I can swap plates with you.",
+      tr_hint:
+        "Gym sohbeti. 'I've got' = 'ayv-gat'. 'Wanna' = casual 'want to'. 'Swap plates' = plaka değiş.",
+    },
+    {
+      id: "ex.dgl35.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "by any chance",
+      tr_translation: "Bir ihtimal / acaba",
+      example: "By any chance, are you almost done with the bench?",
+      example_tr: "Bir ihtimal, bench ile işin neredeyse bitti mi?",
+    },
+    {
+      id: "ex.dgl35.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Finish? I will use after you.",
+      correct_sentence: "Are you almost done? I'll jump in after you.",
+      tr_explanation:
+        "'Finish?' kaba tek kelime. 'I will use after you' direkt çeviri. Gym standardı: 'Are you almost done?' + 'I'll jump in' (= ben gireyim). Rahat ton önemli.",
+    },
   ],
 };
 
@@ -772,6 +915,54 @@ export const dailyGymLesson_35_4: BundledLesson = {
             "'Could I grab a towel?' = informal-kibar US gym dili. 'Grab' = alıver/ediniver, casual.",
         },
       ],
+    },
+    {
+      id: "ex.dgl35.4.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Is there a beginner option for this class?",
+      ipa: "/ɪz ðɛər ə bɪˈɡɪnər ˈɒpʃən fɔːr ðɪs klɑːs/",
+      tr_hint:
+        "'Is there a' bağlanır = 'iz-der-ı'. 'Beginner' = 'bi-GI-nır' (vurgu orta hece). 'Option' = 'OP-şın'.",
+    },
+    {
+      id: "ex.dgl35.4.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "I'd like to take the 6 PM spin class — could you sign me up?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Resepsiyonda kayıt. 'Take the' = 'teyk-dı'. '6 PM' = 'sıks-pi-em'. 'Sign me up' = beni yaz.",
+    },
+    {
+      id: "ex.dgl35.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Lockers are digital — just punch in any 4-digit code on the keypad.",
+      transcription_target:
+        "Lockers are digital — just punch in any 4-digit code on the keypad.",
+      tr_hint:
+        "Locker bilgisi. 'Punch in' = gir/tuşla. '4-digit code' = 4 haneli şifre. 'Keypad' = tuş takımı.",
+    },
+    {
+      id: "ex.dgl35.4.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "would you mind",
+      tr_translation: "... yapmanın bir sakıncası olur mu?",
+      example: "Would you mind showing me how the locker works?",
+      example_tr: "Locker'ın nasıl çalıştığını göstermenin bir sakıncası olur mu?",
+    },
+    {
+      id: "ex.dgl35.4.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I want to make yoga lesson at the morning.",
+      correct_sentence: "I'd like to take a yoga class in the morning.",
+      tr_explanation:
+        "'Make yoga lesson' Türkçe etkisi ('yoga dersi yapmak'). Doğru: 'take a yoga class'. 'At the morning' yanlış edat; 'in the morning' standart. 'I want' kaba; 'I'd like' kibar.",
     },
   ],
 };

@@ -164,6 +164,52 @@ export const dailyTransportLesson_17_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.dt17.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Could you pull over right here?",
+      ipa: "kʊd jə pʊl ˈoʊvər raɪt hɪər",
+      tr_hint:
+        "Iniş kalibi. 'Pull over' = yanaş. 'Right here' = tam buraya. Saygili emir.",
+    },
+    {
+      id: "ex.dt17.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Anywhere on the right is fine, thanks.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Esnek iniş noktasi. 'Anywhere on the right' bağlanır → 'eni-wer-on-ðə-rayt'. 'Is fine' net.",
+    },
+    {
+      id: "ex.dt17.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "The app sent me to the wrong pickup location.",
+      transcription_target: "The app sent me to the wrong pickup location.",
+      tr_hint:
+        "Uber soför yorumu. 'Sent me to' = beni gönderdi. 'Wrong pickup location' = yanlis alis noktasi.",
+    },
+    {
+      id: "ex.dt17.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "pull over",
+      tr_translation: "Yanaş, kenara çek",
+      example: "Could you pull over up ahead by the corner?",
+      example_tr: "Önümüzdeki köşeye yanaşır mısın?",
+    },
+    {
+      id: "ex.dt17.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Door open here fast!",
+      correct_sentence:
+        "Could you pull over up ahead — anywhere on the right is fine, thanks!",
+      tr_explanation:
+        "Panik + emir. Doğru: 'Could you pull over' + esnek lokasyon (anywhere on the right) + sicak tesekkur.",
+    },
   ],
 };
 
@@ -327,6 +373,52 @@ export const dailyTransportLesson_17_2: BundledLesson = {
             "Anonslar duragi soyler. Sessizce dinleyerek inecegin yeri kontrol et.",
         },
       ],
+    },
+    {
+      id: "ex.dt17.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Does this train go to Brooklyn?",
+      ipa: "dʌz ðɪs treɪn ɡoʊ tə ˈbrʊklɪn",
+      tr_hint:
+        "Metro klasigi. 'Does this' bağlanır → 'dʌs-ðis'. 'Brooklyn' iki hece: 'BRUK-lin'.",
+    },
+    {
+      id: "ex.dt17.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Do I need to transfer or is this direct?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Aktarma kontrolu. 'Transfer' = aktarma. 'Direct' = aktarmasiz. NYC subway klasik soru.",
+    },
+    {
+      id: "ex.dt17.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Stand clear of the closing doors please.",
+      transcription_target: "Stand clear of the closing doors please.",
+      tr_hint:
+        "NYC subway klasik anonsu. 'Stand clear' = uzak dur. 'Closing doors' = kapanan kapilar.",
+    },
+    {
+      id: "ex.dt17.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "transfer",
+      tr_translation: "Aktarma yap",
+      example: "You'll need to transfer at Times Square.",
+      example_tr: "Times Square'da aktarma yapman lazim.",
+    },
+    {
+      id: "ex.dt17.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Train Brooklyn yes no?",
+      correct_sentence:
+        "Excuse me — does this train go to Brooklyn, or do I need to transfer?",
+      tr_explanation:
+        "Belirsiz + grammatik degil. Doğru: 'Excuse me' + tam soru + alternatif (transfer kontrolu).",
     },
   ],
 };
@@ -493,6 +585,52 @@ export const dailyTransportLesson_17_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.dt17.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "What's the best way to get downtown?",
+      ipa: "wʌts ðə bɛst weɪ tə ɡɛt ˈdaʊntaʊn",
+      tr_hint:
+        "Havalimani info klasigi. 'Best way to get' bağlanır akış. 'Downtown' iki vurgu: DAWN-tawn.",
+    },
+    {
+      id: "ex.dt17.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Is there a shuttle that goes to the city center?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Shuttle sorma kalibi. 'Is there a shuttle' net soru. 'Goes to the city center' birleşik ritim.",
+    },
+    {
+      id: "ex.dt17.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "The AirTrain runs every ten minutes from terminal four.",
+      transcription_target: "The AirTrain runs every ten minutes from terminal four.",
+      tr_hint:
+        "JFK AirTrain klasik bilgisi. 'Runs every ten minutes' = on dakikada bir. 'From terminal four' = 4. terminalden.",
+    },
+    {
+      id: "ex.dt17.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "taxi stand",
+      tr_translation: "Taksi durağı (havalimani / otel)",
+      example: "The official taxi stand is just outside arrivals.",
+      example_tr: "Resmi taksi duragi aris kapisinin hemen disinda.",
+    },
+    {
+      id: "ex.dt17.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Taxi cheap how?",
+      correct_sentence:
+        "Excuse me — what's the cheapest way to get to downtown Manhattan from here?",
+      tr_explanation:
+        "Belirsiz + grammatik degil. Doğru: 'Excuse me' + spesifik soru (cheapest way) + hedef (downtown Manhattan).",
+    },
   ],
 };
 
@@ -657,6 +795,52 @@ export const dailyTransportLesson_17_4: BundledLesson = {
             "Aralarda 24 saat = bilgi degisir. Claim number = referans noktasi.",
         },
       ],
+    },
+    {
+      id: "ex.dt17.4.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "My checked bag didn't come out.",
+      ipa: "maɪ tʃɛkt bæɡ ˈdɪdənt kʌm aʊt",
+      tr_hint:
+        "Lost luggage acilis. 'Checked bag' = bagaj olarak yollanan. 'Didn't come out' birleşik akış.",
+    },
+    {
+      id: "ex.dt17.4.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "Could I file a missing luggage claim?",
+      voice_hint: "male_us",
+      tr_hint:
+        "Resmi prosedur. 'File a claim' = bildirim yapmak. 'Missing luggage' = kayip bagaj. Net + saygili.",
+    },
+    {
+      id: "ex.dt17.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "We'll deliver it to your hotel within twenty four hours.",
+      transcription_target: "We'll deliver it to your hotel within twenty four hours.",
+      tr_hint:
+        "Havayolu standart vaadi. 'Deliver to your hotel' = otele teslim. 'Within twenty four hours' = 24 saat içinde.",
+    },
+    {
+      id: "ex.dt17.4.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "claim number",
+      tr_translation: "Talep takip numarası",
+      example: "Keep your claim number — you'll need it for any follow-up.",
+      example_tr: "Talep numaranı sakla — takip için lazım olacak.",
+    },
+    {
+      id: "ex.dt17.4.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Bag lost! Help me now!",
+      correct_sentence:
+        "My checked bag didn't come out — could I file a missing luggage claim, please?",
+      tr_explanation:
+        "Panik + emir. Doğru: spesifik (checked bag didn't come out) + saygili prosedur sorma.",
     },
   ],
 };

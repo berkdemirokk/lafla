@@ -165,6 +165,52 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.ds18.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Do you have this in a medium?",
+      ipa: "də jə hæv ðɪs ɪn ə ˈmiːdiəm",
+      tr_hint:
+        "Magaza klasigi. 'Do you' bağlanır → 'dyə'. 'In a medium' birleşik akış.",
+    },
+    {
+      id: "ex.ds18.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Could you check the stockroom for me?",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Could you check' = kontrol eder misin. 'Stockroom' = depo (birleşik vurgu). 'For me' bağlanır.",
+    },
+    {
+      id: "ex.ds18.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Sorry, that's the last one we have in stock.",
+      transcription_target: "Sorry, that's the last one we have in stock.",
+      tr_hint:
+        "Magaza calisan klasigi. 'Last one' = sonuncu. 'In stock' = stokta. Vakit kaybetme.",
+    },
+    {
+      id: "ex.ds18.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "in stock",
+      tr_translation: "Stokta (mevcut)",
+      example: "Is the blue version still in stock?",
+      example_tr: "Mavisi hala stokta mı?",
+    },
+    {
+      id: "ex.ds18.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I want this color blue or red give it.",
+      correct_sentence:
+        "Do you have this in blue or red? Either color would work for me.",
+      tr_explanation:
+        "Belirsiz + 'give' emir. Doğru: 'Do you have' + alternatifler + esneklik (either would work).",
+    },
   ],
 };
 
@@ -327,6 +373,52 @@ export const dailyShoppingLesson_18_2: BundledLesson = {
             "'Try this on' = bunu uzerimde denemeliyim. Magaza standardi.",
         },
       ],
+    },
+    {
+      id: "ex.ds18.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Could I try these on, please?",
+      ipa: "kʊd aɪ traɪ ðiːz ɒn pliːz",
+      tr_hint:
+        "Soyunma odasi klasigi. 'Try on' birleşik fiil → 'tray-on'. 'These' net çoğul.",
+    },
+    {
+      id: "ex.ds18.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "It's a little tight in the shoulders.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Spesifik problem. 'A little tight' = biraz dar. 'In the shoulders' = omuz bölgesinde.",
+    },
+    {
+      id: "ex.ds18.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "This brand tends to run a bit small.",
+      transcription_target: "This brand tends to run a bit small.",
+      tr_hint:
+        "Magaza calisan tavsiyesi. 'Tends to run small' = kalibi kucuk gelir. Beden secimi icin kritik.",
+    },
+    {
+      id: "ex.ds18.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "size up",
+      tr_translation: "Bir buyuk beden (almak)",
+      example: "I'll size up — the medium feels snug.",
+      example_tr: "Bir buyuk alacagim — medium dar geliyor.",
+    },
+    {
+      id: "ex.ds18.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "This bad size give me other one fast.",
+      correct_sentence:
+        "This is a bit snug — could you bring the next size up when you get a moment?",
+      tr_explanation:
+        "'Bad size give me fast' = kaba + emir. Doğru: spesifik (a bit snug) + saygili (when you get a moment).",
     },
   ],
 };
@@ -493,6 +585,52 @@ export const dailyShoppingLesson_18_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.ds18.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'd like to return this, please.",
+      ipa: "aɪd laɪk tə rɪˈtɜːrn ðɪs pliːz",
+      tr_hint:
+        "Return desk acilis. 'Return' vurgu ikinci hece: rə-TURN. 'Please' uzun 'iː'.",
+    },
+    {
+      id: "ex.ds18.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I have the receipt and the tags are still on.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Iade icin iki sart. 'I have the receipt' net. 'Tags are still on' = etiketler hala uzerinde.",
+    },
+    {
+      id: "ex.ds18.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Refunds usually take three to five business days.",
+      transcription_target: "Refunds usually take three to five business days.",
+      tr_hint:
+        "Standart iade süresi. 'Business days' = is günü. ABD bankacilik standardi.",
+    },
+    {
+      id: "ex.ds18.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "store credit",
+      tr_translation: "Magaza kredisi (hediye karti)",
+      example: "Would you prefer a refund or store credit?",
+      example_tr: "Iade mi yoksa magaza kredisi mi tercih edersiniz?",
+    },
+    {
+      id: "ex.ds18.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Money give me back not card.",
+      correct_sentence:
+        "Could I get the refund back to my original card, please?",
+      tr_explanation:
+        "'Money give me' = emir + grammatik degil. Doğru: 'Could I get' + spesifik (original card).",
+    },
   ],
 };
 
@@ -657,6 +795,52 @@ export const dailyShoppingLesson_18_4: BundledLesson = {
             "Magaza email/notifikasyon ile geri davetlik. App'i sonra silebilirsin.",
         },
       ],
+    },
+    {
+      id: "ex.ds18.4.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Any chance there's a student discount?",
+      ipa: "ˈɛni tʃæns ðɛrz ə ˈstuːdənt ˈdɪskaʊnt",
+      tr_hint:
+        "Saygili indirim sorma. 'Any chance' = bir ihtimal. 'Student discount' birleşik vurgu.",
+    },
+    {
+      id: "ex.ds18.4.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Could you apply this promo code at checkout?",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Apply this promo code' = bu kodu uygula. 'At checkout' = kasada. Yaygin online + offline kalip.",
+    },
+    {
+      id: "ex.ds18.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "All sale items are final sale, no returns.",
+      transcription_target: "All sale items are final sale, no returns.",
+      tr_hint:
+        "Indirim uyarisi. 'Final sale' = kesin satis (iade yok). 'No returns' = iade kabul edilmez.",
+    },
+    {
+      id: "ex.ds18.4.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "price match",
+      tr_translation: "Fiyat eşleştirme (rakibe gore)",
+      example: "Do you do price match if I show you the competitor's price?",
+      example_tr: "Rakibin fiyatini gostersem fiyat eslestirme yapar misiniz?",
+    },
+    {
+      id: "ex.ds18.4.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Discount me more cheap please.",
+      correct_sentence:
+        "Quick question — any first-time customer discount or promo running today?",
+      tr_explanation:
+        "'Discount me cheap' = emir + grammatik degil. Doğru: 'Any chance' + spesifik tip (first-time customer / promo).",
     },
   ],
 };

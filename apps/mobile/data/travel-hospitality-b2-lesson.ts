@@ -203,6 +203,51 @@ export const travelB2Lesson_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.tb2.1.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "Under EU261, I'm entitled to either a refund or rerouting plus compensation.",
+      ipa: "/ˈʌndər iː juː tuː sɪks wʌn aɪm ɪnˈtaɪtəld tu ˈaɪðə ə ˈriːfʌnd ɔː ˌriːˈruːtɪŋ plʌs ˌkɒmpənˈseɪʃən/",
+      tr_hint:
+        "Yolcu hakları cümlesi. 'EU261' = 'ee-yoo-two-six-one' kısaltma. 'Either ... or' yapısı seçenek sunar. 'Plus compensation' = ayrıca tazminat. Sakin, hak bilen ton.",
+    },
+    {
+      id: "ex.tb2.1.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "Could you walk me through the compensation process and confirm the claim reference?",
+      voice_hint: "male_uk",
+      tr_hint:
+        "İki istek aynı cümlede. 'Walk me through' = baştan sona anlat. 'Confirm the claim reference' = dosya numarasını doğrula. Profesyonel ton, agente saygı.",
+    },
+    {
+      id: "ex.tb2.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "I'm afraid that's classified as extraordinary circumstances and compensation doesn't apply.",
+      transcription_target: "I'm afraid that's classified as extraordinary circumstances and compensation doesn't apply.",
+      tr_hint:
+        "Havayolu standart savunması. 'Extraordinary circumstances' = olağanüstü durum (hava, grev) — tazminat reddedilir. Hava şartları gerçekten varsa kabul; teknik arıza ise itiraz et.",
+    },
+    {
+      id: "ex.tb2.1.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "boarding pass stub",
+      tr_translation: "binis kartı kopyası / sap",
+      example: "I still have my boarding pass stub from the cancelled flight as evidence.",
+      example_tr: "İptal uçuştan binis kartı kopyam hâlâ duruyor — delil olarak.",
+    },
+    {
+      id: "ex.tb2.1.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "Cancel my flight? You pay 600 euro now or I call police!",
+      correct_sentence: "Under EU261, since the cancellation was within fourteen days, I'm entitled to compensation — could we process that alongside the rerouting?",
+      tr_explanation:
+        "'Pay 600 now or police' = saldırgan, agent talebi geciktirir. Profesyonel: spesifik regülasyon (EU261) + zaman kuralı (within 14 days) + paralel talep (rerouting + compensation). Agent sistemde standart işlem açar.",
+    },
   ],
 };
 
@@ -381,6 +426,51 @@ export const travelB2Lesson_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.tb2.2.7",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "Could I speak to the duty manager? I'd like to escalate this.",
+      ipa: "/kʊd aɪ spiːk tə ðə ˈdjuːti ˈmænɪdʒə aɪd laɪk tu ˈɛskəleɪt ðɪs/",
+      tr_hint:
+        "Otel escalation altın cümlesi. 'Duty manager' = nöbetçi yönetici. 'Escalate this' = üst makama taşımak. Sakin, kararlı — resepsiyonist genelde manager çağırır.",
+    },
+    {
+      id: "ex.tb2.2.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "Per your walk policy, I'd expect comparable accommodation plus transport and a goodwill gesture.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Walk policy' = otel müşteriyi başka yere yönlendirme politikası. 'Comparable accommodation' = denk konaklama. 'Goodwill gesture' = iyi niyet jesti (kredi/upgrade). Tüm 3 hakkı liste halinde.",
+    },
+    {
+      id: "ex.tb2.2.9",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "I have your confirmation number — let me check what we can offer.",
+      transcription_target: "I have your confirmation number — let me check what we can offer.",
+      tr_hint:
+        "Manager iyi sinyali. 'Confirmation number' = rezervasyon kodun ellerinde. 'What we can offer' = çözüm sunuyor. Sabırlı bekle, sonra somut talebi ver.",
+    },
+    {
+      id: "ex.tb2.2.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "walk policy",
+      tr_translation: "müsteriyi alternatif otele yönlendirme politikası",
+      example: "Under your walk policy, I'd expect comparable accommodation at no extra cost.",
+      example_tr: "Walk politikanız altında, ek ücret olmadan denk konaklama beklerim.",
+    },
+    {
+      id: "ex.tb2.2.11",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "What you mean no room?! I booked! Where I sleep tonight?!",
+      correct_sentence: "I have a confirmed booking — could I see your duty manager to discuss your walk policy and alternative accommodation?",
+      tr_explanation:
+        "Panik + bağırma = resepsiyon defansif olur, çözüm yavaşlar. Profesyonel: 'confirmed booking' (kanıt) + 'duty manager' (escalation) + 'walk policy' (otel terimi). 'Walk policy' kelimesi anahtardır — otel hemen ciddiye alır.",
+    },
   ],
 };
 
@@ -550,6 +640,51 @@ export const travelB2Lesson_3: BundledLesson = {
             "Printing now. Everything's in this envelope. Have a good rest tonight.",
         },
       ],
+    },
+    {
+      id: "ex.tb2.3.7",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "My connection was protected — I'm on an interline ticket with checked-through bags.",
+      ipa: "/maɪ kəˈnɛkʃən wəz prəˈtɛktɪd aɪm ɒn ən ˈɪntəlaɪn ˈtɪkɪt wɪð tʃɛkt θruː bæɡz/",
+      tr_hint:
+        "Üç hava terimi tek cümlede. 'Protected connection' = aktarma havayolu tarafından koruma altında. 'Interline ticket' = iki havayolu tek bilet. 'Checked-through bags' = bavullar nihai varışa kadar etiketli.",
+    },
+    {
+      id: "ex.tb2.3.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "Could you rebook me on the next available flight and reroute my bags as well?",
+      voice_hint: "male_us",
+      tr_hint:
+        "Aktarma kaçırınca standart talep. 'Rebook + reroute' iki ayrı işlem — ikisini de iste. 'As well' bağlanır — bavul unutmak felaket.",
+    },
+    {
+      id: "ex.tb2.3.9",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "We've automatically rolled you onto the next flight — gate B14, boarding in forty minutes.",
+      transcription_target: "We've automatically rolled you onto the next flight — gate B14, boarding in forty minutes.",
+      tr_hint:
+        "İyi senaryo — havayolu otomatik rebook etti. 'Rolled you onto' = bir sonraki uçuşa yerleştirdi. Gate ve süreyi NOT AL, yanlış duyma. Tekrar et: 'B14, forty minutes — correct?'",
+    },
+    {
+      id: "ex.tb2.3.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "protected connection",
+      tr_translation: "korumalı aktarma (havayolu sorumlu)",
+      example: "Since it's a protected connection, you're entitled to a free rebook on the next flight.",
+      example_tr: "Bu korumalı aktarma olduğu için, sonraki uçuşa ücretsiz rebook hakkın var.",
+    },
+    {
+      id: "ex.tb2.3.11",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "I lose plane! Different airline! Now you both must help me, I am angry!",
+      correct_sentence: "It's an interline ticket — could you confirm whether the connection was protected, and rebook me on the next available flight?",
+      tr_explanation:
+        "'Both must help + angry' = belirsiz, agent ne yapacağını bilemez. Profesyonel: 'interline ticket' (durumu tanımla) + 'protected connection' (hak kategorisi) + 'rebook' (somut talep). 'Interline' kelimesini söylediğin an agent profesyonel modda çalışır.",
     },
   ],
 };
@@ -756,6 +891,51 @@ export const travelB2Lesson_4: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.tb2.4.7",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I'd like to apply for an emergency travel document so I can fly home tomorrow.",
+      ipa: "/aɪd laɪk tu əˈplaɪ fər ən ɪˈmɜːdʒənsi ˈtrævəl ˈdɒkjumənt səʊ aɪ kæn flaɪ həʊm təˈmɒrəʊ/",
+      tr_hint:
+        "Kayıp pasaport krizi cümlesi. 'Emergency travel document' = acil seyahat belgesi (geçici). 'So I can fly home' = sebep + zaman. Sakin, planlı ton — panik konsolosluğu yavaşlatır.",
+    },
+    {
+      id: "ex.tb2.4.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "I've filed a police report and here's the case reference — could we proceed with the application?",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Hazırlıklı vatandaş sinyali. 'Filed a police report' = polis tutanağı tutmuşum. 'Case reference' = dosya numarası. 'Proceed with the application' = işleme geçelim.",
+    },
+    {
+      id: "ex.tb2.4.9",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "We'll need two passport photos with a white background, biometric standard.",
+      transcription_target: "We'll need two passport photos with a white background, biometric standard.",
+      tr_hint:
+        "Konsolosluk standart şartı. 'Biometric standard' = ICAO biometrik formatı (selfie OLMAZ). En yakın foto stüdyosunu sor, 30 dakikada hazırlanır.",
+    },
+    {
+      id: "ex.tb2.4.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "emergency travel document",
+      tr_translation: "acil seyahat belgesi (tek yön, kısa süreli)",
+      example: "The emergency travel document is valid for fifteen days and only for direct return.",
+      example_tr: "Acil seyahat belgesi 15 gün geçerli ve sadece doğrudan dönüş için.",
+    },
+    {
+      id: "ex.tb2.4.11",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "Passport gone! Police did nothing! Help me right now or I miss flight!",
+      correct_sentence: "I've reported the loss to the police and have the case reference. I'd like to apply for an emergency travel document for tomorrow's flight.",
+      tr_explanation:
+        "Panik + suçlama = konsolosluk personeli defansif olur, süreç yavaşlar. Profesyonel: olgu (reported, have reference) + spesifik talep (emergency travel document) + zaman (tomorrow's flight). Konsolosluk hızlı prosedüre alır.",
+    },
   ],
 };
 
@@ -945,6 +1125,51 @@ export const travelB2Lesson_5: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.tb2.5.7",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I'd like to dispute an unauthorised charge — could you initiate a chargeback?",
+      ipa: "/aɪd laɪk tu dɪˈspjuːt ən ʌnˈɔːθəraɪzd tʃɑːdʒ kʊd jʊ ɪˈnɪʃieɪt ə ˈtʃɑːdʒbæk/",
+      tr_hint:
+        "Banka kart itirazı altın cümlesi. 'Dispute' = itiraz et. 'Unauthorised charge' = izinsiz çekim. 'Chargeback' = banka iade prosedürü — banka temsilcisi bu kelimeyi söylediğin an seni profesyonel görür.",
+    },
+    {
+      id: "ex.tb2.5.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "Could you block the card, issue a virtual replacement, and confirm provisional credit?",
+      voice_hint: "male_us",
+      tr_hint:
+        "Üç paralel talep tek nefes. 'Block + issue + confirm' = aksiyon listesi. 'Provisional credit' = soruşturma sırasında geçici iade — bilen kişinin terimi.",
+    },
+    {
+      id: "ex.tb2.5.9",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "The investigation typically takes ten to fifteen business days under Regulation E.",
+      transcription_target: "The investigation typically takes ten to fifteen business days under Regulation E.",
+      tr_hint:
+        "Banka temsilcisi yasal dayanak. 'Regulation E' = ABD tüketici koruma yönetmeliği (Reg E). UK'da '14 days unauthorised'. Süreyi NOT al, sonra takip için.",
+    },
+    {
+      id: "ex.tb2.5.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "provisional credit",
+      tr_translation: "geçici iade (soruşturma sırasında)",
+      example: "Could you confirm whether provisional credit applies while the chargeback is investigated?",
+      example_tr: "Chargeback soruşturulurken geçici iade geçerli mi onaylar mısınız?",
+    },
+    {
+      id: "ex.tb2.5.11",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "Someone stole my money! Give it back today! I will close my account if not!",
+      correct_sentence: "I'm reporting an unauthorised charge on the third — could you initiate a chargeback and confirm whether provisional credit applies?",
+      tr_explanation:
+        "'Stole money + give back today + close account' = tehdit, agent defansif olur. Profesyonel: 'unauthorised charge' (yasal kategori) + spesifik tarih + 'chargeback' (bankacılık terimi) + 'provisional credit' (hak). Banka standart prosedüre alır.",
+    },
   ],
 };
 
@@ -1132,6 +1357,51 @@ export const travelB2Lesson_6: BundledLesson = {
             "Of course — flagged in red. Your meal will be ready in about 25 minutes.",
         },
       ],
+    },
+    {
+      id: "ex.tb2.6.7",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I have a severe nut allergy and I keep halal — could the chef confirm cross-contamination risk?",
+      ipa: "/aɪ hæv ə sɪˈvɪə nʌt ˈælədʒi ænd aɪ kiːp ˈhælɑːl kʊd ðə ʃɛf kənˈfɜːm krɒs kənˌtæmɪˈneɪʃən rɪsk/",
+      tr_hint:
+        "İki kısıt tek cümlede. 'Severe' = ciddi (anafilaksi sinyali). 'Keep halal' = helal yiyorum. 'Cross-contamination' = çapraz bulaşma. Şef'i çağırtacak güçlü kombo.",
+    },
+    {
+      id: "ex.tb2.6.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "Could you flag it on the kitchen ticket so the chef and line cooks both see it?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Restoran iç süreç istegi. 'Kitchen ticket' = mutfak fişi. 'Line cooks' = pişirme hattındaki aşçılar. Garsona değil, sisteme yazılması = unutulmaz.",
+    },
+    {
+      id: "ex.tb2.6.9",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "We can absolutely accommodate that — let me speak to the chef and come back to you.",
+      transcription_target: "We can absolutely accommodate that — let me speak to the chef and come back to you.",
+      tr_hint:
+        "İyi restoran sinyali. 'Accommodate' = uyum sağla, çözüm sun. 'Come back to you' = senden geri dönecek — bekle. Tavla teşekkür et, sonra spesifik plan dinle.",
+    },
+    {
+      id: "ex.tb2.6.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "cross-contamination",
+      tr_translation: "çapraz bulasma (mutfak)",
+      example: "Even a clean knife can carry cross-contamination if it touched nuts earlier.",
+      example_tr: "Temiz bir bıçak bile daha önce fıstığa değdiyse çapraz bulaşma taşıyabilir.",
+    },
+    {
+      id: "ex.tb2.6.11",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "I can't eat many things. Just bring something safe for me, you decide.",
+      correct_sentence: "I have a severe nut allergy and I keep halal — could the chef recommend two dishes and confirm there's no cross-contamination risk?",
+      tr_explanation:
+        "'You decide + something safe' = restoran sorumluluğu yüklü, hata yapma riski yüksek. Profesyonel: spesifik tıbbi durum (severe) + dini şart (halal) + somut talep (chef recommend + confirm). Mutfak hata yapmaz.",
     },
   ],
 };
@@ -1322,6 +1592,51 @@ export const travelB2Lesson_7: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.tb2.7.7",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I'd love to honour the local customs — could you tell me about the dress code and gift etiquette?",
+      ipa: "/aɪd lʌv tu ˈɒnə ðə ˈləʊkəl ˈkʌstəmz kʊd jʊ tɛl miː əˈbaʊt ðə drɛs kəʊd ænd ɡɪft ˈɛtɪkɛt/",
+      tr_hint:
+        "Kibar, saygılı acılış. 'Honour the customs' = geleneğe saygı gösterme niyeti. 'Dress code' = giyim. 'Gift etiquette' = hediye adabı. Tek nefes — kibar ev sahibi.",
+    },
+    {
+      id: "ex.tb2.7.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "If it's appropriate, I'd love to bring a small Turkish gift — would the family welcome that?",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Kültürlerarası inceleme cümlesi. 'If it's appropriate' = uygunsa (saygılı). 'Welcome' = hoş karşılar mı. Kültürünü sunarken karşıya soruyorsun = kibar.",
+    },
+    {
+      id: "ex.tb2.7.9",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "Guests typically bring a card with cash or a small gift for the couple.",
+      transcription_target: "Guests typically bring a card with cash or a small gift for the couple.",
+      tr_hint:
+        "Düğün geleneği açıklaması. 'Card with cash' = içine para konulan tebrik kartı (US/UK standart). 'Small gift' = hediye. Türk altın takmadan farklı — duyduğunda buna uy.",
+    },
+    {
+      id: "ex.tb2.7.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "plus-one",
+      tr_translation: "davetli yanında getirdiği partner / refakatçi",
+      example: "Did the invitation specify a plus-one, or is it just for me?",
+      example_tr: "Davetiye refakatçi belirtti mi, yoksa sadece bana mı?",
+    },
+    {
+      id: "ex.tb2.7.11",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "In Turkey we put gold on bride. I will do same, OK?",
+      correct_sentence: "In Turkey, we traditionally pin gold coins on the bride — would something equivalent be welcome here, or should I follow your local custom?",
+      tr_explanation:
+        "'I will do same, OK?' = bilgilendirici değil, dayatıcı. Kültürlerarası: kendi geleneğini anlat (we traditionally...) + karşıya soru sor (would it be welcome) + alternatif sun (follow your custom). Saygı ve esneklik.",
+    },
   ],
 };
 
@@ -1511,6 +1826,51 @@ export const travelB2Lesson_8: BundledLesson = {
             "Got it. Charge is reversed — you'll see it on your card in a few days. Sorry for the trouble.",
         },
       ],
+    },
+    {
+      id: "ex.tb2.8.7",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I'd like to dispute this charge through the Resolution Centre — I have time-stamped photos.",
+      ipa: "/aɪd laɪk tu dɪˈspjuːt ðɪs tʃɑːdʒ θruː ðə ˌrɛzəˈluːʃən ˈsɛntə aɪ hæv ˈtaɪmstæmpt ˈfəʊtəʊz/",
+      tr_hint:
+        "AirBnB anlaşmazlığında platform terimi. 'Resolution Centre' = AirBnB resmi ihtilaf merkezi. 'Time-stamped photos' = tarih damgalı fotolar (kanıt). Sakin, hazırlıklı ton.",
+    },
+    {
+      id: "ex.tb2.8.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "The damage you're claiming was pre-existing — I have check-in photos to prove it.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Pre-existing' = önceden var olan. 'You're claiming' = senin iddia ettigin. 'To prove it' kararlı kapanış. Sakin ton — yargılayıcı değil, olgu odaklı.",
+    },
+    {
+      id: "ex.tb2.8.9",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "I'd be happy to settle for half the cleaning fee — would that work?",
+      transcription_target: "I'd be happy to settle for half the cleaning fee — would that work?",
+      tr_hint:
+        "Host'un ortayol teklifi. 'Settle for' = razı olmak. Kanıtın güçlüyse reddet: 'I appreciate the offer, but with photos I can't agree to a partial charge.'",
+    },
+    {
+      id: "ex.tb2.8.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "Resolution Centre",
+      tr_translation: "AirBnB / platform ihtilaf merkezi",
+      example: "If we can't agree, I'll open a case in the Resolution Centre with my photo evidence.",
+      example_tr: "Anlaşamazsak, foto kanıtımla Resolution Centre'da bir dava açacağım.",
+    },
+    {
+      id: "ex.tb2.8.11",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "You are liar! Your house was already dirty! I will tell everyone!",
+      correct_sentence: "I've reviewed my check-in photos and the stain was already there — could we resolve this directly, or should I escalate to the Resolution Centre?",
+      tr_explanation:
+        "'Liar + tell everyone' = host defansif olur, AirBnB değerlendirmesinde sen kaybedersin. Profesyonel: 'reviewed photos' (objektif) + 'directly or escalate' (iki seçenek). Host genelde direkt çözer — escalation tehdidi yumuşak ve etkili.",
     },
   ],
 };
@@ -1726,6 +2086,51 @@ export const travelB2Lesson_9: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.tb2.9.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I lead infrastructure at a fintech in Istanbul — about a hundred and twenty engineers.",
+      ipa: "/aɪ liːd ˌɪnfrəˈstrʌktʃər æt ə ˈfɪntɛk ɪn ˌɪstænˈbʊl əˈbaʊt ə ˈhʌndrəd ænd ˈtwɛnti ˈɛndʒɪˌnɪəz/",
+      tr_hint:
+        "Konferans tanışma elevator pitch. 'Lead infrastructure' = altyapı yönetiyorum. Şirket scale'i (120 engineer) = scope sinyali. Net, kararlı — 30 saniyede bitir.",
+    },
+    {
+      id: "ex.tb2.9.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "I'd love to keep in touch — could I add you on LinkedIn and send you a calendar slot?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Networking follow-up altın cümlesi. 'Keep in touch + LinkedIn + calendar slot' = somut adım. Sarmalama profesyonel — kart takasından sonra plan kur.",
+    },
+    {
+      id: "ex.tb2.9.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "What's the biggest challenge you're working through right now?",
+      transcription_target: "What's the biggest challenge you're working through right now?",
+      tr_hint:
+        "Networking derinleşme sorusu. 'Working through' = uğraştığın. Hazır 1-2 cümlelik cevap olsun — proje detayı + öğrendiğin. Konversasyonu sürdür.",
+    },
+    {
+      id: "ex.tb2.9.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "warm introduction",
+      tr_translation: "tanıdık aracılığıyla tanıştırma",
+      example: "Would you be open to a warm introduction to your CTO? Happy to share what we'd cover.",
+      example_tr: "CTO'na sıcak bir tanıştırma yapmana açık misin? Konuşacağımız şeyi paylaşırım.",
+    },
+    {
+      id: "ex.tb2.9.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "Hi! Where you from? What you do? Can you give me job at your company?",
+      correct_sentence: "Hi — I'm Berk, I lead infrastructure at a fintech in Istanbul. What's bringing you to the conference?",
+      tr_explanation:
+        "'Can you give me job' = aşırı transactional, ilk dakikada uygunsuz. Konferansta first impression: kendini tanıt (rol + lokasyon) + karşıya açık soru ('what's bringing you'). İş konuşması varsa 2. veya 3. konuşmada doğal gelir.",
+    },
   ],
 };
 
@@ -1932,6 +2337,51 @@ export const travelB2Lesson_10: BundledLesson = {
             "Full refund up to 30 days out, 50 percent up to 7 days. And yes — I always recommend separate insurance for medical reasons. I'll include three quotes in the proposal.",
         },
       ],
+    },
+    {
+      id: "ex.tb2.10.7",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "Could you build the PNR with a wheelchair request and a nut-allergy meal note on every leg?",
+      ipa: "/kʊd jʊ bɪld ðə piː ɛn ɑːr wɪð ə ˈwiːltʃɛə rɪˈkwɛst ænd ə nʌt ˈælədʒi miːl nəʊt ɒn ˈɛvri lɛɡ/",
+      tr_hint:
+        "Çok bacaklı seyahat profesyonel talebi. 'PNR' = bilet kayıt kodu (havayolu terimi). 'Every leg' = her aktarma. 'Meal note' = uçak yemegi notu. Üç şeyi tek nefes — agent organize eder.",
+    },
+    {
+      id: "ex.tb2.10.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "I'd appreciate written confirmation of all special requests before I commit to the booking.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Profesyonel kontrol. 'Written confirmation' = yazılı onay (e-posta). 'Before I commit' = bağlanmadan önce. Sözlü söz yetmez — yazılı kayıt zorunlu.",
+    },
+    {
+      id: "ex.tb2.10.9",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "I'll flag dietary requirements with each airline and verify accessibility with the hotels.",
+      transcription_target: "I'll flag dietary requirements with each airline and verify accessibility with the hotels.",
+      tr_hint:
+        "İyi travel agent yanıtı. 'Flag dietary requirements' = beslenme şartlarını işaretle. 'Verify accessibility' = erişilebilirliği doğrula. İki ayrı uçak/otel tedarikçisi — agent iki yönde çalışacak.",
+    },
+    {
+      id: "ex.tb2.10.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "special service request",
+      tr_translation: "özel hizmet talebi (SSR — havayolu kayıt kodu)",
+      example: "Please add SSRs for wheelchair assistance and a strict nut-free meal on each segment.",
+      example_tr: "Her segmentte tekerlekli sandalye yardımı ve katı fındık-yok yemek için SSR ekleyin.",
+    },
+    {
+      id: "ex.tb2.10.11",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "Just book the cheapest flights and hotels. We figure out wheelchair when we get there.",
+      correct_sentence: "Could you build the itinerary around accessibility first — wheelchair-friendly hotels, ground-level rooms, and SSRs for assistance on every flight segment?",
+      tr_explanation:
+        "'Figure out when we get there' = yerinde erişilebilirlik garantisi yok, tatil mahvolabilir. Profesyonel: kısıtı en üste koy ('around accessibility first') + spesifik ('ground-level rooms') + SSR kodu. Travel agent uzmanlıkla planlar.",
     },
   ],
 };

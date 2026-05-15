@@ -164,6 +164,52 @@ export const banterComplimentLesson_27_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.bcomp27.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Honestly, you handled that so well.",
+      ipa: "ˈɒnəstli juː ˈhændld ðæt soʊ wel",
+      tr_hint:
+        "'Honestly' samimi başlangıç. 'Handled' = 'hæn-dld', 'd' net. 'So well' vurgulu — gerçek hayranlık.",
+    },
+    {
+      id: "ex.bcomp27.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Dude, that take on the project was actually really sharp.",
+      voice_hint: "casual_us_male",
+      tr_hint:
+        "'Dude' samimi açılış. 'That take' = senin görüşün. 'Actually really sharp' vurgu 'sharp'a — spesifik takdir.",
+    },
+    {
+      id: "ex.bcomp27.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "For sure, your energy in that meeting kinda changed things.",
+      transcription_target:
+        "For sure, your energy in that meeting kinda changed things.",
+      tr_hint:
+        "Spesifik gözlem iltifatı. 'Your energy' = enerji + tarz. 'Kinda changed things' = casual yumuşak ama güçlü etki.",
+    },
+    {
+      id: "ex.bcomp27.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "totally",
+      tr_translation: "tamamen, gerçekten (yoğunlaştırıcı casual)",
+      example: "You totally nailed that presentation.",
+      example_tr: "O sunumu tamamen mıhladın.",
+    },
+    {
+      id: "ex.bcomp27.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I am compelled to commend your exceptional performance.",
+      correct_sentence: "Honestly, you crushed it today — really impressive.",
+      tr_explanation:
+        "'Compelled to commend' + 'exceptional performance' = ödül töreni dili. Casual ortamda: 'You crushed it' + 'honestly' + 'really impressive' = warm + spesifik.",
+    },
   ],
 };
 
@@ -330,6 +376,53 @@ export const banterComplimentLesson_27_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.bcomp27.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Thanks — that really means a lot.",
+      ipa: "θæŋks ðæt ˈrɪli miːnz ə lɒt",
+      tr_hint:
+        "'Thanks' kısa + samimi. 'Really' = 'rɪ-li', vurgu. 'Means a lot' = bağlı 'miːnzə-lɒt'. Gerçek hisli ton.",
+    },
+    {
+      id: "ex.bcomp27.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Dude, thanks — honestly didn't think it landed.",
+      voice_hint: "casual_us_female",
+      tr_hint:
+        "'Dude' samimi. 'Honestly didn't think it landed' = 'beklemiyordum, sürpriz oldu'. Mütevazı + warm.",
+    },
+    {
+      id: "ex.bcomp27.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Oh man, totally appreciate that — kinda made my day.",
+      transcription_target:
+        "Oh man, totally appreciate that — kinda made my day.",
+      tr_hint:
+        "'Oh man' = duygulanma. 'Totally appreciate' = tam takdir. 'Made my day' = günümü güzelleştirdi (klasik idiom).",
+    },
+    {
+      id: "ex.bcomp27.2.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "honestly",
+      tr_translation: "açıkçası, gerçekten (samimi yoğunlaştırıcı)",
+      example: "Honestly, this made my whole week.",
+      example_tr: "Açıkçası bu tüm haftamı yaptı.",
+    },
+    {
+      id: "ex.bcomp27.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "I wish to formally acknowledge receipt of your kind words.",
+      correct_sentence: "Thanks so much — that really means a lot.",
+      tr_explanation:
+        "'Formally acknowledge receipt' = e-posta otomatik cevap. İltifata casual cevap: 'Thanks so much' + 'really means a lot' = gerçek + warm + 6 kelime.",
+    },
   ],
 };
 
@@ -493,6 +586,54 @@ export const banterComplimentLesson_27_3: BundledLesson = {
             "Iliski tek yonlu calismaz. Geri vermek = sosyal sermaye buyutme.",
         },
       ],
+    },
+    {
+      id: "ex.bcomp27.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Right back at you — you were on fire today.",
+      ipa: "raɪt bæk æt juː juː wɜːr ɒn ˈfaɪər təˈdeɪ",
+      tr_hint:
+        "'Right back at you' = sana geri (iade etme). 'On fire' = harikaydın (idiom). Vurgu 'fire'a. Sıcak + arkadaşça ton.",
+    },
+    {
+      id: "ex.bcomp27.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "For sure, but honestly couldn't have pulled it off without you.",
+      voice_hint: "casual_us_male",
+      tr_hint:
+        "'For sure' = onay. 'Pulled it off' = başardık (idiom). 'Without you' yumuşak — gerçek takdir.",
+    },
+    {
+      id: "ex.bcomp27.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Totally — and you were honestly the MVP today.",
+      transcription_target:
+        "Totally — and you were honestly the MVP today.",
+      tr_hint:
+        "'MVP' = Most Valuable Player (idiom, herhangi alanda 'en değerli kişi'). Casual takdir kalıbı.",
+    },
+    {
+      id: "ex.bcomp27.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "no way",
+      tr_translation: "yok artık, hadi canım (modest itiraz)",
+      example: "No way — you were the one who carried it.",
+      example_tr: "Yok artık — taşıyan sendin.",
+    },
+    {
+      id: "ex.bcomp27.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I shall reciprocate by stating that your contribution was likewise commendable.",
+      correct_sentence:
+        "Right back at you — honestly, you crushed it.",
+      tr_explanation:
+        "'Shall reciprocate by stating' + 'likewise commendable' = parlamento konuşması. Casual: 'Right back at you' + 'crushed it' = samimi yansıtma.",
     },
   ],
 };

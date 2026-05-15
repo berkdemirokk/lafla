@@ -180,6 +180,52 @@ export const flirtSecondDateLesson_42_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fsd42.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I had a great time — want to do this again?",
+      ipa: "aɪ hæd ə ɡreɪt taɪm wɒnt tə duː ðɪs əˈɡen",
+      tr_hint:
+        "'Had a' bağlanır → 'hæ-də'. 'Great time' kısa + sıcak. 'Want to' = 'WAN-nə' casual'da. Soru tonu yukarı.",
+    },
+    {
+      id: "ex.fsd42.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Coffee was too short — let's do dinner this weekend?",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Coffee was too short' samimi gözlem. 'Let's do dinner' kararlı, davet eden. 'This weekend' soru tonu.",
+    },
+    {
+      id: "ex.fsd42.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Same here — honestly didn't want it to end. We need a round 2.",
+      transcription_target: "Same here — honestly didn't want it to end. We need a round 2.",
+      tr_hint:
+        "Dinle, yaz. 'Didn't want it to end' = bitmesini istemedim. 'Round 2' = ikinci randevu jargonu.",
+    },
+    {
+      id: "ex.fsd42.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "hard launch",
+      tr_translation: "Açık ilan (sosyal medyada ilişki paylaşımı)",
+      example: "Not ready for a hard launch yet — let's give it a couple months.",
+      example_tr: "Henüz açık ilana hazır değilim — birkaç ay verelim.",
+    },
+    {
+      id: "ex.fsd42.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "You free Saturday? I want second date.",
+      correct_sentence:
+        "Had such a good time — free Saturday? Dinner this time.",
+      tr_explanation:
+        "'I want second date' = direkt Türkçe çevirisi, soğuk. Doğru: önce duygu beyanı ('such a good time') + esnek davet + somut upgrade ('dinner this time').",
+    },
   ],
 };
 
@@ -361,6 +407,52 @@ export const flirtSecondDateLesson_42_2: BundledLesson = {
             "'I know a spot' = bilgili + paylaşımcı. Karşı tarafa 'sen rota planlamayacaksın' rahatlığı verir.",
         },
       ],
+    },
+    {
+      id: "ex.fsd42.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I know a spot you'd love.",
+      ipa: "aɪ nəʊ ə spɒt juːd lʌv",
+      tr_hint:
+        "'Know a' bağlanır → 'nəʊ-ə'. 'You'd' = 'you would' kısaltma. 'Love' sonda sıcak — paylaşma niyeti.",
+    },
+    {
+      id: "ex.fsd42.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "There's a rooftop bar on 5th — they do live jazz on Thursdays.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'There's a' bağlanır. 'Rooftop bar' kısa + sıcak. 'Live jazz' detay verirken hafif gülümseme.",
+    },
+    {
+      id: "ex.fsd42.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Sounds way better than another dinner — when were you thinking?",
+      transcription_target: "Sounds way better than another dinner — when were you thinking?",
+      tr_hint:
+        "Dinle, yaz. 'Way better' = çok daha iyi. 'When were you thinking?' = ne zaman düşünüyordun.",
+    },
+    {
+      id: "ex.fsd42.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "third place",
+      tr_translation: "Üçüncü mekan (ev ve iş dışı sosyal alan)",
+      example: "Looking for our third place — a coffee shop or bookstore that's ours.",
+      example_tr: "Bizim üçüncü mekanı arıyoruz — bize ait bir kahveci ya da kitapçı.",
+    },
+    {
+      id: "ex.fsd42.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "We must see museum. You will like it.",
+      correct_sentence:
+        "Have you been to the new wing at the Met? Could be fun to check it out together.",
+      tr_explanation:
+        "'We must see museum. You will like it.' = emir + varsayım, kontrolcü gelir. Doğru: 'Have you been?' (saygılı soru) + 'could be fun together' (ortak deneyim daveti).",
     },
   ],
 };
@@ -548,6 +640,52 @@ export const flirtSecondDateLesson_42_3: BundledLesson = {
             "Soruyu sorup boşluk bırak. Karşı taraf konuşurken dinle. Asıl bağ kurma anı bu.",
         },
       ],
+    },
+    {
+      id: "ex.fsd42.3.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "What's been on your mind lately?",
+      ipa: "wɒts biːn ɒn jɔːr maɪnd ˈleɪtli",
+      tr_hint:
+        "'What's been' bağlı — 'wɒts-biːn'. 'On your mind' = aklında. 'Lately' sonda yumuşak, samimi merak tonu.",
+    },
+    {
+      id: "ex.fsd42.3.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "Honestly, been weighing whether to move cities — big one.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Honestly' samimi açılış — yavaş. 'Weighing whether' düşünceli ton. 'Big one' sonda nefes — derinlik bırak.",
+    },
+    {
+      id: "ex.fsd42.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "That's a heavy one — what's making you lean toward it?",
+      transcription_target: "That's a heavy one — what's making you lean toward it?",
+      tr_hint:
+        "Dinle, yaz. 'Heavy one' = ağır konu. 'Lean toward' = ona doğru meyletmek — karar yönü.",
+    },
+    {
+      id: "ex.fsd42.3.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "inner child work",
+      tr_translation: "İç çocuk çalışması (terapi referansı)",
+      example: "Been doing some inner child work lately — it's been a lot.",
+      example_tr: "Son zamanlarda iç çocuk çalışması yapıyorum — yoğun bir süreç.",
+    },
+    {
+      id: "ex.fsd42.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Tell me your traumas now. We are intimate.",
+      correct_sentence:
+        "What's something you don't usually tell people on a second date?",
+      tr_explanation:
+        "'Tell me your traumas now' = sınır ihlali + zorlama. Doğru: 'something you don't usually tell' (davet, mecbur değil) = saygılı derinlik açma.",
     },
   ],
 };
@@ -747,6 +885,52 @@ export const flirtSecondDateLesson_42_4: BundledLesson = {
             "'Slow works' yeterli + rahat. Sınırı tartışmak = çekiciliği yok eder. Saygı = ilişkinin temeli.",
         },
       ],
+    },
+    {
+      id: "ex.fsd42.4.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Can I kiss you?",
+      ipa: "kæn aɪ kɪs juː",
+      tr_hint:
+        "Üç kelime, net. 'Kiss you' bağlanır → 'kɪs-juː'. Yavaş + samimi + doğrudan göz teması ile.",
+    },
+    {
+      id: "ex.fsd42.4.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I don't want tonight to end — only if you want, your place?",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Don't want' yumuşak. 'Only if you want' alçak ses — rıza vurgusu. 'Your place' soru tonu, baskısız.",
+    },
+    {
+      id: "ex.fsd42.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Let's take it slow tonight — but yes, come over for a drink.",
+      transcription_target: "Let's take it slow tonight — but yes, come over for a drink.",
+      tr_hint:
+        "Dinle, yaz. 'Take it slow' = yavaş gidelim. 'Come over' = bana gel. Rıza + sınır.",
+    },
+    {
+      id: "ex.fsd42.4.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "enthusiastic consent",
+      tr_translation: "Coşkulu rıza (modern rıza standardı)",
+      example: "Enthusiastic consent only — if it's not a full yes, it's a no.",
+      example_tr: "Sadece coşkulu rıza — tam evet değilse, hayırdır.",
+    },
+    {
+      id: "ex.fsd42.4.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I kiss you now. You wanted this.",
+      correct_sentence:
+        "Can I kiss you? Been wanting to all night.",
+      tr_explanation:
+        "'I kiss you now. You wanted this.' = komut + varsayım = ihlal. Doğru: 'Can I kiss you?' (rıza sorusu) + 'been wanting to' (kendi duygunu paylaş) = saygılı + arzulu.",
     },
   ],
 };

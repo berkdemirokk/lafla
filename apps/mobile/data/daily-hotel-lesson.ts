@@ -163,6 +163,55 @@ export const dailyHotelLesson_20_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.dh20.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Could I do an early check-in, please?",
+      ipa: "/kʊd aɪ duː ən ˈɜːrli ˈtʃɛk ɪn pliːz/",
+      tr_hint:
+        "'Could I' bağlanır = 'kud-ay'. 'Early' = 'IR-li' (vurgu ilk hece). 'Check-in' = tek kelime gibi: 'çek-in'.",
+    },
+    {
+      id: "ex.dh20.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Hi, checking in — reservation under Yilmaz, two nights, high floor if possible.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Resepsiyon tam kalıp. 'Checking in' = açılış. 'Under Yilmaz' = soyisim altında. 'If possible' = kibar şart.",
+    },
+    {
+      id: "ex.dh20.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Your room is on the twelfth floor. Breakfast is served from 6:30 to 10 in the lobby.",
+      transcription_target:
+        "Your room is on the twelfth floor. Breakfast is served from 6:30 to 10 in the lobby.",
+      tr_hint:
+        "Resepsiyonun standart kapanışı. 'Twelfth' = 'twelfθ' (zor!). 'Served from' bağlanır.",
+    },
+    {
+      id: "ex.dh20.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "is there any way",
+      tr_translation: "Bir yolu var mı?",
+      example: "Is there any way to get a room with a view?",
+      example_tr: "Manzaralı bir oda almanın bir yolu var mı?",
+    },
+    {
+      id: "ex.dh20.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I have one reservation for two nights at name Yilmaz.",
+      correct_sentence:
+        "I have a reservation for two nights under the name Yilmaz.",
+      tr_explanation:
+        "'One reservation' yanlış — 'a reservation' standart. 'At name' yanlış edat; doğru kalıp 'under the name' (= adına). 'For two nights' doğru.",
+    },
   ],
 };
 
@@ -330,6 +379,55 @@ export const dailyHotelLesson_20_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.dh20.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "The AC isn't working in my room.",
+      ipa: "/ði ˌeɪ ˈsiː ˈɪzənt ˈwɜːrkɪŋ ɪn maɪ ruːm/",
+      tr_hint:
+        "'AC' harf harf: 'ey-si'. 'Isn't working' bağlanır = 'iz-ınt-WIR-king'. 'In my room' = 'in-may-rum'.",
+    },
+    {
+      id: "ex.dh20.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Sorry to bother — could you send someone up to fix the hot water?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Front desk araması. 'Sorry to bother' = saygılı açılış. 'Send someone up' = birini yolla.",
+    },
+    {
+      id: "ex.dh20.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "I'll send maintenance up right away. If they can't fix it, we'll switch your room.",
+      transcription_target:
+        "I'll send maintenance up right away. If they can't fix it, we'll switch your room.",
+      tr_hint:
+        "Resepsiyon tipik cevap. 'Maintenance' = 'MEYN-tı-nıns'. 'Right away' = hemen.",
+    },
+    {
+      id: "ex.dh20.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "would you mind",
+      tr_translation: "... yapmanın bir sakıncası olur mu?",
+      example: "Would you mind sending a different pillow up to the room?",
+      example_tr: "Odaya farklı bir yastık yollamanın bir sakıncası olur mu?",
+    },
+    {
+      id: "ex.dh20.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Room is too much noise, I can't sleep please.",
+      correct_sentence:
+        "The room is too noisy — could you move me to a quieter one?",
+      tr_explanation:
+        "'Too much noise' yanlış — 'noise' sayılamayan + 'too much' yapı bozuk; doğru: 'too noisy' (sıfat). 'I can't sleep please' awkward; çözüm istemek daha güçlü: 'move me to a quieter one'.",
+    },
   ],
 };
 
@@ -495,6 +593,55 @@ export const dailyHotelLesson_20_3: BundledLesson = {
             "Standart 11AM/12PM. Otel bos varsa 1-2 saat ucretsiz. Sorunca verir.",
         },
       ],
+    },
+    {
+      id: "ex.dh20.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Any chance of a late checkout?",
+      ipa: "/ˈɛni tʃɑːns əv ə leɪt ˈtʃɛkaʊt/",
+      tr_hint:
+        "'Any chance of' bağlanır = 'eni-çans-ıv'. 'Checkout' tek kelime: 'ÇEK-aut' (vurgu ilk hece).",
+    },
+    {
+      id: "ex.dh20.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Checking out — room 405. Could you email me a copy of the receipt?",
+      voice_hint: "male_us",
+      tr_hint:
+        "Check-out tam kalıbı. 'Room four-oh-five' (US: oh = sıfır). 'Email me' bağlanır.",
+    },
+    {
+      id: "ex.dh20.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "We can do 1 PM late checkout, and you're welcome to leave your bags by the elevator.",
+      transcription_target:
+        "We can do 1 PM late checkout, and you're welcome to leave your bags by the elevator.",
+      tr_hint:
+        "Resepsiyon tipik cevap. 'You're welcome to' = serbestsin. 'By the elevator' = asansörün yanı.",
+    },
+    {
+      id: "ex.dh20.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "have you got",
+      tr_translation: "(Sende) var mı?",
+      example: "Have you got a place to store luggage after checkout?",
+      example_tr: "Çıkıştan sonra bagaj koyacak bir yeriniz var mı?",
+    },
+    {
+      id: "ex.dh20.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Mini bar prices are wrong on the bill — please correct.",
+      correct_sentence:
+        "The minibar charges don't look right — could you take another look?",
+      tr_explanation:
+        "'Prices are wrong' kaba doğrudan suçlama. Saygılı yaklaşım: 'don't look right' (= bana doğru görünmüyor) + 'take another look' (= tekrar bak). Personel savunmaya geçmez, problem hızlı çözülür.",
     },
   ],
 };

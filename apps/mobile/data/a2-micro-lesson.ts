@@ -1987,6 +1987,47 @@ export const a2MicroLesson_late: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a2.lt.7",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Sorry I'm late — traffic was awful.",
+      tr_hint: "'Sorry I'm' birleşir → 'soriaym'. 'traffic was awful' düz akar, sondaki 'awful' alçak.",
+    },
+    {
+      id: "ex.a2.lt.8",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Apologies for the delay — let's get started.",
+      voice_hint: "female_us",
+      tr_hint: "'Apologies for the delay' formal/kibar. 'let's get started' enerjik, ileri taşır.",
+    },
+    {
+      id: "ex.a2.lt.9",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "I got stuck in traffic this morning.",
+      transcription_target: "I got stuck in traffic this morning.",
+      tr_hint: "'Got stuck' = sıkışıp kaldım. 'this morning' net telaffuz.",
+    },
+    {
+      id: "ex.a2.lt.10",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "running late",
+      tr_translation: "Gecikiyorum",
+      example: "I'm running about ten minutes late.",
+      example_tr: "Yaklaşık on dakika gecikiyorum.",
+    },
+    {
+      id: "ex.a2.lt.11",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I am late because of traffic was bad.",
+      correct_sentence: "I'm late because the traffic was bad.",
+      tr_explanation:
+        "'Because of' + isim ('the traffic'), 'because' + cümle ('the traffic was bad'). İkisi karıştırılmaz: 'because of bad traffic' veya 'because the traffic was bad'.",
+    },
   ],
 };
 

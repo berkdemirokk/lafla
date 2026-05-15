@@ -187,6 +187,57 @@ export const ieltsSpeakingLesson_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.ielts1.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Furthermore, the area itself is steeped in history.",
+      tr_hint:
+        "'Furthermore' = 'için ek olarak' — IELTS Part 1/3'te akışı sürdüren bağlayıcı. 'FUR-ther-more' ilk hece vurgulu. 'Steeped in' = '...içinde demlenmiş' deyimi; mahalle/şehir tasvirinde band 7+ sinyali.",
+    },
+    {
+      id: "ex.ielts1.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "At the moment, I'm living in a fairly bustling neighbourhood, which I'd describe as both convenient and full of character.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Band 7-8 model cevap. 'At the moment' yumuşak başlangıç. 'I'd describe it as both X and Y' — IELTS'in altın kalıbı. Ritmi yakala: 'bustling' ve 'character' kelimelerinde hafif vurgu.",
+    },
+    {
+      id: "ex.ielts1.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "Could you tell me a little bit about the area where you live?",
+      transcription_target:
+        "Could you tell me a little bit about the area where you live?",
+      tr_hint:
+        "Examiner Part 1 açılış sorusunun standart varyasyonu. 'A little bit' = 'biraz'; 'about' bağlacı hafif yutulur. 'The area where you live' — ilgi cümleciği.",
+    },
+    {
+      id: "ex.ielts1.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "to a large extent",
+      tr_translation: "büyük ölçüde / oldukça",
+      example:
+        "To a large extent, the character of my neighbourhood is shaped by its long history.",
+      example_tr:
+        "Mahallemin karakteri büyük ölçüde uzun tarihiyle şekillenmiştir.",
+    },
+    {
+      id: "ex.ielts1.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "There are many informations about my neighbourhood on internet.",
+      correct_sentence:
+        "There's a lot of information about my neighbourhood online.",
+      tr_explanation:
+        "Türk öğrencinin klasik IELTS hatası: 'information' sayılamaz, 'informations' yanlış — 'a lot of information' veya 'pieces of information'. 'On internet' yerine 'online' veya 'on the internet'.",
+    },
   ],
 };
 
@@ -372,6 +423,55 @@ export const ieltsSpeakingLesson_2: BundledLesson = {
             "Band 7: sebep + 'both X and Y' + hassas sıfat ('creatively rewarding'). Klişe 'fun' band 5.",
         },
       ],
+    },
+    {
+      id: "ex.ielts2.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "To be honest with you, I'm absolutely hooked on it.",
+      tr_hint:
+        "'To be honest with you' = 'açıkçası' — Part 1'de doğal, samimi açılış. 'Hooked on it' = 'bağımlısıyım'. 'Absolutely' kelimesinde 'AB-so-lutely' vurgu; sıralı söyleyiş ritim verir.",
+    },
+    {
+      id: "ex.ielts2.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "I've been really into photography for as long as I can remember, mainly because it allows me to unwind and see the world differently.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Band 8 model: 'I've been really into...' + 'for as long as I can remember' (idyom) + 'mainly because' + iki sebep. Tonlama: 'unwind' ve 'differently' yavaşlat.",
+    },
+    {
+      id: "ex.ielts2.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "What kinds of hobbies do you enjoy in your free time?",
+      transcription_target:
+        "What kinds of hobbies do you enjoy in your free time?",
+      tr_hint:
+        "Tipik Part 1 hobby sorusu. 'Kinds of' = 'çeşit'; 'do you enjoy' soru kalıbı, 'do' vurgusuz. 'In your free time' standart son ek.",
+    },
+    {
+      id: "ex.ielts2.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "as a matter of fact",
+      tr_translation: "aslına bakarsanız / işin aslı",
+      example:
+        "As a matter of fact, I picked up photography during the pandemic.",
+      example_tr:
+        "Aslına bakarsanız, fotoğrafçılığı pandemi sırasında öğrenmeye başladım.",
+    },
+    {
+      id: "ex.ielts2.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Photography make me to think creatively.",
+      correct_sentence: "Photography makes me think creatively.",
+      tr_explanation:
+        "İki klasik IELTS hatası: (1) 'Photography' tekil, 'make' yerine 'makes' (3. tekil -s). (2) 'make me to think' yanlış — 'make' causative verb sonrasında bare infinitive ('to'-suz): 'makes me think'. Band 5'lik gramer cezası.",
     },
   ],
 };
@@ -568,6 +668,56 @@ export const ieltsSpeakingLesson_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.ielts3.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "In contrast, my role focuses more on long-term strategy.",
+      tr_hint:
+        "'In contrast' = 'buna karşılık' — Part 1/3'te karşılaştırma bağlayıcısı. 'IN-CON-trast' iki vurgulu. 'Focuses more on' kalıp ifade; 'more on' birleşik söyleniyor.",
+    },
+    {
+      id: "ex.ielts3.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "I'm currently working as a software engineer, and what I find most rewarding is the chance to solve real-world problems.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Band 7-8 iş cevabı. 'What I find most rewarding is...' — cleft sentence, band 7 belirteci. Tonlama: 'rewarding' ve 'real-world' kelimelerinde hafif vurgu.",
+    },
+    {
+      id: "ex.ielts3.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Do you work, or are you a student at the moment?",
+      transcription_target:
+        "Do you work, or are you a student at the moment?",
+      tr_hint:
+        "Part 1'in en sık ilk sorularından biri. Cevap önce 'work' veya 'student', sonra detay. 'At the moment' yumuşak son ek.",
+    },
+    {
+      id: "ex.ielts3.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "conversely",
+      tr_translation: "tersine / öte yandan",
+      example:
+        "Conversely, my colleagues handle the day-to-day client work.",
+      example_tr:
+        "Tersine, iş arkadaşlarım günlük müşteri işlerini yürütüyor.",
+    },
+    {
+      id: "ex.ielts3.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I am working in my company since 3 years and I make a good experience.",
+      correct_sentence:
+        "I've been working at my company for 3 years and I've gained a lot of experience.",
+      tr_explanation:
+        "Üç ortak hata: (1) 'since 3 years' yanlış — süre için 'for'. (2) 'I am working' yerine present perfect continuous: 'I've been working'. (3) 'make experience' yanlış collocation — doğru: 'gain/get experience'. Ayrıca 'in' yerine 'at my company'.",
+    },
   ],
 };
 
@@ -758,6 +908,55 @@ export const ieltsSpeakingLesson_4: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.ielts4.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Furthermore, we tend to stay in touch on a daily basis.",
+      tr_hint:
+        "'Furthermore' = '...için ek olarak' — IELTS bağlayıcısı. 'Stay in touch' = 'iletişimde kalmak'. 'On a daily basis' = 'günlük olarak'; 'da-ily' iki hece, 'basis' = 'BAY-sis'.",
+    },
+    {
+      id: "ex.ielts4.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "We're a fairly close-knit family, and to be honest with you, my mum has had the biggest impact on me.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Band 7-8 aile cevabı. 'Close-knit' (idyom) + 'to be honest with you' (samimi açılış) + present perfect ('has had'). Tonlama: 'biggest impact' yavaş, vurgulu.",
+    },
+    {
+      id: "ex.ielts4.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "How often do you spend time with your family these days?",
+      transcription_target:
+        "How often do you spend time with your family these days?",
+      tr_hint:
+        "Part 1 sıklık sorusu. 'How often do you...' standart kalıp; 'do you' yutulur. 'These days' = bugünlerde, sona eklenir.",
+    },
+    {
+      id: "ex.ielts4.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "to a great extent",
+      tr_translation: "büyük ölçüde",
+      example:
+        "To a great extent, my parents shaped the person I am today.",
+      example_tr:
+        "Bugün olduğum kişiyi büyük ölçüde ailem şekillendirdi.",
+    },
+    {
+      id: "ex.ielts4.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "My family give me many advices.",
+      correct_sentence: "My family gives me a lot of advice.",
+      tr_explanation:
+        "İki klasik IELTS hatası: (1) 'family' collective noun — UK İngilizcesinde tekil/çoğul olabilir ama IELTS'te tekil ('gives') güvenli. (2) 'advice' sayılamaz isim — 'advices' yanlış; 'a lot of advice' veya 'pieces of advice'. Band 5 grameri.",
+    },
   ],
 };
 
@@ -947,6 +1146,56 @@ export const ieltsSpeakingLesson_5: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.ielts5.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "To be honest with you, she's had a profound influence on my career path.",
+      tr_hint:
+        "Part 2 ifade kalıbı. 'To be honest with you' = samimi açılış. 'Profound influence' band 7+ collocation; 'pro-FOUND' ikinci hece vurgulu. 'Career path' kalıbı.",
+    },
+    {
+      id: "ex.ielts5.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "The person I'd like to talk about is my former mentor, who not only taught me technical skills but also instilled in me a strong work ethic.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Band 8 Part 2 model. 'Not only X but also Y' = inversion kalıbı. 'Instilled in me' = 'içime aşıladı' — band 8 fiil. Tonlama: 'work ethic' yavaş ve net.",
+    },
+    {
+      id: "ex.ielts5.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "I'd like you to describe a person who has had an influence on you.",
+      transcription_target:
+        "I'd like you to describe a person who has had an influence on you.",
+      tr_hint:
+        "Examiner Part 2 cue card açılışı. 'I'd like you to...' = yumuşak komut. Present perfect: 'has had an influence'. Vurgu 'influence' kelimesinde.",
+    },
+    {
+      id: "ex.ielts5.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "to look up to",
+      tr_translation: "örnek almak, saygı duymak",
+      example:
+        "She's someone I've always looked up to, both personally and professionally.",
+      example_tr:
+        "Hem kişisel hem profesyonel olarak hep örnek aldığım biridir.",
+    },
+    {
+      id: "ex.ielts5.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "He learned me to be patient and discipline.",
+      correct_sentence: "He taught me to be patient and disciplined.",
+      tr_explanation:
+        "İki Türk öğrenci hatası: (1) 'Learn' yerine 'teach' — 'learn' kendi öğrenmek, 'teach' birine öğretmek. (2) 'Discipline' isim, 'disciplined' sıfat — 'be + sıfat' yapısında 'disciplined' gerekli. Paralel yapı (patient, disciplined) band 7 işareti.",
+    },
   ],
 };
 
@@ -1126,6 +1375,55 @@ export const ieltsSpeakingLesson_6: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.ielts6.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "Looking back, it was an absolutely unforgettable experience for me.",
+      tr_hint:
+        "Part 2 kapanış kalıbı. 'Looking back' = 'geriye dönüp baktığımda'. 'Absolutely unforgettable' = vurgulayıcı + güçlü sıfat; 'ABSOL-utely' uzun. Sondaki 'for me' yumuşak.",
+    },
+    {
+      id: "ex.ielts6.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "I'd like to talk about a trip I took to Cappadocia a couple of years ago, which truly took my breath away.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Band 8 Part 2 açılışı. 'A couple of years ago' (idyom). 'Took my breath away' = nefes kesti. Tonlama: 'truly took my breath away' kelime kelime yavaş, dramatik.",
+    },
+    {
+      id: "ex.ielts6.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "Describe a memorable trip you have taken, and explain why it was special.",
+      transcription_target:
+        "Describe a memorable trip you have taken, and explain why it was special.",
+      tr_hint:
+        "Klasik Part 2 cue card. 'Memorable' = MEM-o-ra-ble (4 hece). 'You have taken' present perfect; 'why it was special' embedded soru.",
+    },
+    {
+      id: "ex.ielts6.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "to take one's breath away",
+      tr_translation: "nefes kesmek (etkileyici olmak)",
+      example: "The view from the top simply took my breath away.",
+      example_tr: "Tepedeki manzara resmen nefesimi kesti.",
+    },
+    {
+      id: "ex.ielts6.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I traveled in Cappadocia in last summer with my friends.",
+      correct_sentence: "I travelled to Cappadocia last summer with my friends.",
+      tr_explanation:
+        "Üç hata: (1) 'Travel in' yerine 'travel to' (yön bildirmek). (2) 'In last summer' yanlış — 'last summer' önüne edat almaz. (3) UK İngilizcesinde 'travelled' (çift l), US 'traveled'. IELTS UK formatında 'travelled' güvenli.",
+    },
   ],
 };
 
@@ -1299,6 +1597,58 @@ export const ieltsSpeakingLesson_7: BundledLesson = {
             "'Years ago' belli bir geçmiş zaman → past simple ('read'). Present perfect ('have read') belirsiz zaman ile.",
         },
       ],
+    },
+    {
+      id: "ex.ielts7.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "In contrast to most thrillers, this book completely changed my outlook.",
+      tr_hint:
+        "Part 2/3 karşılaştırma kalıbı. 'In contrast to' = '...e zıt olarak'. 'Outlook' = bakış açısı; 'OUT-look' ilk hece vurgulu. 'Completely changed' güçlü vurgulu.",
+    },
+    {
+      id: "ex.ielts7.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "The book that really comes to mind is Sapiens by Yuval Noah Harari, which fundamentally reshaped the way I think about humanity.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Band 8 model: 'The book that really comes to mind is...' = vurgulu açılış. 'Reshaped the way I think' band 7+ kalıp. Tonlama: 'fundamentally' yavaş ve dramatik.",
+    },
+    {
+      id: "ex.ielts7.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "Tell me about a book or film that has changed your way of thinking.",
+      transcription_target:
+        "Tell me about a book or film that has changed your way of thinking.",
+      tr_hint:
+        "Part 2 cue card. 'Tell me about' = standart başlangıç. 'Way of thinking' kalıbı; 'of' yutulur, neredeyse 'wayuv thinking' duyulur.",
+    },
+    {
+      id: "ex.ielts7.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "to a large extent",
+      tr_translation: "büyük ölçüde",
+      example:
+        "To a large extent, that book changed how I view the modern world.",
+      example_tr:
+        "O kitap modern dünyaya bakışımı büyük ölçüde değiştirdi.",
+    },
+    {
+      id: "ex.ielts7.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "The book has gave me many informations about human history.",
+      correct_sentence:
+        "The book gave me a great deal of information about human history.",
+      tr_explanation:
+        "Üç hata: (1) 'has gave' yanlış — present perfect 'has given' (V3). Ama 'years ago' bağlamında past simple 'gave' daha doğru. (2) 'Informations' yanlış — 'information' sayılamaz. (3) 'Many' yerine 'a great deal of' veya 'a lot of'. Band 5 grameri.",
     },
   ],
 };
@@ -1477,6 +1827,57 @@ export const ieltsSpeakingLesson_8: BundledLesson = {
             "'Weigh up' = tartmak (metaforik). 'Pros and cons' = artılar/eksiler. Karar verme bağlamında IELTS standart deyimi.",
         },
       ],
+    },
+    {
+      id: "ex.ielts8.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "To be honest with you, it was by far the toughest call I'd ever had to make.",
+      tr_hint:
+        "Part 2 zorlu karar kalıbı. 'To be honest with you' = samimi açılış. 'By far the toughest call' = açık ara en zoru. Tonlama: 'toughest' güçlü vurgulu, 'ever' yumuşak.",
+    },
+    {
+      id: "ex.ielts8.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "After weighing up all the pros and cons, I eventually decided to leave my stable job in pursuit of something more meaningful.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Band 8 model: 'After + V-ing' yapısı. 'In pursuit of' = peşinde. 'Eventually decided to' = sonunda karar verdi. Tonlama: 'meaningful' yavaş ve net.",
+    },
+    {
+      id: "ex.ielts8.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "Describe a difficult decision you've had to make in your life.",
+      transcription_target:
+        "Describe a difficult decision you've had to make in your life.",
+      tr_hint:
+        "Part 2 cue card. 'You've had to make' present perfect + modal. 'In your life' sona vurgusuz eklenir.",
+    },
+    {
+      id: "ex.ielts8.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "conversely",
+      tr_translation: "tersine, öte yandan",
+      example:
+        "Conversely, staying in my old job would have meant giving up on my dreams.",
+      example_tr:
+        "Tersine, eski işimde kalmak hayallerimden vazgeçmek anlamına gelirdi.",
+    },
+    {
+      id: "ex.ielts8.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I have decided to quit my job since two years ago.",
+      correct_sentence: "I decided to quit my job two years ago.",
+      tr_explanation:
+        "İki hata: (1) 'X years ago' = belli bir geçmiş nokta → past simple ('decided'), present perfect değil. (2) 'Since two years ago' yanlış kullanım — 'since' başlangıç noktası ('since 2022'), 'ago' süre. İkisi bir arada olmaz. Band 5 zaman hatası.",
     },
   ],
 };
@@ -1663,6 +2064,58 @@ export const ieltsSpeakingLesson_9: BundledLesson = {
             "'Well worth + N/V-ing' = '...etmeye değer.' Recommendation cevaplarında klasik kapanış.",
         },
       ],
+    },
+    {
+      id: "ex.ielts9.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "Furthermore, it's a place that's well off the beaten track for most tourists.",
+      tr_hint:
+        "Part 2 öneri kalıbı. 'Furthermore' = ek olarak. 'Off the beaten track' = bilinmeyen, turistik olmayan — IELTS band 7+ deyimi. Tonlama: 'BEAT-en TRACK' her iki kelime vurgulu.",
+    },
+    {
+      id: "ex.ielts9.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "The place I'd most recommend visiting is undoubtedly Cappadocia, which boasts some of the most breathtaking landscapes I've ever seen.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Band 8 model. 'I'd most recommend' superlative + modal. 'Boasts' = övünür anlamında — sıradan 'has' yerine. 'Breathtaking' yavaş, vurgulu.",
+    },
+    {
+      id: "ex.ielts9.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "Describe a place you would recommend visiting to a friend.",
+      transcription_target:
+        "Describe a place you would recommend visiting to a friend.",
+      tr_hint:
+        "Part 2 cue card. 'You would recommend visiting' modal + V-ing. 'To a friend' yumuşak son ek; 'to a' yutulur, neredeyse 'tw'.",
+    },
+    {
+      id: "ex.ielts9.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "off the beaten track",
+      tr_translation: "bilinmeyen, turistik olmayan",
+      example:
+        "If you're looking for somewhere off the beaten track, head to the Black Sea coast.",
+      example_tr:
+        "Turistik olmayan bir yer arıyorsan, Karadeniz kıyısına git.",
+    },
+    {
+      id: "ex.ielts9.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Is a very beautiful place and have many touristic things.",
+      correct_sentence:
+        "It's a stunning place and has plenty of attractions for tourists.",
+      tr_explanation:
+        "Üç hata: (1) 'Is' başlangıçta yanlış — özne 'It' eksik (Türkçe'de drop edilir, İngilizce'de zorunlu). (2) 'Touristic things' kötü collocation — 'attractions' veya 'sights' band 7+. (3) 'Beautiful' zayıf sıfat — 'stunning/breathtaking' band 7+. Lexical resource cezası.",
     },
   ],
 };
@@ -1861,6 +2314,58 @@ export const ieltsSpeakingLesson_10: BundledLesson = {
             "Part 3 = layered answer. Görüş + sebep + örnek + 'on the other hand...' Bu yapı band 7-8 kapısı.",
         },
       ],
+    },
+    {
+      id: "ex.ielts10.7",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase:
+        "Conversely, some argue that traditional values have been eroded by globalisation.",
+      tr_hint:
+        "Part 3 abstract karşılaştırma kalıbı. 'Conversely' = tersine. 'Have been eroded' = present perfect passive — band 7+ gramer. 'Globalisation' = 'glo-ba-li-SAY-shun' son hece vurgulu.",
+    },
+    {
+      id: "ex.ielts10.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "I would argue that, to a large extent, modern society has become more individualistic, although there's still a strong sense of community in many places.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Band 8 Part 3 model. 'I would argue that' (hedge) + 'to a large extent' (qualifier) + 'although' (contrast). Üst düzey discourse marker yoğun. Tonlama akıcı, duraklamasız.",
+    },
+    {
+      id: "ex.ielts10.9",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "In what ways do you think modern society has changed over the past few decades?",
+      transcription_target:
+        "In what ways do you think modern society has changed over the past few decades?",
+      tr_hint:
+        "Part 3 abstract soru. 'In what ways' = formal başlangıç. 'Has changed over the past few decades' present perfect + time frame; 'decades' = DE-cades veya de-CADES (UK).",
+    },
+    {
+      id: "ex.ielts10.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "to a large extent",
+      tr_translation: "büyük ölçüde",
+      example:
+        "To a large extent, social media has reshaped how we interact.",
+      example_tr:
+        "Sosyal medya, etkileşim biçimimizi büyük ölçüde yeniden şekillendirdi.",
+    },
+    {
+      id: "ex.ielts10.11",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Society are becoming more individualist since many years.",
+      correct_sentence:
+        "Society has been becoming more individualistic for many years.",
+      tr_explanation:
+        "Üç hata: (1) 'Society' tekil — 'is/has' kullan, 'are' yanlış. (2) 'Since many years' yanlış — 'for many years' (süre). (3) 'Individualist' isim, 'individualistic' sıfat — 'becoming + sıfat' yapısında 'individualistic' doğru. Band 5 grameri.",
     },
   ],
 };
@@ -2066,6 +2571,58 @@ export const ieltsSpeakingLesson_11: BundledLesson = {
             "'By 2050, self-driving cars may have become mainstream.' Modal future perfect (may have + V3) tahminlerde band 8 sinyali.",
         },
       ],
+    },
+    {
+      id: "ex.ielts11.7",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase:
+        "Furthermore, AI is likely to revolutionise the way we approach education.",
+      tr_hint:
+        "Part 3 teknoloji kalıbı. 'Furthermore' = bağlayıcı. 'Is likely to' = olası. 'Revolutionise' = REV-o-lu-tion-ise (UK 's' ile, US 'z'). 'Approach education' collocation.",
+    },
+    {
+      id: "ex.ielts11.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "In contrast to previous generations, today's young people are growing up with technology that may have once seemed unimaginable.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Band 8 model: 'In contrast to' (karşılaştırma) + 'may have once seemed' (modal past perfect). Üst düzey gramer. Tonlama: 'unimaginable' yavaş, vurgulu.",
+    },
+    {
+      id: "ex.ielts11.9",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "How do you think technology will affect our lives in the future?",
+      transcription_target:
+        "How do you think technology will affect our lives in the future?",
+      tr_hint:
+        "Part 3 gelecek tahmin sorusu. 'How do you think' = embedded soru. 'Will affect' future simple. 'In the future' sona eklenir.",
+    },
+    {
+      id: "ex.ielts11.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "conversely",
+      tr_translation: "tersine, öte yandan",
+      example:
+        "Conversely, over-reliance on AI could weaken our critical thinking.",
+      example_tr:
+        "Tersine, AI'ya aşırı bağımlılık eleştirel düşünmemizi zayıflatabilir.",
+    },
+    {
+      id: "ex.ielts11.11",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "The technologies will give us many advantages but also many informations problems.",
+      correct_sentence:
+        "Technology will give us many advantages but also raise serious information-overload problems.",
+      tr_explanation:
+        "Üç hata: (1) 'The technologies' yerine genel kullanımda 'technology' (sayılamaz, makalesiz). (2) 'Informations' yanlış — sayılamaz. (3) 'Information problems' yerine 'information-overload problems' band 7+ collocation. Lexical accuracy ve grammar cezası.",
     },
   ],
 };
@@ -2278,6 +2835,58 @@ export const ieltsSpeakingLesson_12: BundledLesson = {
             "Intensifier + abstract noun + present perfect + time frame = band 8 açılışı. Tek 'yes' band 4.",
         },
       ],
+    },
+    {
+      id: "ex.ielts12.7",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase:
+        "To be honest with you, success in education is no longer measured solely by exam results.",
+      tr_hint:
+        "Part 3 eğitim kalıbı. 'To be honest with you' samimi açılış. 'Is no longer measured' passive + 'no longer' kalıbı. 'Solely' = sadece; 'SOLE-ly' iki hece.",
+    },
+    {
+      id: "ex.ielts12.8",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "Furthermore, I'd argue that, to a large extent, the notion of success has fundamentally shifted over the past few decades.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Band 8 model. 'Furthermore' + 'I'd argue that' + 'to a large extent' = üst üste discourse marker. 'Fundamentally shifted' band 7+ kalıp. Akıcı, duraksız.",
+    },
+    {
+      id: "ex.ielts12.9",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text:
+        "What does success mean to you, and has that idea changed over time?",
+      transcription_target:
+        "What does success mean to you, and has that idea changed over time?",
+      tr_hint:
+        "Part 3 iki kısımlı abstract soru. 'What does success mean' embedded soru. 'Has that idea changed' present perfect; 'over time' yumuşak son ek.",
+    },
+    {
+      id: "ex.ielts12.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "to a large extent",
+      tr_translation: "büyük ölçüde",
+      example:
+        "To a large extent, success in modern life depends on adaptability rather than just qualifications.",
+      example_tr:
+        "Modern hayatta başarı büyük ölçüde sırf diplomalardan değil, uyum yeteneğinden ileri gelir.",
+    },
+    {
+      id: "ex.ielts12.11",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Education make us to learn many informations and become success.",
+      correct_sentence:
+        "Education teaches us a great deal and helps us become successful.",
+      tr_explanation:
+        "Dört hata: (1) 'Education make' yerine 'Education makes' (3. tekil -s). (2) 'Make us to learn' yanlış — 'make' causative, bare infinitive: 'makes us learn'. (3) 'Informations' sayılamaz. (4) 'Become success' yanlış — 'success' isim, 'successful' sıfat: 'become successful'. Band 5 hata yığını.",
     },
   ],
 };

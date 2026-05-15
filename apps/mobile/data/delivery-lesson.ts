@@ -168,6 +168,52 @@ export const deliveryLesson_8_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.8.1.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could you put the sauce on the side, please?",
+      ipa: "kʊd juː pʊt ðə sɔːs ɒn ðə saɪd pliːz",
+      tr_hint:
+        "'Sauce' = 'sɔːs', uzun 'o' sesi. 'On the side' birleşik söylenir. Delivery notlarında en yaygın istek.",
+    },
+    {
+      id: "ex.8.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Please make sure there are no peanuts — I'm allergic.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Make sure' yumuşatıcı + net. Alerji bildirimi için sabit kalıp.",
+    },
+    {
+      id: "ex.8.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Would you like utensils and napkins with your order?",
+      transcription_target: "Would you like utensils and napkins with your order?",
+      tr_hint:
+        "Dinle, yaz. Delivery uygulamalarındaki klasik soru. 'Utensils' = çatal-bıçak.",
+    },
+    {
+      id: "ex.8.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "well done",
+      tr_translation: "İyi pişmiş (yağsız tarafı)",
+      example: "Please cook the burger well done.",
+      example_tr: "Burger'i iyi pişirin, lütfen.",
+    },
+    {
+      id: "ex.8.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Send food now hot! Don't put cold!",
+      correct_sentence:
+        "Please make sure the food arrives hot — thanks!",
+      tr_explanation:
+        "'Send food now hot!' agresif komut. 'Don't put cold' kırık yapı. Doğrusu: 'Please make sure it arrives hot' — kibar + sonuç odaklı.",
+    },
   ],
 };
 
@@ -349,6 +395,52 @@ export const deliveryLesson_8_2: BundledLesson = {
             "Detaylı notlar zaman kazandırır — kurye doğru kapıya gelir, bekleme yok.",
         },
       ],
+    },
+    {
+      id: "ex.8.2.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Please leave it at the door, no need to knock.",
+      ipa: "pliːz liːv ɪt æt ðə dɔːr noʊ niːd tə nɒk",
+      tr_hint:
+        "'Leave it' bağlanır → 'liːv-ɪt'. 'Knock' = 'nɒk' ('k' sessiz, sadece 'nok' duyulur).",
+    },
+    {
+      id: "ex.8.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "I'll come down — the lobby door is locked.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Come down' bağlanır → 'kʌm-dawn'. 'Lobby' = bina girişi.",
+    },
+    {
+      id: "ex.8.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "I'm just pulling up now — should I come to the door or wait?",
+      transcription_target: "I'm just pulling up now — should I come to the door or wait?",
+      tr_hint:
+        "Dinle, yaz. 'Pulling up' = araçla varmak. Kuryenin son dakika klasik mesajı.",
+    },
+    {
+      id: "ex.8.2.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "side entrance",
+      tr_translation: "Yan giriş",
+      example: "Please use the side entrance — the main door is locked.",
+      example_tr: "Yan girişi kullanın, ana kapı kilitli.",
+    },
+    {
+      id: "ex.8.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Come upstairs to my apartment door floor 4.",
+      correct_sentence:
+        "Please come up to apartment 4B on the 4th floor — buzz when you arrive.",
+      tr_explanation:
+        "Sıralama bozuk + komut tonu. Doğrusu: 'apartment [number]' + 'on the [Xth] floor'. 'Buzz when you arrive' net yönerge.",
     },
   ],
 };

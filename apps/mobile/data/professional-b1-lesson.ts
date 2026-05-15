@@ -182,6 +182,58 @@ export const professionalB1Lesson_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.pb1.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'd like to inquire about opening a checking account.",
+      ipa: "aɪd laɪk tu ɪnˈkwaɪər əˈbaʊt ˈoʊpənɪŋ ə ˈtʃɛkɪŋ əˈkaʊnt",
+      tr_hint:
+        "Resmî açılış. 'Inquire about' = 'in-KWAYR ı-BAUT'. 'Checking account' birleşik. Düz ve net.",
+    },
+    {
+      id: "ex.pb1.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Could you clarify which documents I need to bring for non-resident registration, please?",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Resmî bilgi isteme. 'Could you clarify' = açıklayabilir misiniz. 'Non-resident' = mukim olmayan.",
+    },
+    {
+      id: "ex.pb1.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "You'll need a valid passport, proof of address, and your initial deposit in either cash or transfer.",
+      transcription_target:
+        "You'll need a valid passport, proof of address, and your initial deposit in either cash or transfer.",
+      tr_hint:
+        "Banka müşterisinin duyduğu talimatlar. 'Proof of address' = ikametgah belgesi. 'Initial deposit' = ilk yatırım.",
+    },
+    {
+      id: "ex.pb1.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I'd like to inquire",
+      tr_translation: "Sormak isterim (resmî)",
+      example:
+        "I'd like to inquire whether you offer accounts for non-resident customers.",
+      example_tr:
+        "Mukim olmayan müşteriler için hesap sunup sunmadığınızı sormak isterim.",
+    },
+    {
+      id: "ex.pb1.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Hello, I want make a bank account, please give me information.",
+      correct_sentence:
+        "Hello, I'd like to inquire about opening a bank account — could you walk me through the options, please?",
+      tr_explanation:
+        "'I want make' = 'I want to open / I'd like to open'. 'Give me information' kaba — 'walk me through the options' kibar ve net. Bankada B1+ kayıt: 'I'd like to inquire' formal açılış.",
+    },
   ],
 };
 
@@ -351,6 +403,58 @@ export const professionalB1Lesson_2: BundledLesson = {
             "Absolutely. I'll prepare the paperwork — it'll take a few minutes.",
         },
       ],
+    },
+    {
+      id: "ex.pb1.2.7",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Could you clarify what the deductible covers?",
+      ipa: "kʊd juː ˈklærɪfaɪ wɒt ðə dɪˈdʌktəbəl ˈkʌvərz",
+      tr_hint:
+        "Sigorta terimi. 'Deductible' = 'di-DAK-tıbıl', muafiyet bedeli. 'Clarify' = açıkla.",
+    },
+    {
+      id: "ex.pb1.2.8",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "On behalf of my family, I'd like to inquire about coverage options for dental and vision.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Aile adına başvuru kalıbı. 'On behalf of' = adına. 'Coverage options' = teminat seçenekleri.",
+    },
+    {
+      id: "ex.pb1.2.9",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Your premium will be billed monthly, and the policy renews automatically unless you give written notice.",
+      transcription_target:
+        "Your premium will be billed monthly, and the policy renews automatically unless you give written notice.",
+      tr_hint:
+        "Sigorta detayları. 'Premium' = prim. 'Renews automatically' = otomatik yenilenir. 'Written notice' = yazılı bildirim.",
+    },
+    {
+      id: "ex.pb1.2.10",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "on behalf of",
+      tr_translation: "Adına / namına",
+      example:
+        "I'm calling on behalf of my mother — could you walk me through her policy options?",
+      example_tr:
+        "Annem adına arıyorum — poliçe seçeneklerini anlatabilir misiniz?",
+    },
+    {
+      id: "ex.pb1.2.11",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "I want know which insurance is most cheap and most good for me.",
+      correct_sentence:
+        "Could you clarify which plan offers the best balance of coverage and cost for my situation?",
+      tr_explanation:
+        "'I want know' = 'I'd like to know / Could you clarify'. 'Most cheap', 'most good' yanlış üstünlük; 'best balance of X and Y' = profesyonel kalıp. Sigortada B1+ kayıt: 'clarify' + somut kriter.",
     },
   ],
 };
@@ -523,6 +627,58 @@ export const professionalB1Lesson_3: BundledLesson = {
             "I'll email the quote by tomorrow. If you'd like to proceed, we can schedule a follow-up next week.",
         },
       ],
+    },
+    {
+      id: "ex.pb1.3.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "On behalf of my employer, I'd like to inquire about visa sponsorship.",
+      ipa: "ɒn bɪˈhɑːf əv maɪ ɪmˈplɔɪər aɪd laɪk tu ɪnˈkwaɪər",
+      tr_hint:
+        "Hukuk ofisi açılışı. 'On behalf of' birleşik. 'Sponsorship' = 'SPON-sır-şip'. Formal, net.",
+    },
+    {
+      id: "ex.pb1.3.8",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Could you clarify what the retainer covers, and whether additional fees apply for court appearances?",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Avukat sorgulaması. 'Retainer' = avans/sürekli ücret. 'Court appearances' = mahkeme duruşmaları.",
+    },
+    {
+      id: "ex.pb1.3.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "Our standard retainer is two thousand pounds, and we bill at an hourly rate of one-eighty thereafter.",
+      transcription_target:
+        "Our standard retainer is two thousand pounds, and we bill at an hourly rate of one-eighty thereafter.",
+      tr_hint:
+        "Avukat ücret bilgisi. 'Standard retainer' = standart avans. 'Thereafter' = sonrasında.",
+    },
+    {
+      id: "ex.pb1.3.10",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "could you clarify",
+      tr_translation: "Açıklayabilir misiniz?",
+      example:
+        "Could you clarify what 'reasonable use' means in section four of the contract?",
+      example_tr:
+        "Sözleşmenin dördüncü bölümündeki 'makul kullanım' ifadesini açıklayabilir misiniz?",
+    },
+    {
+      id: "ex.pb1.3.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I need lawyer help, this contract is bad and my boss made me sign it.",
+      correct_sentence:
+        "I'd like to inquire about reviewing a contract — I have concerns about a few clauses and wanted a second opinion.",
+      tr_explanation:
+        "'My boss made me sign it' = duygusal, hukuk bağlamında işsiz. Avukatla görüşmede: spesifik amaç ('reviewing a contract'), ölçülü endişe ('concerns about a few clauses'), profesyonel talep ('second opinion'). Hukuki dil duyguyu değil, soruyu taşır.",
     },
   ],
 };
@@ -697,6 +853,58 @@ export const professionalB1Lesson_4: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.pb1.4.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I'd like to give my statement on behalf of myself only.",
+      ipa: "aɪd laɪk tə gɪv maɪ ˈsteɪtmənt ɒn bɪˈhɑːf əv maɪˈsɛlf ˈoʊnli",
+      tr_hint:
+        "İfade verme net. 'On behalf of myself only' = sadece kendi adıma. Yavaş, anlaşılır.",
+    },
+    {
+      id: "ex.pb1.4.8",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Could you clarify what I'm being asked? I want to make sure my answer is accurate.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Hukuki ifadede dikkat. 'Make sure my answer is accurate' = cevabımın doğru olduğundan emin olmak. Yavaş, sakin.",
+    },
+    {
+      id: "ex.pb1.4.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "Please state in your own words what you observed at approximately ten thirty that evening.",
+      transcription_target:
+        "Please state in your own words what you observed at approximately ten thirty that evening.",
+      tr_hint:
+        "İfade alma talimatı. 'State in your own words' = kendi sözlerinizle anlatın. 'Approximately' = yaklaşık.",
+    },
+    {
+      id: "ex.pb1.4.10",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "could you clarify",
+      tr_translation: "Açıklayabilir misiniz?",
+      example:
+        "Could you clarify whether 'recently' means within the past week or the past month?",
+      example_tr:
+        "'Yakın zamanda' geçen haftayı mı yoksa geçen ayı mı kastediyor, açıklayabilir misiniz?",
+    },
+    {
+      id: "ex.pb1.4.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I don't remember exactly, maybe yes maybe no, I want to go home now please.",
+      correct_sentence:
+        "I'm not certain about the exact time, but I'd estimate around ten thirty. Could you clarify what level of precision you need?",
+      tr_explanation:
+        "İfadede 'maybe yes maybe no' belirsizlik = sorunlu. 'I want to go home' panik sinyali. Profesyonel ifade: belirsizliği adlandır ('not certain'), tahminini ver ('I'd estimate'), netlik iste ('clarify what level of precision'). Hukuki bağlamda kesinlik sınırını söyle.",
+    },
   ],
 };
 
@@ -866,6 +1074,58 @@ export const professionalB1Lesson_5: BundledLesson = {
             "Of course. Window seven will take your payment after the form is completed. Have a good day.",
         },
       ],
+    },
+    {
+      id: "ex.pb1.5.7",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'd like to inquire about renewing my residence permit.",
+      ipa: "aɪd laɪk tu ɪnˈkwaɪər əˈbaʊt rɪˈnjuːɪŋ maɪ ˈrɛzɪdəns ˈpɜːrmɪt",
+      tr_hint:
+        "Resmî daire sorgusu. 'Residence permit' = ikamet izni. 'Renewing' = 'ri-NYU-ing'.",
+    },
+    {
+      id: "ex.pb1.5.8",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Could you clarify whether I should submit the form online or in person at this office?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Memurla netleştirme. 'Submit online or in person' = çevrimiçi mi şahsen mi.",
+    },
+    {
+      id: "ex.pb1.5.9",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Please complete sections one through four, then proceed to window five for verification.",
+      transcription_target:
+        "Please complete sections one through four, then proceed to window five for verification.",
+      tr_hint:
+        "Memur talimatı. 'Sections one through four' = bölüm 1'den 4'e. 'Window' = gişe.",
+    },
+    {
+      id: "ex.pb1.5.10",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "on behalf of",
+      tr_translation: "Adına",
+      example:
+        "I'm submitting this application on behalf of my elderly father, with his written authorisation.",
+      example_tr:
+        "Bu başvuruyu yaşlı babam adına, onun yazılı izniyle teslim ediyorum.",
+    },
+    {
+      id: "ex.pb1.5.11",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Excuse me sir, give me the form for residence please, quickly.",
+      correct_sentence:
+        "Excuse me, could you tell me which form I need for a residence permit renewal, please?",
+      tr_explanation:
+        "'Give me' + 'quickly' = kaba ve acele. Memurla işlerde: 'could you tell me which form' (netleştirme), 'please' (kibarlık). Acele etme — bürokrasi sabırla yürür.",
     },
   ],
 };
@@ -1046,6 +1306,58 @@ export const professionalB1Lesson_6: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.pb1.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I won't be able to come in today — I'm calling in sick.",
+      ipa: "aɪ woʊnt bi ˈeɪbəl tu kʌm ɪn təˈdeɪ aɪm ˈkɔːlɪŋ ɪn sɪk",
+      tr_hint:
+        "Standart hastalık bildirimi. 'Won't be able to' = yapamayacağım. 'Calling in sick' birleşik.",
+    },
+    {
+      id: "ex.pb1.6.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Could you clarify whether I need a doctor's note for a one-day absence?",
+      voice_hint: "female_uk",
+      tr_hint:
+        "HR sorgu. 'Doctor's note' = doktor raporu. 'One-day absence' = bir günlük devamsızlık.",
+    },
+    {
+      id: "ex.pb1.6.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Please email your manager and copy HR — and rest up, we'll cover your meetings.",
+      transcription_target:
+        "Please email your manager and copy HR — and rest up, we'll cover your meetings.",
+      tr_hint:
+        "Yöneticiden iyileşme dileği. 'Copy HR' = İK'yı CC'le. 'Rest up' = iyi dinlen.",
+    },
+    {
+      id: "ex.pb1.6.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I'd like to inquire",
+      tr_translation: "Sormak isterim",
+      example:
+        "I'd like to inquire about the company's policy on remote work during recovery from illness.",
+      example_tr:
+        "Hastalıktan iyileşme sürecinde uzaktan çalışma şirket politikasını sormak isterim.",
+    },
+    {
+      id: "ex.pb1.6.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Hello boss, I am very sick today, I cannot come, please don't be angry to me.",
+      correct_sentence:
+        "Hi, I'm calling in sick today — I've come down with a stomach bug and won't be able to come in. I'll keep you updated.",
+      tr_explanation:
+        "'Please don't be angry to me' = endişe sinyali, gereksiz. Profesyonel hastalık bildirimi: spesifik sebep ('stomach bug'), durum ('won't be able to come in'), sorumluluk ('keep you updated'). 'Be angry to me' = 'be angry with me' doğru.",
+    },
   ],
 };
 
@@ -1216,6 +1528,58 @@ export const professionalB1Lesson_7: BundledLesson = {
             "Absolutely. I'll send the draft contract over by tomorrow.",
         },
       ],
+    },
+    {
+      id: "ex.pb1.7.7",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Could you clarify whether utilities are included in the rent?",
+      ipa: "kʊd juː ˈklærɪfaɪ ˈwɛðər juːˈtɪlɪtiz ɑːr ɪnˈkluːdɪd ɪn ðə rɛnt",
+      tr_hint:
+        "Kiracı sorgusu. 'Utilities' = faturalar (su, elektrik). 'Included in the rent' = kiraya dahil.",
+    },
+    {
+      id: "ex.pb1.7.8",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "I'd like to inquire about the deposit terms — specifically what conditions trigger deductions.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Kira sözleşmesi sorgu. 'Deposit terms' = depozito şartları. 'Trigger deductions' = kesintiye yol açar.",
+    },
+    {
+      id: "ex.pb1.7.9",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "The deposit is one month's rent, refundable within thirty days of the inspection.",
+      transcription_target:
+        "The deposit is one month's rent, refundable within thirty days of the inspection.",
+      tr_hint:
+        "Ev sahibi koşulları. 'One month's rent' = bir ay kira. 'Refundable' = iade edilebilir. 'Inspection' = kontrol.",
+    },
+    {
+      id: "ex.pb1.7.10",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "on behalf of",
+      tr_translation: "Adına",
+      example:
+        "I'm signing the lease on behalf of myself and my partner — both names should appear on the contract.",
+      example_tr:
+        "Kira sözleşmesini kendim ve partnerim adına imzalıyorum — iki ad da sözleşmede olmalı.",
+    },
+    {
+      id: "ex.pb1.7.11",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "I want this flat, when I can move? Give me discount please because I am student.",
+      correct_sentence:
+        "I'm interested in the flat. Could you clarify the earliest move-in date, and is there any flexibility on the rent for a longer lease?",
+      tr_explanation:
+        "'Give me discount because I am student' Türkçe dilekçe stili — İngiliz/Amerikan ev sahibinde işsiz. Profesyonel pazarlık: ilgi belirt ('I'm interested'), netleştir ('earliest move-in'), karşılıklı fayda sun ('flexibility for a longer lease'). 'When I can move' yanlış soru yapısı — 'when I can move in' veya 'the move-in date'.",
     },
   ],
 };
@@ -1390,6 +1754,58 @@ export const professionalB1Lesson_8: BundledLesson = {
             "Of course. Reference is ESC-9087. Connecting you now.",
         },
       ],
+    },
+    {
+      id: "ex.pb1.8.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Could you clarify why my refund request was declined?",
+      ipa: "kʊd juː ˈklærɪfaɪ waɪ maɪ ˈriːfʌnd rɪˈkwɛst wəz dɪˈklaɪnd",
+      tr_hint:
+        "Müşteri hizmet eskalasyonu. 'Refund request' = iade talebi. 'Declined' = reddedildi.",
+    },
+    {
+      id: "ex.pb1.8.8",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "On behalf of my account, I'd like to inquire about escalating this complaint to a supervisor.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Eskalasyon kalıbı. 'Escalating this complaint' = bu şikayeti üst makama taşımak. Sakin, formal.",
+    },
+    {
+      id: "ex.pb1.8.9",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "I understand your frustration — let me transfer you to a senior agent who can authorise a resolution.",
+      transcription_target:
+        "I understand your frustration — let me transfer you to a senior agent who can authorise a resolution.",
+      tr_hint:
+        "Müşteri hizmetleri eskalasyon cevabı. 'Senior agent' = kıdemli temsilci. 'Authorise a resolution' = çözüm yetkisi.",
+    },
+    {
+      id: "ex.pb1.8.10",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "could you clarify",
+      tr_translation: "Açıklayabilir misiniz?",
+      example:
+        "Could you clarify under which clause my warranty claim was denied? I'd like to see it in writing.",
+      example_tr:
+        "Garanti talebim hangi maddeye göre reddedildi, açıklayabilir misiniz? Yazılı olarak görmek isterim.",
+    },
+    {
+      id: "ex.pb1.8.11",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "This is ridiculous, you are the worst company, give me my money or I will sue you.",
+      correct_sentence:
+        "I'm not satisfied with the response so far. Could you clarify the next step in your complaints procedure? I'd like to escalate this formally.",
+      tr_explanation:
+        "'You are the worst' + 'I will sue you' = duygusal tehdit, eskalasyonu zorlaştırır. Profesyonel: memnuniyetsizliği adlandır ('not satisfied'), prosedür sor ('complaints procedure'), formal eskalasyon iste ('escalate this formally'). Tehdit değil, sistem.",
     },
   ],
 };
@@ -1571,6 +1987,58 @@ export const professionalB1Lesson_9: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.pb1.9.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I'd like to report a minor traffic incident on behalf of the driver.",
+      ipa: "aɪd laɪk tu rɪˈpɔːrt ə ˈmaɪnər ˈtræfɪk ˈɪnsɪdənt ɒn bɪˈhɑːf əv ðə ˈdraɪvər",
+      tr_hint:
+        "Polis ifadesi açılışı. 'Minor traffic incident' = küçük trafik olayı. Net, sakin.",
+    },
+    {
+      id: "ex.pb1.9.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Could you clarify whether this report goes to my insurance automatically, or do I need to submit a separate claim?",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Polis ifadesi sonrası soru. 'Goes to my insurance' = sigortama gider mi. 'Separate claim' = ayrı talep.",
+    },
+    {
+      id: "ex.pb1.9.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "Please describe the events leading up to the collision in your own words, including the time of day.",
+      transcription_target:
+        "Please describe the events leading up to the collision in your own words, including the time of day.",
+      tr_hint:
+        "Polis talimatı. 'Events leading up to' = öncesindeki olaylar. 'Collision' = çarpışma.",
+    },
+    {
+      id: "ex.pb1.9.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "could you clarify",
+      tr_translation: "Açıklayabilir misiniz?",
+      example:
+        "Could you clarify whether I'm being treated as a witness or as a party to the incident?",
+      example_tr:
+        "Olayda tanık olarak mı yoksa taraf olarak mı muamele görüyorum, açıklayabilir misiniz?",
+    },
+    {
+      id: "ex.pb1.9.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "The other driver was crazy and 100% guilty, write that please in the report.",
+      correct_sentence:
+        "From what I observed, the other vehicle changed lanes without signalling. I'd prefer the report reflect what I saw rather than my interpretation.",
+      tr_explanation:
+        "'Crazy and 100% guilty' = subjektif değerlendirme; polis raporunda zarar verir. Profesyonel ifade: 'from what I observed' (sınır), 'changed lanes without signalling' (somut gözlem), 'reflect what I saw rather than my interpretation' (epistemik alçakgönüllülük). Yargı polise, gözlem sana.",
+    },
   ],
 };
 
@@ -1742,6 +2210,58 @@ export const professionalB1Lesson_10: BundledLesson = {
             "Of course. I'll set one up for six weeks from today and send a confirmation by email.",
         },
       ],
+    },
+    {
+      id: "ex.pb1.10.7",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'd like to inquire about renewing my parking permit.",
+      ipa: "aɪd laɪk tu ɪnˈkwaɪər əˈbaʊt rɪˈnjuːɪŋ maɪ ˈpɑːrkɪŋ ˈpɜːrmɪt",
+      tr_hint:
+        "Belediye sorgusu. 'Parking permit' = otopark izni. 'Renewing' = yenileme. Sakin, formal.",
+    },
+    {
+      id: "ex.pb1.10.8",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Could you clarify which documents I need to bring on behalf of my elderly mother?",
+      voice_hint: "female_us",
+      tr_hint:
+        "Vekaleten başvuru. 'On behalf of my elderly mother' = yaşlı annem adına. Saygılı, net.",
+    },
+    {
+      id: "ex.pb1.10.9",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Please take a ticket from the machine and have a seat — your number will be called when an agent is free.",
+      transcription_target:
+        "Please take a ticket from the machine and have a seat — your number will be called when an agent is free.",
+      tr_hint:
+        "Belediye sırası. 'Take a ticket' = sıra al. 'Have a seat' = oturun. 'Agent is free' = memur boşalır.",
+    },
+    {
+      id: "ex.pb1.10.10",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "on behalf of",
+      tr_translation: "Adına",
+      example:
+        "I'm submitting this form on behalf of my employer, with their authorisation letter attached.",
+      example_tr:
+        "Bu formu işverenim adına, ekli yetki mektuplarıyla teslim ediyorum.",
+    },
+    {
+      id: "ex.pb1.10.11",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Hello, this office is too slow, I waited two hours, give me my permit now.",
+      correct_sentence:
+        "Excuse me — I'd like to inquire whether there's a way to expedite my application. I've been waiting for some time.",
+      tr_explanation:
+        "'This office is too slow' + 'give me now' = saldırgan, hiç işe yaramaz. Belediyede iş bitirme dili: 'I'd like to inquire' (kibar açılış), 'expedite' (hızlandırma için resmî terim), 'waiting for some time' (sınırlandırılmış şikayet). Memuru kazanmaya çalış, savaşma.",
     },
   ],
 };

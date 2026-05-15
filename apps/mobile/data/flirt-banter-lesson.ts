@@ -165,6 +165,58 @@ export const flirtBanterLesson_2_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fb2.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Okay, now you have to explain that — I need the full story.",
+      ipa: "/ˈəʊkeɪ naʊ juː hæv tʊ ɪkˈspleɪn ðæt — aɪ niːd ðə fʊl ˈstɔːri/",
+      tr_hint:
+        "Meraklı tonu — hafif yukseltme sonda. 'Have to explain' bağlı vurgu. 'Full story' kararli.",
+    },
+    {
+      id: "ex.fb2.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Okay that's a sentence I didn't expect today — I'm gonna need more context immediately.",
+      voice_hint: "warm_us",
+      tr_hint:
+        "Hafif sürpriz + komedi tonu. 'Wasn't expecting' kalip. 'Immediately' = abartili komik vurgu.",
+    },
+    {
+      id: "ex.fb2.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "It's a long story but basically my college roommate had three ferrets and we got bored.",
+      transcription_target:
+        "It's a long story but basically my college roommate had three ferrets and we got bored.",
+      tr_hint:
+        "Hikaye acan match cevabi. 'College roommate' = universite oda arkadasi. 'Got bored' = sikildik.",
+    },
+    {
+      id: "ex.fb2.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "This just got a lot more interesting",
+      tr_translation: "Bu sohbet birden daha ilginç hale geldi",
+      example:
+        "Wait, you build telescopes for fun? Okay, this just got a lot more interesting.",
+      example_tr:
+        "Dur, eglence icin teleskop mu yapiyorsun? Tamam, bu sohbet birden daha ilginç hale geldi.",
+    },
+    {
+      id: "ex.fb2.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Ok. Then what do you do for fun anyway?",
+      correct_sentence:
+        "Okay now you have to explain that — and 'fun' is a vague follow-up, give me the weird details.",
+      tr_explanation:
+        "'Ok. Then what do you do for fun anyway?' = momentum öldürür + temadan kacar. Doğru: kisinin actigi spesifik konuyu kazi. Generic 'what do you do for fun' = small talk geri sayım.",
+    },
   ],
 };
 
@@ -332,6 +384,59 @@ export const flirtBanterLesson_2_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fb2.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Bold of you to assume that's the only red flag I'm working with.",
+      ipa: "/bəʊld əv juː tʊ əˈsjuːm ðæts ði ˈəʊnli rɛd flæɡ aɪm ˈwɜːkɪŋ wɪð/",
+      tr_hint:
+        "Banter tonu — kuru komedi, savunmaci degil. 'Bold of you' bağlı kalip, 'red flag' net.",
+    },
+    {
+      id: "ex.fb2.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Wow, coming out swinging today — okay, give me your worst, I can take it.",
+      voice_hint: "warm_us",
+      tr_hint:
+        "Banter kabul tonu — eglenceli, sicak. 'Coming out swinging' = saldırırcasına basla idiom. Akıcı söyle.",
+    },
+    {
+      id: "ex.fb2.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "My red flag is I listen to podcasts on 1.5x speed — like even music.",
+      transcription_target:
+        "My red flag is I listen to podcasts on 1.5x speed — like even music.",
+      tr_hint:
+        "Match'in self-mocking red flag itirafi. '1.5x speed' = bir buçuk hız. Sayi + 'x' = carpan.",
+    },
+    {
+      id: "ex.fb2.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Coming for me already?",
+      tr_translation: "Bana saldiriya geçtin bile mi?",
+      example:
+        "Three messages in and you're coming for me already? Bold strategy.",
+      example_tr:
+        "Üç mesaj oldu ve bana saldiriya geçtin bile mi? Cesur strateji.",
+    },
+    {
+      id: "ex.fb2.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Why you say bad about me? I am very good person actually.",
+      correct_sentence:
+        "Bold of you to assume that's the worst thing about me — I have a whole list.",
+      tr_explanation:
+        "'Why you say bad' savunmaci + bozuk yapı. 'I am very good person' = defansif oz-savunma, banter'i kırar. Doğru: espriyle kabul + ust yap = oyun devam eder.",
+    },
   ],
 };
 
@@ -498,6 +603,58 @@ export const flirtBanterLesson_2_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fb2.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Can I ask you something a little personal? No pressure either way.",
+      ipa: "/kæn aɪ ɑːsk juː ˈsʌmθɪŋ ə ˈlɪtəl ˈpɜːsənəl — nəʊ ˈprɛʃə ˈaɪðə weɪ/",
+      tr_hint:
+        "Yumuşak izin tonu — kararli ama saygili. 'A little personal' bağlı, 'either way' tek nefes kapanis.",
+    },
+    {
+      id: "ex.fb2.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Random one — what's something you used to believe but completely changed your mind on?",
+      voice_hint: "warm_us",
+      tr_hint:
+        "Derin soru acilis — meraklı, juge etmeden. 'Changed your mind on' bağlı söyle, sonda hafif yukseltme.",
+    },
+    {
+      id: "ex.fb2.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Honestly, my most irrational fear is butterflies — can't even explain why.",
+      transcription_target:
+        "Honestly, my most irrational fear is butterflies — can't even explain why.",
+      tr_hint:
+        "Match'in samimi cevabi. 'Irrational fear' = mantiksiz korku. 'Can't even explain why' = kendim bile aciklayamiyorum.",
+    },
+    {
+      id: "ex.fb2.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "What's a hill you'd die on?",
+      tr_translation: "Hangi konuda ölümüne savunursun? (görüş sorusu)",
+      example:
+        "What's a hill you'd die on — like a pop culture take you'd defend at 3am?",
+      example_tr:
+        "Hangi konuda ölümüne savunursun — gece 3'te bile destekleyecegin bir pop kültür görüşü gibi?",
+    },
+    {
+      id: "ex.fb2.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Tell me all your trauma so I know you better.",
+      correct_sentence:
+        "Can I ask something a little personal? Totally fine to skip.",
+      tr_explanation:
+        "'Tell me all your trauma' = sınır asmak + therapist rolu. Modern apps'te red flag. Doğru: izin iste + çıkış kapısı. 'Totally fine to skip' güven yaratır = aslında daha çok paylaşır.",
+    },
   ],
 };
 
@@ -663,6 +820,59 @@ export const flirtBanterLesson_2_4: BundledLesson = {
             "'Rough phase but I'm better now' = dürüst + onaranıcı. Travma yok, sahte pozitif de yok.",
         },
       ],
+    },
+    {
+      id: "ex.fb2.4.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Honestly, last year was rough — but I'm in a much better place now.",
+      ipa: "/ˈɒnɪstli lɑːst jɪə wɒz rʌf — bʌt aɪm ɪn ə mʌtʃ ˈbɛtə pleɪs naʊ/",
+      tr_hint:
+        "Olgun vulnerability tonu — dürüst ama agirlamaz. 'Rough' net, 'better place now' sicak kapanis.",
+    },
+    {
+      id: "ex.fb2.4.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Don't get me started on cities — I could go on for hours about why I moved back to mine.",
+      voice_hint: "warm_us",
+      tr_hint:
+        "Coşkulu paylaşim tonu. 'Don't get me started' bağlı kalip. 'Could go on for hours' = sevgi göstergesi.",
+    },
+    {
+      id: "ex.fb2.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Tell me one specific thing about it that genuinely lights you up.",
+      transcription_target:
+        "Tell me one specific thing about it that genuinely lights you up.",
+      tr_hint:
+        "Match'in derinlestirici sorusu. 'Lights you up' = içini parlatan, heyecanlandiran. 'Genuinely' = gerçekten.",
+    },
+    {
+      id: "ex.fb2.4.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Came out of it better",
+      tr_translation: "Daha güçlü çiktim (zorluktan)",
+      example:
+        "Went through a rough stretch two years ago — came out of it better, weirdly.",
+      example_tr:
+        "Iki yil önce zor bir dönemden geçtim — garip ama daha güçlü çiktim.",
+    },
+    {
+      id: "ex.fb2.4.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "My ex destroyed me and I still cry every night about everything.",
+      correct_sentence:
+        "Had a tough chapter last year — therapy helped, I'm in a much better place now.",
+      tr_explanation:
+        "Eski sevgili + 'destroyed me' + 'cry every night' = trauma dumping = ilk sohbette unmatch. Modern olgun: kabul + ne yaptin (terapi, vs.) + simdiki durum. Vulnerability = saglikli sınır.",
     },
   ],
 };

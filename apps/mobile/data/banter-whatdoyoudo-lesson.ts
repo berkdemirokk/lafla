@@ -165,6 +165,54 @@ export const banterWhatdoyoudoLesson_26_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.bwdy26.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Officially a backend engineer, basically a server therapist.",
+      ipa: "əˈfɪʃəli ə ˈbækend ˈendʒəˌnɪr ˈbeɪsɪkli ə ˈsɜːrvər ˈθerəpɪst",
+      tr_hint:
+        "'Officially' uzun + dramatik vurgu. 'Basically' yumuşak köprü. 'Therapist' = 'θer-əp-ɪst', th-sesi dilini hafifçe ısır.",
+    },
+    {
+      id: "ex.bwdy26.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "On paper I'm a PM, but really I just keep the chaos organized.",
+      voice_hint: "casual_us_male",
+      tr_hint:
+        "'On paper' = 'resmi olarak'. 'But really' arada nefes. 'Keep the chaos organized' eğlenceli ton — kendinle dalga.",
+    },
+    {
+      id: "ex.bwdy26.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Honestly, I help startups stop lighting money on fire.",
+      transcription_target:
+        "Honestly, I help startups stop lighting money on fire.",
+      tr_hint:
+        "Casual 'I help X do Y' formatı. 'Lighting money on fire' = paranı boşa harcamak (idiom). Funny + memorable.",
+    },
+    {
+      id: "ex.bwdy26.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "dude",
+      tr_translation: "dostum, abi (cinsiyetsiz casual hitap)",
+      example: "Dude, my job is basically firefighting all day.",
+      example_tr: "Dostum, işim tüm gün yangın söndürmekten ibaret.",
+    },
+    {
+      id: "ex.bwdy26.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "I am presently employed as a senior software developer.",
+      correct_sentence:
+        "I'm a backend engineer — basically I keep things from breaking.",
+      tr_explanation:
+        "'Presently employed as a senior software developer' = CV cümlesi. Casual ortamda: 'I'm a backend engineer' + funny açıklama = sohbet açıcı.",
+    },
   ],
 };
 
@@ -330,6 +378,54 @@ export const banterWhatdoyoudoLesson_26_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.bwdy26.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "What got you into this field?",
+      ipa: "wɒt ɡɒt juː ˈɪntuː ðɪs fiːld",
+      tr_hint:
+        "'What got you' = 'wɒ-ɡɒ-tʃu' bağlanır, fast. 'Into' = 'ɪn-tuː' yumuşak. 'Field' net 'iː'. Ilgili + meraklı ton.",
+    },
+    {
+      id: "ex.bwdy26.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Honestly, what's the most surprising part of your job?",
+      voice_hint: "casual_us_female",
+      tr_hint:
+        "'Honestly' küçük duraklama. 'What's the' bağlanır. 'Most surprising' vurgu 'sur'-da. Gerçekten merak ediyorum tonu.",
+    },
+    {
+      id: "ex.bwdy26.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "For sure, what's the weirdest part nobody warns you about?",
+      transcription_target:
+        "For sure, what's the weirdest part nobody warns you about?",
+      tr_hint:
+        "'For sure' = sohbet köprüsü. 'Weirdest part nobody warns you about' = klasik derin networking sorusu — gizli sırlar açar.",
+    },
+    {
+      id: "ex.bwdy26.2.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "kinda",
+      tr_translation: "biraz, sayılır (kind of'un casual hali)",
+      example: "Kinda curious — what's the worst part of it?",
+      example_tr: "Biraz meraklıyım — en kötü kısmı ne?",
+    },
+    {
+      id: "ex.bwdy26.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Could you elaborate upon the nature of your professional duties?",
+      correct_sentence:
+        "So what's the part of your job that surprised you most?",
+      tr_explanation:
+        "'Elaborate upon the nature' = Victoria romanı. Casual networking: 'What's the part that surprised you most' = doğal + spesifik + hikaye çağırır.",
+    },
   ],
 };
 
@@ -492,6 +588,54 @@ export const banterWhatdoyoudoLesson_26_3: BundledLesson = {
             "Insan tutku konusunda konusmayi sever. Ses tonu degisir, gozler parlar.",
         },
       ],
+    },
+    {
+      id: "ex.bwdy26.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Okay enough work talk — what fills your weekends?",
+      ipa: "ˌoʊˈkeɪ ɪˈnʌf wɜːrk tɔːk wɒt fɪlz jɔːr ˈwiːkendz",
+      tr_hint:
+        "'Okay' = küçük geçiş. 'Enough work talk' = casual + arkadaşça. 'Fills your weekends' yumuşak akıcı söyle.",
+    },
+    {
+      id: "ex.bwdy26.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Honestly, what's got you obsessed lately, outside of work?",
+      voice_hint: "casual_us_female",
+      tr_hint:
+        "'Honestly' = filler köprü. 'Got you obsessed' = vurgulu 'obsessed'. 'Outside of work' küçük duraklama önce. Gerçek ilgi tonu.",
+    },
+    {
+      id: "ex.bwdy26.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "No way — running ultras every other weekend, that's wild.",
+      transcription_target:
+        "No way — running ultras every other weekend, that's wild.",
+      tr_hint:
+        "'No way' = inanılmaz. 'Ultras' = ultra-maraton kısaltması. 'Every other weekend' = haftada bir. 'That's wild' = çılgın iyi.",
+    },
+    {
+      id: "ex.bwdy26.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "for sure",
+      tr_translation: "kesinlikle, tabii (casual onay)",
+      example: "For sure — that sounds like a whole lifestyle.",
+      example_tr: "Tabii — bu bir tarz hayat gibi geliyor.",
+    },
+    {
+      id: "ex.bwdy26.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Might I inquire as to your marital status, madam?",
+      correct_sentence:
+        "So what gets you fired up outside of work these days?",
+      tr_explanation:
+        "Medeni durum sorma + 'might I inquire' = çoklu sorun, hem invasive hem aşırı resmi. Doğal: tutku/hobi sorusu = empatik + warm.",
     },
   ],
 };

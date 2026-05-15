@@ -166,6 +166,54 @@ export const workReviewLesson_12_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.wr12.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I led the auth redesign end-to-end.",
+      ipa: "/aɪ lɛd ði ɔθ riˈdɪzaɪn ɛnd tu ɛnd/",
+      tr_articulation_hint:
+        "'Led' = led (past tense of lead). 'Auth' = oth, kisa. 'End-to-end' birlesik tek deyim. Kararli + iddialı tonla — sahiplenmek.",
+    },
+    {
+      id: "ex.wr12.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Drove the project from kickoff to launch — shipped two weeks early.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Drove' kararli + aktif fiil. 'Kickoff to launch' deyim — basindan sonuna. 'Shipped early' somut sonuc. Self review tonu: sade + olgun ozguven.",
+    },
+    {
+      id: "ex.wr12.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "Resulted in a 30% lift in user engagement quarter-over-quarter.",
+      transcription_target:
+        "Resulted in a 30% lift in user engagement quarter-over-quarter.",
+      tr_hint:
+        "'Lift' = artis (metrik jargon). 'Engagement' = en-geyc-mınt, vurgu ortada. 'Quarter-over-quarter' (QoQ) = ceyrekten ceyrege. Veri sunum tonu.",
+    },
+    {
+      id: "ex.wr12.1.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "moved the needle",
+      tr_translation: "İğneyi oynattı / gerçek etki yaptı",
+      example_en: "The new onboarding moved the needle on activation rates.",
+      example_tr:
+        "Yeni onboarding aktivasyon oranlarinda gercek etki yapti.",
+    },
+    {
+      id: "ex.wr12.1.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I was part of the team that did the project.",
+      correct_sentence:
+        "Led the auth redesign — owned scoping, delivery, and rollout.",
+      tr_explanation:
+        "'Was part of the team' = gorunmez = manager 'kim ne yapti?' diye sorar. Self review: 'Led / Owned / Drove' fiilleri + spesifik aksiyon.",
+    },
   ],
 };
 
@@ -330,6 +378,53 @@ export const workReviewLesson_12_2: BundledLesson = {
             "Manager geleceginiz hakkinda emin olmak ister. 'Will do X' = aksiyon kanitlama.",
         },
       ],
+    },
+    {
+      id: "ex.wr12.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Thanks for the candor.",
+      ipa: "/θæŋks fɔr ðə ˈkændər/",
+      tr_articulation_hint:
+        "'Thanks' (th: dil dislerin arasinda). 'Candor' = ken-dır, vurgu basta — durust konusma kelimesi. Sicakkanli ton, defansiv degil.",
+    },
+    {
+      id: "ex.wr12.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Hearing you — want to sit with that and come back with a plan.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Hearing you' = anliyorum, kabul (idiom). 'Sit with that' = sindirmek. Olgun yetiskin tonu — anlik tepki yok, dusunup donus.",
+    },
+    {
+      id: "ex.wr12.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "That tracks — appreciate you flagging it instead of letting it fester.",
+      transcription_target:
+        "That tracks — appreciate you flagging it instead of letting it fester.",
+      tr_hint:
+        "'That tracks' deyim = mantikli, dogru. 'Fester' = icin icin buyumek (kullanim metaforik). Senior manager ton — kabul + tesekkur.",
+    },
+    {
+      id: "ex.wr12.2.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "double-click on that",
+      tr_translation: "O konuya daha derin gir / detaylandır",
+      example_en: "Can we double-click on that point for a sec?",
+      example_tr: "O noktaya bir saniye daha derin girebilir miyiz?",
+    },
+    {
+      id: "ex.wr12.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "That feedback is not fair, you are wrong.",
+      correct_sentence:
+        "Want to make sure I understand — can you share a concrete example?",
+      tr_explanation:
+        "'Not fair, you are wrong' = defansif + saldirgan = iliski + buyume kaybi. Olgun: 'understand isteyerek' + 'concrete example' istemek.",
     },
   ],
 };
@@ -497,6 +592,53 @@ export const workReviewLesson_12_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.wr12.3.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I'd like to open a comp conversation.",
+      ipa: "/aɪd laɪk tu ˈoʊpən ə kɑmp ˌkɑnvərˈseɪʃən/",
+      tr_articulation_hint:
+        "'Comp' (compensation kisaltma) = kamp, kisa. 'Conversation' = uzun, vurgu 'sey' hecesinde. Kararli + nazik ton — istek degil davetiye.",
+    },
+    {
+      id: "ex.wr12.3.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "Want to make a case for a senior-level move — grounded in last year's impact.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Make a case' deyim = argumanini sunmak. 'Grounded in' = dayanarak. 'Senior-level' birlesik. Kanit ile destekli + emin tonu.",
+    },
+    {
+      id: "ex.wr12.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "Compelling case — let me take it to HR and circle back by Friday.",
+      transcription_target:
+        "Compelling case — let me take it to HR and circle back by Friday.",
+      tr_hint:
+        "'Compelling' = ikna edici (vurgu pel hecesinde). 'Take it to HR' = HR'a ilet. 'Circle back' = donus yapacak. Manager onaylama tonu.",
+    },
+    {
+      id: "ex.wr12.3.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "bring the data",
+      tr_translation: "Veriyi sun / ölçüm getir",
+      example_en: "Happy to bring the data and walk you through it.",
+      example_tr: "Veriyi getirip seninle adim adim gecmek isterim.",
+    },
+    {
+      id: "ex.wr12.3.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "I am working here too long, I deserve raise.",
+      correct_sentence:
+        "Want to open a comp conversation — based on impact, market data, and growth trajectory.",
+      tr_explanation:
+        "'Working too long, deserve raise' = duygusal + kidem argumani. Modern is dunyasinda etki + market verisi konusur. Sahsi ihtiyac sirket karari uretmiyor.",
+    },
   ],
 };
 
@@ -661,6 +803,53 @@ export const workReviewLesson_12_4: BundledLesson = {
             "'Be better' = belirsiz. 'Share a take in standups' = somut, ertesi gun denenebilir.",
         },
       ],
+    },
+    {
+      id: "ex.wr12.4.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "One area to double down on.",
+      ipa: "/wʌn ˈɛəriə tu ˈdʌbəl daʊn ɑn/",
+      tr_articulation_hint:
+        "'Double down' deyim = uzerine daha cok bin. 'Area' = e-ri-ya, iki hece. Yapici, anlayisli ton — eksiklik yumusatici dil.",
+    },
+    {
+      id: "ex.wr12.4.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Sara's biggest strength is technical depth — could amplify by speaking up more.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Strength' (s-trength) + 'depth' iki th sesi — dili dislere koy. 'Amplify' = arttirmak (vurgu basta). Peer feedback ritmi: olumlu + buyume.",
+    },
+    {
+      id: "ex.wr12.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Constructive — I'll pass it along in a way that lands well.",
+      transcription_target:
+        "Constructive — I'll pass it along in a way that lands well.",
+      tr_hint:
+        "'Constructive' = yapici (vurgu ortada). 'Pass along' = aktarmak. 'Lands well' deyim = iyi karsilanir. Manager geri donus tonu.",
+    },
+    {
+      id: "ex.wr12.4.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "go-to person for",
+      tr_translation: "... için başvurulacak kişi",
+      example_en: "She's the go-to person for code review on the team.",
+      example_tr: "Ekipte kod incelemesi icin basvurulacak kisi o.",
+    },
+    {
+      id: "ex.wr12.4.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "He is too quiet and slow always.",
+      correct_sentence:
+        "Strength: thoughtful code reviews. Growth: could share progress updates more proactively.",
+      tr_explanation:
+        "'Too quiet, slow always' = etiket + kisi saldirisi = HR riski. Peer feedback: davranis (proactive updates) + actionable oneri.",
     },
   ],
 };

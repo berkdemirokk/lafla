@@ -160,6 +160,52 @@ export const banterElevatorLesson_40_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.bel40.1.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Crazy weather we're having, huh?",
+      ipa: "ˈkreɪzi ˈweðər wɪr ˈhævɪŋ hʌ",
+      tr_hint:
+        "'Crazy' = casual ünlem. 'We're' = 'wɪr', bağlanır. 'Huh' = sonda hafif soru kuyruğu. Kısa + rahat ton.",
+    },
+    {
+      id: "ex.bel40.1.9",
+      type: "speech_shadowing",
+      difficulty: 2,
+      native_text: "Honestly, another Monday — kinda dragging today.",
+      voice_hint: "casual_us_male",
+      tr_hint:
+        "'Honestly' filler. 'Another Monday' = klasik yakınma. 'Kinda dragging' = ağır geçiyor (idiom). Düşük enerji ton.",
+    },
+    {
+      id: "ex.bel40.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 2,
+      audio_text: "For sure, weekend went way too fast.",
+      transcription_target: "For sure, weekend went way too fast.",
+      tr_hint:
+        "'For sure' = onay. 'Went way too fast' = çok hızlı geçti. Klasik Pazartesi asansör yakınması.",
+    },
+    {
+      id: "ex.bel40.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "totally",
+      tr_translation: "tamamen, kesinlikle (casual onay)",
+      example: "Totally — feels like the week just started.",
+      example_tr: "Tamamen — hafta yeni başlamış gibi.",
+    },
+    {
+      id: "ex.bel40.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "I am observing that today's meteorological conditions are quite unfavorable.",
+      correct_sentence: "Wild weather out there, huh?",
+      tr_explanation:
+        "'Meteorological conditions are quite unfavorable' = haber spikeri. Asansör 5 saniye casual: 'Wild weather out there, huh?' = 4 kelime, doğal.",
+    },
   ],
   estimated_minutes: 5,
 };
@@ -325,6 +371,53 @@ export const banterElevatorLesson_40_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.bel40.2.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Going up to the fifteenth?",
+      ipa: "ˈɡoʊɪŋ ʌp tə ðə fɪfˈtiːnθ",
+      tr_hint:
+        "'Going up' = 'ɡoʊ-ɪŋ-ʌp' bağlanır. 'Fifteenth' = 'fɪf-tiːnθ', th-sesi dil ucu. Yukarı tonlama (soru).",
+    },
+    {
+      id: "ex.bel40.2.9",
+      type: "speech_shadowing",
+      difficulty: 2,
+      native_text: "Yeah, twelve please — for sure a long day.",
+      voice_hint: "casual_us_female",
+      tr_hint:
+        "Kat söyleme + casual yakınma. 'Twelve please' = kibar talep. 'Long day' kısa + warm.",
+    },
+    {
+      id: "ex.bel40.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 2,
+      audio_text: "Honestly, kinda hoping the elevator goes quick today.",
+      transcription_target:
+        "Honestly, kinda hoping the elevator goes quick today.",
+      tr_hint:
+        "Casual asansör yakınması. 'Kinda hoping' yumuşak istek. 'Goes quick' = hızlı geçsin. Hafif + warm.",
+    },
+    {
+      id: "ex.bel40.2.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "for sure",
+      tr_translation: "kesinlikle (casual onay)",
+      example: "For sure, this elevator's been slow today.",
+      example_tr: "Kesinlikle, asansör bugün yavaş.",
+    },
+    {
+      id: "ex.bel40.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Kindly inform me which floor you require access to.",
+      correct_sentence: "What floor?",
+      tr_explanation:
+        "'Kindly inform me which floor you require access to' = otel concierge. Asansörde butona yakın duran kişi: 'What floor?' = 2 kelime, doğal.",
+    },
   ],
   estimated_minutes: 5,
 };
@@ -486,6 +579,53 @@ export const banterElevatorLesson_40_3: BundledLesson = {
             "'Did you hear' = ortak meraka davet. Karşı taraf 'no, what?' diyebilir → sohbet sürer.",
         },
       ],
+    },
+    {
+      id: "ex.bel40.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Did you hear they're renovating the lobby?",
+      ipa: "dɪd juː hɪr ðer ˌrenəˈveɪtɪŋ ðə ˈlɒbi",
+      tr_hint:
+        "'Did you' = 'dɪdʒə' bağlanır. 'Renovating' vurgu 'ren'-de. Meraklı + paylaşımcı ton.",
+    },
+    {
+      id: "ex.bel40.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Honestly, that new coffee place downstairs is kinda solid.",
+      voice_hint: "casual_us_male",
+      tr_hint:
+        "Bina dedikodusu casual. 'Kinda solid' = fena değil (idiom). Casual + samimi ton.",
+    },
+    {
+      id: "ex.bel40.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "No way, the gym moved to the third floor?",
+      transcription_target:
+        "No way, the gym moved to the third floor?",
+      tr_hint:
+        "Sürpriz reaksiyon. 'No way' + bina değişikliği = klasik asansör sohbeti. Meraklı yukarı tonlama.",
+    },
+    {
+      id: "ex.bel40.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "that's wild",
+      tr_translation: "vay be (casual şaşkınlık)",
+      example: "They're closing the parking? That's wild.",
+      example_tr: "Otoparkı mı kapatıyorlar? Vay be.",
+    },
+    {
+      id: "ex.bel40.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Have you been apprised of the impending lobby renovations?",
+      correct_sentence: "Did you hear they're redoing the lobby?",
+      tr_explanation:
+        "'Apprised of impending' = askeri brifing. Casual: 'Did you hear they're redoing the lobby' = doğal + meraklı + 6 kelime.",
     },
   ],
   estimated_minutes: 5,
@@ -650,6 +790,52 @@ export const banterElevatorLesson_40_4: BundledLesson = {
             "'Enjoy your evening' = akşam-spesifik veda. Zaman dilimine göre seç.",
         },
       ],
+    },
+    {
+      id: "ex.bel40.4.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Alright, have a good one!",
+      ipa: "ɔːlˈraɪt hæv ə ɡʊd wʌn",
+      tr_hint:
+        "Asansör çıkış üçlüsü. 'Alright' = casual. 'Have a good one' bağlı + warm. 3 saniyede tamamlanmalı.",
+    },
+    {
+      id: "ex.bel40.4.9",
+      type: "speech_shadowing",
+      difficulty: 2,
+      native_text: "You too — take it easy out there.",
+      voice_hint: "casual_us_male",
+      tr_hint:
+        "'You too' = sen de. 'Take it easy' = kolay gelsin (idiom). 'Out there' = dışarıda. Tek nefes.",
+    },
+    {
+      id: "ex.bel40.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 2,
+      audio_text: "For sure, catch you around the building.",
+      transcription_target: "For sure, catch you around the building.",
+      tr_hint:
+        "Veda kalıbı. 'Catch you around' = denk gelirsek görüşürüz (idiom). Casual + iliski açık tutar.",
+    },
+    {
+      id: "ex.bel40.4.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "dude",
+      tr_translation: "dostum (casual çıkış hitap)",
+      example: "Alright dude — see you around!",
+      example_tr: "Tamam dostum — görüşürüz!",
+    },
+    {
+      id: "ex.bel40.4.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "I shall now bid you farewell as I disembark from this conveyance.",
+      correct_sentence: "Alright, take it easy!",
+      tr_explanation:
+        "'Bid you farewell as I disembark from this conveyance' = Titanic. Asansör çıkışı: 'Alright, take it easy' = 3 kelime, warm + doğal.",
     },
   ],
   estimated_minutes: 5,

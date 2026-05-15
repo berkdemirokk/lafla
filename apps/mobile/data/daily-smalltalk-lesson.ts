@@ -164,6 +164,52 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.dst23.1.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "How's your week going so far?",
+      ipa: "haʊz jər wiːk ˈɡoʊɪŋ soʊ fɑːr",
+      tr_hint:
+        "Asansor klasigi. 'How's' kısa. 'Going so far' bağlanır → 'goyn-so-far'. Akıcı söyle.",
+    },
+    {
+      id: "ex.dst23.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Hope you have a great rest of your day!",
+      voice_hint: "female_us",
+      tr_hint:
+        "Veda kalibi. 'Rest of your day' = günün geri kalanı. Sicak kapanis ritmi.",
+    },
+    {
+      id: "ex.dst23.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Crazy weather we're having lately, huh?",
+      transcription_target: "Crazy weather we're having lately, huh?",
+      tr_hint:
+        "Hava small talk klasigi. 'Crazy weather' = cilgin hava. 'Huh' = degil mi (ortak deneyim).",
+    },
+    {
+      id: "ex.dst23.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "hanging in there",
+      tr_translation: "Idare ediyorum (zorlu ama dayanıyorum)",
+      example: "Mondays, you know — just hanging in there.",
+      example_tr: "Pazartesi iste — idare ediyorum.",
+    },
+    {
+      id: "ex.dst23.1.12",
+      type: "spot_mistake",
+      difficulty: 2,
+      incorrect_sentence: "I am very good. Why ask?",
+      correct_sentence:
+        "Pretty good, thanks — just need more coffee. How about you?",
+      tr_explanation:
+        "'Why ask' = social red. Doğru: kısa detay (just need more coffee) + karşı soru (momentum).",
+    },
   ],
 };
 
@@ -327,6 +373,52 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.dst23.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Have you been waiting long?",
+      ipa: "hæv jə bɪn ˈweɪtɪŋ lɔːŋ",
+      tr_hint:
+        "Bekleme salonu klasigi. 'Have you' bağlanır → 'həv-yə'. 'Waiting long' net vurgu.",
+    },
+    {
+      id: "ex.dst23.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Hope everything goes well for you.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Empati kalibi. 'Hope everything' birleşik akış. 'Goes well for you' = senin için iyi gitsin.",
+    },
+    {
+      id: "ex.dst23.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "The doctor's running about twenty minutes behind.",
+      transcription_target: "The doctor's running about twenty minutes behind.",
+      tr_hint:
+        "Bekleme salonu klasigi. 'Running behind' = gecikme yapıyor. 'About twenty minutes' = yaklasik 20 dakika.",
+    },
+    {
+      id: "ex.dst23.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "running behind",
+      tr_translation: "Gecikme yapıyor (programdan geri)",
+      example: "Sorry — the dentist is running behind today.",
+      example_tr: "Pardon — dis hekimi bugun gecikme yapiyor.",
+    },
+    {
+      id: "ex.dst23.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "What sick you?",
+      correct_sentence:
+        "Long wait today, huh? I'm just in for a regular checkup.",
+      tr_explanation:
+        "'What sick you' = saygisiz + grammatik degil. Doğru: ortak deneyim (long wait) + kendinden basla.",
+    },
   ],
 };
 
@@ -487,6 +579,52 @@ export const dailySmalltalkLesson_23_3: BundledLesson = {
             "Sosyal sinyaller. Karsidaki uzaklasmak istiyorsa onu zorla tutmamak = saygi.",
         },
       ],
+    },
+    {
+      id: "ex.dst23.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Anyway, I should let you go.",
+      ipa: "ˈɛniweɪ aɪ ʃʊd lɛt jə ɡoʊ",
+      tr_hint:
+        "Zarafetle kapatma. 'Anyway' geçiş kelimesi. 'Let you go' bağlanır → 'le-tyə-go'.",
+    },
+    {
+      id: "ex.dst23.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Was great seeing you — let's grab coffee soon.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Iki parçalı sicak kapanis. 'Great seeing you' = seni gormek guzeldi. 'Grab coffee soon' = kahveye gidelim yakında.",
+    },
+    {
+      id: "ex.dst23.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "I'll text you to set something up next week.",
+      transcription_target: "I'll text you to set something up next week.",
+      tr_hint:
+        "Takip vaadi. 'Text you' = mesaj atarim. 'Set something up' = bir plan yapariz.",
+    },
+    {
+      id: "ex.dst23.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "gotta run",
+      tr_translation: "Gitmem lazim (casual veda)",
+      example: "Hey, gotta run — but great catching up!",
+      example_tr: "Selam, gitmem lazim — ama sohbet harikaydi!",
+    },
+    {
+      id: "ex.dst23.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Okay bye finish.",
+      correct_sentence:
+        "Anyway, I should get going — was great catching up. Let's do this again soon!",
+      tr_explanation:
+        "'Finish' = soguk + grammatik degil. Doğru: 'Anyway' + sebep (get going) + warmth (great catching up) + ileriye yatirim.",
     },
   ],
 };

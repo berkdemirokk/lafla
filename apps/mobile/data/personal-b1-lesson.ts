@@ -169,6 +169,58 @@ export const personalB1Lesson_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.pb1.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'd love to hear more about that.",
+      ipa: "aɪd lʌv tə hɪər mɔːr əˈbaʊt ðæt",
+      tr_hint:
+        "Yetişkin ilgi gösterme. 'I'd love' = 'ayd-lov' bağlı. 'Hear more about that' akıcı. İçten, baskısız.",
+    },
+    {
+      id: "ex.pb1.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Honestly, I'd rather skip the small talk and ask what actually got you on this app.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Dating uygulamasında dürüst tonu. 'Skip the small talk' = küçük sohbeti atla. Direkt ama nazik.",
+    },
+    {
+      id: "ex.pb1.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "I'm not really into long message threads — would you want to grab a coffee this week?",
+      transcription_target:
+        "I'm not really into long message threads — would you want to grab a coffee this week?",
+      tr_hint:
+        "Tanışma sınır kalıbı. 'Not really into' = pek hoşlanmıyorum. 'Grab a coffee' = bir kahve içelim.",
+    },
+    {
+      id: "ex.pb1.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "boundaries",
+      tr_translation: "Sınırlar (kişisel)",
+      example:
+        "I have some boundaries around how I share personal stuff early on — hope that's okay.",
+      example_tr:
+        "Kişisel şeyleri erken paylaşma konusunda bazı sınırlarım var — umarım sorun değildir.",
+    },
+    {
+      id: "ex.pb1.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "You are very beautiful, send me your number please, we can speak phone.",
+      correct_sentence:
+        "I've enjoyed talking — would you be up for moving this off the app and meeting for a coffee?",
+      tr_explanation:
+        "'Send me your number' baskı; 'we can speak phone' Türkçe çeviri (doğru: 'talk on the phone'). 'Beautiful' fiziksel iltifat çok erken. Yetişkin yaklaşım: sohbete değer ver + ortak adım öner ('moving this off the app').",
+    },
   ],
 };
 
@@ -337,6 +389,58 @@ export const personalB1Lesson_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.pb1.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I don't really want to get into that on a first date.",
+      ipa: "aɪ doʊnt ˈrɪli wɒnt tə gɛt ˈɪntə ðæt ɒn ə fɜːrst deɪt",
+      tr_hint:
+        "Sınır koyma kalıbı — kibar ama net. 'Get into' = girmek (konu olarak). 'On a first date' net.",
+    },
+    {
+      id: "ex.pb1.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "I'd rather hear about you for a bit before I go deep on my ex stuff.",
+      voice_hint: "male_us",
+      tr_hint:
+        "İlk randevu yumuşatma. 'I'd rather' = tercih ederim. 'Go deep on' = derinine inmek. Rahat, sınırlı paylaşım.",
+    },
+    {
+      id: "ex.pb1.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Honestly, I came out of a long relationship last year and I'm still figuring out what I want.",
+      transcription_target:
+        "Honestly, I came out of a long relationship last year and I'm still figuring out what I want.",
+      tr_hint:
+        "İlk randevuda dürüst paylaşım. 'Came out of' = (ilişki) bitirdim. 'Figuring out' = anlamaya çalışıyorum.",
+    },
+    {
+      id: "ex.pb1.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "boundaries",
+      tr_translation: "Sınırlar",
+      example:
+        "I have some boundaries around how fast things move — I hope that's okay to say up front.",
+      example_tr:
+        "Şeylerin ne kadar hızlı ilerlediği konusunda bazı sınırlarım var — baştan söylemekte sakınca yoktur umarım.",
+    },
+    {
+      id: "ex.pb1.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "My last girlfriend was crazy and she made my life very bad, but you look more normal.",
+      correct_sentence:
+        "I came out of a difficult relationship last year, but I'd rather save that for when we know each other better.",
+      tr_explanation:
+        "İlk randevuda eski partnere 'crazy' demek = kırmızı bayrak. 'You look more normal' karşılaştırma rahatsız. Sağlıklı yaklaşım: sorumluluk al ('difficult relationship'), sınır koy ('save that for when we know each other better').",
+    },
   ],
 };
 
@@ -498,6 +602,58 @@ export const personalB1Lesson_3: BundledLesson = {
             "Karşılık ver — somut bir plan veya küçük bir teklif.",
         },
       ],
+    },
+    {
+      id: "ex.pb1.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Help me understand what that looks like in your family.",
+      ipa: "hɛlp mi ˌʌndərˈstænd wʌt ðæt lʊks laɪk ɪn jʊər ˈfæmɪli",
+      tr_hint:
+        "Kültürel merak kalıbı. 'Help me understand' = nazikçe açıklama isteme. Yargısız, açık ton.",
+    },
+    {
+      id: "ex.pb1.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "In Turkey, families stay close into adulthood — I see my parents every week and it doesn't feel like a burden.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Türkiye'yi anlatma. 'Stay close into adulthood' = yetişkinlikte yakın kal. 'Doesn't feel like a burden' = yük gibi gelmiyor.",
+    },
+    {
+      id: "ex.pb1.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "I think we just grew up with different ideas about what closeness with family means.",
+      transcription_target:
+        "I think we just grew up with different ideas about what closeness with family means.",
+      tr_hint:
+        "Kültürel fark cümlesi. 'Grew up with different ideas' = farklı fikirlerle büyüdük. 'Closeness' = yakınlık.",
+    },
+    {
+      id: "ex.pb1.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "conflict pattern",
+      tr_translation: "Tartışma örüntüsü",
+      example:
+        "I think we have a conflict pattern around holidays — same fight, different year.",
+      example_tr:
+        "Bence tatiller etrafında bir tartışma örüntümüz var — aynı kavga, farklı yıl.",
+    },
+    {
+      id: "ex.pb1.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Your culture is so cold, in Turkey we love our family more than westerners.",
+      correct_sentence:
+        "I think our cultures just frame family closeness differently — neither one cares less, we just show it in different ways.",
+      tr_explanation:
+        "'Your culture is cold' + 'we love more than westerners' = yargılayıcı, üstünlük kurma. Sağlıklı kültürel diyalog: 'frame X differently' (eşit), 'neither cares less' (hiyerarşi reddi). Karşı tarafı korumak ilişkiyi korur.",
     },
   ],
 };
@@ -679,6 +835,58 @@ export const personalB1Lesson_4: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.pb1.4.9",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I want to make a repair attempt before this gets bigger.",
+      ipa: "aɪ wɒnt tə meɪk ə rɪˈpɛər əˈtɛmpt bɪˈfɔːr ðɪs gɛts ˈbɪgər",
+      tr_hint:
+        "Çift terapisi dili. 'Repair attempt' = onarım girişimi (Gottman). 'Before this gets bigger' = büyümeden.",
+    },
+    {
+      id: "ex.pb1.4.10",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "I'm not asking you to fix anything — I just need you to hear me right now.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Yetişkin ihtiyaç ifadesi. 'I'm not asking you to fix' = düzeltmeni istemiyorum. 'Hear me' = duy beni. Yumuşak.",
+    },
+    {
+      id: "ex.pb1.4.11",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "I notice we keep falling into the same conflict pattern — can we slow down and look at it together?",
+      transcription_target:
+        "I notice we keep falling into the same conflict pattern — can we slow down and look at it together?",
+      tr_hint:
+        "Örüntüyü adlandırma cümlesi. 'Conflict pattern' = tartışma örüntüsü. 'Slow down' = yavaşla.",
+    },
+    {
+      id: "ex.pb1.4.12",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "repair attempt",
+      tr_translation: "Onarım girişimi (Gottman terimi)",
+      example:
+        "When you reached for my hand mid-argument, that was a repair attempt and it landed.",
+      example_tr:
+        "Tartışmanın ortasında elimi tuttuğunda, bu bir onarım girişimiydi ve işe yaradı.",
+    },
+    {
+      id: "ex.pb1.4.13",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "You always make me feel bad and you never listen to me, you are selfish.",
+      correct_sentence:
+        "When dinner ran long last night, I felt unheard — I'd like us to find a way to check in earlier next time.",
+      tr_explanation:
+        "'Always/never' + 'you are selfish' = klasik 'Four Horsemen' (Gottman) — savunma tetikler. Sağlıklı: spesifik an ('last night'), I-statement ('I felt unheard'), ileriye dönük rica ('check in earlier next time'). Karakterleme değil, örüntü.",
+    },
   ],
 };
 
@@ -843,6 +1051,58 @@ export const personalB1Lesson_5: BundledLesson = {
             "Sounds amazing. We have to come visit. Please, sit — let's eat.",
         },
       ],
+    },
+    {
+      id: "ex.pb1.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "It's really good to finally meet you in person.",
+      ipa: "ɪts ˈrɪli gʊd tə ˈfaɪnəli miːt juː ɪn ˈpɜːrsən",
+      tr_hint:
+        "Tanışma açılışı. 'Really' = 'RIL-li' kısa. 'In person' = 'in-PÖR-sın'. Sıcak, içten.",
+    },
+    {
+      id: "ex.pb1.5.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Maria has told me so much about your trip to Cappadocia — I'd love to hear your side of it.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Kayınvalide ile sohbet. 'Told me so much about' = bana çok şey anlattı. 'I'd love to hear' = duymak isterim.",
+    },
+    {
+      id: "ex.pb1.5.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "We brought you a small something from Istanbul — nothing fancy, just some Turkish coffee and lokum.",
+      transcription_target:
+        "We brought you a small something from Istanbul — nothing fancy, just some Turkish coffee and lokum.",
+      tr_hint:
+        "Hediye verme kalıbı. 'Small something' = küçük bir şey. 'Nothing fancy' = abartılı değil.",
+    },
+    {
+      id: "ex.pb1.5.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "boundaries",
+      tr_translation: "Sınırlar",
+      example:
+        "We've talked about boundaries around holiday visits, and we're trying to work out what's fair for both families.",
+      example_tr:
+        "Tatil ziyaretleri konusunda sınırları konuştuk ve iki aile için adil olanı bulmaya çalışıyoruz.",
+    },
+    {
+      id: "ex.pb1.5.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Your son is very lucky to have me, I am from a good family in Istanbul.",
+      correct_sentence:
+        "Maria's family means a lot to her, and meeting you means a lot to me too.",
+      tr_explanation:
+        "'He's lucky to have me' + 'good family' = övünme. Yabancı kayınvalide bağlamında alçakgönüllülük + saygı esastır. Sağlıklı dil: karşı tarafa değer ver, kendini sıralama.",
     },
   ],
 };
@@ -1019,6 +1279,58 @@ export const personalB1Lesson_6: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.pb1.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Walk me through your day — even the boring bits.",
+      ipa: "wɔːk mi θruː jʊər deɪ ˈiːvən ðə ˈbɔːrɪŋ bɪts",
+      tr_hint:
+        "Long-distance kalbi. 'Walk me through' birleşik, akıcı. 'Boring bits' = sıkıcı kısımlar, sevecen.",
+    },
+    {
+      id: "ex.pb1.6.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "I noticed we've fallen into the same conflict pattern over weekend plans — can we slow down on that?",
+      voice_hint: "male_us",
+      tr_hint:
+        "Uzaktan örüntü adlandırma. 'Fallen into' = düşmüşüz. 'Conflict pattern' = tartışma örüntüsü.",
+    },
+    {
+      id: "ex.pb1.6.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "I just wanted to hear your voice for a few minutes — no big agenda, just you.",
+      transcription_target:
+        "I just wanted to hear your voice for a few minutes — no big agenda, just you.",
+      tr_hint:
+        "Long-distance dürüst dokunma. 'No big agenda' = büyük bir gündem yok. 'Just you' = sadece sen.",
+    },
+    {
+      id: "ex.pb1.6.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "repair attempt",
+      tr_translation: "Onarım girişimi",
+      example:
+        "When you sent that voice note after our argument, that was a repair attempt and it really helped.",
+      example_tr:
+        "Tartışmamızdan sonra o sesli mesajı gönderdiğinde, bu bir onarım girişimiydi ve gerçekten yardımcı oldu.",
+    },
+    {
+      id: "ex.pb1.6.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Why you didn't call me yesterday? I am very angry, you don't love me anymore.",
+      correct_sentence:
+        "When I didn't hear from you yesterday, I felt a bit lonely — I'd love to know what your day looked like.",
+      tr_explanation:
+        "'Why you didn't' yanlış soru yapısı + 'you don't love me anymore' yıkıcı genelleme. Yetişkin uzun mesafe: spesifik gözlem ('didn't hear from you yesterday'), I-statement ('I felt lonely'), açılım talebi ('I'd love to know'). Sevgiyi sorgulama, bağlantı iste.",
+    },
   ],
 };
 
@@ -1190,6 +1502,58 @@ export const personalB1Lesson_7: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.pb1.7.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I want to own my part in this — I shouldn't have raised my voice.",
+      ipa: "aɪ wɒnt tu oʊn maɪ pɑːrt ɪn ðɪs aɪ ˈʃʊdənt həv reɪzd maɪ vɔɪs",
+      tr_hint:
+        "Onarım dili. 'Own my part' = payımı kabul et. 'Shouldn't have raised my voice' = ses yükseltmemeliydim.",
+    },
+    {
+      id: "ex.pb1.7.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "I'm sorry — that wasn't fair, and I want to make a repair attempt instead of doubling down.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Olgun onarım. 'Wasn't fair' = adil değildi. 'Doubling down' = inatlaşmak. 'Repair attempt' anahtar terim.",
+    },
+    {
+      id: "ex.pb1.7.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "I noticed we keep getting stuck in the same conflict pattern around money — can we talk about it when we're both calm?",
+      transcription_target:
+        "I noticed we keep getting stuck in the same conflict pattern around money — can we talk about it when we're both calm?",
+      tr_hint:
+        "Örüntü adlandırma. 'Conflict pattern around money' = para etrafında tartışma örüntüsü.",
+    },
+    {
+      id: "ex.pb1.7.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "repair attempt",
+      tr_translation: "Onarım girişimi",
+      example:
+        "I should have made a repair attempt sooner instead of letting it sit overnight.",
+      example_tr:
+        "Bütün gece bekletmek yerine daha erken bir onarım girişimi yapmalıydım.",
+    },
+    {
+      id: "ex.pb1.7.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I'm sorry but you also did wrong, so let's forget about it and don't speak this again.",
+      correct_sentence:
+        "I'm sorry — I want to own my part first, and then I'd love to hear what felt off for you too.",
+      tr_explanation:
+        "'I'm sorry but you also' = yarı özür, sorumluluğu paylaştırma. 'Let's forget about it' = bastır, gerilimi çözmez. Sağlıklı onarım: kendi payını önce kabul et ('own my part first'), karşı tarafı dinlemeye davet et ('hear what felt off for you'). 'Don't speak this again' = 'don't talk about it again' olmalı.",
+    },
   ],
 };
 
@@ -1356,6 +1720,58 @@ export const personalB1Lesson_8: BundledLesson = {
             "I love you too. Okay this is a good night.",
         },
       ],
+    },
+    {
+      id: "ex.pb1.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I love you, and I still need my own time.",
+      ipa: "aɪ lʌv juː ænd aɪ stɪl niːd maɪ oʊn taɪm",
+      tr_hint:
+        "Sevgi + sınır. 'And' yumuşak bağlaç ('but' yerine). 'My own time' = kendi zamanım. Sıcak, kararlı.",
+    },
+    {
+      id: "ex.pb1.8.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Saying 'I love you' for me means I want to keep choosing this, not that I'm losing myself in it.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Aşk tanımı. 'Keep choosing this' = bunu seçmeye devam etmek. 'Losing myself' = kendimi kaybetmek. Olgun.",
+    },
+    {
+      id: "ex.pb1.8.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "I have boundaries around how often we text during the workday, and I hope that's okay with you.",
+      transcription_target:
+        "I have boundaries around how often we text during the workday, and I hope that's okay with you.",
+      tr_hint:
+        "Sınır iletişim cümlesi. 'Boundaries around X' = X etrafında sınırlar. 'Hope that's okay' yumuşak.",
+    },
+    {
+      id: "ex.pb1.8.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "boundaries",
+      tr_translation: "Sınırlar (sağlıklı)",
+      example:
+        "Healthy boundaries aren't a wall — they're how I show up better when we're together.",
+      example_tr:
+        "Sağlıklı sınırlar bir duvar değildir — birlikteyken daha iyi var olmamın yoludur.",
+    },
+    {
+      id: "ex.pb1.8.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "If you really love me you will not go this weekend trip with your friends.",
+      correct_sentence:
+        "I'll miss you this weekend, but I'm glad you've got plans with your friends — those matter too.",
+      tr_explanation:
+        "'If you really love me you will not' = sevgiyi sınırlama aracı yapma. Sağlıklı: kendi duyguyu söyle ('I'll miss you'), partnerin başka ilişkilerini destekle ('I'm glad'). Sevgi sahip olmak değil, alan vermek.",
     },
   ],
 };
@@ -1531,6 +1947,58 @@ export const personalB1Lesson_9: BundledLesson = {
             "Duygusal kapanış + saygılı veda. Sahteci umut verme.",
         },
       ],
+    },
+    {
+      id: "ex.pb1.9.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I've thought about this a lot, and I want to be honest with you.",
+      ipa: "aɪv θɔːt əˈbaʊt ðɪs ə lɒt ænd aɪ wɒnt tə bi ˈɒnɪst wɪð juː",
+      tr_hint:
+        "Ayrılık girişi. 'Thought about this a lot' = bunu çok düşündüm. Sakin, ölçülü, içten.",
+    },
+    {
+      id: "ex.pb1.9.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Our conflict pattern around the future has shown me that we want different things, and I think we need to end this.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Ayrılık dili. 'Conflict pattern around the future' = gelecek etrafında tartışma örüntüsü. 'Want different things' = farklı şeyler istemek.",
+    },
+    {
+      id: "ex.pb1.9.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "I care about you, and I'm not making this decision lightly — but it's the right one for both of us.",
+      transcription_target:
+        "I care about you, and I'm not making this decision lightly — but it's the right one for both of us.",
+      tr_hint:
+        "Olgun ayrılık cümlesi. 'Care about you' = sana değer veriyorum. 'Not lightly' = hafife almıyorum.",
+    },
+    {
+      id: "ex.pb1.9.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "conflict pattern",
+      tr_translation: "Tartışma örüntüsü",
+      example:
+        "We have a conflict pattern around commitment that I don't think we can repair, and that's not on either of us.",
+      example_tr:
+        "Bağlanma etrafında bir tartışma örüntümüz var ve bunu onaramayız bence — bu ikimizin de suçu değil.",
+    },
+    {
+      id: "ex.pb1.9.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "You ruined everything and I cannot stay with you anymore, you are toxic.",
+      correct_sentence:
+        "I don't think we work together, and staying isn't fair to either of us — I'm not blaming you, I just need to be honest.",
+      tr_explanation:
+        "'You ruined everything' + 'you are toxic' = etiketleme, suçlama. Olgun ayrılık: 'we don't work together' (denklik), 'not fair to either of us' (ortak iyilik), 'not blaming you' (sorumluluk paylaşımı reddi değil, suçlama reddi).",
     },
   ],
 };
@@ -1735,6 +2203,58 @@ export const personalB1Lesson_10: BundledLesson = {
             "Anlaşma + sabır + duygusal kapanış. Onun hızını saygıla.",
         },
       ],
+    },
+    {
+      id: "ex.pb1.10.9",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I'm sorry — I want to own my part before anything else.",
+      ipa: "aɪm ˈsɒri aɪ wɒnt tu oʊn maɪ pɑːrt bɪˈfɔːr ˈɛniˌθɪŋ ɛls",
+      tr_hint:
+        "Onarım açılışı. 'Own my part' = payımı kabul et. 'Before anything else' = her şeyden önce. Olgun, savunmasız.",
+    },
+    {
+      id: "ex.pb1.10.10",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "I want to make a real repair attempt — not just say sorry and move on.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Onarım niyeti. 'Real repair attempt' = gerçek onarım girişimi. 'Just say sorry and move on' = sadece özür dileyip geçmek. Niyet farkı.",
+    },
+    {
+      id: "ex.pb1.10.11",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text:
+        "I know we keep coming back to the same conflict pattern — I want to do my work on it, not just promise.",
+      transcription_target:
+        "I know we keep coming back to the same conflict pattern — I want to do my work on it, not just promise.",
+      tr_hint:
+        "Olgun değişim sözü. 'Do my work on it' = üzerinde gerçek emek vermek. 'Not just promise' = sadece söz değil.",
+    },
+    {
+      id: "ex.pb1.10.12",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "repair attempt",
+      tr_translation: "Onarım girişimi",
+      example:
+        "Bringing you coffee in bed wasn't to skip the conversation — it was a repair attempt while I figured out what to say.",
+      example_tr:
+        "Yatakta kahve getirmem konuşmayı atlamak için değildi — ne diyeceğimi düşünürken bir onarım girişimiydi.",
+    },
+    {
+      id: "ex.pb1.10.13",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I'm sorry if you felt bad, but you started this fight first.",
+      correct_sentence:
+        "I'm sorry — I raised my voice and that wasn't fair. I want to own that before we talk about anything else.",
+      tr_explanation:
+        "'Sorry IF you felt' = koşullu özür (gerçek özür değil). 'You started it first' = sorumluluk pas verme. Sağlıklı: koşulsuz özür ('I raised my voice'), kendi davranışını adlandır ('wasn't fair'), sahiplen ('own that').",
     },
   ],
 };

@@ -160,6 +160,52 @@ export const tippingLesson_6_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.6.1.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could you add a twenty percent tip, please?",
+      ipa: "kʊd juː æd ə ˈtwɛnti pərˈsɛnt tɪp pliːz",
+      tr_hint:
+        "'Twenty' içinde 't' yumuşar 'twen-i' olur (ABD aksanında). 'Percent' vurgusu ikinci hece: 'pər-SENT'.",
+    },
+    {
+      id: "ex.6.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Let's just round it up to fifty and call it even.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Native ile aynı anda söyle. 'Round it up' bağlanır → 'rawn-dit-ʌp'. 'Call it even' = idiom, eşitle.",
+    },
+    {
+      id: "ex.6.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Twenty percent is pretty standard for good service here.",
+      transcription_target: "Twenty percent is pretty standard for good service here.",
+      tr_hint:
+        "Dinle, yaz. ABD bahşiş normu. 'Pretty standard' = oldukça standart.",
+    },
+    {
+      id: "ex.6.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "gratuity",
+      tr_translation: "Bahşiş (resmi/formal kelime)",
+      example: "An 18% gratuity is automatically added for parties of six or more.",
+      example_tr: "6 kişi ve üzerindeki gruplara otomatik %18 bahşiş eklenir.",
+    },
+    {
+      id: "ex.6.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Service bad, no tip. This is my decision.",
+      correct_sentence:
+        "Service wasn't great, but I'll still add ten percent — that's the minimum here.",
+      tr_explanation:
+        "ABD'de %0 bahşiş garsonun maaşını yok eder — kaba. Vasat servise bile %10-15 minimum. Yumuşatıcı 'wasn't great' yerine sertlik.",
+    },
   ],
 };
 
@@ -322,6 +368,52 @@ export const tippingLesson_6_2: BundledLesson = {
             "Avrupa: yuvarlama veya küçük tip (%5-10). 'Round up' yaygın pratik.",
         },
       ],
+    },
+    {
+      id: "ex.6.2.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Is service already included on the bill?",
+      ipa: "ɪz ˈsɜːrvɪs ɔːlˈrɛdi ɪnˈkluːdɪd ɒn ðə bɪl",
+      tr_hint:
+        "'Service' = 'SUR-vis', vurgu ilk hece. 'Already' içinde 'a' uzun: 'ɔːl-RE-di'. 'Included' vurgu orta hece.",
+    },
+    {
+      id: "ex.6.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Could you just round it up to twenty pounds? Cheers.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Native ile aynı anda söyle (UK aksanı). 'Cheers' = İngilizce'de teşekkür/veda. UK barlarında klasik.",
+    },
+    {
+      id: "ex.6.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "We add a discretionary twelve and a half percent service charge.",
+      transcription_target: "We add a discretionary twelve and a half percent service charge.",
+      tr_hint:
+        "Dinle, yaz. UK restoranlarında klasik. 'Discretionary' = isteğe bağlı (kaldırılabilir).",
+    },
+    {
+      id: "ex.6.2.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "discretionary",
+      tr_translation: "İsteğe bağlı (kaldırılabilir)",
+      example: "The service charge is discretionary — you can remove it.",
+      example_tr: "Servis ücreti isteğe bağlı — istersen kaldırabilirsin.",
+    },
+    {
+      id: "ex.6.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I give 20 percent tip like America, same everywhere.",
+      correct_sentence:
+        "Ten percent should be fine here — that's pretty standard in the UK.",
+      tr_explanation:
+        "ABD oranı (%20) UK/EU'da fazla — garsonlar zaten maaş alıyor. 'Pretty standard' = ortalama; bahşiş kültürü ülkelere göre değişir.",
     },
   ],
 };

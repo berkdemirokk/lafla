@@ -160,6 +160,59 @@ export const flirtVoiceLesson_3_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fv3.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Mind if I send a quick voice note? Way easier than typing this out.",
+      ipa: "/maɪnd ɪf aɪ sɛnd ə kwɪk vɔɪs nəʊt — weɪ ˈiːzɪə ðæn ˈtaɪpɪŋ ðɪs aʊt/",
+      tr_hint:
+        "İzin tonu — kibar ama casual. 'Mind if' bağlı, 'way easier' vurgulu komparatif.",
+    },
+    {
+      id: "ex.fv3.1.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Quick heads up — about to send a voice note, totally cool if you'd rather I just type it.",
+      voice_hint: "warm_us",
+      tr_hint:
+        "Etiket-bilinçli ton. 'Heads up' bağlı uyari. 'Totally cool if you'd rather' tek nefes — esneklik.",
+    },
+    {
+      id: "ex.fv3.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Sure, go for it — I'll do the same back if it makes sense.",
+      transcription_target:
+        "Sure, go for it — I'll do the same back if it makes sense.",
+      tr_hint:
+        "Match'in voice'a yesil isigi. 'Go for it' = at git. 'Do the same back' = ayni sekilde geri donerim.",
+    },
+    {
+      id: "ex.fv3.1.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Hate to text-bomb you",
+      tr_translation: "Sana mesaj yagmuru atmaktan nefret ederim",
+      example:
+        "Hate to text-bomb you — mind if I voice this instead?",
+      example_tr:
+        "Sana mesaj yagmuru atmaktan nefret ederim — bunu sesli atsam olur mu?",
+    },
+    {
+      id: "ex.fv3.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "I send 5 minute voice now listen it please.",
+      correct_sentence:
+        "Mind if I send a short voice note? Promise it's under a minute.",
+      tr_explanation:
+        "'I send' = present indikatif + izin yok = baski. '5 minute' yapı bozuk + uzun = saygisiz. Doğru: izin + sure güvencesi ('under a minute'). Voice note etiketi = saygi sinyali.",
+    },
   ],
 };
 
@@ -322,6 +375,59 @@ export const flirtVoiceLesson_3_2: BundledLesson = {
             "'Groggy' = uykulu, uyandığında ses. Voice note'ta ses durumunu açıkla = empati kazandırır.",
         },
       ],
+    },
+    {
+      id: "ex.fv3.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Hey, first voice note from me — figured this was easier than typing it all out.",
+      ipa: "/heɪ ˈfɜːst vɔɪs nəʊt frəm miː — ˈfɪɡəd ðɪs wɒz ˈiːzɪə ðæn ˈtaɪpɪŋ ɪt ɔːl aʊt/",
+      tr_hint:
+        "Voice note acilis tonu — kararli, sicak. 'First voice note from me' bağli ritim. Sonda hafif yumusak.",
+    },
+    {
+      id: "ex.fv3.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Okay so I've been thinking about what you said earlier — and honestly, it stuck with me more than I expected.",
+      voice_hint: "warm_us",
+      tr_hint:
+        "Düşünceli ton — samimi, agir degil. 'Stuck with me' = aklimda kaldi idiom. Akıcı, doğal.",
+    },
+    {
+      id: "ex.fv3.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Whoa, first voice note from you — send it, I'm listening.",
+      transcription_target:
+        "Whoa, first voice note from you — send it, I'm listening.",
+      tr_hint:
+        "Match'in voice'a heyecanli karsiligi. 'Whoa' = sasirma. 'I'm listening' = dinliyorum, devam et.",
+    },
+    {
+      id: "ex.fv3.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Tone is hard to read over text",
+      tr_translation: "Yazidan ton anlamak zor",
+      example:
+        "Sending a voice — tone is hard to read over text, didn't want this coming out flat.",
+      example_tr:
+        "Sesli atiyorum — yazidan ton anlamak zor, kuru gözükmesini istemedim.",
+    },
+    {
+      id: "ex.fv3.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "[10-minute monologue] Hi um so like I was thinking and well I dont know maybe um yeah.",
+      correct_sentence:
+        "Hey, quick voice note — wanted to share one thing, then back to you.",
+      tr_explanation:
+        "10 dakika monolog + 'um/like/idk' dolgular = dinleyici kaybeder. Doğru: kısa + spesifik amac + 'back to you' (karsi taraf icin yer). Voice = present, podcast degil.",
     },
   ],
 };
@@ -487,6 +593,58 @@ export const flirtVoiceLesson_3_3: BundledLesson = {
             "Eşit seviye = doğal. Sesli yatırımı karşıla.",
         },
       ],
+    },
+    {
+      id: "ex.fv3.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Just listened twice — your voice is so much warmer than I imagined.",
+      ipa: "/dʒʌst ˈlɪsənd twaɪs — jɔː vɔɪs ɪz səʊ mʌtʃ ˈwɔːmə ðæn aɪ ɪˈmædʒɪnd/",
+      tr_hint:
+        "Samimi iltifat tonu — ozenli, sicak. 'So much warmer' bağli komparatif. 'Imagined' kapanis yumusak.",
+    },
+    {
+      id: "ex.fv3.3.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Okay replying with a voice memo because typing wouldn't do that story justice — bear with me.",
+      voice_hint: "warm_us",
+      tr_hint:
+        "Voice-for-voice ritmi — kararli, casual. 'Do justice to' kalip. 'Bear with me' = sabret-soyle.",
+    },
+    {
+      id: "ex.fv3.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Glad you liked it — were you expecting me to sound completely different?",
+      transcription_target:
+        "Glad you liked it — were you expecting me to sound completely different?",
+      tr_hint:
+        "Voice gönderen match'in geri soru cevabi. 'Sound different' = farklı ses cikar beklemek. Casual mirror sorusu.",
+    },
+    {
+      id: "ex.fv3.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Sounds way less stiff than your texts",
+      tr_translation: "Yazidan çok daha akici çikiyor sesin",
+      example:
+        "You sound way less stiff than your texts — like a different person, in a good way.",
+      example_tr:
+        "Yazidan çok daha akici çikiyor sesin — iyi anlamda baska bir insan gibisin.",
+    },
+    {
+      id: "ex.fv3.3.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Ok heard. Cool. Anyway.",
+      correct_sentence:
+        "Just listened twice — your laugh is killing me, especially that ending.",
+      tr_explanation:
+        "'Ok heard. Cool. Anyway.' = sifir yatirim, voice atan kişiye saygisiz. Doğru: spesifik tepki + ne hosuna gitti. Modern dating: yatirim simetrik olmali = devam = ilgi.",
     },
   ],
 };
@@ -665,6 +823,58 @@ export const flirtVoiceLesson_3_4: BundledLesson = {
             "'Hop on' = casual + hızlı. Resmiyetsiz, gerginlik yok.",
         },
       ],
+    },
+    {
+      id: "ex.fv3.4.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Free for a quick FaceTime later, or is tonight too soon?",
+      ipa: "/friː fər ə kwɪk ˈfeɪstaɪm ˈleɪtə — ɔːr ɪz təˈnaɪt tuː suːn/",
+      tr_hint:
+        "Saygıli teklif tonu — kararli ama esnek. 'Free for' bağli, 'too soon' yumusak çıkıs kapısı.",
+    },
+    {
+      id: "ex.fv3.4.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text:
+        "Random idea — wanna just hop on a quick call tonight? Texting feels slow after the voice notes.",
+      voice_hint: "warm_us",
+      tr_hint:
+        "Modern dating tonu — casual + iliski momentumu. 'Hop on' kalip, 'feels slow' bağli yorum.",
+    },
+    {
+      id: "ex.fv3.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text:
+        "Hahaha you read my mind — tonight after nine?",
+      transcription_target:
+        "Hahaha you read my mind — tonight after nine?",
+      tr_hint:
+        "Match'in olumlu cevabi. 'You read my mind' = aklimi okudun. 'After nine' = dokuzdan sonra.",
+    },
+    {
+      id: "ex.fv3.4.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Save us both the typing",
+      tr_translation: "Ikimizi de yazma derdinden kurtaralim",
+      example:
+        "Wanna just FaceTime tonight? Save us both the typing.",
+      example_tr:
+        "Bu aksam FaceTime yapalim mi? Ikimizi de yazma derdinden kurtaralim.",
+    },
+    {
+      id: "ex.fv3.4.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Video call now I want see you face.",
+      correct_sentence:
+        "Free for a quick FaceTime tonight, or is later this week easier?",
+      tr_explanation:
+        "'Now I want see you face' = komut + sahiplenme + yapı bozuk. Modern dating'te urgent + transactional = unmatch tetigi. Doğru: 'free for X' (esnek) + alternatif zaman = saygi + secim hakki.",
     },
   ],
 };

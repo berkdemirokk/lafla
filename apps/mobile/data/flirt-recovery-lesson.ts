@@ -164,6 +164,52 @@ export const flirtRecoveryLesson_8_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.frec8.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "My bad — totally misread that.",
+      ipa: "maɪ bæd ˈtəʊtəli ˌmɪsˈred ðæt",
+      tr_hint:
+        "'My bad' kısa + casual. 'Misread' = 'miss-red' (past tense). Hafif espri tonu — kendine gül.",
+    },
+    {
+      id: "ex.frec8.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "I think I read the vibe wrong — my bad, no awkwardness needed.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Vibe wrong' kısa, sahiplenici. 'My bad' samimi. 'No awkwardness' = sakinleştirme — rahatla.",
+    },
+    {
+      id: "ex.frec8.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "No worries at all — was thinking of you more as a friend.",
+      transcription_target: "No worries at all — was thinking of you more as a friend.",
+      tr_hint:
+        "Dinle, yaz. 'More as a friend' = arkadaşlık çerçevesi. Yumuşak ret.",
+    },
+    {
+      id: "ex.frec8.1.11",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "reading the room",
+      tr_translation: "Ortamı okumak / havayı sezmek",
+      example: "Realized I wasn't reading the room — apologies for the awkward moment.",
+      example_tr: "Ortamı okuyamadığımı fark ettim — garip an için özür dilerim.",
+    },
+    {
+      id: "ex.frec8.1.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Sorry I made big mistake. Forget all I said.",
+      correct_sentence:
+        "Misread the vibe there — my bad, let's just rewind.",
+      tr_explanation:
+        "'Sorry I made big mistake. Forget all I said.' = dramatik + ağır. Doğru: 'misread the vibe' (sahiplen) + 'my bad' (casual) + 'let's rewind' (hafif çıkış).",
+    },
   ],
 };
 
@@ -328,6 +374,52 @@ export const flirtRecoveryLesson_8_2: BundledLesson = {
             "Esnek olma alanini kapatir. 'Cringe' edip soft retreat yapmak daha guvenli.",
         },
       ],
+    },
+    {
+      id: "ex.frec8.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Cringing at last night's texts.",
+      ipa: "ˈkrɪndʒɪŋ æt lɑːst naɪts teksts",
+      tr_hint:
+        "'Cringing' tek nefes, 'cringe-ing'. 'Last night's' bağlı. Hafif gülümseme + utanç tonu — espriyle kabul.",
+    },
+    {
+      id: "ex.frec8.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Okay, mortified — last night was too much wine. Sorry about that.",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Okay, mortified' = yumuşak espri açılış. 'Too much wine' = casual sebep. 'Sorry about that' samimi kapanış.",
+    },
+    {
+      id: "ex.frec8.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Haha honestly it was kind of cute — no need to apologize.",
+      transcription_target: "Haha honestly it was kind of cute — no need to apologize.",
+      tr_hint:
+        "Dinle, yaz. 'Kind of cute' = bayağı tatlı. 'No need to apologize' = özre gerek yok.",
+    },
+    {
+      id: "ex.frec8.2.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "delulu",
+      tr_translation: "Aşırı iyimser hayal (delusional kısaltması, espri tonu)",
+      example: "Drunk me was a little delulu last night — apologies.",
+      example_tr: "Sarhoş ben biraz hayalciydi dün gece — pardon.",
+    },
+    {
+      id: "ex.frec8.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I drank too much. Please forget me.",
+      correct_sentence:
+        "Mortified at what drunk me sent — please wipe those texts from your memory.",
+      tr_explanation:
+        "'Please forget me' = dramatik + soğuk. Doğru: 'drunk me' (espri ile sahiplen) + 'wipe from memory' (komik abartı) = hafifletip ilişkiyi koru.",
     },
   ],
 };
@@ -494,6 +586,52 @@ export const flirtRecoveryLesson_8_3: BundledLesson = {
             "Sessizligi karsi tarafa hakaret olarak cevirmek = saygisizlik. Bir denedin, kapidasin.",
         },
       ],
+    },
+    {
+      id: "ex.frec8.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Hey stranger — it's been a minute.",
+      ipa: "heɪ ˈstreɪndʒə ɪts biːn ə ˈmɪnɪt",
+      tr_hint:
+        "'Hey stranger' = sıcak + samimi. 'Been a minute' = uzun zaman (deyim). Ekstra hafif, garipliği yık.",
+    },
+    {
+      id: "ex.frec8.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Life got crazy on my end — hope you've been well.",
+      voice_hint: "male_us",
+      tr_hint:
+        "'Life got crazy' yumuşak özür. 'On my end' = benim tarafımda. 'Hope you've been well' samimi merak.",
+    },
+    {
+      id: "ex.frec8.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "Was wondering where you disappeared — let's grab coffee and catch up.",
+      transcription_target: "Was wondering where you disappeared — let's grab coffee and catch up.",
+      tr_hint:
+        "Dinle, yaz. 'Catch up' = hasret giderme, güncelle. Re-engagement standart kalıbı.",
+    },
+    {
+      id: "ex.frec8.3.11",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "ghosting",
+      tr_translation: "Sessizce ortadan kaybolma",
+      example: "Sorry for the accidental ghosting — life got in the way.",
+      example_tr: "İstemeden ortadan kaybolduğum için pardon — hayat araya girdi.",
+    },
+    {
+      id: "ex.frec8.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Long time! Why you no write me?",
+      correct_sentence:
+        "Hey stranger — life got hectic on my end, sorry for the silence. How have you been?",
+      tr_explanation:
+        "'Why you no write me?' = suçlayıcı + bozuk yapı. Doğru: 'Hey stranger' (sıcak) + kendi sessizliğini sahiplen + samimi soru.",
     },
   ],
 };

@@ -167,6 +167,53 @@ export const banterTaxiLesson_45_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.btx45.1.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Hey, how's your day going?",
+      ipa: "heɪ haʊz jɔːr deɪ ˈɡoʊɪŋ",
+      tr_hint:
+        "'How's' = 'haʊz' kısa. 'Your day' = 'jɔːr-deɪ' bağlanır. Düşük + samimi ton. Driver güvenli açılışı.",
+    },
+    {
+      id: "ex.btx45.1.9",
+      type: "speech_shadowing",
+      difficulty: 2,
+      native_text: "Honestly, kinda been a long week — you been busy?",
+      voice_hint: "casual_us_male",
+      tr_hint:
+        "Karşılıklı paylaşım açılışı. 'Long week' = yorucu hafta. 'You been busy?' = ona alan açar.",
+    },
+    {
+      id: "ex.btx45.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 2,
+      audio_text: "For sure, been driving since 6 — pretty wild day.",
+      transcription_target:
+        "For sure, been driving since 6 — pretty wild day.",
+      tr_hint:
+        "Driver cevabı örneği. 'Since 6' = saat 6'dan beri. 'Pretty wild day' = oldukça çılgın bir gün.",
+    },
+    {
+      id: "ex.btx45.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "kinda",
+      tr_translation: "biraz, sayılır (driver casual)",
+      example: "Kinda tired, but it's been a good day.",
+      example_tr: "Biraz yorgunum ama iyi bir gündü.",
+    },
+    {
+      id: "ex.btx45.1.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "Good afternoon, sir. I trust your vocational duties proceed adequately?",
+      correct_sentence: "Hey, how's it going? Busy day?",
+      tr_explanation:
+        "'Vocational duties proceed adequately' = LinkedIn'in robotlaştırılmış hali. Driver'a casual: 'How's it going? Busy day?' = doğal + 5 kelime.",
+    },
   ],
 };
 
@@ -333,6 +380,53 @@ export const banterTaxiLesson_45_2: BundledLesson = {
             "Driver şehri biliyor = uzman olarak konumlandırır = warm.",
         },
       ],
+    },
+    {
+      id: "ex.btx45.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Honestly, this traffic is wild.",
+      ipa: "ˈɒnəstli ðɪs ˈtræfɪk ɪz waɪld",
+      tr_hint:
+        "Hafif yakınma. 'Honestly' filler. 'Wild' = çılgın (idiom). Düşük ton — paylaşılan yorgunluk.",
+    },
+    {
+      id: "ex.btx45.2.9",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "For sure, kinda surprised it's this bad on a Tuesday.",
+      voice_hint: "casual_us_female",
+      tr_hint:
+        "'Kinda surprised' = biraz şaşırdım. 'This bad on a Tuesday' = pazartesi olmayan günde bu kadar kötü. Casual + driver-friendly.",
+    },
+    {
+      id: "ex.btx45.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "No way the bridge is backed up again — that's wild.",
+      transcription_target:
+        "No way the bridge is backed up again — that's wild.",
+      tr_hint:
+        "'Backed up' = trafik tıkandı (idiom). 'No way' = inanılmaz. Casual trafik yorumu.",
+    },
+    {
+      id: "ex.btx45.2.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "honestly",
+      tr_translation: "açıkçası (trafik yakınma filler)",
+      example: "Honestly, never seen it this slow.",
+      example_tr: "Açıkçası bu kadar yavaş hiç görmedim.",
+    },
+    {
+      id: "ex.btx45.2.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "The vehicular congestion this evening is most disagreeable.",
+      correct_sentence: "Traffic's kinda wild tonight, huh?",
+      tr_explanation:
+        "'Vehicular congestion most disagreeable' = 1920'ler haber gazetesi. Casual driver yorumu: 'Traffic's kinda wild tonight, huh?' = doğal + 5 kelime.",
     },
   ],
 };
@@ -520,6 +614,53 @@ export const banterTaxiLesson_45_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.btx45.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "How long have you been driving for Uber?",
+      ipa: "haʊ lɒŋ hæv juː bɪn ˈdraɪvɪŋ fɔːr ˈuːbər",
+      tr_hint:
+        "'How long' = ne kadar. 'Have you been' = 'hə-vjuː-bɪn' bağlanır. Saygılı meraklı ton.",
+    },
+    {
+      id: "ex.btx45.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Honestly, what brought you to this city originally?",
+      voice_hint: "casual_us_female",
+      tr_hint:
+        "Hikaye açıcı klasik. 'What brought you' = hangi sebeple geldin. 'Originally' = en başta. Empatik + gerçek merak.",
+    },
+    {
+      id: "ex.btx45.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "For sure, that's kinda a long story — got time?",
+      transcription_target:
+        "For sure, that's kinda a long story — got time?",
+      tr_hint:
+        "Driver cevap kalıbı. 'Long story' = uzun hikaye. 'Got time?' = vaktin var mı? Sıcak + paylaşıma açık.",
+    },
+    {
+      id: "ex.btx45.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "no way",
+      tr_translation: "yok artık (driver hikayesine reaksiyon)",
+      example: "No way — you've been here 20 years?",
+      example_tr: "Yok artık — 20 yıldır mı buradasın?",
+    },
+    {
+      id: "ex.btx45.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Might one inquire as to the duration of your employment in this capacity?",
+      correct_sentence: "How long you been doing this?",
+      tr_explanation:
+        "'Might one inquire as to the duration of your employment in this capacity' = kraliyet röportajı. Casual: 'How long you been doing this?' = 5 kelime, doğal + warm.",
+    },
   ],
 };
 
@@ -686,6 +827,53 @@ export const banterTaxiLesson_45_4: BundledLesson = {
             "US klasik genel veda. 'Good day / night' demeden vakit fark etmez kullanılabilir.",
         },
       ],
+    },
+    {
+      id: "ex.btx45.4.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Thanks so much — drive safe!",
+      ipa: "θæŋks soʊ mʌtʃ draɪv seɪf",
+      tr_hint:
+        "Driver çıkışı altın standart. 'Thanks so much' samimi. 'Drive safe' = klasik US empati. 3 saniye.",
+    },
+    {
+      id: "ex.btx45.4.9",
+      type: "speech_shadowing",
+      difficulty: 2,
+      native_text: "For sure, tip's on the app — have a good one!",
+      voice_hint: "casual_us_male",
+      tr_hint:
+        "Bahşiş + iyi dilek. 'Tip's on the app' = uygulamadan. 'Have a good one' = klasik US veda. Akıcı warm tonlama.",
+    },
+    {
+      id: "ex.btx45.4.10",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Honestly, was a really good chat — take it easy out there.",
+      transcription_target:
+        "Honestly, was a really good chat — take it easy out there.",
+      tr_hint:
+        "Sıcak driver vedası. 'Take it easy out there' = trafikte dikkat (idiom). Karşılıklı saygı + warm.",
+    },
+    {
+      id: "ex.btx45.4.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "for sure",
+      tr_translation: "kesinlikle (driver vedası onay)",
+      example: "For sure — appreciate the ride, drive safe!",
+      example_tr: "Kesinlikle — yolculuk için sağol, dikkatli sür!",
+    },
+    {
+      id: "ex.btx45.4.12",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence:
+        "I wish to express my gratitude and bid you a felicitous evening.",
+      correct_sentence: "Thanks man — have a good one!",
+      tr_explanation:
+        "'Express my gratitude and bid you felicitous evening' = oscar konuşması. Driver: 'Thanks man, have a good one' = 5 kelime, doğal + warm.",
     },
   ],
 };

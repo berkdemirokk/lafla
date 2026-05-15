@@ -164,6 +164,54 @@ export const banterOpinionsLesson_29_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.bop29.1.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Hot take incoming — might get roasted for this.",
+      ipa: "hɒt teɪk ɪnˈkʌmɪŋ maɪt ɡet ˈroʊstɪd fɔːr ðɪs",
+      tr_hint:
+        "'Hot take' = cesur fikir (idiom). 'Incoming' = uyarı. 'Roasted' = paylanmak (idiom). Eğlenceli + samimi ton.",
+    },
+    {
+      id: "ex.bop29.1.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Honestly, unpopular opinion: most superhero movies are kinda boring.",
+      voice_hint: "casual_us_female",
+      tr_hint:
+        "'Unpopular opinion' = popüler olmayan fikir (klasik açılış). 'Kinda boring' yumuşatıcı. Hazır cevap vermeye hazır ton.",
+    },
+    {
+      id: "ex.bop29.1.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "No way — that's actually a wild take, but I kinda see it.",
+      transcription_target:
+        "No way — that's actually a wild take, but I kinda see it.",
+      tr_hint:
+        "Reaksiyon kalıbı. 'Wild take' = çılgın görüş. 'I kinda see it' = anlıyorum sayılır. Açık + saygılı katılım.",
+    },
+    {
+      id: "ex.bop29.1.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "that's wild",
+      tr_translation: "vay be, çılgın bir şey (casual reaksiyon)",
+      example: "That's wild — I never thought about it that way.",
+      example_tr: "Vay be — bunu hiç o açıdan düşünmemiştim.",
+    },
+    {
+      id: "ex.bop29.1.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I posit that it is my firm contention that classical cinema is overvalued.",
+      correct_sentence:
+        "Honestly, hot take — old movies are kinda overrated.",
+      tr_explanation:
+        "'I posit that it is my firm contention' = hukuk argümanı. Casual hot take: 'Honestly' + 'hot take' + 'kinda overrated' = doğal tartışma açıcı.",
+    },
   ],
 };
 
@@ -328,6 +376,54 @@ export const banterOpinionsLesson_29_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.bop29.2.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Totally hear you, but I see it differently.",
+      ipa: "ˈtoʊtli hɪr juː bʌt aɪ siː ɪt ˈdɪfrəntli",
+      tr_hint:
+        "'Totally hear you' = seni tamamen anlıyorum (saygılı). 'But I see it differently' yumuşak köprü. Açık + saygılı.",
+    },
+    {
+      id: "ex.bop29.2.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "For sure, I get the point — but honestly, I'd push back a little.",
+      voice_hint: "casual_us_male",
+      tr_hint:
+        "'Push back' = itiraz etmek (casual idiom). 'A little' yumuşatıcı. Düşmanca değil, sohbet açıcı.",
+    },
+    {
+      id: "ex.bop29.2.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "No way I'm agreeing on that one — let's just leave it there.",
+      transcription_target:
+        "No way I'm agreeing on that one — let's just leave it there.",
+      tr_hint:
+        "Saygılı kapatma kalıbı. 'No way I'm agreeing' = net itiraz. 'Let's just leave it there' = konuyu burada bırakalım (warm).",
+    },
+    {
+      id: "ex.bop29.2.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "honestly",
+      tr_translation: "açıkçası, dürüstçe (anlaşmazlıkta yumuşatıcı)",
+      example: "Honestly, I'd push back on that.",
+      example_tr: "Açıkçası buna itiraz ederim.",
+    },
+    {
+      id: "ex.bop29.2.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I must vehemently object to your position on this matter.",
+      correct_sentence:
+        "Totally hear you, but honestly I'd push back a little.",
+      tr_explanation:
+        "'Vehemently object' = parlamento. Casual itiraz: 'Totally hear you' + 'push back a little' = saygılı + dialog açıcı + warm.",
+    },
   ],
 };
 
@@ -491,6 +587,54 @@ export const banterOpinionsLesson_29_3: BundledLesson = {
             "Ego = sosyal yorucu + ogrenmeyi engeller. Kabullenmek = sosyal sermaye.",
         },
       ],
+    },
+    {
+      id: "ex.bop29.3.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Honestly, you got a point — I'm kinda updating my view.",
+      ipa: "ˈɒnəstli juː ɡɒt ə pɔɪnt aɪm ˈkaɪndə ʌpˈdeɪtɪŋ maɪ vjuː",
+      tr_hint:
+        "'Got a point' = haklısın (casual). 'Kinda updating my view' = yumuşak teslim. Düşük + mütevazi ton.",
+    },
+    {
+      id: "ex.bop29.3.9",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text: "Yeah, totally fair — I'm gonna sit with that for a bit.",
+      voice_hint: "casual_us_female",
+      tr_hint:
+        "'Sit with that' = düşüneceğim, sindireceğim (idiom). 'For a bit' = bir süre. Olgun + samimi.",
+    },
+    {
+      id: "ex.bop29.3.10",
+      type: "listen_and_transcribe",
+      difficulty: 4,
+      audio_text: "For sure, my bad — that's actually a way better take.",
+      transcription_target:
+        "For sure, my bad — that's actually a way better take.",
+      tr_hint:
+        "'My bad' = hatamı kabul (casual). 'Way better take' = çok daha iyi görüş. Ego'suz teslim, sıcak.",
+    },
+    {
+      id: "ex.bop29.3.11",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "for sure",
+      tr_translation: "kesinlikle (samimi kabul)",
+      example: "For sure, you're totally right on that.",
+      example_tr: "Kesinlikle, o konuda tamamen haklısın.",
+    },
+    {
+      id: "ex.bop29.3.12",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I hereby concede the validity of your aforementioned argument.",
+      correct_sentence:
+        "Honestly, you got a point — gonna sit with that.",
+      tr_explanation:
+        "'Hereby concede the validity of aforementioned argument' = hukuk dili. Casual teslim: 'You got a point' + 'gonna sit with that' = warm + olgun + dürüst.",
     },
   ],
 };
