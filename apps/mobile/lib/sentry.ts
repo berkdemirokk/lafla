@@ -33,8 +33,14 @@ export function initSentry(): void {
     dsn: DSN,
     debug: __DEV__,
     tracesSampleRate: 0.1,
-    enableAutoSessionTracking: true,
     enableNativeCrashHandling: true,
+    // Sentry v8: profiling is opt-in and its native C++ code conflicts
+    // with Xcode 26's stricter libcxx std::allocator checks. Disable
+    // profiling to keep the build green; re-enable later when sentry-cocoa
+    // ships a fix for the allocator-of-const-type pattern.
+    profilesSampleRate: 0,
+    // Session replay defaults to off in v8 — leave it off (iOS 26 crashes
+    // reported when sampleRate > 0 in sentry-react-native 8.10+).
   });
   initialized = true;
 }
