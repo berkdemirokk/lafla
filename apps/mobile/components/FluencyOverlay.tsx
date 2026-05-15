@@ -55,7 +55,7 @@ export function FluencyOverlay({
   position = "top-right",
   compact = false,
   onPress,
-}: FluencyOverlayProps): JSX.Element {
+}: FluencyOverlayProps) {
   const wpm = metrics?.wpm ?? 0;
   const fillerCount = metrics?.fillerCount ?? 0;
   const fluencyBand: FluencyBand = metrics?.fluencyBand ?? "low";

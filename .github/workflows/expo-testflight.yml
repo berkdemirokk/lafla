@@ -38,17 +38,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-
 
-      - name: Select Xcode 16 (SDK 52 compatible — Xcode 26 has libcxx incompat)
+      - name: Select latest Xcode (26+ required for App Store as of May 2026)
         run: |
-          # Try Xcode 16 first; fall back to 15; absolute last resort = newest.
-          XCODE_APP=$(find /Applications -maxdepth 1 -name "Xcode_16*.app" 2>/dev/null | sort -V | tail -n 1)
-          if [ -z "$XCODE_APP" ]; then
-            XCODE_APP=$(find /Applications -maxdepth 1 -name "Xcode_15*.app" 2>/dev/null | sort -V | tail -n 1)
-          fi
-          if [ -z "$XCODE_APP" ]; then
-            echo "::warning::No Xcode 15/16 found, falling back to newest available."
-            XCODE_APP=$(find /Applications -maxdepth 1 -name "Xcode*.app" | sort -V | tail -n 1)
-          fi
+          XCODE_APP=$(find /Applications -maxdepth 1 -name "Xcode*.app" | sort -V | tail -n 1)
           echo "Selected: $XCODE_APP"
           sudo xcode-select -s "$XCODE_APP/Contents/Developer"
           xcodebuild -version

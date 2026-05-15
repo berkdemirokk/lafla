@@ -47,7 +47,7 @@ export function PostSessionMetricsModal({
   hints,
   onContinue,
   onSeeDetails,
-}: PostSessionMetricsModalProps): JSX.Element {
+}: PostSessionMetricsModalProps) {
   const score = Math.max(0, Math.min(100, Math.round(fluencyScore ?? 0)));
   const band = useMemo(() => bandLabel(score), [score]);
   const fillers = (topFillers ?? []).slice(0, 3);

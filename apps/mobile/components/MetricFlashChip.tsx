@@ -30,7 +30,7 @@ export function MetricFlashChip({
   icon,
   duration = 2200,
   onHidden,
-}: MetricFlashChipProps): JSX.Element {
+}: MetricFlashChipProps) {
   const opacity = useSharedValue(0);
   const translateY = useSharedValue(6);
 
