@@ -65,8 +65,7 @@
       "expo-av",
       "expo-file-system",
       "expo-localization",
-      "expo-speech-recognition",
-      "@sentry/react-native"
+      "expo-speech-recognition"
     ],
     "experiments": {
       "typedRoutes": true
