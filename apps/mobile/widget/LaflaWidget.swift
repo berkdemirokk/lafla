@@ -107,16 +107,17 @@ struct LaflaProvider: TimelineProvider {
 // MARK: - Design tokens
 
 private enum LaflaTheme {
-    // Mirrors apps/mobile/theme/index.ts brand colors.
-    static let bg = Color(red: 0x1A / 255, green: 0x1C / 255, blue: 0x1C / 255)         // #1A1C1C
-    static let bgInverse = Color(red: 0x2F / 255, green: 0x31 / 255, blue: 0x31 / 255)  // #2F3131
-    static let yellow = Color(red: 0xF6 / 255, green: 0xFF / 255, blue: 0x00 / 255)     // #F6FF00
-    static let yellowSoft = Color(red: 0xF6 / 255, green: 0xFF / 255, blue: 0x00 / 255).opacity(0.15)
-    static let blue = Color(red: 0x19 / 255, green: 0x78 / 255, blue: 0xE5 / 255)       // #1978E5
+    // Neon Noir — mirrors apps/mobile/theme/index.ts
+    static let bg = Color.black                                                          // #000000
+    static let bgInverse = Color(red: 0x12 / 255, green: 0x12 / 255, blue: 0x12 / 255)   // #121212
+    // Property names kept (yellow/blue) for binary-stable Swift refs; values updated.
+    static let yellow = Color(red: 0xFF / 255, green: 0x06 / 255, blue: 0x7A / 255)      // #FF067A pink
+    static let yellowSoft = Color(red: 0xFF / 255, green: 0x06 / 255, blue: 0x7A / 255).opacity(0.15)
+    static let blue = Color(red: 0x00 / 255, green: 0xFF / 255, blue: 0xFF / 255)        // #00FFFF cyan
     static let white = Color.white
     static let muted = Color(white: 1.0, opacity: 0.65)
     static let dim = Color(white: 1.0, opacity: 0.40)
-    static let onYellow = Color(red: 0x1C / 255, green: 0x1D / 255, blue: 0x00 / 255)   // #1C1D00
+    static let onYellow = Color.white                                                    // white on pink
 }
 
 // MARK: - Shared atoms

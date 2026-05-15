@@ -20,9 +20,9 @@
 // we don't attempt branchy mustache logic here; that belongs in the Edge
 // Function layer that picks which template to send).
 //
-// Visual: dark background (#1a1c1c), brand-yellow accent (#f6ff00), white
-// serif body. Logo + unsubscribe footer is appended automatically per
-// template via the `signoff_tr` block.
+// Visual: dark background (#000000), Neon Noir pink accent (#FF067A),
+// white serif body. Logo + unsubscribe footer is appended automatically
+// per template via the `signoff_tr` block.
 
 export type EmailTemplateId =
   | "welcome"
@@ -65,12 +65,13 @@ export interface EmailTemplate {
 // is enough for ~15 emails and keeps everything tree-shakeable.
 // ---------------------------------------------------------------------------
 
-const BRAND_BG = "#1a1c1c";
-const BRAND_SURFACE = "#23252a";
-const BRAND_YELLOW = "#f6ff00";
+// Neon Noir email palette (dark bg, hot-pink accent, cyan info)
+const BRAND_BG = "#000000";
+const BRAND_SURFACE = "#121212";
+const BRAND_YELLOW = "#FF067A"; // kept var name for compat — value is now Neon Noir pink
 const BRAND_TEXT = "#f0f1f1";
 const BRAND_MUTED = "#a8acb3";
-const BRAND_BLUE = "#1978e5";
+const BRAND_BLUE = "#00FFFF"; // var name kept — now cyan tertiary
 
 const SIGNOFF_DEFAULT = "— Maya, Lafla'daki koçun";
 

@@ -111,12 +111,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 8,
-    backgroundColor: 'rgba(246, 255, 0, 0.08)', // Cyber-Electric yellow @ 8%
+    backgroundColor: 'rgba(255, 6, 122, 0.08)', // Neon Noir pink @ 8%
     borderWidth: 1,
-    borderColor: 'rgba(246, 255, 0, 0.35)',
+    borderColor: 'rgba(255, 6, 122, 0.35)',
   },
   fallbackText: {
-    color: '#f6ff00',
+    color: '#FF067A',
     fontSize: 10,
     textAlign: 'center',
     paddingHorizontal: 4,

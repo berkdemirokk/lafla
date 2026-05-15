@@ -1,83 +1,94 @@
 // Lafla — Mobile Design Tokens
-// Theme: "Cyber-Electric Modern" (Stitch)
-// Mode: Light
-// Palette: Yellow primary · Black secondary · Blue tertiary · White neutral
+// Theme: "Neon Noir" (Stitch)
+// Mode: Dark
+// Palette:
+//   Primary   #FF067A  (hot pink — CTA, brand accent)
+//   Secondary #121212  (near-black surfaces)
+//   Tertiary  #00FFFF  (electric cyan — scores, success, info)
+//   Neutral   #000000  (pure black base)
+// Typography:
+//   Headline: "Space Grotesk" (geometric, distinctive)
+//   Body / Label: "Inter" (humanist sans, very readable on mobile)
 
 import { Platform } from "react-native";
 
 export const tokens = {
   bg: {
-    // Light surfaces (default)
-    app: "#ffffff",
-    surface: "#fafbfc",
-    surfaceBright: "#ffffff",
-    surfaceDim: "#dadce0",
-    surfaceContainer: "#f5f7fb",
-    surfaceContainerLow: "#f8fafd",
-    surfaceContainerLowest: "#ffffff",
-    surfaceContainerHigh: "#eef1f6",
-    surfaceContainerHighest: "#e8ecf2",
-    surfaceVariant: "#e8ecf2",
-    // Dark accent surfaces (splash, lesson complete, NPC bubbles)
-    onBackground: "#1a1c1c",
-    inverseSurface: "#2f3131",
-    inverseSurfaceLight: "#3a3c3c",
+    // Dark base hierarchy
+    app: "#000000",
+    surface: "#0a0a0a",
+    surfaceBright: "#1a1a1a",
+    surfaceDim: "#050505",
+    surfaceContainer: "#121212",
+    surfaceContainerLow: "#0c0c0c",
+    surfaceContainerLowest: "#000000",
+    surfaceContainerHigh: "#1c1c1c",
+    surfaceContainerHighest: "#252525",
+    surfaceVariant: "#1a1a1a",
+    // Inverse (light surfaces — used sparingly for "NPC bubbles" / coach quotes)
+    onBackground: "#0a0a0a",
+    inverseSurface: "#fafafa",
+    inverseSurfaceLight: "#ffffff",
   },
   text: {
-    primary: "#1a1c1c",
-    secondary: "#5d5f63",
-    tertiary: "#888a90",
-    onSurfaceVariant: "#444851",
-    // On dark surfaces
-    inverseOnSurface: "#f0f1f1",
-    secondaryFixedDim: "#c6c6c7",
+    primary: "#ffffff",
+    secondary: "rgba(255, 255, 255, 0.65)",
+    tertiary: "rgba(255, 255, 255, 0.40)",
+    onSurfaceVariant: "rgba(255, 255, 255, 0.75)",
+    // On inverse (light) surfaces — rare
+    inverseOnSurface: "#0a0a0a",
+    secondaryFixedDim: "rgba(255, 255, 255, 0.55)",
     // On accent backgrounds
-    onPrimary: "#1c1d00", // near-black text on yellow
-    onSecondary: "#ffffff", // white text on black
-    onTertiary: "#ffffff", // white text on blue
+    onPrimary: "#ffffff", // white text on hot pink (WCAG AA on large text)
+    onSecondary: "#ffffff", // white text on near-black
+    onTertiary: "#000000", // black text on cyan (cyan too bright for white)
   },
   border: {
-    outline: "#5d5f63",
-    outlineVariant: "#c0c8d4",
-    light: "#e0e6ee",
+    outline: "rgba(255, 255, 255, 0.18)",
+    outlineVariant: "rgba(255, 255, 255, 0.10)",
+    light: "rgba(255, 255, 255, 0.06)",
   },
   brand: {
-    // Primary — neon yellow (CTAs, hero accents)
-    primary: "#f6ff00",
-    primaryFixed: "#e3ec00",
-    primaryFixedDim: "#c7cf00",
-    primaryContainer: "#f6ff00",
-    onPrimary: "#1c1d00",
-    onPrimaryContainer: "#1c1d00",
-    primaryGlow: "rgba(246, 255, 0, 0.40)",
-    primarySoft: "rgba(246, 255, 0, 0.15)",
+    // Primary — hot pink (CTA, focus, hero accent)
+    primary: "#FF067A",
+    primaryFixed: "#ff2e91",
+    primaryFixedDim: "#cc0561",
+    primaryContainer: "#FF067A",
+    onPrimary: "#ffffff",
+    onPrimaryContainer: "#ffffff",
+    primaryGlow: "rgba(255, 6, 122, 0.40)",
+    primarySoft: "rgba(255, 6, 122, 0.15)",
 
-    // Secondary — pure black (strong contrast, dark buttons, NPC bubbles)
-    secondary: "#1a1c1c",
+    // Secondary — near-black (cards, NPC bubbles, panels)
+    secondary: "#121212",
     onSecondary: "#ffffff",
 
-    // Tertiary — electric blue (scores, links, active states, online dot)
-    tertiary: "#1978e5",
-    tertiaryContainer: "#d5e5fc",
-    onTertiary: "#ffffff",
-    onTertiaryContainer: "#001b3c",
-    tertiaryGlow: "rgba(25, 120, 229, 0.30)",
-    tertiarySoft: "rgba(25, 120, 229, 0.12)",
+    // Tertiary — electric cyan (scores, links, info, active states)
+    tertiary: "#00FFFF",
+    tertiaryContainer: "rgba(0, 255, 255, 0.16)",
+    onTertiary: "#000000",
+    onTertiaryContainer: "#003a3a",
+    tertiaryGlow: "rgba(0, 255, 255, 0.32)",
+    tertiarySoft: "rgba(0, 255, 255, 0.12)",
   },
   semantic: {
-    // Success uses TERTIARY blue per Cyber-Electric (#1978e5)
-    success: "#1978e5",
-    successContainer: "rgba(25, 120, 229, 0.12)",
-    error: "#ba1a1a",
-    errorContainer: "#ffdad6",
+    // Success uses tertiary cyan (Neon Noir accent system)
+    success: "#00FFFF",
+    successContainer: "rgba(0, 255, 255, 0.14)",
+    // Warning — soft amber that reads in dark
+    warning: "#FFB020",
+    warningContainer: "rgba(255, 176, 32, 0.14)",
+    // Error — slightly less aggressive red on dark
+    error: "#FF4D6D",
+    errorContainer: "rgba(255, 77, 109, 0.14)",
     onError: "#ffffff",
-    onErrorContainer: "#93000a",
+    onErrorContainer: "#ffb3c1",
   },
   radius: {
     sm: 8,
     base: 16,
-    lg: 32,
-    xl: 48,
+    lg: 24, // tightened from 32 for Neon Noir's more architectural feel
+    xl: 36,
     full: 9999,
   },
   spacing: {
@@ -89,7 +100,24 @@ export const tokens = {
     xl: 80,
   },
   font: {
+    // Neon Noir typography pairing:
+    //   - Space Grotesk for display + headlines (geometric, brand)
+    //   - Inter for body + UI (humanist, screen-friendly)
+    // NOTE: To activate custom fonts, install @expo/google-fonts/space-grotesk
+    // and @expo/google-fonts/inter, then load via expo-font in _layout.tsx.
+    // Until then, we fall back to system fonts so the theme still renders.
+    display: Platform.select({
+      ios: "Space Grotesk", // falls back to System if not loaded
+      android: "Space Grotesk",
+      default: "Space Grotesk",
+    }),
     sans: Platform.select({
+      ios: "Inter", // falls back to System if not loaded
+      android: "Inter",
+      default: "Inter",
+    }),
+    // System fallback for any place needing guaranteed availability
+    system: Platform.select({
       ios: "System",
       android: "Roboto",
       default: "System",
