@@ -437,6 +437,7 @@ export default function FreeChatVoiceScreen() {
         </Pressable>
         <View style={styles.titleBlock}>
           <Text style={styles.title}>{coachName} ile sesli sohbet</Text>
+          <Text style={styles.aiHint}>Yapay zeka tabanlı koç</Text>
           <StateChip state={sessionState} />
         </View>
         <View style={{ width: 70 }} />
@@ -790,6 +791,11 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: tokens.weight.extrabold,
     color: tokens.text.primary,
+  },
+  aiHint: {
+    fontSize: 10,
+    color: tokens.text.tertiary,
+    fontStyle: "italic",
   },
   chip: {
     paddingHorizontal: 10,

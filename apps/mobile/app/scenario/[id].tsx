@@ -24,6 +24,9 @@ import { FillBlank } from "../../components/exercises/FillBlank";
 import { WordOrder } from "../../components/exercises/WordOrder";
 import { SpotMistake } from "../../components/exercises/SpotMistake";
 import { Translate } from "../../components/exercises/Translate";
+import { PronouncePhrase } from "../../components/exercises/PronouncePhrase";
+import { SpeechShadowing } from "../../components/exercises/SpeechShadowing";
+import { ListenAndTranscribe } from "../../components/exercises/ListenAndTranscribe";
 import { AchievementToast } from "../../components/AchievementToast";
 
 import { trackEvent } from "../../lib/analytics";
@@ -332,6 +335,37 @@ function DrillRenderer({
           target={exercise.target}
           acceptedVariants={exercise.accepted_variants ?? []}
           direction={exercise.direction}
+          trHint={exercise.tr_hint}
+          onComplete={onComplete}
+        />
+      );
+    case "pronounce_phrase":
+      return (
+        <PronouncePhrase
+          phrase={exercise.phrase}
+          trHint={exercise.tr_hint}
+          onComplete={onComplete}
+        />
+      );
+    case "speech_shadowing":
+      // SpeechShadowing expects an array of phrases; new lesson data ships
+      // a single native_text per exercise so we wrap it.
+      return (
+        <SpeechShadowing
+          phrases={[exercise.native_text]}
+          trTranslations={exercise.tr_hint ? [exercise.tr_hint] : undefined}
+          onComplete={onComplete}
+        />
+      );
+    case "listen_and_transcribe":
+      return (
+        <ListenAndTranscribe
+          sentence={exercise.audio_text}
+          acceptedVariants={
+            exercise.transcription_target
+              ? [exercise.transcription_target]
+              : []
+          }
           trHint={exercise.tr_hint}
           onComplete={onComplete}
         />

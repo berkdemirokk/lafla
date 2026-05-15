@@ -411,6 +411,7 @@ export default function FreeChatScreen() {
               />
               <Text style={styles.statusText}>{status}</Text>
             </View>
+            <Text style={styles.aiDisclosure}>Yapay zeka tabanlı koç</Text>
           </View>
         </View>
 
@@ -665,6 +666,12 @@ const styles = StyleSheet.create({
   statusText: {
     fontSize: 12,
     color: tokens.text.secondary,
+  },
+  aiDisclosure: {
+    fontSize: 10,
+    color: tokens.text.tertiary,
+    marginTop: 2,
+    fontStyle: "italic",
   },
   counterRow: {
     alignItems: "center",

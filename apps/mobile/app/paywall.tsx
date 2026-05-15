@@ -9,6 +9,7 @@ import {
   Pressable,
   Alert,
   ActivityIndicator,
+  Linking,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
@@ -229,10 +230,24 @@ export default function PaywallScreen() {
           </Pressable>
 
           <Text style={styles.disclaimer}>
-            {live === false
-              ? "Demo: gerçek satın alma App Store onayı sonrası aktif."
-              : "İstediğin zaman iptal. Otomatik yenileme öncesi bildirim."}
+            Abonelik App Store hesabına faturalandırılır. Otomatik yenilenir;
+            mevcut dönem bitmeden 24 saat önce iptal etmezsen yenilenir.
+            İstediğin zaman App Store ayarlarından iptal edebilirsin.
           </Text>
+
+          <View style={styles.termsLinks}>
+            <Pressable
+              onPress={() => Linking.openURL("https://lafla.app/terms")}
+            >
+              <Text style={styles.termsLink}>Kullanım koşulları</Text>
+            </Pressable>
+            <Text style={styles.termsDot}> · </Text>
+            <Pressable
+              onPress={() => Linking.openURL("https://lafla.app/privacy")}
+            >
+              <Text style={styles.termsLink}>Gizlilik politikası</Text>
+            </Pressable>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -380,6 +395,21 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 12,
     lineHeight: 16,
+  },
+  termsLinks: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 8,
+  },
+  termsLink: {
+    color: tokens.text.secondaryFixedDim,
+    fontSize: 11,
+    textDecorationLine: "underline",
+  },
+  termsDot: {
+    color: tokens.text.tertiary,
+    fontSize: 11,
   },
   restoreBtn: {
     alignItems: "center",
