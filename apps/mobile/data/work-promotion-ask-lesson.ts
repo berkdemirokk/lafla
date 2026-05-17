@@ -897,6 +897,728 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 38.5 — 1:1'de Konuyu Ac (Soft entry)
+// ============================================================
+export const workPromotionAskLesson_38_5: BundledLesson = {
+  id: "work.promotion_ask.38.5",
+  skill_id: "work.promotion_ask",
+  index: 5,
+  title: "1:1'de Konuyu Ac",
+  description:
+    "Haftalik 1:1'de konuyu yumusakca masaya koy. 'Put on your radar' + 'could we talk growth' = manager savunmaya gecmez, takvime girer.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wpa38.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Put something on your radar",
+      tr_translation: "Bir konuyu manager'in radarina sokmak (yumusak acilis)",
+      example:
+        "Wanted to put something on your radar — I'd like to talk about growth at some point soon.",
+      example_tr:
+        "Bir konuyu radarina sokmak istedim — yakinda gelisim hakkinda konusmak isterim.",
+    },
+    {
+      id: "ex.wpa38.5.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Sadece radarina sokmak istiyorum — onumuzdeki bir kac hafta icinde gelisim hakkinda konusabilir miyiz?",
+      target:
+        "Just wanted to put it on your radar — could we talk growth in the next couple of weeks?",
+      accepted_variants: [
+        "Just flagging this early — could we chat about my growth sometime in the next few weeks?",
+        "Wanted to give you a heads-up — open to a growth conversation in the next couple of weeks?",
+        "Putting this on your radar — would love to dig into career stuff soon.",
+        "Heads up — I'd like to find time to talk growth in the next two weeks or so.",
+      ],
+      tr_hint:
+        "'Put on your radar' = onceden haber ver. 'Talk growth' = kestirme — 'about my growth' yerine direkt 'talk growth' samimi-profesyonel ton.",
+    },
+    {
+      id: "ex.wpa38.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Wanted to put it on your ___ early.",
+      answer: "radar",
+      distractors: ["screen", "list", "agenda"],
+      tr_hint:
+        "'On your radar' = farkindalik alanina sokmak. Standart kurumsal idiom.",
+    },
+    {
+      id: "ex.wpa38.5.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Could",
+        "we",
+        "talk",
+        "growth",
+        "at",
+        "some",
+        "point",
+      ],
+      correct_sentence: "Could we talk growth at some point",
+      tr_translation: "Bir noktada gelisim hakkinda konusabilir miyiz?",
+    },
+    {
+      id: "ex.wpa38.5.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Boss, today I want to ask one important question about my salary.",
+      correct_sentence:
+        "Wanted to put something on your radar — could we talk growth in the next couple of weeks?",
+      tr_explanation:
+        "'Boss' = US ofisinde kullanilmaz (sadece sirin baglamlarda). 'One important question about my salary' = ham + duygusal baski. Doğru: 'put on your radar' + 'growth' framing = yumusak + profesyonel.",
+    },
+    {
+      id: "ex.wpa38.5.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Haftalik 1:1 baslangici. Manager 'anything else?' diyor — konuyu radarina sok.",
+      npc_role: "Manager",
+      setting: "Weekly 1:1, last 5 minutes, both relaxed",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(actually|one more thing|before we wrap|quick (one|thing))",
+            "(wanted to|just) (put (something|this|it) on your radar|flag (something|early)|give you a heads-?up)",
+            "(could we|can we) (talk|chat about|find time for) (growth|career|next steps|where I'?m headed)",
+            "(in the next (couple of weeks|few weeks|two weeks)|sometime soon)",
+            "(don'?t need to (dive in|get into it) (now|today)|happy to do it (next 1:1|when you have time))",
+          ],
+          hint_tr:
+            "Yapi: 'One more thing — wanted to put it on your radar. Could we talk growth in the next couple of weeks? No need to dive in today.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure — good to flag. What's on your mind, roughly?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thinking about|been reflecting on|wanted to step back on) (where I'?m headed|the next chapter|growth)",
+            "(scope|level|title|comp|trajectory)",
+            "(feel like|sense that) (I'?ve been (operating|stepping) (at|into)|the work has been)",
+            "(beyond my current (scope|role|level)|next-?level)",
+            "(want to (be intentional|do this right|have it on paper)|map out the path)",
+            "(send (a doc|some thoughts|the agenda) (ahead|beforehand|before we meet))",
+          ],
+          hint_tr:
+            "Genel yon ver, detay degil: 'Been thinking about scope and trajectory — feel like the work's been beyond my current level. Want to map out the path. Will send a doc ahead.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Totally fair. Block 45 minutes on Thursday — send the doc beforehand.",
+        },
+      ],
+    },
+    {
+      id: "ex.wpa38.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "1:1'de terfi/gelisim konusunu ACMAK icin EN saglikli giris?",
+          options: [
+            "Hemen 'maas konusalim'",
+            "'Put on your radar' + 'could we talk growth' = yumusak + somut takvim",
+            "Hic acma, manager kendi soylesin",
+            "Mailde patlat",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Direkt 'maas' = manager hazirliksiz savunmaya gecer. 'Radar + growth' = ortak gundem hissi, takvim baglar.",
+        },
+        {
+          question: "'Beyond my current scope' kalibi NE yapar?",
+          options: [
+            "Sikayet eder",
+            "Olgun mesaj: zaten next-level is yapiyorum = terfi makul talep, dramasiz",
+            "Cok agir",
+            "Yanlis ingilizce",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Beyond my scope' = veri. 'I deserve more' = duygu. Birincisi muzakere zemini, ikincisi savunma tetikleyici.",
+        },
+        {
+          question: "'No need to dive in today' kalibi NIYE eklenir?",
+          options: [
+            "Bos laf",
+            "Manager'a hazirlik zamani tanir = sicak ve verimli konusma garantisi",
+            "Cok kibar",
+            "Onemli degil",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Manager 'hemen cevap ver' baskisindan kurtulunca acik dinler. Hazirliksiz cevap = 'let me think' = belirsizlik.",
+        },
+      ],
+    },
+    {
+      id: "ex.wpa38.5.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "Wanted to put something on your radar — could we talk growth?",
+      ipa: "/ˈwɒntɪd tə pʊt ˈsʌmθɪŋ ɒn jər ˈreɪdɑːr — kʊd wi tɔːk ɡrəʊθ/",
+      tr_hint:
+        "'Wanted to put' bagli akis — 'wonna-pud'. 'Radar' icinde 'r' yumusak Amerikan. 'Talk growth' direkt baglanir, 'th' net.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 38.6 — Basarilari Listele (Concrete results)
+// ============================================================
+export const workPromotionAskLesson_38_6: BundledLesson = {
+  id: "work.promotion_ask.38.6",
+  skill_id: "work.promotion_ask",
+  index: 6,
+  title: "Basarilari Listele",
+  description:
+    "'Last quarter I shipped X, that drove Y' kalibi — kuru caba degil sonuc + kapsam buyumesi. Turk alcakgonulluluk tuzagini kir.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.wpa38.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Last quarter I shipped X, that drove Y",
+      tr_translation: "Gecen ceyrek X yayinladim, bu Y'ye yol acti (sonuc kalibi)",
+      example:
+        "Last quarter I shipped the payments redesign — that drove a 22% lift in conversion.",
+      example_tr:
+        "Gecen ceyrek odeme redesign'i yayinladim — bu donusumde %22 artisa yol acti.",
+    },
+    {
+      id: "ex.wpa38.6.2",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Gecen ceyrek mevcut kapsamimin disinda iki proje sahiplendim — onboarding redesign donusumu %15 artirdi, on-call rotation'i yeniden tasarladim.",
+      target:
+        "Last quarter I owned two projects beyond my current scope — the onboarding redesign drove a 15% lift in conversion, and I redesigned the on-call rotation.",
+      accepted_variants: [
+        "Took on two projects outside my scope last quarter — onboarding redesign lifted conversion 15%, plus I rebuilt the on-call rotation.",
+        "Last quarter I picked up two things beyond my role — shipped the onboarding redesign (15% conversion bump) and revamped on-call.",
+        "Q3 I led two beyond-scope projects: the onboarding redesign with a 15% conversion lift, and an on-call rotation rebuild.",
+        "Stepped into two projects outside my scope last quarter — onboarding redesign drove +15% conversion, and I redesigned on-call.",
+      ],
+      tr_hint:
+        "'Beyond my current scope' = kapsam disi (anahtar terfi sinyali). 'Drove a X% lift' = somut sonuc. 'Owned' = sahiplenme, 'helped' degil.",
+    },
+    {
+      id: "ex.wpa38.6.3",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template: "I shipped the redesign — that ___ a 22% lift.",
+      answer: "drove",
+      distractors: ["made", "did", "had"],
+      tr_hint:
+        "'Drove a lift' = artisa yol acti. Sonuc baglayan en guclu fiil. 'Made/did' zayif.",
+    },
+    {
+      id: "ex.wpa38.6.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Beyond",
+        "my",
+        "current",
+        "scope",
+        "for",
+        "two",
+        "quarters",
+      ],
+      correct_sentence: "Beyond my current scope for two quarters",
+      tr_translation: "Iki ceyrektir mevcut kapsamimin disinda.",
+    },
+    {
+      id: "ex.wpa38.6.5",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "I worked very hard last year and helped team a lot with many things.",
+      correct_sentence:
+        "Last quarter I shipped two beyond-scope projects — the onboarding redesign drove a 15% conversion lift, and I led the on-call rebuild end-to-end.",
+      tr_explanation:
+        "'Worked very hard' = caba, olcum yok. 'Helped team a lot' = belirsiz + 'helped' = pasif. 'Many things' = somutluk yok. Doğru: sayilabilir proje + sayisal sonuc + 'beyond scope' = terfi sinyali. Turk profesyonel tuzak: alçakgönüllülük abartisi 'helped'-e kacar — sahiplenme fiili lazim.",
+    },
+    {
+      id: "ex.wpa38.6.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Career konusmasi. Manager 'tell me what you've delivered' diyor. Sonuc listesi + scope sinyali sun.",
+      npc_role: "Manager",
+      setting: "Career conversation, mid-conversation",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(last quarter|over the last (quarter|6 months)|in q3)",
+            "(shipped|delivered|owned|led|drove) (the (\\w+ )?(redesign|migration|launch|rebuild|initiative))",
+            "(that (drove|delivered|resulted in)|drove|with a) (\\d+%|a \\d+%|\\d+x)",
+            "(beyond (my (current )?scope|my (role|level)|the role)|outside (my )?scope)",
+            "(took on|stepped into|picked up) (two|three|multiple) (projects|initiatives)",
+          ],
+          hint_tr:
+            "Sablon: 'Last quarter I shipped X — that drove Y%. Plus I owned Z, which was beyond my current scope.'",
+        },
+        {
+          speaker: "npc",
+          message: "Nice. What's the most beyond-scope thing you've owned?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the (\\w+ )?(initiative|project|migration|rebuild)|cross-?team|incident response)",
+            "(typically (a|done by) (staff|tech lead|senior)|usually owned by)",
+            "(no one (else )?was|filled (a|the) gap)",
+            "(unblocked|enabled|de-?risked) (the (\\w+ )?team)",
+            "(set the (technical )?direction|drove (alignment|the strategy))",
+          ],
+          hint_tr:
+            "En guclu kart: 'The incident response rebuild — typically owned by tech lead, but no one was. I set the direction, unblocked three teams.'",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. That's the kind of scope I want to write up.",
+        },
+      ],
+    },
+    {
+      id: "ex.wpa38.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Sonuc cumlesi YAPI-si?",
+          options: [
+            "Aksiyon fiili + proje adi + sayisal sonuc",
+            "'I worked very hard' + 'I helped a lot'",
+            "Sadece sayi",
+            "Sadece proje adi",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "'I shipped X' (aksiyon + sahiplik) + 'that drove Y%' (olcum) = profesyonel sonuc cumlesi. Bu yapi kullanilmazsa manager 'sense' yapamaz.",
+        },
+        {
+          question: "'Beyond my current scope' kalibi NIYE altin?",
+          options: [
+            "Cok agir",
+            "Bir sonraki seviyede zaten calistigini gosterir — terfi resmilesme talebi olur",
+            "Onemli degil",
+            "Yanlis ingilizce",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Beyond scope' = zaten next-level. Manager risk almaz, sirket 'realiteyi yazili hale getirir'. En guvenli terfi argumani.",
+        },
+        {
+          question: "Turk alcakgonullulugu tuzaginda EN sik hata?",
+          options: [
+            "'Helped' kelimesi sik kullanilmasi — sahiplik fiili kullanmamak (led/drove/owned)",
+            "Cok agir konusmak",
+            "Cok az calismak",
+            "Sorun yok",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "'Helped' = ekibe katki ama sahiplik yok. ABD/UK kulturu 'led/drove/owned' bekler. Alçakgönüllülük != gercegi gizlemek. Sahiplik = gercek.",
+        },
+      ],
+    },
+    {
+      id: "ex.wpa38.6.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "Last quarter I shipped the redesign — that drove a 22% lift in conversion.",
+      ipa: "/lɑːst ˈkwɔːtər aɪ ʃɪpt ðə riːˈdɪzaɪn — ðæt drəʊv ə ˈtwɛnti tuː pəˈsɛnt lɪft ɪn kənˈvɜːʒən/",
+      tr_hint:
+        "Vaka cumlesi — kararli + olculu. 'Shipped' kisa stop. '22%' = 'twenty-two percent' net. 'Drove a lift' baglanir.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 38.7 — Maas Talebini Sunma (Anchor + range)
+// ============================================================
+export const workPromotionAskLesson_38_7: BundledLesson = {
+  id: "work.promotion_ask.38.7",
+  skill_id: "work.promotion_ask",
+  index: 7,
+  title: "Maas Talebini Sunma",
+  description:
+    "'My target is...' + 'based on market and my impact...' = anchor + gerekce. Once SEN sayi at — sessizligin altinda kalma.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.wpa38.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "My target is X based on market and impact",
+      tr_translation: "Hedefim X — piyasa ve etkime dayali (anchor + gerekce)",
+      example:
+        "My target is 185, based on market data for senior and the impact I've delivered.",
+      example_tr:
+        "Hedefim 185 — senior piyasa verisi ve teslim ettigim etkiye dayali.",
+    },
+    {
+      id: "ex.wpa38.7.2",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Hedefim 185 — piyasa rate'i 175-195 ve gecen yil teslim ettigim etki dusunulurse araligin ust kismi makul.",
+      target:
+        "My target is 185 — given market rate at 175-195 and the impact I've delivered, the upper half of the range feels fair.",
+      accepted_variants: [
+        "Targeting 185 — market puts senior at 175-195, and given my delivery, the upper end makes sense.",
+        "Looking at 185 as a target — based on market (175-195) and what I've shipped, that lands in the right place.",
+        "My anchor is 185 — market rate is 175-195, and the impact warrants the upper end.",
+        "I'm aiming for 185 — that's grounded in market data (175-195) and the work I've delivered.",
+      ],
+      tr_hint:
+        "Yapi: 'My target is X — given market (range) and impact, upper end is fair.' Anchor (185) once, gerekce (market + impact) sonra. 'Feels fair' = muzakereye yer birakir.",
+    },
+    {
+      id: "ex.wpa38.7.3",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template: "My ___ is 185, based on market and impact.",
+      answer: "target",
+      distractors: ["wish", "dream", "need"],
+      tr_hint:
+        "'Target' = profesyonel anchor kelimesi. 'Wish/dream' duygusal, 'need' kisisel — uçunde de sirket cevap vermez.",
+    },
+    {
+      id: "ex.wpa38.7.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Based",
+        "on",
+        "market",
+        "and",
+        "my",
+        "impact",
+        "my",
+        "target",
+        "is",
+        "185",
+      ],
+      correct_sentence: "Based on market and my impact my target is 185",
+      tr_translation: "Piyasa ve etkime dayali hedefim 185.",
+    },
+    {
+      id: "ex.wpa38.7.5",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Maybe you can give me something around 180 or 190? Whatever you think is okay.",
+      correct_sentence:
+        "My target is 185 — given market rate at 175-195 and the impact I've delivered, that's where I'd like to land.",
+      tr_explanation:
+        "'Maybe you can give me' = izin isteme tonu, anchor yok. 'Whatever you think is okay' = SEN karar ver demek = sirketin lowball'una zemin acmak. ABD/UK kulturu icin Turk profesyonelin en buyuk tuzagi. Doğru: somut sayi (anchor) + objektif gerekce + kararli ton.",
+    },
+    {
+      id: "ex.wpa38.7.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Comp konusmasi. Manager 'what number are you thinking?' dedi. Anchor at — once SEN sayi vermelisin.",
+      npc_role: "Manager",
+      setting: "Compensation conversation, manager waiting for your anchor",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(my target is|i'?m targeting|i'?m looking at|anchor (is|at)) (\\d{3}|\\d{3}k?)",
+            "(based on|given|grounded in) (market (rate|data)|levels\\.fyi|industry (rate|data|benchmarks))",
+            "((at|of) \\d+ ?-? ?\\d+|in the \\d+s)",
+            "(and (the )?impact|plus what I'?ve (delivered|shipped|owned))",
+            "(upper (half|end) of (the )?range|that'?s where I'?d like to land|that feels fair)",
+          ],
+          hint_tr:
+            "Yapi: 'My target is 185, based on market rate at 175-195 and the impact I've delivered.' Once sayi, sonra gerekce.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "185 is ambitious. Where's that grounded?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(levels\\.fyi|glassdoor|payscale|recruiter (data|conversations))",
+            "(puts|has|shows) senior (at|in the) \\d+ ?-? ?\\d+",
+            "(plus|combined with|on top of (that|which)) (the (impact|case)|q3 numbers)",
+            "(led|drove|owned) (\\d+ ?-? ?\\d+%|the \\w+ (initiative|migration|rebuild))",
+            "(beyond (my )?current scope|operating at senior|next-?level work)",
+            "(makes 185 (a reasonable|the right) anchor|185 lands fairly)",
+          ],
+          hint_tr:
+            "Veri ile destekle: 'Levels.fyi puts senior at 175-195. Plus I owned auth end-to-end + drove 22% lift. 185 lands in the right place.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Fair. I can't promise 185 today, but I'll push for it. Let me come back Friday.",
+        },
+      ],
+    },
+    {
+      id: "ex.wpa38.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Comp konusmasinda 'what number are you thinking?' geldi. Ilk hamle?",
+          options: [
+            "'Whatever you think is okay'",
+            "Anchor at — 'My target is X, based on market and impact'",
+            "'I don't know, you decide'",
+            "Sessiz kal",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Once sayi atmayan kaybeder. ABD/UK muzakere standardi: ilk anchor zemini belirler. Sayi vermezsen sirket lowball atar, sen tepkili pozisyona gecersin.",
+        },
+        {
+          question: "Anchor'un gerekcesi NE olmali?",
+          options: [
+            "'Cok cabaladim'",
+            "'Bana ihtiyacim var'",
+            "Piyasa verisi + teslim ettigin etki — iki ayagi objektif",
+            "Sadece kisisel istek",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Sirket karari = is karari. Subjektif gerekce ('hard worker', 'need money') cevap almaz. Market data + delivered impact = HR'in dayanabilecegi zemin.",
+        },
+        {
+          question: "Turk profesyonelin en buyuk anchor tuzagi?",
+          options: [
+            "Cok yuksek istemek",
+            "Kibarlik abartisi — 'whatever you decide' = sirkete sayiyi yazdirmak = lowball garantisi",
+            "Cok dusuk istemek",
+            "Onemli degil",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Kultur farki: TR'de 'sen karar ver' kibardir. US/UK comp'ta 'sen karar ver' = pozisyonsuzluk = sirket kendi avantajina karar verir. Anchor = kibar degil pozisyonel zorunluluk.",
+        },
+      ],
+    },
+    {
+      id: "ex.wpa38.7.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "My target is 185, based on market rate and the impact I've delivered.",
+      ipa: "/maɪ ˈtɑːɡɪt ɪz wʌn ˈeɪti faɪv, beɪst ɒn ˈmɑːkɪt reɪt ənd ði ˈɪmpækt aɪv dɪˈlɪvərd/",
+      tr_hint:
+        "Anchor cumlesi — kararli, tereddutsuz. '185' = 'one-eighty-five' tek nefes. 'Based on' yumusak, virgul sonra durak yok. Soru tonu kesinlikle yok.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 38.8 — Counter-Offer Yonetme (Push back politely)
+// ============================================================
+export const workPromotionAskLesson_38_8: BundledLesson = {
+  id: "work.promotion_ask.38.8",
+  skill_id: "work.promotion_ask",
+  index: 8,
+  title: "Counter-Offer Yonetme",
+  description:
+    "Manager dusuk teklif verdi — 'I appreciate that' + 'could we get closer to X?' Pozitif aciliş + ust sınıra it. Kavga degil ikna.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.wpa38.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I appreciate that — could we get closer to X?",
+      tr_translation: "Bunu takdir ediyorum — X'e daha yaklasabilir miyiz? (counter)",
+      example:
+        "I appreciate the offer at 170 — could we get closer to 185 given the impact?",
+      example_tr:
+        "170 teklifini takdir ediyorum — etkim goz onunde olursa 185'e daha yaklasabilir miyiz?",
+    },
+    {
+      id: "ex.wpa38.8.2",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Bu teklifi takdir ediyorum — 175'ten 185'e yaklasmamiz mumkun mu? Etki ve piyasa rate'i goz onune alindiginda anchor'a yaklasmak adil olur.",
+      target:
+        "I appreciate the offer — could we get from 175 closer to 185? Given the impact and market rate, landing near my anchor feels fair.",
+      accepted_variants: [
+        "Thanks for the offer — is there room to move from 175 toward 185? Given impact + market, that lands fairly.",
+        "Appreciate the 175 number — could we push closer to 185? With the impact and the market, that's where it should sit.",
+        "Grateful for the offer — what would it take to land at 185 rather than 175? Impact and market both point there.",
+        "Thanks for the proposal — is there flex to get us to 185 instead of 175? Impact + market support that.",
+      ],
+      tr_hint:
+        "Yapi: '(saygi) + could we get closer to (anchor)? + gerekce.' 'Appreciate' = sert degil pozitif acilis. 'Closer to' = uzlasma sinyali, 'must have 185' degil.",
+    },
+    {
+      id: "ex.wpa38.8.3",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template: "I appreciate that — could we ___ closer to 185?",
+      answer: "get",
+      distractors: ["come", "go", "make"],
+      tr_hint:
+        "'Get closer to X' = X'e daha yaklasmak. Counter-offer standart kalip. 'Come/go close' yanlis.",
+    },
+    {
+      id: "ex.wpa38.8.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Is",
+        "there",
+        "room",
+        "to",
+        "push",
+        "closer",
+        "to",
+        "the",
+        "top",
+      ],
+      correct_sentence: "Is there room to push closer to the top",
+      tr_translation: "Ust sinira yaklasmak icin esneklik var mi?",
+    },
+    {
+      id: "ex.wpa38.8.5",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "175 is too low. I cannot accept this. I want 185 minimum.",
+      correct_sentence:
+        "I appreciate the 175 offer — could we get closer to 185? Given the impact and market rate, that's where the number lands for me.",
+      tr_explanation:
+        "'Too low' = duygusal yargi. 'Cannot accept' = ultimatom = manager savunmaya. 'Minimum 185' = pazarlik degil dayatma. Doğru: 'appreciate' (saygi) + 'could we get closer' (yumusak iletim) + objektif gerekce. Aynı sonucu hedefler ama iliskiyi yakmadan.",
+    },
+    {
+      id: "ex.wpa38.8.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Manager 'best I can do is 175' dedi. Hedefin 185 — kibarca ust sinira it.",
+      npc_role: "Manager",
+      setting: "Comp negotiation, after manager's counter at 175",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i appreciate|appreciate (that|the (offer|number))|thanks for (sharing|the (number|offer)))",
+            "(could we|is there (room|flex) to|what would it take to) (get|land|push|move) (closer to|toward|up to) \\d+",
+            "(given|based on|with) (the impact|market (rate|data)|q3 (numbers|delivery))",
+            "(that'?s where (the number|it) lands|that feels (fair|right)|that'?s the right anchor)",
+            "(equity|sign-?on|bonus|title (bump)?) (component|piece|adjustment)",
+          ],
+          hint_tr:
+            "Yapi: 'I appreciate the 175 — could we get closer to 185? Given the impact and market, that's where it lands. Open to equity/sign-on too.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I hear you, but 185 is hard. What about 178 plus a sign-on?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(appreciate the flex|thanks for moving|fair that you'?re pushing)",
+            "(could we (split|land at|come (in|down) at)|what about) (180|182|181) (plus|with)",
+            "(equity|sign-?on|bonus|stock) (refresh|grant|component)",
+            "(comfortable closing|happy to (close|wrap)|will (sign|accept|move forward)) (at|if)",
+            "(let me think (on it )?(overnight|by tomorrow)|need to (sit with|sleep on) it)",
+            "(landing at|getting to) (180|181|182)",
+          ],
+          hint_tr:
+            "Karsi karsi: 'Appreciate the flex — could we land at 181 plus the sign-on? Comfortable closing there.' VEYA 'Let me sit with it overnight.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "180 base plus a 10K sign-on. That's my final number. Take it home.",
+        },
+      ],
+    },
+    {
+      id: "ex.wpa38.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Counter-offer'in EN guvenli yapisi?",
+          options: [
+            "'Too low, I want more'",
+            "'I appreciate that' + 'could we get closer to X?' + gerekce",
+            "'Cannot accept'",
+            "Sessizce kabul et",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Appreciate' = duvar yikmaz, pozitif acilis. 'Could we get closer' = uzlasma kapisi acik. Sirket muzakere oynamak ister, kavga oynamak istemez.",
+        },
+        {
+          question: "Manager pasit final teklif verdi (rakam + sign-on). Iki secenek?",
+          options: [
+            "Hemen 'no' veya hemen 'yes'",
+            "Karsi-karsi (split/equity dahil etme) VEYA 'let me sit with it overnight' — iki secenek de profesyonel",
+            "Kufret",
+            "Sirketten ayril",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Let me sit with it overnight' = baski yapmaz, dusunme zamani alir, sirket donmez. Acele 'yes' = sirket bir daha pazarlik etmedigini ogrenir.",
+        },
+        {
+          question: "'Where's the flex?' sorusu NE ozellik tasir?",
+          options: [
+            "Saldirgan",
+            "Sirketin oynayabilecegi alani gosterir (base mi, equity mi, sign-on mu) — verimli pazarlik",
+            "Cok agir",
+            "Onemli degil",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Buyuk sirketlerde base sik kilitlidir ama equity/sign-on/title oynayabilir. 'Where's the flex?' = gercek lego paçalari sorar.",
+        },
+      ],
+    },
+    {
+      id: "ex.wpa38.8.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "I appreciate that — could we get closer to 185?",
+      ipa: "/aɪ əˈpriːʃieɪt ðæt — kʊd wi ɡɛt ˈkləʊsər tə wʌn ˈeɪti faɪv/",
+      tr_hint:
+        "Counter-offer kalibi — sicak ton, talep degil davet. 'Appreciate' icinde 'priːʃ' kayma sesi. 'Closer to' bagli akis. '185' net.",
+    },
+  ],
+};
+
+// ============================================================
 // Work Promotion Ask lessons registry
 // ============================================================
 export const workPromotionAskLessons: ReadonlyArray<BundledLesson> = [
@@ -904,4 +1626,8 @@ export const workPromotionAskLessons: ReadonlyArray<BundledLesson> = [
   workPromotionAskLesson_38_2,
   workPromotionAskLesson_38_3,
   workPromotionAskLesson_38_4,
+  workPromotionAskLesson_38_5,
+  workPromotionAskLesson_38_6,
+  workPromotionAskLesson_38_7,
+  workPromotionAskLesson_38_8,
 ];

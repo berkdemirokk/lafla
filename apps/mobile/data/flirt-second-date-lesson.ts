@@ -936,6 +936,787 @@ export const flirtSecondDateLesson_42_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 42.5 — Plan Yapma (Aktivite Tabanlı)
+// ============================================================
+export const flirtSecondDateLesson_42_5: BundledLesson = {
+  id: "flirt.second_date.42.5",
+  skill_id: "flirt.second_date",
+  index: 5,
+  title: "Plan Yapma — Aktivite Tabanlı",
+  description:
+    "Sıradan dinner yerine playful aktivite öner: mini golf, sergi, top oyunu. 'Or are you too good for that?' challenge tonu + esnek alternatif.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.fsd42.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Or are you too good for that?",
+      tr_translation: "Yoksa sen bunun için fazla mı iyisin? (playful meydan okuma)",
+      example: "Mini golf Saturday? Or are you too good for that?",
+      example_tr: "Cumartesi mini golf? Yoksa sen bunun için fazla mı iyisin?",
+    },
+    {
+      id: "ex.fsd42.5.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bir sergi var — gitmek ister misin, yoksa çok mu fazla?",
+      target: "There's this art exhibit — wanna check it out, or is that too much?",
+      accepted_variants: [
+        "There's an art exhibit — down to go, or too much?",
+        "There's this art show — want to go, or is that overkill?",
+        "Found an art exhibit — interested, or is that not your vibe?",
+        "There's this exhibit happening — wanna hit it, or pass?",
+        "Art exhibit's on — wanna see it, or boring to you?",
+      ],
+      tr_hint:
+        "'There's this X' = bunu yeni keşfettim havasında. 'Or is that too much?' = opt-out kapısı, baskısız.",
+    },
+    {
+      id: "ex.fsd42.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Mini golf Saturday — ___ in?",
+      answer: "you",
+      distractors: ["are", "be", "down"],
+      tr_hint:
+        "'You in?' = var mısın? Casual + minimum kelime. 'Down?' tek başına da kullanılır.",
+    },
+    {
+      id: "ex.fsd42.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Bowling",
+        "or",
+        "is",
+        "that",
+        "too",
+        "chaotic",
+        "for",
+        "you",
+      ],
+      correct_sentence: "Bowling or is that too chaotic for you",
+      tr_translation: "Bowling — yoksa senin için fazla mı kaotik?",
+    },
+    {
+      id: "ex.fsd42.5.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "We will play mini golf. You will come Saturday.",
+      correct_sentence:
+        "Mini golf Saturday — or are you too good for that?",
+      tr_explanation:
+        "'We will play. You will come.' = emir + kesin, kontrolcü. Doğru: aktivite + tarih (kısa) + playful challenge ('too good for that'). Esneklik + flört bir arada.",
+    },
+    {
+      id: "ex.fsd42.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "İkinci randevu için playful aktivite teklif ediyorsun. Sıradan dinner'dan kaç.",
+      npc_role: "Date",
+      setting: "Proposing a playful activity",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(mini golf|bowling|arcade|trivia|ping pong) (saturday|friday|sunday|this weekend)",
+            "(there'?s |found )(this |an? )?(art )?(exhibit|show|pop-up|festival)",
+            "(want to|wanna|down to|up for) (try|do|hit|check out) (something|a) (different|new|fun)",
+            "(or |) (are you )?too (good|cool|fancy) for (that|mini golf|bowling)",
+            "(skip|over) (the )?(dinner|drinks)",
+            "(let'?s )?(do|try) (something|that) (playful|fun|low-stakes)",
+          ],
+          hint_tr:
+            "Playful teklif: 'Mini golf Saturday? Or are you too good for that?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Ha — I'm actually weirdly good at mini golf. You sure you want this smoke?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh |) (bring it|it'?s on|let'?s go|we'?ll see)",
+            "(big talk|talk is cheap|prove it)",
+            "(loser|whoever loses) (buys|gets) (drinks|dinner|the next)",
+            "(challenge accepted|you'?re on|game on)",
+            "(don'?t worry|i'?ll go easy) on you",
+            "(actually |honestly )?(terrified|nervous|scared)",
+          ],
+          hint_tr:
+            "Banter: 'Big talk — loser buys drinks?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Deal. 7pm Saturday. I'm warning you, I've got a putter at home.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(7|seven) (works|sounds good|it is)",
+            "(see you|catch you) (there|saturday)",
+            "(i'?ll text|let me send) (you )?(the spot|the place|details)",
+            "(may the best )?(golfer|player) (win)",
+            "(don'?t be |no )late",
+            "(also |and )(grabbing|getting) (drinks|food) (after)?",
+          ],
+          hint_tr:
+            "Kapanış: 'See you Saturday at 7 — drinks after, winner picks.'",
+        },
+      ],
+    },
+    {
+      id: "ex.fsd42.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question:
+            "Playful aktivite tekliflerinin DİNNER karşı avantajı?",
+          options: [
+            "Daha ucuz",
+            "Düşük baskı + ortak oyun = doğal banter + hatırlanır deneyim",
+            "Yemek yememeye gerek yok",
+            "Konuşmayı durdurur",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Aktivite = ortak hatıra + 'remember when' kancası. Oyun = nazik rekabet = doğal flört zemini.",
+        },
+        {
+          question: "'Or are you too good for that?' tonu nedir?",
+          options: [
+            "Pasif agresif",
+            "Playful challenge — flört + meydan okuma + kendinden emin",
+            "Saygısız",
+            "Sıkıntılı",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Hafif kışkırtma = ilgiyi tetikler. Karşı taraf 'I'll show you' enerjisine girer. Modern flörtün temeli.",
+        },
+        {
+          question:
+            "Mini golf gibi düşük-cidiyetli aktivitenin BÜYÜK avantajı?",
+          options: [
+            "Ucuz olması",
+            "Garip sessizlikleri engeller + gülüşme yaratır + ortak hatıra üretir",
+            "Hızlı bitmesi",
+            "Yer ayırtmaya gerek olmaması",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Aktivite = doğal mola + komik anlar. Konuşma yetkin değilken zemin sağlar. Stres düşer, bağ artar.",
+        },
+      ],
+    },
+    {
+      id: "ex.fsd42.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Or are you too good for that?",
+      ipa: "ɔːr ɑːr juː tuː ɡʊd fɔːr ðæt",
+      tr_hint:
+        "'Or are you' bağlı, hızlı: 'ɔːr-ɑːr-juː'. 'Too good' vurgu — playful challenge. Soru tonu sonda yukarı, hafif gülümseme.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 42.6 — Vibe Check (Geçen Sefere Referans)
+// ============================================================
+export const flirtSecondDateLesson_42_6: BundledLesson = {
+  id: "flirt.second_date.42.6",
+  skill_id: "flirt.second_date",
+  index: 6,
+  title: "Vibe Check — Geçen Sefere Referans",
+  description:
+    "Buluştuğunda ilk randevuya callback yap: 'still thinking about that taco place', 'glad we did this again'. Devamlılık = bağ.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.fsd42.6.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Still thinking about",
+      tr_translation: "Hala düşünüyorum (geçen seferi)",
+      example: "Still thinking about that taco place — we have to go back.",
+      example_tr: "Hala o taco mekanını düşünüyorum — geri dönmeliyiz.",
+    },
+    {
+      id: "ex.fsd42.6.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bunu tekrar yaptığımıza sevindim.",
+      target: "Glad we did this again.",
+      accepted_variants: [
+        "I'm glad we did this again.",
+        "So happy we did this again.",
+        "Glad we made this happen again.",
+        "Good to be back with you.",
+        "Happy we made round 2 happen.",
+      ],
+      tr_hint:
+        "'Glad we did this again' = devamlılık + 'sen istedin, ben istedim' onayı. Sıcak açılış cümlesi.",
+    },
+    {
+      id: "ex.fsd42.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I've been ___ about that taco place all week.",
+      answer: "thinking",
+      distractors: ["wondering", "dreaming", "remembering"],
+      tr_hint:
+        "'Been thinking about' = hala aklımda. 'All week' = referans + devamlılık. Geçen sefere callback.",
+    },
+    {
+      id: "ex.fsd42.6.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Last",
+        "time",
+        "set",
+        "the",
+        "bar",
+        "pretty",
+        "high",
+      ],
+      correct_sentence: "Last time set the bar pretty high",
+      tr_translation: "Geçen sefer çıtayı epey yükseğe koydu.",
+    },
+    {
+      id: "ex.fsd42.6.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I am happy we meeting again.",
+      correct_sentence: "Glad we did this again — last time set the bar pretty high.",
+      tr_explanation:
+        "'I am happy we meeting again' = gramer bozuk + soğuk. Doğru: 'Glad we did this again' (samimi açılış) + callback ('last time set the bar high') = devamlılık + iltifat.",
+    },
+    {
+      id: "ex.fsd42.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "İkinci randevuya geldiniz, oturuyorsunuz. Geçen seferi referans alarak ısınıyorsun.",
+      npc_role: "Date",
+      setting: "Second date warm-up with callbacks",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(glad|happy|good) (we|to be) (did this|back|here) (again|together)",
+            "(been |i'?ve been )(looking forward|excited) (to|for) (this|tonight)",
+            "(round 2|round two) (already )?(feels|is) (good|nice)",
+            "(last time |last week )(set the bar|was hard to beat)",
+            "(can'?t lie|honestly) been (thinking|counting down)",
+          ],
+          hint_tr:
+            "Sıcak açılış: 'Glad we did this again — been looking forward to it all week.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Same here. Honestly couldn't tell if you'd actually show up again.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(still |i'?m still |been )(thinking about|stuck on) (that|the) (taco|coffee|place|spot)",
+            "(after )?(that|the) (taco|coffee) place\\?? (no|c'?mon|of course)",
+            "(you )?kidding\\?",
+            "(wouldn'?t|couldn'?t) miss (it|this)",
+            "(had to|need to) (see|do) (this|that) (again|round 2)",
+          ],
+          hint_tr:
+            "Callback: 'Still thinking about that taco place — you kidding?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay, fair. That place did do something to me too.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(we|let'?s) (have to|gotta|need to) (go back|hit it again)",
+            "(saving it for|next time we'?re going)",
+            "(set the bar |bar was set )(high|pretty high)",
+            "(tonight has to|this one'?s gotta) (top|beat) (it|that)",
+            "(no pressure|but yeah) (on this place|now)",
+          ],
+          hint_tr:
+            "Devamlılık: 'Set the bar pretty high — tonight's gotta top it.'",
+        },
+      ],
+    },
+    {
+      id: "ex.fsd42.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question:
+            "Geçen randevuya callback yapmanın PSİKOLOJİK etkisi?",
+          options: [
+            "Yer ayırtmayı hatırlatır",
+            "Devamlılık + 'seninle yaşadıklarımı önemsiyorum' sinyali = bağ derinleşir",
+            "Bilgi gösterisi",
+            "Konuşma açar",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Callback = 'sen unutulur biri değilsin' mesajı. Karşı taraf 'beni hatırlamış' hissini alır = duygusal yatırım sinyali.",
+        },
+        {
+          question: "'Glad we did this again' niye güçlü bir açılış?",
+          options: [
+            "Resmi olduğu için",
+            "Pozitif + samimi + 'isteğimle buradayım' onayı, baskı yok",
+            "Kısa olduğu için",
+            "Soru olmadığı için",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Geldiğine sevindiğini söylemek = açık enerji. Soğuk veya beklemeci olmaz. Karşı taraf da rahatlar.",
+        },
+        {
+          question:
+            "'Still thinking about that taco place' kalıbının fonksiyonu?",
+          options: [
+            "Aç olduğunu bildirir",
+            "Spesifik anı + 'seninle olan an aklımdaydı' = mikro romantik sinyal",
+            "Konu açar",
+            "Yer önerisi",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Spesifik = inandırıcı. 'O mekan' = 'seninle gittiğim o mekan'. Detay = hatıra = bağ.",
+        },
+      ],
+    },
+    {
+      id: "ex.fsd42.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Still thinking about that taco place.",
+      ipa: "stɪl ˈθɪŋkɪŋ əˈbaʊt ðæt ˈtɑːkoʊ pleɪs",
+      tr_hint:
+        "'Still thinking' yumuşak nostalji. 'About that' bağlanır → 'ə-baʊt-ðæt'. 'Taco place' sıcak vurgu — paylaşılan anı.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 42.7 — İlerleme Sinyalleri (Open Up)
+// ============================================================
+export const flirtSecondDateLesson_42_7: BundledLesson = {
+  id: "flirt.second_date.42.7",
+  skill_id: "flirt.second_date",
+  index: 7,
+  title: "İlerleme Sinyalleri — Open Up",
+  description:
+    "Daha kişisel paylaşımı 'ok real talk', 'this might sound random' gibi yumuşaklayıcılarla aç. Vulnerability = bağ derinleştirir.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.fsd42.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Ok real talk",
+      tr_translation: "Tamam, dürüstçe konuşalım (kişisel paylaşım sinyali)",
+      example: "Ok real talk — I almost didn't text you back last week.",
+      example_tr: "Tamam dürüstçe — geçen hafta sana neredeyse cevap yazmıyordum.",
+    },
+    {
+      id: "ex.fsd42.7.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Bu garip gelebilir ama — seni gerçekten merak ediyorum.",
+      target: "This might sound random but — I'm actually really curious about you.",
+      accepted_variants: [
+        "This is gonna sound random, but I'm really curious about you.",
+        "Might sound weird — I'm genuinely curious who you are.",
+        "Random thought, but I want to know you better.",
+        "This is gonna sound forward — I'm really into getting to know you.",
+        "Not gonna lie — I'm curious about you in a real way.",
+      ],
+      tr_hint:
+        "'This might sound random' = hassas paylaşımı yumuşatır. 'Actually' = gerçek niyet vurgusu.",
+    },
+    {
+      id: "ex.fsd42.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Ok real ___ — I don't usually open up this fast.",
+      answer: "talk",
+      distractors: ["chat", "deal", "say"],
+      tr_hint:
+        "'Real talk' = dürüstlük açılışı. 'Open up' = içini açmak. İkisi birlikte = ben de açılıyorum sinyali.",
+    },
+    {
+      id: "ex.fsd42.7.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Don't",
+        "usually",
+        "share",
+        "this",
+        "stuff",
+        "on",
+        "a",
+        "second",
+        "date",
+      ],
+      correct_sentence: "Don't usually share this stuff on a second date",
+      tr_translation: "Bu tür şeyleri genelde ikinci randevuda paylaşmam.",
+    },
+    {
+      id: "ex.fsd42.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Listen to me. I tell you my deep secret now.",
+      correct_sentence:
+        "This might sound random, but — can I share something I don't usually tell people?",
+      tr_explanation:
+        "'Listen to me. I tell you my deep secret' = emir + zorla samimiyet, geri ittirir. Doğru: yumuşatıcı ('might sound random') + izin ('can I share') + uzaklık ('don't usually tell') = davet, dayatma değil.",
+    },
+    {
+      id: "ex.fsd42.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "İkinci kadehin yarısı, sohbet derinleşiyor. Bir adım daha açılma sinyali veriyorsun.",
+      npc_role: "Date",
+      setting: "Opening up on second date",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(ok |okay )?real talk",
+            "(can i be |let me be )(honest|real) (with you)?( for a sec)?",
+            "(this might |this is gonna |this'?ll )(sound|come off) (random|weird|forward|deep)",
+            "(don'?t usually|i don'?t typically) (share|say|tell people) this",
+            "(real quick |sidebar )(but )?",
+            "(might be too early|maybe it'?s soon) but",
+          ],
+          hint_tr:
+            "Yumuşatıcı: 'Ok real talk — this might sound random but...'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Now I'm intrigued. Hit me.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?ve been |been )(working on|figuring out|going through)",
+            "(my |last )(year|2 years) (was|has been) (rough|wild|a lot)",
+            "(i don'?t usually |i never )(talk about |open up about |tell people)",
+            "(therapy|burnout|grief|breakup|moving|family stuff)",
+            "(honestly|truth is) i'?m (still |kind of )(figuring|sorting) (it )?out",
+            "(not the |not your )(typical |usual )(second date |first date )topic",
+          ],
+          hint_tr:
+            "Paylaşım: 'My last year was rough — therapy, burnout, the whole thing. Don't usually open up this fast.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Thanks for trusting me with that. I get it more than you'd think.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(your turn|what about you|tell me yours)",
+            "(thanks for|appreciate you) (listening|not flinching|hearing me)",
+            "(felt weird|wasn'?t sure if i should) (saying|sharing) (that|it)",
+            "(glad i did |happy i said) (it|that)",
+            "(now you have to|fair'?s fair)",
+            "(no pressure to match|don'?t feel like you have to)",
+          ],
+          hint_tr:
+            "Karşılıklı: 'Appreciate you not flinching — no pressure to match, but what about you?'",
+        },
+      ],
+    },
+    {
+      id: "ex.fsd42.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question:
+            "'This might sound random' kalıbının fonksiyonu?",
+          options: [
+            "Konuşmayı yavaşlatır",
+            "Yumuşatıcı + 'normal değil ama söyleyeceğim' onayı = hassas paylaşımı güvenli yapar",
+            "Şaka açar",
+            "Konu değiştirir",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Yumuşatıcılar = paylaşacağın şeyin riskini tanıdığını gösterir. Karşı taraf daha açık dinler.",
+        },
+        {
+          question:
+            "İkinci randevuda VULNERABILITY'nin EN BÜYÜK riski?",
+          options: [
+            "Konuşmacı yorulur",
+            "Çok hızlı + çok derin = yakınlığı zorlama, baskı yaratır",
+            "Yer değişimi gerekir",
+            "Vakit alır",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Vulnerability dozajı önemli. 'Therapy, burnout' = ok. 'Tüm travma anlatısı' = aşırı. Adım adım.",
+        },
+        {
+          question:
+            "Karşı taraf açıldıktan sonra DÜŞMANCA tepki ne sayılır?",
+          options: [
+            "Sessizce dinlemek",
+            "'I get it' + 'thanks for trusting me' = onaylama, daha açılma alanı verir",
+            "Hemen karşıt deneyim anlatmak",
+            "Konuyu değiştirmek",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Karşılaştırma ('benim daha kötüydü') veya konuyu kapatma = açılan kişiyi yalnız bırakır. Onayla → boşluk → kendi paylaşımına izin ver.",
+        },
+      ],
+    },
+    {
+      id: "ex.fsd42.7.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "This might sound random, but — I'm actually curious about you.",
+      ipa: "ðɪs maɪt saʊnd ˈrændəm bʌt aɪm ˈæktʃuəli ˈkjʊəriəs əˈbaʊt juː",
+      tr_hint:
+        "'This might sound random' temkinli açılış — yavaş. 'But' kısa duraklama. 'Actually curious about you' yumuşak + dürüst — göz teması ile.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 42.8 — 3. Randevu Teklif Etme (Eve Davet Boundary)
+// ============================================================
+export const flirtSecondDateLesson_42_8: BundledLesson = {
+  id: "flirt.second_date.42.8",
+  skill_id: "flirt.second_date",
+  index: 8,
+  title: "3. Randevu Teklif Etme — Eve Davet Boundary",
+  description:
+    "İkinci başarılıydı — 3. randevuyu öner. 'My place for dinner', 'low-key night in'. Saygılı, baskısız, no-pressure boundary diliyle.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.fsd42.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "My place for dinner?",
+      tr_translation: "Bende yemek? (eve davet, düşük baskı)",
+      example: "My place for dinner next week? I actually cook.",
+      example_tr: "Önümüzdeki hafta bende yemek? Aslında yemek yapabilirim.",
+    },
+    {
+      id: "ex.fsd42.8.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Sakin bir akşam yapalım — bende yemek, film, baskı yok.",
+      target: "Let's do something low-key — dinner at mine, a movie, no pressure.",
+      accepted_variants: [
+        "Let's keep it low-key — dinner at my place, a movie, no expectations.",
+        "Want to do something chill — I'll cook, we watch something?",
+        "Something low-key next time — my place, dinner, a movie. No pressure.",
+        "How about a chill one — dinner at mine, movie after?",
+        "Let's do a low-stakes night — I cook, you pick the movie.",
+      ],
+      tr_hint:
+        "'Low-key' = sakin/abartısız. 'No pressure' = beklentisiz. İkisi birlikte = saygılı eve davet.",
+    },
+    {
+      id: "ex.fsd42.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Let's do something ___ — dinner at mine, a movie.",
+      answer: "low-key",
+      distractors: ["low-end", "low-cost", "low-bar"],
+      tr_hint:
+        "'Low-key' = abartısız, sakin. Modern dating'de 'cidde düşürelim' sinyali. Tek kelime = doğru ton.",
+    },
+    {
+      id: "ex.fsd42.8.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "I'll",
+        "cook",
+        "you",
+        "pick",
+        "the",
+        "movie",
+        "no",
+        "pressure",
+      ],
+      correct_sentence: "I'll cook you pick the movie no pressure",
+      tr_translation: "Ben yemek yaparım, sen filmi seçersin, baskı yok.",
+    },
+    {
+      id: "ex.fsd42.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Come my house. We will be alone together.",
+      correct_sentence:
+        "My place for dinner next week? Low-key — I'll cook, you pick the movie.",
+      tr_explanation:
+        "'Come my house. We will be alone together.' = pushy + ima yüklü, korkutur. Doğru: spesifik plan (dinner) + low-key + iş bölümü (sen film seç). Saygılı + somut + baskısız.",
+    },
+    {
+      id: "ex.fsd42.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "İkinci randevu bitti, eve gidiyorsun. Akşam mesajla 3. randevu için eve davet yapıyorsun.",
+      npc_role: "Date",
+      setting: "Proposing third date — date at home",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(tonight|today) was (really |so )(good|nice|fun|special)",
+            "(can'?t stop|still )(smiling|thinking) about (tonight|today)",
+            "(thanks for|thank you for) (tonight|coming out|round 2)",
+            "(was the )?(best night|highlight of my week)",
+            "(you'?re |you are )(my favorite|fun)",
+          ],
+          hint_tr:
+            "Sıcak açılış: 'Tonight was really good — can't stop smiling.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Same — I'm spoiled now. What's round 3 going to look like?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(my place|mine) (for|next) (dinner|time)",
+            "(let'?s do |how about )(something|a) (low-key|chill|relaxed) (one |night )?(next time|next week)",
+            "(i'?ll cook|let me cook) (you )?(something|dinner)",
+            "(low-key|chill) (night in|one)",
+            "(dinner at mine|movie at my place)",
+            "(no pressure|no expectations|just hang)",
+          ],
+          hint_tr:
+            "Eve davet: 'My place next week? Low-key — I'll cook, you pick the movie.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "You cook? Now I'm intrigued. What's the dish?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(pasta|risotto|tacos|stir fry|curry|roast)",
+            "(my )?(signature|specialty|go-to) (is|move)",
+            "(you'?ll see|surprise|trust me)",
+            "(send me|let me know) (allergies|what you don'?t eat)",
+            "(\\d|seven|eight) (pm)? (next |this )?(saturday|friday|tuesday)",
+            "(no pressure to |only if you )(stay|come)",
+          ],
+          hint_tr:
+            "Detay + sınır: 'Pasta — my move. Saturday 7? No pressure to stay late.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Saturday works. I'll bring wine.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(perfect|deal|sold|love that)",
+            "(text you|i'?ll send) (the address|details)",
+            "(see you|can'?t wait) (saturday|then)",
+            "(red|white|whatever) (works|sounds great)",
+            "(can'?t wait to |excited to )(see you|cook for you)",
+          ],
+          hint_tr:
+            "Kapanış: 'Deal — texting the address. Can't wait.'",
+        },
+      ],
+    },
+    {
+      id: "ex.fsd42.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question:
+            "Eve davet için EN saygılı + baskısız kalıp?",
+          options: [
+            "'Come to my place tonight'",
+            "'My place for dinner next week? Low-key — I'll cook, you pick the movie. No pressure.'",
+            "'Let's not go out, come over'",
+            "'I want you alone'",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Somut plan (dinner) + low-key + iş bölümü + 'no pressure' = saygılı, spesifik, opt-out kapısı açık. Modern dating standardı.",
+        },
+        {
+          question: "'Low-key' kelimesinin asıl işlevi?",
+          options: [
+            "Ucuz olduğunu söyler",
+            "Cidde düşürür, beklenti çıtasını alçaltır = karşı tarafa rahatlık verir",
+            "Resmi gelir",
+            "Sosyal sınıf belirtir",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Low-key' = 'abartısız bir şey'. Karşı taraf 'kıyafet, beklenti, performans gerek mi?' stresini düşürür. Davet yumuşar.",
+        },
+        {
+          question:
+            "Eve davette 'no pressure' niye KRİTİK?",
+          options: [
+            "Kibarlık",
+            "Karşı tarafa 'hayır' veya 'erken giderim' alanı tanır = güvenli alan = daha kabul edilebilir",
+            "Resmi olmadığı için",
+            "Filmden",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Eve davet doğal olarak yüklü bir adımdır. 'No pressure' açık bir şekilde sınırı saygılıyor → güven artar → 'evet' daha mümkün olur.",
+        },
+      ],
+    },
+    {
+      id: "ex.fsd42.8.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "My place next week — low-key, I'll cook, no pressure.",
+      ipa: "maɪ pleɪs nɛkst wiːk loʊ kiː aɪl kʊk noʊ ˈprɛʃər",
+      tr_hint:
+        "'My place' sıcak vurgu. 'Low-key' düz, casual. 'I'll cook' kararlı, hizmet eden ton. 'No pressure' yumuşak ve net — sınır saygısı.",
+    },
+  ],
+};
+
+// ============================================================
 // Flirt Second Date lessons registry
 // ============================================================
 export const flirtSecondDateLessons: ReadonlyArray<BundledLesson> = [
@@ -943,4 +1724,8 @@ export const flirtSecondDateLessons: ReadonlyArray<BundledLesson> = [
   flirtSecondDateLesson_42_2,
   flirtSecondDateLesson_42_3,
   flirtSecondDateLesson_42_4,
+  flirtSecondDateLesson_42_5,
+  flirtSecondDateLesson_42_6,
+  flirtSecondDateLesson_42_7,
+  flirtSecondDateLesson_42_8,
 ];

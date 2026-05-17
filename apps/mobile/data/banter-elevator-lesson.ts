@@ -842,6 +842,701 @@ export const banterElevatorLesson_40_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 40.5 — Yağmurlu Gün
+// ============================================================
+export const banterElevatorLesson_40_5: BundledLesson = {
+  id: "banter.elevator.40.5",
+  skill_id: "banter.elevator",
+  index: 5,
+  title: "Yağmurlu Gün",
+  description:
+    "Yağmurlu sabah asansörde — ıslak palto, dışarıdan içeri ortak deneyim. Hava açılışının özel bir versiyonu.",
+  exercises: [
+    {
+      id: "ex.bel40.5.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Crazy rain today",
+      tr_translation: "Bugün delirmiş gibi yağıyor",
+      example: "Crazy rain today, huh?",
+      example_tr: "Bugün resmen sel, değil mi?",
+    },
+    {
+      id: "ex.bel40.5.2",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Yağmura yakalandın mı?",
+      target: "Did you get caught in it?",
+      accepted_variants: [
+        "Did you get caught in the rain?",
+        "Got caught in it?",
+        "Did the rain catch you?",
+        "You get soaked?",
+        "Get caught out there?",
+      ],
+      tr_hint:
+        "'Get caught in it' = (yağmura) yakalanmak (idiom). Asansörde ıslak ceket gören biri için empatik açılış.",
+    },
+    {
+      id: "ex.bel40.5.3",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "It's really coming ___ out there.",
+      answer: "down",
+      distractors: ["up", "off", "over"],
+      tr_hint:
+        "'Coming down' = yağmur şiddetli yağıyor (idiom). 'It's really coming down' = klasik US kalıp.",
+    },
+    {
+      id: "ex.bel40.5.4",
+      type: "word_order",
+      difficulty: 2,
+      scrambled_tokens: [
+        "Soaked",
+        "right",
+        "to",
+        "the",
+        "bone",
+      ],
+      correct_sentence: "Soaked right to the bone",
+      tr_translation: "Sırılsıklam oldum (idiom).",
+    },
+    {
+      id: "ex.bel40.5.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "The rain is making me very angry today.",
+      correct_sentence: "Crazy rain today, huh?",
+      tr_explanation:
+        "'Making me very angry' = aşırı duygusal + kişisel. Asansörde nötr + paylaşımcı şikayet: 'Crazy rain today, huh?' = warm + güvenli.",
+    },
+    {
+      id: "ex.bel40.5.6",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Yağmurlu sabah, asansöre giriyorsun, kendin de ıslaksın. Karşındaki kişinin de palto ıslak. 30 saniyelik hava sohbeti.",
+      npc_role: "Wet stranger in elevator",
+      setting: "Office elevator on rainy morning",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(crazy|wild|insane|nuts) (rain|weather) (today|out there)?",
+            "(it'?s (really )?coming down|pouring|bucketing)",
+            "(did you get|got) (caught|soaked|drenched)",
+            "(rough|nasty|miserable) (morning|day) (out there)?",
+            "(forgot|didn'?t bring) (my )?(umbrella|brolly)",
+            "(soaked|drenched|sopping wet)",
+          ],
+          hint_tr:
+            "Aç: 'Crazy rain today, huh?' veya 'Did you get caught in it?'",
+        },
+        {
+          speaker: "npc",
+          message: "Oh yeah, forgot my umbrella — totally drenched.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(same|me too|right there with you)",
+            "(of course|figures|just my luck)",
+            "(barely made it|just made it in)",
+            "(at least|good thing) (you'?re|we'?re) (inside|in now)",
+            "(supposed to clear up|might let up)",
+            "(stay (warm|dry)|dry off)",
+          ],
+          hint_tr:
+            "Empati: 'Same — barely made it in! At least we're inside now.'",
+        },
+        {
+          speaker: "npc",
+          message: "Ha, true — alright this is my floor, stay dry!",
+        },
+      ],
+    },
+    {
+      id: "ex.bel40.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Did you get caught in it?' tam olarak ne demek?",
+          options: [
+            "Bir şey çaldın mı?",
+            "Yağmura / havaya yakalandın mı?",
+            "Yakaladılar mı seni?",
+            "Hapse mi düştün?",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Caught in it' = (kötü havaya) yakalanmak. 'It' = bağlamdan: yağmur. Empatik açılış.",
+        },
+        {
+          question: "'It's really coming down' niye iyi bir kalıp?",
+          options: [
+            "Native + casual yağmur şiddeti ifadesi",
+            "Sadece UK'de kullanılır",
+            "Yararsız",
+            "Yanlış gramer",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "'Coming down' = idiom. 'It's really coming down out there' = klasik US asansör kalıbı.",
+        },
+        {
+          question: "Yağmurlu sabah açılışı NEDEN güçlü?",
+          options: [
+            "Hem hava hem de ortak ıslak deneyim = anında bağ",
+            "Kişiseldir",
+            "Negatif tondur",
+            "Yararsız",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Yağmur = paylaşılan + görünür durum. Karşı tarafın ıslak ceketi = doğal konuşma teması.",
+        },
+      ],
+    },
+    {
+      id: "ex.bel40.5.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Did you get caught in it?",
+      ipa: "dɪdʒə ɡɛt kɔːt ɪn ɪt",
+      tr_hint:
+        "'Did you' = 'dɪdʒə' bağlanır. 'Caught' = 'kɔːt' (kısa 'o'). Yukarı tonlama (soru). Empatik + warm.",
+    },
+  ],
+  estimated_minutes: 5,
+};
+
+// ============================================================
+// Lesson 40.6 — Apartman Komşusu Selamlama
+// ============================================================
+export const banterElevatorLesson_40_6: BundledLesson = {
+  id: "banter.elevator.40.6",
+  skill_id: "banter.elevator",
+  index: 6,
+  title: "Apartman Komşusu Selamlama",
+  description:
+    "Apartman lobisinde / asansörde komşuyla minimum acknowledgment — sıcak ama 5 saniyelik selam.",
+  exercises: [
+    {
+      id: "ex.bel40.6.1",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "Hey, good morning",
+      tr_translation: "Selam, günaydın (casual)",
+      example: "Hey, good morning — beautiful day, right?",
+      example_tr: "Selam, günaydın — güzel bir gün, değil mi?",
+    },
+    {
+      id: "ex.bel40.6.2",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Güzel bir gün, değil mi?",
+      target: "Beautiful day, right?",
+      accepted_variants: [
+        "Gorgeous day, isn't it?",
+        "Nice day, huh?",
+        "Lovely morning, right?",
+        "What a day, huh?",
+        "Beautiful out, isn't it?",
+      ],
+      tr_hint:
+        "'Beautiful day, right?' = güneşli sabah klasik komşu selamı. 'Right?' = onay arar, sıcaklık katar.",
+    },
+    {
+      id: "ex.bel40.6.3",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "Morning ___ you!",
+      answer: "to",
+      distractors: ["for", "with", "at"],
+      tr_hint:
+        "'Morning to you' = klasik kibar komşu karşılığı. 'Good morning to you too' kısaltması.",
+    },
+    {
+      id: "ex.bel40.6.4",
+      type: "word_order",
+      difficulty: 2,
+      scrambled_tokens: [
+        "Hope",
+        "you're",
+        "doing",
+        "well",
+      ],
+      correct_sentence: "Hope you're doing well",
+      tr_translation: "Umarım iyisindir.",
+    },
+    {
+      id: "ex.bel40.6.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "How are you my dear neighbor today, please tell me.",
+      correct_sentence: "Hey, morning — how's it going?",
+      tr_explanation:
+        "'My dear neighbor, please tell me' = aşırı resmi + araştırma sorusu. Komşu selamı = 3-4 kelime: 'Hey, morning — how's it going?'",
+    },
+    {
+      id: "ex.bel40.6.6",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Apartman lobisinde komşunla karşılaştın. Posta kutusunu kontrol ediyor. Kısa, sıcak selam — fazla uzatma.",
+      npc_role: "Apartment neighbor",
+      setting: "Apartment lobby, morning",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Oh hey, good morning!",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(morning|hey|hi)",
+            "(good morning( to you( too)?)?)",
+            "(how'?s it going|how are you|how'?ve you been)",
+            "(beautiful|gorgeous|nice|lovely) (day|morning) (out there)?",
+            "(right|isn'?t it|huh)",
+            "(hope you'?re|hope all'?s) (doing )?(well|good)",
+          ],
+          hint_tr:
+            "Selam ver: 'Morning! Beautiful day, right?' Kısa + sıcak.",
+        },
+        {
+          speaker: "npc",
+          message: "Yeah, finally some sun! Can't complain.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(right|totally|for real|seriously)",
+            "(about time|finally|been waiting for this)",
+            "(perfect (weather|day) for)",
+            "(makes (a|the) difference|cheers (you|me) up)",
+            "(enjoy (it|the day|the sun))",
+            "(hope (it|the sun) (sticks around|lasts))",
+          ],
+          hint_tr:
+            "Onayla: 'Right? About time!' veya 'For real — makes a difference.'",
+        },
+        {
+          speaker: "npc",
+          message: "For sure — alright, have a good one!",
+        },
+      ],
+    },
+    {
+      id: "ex.bel40.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Apartman komşusu selamı NEDEN kısa olmalı?",
+          options: [
+            "ABD/UK'de komşu = sıcak ama mesafeli — uzun konuşma awkward",
+            "Komşular istemez",
+            "İngilizce kuralı",
+            "Yararsız",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Türkiye'de komşu = aile. ABD'de komşu = warm acknowledgment + 5 saniye. Uzun = kişisel sınırı geçer.",
+        },
+        {
+          question: "'Beautiful day, right?' niye iyi bir komşu açılışı?",
+          options: [
+            "Hava + 'right' onay arar = sıcak + bağ kurar",
+            "Çok resmi",
+            "Negatif",
+            "Yararsız",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "'Right?' = onay davet eder. Karşı taraf 'totally' / 'for real' der → mini bağ + herkes yoluna gider.",
+        },
+        {
+          question: "ABD'de asansörde 'Hi' deyip cevap beklemek nasıldır?",
+          options: [
+            "Çok normal — minimal acknowledgment beklenir",
+            "Kaba",
+            "Tuhaf",
+            "Yasak",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Hatta sessizlik = tuhaf. Kısa 'hi' / 'morning' = standart. Bakışı kaçırmak = soğuk.",
+        },
+      ],
+    },
+    {
+      id: "ex.bel40.6.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Hey, good morning — beautiful day, right?",
+      ipa: "heɪ ɡʊd ˈmɔːrnɪŋ ˈbjuːtəfəl deɪ raɪt",
+      tr_hint:
+        "'Hey' = casual + warm. 'Beautiful' = 3 hece: 'bjuː-tə-fəl'. 'Right?' = yukarı tonlama. Sıcak + hızlı.",
+    },
+  ],
+  estimated_minutes: 5,
+};
+
+// ============================================================
+// Lesson 40.7 — Tanıdık Yüz: Bir Adım Derinleştir
+// ============================================================
+export const banterElevatorLesson_40_7: BundledLesson = {
+  id: "banter.elevator.40.7",
+  skill_id: "banter.elevator",
+  index: 7,
+  title: "Tanıdık Yüz: Bir Adım Derin",
+  description:
+    "İş yerinde aynı kişiyle 3. defa karşılaşma — 'How are you?' kuru kalır. 'How's the week treating you?' bir adım derinleştirir.",
+  exercises: [
+    {
+      id: "ex.bel40.7.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "How's the week treating you?",
+      tr_translation: "Hafta nasıl gidiyor? (idiom)",
+      example: "How's the week treating you so far?",
+      example_tr: "Hafta şimdiye kadar nasıl geçti?",
+    },
+    {
+      id: "ex.bel40.7.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Az kaldı Cuma'ya!",
+      target: "Almost Friday!",
+      accepted_variants: [
+        "Friday's almost here.",
+        "We're almost at Friday.",
+        "So close to Friday.",
+        "Friday can't come soon enough.",
+        "Almost the weekend!",
+      ],
+      tr_hint:
+        "'Almost Friday' = ofis sohbet klasiği. Yorgunluk + umut karışımı. 3. kez gören tanıdığa warm açılış.",
+    },
+    {
+      id: "ex.bel40.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Can't ___ for the weekend.",
+      answer: "wait",
+      distractors: ["stop", "go", "make"],
+      tr_hint:
+        "'Can't wait for the weekend' = haftanın ortasında klasik yakınma. Empatik ortak duygu.",
+    },
+    {
+      id: "ex.bel40.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "How's",
+        "your",
+        "week",
+        "going",
+        "so",
+        "far",
+      ],
+      correct_sentence: "How's your week going so far",
+      tr_translation: "Haftan şimdiye kadar nasıl geçiyor?",
+    },
+    {
+      id: "ex.bel40.7.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "How are you? How are you? How are you again?",
+      correct_sentence: "Hey — how's the week treating you?",
+      tr_explanation:
+        "Aynı kişiye 3 defa 'How are you?' = kuru + tekrarlı. 3. kez = bir adım derin: 'How's the week treating you?' = aynı soru ama yeni dokunuş.",
+    },
+    {
+      id: "ex.bel40.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Bu hafta aynı kişiyle asansörde 3. karşılaşman. 'How are you?' artık kuru. Bir adım derin: 'How's the week?' ya da 'Almost Friday'.",
+      npc_role: "Office acquaintance, seen multiple times",
+      setting: "Office elevator, Thursday morning",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Oh hey, we keep running into each other!",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(ha|right|seriously|i know)",
+            "(seems like|feels like) (we're on the same|same) (schedule|shift|elevator)",
+            "(how'?s (the|your) week (treating you|going|been))",
+            "(almost friday|so close to friday|hanging in there)",
+            "(can'?t complain|can'?t wait for (friday|the weekend))",
+            "(thursday already|made it to thursday)",
+          ],
+          hint_tr:
+            "Bir adım derin: 'Ha, right! How's the week treating you?' veya 'Almost Friday, hang in there!'",
+        },
+        {
+          speaker: "npc",
+          message: "Honestly, busy but good — you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(same|same here|right there with you)",
+            "(can'?t complain|hanging in there|getting by)",
+            "(busy too|swamped|drowning)",
+            "(at least|good thing) (it'?s|its) (almost )?(friday|the weekend)",
+            "(grinding (it )?out|powering through)",
+            "(one (day|deadline) at a time|making it work)",
+          ],
+          hint_tr:
+            "Sürdür: 'Same — busy, but hanging in there. Almost Friday though!'",
+        },
+        {
+          speaker: "npc",
+          message: "Ha, that's the spirit — alright, here's my floor!",
+        },
+      ],
+    },
+    {
+      id: "ex.bel40.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Aynı kişiyle 3. karşılaşma — 'How are you?' niye kuru?",
+          options: [
+            "Tekrar gibi gelir + ilişkide ilerleme göstermez",
+            "Yanlış gramerdir",
+            "İngilizce'de kaba",
+            "Yararsız",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "İlk: 'How are you?' OK. 2. ve 3.: aynı kalıp = mesafeli kalır. Bir adım derin = ilişki gelişir.",
+        },
+        {
+          question: "'How's the week treating you?' tam olarak ne yapar?",
+          options: [
+            "'How are you?' kalıbını yenileyip warm + ilgili gösterir",
+            "Soğuk + resmi",
+            "Yararsız",
+            "Kişisel sınırı geçer",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "'Treating you' = hafta sana iyi davranıyor mu? = sıcak idiom. Tekrarı kırar.",
+        },
+        {
+          question: "'Almost Friday' niye işe yarar?",
+          options: [
+            "Ortak yorgunluk + ortak hedef = empati + bağ",
+            "Negatif",
+            "Yararsız",
+            "Çok kişisel",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "'Almost Friday' = 'biz aynı gemideyiz' havası. Klasik US ofis dayanışma kalıbı.",
+        },
+      ],
+    },
+    {
+      id: "ex.bel40.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "How's the week treating you?",
+      ipa: "haʊz ðə wiːk ˈtriːtɪŋ juː",
+      tr_hint:
+        "'How's' = 'haʊz' bağlanır. 'Treating you' = 'triː-tɪŋ-juː' akıcı. Meraklı + warm ton. Yukarı tonlama (soru).",
+    },
+  ],
+  estimated_minutes: 5,
+};
+
+// ============================================================
+// Lesson 40.8 — Veda: Kat Geliyor
+// ============================================================
+export const banterElevatorLesson_40_8: BundledLesson = {
+  id: "banter.elevator.40.8",
+  skill_id: "banter.elevator",
+  index: 8,
+  title: "Veda: Kat Geliyor",
+  description:
+    "Asansör senin katına geliyor — 'Well, this is me' + warm veda. Tek nefes, kapı kapanırken söylenir.",
+  exercises: [
+    {
+      id: "ex.bel40.8.1",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "Well, this is me",
+      tr_translation: "Eh, ben indim (kat işareti)",
+      example: "Well, this is me — have a good one!",
+      example_tr: "Eh, ben indim — iyi günler!",
+    },
+    {
+      id: "ex.bel40.8.2",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "İyi günler!",
+      target: "Have a good one!",
+      accepted_variants: [
+        "Have a great one!",
+        "Have a good day!",
+        "Take it easy!",
+        "Take care!",
+        "Enjoy your day!",
+      ],
+      tr_hint:
+        "'Have a good one' = zaman-belirsiz veda. 'One' = gün/akşam/hafta sonu — neyse. Kapı kapanırken söylenir.",
+    },
+    {
+      id: "ex.bel40.8.3",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "Alright, ___ is my stop.",
+      answer: "this",
+      distractors: ["that", "here", "there"],
+      tr_hint:
+        "'This is my stop' = otobüs/asansör 'ben burada iniyorum' kalıbı. Standart.",
+    },
+    {
+      id: "ex.bel40.8.4",
+      type: "word_order",
+      difficulty: 2,
+      scrambled_tokens: [
+        "Well",
+        "this",
+        "is",
+        "me",
+      ],
+      correct_sentence: "Well this is me",
+      tr_translation: "Eh, ben indim (kat geldi).",
+    },
+    {
+      id: "ex.bel40.8.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Now I am exiting the elevator goodbye forever.",
+      correct_sentence: "Alright, this is me — have a good one!",
+      tr_explanation:
+        "'I am exiting... goodbye forever' = veda mektubu + drama. Asansör çıkışı = 5 kelime, casual + warm: 'Alright, this is me — have a good one!'",
+    },
+    {
+      id: "ex.bel40.8.6",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Asansör senin katına geliyor. 20 saniyelik sohbet sonrası kapı açılıyor. Kapı kapanmadan önce warm + kısa veda.",
+      npc_role: "Elevator companion",
+      setting: "Elevator door opening on user's floor",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Yeah, totally — what a week.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh|well|alright|okay)",
+            "(this is (me|my (floor|stop))|here we go|here'?s me)",
+            "(time to (head out|get going))",
+            "(have a (good|great) (one|day|evening|rest of (your )?day))",
+            "(take (care|it easy)|catch you (later|around))",
+            "(see you (around|next time|soon))",
+          ],
+          hint_tr:
+            "Kapı açılıyor — 'Oh, this is me — have a good one!' Adım atarken söyle.",
+        },
+        {
+          speaker: "npc",
+          message: "You too — take care!",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|cheers|you too)",
+            "(take it easy|stay (warm|dry|safe))",
+            "(catch you (later|around|next time))",
+            "(see (you|ya) (around|later|soon))",
+            "(enjoy (the rest of )?your (day|evening|week))",
+            "(later|peace|bye)",
+          ],
+          hint_tr:
+            "Karşılık: 'Thanks — catch you around!' Kapı kapanırken tek nefes.",
+        },
+        {
+          speaker: "npc",
+          message: "(elevator doors close)",
+        },
+      ],
+    },
+    {
+      id: "ex.bel40.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Well, this is me' tam olarak ne demek?",
+          options: [
+            "Kendimi tanıtıyorum",
+            "Ben (burada) iniyorum / katım geldi",
+            "Beni dinle",
+            "Yararsız",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'This is me' = 'burası benim katım/durağım'. Asansör/otobüs çıkışı klasiği.",
+        },
+        {
+          question: "Asansörden inerken vedaya NE KADAR vaktin var?",
+          options: [
+            "2-3 saniye — tek nefes, adım atarken",
+            "30 saniye monolog",
+            "1 dakika",
+            "Hiç vakit yok, sessizce çık",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Kapı 2-3 saniye açık. Uzun veda = kapı kapanır, yarısı kesilir. Kısa + warm.",
+        },
+        {
+          question: "'Have a good one' niye 'one' diyor?",
+          options: [
+            "Bir tane anlamında",
+            "Zaman-belirsiz: gün/akşam/hafta sonu — herhangi biri",
+            "Yararsız kelime",
+            "Yanlış gramer",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'One' = belirsiz zaman dilimi. Saat 11'de ne dersin? 'Have a good day' yerine 'Have a good one' = hep doğru.",
+        },
+      ],
+    },
+    {
+      id: "ex.bel40.8.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Well, this is me — have a good one!",
+      ipa: "wɛl ðɪs ɪz mi hæv ə ɡʊd wʌn",
+      tr_hint:
+        "'Well' = casual filler. 'This is me' = düşük + sakin ton. 'Have a good one' = warm + yukarı tonlama. Tek nefes, 2 saniye.",
+    },
+  ],
+  estimated_minutes: 5,
+};
+
+// ============================================================
 // Banter Elevator lessons registry
 // ============================================================
 export const banterElevatorLessons: ReadonlyArray<BundledLesson> = [
@@ -849,4 +1544,8 @@ export const banterElevatorLessons: ReadonlyArray<BundledLesson> = [
   banterElevatorLesson_40_2,
   banterElevatorLesson_40_3,
   banterElevatorLesson_40_4,
+  banterElevatorLesson_40_5,
+  banterElevatorLesson_40_6,
+  banterElevatorLesson_40_7,
+  banterElevatorLesson_40_8,
 ];

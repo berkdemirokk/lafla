@@ -368,7 +368,7 @@ const styles = StyleSheet.create({
   tr: {
     marginTop: 14,
     fontSize: 16,
-    color: tokens.text.inverseOnSurface,
+    color: tokens.text.secondary,
     textAlign: "center",
     fontWeight: tokens.weight.medium,
     fontStyle: "italic",

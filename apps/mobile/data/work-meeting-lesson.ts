@@ -846,6 +846,703 @@ export const workMeetingLesson_10_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 10.5 — Late to Meeting / Apologize (Toplantiya Gec Kalma)
+// ============================================================
+export const workMeetingLesson_10_5: BundledLesson = {
+  id: "work.meeting.10.5",
+  skill_id: "work.meeting",
+  index: 5,
+  title: "Toplantiya Gec Kalma + Ozur",
+  description:
+    "Zoom'a gec katil — kisa ozur, kayboldugun yeri sor, kibarca devam et.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wm10.5.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Sorry I'm late",
+      tr_translation: "Geciktigim icin ozur dilerim",
+      example: "Sorry I'm late — got pulled into another call.",
+      example_tr: "Geciktigim icin ozur — baska bir aramaya cekildim.",
+    },
+    {
+      id: "ex.wm10.5.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Pardon gec kaldim — baska bir toplantida tutuldum. Neyi kacirdim?",
+      target: "Sorry I'm late — got stuck in another meeting. What did I miss?",
+      accepted_variants: [
+        "Apologies for the delay — got pulled into another call. What did I miss?",
+        "Sorry, running late — back-to-back today. Where are we at?",
+        "Sorry to join late — got held up. Quick catch me up?",
+        "My apologies — previous meeting ran over. What have I missed?",
+      ],
+      tr_hint:
+        "'Got pulled / stuck / held up' = sebep, kisa. 'What did I miss' direkt sor — utanma uzatma.",
+    },
+    {
+      id: "ex.wm10.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Sorry, got ___ into another call.",
+      answer: "pulled",
+      distractors: ["taken", "moved", "thrown"],
+      tr_hint:
+        "'Got pulled into' = cekildim (irade disi). Profesyonel bahane kalibi — agresif degil.",
+    },
+    {
+      id: "ex.wm10.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "What",
+        "did",
+        "I",
+        "miss",
+        "so",
+        "far",
+      ],
+      correct_sentence: "What did I miss so far",
+      tr_translation: "Buraya kadar neyi kacirdim?",
+    },
+    {
+      id: "ex.wm10.5.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I am so so so sorry I am very very late please forgive me I had problem.",
+      correct_sentence:
+        "Sorry I'm late — got pulled into another call. What did I miss?",
+      tr_explanation:
+        "Asiri ozur = Turk hatasi. ABD/UK toplantilarinda kisa + cozum = pro. Uzun ozur = zaman calmis olursun.",
+    },
+    {
+      id: "ex.wm10.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Zoom toplantisina 7 dakika gec katildin. Mikrofonu acip kibarca ozur dile + neyi kacirdigini sor.",
+      npc_role: "Team Lead",
+      setting: "Zoom standup, mid-meeting",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sorry|apologies|my apologies)",
+            "(i'?m|i am) (late|running late)",
+            "(got (pulled|stuck|held up|caught)) (into|in|on)",
+            "(previous|earlier|last) (meeting|call) (ran (over|long))",
+            "(back-?to-?back) (today|all (day|morning))",
+            "(what (did i|have i) miss|where are we|caught up)",
+          ],
+          hint_tr:
+            "Kisa ac: 'Sorry I'm late — previous call ran over. What did I miss?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "No worries — we're reviewing the sprint goals. Sarah was just sharing her screen with the roadmap.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you|appreciate it|got it)",
+            "(catching me up|the catch-?up|the quick recap)",
+            "(i'?ll (mute|stay on mute|listen))",
+            "(jump (in|back) (when|if))",
+            "(carry on|please continue|don'?t (let me|mind me))",
+            "(scroll back|share (the link|notes) after)",
+          ],
+          hint_tr:
+            "Toparla: 'Thanks for the catch-up — I'll stay on mute and jump in if I have questions.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sounds good. Sarah, want to continue from where you were?",
+        },
+      ],
+    },
+    {
+      id: "ex.wm10.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Toplantiya gec katildiginda EN iyi acilis?",
+          options: [
+            "Sessizce katil, kimseye bir sey deme",
+            "Kisa ozur + sebep + 'what did I miss' = pro toparlayis",
+            "Uzun uzun ozur dile, 2 dakika anlat",
+            "Mikrofon acmadan camera off kal",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "10 saniyede toparla. 'Got pulled into another call' = mesgul + sorumlu sinyali. Uzun ozur = enerjini emer.",
+        },
+        {
+          question: "'Got pulled into another call' niye iyi?",
+          options: [
+            "Yalan",
+            "Aktif degil pasif = senin iste oldugun ama irade disi cekildigin = profesyonel bahane",
+            "Cok agir",
+            "Yanlis kullanim",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Pasif yapi = sorumlu degilsin ama mesguldun. ABD toplanti kulturunde standart, kabul gorur.",
+        },
+        {
+          question: "Turk profesyonelin tipik HATASI gec kalinca?",
+          options: [
+            "Cok kisa ozur",
+            "Asiri ozur ('I'm so so sorry, please forgive me') = toplanti akisini bozar + zayif sinyal",
+            "Hicbir sey demez",
+            "Cok normal",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Turkce kulturde uzun ozur saygi = ABD'de toplanti zamani calar. Net + kisa + ileri bak.",
+        },
+      ],
+    },
+    {
+      id: "ex.wm10.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Sorry I'm late — got pulled into another call.",
+      ipa: "/ˈsɔri aɪm leɪt gɑt pʊld ˈɪntu əˈnʌðər kɔl/",
+      tr_articulation_hint:
+        "'Sorry I'm' birlesir = sori-aym. 'Got pulled' = gat-puld, hizli. 'Into' = intu (zayif vurgu). Sakin ton, panik yok — sen kontroldesin.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 10.6 — Interrupting Politely (Birinin Sozunu Kibarca Kesme)
+// ============================================================
+export const workMeetingLesson_10_6: BundledLesson = {
+  id: "work.meeting.10.6",
+  skill_id: "work.meeting",
+  index: 6,
+  title: "Soz Alma + Sozunu Kesme",
+  description:
+    "Toplantida sozun kesilmeden soz alma + baskasinin soyledigine eklemleme — Turk profesyonelin en buyuk problemi.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.wm10.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Sorry to jump in",
+      tr_translation: "Araya girdigim icin pardon",
+      example: "Sorry to jump in, but I wanted to add something on that.",
+      example_tr: "Araya girdigim icin pardon, ama buna bir sey eklemek istedim.",
+    },
+    {
+      id: "ex.wm10.6.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Sarah'in dedigine eklemek istiyorum — sanirim performans tarafini da konusmaliyiz.",
+      target: "Building on what Sarah said — I think we should also discuss the performance side.",
+      accepted_variants: [
+        "To build on Sarah's point — performance should be on the table too.",
+        "Adding to what Sarah just said — performance is worth a look as well.",
+        "Picking up on Sarah's point — I'd flag performance too.",
+        "Just to extend Sarah's thought — performance deserves a mention.",
+      ],
+      tr_hint:
+        "'Building on / Picking up on' = saygili eklemleme. Sarah'i overlap yapmis olursun — kredisini koruyup ileri tasirsin.",
+    },
+    {
+      id: "ex.wm10.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Sorry to ___ in, but quick thought.",
+      answer: "jump",
+      distractors: ["come", "step", "get"],
+      tr_hint:
+        "'Jump in' = atil, araya gir. Kibar acilis — 'sorry' yumusatici, 'quick thought' kisa olacagini soyler.",
+    },
+    {
+      id: "ex.wm10.6.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Building",
+        "on",
+        "what",
+        "Sarah",
+        "just",
+        "said",
+      ],
+      correct_sentence: "Building on what Sarah just said",
+      tr_translation: "Sarah'in az once dediginin uzerine eklemek gerekirse",
+    },
+    {
+      id: "ex.wm10.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Wait wait stop I want to say something now.",
+      correct_sentence:
+        "Sorry to jump in — quick thought on what you just said.",
+      tr_explanation:
+        "'Wait wait stop' = saygisiz + saldirgan. Doğru: 'sorry to jump in' yumusatici + 'quick thought' kisa olacaginin sozu. ABD/UK'da soz alma sanati = nazik + ozguvenli kombinasyon.",
+    },
+    {
+      id: "ex.wm10.6.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Roadmap toplantisi. PM uzun konusuyor, sen Sarah'in fikrine ekleme yapip kendi noktanı koymak istiyorsun. Soz al, kesilmeden bitir.",
+      npc_role: "Product Manager",
+      setting: "Zoom roadmap review",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sorry to|hate to) (jump in|interrupt|cut in)",
+            "(quick (thought|point|add|question))",
+            "(can i (add|jump in|chime in))",
+            "(building on|picking up on|to add to) (what|sarah'?s)",
+            "(if i (could|may))",
+            "(just one (thing|point|add))",
+          ],
+          hint_tr:
+            "Yumusak ac: 'Sorry to jump in — building on Sarah's point, quick thought.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure, go ahead.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you|appreciate it)",
+            "(sarah'?s|the) point (on|about) (.*) (lands|resonates|makes sense)",
+            "(want to|wanted to) (extend|build on|add) (that|it)",
+            "(performance|scalability|cost|users|qa|security) (side|angle|piece)",
+            "(worth (a (mention|look|flag))|should be on the table)",
+            "(happy to|let me) (drop (it|a note) in (chat|the doc))",
+          ],
+          hint_tr:
+            "Net devam: 'Sarah's point resonates — want to extend it: performance angle. Happy to drop a note in chat.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Great add. Let's capture that as a follow-up.",
+        },
+      ],
+    },
+    {
+      id: "ex.wm10.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Toplantida soz alma TURK profesyonelin en buyuk problemi — niye?",
+          options: [
+            "Cok konusur",
+            "Hierarsik kultur = senior konusurken bekle, ama ABD toplantisi = esit konusma + zamaninda atil",
+            "Hicbir problemi yok",
+            "Cok kibar olur",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Turkiye'de senior bitirene kadar bekle = saygi. ABD'de sozun gelmesini beklersen = hic gelmez. Soz al + nazik ol = ikisini birlestir.",
+        },
+        {
+          question: "'Building on what X said' kalibi neden GUCLU?",
+          options: [
+            "Saygi sinyali",
+            "Onceki konusana kredi verirsin + fikrini ileri tasirsin = ikinizi birden yukseltir",
+            "Cok agir",
+            "Yanlis ingilizce",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Sarah'i overlap yapmadigin gibi kredisini onayladin + fikrini uzattin. Kolektif zekayi tetikler. Kıdemli profesyonellerin sevdigi kalip.",
+        },
+        {
+          question: "Zoom'da kesilmeden soz almak icin TEKNIK ipucu?",
+          options: [
+            "Cok yuksek sesle konus",
+            "Reaction emojisi koy / chat'e 'quick add?' yaz / 'sorry to jump in' ile mikrofon ac",
+            "Bekleme, bagir",
+            "Kamerayi kapat",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Remote toolset'i kullan. El kaldir, raise hand veya chat = nazik sinyal. Sonra 'sorry to jump in' = host'a soz veriyor.",
+        },
+      ],
+    },
+    {
+      id: "ex.wm10.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Sorry to jump in, but building on what Sarah said.",
+      ipa: "/ˈsɔri tu dʒʌmp ɪn bʌt ˈbɪldɪŋ ɑn wʌt ˈsɛrə sɛd/",
+      tr_articulation_hint:
+        "'Sorry to jump in' hizli + yumusak, ozur degil acilis. 'Building on' = bil-din-on (birlesik). Vurgu 'Sarah' ismi ustunde — kredi vermek icin ses yukselt.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 10.7 — Asking for Clarification (Anlamayinca Tekrar Iste)
+// ============================================================
+export const workMeetingLesson_10_7: BundledLesson = {
+  id: "work.meeting.10.7",
+  skill_id: "work.meeting",
+  index: 7,
+  title: "Anlamadim — Tekrar Iste",
+  description:
+    "Zoom'da ses kotu / aksan farkli / fikir karmasik — 'walk me through that again' kibar kalibi + 'I want to make sure I got that right'.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wm10.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Could you walk me through that again?",
+      tr_translation: "Onu bir kez daha detayli anlatir misin?",
+      example: "Could you walk me through that again? Want to make sure I got it.",
+      example_tr: "Onu tekrar detayli anlatir misin? Dogru anladigima emin olmak istiyorum.",
+    },
+    {
+      id: "ex.wm10.7.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Dogru anladigima emin olmak istiyorum — yani API'yi pazartesi mi guncelliyoruz, salı mi?",
+      target: "I want to make sure I got that right — are we updating the API Monday or Tuesday?",
+      accepted_variants: [
+        "Just to confirm I got that right — is the API update Monday or Tuesday?",
+        "Want to double-check I'm tracking — Monday or Tuesday for the API update?",
+        "Sorry, want to make sure I'm following — is it Monday or Tuesday for the API?",
+        "Let me play that back — API update lands Monday, not Tuesday, right?",
+      ],
+      tr_hint:
+        "'Make sure I got that right' = anladim mi onayi. Soruyu spesifik sor (tarih, kisi) — 'I don't understand' belirsiz ve zayif.",
+    },
+    {
+      id: "ex.wm10.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "You're on ___ — can't hear you.",
+      answer: "mute",
+      distractors: ["silent", "off", "quiet"],
+      tr_hint:
+        "'You're on mute' = mikrofonun kapali. Zoom/Meet klasigi — gunde 10 kez duyacaksin. 'Silent / off' sinonim degil.",
+    },
+    {
+      id: "ex.wm10.7.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Let",
+        "me",
+        "play",
+        "that",
+        "back",
+        "to",
+        "you",
+      ],
+      correct_sentence: "Let me play that back to you",
+      tr_translation: "Soylediklerini tekrar sana okuyayim (onaylamak icin)",
+    },
+    {
+      id: "ex.wm10.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Sorry, my English is not good, please repeat slowly.",
+      correct_sentence:
+        "Sorry, audio cut out for a sec — could you walk me through that last part again?",
+      tr_explanation:
+        "'English not good' = ozguvenini kirar + dikkati ingilizcene ceker. Doğru: ses/baglanti bahanesi + spesifik 'last part'. Profesyonel + uzgun degil.",
+    },
+    {
+      id: "ex.wm10.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Senior engineer karmasik bir mimari aciklamasi yapti, sen yarisini anlamadin. Saygiyla tekrar iste — utanmadan, ozguvenli.",
+      npc_role: "Staff Engineer",
+      setting: "Zoom architecture review, screen shared",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sorry|quick check|just to make sure)",
+            "(audio (cut out|broke up|froze)|connection (dropped|hiccup))",
+            "(could you|can you|mind) (walking me through|repeating|going over) (that|it|the last part) (again|one more time)",
+            "(want to make sure i (got|caught|followed)) (that|it) (right|correctly)",
+            "(let me (play that back|read that back))",
+            "(can you (share|drop) (the (link|doc|diagram)) (in chat))",
+          ],
+          hint_tr:
+            "Spesifik + sebep: 'Audio cut out — could you walk me through the retry logic part again?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure, no problem. So when the worker fails, the event goes back to the queue with an exponential backoff...",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(got it|that helps|crystal|much clearer|makes sense now)",
+            "(let me play that back|just to confirm|so to recap)",
+            "(worker fails|on failure|when (it|the worker) (errors|crashes))",
+            "(exponential backoff|retries with delay)",
+            "(any (max|cap) on retries|after (how many|n) attempts)",
+            "(thanks for|appreciate the (patience|walkthrough|detail))",
+          ],
+          hint_tr:
+            "Play back: 'So worker fails → back to queue with exponential backoff. Is there a max retry cap?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Exactly. After five retries it goes to a dead-letter queue. Great question.",
+        },
+      ],
+    },
+    {
+      id: "ex.wm10.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Turk profesyonelin anlamayinca yaptigi en BUYUK hata?",
+          options: [
+            "Hemen sorar",
+            "Sessizce kabul eder, sonra slack'te yardim ister — toplanti suresince yanlis varsayim taslar",
+            "Cok soru sorar",
+            "Sorun yok",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Anlamadim' demek = profesyonellik. Anlamamis gibi yapip slack'te sormak = 2 saat geride + yanlis is yapar. ABD/UK'da soru sormak = entelektuel guvenin sinyali.",
+        },
+        {
+          question: "'Let me play that back' niye gucludur?",
+          options: [
+            "Cok zayif",
+            "Anladigini ozetler + yanlis varsayim varsa karsidaki duzeltir = riski sifirlar",
+            "Cok agir",
+            "Yanlis kullanim",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Senior'lar bunu sever cunku 'play back' = anladigini gosterir + yanlis varsa anlik duzeltme firsati. 'Confirm understanding' sanati.",
+        },
+        {
+          question: "Zoom'da ses kotuyse / aksan zorsa — DOGRU oneri?",
+          options: [
+            "Sus, ben hatayim de",
+            "'Audio cut out' bahanesi + chat'te yaz / diagram iste / kameraya bak (dudak okuma) = aktif cozum",
+            "Toplantiyi terk et",
+            "Kabul et anlamadin",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Remote toolset'i kullan. Audio bahanesi profesyonel + dogru: %50 zaman ses gercekten kotu. Chat / diagram talebi = aktif iletisim.",
+        },
+      ],
+    },
+    {
+      id: "ex.wm10.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I want to make sure I got that right.",
+      ipa: "/aɪ wɑnt tu meɪk ʃʊr aɪ gɑt ðæt raɪt/",
+      tr_articulation_hint:
+        "'Want to' = wan-na (informal birlesim). 'Make sure' = meyk-sur, vurgu 'sure'da. 'Got that right' = gat-ðæt-rayt, kapanis kararli. Ozguven + dogrulamak istegi.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 10.8 — Meeting Recap / Action Items (Toplanti Sonu Ozetleme)
+// ============================================================
+export const workMeetingLesson_10_8: BundledLesson = {
+  id: "work.meeting.10.8",
+  skill_id: "work.meeting",
+  index: 8,
+  title: "Toplanti Sonu — Action Items Ozetleme",
+  description:
+    "Toplanti son 5 dakikasi: kararlari ozetle, kim ne yapacak netlestir, takip sozu ver. 'To recap... I'll follow up on X by Friday'.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.wm10.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "To recap, the next steps are",
+      tr_translation: "Ozetlersek, sonraki adimlar",
+      example: "To recap, the next steps are: design by Wednesday, review Friday.",
+      example_tr: "Ozetlersek, sonraki adimlar: tasarim carsambaya, inceleme cuma.",
+    },
+    {
+      id: "ex.wm10.8.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Cuma'ya kadar API dokumantasyonunu takip edip slack'e drop edecegim. Itirazi olan?",
+      target: "I'll follow up on the API docs by Friday and drop them in Slack. Any objections?",
+      accepted_variants: [
+        "I'll own the API docs — Friday EOD, will post in Slack. Any concerns?",
+        "Taking the API docs follow-up — Friday delivery, Slack drop. Sound good?",
+        "I'll circle back on API docs by Friday and share in Slack. Anything to flag?",
+        "API docs are on me — by Friday, dropped in Slack. Anyone see issues?",
+      ],
+      tr_hint:
+        "'Follow up on X by Y' = X'i Y'ye kadar takip et formulu. 'Any objections / concerns / flags' = son sansli onay sorusu.",
+    },
+    {
+      id: "ex.wm10.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I'll ___ up on that by Friday.",
+      answer: "follow",
+      distractors: ["catch", "wrap", "circle"],
+      tr_hint:
+        "'Follow up on X' = X'i takibe al, sahiplen. 'Wrap up' = bitir (farkli). 'Circle back' = donmek (zaman belirsiz).",
+    },
+    {
+      id: "ex.wm10.8.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Let",
+        "me",
+        "drop",
+        "a",
+        "summary",
+        "in",
+        "Slack",
+      ],
+      correct_sentence: "Let me drop a summary in Slack",
+      tr_translation: "Slack'e bir ozet birakayim.",
+    },
+    {
+      id: "ex.wm10.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Maybe I will try to do it sometime soon if possible.",
+      correct_sentence:
+        "I'll own the API docs — Friday EOD, will drop in Slack.",
+      tr_explanation:
+        "Asiri pasif Turk hatasi: 'maybe / try / sometime / if possible' = hicbir sey vaat etmemis olursun. Doğru: 'I'll own X — date + delivery channel'. ABD/UK toplanti kulturunde belirsiz commitment = guvensiz sinyal.",
+    },
+    {
+      id: "ex.wm10.8.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Toplanti son 3 dakika. PM 'let's wrap up' dedi. Sen action items'i ozetle, kendi sahipligini al, takip sozu ver — net + ozguvenli.",
+      npc_role: "Project Manager",
+      setting: "Google Meet, sprint planning end",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(to recap|quick recap|before we close out|let me sum up)",
+            "(the next steps|action items|takeaways) (are|here are)",
+            "(let me|i'?ll) (capture|drop|share) (this|a summary|notes) (in (slack|the doc|notion))",
+            "(want to make sure|just to confirm) (we'?re all on the same page|alignment)",
+            "(can i (own|take))",
+          ],
+          hint_tr:
+            "Aktif ozet: 'To recap, the next steps are: design Wed, review Fri. Let me drop this in Slack.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yes please — and who's owning the API docs follow-up?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?ll|i can|let me) (own|take|handle) (that|the api docs|it)",
+            "(follow up on|circle back on) (.*) (by|on) (friday|monday|wednesday|eod|end of week)",
+            "(will|i'?ll) (post|share|drop|send) (in (slack|chat)|out)",
+            "(any (objections|concerns|blockers|flags|things to add))",
+            "(does that work|sound good|are we good)",
+            "(if (anyone|you|anybody) (has|sees)) (issues|concerns|questions)",
+          ],
+          hint_tr:
+            "Sahipligi al + tarih + kanal: 'I'll own the API docs — Friday EOD, Slack drop. Any concerns?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect. Thanks for keeping us tight. Talk Monday.",
+        },
+      ],
+    },
+    {
+      id: "ex.wm10.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Action item sahipligi alirken EN onemli 3 sey?",
+          options: [
+            "Sadece 'ok yaparim'",
+            "Sahip + tarih + teslim kanali — 'I'll own X by Friday, will post in Slack'",
+            "Sadece tarih",
+            "Sadece kanal",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Bu 3'lu = accountability paketi. Eksik biri = belirsizlik. Senior'lar bu paketi tam veren juniorlarini hatirlar.",
+        },
+        {
+          question: "Turk profesyonelin asiri pasif TAVRI niye risk?",
+          options: [
+            "Saygili gozukur",
+            "'Maybe / try / if possible' = vaat yok = takim sana planda yer ayirmaz + guvensiz sinyali = atanmazsin",
+            "Sorun yok",
+            "Iyi olur",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "ABD/UK'da 'maybe try' = no-commit. Buyumek istiyorsan 'I'll own X by Y' = sahiplenen kisi promosyon alir. Saygi != belirsizlik.",
+        },
+        {
+          question: "Toplantiyi 'tight' (sıkı) tutmanin pro hareketi?",
+          options: [
+            "Konusmak",
+            "Son 5 dakikada recap onerme + kimseyi atlamamak + 'any objections' sorusu",
+            "Sus",
+            "Erken cikma",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Recap aldıgın icin PM seni 'detail-oriented + reliable' kategorisine yazar. Toplanti notlarini Slack'e dusurmek = institutional memory + sen hatirlanirsin.",
+        },
+      ],
+    },
+    {
+      id: "ex.wm10.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'll follow up on that by Friday.",
+      ipa: "/aɪl ˈfɑloʊ ʌp ɑn ðæt baɪ ˈfraɪdeɪ/",
+      tr_articulation_hint:
+        "'I'll' = ayl (kisa). 'Follow up' = falo-ap, vurgu 'fal'da. 'By Friday' = bay-fray-dey, sonda kararli kapanis. Vaat tonu — net, geri durma yok.",
+    },
+  ],
+};
+
+// ============================================================
 // Work Meeting lessons registry
 // ============================================================
 export const workMeetingLessons: ReadonlyArray<BundledLesson> = [
@@ -853,4 +1550,8 @@ export const workMeetingLessons: ReadonlyArray<BundledLesson> = [
   workMeetingLesson_10_2,
   workMeetingLesson_10_3,
   workMeetingLesson_10_4,
+  workMeetingLesson_10_5,
+  workMeetingLesson_10_6,
+  workMeetingLesson_10_7,
+  workMeetingLesson_10_8,
 ];

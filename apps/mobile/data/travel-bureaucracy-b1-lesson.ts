@@ -2694,6 +2694,877 @@ export const travelB1Lesson_transit: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 11 — ESTA / Visa Application Form
+// ============================================================
+export const travelB1Lesson_esta: BundledLesson = {
+  id: "travel.b1.esta.1",
+  skill_id: "travel.b1",
+  index: 11,
+  title: "ESTA / Vize Başvuru Formu",
+  description:
+    "Online başvuru ekranı. Her alanın resmi karşılığı: 'Purpose of trip', 'Duration of stay', 'Port of entry'. Yanlış kelime = otomatik red.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.tb1.11.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "duration of stay",
+      tr_translation: "kalış süresi (form terimi)",
+      example: "Duration of stay: 14 days — I'll fly back on the 28th.",
+      example_tr: "Kalış süresi: 14 gün — 28'inde uçakla dönüyorum.",
+    },
+    {
+      id: "ex.tb1.11.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Eğer formu daha önce göndermiş olsaydım, başvuru ücretini tekrar ödemek zorunda kalmazdım.",
+      target:
+        "If I had submitted the form earlier, I wouldn't have had to pay the application fee again.",
+      accepted_variants: [
+        "Had I submitted the form earlier, I wouldn't have paid the fee twice.",
+        "If I'd filed the application sooner, I would not have had to pay again.",
+        "Had I sent the form on time, I would not have been charged a second fee.",
+        "If I had completed the application earlier, I wouldn't have had to repay the fee.",
+      ],
+      tr_hint:
+        "Past perfect + would have = 3. tip koşul cümlesi. ESTA başvurusunda zamanlama önemli — geç olunca yeniden ücret.",
+    },
+    {
+      id: "ex.tb1.11.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Purpose of trip: ___ — I'll be visiting national parks for 14 days.",
+      answer: "Tourism",
+      distractors: ["Working", "Living", "Studying"],
+      tr_hint:
+        "ESTA sadece turizm/iş gezisi/transit. 'Tourism' resmi terimdir — 'holiday' veya 'vacation' yazma.",
+    },
+    {
+      id: "ex.tb1.11.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "I",
+        "would",
+        "like",
+        "to",
+        "declare",
+        "a",
+        "previous",
+        "visa",
+        "refusal",
+      ],
+      correct_sentence: "I would like to declare a previous visa refusal",
+      tr_translation: "Daha önceki bir vize reddini beyan etmek istiyorum.",
+    },
+    {
+      id: "ex.tb1.11.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I have problem with form. I no understand 'port of entry' question.",
+      correct_sentence: "I'm having an issue with the form — could you clarify what 'port of entry' means?",
+      tr_explanation:
+        "'I have problem' = Türkçe çevirisi, doğal değil. Doğru: 'I'm having an issue with...' (continuous tense). 'I no understand' yerine 'could you clarify' kibar B1 dili. Bürokratik form yardımı için bu kalıbı ezberle.",
+    },
+    {
+      id: "ex.tb1.11.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "ESTA başvurusu yaparken bir hata çıktı. Müşteri hizmetleri hattını arıyorsun. Form üzerinde kafan karışmış.",
+      npc_role: "ESTA Customer Service Agent",
+      setting: "Phone call — US Customs and Border Protection helpline",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Customs and Border Protection, ESTA support. How can I help you today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|good (morning|afternoon))",
+            "(i('m| am)? having an issue with) (my )?(esta|application|form)",
+            "(i('m| am)? (trying to|filling out) (the )?esta)",
+            "(i need (help|assistance) with (my )?(application|form))",
+            "(my application (got|was) (rejected|denied|stuck))",
+          ],
+          hint_tr:
+            "Açılış: 'Hi, I'm having an issue with my ESTA application — could you help me?' Kibar + spesifik.",
+        },
+        {
+          speaker: "npc",
+          message: "Of course. Could you tell me what the system says when you try to submit?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it says|the (message|error) (says|reads)) .*",
+            "(error|message) (about|regarding|on) (the )?(purpose|duration|port of entry|previous visa)",
+            "(it (won'?t|doesn'?t) (accept|submit|let me))",
+            "(i (might|could) have (entered|filled in)) (something )?(wrong|incorrectly))",
+            "(i('m| am)? not sure what (the )?(field|question) (is asking|wants))",
+          ],
+          hint_tr:
+            "Hatayı tarif et: 'The error message says my passport number is invalid — but I double-checked it.'",
+        },
+        {
+          speaker: "npc",
+          message: "I see. For 'port of entry', please enter the first US airport on your itinerary. And for duration — total days, not weeks.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|got it|understood|that helps)",
+            "(so (i should|i'?d|i would)) (enter|put|write) (jfk|lax|miami|the airport name)",
+            "(duration (is|would be)) \\d+ days",
+            "(could you (confirm|repeat)) (that|what you said))",
+            "(if i had known (this|that) earlier)",
+          ],
+          hint_tr:
+            "Açıklamayı onayla: 'Got it — so for port of entry I'd enter JFK, and duration is 14 days. Thank you.'",
+        },
+        {
+          speaker: "npc",
+          message: "Exactly. Try submitting again. If you had a previous visa refusal, declare it — hiding it causes permanent denial.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|i will|i('ll| will) declare it)",
+            "(i (have|had) (no|never had) (any )?(previous )?(refusal|denial|rejection))",
+            "(i (might|may) need to declare a (refusal|denial) from \\w+)",
+            "(could you (explain|tell me)) (what counts as|the definition of)",
+            "(thank you for (the warning|letting me know|clarifying))",
+          ],
+          hint_tr:
+            "Dürüstlük şart: 'Yes, I'll declare it. I had one Schengen refusal in 2021 — should I mention that too?'",
+        },
+        {
+          speaker: "npc",
+          message: "Yes, declare any prior refusal, anywhere. You're good to go. Have a safe trip.",
+        },
+      ],
+    },
+    {
+      id: "ex.tb1.11.7",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "ESTA formunda 'Purpose of trip' için EN GÜVENLİ cevap?",
+          options: [
+            "Maybe work, maybe holiday",
+            "Tourism",
+            "Looking for opportunities",
+            "Visiting and staying",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Tourism' resmi terim. 'Maybe' veya 'staying' kelimesi göçmen niyeti sinyali — otomatik red.",
+        },
+        {
+          question: "Önceki vize reddini formda gizlersen ne olur?",
+          options: [
+            "Hiçbir şey, kimse fark etmez",
+            "Sadece uyarı alırsın",
+            "Kalıcı vize yasağı — sistemler birbirine bağlı",
+            "5 yıl bekleme süresi",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "ABD/UK/Schengen sistemleri paylaşıyor. Yalan beyanı = lifetime ban. 'I would like to declare...' diye dürüst söyle, neden açıkla.",
+        },
+        {
+          question: "'I'm having an issue with the form' yerine yanlış olan ifade?",
+          options: [
+            "I'm having trouble with the application",
+            "I have problem with form",
+            "I'm running into an issue with the form",
+            "There's an issue with the application",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'I have problem' Türkçe çevirisi, gramer yanlış (article eksik + tense yanlış). 'I'm having an issue' continuous tense — şu an yaşadığın durumu anlatır.",
+        },
+      ],
+    },
+    {
+      id: "ex.tb1.11.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Purpose of trip: tourism. Duration of stay: fourteen days.",
+      ipa: "/ˈpɜːrpəs əv trɪp ˈtʊərɪzəm dʊˈreɪʃən əv steɪ ˈfɔːrˈtiːn deɪz/",
+      tr_hint:
+        "Form terimi tekrarı. 'Purpose' = 'pörpıs' (per değil). 'Duration' = 'düreyşın'. Sınır görevlisi formdan yüksek sesle okuyabilir — bu telaffuza alış.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 12 — Airport Security / TSA / Border Officer
+// ============================================================
+export const travelB1Lesson_security: BundledLesson = {
+  id: "travel.b1.security.1",
+  skill_id: "travel.b1",
+  index: 12,
+  title: "Havaalanı Güvenlik — TSA / Sınır Görevlisi",
+  description:
+    "X-ray bandı + pasaport kontrol kabini. 'Step forward please', 'Look at the camera', 'Remove your shoes'. Komutları anla, kısa cevap ver.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.tb1.12.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "step forward",
+      tr_translation: "öne adım at / ileri çık",
+      example: "Step forward please — and place your bag on the belt.",
+      example_tr: "Lütfen öne çıkın — ve çantanızı banda koyun.",
+    },
+    {
+      id: "ex.tb1.12.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Üzerimde herhangi bir sıvı kalmadığına eminim — hepsini bagaja koymuştum.",
+      target:
+        "I'm sure I don't have any liquids on me — I had packed them all in my checked bag.",
+      accepted_variants: [
+        "I'm certain there are no liquids on me — I had put them all in my checked luggage.",
+        "I don't have any liquids — I had already moved them to my hold luggage.",
+        "There shouldn't be any liquids — I had packed everything in my checked bag.",
+        "I'm sure I'm not carrying liquids — I had transferred them to checked baggage.",
+      ],
+      tr_hint:
+        "Past perfect (had packed) = güvenlikten ÖNCE yaptığın hazırlığı vurgular. Görevliye 'önceden hazırlıklıyım' mesajı verir.",
+    },
+    {
+      id: "ex.tb1.12.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Could you ___ your shoes and belt, please? Place them in the tray.",
+      answer: "remove",
+      distractors: ["throw", "delete", "drop"],
+      tr_hint:
+        "'Remove' = çıkarmak (kibar/resmi). 'Take off' günlük; 'remove' güvenlik dili. TSA'de mutlaka duyacaksın.",
+    },
+    {
+      id: "ex.tb1.12.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "I",
+        "have",
+        "a",
+        "laptop",
+        "and",
+        "a",
+        "tablet",
+        "in",
+        "my",
+        "bag",
+      ],
+      correct_sentence: "I have a laptop and a tablet in my bag",
+      tr_translation: "Çantamda bir laptop ve bir tablet var.",
+    },
+    {
+      id: "ex.tb1.12.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Why you look at me like this? I am normal person, not criminal.",
+      correct_sentence: "Is there a problem, officer? I'd be happy to answer any questions.",
+      tr_explanation:
+        "Sınır görevlisine 'why you look at me' = savunmacı + saldırgan ton. Türkiye'de bu refleks doğal ama ABD/UK'de SHARP red bayrağı. Doğru tepki: sakin, işbirlikçi, 'I'd be happy to...' modal kullan. Modal verbs (would, could, might) bürokrasi nezaketinin kalbi.",
+    },
+    {
+      id: "ex.tb1.12.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "JFK havaalanı, US sınır kontrol kabini. Görevli ekrana bakıyor, sana sorular soruyor. Pasaport elindе.",
+      npc_role: "CBP Border Officer",
+      setting: "JFK International — US Customs and Border Protection booth",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Step forward please. Look at the camera. Four fingers on the scanner, then the thumb.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|sure|okay|of course|got it)",
+            "(should i (put|place|rest) my (fingers|hand) (here|on the scanner))",
+            "(like this|is this (right|correct|okay))",
+            "(which (hand|fingers)) (first|do you (want|need))",
+            "(let me know if (you|i)) (need|should) ",
+          ],
+          hint_tr:
+            "Kısa, işbirlikçi: 'Okay — like this?' Sorgulama yok, sadece komuta uy.",
+        },
+        {
+          speaker: "npc",
+          message: "What is the purpose of your visit to the United States?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(tourism|business|leisure|vacation|holiday|sightseeing)",
+            "(i('m| am) here for|the purpose (is|of my (trip|visit) is)) (tourism|business|leisure)",
+            "(i('m| am)?( just)? )?(visiting (family|friends|new york))",
+            "(\\d+) (days?|weeks?) (of )?(tourism|vacation)",
+            "(business meeting|conference|family visit)",
+          ],
+          hint_tr:
+            "Tek cümle, net: 'Tourism — two weeks visiting New York and Boston.'",
+        },
+        {
+          speaker: "npc",
+          message: "Where will you be staying, and for how long?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(at|in) (a |an )?(hotel|airbnb|friend'?s? (place|home|apartment))",
+            "(staying (with|at)) (a friend|family|the hilton|\\w+)",
+            "(for )?(one|two|three|four|\\d+) weeks?",
+            "(\\d+) days?",
+            "(in (manhattan|brooklyn|queens|new york|boston))",
+          ],
+          hint_tr:
+            "Adres + süre: 'At a hotel in Manhattan for fourteen days.' Adres formda — tekrarlama gereksiz.",
+        },
+        {
+          speaker: "npc",
+          message: "Are you bringing any food, plants, or more than ten thousand dollars in cash?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|no, sir|no, ma'am|nothing like that)",
+            "(no (food|plants|cash))",
+            "(just (some )?(personal items|clothes|gifts))",
+            "(i have (some|a few) (chocolates|cookies|sweets) as gifts)",
+            "(less than (a )?thousand (dollars|usd) (in )?cash)",
+          ],
+          hint_tr:
+            "Dürüst + kısa: 'No, sir — just some chocolates as gifts.' Hediye varsa beyan et, gizleme.",
+        },
+        {
+          speaker: "npc",
+          message: "Alright. Welcome to the United States. Have a good stay.",
+        },
+      ],
+    },
+    {
+      id: "ex.tb1.12.7",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "TSA görevlisi 'Step forward please' dedi. EN UYGUN tepki?",
+          options: [
+            "Why? I am waiting.",
+            "What for?",
+            "(Sakin şekilde öne adım at) — komut net, soru sorma",
+            "I don't understand, speak Turkish",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Güvenlik komutu = soru değil. Sorgulamak = gecikme + şüphe. 'Step forward' duyduğunda hemen öne adım at; gerekirse 'Like this?' onay sorusu kullan.",
+        },
+        {
+          question: "'Could you remove your shoes' — bu cümlede 'could' niye var?",
+          options: [
+            "Geçmiş zaman olduğu için",
+            "Yapamayacağını ima ediyor",
+            "Kibarlık için modal — 'could you' = 'lütfen yapar mısınız'",
+            "Yanlış kullanım",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "B1'de modal verbs (could, would, might) kibarlığın anahtarı. 'Could you remove your shoes' = emir değil rica. Sen de cevap verirken aynı modal'ı kullan: 'Could I leave my laptop in the bag?'",
+        },
+        {
+          question: "'I'm bringing some Turkish delight as gifts' — gümrükte ne yapmalısın?",
+          options: [
+            "Sakla, kimse fark etmez",
+            "Beyan et — şüpheli bir şey yok ama hediye olduğunu söyle",
+            "Çöpe at, hediye getirmek yasak",
+            "Sadece sorulursa söyle",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Yiyecek beyanı şart — gizleme = $300+ ceza ve şüphe kaydı. 'I'm bringing Turkish delight as gifts' diyerek proaktif beyan, görevliyi rahatlatır.",
+        },
+      ],
+    },
+    {
+      id: "ex.tb1.12.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Step forward please, and look at the camera.",
+      ipa: "/stɛp ˈfɔːrwərd pliːz ænd lʊk æt ðə ˈkæmərə/",
+      tr_hint:
+        "TSA/CBP klasik komutu — duyacağın için telaffuzunu tanımalısın. 'Forward' = 'forwırd' (förvad değil). 'Camera' = 'kemra' (kameraya değil). Hızlı söylenir.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 13 — Lost Luggage Claim
+// ============================================================
+export const travelB1Lesson_luggageclaim: BundledLesson = {
+  id: "travel.b1.luggageclaim.1",
+  skill_id: "travel.b1",
+  index: 13,
+  title: "Kayıp Bagaj — Resmi Şikayet (Claim)",
+  description:
+    "Bagaj bandı boşaldı, bavul yok. Baggage office'a gidiyorsun. 'File a claim', 'PIR form', 'reference number' — sistematik dil kur.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.tb1.13.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "file a claim",
+      tr_translation: "resmi şikayet/talep aç (kayıt oluştur)",
+      example: "I'd like to file a claim — my bag never came out at baggage claim.",
+      example_tr: "Bir şikayet açmak istiyorum — bavulum bagaj bandında hiç çıkmadı.",
+    },
+    {
+      id: "ex.tb1.13.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Eğer bavulum 24 saat içinde gelmezse, otelimi havayolu mu karşılayacak yoksa kendim mi ödemek zorunda kalacağım?",
+      target:
+        "If my bag doesn't arrive within 24 hours, will the airline cover my hotel or will I have to pay for it myself?",
+      accepted_variants: [
+        "If my bag isn't here within 24 hours, would the airline cover my hotel costs?",
+        "Should my luggage not arrive in 24 hours, will you cover the hotel?",
+        "If the bag doesn't show up within a day, who pays for the hotel?",
+        "In case my bag doesn't arrive in 24 hours, will the airline reimburse my hotel?",
+      ],
+      tr_hint:
+        "İki kritik soru: süre (24 saat) + kim öder. Modal 'will' + 'have to' = yükümlülük. Bunu sormadan kalkma.",
+    },
+    {
+      id: "ex.tb1.13.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Could you give me a ___ number so I can track the bag online?",
+      answer: "reference",
+      distractors: ["password", "ticket", "license"],
+      tr_hint:
+        "'Reference number' (a.k.a. PIR number) = takip için kritik. Bunu almadan ofisten ayrılma; otelin de havayolunun da bu numarayı isteyecek.",
+    },
+    {
+      id: "ex.tb1.13.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "My",
+        "bag",
+        "never",
+        "came",
+        "out",
+        "on",
+        "the",
+        "carousel",
+      ],
+      correct_sentence: "My bag never came out on the carousel",
+      tr_translation: "Bavulum bagaj bandında hiç çıkmadı.",
+    },
+    {
+      id: "ex.tb1.13.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I have problem. My bag is no here. You find now please.",
+      correct_sentence: "I'd like to file a claim — my bag never came out at baggage claim. Could you start a PIR?",
+      tr_explanation:
+        "'I have problem + you find now' = panik + emir, profesyonel değil. Doğru: 'I'd like to file a claim' (proaktif) + olgu (never came out) + spesifik talep (start a PIR). 'PIR' = Property Irregularity Report — bunu söylediğin an agente seni deneyimli yolcu görür.",
+    },
+    {
+      id: "ex.tb1.13.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Heathrow havaalanı, baggage services ofisi. Saatlerce bekledin, bavul gelmedi. Şimdi resmi şikayet.",
+      npc_role: "Baggage Services Agent",
+      setting: "London Heathrow — British Airways Baggage Services desk",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Good evening. How can I help?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(good evening|hi|hello)",
+            "(i'?d like to|i want to|i need to) (file|open|start) (a )?(claim|pir|report)",
+            "(my (bag|suitcase|luggage)) (never came out|didn'?t arrive|is missing|hasn'?t arrived)",
+            "(i('m| am)? missing my (bag|luggage|suitcase))",
+            "(my checked (bag|luggage)) (didn'?t make it|got lost|is missing)",
+          ],
+          hint_tr:
+            "Net açılış: 'Good evening — I'd like to file a claim. My bag never came out at baggage claim.'",
+        },
+        {
+          speaker: "npc",
+          message: "I'm sorry to hear that. Could I see your boarding pass and baggage tag receipt?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(of course|sure|here you go|here they are)",
+            "(here'?s? (my )?(boarding pass|baggage tag|tag|receipt))",
+            "(i (have|'ve got) (them|both) here)",
+            "(the tag was (attached|stapled) to my boarding pass)",
+            "(let me (find|get) (them|that for you))",
+          ],
+          hint_tr:
+            "Evrak teslimi: 'Sure, here's my boarding pass and the baggage tag.' Aynı anda ikisini de uzat.",
+        },
+        {
+          speaker: "npc",
+          message: "Thank you. Could you describe the bag — colour, brand, any distinctive features?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it'?s? a) (black|blue|red|grey|silver|hard[- ]shell|soft[- ]shell) (suitcase|bag|samsonite|delsey)",
+            "(medium|large|small)( sized)? (suitcase|bag)",
+            "(with (a )?(red|blue|yellow) (ribbon|tag|sticker))",
+            "(it has (my )?(name tag|address) on it)",
+            "(there'?s? a (sticker|scratch|mark)) (on the (front|back|side))",
+          ],
+          hint_tr:
+            "Üç detay: renk + marka + işaret. 'Medium-sized black Samsonite hard-shell, with a red ribbon on the handle.'",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. The system shows it might still be in Istanbul. I'll register a PIR. What's your address for delivery?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i('m| am)? staying at) (the )?(hilton|marriott|airbnb|\\w+ hotel)",
+            "(the address is) .+",
+            "(could you (have it|get it) (delivered|sent)) to (my hotel|the address))",
+            "(i('ll| will) (write|give) (you )?the address)",
+            "(my hotel (is|address is)) .+",
+          ],
+          hint_tr:
+            "Otel adresini ver: 'I'm staying at the Premier Inn King's Cross — could you have it delivered there?'",
+        },
+        {
+          speaker: "npc",
+          message: "Done. Your reference number is BA12345. If the bag isn't delivered within 24 hours, call this number.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|thanks)",
+            "(if (my )?bag doesn'?t (arrive|come|show up) (within|in) 24 hours)",
+            "(will (the airline|you) (cover|reimburse|pay for)) (my hotel|essentials|toiletries))",
+            "(am i eligible for (compensation|essentials|toiletries))",
+            "(could i (claim|get) (back|reimbursed for)) (essentials|toiletries))",
+          ],
+          hint_tr:
+            "Hak iste: 'Thanks. If it doesn't arrive in 24 hours, am I eligible for essentials reimbursement — toiletries, a change of clothes?'",
+        },
+        {
+          speaker: "npc",
+          message: "Yes — keep receipts. We reimburse up to 100 pounds for essentials. Sorry for the inconvenience.",
+        },
+      ],
+    },
+    {
+      id: "ex.tb1.13.7",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "Bagaj kaybında EN ETKİLİ açılış cümlesi?",
+          options: [
+            "Where my bag? You find!",
+            "I have big problem with luggage now.",
+            "I'd like to file a claim — my bag never came out at baggage claim.",
+            "Bag lost. Help.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'File a claim' resmi terim — agentın sisteminde otomatik PIR açar. 'I have problem' Türkçe çevirisi, profesyonel değil. Sistemli dil = hızlı çözüm.",
+        },
+        {
+          question: "'PIR' (Property Irregularity Report) ne işe yarar?",
+          options: [
+            "Sadece bavul fotoğrafı kayıt",
+            "Resmi takip kaydı + sigorta/havayolu tazminat dosyası",
+            "Pasaport yenileme",
+            "Yeni bilet alımı",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "PIR = global IATA standardı kayıt. Bu numara olmadan ne havayolu ne seyahat sigortan ödeme yapar. Mutlaka iste, kaybetme.",
+        },
+        {
+          question: "Bagaj 24 saat içinde gelmezse hangi haklara sahipsin?",
+          options: [
+            "Sadece bekleme",
+            "Otomatik yeni bilet",
+            "Temel ihtiyaç (essentials) tazminatı — fişlerle geri alırsın",
+            "Hiçbir hak yok",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Çoğu havayolu (BA, Lufthansa, vb.) 24 saat sonra essentials (diş fırçası, çamaşır, gömlek) iade eder. Fiş sakla, formal şikayetinle birlikte gönder. EU261 ve Montreal Convention seni korur.",
+        },
+      ],
+    },
+    {
+      id: "ex.tb1.13.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I'd like to file a claim — my bag never came out at baggage claim.",
+      ipa: "/aɪd laɪk tə faɪl ə kleɪm maɪ bæɡ ˈnɛvər keɪm aʊt æt ˈbæɡɪdʒ kleɪm/",
+      tr_hint:
+        "İki 'claim' var: 'file a claim' = şikayet aç; 'baggage claim' = bagaj alma alanı. İki anlam karışmasın. 'File' = 'fayl' (dosya değil, dosyalamak). Net ve sistematik söyle.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 14 — Travel Insurance Claim
+// ============================================================
+export const travelB1Lesson_inscoverage: BundledLesson = {
+  id: "travel.b1.inscoverage.1",
+  skill_id: "travel.b1",
+  index: 14,
+  title: "Seyahat Sigortası — Ne Zaman Claim Aç",
+  description:
+    "Sigorta hattı + online portal. 'Is this covered?', 'What's my deductible?', 'I need to file under medical' — poliçe diline hakimiyet kur.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.tb1.14.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "deductible",
+      tr_translation: "muafiyet (sigortanın ödemeye başlamadan önce senin ödemen gereken miktar)",
+      example: "My deductible is 100 dollars — anything above that, the insurance covers.",
+      example_tr: "Muafiyetim 100 dolar — bunun üstünü sigorta karşılıyor.",
+    },
+    {
+      id: "ex.tb1.14.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Eğer poliçeyi seyahatten önce yenilemiş olsaydım, bu hastane masrafı tamamen karşılanırdı.",
+      target:
+        "If I had renewed the policy before the trip, this hospital expense would have been fully covered.",
+      accepted_variants: [
+        "Had I renewed my policy before traveling, this hospital bill would have been covered in full.",
+        "If I'd renewed the insurance earlier, the hospital cost would have been completely covered.",
+        "Had I updated my policy before the trip, this medical expense would have been fully covered.",
+        "If I had renewed it on time, the entire hospital bill would have been covered.",
+      ],
+      tr_hint:
+        "Past perfect (had renewed) + would have been = 3. tip koşul. Sigorta dilinde 'fully covered' / 'in full' = %100 ödeme.",
+    },
+    {
+      id: "ex.tb1.14.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I need to ___ a claim under the medical coverage section of my policy.",
+      answer: "file",
+      distractors: ["save", "send", "buy"],
+      tr_hint:
+        "'File a claim' = resmi başvuru aç. 'Send' yetersiz; 'file' sistemli/resmi terim. Bürokrasi dilinde fiili doğru kur.",
+    },
+    {
+      id: "ex.tb1.14.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Is",
+        "this",
+        "covered",
+        "under",
+        "my",
+        "current",
+        "policy",
+      ],
+      correct_sentence: "Is this covered under my current policy",
+      tr_translation: "Bu mevcut poliçem kapsamında mı?",
+    },
+    {
+      id: "ex.tb1.14.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Insurance must pay all. I am customer, you must give money fast.",
+      correct_sentence: "Could you confirm whether this is covered under my policy, and what my deductible would be?",
+      tr_explanation:
+        "'You must give money' = tehditkâr ton, sigorta agenti sistemde defansif notlar düşer. Doğru yaklaşım: modal (could you confirm) + spesifik (covered + deductible). Modal verbs (could, would, might) iddiayı yumuşatır, agent size dosyayı hızlı işler. ABD/UK sigorta kültürü = sakin müşteri öncelikli müşteri.",
+    },
+    {
+      id: "ex.tb1.14.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Seyahat sigortası 7/24 hattı. Bir önceki gün hastaneye gittin, $450 fatura aldın. Şimdi claim başlatıyorsun.",
+      npc_role: "Insurance Claims Agent",
+      setting: "Phone call — international travel insurance claims line",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Thank you for calling. How can I help you today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|good (morning|afternoon|evening))",
+            "(i need to|i'?d like to|i want to) (file|open|submit) (a )?claim",
+            "(i('m| am)? calling (to|about)) (file|filing|open|opening) (a )?(medical )?claim",
+            "(i need to file (under|a) (medical|health))",
+            "(i had to (go|visit) (the )?(hospital|er|emergency room) yesterday)",
+          ],
+          hint_tr:
+            "Açılış: 'Hi, I need to file a claim under the medical coverage — I went to the ER yesterday.' Spesifik bölüm söyle.",
+        },
+        {
+          speaker: "npc",
+          message: "I'm sorry to hear that. Could I have your policy number, please?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(of course|sure|one moment|let me check)",
+            "(it'?s? |my policy number is |the number is )?[a-z0-9-]+",
+            "(it starts with) [a-z0-9]+",
+            "(could you (hold|wait) (a moment|while i find it))",
+            "(i('m| am)? looking it up (now|right now))",
+          ],
+          hint_tr:
+            "Numarayı oku: 'Sure — it's TUR-2026-789456.' Yavaş ve net oku, agent yanlış yazarsa dosya kayar.",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. Could you tell me what happened and what treatment you received?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i (had|got|developed)) (food poisoning|a high fever|chest pain|an allergic reaction|severe (.*))",
+            "(i (went|was taken)) to the (er|hospital|emergency room)",
+            "(they (gave me|prescribed|did)) (iv fluids|antibiotics|painkillers|an x-?ray|blood tests)",
+            "(the (doctor|nurse)) (said|told me|diagnosed me with)",
+            "(i was (admitted|discharged|observed)) (overnight|for \\d+ hours)",
+          ],
+          hint_tr:
+            "Olgusal: 'I had severe food poisoning. They put me on IV fluids for four hours and prescribed antibiotics.' Spesifik tedavi = kapsam onayı.",
+        },
+        {
+          speaker: "npc",
+          message: "Understood. Do you have the hospital invoice and the doctor's report?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|i do)",
+            "(i have (the )?(invoice|bill|receipt|report))",
+            "(the (total|bill|invoice) (is|was|came to)) \\$?\\d+",
+            "(could i (email|upload|send) (them|the documents) to you)",
+            "(i (might|could) need to (translate|get a copy))",
+          ],
+          hint_tr:
+            "Evrakları onayla: 'Yes, I have the invoice for $450 and the doctor's report. Could I email them to you?'",
+        },
+        {
+          speaker: "npc",
+          message: "Please email them to claims@insurer.com with your policy number. Your deductible is $100, so we'd cover $350 after review.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|thanks|got it|understood)",
+            "(could you confirm|just to be clear)",
+            "(would (the rest|the remaining) be (reimbursed|paid|covered))",
+            "(how long (does|will) the review take)",
+            "(if i had (renewed|upgraded) my policy)",
+            "(might (there|i) be any additional (charges|coverage))",
+          ],
+          hint_tr:
+            "Onayla + sor: 'Got it. How long would the review take, and might there be anything else I should send?'",
+        },
+        {
+          speaker: "npc",
+          message: "Usually five business days. Send the documents and we'll be in touch. Take care.",
+        },
+      ],
+    },
+    {
+      id: "ex.tb1.14.7",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "'Is this covered?' sorusu hangi bağlamda kritik?",
+          options: [
+            "Otel rezervasyonu yapmak için",
+            "Sigorta hattında — tedavi/masraf kapsam doğrulaması için",
+            "Pasaport kontrolünde",
+            "Bagaj alma alanında",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Is this covered?' sigorta dilinin anahtar sorusu. Tedaviden ÖNCE sor — onaylı olmayan tedavi sonradan 'out of pocket' (cebinden) ödenir. Mutlaka yazılı/email onay iste.",
+        },
+        {
+          question: "'Deductible' nedir?",
+          options: [
+            "Toplam poliçe bedeli",
+            "Sigortanın ödemediği, senin kendi cebinden ödediğin sabit miktar",
+            "Aylık prim",
+            "Kapsam dışı bölge listesi",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Deductible = muafiyet. Örnek: $450 fatura, $100 deductible → sigorta $350 öder, $100 senden. Düşük deductible = yüksek prim. Poliçeni alırken bu sayıyı not et.",
+        },
+        {
+          question: "Sigorta agenti talebinde EN AKILLI dil seçimi?",
+          options: [
+            "You must pay this immediately!",
+            "Insurance has to give money, I am customer!",
+            "Could you confirm whether this is covered, and what my deductible would be?",
+            "Just give me money, I no care policy.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Modal verbs (could, would, might) bürokrasi nezaketi. 'Could you confirm' agente yapıcı çerçeve verir, sistemde sakin müşteri kaydı = hızlı işlem. Saldırgan ton dosyanı 'flag' eder, gecikir.",
+        },
+      ],
+    },
+    {
+      id: "ex.tb1.14.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Is this covered under my policy, and what would my deductible be?",
+      ipa: "/ɪz ðɪs ˈkʌvərd ˈʌndər maɪ ˈpɒlɪsi ænd wɒt wʊd maɪ dɪˈdʌktɪbəl biː/",
+      tr_hint:
+        "İki kritik soru tek cümle. 'Deductible' = 'didakti-bıl' (4 hece). 'Covered' = 'kavırd' (kover değil). Modal 'would' + 'be' kibar sorgu kalıbı — agente saygı + iyi İngilizce sinyali.",
+    },
+  ],
+};
+
+// ============================================================
 // Lesson registry
 // ============================================================
 export const travelBureaucracyB1Lessons: ReadonlyArray<BundledLesson> = [
@@ -2707,6 +3578,10 @@ export const travelBureaucracyB1Lessons: ReadonlyArray<BundledLesson> = [
   travelB1Lesson_hospital,
   travelB1Lesson_followup,
   travelB1Lesson_transit,
+  travelB1Lesson_esta,
+  travelB1Lesson_security,
+  travelB1Lesson_luggageclaim,
+  travelB1Lesson_inscoverage,
 ];
 
 export function getTravelB1Lesson(id: string): BundledLesson | undefined {

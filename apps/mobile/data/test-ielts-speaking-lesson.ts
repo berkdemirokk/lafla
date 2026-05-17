@@ -2892,6 +2892,858 @@ export const ieltsSpeakingLesson_12: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 13 — Part 1 / Hometown soruları
+// ============================================================
+export const ieltsSpeakingLesson_13: BundledLesson = {
+  id: "testprep.ielts.part1.hometown.13",
+  skill_id: "testprep.ielts.speaking",
+  index: 13,
+  title: "Part 1 — Hometown soruları",
+  description:
+    "IELTS Speaking — Part 1 / Memleket. 'Tell me about your hometown', 'Is it crowded?' — extended cevap, kelime çeşitliliği, klişeden kaçınma.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.ielts13.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "steeped in history",
+      tr_translation: "tarihle yoğrulmuş, köklü bir tarihi olan",
+      example:
+        "My hometown is steeped in history, with cobbled streets dating back centuries.",
+      example_tr:
+        "Memleketim tarihle yoğrulmuş; yüzyıllar öncesine uzanan taş döşeli sokakları var.",
+    },
+    {
+      id: "ex.ielts13.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "by and large",
+      tr_translation: "genel olarak / büyük ölçüde",
+      example:
+        "By and large, the town is fairly quiet, albeit a bit busier in summer.",
+      example_tr:
+        "Genel olarak şehir oldukça sakin, gerçi yazın biraz hareketleniyor.",
+    },
+    {
+      id: "ex.ielts13.3",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Memleketim Türkiye'nin batısında küçük bir sahil kasabası ve tarihle yoğrulmuş olmasıyla bilinir, ama açıkçası kışın oldukça tenha kalır.",
+      target:
+        "My hometown is a small coastal town in the west of Turkey, and it's known for being steeped in history, although, to be honest, it remains fairly deserted in winter.",
+      accepted_variants: [
+        "My hometown is a little seaside town in western Turkey, well-known for its rich history, though I'd argue it gets quite quiet during the winter months.",
+        "I'm from a small coastal town on the western side of Turkey — a place steeped in history, albeit rather empty once winter sets in.",
+        "It's a small coastal town in western Turkey, famous for its history; that said, it's pretty deserted in winter.",
+      ],
+      tr_hint:
+        "Band 6: 'My hometown is small.' Band 8: 'small coastal town' + 'steeped in history' + 'although' kontrast + 'to be honest' hedge. 3 katmanlı yapı.",
+    },
+    {
+      id: "ex.ielts13.4",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template:
+        "___, the town gets pretty crowded during the summer months.",
+      answer: "That being said",
+      distractors: ["For example", "On the contrary", "In addition"],
+      tr_hint:
+        "'That being said' = 'bununla birlikte, yine de'. Önceki cümleye zıt bir nüans ekler — Part 1'de tek tip cevaptan kurtaran band 7+ bağlayıcı.",
+    },
+    {
+      id: "ex.ielts13.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "My hometown is very crowded and have a lot of historical places.",
+      correct_sentence:
+        "My hometown is quite crowded and has a number of historical sites.",
+      tr_explanation:
+        "Üç hata: (1) 'have' yanlış — özne 'My hometown' tekil, 'has' olmalı. (2) 'Very' aşırı kullanılır — band 7'de 'quite/fairly/rather' tercih edilir. (3) 'Historical places' Türkçe çevirisi — doğal İngilizce 'historical sites' veya 'historical landmarks'. Klasik Türk kalıbı.",
+    },
+    {
+      id: "ex.ielts13.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Examiner Part 1'de memleket soruları soruyor: nereli, nasıl bir yer, kalabalık mı, sevdiğin yanı, ileride orada yaşamak ister misin? Hedef: extended cevap, kelime çeşitliliği, 'I think' tekrarından kaçınma.",
+      npc_role: "IELTS Examiner",
+      setting: "IELTS Speaking test, Part 1",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Let's talk about where you come from. Could you tell me a little bit about your hometown?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(I('m| am) (originally )?from|I (come|hail) from|my hometown is)",
+            "(small|tiny|sizeable|mid-sized|sprawling) (coastal|seaside|inland|mountain|industrial|university) (town|city|village)",
+            "(in the (west|east|south|north)|on the (coast|outskirts))",
+            "(steeped in history|known for|famous for|a hub of)",
+            "I('d| would) describe it as",
+          ],
+          hint_tr:
+            "Geographic anchor + descriptive adjective + signature feature. 'I'm originally from a small coastal town in the west of Turkey, which is steeped in history.' Üçlü yapı band 7+.",
+        },
+        {
+          speaker: "npc",
+          message: "Is it a crowded place?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it (depends|varies)|that depends|it('s| is) a bit of a mixed bag)",
+            "(during (the )?(summer|tourist season|peak months))",
+            "(absolutely (packed|heaving)|bustling|teeming with tourists)",
+            "(however|whereas|that (being |said))",
+            "(off-season|in winter|the rest of the year)",
+            "(fairly|relatively|comparatively) (quiet|deserted|empty|peaceful)",
+          ],
+          hint_tr:
+            "Zaman bağlamlı cevap: 'It depends on the season. In summer it's absolutely packed with tourists, whereas in winter it's fairly deserted.' Kontrast = band 7+.",
+        },
+        {
+          speaker: "npc",
+          message: "What do you like most about it?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(what I (genuinely |really )?(appreciate|enjoy|love))",
+            "(would (have to )?be|is probably|is undeniably)",
+            "(the (sense of|atmosphere|pace of life|community spirit))",
+            "(coupled with|combined with|alongside)",
+            "(I('d| would) argue that|in my view|personally speaking)",
+          ],
+          hint_tr:
+            "Klişe 'I like... because nice' yerine: 'What I genuinely appreciate is probably the relaxed pace of life, coupled with the strong community spirit.' Hassas kelime + ek detay.",
+        },
+        {
+          speaker: "npc",
+          message: "Would you like to live there in the future?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(to be honest|honestly|in all honesty|personally speaking)",
+            "(I('m| am) (a bit|rather|somewhat)) (torn|undecided|on the fence)",
+            "(on (one|the one) hand).{0,100}(on the other hand)",
+            "(eventually|down the line|further down the road|in the long run)",
+            "(provided that|as long as|if|assuming)",
+          ],
+          hint_tr:
+            "İkircikli cevap doğal: 'To be honest, I'm a bit torn. On one hand... On the other hand... Eventually, though, I'd love to settle there.' Conditional + nuance band 7-8.",
+        },
+        {
+          speaker: "npc",
+          message: "Thank you. Let's move on.",
+        },
+      ],
+    },
+    {
+      id: "ex.ielts13.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "By and large, it's a fairly tight-knit community.",
+      tr_hint:
+        "Part 1 'memleketin nasıl?' sorusuna band 7+ açılış. 'By and large' = bağlı kelime grubu, akıcı söylenir ('bai-an-LARJ'). 'Tight-knit' birleşik sıfat; 'tight' ve 'knit' arasında kısa duraklama.",
+    },
+    {
+      id: "ex.ielts13.8",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question:
+            "'My hometown have a lot of historical places' — bu cümlede kaç hata var?",
+          options: [
+            "Bir tane: 'have' → 'has'",
+            "İki tane: subject-verb + 'historical places' garip kalıbı",
+            "Hata yok",
+            "Üç tane: özne, fiil ve kelime seçimi",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "İki ana hata: (1) 'My hometown' tekil → 'has'. (2) 'Historical places' Türkçe kalıp; doğal İngilizce 'historical sites/landmarks'. Band 7 için ikisi de düzelmeli.",
+        },
+        {
+          question:
+            "Part 1'de 'I think it's nice' yerine band 7+ alternatif?",
+          options: [
+            "I think it's good.",
+            "It's nice and I like it.",
+            "I'd describe it as fairly vibrant, with a real sense of community.",
+            "Yes, it is nice.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Band 7+ cevap: 'I'd describe it as...' + hassas sıfat + ek detay. 'Nice/good' Band 4-5 sinyali.",
+        },
+        {
+          question: "'By and large' yerine kullanılabilecek en yakın ifade?",
+          options: [
+            "in the past",
+            "on the whole",
+            "for example",
+            "in conclusion",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'By and large' ≈ 'on the whole' ≈ 'generally speaking'. Genelleme bağlayıcısı. Part 1/3'te kullanışlı.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 14 — Part 2 / Cue card 2 dakika
+// ============================================================
+export const ieltsSpeakingLesson_14: BundledLesson = {
+  id: "testprep.ielts.part2.trip.14",
+  skill_id: "testprep.ielts.speaking",
+  index: 14,
+  title: "Part 2 — Cue card 2 dakika",
+  description:
+    "IELTS Speaking — Part 2 / 'Describe a memorable trip'. 1 dakika planlama, 2 dakika konuşma. Planlama notları + akış stratejisi.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.ielts14.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "a once-in-a-lifetime experience",
+      tr_translation: "hayatta bir kez yaşanacak bir deneyim",
+      example:
+        "Visiting the ancient ruins at sunrise was truly a once-in-a-lifetime experience.",
+      example_tr:
+        "Antik harabeleri gün doğumunda görmek gerçekten hayatta bir kez yaşanacak bir deneyimdi.",
+    },
+    {
+      id: "ex.ielts14.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "to leave a lasting impression",
+      tr_translation: "kalıcı bir iz bırakmak",
+      example:
+        "The kindness of the locals left a lasting impression on me.",
+      example_tr:
+        "Yerli halkın kibarlığı üzerimde kalıcı bir iz bıraktı.",
+    },
+    {
+      id: "ex.ielts14.3",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Bahsetmek istediğim gezi, birkaç yıl önce Kapadokya'ya yaptığım üç günlük bir kaçamak — açıkçası, üzerimde kalıcı bir iz bırakan, hayatta bir kez yaşanacak türden bir deneyimdi.",
+      target:
+        "The trip I'd like to talk about is a three-day getaway to Cappadocia I took a few years back — to be honest, it was a once-in-a-lifetime experience that left a lasting impression on me.",
+      accepted_variants: [
+        "I'd like to describe a three-day trip to Cappadocia I went on a few years ago; honestly, it was the kind of once-in-a-lifetime experience that really stayed with me.",
+        "The trip that comes to mind is a short getaway to Cappadocia I took a couple of years back — frankly, an experience that left a lasting impression.",
+        "A few years ago I went on a three-day trip to Cappadocia, and I'd argue it was a truly once-in-a-lifetime experience that I'll never forget.",
+      ],
+      tr_hint:
+        "Cue card açılışı: 'The trip I'd like to talk about is...' + relative clause + 'to be honest' hedge + signature phrase. Band 8 kalıbı.",
+    },
+    {
+      id: "ex.ielts14.4",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template:
+        "What I found most ___ about the trip was the sheer scale of the landscape.",
+      answer: "compelling",
+      distractors: ["interesting", "good", "very nice"],
+      tr_hint:
+        "'Compelling' = etkileyici, hayran bırakan. Band 7+ sıfat. 'Interesting/good/nice' band 5 sinyali — IELTS'te bilinçli kelime seçimi şart.",
+    },
+    {
+      id: "ex.ielts14.5",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "When I was gone to Cappadocia, I have seen many beautiful sceneries.",
+      correct_sentence:
+        "When I went to Cappadocia, I saw a great deal of beautiful scenery.",
+      tr_explanation:
+        "Üç hata: (1) 'I was gone' yanlış — past simple aktif 'I went'. (2) 'I have seen' yerine past simple 'I saw' (belirli geçmiş zaman 'when I went' ile). (3) 'Sceneries' yanlış — 'scenery' sayılamaz: 'a great deal of scenery'. Cue card boyunca tense tutarlılığı band 6 → 7 sınırı.",
+    },
+    {
+      id: "ex.ielts14.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Cue card: 'Describe a memorable trip you have taken.' Diyeceklerin: nereye, ne zaman, kiminle, neden unutulmaz. 1 dakika planlama → 2 dakika konuşma. Strateji: hedef yapı = WHERE+WHEN+WHO → ANECDOTE → REFLECTION. Band 7'de boş bırakma, akıcı kal.",
+      npc_role: "IELTS Examiner",
+      setting: "IELTS Speaking test, Part 2",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Here's your cue card: 'Describe a memorable trip you have taken.' You should say where you went, when you went, who you went with, and explain why it was memorable. You'll have one minute to prepare. Here's some paper and a pencil for notes.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(let me (just )?(take|jot down|write))",
+            "(four (key|main) points|where.{0,20}when.{0,20}who.{0,20}why)",
+            "(I('ll| will) (start|begin) with)",
+            "(then|after that|next|finally)",
+          ],
+          hint_tr:
+            "1 dakika planlama: 4 noktayı tek-iki kelime hâlinde not al (Cappadocia / 3 yıl önce / kuzen / sıcak hava balonu). 'Let me just jot down four key points — where, when, who, why.' Strateji ifade etmek doğal.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Alright, your minute is up. Please begin speaking — you'll have up to two minutes.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the (trip|holiday|journey)) (I('d| would) like to (talk about|describe)|that (comes to mind|springs to mind))",
+            "(a (few|couple of) years (back|ago)|back in (20\\d\\d|the summer of))",
+            "(I (went|travelled|headed off) (to|with))",
+            "(my (cousin|family|best friend|partner))",
+            "(memorable|unforgettable|standout)",
+          ],
+          hint_tr:
+            "WHERE+WHEN+WHO açılış (15-20 sn): 'The trip I'd like to talk about is a three-day getaway to Cappadocia, which I went on with my cousin back in the summer of 2022.' Tek nefeste 4 bilgi.",
+        },
+        {
+          speaker: "npc",
+          message: "Please continue. Tell me more about it.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the (highlight|standout moment|best part)) (was|of (the trip|it))",
+            "(without (a )?doubt|undoubtedly|hands down)",
+            "(a (hot-air balloon ride|cave hotel|sunrise|local meal))",
+            "(picture this|imagine|you have to imagine)",
+            "(in stark contrast|compared to|unlike anything)",
+            "(genuinely|absolutely|truly) (breathtaking|stunning|surreal|compelling)",
+          ],
+          hint_tr:
+            "ANECDOTE (60-70 sn): Tek bir an seç, detaylandır. 'The highlight, hands down, was a hot-air balloon ride at sunrise. Picture this — fifty balloons rising in stark contrast to the pale morning sky.' Sensory detail = band 8.",
+        },
+        {
+          speaker: "npc",
+          message: "And why was it so memorable for you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(what (made|makes) it (so |truly )?(memorable|special))",
+            "(I('d| would) argue|in my view|personally speaking)",
+            "(left a lasting impression|stayed with me|stuck with me)",
+            "(a (once-in-a-lifetime|life-affirming)) experience",
+            "(to this (day|very day)|even now|years on)",
+          ],
+          hint_tr:
+            "REFLECTION (20-30 sn): Soyut kapanış. 'What made it so memorable, I'd argue, was the sheer scale of the landscape — it left a lasting impression that's stayed with me to this day.' Soyut kelime band 7+.",
+        },
+        {
+          speaker: "npc",
+          message: "Thank you. That concludes Part 2.",
+        },
+      ],
+    },
+    {
+      id: "ex.ielts14.7",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase:
+        "It was, without a doubt, a once-in-a-lifetime experience that left a lasting impression on me.",
+      tr_hint:
+        "Cue card kapanış cümlesi. İki güçlü deyim arka arkaya. Ritim: 'It was — without a doubt — a once-in-a-lifetime experience' (virgül duraklamaları). 'Once-in-a-lifetime' tek bir vurgu birimi: 'WUNS-in-uh-LAIF-taim'. Kapanışta yavaşla, dramatik.",
+    },
+    {
+      id: "ex.ielts14.8",
+      type: "recap_quiz",
+      difficulty: 4,
+      questions: [
+        {
+          question:
+            "Part 2'de 1 dakika planlamada en verimli strateji?",
+          options: [
+            "Tam cümleler yaz, sonra ezbere oku.",
+            "Hiçbir şey yazma, anında konuş.",
+            "4 anahtar noktayı (where/when/who/why) tek-iki kelimeyle not al.",
+            "Sadece son cümleyi yaz.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Tam cümle = ezbere okuma → robotik = band cezası. 4 anahtar nokta = doğal akış. Examiner notu sonunda inceler ama not edenler, planlı konuşur.",
+        },
+        {
+          question:
+            "Cue card açılışı için band 7+ kalıp?",
+          options: [
+            "I want to talk about my trip.",
+            "My trip was good.",
+            "The trip I'd like to talk about is a three-day getaway to Cappadocia, which I went on a few years back.",
+            "Cappadocia. I went there. It was nice.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Band 7+ açılış: relative clause + zaman ifadesi tek nefeste 4 bilgi paketler. 'I want to talk' band 5 kalıbı.",
+        },
+        {
+          question:
+            "Cue card boyunca 2 dakikayı doldurmanın altın stratejisi nedir?",
+          options: [
+            "Cue card'ın 4 sorusunu eşit pay et ve hızlı geç.",
+            "WHERE+WHEN+WHO açılış (15 sn) → tek bir anekdotu detaylandır (60-70 sn) → soyut kapanış (20-30 sn).",
+            "Hızlıca cevapla, 30 sn kala dur.",
+            "Tüm bilgiyi tek cümleye sığdır.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Examiner zenginlik arar, not liste. Bir an seç, sensory detail ekle, soyutla bitir. 'Sheer scale', 'left a lasting impression' gibi band 8 kelimeler kapanışta parlar.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 15 — Part 3 / Abstract discussion
+// ============================================================
+export const ieltsSpeakingLesson_15: BundledLesson = {
+  id: "testprep.ielts.part3.travel.15",
+  skill_id: "testprep.ielts.speaking",
+  index: 15,
+  title: "Part 3 — Abstract discussion",
+  description:
+    "IELTS Speaking — Part 3 / Seyahat & turizm. 'Why do people travel?', 'How has tourism changed?' — soyut analiz, hedging, balanced argument.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.ielts15.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "a compelling reason",
+      tr_translation: "ikna edici / güçlü bir sebep",
+      example:
+        "There's a compelling reason why so many people travel for personal growth rather than leisure alone.",
+      example_tr:
+        "Pek çok insanın salt eğlence değil kişisel gelişim için seyahat etmesinin ikna edici bir sebebi var.",
+    },
+    {
+      id: "ex.ielts15.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "in stark contrast",
+      tr_translation: "tam tersine / belirgin bir tezat olarak",
+      example:
+        "Modern tourism is, in stark contrast to the past, dominated by social media trends.",
+      example_tr:
+        "Modern turizm, geçmişin aksine, sosyal medya trendlerinin baskısı altında.",
+    },
+    {
+      id: "ex.ielts15.3",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Bence insanlar tarihsel olarak farklı sebeplerle seyahat etmiş olsa da, modern çağda turizm büyük ölçüde sosyal medya tarafından şekillendiriliyor, ki bu eskisiyle belirgin bir tezat oluşturuyor.",
+      target:
+        "I would argue that, although people have historically travelled for a range of reasons, in the modern era tourism is, to a large extent, shaped by social media — which stands in stark contrast to the past.",
+      accepted_variants: [
+        "While people have travelled for various reasons throughout history, in my view modern tourism has, by and large, come to be driven by social media, which is in stark contrast to earlier times.",
+        "Historically, people travelled for all sorts of reasons; however, I'd argue that modern tourism is largely shaped by social media — a striking contrast to the past.",
+        "Although the motivations for travel have varied throughout history, tourism today is, to a great extent, dictated by social media, in stark contrast to previous decades.",
+      ],
+      tr_hint:
+        "Part 3 altın yapısı: 'I would argue that, although... in the modern era... — which stands in stark contrast to...' Concession + claim + contrast. 3 katman = band 8.",
+    },
+    {
+      id: "ex.ielts15.4",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "Tourism has transformed many local economies, ___ at a significant environmental cost.",
+      answer: "albeit",
+      distractors: ["because", "moreover", "therefore"],
+      tr_hint:
+        "'Albeit' = 'her ne kadar... olsa da', kısa concession bağlayıcısı. Band 8 kelime. 'Although it is/was' yerine tek kelime — examiner bayılır.",
+    },
+    {
+      id: "ex.ielts15.5",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Nowadays peoples travel more because of internet and they want to take photos for social media.",
+      correct_sentence:
+        "These days, people travel a great deal more, largely because of the internet, and many of them are motivated by the desire to share photos on social media.",
+      tr_explanation:
+        "Dört hata: (1) 'Peoples' yanlış — 'people' zaten çoğul (uluslar = 'peoples'). (2) 'Nowadays' aşırı kullanılmış klişe — 'these days' veya 'in the modern era' daha doğal. (3) 'Because of internet' — 'the internet' (definite article zorunlu). (4) 'They want to take photos' — Part 3'te basit kalıp; 'motivated by the desire to share' = band 7+. Türk öğrencinin Part 3 tuzakları.",
+    },
+    {
+      id: "ex.ielts15.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Examiner Part 3'te seyahat ve turizm üzerine soyut sorular soruyor. Hedef: opinion + hedge + örnek + karşı görüş. 'I think' aşırı kullanımından kaçın, 'I'd argue', 'In my view', 'Personally speaking' çeşitlendir.",
+      npc_role: "IELTS Examiner",
+      setting: "IELTS Speaking test, Part 3",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Let's discuss travel in a broader sense. Why do you think people travel?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(I('d| would) argue|in my view|personally speaking|from my perspective)",
+            "(a (range|variety|host) of (reasons|motivations))",
+            "(broadly speaking|by and large|on the whole)",
+            "(for some|for others|whereas (others|some))",
+            "(escape (the )?(routine|monotony)|broaden (their|one's) horizons|gain perspective)",
+            "(a compelling reason)",
+          ],
+          hint_tr:
+            "Kategorize et: 'I'd argue people travel for a range of reasons. For some, it's about escaping the routine, whereas for others it's about broadening their horizons.' Klişe 'I think' yerine 'I'd argue'.",
+        },
+        {
+          speaker: "npc",
+          message: "How has tourism changed over the past few decades?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(tourism has) (undergone|gone through|experienced) (a (significant|profound|dramatic)) (shift|transformation)",
+            "(in stark contrast to|unlike) (the past|previous decades|earlier generations)",
+            "(driven|shaped|fuelled) by (social media|low-cost airlines|globalisation)",
+            "(albeit|although|while) (at a (significant|considerable|environmental)) cost",
+            "(by and large|to a large extent)",
+          ],
+          hint_tr:
+            "Soyut analiz: 'Tourism has undergone a profound transformation. In stark contrast to the past, it's largely driven by social media — albeit at a significant environmental cost.' 3 katman + concession.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Some people say tourism damages local cultures. Do you agree?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(there('s| is) a (compelling|valid|fair)) (point|argument) (there|to (be )?made)",
+            "(I('d| would) say|in my view) (it('s| is)) a (double-edged sword|mixed (bag|blessing))",
+            "(on (one|the one) hand).{0,150}(on the other hand|that said|however)",
+            "(over-tourism|cultural commodification|loss of authenticity)",
+            "(meaningful (cultural )?exchange|economic lifeline)",
+            "(on balance|all things considered|when push comes to shove)",
+          ],
+          hint_tr:
+            "Balanced + sophisticated vocab: 'There's a compelling argument there. On one hand, over-tourism leads to cultural commodification; on the other, tourism is an economic lifeline. On balance, I'd say it's a double-edged sword.' Bu cevap band 8.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Do you think people will travel more or less in the future?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that('s| is) a (tricky|tough|interesting)) (one|question)",
+            "(I('d| would) hesitate to predict|it('s| is) hard to say with any certainty)",
+            "(my (gut |best )?guess|if I had to (guess|predict|bet))",
+            "(climate (concerns|change)|rising costs|virtual reality|remote work)",
+            "(short-haul|long-haul|domestic|sustainable)",
+            "(more (likely|likely than not) to)",
+          ],
+          hint_tr:
+            "Hedge gelecekte şart: 'That's a tricky one. I'd hesitate to predict with any certainty, but my best guess is that climate concerns will push people toward shorter, more sustainable trips.' Belirsizlik = sofistikasyon.",
+        },
+        {
+          speaker: "npc",
+          message: "Thank you. That concludes the test.",
+        },
+      ],
+    },
+    {
+      id: "ex.ielts15.7",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase:
+        "By and large, tourism has been transformative, albeit at a significant environmental cost.",
+      tr_hint:
+        "Part 3 sofistike argüman kalıbı. 'By and large' başlangıç bağlayıcısı + 'albeit' (al-BEE-it) concession + final clause. 'Transformative' = trans-FOR-muh-tiv. 'Albeit' = Türk öğrencilerin telaffuzdan kaçındığı band 8 kelimesi.",
+    },
+    {
+      id: "ex.ielts15.8",
+      type: "recap_quiz",
+      difficulty: 4,
+      questions: [
+        {
+          question:
+            "Part 3'te 'I think' yerine kullanılabilecek band 7+ alternatifler hangileri?",
+          options: [
+            "I want to say, I will say, I say.",
+            "I'd argue, In my view, Personally speaking, From my perspective.",
+            "Maybe, possibly, perhaps.",
+            "Yes, no, of course.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Türk öğrencilerin en sık IELTS pain point'i: 'I think' tekrarı. Çeşitlendirme: 'I'd argue' (argüman), 'In my view' (görüş), 'Personally speaking' (kişisel), 'From my perspective' (bakış açısı). Hepsi band 7+ sinyali.",
+        },
+        {
+          question: "'Albeit' ne anlama gelir ve nerede kullanılır?",
+          options: [
+            "'Çünkü' anlamında, sebep belirtir.",
+            "'Bu yüzden' anlamında, sonuç bağlar.",
+            "'Her ne kadar olsa da' anlamında, kısa concession ekler.",
+            "'Örneğin' anlamında, örnek verir.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Albeit' = concession bağlayıcı, 'although it is/was' kısaltması. 'Tourism is beneficial, albeit at a cost.' Tek kelime, band 8 sinyali — examiner için altın.",
+        },
+        {
+          question:
+            "Part 3'te 'damaging/positive' türü sorulara band 8 cevap yapısı?",
+          options: [
+            "Sadece 'evet' veya 'hayır' de.",
+            "Bir tarafı seç, savun, kapat.",
+            "Acknowledge complexity ('double-edged sword') → on one hand → on the other hand → on balance.",
+            "Soruyu tekrar et, sonra konuyu değiştir.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Balanced argument = band 8 mührü. 'Double-edged sword' / 'mixed blessing' deyimleri, ardından two-sided analysis, sonunda 'on balance' ile yargı. Tek taraflı cevap band 6.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 16 — Band 7+ stratejileri / Fluency boosters
+// ============================================================
+export const ieltsSpeakingLesson_16: BundledLesson = {
+  id: "testprep.ielts.strategy.fluency.16",
+  skill_id: "testprep.ielts.speaking",
+  index: 16,
+  title: "Band 7+ stratejileri — fluency boosters",
+  description:
+    "IELTS Speaking — Band 7+'a geçiş için dolgu kalıpları, hedging, register çeşitliliği. 'To be honest', 'I'd argue that', 'Personally speaking' — Türk adayın 'I think' tekrarına çözüm.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.ielts16.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "To be honest with you",
+      tr_translation: "Açıkçası / Doğrusunu söylemek gerekirse",
+      example:
+        "To be honest with you, I hadn't really thought about that before.",
+      example_tr:
+        "Açıkçası, daha önce bunu pek düşünmemiştim.",
+    },
+    {
+      id: "ex.ielts16.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "I'd argue that",
+      tr_translation: "Bence / Şunu savunurum ki",
+      example:
+        "I'd argue that the benefits outweigh the drawbacks, by and large.",
+      example_tr:
+        "Genel olarak, faydaların zararlardan ağır bastığını söylerim.",
+    },
+    {
+      id: "ex.ielts16.3",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Açıkçası, kişisel olarak bence dil öğreniminde en önemli şey tutarlılıktır; daha doğrusu, şunu savunurum ki düzenli pratik diplomalardan çok daha değerlidir.",
+      target:
+        "To be honest, personally speaking, I think the most important thing in language learning is consistency; or rather, I'd argue that regular practice is far more valuable than qualifications.",
+      accepted_variants: [
+        "Honestly, from my perspective, what matters most in language learning is consistency — or, more precisely, I'd argue that steady practice is significantly more valuable than any certificate.",
+        "To be frank, personally I believe consistency is key in language learning; in fact, I'd say regular practice trumps qualifications by a long shot.",
+        "In all honesty, personally speaking, consistency is the most important factor in language learning — I would argue that regular practice far outweighs formal qualifications.",
+      ],
+      tr_hint:
+        "3 ardışık hedge kalıbı zincirlemesi: 'To be honest' + 'personally speaking' + 'I'd argue that'. Türk öğrencinin 'I think' takıntısına panzehir.",
+    },
+    {
+      id: "ex.ielts16.4",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template:
+        "___, I hadn't really considered that angle before.",
+      answer: "To be honest with you",
+      distractors: ["For example", "On the other hand", "In conclusion"],
+      tr_hint:
+        "'To be honest with you' = düşünme/duraklama doldurucusu. Examiner zor bir soru sorduğunda nefes alma + samimi açılış. 'Uhhh...' yerine kullan.",
+    },
+    {
+      id: "ex.ielts16.5",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "I think social media is bad. I think it makes people unhappy. I think we should use it less.",
+      correct_sentence:
+        "Personally speaking, I'd argue that social media has a largely negative impact. To be honest, it tends to make people unhappy, and I would say we ought to use it more sparingly.",
+      tr_explanation:
+        "En klasik Türk IELTS hatası: 'I think' üst üste tekrarı = band 6 tavanı. Düzeltme: her cümlede farklı bir hedge ('Personally speaking', 'To be honest', 'I would say') + kelime çeşitliliği ('bad' → 'largely negative impact', 'unhappy' → 'tends to make people unhappy', 'use it less' → 'use it more sparingly'). Aynı fikir, band 7+ register.",
+    },
+    {
+      id: "ex.ielts16.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Examiner zor, soyut sorular soruyor. Hedef: 'I think' DEMEDEN cevap ver. Her cevapta farklı hedge kullan: 'To be honest', 'I'd argue that', 'Personally speaking', 'From my perspective', 'In all honesty', 'I would say'. Dolgu kalıpları akıcılığı artırır, düşünme süresi kazandırır.",
+      npc_role: "IELTS Examiner",
+      setting: "IELTS Speaking test, Part 3",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Do you think social media has had a positive or negative effect on society?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(to be honest|honestly|in all honesty|frankly)",
+            "(I('d| would) argue (that)?|I would say|personally speaking)",
+            "(a double-edged sword|mixed blessing|a bit of both)",
+            "(on (one|the one) hand).{0,80}(on the other hand)",
+            "(by and large|on balance|overall)",
+          ],
+          hint_tr:
+            "İlk hedge'i kullan: 'To be honest, I'd argue that it's a double-edged sword.' 'I think' yok — examiner farkı hisseder. 'I'd argue' = analytical claim sinyali.",
+        },
+        {
+          speaker: "npc",
+          message: "What do you mean by 'double-edged sword'?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(what I (mean|('m| am) (getting|driving) at))",
+            "(personally speaking|from my perspective|in my view)",
+            "(on (one|the one) hand).{0,100}(on the other hand)",
+            "(connect|stay in touch|broaden horizons)",
+            "(at the same time|simultaneously|that said)",
+            "(mental health|attention spans|misinformation)",
+          ],
+          hint_tr:
+            "İkinci hedge — 'I think' kullanma: 'Personally speaking, what I mean is — on one hand, it connects us across distances; on the other, it harms mental health.' Farklı hedge, aynı görüş.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Some people argue social media is far worse than traditional media. Would you agree?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that('s| is) a (compelling|fair|interesting)) (point|argument)",
+            "(I('m| am) (not (entirely|fully) )?sure|I('d| would) hesitate to (fully )?agree)",
+            "(from my perspective|in all honesty|to my mind)",
+            "(there are (parallels|similarities) (with|between))",
+            "(albeit|although|while) (the (scale|reach|speed))",
+            "(by and large|on the whole)",
+          ],
+          hint_tr:
+            "Üçüncü hedge — disagree politely: 'That's a compelling point, but from my perspective, I'd hesitate to fully agree. There are parallels with traditional media, albeit the scale is far greater now.' Polite disagreement = band 8.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "And how do you think this will evolve in the next decade?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that('s| is) (anyone's |a tough |an interesting )?(guess|question|one))",
+            "(I would say|I('d| would) argue|my (gut |best )?guess (is|would be))",
+            "(regulation|AI|VR|generative)",
+            "(albeit|although)",
+            "(I('m| am) (cautiously |reasonably )?(optimistic|sceptical))",
+          ],
+          hint_tr:
+            "Son hedge — speculation: 'That's anyone's guess, but my best guess would be that regulation will catch up, albeit slowly. I'm cautiously optimistic.' 4 farklı hedge boyunca = NO 'I think'.",
+        },
+        {
+          speaker: "npc",
+          message: "Thank you, that concludes the test.",
+        },
+      ],
+    },
+    {
+      id: "ex.ielts16.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "To be honest with you, personally speaking, I'd argue that's a compelling point.",
+      tr_hint:
+        "Üç hedge kalıbının zincirlenmesi — Part 3 zorlanma anında düşünme süresi alır. Ritim: 'to be HONest with you' (virgül) 'PERSonally speaking' (virgül) 'I'd ARGue that's a comPELLing point'. Her hedge kendi vurgu kalıbına sahip — robotik söyleme, doğal duraklamalar bırak.",
+    },
+    {
+      id: "ex.ielts16.8",
+      type: "recap_quiz",
+      difficulty: 4,
+      questions: [
+        {
+          question:
+            "Bir adayın her cevabı 'I think' ile başlıyor. Band tavanı ne olur?",
+          options: [
+            "Band 9 — açık, net iletişim.",
+            "Band 6 civarı — sınırlı kelime çeşitliliği, klişe sinyali.",
+            "Band 8 — basit ama doğru.",
+            "Band 5 — gramer yanlış.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'I think' yanlış değil, ama tekrarı 'lexical resource' kriterinde tavan band 6'da kalmaya yeter. Examiner çeşitlilik arar: 'I'd argue', 'In my view', 'Personally speaking', 'To be honest'.",
+        },
+        {
+          question:
+            "Examiner zor bir soru sordu, hemen cevap aklına gelmedi. Band 7+ stratejisi?",
+          options: [
+            "Sus ve düşün — sessizlik dolduruyor.",
+            "'Umm... ahh...' diyerek uzat.",
+            "'That's a tricky one. To be honest with you, I hadn't really considered that before, but I would say...' — dolgu kalıbı + düşünme.",
+            "'I don't know' de ve sus.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Sessizlik = fluency cezası. Dolgu kalıpları ('That's a tricky one', 'To be honest with you', 'I hadn't really considered that') düşünme süresi kazandırır, doğal akıcılık sergiler. Band 7+ gerçek hayatta da kullanır.",
+        },
+        {
+          question:
+            "'Personally speaking' ve 'I'd argue that' arasındaki nüans?",
+          options: [
+            "İkisi de aynı, fark yok.",
+            "'Personally speaking' kişisel görüş yumuşatıcısı; 'I'd argue that' daha analitik, kanıt destekli iddia sinyali.",
+            "'Personally speaking' yanlış İngilizce.",
+            "'I'd argue' agresif, kavga başlatır.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Personally speaking' = subjektif tat ('benim için'). 'I'd argue that' = argümantatif tat ('savunabilirim ki'). Part 3'te ikisini değiştirerek kullan — register zenginliği band 8.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
 // Lesson registry
 // ============================================================
 export const testIeltsSpeakingLessons: BundledLesson[] = [
@@ -2907,4 +3759,8 @@ export const testIeltsSpeakingLessons: BundledLesson[] = [
   ieltsSpeakingLesson_10,
   ieltsSpeakingLesson_11,
   ieltsSpeakingLesson_12,
+  ieltsSpeakingLesson_13,
+  ieltsSpeakingLesson_14,
+  ieltsSpeakingLesson_15,
+  ieltsSpeakingLesson_16,
 ];

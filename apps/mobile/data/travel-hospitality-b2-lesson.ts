@@ -2387,6 +2387,1072 @@ export const travelB2Lesson_10: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 11 — Luxury Hotel Concierge (Advanced)
+// ============================================================
+export const travelB2Lesson_11: BundledLesson = {
+  id: "travel.b2.concierge.advanced.1",
+  skill_id: "travel.b2",
+  index: 11,
+  title: "Yüksek Sınıf Otel — Concierge İleri",
+  description:
+    "Five-star otel concierge'i ile araba, restoran rezervasyonu ve özel deneyim ayarla. Discreet, tailored, complimentary diliyle konuş.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.tb2.11.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "Could you arrange a car for",
+      tr_translation: "Şu saat için bir araç ayarlayabilir misiniz",
+      example:
+        "Could you arrange a car for 7:30 to take us to Le Bernardin? Something discreet, please.",
+      example_tr:
+        "Le Bernardin'e gitmek için 7:30'a bir araç ayarlayabilir misiniz? Lütfen göze batmayan bir şey olsun.",
+    },
+    {
+      id: "ex.tb2.11.2",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Bu akşam saat 8 için Le Bernardin'e iki kişilik bir masa ayarlayabilir misiniz? Mümkünse pencere kenarı tercih ederim. Ayrıca otelden 7:30'da bizi alacak göze batmayan bir araç rica ediyorum.",
+      target:
+        "Could you arrange a table for two at Le Bernardin for 8 this evening? A window seat if at all possible. I'd also like to request a discreet car from the hotel to collect us at 7:30.",
+      accepted_variants: [
+        "Could you secure a table for two at Le Bernardin at 8 tonight? Ideally a window seat. And could you arrange a discreet car to pick us up at 7:30 from the hotel?",
+        "Would you be able to book a table for two at Le Bernardin for 8 pm? A window table would be lovely. I'd also appreciate a discreet car at 7:30.",
+        "I'd like a table for two at Le Bernardin at 8 this evening — a window seat if you can manage it. Could you also arrange a discreet car to collect us at 7:30?",
+        "Could you arrange a table for two at Le Bernardin for 8 o'clock tonight, preferably by the window? And a discreet car from the hotel at 7:30, please.",
+      ],
+      tr_hint:
+        "Concierge dili: 'Could you arrange / secure / book' + 'if at all possible' + 'I'd also like to request'. 'Discreet' = göze batmayan. Tek nefeste tüm istek paketi.",
+    },
+    {
+      id: "ex.tb2.11.3",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "What's the ___ code at Le Bernardin — is a jacket required, or smart casual acceptable?",
+      answer: "dress",
+      distractors: ["clothes", "outfit", "attire", "wear"],
+      tr_hint:
+        "'Dress code' sabit kalıp. 'Jacket required' = ceket şart. 'Smart casual' = şık günlük. Concierge restoran nezaketini bilir.",
+    },
+    {
+      id: "ex.tb2.11.4",
+      type: "word_order",
+      difficulty: 5,
+      scrambled_tokens: [
+        "Could",
+        "you",
+        "arrange",
+        "a",
+        "tailored",
+        "experience",
+        "for",
+        "our",
+        "anniversary",
+        "evening",
+      ],
+      correct_sentence:
+        "Could you arrange a tailored experience for our anniversary evening",
+      tr_translation:
+        "Yıldönümü akşamımız için bize özel hazırlanmış bir deneyim ayarlayabilir misiniz?",
+    },
+    {
+      id: "ex.tb2.11.5",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Make me reservation good restaurant tonight. Also I need car.",
+      correct_sentence:
+        "Could you arrange a reservation for two at a fine-dining restaurant tonight — somewhere quiet, ideally? And a discreet car at 7:30, please.",
+      tr_explanation:
+        "'Make me reservation' = komut + eksik artikel, concierge'e kaba. Türkçe doğrudan çeviri tuzağı. 'Could you arrange a reservation for...?' + sıfat ('fine-dining', 'quiet') + ikinci istek ayrı cümle. 'I need car' yerine 'I'd appreciate' veya 'Could you arrange'.",
+    },
+    {
+      id: "ex.tb2.11.6",
+      type: "roleplay_chat",
+      difficulty: 6,
+      scenario_description:
+        "Five-star otelin concierge masasındasın. Yıldönümün için akşamı planla — restoran, araç, ekstra dokunuş.",
+      npc_role: "Hotel Concierge",
+      setting: "Concierge desk at a luxury hotel, late afternoon",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Good afternoon. How may I be of service this evening?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(good afternoon|thanks|thank you)",
+            "(could|would) you (arrange|help|assist).{0,40}(anniversary|special|dinner)",
+            "(i'?d like|i would like|i'?m hoping) to (arrange|plan|put together)",
+            "(fine[- ]?dining|tasting menu|window (seat|table))",
+          ],
+          hint_tr:
+            "Aç + bağlam: 'Good afternoon. I'd like to arrange a special evening — it's our anniversary. Could you help me put something together?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Congratulations — happy to help. Do you have a cuisine or restaurant in mind, or shall I suggest?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(le bernardin|french|italian|tasting menu|seafood)",
+            "(could|would) you (recommend|suggest)",
+            "(somewhere|something) (quiet|discreet|intimate|with a view)",
+            "(table for two|two of us)",
+            "(window (seat|table))",
+          ],
+          hint_tr:
+            "Tercih + nitelik: 'I had Le Bernardin in mind — a table for two, ideally by the window. Somewhere quiet, intimate if possible.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Excellent choice. They tend to book out, but I have a contact there. What time were you thinking?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(around |about )?(7|7:30|8|8:30|eight|seven thirty)",
+            "(\\d{1,2}(:\\d{2})?\\s*(pm|in the evening|tonight))",
+            "(what'?s|what is) the dress code",
+            "(jacket required|black tie|smart casual)",
+          ],
+          hint_tr:
+            "Saat + ek soru: '8 o'clock would be ideal. And quickly — what's the dress code? Jacket required, or smart casual acceptable?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Jacket required, no tie needed. I'll secure 8 pm for you. Shall I arrange transport as well?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|please|that would be|i'?d appreciate)",
+            "(could|would) you arrange (a |the )?(car|driver|vehicle)",
+            "(discreet|low[- ]?key|nothing flashy|something understated)",
+            "(7:30|seven thirty|half past seven|thirty minutes before)",
+          ],
+          hint_tr:
+            "Onayla + spesifik: 'Yes, please. Could you arrange a discreet car for 7:30 — nothing too flashy?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Of course. A black sedan, our regular driver Marco — very discreet. Anything else to make the evening special?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(actually|yes|now that you mention)",
+            "(could|would) you (arrange|organise|put together)",
+            "(flowers|champagne|complimentary|something) (in the room|waiting)",
+            "(tailored|personal|bespoke) (experience|touch)",
+          ],
+          hint_tr:
+            "Ekstra dokunuş: 'Actually, yes — could you arrange a small bouquet and a bottle of champagne to be waiting in the room when we return? Something tailored, if possible.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "A lovely touch. I'll have our florist prepare white peonies and chill a bottle of Ruinart Blanc de Blancs. Complimentary, with our compliments for the occasion.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that'?s (incredibly|extremely|very) (kind|generous|thoughtful))",
+            "(thank you|much appreciated|i'?m truly grateful)",
+            "(could (you|i) (get|have) (a |the )?(confirmation|note|details))",
+            "(send|email|message).{0,15}(room|me)",
+          ],
+          hint_tr:
+            "Zarif teşekkür + onay iste: 'That's incredibly kind — thank you. Could you send the confirmations to my room so I have everything in one place?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Absolutely. You'll find a printed itinerary in your suite within the hour. Enjoy your evening, sir.",
+        },
+      ],
+    },
+    {
+      id: "ex.tb2.11.7",
+      type: "recap_quiz",
+      difficulty: 5,
+      questions: [
+        {
+          question: "Concierge'den araç isterken en doğal kalıp hangisi?",
+          options: [
+            "Bring me a car right now.",
+            "I need car for restaurant.",
+            "Could you arrange a discreet car for 7:30, please?",
+            "Give me taxi.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Could you arrange' + 'discreet' (göze batmayan) + saat = concierge nezaketi. Komut formu high-end ortamda yer almaz.",
+        },
+        {
+          question: "Restoran rezervasyonunda 'dress code' nedir?",
+          options: [
+            "Şifre",
+            "Restoran kuralı (telefon)",
+            "Kıyafet kuralı (ceket vs. günlük)",
+            "Rezervasyon kodu",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Dress code' = kıyafet kuralı. 'Jacket required' = ceket şart. Sormak akıllıca — kapıdan dönmek istemezsin.",
+        },
+        {
+          question: "'Complimentary' ne anlama gelir?",
+          options: [
+            "Övgü dolu",
+            "Ücretsiz / otelin ikramı",
+            "Ekstra ödeme",
+            "Sınırlı sayıda",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Complimentary' = ikram, otelin hediyesi (faturada görünmez). High-end hospitality temel kelimesi.",
+        },
+        {
+          question:
+            "Eşinle özel akşam için concierge'e en uygun istek nasıl başlar?",
+          options: [
+            "Make me reservation good restaurant.",
+            "I'd like to arrange a tailored experience for our anniversary evening.",
+            "Where can I eat tonight?",
+            "Give me list of restaurants.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Tailored experience' (size özel deneyim) + bağlam (anniversary) = concierge anlamlı plan yapar. Diğerleri ya kaba ya da yetersiz bilgi içerir.",
+        },
+      ],
+    },
+    {
+      id: "ex.tb2.11.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase:
+        "Could you arrange a discreet car and a tailored experience for our anniversary evening?",
+      ipa: "/kʊd jʊ əˈreɪndʒ ə dɪsˈkriːt kɑːr ænd ə ˈteɪləd ɪkˈspɪərɪəns fər aʊər ˌænɪˈvɜːsəri ˈiːvnɪŋ/",
+      tr_hint:
+        "Concierge altın cümlesi. 'Discreet' /dɪsˈkriːt/ (gizli/göze batmayan) — 'discrete' (ayrı) ile karıştırma. 'Tailored' = uyarlanmış. Akıcı, alçak sesle — high-end ton.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 12 — Wine Pairing (Advanced Restaurant)
+// ============================================================
+export const travelB2Lesson_12: BundledLesson = {
+  id: "travel.b2.winepairing.1",
+  skill_id: "travel.b2",
+  index: 12,
+  title: "Wine Pairing — Restoran İleri",
+  description:
+    "Fine-dining restoranda sommelier ile şarap eşleştir. Tannic, dry, full-bodied, complementary terimleriyle yemekle uyumlu bir şarap iste.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.tb2.12.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "What pairs well with",
+      tr_translation: "Hangi şarap … ile iyi gider",
+      example:
+        "What pairs well with the dry-aged ribeye — something bold, but not overly tannic?",
+      example_tr:
+        "Kuru dinlendirilmiş antrikotla hangi şarap iyi gider — gövdeli ama fazla tanenli olmayan bir şey?",
+    },
+    {
+      id: "ex.tb2.12.2",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Antrikotumla iyi gidecek bir şey öneririr misiniz? Kuru bir kırmızı tercih ederim — gövdeli ama çok tanenli olmasın. Şişe başına 100 euro civarı bir bütçem var.",
+      target:
+        "Could you recommend something that would pair well with my ribeye? I'd prefer a dry red — full-bodied but not too tannic. I have a budget of around 100 euros a bottle.",
+      accepted_variants: [
+        "What would you recommend to pair with my ribeye? Something dry, full-bodied, but not overly tannic — and around 100 euros a bottle, ideally.",
+        "I'd love a wine recommendation for the ribeye — dry, full-bodied, on the lighter side of tannic. My budget is roughly 100 euros per bottle.",
+        "What pairs well with the ribeye? Something dry, not too tannic, with a bit of body. I'm looking at around 100 euros a bottle.",
+        "Could you suggest a pairing for the ribeye? Dry red, full-bodied, low on tannins if possible. Budget is around 100 euros.",
+      ],
+      tr_hint:
+        "Sommelier dili: 'What pairs well with' / 'Could you recommend' + tarz (dry, full-bodied, tannic) + bütçe. Bütçeyi nazikçe söyle — sommelier seni yönlendirir.",
+    },
+    {
+      id: "ex.tb2.12.3",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "I'd like something ___, not too tannic — perhaps a Burgundy or a lighter Rhône.",
+      answer: "dry",
+      distractors: ["sweet", "sparkling", "fortified", "still"],
+      tr_hint:
+        "Şarap sıfatları: dry = kuru (şeker yok), sweet = tatlı, sparkling = köpüklü. Et yemeğine 'dry' standart eşleşme. 'Not too tannic' = aşırı buruk olmasın.",
+    },
+    {
+      id: "ex.tb2.12.4",
+      type: "word_order",
+      difficulty: 5,
+      scrambled_tokens: [
+        "Something",
+        "dry",
+        "and",
+        "full-bodied",
+        "but",
+        "not",
+        "overly",
+        "tannic",
+        "please",
+      ],
+      correct_sentence:
+        "Something dry and full-bodied but not overly tannic please",
+      tr_translation:
+        "Kuru ve gövdeli ama aşırı tanenli olmayan bir şey, lütfen.",
+    },
+    {
+      id: "ex.tb2.12.5",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Give me strong red wine. Not sweet. Cheap one is okay.",
+      correct_sentence:
+        "Could you suggest a dry red that pairs well with the steak — full-bodied but not overly tannic? Mid-range is fine.",
+      tr_explanation:
+        "'Give me' = komut, sommelier'i küçümser. 'Strong' yerine 'full-bodied' (gövdeli) — şarap dili. 'Cheap one is okay' kaba; 'mid-range is fine' (orta segment yeterli) zarif. Sommelier kategori sinyali alır, snobluk değil.",
+    },
+    {
+      id: "ex.tb2.12.6",
+      type: "roleplay_chat",
+      difficulty: 6,
+      scenario_description:
+        "Fine-dining restoran. Sommelier şarap listesini açtı — kendi yemeğin ve eşinin yemeğine eşleşen şarap iste, sonra tatma turundan sonra ısmarla.",
+      npc_role: "Sommelier",
+      setting: "Michelin-starred restaurant, before dinner is served",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Good evening. May I help you with the wine list this evening?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(good evening|thanks|thank you|please)",
+            "(yes|i'?d (love|appreciate)|could you)",
+            "(recommend|suggest|help me) (a |with a |something)",
+            "(pairing|pair (well|nicely))",
+          ],
+          hint_tr:
+            "Aç + yardım iste: 'Good evening, thank you. Yes, I'd appreciate a recommendation — could you suggest a pairing?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Of course. What are you both ordering tonight?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?m having|i ordered|i went for) (the )?(ribeye|steak|duck|lamb|venison)",
+            "(my (wife|husband|partner) (is having|chose|ordered))",
+            "(the |a )(scallops|sea bass|halibut|salmon|risotto)",
+            "(one (red|white)|two different)",
+          ],
+          hint_tr:
+            "Yemekleri özetle: 'I'm having the ribeye, and my partner went for the scallops. So we'd ideally need two different pairings — one red, one white.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "A classic challenge. Let's start with the red. What style appeals — Bordeaux, Burgundy, something New World?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(something|i'?d (prefer|like)) (dry|full[- ]?bodied)",
+            "(not too|nothing too|on the lighter side of) (tannic|heavy|oaky)",
+            "(burgundy|pinot|barolo|chianti|rhône|rhone)",
+            "(\\d{2,3}.{0,10}(euro|euros|a bottle|per bottle))",
+          ],
+          hint_tr:
+            "Stil + bütçe: 'Something dry and full-bodied — but not overly tannic. Maybe a Burgundy? Budget around 100 euros a bottle, ideally.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I have a 2018 Gevrey-Chambertin at 95 euros — beautiful with red meat, structured but rounded. Worth trying?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sounds (great|perfect|lovely)|that works)",
+            "(could|may) (i|we) (try|taste) (a |it )",
+            "(yes|please|let'?s) (try|go with|do that)",
+            "(what about|now for) the (white|scallops)",
+          ],
+          hint_tr:
+            "Kabul + tatma + sırada beyaz: 'That sounds lovely — could we try a taste? And what would you suggest for the scallops?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Absolutely. For the scallops, I'd suggest a Chablis — crisp, mineral, no oak. Around 70 euros. Shall I bring both for tasting?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(please|yes|that would be (lovely|great)|sounds (perfect|great))",
+            "(both|together|side by side)",
+            "(any food (notes|pairings)|with the bread)",
+            "(thank you|much appreciated)",
+          ],
+          hint_tr:
+            "Onayla: 'Yes, please — both for tasting would be lovely. Thank you.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "*pours tasting of the red* What do you think?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(beautiful|lovely|wonderful|excellent|perfect)",
+            "(let'?s|i'?ll|we'?ll) (go with|take|have) (it|the gevrey|the burgundy)",
+            "(rich|elegant|silky|smooth)",
+            "(could you|please) (decant|breathe|open)",
+          ],
+          hint_tr:
+            "Onay + ısmarla + opsiyonel decant: 'Beautiful — silky and elegant. Let's go with it. Could you decant it, please?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "An excellent choice. I'll decant it now and bring the Chablis chilled when the scallops arrive.",
+        },
+      ],
+    },
+    {
+      id: "ex.tb2.12.7",
+      type: "recap_quiz",
+      difficulty: 5,
+      questions: [
+        {
+          question: "'Tannic' şarap için ne anlama gelir?",
+          options: [
+            "Tatlı",
+            "Köpüklü",
+            "Buruk / dilde kuruluk bırakan",
+            "Soğuk servis edilen",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Tannic' = tanen yüksek (üzüm kabuğundan), dilde buruk/kuru his. Genç kırmızılarda yaygın. Etle dengelenir.",
+        },
+        {
+          question:
+            "'Full-bodied' ne demek?",
+          options: [
+            "Hacimli şişe",
+            "Yoğun, gövdeli ağız hissi",
+            "Sulandırılmış",
+            "Aromasız",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Full-bodied' = ağızda dolgun, yoğun hisseden şarap (örnek: Cabernet, Syrah). Karşıtı 'light-bodied' (Pinot Noir genelde).",
+        },
+        {
+          question:
+            "Sommelier'e bütçe söylemenin en zarif yolu?",
+          options: [
+            "Cheap wine, please.",
+            "I don't want to pay much.",
+            "Budget around 100 euros a bottle, ideally.",
+            "Show me the cheapest.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Budget around X, ideally' = sınır net ama esnek. Sommelier kategori içinde en iyiyi getirir. 'Cheap' kaba ve şarap kalitesi sinyali değil.",
+        },
+        {
+          question:
+            "Etle eşleşen klasik şarap stili?",
+          options: [
+            "Sweet sparkling rosé",
+            "Dry, full-bodied red",
+            "Off-dry Riesling",
+            "Sweet dessert wine",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Kırmızı et + kuru, gövdeli kırmızı şarap = klasik eşleşme. Yağı tanen keser. Tatlı veya köpüklü çok özel durum.",
+        },
+      ],
+    },
+    {
+      id: "ex.tb2.12.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase:
+        "Something dry and full-bodied, but not too tannic — perhaps a Burgundy?",
+      ipa: "/ˈsʌmθɪŋ draɪ ænd fʊl ˈbɒdid bʌt nɒt tuː ˈtænɪk pəˈhæps ə ˈbɜːɡəndi/",
+      tr_hint:
+        "Sommelier'e net brief. 'Tannic' /ˈtænɪk/ — 'tanik' değil. 'Burgundy' /ˈbɜːɡəndi/ — 'burgundi' değil. Akıcı, kararlı — şarap dilinde rahatsın sinyali.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 13 — Spa & Wellness Booking
+// ============================================================
+export const travelB2Lesson_13: BundledLesson = {
+  id: "travel.b2.spa.1",
+  skill_id: "travel.b2",
+  index: 13,
+  title: "Spa & Wellness Booking",
+  description:
+    "Otel spa'sında deep tissue masaj rezervasyonu yap. Kontraendikasyonları sor, basınç tercihini ilet, paket ekstralarını değerlendir.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.tb2.13.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "I'd like to book a deep tissue",
+      tr_translation: "Bir derin doku (masajı) ayırtmak istiyorum",
+      example:
+        "I'd like to book a deep tissue for tomorrow afternoon — 90 minutes if available.",
+      example_tr:
+        "Yarın öğleden sonraya bir derin doku masajı ayırtmak istiyorum — mümkünse 90 dakika.",
+    },
+    {
+      id: "ex.tb2.13.2",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Yarın öğleden sonra için 90 dakikalık bir derin doku masajı ayırtmak istiyorum. Bel bölgemde kronik bir gerginlik var — kontraendikasyon var mı? Ayrıca terapistin baskı tercihimi (sert) bilmesini rica ederim.",
+      target:
+        "I'd like to book a 90-minute deep tissue massage for tomorrow afternoon. I have chronic tension in my lower back — are there any contraindications I should be aware of? I'd also appreciate it if the therapist could be made aware of my pressure preference: firm.",
+      accepted_variants: [
+        "Could I book a 90-minute deep tissue for tomorrow afternoon? I've got chronic lower-back tension — anything I should know in terms of contraindications? And please let the therapist know I prefer firm pressure.",
+        "I'd like to schedule a 90-minute deep tissue tomorrow afternoon. There's chronic tension in my lower back — are there any contraindications? Also, could you flag my pressure preference as firm?",
+        "Could you book me in for a 90-minute deep tissue tomorrow afternoon? I have chronic lower-back tension — any contraindications to consider? I'd like the therapist to know I prefer firm pressure.",
+        "I'd like to arrange a 90-minute deep tissue session for tomorrow afternoon. With chronic lower-back tension, are there contraindications to flag? And please note my pressure preference: firm.",
+      ],
+      tr_hint:
+        "Spa dili: 'book / schedule' + süre + 'contraindications' (sağlık engelleri) + 'pressure preference' (baskı tercihi). 'Make aware' = bilgilendirilsin. Sağlık + tercih iki ayrı katmandır.",
+    },
+    {
+      id: "ex.tb2.13.3",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "Are there any ___ I should be aware of, given my chronic lower-back tension?",
+      answer: "contraindications",
+      distractors: ["restrictions", "warnings", "exceptions", "limitations"],
+      tr_hint:
+        "'Contraindications' = sağlık nedeniyle kaçınılması gereken durumlar (tıbbi terim). 'Restrictions' genel, 'contraindications' spa/medikal spesifik.",
+    },
+    {
+      id: "ex.tb2.13.4",
+      type: "word_order",
+      difficulty: 5,
+      scrambled_tokens: [
+        "Please",
+        "let",
+        "the",
+        "therapist",
+        "know",
+        "I",
+        "prefer",
+        "firm",
+        "pressure",
+      ],
+      correct_sentence:
+        "Please let the therapist know I prefer firm pressure",
+      tr_translation:
+        "Lütfen terapiste sert baskı tercih ettiğimi iletin.",
+    },
+    {
+      id: "ex.tb2.13.5",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "I want massage tomorrow. Make hard please. My back hurts from long time.",
+      correct_sentence:
+        "I'd like to book a 90-minute deep tissue for tomorrow. I prefer firm pressure — and I should mention I've had chronic lower-back pain for some time. Any contraindications to flag?",
+      tr_explanation:
+        "'I want massage' = komut + eksik artikel. 'Hard' yerine 'firm' (spa terimi — 'hard' kabaca). 'From long time' yanlış preposition; 'for some time' veya 'for years' doğru. Sağlık sorunu = 'I should mention + contraindications' diye sor, yetkili bilgilendirilir.",
+    },
+    {
+      id: "ex.tb2.13.6",
+      type: "roleplay_chat",
+      difficulty: 6,
+      scenario_description:
+        "Otel spa resepsiyonu. Yarın için derin doku masajı al; sağlık geçmişini paylaş, paket eklerini değerlendir.",
+      npc_role: "Spa Receptionist",
+      setting: "Hotel spa reception, mid-morning",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Good morning, welcome to the spa. How can I help you today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(good morning|hi|thanks|thank you)",
+            "(i'?d like to|i would like to|could i) (book|schedule|arrange)",
+            "(deep tissue|massage|treatment)",
+            "(tomorrow|this afternoon|for \\d)",
+          ],
+          hint_tr:
+            "Aç + spesifik istek: 'Good morning. I'd like to book a deep tissue massage for tomorrow afternoon, if you have availability.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Of course. What duration — 60 or 90 minutes?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(90|ninety)",
+            "(let'?s|i'?d (go for|prefer|take)) the (longer|90)",
+            "(if (it'?s|that'?s) available|if you can fit me in)",
+            "(closer to|around) (2|3|4) (pm|in the afternoon)",
+          ],
+          hint_tr:
+            "Süre + saat: '90 minutes, please — closer to 3 in the afternoon if you can fit me in.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I have 2:30 with Elena, our senior therapist. Before I book, do you have any health conditions or recent injuries?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|actually|i should mention)",
+            "(chronic|long[- ]?standing|ongoing) (lower[- ]?back|back) (tension|pain|tightness)",
+            "(are there any|i wanted to ask about) contraindications",
+            "(no recent injuries|nothing acute)",
+          ],
+          hint_tr:
+            "Sağlık şeffaf: 'Yes — I have chronic lower-back tension, no acute injuries. Are there any contraindications I should be aware of for deep tissue?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Nothing that would prevent the session — Elena will adjust pressure around the lumbar area. Any pressure preference overall?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(firm|strong) (pressure|throughout)",
+            "(i (prefer|tend to|like) (firm|strong))",
+            "(could you|please) let (her|the therapist) know",
+            "(but) (gentler|lighter) (around|on) (the back|lumbar)",
+          ],
+          hint_tr:
+            "Tercih + nüans: 'I prefer firm pressure overall, but lighter around the lower back. Could you let Elena know in advance?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Noted on her brief. Would you like to add the hammam circuit beforehand — steam, sauna, plunge? It's 40 euros extra.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that sounds (lovely|good)|i'?d love that|yes please)",
+            "(how long|how much time)",
+            "(could you|would you) (also|please) (include|add)",
+            "(no thank you|i'?ll (skip|pass)|not this time)",
+          ],
+          hint_tr:
+            "Kabul + ek soru: 'That sounds lovely — how much time should I allow for the circuit beforehand?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Forty-five minutes is ideal. So arrive at 1:30, circuit till 2:15, then your massage at 2:30. Shall I lock that in?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(please|yes|let'?s|go ahead)",
+            "(charge|bill) (it to|the room)",
+            "(could (you|i) (get|have) a confirmation)",
+            "(what'?s the (cancellation|change) policy)",
+          ],
+          hint_tr:
+            "Onayla + ekstra detay: 'Please lock it in. Charge it to the room, and could I get a confirmation? Quick one — what's the cancellation policy?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Confirmed and emailed to you. Free cancellation up to 4 hours before. See you at 1:30 tomorrow.",
+        },
+      ],
+    },
+    {
+      id: "ex.tb2.13.7",
+      type: "recap_quiz",
+      difficulty: 5,
+      questions: [
+        {
+          question: "'Contraindications' ne demek?",
+          options: [
+            "Ekstra ücretler",
+            "Tedavinin sakıncalı olduğu durumlar",
+            "Personel önerileri",
+            "İndirimler",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Contraindications' = sağlık durumu nedeniyle tedaviyi sakıncalı yapan durumlar (örnek: hamilelik + bazı masajlar). Spa/tıp standardı kelime.",
+        },
+        {
+          question:
+            "Masajda baskı tercihi için en doğal kelime?",
+          options: [
+            "Hard",
+            "Strong",
+            "Firm",
+            "Heavy",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Firm pressure' spa terminolojisi standardı. 'Hard' kabaca, 'strong' belirsiz, 'heavy' yanlış. Karşıtı 'light' veya 'gentle'.",
+        },
+        {
+          question:
+            "Spa'da sağlık geçmişini paylaşmaya en uygun başlangıç?",
+          options: [
+            "Nothing wrong with me, just relax.",
+            "I should mention I have chronic lower-back tension.",
+            "My back hurts, fix it.",
+            "Don't worry about my health.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'I should mention' = sakince, profesyonelce bilgilendirme. Terapist tedavi planını uyarlayabilir. Gizlemek tehlikeli, agresif iletmek garip.",
+        },
+        {
+          question:
+            "'Hammam circuit' ne anlama gelir?",
+          options: [
+            "Tek bir masaj türü",
+            "Buhar + sauna + soğuk havuz rotası",
+            "Şehir turu",
+            "Spor seansı",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Hammam circuit' = ısı (buhar/sauna) + soğuk (havuz) rotasyonu. Genelde masajdan önce yapılır — kasları gevşetir.",
+        },
+      ],
+    },
+    {
+      id: "ex.tb2.13.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase:
+        "Are there any contraindications I should be aware of, given my chronic lower-back tension?",
+      ipa: "/ɑːr ðər ˈɛni ˌkɒntrəɪndɪˈkeɪʃənz aɪ ʃʊd biː əˈweər ɒv ˈɡɪvən maɪ ˈkrɒnɪk ˈləʊər bæk ˈtɛnʃən/",
+      tr_hint:
+        "Spa şeffaflık altın cümlesi. 'Contraindications' uzun ama tek nefeste — vurgu 'ka' hecesinde. 'Given' = 'göz önünde bulundurarak'. Sağlık sinyali profesyonel.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 14 — Hotel Complaint + Compensation Request
+// ============================================================
+export const travelB2Lesson_14: BundledLesson = {
+  id: "travel.b2.complaint.compensation.1",
+  skill_id: "travel.b2",
+  index: 14,
+  title: "Otel Şikayeti — Kompansasyon İste",
+  description:
+    "Beklenen standartların altında bir konaklamadan sonra otel yönetimine assertive-polite şikayet et ve somut kompansasyon (bill iadesi, upgrade, bonus night) iste.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.tb2.14.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "Given the inconvenience",
+      tr_translation: "Yaşanan rahatsızlık göz önüne alındığında",
+      example:
+        "Given the inconvenience, I'd like to discuss what can be reflected on my bill.",
+      example_tr:
+        "Yaşanan rahatsızlık göz önüne alındığında, faturama nasıl yansıyabileceğini görüşmek istiyorum.",
+    },
+    {
+      id: "ex.tb2.14.2",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Üç gün boyunca odamın klimasının çalışmadığını, iki kez şikayet etmeme rağmen tamir edilmediğini ve dün geceyi başka bir odada geçirmek zorunda kaldığımı belirtmek isterim. Yaşanan rahatsızlık göz önüne alındığında, bunun faturama nasıl yansıyabileceğini görüşmek istiyorum.",
+      target:
+        "I'd like to flag that the air-conditioning in my room hasn't worked for three days, despite two separate complaints, and I had to spend last night in a different room. Given the inconvenience, I'd like to discuss how this could be reflected on my bill.",
+      accepted_variants: [
+        "I want to flag that the AC in my room has been broken for three days, even after two complaints, and I ended up sleeping in a different room last night. Given the disruption, could we discuss what might be reflected on the bill?",
+        "I'd like to raise a concern — the air-conditioning has been out for three days, despite two complaints, and I had to relocate last night. Given the inconvenience, what could be reflected on my final bill?",
+        "I'd like to bring something to your attention: the AC in my room has been broken for three days, I've complained twice, and I had to move rooms last night. Given the inconvenience, I'd like to discuss compensation.",
+        "I need to flag a concern. My AC has been broken for three days despite two complaints, and I was relocated last night. Given the inconvenience, could that be reflected on my bill?",
+      ],
+      tr_hint:
+        "Şikayet yapısı: olgu (3 gün) + çaba (2 kez şikayet) + sonuç (oda değiştirdim) + 'Given the inconvenience' + somut talep ('reflected on my bill'). Duygusal değil, kanıt + hak.",
+    },
+    {
+      id: "ex.tb2.14.3",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "Could that be ___ on my bill — perhaps a partial refund or a complimentary upgrade on my next stay?",
+      answer: "reflected",
+      distractors: ["written", "shown", "listed", "noted"],
+      tr_hint:
+        "'Reflected on the bill' sabit kalıp = faturaya yansıtmak (indirim olarak). 'Written / shown' yetersiz. Otel yönetimi bu dili duyduğunda kompansasyon kanalına geçer.",
+    },
+    {
+      id: "ex.tb2.14.4",
+      type: "word_order",
+      difficulty: 5,
+      scrambled_tokens: [
+        "Given",
+        "the",
+        "inconvenience",
+        "could",
+        "that",
+        "be",
+        "reflected",
+        "on",
+        "my",
+        "bill",
+      ],
+      correct_sentence:
+        "Given the inconvenience could that be reflected on my bill",
+      tr_translation:
+        "Yaşanan rahatsızlık göz önüne alındığında, bu faturama yansıtılabilir mi?",
+    },
+    {
+      id: "ex.tb2.14.5",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Your hotel is terrible! AC broken three days, I want my money back now!",
+      correct_sentence:
+        "I'd like to flag a concern. The AC in my room hasn't worked for three days despite two complaints. Given the inconvenience, could we discuss how that's reflected on my bill?",
+      tr_explanation:
+        "'Your hotel is terrible' = personal saldırı, kapıyı kapatır. 'I want my money back now' agresif komut. Profesyonel formül: 'flag a concern' + olgu + 'despite' + 'Given the inconvenience' + 'could we discuss'. Aynı talep ama kanalın doğru kapısı.",
+    },
+    {
+      id: "ex.tb2.14.6",
+      type: "roleplay_chat",
+      difficulty: 6,
+      scenario_description:
+        "Otel front desk müdürü ile yüz yüze görüşüyorsun. Klima 3 gün arızalı, 2 şikayetin görmezden gelindi, dün gece oda değiştirmek zorunda kaldın. Somut kompansasyon iste.",
+      npc_role: "Hotel Front Desk Manager",
+      setting: "Hotel lobby, day of check-out",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Good morning, hope you've had a pleasant stay. Ready to check out?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(good morning|thanks|thank you)",
+            "(before (we|i) (do|check out|finalise))",
+            "(i'?d like to flag|i need to (raise|flag))",
+            "(a concern|a few concerns|an issue)",
+          ],
+          hint_tr:
+            "Zarif kesinti: 'Good morning. Before we finalise the check-out, I'd like to flag a concern about my stay.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Of course — I'm sorry to hear that. What happened?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the (a/?c|air[- ]?conditioning)) (hasn'?t|has not|wasn'?t) (worked|been working)",
+            "(for|over) (three|3) (days|nights)",
+            "(despite|even after) (two|2|several|repeated) complaints",
+            "(i had to|i ended up) (move|relocate|sleep)",
+          ],
+          hint_tr:
+            "Olgular: 'The air-conditioning hasn't worked for three days, despite two separate complaints. Last night I had to move to a different room entirely.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "That's not the standard we aim for. I do apologise. Can you confirm the room number and the dates?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(room|it'?s|it was) (\\d{3,4}|four[- ]?fifteen|four fifteen)",
+            "(from|since|between) (monday|tuesday|wednesday|the \\d)",
+            "(i (logged|reported|raised)) (it )?(twice|on monday|with reception)",
+            "(i'?ve|i have) (got|kept) (the )?(complaint|ticket|reference)",
+          ],
+          hint_tr:
+            "Detay + kanıt: 'Room 415, since Monday. I reported it twice with reception — I've kept the complaint reference numbers.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Thank you, that's very helpful. We clearly let you down. How would you like us to make this right?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(given the inconvenience|under the circumstances)",
+            "(could|would) (that|this) be reflected (on|in) (my|the) (bill|invoice)",
+            "(a partial refund|a meaningful discount|two nights off)",
+            "(and|plus|also) (a complimentary|a bonus) (upgrade|night|stay)",
+          ],
+          hint_tr:
+            "Spesifik talep: 'Given the inconvenience, could that be reflected on my bill — say, two nights off the rate? And ideally a complimentary upgrade on a future stay.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I can take two nights off the rate and add a one-category room upgrade to your loyalty profile. Would that feel fair?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that'?s|that sounds) (reasonable|fair|appropriate)",
+            "(i'?d (also|like to|appreciate)) (ask|request)",
+            "(could (you|we) (also|please)) (add|include|extend)",
+            "(complimentary breakfast|extended check[- ]?out|airport transfer)",
+          ],
+          hint_tr:
+            "Pazarla biraz: 'That sounds fair. Could we also add complimentary breakfast for the future stay and a late check-out today?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Done — breakfast included on your next stay, late check-out today until 16:00. I'll process the bill adjustment now.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|i appreciate|much appreciated)",
+            "(could (i|you) (get|have|send)) (the (adjusted|updated)) (invoice|bill|confirmation)",
+            "(in writing|by email|emailed to me)",
+            "(reference|confirmation) (number|note)",
+          ],
+          hint_tr:
+            "Bitiriş: 'Thank you, I appreciate the way you handled this. Could you email me the adjusted invoice and a written confirmation of the upgrade?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Of course. You'll have both in your inbox within the hour. Thank you for raising this so directly — and we'd love to welcome you back.",
+        },
+      ],
+    },
+    {
+      id: "ex.tb2.14.7",
+      type: "recap_quiz",
+      difficulty: 5,
+      questions: [
+        {
+          question:
+            "Otel şikayetinde en assertive-polite başlangıç hangisi?",
+          options: [
+            "Your hotel is terrible!",
+            "I'd like to flag a concern about my stay.",
+            "I want my money back.",
+            "This is unacceptable, fix it.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'I'd like to flag a concern' = profesyonel, kapı açan dil. Saldırgan başlangıçlar müdürü savunmaya iter. Hak iddiası için ton kritik.",
+        },
+        {
+          question:
+            "'Reflected on the bill' ne anlama gelir?",
+          options: [
+            "Fatura kopyası gönderilsin",
+            "Faturada indirim olarak görünsün",
+            "Fatura ödensin",
+            "Yeni fatura kesilsin",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Reflected on the bill' = faturaya yansıtmak (indirim, iade, ücret çıkarma şeklinde). Otel yönetiminin tanıdığı kompansasyon dili.",
+        },
+        {
+          question:
+            "Şikayette 'Given the inconvenience' niye etkili?",
+          options: [
+            "Bir tehdit içerir",
+            "Sebep + zarif geçiş — somut talebe köprü kurar",
+            "Anlamı belirsizdir",
+            "Müdüre tercih bırakır",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Given X' = X göz önüne alındığında. Yaşananın ağırlığını kabul ettirir, ardından somut talep açar. 'I'm angry, give me money' yerine 'Given the inconvenience, could that be reflected...'",
+        },
+        {
+          question:
+            "Kompansasyon talebinde en güçlü çoklu istek hangisi?",
+          options: [
+            "Money back, lots of money.",
+            "A partial refund, a complimentary upgrade, and late check-out, please.",
+            "Whatever you can do.",
+            "Free everything.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Üç somut, parçalı talep müdüre seçenek verir; bir kısmı reddedilse bile diğeri kabul edilir. 'Free everything' veya 'whatever' kararsız — müdür minimumu sunar.",
+        },
+      ],
+    },
+    {
+      id: "ex.tb2.14.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase:
+        "Given the inconvenience, could that be reflected on my bill — perhaps a partial refund and a complimentary upgrade?",
+      ipa: "/ˈɡɪvən ði ˌɪnkənˈviːnɪəns kʊd ðæt biː rɪˈflɛktɪd ɒn maɪ bɪl pəˈhæps ə ˈpɑːʃəl ˈriːfʌnd ænd ə ˌkɒmplɪˈmɛntəri ˈʌpɡreɪd/",
+      tr_hint:
+        "Şikayet altın cümlesi. 'Inconvenience' vurgu 'vi' hecesinde. 'Reflected' net /rɪˈflɛktɪd/. Sakin, kararlı ton — duygu yok, hak var. Müdür profesyonel diyalog moduna geçer.",
+    },
+  ],
+};
+
+// ============================================================
 // Lesson registry
 // ============================================================
 export const travelHospitalityB2Lessons: BundledLesson[] = [
@@ -2400,4 +3466,8 @@ export const travelHospitalityB2Lessons: BundledLesson[] = [
   travelB2Lesson_8,
   travelB2Lesson_9,
   travelB2Lesson_10,
+  travelB2Lesson_11,
+  travelB2Lesson_12,
+  travelB2Lesson_13,
+  travelB2Lesson_14,
 ];

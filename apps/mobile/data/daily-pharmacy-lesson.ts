@@ -636,10 +636,710 @@ export const dailyPharmacyLesson_19_3: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 19.5 — Cold + Cough OTC (Sogukk Alginlik + Oksuruk)
+// ============================================================
+export const dailyPharmacyLesson_19_5: BundledLesson = {
+  id: "daily.pharmacy.19.5",
+  skill_id: "daily.pharmacy",
+  index: 5,
+  title: "Soguk Alginligi + Oksuruk — OTC",
+  description:
+    "Burnun akiyor, oksuruyorsun, is/okul/seyahat var. Eczacidan non-drowsy OTC iste.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dp19.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Something for a cold",
+      tr_translation: "Soguk alginligi icin bir sey",
+      example: "Do you have something for a cold? Non-drowsy if possible.",
+      example_tr: "Soguk alginligi icin bir seyiniz var mi? Uyku yapmayan olursa.",
+    },
+    {
+      id: "ex.dp19.5.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Burnum akiyor, bogazim aciyor — gunduz icin uyku yapmayan bir sey lazim.",
+      target: "Runny nose, sore throat — I need something non-drowsy for daytime.",
+      accepted_variants: [
+        "Got a runny nose and sore throat — non-drowsy daytime relief please.",
+        "Sore throat plus runny nose, need something that won't make me sleepy.",
+        "Daytime cold meds — non-drowsy, please. Got a runny nose and sore throat.",
+        "Need a non-drowsy cold remedy — runny nose, throat hurts.",
+      ],
+      tr_hint:
+        "'Non-drowsy' = uyku yapmayan. 'Daytime' = gunduz formul. Is/seyahatte kritik fark.",
+    },
+    {
+      id: "ex.dp19.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I need a ___-drowsy formula for daytime.",
+      answer: "non",
+      distractors: ["no", "not", "un"],
+      tr_hint:
+        "'Non-drowsy' = sabit kalip. NyQuil (uyku yapan) vs DayQuil (non-drowsy) ayrimi.",
+    },
+    {
+      id: "ex.dp19.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Will",
+        "this",
+        "make",
+        "me",
+        "sleepy",
+      ],
+      correct_sentence: "Will this make me sleepy",
+      tr_translation: "Bu beni uykulu yapar mi?",
+    },
+    {
+      id: "ex.dp19.5.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I have illness. Give cold pill.",
+      correct_sentence:
+        "I'm not feeling well — got a sore throat and runny nose. Anything non-drowsy?",
+      tr_explanation:
+        "'I have illness' = Turkce-bicim, garip. Dogru: 'I'm not feeling well' + spesifik semptom + non-drowsy isteme.",
+    },
+    {
+      id: "ex.dp19.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Walgreens'te eczaciya soguk alginligi icin OTC ariyorsun — yarin ucagin var.",
+      npc_role: "Pharmacist",
+      setting: "Cold & flu aisle",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|excuse me)",
+            "(something for|anything for) (a )?(cold|cough|congestion)",
+            "(runny nose|sore throat|stuffy|coughing)",
+            "(non-?drowsy|won'?t make me sleepy|daytime formula)",
+            "(flying|traveling|driving) (tomorrow|today|later)",
+            "(any recommendation|what do you suggest)",
+          ],
+          hint_tr:
+            "Spesifik: 'Hi, anything non-drowsy for a cold? Got a runny nose and sore throat — flying tomorrow.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "DayQuil works well — non-drowsy. Any allergies or current medications?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no allergies|nothing|none)",
+            "(not (on|taking) (anything|any meds))",
+            "(just (vitamin|advil|tylenol))",
+            "(how (often|much|many)) (do i take|should i)",
+            "(any (side effects|interactions))",
+            "(thanks|appreciate it|great)",
+          ],
+          hint_tr:
+            "Tam bilgi: 'No allergies, not on anything. How often do I take it?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "One dose every 4 hours, max 4 a day. Drink plenty of water. Feel better!",
+        },
+      ],
+    },
+    {
+      id: "ex.dp19.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Non-drowsy' niye onemli?",
+          options: [
+            "Yararsiz",
+            "Gunduz formul — is/araba/ucakta uyumayasin diye",
+            "Cok agir",
+            "Tat icin",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "DayQuil = non-drowsy (gunduz). NyQuil = drowsy (gece, uyutucu). Karistirma!",
+        },
+        {
+          question: "Eczacida soguk alginligi sorarken NE soylenmeli?",
+          options: [
+            "Sadece 'I'm sick'",
+            "Spesifik semptomlar (runny nose, sore throat, cough) + ne zaman lazim",
+            "Hicbir sey",
+            "Reçete iste",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Detayli semptom = dogru urun. 'Sick' = belirsiz. Spesifiklik = daha iyi oneri.",
+        },
+        {
+          question: "'Ask your pharmacist' niye ABD'de yaygin?",
+          options: [
+            "Yanlis bilgi",
+            "Eczaci OTC + etkilesim + dozaj uzmani — reçetesiz danisman",
+            "Yararsiz",
+            "Sadece para icin",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "ABD/UK eczacisi resmi danismanlik verir. Turkiye'den farkli — bu hizmet ucretsiz, kullan.",
+        },
+      ],
+    },
+    {
+      id: "ex.dp19.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I need something non-drowsy for daytime.",
+      ipa: "aɪ niːd ˈsʌmθɪŋ nɒn ˈdraʊzi fər ˈdeɪtaɪm",
+      tr_hint:
+        "'Non-drowsy' = 'non-DRAW-zi' (vurgu ikinci hece). 'Daytime' = 'DEY-taym'. Tek nefeste.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 19.6 — Prescription Pickup (Reseteli Ilac Almak)
+// ============================================================
+export const dailyPharmacyLesson_19_6: BundledLesson = {
+  id: "daily.pharmacy.19.6",
+  skill_id: "daily.pharmacy",
+  index: 6,
+  title: "Reseteli Ilac — Pickup",
+  description:
+    "Doktor recete kesti, eczanede teslim almaya geldin. Sure + isim + ID akisi.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dp19.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I'm picking up a prescription",
+      tr_translation: "Reçeteli ilacimi almaya geldim",
+      example: "Hi, I'm picking up a prescription for Yilmaz.",
+      example_tr: "Merhaba, Yilmaz adina reçeteli ilacimi almaya geldim.",
+    },
+    {
+      id: "ex.dp19.6.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Yilmaz adina reseteli ilac almaya geldim — ne kadar surer?",
+      target: "I'm picking up a prescription for Yilmaz — how long is the wait?",
+      accepted_variants: [
+        "Picking up a prescription under Yilmaz — wait time?",
+        "Here for a pickup, name's Yilmaz — how long will it take?",
+        "Prescription pickup for Yilmaz — any idea on the wait?",
+        "I'm here to pick up meds for Yilmaz — estimated wait?",
+      ],
+      tr_hint:
+        "'Picking up' = teslim almak. 'How long is the wait?' = en standart süre sorusu.",
+    },
+    {
+      id: "ex.dp19.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "How long is the ___?",
+      answer: "wait",
+      distractors: ["time", "queue", "line"],
+      tr_hint:
+        "'Wait' = bekleme süresi (genel). 'Line' = sira (fiziksel). Pharmacy'de 'wait' standart.",
+    },
+    {
+      id: "ex.dp19.6.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Is",
+        "it",
+        "ready",
+        "for",
+        "pickup",
+        "yet",
+      ],
+      correct_sentence: "Is it ready for pickup yet",
+      tr_translation: "Teslim almaya hazir mi?",
+    },
+    {
+      id: "ex.dp19.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "My medicine. I want it.",
+      correct_sentence:
+        "I'm picking up a prescription for Yilmaz — how long is the wait?",
+      tr_explanation:
+        "'My medicine. I want it.' = belirsiz, kaba. Doğru: 'picking up' + isim + saygili süre sorusu.",
+    },
+    {
+      id: "ex.dp19.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Pharmacy counter'da reçeteli ilacin hazir mi diye soruyorsun.",
+      npc_role: "Pharmacist",
+      setting: "Prescription pickup counter",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|good (morning|afternoon))",
+            "(picking up|here for|i'm here to pick up)",
+            "(a prescription|prescription|medication|my meds)",
+            "(for|under (the name)?) \\w+",
+            "(how long is|what'?s) (the wait|the wait time|the eta)",
+            "(is it ready|ready (for|yet))",
+          ],
+          hint_tr:
+            "Net: 'Hi, picking up a prescription for Yilmaz — how long is the wait?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Let me check. It's not quite ready — about 15 more minutes. Want to wait?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sure|okay|that works|no problem)",
+            "(i'?ll wait|i can wait|i'?ll come back)",
+            "(should i (come back|return)) (in|later)",
+            "(can i (shop|browse|grab something))",
+            "(any (text|notification) when ready)",
+            "(thanks|appreciate it)",
+          ],
+          hint_tr:
+            "Esnek: 'Sure, I'll wait. Can you text me when it's ready?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Absolutely — we'll text the number on file. Have a seat over there.",
+        },
+      ],
+    },
+    {
+      id: "ex.dp19.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Picking up a prescription' ne demek?",
+          options: [
+            "Doktora gitmek",
+            "Eczanede hazirlanan reçeteli ilaci teslim almak",
+            "Reçete kestirmek",
+            "Ilac yapmak",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "ABD'de doktor reçeteyi elektronik yollar, eczaci hazirlar, sen pickup yapasin.",
+        },
+        {
+          question: "'How long is the wait?' niye iyi soru?",
+          options: [
+            "Yararsiz",
+            "Planlama: bekleyecek mi, sonra mi gelecek, alisveris yapacak mi",
+            "Cok agir",
+            "Yanlis",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Pharmacy yogun olabilir — 5 dk mi 1 saat mi onceden bilmek = zaman planlama.",
+        },
+        {
+          question: "Reseteli ilacta pickup icin NE gerek?",
+          options: [
+            "Hicbir sey",
+            "Isim + photo ID + sigorta karti (ilk seferde mutlaka)",
+            "Sadece para",
+            "Sadece resete",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "ID = sen oldugunu kanit. Insurance = odeme. Yanlis isimle alma = hapis riski.",
+        },
+      ],
+    },
+    {
+      id: "ex.dp19.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "How long is the wait for pickup?",
+      ipa: "haʊ lɔŋ ɪz ðə weɪt fər ˈpɪkʌp",
+      tr_hint:
+        "'How long is' baglanir → 'haw-LONG-iz'. 'Pickup' = 'PIK-ap' (vurgu ilk hece, tek kelime).",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 19.7 — Allergy Med + Side Effects (Alerji Ilaci + Yan Etki)
+// ============================================================
+export const dailyPharmacyLesson_19_7: BundledLesson = {
+  id: "daily.pharmacy.19.7",
+  skill_id: "daily.pharmacy",
+  index: 7,
+  title: "Alerji Ilaci + Yan Etki Sorma",
+  description:
+    "Bahar alerjisi, polen — antihistamin sor. Yan etki + ilac etkilesimi kontrol.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dp19.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Will this make me drowsy?",
+      tr_translation: "Bu beni uykulu yapar mi?",
+      example: "Will this allergy med make me drowsy? I have to drive.",
+      example_tr: "Bu alerji ilaci beni uykulu yapar mi? Araba kullanmam lazim.",
+    },
+    {
+      id: "ex.dp19.7.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Aldigim Advil ile bu alerji ilaci arasinda etkilesim var mi?",
+      target: "Any interactions with Advil that I'm already taking?",
+      accepted_variants: [
+        "Will this interact with Advil? I'm taking it daily.",
+        "Any drug interactions with Advil?",
+        "Is this safe with Advil — I take it for pain.",
+        "Already on Advil — does this clash with it?",
+      ],
+      tr_hint:
+        "'Interactions' = ilac etkilesimi. Eczacida sormak kritik — bazi kombolar tehlikeli.",
+    },
+    {
+      id: "ex.dp19.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Any ___ with my current meds?",
+      answer: "interactions",
+      distractors: ["effects", "problems", "issues"],
+      tr_hint:
+        "'Drug interactions' = ilac etkilesimi. Standart eczaci sorusu — guvenli kombinasyon kontrolu.",
+    },
+    {
+      id: "ex.dp19.7.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Can",
+        "I",
+        "take",
+        "this",
+        "with",
+        "Advil",
+      ],
+      correct_sentence: "Can I take this with Advil",
+      tr_translation: "Bunu Advil ile alabilir miyim?",
+    },
+    {
+      id: "ex.dp19.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I take pill. Allergy. Safe?",
+      correct_sentence:
+        "I'm on Advil daily — will this allergy med interact with it? And will it make me drowsy?",
+      tr_explanation:
+        "'I take pill. Allergy. Safe?' = parcali, belirsiz. Doğru: spesifik ilac (Advil) + 'interact' + 'drowsy' sorusu.",
+    },
+    {
+      id: "ex.dp19.7.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Bahar alerjisi var. Eczaciya antihistamin sor — yan etki + Advil ile etkilesim.",
+      npc_role: "Pharmacist",
+      setting: "Allergy & medication aisle",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|excuse me)",
+            "(something for|recommend) (allergies|hay fever|pollen)",
+            "(sneezing|itchy eyes|runny nose|congestion)",
+            "(will this make me|does this cause) (drowsy|sleepy|tired)",
+            "(any (interactions|interaction|side effects))",
+            "(non-?drowsy|won'?t affect (driving|work))",
+          ],
+          hint_tr:
+            "Acilis: 'Hi, anything non-drowsy for pollen allergies? Sneezing and itchy eyes.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Try Claritin or Zyrtec — both non-drowsy for most people. Currently on any meds?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?m on|i take|currently taking) (advil|tylenol|aspirin|\\w+)",
+            "(daily|every day|for (pain|headache|back))",
+            "(any (interactions|conflict|issues) with)",
+            "(safe to (combine|take together|mix))",
+            "(side effects (to watch|to know about))",
+            "(thanks for checking|appreciate the thoroughness)",
+          ],
+          hint_tr:
+            "Tam bilgi: 'On Advil daily for back pain. Any interactions? Side effects?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "No interactions with Advil. Side effects are rare — maybe dry mouth. You're safe.",
+        },
+      ],
+    },
+    {
+      id: "ex.dp19.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Yeni ilac alirken eczaciya NE soylenmeli?",
+          options: [
+            "Sadece semptom",
+            "Su anki tum ilaclar + alerjiler + saglik durumlari (kronik)",
+            "Hicbir sey",
+            "Sadece ad",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Full disclosure = guvenli ilac. Advil + kan sulandirici = tehlike. Eczaci uyaracak.",
+        },
+        {
+          question: "'Drug interactions' niye onemli?",
+          options: [
+            "Yararsiz",
+            "Iki ilac birlikte alindiginda zararli etkiler — bazen olumcul",
+            "Cok kolay",
+            "Tat icin",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Warfarin + Advil = ic kanama. MAOI + soguk ilaci = krize. Etkilesim = hayat-olum konusu.",
+        },
+        {
+          question: "'Will it make me drowsy?' niye standart soru?",
+          options: [
+            "Yararsiz",
+            "Araba kullanma + is + okul = uyutmayan formul lazim",
+            "Cok agir",
+            "Sus",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Benadryl klasik antihistamin = uyutur. Claritin/Zyrtec = uyutmaz. Pratik fark.",
+        },
+      ],
+    },
+    {
+      id: "ex.dp19.7.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Any interactions with my current medications?",
+      ipa: "ˈɛni ˌɪntərˈækʃənz wɪð maɪ ˈkɜrənt ˌmɛdɪˈkeɪʃənz",
+      tr_hint:
+        "'Interactions' = 'in-ter-AK-shenz' (4 hece, vurgu ucuncu). 'Medications' = 'me-di-KEY-shenz' (4 hece).",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 19.8 — Doctor Escalation (Doktora Tavsiye Iste)
+// ============================================================
+export const dailyPharmacyLesson_19_8: BundledLesson = {
+  id: "daily.pharmacy.19.8",
+  skill_id: "daily.pharmacy",
+  index: 8,
+  title: "Doktora Yonlendirme — Eczaci Gorusu",
+  description:
+    "Eczaci OTC degil — bazen 'doktora git' der. Eskalasyon: ne zaman ciddi, ne zaman beklensin?",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dp19.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Should I see a doctor?",
+      tr_translation: "Doktora gormeli miyim?",
+      example: "Should I see a doctor for this, or is OTC enough?",
+      example_tr: "Bunun icin doktora gormeli miyim, yoksa reçetesiz yeterli mi?",
+    },
+    {
+      id: "ex.dp19.8.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Bes gundur atesim var. Ne zaman endiselenmem gerek?",
+      target: "I've had a fever for five days — when should I be worried?",
+      accepted_variants: [
+        "Fever for 5 days — at what point should I worry?",
+        "Got a fever going on 5 days, when do I need to worry?",
+        "5-day fever, when should I be concerned?",
+        "Fever 5 days in — when's it time to escalate?",
+      ],
+      tr_hint:
+        "'When should I be worried?' = ne zaman ciddi. Eczaci esik degerlerini bilir.",
+    },
+    {
+      id: "ex.dp19.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Should I see a doctor ___ this?",
+      answer: "for",
+      distractors: ["of", "with", "about"],
+      tr_hint:
+        "'See a doctor FOR X' = X icin doktor. Sabit prepozisyon. 'About' yanlis burada.",
+    },
+    {
+      id: "ex.dp19.8.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "When",
+        "should",
+        "I",
+        "be",
+        "worried",
+        "about",
+        "this",
+      ],
+      correct_sentence: "When should I be worried about this",
+      tr_translation: "Bu konuda ne zaman endiselenmeliyim?",
+    },
+    {
+      id: "ex.dp19.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I am very sick. Doctor maybe?",
+      correct_sentence:
+        "Fever for 5 days, not getting better — should I see a doctor, or wait it out?",
+      tr_explanation:
+        "'Very sick. Doctor maybe?' = belirsiz. Doğru: sure + trend (not getting better) + acik soru (see doctor or wait).",
+    },
+    {
+      id: "ex.dp19.8.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "5 gundur ates + oksuruk. Eczaciya 'doktora gitsem mi' diye soruyorsun.",
+      npc_role: "Pharmacist",
+      setting: "Pharmacy consultation desk",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(quick question|got a question|need some advice)",
+            "(fever|cough|sore throat|headache) (for|going on) (\\d+ days?)",
+            "(not (getting better|improving)|getting worse)",
+            "(should i (see a doctor|go to (urgent care|the doctor)))",
+            "(or (wait|ride it out|see if it passes))",
+            "(otc enough|just keep (taking|using))",
+          ],
+          hint_tr:
+            "Net soru: 'Quick question — fever 5 days, not improving. Should I see a doctor or wait?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "5 days with no improvement is the line. Any chest pain, trouble breathing, or rash?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|none|nothing like that)",
+            "(just (the )?(fever|cough|fatigue))",
+            "(some (chest tightness|shortness of breath|wheezing))",
+            "(what'?s the (red flag|warning sign|threshold))",
+            "(when (should i|do i) (go to (er|urgent care)))",
+            "(thanks for the (info|guidance|help))",
+          ],
+          hint_tr:
+            "Detay: 'No chest pain. Just fever + cough. When should I be worried?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Book a same-day appointment today. If breathing gets hard or fever hits 103, go straight to ER.",
+        },
+      ],
+    },
+    {
+      id: "ex.dp19.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Eczaci niye 'doktora git' der?",
+          options: [
+            "Para icin",
+            "OTC ile cozulmez veya ciddi belirti var — kapsami disinda",
+            "Yararsiz",
+            "Yanlis",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Eczaci OTC + dozaj uzmani ama tani koyamaz. 'Beyond OTC' = doktora gerek.",
+        },
+        {
+          question: "'When should I be worried?' niye gucly soru?",
+          options: [
+            "Yararsiz",
+            "Esik degerini ogrenirsin — ER mi, urgent care mi, hicbir sey mi",
+            "Cok agir",
+            "Sus",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Eczaci 'red flag' kriterleri bilir: nefes alma, ates 103+, dakika 30+ kanama. Hayat kurtarici.",
+        },
+        {
+          question: "'Wait it out' ne demek?",
+          options: [
+            "Doktora git",
+            "Beklemek — kendiliginden gecmesini ummak",
+            "Acil",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Bazi viral hastaliklar 5-7 gunde kendi gecer. 'Wait it out' = aktif tedavi etmeden bekle.",
+        },
+      ],
+    },
+    {
+      id: "ex.dp19.8.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Should I see a doctor, or wait it out?",
+      ipa: "ʃʊd aɪ siː ə ˈdɒktər ɔr weɪt ɪt aʊt",
+      tr_hint:
+        "'Should I' = 'shud-AI'. 'Wait it out' baglanir → 'wey-di-DAWT'. Iki secenek arasi tonlama: ilk yukari, ikinci asagi.",
+    },
+  ],
+};
+
+// ============================================================
 // Daily Pharmacy lessons registry
 // ============================================================
 export const dailyPharmacyLessons: ReadonlyArray<BundledLesson> = [
   dailyPharmacyLesson_19_1,
   dailyPharmacyLesson_19_2,
   dailyPharmacyLesson_19_3,
+  dailyPharmacyLesson_19_5,
+  dailyPharmacyLesson_19_6,
+  dailyPharmacyLesson_19_7,
+  dailyPharmacyLesson_19_8,
 ];

@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   title: {
-    color: tokens.text.inverseOnSurface,
+    color: tokens.text.primary,
     fontSize: 18,
     fontWeight: tokens.weight.extrabold,
     marginBottom: 2,

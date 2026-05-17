@@ -895,6 +895,779 @@ export const workDisagreeLesson_34_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 34.5 — Toplantida Kibar Push Back
+// ============================================================
+export const workDisagreeLesson_34_5: BundledLesson = {
+  id: "work.disagree.34.5",
+  skill_id: "work.disagree",
+  index: 5,
+  title: "Toplantida Kibar Push Back",
+  description:
+    "Toplantida bir cohort'in onerisine kibarca karsi cikma. 'I see where you're coming from, but...' + 'Let me offer a different angle' kaliplari.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.wd34.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I see where you're coming from",
+      tr_translation: "Nereden geldigini anliyorum (empati once, karsi sonra)",
+      example: "I see where you're coming from, but I'd offer a different angle.",
+      example_tr: "Nereden geldigini anliyorum, ama farkli bir aci sunmak istiyorum.",
+    },
+    {
+      id: "ex.wd34.5.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Nereden geldigini anliyorum, ama farkli bir aci sunabilir miyim?",
+      target: "I see where you're coming from, but let me offer a different angle.",
+      accepted_variants: [
+        "Totally get where you're coming from — but here's another angle to consider.",
+        "I hear you, but I'd offer a slightly different take.",
+        "Following your logic, but want to offer a different angle.",
+        "I see your point, but let me push back gently — different angle here.",
+      ],
+      tr_hint:
+        "'I see where you're coming from' = once empati = karsi taraf defansif olmaz. Sonra 'but' + alternatif.",
+    },
+    {
+      id: "ex.wd34.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Let me ___ a different angle.",
+      answer: "offer",
+      distractors: ["give", "make", "tell"],
+      tr_hint:
+        "'Offer an angle' = sabit kalip = sunmak/teklif etmek. 'Give' cok dogrudan, 'tell' yanlis kullanim.",
+    },
+    {
+      id: "ex.wd34.5.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "I",
+        "see",
+        "where",
+        "you're",
+        "coming",
+        "from",
+        "but",
+      ],
+      correct_sentence: "I see where you're coming from but",
+      tr_translation: "Nereden geldigini anliyorum, ama...",
+    },
+    {
+      id: "ex.wd34.5.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "No I am not agree, your idea is not good.",
+      correct_sentence:
+        "I see where you're coming from, but let me offer a different angle — I think the bottleneck is actually onboarding, not pricing.",
+      tr_explanation:
+        "'I am not agree' yanlis dilbilgisi ('I disagree' veya 'I don't agree'). 'Your idea is not good' = saldiri = savunmaya gecer. Dogru: empati once + spesifik alternatif sebep.",
+    },
+    {
+      id: "ex.wd34.5.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Sprint planning toplantisinda baska bir engineer 'feature X once' diyor. Sen 'onboarding bug once' diyorsun. Kibar push back.",
+      npc_role: "Co-worker",
+      setting: "Sprint planning meeting",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "We should ship the dark mode feature first — users have been asking for months.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i see where|hear where|get where) you('re| are) coming from",
+            "(but|though|however)",
+            "(let me|let me) (offer|share|throw out) (a different angle|another angle|a different take)",
+            "(onboarding|signup|first-time user) (bug|issue|drop-off)",
+            "(churning|losing users|drop-off)",
+          ],
+          hint_tr:
+            "Once empati: 'I see where you're coming from, but let me offer a different angle — onboarding bug is bleeding users.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Hmm, but dark mode has a louder user voice — Twitter is blowing up.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fair (point|enough)|that's fair|valid)",
+            "(loud|vocal) (users|minority|voice)",
+            "(silent (churn|majority)|hidden cost)",
+            "(numbers|metrics|data) (show|tell|say)",
+            "(retention|funnel|drop-off) (drop|spike|hit)",
+            "(few hundred|silent users)",
+          ],
+          hint_tr:
+            "Karsit veri: 'Fair point — but silent churn is bigger than vocal users. Numbers show 30% drop at onboarding.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay, that's actually a strong case. Let's lead with onboarding fix.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(appreciate|thanks for|glad)",
+            "(hearing me out|the openness|considering)",
+            "(dark mode (next sprint|right after|queued up))",
+            "(ship both|sequence them|tag-team)",
+          ],
+          hint_tr:
+            "Kapanis + iliski: 'Appreciate you hearing me out — dark mode goes right after, promise.'",
+        },
+      ],
+    },
+    {
+      id: "ex.wd34.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'I see where you're coming from' kalibinin ESAS amaci?",
+          options: [
+            "Yalakalik",
+            "Empati sinyali = karsi taraf defansif olmaz = sonraki 'but' duyulur",
+            "Pasif aggresif",
+            "Yararsiz",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Karsi tarafin pozisyonunu duydugunu sinyalle = ego korunur. Bu olmadan 'but' = saldiri algisi yapilir.",
+        },
+        {
+          question: "'Let me offer a different angle' nicin guclu?",
+          options: [
+            "Sus",
+            "'Angle' = perspektif degil zorunlu gercek = yarisma degil tartisma sinyali",
+            "Saldiri",
+            "Yararsiz",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'You're wrong' yerine 'different angle' = iki goruse esit deger atanir = grup rahat duser.",
+        },
+        {
+          question: "Turk kulturunde hierarchi neden kibar push back zorlasiyor?",
+          options: [
+            "Universal",
+            "Yas/kidem saygi normu = senior'a karsi cikis saygisizlik gibi algilanir = ama Anglo kulturde sus = pasiflik",
+            "Yararsiz",
+            "Sadece sus",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Anglo iş kulturunde sus = fikir yok = guvenilmez sinyali. Saygili push back = profesyonel sinyali.",
+        },
+      ],
+    },
+    {
+      id: "ex.wd34.5.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I see where you're coming from, but let me offer a different angle.",
+      tr_translation: "Nereden geldiğini anlıyorum, ama farklı bir açı sunmak istiyorum.",
+      ipa: "/aɪ siː weər jʊər ˈkʌmɪŋ frɒm bət lɛt miː ˈɒfər ə ˈdɪfərənt ˈæŋɡəl/",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 34.6 — Senior Kararina Karsi Cikma
+// ============================================================
+export const workDisagreeLesson_34_6: BundledLesson = {
+  id: "work.disagree.34.6",
+  skill_id: "work.disagree",
+  index: 6,
+  title: "Senior Kararina Karsi Cikma",
+  description:
+    "Senior engineer / CTO / Director karari kötü gorduğun zaman karsi cikma. 'Hear me out' + 'I might be missing something, but...' = hierarchically saygili ama net.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.wd34.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Hear me out",
+      tr_translation: "Beni dinle (sonuna kadar) — karşıt görüşü sunmadan önce alan açma",
+      example: "Hear me out — I think we should reconsider the architecture call.",
+      example_tr: "Beni dinle — mimari karari yeniden gozden gecirmemiz gerek bence.",
+    },
+    {
+      id: "ex.wd34.6.2",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source: "Bir sey gözden kaciriyor olabilirim, ama bu mimari kararinin uzun vadede tehlikeli oldugunu dusunuyorum.",
+      target: "I might be missing something, but I think this architecture decision is risky long-term.",
+      accepted_variants: [
+        "I could be missing context here, but the architecture call feels risky long-term.",
+        "Possibly missing something, but I'm worried about the long-term cost of this architecture.",
+        "I might be off base, but this architecture decision looks risky down the road.",
+        "Hear me out — might be missing something, but this architecture feels risky long-term.",
+      ],
+      tr_hint:
+        "'I might be missing something' = ego korumali acilis = senior duyabilir. 'But' + spesifik endise = net karsi cikis.",
+    },
+    {
+      id: "ex.wd34.6.3",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template: "I might be ___ something, but here's my concern.",
+      answer: "missing",
+      distractors: ["losing", "forgetting", "skipping"],
+      tr_hint:
+        "'Missing something' = sabit kalip = 'belki bilmedigim bir context var'. Senior'in bilgisine saygi ederken yine de karsi cikma.",
+    },
+    {
+      id: "ex.wd34.6.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Hear",
+        "me",
+        "out",
+        "—",
+        "I",
+        "might",
+        "be",
+        "wrong",
+      ],
+      correct_sentence: "Hear me out — I might be wrong",
+      tr_translation: "Beni dinle — yaniliyor olabilirim.",
+    },
+    {
+      id: "ex.wd34.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "You don't know what you talk about, this is wrong decision.",
+      correct_sentence:
+        "Hear me out — I might be missing context, but I'm worried this decision has a blind spot around scale.",
+      tr_explanation:
+        "'You don't know what you talk about' = senior'a saldiri = kariyer hatasi. 'This is wrong decision' yine saldiri. Dogru: ego korumali acilis ('I might be missing') + spesifik teknik endise (blind spot around scale).",
+    },
+    {
+      id: "ex.wd34.6.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "CTO 'Postgres'i ATIP MongoDB'ye gec' dedi. Sen kotu fikir oldugunu dusunuyorsun. Saygili ama net karsi cikis.",
+      npc_role: "CTO",
+      setting: "Architecture review meeting",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "I've decided we're migrating from Postgres to MongoDB next quarter. Better for our scale.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hear me out|can i (push back|share))",
+            "(i might be (missing|wrong)|could be off|maybe missing context)",
+            "(but|though|however)",
+            "(worried about|concern (is|about)|risk i see)",
+            "(transaction|joins?|consistency|acid|relational)",
+          ],
+          hint_tr:
+            "Acilis: 'Hear me out — I might be missing context, but I'm worried about the transactional consistency story.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "MongoDB has transactions now. What's your specific concern?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fair (point|enough)|good (point|to know)|noted)",
+            "(billing|payments|financial) (data|tables|service)",
+            "(multi-document|cross-collection|complex (joins?|queries))",
+            "(team (learning curve|knows|familiar)|operational cost)",
+            "(months? to (migrate|move|rewrite))",
+            "(scale (problem|issue) (is|might be) (read|elsewhere))",
+          ],
+          hint_tr:
+            "Spesifik teknik veri: 'Fair — but billing has 7 cross-collection joins. Mongo joins are 10x slower at scale. Plus team learning curve.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Hmm. I hadn't weighted the billing complexity. What would you suggest instead?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(appreciate (the ask|you asking)|thanks)",
+            "(read replicas|sharding|partitioning|caching)",
+            "(scale (postgres|what we have)|squeeze more)",
+            "(benchmark|proof of concept|spike)",
+            "(before we commit|first|let me run)",
+            "(your call (ultimately|in the end)|final call yours)",
+          ],
+          hint_tr:
+            "Alternatif + saygi: 'Appreciate you asking — I'd benchmark read replicas + sharding on Postgres first. Your call ultimately.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Reasonable. Run a 2-week spike, come back with numbers. I'll hold the call.",
+        },
+      ],
+    },
+    {
+      id: "ex.wd34.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Senior'a karsi cikarken EN tehlikeli ne yapilmaz?",
+          options: [
+            "Saygili push back",
+            "'You're wrong' / 'You don't understand' = kariyer hatasi + senior defansif olur",
+            "Soru sormak",
+            "Veri sunmak",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Senior'a saldiri = guc hierarşisinde sen kaybedersin. Empati + spesifik teknik endise = saygili pushback.",
+        },
+        {
+          question: "'I might be missing something' acilisi nicin GUCLU?",
+          options: [
+            "Zayiflik gosterir",
+            "Ego korumali = senior 'evet sen bilmiyorsun' deyip dinleyebilir + ama sonra spesifik endisen patlar",
+            "Saldiri",
+            "Yararsiz",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Alcakgonullu acilis = senior'in defansini dusurur = sonraki net argumen duyulur. Yetiskin yetiskine konusma sinyali.",
+        },
+        {
+          question: "Senior 'no my decision is final' dedi — ne yapilir?",
+          options: [
+            "Saldiri",
+            "Endiseyi yazili olarak belgeleyin (email/Slack), 'your call ultimately' ile kapatın, gerceklesirse 'told you so' demeyin",
+            "Istifa",
+            "Sus ve unut",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Belgeleme = paper trail = ileride 'flag etmistim' kayidi. Ama saldiri DEGIL — saygili kapanis. 'I told you so' = profesyonel intihari.",
+        },
+      ],
+    },
+    {
+      id: "ex.wd34.6.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Hear me out — I might be missing something, but I have a concern.",
+      tr_translation: "Beni dinle — bir şey gözden kaçırıyor olabilirim, ama bir endişem var.",
+      ipa: "/hɪər miː aʊt aɪ maɪt biː ˈmɪsɪŋ ˈsʌmθɪŋ bət aɪ hæv ə kənˈsɜːn/",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 34.7 — Karsi Gorus Ama Saygi — Yapici
+// ============================================================
+export const workDisagreeLesson_34_7: BundledLesson = {
+  id: "work.disagree.34.7",
+  skill_id: "work.disagree",
+  index: 7,
+  title: "Karsi Gorus Ama Saygi — Yapici",
+  description:
+    "Bir kismina katiliyorsun, bir kismina katilmiyorsun. 'Hard agree on X, less sure on Y' + 'What if we tried Z instead?' = yapici karsi cikis.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wd34.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "hard agree",
+      tr_translation: "Kesin katiliyorum (vurgulu kalip)",
+      example: "Hard agree on the timeline, less sure on the scope.",
+      example_tr: "Zaman cizelgesine kesin katiliyorum, kapsam konusunda emin degilim.",
+    },
+    {
+      id: "ex.wd34.7.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Birinci kisma kesin katiliyorum, ama ikincide emin degilim — ya su yaklasimi denesek?",
+      target: "Hard agree on the first part, less sure on the second — what if we tried this approach instead?",
+      accepted_variants: [
+        "Totally on board with point one, but not sure about point two — what about this approach?",
+        "Hard yes on the first, less sure on the second. Could we try X instead?",
+        "First part yes, second part I'm wobbly — what if we did Z?",
+        "Agree 100% on the first, less convinced on the second — alternative idea?",
+      ],
+      tr_hint:
+        "'Hard agree on X, less sure on Y' = nuanced sinyali = takdir + endise birlikte. Sonra 'what if' = soru formu = davet.",
+    },
+    {
+      id: "ex.wd34.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "What if we ___ this approach instead?",
+      answer: "tried",
+      distractors: ["did", "made", "took"],
+      tr_hint:
+        "'What if we tried X' = sabit kalip = teklif + davet. 'Did' cok genel, 'made' yanlis, 'took' anlam farkli.",
+    },
+    {
+      id: "ex.wd34.7.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Hard",
+        "agree",
+        "on",
+        "X",
+        "—",
+        "less",
+        "sure",
+        "on",
+        "Y",
+      ],
+      correct_sentence: "Hard agree on X — less sure on Y",
+      tr_translation: "X'e kesin katiliyorum — Y konusunda emin degilim.",
+    },
+    {
+      id: "ex.wd34.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I agree some things but not all things, you should change.",
+      correct_sentence:
+        "Hard agree on the user research direction, less sure on the pricing call — what if we A/B tested two price points instead?",
+      tr_explanation:
+        "'I agree some things but not all things' = mugla + 'you should change' = emir. Dogru: spesifik agree noktasi + spesifik less-sure noktasi + soru formati ('what if') alternatif.",
+    },
+    {
+      id: "ex.wd34.7.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Designer launch plani sundu. Bazi kismi iyi, bazisi degil. Yapici nuanced feedback.",
+      npc_role: "Designer",
+      setting: "Design review",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "So the plan: dark mode launch, push notification campaign, and email blast — all next week.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hard agree|fully (on board|with)|love)",
+            "(on (the )?(dark mode|launch|first)|the (dark mode|first) (part|piece))",
+            "(less sure|wobbly|not (so )?sure|on the fence)",
+            "(push (notification|notif)|email blast|campaign)",
+            "(timing|same week|stacking|all at once)",
+          ],
+          hint_tr:
+            "Nuanced: 'Hard agree on dark mode launch, less sure on stacking push + email blast same week.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Why? More touchpoints = more engagement, no?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fair (point|logic)|usually|sometimes)",
+            "(but|though|caveat)",
+            "(notification (fatigue|burnout|overload)|spam (signal|alert))",
+            "(unsubscribe|opt-out|app uninstall)",
+            "(data shows|last campaign|q1 data)",
+            "(what if|could we|how about) (we )?(spaced|staggered|sequenced)",
+          ],
+          hint_tr:
+            "Veri + alternatif: 'Fair, but notification fatigue is real — Q1 data showed unsubscribe spike. What if we staggered them?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Mmm. Stagger across 2 weeks? Dark mode week 1, push week 2, email later?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(exactly|perfect|that works|love it)",
+            "(week 1|week 2|sequenced|spaced)",
+            "(test|measure|track) (engagement|opens|clicks)",
+            "(before (the next|email)|in between)",
+            "(thanks for (the )?(flex|listening|adapting))",
+          ],
+          hint_tr:
+            "Onay + minnet: 'Exactly. Measure engagement after each push — thanks for the flex on timing.'",
+        },
+      ],
+    },
+    {
+      id: "ex.wd34.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Hard agree on X, less sure on Y' kalibi NEYE iyi?",
+          options: [
+            "Tum onerilere katilmama",
+            "Nuanced karsi cikis = TAM red degil = takdir + endise + alternatif sunma firsati",
+            "Tum onerilere katilma",
+            "Sus",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Onerinin tamamini reddetmek yerine spesifik kismina karsi cik = karsı taraf savunmaya gecmez = islem birlikte ilerler.",
+        },
+        {
+          question: "'What if we tried Z instead?' soru formati nicin?",
+          options: [
+            "Yararsiz",
+            "Soru = davet = onlar dusunsun = ego korunur. Emir ('do Z') = direnis yaratir.",
+            "Saldiri",
+            "Pasif aggresif",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Karsi taraf alternatifi kendisi 'kabul' etmis hisseder = uygulama hizli olur. Emir = direnis = mucadele uzar.",
+        },
+        {
+          question: "Yapici karsi cikis NE ZAMAN saglikli olur?",
+          options: [
+            "Asla",
+            "Spesifik agree + spesifik concern + alternatif teklif + soru formati = grup ileri tasinir",
+            "Sus",
+            "Saldiri",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Yapici = ileri yol acan. Endisseyi sun ama cozum olmadan birakma = problem cikarici degil cozum getirici sinyali.",
+        },
+      ],
+    },
+    {
+      id: "ex.wd34.7.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Hard agree on the timeline — what if we tried this approach for scope?",
+      tr_translation: "Zaman çizelgesine kesin katılıyorum — kapsam için bu yaklaşımı denesek?",
+      ipa: "/hɑːd əˈɡriː ɒn ðə ˈtaɪmlaɪn wɒt ɪf wiː traɪd ðɪs əˈprəʊtʃ fə skəʊp/",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 34.8 — Anlasmazlik Cozme — Bridge
+// ============================================================
+export const workDisagreeLesson_34_8: BundledLesson = {
+  id: "work.disagree.34.8",
+  skill_id: "work.disagree",
+  index: 8,
+  title: "Anlasmazlik Cozme — Bridge",
+  description:
+    "Iki tarafin da haklilik payi var, ama tartisma sikisti. Kopru kur: 'Let's find common ground' + 'We can table this — circle back tomorrow?' = ileri yol.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wd34.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "find common ground",
+      tr_translation: "Ortak zemin bulmak (tartisma cozme kalibi)",
+      example: "Let's find common ground — what do we both agree on?",
+      example_tr: "Ortak zemin bulalim — ikimiz neye katiliyoruz?",
+    },
+    {
+      id: "ex.wd34.8.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Ortak zemin bulalim — bunu erteleyebiliriz, yarin tekrar konussak nasil olur?",
+      target: "Let's find common ground — we can table this and circle back tomorrow, how does that sound?",
+      accepted_variants: [
+        "Let's find shared ground here — could we park this and revisit tomorrow?",
+        "How about we look for common ground — table it and reconvene tomorrow?",
+        "Ground we both stand on — let's pause here and pick it up tomorrow.",
+        "We can table this — what if we circled back tomorrow with fresh eyes?",
+      ],
+      tr_hint:
+        "'Find common ground' = ortak zemin ara. 'Table this' = erteleme. 'Circle back' = geri donme. Uc kalip da is yerinde standart.",
+    },
+    {
+      id: "ex.wd34.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Let's ___ this and circle back tomorrow.",
+      answer: "table",
+      distractors: ["close", "delete", "end"],
+      tr_hint:
+        "'Table this' = sabit is kalibi = erteleme (kotu degil). 'Close' = bitirme (kesin), 'delete' yanlis kullanim.",
+    },
+    {
+      id: "ex.wd34.8.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Let's",
+        "find",
+        "common",
+        "ground",
+        "and",
+        "move",
+        "forward",
+      ],
+      correct_sentence: "Let's find common ground and move forward",
+      tr_translation: "Ortak zemin bulalim ve ilerleyelim.",
+    },
+    {
+      id: "ex.wd34.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "We are arguing too much, please you stop this fighting.",
+      correct_sentence:
+        "Looks like we're stuck — let's find common ground. We can table this and circle back tomorrow with fresh eyes.",
+      tr_explanation:
+        "'You stop this fighting' = suclayici + kotu dilbilgisi. Dogru: 'we' (birlikte) + 'find common ground' (yapici) + 'table + circle back' (somut ileri yol). Karsi taraf savunmaya gecmez.",
+    },
+    {
+      id: "ex.wd34.8.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Product Manager ile launch tarihi konusunda 40 dakika tartistiniz, takim yoruldu. Kopru kuruyorsun.",
+      npc_role: "Product Manager",
+      setting: "Late-day planning meeting",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Look — I really need this shipped by Friday. The marketing campaign is locked.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(let me|let's) (find|look for) (common ground|shared ground)",
+            "(both (agree|want)|we both)",
+            "(quality|stability|user (experience|trust))",
+            "(business (need|impact)|marketing (lock|window))",
+            "(real|legit|valid)",
+          ],
+          hint_tr:
+            "Kopru kur: 'Let's find common ground — we both want quality AND we both feel the marketing pressure. Both legit.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yeah, fair. So what's the middle path?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(what if|how about|could we)",
+            "(ship (a|the) (limited|beta|smaller|subset)|feature flag|canary)",
+            "(monday|early next week|tuesday|monday morning)",
+            "(full (launch|rollout)|rest of users|wider)",
+            "(48 hours|2 days|buffer)",
+            "(table the (debate|details|specifics)|park (the )?details)",
+          ],
+          hint_tr:
+            "Alternatif: 'What if we shipped behind a feature flag Friday — 10% rollout, full launch Monday after weekend monitoring?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I like that. Marketing gets the Friday date, you get the buffer.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(exactly|right|perfect)",
+            "(table|park) (the )?(rest|other (details|stuff)|specifics)",
+            "(circle back|sync|reconvene) (tomorrow|in the morning|first thing)",
+            "(fresh eyes|after sleep|with coffee)",
+            "(walk away (aligned|with)|good (place|spot) to (stop|leave))",
+          ],
+          hint_tr:
+            "Kapanis + iliski: 'Exactly. Let's table the rollout details and circle back tomorrow with fresh eyes.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect. Thanks for working through this with me — see you tomorrow.",
+        },
+      ],
+    },
+    {
+      id: "ex.wd34.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Tartisma sikistiginda EN saglikli kopru kalibi?",
+          options: [
+            "Pes etme",
+            "'Let's find common ground' + spesifik ortak deger + somut middle path teklifi",
+            "Saldiri",
+            "Sus",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Iki taraf da kazanir mantigi = ortak hedefi yuzeye cikar. Kazan-kaybet'ten kazan-kazan'a gec.",
+        },
+        {
+          question: "'Table this — circle back tomorrow' nicin guclu?",
+          options: [
+            "Kacma",
+            "Ertelemek pes etmek degil = duygusal yorgunluk azalir + ertesi gun daha iyi karar = profesyonel olgunluk",
+            "Yararsiz",
+            "Pasif aggresif",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Yorgun beyin kotu karar verir. 'Table + circle back' = bilincli pause = anlasmazlik olmez, daha iyi cozum bulunur.",
+        },
+        {
+          question: "Bridge kalibinda NE yapilmamasi gerekir?",
+          options: [
+            "Ortak zemin aramak",
+            "'Hadi anlasalim artik' diye baski + somut middle path olmadan kapatma = yapay anlasma + sorun donerek gelir",
+            "Soru sormak",
+            "Veri sunmak",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Yapay 'compromise' = pasif aggresif birikim. Somut middle path olmadan kopru kurma = sorun ertelenir, cozulmez.",
+        },
+      ],
+    },
+    {
+      id: "ex.wd34.8.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Let's find common ground — we can table this and circle back tomorrow.",
+      tr_translation: "Ortak zemin bulalım — bunu erteleyebiliriz ve yarın geri dönebiliriz.",
+      ipa: "/lɛts faɪnd ˈkɒmən ɡraʊnd wiː kən ˈteɪbəl ðɪs ənd ˈsɜːkəl bæk təˈmɒrəʊ/",
+    },
+  ],
+};
+
+// ============================================================
 // Work Disagree lessons registry
 // ============================================================
 export const workDisagreeLessons: ReadonlyArray<BundledLesson> = [
@@ -902,4 +1675,8 @@ export const workDisagreeLessons: ReadonlyArray<BundledLesson> = [
   workDisagreeLesson_34_2,
   workDisagreeLesson_34_3,
   workDisagreeLesson_34_4,
+  workDisagreeLesson_34_5,
+  workDisagreeLesson_34_6,
+  workDisagreeLesson_34_7,
+  workDisagreeLesson_34_8,
 ];

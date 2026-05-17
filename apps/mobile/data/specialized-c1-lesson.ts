@@ -2775,6 +2775,1111 @@ export const specC1Lesson_10: BundledLesson = {
 };
 
 // ============================================================
+// 11 — Tech: system design interview (CAP, sharding, consistency)
+// ============================================================
+export const specC1Lesson_11: BundledLesson = {
+  id: "professional.c1.spec-sysdesign-cap.1",
+  skill_id: "professional.c1.spec-sysdesign-cap",
+  index: 11,
+  title: "Tech — System Design Interview",
+  description:
+    "Distributed-systems interview. Reason about CAP trade-offs, defend an eventually-consistent path, and pick a sharding strategy without flinching.",
+  estimated_minutes: 12,
+  exercises: [
+    {
+      id: "ex.sc1.11.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "CAP theorem trade-offs",
+      tr_translation: "CAP teoremi takasları (tutarlılık-erişilebilirlik-bölünme)",
+      example:
+        "I'd walk through the CAP theorem trade-offs before I commit to a quorum read — under a partition, we can't have both strong consistency and full availability.",
+      example_tr:
+        "Quorum read'e karar vermeden önce CAP teoremi takaslarını gözden geçiririm — partition sırasında hem strong consistency hem tam availability mümkün değil.",
+    },
+    {
+      id: "ex.sc1.11.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "eventually consistent",
+      tr_translation:
+        "Eninde sonunda tutarlı (yazma sonrası tüm replica'lar nihayetinde aynı değeri görür)",
+      example:
+        "For the social graph, eventually consistent is fine — for the billing ledger, it's a non-starter.",
+      example_tr:
+        "Social graph için eventually consistent yeterli — billing ledger için baştan dışarıda.",
+    },
+    {
+      id: "ex.sc1.11.3",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "sharding strategy",
+      tr_translation: "Veriyi nodelara dağıtma stratejisi (hash, range, tenant bazlı)",
+      example:
+        "The sharding strategy I'd reach for is consistent hashing by tenant — it keeps the blast radius scoped when one shard goes hot.",
+      example_tr:
+        "Tercih edeceğim sharding strategy tenant bazlı consistent hashing — bir shard hot olduğunda etki yarıçapı sınırlı kalır.",
+    },
+    {
+      id: "ex.sc1.11.4",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Bu use-case'te CP yerine AP'ye kayardım — partition sirasinda yazmaya devam etmek tutarliliktan onemli.",
+      target:
+        "For this use case, I'd lean AP over CP — staying writable during a partition matters more than strict consistency.",
+      accepted_variants: [
+        "I'd pick AP over CP here — accepting writes through a partition is more valuable than strong consistency.",
+        "Given the use case, AP is the right call — I'd take availability under partition over strict consistency.",
+        "I'd skew toward AP — write availability under partition is the higher-order concern.",
+        "Trade-off-wise I'd go AP — consistency we can reconcile later, availability we can't get back.",
+      ],
+      tr_hint:
+        "CAP cevabi: AP vs CP secimi + sebep. 'Lean toward / skew toward' = senior tercih ifadesi. 'Reconcile later' jargonu.",
+    },
+    {
+      id: "ex.sc1.11.5",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Hot shard riskini azaltmak icin consistent hashing + virtual node kullanirim — rebalance maliyetini sinirli tutar.",
+      target:
+        "To mitigate hot-shard risk, I'd use consistent hashing with virtual nodes — it keeps the rebalance cost bounded.",
+      accepted_variants: [
+        "I'd reach for consistent hashing with vnodes to manage hot-shard risk and keep rebalances cheap.",
+        "Consistent hashing plus virtual nodes — that bounds the rebalance cost and softens hotspots.",
+        "Vnodes on top of consistent hashing — keeps rebalancing incremental and limits hotspots.",
+        "I'd shard with consistent hashing and use virtual nodes to spread hot keys.",
+      ],
+      tr_hint:
+        "Sharding cevabi: 'consistent hashing + virtual nodes' kalibi. 'Bounded rebalance' = senior precision.",
+    },
+    {
+      id: "ex.sc1.11.6",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "For the social graph, ___ consistent is acceptable — we can reconcile on read.",
+      answer: "eventually",
+      distractors: ["strongly", "casually", "loosely", "eagerly"],
+      tr_hint:
+        "'Eventually consistent' birlesik terim. 'Reconcile on read' = okuma sirasinda uzlasma jargonu.",
+    },
+    {
+      id: "ex.sc1.11.7",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "I will pick strong consistency because consistency is always better than availability.",
+      correct_sentence:
+        "I'd default to strong consistency for the billing path, but for the feed I'd accept eventual — the read path tolerates staleness, and CAP forces a choice under partition.",
+      tr_explanation:
+        "'Consistency is always better' = junior CAP yorumu. Senior cevap: path-by-path takas (billing vs feed), 'tolerates staleness' (somut gerekce), 'CAP forces a choice' (teori dogru cercevelenmis).",
+    },
+    {
+      id: "ex.sc1.11.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase:
+        "I'd walk through the CAP theorem trade-offs before I commit to a sharding strategy.",
+      ipa: "aɪd wɔːk θruː ðə kæp ˈθɪərəm ˈtreɪd ɒfs bɪˈfɔːr aɪ kəˈmɪt",
+      tr_hint:
+        "Interview opener. 'CAP theorem' /kæp ˈθɪərəm/, 'trade-offs' vurgulu, 'sharding' /ˈʃɑːrdɪŋ/. Kararli ton.",
+    },
+    {
+      id: "ex.sc1.11.9",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Distributed systems interview. Interviewer 'design a globally distributed key-value store' dedi ve CAP/consistency/sharding sorularina dalmaya hazirlaniyor.",
+      npc_role: "Staff Engineer Interviewer",
+      setting: "Senior systems design loop, 75 minutes",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Design a globally distributed KV store. Start where you want, but I'll push on consistency and partitioning.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(clarify|requirements|first|before)",
+            "(read.?write|qps|latency|geo|tenants?)",
+            "(consistency model|sla)",
+            "(scope|use case)",
+          ],
+          hint_tr:
+            "Clarify acilis: read/write profile, geo dagilim, latency SLA, consistency beklentisi. Dalmadan once kapsam.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Read-heavy, multi-region, P99 reads under 80ms across continents. Writes are mixed — some need durability guarantees, some are best-effort telemetry.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(cap|trade.?off|partition)",
+            "(two .?paths?|split|tier)",
+            "(strong|linearizable|quorum) .{0,40}(durable|critical)",
+            "(eventual|async) .{0,40}(telemetry|best.?effort)",
+          ],
+          hint_tr:
+            "CAP takasini ac: durable write'lar icin CP path (quorum), telemetry icin AP path (eventually consistent). Iki tier.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Good — two tiers. Walk me through the CAP trade-offs for the durable tier under a regional partition.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(partition|split.?brain)",
+            "(majority|quorum|leader|raft|paxos)",
+            "(unavailable|reject|stale reads?)",
+            "(minority side|losing side)",
+          ],
+          hint_tr:
+            "Partition altinda: majority quorum yazmaya devam eder, minority side write reddeder. Linearizability korunur, availability dusurulur.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sharding — how are you partitioning the key space?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(consistent hash|hash.based|range)",
+            "(virtual node|vnode|token)",
+            "(rebalance|reshard)",
+            "(hotspot|hot shard|skew)",
+          ],
+          hint_tr:
+            "Consistent hashing + virtual nodes. Rebalance maliyetini sinirla, hot shard skew'unu yumusat. Range partitioning trade-off'unu da kisa ac.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "What if a single tenant generates 40% of traffic? Consistent hashing alone won't save you.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(detect|monitor|profile)",
+            "(split|sub.?shard|carve out|isolate)",
+            "(dedicated|noisy neighbor)",
+            "(adaptive|dynamic|rebalance)",
+          ],
+          hint_tr:
+            "Hot tenant'i tespit + dedicated shard'a carve out. Noisy-neighbor isolation. Adaptive resharding sinyali ekle.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Replication — across regions, how do you keep durable writes consistent without dying on cross-region latency?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(quorum|w \\+ r > n|majority)",
+            "(local|regional|nearby).{0,20}(quorum|replicas?)",
+            "(async|geo.?replicate).{0,30}(other regions?|far)",
+            "(read.?your.?writes|session)",
+          ],
+          hint_tr:
+            "Regional majority quorum (local replicas), cross-region async replication. Read-your-writes session consistency garanti et.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Defend the choice to accept eventual consistency on the read replicas.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(read.?heavy|hot path|p99|latency budget)",
+            "(staleness (bound|window)|seconds?|sub.?second)",
+            "(reconcile|repair|anti.?entropy)",
+            "(business|use case|tolerates?)",
+          ],
+          hint_tr:
+            "Latency budget gerekce + bounded staleness (orn. 200ms). Anti-entropy / read repair ile reconcile. Use-case staleness'i tolere ediyor.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "If you had 10 more minutes, what would you push on?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(failure mode|chaos|partition test)",
+            "(observability|tracing|tail latency)",
+            "(schema|secondary index)",
+            "(multi.?tenant isolation|noisy)",
+          ],
+          hint_tr:
+            "Geri donus alanlari: failure mode drills, tail latency observability, secondary index, multi-tenant isolation. Bilincli punted maddeler.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Good loop. You scoped, owned the trade-offs, and didn't pretend CAP was a thing you could finesse around.",
+        },
+      ],
+    },
+    {
+      id: "ex.sc1.11.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "bounded staleness",
+      tr_translation: "Sinirli bayatlik (read'in en fazla X saniye geri olabilecegi garanti)",
+      example:
+        "For the catalog read path, I'd guarantee bounded staleness of 200ms — anything fresher costs us cross-region quorum latency.",
+      example_tr:
+        "Katalog read path'inde 200ms'lik bounded staleness garanti ederim — daha taze degerin maliyeti cross-region quorum latency'si.",
+    },
+    {
+      id: "ex.sc1.11.11",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "For context, the sharding strategy I'd reach for is consistent hashing with virtual nodes — it bounds the rebalance cost when a hot shard appears.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Sharding savunmasi. 'Reach for' = baş̆vururum (idiyom). 'Bounds the rebalance cost' = rebalance maliyetini sinirlar. Olcumlu, kararli.",
+    },
+    {
+      id: "ex.sc1.11.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "I will just use the database that is most popular, popular means it is the best for sharding.",
+      correct_sentence:
+        "I'd push back on picking the storage by popularity — for context, the sharding strategy has to match the access pattern. I'd profile the workload first and then choose between range and hash-based partitioning.",
+      tr_explanation:
+        "'Popular = best' = junior mantik. Senior cevap: erisim pattern'ina gore secim ('access pattern'), profil + sharding stratejisini somut adlandirma (range vs hash). 'Push back on picking by popularity' = system design dili.",
+    },
+  ],
+};
+
+// ============================================================
+// 12 — Finance: earnings call language
+// ============================================================
+export const specC1Lesson_12: BundledLesson = {
+  id: "professional.c1.spec-earnings.1",
+  skill_id: "professional.c1.spec-earnings",
+  index: 12,
+  title: "Finance — Earnings Call Language",
+  description:
+    "Public-company quarterly earnings call. Frame top-line growth, defend margin compression, and issue forward guidance without legal exposure.",
+  estimated_minutes: 12,
+  exercises: [
+    {
+      id: "ex.sc1.12.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "top-line growth",
+      tr_translation: "Gelir buyumesi (gelir tablosu ust satiri — net satislar)",
+      example:
+        "We delivered 18% top-line growth year-over-year, with strength across both enterprise and mid-market.",
+      example_tr:
+        "Yillik bazda %18 top-line buyume saglladik, hem enterprise hem mid-market segmentlerinde guc gosterdik.",
+    },
+    {
+      id: "ex.sc1.12.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "EBITDA margin compression",
+      tr_translation: "FAVOK marjinda daralma (faiz/vergi/amortisman onceski operasyonel kar yuzdesi dustu)",
+      example:
+        "We saw 120 basis points of EBITDA margin compression this quarter, largely driven by elevated R&D investment.",
+      example_tr:
+        "Bu ceyrek 120 baz puanlik EBITDA margin compression yasadik — buyuk olcude artan Ar-Ge yatirimlari kaynakli.",
+    },
+    {
+      id: "ex.sc1.12.3",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "guidance for the next quarter",
+      tr_translation: "Onumuzdeki ceyrek icin yatirimcilara verilen tahmin/yonlendirme",
+      example:
+        "Our guidance for the next quarter is revenue in the range of 510 to 525 million, reflecting continued enterprise momentum.",
+      example_tr:
+        "Onumuzdeki ceyrek icin guidance'imiz 510-525 milyon dolar gelir araliginda — devam eden enterprise momentumu yansitiyor.",
+    },
+    {
+      id: "ex.sc1.12.4",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Gelir buyumesi yillik bazda %22 oldu, fakat brut marjda 80 baz puanlik bir daralma gozledik.",
+      target:
+        "Top-line growth came in at 22% year-over-year, though we did see 80 basis points of gross margin compression.",
+      accepted_variants: [
+        "Top-line was up 22% year-over-year, partially offset by 80 bps of gross margin compression.",
+        "Revenue grew 22% YoY, with gross margin compressing 80 basis points.",
+        "We posted 22% top-line growth year-over-year alongside roughly 80 bps of gross margin compression.",
+        "Top-line growth landed at 22% YoY, with 80 basis points of margin compression on the gross line.",
+      ],
+      tr_hint:
+        "'Top-line growth came in at X%' = standart earnings call kalip. 'Basis points' / 'bps' = yuz baz puan = %1. Yillik buyume + marjda daralma birlikte sunulur.",
+    },
+    {
+      id: "ex.sc1.12.5",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Onumuzdeki ceyrek icin guidance'imizi 510 ila 525 milyon dolar araliginda yukseltiyoruz.",
+      target:
+        "We're raising our guidance for the next quarter to a range of 510 to 525 million dollars.",
+      accepted_variants: [
+        "We're taking up guidance for next quarter to a range of $510 to $525 million.",
+        "Our updated guidance for Q-next is in the range of 510 to 525 million.",
+        "We're guiding to 510 to 525 million for the next quarter, up from our prior range.",
+        "Forward guidance moves up to a range of 510 to 525 million for the coming quarter.",
+      ],
+      tr_hint:
+        "'Raising / taking up guidance' = guidance yukseltme kalip ifadesi. Aralik (range) ile sunulur — tek nokta degil. 'Forward guidance' senior register.",
+    },
+    {
+      id: "ex.sc1.12.6",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "We saw 120 basis points of EBITDA margin ___ this quarter, driven by elevated R&D spend.",
+      answer: "compression",
+      distractors: ["depression", "deflation", "subtraction", "regression"],
+      tr_hint:
+        "'Margin compression' = standart finans kalibi. 'Depression / deflation' ekonomi terimleri, finansta margin'a bu sekilde uygulanmaz.",
+    },
+    {
+      id: "ex.sc1.12.7",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "We will definitely make more money next quarter because everything is going great.",
+      correct_sentence:
+        "Looking ahead, our guidance for the next quarter reflects continued top-line momentum, partially offset by ongoing margin compression from R&D investment — we're guiding to a range of 510 to 525 million.",
+      tr_explanation:
+        "'Definitely make more money / everything great' = SEC ucretsiz secure haven sinyalsiz spekulasyon. Public company CFO dili: 'looking ahead', 'reflects', 'partially offset', spesifik aralik, 'guiding to'. Forward-looking statement disiplini.",
+    },
+    {
+      id: "ex.sc1.12.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase:
+        "Our guidance for the next quarter reflects continued top-line momentum, partially offset by margin compression.",
+      ipa: "ˈɑːr ˈɡaɪdəns fər ðə nɛkst ˈkwɔːrtər rɪˈflɛkts kənˈtɪnjuːd tɒp laɪn",
+      tr_hint:
+        "Earnings call cumlesi. 'Guidance' /ˈɡaɪdəns/, 'partially offset' birlikte. Sakin, kararli, defansif degil.",
+    },
+    {
+      id: "ex.sc1.12.9",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Public sirketin CFO'susun. Q3 earnings call AMA bolumu, sell-side analistler agir sorular soracak. Top-line buyume guclu ama EBITDA margin daraldi. Q4 guidance yukseltiyorsun.",
+      npc_role: "Sell-Side Analyst",
+      setting: "Q3 Earnings Call, Analyst Q&A",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Thanks for taking the question. Can you walk us through the drivers behind the top-line growth this quarter, and how durable you see that into Q4?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(top.?line|revenue) .{0,30}(driven by|attributable to)",
+            "(enterprise|mid.?market|segment)",
+            "(durable|sustainable|continued)",
+            "(guidance|next quarter|q4)",
+          ],
+          hint_tr:
+            "Buyume driver'larini somut isimlendir (enterprise + mid-market), durability sinyali ver, Q4 guidance'a kopru kur.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "On EBITDA margin — you compressed about 120 basis points. Is that one-time or structural?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(120 (bps|basis points))",
+            "(r&?d|research.{0,10}development|investment)",
+            "(elevated|deliberate|temporary)",
+            "(returns?|payoff|operating leverage)",
+          ],
+          hint_tr:
+            "120 bps'i sahiplen, 'elevated R&D investment' olarak cerceveye al, gecicilik + operating leverage geri donusu sinyali. 'Structural' degil 'deliberate'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Help me understand the guidance lift. What gives you confidence to take up the range when most peers are guiding cautiously?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(pipeline|coverage|bookings?)",
+            "(visibility|line of sight|conviction)",
+            "(\\d+%|\\d+x|coverage ratio)",
+            "(prudent|measured|appropriately conservative)",
+          ],
+          hint_tr:
+            "Conviction kaynagi: pipeline coverage, bookings visibility. Spesifik (orn. '2.5x pipeline coverage'). 'Prudent / measured' ile aşırılığı dengeye al.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "If macro deteriorates in Q1, how should we think about the downside scenario?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(downside|softer|deceleration)",
+            "(levers?|cost discipline|operating leverage)",
+            "(committed to|protect) .{0,20}(margin|profitability|bottom.?line)",
+            "(scenario|stress.?test|playbook)",
+          ],
+          hint_tr:
+            "Downside scenario'yu kabul et, kullanilabilir lever'lari adlandir (cost discipline, OpEx phasing), margin/EBITDA korumayi taahhüt et.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "One more — capital allocation. Buyback was light this quarter. Should we read into that?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(opportunistic|programmatic|disciplined)",
+            "(m&?a|inorganic|organic investment)",
+            "(balance sheet|cash position)",
+            "(committed to (returning|capital return)|long.?term)",
+          ],
+          hint_tr:
+            "Buyback'i 'opportunistic' olarak cerceveye al, M&A optionality'sini koru, long-term capital return commitment'ini tekrar et. Spekulasyon yok.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Thanks — I'll get back in the queue.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|appreciate)",
+            "(question|follow.?up)",
+            "(next (caller|question)|operator)",
+          ],
+          hint_tr:
+            "Kibar kapanis: 'Thanks for the question — operator, next?' Tek satir, IR diline uygun.",
+        },
+      ],
+    },
+    {
+      id: "ex.sc1.12.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "forward-looking statement",
+      tr_translation: "Ileriye donuk beyan (yasal disclaimer kapsamindaki tahmin)",
+      example:
+        "Before I begin, I'll remind you that today's call contains forward-looking statements subject to the risks outlined in our 10-K.",
+      example_tr:
+        "Baslamadan once hatirlatayim: bugunki call 10-K'mizdaki risklere tabi forward-looking statement icermektedir.",
+    },
+    {
+      id: "ex.sc1.12.11",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "For context, our guidance for the next quarter reflects continued top-line momentum, partially offset by deliberate EBITDA margin compression from R&D investment.",
+      voice_hint: "female_us",
+      tr_hint:
+        "CFO guidance cumlesi. 'Deliberate margin compression' = bilincli daralma (gecici degil savunma kelimesi). Olcumlu, defansif olmayan ton.",
+    },
+    {
+      id: "ex.sc1.12.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Our top-line growth is amazing, our EBITDA is going down a lot, but trust me everything will be fine next year.",
+      correct_sentence:
+        "Top-line growth came in at 22% year-over-year, with 120 basis points of EBITDA margin compression attributable to elevated R&D. Our guidance for the next quarter reflects continued momentum and disciplined cost management.",
+      tr_explanation:
+        "'Amazing / trust me / fine' = retail investor dili, sell-side analist tarafindan tehlikeli yorumlanir. CFO register: spesifik rakam (22%, 120 bps), 'attributable to' (drivers nedensellik), 'reflects / disciplined' (forward-looking kontrolu). Earnings call'da kelime secimi = sermaye maliyeti.",
+    },
+  ],
+};
+
+// ============================================================
+// 13 — Legal: contract negotiation
+// ============================================================
+export const specC1Lesson_13: BundledLesson = {
+  id: "professional.c1.spec-contract.1",
+  skill_id: "professional.c1.spec-contract",
+  index: 13,
+  title: "Legal — Contract Negotiation",
+  description:
+    "Commercial contract redlining. Push back on an aggressive indemnification clause, hedge under privilege, and move toward standard terms without ceding leverage.",
+  estimated_minutes: 12,
+  exercises: [
+    {
+      id: "ex.sc1.13.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "indemnification clause",
+      tr_translation: "Tazminat / sorumluluk ustlenme maddesi",
+      example:
+        "The indemnification clause as drafted is broader than we can accept — it would have us indemnifying for third-party claims well outside our control.",
+      example_tr:
+        "Mevcut sekliyle indemnification clause kabul edebileceğimizden gen̄is — kontrolumuz disindaki ucuncu sahis taleplerinden bizi sorumlu tutuyor.",
+    },
+    {
+      id: "ex.sc1.13.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "without prejudice",
+      tr_translation: "Haklarimizi sakli tutarak / on yargisiz (sonraki yargi sureclerinde aleyhe kullanilamaz)",
+      example:
+        "Without prejudice to our position on Section 9, we'd be open to discussing a mutual cap on liability.",
+      example_tr:
+        "Bolum 9'daki pozisyonumuza halel getirmeksizin, karsilikli bir sorumluluk tavani uzerinde gorusmeye aciğiz.",
+    },
+    {
+      id: "ex.sc1.13.3",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "subject to standard terms",
+      tr_translation: "Standart sartlara tabi (sirketin tipik sablon hukumlerine uyumlu olmasi kosuluyla)",
+      example:
+        "We'd be willing to proceed on that price point, subject to our standard terms on data processing and audit rights.",
+      example_tr:
+        "Veri isleme ve denetim haklari konularinda standart sartlarimiza tabi olmak kaydiyla bu fiyat noktasinda ilerleyebiliriz.",
+    },
+    {
+      id: "ex.sc1.13.4",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Bu sekliyle indemnification clause'una karsi cikariz — ucuncu sahis taleplerini kapsam disinda tutmamiz gerekiyor.",
+      target:
+        "We'd push back on the indemnification clause as drafted — we'd need to carve out third-party claims.",
+      accepted_variants: [
+        "We can't accept the indemnification clause in its current form — third-party claims need to be carved out.",
+        "We'll have to redline the indemnification provision — we'd want a carve-out for third-party claims.",
+        "The indemnification language as written is outside what we can sign — we'd need to scope out third-party claims.",
+        "We'd flag the indemnification clause for revision — a carve-out for third-party claims is required.",
+      ],
+      tr_hint:
+        "'Push back / carve out / redline' = anlasma muzakeresi standart fiilleri. 'As drafted / as written / in its current form' = saglam itiraz cercevesi.",
+    },
+    {
+      id: "ex.sc1.13.5",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Karsilikli sorumluluk tavanini soz konusu bedeller paralelinde 12 aylik ucret toplamiyla sinirlamayi onerelim.",
+      target:
+        "We'd propose a mutual liability cap limited to the aggregate fees paid in the preceding twelve months.",
+      accepted_variants: [
+        "Our proposal would be a mutual cap on liability tied to the twelve months of fees paid prior.",
+        "We'd suggest capping liability mutually at the total fees paid in the prior twelve-month period.",
+        "We'd land on a mutual liability cap equal to the trailing twelve months of fees.",
+        "We'd anchor the liability cap mutually to the aggregate twelve-month fees paid.",
+      ],
+      tr_hint:
+        "'Mutual liability cap' = karsilikli sorumluluk tavani. 'Aggregate fees paid in the preceding twelve months' = hukuki standart formul. 'Tied to / anchored to' senior kalip.",
+    },
+    {
+      id: "ex.sc1.13.6",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "Without ___ to our position on the IP clause, we'd consider a narrower indemnification scope.",
+      answer: "prejudice",
+      distractors: ["objection", "exception", "reservation", "qualification"],
+      tr_hint:
+        "'Without prejudice to' = pozisyonu koruyarak gorusmeye aciklik. Hukuki standart kalip. Sonraki yargi suresinde aleyhe kullanilamaz.",
+    },
+    {
+      id: "ex.sc1.13.7",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Your contract is unfair and we will not sign it unless you change everything.",
+      correct_sentence:
+        "We'd push back on three provisions in particular — the indemnification scope, the liability cap, and the audit rights. Without prejudice to our broader position, we'd be open to closing on the commercial terms subject to standard language on those points.",
+      tr_explanation:
+        "'Unfair / change everything' = muzakere kapatir, leverage kaybi. Hukuk muzakere dili: spesifik madde adlandirma (uc tane), 'without prejudice' (hak korumasi), 'subject to standard language' (cikis yolu acik). Genis itiraz degil, hedefli redline.",
+    },
+    {
+      id: "ex.sc1.13.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase:
+        "Without prejudice to our position, we'd be open to a mutual liability cap subject to standard terms.",
+      ipa: "wɪˈðaʊt ˈprɛdʒəˌdɪs tuː ˈɑːr pəˈzɪʃən",
+      tr_hint:
+        "Hukuk muzakere acilisi. 'Without prejudice' /wɪˈðaʊt ˈprɛdʒəˌdɪs/. Olcumlu, profesyonel, alttan tavizsiz. 'Subject to' vurgulu.",
+    },
+    {
+      id: "ex.sc1.13.9",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Sirket avukatisin / commercial lead'sin. Buyuk muşteri MSA (master services agreement) muzakeresi. Karsi taraf agresif bir indemnification clause + uncapped liability getirdi. Standart sartlara cekmen lazim, deal'i kaybetmeden.",
+      npc_role: "Counterparty's General Counsel",
+      setting: "MSA redline negotiation call",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Thanks for the redlines. Our position on Section 9 is firm — we expect broad indemnification given the nature of the engagement.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(push back|redline|cannot accept|cant sign)",
+            "(indemnification|section 9)",
+            "(as drafted|as written|in its current form)",
+            "(carve.?out|narrow|scope)",
+          ],
+          hint_tr:
+            "Pozisyonu net koy: 'as drafted' kabul edilemez, ucuncu sahis taleplerini carve out etmek gerek. Saldiri degil, hedefli madde itirazi.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "We've signed this language with comparable vendors. What specifically is the concern?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(third.?party|gross negligence|wilful misconduct)",
+            "(outside our control|beyond our reasonable)",
+            "(disproportionate|unbounded|uncapped)",
+            "(specific|carve.?out|limited to)",
+          ],
+          hint_tr:
+            "Spesifik endise: ucuncu sahis kaynakli, kontrol disi taleplere genis indemnification disproportionate. Carve-out talep et: 'limited to claims arising from our gross negligence or wilful misconduct'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "We can't go uncapped on our side either. If we agree to a cap, where do you land?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(mutual (cap|liability))",
+            "(aggregate fees|twelve months?|trailing|preceding)",
+            "(carve.?out|excluding) .{0,40}(ip|confidentiality|gross negligence)",
+            "(without prejudice|subject to)",
+          ],
+          hint_tr:
+            "Mutual cap teklif: aggregate fees paid in preceding 12 months. Carve-out adlandir: IP infringement, breach of confidentiality, gross negligence. 'Without prejudice' ile pozisyonu koru.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Twelve months is light. We'd want twenty-four, and uncapped on IP and confidentiality.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(meet.{0,5}(in the )?middle|land on|move to)",
+            "(eighteen months?|1\\.5x|aggregate)",
+            "(agree(d|able)? .{0,20}(uncapped|carve.?out) .{0,20}(ip|confidentiality))",
+            "(reciprocal|symmetric)",
+          ],
+          hint_tr:
+            "Orta yol: 18 ay veya 1.5x fees. IP + confidentiality carve-out'larini kabul et — bu standart. Reciprocal/symmetric vurgula.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "On Section 12, the audit rights. We're asking for quarterly with 48-hour notice.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(subject to (our )?standard terms|standard language)",
+            "(annual|once.{0,5}per.{0,5}year|reasonable)",
+            "(reasonable notice|thirty days|business days)",
+            "(business hours|non.?disruptive)",
+          ],
+          hint_tr:
+            "Standart terms'e cek: yillik denetim, 30 takvim gunu yazili bildirim, mesai saatleri, non-disruptive. 'Subject to standard terms' kalibi.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Off-the-record — how much room do you actually have on the indemnification scope? Our commercial team is leaning on us.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(off.?the.?record|without prejudice|privilege)",
+            "(im not able to|i can'?t|cannot)",
+            "(formal|in (the )?document|on paper)",
+            "(consult|come back|circle back)",
+          ],
+          hint_tr:
+            "Kayit disi tuzaga girme. 'Without prejudice / privileged' cercevesi, formal pozisyonu sadece dokumanda. 'Let me circle back with my team' kapanis.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Understood. Let's get a fresh redline by Thursday and aim to close next week.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thursday|by .{0,10}thursday|end of week)",
+            "(turn (around|it)|fresh redline|clean version)",
+            "(close|sign|execute) .{0,15}(next week|monday|tuesday)",
+            "(thanks|appreciate)",
+          ],
+          hint_tr:
+            "Profesyonel kapanis: 'We'll have a fresh redline back by Thursday — happy to aim for execution early next week.' Spesifik gun + commitment.",
+        },
+      ],
+    },
+    {
+      id: "ex.sc1.13.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "carve-out",
+      tr_translation: "Istisna / kapsam disi birakma (madde kapsamindan cikarilan ozel durum)",
+      example:
+        "We'd want a carve-out for claims arising from the customer's own gross negligence.",
+      example_tr:
+        "Musterinin agir ihmalinden kaynaklanan taleplere yonelik bir carve-out talep ederdik.",
+    },
+    {
+      id: "ex.sc1.13.11",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "Without prejudice to our broader position, we'd be open to a mutual liability cap subject to standard terms — provided IP and confidentiality remain carved out.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Hukuk muzakere ozeti. 'Without prejudice to our broader position' = genis pozisyonumuza halel getirmeksizin. 'Carved out' = kapsam disi tutulan. Olcumlu, tavizsiz.",
+    },
+    {
+      id: "ex.sc1.13.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Okay, fine, we agree to your indemnification clause as you wrote it, we just want to sign the contract quickly.",
+      correct_sentence:
+        "Without prejudice to our position on the scope, we'd be open to closing on the commercial terms — provided the indemnification is narrowed to claims arising from our gross negligence or wilful misconduct, and subject to our standard terms on liability.",
+      tr_explanation:
+        "'Fine, we agree, sign quickly' = leverage'in tamami carsiya cikar, ileride pricey hata. Hukuki muzakere dili: 'without prejudice' (hak korumasi), 'provided / subject to' (sartli kabul), 'narrowed to gross negligence or wilful misconduct' (spesifik carve-out). Acele = pahaliya patlar.",
+    },
+  ],
+};
+
+// ============================================================
+// 14 — Medical: case presentation
+// ============================================================
+export const specC1Lesson_14: BundledLesson = {
+  id: "professional.c1.spec-medcase.1",
+  skill_id: "professional.c1.spec-medcase",
+  index: 14,
+  title: "Medical — Case Presentation",
+  description:
+    "Morning rounds case presentation. Open with presenting symptoms, build a differential diagnosis, defend why a finding is clinically significant, and propose a workup.",
+  estimated_minutes: 12,
+  exercises: [
+    {
+      id: "ex.sc1.14.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "presenting symptoms",
+      tr_translation: "Basvuru semptomlari (hastanin ilk muracaatindaki sikayetler)",
+      example:
+        "The patient's presenting symptoms were acute-onset epigastric pain radiating to the back, nausea, and a low-grade fever.",
+      example_tr:
+        "Hastanin presenting symptoms'i sirta yayilan akut baslangicli epigastrik agri, bulanti ve hafif ateşti.",
+    },
+    {
+      id: "ex.sc1.14.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "differential diagnosis",
+      tr_translation: "Ayirici tani (semptomlari aciklayabilecek aday tanilar listesi)",
+      example:
+        "My differential diagnosis includes acute pancreatitis, perforated ulcer, and inferior MI — I'd rule out cardiac first given the risk profile.",
+      example_tr:
+        "Ayirici tanimda akut pankreatit, perfore ulser ve inferior MI var — risk profili nedeniyle once kardiyaki dislama yaparim.",
+    },
+    {
+      id: "ex.sc1.14.3",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "clinically significant",
+      tr_translation: "Klinik olarak anlamli (hasta yonetimini etkileyebilecek duzeyde)",
+      example:
+        "The lipase elevation is clinically significant — it's three times the upper limit of normal and supports pancreatitis.",
+      example_tr:
+        "Lipaz yuksekligi clinically significant — normalin ust sinirinin uc kati ve pankreatiti destekliyor.",
+    },
+    {
+      id: "ex.sc1.14.4",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Hasta sirta yayilan akut epigastrik agri ile basvurdu; ayirici tanida pankreatit, perfore ulser ve inferior MI'yi dusunuyorum.",
+      target:
+        "The patient presented with acute epigastric pain radiating to the back; my differential includes pancreatitis, perforated ulcer, and inferior MI.",
+      accepted_variants: [
+        "Presenting symptoms are acute-onset epigastric pain radiating to the back — the differential I'd build is pancreatitis, perforated ulcer, and inferior MI.",
+        "The patient came in with acute epigastric pain radiating posteriorly; I'd put pancreatitis, perforated peptic ulcer, and inferior MI on the differential.",
+        "Acute epigastric pain radiating to the back on presentation — differential diagnosis: pancreatitis, perforated ulcer, inferior MI.",
+        "On presentation, the patient had acute epigastric pain radiating to the back; differential is pancreatitis, perforated ulcer, and inferior wall MI.",
+      ],
+      tr_hint:
+        "Vaka sunumu acilisi: 'presented with' + presenting symptom + 'differential includes' kalibi. Sira: semptom -> differential. Senior register: 'inferior MI' / 'perforated ulcer'.",
+    },
+    {
+      id: "ex.sc1.14.5",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Lipaz duzeyindeki yukseliş klinik olarak anlamli — normalin uc kati ve pankreatiti destekliyor.",
+      target:
+        "The lipase elevation is clinically significant — it's three times the upper limit of normal and supports pancreatitis.",
+      accepted_variants: [
+        "Lipase is clinically significant at roughly three times the upper limit of normal — consistent with pancreatitis.",
+        "The lipase elevation is clinically meaningful — three-fold over the upper limit, supporting a diagnosis of pancreatitis.",
+        "Clinically, the lipase is significant — it's at three times the upper limit, in keeping with pancreatitis.",
+        "Lipase at three times the upper limit of normal is clinically significant and supports pancreatitis as the leading diagnosis.",
+      ],
+      tr_hint:
+        "Lab degerini cerceve: 'X times the upper limit of normal' kalibi. 'Supports / consistent with / in keeping with' = klinik korelasyon dili. 'Clinically significant' anahtarsoz.",
+    },
+    {
+      id: "ex.sc1.14.6",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "My ___ diagnosis includes acute pancreatitis, perforated ulcer, and inferior MI.",
+      answer: "differential",
+      distractors: ["definitive", "primary", "tentative", "preliminary"],
+      tr_hint:
+        "'Differential diagnosis' = standart vaka sunumu terimi. Tek tani degil, aday liste. 'Definitive / primary' baska anlamlarda kullanilir.",
+    },
+    {
+      id: "ex.sc1.14.7",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "The patient is sick with stomach pain so we think it is the stomach problem and we will give some medicine.",
+      correct_sentence:
+        "The patient presented with acute-onset epigastric pain radiating to the back. My differential includes pancreatitis, perforated ulcer, and inferior MI — I'd start with an ECG and a lipase to narrow it, given how clinically significant a missed cardiac diagnosis would be.",
+      tr_explanation:
+        "'Sick with stomach pain / stomach problem / some medicine' = laypereson dili, attending'in karsisinda guvenilirligi yer eder. Tibbi sunum: 'presented with' + spesifik anatomik dil ('epigastric, radiating to the back'), differential listesi, workup gerekcesi ('to narrow it'), miss riski ('clinically significant a missed diagnosis').",
+    },
+    {
+      id: "ex.sc1.14.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase:
+        "My differential diagnosis includes pancreatitis, perforated ulcer, and inferior MI.",
+      ipa: "maɪ ˌdɪfəˈrɛnʃəl ˌdaɪəɡˈnoʊsɪs ɪnˈkluːdz ˌpæŋkriəˈtaɪtɪs",
+      tr_hint:
+        "Rounds sunumu. 'Differential' /ˌdɪfəˈrɛnʃəl/, 'pancreatitis' /ˌpæŋkriəˈtaɪtɪs/ (kelime sonu -taɪtɪs vurgulu). Kararli, sirayla.",
+    },
+    {
+      id: "ex.sc1.14.9",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Internal medicine residentisin. Sabah rounds, attending karsisindasin. 58 yas erkek hasta, acil servisten yeni yatti: sirta yayilan akut epigastrik agri, bulanti, lipaz 3x normal ust sinir. Vakayi sun, ayirici taniyi savun, workup'i oner.",
+      npc_role: "Attending Physician",
+      setting: "Internal medicine morning rounds, bedside",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Alright, give me the bullet on bed 12 — keep it tight.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(58.?year.?old|male|m)",
+            "(presented with|presenting (with|symptoms?))",
+            "(acute|epigastric|radiating)",
+            "(differential|workup|admitted)",
+          ],
+          hint_tr:
+            "Bullet acilisi: yas/cins, presented with + presenting symptoms, kisa differential, admit nedeni. 'Keep it tight' = 30 saniyede.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Walk me through your differential. Top three — what's leading, what would you not miss?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(leading|most likely|top)",
+            "(pancreatitis|lipase|three .{0,10}upper limit)",
+            "(not (miss|to miss)|cant miss|life.?threatening)",
+            "(inferior mi|cardiac|aortic|perforated)",
+          ],
+          hint_tr:
+            "Leading: pancreatitis (lipaz 3x). Not-miss tanilar: inferior MI, aortic catastrophe, perforated viscus. Risk profili nedeniyle cardiac dislama once.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "What in the workup tells you the lipase elevation is clinically significant rather than incidental?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(three.?(times|fold)|3x|upper limit)",
+            "(clinical (correlation|context|picture)|consistent with)",
+            "(presentation|symptoms?|fits)",
+            "(specific|sensitive|amylase)",
+          ],
+          hint_tr:
+            "3x ust sinir + klinik resme uyum (epigastrik agri, sirta yayilan, bulanti). Lipaz pankreatit icin sensitif + spesifik. 'Clinical correlation' anahtarsoz.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "If it's pancreatitis, etiology? Don't say 'gallstones or alcohol' and walk away.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(gallstones|alcohol|hypertriglyceridemia|medications?|post.?ercp|idiopathic)",
+            "(ultrasound|rus|right upper quadrant)",
+            "(history|social|medication list)",
+            "(triglycerides?|calcium|iga)",
+          ],
+          hint_tr:
+            "Etiology workup: RUQ ultrasound (gallstones), alcohol history, medication review, triglycerides, kalsiyum, IgG4 (otoimmun). Sadece iki sebepten ote.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Severity stratification? How are you triaging this?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(bisap|ranson|apache|severity score)",
+            "(sirs|organ failure|hemodynamic)",
+            "(fluid resuscitation|crystalloid|ringer)",
+            "(icu|step.?down|monitored bed)",
+          ],
+          hint_tr:
+            "Severity: BISAP veya Ranson skoru, SIRS kriterleri, organ disfonksiyonu. Aggressive fluid resuscitation (Ringer's lactate). Severity'e gore step-down / ICU.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "What would change your mind toward the inferior MI?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(ecg|ekg|st elevation|reciprocal)",
+            "(troponin|cardiac biomarkers?)",
+            "(ii.{0,5}iii.{0,5}avf|inferior leads?)",
+            "(rule out|workup|cath)",
+          ],
+          hint_tr:
+            "Mind-change kriteri: ECG'de II/III/aVF ST elevasyonu, reciprocal change, troponin yuksekligi. Kardiyoloji konsultasyonu, cath lab.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Plan for the next 24 hours?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(npo|bowel rest)",
+            "(iv fluids?|ringer|crystalloid|aggressive)",
+            "(serial (exams?|labs|abdominal))",
+            "(pain (control|management)|analgesia)",
+            "(reassess|trend)",
+          ],
+          hint_tr:
+            "24 saat plan: NPO + aggressive IV resuscitation, pain control, serial abdominal exams, trend labs (lipaz, kreatinin, hematokrit, kalsiyum). Reassess severity.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Good. Make sure the ECG is on the chart before I see the patient.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|will do|on it)",
+            "(ecg|ekg|on the chart|order)",
+            "(thanks|appreciate)",
+          ],
+          hint_tr:
+            "Kisa, net kapanis: 'Will do — ECG already ordered, I'll make sure it's on the chart.'",
+        },
+      ],
+    },
+    {
+      id: "ex.sc1.14.10",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "rule out",
+      tr_translation: "Olasilik disi birakmak / dislama yapmak (tani aday listesinden cikarmak)",
+      example:
+        "Given the risk profile, I'd rule out an inferior MI first with an ECG and troponin before committing to a GI workup.",
+      example_tr:
+        "Risk profili goz onunde tutuldugunda, GI workup'a baslamadan once ECG ve troponin ile once inferior MI'yi dislardim.",
+    },
+    {
+      id: "ex.sc1.14.11",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "For context, the lipase is three times the upper limit of normal — clinically significant, and consistent with the presenting symptoms of acute pancreatitis.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Rounds savunmasi. 'Three times the upper limit of normal' kalibi. 'Consistent with' = klinik korelasyon. Olcumlu, kararli, hipotezi data'ya bagliyor.",
+    },
+    {
+      id: "ex.sc1.14.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "I think maybe the patient has pancreas problem, the lab number is high, probably we will give pain medicine and see what happens.",
+      correct_sentence:
+        "The patient presented with acute-onset epigastric pain radiating to the back. Lipase is three times the upper limit of normal, which is clinically significant and consistent with acute pancreatitis. My differential still includes inferior MI and perforated ulcer — I'd rule out cardiac with an ECG and troponin before committing to the GI pathway.",
+      tr_explanation:
+        "'Pancreas problem / high lab number / see what happens' = belirsiz, lay dil, attending'de guvensizlik isareti. Tibbi sunum: 'presented with' + spesifik anatomi, lipaz '3x upper limit of normal' + 'clinically significant' + 'consistent with', differential acik tutma, dislama plani. Belirsizlik degil, yapilandirilmis muhakeme.",
+    },
+  ],
+};
+
+// ============================================================
 // Registry
 // ============================================================
 export const specializedC1Lessons: BundledLesson[] = [
@@ -2788,4 +3893,8 @@ export const specializedC1Lessons: BundledLesson[] = [
   specC1Lesson_8,
   specC1Lesson_9,
   specC1Lesson_10,
+  specC1Lesson_11,
+  specC1Lesson_12,
+  specC1Lesson_13,
+  specC1Lesson_14,
 ];

@@ -846,6 +846,709 @@ export const dailyShoppingLesson_18_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 18.5 — Exchanging Sizes (Beden Degisimi)
+// ============================================================
+export const dailyShoppingLesson_18_5: BundledLesson = {
+  id: "daily.shopping.18.5",
+  skill_id: "daily.shopping",
+  index: 5,
+  title: "Beden Degisimi — Kiyafet Sorunu",
+  description:
+    "Aldigin kiyafet ev'de denedinde uymadi. Magazaya geri donup beden degistirmek istiyorsun.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.ds18.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Do you have this in a medium?",
+      tr_translation: "Bunun medium bedeni var mi?",
+      example: "I bought a small but do you have this in a medium?",
+      example_tr: "Small aldim ama medium beden var mi?",
+    },
+    {
+      id: "ex.ds18.5.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Bu kazak benim icin biraz kucuk geldi — bir buyuk bedenle degistirebilir miyim?",
+      target: "This sweater runs a bit small on me — could I exchange it for one size up?",
+      accepted_variants: [
+        "Tight on me — any chance I could swap for a larger size?",
+        "Bit snug — would it be possible to exchange for the next size?",
+        "This is too small — could I trade it in for a medium?",
+        "Doesn't quite fit — happy to exchange for a size larger.",
+      ],
+      tr_hint:
+        "Turk hatasi: 'I want change this' YANLIS. Dogru: 'Could I exchange this?'. 'Runs small' = kalibi kucuk gelir.",
+    },
+    {
+      id: "ex.ds18.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "This shirt ___ small in the chest.",
+      answer: "runs",
+      distractors: ["goes", "makes", "feels"],
+      tr_hint:
+        "'Runs small/large' = kalip kucuk/buyuk gelir. ABD klasigi — sadece 'small' bedeninin numarasi degil, kalip da kastedilir.",
+    },
+    {
+      id: "ex.ds18.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Could",
+        "I",
+        "exchange",
+        "this",
+        "for",
+        "a",
+        "larger",
+        "size",
+      ],
+      correct_sentence: "Could I exchange this for a larger size",
+      tr_translation: "Bunu daha buyuk bir bedenle degistirebilir miyim?",
+    },
+    {
+      id: "ex.ds18.5.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I want change this big size give me.",
+      correct_sentence:
+        "Could I exchange this for a larger size? It runs a bit small on me.",
+      tr_explanation:
+        "'I want change' = grammatik yanlis (need 'to'). 'Big size give' = kaba emir. Dogru: 'Could I exchange' + sebep (runs small).",
+    },
+    {
+      id: "ex.ds18.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Magazaya geldin. Dun aldigin polyester karistirma gomlek dar geldi. Calisanla konusuyorsun.",
+      npc_role: "Store Associate",
+      setting: "Clothing store — exchange counter",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|excuse me)",
+            "(i'?d like to|hoping to|wanted to) (exchange|swap)",
+            "(this (shirt|sweater|top))",
+            "(runs (a bit |too )?(small|large|tight|big))",
+            "(bought it (yesterday|last week))",
+            "(in (a )?(medium|large|size up|bigger size))",
+          ],
+          hint_tr:
+            "Net acilis: 'Hi, I'd like to exchange this shirt — it runs a bit small. Do you have it in a medium?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure! Do you have the receipt and the original tags?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|i do)",
+            "(receipt('?s)? (right )?here|got the receipt)",
+            "(tags (are )?still (on|attached))",
+            "(haven'?t worn it|never worn|unworn)",
+            "(took it home (and )?tried it on)",
+            "(only tried (it )?on (once|at home))",
+          ],
+          hint_tr:
+            "Onayla: 'Yes — receipt's here, tags still on. Only tried it on at home.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect. Let me grab the medium in the same color from the floor.",
+        },
+      ],
+    },
+    {
+      id: "ex.ds18.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Runs small' EN dogru tercume?",
+          options: [
+            "Hizli kosar",
+            "Bedenden daha kucuk gelir — kalip dar",
+            "Kotu kalite",
+            "Kosturmak",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'This brand runs small' = bu marka kalip kucuk yapar. Bedenden 1 buyuk almak gerekebilir.",
+        },
+        {
+          question: "Degisim icin Turk hatasi 'I want change this' — duzelt:",
+          options: [
+            "Dogru zaten",
+            "'I want to change this' veya 'Could I exchange this?'",
+            "I changing this",
+            "Change this me",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Want' + 'to' + fiil. Daha kibar: 'Could I exchange?'. Beden degisimi icin 'exchange' fiili 'change'den daha dogal.",
+        },
+        {
+          question: "Beden degisimi icin EN onemli iki sart?",
+          options: [
+            "Etiket hala uzerinde + makbuz/receipt",
+            "Hicbir sey",
+            "Sadece kart",
+            "Sosyal medya",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Etiket cikmis = giyilmis kabul. Receipt = satin alma kanit. Ikisi olmadan exchange zor.",
+        },
+      ],
+    },
+    {
+      id: "ex.ds18.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Could I exchange this for a larger size?",
+      ipa: "kʊd aɪ ɪksˈtʃeɪndʒ ðɪs fər ə ˈlɑːrdʒər saɪz",
+      tr_hint:
+        "'Exchange' vurgu ikinci hece: iks-CHEYNJ. 'For a' bağlanır → 'fəra'. Net polite kalip.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 18.6 — Return Without Receipt (Receipt'siz Iade)
+// ============================================================
+export const dailyShoppingLesson_18_6: BundledLesson = {
+  id: "daily.shopping.18.6",
+  skill_id: "daily.shopping",
+  index: 6,
+  title: "Receipt'siz Iade",
+  description:
+    "Receipt kaybettin ama etiket cikmis, urun kullanilmamis. Magazaya iade etmek istiyorsun.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.ds18.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Can I return this without a receipt?",
+      tr_translation: "Bunu fis olmadan iade edebilir miyim?",
+      example: "Can I return this without a receipt? I paid by card.",
+      example_tr: "Bunu fis olmadan iade edebilir miyim? Kartla odedim.",
+    },
+    {
+      id: "ex.ds18.6.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Receipt'i bulamiyorum ama kartla odedim — kart kayitlarinda satin alma gozukmuyor mu?",
+      target: "I can't find the receipt, but I paid by card — could you look it up by the card on file?",
+      accepted_variants: [
+        "Lost the receipt, but card payment — any way to pull it up?",
+        "No receipt sadly, but it's on my card — can you search by card?",
+        "Misplaced the receipt — paid with this card if that helps.",
+        "Receipt's gone, but I have the card I paid with.",
+      ],
+      tr_hint:
+        "'Look it up' = sistemden bulmak. ABD magazalar kart numarasiyla satin almayi bulabilir. 'On file' = kayitlarda.",
+    },
+    {
+      id: "ex.ds18.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Without a receipt, we can only offer store ___.",
+      answer: "credit",
+      distractors: ["money", "refund", "card"],
+      tr_hint:
+        "'Store credit' = magaza kredisi (kart yerine magazada kullanilacak). Receipt yoksa, ABD standart sonuc.",
+    },
+    {
+      id: "ex.ds18.6.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "The",
+        "tags",
+        "are",
+        "still",
+        "on",
+        "and",
+        "it's",
+        "unworn",
+      ],
+      correct_sentence: "The tags are still on and it's unworn",
+      tr_translation: "Etiketler hala uzerinde ve hic giyilmemis.",
+    },
+    {
+      id: "ex.ds18.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "No receipt, money back give me anyway.",
+      correct_sentence:
+        "I don't have the receipt — would store credit be an option since the tags are still attached?",
+      tr_explanation:
+        "'Give me anyway' = kaba + grammatik degil. Dogru: durumu anlat (no receipt) + esnek opsiyon iste (store credit) + kanit (tags attached).",
+    },
+    {
+      id: "ex.ds18.6.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Hediye olarak verilen cotton bluz iade etmek istiyorsun. Receipt yok ama etiket uzerinde.",
+      npc_role: "Returns Associate",
+      setting: "Customer service desk",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|excuse me)",
+            "(i'?d like to|hoping to|wanted to) (return|bring back)",
+            "(this (blouse|shirt|item))",
+            "(was a (gift|present)|received it as a gift)",
+            "(don'?t have (the )?receipt|no receipt|without (a |the )?receipt)",
+            "(tags (are )?still (on|attached)|unworn|brand new)",
+          ],
+          hint_tr:
+            "Acik ol: 'Hi — I'd like to return this. It was a gift, so I don't have the receipt, but tags are still on.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I see. Without a receipt, we can only offer store credit at the current selling price. Is that okay?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that (works|sounds good|is fine))",
+            "(yes|yeah|sure)",
+            "(store credit (is fine|works for me))",
+            "(any expiration|how long is the credit good for)",
+            "(does it (expire|have a date))",
+            "(thank you|appreciate it)",
+          ],
+          hint_tr:
+            "Kabul + sor: 'That works. Quick question — does the store credit expire?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Store credit is good for one year from today. Here's your receipt for it.",
+        },
+      ],
+    },
+    {
+      id: "ex.ds18.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Receipt yok ama urun yeni — ABD'de en olasi sonuc?",
+          options: [
+            "Tam iade kart'a",
+            "Store credit (genelde mevcut satis fiyatindan)",
+            "Hicbir sey, reddedilir",
+            "Para iadesi nakit",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Receipt yoksa sirket ne fiyata satin aldigini bilemez. Mevcut fiyattan store credit = kompromis.",
+        },
+        {
+          question: "'Tags still on' ne icin onemli?",
+          options: [
+            "Hicbir sey",
+            "Urun giyilmedigini / kullanilmadigini gosterir — iade hakki saglar",
+            "Kotu",
+            "Yalan",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Etiket cikmis = giyilmis kabul = iade reddi olabilir. Etiket uzerinde = brand new state.",
+        },
+        {
+          question: "Hediye iade icin EN dogru baslangic?",
+          options: [
+            "Sus, etiketi cikar",
+            "'It was a gift, so I don't have the receipt' + tags still on",
+            "Yalan soyle",
+            "Para iste",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Durust + bilgi + kanit = magaza anlayisli. 'Gift return' yaygin durum, calisanlar bilir.",
+        },
+      ],
+    },
+    {
+      id: "ex.ds18.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Can I return this without a receipt?",
+      ipa: "kæn aɪ rɪˈtɜːrn ðɪs wɪˈðaʊt ə rɪˈsiːt",
+      tr_hint:
+        "'Receipt' vurgu ikinci hece: rə-SEET ('p' SESSIZ!). Turklerin yaygin hatasi: 'reseept' DEGIL — 'rə-SEET'.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 18.7 — Discount Not Applied (Indirim Uygulanmadi)
+// ============================================================
+export const dailyShoppingLesson_18_7: BundledLesson = {
+  id: "daily.shopping.18.7",
+  skill_id: "daily.shopping",
+  index: 7,
+  title: "Indirim & Kupon — Kasada Uygulanmadi",
+  description:
+    "Etikette indirim yaziyor ama kasada tam fiyattan cekildi. Veya kuponun calismadi. Saygili itiraz.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.ds18.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I think there's a sale on this",
+      tr_translation: "Bunda bir indirim oldugunu dusunuyorum",
+      example: "Quick — I think there's a sale on this. The sign said 30% off.",
+      example_tr: "Hizli — bunda bir indirim var sanirim. Tabela 30% indirim diyordu.",
+    },
+    {
+      id: "ex.ds18.7.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Kuponum sistemde uygulanmadi galiba — fiyat hala ayni gozukuyor.",
+      target: "I don't think my coupon applied — the price is still showing full.",
+      accepted_variants: [
+        "My coupon didn't go through — total looks the same.",
+        "Coupon didn't kick in — could you check?",
+        "Code didn't apply, the price hasn't changed.",
+        "Looks like the promo didn't register — same total.",
+      ],
+      tr_hint:
+        "'Apply / Go through / Kick in' = sisteme uygulanmak. 'Showing full' = tam fiyat gozukuyor. Saygili dil — hata sucu yok.",
+    },
+    {
+      id: "ex.ds18.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "The shelf tag said it was ___ off.",
+      answer: "30%",
+      distractors: ["thirty", "discount", "sale"],
+      tr_hint:
+        "'30% off' = %30 indirim. 'Shelf tag' = raf etiketi. ABD'de spesifik yuzde + 'off' yapisi standart.",
+    },
+    {
+      id: "ex.ds18.7.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Could",
+        "you",
+        "double-check",
+        "the",
+        "price",
+        "on",
+        "this",
+      ],
+      correct_sentence: "Could you double-check the price on this",
+      tr_translation: "Bunun fiyatini bir daha kontrol edebilir misiniz?",
+    },
+    {
+      id: "ex.ds18.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "You wrong price! Discount give me!",
+      correct_sentence:
+        "I think the sale price didn't apply — the shelf tag showed 30% off. Could you double-check?",
+      tr_explanation:
+        "'You wrong' = kaba sucalama. 'Give me' = emir. Dogru: 'I think' (yumusak) + delil (shelf tag) + saygili istek (double-check).",
+    },
+    {
+      id: "ex.ds18.7.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Kasa odeme yapilirken total daha yuksek gozukuyor. Etikette wool kazak %40 off yaziyordu.",
+      npc_role: "Cashier",
+      setting: "Checkout counter",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(excuse me|sorry|quick question)",
+            "(i think|i believe|looks like)",
+            "(the (sale|discount|promo) (didn'?t|hasn'?t) (apply|kick in|go through))",
+            "(the (shelf )?tag (said|showed))",
+            "(\\d+% off|on sale)",
+            "(could you (check|double-check|verify))",
+          ],
+          hint_tr:
+            "Saygili: 'Sorry — I think the discount didn't apply. The shelf tag showed 40% off. Could you double-check?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Let me see... You're right, that sale ended yesterday but the tag should've been removed. Can you show me where it was?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(of course|yeah|sure)",
+            "(over there|right by|by the (wool|sweater) section)",
+            "(i can (show|take) you)",
+            "(any chance you (could|would) (honor|apply) the tag price)",
+            "(stocked under the (sale|discount) (sign|rack))",
+            "(it (still has|is under) the sale tag)",
+          ],
+          hint_tr:
+            "Gosterek + saygili pazarlik: 'Sure — it's by the wool sweaters. Any chance you'd still honor the tag price?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "We honor the posted price — I'll adjust it to the 40% off. One moment.",
+        },
+      ],
+    },
+    {
+      id: "ex.ds18.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Kasada fiyat hatasi gordugunde EN iyi yol?",
+          options: [
+            "Bagir, sucalama yap",
+            "'I think' + delil (shelf tag) + saygili istek (double-check)",
+            "Sus, odeme",
+            "Cik git",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Turkler genelde utangaç olabilir — ama haklarini kibarca savunmak ABD'de standart. 'I think' = yumusatici.",
+        },
+        {
+          question: "'Honor the posted price' ne demek?",
+          options: [
+            "Etikette yazan fiyati kabul et / uygula",
+            "Hicbir sey",
+            "Fiyati arttir",
+            "Reddetmek",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "ABD/UK'de magaza tabelasinda/raftaki fiyati genelde 'honor' eder. Sormak = haklarinin korunmasi.",
+        },
+        {
+          question: "Kupon uygulanmadiginda Turk hatasi NEDIR?",
+          options: [
+            "Sus + ode (utangaclik)",
+            "Bagir (asiri agresif)",
+            "Ikisi de yanlis: net + saygili konus",
+            "Kacirma",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Iki uc: utangaclik (paray kaybedersin) ve agresif (calisan yardim etmez). Orta yol = saygili net iletisim.",
+        },
+      ],
+    },
+    {
+      id: "ex.ds18.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I don't think the discount applied.",
+      ipa: "aɪ doʊnt θɪŋk ðə ˈdɪskaʊnt əˈplaɪd",
+      tr_hint:
+        "'I don't think' = yumusatici (sucalama yok). 'Discount' vurgu ilk hece: DIS-kaunt. 'Applied' vurgu ikinci hece: ə-PLAID.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 18.8 — Asking for Help Finding Items (Yardim Iste)
+// ============================================================
+export const dailyShoppingLesson_18_8: BundledLesson = {
+  id: "daily.shopping.18.8",
+  skill_id: "daily.shopping",
+  index: 8,
+  title: "Yardim Iste — Urunu Bulamiyorum",
+  description:
+    "Magazada aradigin urunu bulamiyorsun. Calisana spesifik soru sormak.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.ds18.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Excuse me, where would I find...?",
+      tr_translation: "Affedersiniz, ... nerede bulabilirim?",
+      example: "Excuse me, where would I find men's socks?",
+      example_tr: "Affedersiniz, erkek coraplari nerede bulabilirim?",
+    },
+    {
+      id: "ex.ds18.8.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Pamuklu spor corabi ariyorum — bu magazada satilir mi?",
+      target: "I'm looking for cotton athletic socks — do you carry those?",
+      accepted_variants: [
+        "Need some cotton sport socks — any chance you stock them?",
+        "Hunting for cotton workout socks — what aisle?",
+        "After cotton athletic socks — do you guys carry that?",
+        "Searching for cotton sports socks — you have those in store?",
+      ],
+      tr_hint:
+        "'Do you carry / Do you stock' = bu urunu satar misiniz. 'Looking for' = ariyorum. 'Cotton' = pamuklu. Malzeme adi vocab.",
+    },
+    {
+      id: "ex.ds18.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "What ___ are the towels on?",
+      answer: "aisle",
+      distractors: ["floor", "side", "row"],
+      tr_hint:
+        "'Aisle' (telaffuz: 'AIL', 's' sessiz) = magaza koridoru. 'What aisle?' = hangi koridor. Buyuk magazalarda kritik.",
+    },
+    {
+      id: "ex.ds18.8.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Do",
+        "you",
+        "carry",
+        "wool",
+        "scarves",
+        "by",
+        "any",
+        "chance",
+      ],
+      correct_sentence: "Do you carry wool scarves by any chance",
+      tr_translation: "Yun atki satar misiniz acaba?",
+    },
+    {
+      id: "ex.ds18.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Where is sock? I want find now.",
+      correct_sentence:
+        "Excuse me, where would I find the socks? I'm looking for cotton ones.",
+      tr_explanation:
+        "'Where is sock' = grammatik (article + plural eksik). 'I want find' = 'to' eksik. Dogru: 'Excuse me' + 'where would I find' + spesifik.",
+    },
+    {
+      id: "ex.ds18.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Buyuk bir magazada arandigini bulamiyorsun. Polyester yagmurluk lazim.",
+      npc_role: "Store Associate",
+      setting: "Large department store",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(excuse me|hi|hey)",
+            "(do you (have a sec|have a moment))?",
+            "(i'?m (looking for|trying to find|after))",
+            "(do you (carry|stock|sell))",
+            "(where (would|can) i find)",
+            "(polyester|rain jacket|raincoat|waterproof)",
+          ],
+          hint_tr:
+            "Acilis: 'Excuse me — I'm looking for a polyester rain jacket. Do you carry those?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yeah, outerwear is at the back, aisle 14. What size are you looking for?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|appreciate it)",
+            "(medium|large|size \\d+)",
+            "(also (wondering|curious))",
+            "(out of stock|in stock)",
+            "(rain check)",
+            "(any (other (colors|styles|brands))) (in (the )?store)",
+          ],
+          hint_tr:
+            "Tesekkur + detay: 'Thanks! Medium. Also — if they're out of stock, do you do rain checks?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "We don't do rain checks, but I can check the back if your size isn't on the floor.",
+        },
+      ],
+    },
+    {
+      id: "ex.ds18.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Do you carry...?' ne demek?",
+          options: [
+            "Tasiyabilir misiniz?",
+            "Bu urunu satar / stokta tutar misiniz?",
+            "Hicbir sey",
+            "Cok agir",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Carry' = satmak / stokta tutmak (magaza icin). 'Do you sell' de olur ama 'carry' daha dogal magaza dili.",
+        },
+        {
+          question: "'Out of stock' vs 'In stock' fark?",
+          options: [
+            "Aynı",
+            "Out = stok yok, In = stokta var",
+            "Onemsiz",
+            "Yanlis",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Out of stock' = tukenmis. 'In stock' = mevcut. Soru sorarken: 'Is this in stock?' standart.",
+        },
+        {
+          question: "'Rain check' ne demek?",
+          options: [
+            "Yagmur kontrolu",
+            "Indirim urunu tukendiginde — sonra geldigi zaman ayni indirimle alma sozu",
+            "Hicbir sey",
+            "Sigorta",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Rain check' = ABD klasik magaza taahhudu. Sale urunu yoksa, geldigi zaman ayni fiyattan alabilirsin. Sormak = pro hareketi.",
+        },
+      ],
+    },
+    {
+      id: "ex.ds18.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Excuse me, where would I find the socks?",
+      ipa: "ɪkˈskjuːz mi wɛr wʊd aɪ faɪnd ðə sɒks",
+      tr_hint:
+        "'Excuse me' = standart acilis. 'Where would I find' = nazik soru kalibi (direkt 'where is' den daha kibar). Akici telaffuz.",
+    },
+  ],
+};
+
+// ============================================================
 // Daily Shopping lessons registry
 // ============================================================
 export const dailyShoppingLessons: ReadonlyArray<BundledLesson> = [
@@ -853,4 +1556,8 @@ export const dailyShoppingLessons: ReadonlyArray<BundledLesson> = [
   dailyShoppingLesson_18_2,
   dailyShoppingLesson_18_3,
   dailyShoppingLesson_18_4,
+  dailyShoppingLesson_18_5,
+  dailyShoppingLesson_18_6,
+  dailyShoppingLesson_18_7,
+  dailyShoppingLesson_18_8,
 ];

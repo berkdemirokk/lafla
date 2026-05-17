@@ -2870,6 +2870,441 @@ export const grammarLesson_10: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 11 — Articles tuzakları (a/an/the — Türk klasik hataları)
+// ============================================================
+export const grammarLesson_11: BundledLesson = {
+  id: "grammar.articles.2",
+  skill_id: "grammar.b1",
+  index: 11,
+  title: "Articles — a/an/the tuzakları",
+  description:
+    "'I went school' DEĞİL, 'I went TO school'. Türkçede tanımlık yok — 'to', 'the' ve 'a' atlamak en yaygın hata. Pattern drill: 3 klasik Türk hatasını çöz.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.gr11.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "go to + place (school, work, home)",
+      tr_translation:
+        "Yere gitmek: 'to' zorunlu, ama 'home' istisnası — 'go home' (to YOK)",
+      example: "I go to school every day, but I go home at 5.",
+      example_tr:
+        "Her gün okula giderim, ama 5'te eve dönerim. 'Go school' YANLIS — 'to' atlanamaz. Sadece 'home' istisna.",
+    },
+    {
+      id: "ex.gr11.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "the + benzersiz şey (sun, moon, internet, sky)",
+      tr_translation:
+        "Tek olan = 'the' zorunlu. Internet, sun, moon, sky, world.",
+      example: "I found it on the internet. The sun is bright today.",
+      example_tr:
+        "İnternette buldum. Bugün güneş parlak. 'On internet' YANLIS — 'the' zorunlu, çünkü tek bir internet var.",
+    },
+    {
+      id: "ex.gr11.3",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Her gün işe otobüsle giderim.",
+      target: "I go to work by bus every day.",
+      accepted_variants: [
+        "I take the bus to work every day.",
+        "Every day I go to work by bus.",
+        "I commute to work by bus every day.",
+      ],
+      tr_hint:
+        "Üç tuzak: (1) 'go work' YANLIS → 'go TO work'. (2) 'by bus' = 'the' yok (taşıt aracı genel). (3) 'take THE bus' = 'the' zorunlu (belirli rota). Türk 'I go work by the bus' der — iki taraf da hatalı.",
+    },
+    {
+      id: "ex.gr11.4",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Doktorum ve hastanede çalışıyorum.",
+      target: "I am a doctor and I work at the hospital.",
+      accepted_variants: [
+        "I'm a doctor and I work at a hospital.",
+        "I am a doctor and work at the hospital.",
+        "I'm a doctor working at the hospital.",
+      ],
+      tr_hint:
+        "İki tuzak: (1) 'I am doctor' YANLIS — meslek tekil = 'a/an' zorunlu → 'a doctor'. (2) 'work at hospital' YANLIS — belirli yer = 'the hospital' (senin çalıştığın). Türk her ikisini atlar.",
+    },
+    {
+      id: "ex.gr11.5",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "She plays ___ piano beautifully but doesn't play ___ football.",
+      answer: "the / —",
+      distractors: ["a / the", "— / the", "the / a", "a / —"],
+      tr_hint:
+        "Müzik aleti = 'the' zorunlu ('the piano', 'the guitar'). Spor = tanımlık YOK ('play football', 'play tennis'). Türk her ikisinde de 'the' atlar veya ekler.",
+    },
+    {
+      id: "ex.gr11.6",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template: "I had ___ breakfast at 8 and then went to ___ work.",
+      answer: "— / —",
+      distractors: ["the / the", "a / the", "— / the", "the / —"],
+      tr_hint:
+        "Yemek isimleri (breakfast, lunch, dinner) = tanımlık YOK. 'Go to work' = 'the' YOK (alışkanlık/genel). Türk 'the breakfast' der — hep yanlış. Yemek genel = çıplak isim.",
+    },
+    {
+      id: "ex.gr11.7",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I am engineer and I work in office near the Istanbul.",
+      correct_sentence: "I am an engineer and I work in an office near Istanbul.",
+      tr_explanation:
+        "Üç klasik Türk hatası: (1) 'I am engineer' → 'an engineer' (meslek tekil). (2) 'in office' → 'in an office' (sayılabilir tekil). (3) 'the Istanbul' YASAK — şehir/ülke isimleri tanımlık ALMAZ (istisna: 'the USA', 'the Netherlands'). Türk şehir önüne hep 'the' koyar.",
+    },
+    {
+      id: "ex.gr11.8",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I went school yesterday and saw moon in sky on way home.",
+      correct_sentence: "I went to school yesterday and saw the moon in the sky on the way home.",
+      tr_explanation:
+        "Dört hata: (1) 'went school' → 'went TO school' (yer önüne 'to' zorunlu). (2) 'saw moon' → 'the moon' (tek = the). (3) 'in sky' → 'in the sky' (tek = the). (4) 'on way' → 'on the way' (belirli yol). Türk konuşurken bu küçük kelimeleri atlar — anlam belirsizleşir, kulaklara çocuksu gelir.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 12 — Present Perfect vs Past Simple (deep dive — pattern drill)
+// ============================================================
+export const grammarLesson_12: BundledLesson = {
+  id: "grammar.present-perfect.2",
+  skill_id: "grammar.b1",
+  index: 12,
+  title: "Present Perfect vs Past Simple — derin pratik",
+  description:
+    "'I have seen' mi, 'I saw' mi? Türkçe '-dı/-di' her ikisini de karşılar — bu yüzden seçim çok zor. Pattern drill ile sinyal kelimelerini ezberle.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.gr12.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Past simple sinyalleri: yesterday, ago, last, in 2020, when",
+      tr_translation:
+        "Belli geçmiş zaman = past simple ZORUNLU. Present perfect YASAK.",
+      example: "I saw him yesterday. I moved here in 2020. I called her two hours ago.",
+      example_tr:
+        "Dün gördüm. 2020'de taşındım. İki saat önce aradım. Bu cümlelerde 'have' kullanmak ezici hatadır.",
+    },
+    {
+      id: "ex.gr12.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Present perfect sinyalleri: ever, never, already, yet, just, recently",
+      tr_translation:
+        "Belirsiz zaman, tecrübe, devam eden etki = present perfect.",
+      example: "Have you ever tried sushi? I've just finished. I haven't seen her yet.",
+      example_tr:
+        "Hiç sushi denedin mi? Daha yeni bitirdim. Henüz görmedim. Bu zarflar past simple ile YASAK.",
+    },
+    {
+      id: "ex.gr12.3",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Az önce yemek yedim, aç değilim.",
+      target: "I have just eaten, I'm not hungry.",
+      accepted_variants: [
+        "I've just eaten, I'm not hungry.",
+        "I just ate, I'm not hungry.",
+        "I've just had lunch, I'm not hungry.",
+      ],
+      tr_hint:
+        "'Az önce' = 'just' → şu ana etkisi var (hâlâ tok) → present perfect. Türk 'I just ate' de der ama 'I have just eaten' BrE standart. Önemli: 'just' + present perfect normal.",
+    },
+    {
+      id: "ex.gr12.4",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "İki yıl önce evlendim ve mutluyum.",
+      target: "I got married two years ago and I'm happy.",
+      accepted_variants: [
+        "I got married two years ago, and I am happy.",
+        "Two years ago I got married, and I'm happy.",
+        "I married two years ago and I'm happy.",
+      ],
+      tr_hint:
+        "'Two years ago' = belli zaman → past simple ZORUNLU. 'I have gotten married two years ago' = klasik Türk hatası. 'Ago' present perfect ile asla.",
+    },
+    {
+      id: "ex.gr12.5",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template: "I ___ to London three times in my life.",
+      answer: "have been",
+      distractors: ["went", "was", "have gone", "had been"],
+      tr_hint:
+        "'In my life' = hayat tecrübesi (belirsiz zaman) → present perfect. 'Have been' = gidip geldim (tecrübe). 'Have gone' = gitmiş hâlâ orada — yanlış anlam.",
+    },
+    {
+      id: "ex.gr12.6",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template: "When ___ you ___ your driver's license?",
+      answer: "did / get",
+      distractors: ["have / gotten", "did / got", "have / got", "do / get"],
+      tr_hint:
+        "'When' SORUSU = belli bir zaman istiyor → past simple. 'When have you gotten' YANLIS. 'When did you get' DOĞRU. 'When' = present perfect ile uyumsuz.",
+    },
+    {
+      id: "ex.gr12.7",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I have finished my project last Monday and have sent it yesterday.",
+      correct_sentence: "I finished my project last Monday and sent it yesterday.",
+      tr_explanation:
+        "İki belli zaman (last Monday, yesterday) = ikisi de past simple ZORUNLU. Türk 'have' kullanırsa 'tamamlanmış' hissini ileri taşır sanır — ama İngilizce kural net: belli zaman = past simple. 'Have' kelimesini çıkar, her şey düzelir.",
+    },
+    {
+      id: "ex.gr12.8",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "Did you ever go to Japan? I am there last year and it was amazing.",
+      correct_sentence: "Have you ever been to Japan? I went there last year and it was amazing.",
+      tr_explanation:
+        "Üç hata: (1) 'Did you ever' YANLIS — 'ever' tecrübe sorusu → 'Have you ever'. (2) 'I am there last year' tamamen yanlış — 'last year' belli zaman, past simple → 'I went'. (3) 'be there' tecrübe için 'have been there' kullanılır. Türk 'ever' ile 'did' karıştırır.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 13 — Phrasal verbs: pick up / look up / run out (literal vs idiomatic)
+// ============================================================
+export const grammarLesson_13: BundledLesson = {
+  id: "grammar.phrasal-verbs.2",
+  skill_id: "grammar.b1",
+  index: 13,
+  title: "Phrasal verbs — pick up / look up / run out",
+  description:
+    "'Look up' = yukarı bakmak DEĞİL, 'sözlükte aramak'. Türk her phrasal verb'ü kelime kelime çevirir — anlam kaybolur. 3 yaygın phrasal verb'ün idiomatic kullanımları.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.gr13.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "pick up — 4 anlam",
+      tr_translation:
+        "(1) Birini almaya gitmek (2) Yerden kaldırmak (3) Telefonu açmak (4) Hızla öğrenmek/yakalamak",
+      example:
+        "I'll pick you up at 8 (alacağım). She picked up Spanish quickly (kaptı). He won't pick up the phone (açmıyor).",
+      example_tr:
+        "Türk 'pick up' = 'almak' sanır ama 4 farklı anlam vardır. Bağlama göre değişir — kelime kelime 'seç-yukarı' diye çevirme.",
+    },
+    {
+      id: "ex.gr13.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "look up — sözlükte/internette aramak",
+      tr_translation:
+        "Bilgi aramak (Google, sözlük, telefon rehberi). YUKARI BAKMAK DEĞİL.",
+      example: "I don't know the word — let me look it up.",
+      example_tr:
+        "Bilmiyorum — bir bakayım/araştırayım. Türk 'look up' = 'yukarıya bak' diye çevirir — komik olur. 'Look up' = bilgi aramak.",
+    },
+    {
+      id: "ex.gr13.3",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "run out (of) — bitmek/tükenmek",
+      tr_translation:
+        "Bir şeyin stoku/zamanı bitmek. 'Run' = koşmak DEĞİL.",
+      example: "We've run out of milk. I'm running out of time.",
+      example_tr:
+        "Sütümüz bitti. Zamanım tükeniyor. Türk 'run out' = 'dışarı koş' diye çevirir — saçma olur. 'Run out' = tükenmek/bitmek.",
+    },
+    {
+      id: "ex.gr13.4",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Kelimeyi bilmiyorum, Google'da araştırayım.",
+      target: "I don't know the word — let me look it up on Google.",
+      accepted_variants: [
+        "I don't know the word, I'll look it up on Google.",
+        "I don't know that word — let me look it up.",
+        "I'll google it — I don't know the word.",
+      ],
+      tr_hint:
+        "'Araştırmak' (basit bilgi) = 'look up'. 'Search Google' demek olur ama doğal Native 'look it up' der. Önemli: zamir araya girer → 'look IT up', 'look UP it' YASAK.",
+    },
+    {
+      id: "ex.gr13.5",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Benzin bitti, benzinlik bulmamız lazım.",
+      target: "We've run out of gas — we need to find a gas station.",
+      accepted_variants: [
+        "We're out of gas; we need to find a petrol station.",
+        "We've run out of petrol — we need to find a station.",
+        "We ran out of gas, we need a gas station.",
+      ],
+      tr_hint:
+        "'Bitmek' (yakıt, malzeme) = 'run out OF'. 'OF' edatı zorunlu — 'run out gas' YASAK. Türk 'finished' der ama 'finished' = bir işi bitirdim (aktif). 'Run out' = stok tükendi (pasif).",
+    },
+    {
+      id: "ex.gr13.6",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template: "Can you ___ me ___ from the airport at 9?",
+      answer: "pick / up",
+      distractors: ["take / up", "get / up", "pick / out", "bring / up"],
+      tr_hint:
+        "'Birini almak' (gidip getirmek) = 'pick someone up'. Zamir araya girer: 'pick ME up', 'pick UP me' YASAK. Türk 'take me' der — anlam: 'beni götür' (yön ters).",
+    },
+    {
+      id: "ex.gr13.7",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template: "Hurry up — we're ___ ___ ___ time!",
+      answer: "running out of",
+      distractors: ["running out", "running of", "out of running", "running to"],
+      tr_hint:
+        "'Zaman tükeniyor' = 'running out of time'. 'Of' KESIN zorunlu. 'Running out time' YASAK. Bu kalıp sınav/iş ortamında çok sık.",
+    },
+    {
+      id: "ex.gr13.8",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "I will pick up you at 7, but first I need to look up at the address.",
+      correct_sentence: "I will pick you up at 7, but first I need to look up the address.",
+      tr_explanation:
+        "İki hata: (1) 'pick up you' YASAK — zamir araya girer: 'pick YOU up'. Kural: phrasal verb + zamir = ZAMIR ortada. İsim ise iki yerde olabilir ('pick up John' veya 'pick John up'). (2) 'look up AT' YANLIS — 'look up' (bilgi aramak) edatsız. 'Look AT' = bakmak (literal). Türk 'at' ekler — gereksiz.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 14 — Adjective sıralaması (OSASCOMP — pattern drill)
+// ============================================================
+export const grammarLesson_14: BundledLesson = {
+  id: "grammar.word-order.2",
+  skill_id: "grammar.b1",
+  index: 14,
+  title: "Word order — adjective sıralaması",
+  description:
+    "'Big red leather bag' DOĞRU sıra, 'Leather big red bag' YANLIŞ. Türk her sırayı doğal sanır ama İngilizce kuralı sabit: OSASCOMP. Pattern drill ile otomatikleştir.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.gr14.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "OSASCOMP: Opinion-Size-Age-Shape-Color-Origin-Material-Purpose",
+      tr_translation:
+        "Görüş > Boyut > Yaş > Şekil > Renk > Köken > Materyal > Amaç. Sabit sıra.",
+      example:
+        "A lovely small old round red Turkish wooden coffee table. (Op-Sz-Ag-Sh-Co-Or-Mat-Pur)",
+      example_tr:
+        "Türkçe sıra serbest ('Türk yuvarlak küçük ahşap masa' = ok), İngilizce sıra SABIT. Bu cümle native'e tek doğru sıralamadır.",
+    },
+    {
+      id: "ex.gr14.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "En sık üçlü: Size > Color > Material",
+      tr_translation:
+        "Üç sıfat varsa: boyut + renk + materyal. Bu sıra çoğu günlük cümlede yeter.",
+      example:
+        "A big black leather jacket. A small white cotton shirt. A long red silk scarf.",
+      example_tr:
+        "Boyut HER ZAMAN renkten önce. Renk materyalden önce. 'Leather big black' veya 'black big leather' = native kulağa garip gelir.",
+    },
+    {
+      id: "ex.gr14.3",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Büyük kırmızı deri çantamı kaybettim.",
+      target: "I lost my big red leather bag.",
+      accepted_variants: [
+        "I lost my large red leather bag.",
+        "I've lost my big red leather bag.",
+        "My big red leather bag is lost.",
+      ],
+      tr_hint:
+        "Türkçe: büyük (size) + kırmızı (color) + deri (material). İngilizce: aynı sıra → 'big red leather'. Türk hatası: 'red big leather' veya 'leather red big' — her ikisi de YASAK.",
+    },
+    {
+      id: "ex.gr14.4",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Güzel küçük eski yuvarlak bir İtalyan ahşap masa aldım.",
+      target: "I bought a beautiful small old round Italian wooden table.",
+      accepted_variants: [
+        "I bought a lovely small old round Italian wooden table.",
+        "I got a beautiful small old round Italian wooden table.",
+        "I purchased a beautiful small old round Italian wooden table.",
+      ],
+      tr_hint:
+        "Tam OSASCOMP: Opinion (beautiful) > Size (small) > Age (old) > Shape (round) > Origin (Italian) > Material (wooden). Türk 'Italian beautiful old wooden round small' der — tamamen rastgele. Bu sıra ezberlenir, içgüdü gelir.",
+    },
+    {
+      id: "ex.gr14.5",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template: "She wore a ___ dress to the party.",
+      answer: "stunning long red silk",
+      distractors: [
+        "red long silk stunning",
+        "silk red long stunning",
+        "long stunning red silk",
+        "red stunning silk long",
+      ],
+      tr_hint:
+        "Opinion (stunning) > Size (long) > Color (red) > Material (silk). Bu sıra dışında her seçenek native için garip. 'Red stunning' = opinion her zaman renkten önce, çünkü öznel görüş objektif renkten önce gelir.",
+    },
+    {
+      id: "ex.gr14.6",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template: "He drives a ___ car.",
+      answer: "fast new black German",
+      distractors: [
+        "German fast new black",
+        "black new fast German",
+        "new German fast black",
+        "fast German new black",
+      ],
+      tr_hint:
+        "Opinion (fast) > Age (new) > Color (black) > Origin (German). Köken (German, Turkish, Italian) HER ZAMAN sona yakın — isimden hemen önce. Türk 'German' önde söyler — yanlış.",
+    },
+    {
+      id: "ex.gr14.7",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "She has a Turkish beautiful old big carpet in her living room.",
+      correct_sentence: "She has a beautiful big old Turkish carpet in her living room.",
+      tr_explanation:
+        "Türk tam ters yapar — köken (Turkish) önde, opinion (beautiful) ortada. DOĞRU sıra: Opinion (beautiful) > Size (big) > Age (old) > Origin (Turkish). Köken HER ZAMAN ismın yanında. 'Turkish beautiful' = native için fiziksel acı veriyor.",
+    },
+    {
+      id: "ex.gr14.8",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence: "I want to buy leather a black big jacket and silk a long red dress.",
+      correct_sentence: "I want to buy a big black leather jacket and a long red silk dress.",
+      tr_explanation:
+        "Üç hata: (1) 'a' her isim grubu başında olmalı, ortada DEĞİL — 'leather a black' YASAK. 'A' tüm sıfatlardan önce. (2) Sıralama: Size (big) > Color (black) > Material (leather). 'Leather black big' tamamen ters. (3) İkinci grupta da aynı: Size (long) > Color (red) > Material (silk). Türk 'a' yerini ve sırayı karıştırır.",
+    },
+  ],
+};
+
+// ============================================================
 // Lesson registry
 // ============================================================
 export const grammarCapsuleLessons: BundledLesson[] = [
@@ -2883,6 +3318,10 @@ export const grammarCapsuleLessons: BundledLesson[] = [
   grammarLesson_8,
   grammarLesson_9,
   grammarLesson_10,
+  grammarLesson_11,
+  grammarLesson_12,
+  grammarLesson_13,
+  grammarLesson_14,
 ];
 
 export function getGrammarCapsuleLesson(id: string): BundledLesson | undefined {

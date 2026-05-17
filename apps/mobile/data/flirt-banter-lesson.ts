@@ -878,6 +878,716 @@ export const flirtBanterLesson_2_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 2.5 — Şakacı Meydan Okuma / Playful Challenge
+// ============================================================
+export const flirtBanterLesson_2_5: BundledLesson = {
+  id: "flirt.banter.2.5",
+  skill_id: "flirt.banter",
+  index: 5,
+  title: "Şakacı Meydan Okuma",
+  description:
+    "'Bet you can't' / 'Prove it' — playful challenge kalıbı. Karşı tarafı oyuna çek, enerjiyi yükselt.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.fb2.5.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Bet you can't",
+      tr_translation: "İddiaya girerim yapamazsın (şakacı meydan)",
+      example: "Bet you can't name 3 of their songs without Googling.",
+      example_tr: "İddia ediyorum Google'lamadan 3 şarkılarını sayamazsın.",
+    },
+    {
+      id: "ex.fb2.5.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Kanıtla bakalım.",
+      target: "Prove it 😏",
+      accepted_variants: [
+        "Prove it.",
+        "Okay, prove it then.",
+        "Show me.",
+        "Let's see it.",
+        "Receipts or it didn't happen.",
+      ],
+      tr_hint:
+        "'Prove it' = şakacı meydan, sertlik değil. 'Receipts' = kanıt (Gen-Z slang, sosyal medya kanıt).",
+    },
+    {
+      id: "ex.fb2.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Bold claim — ___ to back that up?",
+      answer: "got anything",
+      distractors: ["have anything", "any proof", "got proof"],
+      tr_hint:
+        "'Got anything to back that up?' = bunu destekleyecek bir şeyin var mı? Banter formatı.",
+    },
+    {
+      id: "ex.fb2.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Okay",
+        "main",
+        "character",
+        "energy",
+        "I",
+        "see",
+      ],
+      correct_sentence: "Okay main character energy I see",
+      tr_translation: "Tamam, ana karakter enerjisi görüyorum (playful).",
+    },
+    {
+      id: "ex.fb2.5.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "You probably can't do it. I don't believe you.",
+      correct_sentence: "Bet you can't actually do it — prove me wrong 😏",
+      tr_explanation:
+        "'You probably can't' = direkt küçümseme, soğuk. 'Bet you can't — prove me wrong' = playful meydan, karşı tarafı oyuna davet eder, ısırgan değil.",
+    },
+    {
+      id: "ex.fb2.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Match en sevdiği grupu söyledi. Sen şakacı meydan okuyorsun.",
+      npc_role: "Match",
+      setting: "Dating app banter",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Arctic Monkeys is literally my favorite band of all time. Like, top 5 desert island energy.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(bet|i bet) you can'?t (name|list)",
+            "(name|list) (me )?(3|three|5|five) (of their )?songs",
+            "(prove it|okay prove it|let'?s see)",
+            "(without (googling|google|searching))",
+            "(bold claim|strong claim)",
+            "(main character energy|that'?s main character)",
+          ],
+          hint_tr:
+            "Meydan oku: 'Bet you can't name 3 songs without Googling 😏' veya 'Bold claim — prove it.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Are you serious? Do I Wanna Know, R U Mine, 505, Why'd You Only Call Me When You're High, Fluorescent Adolescent. Want me to keep going?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay|alright|wow|damn) (you )?(passed|delivered|came through)",
+            "(receipts|got the receipts|respect)",
+            "(stop showing off|okay show off|easy show off)",
+            "(i'?m impressed|color me impressed)",
+            "(fine|fair|okay) you win (this )?(round|one)?",
+            "(now do|okay now) (a harder|the deep cuts)",
+          ],
+          hint_tr:
+            "Kabul et oyunla: 'Okay you passed — respect.' veya 'Easy show-off. Now do the deep cuts.'",
+        },
+      ],
+    },
+    {
+      id: "ex.fb2.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Bet you can't' kalıbının enerjisi?",
+          options: [
+            "Pasif agresif eleştiri",
+            "Playful meydan + karşı tarafı oyuna çekme",
+            "Kavga başlatma",
+            "Üstünlük gösterme",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Bet you can't' = oyun davetiyesi. Karşı taraf kanıtlamak ister = enerji yükselir.",
+        },
+        {
+          question: "Match meydanı kabul edip yaptıysa en iyi tepki?",
+          options: [
+            "Konuyu değiştirmek",
+            "Daha zor meydan + saygı göster",
+            "Sessiz kalmak",
+            "Aslında inanmıyordum demek",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Okay you passed — now do the deep cuts.' Oyun devam eder, saygı verilir.",
+        },
+        {
+          question: "'Main character energy' ne demek?",
+          options: [
+            "Filmde başrol oyuncusu",
+            "Hayatının başrolündeymiş gibi davranma (playful tanım)",
+            "Önemli kişi",
+            "Sahne hırsı",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Main character energy' = kendinden emin, dramatik, hikayenin merkezindeymiş gibi. 2025 modern dating slang.",
+        },
+      ],
+    },
+    {
+      id: "ex.fb2.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Bet you can't name three of their songs without Googling — prove me wrong.",
+      ipa: "/bɛt juː kɑːnt neɪm θriː əv ðeə sɒŋz wɪˈðaʊt ˈɡuːɡəlɪŋ — pruːv miː rɒŋ/",
+      tr_hint:
+        "Playful meydan tonu — gülümseyerek. 'Bet you can't' bağlı, 'prove me wrong' sondaki vurgu.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 2.6 — Senin Hobini Takıl / Light Teasing
+// ============================================================
+export const flirtBanterLesson_2_6: BundledLesson = {
+  id: "flirt.banter.2.6",
+  skill_id: "flirt.banter",
+  index: 6,
+  title: "Senin Hobini Takıl",
+  description:
+    "'Coffee snob alert', 'Ah, a planner I see' — match'in hobi/karakter tipini sıcak şekilde takıl. Hakaret değil, ilgi.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.fb2.6.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "snob alert",
+      tr_translation: "Snob uyarısı (sıcak takılma)",
+      example: "Specialty pour-over only? Coffee snob alert.",
+      example_tr: "Sadece özel pour-over mı? Kahve snobu uyarısı.",
+    },
+    {
+      id: "ex.fb2.6.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Ah, demek bir plancısın.",
+      target: "Ah, a planner I see.",
+      accepted_variants: [
+        "Oh, a planner — noted.",
+        "So we've got a planner here.",
+        "A planner type, got it.",
+        "Ah, the planner energy.",
+        "Planner detected.",
+      ],
+      tr_hint:
+        "'Ah, a [X] I see' = sıcak gözlem. Hakaret değil, ilgi gösterme. 'Noted' = not aldım (playful).",
+    },
+    {
+      id: "ex.fb2.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Three different gym apps? Okay, ___ noted.",
+      answer: "fitness girlie",
+      distractors: ["gym person", "athlete", "sporty one"],
+      tr_hint:
+        "'Fitness girlie/guy' = modern dating slang, tatlı etiketleme. 'Noted' = not aldım (playful).",
+    },
+    {
+      id: "ex.fb2.6.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Okay",
+        "I",
+        "see",
+        "you",
+        "iconic",
+        "choice",
+      ],
+      correct_sentence: "Okay I see you iconic choice",
+      tr_translation: "Tamam, seni görüyorum — ikonik seçim.",
+    },
+    {
+      id: "ex.fb2.6.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "You are weird for liking that hobby.",
+      correct_sentence: "Okay, niche hobby alert — I respect it though.",
+      tr_explanation:
+        "'You are weird' = direkt hakaret, kapatır. 'Niche hobby alert — I respect it' = playful etiket + saygı. Banter sıcak olmalı.",
+    },
+    {
+      id: "ex.fb2.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Match hobilerinden bahsediyor. Sıcak şekilde takılıyorsun.",
+      npc_role: "Match",
+      setting: "Getting to know each other",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "I make my own kombucha at home. Got like four jars fermenting right now.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay |oh )?(wellness|fermentation|kombucha) (girlie|guy|king|queen|alert)",
+            "(wellness alert|fermentation alert|kombucha alert)",
+            "(ah|oh|okay)( a)? (fermentation|kombucha) (person|enthusiast)",
+            "(four jars\\?|four jars)",
+            "(iconic|respect|i respect (it|that))",
+            "(noted|duly noted|filed away)",
+            "(this is|that'?s) main character (behavior|energy)",
+          ],
+          hint_tr:
+            "Sıcak takıl: 'Okay, kombucha guy alert — iconic.' veya 'Four jars?? Wellness girlie energy, noted.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Don't roast me, it actually tastes amazing. You're missing out.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(roast\\?|i'?m not roasting|that wasn'?t a roast)",
+            "(that was|this is) (a |the )?compliment",
+            "(genuinely|honestly|deadass) impressed",
+            "(okay |fine,? )?(make me one|i want one|convert me)",
+            "(prove it|sell me on it|convince me)",
+            "(this is the most|most main character) (thing|move)",
+          ],
+          hint_tr:
+            "Yumuşat + ilerle: 'That was a compliment, genuinely — convert me.' veya 'Not roasting, sell me on it.'",
+        },
+      ],
+    },
+    {
+      id: "ex.fb2.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'X alert' kalıbının doğru kullanımı?",
+          options: [
+            "Hakaret etmek",
+            "Sıcak gözlem + playful etiket",
+            "Tehlike duyurusu",
+            "Kavga açmak",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Coffee snob alert' = 'kahve uzmanlığını fark ettim' demek. Eğlenceli gözlem, ilgi göstergesi.",
+        },
+        {
+          question: "Match takıldığını fark edip 'don't roast me' derse?",
+          options: [
+            "Devam et takıl",
+            "Yumuşat — 'that was a compliment'",
+            "Sessiz kal",
+            "Özür dile uzunca",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Yumuşatma: 'That was a compliment, genuinely.' Niyetini netleştir, banter sürer.",
+        },
+        {
+          question: "Light teasing'in altın kuralı?",
+          options: [
+            "Görünüşle ilgili olmalı",
+            "Hobi/seçim üzerine, kişisel saldırı değil",
+            "Sert olmalı",
+            "Bir kez yeter",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Hobiler/seçimler = güvenli alan. Görünüş, aile, geçmiş = riskli. Hep saygıyla, sevgi tonuyla.",
+        },
+      ],
+    },
+    {
+      id: "ex.fb2.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Okay, coffee snob alert — I respect it though, iconic choice.",
+      ipa: "/ˈəʊkeɪ ˈkɒfi snɒb əˈlɜːt — aɪ rɪˈspɛkt ɪt ðəʊ aɪˈkɒnɪk tʃɔɪs/",
+      tr_hint:
+        "Sıcak takılma tonu — gülümseyerek, hakaret değil. 'Snob alert' bağlı, 'iconic choice' onaylayıcı kapanış.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 2.7 — Tatlı Sertlik / Push Back Gently
+// ============================================================
+export const flirtBanterLesson_2_7: BundledLesson = {
+  id: "flirt.banter.2.7",
+  skill_id: "flirt.banter",
+  index: 7,
+  title: "Tatlı Sertlik",
+  description:
+    "Karşı taraf takıldığında — kabul etmeden de defansif olmadan güzelce karşılık ver.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.fb2.7.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "You're a menace",
+      tr_translation: "Sen tam bir belalısın (sıcak takılma, sevgi dolu)",
+      example: "Three jokes in five minutes? You're a menace.",
+      example_tr: "Beş dakikada üç espri? Tam bir belalısın.",
+    },
+    {
+      id: "ex.fb2.7.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Vay, hemen saldırıya geçtin.",
+      target: "Wow, going straight for the kill, I see.",
+      accepted_variants: [
+        "Wow, no warm-up, straight in.",
+        "Coming in hot, okay.",
+        "Not even gonna ease into it?",
+        "Straight to the attack, noted.",
+        "Damn, no mercy.",
+      ],
+      tr_hint:
+        "'Going straight for the kill' = doğrudan saldırı (playful). 'Coming in hot' = ısınmadan başlamak (idiom).",
+    },
+    {
+      id: "ex.fb2.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Wow, you really came for my whole ___ huh?",
+      answer: "personality",
+      distractors: ["life", "self", "character"],
+      tr_hint:
+        "'Came for my whole personality' = kişiliğimi tamamen yerden yere vurdun (playful). Modern Gen-Z banter.",
+    },
+    {
+      id: "ex.fb2.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Okay",
+        "menace",
+        "but",
+        "make",
+        "it",
+        "make",
+        "sense",
+      ],
+      correct_sentence: "Okay menace but make it make sense",
+      tr_translation: "Tamam belalı, ama mantıklı bir şey söyle (playful).",
+    },
+    {
+      id: "ex.fb2.7.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Why do you say that? It hurts my feelings.",
+      correct_sentence: "Wow, going straight for the throat I see — I'm not unmatched yet, keep going.",
+      tr_explanation:
+        "'It hurts my feelings' defansif + ağır = banter kırılır. 'Going for the throat — I'm not unmatched yet' = oyunu kabul ediyorsun, oyunu yükseltiyorsun, sıcak.",
+    },
+    {
+      id: "ex.fb2.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Match seninle hafifçe dalga geçti. Defansif değil, banter'ı yükseltiyorsun.",
+      npc_role: "Match",
+      setting: "Playful pushback",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Wait, you've never been to a concert? Sir, what have you been doing with your life?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(wow|damn|okay) (going|coming) (for|straight for) (my|the)",
+            "(came for my whole|coming for my whole) (personality|life|existence)",
+            "(you'?re a menace|menace behavior|absolute menace)",
+            "(no mercy|zero mercy|brutal)",
+            "(making me question|now i'?m questioning) my (life|whole life|choices)",
+            "(easy|alright) menace",
+            "(not unmatched yet|still here|keep going)",
+          ],
+          hint_tr:
+            "Tatlı karşılık: 'Wow, came for my whole personality huh?' veya 'Easy menace — I'm not unmatched yet.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay okay fair. I'll stop. But genuinely — first concert when, we're fixing this.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay |alright )?(fine|done|deal)",
+            "(\"we'?re fixing this\"|fixing this\\?)",
+            "(presumptuous|bold of you|confident much)",
+            "(who said|did i say) (you'?re|you were) coming",
+            "(plan it then|plan it|book it|name a band)",
+            "(only if|on one condition|fine but)",
+            "(you'?re lucky|lucky for you|saved by)",
+          ],
+          hint_tr:
+            "Oyunu kabul et: 'Plan it then.' veya 'Bold of you to assume you're coming — but name a band.'",
+        },
+      ],
+    },
+    {
+      id: "ex.fb2.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'You're a menace' bu kontekste ne demek?",
+          options: [
+            "Gerçekten kötü insansın",
+            "Sıcak takılma — 'belalısın, sevdim'",
+            "Tehlikelisin",
+            "Uzak dur",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'You're a menace' = playful sevgi sözcüğü. Beni güldürdün/şaşırttın = 'belalısın' tonunda. HAKARET DEĞİL.",
+        },
+        {
+          question: "Match takıldığında defansif tepki neden zarar verir?",
+          options: [
+            "Daha çok takılır",
+            "Sıkıcı + ağır olur, banter ölür",
+            "Karşı taraf utanır",
+            "Saygısızlık olur",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Bu beni üzdü' = oyun biter. Banter eşit seviye. Oyunu yükselt, ya da nazikçe yön değiştir.",
+        },
+        {
+          question: "'Coming in hot' ne demek?",
+          options: [
+            "Sıcak hava",
+            "Doğrudan + sert giriş (idiom)",
+            "Acele",
+            "Heyecanlı",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Coming in hot' = uçak inişi idiomundan, hızlı/güçlü/doğrudan giriş. Banter'da 'isınmadan saldırıya geçmek'.",
+        },
+      ],
+    },
+    {
+      id: "ex.fb2.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Wow, coming for my whole personality, huh? Okay menace, I'm still here.",
+      ipa: "/waʊ ˈkʌmɪŋ fə maɪ həʊl ˌpɜːsəˈnælɪti hʌ — ˈəʊkeɪ ˈmɛnəs aɪm stɪl hɪə/",
+      tr_hint:
+        "Sahte şikayet tonu — gülümseyerek. 'Coming for my whole personality' bağlı, 'menace' sıcak söyle, hakaret tonu yok.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 2.8 — In-Joke Yaratma / Callback Humor
+// ============================================================
+export const flirtBanterLesson_2_8: BundledLesson = {
+  id: "flirt.banter.2.8",
+  skill_id: "flirt.banter",
+  index: 8,
+  title: "İçimizde Şaka Yaratma",
+  description:
+    "Önceki mesajdan referans ver — 'as we discussed earlier' / callback humor. İki kişilik küçük dünya kurar.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.fb2.8.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "as we discussed earlier",
+      tr_translation: "Daha önce konuştuğumuz gibi (playful callback)",
+      example:
+        "As we discussed earlier, ferret racing is a serious sport.",
+      example_tr:
+        "Daha önce konuştuğumuz gibi, gelincik yarışı ciddi bir spordur.",
+    },
+    {
+      id: "ex.fb2.8.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Daha önceki gibi — bu konuda hâlâ kararlıyım.",
+      target: "Per our earlier discussion, I stand by this.",
+      accepted_variants: [
+        "As established earlier, I stand by it.",
+        "Going back to what we said — I still mean it.",
+        "Per the official record, this still stands.",
+        "As we agreed, the verdict remains.",
+        "Reminder, as previously discussed.",
+      ],
+      tr_hint:
+        "'Per our earlier discussion' = resmi iş İngilizcesinin playful kullanımı. 'I stand by this' = hâlâ savunuyorum.",
+    },
+    {
+      id: "ex.fb2.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Calling this back to the ___ debate from earlier.",
+      answer: "ferret",
+      distractors: ["serious", "earlier", "previous"],
+      tr_hint:
+        "'Calling this back to the [X] debate' = önceki [X] tartışmasına geri dönüyorum. Callback humor formülü.",
+    },
+    {
+      id: "ex.fb2.8.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Filing",
+        "this",
+        "under",
+        "things",
+        "we",
+        "agreed",
+        "on",
+      ],
+      correct_sentence: "Filing this under things we agreed on",
+      tr_translation: "Bunu üzerinde anlaştığımız şeylerin altına dosyalıyorum (playful).",
+    },
+    {
+      id: "ex.fb2.8.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Do you remember what we talked about? It was the thing.",
+      correct_sentence:
+        "Going back to our 1.5x speed conversation — I have receipts now.",
+      tr_explanation:
+        "'Do you remember the thing' = vague, callback olmaz. Spesifik konuyu referans et = 'Going back to our [X] conversation' = küçük ortak dünya hissi yaratır.",
+    },
+    {
+      id: "ex.fb2.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Daha önce match kombucha yaptığını söylemişti. Şimdi başka konu açtı, sen önceki konuya callback yapıyorsun.",
+      npc_role: "Match",
+      setting: "Building rapport with callbacks",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Just got back from grocery shopping. Why is everything so expensive lately?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(as we (discussed|established) (earlier|previously))",
+            "(per (our|the) (earlier|previous|official))",
+            "(this is why you|good thing you) (make|brew|ferment)",
+            "(kombucha (game|plan|setup|operation))",
+            "(filing this under|adding this to)",
+            "(speaking of|reminds me of) (the )?kombucha",
+            "(told you|i said) the kombucha (was|would) (pay off|save you)",
+          ],
+          hint_tr:
+            "Callback: 'This is why you ferment your own kombucha — as we discussed earlier.' veya 'Per our previous kombucha discussion, you're ahead of the curve.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Haha okay you're never letting the kombucha thing go are you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(never|nope|absolutely not)",
+            "(it'?s a (running|recurring) (bit|joke|theme))",
+            "(this is (our|the) (bit|thing|joke) now)",
+            "(too iconic to (drop|let go|forget))",
+            "(it'?s on the (record|official record))",
+            "(filed|officially filed) (under|in)",
+            "(building (a |our )?lore|lore is building)",
+          ],
+          hint_tr:
+            "Sıcak kabul: 'It's our recurring bit now.' veya 'Too iconic to drop — building our lore.'",
+        },
+      ],
+    },
+    {
+      id: "ex.fb2.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Callback humor (in-joke) niye işe yarar?",
+          options: [
+            "Daha akıllı görünürsün",
+            "İki kişilik küçük ortak dünya kurar = intimacy",
+            "Konuşmayı uzatır",
+            "Karşı tarafı test eder",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Callback = 'biz' duygusu. Eski mesaja referans = 'aramızda bir şey var' hissi yaratır. Bağ kurar.",
+        },
+        {
+          question: "'As we discussed earlier' burada playful niye olur?",
+          options: [
+            "İş İngilizcesi kalıbının dating'e taşınması = ironi",
+            "Çok resmi olduğu için",
+            "Türkçeye çevrilemediği için",
+            "Eski olduğu için",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "İş toplantısı dili (per our discussion, filing this under, official record) = dating chat'te ironik mizah. Genç U.S. tarzı.",
+        },
+        {
+          question: "Callback için en kritik nokta?",
+          options: [
+            "Uzun olmalı",
+            "Spesifik bir önceki detaya bağlı olmalı",
+            "Her mesajda olmalı",
+            "Sürpriz yaratmalı",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Vague callback işe yaramaz. 'O konu' DEĞİL, 'kombucha' / '1.5x speed' / 'ferret racing' gibi SPESİFİK referans gerekir.",
+        },
+      ],
+    },
+    {
+      id: "ex.fb2.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Per our earlier kombucha discussion, I think you're ahead of the curve.",
+      ipa: "/pɜː aʊə ˈɜːliə kɒmˈbuːtʃə dɪˈskʌʃən aɪ θɪŋk jʊə əˈhɛd əv ðə kɜːv/",
+      tr_hint:
+        "Resmi iş dili tonu — playful ironik. 'Per our earlier kombucha discussion' bağlı söyle, 'ahead of the curve' kararlı bitiş.",
+    },
+  ],
+};
+
+// ============================================================
 // Flirt Banter lessons registry
 // ============================================================
 export const flirtBanterLessons: ReadonlyArray<BundledLesson> = [
@@ -885,4 +1595,8 @@ export const flirtBanterLessons: ReadonlyArray<BundledLesson> = [
   flirtBanterLesson_2_2,
   flirtBanterLesson_2_3,
   flirtBanterLesson_2_4,
+  flirtBanterLesson_2_5,
+  flirtBanterLesson_2_6,
+  flirtBanterLesson_2_7,
+  flirtBanterLesson_2_8,
 ];

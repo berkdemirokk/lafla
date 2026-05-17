@@ -1688,6 +1688,868 @@ export const cefrA2DailyLesson_transit: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 11 — Hava durumu — likes / dislikes
+// ============================================================
+export const cefrA2DailyLesson_weatherLikes: BundledLesson = {
+  id: "daily.a2.weatherlikes.1",
+  skill_id: "daily.a2.weatherlikes",
+  index: 11,
+  title: "Hava durumu — likes/dislikes",
+  description:
+    "'I love sunny days', 'I don't like the cold', 'I prefer warm weather' — hava üzerinden tercihini söyle.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.a2.wl.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "I love sunny days",
+      tr_translation: "Güneşli günleri seviyorum",
+      example: "I love sunny days like this one.",
+      example_tr: "Böyle güneşli günleri seviyorum.",
+    },
+    {
+      id: "ex.a2.wl.2",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "I don't like the cold",
+      tr_translation: "Soğuğu sevmiyorum",
+      example: "I don't like the cold. I prefer summer.",
+      example_tr: "Soğuğu sevmiyorum. Yazı tercih ederim.",
+    },
+    {
+      id: "ex.a2.wl.3",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Yağmurlu havayı sevmiyorum.",
+      target: "I don't like rainy weather.",
+      accepted_variants: [
+        "I do not like rainy weather.",
+        "I don't like the rain.",
+        "I don't like rain.",
+        "Rainy weather isn't my favorite.",
+        "I'm not a fan of rainy weather.",
+      ],
+      tr_hint:
+        "'I don't like ___' = '... sevmiyorum'. Negatif Present Simple: 'do not / don't' + bare verb.",
+    },
+    {
+      id: "ex.a2.wl.4",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Sıcak havayı tercih ederim.",
+      target: "I prefer warm weather.",
+      accepted_variants: [
+        "I prefer hot weather.",
+        "I like warm weather better.",
+        "Warm weather is my favorite.",
+        "I'd rather have warm weather.",
+        "I like it when it's warm.",
+      ],
+      tr_hint:
+        "'I prefer ___' = tercih ederim. 'Warm' ılık, 'hot' çok sıcak.",
+    },
+    {
+      id: "ex.a2.wl.5",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "I love ___ days — they make me happy.",
+      answer: "sunny",
+      distractors: ["sun", "sunshine", "sunlight"],
+      tr_hint: "Sıfat formu: 'sunny day' = güneşli gün. 'Sun' isimdir.",
+    },
+    {
+      id: "ex.a2.wl.6",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: ["I", "don't", "like", "the", "cold", "in", "winter"],
+      correct_sentence: "I don't like the cold in winter",
+      tr_translation: "Kışın soğuğu sevmiyorum.",
+    },
+    {
+      id: "ex.a2.wl.7",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I am no like cold weather.",
+      correct_sentence: "I don't like cold weather.",
+      tr_explanation:
+        "'I am no like' yanlış. Present Simple negatif kalıbı: 'I don't like ___'. 'Am' fiil 'like' ile birlikte kullanılmaz — 'do/does' yardımcı fiili gerek.",
+    },
+    {
+      id: "ex.a2.wl.8",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Yeni bir arkadaşınla parkta yürüyorsun. Hava üzerinden tercihlerinizi paylaşıyorsunuz.",
+      npc_role: "New friend",
+      setting: "Park, sunny afternoon",
+      turns: [
+        {
+          speaker: "npc",
+          message: "It's such a beautiful day today, don't you think?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|definitely|absolutely)",
+            "i (love|like) (sunny|warm|nice) (days|weather)",
+            "(it'?s|it is) (so |really )?(nice|beautiful|lovely)",
+            "(i'?m|i am) really enjoying",
+          ],
+          hint_tr: "'Yes, I love sunny days!' veya 'It's really lovely'.",
+        },
+        {
+          speaker: "npc",
+          message: "Same here. Do you prefer summer or winter?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "i prefer (summer|winter|spring|fall|autumn)",
+            "(summer|winter|spring|fall) (is my favorite|for me)",
+            "i (love|like) (summer|winter) (better|more)",
+            "(definitely|honestly) (summer|winter)",
+          ],
+          hint_tr: "'I prefer summer' veya 'Summer is my favorite'.",
+        },
+        {
+          speaker: "npc",
+          message: "Interesting! Why is that?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "i don'?t like (the )?(cold|rain|snow|heat)",
+            "i love (the )?(sun|beach|warm weather|swimming)",
+            "(because |')?(it'?s|i can) (warm|swim|go out|relax)",
+            "(in turkey|back home).{0,30}(summer|warm|sunny)",
+          ],
+          hint_tr: "'I don't like the cold' veya 'I love the sun'.",
+        },
+        {
+          speaker: "npc",
+          message: "That makes sense. I love the snow myself.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(really|oh)\\??",
+            "(that'?s nice|cool|interesting)",
+            "i (don'?t|can) (understand|see why)",
+            "(do you|where do you) (ski|snowboard)",
+          ],
+          hint_tr: "'Really? That's nice' veya 'Do you ski?'",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.wl.9",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'I don't like the cold' nasıl yapılır?",
+          options: [
+            "I am no like the cold",
+            "I no like the cold",
+            "I don't like the cold",
+            "I not like the cold",
+          ],
+          correct_index: 2,
+          tr_explanation: "Present Simple negatif: 'do not / don't' + bare verb.",
+        },
+        {
+          question: "'Sunny day' içinde 'sunny' nedir?",
+          options: ["isim", "fiil", "sıfat", "zarf"],
+          correct_index: 2,
+          tr_explanation: "'Sunny' bir sıfat. 'Sun' isim, 'sunny' sıfat formu.",
+        },
+        {
+          question: "'I prefer ___' ne anlama gelir?",
+          options: [
+            "... bilmiyorum",
+            "... tercih ederim",
+            "... sevmiyorum",
+            "... biliyorum",
+          ],
+          correct_index: 1,
+          tr_explanation: "'Prefer' = tercih etmek.",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.wl.10",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "I love sunny days.",
+      ipa: "aɪ lʌv ˈsʌni deɪz",
+      tr_hint:
+        "'Love' = 'lav' (kısa). 'Sunny' = 'sani'. 'Days' = 'deyz', sonda 'z' sesi.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 12 — Hobiler — present simple
+// ============================================================
+export const cefrA2DailyLesson_hobbies: BundledLesson = {
+  id: "daily.a2.hobbies.1",
+  skill_id: "daily.a2.hobbies",
+  index: 12,
+  title: "Hobiler — present simple",
+  description:
+    "'I usually go to the gym', 'On weekends I cook', 'I play tennis twice a week' — düzenli aktivitelerini anlat.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.a2.hb.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "I usually go to the gym",
+      tr_translation: "Genelde spor salonuna giderim",
+      example: "I usually go to the gym after work.",
+      example_tr: "İşten sonra genelde spor salonuna giderim.",
+    },
+    {
+      id: "ex.a2.hb.2",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "On weekends",
+      tr_translation: "Hafta sonları",
+      example: "On weekends I cook for my family.",
+      example_tr: "Hafta sonları ailem için yemek yaparım.",
+    },
+    {
+      id: "ex.a2.hb.3",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Hafta sonları yemek yaparım.",
+      target: "On weekends I cook.",
+      accepted_variants: [
+        "I cook on weekends.",
+        "On the weekends I cook.",
+        "I cook on the weekend.",
+        "I usually cook on weekends.",
+        "I like to cook on weekends.",
+      ],
+      tr_hint:
+        "'On weekends' başa veya sona gelebilir. Present Simple çünkü düzenli alışkanlık.",
+    },
+    {
+      id: "ex.a2.hb.4",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Haftada iki kez tenis oynarım.",
+      target: "I play tennis twice a week.",
+      accepted_variants: [
+        "I play tennis two times a week.",
+        "Twice a week I play tennis.",
+        "I play tennis 2 times a week.",
+        "I play tennis two times per week.",
+      ],
+      tr_hint:
+        "'Twice a week' = haftada iki kez. 'Once / twice / three times a week' kalıpları.",
+    },
+    {
+      id: "ex.a2.hb.5",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "I ___ go to the gym after work.",
+      answer: "usually",
+      distractors: ["use", "using", "used", "useful"],
+      tr_hint:
+        "'Usually' = genelde. Sıklık zarfı, fiilin önünde gelir: 'I usually go'.",
+    },
+    {
+      id: "ex.a2.hb.6",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: ["I", "play", "football", "with", "my", "friends", "on", "Sundays"],
+      correct_sentence: "I play football with my friends on Sundays",
+      tr_translation: "Pazar günleri arkadaşlarımla futbol oynarım.",
+    },
+    {
+      id: "ex.a2.hb.7",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I am go to gym every day.",
+      correct_sentence: "I go to the gym every day.",
+      tr_explanation:
+        "'I am go' yanlış. Düzenli alışkanlık için Present Simple: 'I go' (am + go birlikte kullanılmaz). Ayrıca 'the gym' (belirli yer için 'the').",
+    },
+    {
+      id: "ex.a2.hb.8",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "İş yerinde yeni bir arkadaşla öğle yemeği yiyorsun. Hobilerinizden konuşuyorsunuz.",
+      npc_role: "Coworker",
+      setting: "Office lunch break",
+      turns: [
+        {
+          speaker: "npc",
+          message: "So, what do you usually do after work?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "i (usually|often|sometimes) (go|do|play|cook|read)",
+            "(after work )?i (go|do|play|read|cook)",
+            "(it depends|depends on the day)",
+            "i (love|like) (to )?(read|cook|run|swim|paint)",
+          ],
+          hint_tr:
+            "'I usually go to the gym' veya 'I often cook at home'.",
+        },
+        {
+          speaker: "npc",
+          message: "Nice. Do you have any hobbies?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,? i)?",
+            "i (love|like|enjoy) (to )?(play|read|cook|paint|run|swim|dance)",
+            "(my hobby is|my hobbies are)",
+            "i (play|do) (tennis|football|guitar|yoga|chess)",
+          ],
+          hint_tr: "'Yes, I love cooking' veya 'I play tennis'.",
+        },
+        {
+          speaker: "npc",
+          message: "Cool! How often do you do that?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(once|twice|three times) a week",
+            "(every day|every weekend|every morning)",
+            "(on weekends|on (mondays|tuesdays|saturdays))",
+            "(\\d+) times (a|per) week",
+          ],
+          hint_tr: "'Twice a week' veya 'On weekends'.",
+        },
+        {
+          speaker: "npc",
+          message: "That's great. Where do you usually go?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(to )?(the gym|the park|the court|home)",
+            "(near (my house|home|the office))",
+            "(at home|at the gym|at a club)",
+            "i (go|play) (with|at) [a-z'\\- ]+",
+          ],
+          hint_tr: "'To the gym near my house' veya 'At a club downtown'.",
+        },
+        {
+          speaker: "npc",
+          message: "Sounds fun! Maybe I'll join you sometime.",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.hb.9",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Düzenli alışkanlık hangi zamanla anlatılır?",
+          options: [
+            "Present Continuous (I am going)",
+            "Present Simple (I go)",
+            "Past Simple (I went)",
+            "Future (I will go)",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Düzenli / her zaman olan eylem = Present Simple: 'I go to the gym'.",
+        },
+        {
+          question: "'Twice a week' ne demek?",
+          options: [
+            "Haftada bir",
+            "Haftada iki kez",
+            "İki haftada bir",
+            "Her gün",
+          ],
+          correct_index: 1,
+          tr_explanation: "'Twice' = iki kez. 'Once' = bir kez.",
+        },
+        {
+          question: "'I ___ go to the gym' — sıklık zarfı nereye gelir?",
+          options: [
+            "Sonra: 'I go usually'",
+            "Önce: 'I usually go'",
+            "Başta: 'Usually I go'",
+            "B ve C ikisi de doğru",
+          ],
+          correct_index: 3,
+          tr_explanation:
+            "Sıklık zarfı fiilin önünde ('I usually go') veya cümle başında ('Usually, I go') olabilir.",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.hb.10",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "I usually go to the gym after work.",
+      ipa: "aɪ ˈjuːʒuəli ɡoʊ tə ðə dʒɪm ˈæftər wɜːrk",
+      tr_hint:
+        "'Usually' = 'yujuli' (üç hece). 'Gym' = 'cim'. 'After work' bağlanır → 'aftırvörk'.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 13 — Aile — basit anlatım
+// ============================================================
+export const cefrA2DailyLesson_family: BundledLesson = {
+  id: "daily.a2.family.1",
+  skill_id: "daily.a2.family",
+  index: 13,
+  title: "Aile — basit anlatım",
+  description:
+    "'My sister is older than me', 'We live in Istanbul', 'I have two brothers' — aileni tanıt.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.a2.fm.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "My sister is older than me",
+      tr_translation: "Kız kardeşim benden büyük",
+      example: "My sister is older than me by two years.",
+      example_tr: "Kız kardeşim benden iki yaş büyük.",
+    },
+    {
+      id: "ex.a2.fm.2",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "We live in",
+      tr_translation: "... yaşıyoruz / oturuyoruz",
+      example: "We live in Istanbul.",
+      example_tr: "İstanbul'da yaşıyoruz.",
+    },
+    {
+      id: "ex.a2.fm.3",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "İki erkek kardeşim var.",
+      target: "I have two brothers.",
+      accepted_variants: [
+        "I've got two brothers.",
+        "There are two brothers in my family.",
+        "I have 2 brothers.",
+        "My family has two brothers.",
+      ],
+      tr_hint:
+        "'I have ___' = bende ... var. 'Brothers' = erkek kardeşler (çoğul).",
+    },
+    {
+      id: "ex.a2.fm.4",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Kız kardeşim benden iki yaş büyük.",
+      target: "My sister is two years older than me.",
+      accepted_variants: [
+        "My sister is two years older than I am.",
+        "My sister is older than me by two years.",
+        "My sister is 2 years older than me.",
+        "I'm two years younger than my sister.",
+      ],
+      tr_hint:
+        "'Older than ___' = ...'dan büyük. 'Two years older' = iki yaş büyük.",
+    },
+    {
+      id: "ex.a2.fm.5",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "We ___ in Istanbul with our parents.",
+      answer: "live",
+      distractors: ["lives", "living", "lived", "are live"],
+      tr_hint:
+        "'We' çoğul özne → 'live' (s'siz). 'He / She / It' → 'lives'.",
+    },
+    {
+      id: "ex.a2.fm.6",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: ["My", "brother", "is", "younger", "than", "me"],
+      correct_sentence: "My brother is younger than me",
+      tr_translation: "Erkek kardeşim benden küçük.",
+    },
+    {
+      id: "ex.a2.fm.7",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I have 30 years and my sister have 28.",
+      correct_sentence: "I'm 30 and my sister is 28.",
+      tr_explanation:
+        "Yaş İngilizce'de 'have' ile söylenmez. Doğru: 'I'm ___ years old' veya kısaca 'I'm ___'. 'My sister have' yanlış — 3. tekil için 'has' (veya bu durumda 'is' fiili).",
+    },
+    {
+      id: "ex.a2.fm.8",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Yeni tanıştığın biri ailen hakkında soru soruyor. Aileni tanıt — kardeşler, yaş, nerede yaşıyorsunuz.",
+      npc_role: "New acquaintance",
+      setting: "Casual social conversation",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Tell me about your family. Do you have any siblings?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,? i have)?",
+            "i have (a|one|two|three) (brother|sister)",
+            "i('m| am) (the )?(only child|oldest|youngest)",
+            "(i've got|i have) [a-z\\- ]+ (brothers?|sisters?)",
+          ],
+          hint_tr: "'Yes, I have two brothers' veya 'I have one sister'.",
+        },
+        {
+          speaker: "npc",
+          message: "Nice. Are they older or younger than you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(older|younger)( than me)?",
+            "(my (brother|sister) is|they are) (older|younger)",
+            "(one is|both are) (older|younger)",
+            "(she|he) is \\d+ years (older|younger)",
+          ],
+          hint_tr: "'My sister is older than me' veya 'They are both younger'.",
+        },
+        {
+          speaker: "npc",
+          message: "Where do they live?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(we (all )?live|they live) in [a-z'\\- ]+",
+            "(in )?(istanbul|ankara|izmir|turkey|the same city)",
+            "(we live together|with my parents)",
+            "(my (brother|sister) lives) in",
+          ],
+          hint_tr: "'We all live in Istanbul' veya 'My brother lives in Ankara'.",
+        },
+        {
+          speaker: "npc",
+          message: "Do you see them often?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,? (every|almost|most) (day|week|weekend))?",
+            "(no|not really)(,? not often)?",
+            "(we|i) (see|visit) (them|each other) (every|on)",
+            "(only|just) (on holidays|sometimes|when i can)",
+          ],
+          hint_tr: "'Yes, every weekend' veya 'Not often — only on holidays'.",
+        },
+        {
+          speaker: "npc",
+          message: "Family is so important. Thanks for sharing!",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.fm.9",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Yaş söylerken doğru kalıp?",
+          options: [
+            "I have 30 years",
+            "I am 30 years",
+            "I'm 30 years old",
+            "My age is 30 years",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "İngilizce'de yaş 'have' ile söylenmez. 'I'm ___ years old' doğru.",
+        },
+        {
+          question: "'My sister is older ___ me' — boşluğa ne gelir?",
+          options: ["from", "of", "than", "as"],
+          correct_index: 2,
+          tr_explanation:
+            "Karşılaştırma kalıbı: 'older / younger / bigger ___ than ___'.",
+        },
+        {
+          question: "'We live in Istanbul' — niye 's' yok 'live'in sonunda?",
+          options: [
+            "Çünkü 'live' düzensiz fiil",
+            "Çünkü 'we' çoğul özne",
+            "Çünkü cümle negatif",
+            "Çünkü zaman geçmiş",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Present Simple: 'he/she/it' + s; 'I/you/we/they' + bare verb.",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.fm.10",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "My sister is older than me.",
+      ipa: "maɪ ˈsɪstər ɪz ˈoʊldər ðæn mi",
+      tr_hint:
+        "'Sister' = 'sistır'. 'Older' = 'oldır'. 'Than' = 'den' (kısa, vurgusuz).",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 14 — Pazartesi sabahı — günlük rutin
+// ============================================================
+export const cefrA2DailyLesson_morningRoutine: BundledLesson = {
+  id: "daily.a2.morningroutine.1",
+  skill_id: "daily.a2.morningroutine",
+  index: 14,
+  title: "Pazartesi sabahı — günlük rutin",
+  description:
+    "'I get up at 7', 'Then I have breakfast', 'I leave for work at 8' — sabah rutinini sırayla anlat.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.a2.mr.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "I get up at 7",
+      tr_translation: "Saat 7'de kalkarım",
+      example: "I get up at 7 every morning.",
+      example_tr: "Her sabah 7'de kalkarım.",
+    },
+    {
+      id: "ex.a2.mr.2",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Then I have breakfast",
+      tr_translation: "Sonra kahvaltı ederim",
+      example: "Then I have breakfast with my family.",
+      example_tr: "Sonra ailemle kahvaltı ederim.",
+    },
+    {
+      id: "ex.a2.mr.3",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Saat 7'de kalkarım.",
+      target: "I get up at 7.",
+      accepted_variants: [
+        "I get up at seven.",
+        "I wake up at 7.",
+        "I wake up at seven.",
+        "I get up at 7 a.m.",
+        "I get up at 7 o'clock.",
+      ],
+      tr_hint:
+        "'Get up' = yataktan kalkmak. 'Wake up' = uyanmak. 'At 7' = saat 7'de.",
+    },
+    {
+      id: "ex.a2.mr.4",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Önce duş alırım, sonra kahvaltı ederim.",
+      target: "First I take a shower, then I have breakfast.",
+      accepted_variants: [
+        "First I shower, then I have breakfast.",
+        "First, I take a shower. Then I have breakfast.",
+        "I take a shower first, then I eat breakfast.",
+        "I shower first, and then I have breakfast.",
+        "First I have a shower, then breakfast.",
+      ],
+      tr_hint:
+        "'First ___, then ___' = önce ..., sonra ...'. 'Take a shower' veya 'have a shower'.",
+    },
+    {
+      id: "ex.a2.mr.5",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "I leave ___ work at 8 a.m.",
+      answer: "for",
+      distractors: ["to", "at", "from", "of"],
+      tr_hint:
+        "'Leave for ___' = ... için yola çıkmak / ayrılmak. 'Leave from' = ...'dan ayrılmak (farklı anlam).",
+    },
+    {
+      id: "ex.a2.mr.6",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: ["Then", "I", "have", "breakfast", "with", "my", "family"],
+      correct_sentence: "Then I have breakfast with my family",
+      tr_translation: "Sonra ailemle kahvaltı ederim.",
+    },
+    {
+      id: "ex.a2.mr.7",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I am wake up at 7 and after I am eat breakfast.",
+      correct_sentence: "I wake up at 7, and then I have breakfast.",
+      tr_explanation:
+        "'I am wake up' ve 'I am eat' yanlış. Düzenli sabah rutini = Present Simple: 'I wake up', 'I have' (am/is/are gerekmez). 'After' yerine sıra için 'then' daha doğal.",
+    },
+    {
+      id: "ex.a2.mr.8",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Bir İngilizce öğretmenin senden sabah rutinini anlatmanı istiyor. Pazartesi sabahını adım adım anlat.",
+      npc_role: "English teacher",
+      setting: "Speaking practice session",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Tell me about your typical Monday morning. What time do you get up?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "i get up at \\d+(:\\d\\d)?",
+            "i wake up at \\d+(:\\d\\d)?",
+            "(usually|normally) (at )?\\d+",
+            "around \\d+( a\\.?m\\.?)?",
+          ],
+          hint_tr: "'I get up at 7' veya 'Usually around 7 a.m.'",
+        },
+        {
+          speaker: "npc",
+          message: "And what do you do first?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(first|then) i (take a shower|shower|brush my teeth|wash my face)",
+            "i (have|take) (a )?(shower|breakfast)",
+            "i (drink|make) (coffee|tea)",
+            "i check my phone",
+          ],
+          hint_tr: "'First, I take a shower' veya 'I make coffee'.",
+        },
+        {
+          speaker: "npc",
+          message: "Do you have breakfast at home?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,? (at home|i do))?",
+            "(no|not really)(,? i (eat|grab) (something|breakfast))?",
+            "i have (breakfast|eggs|toast|tea|coffee) (at home|with my family)",
+            "(usually|sometimes) (yes|no)",
+          ],
+          hint_tr:
+            "'Yes, I have breakfast with my family' veya 'No, I grab something on the way'.",
+        },
+        {
+          speaker: "npc",
+          message: "What time do you leave for work?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "i leave (for work|the house) at \\d+(:\\d\\d)?",
+            "(around |about )?\\d+(:\\d\\d)?( a\\.?m\\.?)?",
+            "i (start|go to) work at \\d+",
+            "at \\d+ o'?clock",
+          ],
+          hint_tr: "'I leave for work at 8' veya 'Around 8:15'.",
+        },
+        {
+          speaker: "npc",
+          message: "How do you usually get there?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "i (take|ride) (the )?(metro|bus|train|subway)",
+            "(by )?(metro|bus|car|train|bike|walking)",
+            "i (drive|walk|cycle)",
+            "i go (by|on) [a-z\\- ]+",
+          ],
+          hint_tr: "'I take the metro' veya 'By bus' veya 'I walk'.",
+        },
+        {
+          speaker: "npc",
+          message: "Perfect — your Present Simple is getting strong!",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.mr.9",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Sabah rutini için hangi zaman doğru?",
+          options: [
+            "Present Continuous (I am waking up)",
+            "Present Simple (I wake up)",
+            "Past Simple (I woke up)",
+            "Future (I will wake up)",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Düzenli, her gün olan eylem = Present Simple: 'I wake up at 7'.",
+        },
+        {
+          question: "'Get up' ve 'wake up' arasındaki fark?",
+          options: [
+            "Aynı şey",
+            "'Wake up' = uyanmak, 'get up' = yataktan kalkmak",
+            "'Wake up' yataktan kalkmak, 'get up' uyanmak",
+            "İkisi de yanlış",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Önce uyanırsın (wake up), sonra yataktan kalkarsın (get up).",
+        },
+        {
+          question: "Sıralama için en doğal bağlaç?",
+          options: [
+            "First ___, after ___",
+            "First ___, then ___",
+            "Before ___, after ___",
+            "One ___, two ___",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'First ___, then ___' = önce ..., sonra ... . Sıra için doğal.",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.mr.10",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "I get up at 7, then I have breakfast.",
+      ipa: "aɪ ɡɛt ʌp æt ˈsɛvən ðɛn aɪ hæv ˈbrɛkfəst",
+      tr_hint:
+        "'Get up' bağlanır → 'getap'. 'Breakfast' = 'brekfıst' (iki hece). 'Then' = 'den', kısa.",
+    },
+  ],
+};
+
+// ============================================================
 // Registry
 // ============================================================
 export const cefrA2DailyLessons: BundledLesson[] = [
@@ -1701,4 +2563,8 @@ export const cefrA2DailyLessons: BundledLesson[] = [
   cefrA2DailyLesson_weather,
   cefrA2DailyLesson_lost,
   cefrA2DailyLesson_transit,
+  cefrA2DailyLesson_weatherLikes,
+  cefrA2DailyLesson_hobbies,
+  cefrA2DailyLesson_family,
+  cefrA2DailyLesson_morningRoutine,
 ];

@@ -963,6 +963,800 @@ export const dailySalonLesson_31_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 31.5 — Erkek Kuaför: Fade & Trim
+// ============================================================
+export const dailySalonLesson_31_5: BundledLesson = {
+  id: "daily.salon.31.5",
+  skill_id: "daily.salon",
+  index: 5,
+  title: "Erkek Kuaför: Fade & Trim",
+  description:
+    "Erkek kuaförde sade kesim talebi: 'just a trim', 'fade on the sides, scissor on top', sakal düzeltme.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dsl31.5.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "scissor on top",
+      tr_translation: "Üstte makasla kesim",
+      example: "Fade on the sides, scissor on top, please.",
+      example_tr: "Yanlar fade, üst makasla, lütfen.",
+    },
+    {
+      id: "ex.dsl31.5.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Yanlar fade, üst makasla, lütfen.",
+      target: "Fade on the sides, scissor on top, please.",
+      accepted_variants: [
+        "Fade the sides and scissor on top, please.",
+        "A fade on the sides with scissor work on top, please.",
+        "I'd like a fade on the sides and scissor on top.",
+        "Could I get a fade on the sides, scissors on top?",
+        "Sides faded, top with scissors, please.",
+      ],
+      tr_hint:
+        "'Cut my hair short' yerine spesifik: yanlar makineli (fade), üst makasla.",
+    },
+    {
+      id: "ex.dsl31.5.3",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "Just a ___ today — about half an inch off the top.",
+      answer: "trim",
+      distractors: ["cut", "shave", "fade", "buzz"],
+      tr_hint:
+        "'Trim' = kısa rötuş, uçlardan al. 'Cut' ciddi kesim, 'shave' tıraş.",
+    },
+    {
+      id: "ex.dsl31.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Could",
+        "you",
+        "clean",
+        "up",
+        "the",
+        "neckline",
+        "please",
+      ],
+      correct_sentence: "Could you clean up the neckline please",
+      tr_translation: "Enseyi temizler misiniz, lütfen?",
+    },
+    {
+      id: "ex.dsl31.5.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Cut my hair short, machine number two.",
+      correct_sentence:
+        "Could I get a number two fade on the sides, please?",
+      tr_explanation:
+        "'Cut my hair short' emir. 'Machine number two' tuhaf — doğru terim 'number two (clipper guard) fade'. 'Could I get' kibarlık katar.",
+    },
+    {
+      id: "ex.dsl31.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Yeni bir barbershop. Berber ne istediğini soruyor.",
+      npc_role: "Barber",
+      setting: "Barbershop chair",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hey man, what are we doing today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(just )?a trim",
+            "(could|can) I (get|have) (a |an )?(trim|fade|haircut)",
+            "I('d like|'ll have|want) (a |an )?(fade|trim|haircut)",
+            "(low|mid|high|skin) fade",
+            "fade on (the )?sides",
+            "(number|#) ?(one|two|three|four|1|2|3|4)",
+            "scissor on top",
+            "(short|tight) on the sides",
+          ],
+          hint_tr:
+            "Talebini söyle: 'Just a trim' / 'A low fade' / 'Fade on the sides, scissor on top'.",
+        },
+        {
+          speaker: "npc",
+          message: "Cool. How short do you want the sides — number one, two, three?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(number |#)?(one|two|three|four|1|2|3|4)( please)?",
+            "(a )?(number |#)?(one|two|three|four) on the sides",
+            "(skin|bald) fade",
+            "(not too |fairly )?short",
+            "(whatever|whichever) (looks|works) (best|good)",
+            "up to you",
+          ],
+          hint_tr:
+            "Numara seç: 'Number two, please' / 'A skin fade' / 'Not too short'.",
+        },
+        {
+          speaker: "npc",
+          message: "And the top — keep the length, or take some off?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(keep|leave) (the )?length",
+            "(take|trim) (a little|some) off( the top)?",
+            "(scissor|scissors) on top",
+            "(just )?clean it up",
+            "(about )?(half an |an |one |two )?inch (off|shorter)",
+            "(same|similar) length",
+          ],
+          hint_tr:
+            "Üstü tarif et: 'Scissor on top, keep the length' veya 'Take an inch off the top'.",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. Let's get you in the chair.",
+        },
+      ],
+    },
+    {
+      id: "ex.dsl31.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Scissor on top' ne demek?",
+          options: [
+            "Makineyi üstte kullan",
+            "Üst kısmı makasla kes",
+            "Makasla saçı tamamen kazıt",
+            "Üstü tıraş et",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Scissor on top' = üstün makasla kesilmesi (clipper değil). Yanlar fade, üst makas tipik kombinasyon.",
+        },
+        {
+          question: "Berbere 'number two' dediğinde ne istemiş olursun?",
+          options: [
+            "İkinci sırada bekleme",
+            "İki numaralı makine başlığı (clipper guard) ile kesim",
+            "İki cm uzunluk",
+            "İki bölgeden kısaltma",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Numaralar clipper guard ölçüsüdür: #1 ≈ 3mm, #2 ≈ 6mm, #3 ≈ 10mm.",
+        },
+        {
+          question: "Türkçe 'Saçımı kısa kes' yerine en doğal İngilizce?",
+          options: [
+            "Cut my hair short.",
+            "Make hair short, please.",
+            "Just a trim — take a little off the top.",
+            "Short cut now.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Just a trim, take a little off' kibar ve spesifik. 'Cut my hair short' emir, çok genel.",
+        },
+      ],
+    },
+    {
+      id: "ex.dsl31.5.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Fade on the sides, scissor on top.",
+      ipa: "feɪd ɒn ðə saɪdz ˈsɪzər ɒn tɒp",
+      tr_hint:
+        "Berber klasik komutu. 'Fade' uzun 'eɪ' — 'feyd'. 'Scissor' = SİZ-ır. 'On top' kısa, vurgulu.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 31.6 — Kadın Kuaför: Katlar & Highlights
+// ============================================================
+export const dailySalonLesson_31_6: BundledLesson = {
+  id: "daily.salon.31.6",
+  skill_id: "daily.salon",
+  index: 6,
+  title: "Kadın Kuaför: Katlar & Highlights",
+  description:
+    "Katlı kesim, ışıltı, fön talebi: 'layered cut', 'some highlights — nothing dramatic', referans fotoğraf.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.dsl31.6.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "layered cut",
+      tr_translation: "Katlı kesim",
+      example: "I'd like a layered cut with long layers on the bottom.",
+      example_tr: "Altta uzun katlarla katlı bir kesim istiyorum.",
+    },
+    {
+      id: "ex.dsl31.6.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Katlı kesim istiyorum, biraz da ışıltı — abartılı olmasın.",
+      target:
+        "I'd like a layered cut and some highlights — nothing dramatic.",
+      accepted_variants: [
+        "I'd like layers and some highlights, nothing too dramatic.",
+        "Could I get a layered cut with subtle highlights?",
+        "A layered cut please, and some light highlights — nothing dramatic.",
+        "I want a layered cut and some highlights, but keep it subtle.",
+        "Layers and highlights please — nothing dramatic.",
+      ],
+      tr_hint:
+        "'Nothing dramatic' = abartısız. 'Subtle' eş anlamlı. Türk müşteri sık ister.",
+    },
+    {
+      id: "ex.dsl31.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Could I show you a ___ for reference?",
+      answer: "picture",
+      distractors: ["paper", "color", "style", "magazine"],
+      tr_hint:
+        "Fotoğraf gösterme ifadesi. 'For reference' = referans olarak. Telefonu uzat.",
+    },
+    {
+      id: "ex.dsl31.6.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Some",
+        "face",
+        "framing",
+        "highlights",
+        "would",
+        "be",
+        "great",
+      ],
+      correct_sentence: "Some face framing highlights would be great",
+      tr_translation: "Yüzü çevreleyen ışıltılar harika olur.",
+    },
+    {
+      id: "ex.dsl31.6.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Make my hair shape good and add yellow lights.",
+      correct_sentence:
+        "I'd like a layered cut with some warm blonde highlights, please.",
+      tr_explanation:
+        "'Hair shape good' anlamsız. 'Yellow lights' yanlış — 'highlights' (ışıltı) ve 'blonde' (sarı saç rengi). Doğal terimle: 'warm blonde highlights'.",
+    },
+    {
+      id: "ex.dsl31.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Kuaförde ilk kez. Stilist ne istediğini soruyor; telefonunda referans fotoğraf var.",
+      npc_role: "Hair stylist",
+      setting: "Women's salon",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Hi! Take a seat. What are we doing today — just a cut, or color too?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(a |some )?(layered cut|layers|haircut|trim)",
+            "(I'd like|I want|could I get) (a |some )?(layered cut|layers|highlights)",
+            "(a |some )?highlights",
+            "(both )?cut and (color|highlights)",
+            "(layered cut|layers) and (highlights|color)",
+            "(I'm )?thinking (a |some )?(layered|highlights)",
+          ],
+          hint_tr:
+            "İstediğini söyle: 'A layered cut, please' / 'Layers and some highlights'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Lovely. Do you have a style in mind? You can show me a picture if you want.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|sure)(,)? (here|I do|let me show)",
+            "(could|can) I show you a (picture|photo|reference)",
+            "I have a (picture|photo|reference)",
+            "(here|this) is (a )?(picture|photo|reference)",
+            "let me (show|pull up) (a |the )?(picture|photo)",
+            "(something|similar) to this",
+            "like (this|the picture)",
+          ],
+          hint_tr:
+            "Fotoğraf göster: 'Could I show you a picture?' / 'Here's a reference photo.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cute style. For the highlights — bold and bright, or more natural?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(more |something )?(natural|subtle|soft)",
+            "nothing (too )?(dramatic|bold|bright)",
+            "(keep it|let's keep it) (subtle|natural|soft)",
+            "(face[ -]?framing|around (my|the) face)",
+            "(a )?few (subtle|soft|light) highlights",
+            "(bold|bright)( please)?",
+            "what (do|would) you recommend",
+          ],
+          hint_tr:
+            "Yoğunluğu söyle: 'Something natural — nothing dramatic' veya 'Bold and bright, please'.",
+        },
+        {
+          speaker: "npc",
+          message: "Perfect. Let's get you washed first.",
+        },
+      ],
+    },
+    {
+      id: "ex.dsl31.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Layered cut' ne demek?",
+          options: [
+            "Çok katlı boya",
+            "Farklı uzunluklarda katlar olan saç kesimi",
+            "Iki kez kesim",
+            "Saç maskesi katmanları",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Layered cut' = saça hareket veren, kademeli katlardan oluşan kesim. 'Long layers' = uzun katlar.",
+        },
+        {
+          question: "'Nothing dramatic' nasıl kullanılır?",
+          options: [
+            "Filmden bahsederken",
+            "Stil yoğunluğunu sınırlamak — 'abartısız'",
+            "İptal etmek için",
+            "Drama yapma demek için",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Salonda 'nothing dramatic' = ufak değişiklik istiyorum, abartılı olmasın. Türk müşterinin favori cümlesi.",
+        },
+        {
+          question: "Stiliste referans fotoğraf göstermek için en iyi cümle?",
+          options: [
+            "I have phone picture.",
+            "Look my photo.",
+            "Could I show you a picture for reference?",
+            "Picture see please.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Could I show you a picture for reference?' kibar ve doğal. Stilist görseli her zaman önemser.",
+        },
+      ],
+    },
+    {
+      id: "ex.dsl31.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Some highlights, nothing dramatic.",
+      ipa: "səm ˈhaɪlaɪts ˈnʌθɪŋ drəˈmætɪk",
+      tr_hint:
+        "'Highlights' = HAY-layts (uzun 'ay'). 'Dramatic' = drı-MA-tik (vurgu ortada). 'Nothing' arası bağlanır.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 31.7 — Manikür/Pedikür: Renk Seçimi
+// ============================================================
+export const dailySalonLesson_31_7: BundledLesson = {
+  id: "daily.salon.31.7",
+  skill_id: "daily.salon",
+  index: 7,
+  title: "Manikür/Pedikür: Renk Seçimi",
+  description:
+    "Nail salon'da renk kartı, nötr tonlar, mevsim trendi: 'Could I see the colors?', 'Something neutral'.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dsl31.7.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Could I see the colors?",
+      tr_translation: "Renkleri görebilir miyim?",
+      example: "Could I see the colors before I decide?",
+      example_tr: "Karar vermeden önce renkleri görebilir miyim?",
+    },
+    {
+      id: "ex.dsl31.7.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Renkleri görebilir miyim? Nötr bir şey istiyorum.",
+      target:
+        "Could I see the colors? I'd like something neutral.",
+      accepted_variants: [
+        "Can I see the colors, please? Something neutral.",
+        "Could I have a look at the colors? I want something neutral.",
+        "May I see the colors? I'd prefer something neutral.",
+        "Show me the colors, please — I'm looking for something neutral.",
+        "Could I see the swatches? Something neutral, please.",
+      ],
+      tr_hint:
+        "'Show me colors' yerine 'Could I see the colors?' daha kibar. 'Something neutral' nötr ton talebi.",
+    },
+    {
+      id: "ex.dsl31.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Do you have anything in a soft ___ tone?",
+      answer: "nude",
+      distractors: ["yellow", "loud", "bright", "shiny"],
+      tr_hint:
+        "'Nude' = ten rengine yakın nötr ton. 'Soft nude' nail salonda klasik istek.",
+    },
+    {
+      id: "ex.dsl31.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "What's",
+        "popular",
+        "this",
+        "season",
+        "for",
+        "manicures",
+      ],
+      correct_sentence: "What's popular this season for manicures",
+      tr_translation: "Manikür için bu sezon ne popüler?",
+    },
+    {
+      id: "ex.dsl31.7.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Show me colors, I want simple one.",
+      correct_sentence:
+        "Could I see the colors, please? I'd like something simple and neutral.",
+      tr_explanation:
+        "'Show me' emir. 'I want simple one' anlamsız. Doğru: 'Could I see the colors?' + tam istek ('something simple and neutral').",
+    },
+    {
+      id: "ex.dsl31.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Mani-pedi sırasında renk seçimi. Teknisyen tavsiye sunuyor.",
+      npc_role: "Nail technician",
+      setting: "Nail salon, choosing color",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Okay, ready to pick a color? Any idea what you want?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can|may) I (see|look at|check) (the )?(colors|colours|swatches|chart)",
+            "(could|can) I (see|have) (a |the )?(color chart|colour chart)",
+            "(show me|let me see) (the )?(colors|colours|chart|swatches)",
+            "I'd like to (see|look at) (the )?(colors|colours)",
+            "(not really|not sure)(,)? (could|can) I (see|look at)",
+            "I('m|'ve been) thinking (a |an |something )?(nude|red|pink|neutral)",
+          ],
+          hint_tr:
+            "Önce kartı iste: 'Could I see the colors?' / 'Show me the swatches, please.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure, here are the swatches. Looking for anything in particular?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(something )?(neutral|natural|simple|subtle|classic)",
+            "(a |something in a )?(soft |light )?(nude|pink|beige)",
+            "(nothing |not )?(too )?(loud|bright|bold|dark)",
+            "a (classic|deep) red",
+            "(a )?french (manicure|tip)",
+            "(work|office)[ -]?friendly",
+            "what (do|would) you recommend",
+          ],
+          hint_tr:
+            "Talebini söyle: 'Something neutral' / 'A soft nude' / 'Nothing too bright'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "These three nudes are really popular this season. Want to try one on?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|sure)(,)? (let's )?try (one|this one|that one)",
+            "(could|can) I try (one|this one|that one|the middle one)",
+            "(I'll go with|let's do|let's go with) (this|that|the)",
+            "(the |this )?(first|second|third|middle|left|right) one",
+            "(I like|love) (this|that) one",
+            "(what|how) about (this|that)",
+          ],
+          hint_tr:
+            "Seç: 'Let's try this one' / 'The middle one, please' / 'I'll go with that.'",
+        },
+        {
+          speaker: "npc",
+          message: "Great choice. Let me grab the bottle.",
+        },
+      ],
+    },
+    {
+      id: "ex.dsl31.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Something neutral' ne anlama gelir?",
+          options: [
+            "Renksiz şeffaf oje",
+            "Nötr, dikkat çekmeyen ton (nude, beige, soft pink)",
+            "Beyaz oje",
+            "Ortalama bir fiyat",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Neutral' = nötr ton — nude, beige, açık pembe. Iş yerinde de uygun.",
+        },
+        {
+          question: "Salonda renk kartı için doğru kelime?",
+          options: ["Paper", "Color list", "Swatches", "Catalog"],
+          correct_index: 2,
+          tr_explanation:
+            "'Swatches' = oje örneklerinin gösterildiği örnek kartı. 'Color chart' da geçerli.",
+        },
+        {
+          question: "'Could I see the colors?' niye 'show me'den daha iyi?",
+          options: [
+            "Daha kısa",
+            "Soru olduğu için daha kibar — hizmet ortamında doğal",
+            "Daha resmi olduğu için kullanılmaz",
+            "Sadece İngiltere'de kullanılır",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Could I see' soru kalıbı — kibar talep. 'Show me' emir gibi.",
+        },
+      ],
+    },
+    {
+      id: "ex.dsl31.7.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could I see the colors? Something neutral.",
+      ipa: "kʊd aɪ siː ðə ˈkʌlərz ˈsʌmθɪŋ ˈnuːtrəl",
+      tr_hint:
+        "'Could I' bağlanır → 'kud-ay'. 'Colors' = KA-lırz (Türkçe 'ko' değil 'ka'). 'Neutral' = NUU-trıl.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 31.8 — Bahşiş & Tekrar Randevu: Checkout
+// ============================================================
+export const dailySalonLesson_31_8: BundledLesson = {
+  id: "daily.salon.31.8",
+  skill_id: "daily.salon",
+  index: 8,
+  title: "Bahşiş & Tekrar Randevu: Checkout",
+  description:
+    "Salon ödeme: ABD bahşiş kültürü (%15-20), karta tip ekleme, tekrar randevu: 'Same time next month?'.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dsl31.8.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "add a tip on the card",
+      tr_translation: "Karta bahşiş eklemek",
+      example: "I'll add a tip on the card — twenty percent.",
+      example_tr: "Karta bahşiş ekleyeceğim — yüzde yirmi.",
+    },
+    {
+      id: "ex.dsl31.8.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source:
+        "Karta bahşiş ekleyeceğim. Önümüzdeki ay aynı saate randevu mümkün mü?",
+      target:
+        "I'll add a tip on the card. Could I book the same time next month?",
+      accepted_variants: [
+        "I'll add a tip on the card. Same time next month, please?",
+        "I'm adding a tip to the card. Can I book the same time next month?",
+        "I'll tip on the card — could we do the same time next month?",
+        "I'll add the tip to the card. Can I get the same slot next month?",
+        "Adding a tip on the card. Could I rebook for the same time next month?",
+      ],
+      tr_hint:
+        "İki cümle: bahşiş kararı + tekrar randevu. 'Same time' = aynı saat. 'Book' = randevu al.",
+    },
+    {
+      id: "ex.dsl31.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Could I book the same time ___ month?",
+      answer: "next",
+      distractors: ["last", "this", "every", "another"],
+      tr_hint:
+        "'Next month' = önümüzdeki ay. Standart kalıp: 'same time next + (week/month)'.",
+    },
+    {
+      id: "ex.dsl31.8.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "I'll",
+        "add",
+        "twenty",
+        "percent",
+        "on",
+        "the",
+        "card",
+        "please",
+      ],
+      correct_sentence: "I'll add twenty percent on the card please",
+      tr_translation: "Karta yüzde yirmi ekleyeceğim, lütfen.",
+    },
+    {
+      id: "ex.dsl31.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I give you money extra and same hour next month.",
+      correct_sentence:
+        "I'll add a tip on the card, and could I book the same time next month?",
+      tr_explanation:
+        "'Give you money extra' garip — 'add a tip' doğal. 'Same hour' yanlış — 'same time' kullanılır. Ek olarak soru olarak sormak ('could I book') daha kibar.",
+    },
+    {
+      id: "ex.dsl31.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Hizmet bitti, resepsiyonda ödüyorsun. Resepsiyonist bahşiş ve gelecek randevu soruyor.",
+      npc_role: "Receptionist",
+      setting: "Salon checkout counter",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "All done! Your total comes to forty-five dollars. How would you like to pay?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(by |with |on )?(card|credit card|debit card)( please)?",
+            "(I'll|let me) (pay|put it) (by |with |on )?(card|credit)",
+            "(card|credit)( please)?",
+            "(I'll )?tap( the card)?",
+            "(by |with )?cash",
+            "(do you take|accept) (apple pay|google pay|contactless)",
+          ],
+          hint_tr:
+            "Ödeme yöntemini söyle: 'Card, please' / 'I'll pay by card' / 'Cash, please'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sounds good. Would you like to add a tip? It's customary here — fifteen to twenty percent is standard.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|sure)(,)? (I'll|let me) (add|leave) (a )?(tip|twenty|fifteen|eighteen)( percent)?",
+            "(I'll|let me) add (a )?tip( on the card)?",
+            "(twenty|fifteen|eighteen|25)( percent)?( please)?",
+            "(could|can) you add (twenty|fifteen|eighteen)( percent)?",
+            "(yes|yeah)(,)? (twenty|fifteen|eighteen) percent",
+            "I'll (tip|leave) (in )?cash",
+            "(twenty|fifteen|eighteen) on the card",
+          ],
+          hint_tr:
+            "Bahşiş kararı: 'I'll add twenty percent on the card' veya 'Twenty percent, please'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Wonderful, thank you so much. Would you like to book your next appointment?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|sure)(,)? (same time|same slot) (next|in a) (month|week|four weeks)",
+            "(could|can) I (book|get|rebook) (the )?(same time|same slot)( next month)?",
+            "(yes|yeah)(,)? (please|let's do that)",
+            "(could|can) we (book|schedule) (for )?(next month|four weeks|six weeks)",
+            "(yes|yeah)(,)? in (a |about )?(month|four weeks|six weeks)",
+            "let me check (my )?(calendar|schedule)",
+            "(I'll|let me) call later",
+          ],
+          hint_tr:
+            "Randevu kabul et: 'Yes, same time next month, please' veya 'Could I book in four weeks?'",
+        },
+        {
+          speaker: "npc",
+          message: "Done — see you then! Have a great day.",
+        },
+      ],
+    },
+    {
+      id: "ex.dsl31.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "ABD salonlarında standart bahşiş oranı kaçtır?",
+          options: [
+            "Bahşiş yoktur, fiyata dahildir",
+            "Yüzde 5",
+            "Yüzde 15-20",
+            "Yüzde 50",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "ABD'de salon hizmetlerinde %15-20 bahşiş standarttır. Türkiye'de zorunlu değil — ABD'de neredeyse beklenir.",
+        },
+        {
+          question: "'Add a tip on the card' ne demek?",
+          options: [
+            "Karta sticker yapıştır",
+            "Bahşişi kartla öde (toplam tutara ekle)",
+            "Kart hediye et",
+            "Kartı yenile",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "POS cihazında 'tip' satırı çıkar; oradan bahşiş eklenir. Nakit alternatifi: 'tip in cash'.",
+        },
+        {
+          question: "Tekrar randevu için en doğal cümle?",
+          options: [
+            "I want again same hour next month.",
+            "Same time next month?",
+            "Reservation now please.",
+            "Make appointment please.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Same time next month?' kısa, doğal, kibar. Resepsiyonist hemen anlar.",
+        },
+      ],
+    },
+    {
+      id: "ex.dsl31.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Same time next month, please.",
+      ipa: "seɪm taɪm nɛkst mʌnθ pliːz",
+      tr_hint:
+        "'Month' içindeki 'th' Türkçede yok — dil ucu dişlere değer, sessiz hışırtı. 'Next' içindeki '-xt' net bitir.",
+    },
+  ],
+};
+
+// ============================================================
 // Lesson registry
 // ============================================================
 export const dailySalonLessons: ReadonlyArray<BundledLesson> = [
@@ -970,6 +1764,10 @@ export const dailySalonLessons: ReadonlyArray<BundledLesson> = [
   dailySalonLesson_31_2,
   dailySalonLesson_31_3,
   dailySalonLesson_31_4,
+  dailySalonLesson_31_5,
+  dailySalonLesson_31_6,
+  dailySalonLesson_31_7,
+  dailySalonLesson_31_8,
 ];
 
 export function getDailySalonLesson(id: string): BundledLesson | undefined {

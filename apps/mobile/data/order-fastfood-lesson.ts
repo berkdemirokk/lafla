@@ -1041,6 +1041,868 @@ export const orderFastfoodLesson_43_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 43.5 — Drive-thru sipariş (mikrofona net)
+// ============================================================
+export const orderFastfoodLesson_43_5: BundledLesson = {
+  id: "order.fastfood.43.5",
+  skill_id: "order.fastfood",
+  index: 5,
+  title: "Mikrofona Net Sipariş",
+  description:
+    "Drive-thru hoparlöründe net telaffuz — 'Number 3 with a Coke', 'Could I get a...' — gürültülü mikrofonda hızlı + anlaşılır sipariş.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.off43.5.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "What can I get you?",
+      tr_translation: "Size ne getirebilirim? (Drive-thru standart açılış)",
+      example: "Welcome to Burger King — what can I get you?",
+      example_tr: "Burger King'e hoş geldiniz — ne alırsınız?",
+    },
+    {
+      id: "ex.off43.5.2",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Üç numara, Coke ile alabilir miyim?",
+      target: "Could I get a number three with a Coke?",
+      accepted_variants: [
+        "I'll have the number three with a Coke, please.",
+        "Number three with a Coke, please.",
+        "Can I get a number three and a Coke?",
+        "I'd like the number three combo with a Coke.",
+        "Let me get a number three with a Coke.",
+      ],
+      tr_hint:
+        "Drive-thru ritmi: 'Number [X] with a [drink]'. 'With a' bağlanır → 'wɪð-ə'. Mikrofonda net + kısa.",
+    },
+    {
+      id: "ex.off43.5.3",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "Could I ___ a number five, please?",
+      answer: "get",
+      distractors: ["take", "make", "want"],
+      tr_hint:
+        "'Could I get' drive-thru'da en yaygın başlangıç. 'Get' = alabilir miyim (kibar form).",
+    },
+    {
+      id: "ex.off43.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Number",
+        "three",
+        "with",
+        "a",
+        "Coke",
+        "please",
+      ],
+      correct_sentence: "Number three with a Coke please",
+      tr_translation: "Üç numara, Coke ile, lütfen.",
+    },
+    {
+      id: "ex.off43.5.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Hello, I want hamburger and cola, three number.",
+      correct_sentence:
+        "Hi — could I get a number three with a Coke, please?",
+      tr_explanation:
+        "'I want hamburger' kaba + 'a' eksik. 'Cola' Amerika'da 'Coke'. 'Three number' Türkçe sıralama — İngilizce'de 'number three'.",
+    },
+    {
+      id: "ex.off43.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Burger King drive-thru'sundasın. Hoparlör gürültülü, çalışan mikrofondan duyuyor. Net + hızlı konuşman gerekiyor.",
+      npc_role: "Drive-thru speaker cashier",
+      setting: "Burger King drive-thru intercom",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Welcome to Burger King — what can I get you today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can) I (get|have) (a |the )?(number )?(one|two|three|four|five|six|whopper)( combo| meal)?",
+            "(i'll|i will|i'd like to) (have|get) (a |the )?(number )?(one|two|three|four|five|whopper)",
+            "(number )?(one|two|three|four|five|six)( combo| meal)?( with .+)?",
+            "(a )?whopper( combo| meal)?( with .+)?",
+            "let me get (a |the )?(number )?(one|two|three|whopper)",
+          ],
+          hint_tr:
+            "Net başla: 'Could I get a number three?' veya 'I'll have a Whopper combo.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure — and what would you like to drink with that?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(a )?(coke|sprite|diet coke|dr pepper|fanta|root beer)( please)?",
+            "(could|can) I (have|get) (a )?(coke|sprite|diet coke|lemonade)",
+            "(coke|sprite|diet coke|fanta) please",
+            "(just )?(a )?water( please)?",
+            "(with )?(a )?(coke|sprite|diet coke)",
+          ],
+          hint_tr:
+            "İçeceği net söyle: 'A Coke, please' — mikrofonda 'Coke' net telaffuz.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I'm sorry, could you repeat that? The speaker cut out.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|yes|sure),? (a |i said a )?(coke|sprite|diet coke|dr pepper)",
+            "(i said|that was) (a )?(coke|sprite|diet coke)",
+            "(a |just )?(coke|sprite|diet coke)( please)?",
+            "(let me repeat|repeating)( that)?,? (a )?(coke|sprite)",
+            "sorry,? (a )?(coke|sprite|diet coke)",
+          ],
+          hint_tr:
+            "Mikrofon kesildi — tekrar et: 'A Coke, please.' Yavaş + net.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. Anything else for you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|nope),? (that's|that is) it( please)?",
+            "(no thanks|nothing else)( please)?",
+            "(that'?ll be|that's) all( please)?",
+            "(i'?m )?(all set|good)( thanks)?",
+            "(yes|yeah),? (could|can) I (also )?(get|have) (a |an |some )?.+",
+            "(also|and) (a |an |some )?.+",
+          ],
+          hint_tr:
+            "Bitir: 'No, that's it, please.' Veya ekle: 'Also a small fries.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Great — please drive up to the window.",
+        },
+      ],
+    },
+    {
+      id: "ex.off43.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question:
+            "Mikrofonda en net + kibar sipariş başlangıcı?",
+          options: [
+            "Give me number three.",
+            "Number three, fast!",
+            "Could I get a number three, please?",
+            "I want hamburger three.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Could I get [X], please?' — drive-thru'da kibar + net standart. Mikrofonda anlaşılır.",
+        },
+        {
+          question:
+            "Hoparlör kesildi, tekrar etmen lazım — en doğal?",
+          options: [
+            "Hello? Hello? Coke!",
+            "I said a Coke, please.",
+            "Coke, Coke, Coke!",
+            "You didn't hear me?",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'I said [X], please' — doğal tekrar kalıbı. 'Sorry, a Coke please' de doğal.",
+        },
+        {
+          question:
+            "'Drive up to the window' ne demek?",
+          options: [
+            "Pencereyi açın",
+            "Pencereye doğru ilerleyin (ödeme için)",
+            "Camı temizleyin",
+            "Park edin",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Drive-thru'da sipariş tamamlanınca: 'Pencereye gel — ödeme + teslimat orada.'",
+        },
+      ],
+    },
+    {
+      id: "ex.off43.5.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could I get a number three with a Coke, please?",
+      ipa: "kʊd aɪ ɡɛt ə ˈnʌmbər θriː wɪð ə koʊk pliːz",
+      tr_hint:
+        "Mikrofona net: 'Number' içinde 'b' duyulur. 'Three' içinde 'th' (dil dişe). 'Coke' = 'KOWK' tek hece. Yavaş + net.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 43.6 — Combo upgrade (supersize/large)
+// ============================================================
+export const orderFastfoodLesson_43_6: BundledLesson = {
+  id: "order.fastfood.43.6",
+  skill_id: "order.fastfood",
+  index: 6,
+  title: "Combo Upgrade",
+  description:
+    "Menü büyütme + ekstra ekleme — 'Can I make that a large?', 'Add a shake?', 'Upsize my fries' — upsell yanıtları.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.off43.6.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "make it a large",
+      tr_translation: "Onu büyük boy yap",
+      example: "Can you make it a large, please?",
+      example_tr: "Büyük boy yapabilir misiniz, lütfen?",
+    },
+    {
+      id: "ex.off43.6.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bunu büyük boy yapabilir miyiz? Bir de milkshake ekleyin.",
+      target: "Can we make that a large? And add a shake, please.",
+      accepted_variants: [
+        "Could you make it a large and add a shake?",
+        "Let's make that a large — and throw in a shake.",
+        "Make it a large, please, and a shake on the side.",
+        "Can I make that a large, and could I add a milkshake?",
+        "Upsize it to large, and add a shake.",
+      ],
+      tr_hint:
+        "Upgrade: 'make it a large'. Ekleme: 'add a [X]'. Drive-thru'da iki ayrı istek arka arkaya — virgül veya 'and' ile.",
+    },
+    {
+      id: "ex.off43.6.3",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "Could you ___ that a large, please?",
+      answer: "make",
+      distractors: ["do", "size", "turn"],
+      tr_hint:
+        "'Make it a large' = büyüt. Drive-thru'da sabit kalıp. 'Size up' da olur ama 'make it a large' daha yaygın.",
+    },
+    {
+      id: "ex.off43.6.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Can",
+        "I",
+        "add",
+        "a",
+        "shake",
+        "to",
+        "that",
+      ],
+      correct_sentence: "Can I add a shake to that",
+      tr_translation: "Buna bir milkshake ekleyebilir miyim?",
+    },
+    {
+      id: "ex.off43.6.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Big size do it, plus one milkshake also.",
+      correct_sentence:
+        "Could you make that a large? And add a shake, please.",
+      tr_explanation:
+        "'Big size do it' kırık — doğrusu 'make it a large'. 'Plus one milkshake also' Türkçe yapı — İngilizce'de 'And add a shake' temiz. 'Shake' = milkshake kısaltma (US standardı).",
+    },
+    {
+      id: "ex.off43.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Wendy's drive-thru'sundasın. Standart combo sipariş ettin, kasiyer upsell deniyor — sen büyüt + shake ekle.",
+      npc_role: "Drive-thru cashier (upselling)",
+      setting: "Wendy's drive-thru window",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "I've got a number two combo. Would you like to make that a large for ninety-nine cents?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|sure)( please)?,? (make it (a )?large|let'?s do (it|that))",
+            "(yeah|yes),? make (it|that) (a )?large",
+            "(could you|can you) make (it|that) (a )?large( please)?",
+            "(go ahead|let'?s) (and )?(make it|do) (a )?large",
+            "(sure|sounds good),? (large )?please",
+            "(yes|yeah)( please)?",
+          ],
+          hint_tr:
+            "Evet de: 'Yes please, make it a large.' Net + kısa.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Would you like to add a Frosty or shake for two dollars?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|sure),? (add|i'?ll have|let'?s do) (a )?(shake|frosty|chocolate frosty|vanilla shake|chocolate shake)",
+            "(could|can) I (have|get|add) (a )?(shake|frosty|chocolate|vanilla)( please)?",
+            "(yes|yeah)( please)?,? (a )?(chocolate|vanilla|strawberry)( shake| frosty)?",
+            "(go ahead|sure),? (add )?(a )?(shake|frosty)",
+            "(no thanks|no thank you)",
+            "(nope|no)( thanks)?,? (i'?m good|that'?s it)",
+          ],
+          hint_tr:
+            "Ekle: 'Yes, add a chocolate shake.' Veya geç: 'No thanks, I'm good.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Any sauces? Ranch, ketchup, BBQ?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can) I (have|get) (some |a couple |extra )?(ranch|ketchup|bbq|honey mustard)( please)?",
+            "(some )?(ranch|ketchup|bbq|honey mustard)( and (ranch|ketchup|bbq))?( please)?",
+            "(a |two |three )?(ranches|ketchups|bbqs)( please)?",
+            "(extra |a lot of )?(ketchup|ranch|bbq)",
+            "(just )?(ketchup|ranch)( please)?",
+            "(no thanks|no sauce|i'?m good)",
+          ],
+          hint_tr:
+            "Sos seç: 'Some ranch and ketchup, please.' Veya yok: 'No thanks.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Anything else I can get you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|nope),? (that's|that is) (it|all)( please)?",
+            "(that'?ll be|that's) (all|it)",
+            "(i'?m )?(all set|good)( thanks)?",
+            "(no thanks|nothing else)",
+            "(yes|yeah)( also)?,? (could|can) I (have|get|add) (a |an |some )?.+",
+          ],
+          hint_tr:
+            "Bitir: 'That'll be all, thanks.' Veya ekle: 'Also a side of fries.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Your total is twelve eighty-five at the window.",
+        },
+      ],
+    },
+    {
+      id: "ex.off43.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question:
+            "Combo'yu büyütmek için en doğal kalıp?",
+          options: [
+            "Do it big size.",
+            "Upgrade my food.",
+            "Could you make that a large, please?",
+            "Bigger combo I want.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Make it/that a large' — US drive-thru'da standart upsize cümlesi.",
+        },
+        {
+          question:
+            "Kasiyer 'Add a shake?' diye sordu, evet diyorsun — en doğal?",
+          options: [
+            "OK shake yes.",
+            "Yes, add a chocolate shake, please.",
+            "Shake one for me.",
+            "I take shake.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Yes, add a [flavor] shake' net + kibar. Flavor'ı söylemek ekstra puan.",
+        },
+        {
+          question:
+            "'Frosty' Wendy's'de ne demek?",
+          options: [
+            "Soğuk sandviç",
+            "Yarı-donuk milkshake (Wendy's signature)",
+            "Buzlu çay",
+            "Patates kızartması",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Frosty = Wendy's'in imza ürünü. Soft-serve dondurma + milkshake arası. Çikolata ve vanilya var.",
+        },
+      ],
+    },
+    {
+      id: "ex.off43.6.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Yes please, make it a large and add a shake.",
+      ipa: "jɛs pliːz meɪk ɪt ə lɑːrʤ ænd æd ə ʃeɪk",
+      tr_hint:
+        "'Make it a' bağlanır → 'meyk-ɪd-ə'. 'Large' içinde 'r' yumuşak. 'Shake' = 'ŞEYK' tek hece, net.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 43.7 — Customize (pickle/onion çıkar)
+// ============================================================
+export const orderFastfoodLesson_43_7: BundledLesson = {
+  id: "order.fastfood.43.7",
+  skill_id: "order.fastfood",
+  index: 7,
+  title: "Burger Özelleştirme",
+  description:
+    "Malzeme çıkarma/ekleme — 'No pickles, no onions', 'Hold the mayo, extra ketchup' — burger'ı sana göre düzenle.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.off43.7.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "hold the mayo",
+      tr_translation: "Mayonez koymayın",
+      example: "Hold the mayo and extra ketchup, please.",
+      example_tr: "Mayonez koymayın, ekstra ketçap koyun, lütfen.",
+    },
+    {
+      id: "ex.off43.7.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Turşu ve soğan yok, ekstra ketçap, lütfen.",
+      target: "No pickles, no onions — extra ketchup, please.",
+      accepted_variants: [
+        "Hold the pickles and onions, extra ketchup please.",
+        "No pickles or onions, and extra ketchup, please.",
+        "Could I get it without pickles or onions — and extra ketchup?",
+        "Skip the pickles and onions, add extra ketchup.",
+        "Without pickles, without onions, with extra ketchup.",
+      ],
+      tr_hint:
+        "Çıkarma: 'No [X]' veya 'Hold the [X]'. Ekleme: 'Extra [X]'. Burger özelleştirmede sabit yapılar.",
+    },
+    {
+      id: "ex.off43.7.3",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "___ the mayo and extra ketchup, please.",
+      answer: "Hold",
+      distractors: ["Stop", "Cut", "Skip"],
+      tr_hint:
+        "'Hold the [X]' = onu eklemeyin (US fast food standardı). 'Skip' de doğal ama 'Hold' daha klasik.",
+    },
+    {
+      id: "ex.off43.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "No",
+        "onions",
+        "extra",
+        "cheese",
+        "please",
+      ],
+      correct_sentence: "No onions extra cheese please",
+      tr_translation: "Soğan yok, ekstra peynir, lütfen.",
+    },
+    {
+      id: "ex.off43.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Not put pickle, onion. Put more cheese inside.",
+      correct_sentence:
+        "No pickles, no onions — and could I get extra cheese on that?",
+      tr_explanation:
+        "'Not put' kırık komut → 'No [X]' veya 'Hold the [X]'. Çoğul kullan: 'pickles', 'onions' (US fast food'da çoğul standard). 'Put more inside' kaba — 'extra [X]' kibar.",
+    },
+    {
+      id: "ex.off43.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Chick-fil-A drive-thru'sundasın. Burger özelleştirmek istiyorsun — turşu yok, mayo yok, ekstra peynir.",
+      npc_role: "Chick-fil-A team member",
+      setting: "Chick-fil-A drive-thru",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "My pleasure! What can I get started for you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can) I (have|get) (a |the )?(chicken sandwich|deluxe|spicy|grilled|number .+)",
+            "(i'll|i will|i'd like to) (have|get) (a |the )?(chicken sandwich|spicy|deluxe|grilled)",
+            "(a )?(spicy |grilled |deluxe )?chicken sandwich( combo| meal)?",
+            "(number )?(one|two|three|four|five) (combo|meal)?",
+            "let me get (a |the )?(chicken|spicy|deluxe)",
+          ],
+          hint_tr:
+            "Sandviçi söyle: 'Could I get a spicy chicken sandwich combo?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sounds good. Any changes to the sandwich?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah),? (no |hold the )?(pickles|onions|mayo|tomatoes|lettuce)",
+            "(no|hold the) (pickles|mayo|onions|tomatoes)(,? (no|and no|and hold the) (pickles|mayo|onions))?",
+            "(could|can) you (do it |make it )?(without|no) (pickles|mayo|onions|tomatoes)",
+            "(skip|without|no) (the )?(pickles|mayo|onions|tomatoes)",
+            "(extra |add )?(cheese|sauce|chick.?fil.?a sauce|pickles)",
+            "(could|can) I (have|get) (it )?(with )?(extra |no )?(cheese|sauce|pickles|mayo)",
+          ],
+          hint_tr:
+            "Değişiklikleri söyle: 'No pickles, hold the mayo, extra cheese, please.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. What would you like to drink?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(a |an )?(coke|sprite|diet coke|sweet tea|unsweet tea|lemonade|dr pepper)( please)?",
+            "(could|can) I (have|get) (a |an )?(coke|sprite|sweet tea|lemonade|diet coke)",
+            "(i'?ll have |let me get )?(a )?(coke|sprite|sweet tea|lemonade)",
+            "(sweet|unsweet) (tea|iced tea)( please)?",
+            "(just )?(a )?water( please)?",
+          ],
+          hint_tr:
+            "İçecek seç: 'A sweet tea, please.' (Chick-fil-A'in klasiği.)",
+        },
+        {
+          speaker: "npc",
+          message:
+            "And would you like any Chick-fil-A sauce or Polynesian on the side?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can) I (have|get) (some |a couple |two |three )?(chick.?fil.?a sauce|polynesian|honey mustard|bbq|ranch)",
+            "(yes|yeah)( please)?,? (some |a |two )?(chick.?fil.?a|polynesian|honey mustard|bbq)( sauce)?",
+            "(some |extra )?(chick.?fil.?a sauce|polynesian|bbq|ranch)( please)?",
+            "(both|all of them|one of each)( please)?",
+            "(no thanks|no sauce|i'?m good)",
+          ],
+          hint_tr:
+            "Sos seç: 'Could I get two Chick-fil-A sauces and a Polynesian?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect. Please pull up to the window — my pleasure!",
+        },
+      ],
+    },
+    {
+      id: "ex.off43.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Burger'den mayonez çıkar — en doğal hangisi?",
+          options: [
+            "Don't put mayo.",
+            "No mayo bread.",
+            "Hold the mayo, please.",
+            "Mayo no want.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Hold the [X]' = onu eklemeyin. Fast food'da klasik. 'No mayo, please' de doğal.",
+        },
+        {
+          question: "Ekstra peynir istiyorsun — doğal kalıp?",
+          options: [
+            "More cheese inside!",
+            "Could I get extra cheese on that?",
+            "Plus more cheese add.",
+            "Double the cheese put.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Could I get extra [X]?' veya 'Extra [X], please' — kibar + standart ekleme kalıbı.",
+        },
+        {
+          question:
+            "'Pickle' yerine niye 'pickles' (çoğul) kullanılır?",
+          options: [
+            "İngilizce hatası",
+            "Birden fazla turşu dilimi olduğu için (US fast food konvansiyonu)",
+            "Daha kibar",
+            "Yazılı kullanım için",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Burger'de birden fazla dilim turşu olduğu için 'pickles' çoğul standart. Aynısı 'onions' için de geçerli.",
+        },
+      ],
+    },
+    {
+      id: "ex.off43.7.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "No pickles, no onions, extra cheese, please.",
+      ipa: "noʊ ˈpɪkəlz noʊ ˈʌnjənz ˈɛkstrə tʃiːz pliːz",
+      tr_hint:
+        "Liste ritmi: virgülde duraklama, vurgu son kelime. 'Pickles' = 'PİK-əlz'. 'Onions' = 'ʌN-yənz' (tek hece gibi hızlı).",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 43.8 — Mobile order pickup
+// ============================================================
+export const orderFastfoodLesson_43_8: BundledLesson = {
+  id: "order.fastfood.43.8",
+  skill_id: "order.fastfood",
+  index: 8,
+  title: "Mobil Sipariş Alma",
+  description:
+    "Uygulamadan sipariş verdin, restorana alacaksın — 'Order under [name]', 'Mobile order ready?', 'Pickup shelf' — temassız teslimat.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.off43.8.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "mobile order",
+      tr_translation: "Mobil (uygulama) sipariş",
+      example: "I have a mobile order under Berk.",
+      example_tr: "Berk adına mobil siparişim var.",
+    },
+    {
+      id: "ex.off43.8.2",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Berk adına bir mobil siparişim var — hazır mı?",
+      target: "I have a mobile order under Berk — is it ready?",
+      accepted_variants: [
+        "Hi, mobile order pickup for Berk — is it ready?",
+        "I'm here to pick up a mobile order for Berk.",
+        "Mobile order for Berk, please — is it up yet?",
+        "Picking up a mobile order under the name Berk.",
+        "I have an order under Berk — mobile order.",
+      ],
+      tr_hint:
+        "'Under [name]' = [isim] adına. 'Mobile order' = uygulamadan sipariş. Pickup'ta sabit kalıp.",
+    },
+    {
+      id: "ex.off43.8.3",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "I have a mobile order ___ the name Berk.",
+      answer: "under",
+      distractors: ["with", "by", "in"],
+      tr_hint:
+        "'Under [name]' = [isim] adına/altında. Sipariş + rezervasyon için sabit edat.",
+    },
+    {
+      id: "ex.off43.8.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Is",
+        "my",
+        "mobile",
+        "order",
+        "ready",
+        "yet",
+      ],
+      correct_sentence: "Is my mobile order ready yet",
+      tr_translation: "Mobil siparişim hazır mı?",
+    },
+    {
+      id: "ex.off43.8.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Hello, I made order from app, name Berk, where is it?",
+      correct_sentence:
+        "Hi — I'm here to pick up a mobile order under Berk. Is it ready?",
+      tr_explanation:
+        "'I made order from app' kırık — doğrusu 'I have a mobile order'. 'Name Berk' tutarsız — 'under Berk' veya 'under the name Berk'. 'Where is it' agresif — 'Is it ready?' kibar.",
+    },
+    {
+      id: "ex.off43.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "McDonald's'a uygulamadan sipariş verdin. Restorana geldin, almak için tezgaha gidiyorsun.",
+      npc_role: "McDonald's counter cashier",
+      setting: "McDonald's mobile order pickup counter",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Hi, can I help you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|hey),? (i'?m here )?(to )?pick(ing)? up (a )?mobile order( for| under)? .{0,20}",
+            "(i have|i'?ve got) (a )?mobile order under( the name)? .{1,20}",
+            "(mobile order|pickup) (for|under) .{1,20}",
+            "(hi|hey),? (i )?(ordered (it )?on the app|placed (a |an )?mobile order)",
+            "(i'?m here for|here to grab) (a )?mobile order .{0,20}",
+          ],
+          hint_tr:
+            "Net giriş: 'Hi, I'm here to pick up a mobile order under Berk.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure — what's the name on the order?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it'?s |the name'?s |under )?\\w{2,20}",
+            "(it'?s under |the name is |my name is )\\w{2,20}",
+            "\\w{2,20}( please)?",
+            "(it'?s |that'?s )?\\w{2,20},? .+",
+          ],
+          hint_tr:
+            "Adını söyle: 'It's under Berk.' Veya sadece 'Berk, please.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Let me check — looks like it's still being prepared. Should be about three more minutes. Want to grab a seat?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sure|yeah|ok|okay),? (i'll|i will) (grab|take) (a )?seat( thanks)?",
+            "(no problem|that'?s fine|sounds good),? (i'?ll )?(wait|sit)( over (here|there))?",
+            "(sure )?thanks,? (i'?ll )?(wait|sit)",
+            "(could|can) you (let me know|call my name) when it'?s (ready|up)",
+            "(thanks|no rush),? (i'?ll )?wait",
+            "(ok|alright)( thanks)?",
+          ],
+          hint_tr:
+            "Bekle: 'Sure, I'll grab a seat, thanks.' Veya: 'Could you call me when it's ready?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Of course — I'll call your name. It'll be on the pickup shelf when it's done.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you)( so much)?",
+            "(great|perfect|awesome),? thanks",
+            "(thanks|thank you),? (i'?ll )?(grab|get) it (when|then)",
+            "(sounds good|got it)( thanks)?",
+            "(appreciate it|cheers)",
+          ],
+          hint_tr:
+            "Teşekkür et: 'Thanks, I'll grab it when it's up.' Veya 'Sounds good, thanks.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "No problem — sorry for the wait!",
+        },
+      ],
+    },
+    {
+      id: "ex.off43.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question:
+            "Mobil siparişi almaya geldin — en doğal giriş?",
+          options: [
+            "Where is my food, I ordered from app!",
+            "Hi, I'm here to pick up a mobile order under Berk.",
+            "App order Berk, give me!",
+            "I made order, name Berk, ready?",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Net + kibar: 'I'm here to pick up a mobile order under [name].' US restoranlarında standart.",
+        },
+        {
+          question: "'Pickup shelf' ne demek?",
+          options: [
+            "Sipariş masası",
+            "Hazır siparişlerin alındığı raf",
+            "Kasa",
+            "Servis penceresi",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Mobil siparişler hazır olunca raf üzerine konur — müşteri kendi alır. Temassız teslimat için.",
+        },
+        {
+          question:
+            "Sipariş geç kalmış, bekleyeceksin — kibar ifade?",
+          options: [
+            "Hurry, I'm waiting.",
+            "When food?",
+            "Sure, I'll grab a seat, thanks.",
+            "OK fast please.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'I'll grab a seat' = 'oturacağım'. Sabırlı + kibar. 'No rush' de doğal.",
+        },
+      ],
+    },
+    {
+      id: "ex.off43.8.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "I'm here to pick up a mobile order under Berk.",
+      ipa: "aɪm hɪr tə pɪk ʌp ə ˈmoʊbəl ˈɔːrdər ˈʌndər bɜːrk",
+      tr_hint:
+        "'Pick up' = 'PİK-ʌp' bağlanır. 'Mobile' US'de 'MOW-bəl' (UK'da 'MOW-bayl'). 'Under' = 'ʌn-dər' net.",
+    },
+  ],
+};
+
+// ============================================================
 // Lesson registry
 // ============================================================
 export const orderFastfoodLessons: ReadonlyArray<BundledLesson> = [
@@ -1048,4 +1910,8 @@ export const orderFastfoodLessons: ReadonlyArray<BundledLesson> = [
   orderFastfoodLesson_43_2,
   orderFastfoodLesson_43_3,
   orderFastfoodLesson_43_4,
+  orderFastfoodLesson_43_5,
+  orderFastfoodLesson_43_6,
+  orderFastfoodLesson_43_7,
+  orderFastfoodLesson_43_8,
 ];

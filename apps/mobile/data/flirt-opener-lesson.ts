@@ -879,6 +879,719 @@ export const flirtOpenerLesson_1_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 1.5 — Photo-driven Opener (Fotoğrafa Yorum)
+// ============================================================
+export const flirtOpenerLesson_1_5: BundledLesson = {
+  id: "flirt.opener.1.5",
+  skill_id: "flirt.opener",
+  index: 5,
+  title: "Fotoğrafa Yorum Yap",
+  description:
+    "Profilde köpek, seyahat, yemek var mı? Spesifik fotoğrafa eğlenceli soru = en güvenli yüksek-cevap-oranı opener.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.f1.5.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Okay I need the story behind",
+      tr_translation: "Tamam, arkasındaki hikayeyi öğrenmem lazım",
+      example: "Okay I need the story behind photo 2 — is that a wild fox on your shoulder?",
+      example_tr: "Tamam, 2. fotoğrafın hikayesini öğrenmem lazım — omzundaki tilki vahşi mi?",
+    },
+    {
+      id: "ex.f1.5.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Köpeğin ismi ne? Beni ondan ötürü kaydırdım, açıkçası.",
+      target: "What's your dog's name? I'll be honest, that's the reason I swiped.",
+      accepted_variants: [
+        "What's your dog called? Honestly, that's why I swiped.",
+        "Dog name? Not gonna lie, swiped for them.",
+        "Need the dog's name — that's mostly why I swiped right.",
+        "What's your pup's name? Full disclosure, swiped for the dog.",
+        "Your dog's name is the only thing I need right now.",
+      ],
+      tr_hint:
+        "'I'll be honest' / 'Not gonna lie' = açıkçası (sosyal yumuşatma). 'Swiped' = kaydırdım (Tinder fiili).",
+    },
+    {
+      id: "ex.f1.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "That ___ in photo 4 — where on earth was that taken?",
+      answer: "view",
+      distractors: ["look", "scene", "sight"],
+      tr_hint:
+        "'View' = manzara. 'Where on earth' = nerede ya (vurgulu merak).",
+    },
+    {
+      id: "ex.f1.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Is",
+        "that",
+        "ramen",
+        "in",
+        "photo",
+        "three",
+        "homemade",
+      ],
+      correct_sentence: "Is that ramen in photo three homemade",
+      tr_translation: "3. fotoğraftaki ramen ev yapımı mı?",
+    },
+    {
+      id: "ex.f1.5.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I like your photos very much they are nice.",
+      correct_sentence:
+        "Photo 3 has me curious — was that taken in Cappadocia?",
+      tr_explanation:
+        "Generic 'I like your photos' = sıfır spesifik = otomatik 'next'. Doğru: belli bir fotoğrafa numara verip spesifik soru. 'Has me curious' = meraklandırdı.",
+    },
+    {
+      id: "ex.f1.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Bumble'da match. Profilde golden retriever ile sahil fotosu var. Köpeğe referansla açılıyorsun.",
+      npc_role: "Match",
+      setting: "Photo-based opener — dog photo",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay |alright |so )?i need the (story|name|details) behind (photo|that|the) ?\\d?",
+            "(what'?s|tell me) (your )?(dog'?s|puppy'?s|pup'?s) name",
+            "(is that|that'?s) (your|a) (golden|dog|pup)",
+            "(not gonna lie|honestly|i'?ll be honest)[,—-]? (.{0,40})?(swiped|matched) (for|because of) (the )?(dog|pup)",
+            "(photo|pic) ?\\d? has me (curious|wondering)",
+            "(where|when) (was )?(that|photo \\d) taken",
+          ],
+          hint_tr:
+            "Spesifik foto + soru: 'Okay I need the dog's name' veya 'Not gonna lie, swiped for the dog'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Haha fair enough — his name is Biscuit and he's the real catch here. Photo was at Çeşme last summer. Got a dog?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(biscuit|his name) is (a |the )?(perfect|great|cute) name",
+            "(no but i'?m|i'?m) (a )?(dog person|obsessed)",
+            "(no dog|don'?t have one)[,—-]? (but|just)",
+            "(love|i'?m into) (cesme|that area|the aegean)",
+            "(i'?ve been to|been to) (cesme|there)",
+            "(adding|saving) (cesme|that) (to|for) (my list|next summer)",
+          ],
+          hint_tr:
+            "Devam: 'Biscuit is a perfect name', 'No dog, but I'm a dog person', 'Love Çeşme'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Biscuit approves. So — beach person or city person when you travel?",
+        },
+      ],
+    },
+    {
+      id: "ex.f1.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Photo-driven opener'ın en güçlü yanı?",
+          options: [
+            "Kısa olduğu için",
+            "Spesifik fotoğrafa referans = 'profili gerçekten gördüm' kanıtı",
+            "Soru sormak zorunda kalmazsın",
+            "Yorum yapmak zorunda olmazsın",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Generic 'nice photos' = sıfır efor. 'Photo 3 — was that Cappadocia?' = 10 saniye baktığını kanıtlar.",
+        },
+        {
+          question: "'Not gonna lie' nasıl çevirilir?",
+          options: [
+            "Yalan söylemeyeceğim (resmi)",
+            "Açıkçası / Doğrusunu söylemek gerekirse",
+            "Yalan değil",
+            "Yalan söylemem lazım",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Not gonna lie' (NGL) = açıkçası. Honest itiraf öncesi sosyal yumuşatma. Çok kullanılır.",
+        },
+        {
+          question: "'Swiped' fiili ne demek?",
+          options: [
+            "Sildim",
+            "Kaydırdım (Tinder/Bumble'da sağa/sola)",
+            "Çaldım",
+            "Sürdüm",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Swiped right' = sağa kaydırdım = beğendim. 'Swiped left' = geçtim. Dating app fiili.",
+        },
+      ],
+    },
+    {
+      id: "ex.f1.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Okay, I need the story behind photo 2 — is that a wild fox on your shoulder?",
+      ipa: "/ˈəʊkeɪ aɪ niːd ðə ˈstɔːri bɪˈhaɪnd ˈfəʊtəʊ tuː — ɪz ðæt ə waɪld fɒks ɒn jɔː ˈʃəʊldə/",
+      tr_hint:
+        "Meraklı, gözlemci ton. 'I need the story' bağlı, vurgu 'story'de. 'Wild fox' ikisi de net.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 1.6 — Mutual Interest Opener (Ortak İlgi Yakaladın)
+// ============================================================
+export const flirtOpenerLesson_1_6: BundledLesson = {
+  id: "flirt.opener.1.6",
+  skill_id: "flirt.opener",
+  index: 6,
+  title: "Ortak İlgi Yakaladın",
+  description:
+    "İkiniz de tırmanış / kitap / yoga / spesifik müzik seviyorsunuz. Bunu yakala — anında bağ kurar.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.f1.6.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "I see you're into climbing",
+      tr_translation: "Tırmanışa ilgi duyduğunu gördüm",
+      example: "I see you're into climbing — best route you've done?",
+      example_tr: "Tırmanışa ilgi duyduğunu gördüm — yaptığın en iyi rota hangisi?",
+    },
+    {
+      id: "ex.f1.6.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Sen de Murakami okuyorsun! En sevdiğin hangisi?",
+      target: "Another Murakami reader — which one's your favorite?",
+      accepted_variants: [
+        "You read Murakami too? Which one's the favorite?",
+        "A fellow Murakami fan — which book hits hardest?",
+        "Spotted the Murakami mention — favorite novel?",
+        "Murakami too! What's the one you keep coming back to?",
+        "We share a Murakami thing — which is the one?",
+      ],
+      tr_hint:
+        "'Another X reader' / 'A fellow X fan' = ben de aynısıyım enerjisi. 'Hits hardest' = en çok etkileyen.",
+    },
+    {
+      id: "ex.f1.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Finally, someone else who's ___ Frank Ocean.",
+      answer: "into",
+      distractors: ["onto", "for", "with"],
+      tr_hint:
+        "'Into X' = X'e ilgi duymak (modern). 'Onto' farklı anlam (bir şeyin izinde).",
+    },
+    {
+      id: "ex.f1.6.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Wait",
+        "you",
+        "do",
+        "pottery",
+        "too",
+        "where",
+      ],
+      correct_sentence: "Wait you do pottery too where",
+      tr_translation: "Dur, sen de mi çömlek yapıyorsun? Nerede?",
+    },
+    {
+      id: "ex.f1.6.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "We have same hobbies. Want meeting?",
+      correct_sentence:
+        "Wait — we both do trail running? Where's your go-to route?",
+      tr_explanation:
+        "'Same hobbies. Want meeting?' robotik + erken randevu. Doğru: ortak ilgiyi adlandır + spesifik soru. 'Go-to' = sık gittiğin/tercih ettiğin.",
+    },
+    {
+      id: "ex.f1.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Hinge'de match. İkiniz de profilde 'climbing' (kaya tırmanışı) yazıyor. Ortak ilgiyle açılıyorsun.",
+      npc_role: "Match",
+      setting: "Mutual interest opener — climbing",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "i see (you'?re |you are )?into (climbing|bouldering|trail|running|pottery|.+)",
+            "(another|fellow) (climber|reader|runner|coffee snob|.+ fan)",
+            "(wait |hold on )?we (both|share) (.+)",
+            "(finally|nice)[,—-]? (someone|another) (who'?s|that'?s) (into|reads|does)",
+            "(spotted|caught) the (climbing|.+) (mention|thing) (in your bio|on there)",
+            "best (route|trail|book|spot) you'?ve (done|read|tried)",
+          ],
+          hint_tr:
+            "Ortak ilgiyi yakala: 'I see you're into climbing — best route you've done?' veya 'Fellow climber — where do you usually go?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh nice — another climber. Honestly the wall at Boulder Republic is my home gym, but I went outdoor to Geyikbayırı last spring and it ruined me for plastic. You outdoor or gym?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(mostly|mainly|honestly) (gym|outdoor|plastic|real rock)",
+            "(geyikbayiri|geyikbayırı) is (on|next on) (my list|the bucket list)",
+            "(haven'?t made it|been meaning) to (geyikbayiri|outdoor)",
+            "(boulder republic|that gym) is (great|solid|my spot too)",
+            "(same here|me too)[,—-]? (gym|outdoor)",
+            "(starting|just got into) (outdoor|leading)",
+          ],
+          hint_tr:
+            "Cevapla: 'Mostly gym, Geyikbayırı is on my list' veya 'Same here — outdoor ruins you'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "We should hit Boulder Rep sometime then. Loser buys post-climb beers?",
+        },
+      ],
+    },
+    {
+      id: "ex.f1.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Mutual interest opener niye en hızlı bağ kurar?",
+          options: [
+            "Karşı taraf cevap vermek zorunda kalır",
+            "'Aynı kabileyiz' algısı = hızlı yakınlık",
+            "Soru sormaya gerek olmaz",
+            "İlk randevuyu atlatır",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Ortak ilgi = anında 'biz' algısı. Yabancılıktan 'tanıdık'a 1 mesajda geçer.",
+        },
+        {
+          question: "'Into X' ne demek?",
+          options: [
+            "X'in içinde",
+            "X'e ilgi duymak / X'in hayranı olmak",
+            "X yönünde",
+            "X'e doğru",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'I'm into climbing' = tırmanışı seviyorum / ilgi duyuyorum. Casual + modern.",
+        },
+        {
+          question: "'Go-to' kalıbı nasıl çevirilir?",
+          options: [
+            "Gitmeye git",
+            "Tercih ettiğin / sık gittiğin",
+            "Yola çık",
+            "Yapılması gereken",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'My go-to coffee shop' = sık gittiğim kafe. 'Go-to' = standart tercih.",
+        },
+      ],
+    },
+    {
+      id: "ex.f1.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "I see you're into climbing — best route you've done?",
+      ipa: "/aɪ siː jɔː ˈɪntə ˈklaɪmɪŋ — bɛst ruːt juːv dʌn/",
+      tr_hint:
+        "Casual + meraklı. 'You're into' bağlı söyle. 'Best route you've done' tek nefes, sonu yukseltici (soru).",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 1.7 — Empty Bio Opener (Bio'su Kısa, Yaratıcı Tahmin)
+// ============================================================
+export const flirtOpenerLesson_1_7: BundledLesson = {
+  id: "flirt.opener.1.7",
+  skill_id: "flirt.opener",
+  index: 7,
+  title: "Boş Bio — Yaratıcı Açılış",
+  description:
+    "Bio boş, sadece fotoğraflar var. 'Mesleğini fotoğraflardan tahmin etmeye çalışacağım' tarzı yaratıcı oyun = kaçırılmaz hook.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.f1.7.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "I have to guess your job from these photos",
+      tr_translation: "Mesleğini bu fotoğraflardan tahmin etmem gerekiyor",
+      example: "Empty bio policy — I have to guess your job from these 3 photos.",
+      example_tr: "Boş bio politikası — mesleğini bu 3 fotoğraftan tahmin etmem gerekiyor.",
+    },
+    {
+      id: "ex.f1.7.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bio'n boş, ben kendi versiyonunu yazayım: 'Köpekleri ve karbonhidratları seviyorum.' Yakın mı?",
+      target: "Empty bio — let me draft one for you: 'Loves dogs and carbs.' Close?",
+      accepted_variants: [
+        "No bio? Here's my guess: 'Dogs, carbs, late nights.' Accurate?",
+        "Let me write your bio: 'Dogs, coffee, no plans.' Am I close?",
+        "Bio's missing — my version: 'Big dog energy, bigger carb energy.' Fair?",
+        "Drafting your bio for you: 'Dog lover with strong opinions on bread.' Right?",
+        "I'll fill in your bio: 'Mostly dogs, occasionally carbs.' Yes?",
+      ],
+      tr_hint:
+        "'Let me draft' = ben yazayım (taslak). 'Close?' / 'Accurate?' = yakın mı? Oyun davetkar tonu.",
+    },
+    {
+      id: "ex.f1.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Based on these photos, my ___ is: graphic designer who hikes on weekends.",
+      answer: "guess",
+      distractors: ["wish", "answer", "think"],
+      tr_hint:
+        "'My guess is' = tahminim. Yaratıcı opener'da güvenle bir tahmin at = ilgi çekici.",
+    },
+    {
+      id: "ex.f1.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "No",
+        "bio",
+        "means",
+        "I",
+        "get",
+        "to",
+        "make",
+        "things",
+        "up",
+      ],
+      correct_sentence: "No bio means I get to make things up",
+      tr_translation: "Bio yok demek, uydurma şansım var demek.",
+    },
+    {
+      id: "ex.f1.7.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Your bio is empty. Why no bio? Tell me about you.",
+      correct_sentence:
+        "Empty bio is bold — okay, my guess: you're a teacher who's secretly really into 90s rock.",
+      tr_explanation:
+        "'Why no bio?' = sorgulayıcı + savunmaya iter. 'Tell me about you' = ödev verdiniz. Doğru: oyuncu suçlama + spesifik tahmin = sohbet açıcı.",
+    },
+    {
+      id: "ex.f1.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Tinder'da match. Match'in bio'su tamamen boş. Sen yaratıcı tahmin oyunuyla açılıyorsun.",
+      npc_role: "Match",
+      setting: "Empty bio — creative guess opener",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(empty|no|missing) bio[,—-]? (so |okay |alright )?(i (have to|get to|will)|let me) (guess|make|draft|fill)",
+            "(based on|going off) (these|the) (photos|pics)[,—-]? my (guess|theory) (is|would be)",
+            "(no bio means|the no[- ]bio thing means) i (get to|can|have to) (make|guess|invent)",
+            "(let me|i'?ll) (write|draft) (your|a) bio for you",
+            "(my guess|theory|verdict)[,—-:]? (you'?re|you are) (a|an) .+",
+            "(empty bio is|going bio[- ]less is) (bold|brave|a power move)",
+          ],
+          hint_tr:
+            "Yaratıcı tahmin: 'Empty bio — my guess: you're a teacher who's secretly into 90s rock.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Hahaha okay, gold star for effort. Not a teacher but you're closer than people usually get. Wanna try job number two?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay |alright )?(round two|attempt two|guess two)[,—-]? (.+)",
+            "(let me|i'?ll) (try again|narrow it down)",
+            "(architect|designer|engineer|nurse|lawyer|something creative|consultant)",
+            "(based on photo \\d|going off the \\w+)",
+            "(give me a hint|warmer or colder)",
+            "(you'?re killing me|now i need to know)",
+          ],
+          hint_tr:
+            "Tahmin devamı: 'Okay round two — something creative? Designer?' veya 'Warmer or colder?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Warmer. Creative side is right. Now you've earned a hint: I work with my hands.",
+        },
+      ],
+    },
+    {
+      id: "ex.f1.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Boş bio'lu match'e en kötü yaklaşım?",
+          options: [
+            "'Why no bio?' diye sorgulamak",
+            "Yaratıcı tahmin oyunu",
+            "Bio için bir taslak yazmak",
+            "Fotolardan ipucu yakalamak",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "'Why no bio?' = savunmaya iter, sıkıcı. Boşluk = yaratıcılık alanı, sorgulama değil.",
+        },
+        {
+          question: "'Let me draft one for you' niye güçlü?",
+          options: [
+            "Karşı tarafa ev ödevi verir",
+            "Sen risk alıyorsun = davetkar + oyun başlatır",
+            "Direkt soru olmadığı için cevap mecbur değil",
+            "Çok kısa olduğu için",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Tahmin atmak risk = ilginç. Karşı tarafa 'düzelt beni' bahanesi verir = kolay cevap.",
+        },
+        {
+          question: "'Warmer or colder?' deyiminin anlamı?",
+          options: [
+            "Hava sıcaklığı",
+            "Tahmin oyununda 'yakın mı uzak mı?'",
+            "İlişki ısısı",
+            "Sıcak içecek tercihi",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Çocukluk oyunundan gelen 'sıcak/soğuk' = tahmin yaklaştı/uzaklaştı. Çok yaygın.",
+        },
+      ],
+    },
+    {
+      id: "ex.f1.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Empty bio — let me draft one for you: 'Loves dogs and carbs.' Close?",
+      ipa: "/ˈɛmpti ˈbaɪəʊ — lɛt miː drɑːft wʌn fɔː juː — lʌvz dɒɡz ænd kɑːbz — kləʊs/",
+      tr_hint:
+        "Oyuncu, davetkar ton. 'Let me draft' bağlı, 'one for you' yumuşak. 'Close?' sonda yukseltici, kucuk gulus.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 1.8 — Voice Prompt Response (Hinge sesli prompt'a yazılı cevap)
+// ============================================================
+export const flirtOpenerLesson_1_8: BundledLesson = {
+  id: "flirt.opener.1.8",
+  skill_id: "flirt.opener",
+  index: 8,
+  title: "Voice Prompt'a Cevap",
+  description:
+    "Hinge'de sesli prompt var (audio bio). Sesini kaydetmek yerine yazıyla zekice cevap nasıl atılır — referans + soru.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.f1.8.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Just listened to your voice prompt",
+      tr_translation: "Sesli prompt'ını az önce dinledim",
+      example: "Just listened to your voice prompt twice — that laugh at the end is unfair.",
+      example_tr: "Sesli prompt'ını iki kez dinledim — sondaki kahkaha haksızlık.",
+    },
+    {
+      id: "ex.f1.8.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Sesli prompt'ında bahsettiğin o restoran — adı neydi?",
+      target: "That restaurant you mentioned in your voice prompt — what was it called again?",
+      accepted_variants: [
+        "The place you talked about in the voice note — name?",
+        "Voice prompt mentioned a restaurant — drop the name?",
+        "Caught the restaurant reference in your voice prompt — which one?",
+        "You mentioned a spot in your audio — what was the name?",
+        "Need the name of that restaurant from your voice prompt.",
+      ],
+      tr_hint:
+        "'Voice prompt' = Hinge'in audio bio'su. 'You mentioned' = bahsettin (past, sesli olarak).",
+    },
+    {
+      id: "ex.f1.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Texting you back instead of recording — your voice prompt set the ___ too high.",
+      answer: "bar",
+      distractors: ["level", "stake", "tone"],
+      tr_hint:
+        "'Set the bar too high' = standartı çok yükselttin. Şakacı iltifat.",
+    },
+    {
+      id: "ex.f1.8.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Going",
+        "to",
+        "respond",
+        "in",
+        "text",
+        "because",
+        "my",
+        "voice",
+        "is",
+        "not",
+        "ready",
+      ],
+      correct_sentence: "Going to respond in text because my voice is not ready",
+      tr_translation: "Yazıyla cevap veriyorum çünkü sesim hazır değil.",
+    },
+    {
+      id: "ex.f1.8.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I hear your voice. Send me voice too please.",
+      correct_sentence:
+        "Just heard your voice prompt — okay, the espresso machine story made me laugh. What's the actual punchline?",
+      tr_explanation:
+        "'Send me voice too' = istekçi, yapay. Doğru: sesli prompt'tan SPESİFİK detay yakala + soru. Dinlediğini kanıtlar = etkili.",
+    },
+    {
+      id: "ex.f1.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Hinge'de match. Match'in 'My simple pleasures' sesli prompt'ı var ve içinde 'Sunday espresso ritual' bahsetmiş. Sen yazıyla cevap yazıyorsun.",
+      npc_role: "Match",
+      setting: "Hinge voice prompt response",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(just |okay )?(listened to|heard|caught) your voice (prompt|note)",
+            "(your voice prompt|that audio) (set the bar|killed me|made me laugh|got me)",
+            "(texting|going to text|responding in text)[,—-]? (.+)",
+            "(the |that )?(espresso|sunday|coffee|.+) (ritual|story|part|bit) (made me|got me)",
+            "(caught the|spotted the) (espresso|sunday|.+) (reference|mention) in your (voice prompt|audio)",
+            "your voice prompt (deserves|got me|made me)",
+          ],
+          hint_tr:
+            "Sesli prompt'a yazılı cevap: 'Just heard your voice prompt — espresso ritual story killed me.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Hahaha you actually listened — most people skip past those. Okay the espresso thing is genuinely sacred to me. Coffee person too?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(big |huge )?(coffee person|coffee snob|coffee nerd)",
+            "(weirdly |kind of )?religious about (my|the) (morning|coffee)",
+            "(into|all about) (pour[- ]over|espresso|filter|specialty)",
+            "(no but |honestly )?(more of a tea person|tea person actually)",
+            "(my|the) (morning ritual|coffee routine) is (.+)",
+            "(judge me but|controversial)[,—-]? (.+)",
+          ],
+          hint_tr:
+            "Coffee cevabı: 'Big coffee person', 'Religious about my morning pour-over', 'Tea person actually'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay, we can either marry over this or argue about brew methods. Hinge limit reached — wanna take this off-app?",
+        },
+      ],
+    },
+    {
+      id: "ex.f1.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Hinge voice prompt'a yazılı cevabın gücü?",
+          options: [
+            "Daha hızlı",
+            "Dinlediğini kanıtlar + spesifik detay yakalama şansı",
+            "Daha az yorucu",
+            "Ses kaydetmekten kurtarır",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Çoğu kişi voice prompt'ları es geçer. Spesifik detay yakalamak = '%5'in içindesin' sinyali.",
+        },
+        {
+          question: "'Set the bar too high' nasıl çevirilir?",
+          options: [
+            "Çıtayı çok yükseğe koymak (standart)",
+            "Barı yüksek almak",
+            "Barda yüksek olmak",
+            "Bar çıktısı yüksek",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "'You set the bar too high' = standartı çok yükselttin. Şakacı sitem + iltifat.",
+        },
+        {
+          question: "'Take this off-app' ne demek?",
+          options: [
+            "Uygulamayı sil",
+            "Sohbeti uygulamadan çıkar (WhatsApp/Instagram'a geç)",
+            "Uygulamayı kapat",
+            "Aboneliği iptal et",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Off-app' = dating app dışına = numara/Instagram değişimi. Sohbet derinleştiğinde doğal adım.",
+        },
+      ],
+    },
+    {
+      id: "ex.f1.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Just listened to your voice prompt twice — that laugh at the end is unfair.",
+      ipa: "/dʒʌst ˈlɪsənd tuː jɔː vɔɪs prɒmpt twaɪs — ðæt lɑːf ət ði ɛnd ɪz ʌnˈfeə/",
+      tr_hint:
+        "Sıcak, hafif şakacı ton. 'Just listened' bağlı, 'twice' net. 'That laugh' yumuşak vurgu — flirty itiraf.",
+    },
+  ],
+};
+
+// ============================================================
 // Flirt Opener lessons registry
 // ============================================================
 export const flirtOpenerLessons: ReadonlyArray<BundledLesson> = [
@@ -886,4 +1599,8 @@ export const flirtOpenerLessons: ReadonlyArray<BundledLesson> = [
   flirtOpenerLesson_1_2,
   flirtOpenerLesson_1_3,
   flirtOpenerLesson_1_4,
+  flirtOpenerLesson_1_5,
+  flirtOpenerLesson_1_6,
+  flirtOpenerLesson_1_7,
+  flirtOpenerLesson_1_8,
 ];

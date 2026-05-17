@@ -855,6 +855,715 @@ export const workReviewLesson_12_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 12.5 — Self-Review: Framing Wins (Basarilari Cerceveleme)
+// ============================================================
+export const workReviewLesson_12_5: BundledLesson = {
+  id: "work.review.12.5",
+  skill_id: "work.review",
+  index: 5,
+  title: "Self-Review: Basarilari Cerceveleme",
+  description:
+    "Self review'de 'cok calistim' yetmez. 'Drove X% improvement in Y by Z' = aksiyon + olcum + yontem.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wr12.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Took ownership of",
+      tr_translation: "Sahiplendim / sorumlulugunu aldim",
+      example: "Took ownership of onboarding — cut activation time in half.",
+      example_tr:
+        "Onboarding'i sahiplendim — aktivasyon suresini yariya indirdim.",
+    },
+    {
+      id: "ex.wr12.5.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Mobil churn'u takim icinde sahiplendim — push notification redesign'i ile %22 dustu.",
+      target:
+        "Took ownership of mobile churn — drove a 22% reduction via push notification redesign.",
+      accepted_variants: [
+        "Owned mobile churn end-to-end — 22% reduction through push redesign.",
+        "Drove a 22% drop in mobile churn by redesigning push notifications.",
+        "Led the mobile churn workstream — 22% improvement via new push flow.",
+        "Took on mobile churn — shipped a push redesign that delivered a 22% drop.",
+      ],
+      tr_hint:
+        "Formul: 'Drove X% improvement in Y by Z' — aksiyon fiili + olcum + nasil yaptin.",
+    },
+    {
+      id: "ex.wr12.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Drove a 30% improvement ___ retention.",
+      answer: "in",
+      distractors: ["on", "for", "to"],
+      tr_hint:
+        "'Improvement in X' = X'te iyilesme. Metrik sahiplenme kalibi.",
+    },
+    {
+      id: "ex.wr12.5.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Took",
+        "ownership",
+        "of",
+        "the",
+        "billing",
+        "rewrite",
+      ],
+      correct_sentence: "Took ownership of the billing rewrite",
+      tr_translation: "Billing yeniden yazimini sahiplendim.",
+    },
+    {
+      id: "ex.wr12.5.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I worked very hard this year on many things.",
+      correct_sentence:
+        "Drove a 30% improvement in checkout conversion by rebuilding the payment flow.",
+      tr_explanation:
+        "'Worked very hard on many things' = Turk hatasi: emek-odakli, somut yok. ABD review: olcum + nasil + sonuc. Emek goruunmez, etki gorulur.",
+    },
+    {
+      id: "ex.wr12.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Manager self-review'unu okudu. En guclu basariyi tek cumlede cerceveleyip anlat.",
+      npc_role: "Manager",
+      setting: "Self-review walkthrough",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(took ownership of|owned|drove|led) (the )?(\\w+)",
+            "(drove|delivered|generated) (a |an )?\\d+ ?% (improvement|lift|reduction|drop|increase) (in|on)",
+            "(by (rebuilding|redesigning|shipping|launching|owning))",
+            "(\\w+ rewrite|the (\\w+) flow|the (\\w+) system)",
+            "(this year|in q[1-4]|over the last (six|6) months)",
+            "(end-?to-?end|kickoff to launch)",
+          ],
+          hint_tr:
+            "Tek cumle formul: 'Took ownership of X — drove Y% improvement in Z by doing W.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Strong framing. What does the impact mean for the business?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(translates to|equates to|means roughly) (\\$|an estimated)",
+            "(\\$\\d+k|\\d+k? users|\\d+% (of arr|of revenue))",
+            "(unlocked|opened up|enabled) (the (\\w+) (segment|launch|expansion))",
+            "(reduced (support tickets|infra cost)|saved (the team|engineering) hours)",
+            "(set up the team to|positioned (us|the team))",
+            "(measurable|sustained|durable) (impact|gain|win)",
+          ],
+          hint_tr:
+            "Is etkisi: 'Translates to ~$400k ARR — unlocked enterprise segment for next year.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "That's the level I want to see. Going to land well in calibration.",
+        },
+      ],
+    },
+    {
+      id: "ex.wr12.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Self-review'de Turk profesyonelin en sik hatasi?",
+          options: [
+            "Cok kibar olmak",
+            "'Hard work' anlatmak — emek odakli, olcum yok = manager karar veremez",
+            "Cok kisa yazmak",
+            "Cok somut yazmak",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Turkiye'de 'cok calistim' makbul. ABD/UK review'de 'X% improvement by Y' istenir. Emek gorulmez — sonuc ve metod gorulur.",
+        },
+        {
+          question: "'Drove a 30% improvement' formulunde ne eksik olursa zayiflar?",
+          options: [
+            "Hicbir sey",
+            "'By + nasil yaptin' — metod yoksa rastlanti gibi okunur",
+            "Yuzde isareti",
+            "Fiil",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Aksiyon (Drove) + olcum (30%) + alan (in retention) + metod (by redesigning push) — dort parca tam bir self-review cumlesi.",
+        },
+        {
+          question: "Niye basariyi 'is etkisine' baglamak gerekir?",
+          options: [
+            "Calibration toplantisinda manager seni baska liderler onunde savunabilsin diye",
+            "Cok onemli degil",
+            "Sadece guzel gorunmek icin",
+            "Sayilar onemli degil",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Calibration = managerlar promotion karari aliyor. Senin metrigini $ARR / kullaniciya cevirmek = manager seni savunabilir.",
+        },
+      ],
+    },
+    {
+      id: "ex.wr12.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Drove a 30% improvement in retention.",
+      ipa: "/droʊv ə ˈθɜrti pərˈsɛnt ɪmˈpruvmənt ɪn rɪˈtɛnʃən/",
+      tr_articulation_hint:
+        "'Drove' (drive past tense) sert d ile. 'Percent' = pır-sent, vurgu sonda. 'Retention' = ri-ten-sın, vurgu ortada. Veri sunum tonu — sakin + kararli + kanitla.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 12.6 — Receiving Constructive Feedback (Defansif Olmamak)
+// ============================================================
+export const workReviewLesson_12_6: BundledLesson = {
+  id: "work.review.12.6",
+  skill_id: "work.review",
+  index: 6,
+  title: "Yapici Geri Bildirimi Karsilamak",
+  description:
+    "Kritik geri bildirim geldiginde ilk refleks savunma. Olgun cevap: 'That's fair' + 'Help me understand more.'",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wr12.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "That's fair",
+      tr_translation: "Bu adil / hakli noktan var",
+      example: "That's fair — I can see where you're coming from.",
+      example_tr: "Bu adil — nereden geldigini anliyorum.",
+    },
+    {
+      id: "ex.wr12.6.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Bu adil — biraz daha aciklayabilir misin? Hangi durumda bunu fark ettin?",
+      target:
+        "That's fair — help me understand more. Where did this show up for you?",
+      accepted_variants: [
+        "Fair point — could you help me understand the context?",
+        "That tracks — can you walk me through where you noticed it?",
+        "Hearing you — help me understand more. When did this come up?",
+        "That's fair — want to understand. Which situation are you thinking of?",
+      ],
+      tr_hint:
+        "'That's fair' = kabul. 'Help me understand more' = somutlama daveti. Savunma yerine merak.",
+    },
+    {
+      id: "ex.wr12.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Help me ___ more about that.",
+      answer: "understand",
+      distractors: ["know", "see", "tell"],
+      tr_hint:
+        "'Help me understand' = anlamana yardim et = defansif yerine ogrenme tutumu.",
+    },
+    {
+      id: "ex.wr12.6.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "I",
+        "want",
+        "to",
+        "take",
+        "this",
+        "in",
+        "properly",
+      ],
+      correct_sentence: "I want to take this in properly",
+      tr_translation: "Bunu duzgun sindirmek istiyorum.",
+    },
+    {
+      id: "ex.wr12.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Actually, you don't understand the context.",
+      correct_sentence:
+        "That's fair — help me understand more. What did you observe specifically?",
+      tr_explanation:
+        "'Actually, you don't understand' = defansif + manager'i kucumseme = iliski zarari. Doğru: kabul jesti + somutlama talebi. Once kabul, sonra context anlat.",
+    },
+    {
+      id: "ex.wr12.6.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Manager: 'Bazen ekibe karsi cok sabirsiz gorunuyorsun' dedi. Defansif olmadan al, derinles.",
+      npc_role: "Manager",
+      setting: "Mid-year review — critical feedback",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that'?s fair|fair point|that tracks|hearing you)",
+            "(help me understand|want to understand|want to take this in)",
+            "(when (did this|does this) (come up|show up))",
+            "(can you|could you) (share|walk me through) (a (specific|concrete) (moment|example))",
+            "(appreciate|thank you for) (the (candor|feedback|honesty))",
+            "(want to (get this right|grow on this))",
+          ],
+          hint_tr:
+            "Defansif degil: 'That's fair — help me understand more. When did this come up?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Last sprint planning — when Ali was thinking through his estimate, you jumped in with the answer.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that lands|noted|i can see (it|that))",
+            "(didn'?t (realize|see it that way)|hadn'?t clocked that)",
+            "(want to (sit with|reflect on)) (that|this)",
+            "(going to|will) (slow down|create more space|pause more)",
+            "(reach out to ali|apologize|circle back with ali)",
+            "(flag me|nudge me|call me out) (if i slip|in the moment)",
+          ],
+          hint_tr:
+            "Aksiyon: 'That lands — didn't realize. Will create more space, reach out to Ali. Nudge me if I slip.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "That's a mature response. Glad we talked through it.",
+        },
+      ],
+    },
+    {
+      id: "ex.wr12.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Kritik feedback'te 'That's fair' demenin psikolojik gucu?",
+          options: [
+            "Kendi puanini dusurmek",
+            "Defansif kapiyi kapatip ogrenme kapisini acmak — kritik artik tehdit degil veri",
+            "Yalandan kabul etmek",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Turk kulturunde kritik = saldiri. Profesyonel ortamda kritik = geri bildirim verisi. 'That's fair' refleksi savunmadan merakla degistirir.",
+        },
+        {
+          question: "'Help me understand more' niye 'But here's what happened'tan iyi?",
+          options: [
+            "Onemli degil",
+            "Once anla, sonra context ekle — manager savunma duyduğunda dinlemeyi keser",
+            "Daha kibar",
+            "Daha kisa",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Sira onemli: kabul -> somutlama -> sonra (varsa) context. Hemen 'but'la baslamak = defansif sinyali = manager bilgi vermeyi keser.",
+        },
+        {
+          question: "Kritige defansif tepkinin gizli maliyeti?",
+          options: [
+            "Yok",
+            "Manager bir daha durust feedback vermez = kor noktalar buyur = kariyer takilir",
+            "Sadece o gun kotu",
+            "Bilmiyorum",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Bir kere defansif gorulen kisi 'feedback-resistant' etiketi alir. Manager artik politik konusur. Buyume datasi kesilir.",
+        },
+      ],
+    },
+    {
+      id: "ex.wr12.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Help me understand more.",
+      ipa: "/hɛlp mi ˌʌndərˈstænd mɔr/",
+      tr_articulation_hint:
+        "'Understand' = an-dır-stend, vurgu sonda. 'More' uzun, kapatici degil davetkar. Ton kritik: merak + acik, yargi yok. Sakin tempo, hafif yukselen son.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 12.7 — Asking for 360 Feedback (Tarafsiz Geri Bildirim)
+// ============================================================
+export const workReviewLesson_12_7: BundledLesson = {
+  id: "work.review.12.7",
+  skill_id: "work.review",
+  index: 7,
+  title: "360 Feedback Talep Etmek",
+  description:
+    "Akran ve manager'dan proaktif feedback istemek. 'What's one thing I could do better?' = buyume sinyali.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wr12.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Growth opportunity",
+      tr_translation: "Buyume firsati",
+      example: "Where do you see a growth opportunity for me?",
+      example_tr: "Bende nerede bir buyume firsati goruyorsun?",
+    },
+    {
+      id: "ex.wr12.7.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Senden direkt soru sormak istiyorum — daha iyi yapabilecegim tek sey ne?",
+      target:
+        "Want to ask you something direct — what's one thing I could do better?",
+      accepted_variants: [
+        "Asking a direct one — where's one area I could improve?",
+        "Want to be direct — what's one thing I could level up on?",
+        "One question for you — what's one growth area you'd flag?",
+        "Curious to hear — what's one thing you'd push me on?",
+      ],
+      tr_hint:
+        "'One thing I could do better' = tek konu hafif. 'What's the biggest gap?' = agir basi. Akrana hafif, manager'a daha somut.",
+    },
+    {
+      id: "ex.wr12.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Where do you see ___ opportunities for me?",
+      answer: "growth",
+      distractors: ["job", "money", "salary"],
+      tr_hint:
+        "'Growth opportunities' = buyume firsatlari. 360 feedback istegi icin doğal kalip.",
+    },
+    {
+      id: "ex.wr12.7.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "What's",
+        "one",
+        "thing",
+        "I",
+        "could",
+        "do",
+        "better",
+      ],
+      correct_sentence: "What's one thing I could do better",
+      tr_translation: "Daha iyi yapabilecegim tek sey ne?",
+    },
+    {
+      id: "ex.wr12.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Do you think I am good employee?",
+      correct_sentence:
+        "What's one thing I could do better? Want a direct read on where I should focus.",
+      tr_explanation:
+        "'Am I good?' = evet/hayir = ise yaramaz cevap (manager 'evet' der). Doğru: tek konu, somut + actionable cevabi mumkun kilan soru.",
+    },
+    {
+      id: "ex.wr12.7.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Bir peer'a (es seviye arkadasa) 1:1 randevusu aldin. Tarafsiz, durust feedback iste.",
+      npc_role: "Peer",
+      setting: "Informal 1:1 with a peer",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks for|appreciate you) (making (time|space)|carving out time)",
+            "(want to be|going to be) (direct|upfront|honest)",
+            "(what'?s one thing|one area) (i could (do better|improve|level up on))",
+            "(where (do you see|would you flag)) (a )?(growth (opportunity|area)|gap)",
+            "(honest take|unfiltered|real feedback)",
+            "(working with me|on the team) (recently|the last few months|this quarter)",
+          ],
+          hint_tr:
+            "Davet: 'Appreciate you making time. Want to be direct — what's one thing I could do better?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Honest take? You ship fast, but sometimes I'm guessing at the bigger plan.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that'?s helpful|really helpful|that lands)",
+            "(can you|could you) (say (more|a bit more)|double-?click|dig in)",
+            "(when (did this|does this) (come up|hit you))",
+            "(specifically|concretely|to make it real)",
+            "(what would (good|great|ideal) look like)",
+            "(open to|happy to) (try|test) (a (different|new) format)",
+          ],
+          hint_tr:
+            "Derinles: 'That lands — can you double-click? What would great look like?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "A short doc before each launch — even three bullets — would help a lot.",
+        },
+      ],
+    },
+    {
+      id: "ex.wr12.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Proaktif 360 feedback istemenin EN buyuk avantaji?",
+          options: [
+            "Insanlar seni sever",
+            "Kor noktalarini calibrationdan once ogrenirsin = surpriz olmaz",
+            "Cok zaman alir",
+            "Riskli",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Year-end review'de yeni feedback duymak = surpriz + savunma reflexi. Yil icinde toplayinca = aksiyon almak icin zaman + manager'a 'coachable' sinyali.",
+        },
+        {
+          question: "'Am I doing well?' niye kotu soru?",
+          options: [
+            "Cok kibar",
+            "Evet/hayir cevabi = kullanilamaz veri. Karsi taraf nezaketten 'evet' der.",
+            "Sorun yok",
+            "Cok agir",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Sorunun kalitesi cevabin kalitesini belirler. 'One thing I could do better' = tek + spesifik + actionable cevap zorlar.",
+        },
+        {
+          question: "Peer'dan feedback istemek niye manager'dan daha degerli olabilir?",
+          options: [
+            "Daha hizli",
+            "Peer'lar gunluk calismani yakin gorur — manager goremedigi detaylari yakalarlar",
+            "Daha kibar",
+            "Daha kolay",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Manager seni toplantilarda + outputlarda gorur. Peer kod review, sync, Slack tonu gibi detaylari yakalar. Iki goz daha komple resim.",
+        },
+      ],
+    },
+    {
+      id: "ex.wr12.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "What's one thing I could do better?",
+      ipa: "/wʌts wʌn θɪŋ aɪ kʊd du ˈbɛtər/",
+      tr_articulation_hint:
+        "'What's' (wats) — t sesi yumusak. 'Thing' = th sesi, dil dislerin arasinda. 'Better' = be-tır, vurgu basta. Ton merakli + ozguvenli — savunmasiz ama zayif degil.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 12.8 — Recovery Plan After Low Rating (Dusuk Rating Sonrasi)
+// ============================================================
+export const workReviewLesson_12_8: BundledLesson = {
+  id: "work.review.12.8",
+  skill_id: "work.review",
+  index: 8,
+  title: "Dusuk Rating Sonrasi Iyilesme Plani",
+  description:
+    "Beklenenden dusuk rating aldin. Dramaya girmeden plan kur: 'How can I level up?' + 'What does great look like?'",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wr12.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "level up",
+      tr_translation: "Bir ust seviyeye cikmak",
+      example: "How can I level up to a Senior rating next cycle?",
+      example_tr: "Sonraki donemde Senior rating'e nasil cikabilirim?",
+    },
+    {
+      id: "ex.wr12.8.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Rating'i sindirdim — bir sonraki donemde nasil ust seviyeye cikabilirim? 'Mukemmel' bu rolde ne demek?",
+      target:
+        "I've sat with the rating — how can I level up next cycle? What does great look like at this level?",
+      accepted_variants: [
+        "Took the rating in — what does it take to level up next cycle?",
+        "Heard the rating — what's the path to the next bar? What does great look like here?",
+        "Reflected on it — keen to understand the gap to the next level.",
+        "Sat with it — want a clear picture of what great looks like.",
+      ],
+      tr_hint:
+        "'Level up' = ust seviye. 'What does great look like' = mukemmel nasil gorunur. Drama yerine plan.",
+    },
+    {
+      id: "ex.wr12.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "What does great ___ like at this level?",
+      answer: "look",
+      distractors: ["take", "feel", "go"],
+      tr_hint:
+        "'What does great look like' sabit kalip = mukemmel performans nasil gorunur.",
+    },
+    {
+      id: "ex.wr12.8.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "What's",
+        "the",
+        "gap",
+        "to",
+        "the",
+        "next",
+        "level",
+      ],
+      correct_sentence: "What's the gap to the next level",
+      tr_translation: "Bir ust seviyeye olan fark ne?",
+    },
+    {
+      id: "ex.wr12.8.5",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "This rating is unfair, I worked harder than everyone.",
+      correct_sentence:
+        "Sat with the rating — how can I level up? What does great look like at this level?",
+      tr_explanation:
+        "'Unfair, I worked harder' = duygusal + emek argumani + kiyaslama = manager kapanir. Doğru: kabul + plan sorusu. Drama gostermek = 'not promotion ready' sinyali.",
+    },
+    {
+      id: "ex.wr12.8.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Beklediginden dusuk rating aldin (Meets, Exceeds beklerken). Manager'la iyilesme plani kur.",
+      npc_role: "Manager",
+      setting: "Post-review follow-up 1:1",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks for|appreciate) (the (time|honesty|directness))",
+            "(took (a couple of days|the weekend) to|sat with (it|the rating)|reflected on (it|the rating))",
+            "(want to|here to) (talk about|focus on) (the path forward|next cycle|growth plan)",
+            "(how (can|do) i (level up|get to (the )?next (level|bar)))",
+            "(what does (great|exceeds) look like (at this level|here))",
+            "(open to|grateful for) (your (read|coaching))",
+          ],
+          hint_tr:
+            "Olgun acilis: 'Sat with the rating. Want to focus on next cycle — what does great look like here?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Glad you came in this way. The biggest gap is scope — your work is solid but contained to your team.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that lands|that tracks|noted)",
+            "(specifically|to make this real|concretely)",
+            "(what would (cross-team|broader (scope|impact))) (look like)",
+            "(can we|could we) (pick (one|two) (projects?|areas) i could (own|lead))",
+            "(check (in|back) (monthly|every (two|2) weeks))",
+            "(want to come back with|going to draft) (a plan)",
+          ],
+          hint_tr:
+            "Plan: 'That lands. Can we pick one cross-team project I could own? Will draft a plan and check in monthly.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "That's exactly the move. Send the plan by next Friday — I'll back you.",
+        },
+      ],
+    },
+    {
+      id: "ex.wr12.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Dusuk rating sonrasi EN buyuk hata?",
+          options: [
+            "Hicbir tepki gostermemek",
+            "Duygusal tepki + kiyaslama ('haksizlik, X kisi daha az calisti') = 'not promotion ready' etiketi alirsin",
+            "Plan istemek",
+            "Sessiz kalmak",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Rating = veri. Tepkin = karakter sinavi. Manager 'bu kisi senior olunca kritige nasil tepki verir?' diye okur. Olgun = bir sonraki donem destekleyebilir.",
+        },
+        {
+          question: "'What does great look like?' sorusunun gizli gucu?",
+          options: [
+            "Sadece nezaket",
+            "Soyut hedefi somutlastirir — manager standardi yazili acmak zorunda = sen 'unfair' iddiasindan korunursun",
+            "Onemli degil",
+            "Cok agir",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Great' kriteri manager kafasinda. Sorunca yazili / sozlu acmak zorunda = sonraki cycle'da kanit toplayabilirsin. Hedef = adil mucadele.",
+        },
+        {
+          question: "Iyilesme planinda 'check-in' niye sart?",
+          options: [
+            "Onemli degil",
+            "Donem sonu surprize yer birakma — aylik check-in = midcourse correction + manager 'gorulen efor' kanitlama",
+            "Cok yorucu",
+            "Onemli degil",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Aylik check-in = manager seninle birlikte calisma hissi = bir sonraki rating'de 'gordum, gelisti' soyleyebilsin. Kor donemde calismak = ayni hata.",
+        },
+      ],
+    },
+    {
+      id: "ex.wr12.8.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "What does great look like at this level?",
+      ipa: "/wʌt dʌz greɪt lʊk laɪk æt ðɪs ˈlɛvəl/",
+      tr_articulation_hint:
+        "'Great' (g-reyt) — gercek r sesi. 'Look' kisa, 'like' uzun ay sesi. 'Level' = le-vıl, vurgu basta. Ton: meraki + kararli + savunmasiz. Drama yok, plan modu.",
+    },
+  ],
+};
+
+// ============================================================
 // Work Review lessons registry
 // ============================================================
 export const workReviewLessons: ReadonlyArray<BundledLesson> = [
@@ -862,4 +1571,8 @@ export const workReviewLessons: ReadonlyArray<BundledLesson> = [
   workReviewLesson_12_2,
   workReviewLesson_12_3,
   workReviewLesson_12_4,
+  workReviewLesson_12_5,
+  workReviewLesson_12_6,
+  workReviewLesson_12_7,
+  workReviewLesson_12_8,
 ];

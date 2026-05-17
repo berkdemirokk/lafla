@@ -1,5 +1,5 @@
 // Academic B2 scenes — feed entries for higher-education English content.
-// 10 scenes paired with academic-b2-lesson.ts lessons.
+// 14 scenes paired with academic-b2-lesson.ts lessons.
 
 import type { Scene } from "./scenes";
 
@@ -17,7 +17,7 @@ export const academicB2Scenes: ReadonlyArray<Scene> = [
     skillId: "academic.b2",
     lessonId: "academic.b2.admissions-interview.1",
     isNew: true,
-    progressLabel: "1/10 ders",
+    progressLabel: "1/14 ders",
   },
   {
     id: "scene-academic-b2-2",
@@ -32,7 +32,7 @@ export const academicB2Scenes: ReadonlyArray<Scene> = [
     skillId: "academic.b2",
     lessonId: "academic.b2.first-supervisor-meeting.1",
     isNew: true,
-    progressLabel: "2/10 ders",
+    progressLabel: "2/14 ders",
   },
   {
     id: "scene-academic-b2-3",
@@ -47,7 +47,7 @@ export const academicB2Scenes: ReadonlyArray<Scene> = [
     skillId: "academic.b2",
     lessonId: "academic.b2.conference-qa.1",
     isNew: true,
-    progressLabel: "3/10 ders",
+    progressLabel: "3/14 ders",
   },
   {
     id: "scene-academic-b2-4",
@@ -62,7 +62,7 @@ export const academicB2Scenes: ReadonlyArray<Scene> = [
     skillId: "academic.b2",
     lessonId: "academic.b2.paper-discussion.1",
     isNew: true,
-    progressLabel: "4/10 ders",
+    progressLabel: "4/14 ders",
   },
   {
     id: "scene-academic-b2-5",
@@ -77,7 +77,7 @@ export const academicB2Scenes: ReadonlyArray<Scene> = [
     skillId: "academic.b2",
     lessonId: "academic.b2.scholarship-interview.1",
     isNew: true,
-    progressLabel: "5/10 ders",
+    progressLabel: "5/14 ders",
   },
   {
     id: "scene-academic-b2-6",
@@ -92,7 +92,7 @@ export const academicB2Scenes: ReadonlyArray<Scene> = [
     skillId: "academic.b2",
     lessonId: "academic.b2.proposal-pitch.1",
     isNew: true,
-    progressLabel: "6/10 ders",
+    progressLabel: "6/14 ders",
   },
   {
     id: "scene-academic-b2-7",
@@ -107,7 +107,7 @@ export const academicB2Scenes: ReadonlyArray<Scene> = [
     skillId: "academic.b2",
     lessonId: "academic.b2.student-visa.1",
     isNew: true,
-    progressLabel: "7/10 ders",
+    progressLabel: "7/14 ders",
   },
   {
     id: "scene-academic-b2-8",
@@ -122,7 +122,7 @@ export const academicB2Scenes: ReadonlyArray<Scene> = [
     skillId: "academic.b2",
     lessonId: "academic.b2.asking-for-extension.1",
     isNew: true,
-    progressLabel: "8/10 ders",
+    progressLabel: "8/14 ders",
   },
   {
     id: "scene-academic-b2-9",
@@ -137,7 +137,7 @@ export const academicB2Scenes: ReadonlyArray<Scene> = [
     skillId: "academic.b2",
     lessonId: "academic.b2.networking-dinner.1",
     isNew: true,
-    progressLabel: "9/10 ders",
+    progressLabel: "9/14 ders",
   },
   {
     id: "scene-academic-b2-10",
@@ -152,6 +152,66 @@ export const academicB2Scenes: ReadonlyArray<Scene> = [
     skillId: "academic.b2",
     lessonId: "academic.b2.dissertation-defense.1",
     isNew: true,
-    progressLabel: "10/10 ders ✓",
+    progressLabel: "10/14 ders",
+  },
+  {
+    id: "scene-academic-b2-11",
+    emoji: "📚",
+    title:
+      "Office hours —\nokumayı anlamadın,\nkibarca yardım iste",
+    description:
+      "Hocanın ofisinde: 'Could I get your take?' — kavramı anlamadığını sahiplen, somut bölüme işaret et, take iste.",
+    durationMin: 7,
+    mode: "academic",
+    cefrLevel: "B2",
+    skillId: "academic.b2",
+    lessonId: "academic.b2.office-hours.1",
+    isNew: true,
+    progressLabel: "11/14 ders",
+  },
+  {
+    id: "scene-academic-b2-12",
+    emoji: "🎤",
+    title:
+      "Sınıf sunumu açılışı —\nroad map ver,\nözgüvenle başla",
+    description:
+      "'Today I'll be discussing' + 'I'll walk you through' — konu çerçevesi, üç başlık, bulguya geçiş. İlk 30 saniyede sınıfı kazan.",
+    durationMin: 7,
+    mode: "academic",
+    cefrLevel: "B2",
+    skillId: "academic.b2",
+    lessonId: "academic.b2.class-presentation-opening.1",
+    isNew: true,
+    progressLabel: "12/14 ders",
+  },
+  {
+    id: "scene-academic-b2-13",
+    emoji: "🔍",
+    title:
+      "Peer review —\nönce övgü,\nsonra somut eleştiri",
+    description:
+      "Akranın paper'ına yapıcı geri bildirim: 'Your argument is compelling, however' + somut kanıt isteği. Diplomatik akademik dil.",
+    durationMin: 7,
+    mode: "academic",
+    cefrLevel: "B2",
+    skillId: "academic.b2",
+    lessonId: "academic.b2.peer-review.1",
+    isNew: true,
+    progressLabel: "13/14 ders",
+  },
+  {
+    id: "scene-academic-b2-14",
+    emoji: "❓",
+    title:
+      "Konferansta soru sor —\nhedge'le,\ntakip sorusu",
+    description:
+      "Sunucuya kibarca soru: kendini tanıt + somut bağlantı + 'Could you elaborate on...?'. Türk akademisyenin en korktuğu an.",
+    durationMin: 7,
+    mode: "academic",
+    cefrLevel: "B2",
+    skillId: "academic.b2",
+    lessonId: "academic.b2.conference-question.1",
+    isNew: true,
+    progressLabel: "14/14 ders ✓",
   },
 ];

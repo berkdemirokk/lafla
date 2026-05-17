@@ -893,6 +893,720 @@ export const workStandupLesson_33_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 33.5 — Sync Standup: 30 Saniye Update
+// ============================================================
+export const workStandupLesson_33_5: BundledLesson = {
+  id: "work.standup.33.5",
+  skill_id: "work.standup",
+  index: 5,
+  title: "Sync Standup — 30 Saniye Update",
+  description:
+    "Senkron standup'ta hizli, time-boxed update: 'shipped X, on Y, no blockers'. Cumle sayma — baslik formati.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wst33.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Quick update",
+      tr_translation: "Hizli update",
+      example: "Quick update: shipped the search endpoint, on caching today, no blockers.",
+      example_tr: "Hizli update: dun search endpoint'i ship ettim, bugun caching, blocker yok.",
+    },
+    {
+      id: "ex.wst33.5.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Hizli update: dun search endpoint'i ship ettim, bugun caching uzerine calisiyorum, blocker yok.",
+      target: "Quick update: shipped the search endpoint yesterday, working on caching today, no blockers.",
+      accepted_variants: [
+        "Quick one: search endpoint shipped, on caching today, all clear.",
+        "Short update — shipped search, on caching, nothing blocking.",
+        "Real quick: search endpoint is in, caching today, no blockers on my end.",
+        "Y: search endpoint shipped. T: caching. B: none.",
+      ],
+      tr_hint:
+        "'Quick update' acilis kalibi = 'kisa olacak' sinyali verir. Baslik formati, hikaye degil. 'Shipped' past simple.",
+    },
+    {
+      id: "ex.wst33.5.3",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "___ X yesterday, on Y today, no blockers.",
+      answer: "Shipped",
+      distractors: ["I shipped", "Shipping", "I have shipped"],
+      tr_hint:
+        "Standup baslik formatinda 'I' duser. 'Shipped X' = past simple, kisa. Cumle degil baslik.",
+    },
+    {
+      id: "ex.wst33.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Shipped",
+        "X",
+        "yesterday",
+        "on",
+        "Y",
+        "today",
+      ],
+      correct_sentence: "Shipped X yesterday on Y today",
+      tr_translation: "Dun X'i ship ettim, bugun Y uzerine.",
+    },
+    {
+      id: "ex.wst33.5.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I worked on the search endpoint yesterday. I was working on it for a long time. Today I will continue working on it and maybe also start something else.",
+      correct_sentence:
+        "Shipped search endpoint. On caching today. No blockers.",
+      tr_explanation:
+        "'I worked on' + 'I was working' + 'I will continue working' = uc kez ayni fiil, sifir bilgi. Doğru: 'shipped' (sonuc) + 'on' (sonra ne) + 'no blockers' (durum). Past simple > past continuous standup'ta.",
+    },
+    {
+      id: "ex.wst33.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Hizli senkron standup. Sira sende — 30 saniye altinda Y/T/B baslik formatinda update.",
+      npc_role: "Engineering Manager",
+      setting: "Sync standup, time-boxed",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Berk, you're up.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(quick (one|update)|short update|real quick)?",
+            "(shipped|merged|wrapped|pushed|opened|finished) (the )?\\w+",
+            "(on|working on|focused on|tackling) \\w+ (today)?",
+            "(no blockers|nothing blocking|all clear|good on my end|nothing on my end)",
+          ],
+          hint_tr:
+            "Baslik formati: 'Shipped X. On Y today. No blockers.' Cumle saymayi birak — baslik say.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Tight, thanks. Anything you need from the team?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(nope|no|nothing|all good|i'?m good)",
+            "(actually|oh|one thing) (yeah|yes)?",
+            "(could use|might need|would appreciate) (a review|eyes on|input on)",
+            "(if (anyone|someone) has a (sec|minute|moment))",
+            "(i'?ll )?(drop|post) (the link|details) (in (the )?thread|in slack)",
+            "(that'?s it|nothing else|good for now)",
+          ],
+          hint_tr:
+            "Hayir/Evet+kucuk istek: 'All good — actually, could use a quick review on the PR if anyone has a sec.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. Next up, Ayse.",
+        },
+      ],
+    },
+    {
+      id: "ex.wst33.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Sync standup'ta '30 saniye' kuralinin amaci?",
+          options: [
+            "Yarismak",
+            "Time-box = herkesin sirasi gelmesi + dikkat dagilmamasi — baslik formati zorlar",
+            "Patron mutlu olsun",
+            "Kimse dinlemesin",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Time-box yok = 1 kisi 5 dakika konusur, geri kalan herkes dikkati kaybeder. 30 saniye = kasli yazma.",
+        },
+        {
+          question: "'Quick update:' acilis kalibinin fonksiyonu?",
+          options: [
+            "Anlamsiz dolgu",
+            "Dinleyiciye 'kisa olacak' sinyali — bekleyenler rahat",
+            "Kibarlik kalibi",
+            "Yanlis kullanim",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Mikro-kontrat: 'quick' diyince 30 saniye verirler. Bunu asarsan tutmazsin = guvenilirlik kaybi. Sozune sadik kal.",
+        },
+        {
+          question: "Past simple ('shipped') vs past continuous ('was working on') — standup'ta hangisi?",
+          options: [
+            "Past continuous — daha detayli",
+            "Past simple — sonuca odaklanir, kisa",
+            "Ikisi de ayni",
+            "Present tense",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Shipped' = is bitti, sonuc var. 'Was working on' = hala devam ediyor, belirsiz. Standup sonuc raporlar, hikaye anlatmaz.",
+        },
+      ],
+    },
+    {
+      id: "ex.wst33.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Quick update: shipped search yesterday, on caching today, no blockers.",
+      ipa: "/kwɪk ˌʌpˈdeɪt ʃɪpt sɜːtʃ ˈjɛstədeɪ ɒn ˈkæʃɪŋ təˈdeɪ nəʊ ˈblɒkəz/",
+      tr_hint:
+        "Baslik ritmi — her bolum kisa nefes. 'Shipped' sert 'd', 'no blockers' yumusak kapanis. Tempo: hizli ama net.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 33.6 — Blocker Bildirme: Yardim Iste
+// ============================================================
+export const workStandupLesson_33_6: BundledLesson = {
+  id: "work.standup.33.6",
+  skill_id: "work.standup",
+  index: 6,
+  title: "Blocker Bildirme — Yardim Iste",
+  description:
+    "Tikandiginda spesifik ol: 'blocked on Y — anyone have bandwidth?'. Kibar + somut yardim cagrisi.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wst33.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Anyone have bandwidth",
+      tr_translation: "Vakti olan var mi",
+      example: "I'm blocked on the OAuth callback — anyone have bandwidth for a quick pair?",
+      example_tr: "OAuth callback'inde takildim — hizli bir pair icin vakti olan var mi?",
+    },
+    {
+      id: "ex.wst33.6.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "OAuth callback'inde takildim — vakti olan var mi? 15 dakika yeterli.",
+      target: "I'm blocked on the OAuth callback — anyone have bandwidth? 15 minutes should do it.",
+      accepted_variants: [
+        "Blocked on the OAuth callback — anyone have bandwidth for fifteen minutes?",
+        "Hitting a wall on OAuth callback — could use 15 minutes from anyone free.",
+        "Stuck on OAuth callback. Anyone with bandwidth for a quick 15?",
+        "OAuth callback is blocking me — 15 min from anyone would unblock.",
+      ],
+      tr_hint:
+        "'Bandwidth' = bos vakit/kapasite (tech jargon). Spesifik sure ('15 min') = karar vermesi kolay.",
+    },
+    {
+      id: "ex.wst33.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I'm ___ on the migration — could use a hand.",
+      answer: "blocked",
+      distractors: ["block", "blocking", "blocker"],
+      tr_hint:
+        "'I'm blocked on X' = X'te tikandim (passive). 'Blocker' = isim, 'blocked' = sifat. Yaygin Turk hatasi.",
+    },
+    {
+      id: "ex.wst33.6.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Anyone",
+        "have",
+        "bandwidth",
+        "for",
+        "a",
+        "quick",
+        "pair",
+      ],
+      correct_sentence: "Anyone have bandwidth for a quick pair",
+      tr_translation: "Hizli bir pair icin vakti olan var mi?",
+    },
+    {
+      id: "ex.wst33.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I have a big problem and I cannot continue my work. Someone needs to help me as soon as possible please.",
+      correct_sentence:
+        "Blocked on the OAuth callback — anyone have bandwidth for 15 min after standup?",
+      tr_explanation:
+        "'Big problem' = belirsiz. 'Cannot continue my work' = drama tonu. 'Someone needs to help me ASAP' = baski. Doğru: spesifik teknik konu + somut sure + kibar cagri. 'Bandwidth' = native tech jargon.",
+    },
+    {
+      id: "ex.wst33.6.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Standup'ta blocker'in var. Spesifik soyle + yardim iste. Drama yok, somut cagri.",
+      npc_role: "Senior Engineer",
+      setting: "Daily standup",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Berk, what's on your plate today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(today (i'?m|i am)) (on|tackling|working on|focused on)",
+            "(but )?(i'?m )?(blocked on|stuck on|hitting a wall on)",
+            "(specifically|the (issue|tricky part) is)",
+            "(oauth|callback|migration|webhook|race condition|edge case|api)",
+            "(anyone have bandwidth|anyone (got|free)|could use (some )?help|need a pair)",
+            "(15|20|30) (min|minutes)",
+          ],
+          hint_tr:
+            "Today + blocker + spesifik konu + bandwidth + sure: 'On migration today, but blocked on the rollback step — anyone have bandwidth for 20?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I might have a window after lunch — what's the symptom?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(perfect|that'?d work|sounds good|appreciate it)",
+            "(the (issue|symptom|repro) is|it'?s (failing|throwing|breaking) (on|when|with))",
+            "(specifically|basically|essentially)",
+            "(i'?ll )?(drop|post|share) (the (trace|log|repro|details)|repro steps) (in (the )?thread|in slack|in your dms?)",
+            "(after lunch works|ping me when (you'?re|ur) free|just (lmk|let me know))",
+          ],
+          hint_tr:
+            "Kabul + ozet + ipuclari thread'e: 'Perfect — it's throwing 401 on refresh. I'll drop the trace in your DMs, ping me after lunch.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool, I'll DM you around 1.",
+        },
+      ],
+    },
+    {
+      id: "ex.wst33.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Anyone have bandwidth?' kalibinin gucu?",
+          options: [
+            "Cok kaba",
+            "Native tech jargon — spesifik bireyi zorlamadan acik cagri, isteyen alir",
+            "Yanlis kullanim",
+            "Cok formal",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Bandwidth = vakit/kapasite metaforu. 'Anyone' = baskimi yok, gonullu cagrisi. Hem kibar hem net.",
+        },
+        {
+          question: "Blocker bildirirken spesifik olmak niye kritik?",
+          options: [
+            "Kimse umurunda degil",
+            "Yardim eden ne tur uzmanlik gerektigini bilir — yanlis kisi atlamaz, dogru kisi cikar",
+            "Gosteris icin",
+            "Gereksiz",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'I'm stuck' = kimse hareket etmez. 'Stuck on OAuth callback, specifically token refresh' = OAuth bilen direkt el kaldirir. Spesifiklik = hiz.",
+        },
+        {
+          question: "Blocker'a 'sure' ('15 min') eklemenin faydasi?",
+          options: [
+            "Gereksiz detay",
+            "Yardim edecek olan karar kriteri alir — '15 min varim/yokum' netlesir",
+            "Baski yapmak",
+            "Yanlis",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Help me' = belirsiz commitment = kimse evet demez. '15 min' = sinirli istek = 'olur' deme kolay. Pazarlik 101.",
+        },
+      ],
+    },
+    {
+      id: "ex.wst33.6.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "Blocked on the OAuth callback — anyone have bandwidth for fifteen minutes?",
+      ipa: "/blɒkt ɒn ði ˈəʊɔːθ ˈkɔːlbæk ˈɛniwʌn hæv ˈbændwɪdθ fə fɪfˈtiːn ˈmɪnɪts/",
+      tr_hint:
+        "'OAuth' = 'oh-auth' iki heceli. 'Bandwidth' = 'BAND-width' ilk hece vurgulu. Kapanis sorusu hafif yukseliyor.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 33.7 — Demo Daveti: Paylas
+// ============================================================
+export const workStandupLesson_33_7: BundledLesson = {
+  id: "work.standup.33.7",
+  skill_id: "work.standup",
+  index: 7,
+  title: "Demo Daveti — Paylas",
+  description:
+    "Bir is bitti, gostermek istiyorsun: 'wrapped up X — happy to demo in 5 if anyone wants'. Mahcup degil, davetkar ton.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wst33.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Happy to demo",
+      tr_translation: "Memnuniyetle gosteririm",
+      example: "Wrapped up the new dashboard — happy to demo in 5 if anyone wants.",
+      example_tr: "Yeni dashboard'u bitirdim — isteyen olursa 5 dakikada memnuniyetle gosteririm.",
+    },
+    {
+      id: "ex.wst33.7.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Yeni dashboard'u bitirdim — isteyen olursa 5 dakikada memnuniyetle gosteririm.",
+      target: "Wrapped up the new dashboard — happy to demo in 5 if anyone wants.",
+      accepted_variants: [
+        "Just wrapped the new dashboard — happy to demo if folks want a quick look.",
+        "Dashboard is done — can do a quick 5-minute demo if anyone's interested.",
+        "Finished the new dashboard — let me know if you want a 5-min walkthrough.",
+        "Dashboard's shipped — happy to show it off in 5 if anyone wants.",
+      ],
+      tr_hint:
+        "'Happy to' = memnuniyetle (resmi degil, sicak). 'If anyone wants' = isteyen olursa (baski yok). Davetkar + tevazu.",
+    },
+    {
+      id: "ex.wst33.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Just ___ up the migration — happy to walk through if helpful.",
+      answer: "wrapped",
+      distractors: ["finish", "done", "shipped"],
+      tr_hint:
+        "'Wrapped up' = bitirdim (phrasal verb). 'Shipped' tek basina kullanilir, 'shipped up' yok. 'Finish'/'done' burada gramerce yanlis.",
+    },
+    {
+      id: "ex.wst33.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Happy",
+        "to",
+        "demo",
+        "in",
+        "5",
+        "if",
+        "anyone",
+        "wants",
+      ],
+      correct_sentence: "Happy to demo in 5 if anyone wants",
+      tr_translation: "Isteyen olursa 5 dakikada memnuniyetle gosteririm.",
+    },
+    {
+      id: "ex.wst33.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I have finished my dashboard. It is very good. Everyone must come and see it now.",
+      correct_sentence:
+        "Wrapped up the dashboard — happy to demo in 5 if anyone wants a look.",
+      tr_explanation:
+        "'Very good' = ovgu (kibirli). 'Must come and see' = emir (kaba). Doğru: olgu ('wrapped up') + davet ('happy to') + opsiyonel ('if anyone wants'). Buyukluk taslayarak degil, paylasarak ilan et.",
+    },
+    {
+      id: "ex.wst33.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Bir feature bittir, standup'ta demo teklif edeceksin. Tevazu + davetkar ton.",
+      npc_role: "Product Manager",
+      setting: "Daily standup, demo opportunity",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Anyone have a quick win to share?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|yep|i can|i'?ll (jump in|go)|happy to)",
+            "(just )?(wrapped|wrapped up|shipped|finished|merged) (the )?\\w+",
+            "(happy to (demo|show|walk through|share my screen))",
+            "((in|takes about) (3|5|10)|quick (5|3|two|3-?minute|5-?minute))",
+            "(if (anyone|folks|people) (wants|are interested|want a look)|let me know if)",
+          ],
+          hint_tr:
+            "Olgu + davet + sure: 'Yeah — wrapped the dashboard. Happy to demo in 5 if folks want a look.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh nice — yeah let's see it after standup if you've got time.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sounds good|sure|of course|absolutely|for sure)",
+            "(i'?ll )?(share my screen|share screen|throw it up|spin it up)",
+            "(right after|once we wrap|as soon as standup)",
+            "(grab|stay on|hang back|stick around)",
+            "(it'?s )?(not much|nothing fancy|quick win|small win)",
+          ],
+          hint_tr:
+            "Kabul + plan: 'Sounds good — I'll share my screen right after we wrap. Nothing fancy, just a quick look.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect, looking forward to it.",
+        },
+      ],
+    },
+    {
+      id: "ex.wst33.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Happy to demo' niye 'I will demo'dan iyi?",
+          options: [
+            "Ayni sey",
+            "Davet + tevazu — 'I will' tek tarafli karar, 'happy to' karsidaki istegine birakir",
+            "Daha formal",
+            "Yanlis",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'I will demo' = ben yapacagim (zorla). 'Happy to demo' = isterseniz yapariz (davetkar). Ekip kulturune saygi.",
+        },
+        {
+          question: "Demo teklifinde 'if anyone wants' eklemenin amaci?",
+          options: [
+            "Gereksiz",
+            "Opsiyonel etiket — kimse zorlanmaz, ilgili olan kalir = ego'suz teklif",
+            "Belirsizlik yapmak",
+            "Mahcubiyet",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'If anyone wants' = saygili exit kapisi. Birinin vaktinde dayatma yok. Ilgili kalir, digerleri 'bu sefer atlasin' der. Sicak ofis kulturu.",
+        },
+        {
+          question: "Demo'da '5 dakika' / 'quick look' belirtmenin gucu?",
+          options: [
+            "Gereksiz detay",
+            "Time-box sozu — 'kucuk yatirim' diyor, evet demek kolaylasiyor",
+            "Kibirlilik",
+            "Yanlis",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Demo' = 30 dakika sananabilir. '5 minutes' = kucuk yatirim. 'Quick look' = atistirmalik. Erisilebilirlik artar.",
+        },
+      ],
+    },
+    {
+      id: "ex.wst33.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Wrapped up the dashboard — happy to demo in five if anyone wants a look.",
+      ipa: "/ræpt ʌp ðə ˈdæʃbɔːd ˈhæpi tə ˈdɛməʊ ɪn faɪv ɪf ˈɛniwʌn wɒnts ə lʊk/",
+      tr_hint:
+        "'Wrapped up' baglı, 't' duser. 'Happy to' sicak ton — gulumseyerek soyle. 'Demo' = 'DEM-oh', ilk hece.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 33.8 — Standup'tan Kacma: Async Update
+// ============================================================
+export const workStandupLesson_33_8: BundledLesson = {
+  id: "work.standup.33.8",
+  skill_id: "work.standup",
+  index: 8,
+  title: "Standup'tan Kacma — Async Update",
+  description:
+    "Bugun katilamiyorsun: 'skipping standup today — dropping update in Slack'. Profesyonel + soz veren ton.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wst33.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Dropping update in Slack",
+      tr_translation: "Slack'e update atiyorum",
+      example: "Skipping standup today — dropping a written update in #eng in 10 min.",
+      example_tr: "Bugun standup'a katilamiyorum — 10 dakika icinde #eng kanalina yazili update atiyorum.",
+    },
+    {
+      id: "ex.wst33.8.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Bugun standup'a katilamiyorum — Slack'e yazili update atiyorum, blocker yok.",
+      target: "Skipping standup today — dropping a written update in Slack, no blockers.",
+      accepted_variants: [
+        "Can't make standup today — posting an async update in Slack, all clear.",
+        "Sitting out standup today — will drop an update in #eng, nothing blocking.",
+        "Heads up, skipping standup — async update going up in Slack, no blockers on my end.",
+        "Out for standup today — Slack update incoming, no blockers.",
+      ],
+      tr_hint:
+        "'Skipping' (atliyorum) + sebep gerekmez + soz ('dropping update'). Asla bos kayma — yerine ne koydugunu soyle.",
+    },
+    {
+      id: "ex.wst33.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Heads up — ___ standup today, async update coming.",
+      answer: "skipping",
+      distractors: ["skip", "skipped", "to skip"],
+      tr_hint:
+        "'Skipping standup' = -ing formu (continuous, plan). 'Skip standup' = emir gibi, hata. Plan bildiriminde gerund/continuous.",
+    },
+    {
+      id: "ex.wst33.8.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Async",
+        "update",
+        "incoming",
+        "—",
+        "no",
+        "blockers",
+      ],
+      correct_sentence: "Async update incoming — no blockers",
+      tr_translation: "Async update geliyor — blocker yok.",
+    },
+    {
+      id: "ex.wst33.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Sorry I will not come to the standup today because I am very busy and I have many things to do.",
+      correct_sentence:
+        "Skipping standup today — dropping an async update in #eng. No blockers.",
+      tr_explanation:
+        "'Sorry I will not come' = ozur dileme tonu (gereksiz suclu hissi). 'Very busy + many things' = mazeret listesi. Doğru: olgu ('skipping') + alternatif ('async update') + durum ('no blockers'). Kisa + sozune sahip.",
+    },
+    {
+      id: "ex.wst33.8.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Bugun bir focus block'un var, standup'a giremezsin. Manager'a heads-up DM atiyorsun.",
+      npc_role: "Engineering Manager",
+      setting: "Slack DM before standup",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|heads up|quick note|fyi|just (a )?heads up)",
+            "(skipping|can'?t make|sitting out|missing|out for|won'?t make) standup (today|this morning)",
+            "(focus block|deep work|in a meeting|interview|customer call|conflict)",
+            "(dropping|posting|sending) (an? )?(async )?update (in (slack|#eng|the channel)|to the channel)",
+            "(no blockers|nothing blocking|all clear|will flag if anything comes up)",
+          ],
+          hint_tr:
+            "Heads-up + sebep (opsiyonel) + soz: 'Heads up — skipping standup, focus block. Dropping async update in #eng. No blockers.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "All good — appreciate the heads up. Anything urgent we should know?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(nope|nothing|all good|not really|nothing urgent)",
+            "(but )?(will (flag|ping|reach out|grab you) if|i'?ll (flag|ping you) if)",
+            "(the (update|details) covers it|it'?s all in the slack update)",
+            "(thanks|appreciate it|thx) (for (the )?flex|for understanding)?",
+          ],
+          hint_tr:
+            "Yok + safety net: 'Nothing urgent — will ping if anything comes up. Thanks for the flex.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool, talk later.",
+        },
+      ],
+    },
+    {
+      id: "ex.wst33.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Standup'i atlarken EN onemli sey?",
+          options: [
+            "Hicbir sey soyleme, sessizce atla",
+            "Heads-up + yerine ne koydugun (async update) + durum (blocker) — sozune sahip cik",
+            "Uzun ozur mektubu",
+            "Soyle ama mazeret listele",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Standup ekip ritualidir. Sessizce atla = ekip seni bekler/sorar. Heads-up + alternatif = ekip akisi bozulmaz.",
+        },
+        {
+          question: "'Skipping' vs 'I will not come' farki?",
+          options: [
+            "Ayni",
+            "'Skipping' = bilinçli karar (yetkin), 'I will not come' = ozur diler tonu (suclu hissi)",
+            "Ikinci daha kibar",
+            "Yanlis kullanim",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Skipping' = profesyonel karar verici dili. 'Won't come' = okul cocugu mazereti tonu. Ust-duzey native sicim: tek kelime, ozurelemeden.",
+        },
+        {
+          question: "'Will ping if anything comes up' niye guclu kapanis?",
+          options: [
+            "Gereksiz soz",
+            "Safety net — ekibe 'bilgi akisi devam ediyor' garantisi — yokmus gibi degil, async erisilebilir",
+            "Bos vaat",
+            "Yanlis",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Yokluk = belirsizlik. 'Will ping if X' = somut ulasilabilirlik kanali. Standup yok ama sen ortadasin.",
+        },
+      ],
+    },
+    {
+      id: "ex.wst33.8.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "Skipping standup today — dropping an async update in Slack, no blockers.",
+      ipa: "/ˈskɪpɪŋ ˈstændʌp təˈdeɪ ˈdrɒpɪŋ ən ˌeɪˈsɪŋk ˈʌpdeɪt ɪn slæk nəʊ ˈblɒkəz/",
+      tr_hint:
+        "'Skipping' net 'sk' baslangici. 'Async' = 'AY-sink' (Brit) ya da 'A-sink' (US) — kisaltma hissi. Kapanis 'no blockers' kararli.",
+    },
+  ],
+};
+
+// ============================================================
 // Work Standup lessons registry
 // ============================================================
 export const workStandupLessons: ReadonlyArray<BundledLesson> = [
@@ -900,4 +1614,8 @@ export const workStandupLessons: ReadonlyArray<BundledLesson> = [
   workStandupLesson_33_2,
   workStandupLesson_33_3,
   workStandupLesson_33_4,
+  workStandupLesson_33_5,
+  workStandupLesson_33_6,
+  workStandupLesson_33_7,
+  workStandupLesson_33_8,
 ];

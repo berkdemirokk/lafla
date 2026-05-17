@@ -879,6 +879,748 @@ export const banterTaxiLesson_45_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 45.5 — Hava ve Trafik Chat
+// ============================================================
+export const banterTaxiLesson_45_5: BundledLesson = {
+  id: "banter.taxi.45.5",
+  skill_id: "banter.taxi",
+  index: 5,
+  title: "Hava ve Trafik Chat",
+  description:
+    "Driver ile en güvenli ortak konular: hava + trafik. 'Crazy weather today, huh?', 'how long have you been on the road?' — kişisel olmayan, paylaşılan deneyim.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.btx45.5.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Crazy traffic today, huh?",
+      tr_translation: "Bugün trafik çılgın, değil mi?",
+      example: "Crazy traffic today, huh? Hope it clears up.",
+      example_tr: "Bugün trafik çılgın, değil mi? Umarım açılır.",
+    },
+    {
+      id: "ex.btx45.5.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Ne kadar zamandır yoldasın? Uzun bir vardiya gibi görünüyor.",
+      target: "How long have you been driving today? Looks like a long shift.",
+      accepted_variants: [
+        "How long have you been on the road today?",
+        "Been driving long today? Seems like a long shift.",
+        "How many hours in are you? Long day, huh?",
+        "How long's your shift been so far?",
+        "Been at it long today? Looks rough.",
+      ],
+      tr_hint:
+        "Şoförün yorgunluğuna saygılı ilgi. 'On the road' = yolda. 'Shift' = vardiya. Empati + paylaşılan deneyim.",
+    },
+    {
+      id: "ex.btx45.5.3",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "The weather has been ___ all week.",
+      answer: "crazy",
+      distractors: ["mad", "wild a", "very"],
+      tr_hint:
+        "'Crazy weather' = çılgın hava (US casual idiom). 'Wild' da olur ama 'crazy' driver chat'inde daha sık.",
+    },
+    {
+      id: "ex.btx45.5.4",
+      type: "word_order",
+      difficulty: 2,
+      scrambled_tokens: [
+        "Hope",
+        "the",
+        "rain",
+        "holds",
+        "off",
+      ],
+      correct_sentence: "Hope the rain holds off",
+      tr_translation: "Umarım yağmur tutulur (yağmaz).",
+    },
+    {
+      id: "ex.btx45.5.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Driver where you from? You married?",
+      correct_sentence: "Where you from originally? Been driving long today?",
+      tr_explanation:
+        "'Driver where you from' = 'Driver' diye hitap kötü + 'you married?' çok kişisel (Türklerin sık hatası). Doğru: doğrudan soru + iş odaklı = saygılı mesafe.",
+    },
+    {
+      id: "ex.btx45.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Hava bulutlu, trafik ağır. Driver tek başına konuşmaya başlıyor. Hava + trafik üzerinden güvenli sohbet kur.",
+      npc_role: "Driver chatting about weather",
+      setting: "Mid-ride, gray skies, slow traffic",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Looks like rain's coming again — third day this week.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|right|i know|tell me about it|no kidding)",
+            "(crazy weather|wild weather|been (rough|gray|wet))",
+            "(hope (it|the rain) (holds off|clears up|stops))",
+            "(makes traffic (worse|brutal|crazy))",
+            "(perfect for (staying in|a cozy day))",
+            "(spring|fall) (can'?t make up its mind|is weird)",
+          ],
+          hint_tr:
+            "Empati + ortak yakınma: 'Yeah, crazy weather lately. Hope it holds off for a bit.'",
+        },
+        {
+          speaker: "npc",
+          message: "Right? And it makes everyone drive like they forgot how.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(ha|haha|true|so true|exactly)",
+            "(every time it rains|first drops and)",
+            "(must be (rough|tough|brutal) (driving|out there|all day))",
+            "(how long have you been (driving|on the road|at it))",
+            "(long shift|long day)",
+            "(at least you'?re (used to it|a pro))",
+          ],
+          hint_tr:
+            "Şoförün gününe geç: 'So true. Must be rough driving in this all day — how long's your shift?'",
+        },
+        {
+          speaker: "npc",
+          message: "Started at six, got a few more hours. Such is life.",
+        },
+      ],
+    },
+    {
+      id: "ex.btx45.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Driver ile EN güvenli sohbet konuları?",
+          options: [
+            "Politika + din",
+            "Hava + trafik",
+            "Maaş + aile",
+            "Aşk hayatı",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Hava + trafik = kişisel olmayan, paylaşılan + kimseyi rahatsız etmez. Politik/dini konular tabu.",
+        },
+        {
+          question: "'How long have you been driving today?' neden iyi?",
+          options: [
+            "Çok kişisel",
+            "İşine saygılı ilgi + nötr + driver kolay cevap",
+            "Saldırgan",
+            "Yararsız",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Driver'ın gününe ilgi gösterir ama özel hayatına girmez. Şoför rahat cevaplar.",
+        },
+        {
+          question: "Türklerin sık hatası: driver'a 'You married? Kids?' demek. Neden problem?",
+          options: [
+            "Doğru soru",
+            "Çok kişisel + 5 dakikalık ilişkide yeri yok + ABD'de mesafe norm",
+            "Çok kibar",
+            "Standart soru",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "ABD'de yabancılarla kişisel sorular yavaş açılır. Aile/medeni hal = mahrem = soğuk sınır.",
+        },
+      ],
+    },
+    {
+      id: "ex.btx45.5.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Crazy weather today, huh?",
+      ipa: "ˈkreɪzi ˈwɛðər təˈdeɪ hʌ",
+      tr_hint:
+        "'Crazy' = 'kreɪ-zi' iki hece. 'Weather' = 'wɛ-ðər' th sesi. 'Huh?' kısa yükselen ton — onay arıyor.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 45.6 — Yerel Tavsiye İste
+// ============================================================
+export const banterTaxiLesson_45_6: BundledLesson = {
+  id: "banter.taxi.45.6",
+  skill_id: "banter.taxi",
+  index: 6,
+  title: "Yerel Tavsiye İste",
+  description:
+    "Driver = ücretsiz şehir rehberi. 'Any good spots for dinner?', 'local favorites?' — turist kalıbından çık, yerelin bilgisine erişim.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.btx45.6.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Any local favorites",
+      tr_translation: "Yerel favoriler var mı? (yerelin tavsiyesi)",
+      example: "Any local favorites around here for dinner?",
+      example_tr: "Burada akşam yemeği için yerel favoriler var mı?",
+    },
+    {
+      id: "ex.btx45.6.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Buralarda akşam yemeği için iyi bir yer var mı? Turistik olmasın.",
+      target: "Any good spots for dinner near here? Nothing too touristy.",
+      accepted_variants: [
+        "Know any good places to eat around here? Not the tourist stuff.",
+        "Where would a local go for dinner around here?",
+        "Got any recommendations for dinner — somewhere not too touristy?",
+        "Where do you eat when you're around here?",
+        "Any spots locals actually like for dinner nearby?",
+      ],
+      tr_hint:
+        "'Touristy' = turistik tuzak. 'Where do locals go?' = yerelin bilgisi = gerçek tavsiye. Driver şehri biliyor.",
+    },
+    {
+      id: "ex.btx45.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Where would you go for ___ around here?",
+      answer: "dinner",
+      distractors: ["dine", "to dine", "have dinner"],
+      tr_hint:
+        "'For dinner' = akşam yemeği için. 'Where would you go for dinner' = yerele yönelik tavsiye sorusu klasik kalıp.",
+    },
+    {
+      id: "ex.btx45.6.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Any",
+        "spots",
+        "you",
+        "would",
+        "recommend",
+      ],
+      correct_sentence: "Any spots you would recommend",
+      tr_translation: "Tavsiye edeceğin yerler var mı?",
+    },
+    {
+      id: "ex.btx45.6.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Driver, you know good restaurant here?",
+      correct_sentence: "Hey, know any good spots for dinner around here?",
+      tr_explanation:
+        "'Driver, you know good restaurant' = 'Driver' diye hitap kötü + artikel ('a') eksik + emir gibi. Doğru: 'Hey, know any good spots' = doğal + dostça.",
+    },
+    {
+      id: "ex.btx45.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Şehre yeni geldin, otele gidiyorsun. Driver yerel — akşam için iyi yer tavsiyesi al.",
+      npc_role: "Local driver giving advice",
+      setting: "Cab to hotel, evening",
+      turns: [
+        {
+          speaker: "npc",
+          message: "First time in the city?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|yes|first time|first visit)",
+            "(just (got|landed) (in|here))",
+            "(here for (work|a few days|the weekend))",
+            "(actually|honestly) (any|got any) (tips|recommendations|advice)",
+            "(know any (good spots|local favorites|places))",
+            "(where (do locals|would you) (eat|go))",
+          ],
+          hint_tr:
+            "Onayla + tavsiye iste: 'Yeah, first visit. Any local spots you'd recommend for dinner?'",
+        },
+        {
+          speaker: "npc",
+          message: "Oh sure, what kinda food you into?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|really|kind of) (anything|whatever)",
+            "(open to (anything|whatever you suggest))",
+            "(love (italian|mexican|asian|seafood|burgers))",
+            "(something (casual|low-key|not too fancy))",
+            "(nothing too (touristy|fancy|crowded))",
+            "(where do locals (go|eat))",
+          ],
+          hint_tr:
+            "Açık + spesifik: 'Honestly, anything casual — nothing too touristy.'",
+        },
+        {
+          speaker: "npc",
+          message: "Got a great little Italian spot two blocks from your hotel. Locals only.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh nice|perfect|that sounds (great|perfect|amazing))",
+            "(what'?s it called|name of (it|the place))",
+            "(do they take (walk-ins|reservations))",
+            "(thanks for the (tip|recommendation|heads up))",
+            "(definitely (gonna|going to) check it out)",
+            "(appreciate (it|the rec))",
+          ],
+          hint_tr:
+            "İlgi + isim sor: 'Oh perfect — what's it called? Definitely gonna check it out.'",
+        },
+        {
+          speaker: "npc",
+          message: "Place called Tony's. Tell 'em I sent you — well, don't actually.",
+        },
+      ],
+    },
+    {
+      id: "ex.btx45.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Yerelin tavsiyesi için EN iyi soru?",
+          options: [
+            "'Tell me best restaurant.'",
+            "'Any local favorites — nothing too touristy?'",
+            "'Where tourists go?'",
+            "'You know food?'",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Local favorites' + 'not touristy' = yerelin bildiği gerçek yerleri açar. Driver şehri biliyor.",
+        },
+        {
+          question: "'Touristy' ne demek?",
+          options: [
+            "Çok güzel",
+            "Turistlere yönelik, pahalı, otantik olmayan",
+            "Yerel",
+            "Yeni",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Touristy' = turist tuzağı (negatif). 'Not touristy' = otantik istediğini söyler.",
+        },
+        {
+          question: "Driver tavsiye verirken nasıl tepki vermek warm?",
+          options: [
+            "Sessiz kal",
+            "İlgi göster + ismini sor + 'thanks for the rec'",
+            "Şüpheli ol",
+            "Konuyu değiştir",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Thanks for the rec' (recommendation) = takdir. İsim sormak = gerçekten ilgileniyorum sinyali.",
+        },
+      ],
+    },
+    {
+      id: "ex.btx45.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Any local favorites around here?",
+      ipa: "ˈɛni ˈloʊkəl ˈfeɪvərɪts əˈraʊnd hɪər",
+      tr_hint:
+        "'Local' = 'loʊ-kəl' iki hece. 'Favorites' US'de 'feɪ-vrɪts' kısalır. Meraklı + dostça yükselen ton.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 45.7 — Konuşkan Şoförden Kibarca Uzaklaşma
+// ============================================================
+export const banterTaxiLesson_45_7: BundledLesson = {
+  id: "banter.taxi.45.7",
+  skill_id: "banter.taxi",
+  index: 7,
+  title: "Konuşkan Şoförden Uzaklaş",
+  description:
+    "Driver çok konuşuyor, sen yorgun ya da meşgulsün. Telefon/email bahanesiyle saygılı çıkış — driver'ı kırmadan alan aç.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.btx45.7.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "I gotta take this call",
+      tr_translation: "Bu aramayı almam lazım",
+      example: "Sounds great — sorry, I gotta take this call real quick.",
+      example_tr: "Harika — kusura bakma, bu aramayı kısaca almam lazım.",
+    },
+    {
+      id: "ex.btx45.7.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Pardon, telefondan birkaç işi halletmem gerek, sonra devam ederiz.",
+      target: "Sorry, just gotta knock out a couple emails — we can pick this up after.",
+      accepted_variants: [
+        "Sorry, need to handle a few emails real quick.",
+        "Apologies, gotta deal with some work stuff on my phone.",
+        "Sorry to cut in — gotta send a couple quick messages.",
+        "Mind if I knock out some emails real fast?",
+        "Just need to handle a few things on my phone, sorry.",
+      ],
+      tr_hint:
+        "'Knock out a couple emails' = birkaç emaili halletmek (US casual). 'Pick this up after' = sonra devam ederiz. Saygılı + suçluluk hissi olmadan.",
+    },
+    {
+      id: "ex.btx45.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Mind if I just ___ in for a minute?",
+      answer: "plug",
+      distractors: ["pull", "push", "log"],
+      tr_hint:
+        "'Plug in' = telefonu şarja takmak (idiom). 'Mind if I plug in?' = sohbet biticisi bahane, kibar.",
+    },
+    {
+      id: "ex.btx45.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Sounds",
+        "great",
+        "I",
+        "gotta",
+        "jump",
+        "on",
+        "this",
+      ],
+      correct_sentence: "Sounds great I gotta jump on this",
+      tr_translation: "Harika — bu işi halletmem lazım.",
+    },
+    {
+      id: "ex.btx45.7.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Stop talking please, I am tired.",
+      correct_sentence: "Sounds great — sorry, gotta take this call real quick.",
+      tr_explanation:
+        "'Stop talking' = direkt kaba + driver'ı utandırır. Doğru: önce onayla ('sounds great') + bahane ('gotta take this call') = yumuşak çıkış, kimse kırılmaz.",
+    },
+    {
+      id: "ex.btx45.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Driver 10 dakikadır kesintisiz konuşuyor. Sen yorgun + telefonun çalıyor. Saygılı bir şekilde sohbeti kapat.",
+      npc_role: "Very chatty driver",
+      setting: "Long ride, driver mid-monologue",
+      turns: [
+        {
+          speaker: "npc",
+          message: "...and that's how I ended up driving here for fifteen years. Crazy story, right?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(wow|that'?s (wild|crazy|amazing)|no way)",
+            "(what a (story|journey|ride))",
+            "(thanks for sharing)",
+            "(actually|hey|sorry to cut in)",
+            "(i gotta (take this call|jump on this|grab this))",
+            "(mind if i (plug in|check my phone|knock out some emails))",
+          ],
+          hint_tr:
+            "Önce onayla, sonra çıkış: 'Wow, what a story. Hey, sorry to cut in — I gotta take this call real quick.'",
+        },
+        {
+          speaker: "npc",
+          message: "Oh, no problem at all — go for it.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|appreciate it|thank you)",
+            "(just (need|gotta) (a sec|a minute|to handle this))",
+            "(real quick|won'?t be long|just a couple)",
+            "(let me (just )?(plug in|catch up on)|handle this)",
+            "(some (work|email|stuff) (to handle|came in))",
+            "(be done in (a sec|a minute))",
+          ],
+          hint_tr:
+            "Teşekkür + süre belirt: 'Thanks, just need a sec — got some work stuff to handle.'",
+        },
+        {
+          speaker: "npc",
+          message: "All good, take your time. I'll keep us moving.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|appreciate it|you'?re the best|legend)",
+            "(thanks (so much|a ton|man))",
+            "(perfect|awesome|sounds good)",
+          ],
+          hint_tr:
+            "Kısa teşekkür yeter: 'Appreciate it, thanks!'",
+        },
+      ],
+    },
+    {
+      id: "ex.btx45.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Çok konuşan driver'dan EN saygılı uzaklaşma?",
+          options: [
+            "'Stop talking please.'",
+            "Önce onayla + bahane: 'Wow, great story — gotta take this call.'",
+            "Cevap verme",
+            "Kulaklık tak sessizce",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Onay + bahane (telefon/email) = driver'ı kırmadan alan aç. ABD'de 'gotta take this call' evrensel kabul gören kapatma.",
+        },
+        {
+          question: "'I gotta take this call' tam olarak ne demek?",
+          options: [
+            "Çıkmak istiyorum",
+            "Bu aramayı almam lazım = mecbur + kibar bahane",
+            "Telefonu yere koy",
+            "Driver'ı dinleme",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Gotta' = 'got to' (casual). 'Take this call' = bu aramayı yanıtla. Toplumsal kabul gören sohbet kapatma.",
+        },
+        {
+          question: "Türk hatası: 'Driver, please be quiet.' Neden problem?",
+          options: [
+            "Doğru ifade",
+            "'Driver' diye hitap soğuk + 'be quiet' = kaba emir + utandırır",
+            "Çok kibar",
+            "Standart",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Doğrudan susturma = yüze vurma + driver'ı işinde küçük düşürür. Bahane = yüz koruyan çıkış.",
+        },
+      ],
+    },
+    {
+      id: "ex.btx45.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Sounds great — I gotta take this call.",
+      ipa: "saʊndz ɡreɪt aɪ ˈɡɒtə teɪk ðɪs kɔːl",
+      tr_hint:
+        "'Gotta' = 'gɒ-tə' bağlanır, 'got to' kısalmış. 'Take this call' düşük ton — özür imasıyla samimi.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 45.8 — İnerken: Teşekkür + Tip Notu
+// ============================================================
+export const banterTaxiLesson_45_8: BundledLesson = {
+  id: "banter.taxi.45.8",
+  skill_id: "banter.taxi",
+  index: 8,
+  title: "İnerken: Teşekkür + Tip",
+  description:
+    "Hedefe vardın. Sıcak veda + bahşiş notu + iyi dilek. 'Here's a little extra', 'have a good shift!' — 5 dakikalık ilişkiyi sıcak bitir.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.btx45.8.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Here's a little extra",
+      tr_translation: "Biraz fazlasını veriyorum (bahşiş)",
+      example: "Thanks, here's a little extra for the great chat.",
+      example_tr: "Sağ ol, sohbet için biraz fazlasını veriyorum.",
+    },
+    {
+      id: "ex.btx45.8.2",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Çok sağ ol, harika bir yolculuktu. Sana iyi bir vardiya dilerim.",
+      target: "Thanks so much, that was a great ride. Have a good shift!",
+      accepted_variants: [
+        "Really appreciate it — have a good shift!",
+        "Thanks, that was a great ride. Hope the rest of your shift goes well.",
+        "Appreciate the ride, have a good rest of your shift.",
+        "Thanks a lot — wishing you an easy shift.",
+        "Cheers for the ride — have a good one out there.",
+      ],
+      tr_hint:
+        "'Have a good shift' = iyi vardiya dilerim (driver-specific). Daha sıcak çünkü işine değer veriyorsun.",
+    },
+    {
+      id: "ex.btx45.8.3",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "Here's a little ___ for you.",
+      answer: "extra",
+      distractors: ["more", "tip", "money"],
+      tr_hint:
+        "'A little extra' = küçük bir fazla (nakit bahşiş veriliyorsa kullanılır). 'Tip' kelimesini söylemeden bahşiş — nazik.",
+    },
+    {
+      id: "ex.btx45.8.4",
+      type: "word_order",
+      difficulty: 2,
+      scrambled_tokens: [
+        "Have",
+        "a",
+        "good",
+        "rest",
+        "of",
+        "your",
+        "shift",
+      ],
+      correct_sentence: "Have a good rest of your shift",
+      tr_translation: "Vardiyanın geri kalanı iyi geçsin.",
+    },
+    {
+      id: "ex.btx45.8.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Take this money. Bye.",
+      correct_sentence: "Here's a little extra — thanks, have a good shift!",
+      tr_explanation:
+        "'Take this money' = soğuk + emir + driver'ı küçültür. Doğru: 'Here's a little extra' = nazik + 'have a good shift' = işine saygı.",
+    },
+    {
+      id: "ex.btx45.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Driver hedefe vardı. İyi bir sohbetti. Tip + iyi dilek + sıcak veda.",
+      npc_role: "Driver at destination",
+      setting: "Pulling up to drop-off, end of ride",
+      turns: [
+        {
+          speaker: "npc",
+          message: "And here we are — safe and sound!",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you|appreciate it|thanks so much)",
+            "(perfect|awesome|great)",
+            "(safe and sound|smooth ride|got me here in one piece)",
+            "(really appreciate (it|the ride))",
+            "(great (ride|chat|conversation))",
+            "(made the trip fly)",
+          ],
+          hint_tr:
+            "Sıcak teşekkür: 'Thanks so much, smooth ride — really appreciate it.'",
+        },
+        {
+          speaker: "npc",
+          message: "My pleasure, hope you have a great trip!",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(here'?s a little extra|got a little extra for you|adding a tip on the app)",
+            "(tip is on the app|tipping through the app|i'?ll tip on the app)",
+            "(for the (great )?(chat|ride|conversation))",
+            "(you too|same to you|thanks again)",
+            "(have a (good|great) (shift|rest of your shift|one|day|night))",
+            "(drive safe|stay safe out there|take care)",
+          ],
+          hint_tr:
+            "Bahşiş + iyi dilek: 'Here's a little extra for the great chat — have a good shift!'",
+        },
+        {
+          speaker: "npc",
+          message: "Oh wow, thank you so much! You take care now.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(you too|same to you|thanks again|cheers)",
+            "(take care|drive safe|stay safe)",
+            "(have a (good|great) one)",
+            "(all the best)",
+          ],
+          hint_tr:
+            "Kısa karşılık: 'You too — drive safe!'",
+        },
+      ],
+    },
+    {
+      id: "ex.btx45.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Driver'a sıcak veda + bahşiş için EN iyi cümle?",
+          options: [
+            "'Take this money.'",
+            "'Here's a little extra — have a good shift!'",
+            "'Goodbye.'",
+            "'Tip is mandatory.'",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'A little extra' = nazik kelime seçimi. 'Have a good shift' = işine değer veren özel veda.",
+        },
+        {
+          question: "'Have a good shift!' neden 'have a good day'den daha iyi?",
+          options: [
+            "Aynısı",
+            "Driver'a özel: işine + gününün geri kalanına özen gösteriyor",
+            "Daha resmi",
+            "Yararsız",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Driver vardiyada — 'shift' kelimesi onun durumunu fark ettiğini gösterir = warm + spesifik.",
+        },
+        {
+          question: "App'ten bahşiş veriyorsan inişte ne söylenir?",
+          options: [
+            "Hiçbir şey",
+            "'Tip is on the app' — driver hemen bilir, beklemez",
+            "'I won't tip'",
+            "'You don't deserve tip'",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Söylemek = driver'ı bilgilendirir + ödüllendirileceği belli olur = ilişki sıcak biter.",
+        },
+      ],
+    },
+    {
+      id: "ex.btx45.8.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Here's a little extra — have a good shift!",
+      ipa: "hɪərz ə ˈlɪtəl ˈɛkstrə hæv ə ɡʊd ʃɪft",
+      tr_hint:
+        "'Here's a' = 'hɪərz-ə' bağlanır. 'Little extra' = 'lɪtəl-ɛkstrə' bağlı. 'Shift' tek hece kısa. Samimi + sıcak ton.",
+    },
+  ],
+};
+
+// ============================================================
 // Banter Taxi lessons registry
 // ============================================================
 export const banterTaxiLessons: ReadonlyArray<BundledLesson> = [
@@ -886,4 +1628,8 @@ export const banterTaxiLessons: ReadonlyArray<BundledLesson> = [
   banterTaxiLesson_45_2,
   banterTaxiLesson_45_3,
   banterTaxiLesson_45_4,
+  banterTaxiLesson_45_5,
+  banterTaxiLesson_45_6,
+  banterTaxiLesson_45_7,
+  banterTaxiLesson_45_8,
 ];

@@ -895,6 +895,801 @@ export const restaurantLesson_2_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 2.5 — Alerji ve Diyet Uyarısı
+// ============================================================
+export const restaurantLesson_2_5: BundledLesson = {
+  id: "order.restaurant.2.5",
+  skill_id: "order.restaurant",
+  index: 5,
+  title: "Alerji + Diyet Uyarısı",
+  description:
+    "Gluten, fındık, vegan/vejetaryen — yemekte ne var ne yok, garsona sağlık güvenliği için sor.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.2.5.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Does this contain",
+      tr_translation: "Bunun içinde ___ var mı?",
+      example: "Does this contain nuts?",
+      example_tr: "Bunun içinde fındık/ceviz var mı?",
+    },
+    {
+      id: "ex.2.5.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Fındık alerjim var. Bu yemekte fındık var mı?",
+      target: "I'm allergic to nuts. Does this dish contain nuts?",
+      accepted_variants: [
+        "I have a nut allergy. Is there any nut in this?",
+        "I'm allergic to nuts — does this have any nuts in it?",
+        "I have a nut allergy. Does this contain nuts?",
+        "I can't eat nuts. Is there anything with nuts in this dish?",
+        "I'm allergic to nuts, so does this have nuts?",
+      ],
+      tr_hint:
+        "İngilizce'de 'nuts' = fındık, ceviz, badem hepsi. 'Peanut' (yer fıstığı) ayrı bir kategori. 'Allergic to' + isim yapısı.",
+    },
+    {
+      id: "ex.2.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Do you have any ___-free options?",
+      answer: "gluten",
+      distractors: ["bread", "wheat", "flour"],
+      tr_hint:
+        "'Gluten-free' yerleşik kalıp. 'Wheat-free' nadir; 'bread-free' yanlış. Restoranda 'gluten-free menu' sor.",
+    },
+    {
+      id: "ex.2.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Is",
+        "the",
+        "soup",
+        "vegetarian",
+        "or",
+        "does",
+        "it",
+        "have",
+        "meat",
+      ],
+      correct_sentence: "Is the soup vegetarian or does it have meat",
+      tr_translation: "Çorba vejetaryen mi, yoksa et var mı?",
+    },
+    {
+      id: "ex.2.5.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I am allergy from peanut. Take off please.",
+      correct_sentence:
+        "I'm allergic to peanuts. Could you make sure there are none in my dish?",
+      tr_explanation:
+        "'Allergy from' yanlış — 'allergic to' kullanılır. 'Take off' kelime kelime çeviri. Doğrusu: 'Make sure there are none' (hiç olmadığından emin ol). Sağlık konusu önemli — net ve kibar.",
+    },
+    {
+      id: "ex.2.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Glutene alerjiksin ve vejetaryensin. Menü soruyorsun, garson seçenekleri açıklıyor. Net ol — sağlık konusu.",
+      npc_role: "Garson",
+      setting: "Restaurant table, ordering time",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Have you decided what you'd like, or any questions about the menu?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?m|i am) (a )?vegetarian",
+            "i don'?t eat (meat|animal products)",
+            "(do you have|any) (gluten[- ]free|vegan|vegetarian)",
+            "i'?m (allergic to|allergic|sensitive to)",
+            "i have a (nut|gluten|peanut|dairy) (allergy|intolerance)",
+            "(could|can) (you|i) (help|ask|tell)",
+          ],
+          hint_tr:
+            "Önce kendini tanıt: 'I'm vegetarian and I have a gluten allergy'. Sağlık bilgisi net olmalı.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it — we have a vegetarian section on page two, and we mark gluten-free items with a 'GF' next to them. Anything in particular catching your eye?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(does|do) (this|the|that) (contain|have) (nuts?|gluten|dairy|eggs?|wheat)",
+            "is (this|the|that) (gluten[- ]free|vegan|vegetarian|dairy[- ]free)",
+            "(what about|how about) the (salad|pasta|risotto|soup)",
+            "the (risotto|pasta|salad|soup)( looks good)?",
+            "(any|are there) nuts in",
+            "is there (any )?(nut|peanut|wheat|gluten|dairy) in",
+          ],
+          hint_tr:
+            "Spesifik bir yemek soruşur: 'Does the risotto contain nuts?' veya 'Is the soup vegan?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Let me double check with the kitchen — but the risotto has a pesto base, which usually has pine nuts. I'd recommend the grilled vegetable plate, which is gluten-free and nut-free.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?ll|i will) (have|take|go with) (the )?(grilled vegetable|veggie plate|vegetable plate)",
+            "(that|the grilled vegetable) (sounds|works|is) (great|good|perfect)",
+            "(perfect|great|sounds good)( i'?ll take it)?",
+            "(yes|yeah) (i'?ll|let'?s) (have|go with) that",
+            "(could|can) you (please )?(double check|confirm)",
+          ],
+          hint_tr:
+            "Tavsiyeyi kabul et: 'The grilled vegetable plate sounds great, I'll have that'. Veya emin olmak istersen: 'Could you double check with the kitchen?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect choice — I'll flag it as a nut allergy and gluten-free to the kitchen. Anything to drink?",
+        },
+      ],
+    },
+    {
+      id: "ex.2.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Fındık alerjim var' doğrusu hangisi?",
+          options: [
+            "I am allergy from nuts",
+            "I have allergy nut",
+            "I'm allergic to nuts",
+            "I have nut sickness",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Allergic to [X]' standart yapı. 'Allergy from' yanlış; 'have allergy nut' kırık.",
+        },
+        {
+          question: "'Glutensiz seçenek var mı?' en doğal hangisi?",
+          options: [
+            "Without gluten food exist?",
+            "Do you have any gluten-free options?",
+            "No-gluten menu?",
+            "Anti-gluten plate?",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Gluten-free options' sabit kalıp. 'GF' bazı menülerde işaretlenir.",
+        },
+        {
+          question:
+            "İngilizce 'nuts' kelimesi şunları kapsar:",
+          options: [
+            "Sadece fındık",
+            "Sadece yer fıstığı",
+            "Fındık, ceviz, badem (peanut hariç)",
+            "Tüm tohumlar",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Nuts' = tree nuts (fındık, ceviz, badem, kaju). Yer fıstığı 'peanut' — teknik olarak baklagil. Alerjisi olan ikisini de söylemeli.",
+        },
+      ],
+    },
+    {
+      id: "ex.2.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'm allergic to nuts — does this contain any?",
+      ipa: "aɪm əˈlɜːrʤɪk tə nʌts dʌz ðɪs kənˈteɪn ˈɛni",
+      tr_hint:
+        "'Allergic' = ə-LƏR-jik, 'g' yumuşak 'ʤ'. 'Nuts' kısa 'ʌ'. 'Contain' içinde 'a' uzun 'eɪ': kən-TEYN.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 2.6 — Garson Tavsiyesi İsteme
+// ============================================================
+export const restaurantLesson_2_6: BundledLesson = {
+  id: "order.restaurant.2.6",
+  skill_id: "order.restaurant",
+  index: 6,
+  title: "Garson Tavsiyesi",
+  description:
+    "Menüde kaldın. Garsona ne iyi, ne popüler, ne özel — açıkça sor ve cevabını anla.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.2.6.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "What's good here",
+      tr_translation: "Burada ne iyi / Burası ne ile meşhur",
+      example: "What's good here? It's our first time.",
+      example_tr: "Burada ne iyidir? İlk gelişimiz.",
+    },
+    {
+      id: "ex.2.6.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Sen olsan ne tavsiye edersin?",
+      target: "What would you recommend?",
+      accepted_variants: [
+        "What do you recommend?",
+        "What would you suggest?",
+        "If you had to pick, what would it be?",
+        "Any personal favorites?",
+        "What's the chef's favorite?",
+        "What would you go with?",
+      ],
+      tr_hint:
+        "'Would' soft conditional — 'sen olsan' nüansını yakalar. 'Recommend' direkt; 'suggest' biraz daha pasif.",
+    },
+    {
+      id: "ex.2.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "What's the ___ special tonight?",
+      answer: "chef's",
+      distractors: ["restaurant", "waiter", "kitchen's"],
+      tr_hint:
+        "'Chef's special' = günün özel yemeği. Bu kalıp menüde olmasa bile garson söyler.",
+    },
+    {
+      id: "ex.2.6.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "What",
+        "do",
+        "most",
+        "people",
+        "order",
+        "here",
+      ],
+      correct_sentence: "What do most people order here",
+      tr_translation: "Burada insanlar genelde ne sipariş ediyor?",
+    },
+    {
+      id: "ex.2.6.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Say me what is best food in here.",
+      correct_sentence: "What would you recommend? What's your most popular dish?",
+      tr_explanation:
+        "'Say me' yanlış — 'tell me' doğru ama bu durumda gereksiz. 'In here' yerine 'here' yeterli. Doğrusu: doğrudan soru — 'What would you recommend?'",
+    },
+    {
+      id: "ex.2.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Restoran yeni, menüyü tanımıyorsun. Garsondan kişisel tavsiye istiyorsun. Karşılıklı diyalog.",
+      npc_role: "Garson",
+      setting: "First time at a new restaurant",
+      turns: [
+        {
+          speaker: "npc",
+          message: "All right, are we thinking starters, mains, both?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it'?s|this is) (my|our) first time (here)?",
+            "(we'?re|i'm) new here",
+            "what('s| is) (good|popular|the special)( here)?",
+            "(could|can) you recommend (something|anything)",
+            "what (do|would) you (recommend|suggest)",
+            "any (recommendations|favorites)",
+          ],
+          hint_tr:
+            "İlk gelişin olduğunu söyle, tavsiye iste: 'It's our first time here, what would you recommend?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh, welcome! Honestly, the lamb shoulder is our signature — slow-cooked, falls off the bone. For starters, the burrata is a crowd favorite.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that|both) (sounds?|looks?) (good|great|amazing|delicious|perfect)",
+            "(i'?ll|we'?ll) (have|go with|take) (the )?(lamb|burrata|both)",
+            "(could|can) you tell me more about (the )?(lamb|burrata)",
+            "what comes with (the )?(lamb|burrata)",
+            "is (the |it )?(spicy|heavy|big|sharing)",
+            "what (do you|would you) (have|go with) (yourself|personally)",
+          ],
+          hint_tr:
+            "Detay sor veya kabul et: 'Could you tell me more about the lamb?' veya 'Sounds great, we'll have both'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "The lamb comes with roasted potatoes and a red wine reduction. It's hearty — definitely a main on its own. Personally, I'd pair it with a glass of the house red.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(let'?s|we'?ll|i'?ll) (do|go with|have|take) (the |that )?(lamb|combo|both)",
+            "(perfect|great|sounds (good|great|perfect))",
+            "(i'?ll|let'?s) (do|try) (that|the pairing|the lamb and wine)",
+            "(thanks|thank you)( for the recommendation)?",
+            "(we'?ll|let'?s) trust (you|your judgment)",
+          ],
+          hint_tr:
+            "Karar ver: 'Let's go with that' veya 'Sounds great, we'll do the lamb and the house red'.",
+        },
+        {
+          speaker: "npc",
+          message: "Excellent. You're in for a treat.",
+        },
+      ],
+    },
+    {
+      id: "ex.2.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Burası ne ile meşhur?' en doğal İngilizce?",
+          options: [
+            "What is famous here?",
+            "What's good here?",
+            "What's the fame food?",
+            "Tell special meal",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'What's good here?' = restoran ne ile öne çıkıyor. 'Famous' burada doğru kullanım değil.",
+        },
+        {
+          question:
+            "'Chef's special' ne demek?",
+          options: [
+            "Şefin özel ücreti",
+            "Günün özel yemeği (genelde menüde değil)",
+            "Şefin sevmediği yemek",
+            "Sürpriz yemek",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Chef's special' = günün özel yemeği. Genelde mevsime/malzemeye göre değişir.",
+        },
+        {
+          question: "Garson tavsiyesi alırken hangisi DOĞAL?",
+          options: [
+            "Tell me good food",
+            "What you eat?",
+            "What would you recommend?",
+            "Speak best dish",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'What would you recommend?' = 'Sen olsan ne önerirsin?' — kibar ve direkt.",
+        },
+      ],
+    },
+    {
+      id: "ex.2.6.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "What would you recommend? It's our first time here.",
+      ipa: "wʌt wʊd ju ˌrɛkəˈmɛnd ɪts aʊər fɜːrst taɪm hɪər",
+      tr_hint:
+        "'What would you' bağlanır → 'wʌt-wʊ-ʤə'. 'Recommend' vurgusu sonda: re-kə-MEND. 'First time' net 't' sesleri.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 2.7 — Sınırlı Menü, Alternatif İste
+// ============================================================
+export const restaurantLesson_2_7: BundledLesson = {
+  id: "order.restaurant.2.7",
+  skill_id: "order.restaurant",
+  index: 7,
+  title: "Bitmiş Yemek + Alternatif",
+  description:
+    "Sipariş ettiğin yemek bitmiş. Garson söylüyor, sen kibarca alternatif istiyorsun ya da öneri arıyorsun.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.2.7.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "we're out of",
+      tr_translation: "(o yemek) bitti / kalmadı",
+      example: "I'm sorry, we're out of the salmon tonight.",
+      example_tr: "Üzgünüm, bu akşam somon kalmadı.",
+    },
+    {
+      id: "ex.2.7.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Peki, başka ne önerirsiniz?",
+      target: "Okay, what else would you recommend?",
+      accepted_variants: [
+        "All right, what else do you recommend?",
+        "No problem, any other suggestions?",
+        "Got it — what would you suggest instead?",
+        "Okay, what's the next best thing?",
+        "All right, what's similar?",
+      ],
+      tr_hint:
+        "'Else' = 'başka'. Sıkıntı yok tonu için 'No problem' veya 'No worries' ekle.",
+    },
+    {
+      id: "ex.2.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Do you have something ___ to the salmon?",
+      answer: "similar",
+      distractors: ["same", "like", "near"],
+      tr_hint:
+        "'Similar to' = '___'a benzer. 'Same' aynı (farklı anlam); 'like' günlük ama 'similar' restoranda standart.",
+    },
+    {
+      id: "ex.2.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "What",
+        "would",
+        "you",
+        "suggest",
+        "instead",
+        "then",
+      ],
+      correct_sentence: "What would you suggest instead then",
+      tr_translation: "O zaman bunun yerine ne önerirsiniz?",
+    },
+    {
+      id: "ex.2.7.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Then no salmon? Bring me another fish.",
+      correct_sentence:
+        "Oh, no problem. Could you recommend something similar?",
+      tr_explanation:
+        "'Then no salmon?' kırık. 'Bring me' komut. 'Another fish' belirsiz. Doğrusu önce hayal kırıklığını yumuşat ('no problem'), sonra alternatif iste.",
+    },
+    {
+      id: "ex.2.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Garsona sipariş verdin. Ana yemeğin bitmiş. Garson söylüyor, sen alternatif arıyorsun.",
+      npc_role: "Garson",
+      setting: "Just after placing order",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "I'm so sorry — I just checked with the kitchen and we're actually out of the sea bass tonight. It's been popular.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh|ah)?( )?no (problem|worries)( at all)?",
+            "(that'?s|it'?s) (fine|okay|alright|all good)",
+            "no worries",
+            "(don'?t worry|these things happen)",
+            "(what (else|would you) recommend|any (suggestion|alternative))",
+            "what (do you have|else is good)",
+          ],
+          hint_tr:
+            "Hayal kırıklığını yumuşat: 'No worries' veya 'No problem'. Hemen alternatif iste.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Thanks for understanding. If you liked the sound of the sea bass, the trout is similar — pan-seared, lemon butter sauce. Or there's the chicken roulade if you want something different.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(how|what) is the (trout|chicken|roulade)",
+            "(could you|can you|would you) (tell me|describe) (the )?(trout|chicken|roulade)",
+            "what comes with (the )?(trout|chicken|roulade)",
+            "(is|is the) (trout|chicken) (similar|comparable) to",
+            "(i'?ll|let'?s) (go with|have|take|try) (the )?(trout|chicken|roulade)",
+            "the (trout|chicken|roulade)( please| sounds good)?",
+            "what (do|would) you recommend (between|of) (the )?(two|those)",
+          ],
+          hint_tr:
+            "Bilgi iste veya doğrudan seç: 'How is the trout?' / 'I'll go with the trout, then'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "If you wanted the sea bass, honestly the trout is the closest match. Light, flaky, same kind of vibe.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(perfect|great|sounds (good|great|perfect))",
+            "(i'?ll|let'?s) (go with|have|take|do) (the )?trout",
+            "(the )?trout (please|it is|then)",
+            "(yes|yeah|okay)?( i'?ll have)? (the )?trout( please)?",
+            "(thanks|thank you)( for (the )?suggestion)?",
+          ],
+          hint_tr:
+            "Karar ver: 'The trout, then. Thanks!' veya 'Sounds perfect, I'll take the trout'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Great choice. I'll take care of that — and as an apology for the mix-up, the dessert tonight is on us.",
+        },
+      ],
+    },
+    {
+      id: "ex.2.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Garson 'We're out of [X]' dedi. En kibar tepkin?",
+          options: [
+            "Why no?",
+            "Bring different",
+            "No problem — what would you recommend instead?",
+            "Cancel everything",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'No problem' yumuşatıcı, sonra alternatif iste. Garsonun suçu değil — kültürel olarak rahat tepki ver.",
+        },
+        {
+          question: "'Bunun yerine' İngilizce'de nasıl?",
+          options: [
+            "On place of",
+            "Instead",
+            "Beside",
+            "After",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Instead' = bunun yerine. 'Instead of [X]' = X yerine. Tek başına da kullanılır.",
+        },
+        {
+          question:
+            "'Buna benzer bir şeyiniz var mı?' en doğal hangisi?",
+          options: [
+            "Got same?",
+            "Do you have something similar?",
+            "What near this?",
+            "Like this anything?",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Similar' = benzer. Profesyonel restoran lisanında standart kelime.",
+        },
+      ],
+    },
+    {
+      id: "ex.2.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "No worries — what would you recommend instead?",
+      ipa: "noʊ ˈwʌriz wʌt wʊd ju ˌrɛkəˈmɛnd ɪnˈstɛd",
+      tr_hint:
+        "'No worries' = 'noʊ-WƏ-riz'. 'Recommend instead' bağlanır: re-kə-MEN-din-STED. 'Instead' vurgusu sonda.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 2.8 — Çocuklu Masa: Yüksek Sandalye + Çocuk Menüsü
+// ============================================================
+export const restaurantLesson_2_8: BundledLesson = {
+  id: "order.restaurant.2.8",
+  skill_id: "order.restaurant",
+  index: 8,
+  title: "Çocuklu Masa",
+  description:
+    "Aileyle restoran: yüksek sandalye iste, çocuk menüsü sor, porsiyon küçült — pratik aile kalıpları.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.2.8.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "high chair",
+      tr_translation: "Mama sandalyesi / yüksek sandalye",
+      example: "Do you have a high chair for our toddler?",
+      example_tr: "Yürümeye başlayan çocuğumuz için mama sandalyesi var mı?",
+    },
+    {
+      id: "ex.2.8.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Çocuk menünüz var mı?",
+      target: "Do you have a kids menu?",
+      accepted_variants: [
+        "Do you have a children's menu?",
+        "Is there a kids menu?",
+        "Have you got a kids menu?",
+        "Could we see the kids menu?",
+        "Do you offer a children's menu?",
+      ],
+      tr_hint:
+        "'Kids menu' (US, günlük) ve 'children's menu' (formal) — ikisi de doğru. Apostrofa dikkat: 'kids' veya 'kids'' menu — ikisi de yaygın.",
+    },
+    {
+      id: "ex.2.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Could we get a ___ portion for our daughter?",
+      answer: "smaller",
+      distractors: ["little", "few", "less"],
+      tr_hint:
+        "'Smaller portion' = küçük porsiyon. 'Half portion' (yarım) da yaygın. 'Less' miktarsız, 'little' sıfat olarak yanlış.",
+    },
+    {
+      id: "ex.2.8.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Could",
+        "we",
+        "get",
+        "some",
+        "crayons",
+        "for",
+        "the",
+        "kids",
+      ],
+      correct_sentence: "Could we get some crayons for the kids",
+      tr_translation: "Çocuklar için boya kalemi alabilir miyiz?",
+    },
+    {
+      id: "ex.2.8.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "We have one child. Bring child chair and small food.",
+      correct_sentence:
+        "We have a little one with us — could we get a high chair and a kids menu?",
+      tr_explanation:
+        "'One child' soğuk; 'a little one' sıcak. 'Child chair' = high chair (mama sandalyesi). 'Small food' belirsiz — 'kids menu' doğru kelime. Komut yerine soru.",
+    },
+    {
+      id: "ex.2.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Eşinle 3 yaşındaki çocuğunla geldin. Hostess karşılıyor — mama sandalyesi, çocuk menüsü gerek.",
+      npc_role: "Hostess / Garson",
+      setting: "Family-friendly restaurant, dinner time",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hi there! Just the two of you tonight?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(two|2) adults and (a|one|1) (kid|child|toddler|little one)",
+            "(two|2) (adults )?and (a|one|1) (kid|child)",
+            "(three|3)( of us)?, (one is|including) (a |our )?(toddler|kid|child|little one)",
+            "(we|us) and (our |a )?(toddler|kid|child|little one|baby)",
+            "(table for )?(three|3)( please)?( with a little one)?",
+            "(actually|no),? (three|we have a)",
+          ],
+          hint_tr:
+            "Düzelt: 'Actually, three — we have a little one with us'. 'Little one' = küçük (çocuk için sıcak ifade).",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh of course — how old is the little one? I'll grab a high chair if you need.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(he|she|they)('s| is) (almost )?(one|two|three|four|five|\\d+)",
+            "(he|she|they)('s| is) (about|around) (one|two|three|four|five|\\d+)",
+            "(yes|yeah) (please|to the high chair)",
+            "(a )?high chair (would be |is )?(great|perfect|helpful|amazing)",
+            "(yes|please)?, (a |the )?high chair( please| would be great)?",
+            "(she'?s|he'?s) (\\d+|two|three|four)( years old)?,? (a |the )?high chair",
+          ],
+          hint_tr:
+            "Yaş söyle ve mama sandalyesini iste: 'She's three — a high chair would be great, thanks'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. Follow me, I'll set you up. Do you want the kids menu, or are you ordering off the main?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the |a )?kids menu(,)? please",
+            "(could|can) (we|i) (see|have|get) (the |a )?kids menu",
+            "(yes|yeah|sure)?,? (the )?kids menu( would be great)?",
+            "(both|kids menu and the regular)",
+            "(could|can) (you|we) (get|do|have) a (smaller|half) portion",
+            "(any |do you have )?crayons? (or coloring)?",
+          ],
+          hint_tr:
+            "Onayla ve ekstra iste: 'Yes, the kids menu, please. And maybe some crayons if you have any?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Absolutely — kids menu, crayons, high chair. I'll bring some water for the table too. Right this way.",
+        },
+      ],
+    },
+    {
+      id: "ex.2.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Mama sandalyesi var mı?' İngilizce?",
+          options: [
+            "Have you baby chair?",
+            "Do you have a high chair?",
+            "Is there child seat?",
+            "Got small chair?",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'High chair' = mama sandalyesi. 'Child seat' = arabada güvenlik koltuğu (farklı şey).",
+        },
+        {
+          question: "'Çocuk için küçük porsiyon' en doğal?",
+          options: [
+            "Little food for kid",
+            "Could we get a smaller portion for our daughter?",
+            "Half-half plate",
+            "Small kid plate",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Smaller portion' standart. Bazı restoranlar 'half portion' da sunar.",
+        },
+        {
+          question:
+            "Çocuğundan bahsederken İngilizce'de sıcak ifade?",
+          options: [
+            "My young one",
+            "Our little one",
+            "The kid",
+            "Small person",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Little one' = küçüğümüz; restoranlarda doğal ve sıcak. 'The kid' soğuk, 'small person' garip.",
+        },
+      ],
+    },
+    {
+      id: "ex.2.8.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could we get a high chair and a kids menu, please?",
+      ipa: "kʊd wi ɡɛt ə haɪ ʧɛr ænd ə kɪdz ˈmɛnju pliːz",
+      tr_hint:
+        "'High chair' = HAY-ʧer (iki kelime ama tek nefes). 'Kids menu' = KIDZ-men-yu. 'Could we' bağlanır: 'kud-wi'.",
+    },
+  ],
+};
+
+// ============================================================
 // Restaurant lessons registry
 // ============================================================
 export const restaurantLessons: ReadonlyArray<BundledLesson> = [
@@ -902,4 +1697,8 @@ export const restaurantLessons: ReadonlyArray<BundledLesson> = [
   restaurantLesson_2_2,
   restaurantLesson_2_3,
   restaurantLesson_2_4,
+  restaurantLesson_2_5,
+  restaurantLesson_2_6,
+  restaurantLesson_2_7,
+  restaurantLesson_2_8,
 ];

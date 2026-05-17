@@ -637,10 +637,703 @@ export const flirtRecoveryLesson_8_3: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 8.5 — Drunk Text Morning After Apology
+// ============================================================
+export const flirtRecoveryLesson_8_5: BundledLesson = {
+  id: "flirt.recovery.8.5",
+  skill_id: "flirt.recovery",
+  index: 5,
+  title: "Sarhos Mesaj — Ertesi Sabah Ozur",
+  description:
+    "Dun gece kontrolden cikan mesajlar — ertesi sabah unutturma operasyonu.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.frec8.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Mortified at last night",
+      tr_translation: "Dun gece icin yerin dibine girmis durumdayim",
+      example: "Mortified at last night — can we pretend that didn't happen?",
+      example_tr: "Dun gece icin utancimdan oluyorum — hic olmamis gibi yapabilir miyiz?",
+    },
+    {
+      id: "ex.frec8.5.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Dun gece atilan mesajlar icin utanc duyuyorum — hic olmamis gibi davranabilir miyiz?",
+      target: "Mortified at last night's messages — can we pretend that didn't happen?",
+      accepted_variants: [
+        "Mortified at last night — can we pretend that didn't happen?",
+        "Cringing hard at last night — let's wipe the slate clean.",
+        "Last night's texts haunt me — pretend you didn't see them?",
+        "Dying over the texts I sent — fresh start please?",
+        "Mortified about last night — please ignore everything I sent.",
+      ],
+      tr_hint:
+        "'Mortified' = utanctan oluyorum. 'Pretend that didn't happen' = sosyal sil-bas yapma teklifi.",
+    },
+    {
+      id: "ex.frec8.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Can we ___ that didn't happen?",
+      answer: "pretend",
+      distractors: ["forget", "imagine", "assume"],
+      tr_hint:
+        "'Pretend X didn't happen' = X olmamis gibi davranmak. Sosyal sil-bas teklifi.",
+    },
+    {
+      id: "ex.frec8.5.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Please",
+        "ignore",
+        "everything",
+        "I",
+        "sent",
+        "last",
+        "night",
+      ],
+      correct_sentence: "Please ignore everything I sent last night",
+      tr_translation: "Lutfen dun gece gonderdigim her seyi gormezden gel.",
+    },
+    {
+      id: "ex.frec8.5.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Sorry I drink yesterday. Please not remember.",
+      correct_sentence:
+        "Mortified about last night — please ignore everything I sent.",
+      tr_explanation:
+        "'Sorry I drink yesterday' = bozuk dilbilgisi (past tense yok) + asiri vurgu. Dogru: 'Mortified about last night' (duygu) + 'please ignore' (kibarca sil) = native sounding hasar kontrolu.",
+    },
+    {
+      id: "ex.frec8.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Dun gece 3'te 8 mesaj attin (bir kismi cok forward). Sabah 9 — match aktif. Toparla.",
+      npc_role: "Match",
+      setting: "Morning after drunk text marathon",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay|so|hey)",
+            "(mortified|cringing|dying)( at| over| about)? (last night|those texts|the texts|what i sent)",
+            "(can we|let'?s) (pretend|act like|agree) (that|those|none of that) (didn'?t happen|wasn'?t sent)",
+            "(please|kindly) (ignore|forget|delete) (everything|what|those|all of them)",
+            "(let me try (this|that) again|fresh start)",
+          ],
+          hint_tr:
+            "Ac: 'Okay — mortified about last night. Can we pretend that didn't happen?'",
+        },
+        {
+          speaker: "npc",
+          message: "Haha yeah those were... a lot. But honestly kind of flattering.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh god|whew|relief)",
+            "(thanks for|appreciate) (being (so )?cool|the grace|not roasting me)",
+            "(sober me|regular me|today me) (is much|has way) (calmer|chiller|less intense)",
+            "(let me|i should) (make it up|redeem myself)",
+            "(coffee|brunch|something) (sober|this time|on me)",
+          ],
+          hint_tr:
+            "Pivot: 'Thanks for being cool — sober me is much chiller. Coffee this weekend?'",
+        },
+        {
+          speaker: "npc",
+          message: "Ha, deal. Sober coffee Saturday it is.",
+        },
+      ],
+    },
+    {
+      id: "ex.frec8.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Drunk text sonrasi ertesi sabah NE acilis en guvenli?",
+          options: [
+            "Hicbir sey deme — gormezden gel",
+            "'Mortified' + 'pretend that didn't happen' = sahiplen + hafif kac",
+            "Tum mesajlari acikla + savun",
+            "'I meant it all' = sahiplenip dogrula",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Sessizlik = garipligi buyutur. Sahiplenmek + hafif espriyle silmek = olgun + cazip.",
+        },
+        {
+          question: "'Can we pretend that didn't happen?' formulu NICIN guclu?",
+          options: [
+            "Karsi tarafa sosyal cikis kapisi verir + utanci paylasir",
+            "Saldirgan",
+            "Yalanci",
+            "Bozuk ingilizce",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Karsi taraf 'hayir hatirliyorum' demek zorunda kalmaz — gulup gecebilir. Kibar exit ramp.",
+        },
+        {
+          question: "Drunk text sonrasi alcohol promotion'a girmemek icin NE yap?",
+          options: [
+            "'Was wasted' diye ovun",
+            "'Too much last night' + sober me'ye pivot = sorumluluk dilinde kal",
+            "Komik icme hikayeleri anlat",
+            "Tekrar icmeyi teklif et",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Sarhoslugu romantize etme — utancı kabul + 'sober me'ye pivot = olgun, App Store friendly.",
+        },
+      ],
+    },
+    {
+      id: "ex.frec8.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Mortified at last night — can we pretend that didn't happen?",
+      ipa: "ˈmɔːtɪfaɪd æt lɑːst naɪt kæn wi prɪˈtend ðæt ˈdɪdənt ˈhæpən",
+      tr_hint:
+        "'Mortified' = MOR-ti-fayd, 3 hece, dramatik vurgu birinci hecede. 'Pretend' yumusak, 'didn't' kisaltma. Hafif gulumseyerek soyle — utanci espriyle tasi.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 8.6 — Coming Back After Ghosting
+// ============================================================
+export const flirtRecoveryLesson_8_6: BundledLesson = {
+  id: "flirt.recovery.8.6",
+  skill_id: "flirt.recovery",
+  index: 6,
+  title: "Ghost Yaptin Geri Don — Sifirdan Acikla",
+  description:
+    "Haftalarca cevap atmadin, simdi geri donmek istiyorsun — borc ettigin acikamayi yap.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.frec8.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I owe you an explanation",
+      tr_translation: "Sana bir acikama borcluyum",
+      example: "Hey, owe you an explanation — got pulled into a tough month.",
+      example_tr: "Selam, sana bir acikama borcluyum — zor bir aya yakalandim.",
+    },
+    {
+      id: "ex.frec8.6.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Bir acikama borclu hissediyorum — zor bir aydan geciyordum, kayboldugum icin pardon.",
+      target: "Owe you an explanation — got pulled into a tough month, sorry for vanishing.",
+      accepted_variants: [
+        "Hey, owe you an explanation — got pulled into a tough month.",
+        "I owe you an explanation — life pulled me under for a bit.",
+        "You deserve an explanation — rough stretch took over.",
+        "Owe you a real apology — got dragged through a hard few weeks.",
+        "Owe you the truth — was going through it, sorry for the silence.",
+      ],
+      tr_hint:
+        "'Owe you an explanation' = olgun sahiplenme. 'Pulled into a tough month' = bahane degil, sebep.",
+    },
+    {
+      id: "ex.frec8.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Got ___ into a tough month.",
+      answer: "pulled",
+      distractors: ["dragged", "thrown", "stuck"],
+      tr_hint:
+        "'Pulled into' = istemden bagimsiz cekildim. Daha pasif/durumsal — bahaneden farkli.",
+    },
+    {
+      id: "ex.frec8.6.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "No",
+        "excuse",
+        "but",
+        "I",
+        "owe",
+        "you",
+        "the",
+        "truth",
+      ],
+      correct_sentence: "No excuse but I owe you the truth",
+      tr_translation: "Mazeret degil ama sana gercegi borcluyum.",
+    },
+    {
+      id: "ex.frec8.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Sorry I disappear. I am back now okay?",
+      correct_sentence:
+        "Hey, owe you an explanation — got pulled into a tough month. No pressure to respond.",
+      tr_explanation:
+        "'Sorry I disappear' = past tense yok + 'okay?' baski yapiyor. Dogru: 'owe you an explanation' (sahiplenme) + sebep + 'no pressure' (alan birak).",
+    },
+    {
+      id: "ex.frec8.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "5 hafta once konusuyordunuz, sen cevap vermedin. Simdi geri donmek istiyorsun. Bahane degil sebep ver.",
+      npc_role: "Match",
+      setting: "Re-engaging after ghosting",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|hi)( there)?",
+            "(owe you|i owe you) (an explanation|the truth|an apology|a real (one|apology))",
+            "(got pulled|got dragged|got swallowed) (into|by|under) (a tough|a hard|a rough)( month| stretch| few weeks)?",
+            "(no excuse|not making excuses|no pressure to respond)",
+            "(sorry for|apologies for) (vanishing|going dark|the silence|disappearing)",
+          ],
+          hint_tr:
+            "Sahiplen: 'Hey, owe you an explanation — got pulled into a tough month. No pressure to respond.'",
+        },
+        {
+          speaker: "npc",
+          message: "Hey... appreciate you reaching out. Everything okay now?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|getting there|on the other side)",
+            "(thanks for|appreciate you) (asking|the grace|not writing me off)",
+            "(if you'?re|are you) (open|down|up) (to|for) (starting over|a reset|trying again)",
+            "(no expectations|totally understand if not|fully get if you'?re done)",
+            "(coffee|grab a drink|hang) (low key|no pressure) (sometime|this week)",
+          ],
+          hint_tr:
+            "Onerme: 'Getting there — thanks for asking. Open to a reset over coffee, no pressure?'",
+        },
+        {
+          speaker: "npc",
+          message: "Yeah. Low key coffee works — let me know when.",
+        },
+      ],
+    },
+    {
+      id: "ex.frec8.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Ghost sonrasi geri donerken EN ONEMLI kural?",
+          options: [
+            "Hic ghost yapmamis gibi davran",
+            "Sebep ver ama bahane uretme + karsi tarafa cikis alani birak",
+            "Karsi tarafi suclu hissettir",
+            "Ozur dileme, davet at",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Sahiplenme + alan birakma = saygi. 'No pressure to respond' = ego'yu degil iliskiyi koru.",
+        },
+        {
+          question: "'Got pulled into a tough month' NEDEN 'I was busy'tan daha iyi?",
+          options: [
+            "Cunku daha uzun",
+            "Daha somut + duygusal + 'busy' kacis bahanesi gibi degil",
+            "Daha kibar",
+            "Daha karmasik gramatik",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Busy' = herkesin bahanesi. 'Pulled into a tough month' = gercek bir donem, sahiplenme hissi var.",
+        },
+        {
+          question: "Karsi taraf 'forgive me?' isteyince NE deme?",
+          options: [
+            "'No pressure to respond / fully get if you'\\''re done'",
+            "'You have to forgive me'",
+            "'Forget it then'",
+            "Hicbir sey",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Affedilmeyi talep etme — sun. Karsi tarafa hayir deme alani vermek = olgunluk.",
+        },
+      ],
+    },
+    {
+      id: "ex.frec8.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Owe you an explanation — got pulled into a tough month.",
+      ipa: "əʊ ju ən ˌekspləˈneɪʃən ɡɒt pʊld ˈɪntə ə tʌf mʌnθ",
+      tr_hint:
+        "'Owe you' bagli okun (ow-yoo), gunluk konusmada I dustu. 'Explanation' = eks-pluh-NAY-shun, 4 hece vurgu 3.'de. Sessiz/samimi ton — ozur agirligi tasiyici.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 8.7 — Wrong Person Text Recovery
+// ============================================================
+export const flirtRecoveryLesson_8_7: BundledLesson = {
+  id: "flirt.recovery.8.7",
+  skill_id: "flirt.recovery",
+  index: 7,
+  title: "Yanlis Kisi — Yanlis Sohbete Mesaj",
+  description:
+    "Ozel bir mesaji yanlis sohbete attin — hafif gul, hizla geri al.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.frec8.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "That wasn't meant for you",
+      tr_translation: "Bu sana atilmayacakti",
+      example: "That wasn't meant for you — pretend you didn't see that.",
+      example_tr: "Bu sana atilmayacakti — gormemis gibi yap.",
+    },
+    {
+      id: "ex.frec8.7.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Bu sana atilmayacakti — pardon, gormemis gibi yapabilir misin?",
+      target: "That wasn't meant for you — sorry, pretend you didn't see that?",
+      accepted_variants: [
+        "That wasn't meant for you — pretend you didn't see that.",
+        "Oh no, wrong chat — pretend that didn't happen!",
+        "Definitely meant that for someone else — please ignore!",
+        "Wrong thread — apologies, scrub that from your screen.",
+        "That wasn't meant for you — let's both pretend it never happened.",
+      ],
+      tr_hint:
+        "'Wasn't meant for you' = sana yonelik degildi. 'Pretend you didn't see' = sosyal sil-bas teklifi.",
+    },
+    {
+      id: "ex.frec8.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Wrong ___ — pretend you didn't see that.",
+      answer: "chat",
+      distractors: ["text", "place", "side"],
+      tr_hint:
+        "'Wrong chat' / 'wrong thread' = yanlis sohbet. Dogal mobil dili.",
+    },
+    {
+      id: "ex.frec8.7.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Pretend",
+        "you",
+        "didn't",
+        "see",
+        "that",
+        "please",
+      ],
+      correct_sentence: "Pretend you didn't see that please",
+      tr_translation: "Lutfen gormemis gibi yap.",
+    },
+    {
+      id: "ex.frec8.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Sorry wrong person. Delete delete delete!!!",
+      correct_sentence:
+        "That wasn't meant for you — pretend you didn't see that.",
+      tr_explanation:
+        "'Delete delete delete!!!' = panik + komik degil garip. Dogru: 'wasn't meant for you' (sahiplen) + 'pretend you didn't see' (hafif espri) = sakin damage control.",
+    },
+    {
+      id: "ex.frec8.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Arkadasina match hakkinda yazdigin mesaji yanlislikla match'a attin. Hizla toparla.",
+      npc_role: "Match",
+      setting: "Wrong person text damage control",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh no|oh god|wait)",
+            "(that wasn'?t meant for you|wrong (chat|thread|person)|definitely not for you)",
+            "(pretend you didn'?t see (that|it)|scrub (that|it) (off|from)|ignore that)",
+            "(landed weird|came out wrong|wires got crossed)",
+            "(let me|can i) (try (this|that) again|start over)",
+          ],
+          hint_tr:
+            "Hizla: 'Oh no, wrong chat — that wasn't meant for you, pretend you didn't see that!'",
+        },
+        {
+          speaker: "npc",
+          message: "Haha too late, I read it. Should I be worried? 😅",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(haha|ha|okay)",
+            "(busted|caught|so much for that)",
+            "(in my defense|for the record|honestly)",
+            "(was saying (good|nice) things|nothing (bad|terrible)|all (compliments|positive))",
+            "(let me try (this|that) again|fresh start)",
+            "(coffee|drinks|hang) (might (help|fix this)|sounds (better|safer))",
+          ],
+          hint_tr:
+            "Esprili topla: 'Busted — for the record it was good things. Let me try this again — coffee?'",
+        },
+        {
+          speaker: "npc",
+          message: "Lol redemption coffee — I'm in.",
+        },
+      ],
+    },
+    {
+      id: "ex.frec8.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Yanlis kisi mesajinda EN HIZLI ne yapilmali?",
+          options: [
+            "Hicbir sey — gormez umariz",
+            "Hizla (saniyeler icinde) hafif ton + 'wasn'\\''t meant for you' + 'pretend' = damage control",
+            "Hesabi sil",
+            "Tum mesajlari sil ve gizle",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Sessizlik = merak buyutur. Hizli + hafif kabul = en az garip cikis.",
+        },
+        {
+          question: "Karsi taraf 'should I be worried?' diye sorarsa NE deme?",
+          options: [
+            "Ciddi savunma",
+            "Espri ile evrilt — 'for the record it was good things' = guvence + hafiflik",
+            "Sus",
+            "'Yes you should'",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Endise tetigi kapatmak gerek — hafif espri + olumlu cerceve = soft landing.",
+        },
+        {
+          question: "'Pretend you didn't see that' NEDEN guclu bir formul?",
+          options: [
+            "Karsi tarafa sosyal cikis kapisi verir = kimse zorlanmaz",
+            "Saldirgan",
+            "Bozuk ingilizce",
+            "Resmiyetli",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Karsi taraf gulup gecebilir, sosyal sozlesme — kimse mecbur kalmaz.",
+        },
+      ],
+    },
+    {
+      id: "ex.frec8.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "That wasn't meant for you — pretend you didn't see that.",
+      ipa: "ðæt ˈwɒzənt ment fə ju prɪˈtend ju ˈdɪdənt siː ðæt",
+      tr_hint:
+        "'Wasn't' = WUH-zunt, hizli. 'Meant for you' bagli (men-fər-yoo). 'Pretend' yumusak pi-TREND. Komik panik tonu — gulumseyerek kac.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 8.8 — Awkward Emoji Gaffe Recovery
+// ============================================================
+export const flirtRecoveryLesson_8_8: BundledLesson = {
+  id: "flirt.recovery.8.8",
+  skill_id: "flirt.recovery",
+  index: 8,
+  title: "Garip Emoji Hatasi — Geri Al",
+  description:
+    "Yanlis emoji yolladin (kuru, agresif, ya da uygunsuz) — hizla netlestir, espri ile yumusatici geri al.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.frec8.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "That emoji landed weird",
+      tr_translation: "O emoji garip durdu / yanlis anlasildi",
+      example: "Wow that emoji landed weird — let me try that again.",
+      example_tr: "Vay o emoji garip durdu — bir daha deneyim.",
+    },
+    {
+      id: "ex.frec8.8.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "O emoji garip durdu — yanlis anlam tasimissim, tekrar deneyeyim.",
+      target: "That emoji landed weird — wrong vibe, let me try that again.",
+      accepted_variants: [
+        "Wow that emoji landed weird — let me try that again.",
+        "That emoji came out wrong — total mis-send, do-over?",
+        "Emoji misfire — that's not the energy I meant.",
+        "Picked the wrong emoji there — let me reset that one.",
+        "That emoji read way wrong — let me try again with words.",
+      ],
+      tr_hint:
+        "'Landed weird' = garip dustu/anlasildi. 'Let me try that again' = sosyal reset talebi.",
+    },
+    {
+      id: "ex.frec8.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Let me ___ that again.",
+      answer: "try",
+      distractors: ["do", "send", "fix"],
+      tr_hint:
+        "'Let me try that again' = sosyal reset kalibi. Konusmaya devam icin guzel kopru.",
+    },
+    {
+      id: "ex.frec8.8.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Not",
+        "the",
+        "energy",
+        "I",
+        "was",
+        "going",
+        "for",
+      ],
+      correct_sentence: "Not the energy I was going for",
+      tr_translation: "Hedefledigim hava bu degildi.",
+    },
+    {
+      id: "ex.frec8.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Sorry wrong emoji. I am not weird person I promise.",
+      correct_sentence:
+        "Wow that emoji landed weird — not the energy I was going for, let me try that again.",
+      tr_explanation:
+        "'I am not weird person I promise' = savunmaci + 'a' artikeli eksik + abartili. Dogru: hafif farkindalik ('landed weird') + sahiplenme ('not the energy I meant') + reset talebi.",
+    },
+    {
+      id: "ex.frec8.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Iltifat icin kalp atmak istedin, yanlislikla yilan emojisi gonderdin. Match cevap atti: '?? '. Toparla.",
+      npc_role: "Match",
+      setting: "Recovering from misfired emoji",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(wow|oh|okay)",
+            "(that emoji|emoji) (landed weird|came out wrong|misfired|read way wrong)",
+            "(not the energy|wrong vibe|not what i meant) (i was going for|i meant|i was sending)",
+            "(let me|can i) (try (this|that) again|reset|start over)",
+            "(meant|going for) (a heart|something (sweet|nice|warm))",
+          ],
+          hint_tr:
+            "Ac: 'Wow that emoji landed weird — not the energy I meant. Let me try that again — meant the heart!'",
+        },
+        {
+          speaker: "npc",
+          message: "Lol I was wondering what the snake meant. Crisis averted.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thumbs (and )?fingers betrayed me|fat fingers|autocomplete chaos)",
+            "(thanks for|appreciate) (laughing|the grace|not running)",
+            "(let me|i'?ll) (use (real )?words from now on|stick to words)",
+            "(actually wanted to say|what i meant was)",
+            "(you (looked|sound) (great|amazing)|nice (pic|photo))",
+          ],
+          hint_tr:
+            "Yumusat: 'Thumbs betrayed me — sticking to words. What I meant was, you looked great in that pic.'",
+        },
+        {
+          speaker: "npc",
+          message: "Aww okay, words save the day. Thanks 😊",
+        },
+      ],
+    },
+    {
+      id: "ex.frec8.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Yanlis emoji sonrasi EN HIZLI ne yapmali?",
+          options: [
+            "Sessiz kal",
+            "'Landed weird' + 'not the energy' + 'let me try again' = farkindalik + reset",
+            "Karsi tarafi suclu hissettir",
+            "Sadece silmek yeter",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Bos birakirsan yanlis anlam yerlesir. Hizli sahiplenip cumlelerle netlestir.",
+        },
+        {
+          question: "Emoji hatasini KOMIKLESTIRMENIN avantaji nedir?",
+          options: [
+            "Garipligi yikar + sosyal yetenek gosterir + cazip tutar",
+            "Hicbir sey",
+            "Garipligi buyutur",
+            "Bozuk ingilizce",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "'Thumbs betrayed me' tarzi mizah = utanc anini cazibe firsatina cevirir.",
+        },
+        {
+          question: "Reset sonrasi NE ile devam etmek en iyisi?",
+          options: [
+            "Daha cok emoji",
+            "Aciklayici sozcuklerle gercek niyeti soyle = netlik + samimiyet",
+            "Konuyu degistir",
+            "Ozur dile yine",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'What I meant was...' = niyeti soze cevir, belirsizligi kapat.",
+        },
+      ],
+    },
+    {
+      id: "ex.frec8.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "That emoji landed weird — let me try that again.",
+      ipa: "ðæt ɪˈməʊdʒi ˈlændɪd wɪəd let mi traɪ ðæt əˈɡen",
+      tr_hint:
+        "'Emoji' = i-MOH-jee, 3 hece, vurgu 2. hecede. 'Landed' kisa LAN-did. 'Weird' tek hece, uzun /iːə/. Hafif gulumseyerek soyle — garipligi sahiplenip espri kat.",
+    },
+  ],
+};
+
+// ============================================================
 // Flirt Recovery lessons registry
 // ============================================================
 export const flirtRecoveryLessons: ReadonlyArray<BundledLesson> = [
   flirtRecoveryLesson_8_1,
   flirtRecoveryLesson_8_2,
   flirtRecoveryLesson_8_3,
+  flirtRecoveryLesson_8_5,
+  flirtRecoveryLesson_8_6,
+  flirtRecoveryLesson_8_7,
+  flirtRecoveryLesson_8_8,
 ];

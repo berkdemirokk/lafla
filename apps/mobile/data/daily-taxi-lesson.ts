@@ -862,6 +862,714 @@ export const dailyTaxiLesson_32_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 32.5 — Pickup Spot — Sürücü Bulamadı
+// ============================================================
+export const dailyTaxiLesson_32_5: BundledLesson = {
+  id: "daily.taxi.32.5",
+  skill_id: "daily.taxi",
+  index: 5,
+  title: "Pickup Spot — Sürücü Bulamadı",
+  description:
+    "Uber/Lyft şoförü pickup noktasında seni bulamıyor. Konum tarif et: side entrance, blue jacket, landmark + 'I'll wave'.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dx32.5.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "side entrance",
+      tr_translation: "Yan giriş",
+      example: "I'm at the side entrance, not the main one.",
+      example_tr: "Ana girişte değil, yan girişteyim.",
+    },
+    {
+      id: "ex.dx32.5.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Selam, seni haritada görüyorum — otelin yan girişindeyim, mavi ceketliyim.",
+      target: "Hi, I see you on the map — I'm at the side entrance of the hotel, wearing a blue jacket.",
+      accepted_variants: [
+        "Hey, I can see you on the map — I'm by the side entrance in a blue jacket.",
+        "Hi! I'm at the hotel side entrance, blue jacket — I see you nearby.",
+        "I see your car on the app — side entrance, blue jacket. I'll wave.",
+        "Hey, just spotted you on the map. I'm at the side entrance with a blue jacket.",
+      ],
+      tr_hint:
+        "Türk hatasi: 'Driver where you?' — yerine kendini konumla tanit. Net konum + kıyafet = şoför bulur.",
+    },
+    {
+      id: "ex.dx32.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Look for the guy in the ___ jacket by the lamppost.",
+      answer: "blue",
+      distractors: ["clothes", "wear", "color"],
+      tr_hint:
+        "'In the [color] jacket' = [renk] ceketli. Kıyafet rengi = şoför seni hızlı bulur.",
+    },
+    {
+      id: "ex.dx32.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "I'll",
+        "wave",
+        "when",
+        "I",
+        "see",
+        "you",
+      ],
+      correct_sentence: "I'll wave when I see you",
+      tr_translation: "Seni görünce el sallayacağım.",
+    },
+    {
+      id: "ex.dx32.5.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Driver where you? I no see.",
+      correct_sentence:
+        "Hi, I see you on the map — I'm at the side entrance, wearing a blue jacket. I'll wave.",
+      tr_explanation:
+        "'Driver where you?' = grammatik yok + sucluyor. Doğru: 'I see you on the map' (sakin) + kendi konumun + kıyafet. Şoför zaten harita kullaniyor, sen kendini tanit.",
+    },
+    {
+      id: "ex.dx32.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Uber çağırdın, şoför 1 dk uzakta ama yanlış kapıya gidiyor. Mesaj at + konum tarif et.",
+      npc_role: "Uber Driver",
+      setting: "Pickup confusion outside hotel",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hey, I'm at the front of the hotel. I don't see you.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hey|hello|no worries)",
+            "(i('m| am) (at|by|near)) (the )?(side entrance|back entrance|corner|other side)",
+            "(not the main|wrong side)",
+            "(i('ll| will) (come around|walk over|head to the front))",
+            "(give me (a sec|a minute|30 seconds))",
+          ],
+          hint_tr:
+            "Yanlış kapı sorununu çöz: 'I'm at the side entrance — I'll walk around.'",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. What are you wearing? It's busy out here.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i('m| am)|i have|wearing) (a )?(blue|red|black|green|grey|gray) (jacket|coat|hoodie|shirt)",
+            "(look for|i('m| am) the) (guy|girl|person|one) (in|with)",
+            "(i('ll| will) wave|i'?ll flag you down)",
+            "(by the (lamppost|sign|door|tree|bench))",
+            "(rolling a (suitcase|bag))",
+          ],
+          hint_tr:
+            "Net kıyafet + jest: 'Blue jacket, by the lamppost — I'll wave.'",
+        },
+        {
+          speaker: "npc",
+          message: "Perfect, I see you. Pulling up now.",
+        },
+      ],
+    },
+    {
+      id: "ex.dx32.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Şoför seni bulamiyor — İLK adım?",
+          options: [
+            "Telefonu kapat, bekle",
+            "'Driver where you?' yaz",
+            "Sakin mesaj: 'I see you on the map — I'm at [konum]'",
+            "Uber'i iptal et",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Şoför zaten haritayı görüyor. Sen kendi konumunu net ver: side entrance, corner, landmark.",
+        },
+        {
+          question: "Kalabalık yerde şoför seni nasıl tanır?",
+          options: [
+            "Sadece bekler",
+            "Kıyafet rengi + jest: 'Blue jacket, I'll wave'",
+            "Bağırır",
+            "Telefonu havaya kaldırır",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Blue jacket' + 'I'll wave' = şoför 5 sn içinde bulur. Kalabalık NYC pickup'ta standart.",
+        },
+        {
+          question: "'Side entrance' ne anlama gelir?",
+          options: [
+            "Arka kapı",
+            "Yan giriş (ana kapı değil)",
+            "Acil çıkış",
+            "Servis girişi",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Büyük otel/binalar = birden fazla giriş. 'Side entrance' = yan giriş, 'main entrance' = ana.",
+        },
+      ],
+    },
+    {
+      id: "ex.dx32.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'm at the side entrance, blue jacket.",
+      ipa: "aɪm æt ðə saɪd ˈɛntrəns bluː ˈdʒækɪt",
+      tr_hint:
+        "Pickup tanitim. 'Side entrance' = yan giris. 'Blue jacket' = mavi ceket. Net + kisa = şoför bulur.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 32.6 — Rota Değiştir — Durağa Varmadan
+// ============================================================
+export const dailyTaxiLesson_32_6: BundledLesson = {
+  id: "daily.taxi.32.6",
+  skill_id: "daily.taxi",
+  index: 6,
+  title: "Rota Değiştir — Durağa Varmadan",
+  description:
+    "Yol ortasında plan değişti: hızlı Walgreens molası, başka bir köşede in, varış noktası değiştir.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dx32.6.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Quick stop",
+      tr_translation: "Hızlı (kısa) mola",
+      example: "Quick stop at Walgreens — five minutes tops.",
+      example_tr: "Walgreens'te hızlı mola — en fazla beş dakika.",
+    },
+    {
+      id: "ex.dx32.6.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Plan değişti — beni o yerine sonraki köşede indir. Sayaç açık kalabilir.",
+      target: "Change of plans — could you drop me at the next corner instead? The meter can keep running.",
+      accepted_variants: [
+        "Actually, can you drop me at the corner instead? Meter can stay on.",
+        "Plans changed — drop me at the next corner, meter on is fine.",
+        "Mind dropping me at the corner instead? Keep the meter running.",
+        "Change of plans — could we make it the next corner? Meter's fine.",
+      ],
+      tr_hint:
+        "'Change of plans' = plan değişikliği. 'Instead' = yerine. 'Meter can keep running' = şoförü rahatlatır (para kaybı yok).",
+    },
+    {
+      id: "ex.dx32.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Could we make a quick stop at ___ on the way?",
+      answer: "Walgreens",
+      distractors: ["walking", "always", "wall"],
+      tr_hint:
+        "Walgreens = ABD'de büyük eczane/market zinciri. 'On the way' = yol üstünde.",
+    },
+    {
+      id: "ex.dx32.6.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Drop",
+        "me",
+        "at",
+        "the",
+        "corner",
+        "instead",
+      ],
+      correct_sentence: "Drop me at the corner instead",
+      tr_translation: "Beni onun yerine köşede indir.",
+    },
+    {
+      id: "ex.dx32.6.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Stop! Change address! Now!",
+      correct_sentence:
+        "Sorry — change of plans. Could you drop me at the next corner instead? The meter can keep running.",
+      tr_explanation:
+        "Emir kipi + panik = kaba ve şoförü germez. Doğru: 'Sorry' (yumuşat) + 'change of plans' (açıkla) + 'meter can keep running' (para kaybi yok). Saygı + sebep + güvence.",
+    },
+    {
+      id: "ex.dx32.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Yarıdasın — yağmur başladı, şemsiye lazım. Walgreens molası iste + sonra varış noktasını değiştir.",
+      npc_role: "Uber Driver",
+      setting: "Mid-ride, rain starts",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|excuse me|sorry to ask)",
+            "(any chance|could we|mind if we|would it be okay)",
+            "(quick stop|short stop|stop for a minute)",
+            "(at (the |a )?(walgreens|cvs|duane reade|pharmacy|drugstore|corner store))",
+            "(grab (an? )?(umbrella|water|snack|something)|pick up)",
+            "(five minutes (tops|max)|won't be long|two minutes)",
+          ],
+          hint_tr:
+            "Kibar mola iste: 'Any chance of a quick stop at Walgreens? Need an umbrella — two minutes tops.'",
+        },
+        {
+          speaker: "npc",
+          message: "Yeah, there's one coming up on the right. Meter'll stay on though.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no problem|totally fine|of course|that('s| is) fine|that works)",
+            "(meter('s| is) fine|keep it running|that('s| is) fair)",
+            "(actually|also|one more thing)",
+            "(could you|mind dropping me) (drop me|let me out|let me off)",
+            "(at the (next |the )?corner|on \\d+(st|nd|rd|th) street|by the (subway|deli))",
+            "(instead|change of plans|change my mind)",
+          ],
+          hint_tr:
+            "Onayla + ek değişiklik: 'Totally fine. Actually, could you drop me at the corner instead?'",
+        },
+        {
+          speaker: "npc",
+          message: "Sure thing. The corner after Walgreens, then.",
+        },
+      ],
+    },
+    {
+      id: "ex.dx32.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Yol ortasında hızlı mola istemek için EN kibar kalıp?",
+          options: [
+            "Stop now!",
+            "Wait here!",
+            "Any chance of a quick stop at Walgreens? Two minutes tops.",
+            "I want stop.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Any chance of...' = ricacı bir yumuşatici. 'Two minutes tops' = süre garantisi şoförü rahatlatır.",
+        },
+        {
+          question: "Şoförü mola sırasında nasıl rahatlatırsın?",
+          options: [
+            "Hiçbir şey deme",
+            "'Meter can keep running' = ücret kaybı yok mesajı",
+            "Para göster",
+            "Bahşiş söz ver",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Meter on' = şoför kazanmaya devam. Bu cümle gerilimi anında düşürür.",
+        },
+        {
+          question: "Varış noktasını yarı yolda değiştirmek için?",
+          options: [
+            "Address change!",
+            "Could you drop me at the corner instead?",
+            "Go other place!",
+            "Different address!",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Drop me at ... instead' = onun yerine ... indir. 'Instead' = yerine, nazik değişiklik kalıbı.",
+        },
+      ],
+    },
+    {
+      id: "ex.dx32.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Drop me at the corner instead.",
+      ipa: "drɑːp mi æt ðə ˈkɔːrnər ɪnˈstɛd",
+      tr_hint:
+        "Rota değiştir. 'Drop me' baglanir → 'drap-mi'. 'Instead' son hece vurgulu: in-STED.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 32.7 — Ücret Tartışması — Meter Sorma
+// ============================================================
+export const dailyTaxiLesson_32_7: BundledLesson = {
+  id: "daily.taxi.32.7",
+  skill_id: "daily.taxi",
+  index: 7,
+  title: "Ücret Tartışması — Meter Sorma",
+  description:
+    "Şüpheli sokak taksisi: 'Is the meter running?', flat rate sor, havalimanı tahmini iste, dolandırıcılığı önle.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dx32.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "flat rate",
+      tr_translation: "Sabit ücret (mesafe önemli değil)",
+      example: "JFK to Manhattan is a flat rate — $70 plus tolls.",
+      example_tr: "JFK'den Manhattan'a sabit ücret — 70 dolar artı geçiş ücretleri.",
+    },
+    {
+      id: "ex.dx32.7.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Sayaç açık mı? Havalimanına yaklaşık ne kadar tutar?",
+      target: "Is the meter running? What's the estimate to the airport?",
+      accepted_variants: [
+        "Could you start the meter? Roughly how much to the airport?",
+        "Meter on? Any estimate for the airport ride?",
+        "Is the meter on? About how much to JFK?",
+        "Mind starting the meter? What's a rough fare to the airport?",
+      ],
+      tr_hint:
+        "İLK adim: meter sor. Sonra estimate. Türk hatası: sessiz binmek = dolandırma riski.",
+    },
+    {
+      id: "ex.dx32.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Is the meter ___, or is this a flat rate?",
+      answer: "running",
+      distractors: ["working", "moving", "open"],
+      tr_hint:
+        "'Meter running' = sayaç islemekte. 'Flat rate' = sabit ücret. İkisi farkli mantik.",
+    },
+    {
+      id: "ex.dx32.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "What's",
+        "the",
+        "estimate",
+        "to",
+        "the",
+        "airport",
+      ],
+      correct_sentence: "What's the estimate to the airport",
+      tr_translation: "Havalimanına tahmini ücret ne?",
+    },
+    {
+      id: "ex.dx32.7.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Price airport? Cheap?",
+      correct_sentence:
+        "Is the meter running? What's a rough estimate to the airport?",
+      tr_explanation:
+        "'Price airport? Cheap?' = pazarlık + grammatik yok + dolandırıcıya kapı. Doğru: 'Meter running?' (kontrol) + 'rough estimate' (tahmin). NYC'de meter zorunlu, sokak taksisinde sormak normal.",
+    },
+    {
+      id: "ex.dx32.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Şüpheli sokak taksisi durdurdun. Bindiğinde meter görmüyorsun. Dikkatlice sor.",
+      npc_role: "Street Taxi Driver",
+      setting: "Curbside, before getting in",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Where you headed?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(jfk|laguardia|lga|ewr|airport|grand central|penn station)",
+            "(quick question|before i get in|first)",
+            "(is the meter (on|running)|do you (run|use) the meter|meter('s| is) on)",
+            "(or is (it|this) a flat rate)",
+            "(what('s| is) (the|a rough|an?) estimate)",
+          ],
+          hint_tr:
+            "Önce kontrol: 'JFK. Quick question — is the meter running, or flat rate?'",
+        },
+        {
+          speaker: "npc",
+          message: "Meter's on. JFK to here is usually around 65 to 75 with traffic.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sounds (good|fair|reasonable)|works for me|fair enough)",
+            "(plus tolls|with tolls|including tolls)",
+            "(any (chance|way) of (a )?(flat rate|fixed price))",
+            "(does that include (tolls|tip|the toll))",
+            "(let('s| us) (do it|go|head out))",
+            "(card okay|do you (take|accept) (card|credit))",
+          ],
+          hint_tr:
+            "Onayla + son detay: 'Sounds fair. Plus tolls? And do you take card?'",
+        },
+        {
+          speaker: "npc",
+          message: "Yeah, tolls extra. Card's fine, terminal's in the back.",
+        },
+      ],
+    },
+    {
+      id: "ex.dx32.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Sokak taksisine binmeden ÖNCE EN önemli soru?",
+          options: [
+            "Şoför adı",
+            "Sayaç açık mı / flat rate mi?",
+            "Müzik var mı",
+            "Klima",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Meter sormak = dolandırıcılığı önler. NYC'de yasal zorunlu ama sokakta sahte taksiler var. Sormak = profesyonel davranış.",
+        },
+        {
+          question: "'Flat rate' ne anlama gelir?",
+          options: [
+            "Sabit ücret (mesafe önemsiz)",
+            "Düz yol",
+            "Standart hız",
+            "Boş taksi",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "JFK ↔ Manhattan = $70 flat (NYC TLC). Trafikten etkilenmez. 'Estimate' sayacın tahminini sorar.",
+        },
+        {
+          question: "Tolls (geçiş ücretleri) için NE bekle?",
+          options: [
+            "Ücrete dahil",
+            "Genellikle ayrı: 'tolls extra'",
+            "Ücretsiz",
+            "Sadece kart ile",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "ABD'de köprü/tünel geçişleri ayrıdır. 'Plus tolls' = artı geçiş. Final ücret = meter + tolls + tip.",
+        },
+      ],
+    },
+    {
+      id: "ex.dx32.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Is the meter running?",
+      ipa: "ɪz ðə ˈmiːtər ˈrʌnɪŋ",
+      tr_hint:
+        "Dolandirici filtre. 'Meter' = sayaç (mee-ter). 'Running' = islemek (run-ing). Net soru tonu.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 32.8 — Small Talk — Kibar Mesafe
+// ============================================================
+export const dailyTaxiLesson_32_8: BundledLesson = {
+  id: "daily.taxi.32.8",
+  skill_id: "daily.taxi",
+  index: 8,
+  title: "Small Talk — Kibar Mesafe",
+  description:
+    "Şoförle kibar small talk: 'How's your shift?', hava + trafik yorumu, fazla kişisel olmadan samimi sohbet.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dx32.8.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "How's your shift going?",
+      tr_translation: "Vardiyan nasıl gidiyor?",
+      example: "Hey, how's your shift going so far?",
+      example_tr: "Selam, vardiyan şimdiye kadar nasıl?",
+    },
+    {
+      id: "ex.dx32.8.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bugün trafik çılgın. Vardiyan ne zaman bitiyor?",
+      target: "Crazy traffic today. When does your shift wrap up?",
+      accepted_variants: [
+        "Wild traffic today — what time do you finish up?",
+        "Traffic's nuts today. When are you off?",
+        "Crazy out there today. How much longer on your shift?",
+        "Brutal traffic today. When does your shift end?",
+      ],
+      tr_hint:
+        "Hava/trafik = ABD'de güvenli açılış. 'Wrap up' = bitirmek (casual). Vardiya = iş, kişisel değil.",
+    },
+    {
+      id: "ex.dx32.8.3",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "Crazy ___ today — how are you holding up?",
+      answer: "traffic",
+      distractors: ["car", "drive", "people"],
+      tr_hint:
+        "'Crazy traffic' = kalıp. 'Holding up' = dayanmak. Şoföre empati = sıcak sohbet.",
+    },
+    {
+      id: "ex.dx32.8.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "How's",
+        "your",
+        "day",
+        "been",
+        "so",
+        "far",
+      ],
+      correct_sentence: "How's your day been so far",
+      tr_translation: "Bugün nasıl gidiyor şu ana kadar?",
+    },
+    {
+      id: "ex.dx32.8.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "You married? Kids? How much you make?",
+      correct_sentence:
+        "How's your shift going? Crazy traffic out there today, huh?",
+      tr_explanation:
+        "Türk hatasi: hemen kişisel sorular = ABD'de garip + rahatsiz. Aile/maaş = tabu. Doğru: shift + hava + trafik = güvenli zon. Driver privacy = saygı göster.",
+    },
+    {
+      id: "ex.dx32.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Uber'de 20 dk yolculuk. Şoför arkadaş canlısı görünüyor. Kibar mesafede sohbet et.",
+      npc_role: "Uber Driver",
+      setting: "Mid-ride, friendly mood",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|hi|hello|so)",
+            "(how('s| is)) (your (shift|day|night)|it going|everything) (going|been)",
+            "(busy (night|day|shift)|been busy)",
+            "(crazy|wild|brutal|nuts) (traffic|out there|today)",
+            "(been driving long|new to this)",
+          ],
+          hint_tr:
+            "Güvenli açılış: 'How's your shift going? Crazy traffic today, huh?'",
+        },
+        {
+          speaker: "npc",
+          message: "Yeah, been on since 6am — Fridays are wild. You heading home or out?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh|wow|long shift|that('s| is) a long one|hang in there)",
+            "(heading (home|out|to dinner|to meet (friends|a friend))|out for (dinner|drinks|the night))",
+            "(just (visiting|in town)|tourist|on a trip|here for (work|the weekend))",
+            "(first time in (\\w+|town)|love the city)",
+            "(can('t| not) wait to (eat|get home|relax))",
+          ],
+          hint_tr:
+            "Empati + kendi planın: 'Long shift! I'm heading to dinner — first time in NYC.'",
+        },
+        {
+          speaker: "npc",
+          message: "Nice, you'll love it. Any good food spots on your list?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|yes|actually|definitely)",
+            "(heard (about|of)|been wanting to try|on my list)",
+            "(any (recommendations|suggestions|favorites|spots))",
+            "(what would you|where would you) (recommend|suggest|go)",
+            "(pizza|burgers|tacos|ramen|deli)",
+            "(local (favorite|spot|place))",
+          ],
+          hint_tr:
+            "Soruyu geri çevir = doğal sohbet: 'A few on my list. Any local favorites you'd recommend?'",
+        },
+        {
+          speaker: "npc",
+          message: "Joe's Pizza on Bleecker. Tourist trap maybe, but it's good.",
+        },
+      ],
+    },
+    {
+      id: "ex.dx32.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Şoförle small talk için EN güvenli açılış konusu?",
+          options: [
+            "Aile / çocuk sayısı",
+            "Maaş / saatlik ücret",
+            "Vardiya + hava/trafik",
+            "Siyaset",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Shift + hava + trafik = nötr, ortak deneyim. Aile/maaş/siyaset = ABD'de tabu, özellikle yabancılarla.",
+        },
+        {
+          question: "ABD'de Uber'de TAMAMEN sessiz yolculuk nasıl algılanır?",
+          options: [
+            "Normal ve beklenir",
+            "Biraz garip — en azından 'Hi, how's it going?' beklenir",
+            "Çok kibar",
+            "Profesyonel",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "ABD'de minimum nezaket = 'Hi, how are you?'. Tam sessizlik = soğuk algılanır. Türkiye normaldir, ABD'de değil.",
+        },
+        {
+          question: "'How's your shift going?' niye iyi soru?",
+          options: [
+            "Kişisel hayatı sorar",
+            "İş odaklı, kibar, empatik — özel hayata girmez",
+            "Kaba",
+            "Para sorar",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "İş + empati = mükemmel denge. Şoför ya kısa cevap verir (sessiz tercih) ya da sohbet açılır. İkisi de güvenli.",
+        },
+      ],
+    },
+    {
+      id: "ex.dx32.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "How's your shift going so far?",
+      ipa: "haʊz jɔːr ʃɪft ˈɡoʊɪŋ soʊ fɑːr",
+      tr_hint:
+        "Small talk acici. 'How's your' baglanir → 'hauz-yor'. 'So far' = simdiye kadar (so-FAR vurgu).",
+    },
+  ],
+};
+
+// ============================================================
 // Daily Taxi lessons registry
 // ============================================================
 export const dailyTaxiLessons: ReadonlyArray<BundledLesson> = [
@@ -869,4 +1577,8 @@ export const dailyTaxiLessons: ReadonlyArray<BundledLesson> = [
   dailyTaxiLesson_32_2,
   dailyTaxiLesson_32_3,
   dailyTaxiLesson_32_4,
+  dailyTaxiLesson_32_5,
+  dailyTaxiLesson_32_6,
+  dailyTaxiLesson_32_7,
+  dailyTaxiLesson_32_8,
 ];

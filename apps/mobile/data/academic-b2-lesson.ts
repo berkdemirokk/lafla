@@ -2491,6 +2491,823 @@ export const academicB2Lesson_10: BundledLesson = {
 };
 
 // ============================================================
+// Lesson B2.11 — Profesörle Ofis Saati: Soru Sorma
+// ============================================================
+export const academicB2Lesson_11: BundledLesson = {
+  id: "academic.b2.office-hours.1",
+  skill_id: "academic.b2",
+  index: 11,
+  title: "Office Hours: Asking the Professor",
+  description:
+    "Hocanın ofis saatinde ders/okuma kavramını anlamadığını kibarca dile getirmek, take istemek, somut yardım talep etmek.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.ab2.11.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "Could I get your take on...?",
+      tr_translation: "...konusunda görüşünüzü alabilir miyim?",
+      example:
+        "Could I get your take on the identification strategy in Angrist and Pischke chapter four?",
+      example_tr:
+        "Angrist ve Pischke'nin dördüncü bölümündeki tanımlama stratejisi konusunda görüşünüzü alabilir miyim?",
+    },
+    {
+      id: "ex.ab2.11.2",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Geçen haftaki okumayı tam olarak kavrayamadım; özellikle araç değişken bölümü konusunda görüşünüzü alabilir miyim?",
+      target:
+        "I'm having trouble grasping last week's reading — could I get your take, particularly on the instrumental variable section?",
+      accepted_variants: [
+        "I'm struggling to fully grasp last week's reading; could I get your take on the instrumental variable section in particular?",
+        "I haven't quite been able to wrap my head around last week's paper — would you mind sharing your take, especially on the IV section?",
+        "Last week's reading hasn't fully clicked for me; could you give me your take on the instrumental variable section?",
+        "I'm finding last week's reading hard to grasp, particularly the IV section — could I get your perspective on it?",
+      ],
+      tr_hint:
+        "'I'm having trouble grasping...' + 'Could I get your take on...' — ofis saatinin iki temel kibar kalıbı. Türkçe 'soru sormak istiyorum' yerine indirekt + somut.",
+    },
+    {
+      id: "ex.ab2.11.3",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template:
+        "I'm having ___ grasping the proof on page seven — would you mind walking me through it?",
+      answer: "trouble",
+      distractors: ["difficult", "hardness", "problem"],
+      tr_hint:
+        "'Having trouble + V-ing' = sıkıntı çekmek. Akademik ofis saatinde 'I don't understand' yerine yumuşatma.",
+    },
+    {
+      id: "ex.ab2.11.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Could",
+        "I",
+        "get",
+        "your",
+        "take",
+        "on",
+        "this",
+        "argument",
+      ],
+      correct_sentence: "Could I get your take on this argument",
+      tr_translation: "Bu argüman konusunda görüşünüzü alabilir miyim?",
+    },
+    {
+      id: "ex.ab2.11.5",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Teacher, I don't understand nothing from this paper, can you explain me everything please?",
+      correct_sentence:
+        "Professor, I'm having trouble grasping the central argument of this paper — could you walk me through the main claim?",
+      tr_explanation:
+        "Üç ayrı hata: (1) 'Teacher' Türkçeden çeviri — üniversitede 'Professor / Dr. Hale'. (2) 'Don't understand nothing' çift olumsuzluk — 'I'm having trouble grasping' yumuşak akademik. (3) 'Explain me' yanlış — 'explain to me' veya 'walk me through'. (4) 'Everything' kapsamı belirsiz — somutla: 'the central argument / the main claim'.",
+    },
+    {
+      id: "ex.ab2.11.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Hocanın ofis saatine geldin. Geçen haftaki makaleyi okudun ama bir bölüm net değil. Kibarca açıklama ve görüş istiyorsun.",
+      npc_role: "Professor (Dr. Hale)",
+      setting: "Professor's office hours, 15-minute slot",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Come in, take a seat. You signed up for the four o'clock slot — what's on your mind?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|thanks)( for (the|seeing me))?",
+            "(I'?(ve|d)| I have) (been )?(working through|reading|going through) (last week'?s|the|your)",
+            "(having trouble|struggling|finding it (hard|difficult)) (grasping|to grasp|with|to follow)",
+            "(could I get your take|could I ask your view|would you mind sharing)",
+            "(specifically|particularly|in particular) (on|about|with)",
+          ],
+          hint_tr:
+            "Açılışı yumuşak yap: 'Thanks for seeing me. I've been working through last week's paper and I'm having trouble grasping section three — could I get your take on it?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure, which part exactly? Don't be vague — point me to a paragraph if you can.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(on (page|p\\.?) (\\d+|seven|eight|three|four)|the (second|third|final) paragraph|the (proof|argument|step|paragraph) (where|that))",
+            "(the author (claims|argues|states)|they (claim|argue|jump))",
+            "(I can'?t see how|it isn'?t clear (to me )?how|I don'?t follow how)",
+            "(follows from|connects to|gets us to)",
+            "(could you|would you mind) (walk(ing)? me through|unpacking|clarifying)",
+          ],
+          hint_tr:
+            "Somut ol: 'On page seven, the author claims X follows from Y, but I can't quite see how — could you walk me through that step?' Sayfa, paragraf, claim — somutla.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Right — the move there is implicit. They're invoking an assumption from chapter two without restating it. Does that help?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that('s| is) (much|really) (clearer|more helpful|helpful)|that makes (much )?more sense|that clarifies)",
+            "(if I'?ve got this right|let me see if I follow|so to (paraphrase|recap))",
+            "(could I (also|just) (follow up|ask one more|raise one more)|one more thing if I may)",
+            "(implication(s)? for|how this connect(s)? to|whether this extends to)",
+          ],
+          hint_tr:
+            "Önce kavradığını teyit et, sonra takip sorusu: 'That clarifies it — if I've got this right, the assumption from chapter two is doing the work. Could I follow up on one implication?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Of course. We've still got eight minutes — go ahead.",
+        },
+      ],
+    },
+    {
+      id: "ex.ab2.11.7",
+      type: "recap_quiz",
+      difficulty: 4,
+      questions: [
+        {
+          question:
+            "Hocaya kibarca görüş sormak için en doğal akademik kalıp?",
+          options: [
+            "Teacher, tell me what you think",
+            "Could I get your take on this argument?",
+            "Sir, I want to know your idea",
+            "What is your opinion teacher?",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Could I get your take on...?' = ofis saatinde standart, profesyonel. 'Teacher' Türkçeden çeviri — 'Professor' veya isim kullan. 'I want to know' direkt + zayıf.",
+        },
+        {
+          question: "'Anlamadım' yerine en akademik yumuşatma?",
+          options: [
+            "I don't understand nothing",
+            "I'm having trouble grasping...",
+            "It is so difficult for me",
+            "Please explain me",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'I'm having trouble grasping X' = sorumluluğu kendine al, somut konu belirt. 'Don't understand nothing' çift olumsuz dilbilgisi hatası. 'Explain me' = 'explain to me' olmalı.",
+        },
+        {
+          question: "Ofis saatinde sorulan sorularda en zayıf olanı?",
+          options: [
+            "Could you walk me through page seven?",
+            "Could I get your view on the IV section specifically?",
+            "Can you explain me everything please?",
+            "I'm finding the second proof hard to follow — could we unpack it?",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Explain me everything' iki hata: 'explain TO me' + 'everything' kapsamı belirsiz. Akademik soru = somut + sınırlı (bir sayfa, bir bölüm).",
+        },
+      ],
+    },
+    {
+      id: "ex.ab2.11.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Could I get your take on this argument?",
+      ipa: "kʊd aɪ ɡɛt jɔːr teɪk ɒn ðɪs ˈɑːɡjuːmənt",
+      tr_hint:
+        "'Could I' = 'kud-ay' bağlı, çok hafif. 'Take on' = 'teyk-on' bağlanır. 'Argument' = 'AR-gyu-mınt', vurgu ilk hecede. Soru tonlaması sonda yukarı.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson B2.12 — Sınıfta Sunum: Açılış
+// ============================================================
+export const academicB2Lesson_12: BundledLesson = {
+  id: "academic.b2.class-presentation-opening.1",
+  skill_id: "academic.b2",
+  index: 12,
+  title: "Class Presentation: Opening",
+  description:
+    "Sınıfta veya seminerde sunumun açılışı: konu çerçevesi, road map, bulguları gezdirme — net ve özgüvenli giriş.",
+  estimated_minutes: 9,
+  exercises: [
+    {
+      id: "ex.ab2.12.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "Today I'll be discussing...",
+      tr_translation: "Bugün ele alacağım konu...",
+      example:
+        "Today I'll be discussing how minimum wage policy interacts with regional unemployment.",
+      example_tr:
+        "Bugün asgari ücret politikasının bölgesel işsizlikle nasıl etkileşime girdiğini ele alacağım.",
+    },
+    {
+      id: "ex.ab2.12.2",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Bugün size bulgularımı baştan sona kısaca gezdireceğim ve sonrasında çıkarımları tartışmaya açacağım.",
+      target:
+        "Today I'll walk you through my findings from start to finish, and then open up the implications for discussion.",
+      accepted_variants: [
+        "Let me walk you through my findings briefly today, and then we'll open the implications up to discussion.",
+        "I'll take you through the findings end to end this afternoon, and then turn it over for discussion of the implications.",
+        "What I'd like to do today is walk you through the main findings, after which I'll open the floor on the implications.",
+        "Today I'll be walking you through my findings, and then we'll discuss what they imply.",
+      ],
+      tr_hint:
+        "'Walk you through...' = adım adım götürmek (akademik sunum kalıbı). 'Open up to discussion / open the floor' = tartışmaya açmak. Türkçe 'göstereceğim' yerine 'walk you through'.",
+    },
+    {
+      id: "ex.ab2.12.3",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template:
+        "Let me ___ you through my findings before we get into the methodology.",
+      answer: "walk",
+      distractors: ["go", "tell", "show"],
+      tr_hint:
+        "'Walk someone through X' = X'i adım adım gezdirmek — sunum açılışında standart akademik kalıp.",
+    },
+    {
+      id: "ex.ab2.12.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Today",
+        "I'll",
+        "be",
+        "discussing",
+        "the",
+        "framework",
+        "and",
+        "its",
+        "implications",
+      ],
+      correct_sentence:
+        "Today I'll be discussing the framework and its implications",
+      tr_translation:
+        "Bugün çerçeveyi ve onun çıkarımlarını ele alacağım.",
+    },
+    {
+      id: "ex.ab2.12.5",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Hello everyone, today I will tell you about my presentation and I hope you will like it.",
+      correct_sentence:
+        "Good afternoon. Today I'll be discussing how policy X shapes outcome Y, and I'll walk you through three findings before opening up for questions.",
+      tr_explanation:
+        "Akademik açılış 'tell you about my presentation' meta — sunumun kendisini değil, konuyu çerçevele. 'I hope you will like it' kişiseldir, akademik seminerde gereksiz. Doğrusu: konu cümlesi + road map ('three findings') + Q&A planı. 'Walk you through' kalıbı.",
+    },
+    {
+      id: "ex.ab2.12.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Doktora seminerinde 15 dakikalık sunum yapıyorsun. Sınıf yerleşti, hoca açılışı yapmanı istiyor.",
+      npc_role: "Course instructor",
+      setting: "Graduate seminar, 12 students, 15-minute slot",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Alright, the room is yours. Quick framing, road map, then dive in — you've got fifteen minutes.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|thanks)( everyone| all)?",
+            "(good (morning|afternoon)|afternoon (everyone|all))",
+            "(today (I'?ll|I will) be (discussing|presenting|exploring|focusing on)|what I'?d like to do today is)",
+            "(how|whether|the question of|the relationship between)",
+            "(I'?ll walk you through|let me walk you through|the plan is to)",
+          ],
+          hint_tr:
+            "Açılış kalıbı: 'Good afternoon. Today I'll be discussing X. Let me walk you through three findings and then open up for questions.' Net konu cümlesi + road map.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Good — but what's the question you're actually answering? Frame it sharper.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the (central|core|specific|narrow) question (here )?is|the question I'?m (asking|tackling|addressing) is|put (simply|differently),? the question is)",
+            "(does|how does|under what conditions|to what extent|whether)",
+            "(causal|effect|impact|relationship|trade-?off)",
+            "(it (seems|appears) that|one (could|might) argue|tentatively)",
+            "(I'?ll come back to (the )?methodology|methodology in a moment|I'?ll get to (the )?how in a moment)",
+          ],
+          hint_tr:
+            "Soruyu keskinleştir: 'The central question is whether X causally affects Y under condition Z. I'll come back to the methodology in a moment.' Hedge ekle: 'It seems that...' + 'tentatively'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Better. Now — quick road map before you go into the evidence?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(let me (walk|take) you through|the plan|here'?s the road map|the structure of the talk)",
+            "(first|to start|I'?ll start by|I begin with)",
+            "(then|second|next|after that)",
+            "(finally|to close|I'?ll close with|wrap up by)",
+            "(implications|limitations|caveats|open questions|what this means for|further work)",
+          ],
+          hint_tr:
+            "Üç parçalı road map: 'First, I'll set out the framework. Second, walk you through the findings. Finally, I'll close on implications and limitations.' Net + ölçülü.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Good — clear road map. Go ahead and start with the framework.",
+        },
+      ],
+    },
+    {
+      id: "ex.ab2.12.7",
+      type: "recap_quiz",
+      difficulty: 4,
+      questions: [
+        {
+          question: "Akademik sunumun en doğal açılış cümlesi?",
+          options: [
+            "Hello everyone, my presentation is about...",
+            "Today I'll be discussing how X affects Y under condition Z.",
+            "I will tell you about my topic now.",
+            "Let me start my presentation please.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Today I'll be discussing...' = konu cümlesi, meta değil. 'My presentation is about' meta — sunumun kendisini değil, konuyu çerçevele. 'Tell you about my topic' belirsiz + sınıf seviyesi altı.",
+        },
+        {
+          question: "'Walk you through my findings' ne demek?",
+          options: [
+            "Bulgularımla yürüyüşe çıkmak",
+            "Bulgularımı adım adım gezdirmek",
+            "Bulgularımı silmek",
+            "Bulgularımı yazıya dökmek",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Walk someone through X' = X'i adım adım anlatmak, gezdirmek. Akademik sunum + tutorial dilinde standart. Yürüyüş anlamı değil.",
+        },
+        {
+          question: "Bir akademik sunumda road map ne işe yarar?",
+          options: [
+            "Şehri tanıtmak",
+            "Dinleyicinin nereye gittiğimizi bilmesini sağlamak",
+            "Sunumu uzatmak",
+            "Hocayı etkilemek",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Road map = 'First X, then Y, finally Z.' Dinleyicinin yapıyı izlemesini sağlar — akademik sunumun temel kuralı. Bilişsel yük dağıtımı.",
+        },
+      ],
+    },
+    {
+      id: "ex.ab2.12.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Let me walk you through my findings.",
+      ipa: "lɛt mi wɔːk juː θruː maɪ ˈfaɪndɪŋz",
+      tr_hint:
+        "'Walk you through' = 'wok-yu-thru' bağlı. 'Findings' = 'FAYN-dingz', vurgu ilk hecede. Akademik açılışta kararlı, ölçülü ton — aceleci değil.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson B2.13 — Peer Review: Yapıcı Eleştiri
+// ============================================================
+export const academicB2Lesson_13: BundledLesson = {
+  id: "academic.b2.peer-review.1",
+  skill_id: "academic.b2",
+  index: 13,
+  title: "Peer Review: Constructive Criticism",
+  description:
+    "Akran çalışmasına yapıcı geri bildirim: önce övgü, sonra eleştiri, somut kanıt isteği — diplomatik akademik dil.",
+  estimated_minutes: 9,
+  exercises: [
+    {
+      id: "ex.ab2.13.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "Your argument is compelling, however...",
+      tr_translation: "Argümanın inandırıcı, ancak...",
+      example:
+        "Your argument is compelling, however I'm not fully convinced by the causal claim in section three.",
+      example_tr:
+        "Argümanın inandırıcı, ancak üçüncü bölümdeki nedensel iddiaya tam olarak ikna olmadım.",
+    },
+    {
+      id: "ex.ab2.13.2",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Çerçeveyi gerçekten ikna edici buldum; ancak nedensel iddian için biraz daha kanıt görmek isterdim.",
+      target:
+        "I found the framework genuinely compelling; that said, I'd love to see more evidence on the causal claim.",
+      accepted_variants: [
+        "Your framework is genuinely compelling — however, I'd love to see more evidence behind the causal claim.",
+        "The framework you set out is compelling; that said, the causal claim could be better supported with more evidence.",
+        "I'm convinced by the framework, but I'd want to see more evidence on the causal claim before being fully persuaded.",
+        "Your framework is compelling, however I'd love to see additional evidence on the causal claim.",
+      ],
+      tr_hint:
+        "Yapıcı eleştiri kalıbı: önce övgü ('compelling') → hedge ('that said / however') → somut talep ('more evidence on X'). 'I'd love to see' yumuşatıcı.",
+    },
+    {
+      id: "ex.ab2.13.3",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "Your argument is ___, however I'd love to see more evidence on the second claim.",
+      answer: "compelling",
+      distractors: ["compelled", "compulsion", "compelment"],
+      tr_hint:
+        "'Compelling' = inandırıcı, çekici. Peer review'da en sık övgü sıfatı. 'Compelled' = mecbur kalan (yanlış kullanım).",
+    },
+    {
+      id: "ex.ab2.13.4",
+      type: "word_order",
+      difficulty: 5,
+      scrambled_tokens: [
+        "I'd",
+        "love",
+        "to",
+        "see",
+        "more",
+        "evidence",
+        "on",
+        "the",
+        "causal",
+        "claim",
+      ],
+      correct_sentence:
+        "I'd love to see more evidence on the causal claim",
+      tr_translation: "Nedensel iddia konusunda daha fazla kanıt görmek isterdim.",
+    },
+    {
+      id: "ex.ab2.13.5",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Your paper is bad and your argument is not correct, you must rewrite section three completely.",
+      correct_sentence:
+        "There's a lot to like in this paper; that said, I'm not fully persuaded by the argument in section three — could the claim be tightened, or supported with more evidence?",
+      tr_explanation:
+        "Akademik peer review'da düz yargılama ('bad', 'not correct') ve emir ('you must rewrite') yasak. Diplomatik formül: (1) övgü öne ('There's a lot to like'), (2) hedge ('that said', 'not fully persuaded'), (3) somut soruya çevir ('could the claim be tightened?'). Kanıt iste, dayatma değil.",
+    },
+    {
+      id: "ex.ab2.13.6",
+      type: "roleplay_chat",
+      difficulty: 6,
+      scenario_description:
+        "Yazma atölyesinde bir akranın taslağını okudun. Yapıcı geri bildirim veriyorsun — övgü, eleştiri, somut öneri sırasında.",
+      npc_role: "Peer author (Maya)",
+      setting: "Graduate writing workshop, peer review session",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Thanks for taking the time to read it. Be honest — what's your overall take?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks for|thank you for) (sharing|sending|the draft)",
+            "(there'?s a lot to like|the framing is strong|I found .* compelling|genuinely (interesting|engaging))",
+            "(the (central|core|main) (argument|claim|contribution) (is|comes through))",
+            "(I'?d like to (raise|flag|push on)|a couple of (things|points) I'?d (raise|flag)|two areas I'?d push on)",
+          ],
+          hint_tr:
+            "Önce dengeyi kur: 'Thanks for sharing it. There's a lot to like — the framing is genuinely compelling. I'd like to flag two areas where I'd push back, if that's useful.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Please push back — that's what this is for. Where's the weakest part?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(I'?m not (fully|entirely|completely) (persuaded|convinced) by|I struggled with|where I'?d push on)",
+            "(the (causal|second|main) claim|section (three|four|five)|page \\d+)",
+            "(it (seems|appears|reads) (a (little|bit) )?(thin|underdetermined|under-?supported|stretched))",
+            "(could be argued|one (could|might) argue|an alternative (reading|interpretation))",
+            "(I'?d love to see (more )?evidence|the claim would (be )?tighter (with|if)|more support (on|for))",
+          ],
+          hint_tr:
+            "Eleştiriyi hedge'le: 'I'm not fully persuaded by the causal claim in section three — it reads a little thin. I'd love to see more evidence on the identification step.' Yumuşatıcı + somut.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Fair. What about the framing — does the introduction land?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the (introduction|opening|framing) (largely )?(works|lands|holds up)|on balance .* (works|lands))",
+            "(one (small )?thing|one (suggestion|nit|tweak)|the only thing I'?d (flag|tweak|reconsider))",
+            "(the (third|second) paragraph|the framing of (the )?(gap|contribution|stakes))",
+            "(could be (sharpened|tightened|pulled forward|made more concrete)|reads (a little|slightly) (abstract|vague))",
+            "(but (overall|on balance|on the whole) (strong|solid|effective))",
+          ],
+          hint_tr:
+            "Mikro öneri + bütünü onayla: 'The framing largely works. One small thing — the third paragraph reads slightly abstract; the stakes could be pulled forward. But on balance, strong.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "That's useful — concrete and kind. I'll work on section three first.",
+        },
+      ],
+    },
+    {
+      id: "ex.ab2.13.7",
+      type: "recap_quiz",
+      difficulty: 5,
+      questions: [
+        {
+          question:
+            "Peer review'da yapıcı eleştiri için en doğal kalıp?",
+          options: [
+            "Your paper is wrong, fix it.",
+            "Your argument is compelling, however I'd love to see more evidence on X.",
+            "I don't like this section.",
+            "This must be rewritten.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Klasik 'praise → hedge → ask' yapısı: 'compelling, however I'd love to see...' Akademik diplomasinin altın formülü.",
+        },
+        {
+          question: "'I'd love to see more evidence on X' ne anlama gelir?",
+          options: [
+            "X'i daha az görmek istiyorum",
+            "X konusunda daha fazla kanıt görmek isterdim (yumuşak rica)",
+            "X'i seviyorum",
+            "X olmadan da olur",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'I'd love to see more X' = 'X konusunda daha fazlasını görmek isterdim' — talep, ama emir değil. Peer review'da eleştiriyi soruya / dileğe çevirme tekniği.",
+        },
+        {
+          question: "Aşağıdakilerden hangisi peer review için en az uygunu?",
+          options: [
+            "There's a lot to like, but I'd push on section three.",
+            "Could the claim be tightened with more evidence?",
+            "You must rewrite this completely, it doesn't work.",
+            "I'm not fully persuaded by the causal claim — it reads a little thin.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'You must rewrite, it doesn't work' = emir + düz yargı = peer review'da yasak. Akademik dilde eleştiriyi soruya / hedge'lenmiş gözleme çevir.",
+        },
+      ],
+    },
+    {
+      id: "ex.ab2.13.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "Your argument is compelling, however I'd love to see more evidence.",
+      ipa: "jɔːr ˈɑːɡjuːmənt ɪz kəmˈpɛlɪŋ haʊˈɛvər aɪd lʌv tuː siː mɔːr ˈɛvɪdəns",
+      tr_hint:
+        "'Compelling' = 'kım-PEL-ing', vurgu 2. hecede. 'However' öncesi hafif duraklama — pivot anı. 'I'd love to see' yumuşak, neredeyse rica tonu. Eleştiri sertleşmez.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson B2.14 — Konferansta Soru Sorma: Q&A
+// ============================================================
+export const academicB2Lesson_14: BundledLesson = {
+  id: "academic.b2.conference-question.1",
+  skill_id: "academic.b2",
+  index: 14,
+  title: "Asking a Question at a Conference",
+  description:
+    "Konferansta sunucuya soru sormak: kibarca tanıt, somut bağlantı kur, hedge'le, takip sorusu — Türk akademisyenin en korktuğu an.",
+  estimated_minutes: 9,
+  exercises: [
+    {
+      id: "ex.ab2.14.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "Could you elaborate on...?",
+      tr_translation: "...konusunda biraz daha açar mısınız?",
+      example:
+        "Could you elaborate on how this framework handles selection bias?",
+      example_tr:
+        "Bu çerçeve seçim yanlılığını nasıl ele alıyor, biraz açar mısınız?",
+    },
+    {
+      id: "ex.ab2.14.2",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Çok teşekkürler bu sunum için. Sonuçlarınızın daha geniş kalkınma literatürüyle nasıl ilişkilendiğini biraz daha açar mısınız?",
+      target:
+        "Thank you for the talk. Could you elaborate on how your results relate to the broader development literature?",
+      accepted_variants: [
+        "Thanks very much for the presentation — could you elaborate on how these findings connect to the wider development literature?",
+        "Thank you for the talk; would you mind elaborating on how this work relates to the broader development literature?",
+        "Many thanks for the presentation. How does this relate to the wider development literature — could you say a little more?",
+        "Thanks for the talk. Could you say more about how these findings relate to the broader development literature?",
+      ],
+      tr_hint:
+        "Konferans sorusu sırası: teşekkür → 'Could you elaborate on...?' veya 'How does this relate to...?' → somut bağlam. Türkçe 'sormak istiyorum' yerine doğrudan soru.",
+    },
+    {
+      id: "ex.ab2.14.3",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template:
+        "How does this ___ to the existing literature on regional inequality?",
+      answer: "relate",
+      distractors: ["relating", "related", "relation"],
+      tr_hint:
+        "'How does X relate to Y?' = X, Y ile nasıl ilişkili? Konferans Q&A'da bağlantı kurma sorusunun en sık kalıbı.",
+    },
+    {
+      id: "ex.ab2.14.4",
+      type: "word_order",
+      difficulty: 5,
+      scrambled_tokens: [
+        "Could",
+        "you",
+        "elaborate",
+        "on",
+        "the",
+        "identification",
+        "strategy",
+      ],
+      correct_sentence:
+        "Could you elaborate on the identification strategy",
+      tr_translation:
+        "Tanımlama stratejisi konusunda biraz daha açar mısınız?",
+    },
+    {
+      id: "ex.ab2.14.5",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Hello sir, I want to ask one question, your presentation is very good but I don't agree with you about everything.",
+      correct_sentence:
+        "Thanks for the talk. Could I follow up on the causal claim — how does it relate to the prior work by Acemoglu and Robinson?",
+      tr_explanation:
+        "Konferans Q&A protokolü: (1) 'Hello sir' resmi ama amatör — 'Thanks for the talk' standart. (2) 'I want to ask' meta — direkt soruya geç. (3) 'Very good but I don't agree about everything' belirsiz + kişisel — 'Could I follow up on [somut bölüm]?' diye çerçevele. (4) Somut atıf ekle (Acemoglu & Robinson) — saygı + bağlam.",
+    },
+    {
+      id: "ex.ab2.14.6",
+      type: "roleplay_chat",
+      difficulty: 6,
+      scenario_description:
+        "Uluslararası bir konferanstasın. Sunucu 20 dakikalık konuşmasını bitirdi. Mikrofonu aldın — kibarca soru soracaksın.",
+      npc_role: "Conference presenter (Dr. Okonkwo)",
+      setting: "International conference, Q&A session, microphone",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "We have time for two more questions. Yes — the gentleman at the back, please go ahead.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you) (very much |so much )?for (the talk|the presentation|sharing this)",
+            "(my name is|I'?m) [a-z]+",
+            "(from|based at) [a-z]+",
+            "(I (had|have) (one|two) (questions?|thoughts?)|could I (raise|ask) (one|two))",
+            "(if (I|we) may|if that'?s alright|briefly)",
+          ],
+          hint_tr:
+            "Profesyonel açılış: 'Thanks very much for the talk. I'm Berk, from Boğaziçi — I had one question, if I may.' Teşekkür + kısa tanıtım + niyet.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Please — go ahead.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could you elaborate on|could you say (a little )?more about|I('d| would) be curious to hear (more )?about)",
+            "(the (identification|causal|methodological) (strategy|claim|step)|section (three|four)|the second (finding|result))",
+            "(specifically|in particular|the part where)",
+            "(it (seems|appears) that|one (could|might) argue|tentatively)",
+            "(how (does|do) (this|your (results|findings|framework)) relate to|connect to|speak to)",
+          ],
+          hint_tr:
+            "Sorunun gövdesi: 'Could you elaborate on the identification strategy, specifically the part where you handle unmeasured confounders? It seems that one might argue X — how does your framework relate to that?' Hedge + somut.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Great question. The short answer is that we assume conditional ignorability — but you're right that it's a strong assumption. We address robustness in the appendix.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|thanks) (for (clarifying|the answer|that)|so much)",
+            "(could I (briefly )?(follow up|push on (that)?|press on that)|one quick follow-?up|if I may follow up)",
+            "(have you considered|did you (try|test|explore)|what about|how would (this|the framework) (handle|extend to))",
+            "(an alternative (specification|approach|reading)|a (related|adjacent) (literature|question)|the boundary case (where|of))",
+            "(I'?ll (read|look at) the appendix|I'?ll follow up offline|happy to discuss further offline)",
+          ],
+          hint_tr:
+            "Takip sorusu: 'Thank you. Could I briefly follow up — have you considered the boundary case where the assumption fails? I'll read the appendix, but happy to discuss offline.' Saygı + ısrar + offline kapı.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yes, let's continue offline — grab me after the session. Next question, please.",
+        },
+      ],
+    },
+    {
+      id: "ex.ab2.14.7",
+      type: "recap_quiz",
+      difficulty: 5,
+      questions: [
+        {
+          question:
+            "Konferansta soru sorarken en doğal açılış?",
+          options: [
+            "Hello sir, I want to ask one question please.",
+            "Thanks for the talk. Could I follow up on the causal claim?",
+            "I have a problem with your presentation.",
+            "Sir, my question is...",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Thanks for the talk. Could I follow up on...?' = konferans Q&A'da altın standart. Teşekkür + somut bağlantı. 'I want to ask' meta — direkt soruya geç.",
+        },
+        {
+          question:
+            "'Could you elaborate on...?' ne işe yarar?",
+          options: [
+            "Sunucudan özür dilemek",
+            "Sunucuyu eleştirmek",
+            "Belirli bir konuyu daha açmasını rica etmek",
+            "Sunumu erken bitirmek",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Could you elaborate on X?' = X'i biraz daha açar mısınız? = somut, kibar, akademik. Eleştiri değil — bilgi rica etme.",
+        },
+        {
+          question: "Konferansta hangi yaklaşım yanlıştır?",
+          options: [
+            "Hedge'lemek: 'It seems that...'",
+            "Somut bağlam: 'in section three'",
+            "Direkt yargılamak: 'Your argument is wrong.'",
+            "Atıf yapmak: 'How does this relate to Acemoglu's work?'",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Your argument is wrong' = düz yargı = konferans dilinde tabu. Doğru yaklaşım: hedge ('it seems'), somut atıf, soruya çevir. İtiraz bile soru biçiminde gelir.",
+        },
+      ],
+    },
+    {
+      id: "ex.ab2.14.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "Could you elaborate on how this relates to the prior literature?",
+      ipa: "kʊd juː ɪˈlæbəreɪt ɒn haʊ ðɪs rɪˈleɪts tuː ðə ˈpraɪər ˈlɪtərətʃər",
+      tr_hint:
+        "'Elaborate' = 'i-LAB-ı-reyt', vurgu 2. hecede. 'Relates to' = 'ri-LEYTS-tu' bağlı. 'Literature' = 'LIT-rı-çır' (3 hece, ortadaki kısa). Soru tonu sonda hafif yukarı.",
+    },
+  ],
+};
+
+// ============================================================
 // Lesson registry
 // ============================================================
 export const academicB2Lessons: ReadonlyArray<BundledLesson> = [
@@ -2504,6 +3321,10 @@ export const academicB2Lessons: ReadonlyArray<BundledLesson> = [
   academicB2Lesson_8,
   academicB2Lesson_9,
   academicB2Lesson_10,
+  academicB2Lesson_11,
+  academicB2Lesson_12,
+  academicB2Lesson_13,
+  academicB2Lesson_14,
 ];
 
 export function getAcademicB2Lesson(id: string): BundledLesson | undefined {

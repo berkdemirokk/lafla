@@ -2709,6 +2709,700 @@ const convoLesson_15: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 16 — Opening a conversation (4 universal openers)
+// ============================================================
+const convoLesson_16: BundledLesson = {
+  id: "daily.conversation.opener.1",
+  skill_id: "daily.conversation.opener",
+  index: 16,
+  title: "Sohbeti Aç — 4 Evrensel Açılış",
+  description:
+    "Sessizliği bozmanın doğal yolu: 'Beautiful day, isn't it?', 'How's your week going?', 'Crazy line, huh?', 'First time here?' — her ortama uyan açılışlar.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.convo.16.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Beautiful day, isn't it?",
+      tr_translation: "Güzel bir gün, değil mi? (klasik buz kırıcı)",
+      example: "Beautiful day, isn't it? Almost too nice to be inside.",
+      example_tr: "Güzel bir gün, değil mi? İçeride olmak için fazla güzel.",
+    },
+    {
+      id: "ex.convo.16.2",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "How's your week going?",
+      tr_translation: "Haftan nasıl gidiyor? ('How are you?'den daha sıcak)",
+      example: "Hey — how's your week going so far?",
+      example_tr: "Selam — şu ana kadar haftan nasıl gidiyor?",
+    },
+    {
+      id: "ex.convo.16.3",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Sıra epey uzun, değil mi? İlk gelişin mi buraya?",
+      target: "Crazy line, huh? Is this your first time here?",
+      accepted_variants: [
+        "Wild line, right? First time here?",
+        "Long line, huh? You been here before?",
+        "Crazy wait, huh? First time at this place?",
+        "This line is something, huh? First time here?",
+        "Quite a line, isn't it? Have you been here before?",
+      ],
+      tr_hint:
+        "Ortak deneyim ('crazy line, huh?') + nazik soru ('first time here?') — yabancıyla en güvenli açılış kombosu.",
+    },
+    {
+      id: "ex.convo.16.4",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "Beautiful day, ___ it?",
+      answer: "isn't",
+      distractors: ["is", "wasn't", "doesn't", "no"],
+      tr_hint:
+        "Tag question: 'Beautiful day, isn't it?' — pozitif cümle + negatif tag. Sabit kalıp.",
+    },
+    {
+      id: "ex.convo.16.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Hello. The weather is good today. Do you agree with me?",
+      correct_sentence: "Beautiful day, isn't it?",
+      tr_explanation:
+        "İlk hali ders kitabı kokuyor + 'Do you agree' resmi/garip. Doğal açılış = kısa gözlem + 'isn't it?' tag — tek cümlede buz kırılır.",
+    },
+    {
+      id: "ex.convo.16.6",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "How's your week going?",
+      tr_translation: "Haftan nasıl gidiyor?",
+      ipa: "/haʊz jɔːr wiːk ˈɡoʊɪŋ/",
+    },
+    {
+      id: "ex.convo.16.7",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Kahve dükkanında sıra bekliyorsun. Yanındaki kişi de bekliyor. Bir açılış denesen.",
+      npc_role: "Stranger in line",
+      setting: "Busy coffee shop, mid-morning",
+      turns: [
+        {
+          speaker: "npc",
+          message: "(checking phone, waiting in line)",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(crazy|wild|long|quite a) (line|wait|queue)",
+            "(beautiful|gorgeous|gorgeous|nice) day",
+            "(how('s| is) your (week|day|morning))",
+            "(first time|been here before)",
+            "(huh|right|isn'?t it)",
+          ],
+          hint_tr:
+            "Ortak deneyimden gir: 'Crazy line, huh?' veya 'Beautiful day, isn't it?'",
+        },
+        {
+          speaker: "npc",
+          message: "Oh — yeah, totally. I didn't think it'd be this packed on a Tuesday.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(right|i know|tell me about it|seriously)",
+            "(first time here|been here before|you come here often)",
+            "(is (it|this place) (always|usually))",
+            "(any recommendations|what'?s good here)",
+            "(worth the wait)",
+          ],
+          hint_tr:
+            "Onaylama + follow-up: 'Right? First time here?' veya 'Is it always like this?'",
+        },
+        {
+          speaker: "npc",
+          message: "I come here every Tuesday actually — the cinnamon latte is unreal.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh (nice|cool|wow|good to know|noted))",
+            "(i('ll| will) (have to|definitely) (try|get) (that|one))",
+            "(thanks for the tip|good rec|appreciate the tip)",
+            "(cinnamon latte|sounds (great|amazing|good))",
+          ],
+          hint_tr:
+            "Tavsiyeyi al + samimi tepki: 'Oh nice — I'll have to try that. Thanks for the tip!'",
+        },
+        {
+          speaker: "npc",
+          message: "Honestly, worth the wait. Enjoy!",
+        },
+      ],
+    },
+    {
+      id: "ex.convo.16.8",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Yabancıyla en doğal açılış hangisi?",
+          options: [
+            "Hello. I want to talk to you.",
+            "Crazy line, huh?",
+            "Excuse me, what is your name?",
+            "Tell me about yourself.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Ortak deneyime atıf ('crazy line, huh?') = en güvenli açılış. Direkt soru garip, gözlem doğal.",
+        },
+        {
+          question: "'Beautiful day, isn't it?' neden işe yarar?",
+          options: [
+            "Hava durumu önemli olduğu için",
+            "Ortak deneyime atıfta bulunup nazik 'tag question' ile karşı tarafı söze sokar",
+            "Kişisel bir sorudur",
+            "Sadece İngiltere'de kullanılır",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Açılışın işi: çok yormadan karşı tarafı söze sokmak. Gözlem + 'isn't it?' = davet.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 17 — Topic switching (smooth transition)
+// ============================================================
+const convoLesson_17: BundledLesson = {
+  id: "daily.conversation.topicswitch.1",
+  skill_id: "daily.conversation.topicswitch",
+  index: 17,
+  title: "Konu Değiştir — Smooth Transition",
+  description:
+    "Konuyu kabaca atlamadan değiştir: 'Speaking of...', 'That reminds me...', 'Oh, before I forget...' — köprü kalıpları.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.convo.17.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Speaking of which",
+      tr_translation: "Bu arada / lafı açılmışken (önceki konudan bağ)",
+      example: "Speaking of which, did you ever try that new place I mentioned?",
+      example_tr: "Bu arada, bahsettiğim yeni mekanı hiç denedin mi?",
+    },
+    {
+      id: "ex.convo.17.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "That reminds me",
+      tr_translation: "Aklıma geldi de (yeni konuya geç)",
+      example: "Oh, that reminds me — I saw your brother yesterday.",
+      example_tr: "Aklıma geldi — dün kardeşini gördüm.",
+    },
+    {
+      id: "ex.convo.17.3",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Bu arada, geçen söylediğin dizi var ya — sonunda izlemeye başladım.",
+      target: "Speaking of which — that show you mentioned? I finally started watching it.",
+      accepted_variants: [
+        "That reminds me — that show you mentioned, I actually started it.",
+        "Oh, speaking of that — I finally got around to that show you told me about.",
+        "Hey, speaking of which, I finally started that show you recommended.",
+        "Funny you should mention that — I just started the show you told me about.",
+      ],
+      tr_hint:
+        "Köprü kalıbı ('Speaking of which / That reminds me') + öncekine kısa atıf + yeni bilgi.",
+    },
+    {
+      id: "ex.convo.17.4",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Oh, that ___ me — I forgot to text you back yesterday.",
+      answer: "reminds",
+      distractors: ["remembers", "remembered", "remind", "reminding"],
+      tr_hint:
+        "'That reminds me' = sabit kalıp, daima 'reminds' (3. tekil). 'Me' nesne.",
+    },
+    {
+      id: "ex.convo.17.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Stop. I want to talk about another thing now. Yesterday I saw your brother.",
+      correct_sentence: "Oh — that reminds me, I saw your brother yesterday.",
+      tr_explanation:
+        "'Stop. I want to talk about another thing' = kaba ve robotik. Doğal geçiş = küçük bir köprü kalıbı ('that reminds me' / 'speaking of which') ile yumuşat. 'Oh' = doğal düşünme sesi.",
+    },
+    {
+      id: "ex.convo.17.6",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Speaking of which",
+      tr_translation: "Bu arada / lafı açılmışken",
+      ipa: "/ˈspiːkɪŋ əv wɪtʃ/",
+    },
+    {
+      id: "ex.convo.17.7",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Arkadaşınla tatil planlarını konuşuyorsun. Aklına farklı ama bağlantılı bir şey geliyor — konuyu doğal değiştir.",
+      npc_role: "Friend at lunch",
+      setting: "Casual lunch, mid-conversation",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Yeah, we're thinking Greece in July — probably Athens then island-hopping.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh nice|amazing|sounds great|love that|jealous)",
+            "(speaking of (greece|islands|travel|that))",
+            "(that reminds me|funny you should mention)",
+            "(by the way|oh before i forget)",
+            "(have you|did you|you('ve| have))",
+          ],
+          hint_tr:
+            "Onayla + köprü at: 'Oh nice! Speaking of Greece — did you ever...?' veya 'That reminds me...'",
+        },
+        {
+          speaker: "npc",
+          message: "Yeah, what's up?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(remember when|did you ever|you('ve| have) been)",
+            "(i('ve| have) been thinking|i('ve| have) been wanting)",
+            "(should we|we should|let'?s)",
+            "(actually|the other day|recently)",
+            "(by the way)",
+          ],
+          hint_tr:
+            "Yeni konuyu aç: 'Did you ever finish that book about Greece?' gibi spesifik bir bağ kur.",
+        },
+        {
+          speaker: "npc",
+          message: "Oh, the Mary Beard one? Yeah, halfway through — it's amazing.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(can i|would you|do you mind)",
+            "(borrow|lend|when you('re| are) done|after you finish)",
+            "(let me know|tell me)",
+            "(sounds (great|amazing|interesting))",
+            "(adding (it|that) to my list)",
+          ],
+          hint_tr:
+            "Devam et — yeni konuyu sürdür: 'Can I borrow it when you're done?'",
+        },
+        {
+          speaker: "npc",
+          message: "Of course — I'll bring it next time.",
+        },
+      ],
+    },
+    {
+      id: "ex.convo.17.8",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Konuyu nazikçe değiştirmek için EN İYİ köprü?",
+          options: [
+            "Stop talking about this.",
+            "Speaking of which —",
+            "Now I will say something else.",
+            "Change subject please.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Speaking of which' = önceki konudan yenisine geçişin nazik köprüsü. Diğerleri ya kaba ya robotik.",
+        },
+        {
+          question: "'That reminds me' ne zaman kullanılır?",
+          options: [
+            "Bir hatıra paylaşırken",
+            "Konuştuğunuz şey aklına yeni bir konu getirdiğinde",
+            "Birini hatırlatmak istediğinde",
+            "Veda ederken",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'That reminds me' = mevcut konu tetikleyici, ona kısmen bağlı yeni konuya yumuşak geçiş.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 18 — Breaking awkward silence
+// ============================================================
+const convoLesson_18: BundledLesson = {
+  id: "daily.conversation.silence.1",
+  skill_id: "daily.conversation.silence",
+  index: 18,
+  title: "Awkward Sessizliği Kır",
+  description:
+    "Sohbet durdu, hava ağırlaştı — kibar ve doğal yolla aç: 'Random question:', 'Okay, I gotta ask:', 'Side note:' kalıpları.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.convo.18.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Random question:",
+      tr_translation: "Rastgele bir soru: (sessizliği kırmak için)",
+      example: "Random question: do you actually like pineapple on pizza?",
+      example_tr: "Rastgele bir soru: pizzanın üstünde ananas seviyor musun gerçekten?",
+    },
+    {
+      id: "ex.convo.18.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Okay, I gotta ask:",
+      tr_translation: "Tamam, sormam lazım: (merakla doğal soru aç)",
+      example: "Okay, I gotta ask — where did you get that jacket?",
+      example_tr: "Tamam, sormam lazım — şu ceketi nereden aldın?",
+    },
+    {
+      id: "ex.convo.18.3",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Sormam lazım — bu kadar enerjiyi nereden buluyorsun cidden?",
+      target: "Okay, I gotta ask — where do you get all this energy, seriously?",
+      accepted_variants: [
+        "I have to ask — where does all this energy come from?",
+        "Random question, but where do you get your energy from?",
+        "Genuine question — how do you have this much energy?",
+        "Okay so I have to know — what's your secret for all this energy?",
+      ],
+      tr_hint:
+        "'Okay, I gotta ask' / 'Random question' = sessizliği kırmanın en doğal yolu. Samimi merak göster.",
+    },
+    {
+      id: "ex.convo.18.4",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "___ question: what's the last show you actually loved?",
+      answer: "Random",
+      distractors: ["A", "Some", "Strange", "Hard"],
+      tr_hint:
+        "'Random question:' = sabit kalıp. Ön plana 'random' atınca soru baskısı azalır, sohbet doğal akar.",
+    },
+    {
+      id: "ex.convo.18.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "There is silence between us. I will now make a question.",
+      correct_sentence: "Random question — what's the best meal you've had this month?",
+      tr_explanation:
+        "İlk hali sessizliği daha da awkward yapıyor (sessizliğin adını koyma!). Doğru: ortamı tanıma, doğrudan ilginç bir soruya geç — 'Random question' kalıbı suçlamayı kaldırır.",
+    },
+    {
+      id: "ex.convo.18.6",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Okay, I gotta ask",
+      tr_translation: "Tamam, sormam lazım",
+      ipa: "/oʊˈkeɪ aɪ ˈɡɒtə æsk/",
+    },
+    {
+      id: "ex.convo.18.7",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Bir iş yemeğinde, masada birkaç saniyedir sessizlik var — havayı sen aç.",
+      npc_role: "Coworker at a work dinner",
+      setting: "Work dinner, awkward pause",
+      turns: [
+        {
+          speaker: "npc",
+          message: "(silence — both eating, no one talking)",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(random question|i gotta ask|side note|okay so)",
+            "(speaking of (nothing|whatever))",
+            "(can i ask|quick question)",
+            "(what'?s the (best|worst|weirdest|last))",
+            "(have you (ever|tried))",
+          ],
+          hint_tr:
+            "Sessizliği nazikçe boz: 'Random question — what's the best thing you've eaten this month?'",
+        },
+        {
+          speaker: "npc",
+          message: "Oh — hmm, probably this dim sum spot in Soho. Why?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no reason|just curious|just wondering)",
+            "(i('ve| have) been looking|trying to (find|figure out))",
+            "(it (just|literally) came to mind)",
+            "(adding (it|that) to my list)",
+            "(what(?:'s|'s) it called|where (in|exactly))",
+          ],
+          hint_tr:
+            "Açıklama ver — 'No reason, just curious!' veya 'I've been hunting for a good place.'",
+        },
+        {
+          speaker: "npc",
+          message: "Ha — it's called Dumpling Shack. You should go.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(noted|adding (that|it))",
+            "(definitely|for sure|hundred percent)",
+            "(thanks for the (tip|rec))",
+            "(okay so .{0,30} (question|thing))",
+            "(what about you|on a related note|side note)",
+          ],
+          hint_tr:
+            "Devam et: 'Noted! Okay, follow-up — what's your weirdest food order?'",
+        },
+        {
+          speaker: "npc",
+          message: "Ha, okay, this is going to be a fun dinner.",
+        },
+      ],
+    },
+    {
+      id: "ex.convo.18.8",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Awkward sessizliği kırmak için EN İYİ açılış?",
+          options: [
+            "It is very quiet now.",
+            "Random question — what's the best meal you've had recently?",
+            "Why is nobody talking?",
+            "Let's end the silence.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Random question' kalıbı + ilginç soru = baskısız, doğal. Diğerleri sessizliği vurgulayıp havayı daha da bozar.",
+        },
+        {
+          question: "'Okay, I gotta ask:' niye işe yarar?",
+          options: [
+            "Çünkü resmi bir kalıptır",
+            "'Gotta' samimi enerji verir + merak göstermek konuşmayı yumuşatır",
+            "Sadece arkadaşlar arası kullanılır",
+            "Mecbur olduğunu söyler",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Gotta' = günlük, sıcak. 'I gotta ask' = içten merak — agresif soru değil, davet hissi.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 19 — Ending a conversation (warm but clean)
+// ============================================================
+const convoLesson_19: BundledLesson = {
+  id: "daily.conversation.endwarm.1",
+  skill_id: "daily.conversation.endwarm",
+  index: 19,
+  title: "Sohbeti Bitir — Sıcak Ama Net",
+  description:
+    "Net çıkış + sıcak ton: 'Anyway, I should run', 'Catch you later', 'Let's grab coffee soon' — kaçmadan, askıda bırakmadan.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.convo.19.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Anyway, I should run",
+      tr_translation: "Neyse, kaçmam lazım (kibar net çıkış)",
+      example: "Anyway, I should run — got a meeting in five.",
+      example_tr: "Neyse, kaçmam lazım — beş dakika sonra toplantım var.",
+    },
+    {
+      id: "ex.convo.19.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Catch you later",
+      tr_translation: "Sonra görüşürüz (sıcak, samimi)",
+      example: "Alright — catch you later!",
+      example_tr: "Tamam — sonra görüşürüz!",
+    },
+    {
+      id: "ex.convo.19.3",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Neyse, kaçmam lazım — ama yakında bir kahve içelim, olur mu?",
+      target: "Anyway, I should run — but let's grab coffee soon, yeah?",
+      accepted_variants: [
+        "Alright, I gotta head out — but we should grab coffee soon.",
+        "Anyway, I'd better get going — but let's do coffee sometime soon.",
+        "Okay, I should run — but seriously, let's catch up properly soon.",
+        "I'd better take off — but coffee soon, okay?",
+      ],
+      tr_hint:
+        "Geçiş ('Anyway') + net çıkış sebebi ('should run') + plan teklifi ('grab coffee soon') = sıcak ama net.",
+    },
+    {
+      id: "ex.convo.19.4",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Anyway, ___ you later — text me about Friday!",
+      answer: "catch",
+      distractors: ["see", "find", "watch", "bye"],
+      tr_hint:
+        "'Catch you later' = samimi veda. 'See you later' de olur, ama 'catch' daha sıcak ve günlük.",
+    },
+    {
+      id: "ex.convo.19.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Okay. The conversation is finished. Goodbye.",
+      correct_sentence: "Anyway, I should run — but it was great seeing you. Catch you later!",
+      tr_explanation:
+        "İlk hali soğuk + robotik (sohbetin adını koymak garip). Doğal kapanış = geçiş ('Anyway') + net sebep ('should run') + sıcak özet ('great seeing you') + samimi veda ('Catch you later').",
+    },
+    {
+      id: "ex.convo.19.6",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Anyway, I should run",
+      tr_translation: "Neyse, kaçmam lazım",
+      ipa: "/ˈeniweɪ aɪ ʃʊd rʌn/",
+    },
+    {
+      id: "ex.convo.19.7",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Bir partide bir arkadaşınla 10 dakikadır konuşuyorsun. Başkalarıyla da konuşmak istiyorsun — sıcak ama net çık.",
+      npc_role: "Friend at a party",
+      setting: "House party, mid-conversation",
+      turns: [
+        {
+          speaker: "npc",
+          message: "And then he just bought the car on the spot — wild, right?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(wild|insane|crazy|that('s| is) (wild|insane|so him))",
+            "(anyway|listen|hey|okay so)",
+            "(i should (run|get going|head|circulate|mingle))",
+            "(gonna|about to) (go|head|grab|find)",
+          ],
+          hint_tr:
+            "Tepki ver + geçiş: 'Wild, honestly! Anyway, I should circulate a bit.'",
+        },
+        {
+          speaker: "npc",
+          message: "Oh, yeah, go mingle. Where are you headed?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(gonna|going to|about to) (grab|get|find)",
+            "(another drink|some water|a refill|some food)",
+            "(say hi to|catch|find) (.{0,15})",
+            "(stretch my legs|do a lap)",
+            "(haven'?t seen .{0,20} yet)",
+          ],
+          hint_tr:
+            "Spesifik plan: 'Gonna grab another drink and say hi to a few people.'",
+        },
+        {
+          speaker: "npc",
+          message: "Cool — go for it. We should hang out properly soon though.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|absolutely|definitely|hundred percent|for sure|please)",
+            "(let'?s do (it|that)|i('m| am) down)",
+            "(grab (coffee|a drink|dinner|lunch))",
+            "(text me|hit me up|shoot me a (text|message))",
+            "(this week|next week|soon)",
+          ],
+          hint_tr:
+            "Plan ata: 'Absolutely — let's grab coffee next week. Shoot me a text!'",
+        },
+        {
+          speaker: "npc",
+          message: "Done deal. Have fun!",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(catch you later|see ya|talk soon|later)",
+            "(have fun|enjoy)",
+            "(so good seeing you|good catching up)",
+            "(bye|take care)",
+          ],
+          hint_tr:
+            "Sıcak son nokta: 'Catch you later — so good seeing you!'",
+        },
+        {
+          speaker: "npc",
+          message: "You too — go!",
+        },
+      ],
+    },
+    {
+      id: "ex.convo.19.8",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Sıcak ama net çıkış için EN İYİ kalıp?",
+          options: [
+            "Okay. Goodbye now.",
+            "The conversation is ending.",
+            "Anyway, I should run — catch you later!",
+            "Stop talking, I am leaving.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Geçiş ('Anyway') + net çıkış ('should run') + sıcak veda ('catch you later') = net ama soğuk değil.",
+        },
+        {
+          question: "'Let's grab coffee soon' niye işe yarar?",
+          options: [
+            "Kahve önemli olduğu için",
+            "Çıkışı plana bağlar — sıcak hissettirir, askıda bırakmaz",
+            "Sadece kahve sevenlerle kullanılır",
+            "Resmi bir kalıptır",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Spesifik bir bağlantı önerisi ('grab coffee soon') vedayı 'kaçış' değil 'devam' olarak çerçeveler.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
 // Lesson registry
 // ============================================================
 export const conversationScriptsLessons: BundledLesson[] = [
@@ -2727,4 +3421,8 @@ export const conversationScriptsLessons: BundledLesson[] = [
   convoLesson_13,
   convoLesson_14,
   convoLesson_15,
+  convoLesson_16,
+  convoLesson_17,
+  convoLesson_18,
+  convoLesson_19,
 ];

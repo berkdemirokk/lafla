@@ -643,10 +643,767 @@ export const dailyDirectionsLesson_16_3: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 16.5 — Google Maps Failed, Ask a Local
+// ============================================================
+export const dailyDirectionsLesson_16_5: BundledLesson = {
+  id: "daily.directions.16.5",
+  skill_id: "daily.directions",
+  index: 5,
+  title: "GPS Çuvalladı — Yerel Halka Sor",
+  description:
+    "Telefon sinyal kaybetti, Maps daireler çiziyor — sokakta yerel birine kibarca yardım için yaklaş.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dd16.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "My GPS is sending me in circles",
+      tr_translation: "GPS beni daireler içinde döndürüyor",
+      example: "My GPS is sending me in circles — could you help?",
+      example_tr: "GPS beni daireler içinde döndürüyor — yardımcı olur musun?",
+    },
+    {
+      id: "ex.dd16.5.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Pardon, GPS çuvalladı — Brooklyn Bridge'e nasıl gidebilirim acaba?",
+      target: "Excuse me — my GPS gave up. Could you point me to Brooklyn Bridge?",
+      accepted_variants: [
+        "Sorry to bother you — phone's useless. How do I get to Brooklyn Bridge?",
+        "Hi, my GPS is sending me in circles — which way to Brooklyn Bridge?",
+        "Excuse me, could you tell me how to get to Brooklyn Bridge? Maps isn't loading.",
+        "Quick question — could you point me toward Brooklyn Bridge? GPS died.",
+      ],
+      tr_hint:
+        "'Could you point me to X?' = 'Where is X?' yerine kullan — çok daha kibar + native kalıp.",
+    },
+    {
+      id: "ex.dd16.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Could you tell me how to ___ to the museum?",
+      answer: "get",
+      distractors: ["go", "arrive", "reach"],
+      tr_hint:
+        "'How to get to X' = standart yön sorma kalıbı. 'How to go' Türklerin tipik hatası — native değil.",
+    },
+    {
+      id: "ex.dd16.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Could",
+        "you",
+        "point",
+        "me",
+        "to",
+        "the",
+        "nearest",
+        "bus",
+        "stop",
+      ],
+      correct_sentence: "Could you point me to the nearest bus stop",
+      tr_translation: "En yakın otobüs durağına yönlendirebilir misin?",
+    },
+    {
+      id: "ex.dd16.5.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Where is Brooklyn Bridge?",
+      correct_sentence: "Could you tell me how to get to Brooklyn Bridge?",
+      tr_explanation:
+        "Türk öğrencilerin klasik hatası: 'Where is X?' direkt + biraz kaba. Native kullanımda yön sormak için 'Could you tell me how to get to X?' standart — kibar ve tam.",
+    },
+    {
+      id: "ex.dd16.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Brooklyn'desin, telefon dondu. Köşe başında bir yerel halka kibarca yaklaşıyorsun.",
+      npc_role: "Local New Yorker",
+      setting: "Brooklyn street corner",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(excuse me|sorry to bother|hi there|pardon)",
+            "(gps|maps|phone) (is|isn'?t|sending|died|froze|gave up|acting up)",
+            "(circles|useless|dead|not working|down)",
+            "(could you|would you mind|any chance you)",
+            "(point me|tell me|help me|show me|direct me)",
+            "(brooklyn bridge|the bridge|to the bridge)",
+          ],
+          hint_tr:
+            "Saygılı aç + sorun belirt: 'Excuse me — my GPS is sending me in circles. Could you point me to Brooklyn Bridge?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh sure! You're actually pretty close. Walk down this street for about three blocks.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(three blocks|down this street|got it|gotcha)",
+            "(then what|after that|and then)",
+            "(do i (turn|go)|which way|left or right)",
+            "(any (landmark|sign)|how (do i|will i) know)",
+            "(thanks|thank you|appreciate)",
+          ],
+          hint_tr:
+            "Onayla + detay iste: 'Three blocks down — and then? Do I turn somewhere?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yeah, you'll see a Duane Reade on the corner — turn left there and you can't miss the bridge.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(duane reade|drugstore|on the corner|left there)",
+            "(perfect|got it|gotcha|copy that|sounds good)",
+            "(thanks (so much|a lot|a million)|appreciate (it|the help)|life saver)",
+            "(have a (good|nice|great) (one|day))",
+          ],
+          hint_tr:
+            "Tekrarla + içten teşekkür: 'Duane Reade, then left — thanks so much, you're a life saver!'",
+        },
+      ],
+    },
+    {
+      id: "ex.dd16.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Where is the museum?' yerine native ne der?",
+          options: [
+            "Aynı şey, fark yok",
+            "'Could you tell me how to get to the museum?' = kibar + tam kalıp",
+            "'Museum, please!'",
+            "'Show museum'",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Türk öğrencilerin tipik hatası 'Where is X?' — gramatik doğru ama soğuk/kısa. Native: 'Could you tell me how to get to X?' = saygılı + bağlam tam.",
+        },
+        {
+          question: "GPS çuvalladığını NASIL belirtirsin doğal?",
+          options: [
+            "'My GPS doesn't work'",
+            "'My GPS is sending me in circles' / 'Maps isn't loading' / 'My phone died'",
+            "'GPS bad'",
+            "Söyleme, sadece sor",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Sorun belirtmek empati uyandırır — yerel yardım etmeye motive olur. Native kalıplar canlı görsel taşır.",
+        },
+        {
+          question: "ABD'de yerel halka yaklaşırken EN önemli ne?",
+          options: [
+            "Direkt soru",
+            "'Excuse me' + gülümseme = sosyal kapı açıcı",
+            "Bağırarak çağır",
+            "Dokunarak dikkat çek",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Amerikan kültüründe 'Excuse me' + tebessüm = standart açılış. Türk doğrudanlığı burada soğuk hissedilir.",
+        },
+      ],
+    },
+    {
+      id: "ex.dd16.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Could you point me to the nearest subway station?",
+      ipa: "/kʊd juː pɔɪnt miː tuː ðə ˈnɪərɪst ˈsʌbweɪ ˈsteɪʃən/",
+      tr_hint:
+        "'Could you' = 'kud-yu' bağlanır. 'Point me to' = 'poynt-mi-tu'. 'Nearest' = 'ni-rıst' (vurgu ilk hecede).",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 16.6 — You're Giving Directions
+// ============================================================
+export const dailyDirectionsLesson_16_6: BundledLesson = {
+  id: "daily.directions.16.6",
+  skill_id: "daily.directions",
+  index: 6,
+  title: "Sen Yön Anlatıyorsun",
+  description:
+    "Birisi sana yol soruyor — net, native, mesafe + nokta + yön formülüyle tarif et.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dd16.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Go two blocks down, take a right at the light",
+      tr_translation: "İki blok aşağı git, ışıkta sağa dön",
+      example: "Go two blocks down, take a right at the light — it's on your left.",
+      example_tr: "İki blok aşağı git, ışıkta sağa dön — sol tarafında.",
+    },
+    {
+      id: "ex.dd16.6.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Düz git, ikinci kavşakta sola dön — köşede dur işareti var.",
+      target: "Go straight, take a left at the second intersection — there's a stop sign on the corner.",
+      accepted_variants: [
+        "Head straight, turn left at the second intersection — you'll see a stop sign.",
+        "Keep going straight, then left at the second junction — stop sign on the corner.",
+        "Straight ahead, left at the second intersection — there's a stop sign there.",
+        "Go straight and take a left at the second light — there's a stop sign.",
+      ],
+      tr_hint:
+        "'Intersection' = kavşak. 'Take a left/right' = 'turn left/right' kadar doğal. Landmark ekle: hatırlanır.",
+    },
+    {
+      id: "ex.dd16.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "The pharmacy is right ___ the corner.",
+      answer: "around",
+      distractors: ["on", "at", "in"],
+      tr_hint:
+        "'Around the corner' = köşeyi dönünce / hemen orada. Sabit kalıp — Türkler 'on the corner' (= köşede) ile karıştırır.",
+    },
+    {
+      id: "ex.dd16.6.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "It's",
+        "across",
+        "from",
+        "the",
+        "gas",
+        "station",
+        "on",
+        "your",
+        "right",
+      ],
+      correct_sentence: "It's across from the gas station on your right",
+      tr_translation: "Benzin istasyonunun karşısında, sağ tarafında.",
+    },
+    {
+      id: "ex.dd16.6.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Go this side until light, then go that hand.",
+      correct_sentence:
+        "Go straight until the light, then take a right.",
+      tr_explanation:
+        "'This side / that hand' direkt Türkçe çeviri ('bu taraf / o el') — İngilizce'de anlamsız. Native: 'straight' (düz), 'take a right/left' (sağa/sola dön). Yön komutu Imperative + net.",
+    },
+    {
+      id: "ex.dd16.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "NYC'de yaşıyorsun. Bir turist sana eczaneyi sordu — 3 blok ileride, ışıkta sağda. Net tarif et.",
+      npc_role: "Confused Tourist",
+      setting: "Manhattan sidewalk",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Excuse me, do you know where the nearest pharmacy is?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|sure|of course|absolutely|yep|definitely)",
+            "(go|head|walk) (straight|down|up)",
+            "(\\d+|two|three|four|five|a few|a couple) blocks?",
+            "(then|after that|and then)",
+            "(turn|take a) (right|left)",
+            "(at the (light|intersection|corner|stop sign))",
+          ],
+          hint_tr:
+            "Net + adım adım: 'Sure! Go straight three blocks, then take a right at the light.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it — three blocks, then right. How will I know it?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(you'?ll see|there's|look for)",
+            "(big sign|green sign|CVS|Duane Reade|on your (left|right))",
+            "(across from|next to|right by)",
+            "(can'?t miss it|hard to miss|big building)",
+          ],
+          hint_tr:
+            "Landmark ver: 'You'll see a big CVS sign on your left — can't miss it!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect, thank you so much!",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no problem|you'?re welcome|anytime|sure thing|happy to help)",
+            "(have a (good|nice|great) (one|day))",
+            "(good luck|enjoy)",
+          ],
+          hint_tr:
+            "Sıcak kapanış: 'No problem — have a good one!'",
+        },
+      ],
+    },
+    {
+      id: "ex.dd16.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Yön tarifinin native formülü?",
+          options: [
+            "Sadece 'go that way'",
+            "Mesafe (blocks) + Nokta (light/sign) + Yön (left/right) + Landmark",
+            "Sadece harita çiz",
+            "Sadece sokak adı",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Two blocks down, right at the light, across from the deli' = 4 parça net tarif. Turist gözünde canlanır.",
+        },
+        {
+          question: "'Around the corner' vs 'on the corner' farkı?",
+          options: [
+            "Aynı şey",
+            "'Around' = köşeyi dönünce / hemen yakında. 'On' = köşenin tam üstünde.",
+            "İkisi de yanlış",
+            "Sadece UK kullanır",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Türkler ikisini karıştırır. 'It's around the corner' = çok yakın, dönünce göreceksin. 'On the corner' = köşede konumlanmış.",
+        },
+        {
+          question: "Yön tarifinde landmark NIYE kritik?",
+          options: [
+            "Gereksiz detay",
+            "Turist blok sayamaz — gözle gördüğü işaret (CVS, gas station, deli) güvence verir",
+            "Süslü konuşma için",
+            "Sadece şehir merkezinde",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Yabancı şehirde mesafeyi gözle ölçmek zor. Görsel sabit nokta = 'doğru yoldayım' sinyali.",
+        },
+      ],
+    },
+    {
+      id: "ex.dd16.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Go two blocks down and take a right at the light.",
+      ipa: "/ɡəʊ tuː blɒks daʊn ænd teɪk ə raɪt ət ðə laɪt/",
+      tr_hint:
+        "'Two blocks' = 'tu-bloks'. 'Take a' bağlanır = 'teyk-ı'. 'At the light' = 'at-dı-layt'. Net + akıcı söyle.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 16.7 — Asking for Nearby Landmarks
+// ============================================================
+export const dailyDirectionsLesson_16_7: BundledLesson = {
+  id: "daily.directions.16.7",
+  skill_id: "daily.directions",
+  index: 7,
+  title: "Yakındaki Yer Sor — Coffee Shop, ATM",
+  description:
+    "En yakın Starbucks, ATM, eczane nerede? Şehirde temel ihtiyaç noktalarını bulma kalıpları.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dd16.7.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Is there a Starbucks nearby?",
+      tr_translation: "Yakında Starbucks var mı?",
+      example: "Excuse me, is there a Starbucks nearby?",
+      example_tr: "Pardon, yakında Starbucks var mı?",
+    },
+    {
+      id: "ex.dd16.7.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "En yakın ATM nerede acaba?",
+      target: "Where's the closest ATM?",
+      accepted_variants: [
+        "Where's the nearest ATM?",
+        "Is there an ATM nearby?",
+        "Could you point me to the closest ATM?",
+        "Do you know where I can find an ATM around here?",
+        "Any ATMs around here?",
+      ],
+      tr_hint:
+        "'Closest' = en yakın (mesafe). 'Nearest' aynı anlam — ikisi de doğal. 'Around here' = bu civarda.",
+    },
+    {
+      id: "ex.dd16.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Is there a good coffee shop ___ walking distance?",
+      answer: "within",
+      distractors: ["in", "at", "by"],
+      tr_hint:
+        "'Within walking distance' = yürüme mesafesinde. Sabit kalıp — şehirde sık kullanılır.",
+    },
+    {
+      id: "ex.dd16.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Do",
+        "you",
+        "know",
+        "if",
+        "there's",
+        "a",
+        "pharmacy",
+        "around",
+        "here",
+      ],
+      correct_sentence: "Do you know if there's a pharmacy around here",
+      tr_translation: "Bu civarda bir eczane var mı biliyor musun?",
+    },
+    {
+      id: "ex.dd16.7.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Where is ATM most near?",
+      correct_sentence:
+        "Where's the closest ATM?",
+      tr_explanation:
+        "'ATM most near' direkt çeviri ('ATM en yakın'). İngilizce sıfat öne gelir + 'the' makale şart: 'the closest ATM'. Ayrıca 'where's' = 'where is' kasık.",
+    },
+    {
+      id: "ex.dd16.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Otel resepsiyonundasın. ATM ve kahve dükkanına ihtiyacın var — ikisini de sor.",
+      npc_role: "Hotel Receptionist",
+      setting: "Hotel front desk",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|good (morning|afternoon|evening))",
+            "(quick question|sorry to bother|excuse me)",
+            "(is there|do you know if there'?s|any)",
+            "(atm|cash machine|cashpoint)",
+            "(nearby|around here|close by|within walking distance)",
+          ],
+          hint_tr:
+            "Kibar aç + spesifik sor: 'Hi — quick question, is there an ATM nearby?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yes, there's one right across the street next to the deli.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(perfect|great|awesome|got it)",
+            "(also|one more thing|and)",
+            "(coffee shop|starbucks|cafe|place (to|for) coffee)",
+            "(nearby|around here|close|in this area)",
+          ],
+          hint_tr:
+            "Geçiş yap + ikinci ihtiyaç: 'Perfect — and is there a coffee shop nearby?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure! There's a Starbucks two blocks down on Main Street, and a local cafe right around the corner.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(which (one|do you)|what (do you|would you))",
+            "(recommend|prefer|like better|suggest)",
+            "(better coffee|nicer|quieter|local one)",
+            "(thanks|thank you|appreciate it)",
+          ],
+          hint_tr:
+            "Tavsiye iste + teşekkür: 'Which one do you recommend? Thanks so much!'",
+        },
+      ],
+    },
+    {
+      id: "ex.dd16.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "En yakın ATM sormak için EN doğal kalıp?",
+          options: [
+            "'ATM most near?'",
+            "'Where's the closest/nearest ATM?' veya 'Is there an ATM nearby?'",
+            "'Find ATM!'",
+            "'ATM where?'",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "İki kalıp da native: 'Where's the closest X?' (mesafe vurgusu) veya 'Is there a/an X nearby?' (varlık sorma).",
+        },
+        {
+          question: "'Within walking distance' ne anlama gelir?",
+          options: [
+            "Çok uzak",
+            "Yürüyerek gidilebilir mesafe (5-15 dk)",
+            "Sadece arabayla",
+            "Yanında",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Şehirde sık kullanılır — taksi/Uber'e gerek yok demek. 'Is it within walking distance?' = yürüyebilir miyim?",
+        },
+        {
+          question: "Resepsiyondan tavsiye istemenin avantajı?",
+          options: [
+            "Hiç",
+            "'Which do you recommend?' = yerelin gerçek tercihi — turist tuzaklarından korur",
+            "Sadece kibar olmak",
+            "Yararsız",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Starbucks her yerde — ama yerel cafe genelde daha iyi. Resepsiyon ipucu = otantik deneyim.",
+        },
+      ],
+    },
+    {
+      id: "ex.dd16.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Is there a Starbucks within walking distance?",
+      ipa: "/ɪz ðɛər ə ˈstɑːrbʌks wɪˈðɪn ˈwɔːkɪŋ ˈdɪstəns/",
+      tr_hint:
+        "'Is there a' bağlanır = 'ız-der-ı'. 'Starbucks' vurgu ilk hecede = 'STAR-bıks'. 'Within' = 'wi-DHIN' (th sesi).",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 16.8 — Subway / Metro Directions
+// ============================================================
+export const dailyDirectionsLesson_16_8: BundledLesson = {
+  id: "daily.directions.16.8",
+  skill_id: "daily.directions",
+  index: 8,
+  title: "Metro Yön — Subway / Transfer",
+  description:
+    "NYC, Boston, DC metroda kayıp olma — hangi tren, hangi yön (downtown/uptown), nerede transfer.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dd16.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Which train to Central?",
+      tr_translation: "Central'a hangi tren?",
+      example: "Excuse me, which train do I take to Central Station?",
+      example_tr: "Pardon, Central Garı'na hangi treni almalıyım?",
+    },
+    {
+      id: "ex.dd16.8.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Times Square'e gitmek için hangi hatta binmeliyim?",
+      target: "Which line do I take to get to Times Square?",
+      accepted_variants: [
+        "Which train should I take to Times Square?",
+        "What line goes to Times Square?",
+        "Which one of these trains goes to Times Square?",
+        "How do I get to Times Square from here by subway?",
+        "Which train do I need for Times Square?",
+      ],
+      tr_hint:
+        "'Line' = metro hattı (1, 2, A, B). 'Train' günlük konuşmada hat anlamında. 'Take a line/train' = bin.",
+    },
+    {
+      id: "ex.dd16.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "You need to ___ at 14th Street to the L train.",
+      answer: "transfer",
+      distractors: ["change", "switch", "move"],
+      tr_hint:
+        "'Transfer' = metroda hat değiştirme (NYC/Boston/DC standartı). 'Change' UK'de kullanılır ama ABD'de 'transfer' daha doğal.",
+    },
+    {
+      id: "ex.dd16.8.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Take",
+        "the",
+        "downtown",
+        "4",
+        "train",
+        "and",
+        "transfer",
+        "at",
+        "Union",
+        "Square",
+      ],
+      correct_sentence: "Take the downtown 4 train and transfer at Union Square",
+      tr_translation: "Downtown 4 trenine bin ve Union Square'de transfer yap.",
+    },
+    {
+      id: "ex.dd16.8.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I want go down metro, which way I change train?",
+      correct_sentence:
+        "Which way is the downtown platform, and where do I transfer?",
+      tr_explanation:
+        "'Go down metro' direkt çeviri ('aşağı met-roya gitmek'). NYC'de 'downtown' = güneye giden yön (Manhattan altı), 'uptown' = kuzeye. 'Platform' = peron, 'transfer' = hat değişimi.",
+    },
+    {
+      id: "ex.dd16.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "NYC subway'desin. Brooklyn'e gitmek istiyorsun ama hangi tren ve nerede transfer bilmiyorsun. MTA çalışanına soruyorsun.",
+      npc_role: "MTA Station Agent",
+      setting: "NYC subway station booth",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(excuse me|hi|sorry to bother)",
+            "(which (train|line)|what (train|line))",
+            "(do i (take|need)|should i take|goes)",
+            "(to (brooklyn|williamsburg|coney island)|for brooklyn)",
+          ],
+          hint_tr:
+            "Net + kibar: 'Excuse me, which train do I take to Brooklyn?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Where in Brooklyn? It depends on your stop.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(williamsburg|bedford avenue|prospect park|coney island|dumbo)",
+            "(i'?m (going|headed) to|trying to get to)",
+            "(my stop is|the address is)",
+          ],
+          hint_tr:
+            "Konum spesifik ver: 'I'm going to Williamsburg — Bedford Avenue.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay — take the downtown L train from this station. It's direct, about 4 stops.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(downtown l|the l train|got it)",
+            "(do i (transfer|change)|any transfers|is it direct)",
+            "(which (platform|side)|how do i find)",
+            "(downtown|uptown)",
+            "(thanks|thank you|appreciate it)",
+          ],
+          hint_tr:
+            "Detayla onayla: 'Downtown L, direct — which platform? Thanks!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Platform's downstairs to your left. Follow the signs for downtown trains.",
+        },
+      ],
+    },
+    {
+      id: "ex.dd16.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "NYC'de 'downtown' ve 'uptown' ne demek?",
+          options: [
+            "Şehir merkezi ve şehir dışı",
+            "'Downtown' = güneye giden (Manhattan altı/Brooklyn), 'Uptown' = kuzeye giden (Bronx yönü)",
+            "Aynı şey",
+            "Aşağı kat ve üst kat",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "NYC subway'in en kafa karıştıran kavramı. 'Downtown 6 train' = güneye giden 6 hattı. Peron bile bu şekilde isimli.",
+        },
+        {
+          question: "'Transfer at 14th Street' ne demek?",
+          options: [
+            "14. sokakta in, başka tren ye geç",
+            "14. sokakta yürü",
+            "14. sokakta dur",
+            "14. sokakta yiyecek al",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Metroda 'transfer' = hat değişimi (peron geçişi). NYC'de istasyon adları aynı kalır ama farklı tren binersin.",
+        },
+        {
+          question: "Subway'de net sorgu için NE belirt?",
+          options: [
+            "Sadece şehir adı",
+            "Spesifik durak / mahalle (Williamsburg'deki Bedford Ave) — hangi tren ona göre değişir",
+            "Sadece 'metro'",
+            "Hiçbir şey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Brooklyn' çok geniş. NYC'de her mahallenin farklı hattı var. Spesifik durak = doğru tren tavsiyesi.",
+        },
+      ],
+    },
+    {
+      id: "ex.dd16.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Take the downtown 4 train and transfer at Union Square.",
+      ipa: "/teɪk ðə ˈdaʊntaʊn fɔːr treɪn ænd ˈtrænsfɜːr ət ˈjuːnjən skweər/",
+      tr_hint:
+        "'Downtown' vurgu ilk hecede = 'DAUN-taun'. 'Transfer' = 'TRANS-fır'. 'Union Square' = 'YU-nyın skwer'. Net hece vurgusu.",
+    },
+  ],
+};
+
+// ============================================================
 // Daily Directions lessons registry
 // ============================================================
 export const dailyDirectionsLessons: ReadonlyArray<BundledLesson> = [
   dailyDirectionsLesson_16_1,
   dailyDirectionsLesson_16_2,
   dailyDirectionsLesson_16_3,
+  dailyDirectionsLesson_16_5,
+  dailyDirectionsLesson_16_6,
+  dailyDirectionsLesson_16_7,
+  dailyDirectionsLesson_16_8,
 ];

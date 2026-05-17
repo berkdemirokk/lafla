@@ -848,6 +848,696 @@ export const flirtDefineLesson_6_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 6.5 — What Are We? (Kibar Baslatma)
+// ============================================================
+export const flirtDefineLesson_6_5: BundledLesson = {
+  id: "flirt.define.6.5",
+  skill_id: "flirt.define",
+  index: 5,
+  title: "'What Are We?' Kibar Baslatma",
+  description:
+    "DTR konusmasini kibarca ac — baski yapmadan netlik iste.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.fd6.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Can I ask you something?",
+      tr_translation: "Sana bir sey sorabilir miyim?",
+      example: "Hey, can I ask you something — no pressure?",
+      example_tr: "Hey, sana bir sey sorabilir miyim — baski yok?",
+    },
+    {
+      id: "ex.fd6.5.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Bunu nereye gittigini gormek istiyorum — sen nasil hissediyorsun?",
+      target: "Where do you see this going? How are you feeling about it?",
+      accepted_variants: [
+        "Where do you see this going?",
+        "Curious where you see this heading.",
+        "How do you feel about where we are?",
+        "Just wondering where your head is on us.",
+      ],
+      tr_hint:
+        "'Where do you see this going?' = klasik DTR acilis. Baski yok, sadece netlik istegi.",
+    },
+    {
+      id: "ex.fd6.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "No ___ , just curious where you're at.",
+      answer: "pressure",
+      distractors: ["stress", "worry", "rush"],
+      tr_hint:
+        "'No pressure' = baski yok. DTR konusmasinda kritik yumusatici.",
+    },
+    {
+      id: "ex.fd6.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Where",
+        "do",
+        "you",
+        "see",
+        "this",
+        "going",
+      ],
+      correct_sentence: "Where do you see this going",
+      tr_translation: "Bunu nereye gittigini goruyorsun?",
+    },
+    {
+      id: "ex.fd6.5.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "What are we? Tell me now.",
+      correct_sentence:
+        "Can I ask you something — where do you see this going? No pressure.",
+      tr_explanation:
+        "'Tell me now' = ultimatom + baski. Doğru: izin iste ('Can I ask') + acik soru + 'no pressure' = sicak diyalog acilisi.",
+    },
+    {
+      id: "ex.fd6.5.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "1-2 ay gorusuyorsunuz. 'Biz nedir?' konusmasini kibarca acmak istiyorsun.",
+      npc_role: "Match",
+      setting: "Calm evening conversation",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|so|can i ask (you )?something)",
+            "(no pressure|just curious|just wondering)",
+            "(where do you see this|where is this) (going|heading|at)",
+            "(how are you feeling|how do you feel) about (us|this|where we are)",
+            "(wanted to (ask|chat)|been thinking) about (us|this)",
+          ],
+          hint_tr:
+            "Acilis: 'Hey, can I ask you something — no pressure — where do you see this going?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I'm so glad you asked. Honestly I've been thinking about it too.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(really |so )?glad (we'?re |to be )talking",
+            "(what are |whats )(your thoughts|you feeling|on your mind)",
+            "(i'?m |im )(into|enjoying|loving) (this|where we are|us)",
+            "(curious|wondering) (what|where) (you'?re )?thinking",
+            "(want to hear|tell me) (your side|what you think)",
+          ],
+          hint_tr:
+            "Devam: 'Glad we're talking — what are your thoughts? I'm really into this.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Same — I'm enjoying this and I see something real here. Want to talk more about it?",
+        },
+      ],
+    },
+    {
+      id: "ex.fd6.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "DTR konusmasini ACAR iken EN onemli sey?",
+          options: [
+            "Etiket dayatmak",
+            "Izin iste + baski yok + acik soru = guvenli alan",
+            "Ultimatom vermek",
+            "Sessiz kalmak",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Karsi taraf savunmaya gecmesin diye 'no pressure' + acik uclu soru = guvenli diyalog.",
+        },
+        {
+          question: "'No pressure' niye GUCLU?",
+          options: [
+            "Zayifsiz",
+            "Sinyalini gonderiyor: kacis yolu var, panic yok",
+            "Yalan",
+            "Garip",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Karsi tarafa 'cevabin ne olursa olsun saygi duyacagim' sinyali. Savunma kalmaz.",
+        },
+        {
+          question: "'Where do you see this going?' niye IDEAL acilis?",
+          options: [
+            "Direkt + sasirtici",
+            "Acik uclu + gelecek odakli + onlarin perspektifini sorar",
+            "Baskici",
+            "Yanlis ingilizce",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Onlarin gozunden gelecegi soruyorsun — bu, hem netlik veriyor hem de saygi gosteriyor.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd6.5.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Where do you see this going?",
+      ipa: "weə dʊ juː siː ðɪs ˈɡəʊɪŋ",
+      tr_hint:
+        "'Where do you' baglanır → 'weə-də-yə'. 'Going' sonda yukari ton — soru. Sakin, meraklı ses tonu — baski yok.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 6.6 — Exclusive Olalim (Teklif)
+// ============================================================
+export const flirtDefineLesson_6_6: BundledLesson = {
+  id: "flirt.define.6.6",
+  skill_id: "flirt.define",
+  index: 6,
+  title: "Exclusive Olalim Teklifi",
+  description:
+    "Sadece birbiriniz olmayi onerme — net + sakin + esnek.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.fd6.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Are you seeing other people?",
+      tr_translation: "Baska insanlarla goruşuyor musun?",
+      example: "Quick question — are you seeing other people right now?",
+      example_tr: "Kisa bir soru — su an baska insanlarla goruşuyor musun?",
+    },
+    {
+      id: "ex.fd6.6.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Sadece sana odaklanmak istiyorum — ayni sayfada miyiz?",
+      target: "I'd like to focus on just us — are we on the same page?",
+      accepted_variants: [
+        "I want to focus on just you — how do you feel?",
+        "Ready to stop seeing other people if you are.",
+        "I'd love for it to be just us — what do you think?",
+        "Want to put my focus on just this — you in?",
+      ],
+      tr_hint:
+        "'Focus on just us' = sadece bize odaklan. 'Same page' = ayni dusunce — uyum sorusu.",
+    },
+    {
+      id: "ex.fd6.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Ready to stop seeing other ___ if you are.",
+      answer: "people",
+      distractors: ["dates", "matches", "options"],
+      tr_hint:
+        "'Stop seeing other people' = baskalariyla gorusmeyi birakmak. Exclusive teklifi standart kalibi.",
+    },
+    {
+      id: "ex.fd6.6.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "I'd",
+        "like",
+        "to",
+        "focus",
+        "on",
+        "just",
+        "us",
+      ],
+      correct_sentence: "I'd like to focus on just us",
+      tr_translation: "Sadece bize odaklanmak istiyorum.",
+    },
+    {
+      id: "ex.fd6.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Stop talking to other guys.",
+      correct_sentence:
+        "I'd love for us to be exclusive — ready to focus on just you. How do you feel?",
+      tr_explanation:
+        "'Stop talking to other guys' = kontrolcu emir. Doğru: kendi pozisyonunu paylas ('I'd love') + onlarin duygusunu sor = saygili teklif.",
+    },
+    {
+      id: "ex.fd6.6.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Birkac hafta gorustunuz. Exclusive olmayi teklif etmek istiyorsun.",
+      npc_role: "Match",
+      setting: "Sunday afternoon talk",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|so|wanted to (ask|share))",
+            "(quick question|been thinking|honestly)",
+            "(are you|are we) (still )?(seeing other people|dating anyone else)",
+            "(i'?d (like|love) |i want) to (focus on just (us|you)|be exclusive)",
+            "(ready to|happy to) (stop|drop) (seeing|talking to) other (people|matches)",
+          ],
+          hint_tr:
+            "Ac: 'Hey, wanted to ask — are you seeing other people? Because I'd love to focus on just us.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Wow okay — yes I'm still on the apps but I've been thinking about deleting them. How do you see this?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?d (like|love)|i want) (us to be|to be )(exclusive|just us)",
+            "(would love |down) to (delete|drop|come off) (the apps|them)",
+            "(focus on |put energy into )(just (us|this|you))",
+            "(if you'?re |are you )?(in|ready|down|good with that)",
+            "(no rush |take your time)? (think about it)",
+          ],
+          hint_tr:
+            "Net ol: 'I'd love for us to be exclusive — delete the apps, focus on just us. Are you in?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yeah — I'm in. Let's do it together right now.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd6.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Exclusive teklifinde EN onemli format?",
+          options: [
+            "Emir vermek",
+            "Kendi pozisyonun ('I'd love') + sorularini sor = saygili teklif",
+            "Bahaneci olmak",
+            "Sessiz beklemek",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'I want X — how do you feel?' = ikiniz de secim hakki var hissi. Saglikli.",
+        },
+        {
+          question: "'Are you seeing other people?' niye NORMAL?",
+          options: [
+            "Kiskanc",
+            "App culture'da standart soru — uyumsuzluk ihtimalini erken yakalar",
+            "Yanlis",
+            "Garip",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "ABD/UK'de aplerin oldugu donemde insanlar coklu gorusur. Bu konusma normalize.",
+        },
+        {
+          question: "Karsi taraf 'henuz hazir degil' derse?",
+          options: [
+            "Kavga et",
+            "Saygi gosterir + kendi zaman cizgini degerlendir",
+            "Hemen ayril",
+            "Baski yap",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Hazir olmamasi hak. Ama senin de bekleyip beklemeyecegine karar verme hakkin var.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd6.6.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I'd like to focus on just us.",
+      ipa: "aɪd laɪk tə ˈfəʊkəs ɒn dʒʌst ʌs",
+      tr_hint:
+        "'I'd like to' baglanır → 'aɪd-laɪk-tə'. 'Just us' vurguda — 'JUST US'. Sicak ama net ton.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 6.7 — Boyfriend/Girlfriend Label (Agree on Terms)
+// ============================================================
+export const flirtDefineLesson_6_7: BundledLesson = {
+  id: "flirt.define.6.7",
+  skill_id: "flirt.define",
+  index: 7,
+  title: "Sevgili Etiketi Konusmasi",
+  description:
+    "Boyfriend/girlfriend etiketi uzerinde anlasma — sicak + ortak karar.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.fd6.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Comfortable being my girlfriend?",
+      tr_translation: "Sevgilim olmak konusunda rahat misin?",
+      example: "Hey — comfortable being my girlfriend? I'd love that.",
+      example_tr: "Hey — sevgilim olmak konusunda rahat misin? Çok isterim.",
+    },
+    {
+      id: "ex.fd6.7.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Seni resmi olarak sevgilim diye tanitmak istiyorum — sen ne dersin?",
+      target: "I'd love to call you my girlfriend officially — how does that sit with you?",
+      accepted_variants: [
+        "Want to make it official — call you my girlfriend?",
+        "Ready to go from dating to boyfriend/girlfriend?",
+        "Would you be comfortable being my boyfriend?",
+        "I'd love to call you mine — how do you feel?",
+      ],
+      tr_hint:
+        "'Make it official' = resmilestir. 'How does that sit with you?' = sana nasil hissettiriyor — empati sorusu.",
+    },
+    {
+      id: "ex.fd6.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Want to make it ___ ?",
+      answer: "official",
+      distractors: ["formal", "open", "real"],
+      tr_hint:
+        "'Make it official' = ilskiyi resmilestir / etiket ekle. Standart deyim.",
+    },
+    {
+      id: "ex.fd6.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Yeah",
+        "I'd",
+        "love",
+        "that",
+        "officially",
+        "yours",
+      ],
+      correct_sentence: "Yeah I'd love that officially yours",
+      tr_translation: "Evet, çok isterim — resmi olarak senin.",
+    },
+    {
+      id: "ex.fd6.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "You are my girlfriend from today.",
+      correct_sentence:
+        "Comfortable being my girlfriend? I'd love that — how do you feel?",
+      tr_explanation:
+        "'You are my girlfriend from today' = etiket dayatmak. Doğru: rahat misin diye sor + sicak teklif = ortak karar = saygili.",
+    },
+    {
+      id: "ex.fd6.7.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Exclusive olduktan bir kac hafta sonra. Sevgili etiketini onaylamak istiyorsun.",
+      npc_role: "Partner",
+      setting: "Cozy dinner conversation",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|so|been thinking)",
+            "(comfortable being |would you be )(my (girlfriend|boyfriend)|mine)",
+            "(want to|i'?d (love|like) to) (make it|go) official",
+            "(call you|introduce you as) my (girlfriend|boyfriend|partner)",
+            "(how does that sit|how do you feel|what do you think) (with you|about it)",
+          ],
+          hint_tr:
+            "Sicak baslat: 'Been thinking — comfortable being my girlfriend? I'd love that.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Aww — yeah I'd love that. Officially yours now?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|absolutely|definitely)",
+            "(officially|fully|completely) (yours|mine|together)",
+            "(so happy|so glad|so excited|made my day) (we'?re|to be)",
+            "(want to |let'?s )(tell|share|introduce) (everyone|my (friends|family))",
+            "(been hoping|been waiting) (for this|to hear that)",
+          ],
+          hint_tr:
+            "Onayla: 'Yes — officially yours. So happy we're here.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Same. Best week ever. Should we tell our friends or keep it just us for now?",
+        },
+      ],
+    },
+    {
+      id: "ex.fd6.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Etiket konusmasi NE ZAMAN dogal?",
+          options: [
+            "Ilk gun",
+            "Exclusive olduktan sonra, duygular netlestiginde",
+            "1 yil sonra zorla",
+            "Hic etiket konusma",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Once exclusive, sonra etiket. Sira: exclusive → label → introduce to friends.",
+        },
+        {
+          question: "'Comfortable being my girlfriend?' niye GUZEL?",
+          options: [
+            "Direkt + dayatici",
+            "Onlara secim hakki veriyor + etiketin onlarin onayina bagli",
+            "Garip",
+            "Cok kibar, etkisiz",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Rahatligini soruyorsun — etiketin gucu ortak karardan geliyor.",
+        },
+        {
+          question: "'How does that sit with you?' anlam?",
+          options: [
+            "Otur",
+            "Sana nasil hissettiriyor? — empati sorusu",
+            "Bekle",
+            "Sus",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Standart deyim — onlarin ic dunyasini soruyorsun. DTR'de cok faydali.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd6.7.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Comfortable being my girlfriend?",
+      ipa: "ˈkʌmftəbl ˈbiːɪŋ maɪ ˈɡɜːlfrend",
+      tr_hint:
+        "'Comfortable' = 'KUMF-tə-bl' (3 hece). 'Being my' baglanır → 'biːɪŋ-maɪ'. Sicak, sevecen ton — soru yukari ton.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 6.8 — Not Ready (Saygili Geciktirme)
+// ============================================================
+export const flirtDefineLesson_6_8: BundledLesson = {
+  id: "flirt.define.6.8",
+  skill_id: "flirt.define",
+  index: 8,
+  title: "'Henuz Hazir Degilim' Saygili Geciktirme",
+  description:
+    "Henuz etikete hazir degilsin — iliskiyi sevdigini soyleyerek geciktir.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.fd6.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I'm enjoying this — can we keep flowing?",
+      tr_translation: "Bunu seviyorum — akmaya devam edebilir miyiz?",
+      example: "Honestly I'm enjoying this so much — can we keep flowing for now?",
+      example_tr: "Cidden bunu cok seviyorum — su an akmaya devam edebilir miyiz?",
+    },
+    {
+      id: "ex.fd6.8.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Su an etiket koymayalim — ama seninle olmayi cok seviyorum.",
+      target: "Let's not put labels yet — but I love being with you.",
+      accepted_variants: [
+        "Not ready for labels yet — really happy with where we are.",
+        "Can we skip labels for now? Loving this either way.",
+        "Don't need a label right now — I'm into you regardless.",
+        "Let's just enjoy this — labels can wait.",
+      ],
+      tr_hint:
+        "'Not put labels yet' = henuz etiket koymayalim. 'I love being with you' = duygunu onayla — reddetme degil.",
+    },
+    {
+      id: "ex.fd6.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Can we keep ___ for now?",
+      answer: "flowing",
+      distractors: ["sleeping", "rushing", "stopping"],
+      tr_hint:
+        "'Keep flowing' = akmaya devam et. Hareket var ama etiket yok hissi.",
+    },
+    {
+      id: "ex.fd6.8.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Let's",
+        "not",
+        "put",
+        "labels",
+        "on",
+        "this",
+        "yet",
+      ],
+      correct_sentence: "Let's not put labels on this yet",
+      tr_translation: "Buna henuz etiket koymayalim.",
+    },
+    {
+      id: "ex.fd6.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "No I don't want a label. Stop asking.",
+      correct_sentence:
+        "I'm really enjoying this — can we keep flowing without labels for now?",
+      tr_explanation:
+        "'Stop asking' = soguk + saldırgan. Doğru: duyguyu onayla ('really enjoying') + saygili istek ('can we keep flowing') = reddetme degil, geciktirme.",
+    },
+    {
+      id: "ex.fd6.8.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Partnerin etiket istiyor ama sen henuz hazir degilsin. Iliskiyi sevdigini gostererek geciktir.",
+      npc_role: "Partner",
+      setting: "Evening conversation, partner brings up labels",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|so glad|i love) (you asked|we'?re talking|that you brought it up)",
+            "(really |so )?(enjoying|loving|happy with) (this|us|where we are)",
+            "(not (quite |yet ))?(ready|sure) (for labels|to label this)",
+            "(can we |let'?s )(keep flowing|not put labels|skip labels) (for now|just yet)",
+            "(it'?s not |this is not )(about you|because of you)",
+          ],
+          hint_tr:
+            "Once duyguyu onayla: 'I'm so enjoying this — can we keep flowing without labels for now?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay — can I ask why? Did I do something?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no |not at all |absolutely not )(you|its you|something you did)",
+            "(it'?s |this is )(just me|my own (pace|stuff|timing))",
+            "(been (burned|hurt) before|coming out of something|need a little more time)",
+            "(love (being |what we have)|happy with us|into you) — (just|but) (no label|not yet)",
+            "(promise|i promise|swear) (to (revisit|come back|talk again))",
+          ],
+          hint_tr:
+            "Aciklayici ol: 'Not you at all — it's my own pace. Love being with you, just no label yet.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Thanks for being honest. I can give it more time — we're good.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd6.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Etiketi GECIKTIRIRKEN niye duyguyu ONCE onaylamali?",
+          options: [
+            "Yalan icin",
+            "Reddetme hissi vermemek icin — geciktirme red degildir",
+            "Vakit kazanmak icin",
+            "Karistirmak icin",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'I love this — but no label yet' = mesaj net: iliski iyi, sadece etiket erken. Karsi taraf kendini reddedilmis hissetmez.",
+        },
+        {
+          question: "Karsi taraf 'sebep ne?' diye sorarsa?",
+          options: [
+            "Yalan soyle",
+            "Kendi tempon/gecmisin oldugunu kibarca paylas — 'It's me, not you'",
+            "Konusmayi kes",
+            "Hemen etiket kabul et",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Suclama yok, sadece kendi durumun. 'My own pace' / 'coming out of something' = saygili aciklama.",
+        },
+        {
+          question: "'Let's keep flowing' niye GUZEL ifade?",
+          options: [
+            "Belirsiz",
+            "Iliski hareket halinde + etiket yok = ozgur ama mevcut",
+            "Yanlis",
+            "Cok agır",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Flowing' = akiyor, ilerliyor — durmus degil. Etiketsiz ama dinamik iliski sinyali.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd6.8.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Let's not put labels on this yet.",
+      ipa: "lets nɒt pʊt ˈleɪblz ɒn ðɪs jet",
+      tr_hint:
+        "'Let's not' bağlanır → 'lets-nɒt'. 'Labels on this' düz tempo. 'Yet' sonda yumuşak — kapı acik hissi. Sakin, sicak ton.",
+    },
+  ],
+};
+
+// ============================================================
 // Flirt Define lessons registry
 // ============================================================
 export const flirtDefineLessons: ReadonlyArray<BundledLesson> = [
@@ -855,4 +1545,8 @@ export const flirtDefineLessons: ReadonlyArray<BundledLesson> = [
   flirtDefineLesson_6_2,
   flirtDefineLesson_6_3,
   flirtDefineLesson_6_4,
+  flirtDefineLesson_6_5,
+  flirtDefineLesson_6_6,
+  flirtDefineLesson_6_7,
+  flirtDefineLesson_6_8,
 ];

@@ -2411,6 +2411,599 @@ export const ydsYokdilLesson_12: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 13 — Cloze test stratejisi · bağlam kelime tahmin
+// ============================================================
+export const ydsYokdilLesson_13: BundledLesson = {
+  id: "testprep.yds.cloze-strategy.1",
+  skill_id: "testprep.yds.cloze",
+  index: 13,
+  title: "Cloze Strateji · Bağlamdan Kelime Tahmini",
+  description:
+    "YDS cloze test stratejisi — boşluk sorusunda DOĞRU yaklaşım: önce cümlenin TAMAMINI oku, sonra mantık akışını izle, en son şıklara bak. Türk öğrencinin en pahalı hatası: cümleyi anlamadan options arasında karar vermek. Bu derste 'despite the fact that', 'on the contrary', 'as a result' gibi geçiş ifadelerinin bağlam içindeki rolünü çalışacaksın.\n\nMİNİ PASAJ:\nResearch on bilingualism has produced surprising results. (1) ___ the long-held belief that learning two languages confuses children, recent studies indicate that bilingual children actually develop stronger cognitive flexibility. (2) ___, they often outperform monolingual peers in tasks requiring attention switching. (3) ___, the advantages do not appear automatically; they emerge only when both languages are used regularly throughout childhood.\n\n(1) Despite / Because of / In addition to\n(2) However / In fact / By contrast\n(3) Therefore / Nevertheless / Similarly",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.yds13.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "despite the fact that",
+      tr_translation: "...olduğu gerçeğine rağmen",
+      example:
+        "Despite the fact that the data was limited, the researchers reached firm conclusions.",
+      example_tr:
+        "Veriler sınırlı olduğu gerçeğine rağmen araştırmacılar kesin sonuçlara ulaştı.",
+    },
+    {
+      id: "ex.yds13.2",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template:
+        "___ the long-held belief that learning two languages confuses children, recent studies indicate that bilingual children develop stronger cognitive flexibility.",
+      answer: "Despite",
+      distractors: ["Because of", "In addition to", "As a result of", "Owing to"],
+      tr_hint:
+        "STRATEJİ: Önce TÜM cümleyi oku. Eski inanç ↔ yeni bulgu = ZIT. Karşıtlık bağlacı şart. 'Despite' = isim/isim öbeği alır ('the belief'). 'Because of' nedensellik — yanlış yön. YDS Türk hatası: 'belief that' görünce hemen 'because' yazmak.",
+    },
+    {
+      id: "ex.yds13.3",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template:
+        "Bilingual children develop strong cognitive flexibility. ___, they often outperform monolingual peers in attention-switching tasks.",
+      answer: "In fact",
+      distractors: ["However", "By contrast", "Nonetheless", "On the contrary"],
+      tr_hint:
+        "STRATEJİ: İki cümle aynı yönde mi, zıt mı? Burada DESTEK — 'güçlü esneklik' + 'daha iyi performans'. 'In fact' = aslında, üstelik (önceki iddiayı GÜÇLENDİRİR). 'However' / 'By contrast' karşıtlık olur — bağlam dışı. Türk öğrenci klasik hatası: her geçiş yerine 'however' yazmak.",
+    },
+    {
+      id: "ex.yds13.4",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "The advantages of bilingualism are real. ___, they do not appear automatically; both languages must be used regularly.",
+      answer: "Nevertheless",
+      distractors: ["Therefore", "Similarly", "Moreover", "Consequently"],
+      tr_hint:
+        "STRATEJİ: 'Avantajlar gerçek' iddiası KISITLAMA ile devam ediyor — 'ama otomatik değil'. Bu yumuşak karşıtlık = 'Nevertheless' (yine de, ancak). 'Therefore' SONUÇ verir — burada sonuç yok, ŞART var. YDS: bağlam yönünü kaçırma!",
+    },
+    {
+      id: "ex.yds13.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Despite the fact that he is tired, but he continued working.",
+      correct_sentence:
+        "Despite the fact that he is tired, he continued working.",
+      tr_explanation:
+        "Türk öğrencinin EN PAHALI YDS hatası: 'Despite/Although' + ana cümlede TEKRAR 'but' kullanmak. Türkçe 'rağmen... ama' der ama İngilizce'de iki karşıtlık bağlacı AYNI cümlede YASAK. Tek bağlaç yeter. 'Despite the fact that... but...' = klasik tuzak.",
+    },
+    {
+      id: "ex.yds13.6",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Eski inanışın aksine, iki dil öğrenmek çocukları kafa karışıklığına itmez; tam tersine bilişsel esnekliklerini güçlendirir.",
+      target:
+        "Contrary to the old belief, learning two languages does not confuse children; on the contrary, it strengthens their cognitive flexibility.",
+      accepted_variants: [
+        "Unlike the old belief, learning two languages does not confuse children; on the contrary, it enhances their cognitive flexibility.",
+        "Contrary to popular belief, learning two languages does not cause confusion in children; rather, it strengthens their cognitive flexibility.",
+      ],
+      tr_hint:
+        "'Aksine' = 'Contrary to' (cümle başı). 'Tam tersine' = 'on the contrary' (cümle ortası). YDS'de bu iki kalıp KARIŞTIRILIR — biri prepozisyon, diğeri bağlaç.",
+    },
+    {
+      id: "ex.yds13.7",
+      type: "recap_quiz",
+      difficulty: 4,
+      questions: [
+        {
+          question:
+            "Cloze test'te bir boşluğa karar vermenin DOĞRU sırası nedir? (Türk öğrencinin atladığı strateji)",
+          options: [
+            "Önce şıkları oku, mantıklı olanı seç.",
+            "Önce cümlenin tamamını oku, mantık yönünü bul, sonra şıklara bak.",
+            "Sadece boşluktan önceki kelimeye bak.",
+            "Şıkları teker teker boşluğa yerleştirip oku.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "DOĞRU STRATEJİ: 1) Cümleyi anla. 2) İlişkiyi belirle (neden/karşıtlık/sonuç). 3) Sonra şıklara bak. Şıktan başlamak Türk öğrencinin EN PAHALI hatasıdır — zaman kaybı + yanlış cevap.",
+        },
+        {
+          question:
+            "'Despite' ile 'Although' arasındaki fark nedir? (Sık sorulan ayırt edici)",
+          options: [
+            "Aynı anlama gelir, biri kısa biri uzun.",
+            "Despite + isim/V-ing; Although + özne + fiil (tam cümle).",
+            "Despite olumlu, Although olumsuz cümleler için.",
+            "Despite konuşmada, Although yazıda kullanılır.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "YDS sınavının ALTIN AYIRIM kuralı: 'Despite the rain' (isim) vs 'Although it was raining' (özne + fiil). 'Despite he is tired' YANLIŞ — 'Although he is tired' DOĞRU.",
+        },
+        {
+          question:
+            "'On the contrary' ile 'In contrast' arasındaki fark? (Sık karıştırılan)",
+          options: [
+            "İkisi aynı anlamda, fark yok.",
+            "On the contrary = önceki iddiayı çürütür ('hayır, tam tersi'); In contrast = iki şeyi karşılaştırır.",
+            "On the contrary olumlu cümlelerde, In contrast olumsuzlarda.",
+            "On the contrary yazıda, In contrast konuşmada kullanılır.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "İNCE FARK: 'On the contrary' = 'hayır, tam aksine' (önceki iddiayı reddeder). 'In contrast' = 'öte yandan' (iki bilgiyi karşılaştırır). YDS sık ayırt eder.",
+        },
+      ],
+    },
+    {
+      id: "ex.yds13.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "contrary to popular belief, the evidence suggests otherwise",
+      tr_hint:
+        "YDS cloze strateji cümlesi. 'Contrary' = 'KON-tra-ree' (iki hece vurgulu), Amerikan'da 'kən-TRER-ee' de olur. 'Otherwise' = 'UTH-er-wize'. 'Evidence' = 'EV-i-dens'. Bu kalıbı tanımak cloze'da yön bulma hızını ikiye katlar.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 14 — Reading comprehension · main idea bul
+// ============================================================
+export const ydsYokdilLesson_14: BundledLesson = {
+  id: "testprep.yds.reading-mainidea.1",
+  skill_id: "testprep.yds.reading",
+  index: 14,
+  title: "Reading · Ana Fikir vs Detay Ayrımı",
+  description:
+    "YDS reading'in EN ZORLAYICI sorusu: 'What is the main idea?'. Türk öğrenci klasik hatası: bir detayı ana fikirle karıştırmak. Ana fikir = pasajın TÜMÜNÜ kapsar, sadece bir paragrafı/cümleyi değil. Bu derste main idea'yı detaydan ayırt etmeyi, kapsam (scope) okumayı çalışacaksın.\n\nPASAJ:\nThe concept of 'flow state' was first introduced by psychologist Mihaly Csikszentmihalyi in the 1970s. He defined flow as a mental state in which a person becomes fully immersed in an activity, losing awareness of time and self. Initial studies focused on artists and athletes, but later research has shown that flow can occur in virtually any domain — from surgery to programming, from music to mountaineering. What unites these diverse experiences is a delicate balance: the task must be challenging enough to demand full attention, yet not so difficult as to provoke anxiety. When this balance is achieved, performance improves dramatically and individuals report a deep sense of fulfilment. Although critics have questioned whether flow can be measured reliably, the broader scientific community continues to view it as one of the most influential concepts in modern positive psychology. More importantly, flow research has shifted how educators design classroom tasks, how managers structure work, and how athletes train — making it not merely a psychological curiosity but a practical framework for human performance.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.yds14.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to be fully immersed in",
+      tr_translation: "tamamen kendini kaptırmış olmak",
+      example: "She was fully immersed in her work and lost track of time.",
+      example_tr: "İşine tamamen kendini kaptırmıştı ve zamanı unuttu.",
+    },
+    {
+      id: "ex.yds14.2",
+      type: "recap_quiz",
+      difficulty: 5,
+      questions: [
+        {
+          question:
+            "Pasajın ANA FİKRİ (main idea) hangisidir? (Türk öğrencinin en sık şaştığı soru)",
+          options: [
+            "Csikszentmihalyi 1970'lerde 'flow' kavramını ortaya koydu.",
+            "Sanatçılar ve sporcular akış deneyimi yaşar.",
+            "Akış kavramı, çeşitli alanlarda performansı yükselten ve uygulamada karşılığı olan etkili bir psikolojik çerçevedir.",
+            "Eleştirmenler akışın ölçülmesini sorgulamaktadır.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "MAIN IDEA = pasajın TAMAMI ne diyor? Cevap C — kavramın tanımı + geniş uygulama + pratik etki. A ve B sadece DETAY (giriş bilgisi). D sadece bir karşı görüş. Türk öğrenci hatası: girişteki ilk cümleyi (tarih/isim) main idea sanmak.",
+        },
+        {
+          question:
+            "Aşağıdakilerden hangisi pasajda yer alan bir DETAY'dır, ana fikir değil?",
+          options: [
+            "Akış, modern pozitif psikolojinin en etkili kavramlarındandır.",
+            "İlk çalışmalar sanatçılar ve sporcular üzerinde yapılmıştır.",
+            "Akış pratik bir performans çerçevesidir.",
+            "Akış yaşandığında performans dramatik olarak artar.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "DETAY vs ANA FİKİR ayırımı: 'İlk çalışmalar sanatçılar/sporcular' = TEK BİR cümlelik tarihsel bilgi (kapsam dar). Diğerleri pasaja yayılan genel iddialar = ana fikre yakın. YDS'de scope (kapsam) okuma anahtardır.",
+        },
+        {
+          question:
+            "Pasaja göre akış (flow) hangi koşulda ortaya çıkar? (Detail soru)",
+          options: [
+            "Görev tamamen kolay olduğunda.",
+            "Görev imkânsız derecede zor olduğunda.",
+            "Görev tam dikkat gerektirecek kadar zorlu ama kaygı uyandırmayacak kadar uygun olduğunda.",
+            "Sadece sanatçılar ve sporcular yaptığında.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Pasaj: 'challenging enough to demand full attention, yet not so difficult as to provoke anxiety'. Bu DETAY sorusudur — belirli cümleye dayanır, ana fikre değil.",
+        },
+        {
+          question:
+            "Yazarın akış araştırmaları hakkındaki tutumu (author's attitude) nedir? (Inference)",
+          options: [
+            "Eleştirel ve kuşkucu.",
+            "Tarafsız bilgi aktaran ama pratik değerini vurgulayan.",
+            "Aşırı şüpheci.",
+            "Kavramı tamamen reddeden.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Yazar 'critics have questioned' diyerek karşı sesi VERİR ama 'broader scientific community continues to view it' ve 'making it... practical framework' diyerek olumlu vurguyu KORUR. Tutum = dengeli ama yapıcı. YDS author's attitude klasiği.",
+        },
+      ],
+    },
+    {
+      id: "ex.yds14.3",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template:
+        "What unites these diverse experiences ___ a delicate balance between challenge and skill.",
+      answer: "is",
+      distractors: ["are", "were", "have been", "being"],
+      tr_hint:
+        "Özne = 'what' clause (tekil). 'What unites...' = tekil özne → 'IS'. Türk öğrenci hatası: 'experiences' (çoğul) görüp 'are' yazmak. YDS subject-verb agreement tuzağı.",
+    },
+    {
+      id: "ex.yds14.4",
+      type: "translate",
+      difficulty: 5,
+      direction: "en_to_tr",
+      source:
+        "Flow research has shifted how educators design classroom tasks, making it not merely a psychological curiosity but a practical framework.",
+      target:
+        "Akış araştırmaları, eğitimcilerin sınıf görevlerini nasıl tasarladığını değiştirdi; bu sayede akış yalnızca psikolojik bir merak konusu değil, pratik bir çerçeve hâline geldi.",
+      accepted_variants: [
+        "Akış üzerine yapılan araştırmalar, eğitimcilerin sınıf etkinliklerini nasıl tasarladığını değiştirmiş; akışı sadece psikolojik bir merak olmaktan çıkarıp pratik bir çerçeveye dönüştürmüştür.",
+      ],
+      tr_hint:
+        "'Not merely X but Y' = 'sadece X değil aynı zamanda Y'. 'Has shifted' present perfect → '-mıştır'. YDS reading çevirisinde sık.",
+    },
+    {
+      id: "ex.yds14.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "The main idea of the passage is that flow was discovered in 1970s by Csikszentmihalyi.",
+      correct_sentence:
+        "The main idea of the passage is that flow is a powerful and broadly applicable framework for performance.",
+      tr_explanation:
+        "Türk öğrencinin REading'de en pahalı hatası: GİRİŞ BİLGİSİNİ ana fikir sanmak. 'Kim, ne zaman keşfetti' = arka plan bilgisi. Ana fikir = yazarın pasaj boyunca savunduğu MERKEZİ İDDİA. Tarih = detay; iddia = ana fikir.",
+    },
+    {
+      id: "ex.yds14.6",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template:
+        "The task must be challenging enough to demand full attention, ___ not so difficult as to provoke anxiety.",
+      answer: "yet",
+      distractors: ["because", "so", "until", "or"],
+      tr_hint:
+        "İki yön: dikkat çek (olumlu) + ama kaygı yaratma (sınır). 'Yet' = ama, fakat (yumuşak karşıtlık). YDS akademik yazıda 'but' yerine 'yet' sık.",
+    },
+    {
+      id: "ex.yds14.7",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "a delicate balance",
+      tr_translation: "hassas denge",
+      example: "Flow requires a delicate balance between challenge and skill.",
+      example_tr: "Akış, zorluk ve beceri arasında hassas bir denge gerektirir.",
+    },
+    {
+      id: "ex.yds14.8",
+      type: "speech_shadowing",
+      difficulty: 4,
+      native_text:
+        "Flow research has shifted how educators design tasks and how athletes train.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Reading pasajının main idea cümlesi. Stress: 'FLOW research', 'SHIFT-ed', 'ED-u-ca-tors', 'A-thletes'. Cümlenin ritmi tanıdık geldikçe ana fikir cümlelerini sınavda saniyede yakalarsın.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 15 — Akademik vocab · high-frequency YDS
+// ============================================================
+export const ydsYokdilLesson_15: BundledLesson = {
+  id: "testprep.yds.vocab-academic.1",
+  skill_id: "testprep.yds.vocab",
+  index: 15,
+  title: "Akademik Vocab · Consequently, Nevertheless, Moreover, Albeit",
+  description:
+    "YDS/YÖKDİL'de neredeyse her yıl test edilen yüksek frekanslı akademik bağlaçlar ve geçiş ifadeleri. 'Consequently', 'nevertheless', 'moreover', 'albeit' — bu kelimelerin TAM anlamı + nüansları + sınavda nasıl ayırt edileceği. Türk öğrencinin sık karıştırdığı 'however vs nevertheless', 'moreover vs furthermore', 'thus vs therefore' nüansları.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.yds15.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "consequently",
+      tr_translation: "sonuç olarak / bunun sonucunda",
+      example:
+        "The data was incomplete; consequently, the conclusions remain tentative.",
+      example_tr:
+        "Veriler eksikti; sonuç olarak vargılar geçici niteliktedir.",
+    },
+    {
+      id: "ex.yds15.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "nevertheless",
+      tr_translation: "yine de / buna rağmen",
+      example:
+        "The evidence was limited; nevertheless, the theory gained widespread acceptance.",
+      example_tr:
+        "Kanıtlar sınırlıydı; yine de teori geniş bir kabul gördü.",
+    },
+    {
+      id: "ex.yds15.3",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "moreover",
+      tr_translation: "üstelik / dahası",
+      example:
+        "The policy is costly; moreover, its effectiveness has not been proven.",
+      example_tr: "Politika maliyetli; üstelik etkinliği de kanıtlanmamıştır.",
+    },
+    {
+      id: "ex.yds15.4",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "albeit",
+      tr_translation: "her ne kadar / olsa da (kısa, edebi 'although')",
+      example: "The progress was steady, albeit slow.",
+      example_tr: "İlerleme istikrarlıydı, yavaş olsa da.",
+    },
+    {
+      id: "ex.yds15.5",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "The funding was reduced sharply; ___, the project was abandoned within six months.",
+      answer: "consequently",
+      distractors: ["nevertheless", "moreover", "albeit", "otherwise"],
+      tr_hint:
+        "NEDEN-SONUÇ: fon kesildi → proje iptal. 'Consequently' = sonuç olarak. 'Nevertheless' karşıtlık olur — yanlış. YDS Türk hatası: her geçişe 'however/nevertheless' yapıştırmak. Sonuç bağlacı şart.",
+    },
+    {
+      id: "ex.yds15.6",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "The drug showed promising results in early trials. ___, large-scale studies failed to confirm its effectiveness.",
+      answer: "Nevertheless",
+      distractors: ["Consequently", "Moreover", "Likewise", "Hence"],
+      tr_hint:
+        "ZIT: erken denemeler umut → büyük denemeler hayal kırıklığı. 'Nevertheless' = buna rağmen (yumuşak karşıtlık). 'However' de olabilirdi ama 'nevertheless' YDS'nin akademik tercihi.",
+    },
+    {
+      id: "ex.yds15.7",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "The new method is faster than the traditional one; ___, it requires far less specialised equipment.",
+      answer: "moreover",
+      distractors: ["consequently", "nevertheless", "otherwise", "albeit"],
+      tr_hint:
+        "EKLEME: hızlı + ucuz ekipman. İki olumlu özellik üst üste = 'moreover/furthermore' (üstelik, dahası). Sonuç değil, ZİYADESİYLE. YDS akademik vocab klasiği.",
+    },
+    {
+      id: "ex.yds15.8",
+      type: "recap_quiz",
+      difficulty: 5,
+      questions: [
+        {
+          question:
+            "'Consequently' ile 'Nevertheless' arasındaki temel fark nedir?",
+          options: [
+            "Aynı anlamdırlar.",
+            "Consequently = sonuç (neden→sonuç akışı); Nevertheless = karşıtlık (rağmen, yine de).",
+            "Consequently olumlu, Nevertheless olumsuz cümleler için.",
+            "Consequently formal, Nevertheless gayri resmi.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "İKİ FARKLI YÖN: 'Consequently' OK aynı yön (sonuç). 'Nevertheless' OK ters yön (rağmen). YDS bu ikisini cloze'da SIK karşı karşıya koyar — yanlış seçen Türk öğrenci sayısız.",
+        },
+        {
+          question:
+            "'Moreover' ile 'Furthermore' arasındaki nüans nedir?",
+          options: [
+            "Tamamen farklı anlamlar.",
+            "İkisi de 'üstelik/dahası' demek; ufak bir nüansla 'moreover' ek bilgi, 'furthermore' önceki noktayı GENİŞLETİR.",
+            "Moreover olumsuz, Furthermore olumlu cümlelerde.",
+            "Moreover modern, Furthermore eski İngilizce.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "İNCE FARK: İkisi de eş anlamlıya yakın. 'Moreover' daha çok 'üstelik şu da var', 'Furthermore' = 'ayrıca devamla'. YDS'de değiştirilebilir; ama listede iki ekleme bağlacı varsa nüansı bil.",
+        },
+        {
+          question:
+            "'Albeit' kelimesinin doğru kullanımı hangisidir?",
+          options: [
+            "Albeit, she was tired, she finished.",
+            "She finished the project, albeit slowly.",
+            "Albeit she finished slowly.",
+            "She finished albeit she was slow.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Albeit' = 'although' kısaltması ama YALNIZ sıfat/zarf öbeği başlatır. 'Albeit slow', 'albeit briefly' gibi. Tam cümleyle KULLANILMAZ — 'albeit she was tired' YANLIŞ. YDS edebi vocab.",
+        },
+        {
+          question:
+            "'Thus' ile 'Therefore' arasındaki fark nedir? (Türk öğrencinin kafa karıştırdığı)",
+          options: [
+            "Hiçbir fark yok.",
+            "İkisi de sonuç verir; 'thus' biraz daha edebi/akademik, 'therefore' biraz daha geniş kullanımlı. YDS'de büyük ölçüde değiştirilebilir.",
+            "Thus = sebep, Therefore = sonuç.",
+            "Thus geçmiş, Therefore şimdiki zaman için.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "İKİSİ DE SONUÇ. 'Thus' = 'böylece, bu nedenle' (biraz daha edebi). 'Therefore' = 'bu nedenle' (genel). YDS değiştirilebilir görür; nüans için 'thus' daha akademik metinlerde sık.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 16 — Paragraph completion · uygun cümle seç
+// ============================================================
+export const ydsYokdilLesson_16: BundledLesson = {
+  id: "testprep.yds.paragraph-completion.1",
+  skill_id: "testprep.yds.paragraph",
+  index: 16,
+  title: "Paragraph Completion · Mantıksal Akış",
+  description:
+    "YDS paragraph completion — paragrafın bir cümlesi boş; mantıksal akışa uygun cümleyi seç. KRİTİK STRATEJİ: 1) Boşluktan ÖNCEKİ cümlenin son fikrini yakala. 2) Boşluktan SONRAKİ cümlenin başını oku — referans (it, this, these) varsa boşluk o referansın hedefini içermeli. 3) Şıklarda mantıksal bağ olanı seç. Türk öğrencinin hatası: sadece anlamca yakın cümleyi seçmek, akışı düşünmemek.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.yds16.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "logical flow",
+      tr_translation: "mantıksal akış",
+      example: "A well-written paragraph maintains a clear logical flow.",
+      example_tr: "İyi yazılmış bir paragraf, açık bir mantıksal akış korur.",
+    },
+    {
+      id: "ex.yds16.2",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "Many people assume that creativity is a fixed trait, something you are either born with or not. ___ Studies have consistently shown that creative thinking can be developed through deliberate practice, much like a muscle.",
+      answer:
+        "However, recent research in cognitive science has challenged this view.",
+      distractors: [
+        "However, creativity is reserved only for artists and musicians.",
+        "Therefore, no one can become more creative throughout their life.",
+        "Similarly, creativity is regarded as inborn talent in every culture.",
+        "In addition, fixed traits are easy to identify in children.",
+      ],
+      tr_hint:
+        "STRATEJİ: Önceki cümle = 'yaratıcılık doğuştandır' (eski görüş). Sonraki cümle = 'çalışılarak gelişir' (yeni görüş). Boşluk → ZIT GEÇİŞ + 'bu görüşe meydan okuyan araştırma'. 'However + challenged this view' = mükemmel köprü.",
+    },
+    {
+      id: "ex.yds16.3",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "The Industrial Revolution transformed every aspect of European society. Factories replaced workshops, and steam engines replaced manual labour. ___ As a result, life expectancy gradually rose, even as new forms of poverty emerged in crowded urban centres.",
+      answer:
+        "These technological changes also brought dramatic improvements in healthcare and sanitation.",
+      distractors: [
+        "These technological changes had no measurable impact on daily life.",
+        "Steam engines were quickly abandoned by industrialists.",
+        "Workshops returned to dominate the European economy.",
+        "Life expectancy fell sharply throughout the period.",
+      ],
+      tr_hint:
+        "STRATEJİ: Sonraki cümle 'As a result, life expectancy rose' diyor — yani BOŞLUK sağlık iyileşmesinin SEBEBİNİ vermeli. 'These technological changes... healthcare and sanitation' = mantıklı KÖPRÜ. Diğerleri sonraki cümleyle çelişir.",
+    },
+    {
+      id: "ex.yds16.4",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "Climate scientists rely on a wide range of data sources to reconstruct past temperatures. Tree rings, ice cores, and ocean sediments each provide unique clues about ancient climates. ___ Together, these methods produce a remarkably detailed picture of Earth's climate history.",
+      answer:
+        "By combining information from multiple sources, researchers can cross-check findings and reduce uncertainty.",
+      distractors: [
+        "Most scientists ignore tree rings because they are unreliable.",
+        "Ocean sediments have only recently been discovered.",
+        "Ice cores produce no information about past temperatures.",
+        "Ancient climates remain completely unknown to modern science.",
+      ],
+      tr_hint:
+        "STRATEJİ: Önceki cümleler = farklı veri kaynakları sayılıyor. Sonraki cümle = 'Together, these methods... detailed picture'. Boşluk → kaynakları BİRLEŞTİRMENİN değerini açıklamalı. 'By combining... cross-check' = mantıksal köprü.",
+    },
+    {
+      id: "ex.yds16.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Paragraph completion sorularında en doğru strateji, sadece şıklardaki en güzel cümleyi seçmektir.",
+      correct_sentence:
+        "Paragraph completion sorularında en doğru strateji, boşluktan önceki ve sonraki cümleleri okuyarak mantıksal köprüyü seçmektir.",
+      tr_explanation:
+        "Türk öğrencinin EN PAHALI paragraph completion hatası: 'En güzel/akıcı' cümleyi seçmek. Soru ESTETİK değil MANTIK. Doğru cümle = öncesi + sonrası ile MANTIKSAL KÖPRÜ kuran. Şıkların İngilizcesi kötü olsa bile akışı tutan doğrudur.",
+    },
+    {
+      id: "ex.yds16.6",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Bir sonraki cümlede 'bu' veya 'bunlar' gibi bir gönderim varsa, boşluk bu zamirin gönderdiği nesneyi içermelidir.",
+      target:
+        "If the next sentence contains a reference such as 'this' or 'these', the blank must contain the noun that the pronoun refers to.",
+      accepted_variants: [
+        "When the following sentence has a reference like 'this' or 'these', the blank should include the noun the pronoun is referring to.",
+      ],
+      tr_hint:
+        "Strateji cümlesi. 'Gönderim' = 'reference'. 'Refers to' = 'göndermek/atıfta bulunmak'. YDS paragraph completion'ın saklı kuralı: zamir takibi.",
+    },
+    {
+      id: "ex.yds16.7",
+      type: "recap_quiz",
+      difficulty: 5,
+      questions: [
+        {
+          question:
+            "Paragraph completion sorusunda boşluğa karar verirken DOĞRU sıra nedir?",
+          options: [
+            "Sadece şıkları okuyup en akıcı cümleyi seç.",
+            "Önce boşluktan önceki cümleyi anla, sonra sonraki cümleyi oku (referans kelimelere dikkat et), sonra şıklarda mantıksal köprüyü kuran cümleyi seç.",
+            "Sadece boşluktan önceki cümleye bak.",
+            "Şıkları teker teker boşluğa yerleştirip oku, hangisi 'kulağa hoş' geliyorsa onu seç.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "TÜRK ÖĞRENCİNİN KAÇIRDIĞI ALTIN KURAL: Paragraph completion = mantık testi, akıcılık testi DEĞİL. Önce çevre cümleleri tara, referans zamirleri (it/this/these/such) avla, sonra köprüyü kur.",
+        },
+        {
+          question:
+            "Boşluktan sonraki cümlede 'These changes...' ile başlanıyorsa, boşluk neyi içermelidir?",
+          options: [
+            "Birden fazla değişikliğin somut tanımını/listesini.",
+            "Tek bir kişi adını.",
+            "Gelecek zamanlı bir tahmini.",
+            "Boşlukla ilgisi olmayan farklı bir konuyu.",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "REFERANS TAKİBİ: 'These changes' çoğul zamir → öncesinde DEĞİŞİKLİKLER ÇOĞUL olarak bahsedilmiş olmalı. Boşluk bunu sağlamalı. YDS paragraph completion'ın ana kapısı.",
+        },
+        {
+          question:
+            "Bir şıkta 'As a result, ...' başlangıcı varsa, bu şık hangi pozisyona uygundur?",
+          options: [
+            "Önceki cümleyle ZIT bir cümleye.",
+            "Önceki cümlenin neden olduğu SONUCU veren bir cümleye.",
+            "Listede sadece yeni bir öğeyi tanıtan cümleye.",
+            "Konudan tamamen sapan cümleye.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "BAĞLAÇ TAKİBİ: 'As a result' = sonuç bağlacı. Şıktaki bağlaç önceki cümleyle uyumlu olmalı. Türk öğrenci sık kaçırır: bağlacın yönü mutlaka kontrol edilmeli.",
+        },
+      ],
+    },
+    {
+      id: "ex.yds16.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "the logical flow of the paragraph must remain unbroken",
+      tr_hint:
+        "Paragraph completion'ın merkezî ilkesi. 'Logical' = 'LO-jik-al' (üç hece, ilk vurgulu). 'Paragraph' = 'PA-ra-graf'. 'Unbroken' = 'un-BRO-ken'. Bu cümle her paragraph completion sorusu önünde içsel mantra olmalı.",
+    },
+  ],
+};
+
+// ============================================================
 // Lesson registry
 // ============================================================
 export const testYdsYokdilLessons: BundledLesson[] = [
@@ -2426,4 +3019,8 @@ export const testYdsYokdilLessons: BundledLesson[] = [
   ydsYokdilLesson_10,
   ydsYokdilLesson_11,
   ydsYokdilLesson_12,
+  ydsYokdilLesson_13,
+  ydsYokdilLesson_14,
+  ydsYokdilLesson_15,
+  ydsYokdilLesson_16,
 ];

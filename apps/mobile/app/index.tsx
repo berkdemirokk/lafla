@@ -34,12 +34,6 @@ export default function Splash() {
           router.replace("/feed");
           return;
         }
-        // First-run? Show tutorial. Otherwise onboarding.
-        const tutDone = await AsyncStorage.getItem("lafla.tutorial.done");
-        if (tutDone !== "true") {
-          router.replace("/tutorial" as never);
-          return;
-        }
       } catch {}
       router.replace("/onboarding");
     };
@@ -57,16 +51,7 @@ export default function Splash() {
     }
     try {
       const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
-      if (localOnboarded === "true") {
-        router.replace("/feed");
-        return;
-      }
-      const tutDone = await AsyncStorage.getItem("lafla.tutorial.done");
-      if (tutDone !== "true") {
-        router.replace("/tutorial" as never);
-        return;
-      }
-      router.replace("/onboarding");
+      router.replace(localOnboarded === "true" ? "/feed" : "/onboarding");
     } catch {
       router.replace("/onboarding");
     }
@@ -103,7 +88,7 @@ const styles = StyleSheet.create({
   wordmark: {
     fontSize: 72,
     fontWeight: tokens.weight.black,
-    color: tokens.text.inverseOnSurface,
+    color: tokens.text.primary,
     letterSpacing: -2.5,
     fontFamily: tokens.font.sans,
   },

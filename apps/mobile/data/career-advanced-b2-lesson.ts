@@ -2264,6 +2264,967 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 11 — LinkedIn premium profile: keyword positioning
+// ============================================================
+export const careerAdvancedB2Lesson_11: BundledLesson = {
+  id: "career.b2.linkedin_keywords.1",
+  skill_id: "career.b2",
+  index: 11,
+  title: "LinkedIn Premium Profil — Anahtar Kelimeler",
+  description:
+    "Profil headline ve About bolumunu recruiter algoritmasina gore yaz. 'Spearheaded', 'cross-functional', '40% growth' = ATS ve insan iki tarafa da konusur.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.cb2-11.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "spearheaded a 40% growth initiative",
+      tr_translation: "%40 buyume girisimini bizzat yonettim/baslattim",
+      example:
+        "Spearheaded a 40% growth initiative across three markets, partnering with product and design.",
+      example_tr:
+        "Urun ve tasarim ile ortakli sekilde, uc pazarda %40 buyume girisimini bizzat yonettim.",
+    },
+    {
+      id: "ex.cb2-11.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "cross-functional collaboration",
+      tr_translation: "fonksiyonlar arasi (ekipler arasi) is birligi",
+      example:
+        "Known for cross-functional collaboration — I bring engineering, design, and ops into one conversation.",
+      example_tr:
+        "Fonksiyonlar arasi is birligi ile taninirim — muhendislik, tasarim ve operasyonu tek bir sohbete tasirim.",
+    },
+    {
+      id: "ex.cb2-11.3",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Son uc yilda paydas hizalanmasini bizzat yonettim ve %40 buyumeyi yakaladim — kuzey yildizi metrigimiz aktivasyondu.",
+      target:
+        "Over the past three years, I've spearheaded stakeholder alignment and delivered 40% growth — our north star metric was activation.",
+      accepted_variants: [
+        "In the last three years, I've led stakeholder alignment end-to-end and driven 40% growth — north star was activation.",
+        "Across three years, I spearheaded alignment across stakeholders and shipped 40% growth, with activation as our north star metric.",
+        "For the past three years, I owned stakeholder alignment and unlocked 40% growth — activation was the north star.",
+        "Over three years, I drove alignment across stakeholders and delivered 40% growth — activation was our north star.",
+      ],
+      tr_hint:
+        "Present perfect ('have spearheaded') = yakin gecmis hala etkili. 'North star metric' = SaaS jargonu, recruiter algoritmasi yakalar. Rakam + verb-strong + impact formati.",
+    },
+    {
+      id: "ex.cb2-11.4",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Eger fonksiyonlar arasi liderlikte gucumu test etmesem, %40 buyume mumkun olmazdi — uc ekibi tek kuzey yildizi etrafinda hizaladim.",
+      target:
+        "If I hadn't tested my strength in cross-functional leadership, the 40% growth wouldn't have been possible — I aligned three teams around a single north star.",
+      accepted_variants: [
+        "Had I not leaned into cross-functional leadership, that 40% growth wouldn't have happened — I rallied three teams behind one north star.",
+        "If I hadn't pushed myself on cross-functional leadership, 40% growth wouldn't have landed — three teams, one north star.",
+        "Without testing my cross-functional muscle, the 40% wouldn't have been realistic — I lined up three teams behind a single north star.",
+      ],
+      tr_hint:
+        "Third conditional ('if I hadn't... wouldn't have') = B2 grameri. Past perfect kosul. LinkedIn 'About' bolumu icin guclu reflection cumlesi.",
+    },
+    {
+      id: "ex.cb2-11.5",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "Senior PM with a track record of ___ go-to-market launches.",
+      answer: "spearheading",
+      distractors: ["doing", "making", "having"],
+      tr_hint:
+        "Recruiter taraması icin guclu verb. 'Doing/making' zayif kalir. 'Spearheading' = bizzat onculuk eden — leadership sinyali.",
+    },
+    {
+      id: "ex.cb2-11.6",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "I am hard working manager. I worked in many projects with many teams.",
+      correct_sentence:
+        "Senior product leader who spearheaded cross-functional growth initiatives — delivered 40% activation lift across three markets.",
+      tr_explanation:
+        "'Hard working, many projects, many teams' = sifat olmayan, soyut, recruiter algoritmasi yakalamaz. Dogru: ROL (senior product leader) + STRONG VERB (spearheaded) + SAYI (%40) + KAPSAM (3 pazar). Her cumle metrik tasimali.",
+    },
+    {
+      id: "ex.cb2-11.7",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "LinkedIn yazimi konusunda kariyer kocun ile 30 dk seans. Profil yenileme: headline, About, en son rol bullet'lari. Koc keyword'leri test ediyor.",
+      npc_role: "Career Coach",
+      setting: "LinkedIn profile review, video call",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Okay, send me your current headline. We'll start there before About and roles.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(here'?s|sending|current) (my|the) (headline|opener)",
+            "(senior|principal|lead) (product|growth|pm)",
+            "(driving|spearheading|leading) (growth|cross[- ]functional|launches)",
+            "(40%|north star|activation|b2b saas)",
+          ],
+          hint_tr:
+            "Net rol + impact verb + metrik: 'Senior PM spearheading cross-functional growth — driving activation as north star.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Decent. But 'driving growth' is everywhere. What specific kind of growth — and what was the lift?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fair point|good call|you('re| are) right)",
+            "(40%|four(ty|teen)?[- ]?percent) (activation|growth|lift)",
+            "(across|in|over) (three|3) (markets|countries|segments)",
+            "(b2b saas|enterprise|smb|mid[- ]market)",
+          ],
+          hint_tr:
+            "Spesifik metrik: 'Right — 40% activation lift across three markets, B2B SaaS.' Soyutluk yok, sayi koy.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Better. Now your About paragraph — what would the opening line be?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(over the past|in the last) (three|3|five|5) years",
+            "(spearheaded|led|owned) (cross[- ]functional|stakeholder alignment|launches)",
+            "(delivered|shipped|drove) (40%|measurable|outsized)",
+            "(known for|reputation for|where i (shine|thrive))",
+          ],
+          hint_tr:
+            "About acilisi: 'Over the past three years I spearheaded cross-functional launches and delivered 40% growth.' Verb-strong, metrik.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Great structure. One question — if a recruiter searched 'platform PM,' would they find you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(probably not|good catch|honestly no)",
+            "(should (add|fold|weave)|need to (work in|include)) (platform|infra|API)",
+            "(adjacent terms|related keywords|ATS-friendly)",
+            "(under (skills|about)|in (the )?headline|throughout)",
+          ],
+          hint_tr:
+            "ATS gercegi: 'Probably not — need to weave platform and API into headline and skills.' Recruiter algoritmasi keyword arar.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Exactly. One more — for your most recent role, give me the top bullet.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(spearheaded|led|owned|drove) (a |the )?(re[- ]?platforming|migration|launch)",
+            "(reducing|cutting|saving) (latency|cost|time) (by )?(\\d+%|in half|by half)",
+            "(partnering with|alongside) (eng|design|leadership)",
+            "(unlocked|enabled|drove) (\\$|\\d+%) (revenue|growth|adoption)",
+          ],
+          hint_tr:
+            "Bullet formula: 'Spearheaded re-platforming with eng + design — cut latency 60%, unlocked $2M ARR.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "That's a strong bullet. Apply that pattern across all roles — verb, action, metric. Send the v2 by Friday.",
+        },
+      ],
+    },
+    {
+      id: "ex.cb2-11.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "Spearheaded a 40% growth initiative through cross-functional collaboration.",
+      ipa: "/ˈspɪəhɛdɪd ə ˈfɔːti pəˈsɛnt ɡrəʊθ ɪˈnɪʃətɪv θruː ˌkrɒsˈfʌŋkʃənəl kəˌlæbəˈreɪʃən/",
+      tr_hint:
+        "'Spearheaded' /ˈspɪəhɛdɪd/ — 'spear-headed' (mizrak basi) gibi. 'Cross-functional' tek nefes, bagli soylenir. LinkedIn icin imza cumle.",
+    },
+    {
+      id: "ex.cb2-11.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "I've owned the north star metric end-to-end — activation, retention, and expansion.",
+      voice_hint: "female_us",
+      tr_hint:
+        "SaaS jargonu cifte: 'north star metric' + 'end-to-end'. Recruiter call'unda sik kullanilir. Tonu kararli, sahiplenici. Listele virgul ile.",
+    },
+    {
+      id: "ex.cb2-11.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "Your LinkedIn needs more measurable outcomes — every bullet should have a number.",
+      transcription_target: "Your LinkedIn needs more measurable outcomes — every bullet should have a number.",
+      tr_hint:
+        "Koc tipik feedback. 'Measurable outcomes' = olculebilir sonuc. 'Every bullet should have a number' = profil disiplini. Standart LinkedIn kuralı.",
+    },
+    {
+      id: "ex.cb2-11.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "stakeholder alignment",
+      tr_translation: "paydas hizalanmasi (karar oncesi onay)",
+      example:
+        "Drove stakeholder alignment across product, engineering, and GTM ahead of every launch.",
+      example_tr:
+        "Her lansman oncesi urun, muhendislik ve GTM (pazara cikis) arasinda paydas hizalanmasini ben yonettim.",
+    },
+    {
+      id: "ex.cb2-11.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Responsible for managing many things and helping team to do better.",
+      correct_sentence:
+        "Spearheaded a portfolio of four cross-functional initiatives, driving 40% activation lift through stakeholder alignment.",
+      tr_explanation:
+        "'Responsible for many things, helping team' = pasif, soyut, ATS gormez. Dogru: STRONG VERB (spearheaded) + SAYI (4 girisim) + SIFATLI (cross-functional) + IMPACT (%40) + MEKANIZMA (stakeholder alignment). Her kelime is yapiyor.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 12 — Director-level interview: vision questions
+// ============================================================
+export const careerAdvancedB2Lesson_12: BundledLesson = {
+  id: "career.b2.director_interview.1",
+  skill_id: "career.b2",
+  index: 12,
+  title: "Director Mulakati — Vizyon Sorulari",
+  description:
+    "Director seviye mulakat: 'Bu ekibi nasil olcerdin?', 'Liderlik felsefen ne?'. Vizyon + cerceve + somut ornek formati. Soyutta kalma, frame koy.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.cb2-12.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "leadership philosophy",
+      tr_translation: "liderlik felsefesi (kisisel cerceve)",
+      example:
+        "My leadership philosophy boils down to three things: clarity, autonomy, and accountability.",
+      example_tr:
+        "Liderlik felsefem uc seye dayanir: netlik, otonomi ve hesap verebilirlik.",
+    },
+    {
+      id: "ex.cb2-12.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "scale this team",
+      tr_translation: "bu ekibi (sayi/etki) buyutmek",
+      example:
+        "If I were to scale this team from twelve to thirty, I'd hire two senior leads first.",
+      example_tr:
+        "Eger bu ekibi 12'den 30'a buyutsem, once iki kidemli lider alirdim.",
+    },
+    {
+      id: "ex.cb2-12.3",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Liderlik felsefem uc seye dayanir: net hedefler, paydaSlar arasi gerilim yonetimi, ve hesap verebilir otonomi. Eger ekibimi olcseydim, once kidemli liderleri ise alirdim.",
+      target:
+        "My leadership philosophy boils down to three things: clear goals, managing tension across stakeholders, and accountable autonomy. If I were to scale this team, I'd hire senior leads first.",
+      accepted_variants: [
+        "My leadership comes down to three ideas: clear direction, navigating stakeholder tension, and autonomy with accountability. To scale this team, I would lead with senior hires.",
+        "Three pillars in my leadership: clarity of goals, stakeholder tension management, and accountable autonomy. Scaling the team, I'd anchor with senior leads.",
+        "Leadership for me is three things: clear targets, holding tension between stakeholders, and autonomy paired with accountability. If I had to scale, I'd hire senior first.",
+      ],
+      tr_hint:
+        "Second conditional ('if I were to... I'd hire') = B2 hipotetik. 'Boils down to three things' = director'lerin frame kalibi. Listele, somutlasir.",
+    },
+    {
+      id: "ex.cb2-12.4",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Eger bu rolu alsam, ilk 90 gunde mevcut ekibi dinler ve roadmap'i revize ederdim — onceki sirketimde ayni cerceveyi uygulamis ve %30 hizlanma elde etmistim.",
+      target:
+        "If I took this role, I'd spend the first 90 days listening to the existing team and revising the roadmap — at my previous company I'd applied the same framework and unlocked a 30% speed-up.",
+      accepted_variants: [
+        "Stepping into this role, I'd use the first 90 days to listen deeply and rework the roadmap — at my last company I had applied that same framework and got 30% faster delivery.",
+        "If I joined, the first 90 days would be listening and roadmap revision — I'd done exactly that at my previous company and we'd accelerated by 30%.",
+        "Taking this role, my first 90 days would be listening and roadmap reset — same approach I'd run before, which delivered a 30% speed-up.",
+      ],
+      tr_hint:
+        "Past perfect ('I'd applied', 'we'd accelerated') = onceki deneyim su andan onceki gecmis. Second conditional + past perfect = B2 grameri yogun. 'Listening tour' director cliche'si.",
+    },
+    {
+      id: "ex.cb2-12.5",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "If I were in your shoes, I'd ___ the team around a single north star.",
+      answer: "rally",
+      distractors: ["push", "force", "make"],
+      tr_hint:
+        "'Rally the team' = pozitif liderlik dili, ekibi etrafinda toplamak. 'Push/force/make' otoriter ve agresif kalir. Director ton inspire-edici.",
+    },
+    {
+      id: "ex.cb2-12.6",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "My leadership style is I am very strict. I tell people what to do and they do it.",
+      correct_sentence:
+        "My leadership philosophy boils down to three things: clarity, autonomy, and accountability — I tell people the 'what' and trust them with the 'how'.",
+      tr_explanation:
+        "'Strict, tell people what to do, they do it' = command-and-control, modern director rolune ters. Dogru: FRAMEWORK (uc sey) + 'what vs how' ayrimi = clarity ile otonomi dengesi. Modern director mulakatinin altin standardi.",
+    },
+    {
+      id: "ex.cb2-12.7",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Director of Product mulakati son turu — Chief Product Officer ile 45 dk. Vizyon, leadership felsefesi, scale planlari sorulacak. Frame koy, somutla.",
+      npc_role: "Chief Product Officer",
+      setting: "Final round, on-site, CPO office",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Thanks for coming back. Let's start big — how would you scale this team from twelve to thirty?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(great question|thanks for|appreciate)",
+            "(three (things|phases|moves)|i('d| would) think about (it )?in (three|3))",
+            "(senior (lead|hire|anchor)s? first|hire seniors before|anchor with senior)",
+            "(then|after that|next).{0,40}(mid[- ]?level|ICs|builders)",
+            "(culture|operating rhythm|rituals) (last|finally|after that)",
+          ],
+          hint_tr:
+            "Frame ile basla: 'Three phases — senior leads first, then mid-level builders, then operating rituals.' Listele, somutlasir.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Why senior leads first? Most folks default to volume hiring.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(if i('d| had) (hired|loaded) (volume|junior) first|had i gone volume first)",
+            "(would('ve| have) had to|i('d| would) have ended up) (managing|babysitting|micromanaging)",
+            "(seniors (set|anchor|hold) the bar|seniors absorb|leverage of senior)",
+            "(my (last|previous) company|at \\w+( inc| corp)?|in my (last|previous) role)",
+            "(scaled (from )?(\\d+) to (\\d+)|grew (\\d+x|\\d+ to \\d+)|tripled the team)",
+          ],
+          hint_tr:
+            "Counterfactual + ornek: 'If I'd loaded juniors first, I'd have been micromanaging. At my last company I scaled 8 to 24 senior-first.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. Tell me your leadership philosophy in 60 seconds.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(boils down to|comes down to|rests on) (three|3) (things|pillars|ideas)",
+            "(clarity|clear (goals|direction|north star))",
+            "(autonomy|trust|ownership)",
+            "(accountability|hold(ing)? the line|outcomes)",
+            "(what vs how|the 'what'.{0,20}'how'|set the what)",
+          ],
+          hint_tr:
+            "Standart frame: 'Three pillars: clarity, autonomy, accountability. I set the what — team owns the how.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Strong. What if a senior IC pushes back on a strategic call you've made?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(love (it|pushback)|welcome (it|the challenge)|i want (the )?dissent)",
+            "(first.{0,20}(steel[- ]?man|hear them out|understand)|i('d| would) (listen|absorb))",
+            "(if (i('m| am)|they('re| are)) right|if their case (holds|lands))",
+            "(disagree (and )?commit|move forward together|align (and )?execute)",
+            "(my (last|previous) (call|decision)|specific (case|moment))",
+          ],
+          hint_tr:
+            "Modern senior leader cevabi: 'I welcome it — steel-man their case. If they're right, change. If not, disagree-and-commit together.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Last one — what would your first 90 days look like?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(first 30|days 1[- ]?30|month one) .{0,40}(listen|1[- ]?on[- ]?1s|coffee chats|diagnose)",
+            "(days 30[- ]?60|month two|second month) .{0,40}(synthes|hypothes|north star|frame)",
+            "(days 60[- ]?90|month three|third month) .{0,40}(roadmap (reset|v2|revision)|hiring (plan|kickoff)|ship)",
+            "(no big moves|won('t| not) (rewrite|reshape) (anything|the plan))",
+          ],
+          hint_tr:
+            "30-60-90 klasigi: 'First 30 listen, 30-60 synthesize north star, 60-90 roadmap reset and hiring plan.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Crisp answer. I have a strong read — expect to hear from the recruiter today.",
+        },
+      ],
+    },
+    {
+      id: "ex.cb2-12.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "My leadership philosophy boils down to clarity, autonomy, and accountability.",
+      ipa: "/maɪ ˈliːdəʃɪp fɪˈlɒsəfi bɔɪlz daʊn tuː ˈklɛərɪti ɔːˈtɒnəmi ænd əˌkaʊntəˈbɪlɪti/",
+      tr_hint:
+        "Director mulakatinin imza cumlesi. 'Boils down to' /bɔɪlz daʊn tuː/ — idiom, ozetler. Uc kelimeyi virgulle, hafif duraklarla soyle. Tonu kararli, ezberlenmis degil.",
+    },
+    {
+      id: "ex.cb2-12.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "If I were to step into this role, my first 90 days would be a listening tour.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Second conditional + future shift. 'Step into this role' = role girmek. 'Listening tour' = director icin standart 90-gun acilisi. Sakin, dusunulmus ton.",
+    },
+    {
+      id: "ex.cb2-12.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "How would you scale this team if you had unlimited headcount?",
+      transcription_target: "How would you scale this team if you had unlimited headcount?",
+      tr_hint:
+        "Hipotetik soru. 'Headcount' = personel sayisi (HR jargon). 'Unlimited' = tuzak — herkesi ise alma cevabi yanlis. Cevap: kalite > volume.",
+    },
+    {
+      id: "ex.cb2-12.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "disagree and commit",
+      tr_translation: "anlasmazliga ragmen taahhut etmek (modern liderlik kalibi)",
+      example:
+        "If their case doesn't change my view, I'd ask the team to disagree and commit.",
+      example_tr:
+        "Eger savunmalari fikrimi degistirmezse, ekibin disagree and commit yapmasini isterim.",
+    },
+    {
+      id: "ex.cb2-12.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "If I will get this job, I will fix everything in first month.",
+      correct_sentence:
+        "If I were to take this role, my first 90 days would be a listening tour — no big moves in month one.",
+      tr_explanation:
+        "'If I will get + first month' = hem gramer hatasi (will iki yerde) hem strateji hatasi (acele degisiklik). Dogru: SECOND CONDITIONAL ('if I were to') + 90 gun cercevesi + 'no big moves' = director olgunlugu. Acele = junior sinyali.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 13 — Equity / RSU negotiation: total comp
+// ============================================================
+export const careerAdvancedB2Lesson_13: BundledLesson = {
+  id: "career.b2.equity_negotiation.1",
+  skill_id: "career.b2",
+  index: 13,
+  title: "Hisse / RSU Muzakeresi — Total Comp",
+  description:
+    "Equity / RSU pazarligi. Vesting, cliff, refresh grant jargon. 'My total comp expectation is...' + kuru rakam degil, paket. Hisse sirkette long-term leverage.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.cb2-13.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "total comp expectation",
+      tr_translation: "toplam tazminat beklentisi (base + bonus + equity)",
+      example:
+        "My total comp expectation is in the 320 to 360 range — base, target bonus, and annualized equity combined.",
+      example_tr:
+        "Toplam tazminat beklentim 320-360 araliginda — taban, hedef bonus ve yillikizilmis hisse birlikte.",
+    },
+    {
+      id: "ex.cb2-13.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "refresh grant",
+      tr_translation: "tazeleme hissesi (her yil verilen ek RSU)",
+      example:
+        "How do you handle refresh grants — are they performance-based or automatic at year three?",
+      example_tr:
+        "Refresh (tazeleme) hisselerini nasil yonetiyorsunuz — performansa mi bagli yoksa ucuncu yilda otomatik mi?",
+    },
+    {
+      id: "ex.cb2-13.3",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Toplam tazminat beklentim 350 — base 220, target bonus 20%, ve yillikizilmis 90k equity. RSU'larda 1 yil cliff, sonra cheyrekik vesting standart mi sizde?",
+      target:
+        "My total comp expectation is 350 — base 220, target bonus 20%, and annualized equity of 90k. On RSUs, is one-year cliff followed by quarterly vesting standard here?",
+      accepted_variants: [
+        "I'm targeting 350 total comp — 220 base, 20% target bonus, plus 90k annualized equity. For RSUs — do you typically run a one-year cliff with quarterly vesting after?",
+        "Total comp target sits at 350 — 220 base, 20% bonus target, 90k annualized RSU. Is the standard here a one-year cliff and quarterly vest?",
+        "I'd land at 350 total comp — 220 base, 20% target bonus, 90k annualized equity. Standard cliff-and-vest schedule on your side?",
+      ],
+      tr_hint:
+        "Total comp formul: BASE + BONUS + (EQUITY/4 yil). 'Annualized equity' = grant'in 4'e bolunmus hali. 'Cliff' = 1 yil dolmadan vesting yok. Jargon dogru kullan = senior sinyali.",
+    },
+    {
+      id: "ex.cb2-13.4",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Refresh grant'leri nasil yapiyorsunuz? Onceki sirketimde dorduncu yilda hisselerim ucuruma dusmustu — eger erken refresh almasaydim, total comp duser ve baska firsatlari degerlendirir miydim.",
+      target:
+        "How do you handle refresh grants? At my previous company, my equity had fallen off a cliff in year four — if I hadn't gotten an early refresh, my total comp would have dropped and I'd have looked elsewhere.",
+      accepted_variants: [
+        "What's your refresh structure? At my last shop, my grant had cliffed out by year four — without an early refresh, my comp would've dropped and I'd have started looking.",
+        "How are refresh grants handled here? My prior equity had fully vested by year four — if I hadn't received an early refresh, total comp would have dipped and I'd have explored options.",
+        "Walk me through refreshes. At my old company, my RSUs had fully cliffed in year four — without that early top-up, comp would have fallen and I'd have moved on.",
+      ],
+      tr_hint:
+        "Past perfect ('had fallen off') + third conditional ('if I hadn't... would have dropped'). 'Cliff out' = tum hisseler vest etti, yenisi yoksa comp duser. Equity'nin uzun donem dinamigi.",
+    },
+    {
+      id: "ex.cb2-13.5",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template: "Standard at most companies is a one-year ___ before any RSUs vest.",
+      answer: "cliff",
+      distractors: ["wall", "block", "barrier"],
+      tr_hint:
+        "'Cliff' = ucurum — 1 yil dolmadan hicbir hisse vest etmez. Jargon dogrudan kullan. Diger sinonimler yanlis kalir.",
+    },
+    {
+      id: "ex.cb2-13.6",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "I want 250 thousand dollars salary. Equity I don't care, money is important.",
+      correct_sentence:
+        "My total comp expectation is 350 — and I view the equity story as long-term leverage, especially with predictable refresh grants.",
+      tr_explanation:
+        "'Equity I don't care, money important' = senior level hata. Yabanci sirkette uzun donem zenginlik equity'den gelir. Dogru: TOTAL COMP framework + 'equity story' uzun donem persp + 'refresh grants' = surdurulebilirlik. Salary-only = junior sinyali.",
+    },
+    {
+      id: "ex.cb2-13.7",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Final offer call: Series C startup, Director of Engineering rolu. Base 230 + 600k RSU/4yr + 15% bonus teklif edildi. Total comp 380, sen 420 hedefliyorsun.",
+      npc_role: "VP People Ops",
+      setting: "Offer negotiation call, 45 min",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Here's where we landed: 230 base, 600 RSU over four years, 15% target bonus. Total comp around 380 annualized. Thoughts?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|appreciate) (for putting|the package|walking me)",
+            "(total comp expectation|i was targeting|landing closer to) (4[12]0|420|400)",
+            "(based on (market|levels|comparable))",
+            "(equity (story|side|piece)|RSU)",
+            "(refresh|growth|year (3|three|four|4))",
+          ],
+          hint_tr:
+            "Total comp framework ile counter: 'Thanks — I was targeting 420 total comp. Equity story is where I'd push.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. We can't move base much — it's banded. Where would you push on equity?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(rather than|instead of) (base|cash)",
+            "(grant size|RSU value|equity grant) .{0,20}(800|720|increase|larger)",
+            "(refresh (cadence|schedule|grant)|year (2|two|3|three) refresh)",
+            "(cliff|vest(ing)? (schedule|terms))",
+            "(if i (delivered|hit|outperform)|on top performance|tied to)",
+          ],
+          hint_tr:
+            "Equity'yi park et: 'Push grant to 800 + year-two refresh. Tie to performance.' Base degil, RSU + refresh.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Going to 800 is a stretch. What if we did 720 with an accelerated vesting schedule?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(walk me through|help me understand|tell me more about) (accelerated|the vesting)",
+            "(monthly|quarterly|six[- ]month) vest",
+            "(cliff (stays|stay|still))",
+            "(double trigger|change of control|acceleration on)",
+            "(refresh (commitment|guarantee|in writing)|year (2|two|3))",
+          ],
+          hint_tr:
+            "Sorgula: 'Walk me through the schedule. Monthly vest? Cliff stays? Double trigger on change of control?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Six-month cliff, then monthly vest. Double trigger acceleration is standard for Director level here.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that('s| is) (better|moving|closer)|appreciate the movement)",
+            "(if (we|you) could (also|land)|one more (ask|piece))",
+            "(refresh|year (2|two|3|three)) (commitment|guarantee|in writing)",
+            "(15% to 20%|bump (the )?bonus|target bonus to 20)",
+          ],
+          hint_tr:
+            "Bir adim daha: 'That's closer — could we also lock in a year-two refresh commitment in writing?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I can document the year-two refresh intent — not a guarantee, performance-gated. Bonus stays at 15. Are we close?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(performance[- ]?gated.{0,30}(works|fair|reasonable)|happy with performance)",
+            "(let me (run|do) the (math|numbers)|that puts (us|me) at)",
+            "(annualized .{0,20}(\\d{3}|400|410|405))",
+            "(verbal yes|happy to commit|that works)",
+            "(in writing|written offer|sent over)",
+          ],
+          hint_tr:
+            "Hesapla, kapat: 'Performance-gated works. That puts me at ~410 annualized. Verbal yes — send it in writing?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Done. Updated offer letter goes out today. Glad we got there.",
+        },
+      ],
+    },
+    {
+      id: "ex.cb2-13.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "My total comp expectation is in the 380 to 420 range — base, bonus, and annualized equity combined.",
+      ipa: "/maɪ ˈtəʊtəl kɒmp ˌɛkspɛkˈteɪʃən ɪz ɪn ðə ˈθriː ˈeɪti tuː ˈfɔː ˈtwɛnti reɪndʒ beɪs ˈbəʊnəs ænd ˈænjuəlaɪzd ˈɛkwɪti kəmˈbaɪnd/",
+      tr_hint:
+        "Equity pazarliginin imza cumlesi. 'Annualized' /ˈænjuəlaɪzd/ = yillikizilmis — RSU grant'i 4'e boler. Rakamlari NET say, range goster ('380 to 420').",
+    },
+    {
+      id: "ex.cb2-13.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "I view the equity story as long-term leverage — especially with predictable refresh grants.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Senior dil. 'Equity story' = hisse anlatisi/dinamigi. 'Long-term leverage' = uzun donem manivela. 'Predictable refreshes' = sirketten beklenti — sustainability sinyali.",
+    },
+    {
+      id: "ex.cb2-13.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "Refresh grants are performance-gated, typically starting in year two.",
+      transcription_target: "Refresh grants are performance-gated, typically starting in year two.",
+      tr_hint:
+        "Standart sirket cevabi. 'Performance-gated' = performansa bagli (otomatik degil). 'Year two' = ikinci yilda baslar. Bunu duyunca: 'gated' kriteri ne, yazili mi diye sor.",
+    },
+    {
+      id: "ex.cb2-13.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "double trigger acceleration",
+      tr_translation: "cifte tetik hizlandirma (satin alma + isten cikarma)",
+      example:
+        "Standard for Director level — double trigger acceleration on change of control plus involuntary termination.",
+      example_tr:
+        "Director seviyesinde standart — sirket el degistirir VE istemeden cikarilirsan hisseler hizla vest eder.",
+    },
+    {
+      id: "ex.cb2-13.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Just give me bigger salary. Equity is uncertain, base is certain.",
+      correct_sentence:
+        "Rather than push base, I'd rather grow the grant and lock in a year-two refresh — that's where the long-term comp lives.",
+      tr_explanation:
+        "'Just give bigger salary, equity uncertain' = uzun donem dusunmeyen yaklasim. Senior pazarlik: BASE BANDED (sabit) = lots of pushback yok. EQUITY GROWS = refresh + grant size + acceleration. 'Where the long-term comp lives' = senior cerceve.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 14 — 360 review: peer assessment writing
+// ============================================================
+export const careerAdvancedB2Lesson_14: BundledLesson = {
+  id: "career.b2.peer_360_review.1",
+  skill_id: "career.b2",
+  index: 14,
+  title: "360 Degerlendirme — Akran Assessment Yazma",
+  description:
+    "360 review formu: akranin guclu yanlari + 'areas to level up'. SBI + spesifik metrik + 'level up further' yumusatici dil. Promo materyali.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.cb2-14.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "consistently drives",
+      tr_translation: "tutarli sekilde ileri tasir (yuksek frekansli etki)",
+      example:
+        "Sarah consistently drives velocity by 25% in every quarter she owns the sprint plan.",
+      example_tr:
+        "Sarah, sprint planini sahiplendigi her ceyrekte hizi tutarli sekilde %25 ileri tasir.",
+    },
+    {
+      id: "ex.cb2-14.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "areas where she could level up further",
+      tr_translation: "daha da yukari cikabilecegi alanlar (negatif yumusatici)",
+      example:
+        "One area where she could level up further: making her strategic thinking more visible in cross-team forums.",
+      example_tr:
+        "Daha da yukari cikabilecegi bir alan: stratejik dusuncesini ekipler arasi forumlarda daha gorunur kilmasi.",
+    },
+    {
+      id: "ex.cb2-14.3",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Sarah hizi tutarli sekilde %25 ileri tasir — paydas hizalanmasi sahiplenir ve teknik kararlari uretim ekibine tasir. Daha da yukari cikabilecegi bir alan: stratejik dusuncesini gorunur kilmak.",
+      target:
+        "Sarah consistently drives velocity by 25% — she owns stakeholder alignment and translates technical decisions to the delivery team. One area where she could level up further: making her strategic thinking more visible.",
+      accepted_variants: [
+        "Sarah consistently drives 25% velocity gains — she anchors stakeholder alignment and bridges technical decisions to delivery. An area to level up further: surfacing her strategic thinking more.",
+        "Sarah is a consistent driver of 25% velocity uplift — she carries stakeholder alignment and converts technical calls into team execution. One spot to level up: visibility of her strategic thinking.",
+        "Sarah pushes velocity by 25% consistently — owns alignment, translates technical decisions cleanly. Where she could level up further: making her strategic thinking more visible cross-team.",
+      ],
+      tr_hint:
+        "360 format: SAYI ile guclu yan + MEKANIZMA (nasil) + 'level up further' (negatif yumusatici). 'Drives... by 25%' formuli kalitiyor, kullan.",
+    },
+    {
+      id: "ex.cb2-14.4",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Eger Sarah'nin stratejik dusunceleri ust yonetime daha erken iletilmis olsaydi, geçen ceyrek karar daha hizli alinir ve iki hafta kazanirdik.",
+      target:
+        "If Sarah's strategic thinking had been surfaced to leadership earlier, the decision last quarter would have landed faster — and we'd have saved two weeks.",
+      accepted_variants: [
+        "Had Sarah's strategic take reached leadership earlier, last quarter's call would've come faster and we'd have banked two weeks.",
+        "If we'd gotten Sarah's strategic view to leadership sooner, the decision last quarter would've shipped faster — saving us two weeks.",
+        "Had Sarah's strategic thinking been visible to leadership earlier, that Q-call would have landed quicker and we'd have gained two weeks.",
+      ],
+      tr_hint:
+        "Third conditional ('if had been surfaced... would have landed') + 'would have saved'. B2 yogun gramer. 360 review icin guclu counterfactual — somut maliyet (iki hafta).",
+    },
+    {
+      id: "ex.cb2-14.5",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template: "One area where she could ___ up further: stakeholder visibility.",
+      answer: "level",
+      distractors: ["go", "move", "step"],
+      tr_hint:
+        "'Level up further' = 360 review imza ifadesi. Negatif feedback'i 'gelisim alani' diline cevirir. Diger fiiller standart degil bu cerceve icin.",
+    },
+    {
+      id: "ex.cb2-14.6",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Sarah is good employee. She works hard. She has weak points like communication.",
+      correct_sentence:
+        "Sarah consistently drives velocity by 25% and owns stakeholder alignment — one area where she could level up further is making her strategic thinking more visible cross-team.",
+      tr_explanation:
+        "'Good employee, works hard, weak points' = soyut, promo dosyasinda kullanilamaz. Dogru format: SAYI (%25) + STRONG VERB (drives, owns) + SPESIFIK MEKANIZMA (stakeholder alignment) + LEVEL UP FRAMING. HR ve calibration committee bunu okur.",
+    },
+    {
+      id: "ex.cb2-14.7",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "360 review form dolduruyorsun, ama once HR Business Partner ile 30 dk align session. Sarah icin yazilacaklari soyle, HR feedback verecek.",
+      npc_role: "HR Business Partner",
+      setting: "360 review prep, video call",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Thanks for jumping on. You're writing on Sarah for the cycle — let's hear your top strength first.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(top|biggest|standout) strength",
+            "(consistently (drives|delivers|raises)|reliably (pushes|moves))",
+            "(velocity|throughput|delivery) (by |of )?\\d+%",
+            "(owns|anchors|carries) (stakeholder alignment|alignment across)",
+            "(translates|bridges|converts) (technical|complex)",
+          ],
+          hint_tr:
+            "Imza formul: 'Top strength — consistently drives velocity by 25%, owns stakeholder alignment, translates technical decisions cleanly.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Strong opener. Calibration committee will love the number. Can you tie it to a specific moment?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(q[1-4]|last quarter|the .* (launch|migration|sprint))",
+            "(when (the |a )?(scope (shifted|changed)|crisis hit|deadline moved))",
+            "(she (kept|held|drove)|sarah anchored)",
+            "(without (her|sarah)|had she not|if she hadn'?t)",
+            "(would('ve| have) (slipped|missed|landed))",
+          ],
+          hint_tr:
+            "Spesifik moment + counterfactual: 'In Q3 migration, when scope shifted, Sarah held alignment. Without her, we'd have slipped two weeks.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Great. Now the harder part — one area to level up. Frame it constructively.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(one area (where|she could)|spot to level up|grow further)",
+            "(making (her |the )?(strategic|thinking) (more )?visible|surfacing (her )?strategy)",
+            "(cross[- ]team|to leadership|in (broader|wider) forums)",
+            "(her (insight|read|take)s? .{0,20}(don't (always )?reach|stay in (the )?room))",
+          ],
+          hint_tr:
+            "Yumusak format: 'One area to level up — making her strategic thinking more visible to leadership. Her insights don't always reach the broader room.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Good. Watch out though — 'visibility' can read as 'she's quiet,' which trips bias flags. Sharpen it.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fair (flag|point|catch)|good (call|catch)|you('re| are) right)",
+            "(reframe|rephrase|make it (about|tighter))",
+            "(her (strategic|cross[- ]team) (memos|write[- ]ups|posts)|publishing (more|her thinking))",
+            "(specific behavior|concrete habit|observable)",
+          ],
+          hint_tr:
+            "Bias sinyaline duyarli: 'Fair flag — reframe as behavior: publish more strategic write-ups cross-team. Concrete, not personality.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Much better. One more pass — what would you say if asked, is she ready for the next level?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(strong (yes|advocate)|ready (now|today)|clear yes)",
+            "(operating (at|one level up)|already (showing|doing) (next[- ]level|L\\d))",
+            "(if she'?d had the (title|scope)|with the next level scope)",
+            "(would('ve| have) (already|landed))",
+          ],
+          hint_tr:
+            "Promo recommendation: 'Strong yes — operating one level up already. If she'd had the title in Q3, the cross-org call would have landed faster.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect. That'll carry weight in calibration. Drop the final write-up by Friday.",
+        },
+      ],
+    },
+    {
+      id: "ex.cb2-14.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "Sarah consistently drives velocity by 25% and owns stakeholder alignment end-to-end.",
+      ipa: "/ˈsɑːrə kənˈsɪstəntli draɪvz vəˈlɒsɪti baɪ ˈtwɛnti faɪv pəˈsɛnt ænd əʊnz ˈsteɪkˌhəʊldər əˈlaɪnmənt ɛnd tuː ɛnd/",
+      tr_hint:
+        "360 review imza cumlesi. 'Consistently' /kənˈsɪstəntli/ — tutarli sekilde. 'End-to-end' tek nefes. Rakam NET soyle, etki cikar.",
+    },
+    {
+      id: "ex.cb2-14.9",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text: "One area where she could level up further is making her strategic thinking more visible.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Negatif feedback formul cumlesi. 'Level up further' = ust seviyeye tasimak. 'More visible' = daha gorunur kilmak (yargilamadan davranis). Yumusak, profesyonel ton.",
+    },
+    {
+      id: "ex.cb2-14.10",
+      type: "listen_and_transcribe",
+      difficulty: 5,
+      audio_text: "Frame the development area as a behavior, not a personality trait.",
+      transcription_target: "Frame the development area as a behavior, not a personality trait.",
+      tr_hint:
+        "HR'in kritik kurali. 'Development area' = gelisme alani (negatif yumusatici). 'Behavior, not personality' = ne yapilabilecekse onu yaz, kisilik etiketi takma. Bias filtresi.",
+    },
+    {
+      id: "ex.cb2-14.11",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "operating at the next level",
+      tr_translation: "bir ust seviyede calismak (promo sinyali)",
+      example:
+        "She's already operating at the next level — the title would catch up with the scope.",
+      example_tr:
+        "Zaten bir ust seviyede calisiyor — unvan, sahipligin kapsamina yetisecek.",
+    },
+    {
+      id: "ex.cb2-14.12",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "Sarah is quiet person. She should talk more in meetings to get promoted.",
+      correct_sentence:
+        "One area where she could level up further: publishing more strategic write-ups cross-team — her insights would land with wider stakeholder groups.",
+      tr_explanation:
+        "'Quiet person, talk more' = kisilik etiketi + cinsiyet/kultur bias riski. Calibration committee bunu reddeder. Dogru: BEHAVIOR ('publishing write-ups') + KANAL (cross-team) + IMPACT ('insights would land'). Davranis somut, kisilik soyut.",
+    },
+  ],
+};
+
+// ============================================================
 // Lesson registry
 // ============================================================
 export const careerAdvancedB2Lessons: BundledLesson[] = [
@@ -2277,4 +3238,8 @@ export const careerAdvancedB2Lessons: BundledLesson[] = [
   careerAdvancedB2Lesson_8,
   careerAdvancedB2Lesson_9,
   careerAdvancedB2Lesson_10,
+  careerAdvancedB2Lesson_11,
+  careerAdvancedB2Lesson_12,
+  careerAdvancedB2Lesson_13,
+  careerAdvancedB2Lesson_14,
 ];

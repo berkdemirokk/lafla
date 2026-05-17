@@ -636,10 +636,718 @@ export const dailyPhoneLesson_21_3: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 21.5 — Customer Service: Hold + Transfer (Bekletme + Yonlendirme)
+// ============================================================
+export const dailyPhoneLesson_21_5: BundledLesson = {
+  id: "daily.phone.21.5",
+  skill_id: "daily.phone",
+  index: 5,
+  title: "Musteri Hizmetleri — Hold + Transfer",
+  description:
+    "Operator olarak: arayan bekletme + dogru departmana yonlendirme. 'Could you hold a moment?' + 'Let me transfer you' kalıplari.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dph21.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Could you hold a moment?",
+      tr_translation: "Bir saniye bekler misiniz?",
+      example: "Could you hold a moment? Let me check that for you.",
+      example_tr: "Bir saniye bekler misiniz? Sizin icin kontrol edeyim.",
+    },
+    {
+      id: "ex.dph21.5.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Sizi dogru departmana yonlendireyim — bir saniye lutfen.",
+      target: "Let me transfer you to the right department — one moment please.",
+      accepted_variants: [
+        "I'll transfer you to the correct department — hold on please.",
+        "Transferring you to the right team now — just a sec.",
+        "Let me get you to the right department — please hold.",
+        "I'll connect you with the right department — one moment.",
+        "Let me put you through to the right team — hold please.",
+      ],
+      tr_hint:
+        "'Transfer' = yonlendir. 'Let me' = kibar baslangic. 'Wait a minute' = sert, kullanma.",
+    },
+    {
+      id: "ex.dph21.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I'll put you ___ to billing right away.",
+      answer: "through",
+      distractors: ["over", "across", "around"],
+      tr_hint:
+        "'Put through to X' = X'e yonlendir (UK + US). Telefonun klasik phrasal verb.",
+    },
+    {
+      id: "ex.dph21.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Please",
+        "hold",
+        "while",
+        "I",
+        "check",
+        "that",
+      ],
+      correct_sentence: "Please hold while I check that",
+      tr_translation: "Ben kontrol ederken bekleyin lutfen.",
+    },
+    {
+      id: "ex.dph21.5.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Wait a minute.",
+      correct_sentence:
+        "Could you hold a moment? I'll transfer you to the right department.",
+      tr_explanation:
+        "'Wait a minute' = sert + emir kipi. Dogru: 'Could you hold' + 'I'll transfer' = kibar + sebep belli.",
+    },
+    {
+      id: "ex.dph21.5.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Bir sirketin ana hattini ariyorsun. Operator karsiliyor — fatura sorunu icin dogru departmana baglanman lazim.",
+      npc_role: "Operator",
+      setting: "Customer service phone call",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Thanks for calling Acme. This is Sarah speaking — how can I help?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|good (morning|afternoon))",
+            "(this is|my name is|i'?m) (\\w+|berk)",
+            "(calling about|reaching out about|need help with)",
+            "(billing|fatura|a charge|my account|invoice)",
+            "(issue|problem|question)",
+          ],
+          hint_tr:
+            "Tanit + konu: 'Hi, this is Berk — calling about a billing issue on my account.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. Could you hold a moment? Let me transfer you to billing.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sure|of course|absolutely|no problem)",
+            "(thanks|appreciate it|thank you)",
+            "(i'?ll hold|happy to hold|go ahead)",
+          ],
+          hint_tr:
+            "Kabul + tesekkur: 'Sure, I'll hold. Thanks.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Putting you through now — please stay on the line.",
+        },
+      ],
+    },
+    {
+      id: "ex.dph21.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Operator 'Could you hold a moment?' dedi. Dogru cevap?",
+          options: [
+            "Sus",
+            "Sure, I'll hold. Thanks. (kibar kabul)",
+            "Hayir, simdi",
+            "Why?",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Hold istegine 'Sure / Of course' = standart. Tesekkur = profesyonel.",
+        },
+        {
+          question: "'Transfer you to X department' ne demek?",
+          options: [
+            "Kapat",
+            "Beni dogru departmana yonlendir (baglanti aktarir)",
+            "Bekle",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Transfer' = baglantiyi baska hatta aktar. 'Put through to' = ayni anlam.",
+        },
+        {
+          question: "'This is Sarah speaking' niye 'speaking' eklenir?",
+          options: [
+            "Yararsiz",
+            "Telefonda kendini tanitma kalibi = 'ben konusan Sarah'",
+            "Hicbir sey",
+            "Cok agir",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'This is X speaking' = telefonda standart kendini tanitma. Yuz yuze degil — 'speaking' eklenir.",
+        },
+      ],
+    },
+    {
+      id: "ex.dph21.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Could you hold a moment? Let me transfer you.",
+      ipa: "kʊd juː hoʊld ə ˈmoʊmənt lɛt miː ˈtrænsfɜːr juː",
+      tr_hint:
+        "'Could you' baglanir → 'kud-ju'. 'Hold a moment' = akici. 'Transfer you' vurgu ilk hece: TRANS-fer.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 21.6 — Voicemail: Kisa + Net (Sesli Mesaj Birakma)
+// ============================================================
+export const dailyPhoneLesson_21_6: BundledLesson = {
+  id: "daily.phone.21.6",
+  skill_id: "daily.phone",
+  index: 6,
+  title: "Voicemail Birakma — Kisa ve Net",
+  description:
+    "15 saniye altinda profesyonel voicemail: 'Hi, this is X — calling about Y — please call back at Z.' Yapi + tempo.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dph21.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Please call me back at",
+      tr_translation: "Lutfen beni geri ara — numaram...",
+      example: "Please call me back at 555-1234 when you get a chance.",
+      example_tr: "Uygun olunca 555-1234'ten beni geri ara lutfen.",
+    },
+    {
+      id: "ex.dph21.6.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Merhaba, ben Berk — Salı toplantısı icin ariyorum. Geri donmenizi rica ederim, 555-9876.",
+      target: "Hi, this is Berk — calling about Tuesday's meeting. Please call me back at 555-9876.",
+      accepted_variants: [
+        "Hello, Berk here — about Tuesday's meeting. Call me back at 555-9876.",
+        "Hi, it's Berk — leaving a message about the Tuesday meeting — 555-9876 please.",
+        "Berk calling regarding Tuesday's meeting — get back to me at 555-9876.",
+        "Hi, this is Berk — Tuesday meeting question — please ring me at 555-9876.",
+        "Hey, Berk here — calling about the meeting Tuesday — call back at 555-9876.",
+      ],
+      tr_hint:
+        "Voicemail = isim + konu + numara. Sadece bu 3 sey, 15 saniye.",
+    },
+    {
+      id: "ex.dph21.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Hi, ___ is Berk — leaving a quick message.",
+      answer: "this",
+      distractors: ["here", "it", "that"],
+      tr_hint:
+        "'This is X' = telefonda kendini tanitma. 'I am X' degil — telefonda her zaman 'this is'.",
+    },
+    {
+      id: "ex.dph21.6.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Sorry",
+        "I",
+        "missed",
+        "you",
+        "—",
+        "give",
+        "me",
+        "a",
+        "ring",
+      ],
+      correct_sentence: "Sorry I missed you — give me a ring",
+      tr_translation: "Seni yakalayamadim — beni ara.",
+    },
+    {
+      id: "ex.dph21.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Hello hello hello, am I speaking with the office? I need to talk about... uhh, you know, the thing from last week, please call me okay?",
+      correct_sentence:
+        "Hi, this is Berk — calling about last week's invoice. Please call back at 555-3344. Thanks.",
+      tr_explanation:
+        "Voicemail uzun + belirsiz = silinir. Dogru: 15 saniye, isim + spesifik konu + numara.",
+    },
+    {
+      id: "ex.dph21.6.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Aradigin kisi cevap vermedi — voicemail acildi. Klinikten randevu tarihi degisikligi icin mesaj birakiyorsun.",
+      npc_role: "Voicemail System",
+      setting: "Voicemail recording",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Hi, you've reached Dr. Miller's office. We can't take your call right now — please leave a message after the tone. Beep.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|good (morning|afternoon))",
+            "(this is|it'?s|my name is) (\\w+|berk)",
+            "(calling about|leaving a message about|reaching out (about|regarding))",
+            "(appointment|randevu|booking|cleaning|checkup)",
+            "(next (week|tuesday|friday)|tomorrow|monday)",
+          ],
+          hint_tr:
+            "Acilis: 'Hi, this is Berk calling about my appointment next Tuesday.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "(Recording continues — keep going.)",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(need to (reschedule|change|move|cancel))",
+            "(please call (me )?back|call back|get back to me|ring me)",
+            "(at \\d|on \\d|my number is)",
+            "(\\d{3}-?\\d{4}|555-?\\d+)",
+            "(thanks|appreciate it|thank you)",
+          ],
+          hint_tr:
+            "Sebep + numara + tesekkur: 'Need to reschedule. Please call back at 555-3344. Thanks.'",
+        },
+      ],
+    },
+    {
+      id: "ex.dph21.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Iyi bir voicemail kac saniye?",
+          options: [
+            "1 dakika+",
+            "10-15 saniye, sadece 3 sey: isim + konu + numara",
+            "Bir saat",
+            "Sınırsız",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Uzun voicemail = silinir. Karsi tarafa 'kim, niye, nasil ulasacam' net olmalı.",
+        },
+        {
+          question: "Voicemail'da niye numarani TEKRAR soylersin?",
+          options: [
+            "Yararsiz",
+            "Karsi taraf yazsin diye + acele sirasinda anlasilsin",
+            "Hicbir sey",
+            "Cok agir",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Bir kez sondan hizli soylersen yazamaz. Sondaki yavas tekrar = pratik.",
+        },
+        {
+          question: "Telefonda 'I am Berk' niye yanlis?",
+          options: [
+            "Dogru, sorun yok",
+            "Telefonda her zaman 'This is Berk' — Turk hatasi 'I am'",
+            "Cok agir",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Yuz yuze 'I am Berk', telefonda 'This is Berk'. Kalibi degistir.",
+        },
+      ],
+    },
+    {
+      id: "ex.dph21.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Hi, this is Berk — please call me back.",
+      ipa: "haɪ ðɪs ɪz bɜːrk pliːz kɔːl miː bæk",
+      tr_hint:
+        "'This is' baglanir → 'di-siz'. 'Call me back' = vurgu CALL + BACK. Aradaki 'me' zayif.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 21.7 — Yanlis Numara (Wrong Number — Kibar Bitirme)
+// ============================================================
+export const dailyPhoneLesson_21_7: BundledLesson = {
+  id: "daily.phone.21.7",
+  skill_id: "daily.phone",
+  index: 7,
+  title: "Yanlis Numara — Kibar Bitirme",
+  description:
+    "Yanlis numarayi aradiginda veya birisi yanlislikla seni aradiginda: 'Sorry, I think I have the wrong number.' Kibar gecip kapama.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dph21.7.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "I think I have the wrong number",
+      tr_translation: "Yanlis numarayi aradim galiba",
+      example: "Sorry, I think I have the wrong number. Have a good one.",
+      example_tr: "Pardon, yanlis numarayi aradim galiba. Iyi gunler.",
+    },
+    {
+      id: "ex.dph21.7.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Pardon, sizi yanlislikla aramisim — rahatsizlik icin ozur.",
+      target: "Sorry, I dialed the wrong number — apologies for the trouble.",
+      accepted_variants: [
+        "Sorry, wrong number — apologies for bothering you.",
+        "Apologies, I have the wrong number — sorry to bother.",
+        "My mistake, wrong number — sorry about that.",
+        "Oh sorry — I think I dialed wrong. Apologies.",
+        "Sorry to bother you — wrong number on my end.",
+      ],
+      tr_hint:
+        "'Dialed wrong' = yanlis cevirdim. 'Apologies for the trouble' = rahatsizlik icin ozur. Kisa + kibar.",
+    },
+    {
+      id: "ex.dph21.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Sorry to ___ you — wrong number.",
+      answer: "bother",
+      distractors: ["disturb", "trouble", "annoy"],
+      tr_hint:
+        "'Sorry to bother you' = telefonda rahatsizlik kalibi. 'Disturb' daha sert, 'bother' daha gunluk.",
+    },
+    {
+      id: "ex.dph21.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "No",
+        "worries",
+        "—",
+        "have",
+        "a",
+        "good",
+        "one",
+      ],
+      correct_sentence: "No worries — have a good one",
+      tr_translation: "Sorun degil — iyi gunler.",
+    },
+    {
+      id: "ex.dph21.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Who is this? Wrong! Bye!",
+      correct_sentence:
+        "Oh sorry — I think I have the wrong number. Apologies for the trouble.",
+      tr_explanation:
+        "'Who is this? Wrong!' = saldirgan + nezaketsiz. Dogru: ozur dilemek + kabul + kibar kapama.",
+    },
+    {
+      id: "ex.dph21.7.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Bir restorani aradigini saniyorsun. Karsiya bir kisi cikiyor — sesi tanidik gelmiyor. Yanlis numara.",
+      npc_role: "Stranger",
+      setting: "Wrong number phone call",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Hello?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|good (morning|afternoon))",
+            "(is this|am i speaking (with|to)|is that)",
+            "(luigi'?s|the restaurant|\\w+'s)",
+          ],
+          hint_tr:
+            "Aradigin yeri dogrula: 'Hi, is this Luigi's restaurant?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "No, this is a private number — you've got the wrong line.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh|sorry|apologies|my (apologies|bad|mistake))",
+            "(i (think i|must have))?\\s*(have|dialed|got) the wrong (number|line)",
+            "(sorry (to bother|about that|for the trouble)|apologies for the trouble)",
+            "(have a good (one|day)|take care|enjoy your (day|evening))",
+          ],
+          hint_tr:
+            "Ozur + kibar bitir: 'Oh sorry — I have the wrong number. Apologies for the trouble. Have a good one.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "No worries — take care.",
+        },
+      ],
+    },
+    {
+      id: "ex.dph21.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Yanlis numara — EN onemli adim?",
+          options: [
+            "Hemen kapat",
+            "'Sorry, wrong number' + 'apologies for the trouble' = kibar gecis",
+            "Bagir",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Birden kapatma = kaba. Iki saniye ozur = profesyonel + Amerikan/Ingiliz normu.",
+        },
+        {
+          question: "'Have a good one' ne demek?",
+          options: [
+            "Anlamsiz",
+            "'Iyi gunler' — gunluk + nazik kapanis (US klasigi)",
+            "Tehdit",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Have a good day' uzun. 'Have a good one' kisa + samimi. Telefon kapanisi icin idealdir.",
+        },
+        {
+          question: "Yanlis numara karsisindan 'No worries' duydun. Anlami?",
+          options: [
+            "Bir sorun var",
+            "'Sorun degil' — ozru kabul + kibar geri",
+            "Bagiriyor",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'No worries' = 'sorun degil'. 'No problem' ile esit, daha samimi.",
+        },
+      ],
+    },
+    {
+      id: "ex.dph21.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Sorry, I think I have the wrong number.",
+      ipa: "ˈsɒri aɪ θɪŋk aɪ hæv ðə rɒŋ ˈnʌmbər",
+      tr_hint:
+        "'Sorry' kisa + ust ton. 'I think I' baglanir → 'ay-thingk-ay'. 'Wrong number' vurgu WRONG + NUM.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 21.8 — Sinyal Kotu: Tekrar Et (Bad Signal — Could You Repeat?)
+// ============================================================
+export const dailyPhoneLesson_21_8: BundledLesson = {
+  id: "daily.phone.21.8",
+  skill_id: "daily.phone",
+  index: 8,
+  title: "Sinyal Kotu — Tekrar Et",
+  description:
+    "Hat kesilirken: 'You're breaking up', 'I lost you for a sec', 'Could you say that again?' — geri arama veya tekrar isteme.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dph21.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "You're breaking up",
+      tr_translation: "Sesin kesik kesik geliyor",
+      example: "Sorry, you're breaking up — could you say that again?",
+      example_tr: "Pardon, sesin kesik kesik geliyor — tekrar eder misin?",
+    },
+    {
+      id: "ex.dph21.8.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Pardon, seni kaybettim bir an — son cumleyi tekrar eder misin?",
+      target: "Sorry, I lost you for a sec — could you repeat that last part?",
+      accepted_variants: [
+        "Sorry, you cut out — say that again?",
+        "Lost you there — can you repeat the last bit?",
+        "Sorry, the signal dropped — what was that last part?",
+        "You broke up for a moment — could you say that again?",
+        "Missed that — could you repeat the last sentence?",
+      ],
+      tr_hint:
+        "'Lost you' = kaybettim (sesini). 'Cut out' = kesildi. 'Could you repeat' = kibar tekrar istegi.",
+    },
+    {
+      id: "ex.dph21.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "The signal ___ here — let me move outside.",
+      answer: "is bad",
+      distractors: ["have bad", "going bad", "be bad"],
+      tr_hint:
+        "'Signal is bad' = sinyal kotu. 'Have bad' yanlis — signal SAHIPLENILEMEZ, durum ifade eder.",
+    },
+    {
+      id: "ex.dph21.8.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Let",
+        "me",
+        "call",
+        "you",
+        "right",
+        "back",
+      ],
+      correct_sentence: "Let me call you right back",
+      tr_translation: "Seni hemen geri arayayim.",
+    },
+    {
+      id: "ex.dph21.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "What? What? Say again!",
+      correct_sentence:
+        "Sorry, you're breaking up — could you say that again, a bit louder?",
+      tr_explanation:
+        "'What? What? Say again!' = panik + emir. Dogru: sorunu acikla (breaking up) + kibar istek + cozum onerisi (louder).",
+    },
+    {
+      id: "ex.dph21.8.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Bir is gorusmesi yapiyorsun. Hat kesik kesik — anlamiyorsun. Tekrar istemek + geri arama teklif et.",
+      npc_role: "Caller",
+      setting: "Phone call with poor signal",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "...so the meeting is at... [static] ...and we'll need... [breaking up]",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sorry|hey)",
+            "(you'?re breaking up|i lost you|you cut out|the (signal|connection) (is bad|dropped))",
+            "(could you (say that|repeat|go over that)|can you (say|repeat))",
+            "(again|one more time|the last (part|bit))",
+          ],
+          hint_tr:
+            "Sorunu acikla + tekrar iste: 'Sorry, you're breaking up — could you say that again?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure — meeting is at 3pm on Thursday. Can you hear me now?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|i can|got it|much better)",
+            "(thanks|appreciate it)",
+            "(if (we|i) (lose|get cut off|get disconnected)|in case (we|the line) drops)?",
+            "(call (you|me) (right )?back|i'?ll ring (you|back)|let me call)",
+          ],
+          hint_tr:
+            "Onayla + yedek plan: 'Yes, got it — thanks. If we lose signal again I'll call you right back.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sounds good — talk to you Thursday.",
+        },
+      ],
+    },
+    {
+      id: "ex.dph21.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'You're breaking up' ne demek?",
+          options: [
+            "Ayriliyoruz",
+            "Sesin kesik kesik geliyor (sinyal sorunu)",
+            "Cok mutlu",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Telefon idiomu. Iliski degil — sinyal/hat sorunu. 'Cutting out' = ayni anlam.",
+        },
+        {
+          question: "Sinyal cok kotu — EN iyi cozum?",
+          options: [
+            "Bagirarak konus",
+            "'Let me call you right back' + acik alana cik",
+            "Hicbir sey deme",
+            "Kapatma",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Tekrar tekrar 'what?' demek profesyonel degil. Geri arama = hat reset + acik alanda iyi sinyal.",
+        },
+        {
+          question: "'Could you say that again?' niye 'Say again!'den iyi?",
+          options: [
+            "Fark yok",
+            "Modal ('Could') = kibar istek; 'Say again!' emir kipi + kaba",
+            "Yanlis",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Could you / Can you' = standart kibar istek. Emir kipi telefonda kaba durur.",
+        },
+      ],
+    },
+    {
+      id: "ex.dph21.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "You're breaking up — could you say that again?",
+      ipa: "jʊr ˈbreɪkɪŋ ʌp kʊd juː seɪ ðæt əˈɡɛn",
+      tr_hint:
+        "'You're breaking up' vurgu BREAK. 'Could you' baglanir → 'kud-ju'. 'Say that again' akici, 'that' zayif.",
+    },
+  ],
+};
+
+// ============================================================
 // Daily Phone lessons registry
 // ============================================================
 export const dailyPhoneLessons: ReadonlyArray<BundledLesson> = [
   dailyPhoneLesson_21_1,
   dailyPhoneLesson_21_2,
   dailyPhoneLesson_21_3,
+  dailyPhoneLesson_21_5,
+  dailyPhoneLesson_21_6,
+  dailyPhoneLesson_21_7,
+  dailyPhoneLesson_21_8,
 ];

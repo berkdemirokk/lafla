@@ -901,6 +901,807 @@ export const workFeedbackGivingLesson_37_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 37.5 — Pozitif Feedback Spesifik
+// ============================================================
+export const workFeedbackGivingLesson_37_5: BundledLesson = {
+  id: "work.feedback_giving.37.5",
+  skill_id: "work.feedback_giving",
+  index: 5,
+  title: "Pozitif Feedback Spesifik",
+  description:
+    "'Good job' degil — 'Your X moved the needle because Y'. Spesifik + neden + etki = gercek sinyal. 'On fire', 'shoutout', 'moved the needle'.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wfg37.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "moved the needle",
+      tr_translation: "Igneyi oynatti / gercekten fark yaratti (jargon)",
+      example: "Your dashboard work really moved the needle on Q3 retention.",
+      example_tr: "Dashboard calismam Q3 retention'da gercekten fark yaratti.",
+    },
+    {
+      id: "ex.wfg37.5.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Hizli bir takdir — dunkun board sunusu cidden ic acti, ozellikle revenue slide'i CFO'yu ikna etti.",
+      target:
+        "Quick shoutout — your board deck yesterday really landed, especially the revenue slide that won the CFO over.",
+      accepted_variants: [
+        "Quick shoutout — that board deck was on fire, the revenue slide alone got the CFO on board.",
+        "Wanted to flag this — your board deck yesterday moved the needle; the revenue slide sealed the CFO.",
+        "Shoutout for yesterday's board deck — it really landed, especially the revenue cut that turned the CFO.",
+        "Hey, quick props — the board deck yesterday was sharp; the revenue slide is what won the CFO over.",
+      ],
+      tr_hint:
+        "Spesifik = NE (board deck) + NICIN onemli (revenue slide) + ETKI (CFO ikna oldu). 'On fire' / 'landed' / 'moved the needle' = native jargon.",
+    },
+    {
+      id: "ex.wfg37.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Your revenue slide really ___ the needle with the CFO.",
+      answer: "moved",
+      distractors: ["pushed", "lifted", "raised"],
+      tr_hint:
+        "'Move the needle' = sabit kalip = gercek fark yarat. 'Push' / 'lift' yanlis collocation.",
+    },
+    {
+      id: "ex.wfg37.5.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "That",
+        "deck",
+        "was",
+        "on",
+        "fire",
+        "the",
+        "CFO",
+        "couldn't",
+        "stop",
+        "nodding",
+      ],
+      correct_sentence: "That deck was on fire the CFO couldn't stop nodding",
+      tr_translation: "O sunum harikaydi — CFO basini sallamayi birakamadi.",
+    },
+    {
+      id: "ex.wfg37.5.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Good job on the deck, you are very smart person.",
+      correct_sentence:
+        "Quick shoutout — that deck was on fire. The revenue slide is what won the CFO over.",
+      tr_explanation:
+        "'Good job' = jenerik = sifir sinyali. 'You are smart' = karakter ovgusu (Carol Dweck: fixed mindset besler). Davranis ve etki ovgusu: 'Bu DECK, su SLIDE, bu ETKI' = growth mindset + ogrenilebilir.",
+    },
+    {
+      id: "ex.wfg37.5.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Junior'in dun board'da basarili bir sunus yapti. 1:1'inde spesifik ve davranis bazli pozitif feedback veriyorsun.",
+      npc_role: "Junior teammate",
+      setting: "Weekly 1:1, post-board-meeting",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(quick (shoutout|props|kudos)|want to (call out|flag))",
+            "(yesterday('s)?|the) (board|exec|leadership) (deck|presentation|meeting)",
+            "(was on fire|landed|moved the needle|nailed it|killed it)",
+          ],
+          hint_tr:
+            "Spesifik acilis: 'Quick shoutout — yesterday's board deck was on fire.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh thanks — honestly I was nervous the whole time.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(couldn't tell|didn't show|hid it well)",
+            "(specifically|in particular|the (revenue|growth|churn) (slide|cut|chart))",
+            "(won (the cfo|her|him) over|sealed it|got (her|him) on board|turned (the room|her))",
+            "(framing|narrative|story arc|how you (set up|opened))",
+          ],
+          hint_tr:
+            "Spesifik git: 'Couldn't tell — specifically the revenue slide is what won the CFO over. The framing was sharp.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Good to hear. I rewrote that slide like four times.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it (showed|paid off)|that (work|prep) (showed|paid))",
+            "(rigor|prep|attention to detail) (i (saw|appreciated)|paid off|made the difference)",
+            "(want to see more|keep doing that|that('s| is) the bar)",
+            "(when you (own|drive) (an|the) (exec|board) (deck|story))",
+          ],
+          hint_tr:
+            "Davranisi pekistir: 'That rigor showed — keep doing that. That's the bar for exec decks.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Means a lot. Thanks for noticing.",
+        },
+      ],
+    },
+    {
+      id: "ex.wfg37.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'You are very smart' vs 'That revenue slide won the CFO over' — fark?",
+          options: [
+            "Fark yok",
+            "Birincisi karakter ovgusu (fixed mindset) — ikincisi spesifik davranis + etki (growth mindset, tekrarlanabilir)",
+            "Birincisi daha kibar",
+            "Ikisi de kotu",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Carol Dweck arastirmasi: karakter ovgusu = 'akilliyim, demek ki ugrasmam gerek yok' tehlikesi. Davranis ovgusu = 'su davranisim ise yaradi, tekrar yaparim'.",
+        },
+        {
+          question: "'On fire', 'moved the needle', 'landed' — ne tur kelimeler?",
+          options: [
+            "Kufurlu",
+            "Native is jargonu — ovguye renk + samimi ton + 'bunu cidden takip ediyorum' sinyali",
+            "Cok formal",
+            "Yanlis kullanim",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Genel kelimelerle ovgu sahte gelir; native jargon = 'gercekten gozlemledim, sahsen takdir ediyorum' agirligi.",
+        },
+        {
+          question: "Pozitif feedback spesifikligi NEDEN bu kadar onemli?",
+          options: [
+            "Daha uzun olsun diye",
+            "Spesifik = report tam olarak NE'yi tekrarlamasi gerektigini bilir = davranis tekrarlanir; jenerik = ne yapacagini bilmez",
+            "Manager'a yaranmak icin",
+            "Onemli degil",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Ovgunun amaci = davranisi tekrarlat. Jenerik 'good job' = hangi davranisi tekrarlasin bilmez. Spesifik = tekrarlanabilir.",
+        },
+      ],
+    },
+    {
+      id: "ex.wfg37.5.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Your revenue slide really moved the needle with the CFO.",
+      tr_translation: "Revenue slide'in CFO'da gerçekten fark yarattı.",
+      ipa: "/jʊər ˈrɛvənjuː slaɪd ˈrɪəli muːvd ðə ˈniːdl wɪð ðə siː ɛf əʊ/",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 37.6 — Constructive Sandwich
+// ============================================================
+export const workFeedbackGivingLesson_37_6: BundledLesson = {
+  id: "work.feedback_giving.37.6",
+  skill_id: "work.feedback_giving",
+  index: 6,
+  title: "Constructive Sandwich",
+  description:
+    "Gerceklik kontrolu + buyume yolu: 'Strength: X. One thing to level up: Y. Future: Z.' Tek davranis odakli — manipulatif degil.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.wfg37.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "level up",
+      tr_translation: "Bir sonraki seviyeye cikar / gelistir (jargon)",
+      example:
+        "One thing to level up: tightening the exec summary at the top of the doc.",
+      example_tr:
+        "Gelistirilecek bir sey: docun basindaki exec summary'i sikilastirmak.",
+    },
+    {
+      id: "ex.wfg37.6.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Gucun: arastirma derin ve veri kati. Gelistirilecek bir sey: docun basindaki exec summary'i sikilastirmak — okuyucu ilk 30 saniyede sonuca varsin. Bunu cozersen, bu tip docler senin imza islerin olur.",
+      target:
+        "Your strength: the research is deep and the data is rigorous. One thing to level up: tightening the exec summary at the top so the reader gets the conclusion in 30 seconds. Crack that, and these docs become your signature work.",
+      accepted_variants: [
+        "Strength: solid research and rigorous data. One thing to level up: a tighter exec summary up top so readers get the take in 30 seconds. Nail that and these docs become your trademark.",
+        "What's working: deep research, rigorous data. To level up: tighten the TL;DR so the reader lands the conclusion in 30 sec. Once you crack that, these docs are yours.",
+        "Strength is the depth and rigor of the data. The lift: tighter exec summary at the top — 30 sec to the takeaway. Get that and these docs become signature.",
+        "Doing well: research depth, data rigor. Next level: sharpen the exec summary so the reader gets it in 30 seconds. Solve that and these become your signature output.",
+      ],
+      tr_hint:
+        "Sandwich = Guc + Gelistirme + Gelecek vizyonu. Manipulatif degil cunku tum parcalar gercek + buyume yonlu.",
+    },
+    {
+      id: "ex.wfg37.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "One thing to ___ up: tightening the exec summary.",
+      answer: "level",
+      distractors: ["push", "step", "raise"],
+      tr_hint:
+        "'Level up' = sabit jargon. 'Step up' yakin ama anlam farkli (= sorumluluk al). 'Level up' = beceri/cikti kalitesini yukselt.",
+    },
+    {
+      id: "ex.wfg37.6.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Crack",
+        "that",
+        "and",
+        "these",
+        "docs",
+        "become",
+        "your",
+        "signature",
+        "work",
+      ],
+      correct_sentence: "Crack that and these docs become your signature work",
+      tr_translation: "Bunu cozersen, bu docler senin imza islerin olur.",
+    },
+    {
+      id: "ex.wfg37.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Doc was good but exec summary was bad, but overall I liked.",
+      correct_sentence:
+        "Strength: the research depth is real. One thing to level up: tighter exec summary at the top — 30 seconds to the takeaway. Crack that and these docs become your signature work.",
+      tr_explanation:
+        "'Was good but bad but liked' = belirsiz + kararsiz = report ne yapacak bilmez. Sandwich: spesifik guc + spesifik gelistirme + gelecek motivasyonu. 'But' yerine 'And' / 'One thing to level up' = pozitif framing.",
+    },
+    {
+      id: "ex.wfg37.6.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Senior IC'inin yazdigi 12 sayfalik design doc'a sandwich formatinda feedback veriyorsun: arastirma derin ama exec summary zayif.",
+      npc_role: "Senior IC",
+      setting: "1:1 — design doc review",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(read|went through|spent time with|read end to end) (the|your) (doc|design doc|rfc)",
+            "(strength|what('s| is) working|where you('re| are) (winning|crushing|strong))",
+            "(research (is|was) (deep|solid|rigorous)|data (rigor|depth)|details (are|were) tight)",
+          ],
+          hint_tr:
+            "Once gercek guc: 'Read the doc end to end — strength is the research depth, data rigor is real.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Thanks — I put a lot of time into that part.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it shows|that showed|paid off)",
+            "(one thing to level up|one lift|next level|where I('d| would) push)",
+            "(exec summary|tldr|tl;dr|top of (the )?doc)",
+            "(tighter|sharper|30 seconds|conclusion up front|takeaway)",
+          ],
+          hint_tr:
+            "Gelistirme — TEK sey, spesifik: 'One thing to level up — tighter exec summary at the top. 30 seconds to the takeaway.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yeah, I always struggle with the TL;DR. How do you mean tighter?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(reader|exec|vp|cto|skim) (lands|gets|walks away with)",
+            "(conclusion|take|verdict|recommendation) (up front|first|in 30 sec)",
+            "(then|after that|below) (the (detail|rigor|backup))",
+            "(bluf|bottom line up front|conclusion first)",
+          ],
+          hint_tr:
+            "Spesifik teknik: 'Conclusion up front — reader lands the take in 30 seconds. Then the detail backs it up. BLUF style.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it — that actually makes sense.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(crack that|nail that|solve that|get that down)",
+            "(these (docs|rfcs|designs)|this kind of writing) (become|are|will be)",
+            "(your (signature|trademark)|signature (work|output)|the standard)",
+            "(genuinely|honestly|cidden) (excited|looking forward)",
+          ],
+          hint_tr:
+            "Vizyonla kapan: 'Crack that and these docs become your signature work — genuinely excited to see the next version.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I'll rework the top and send it back. Thanks for the read.",
+        },
+      ],
+    },
+    {
+      id: "ex.wfg37.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Sandwich format = Guc + Gelistirme + Gelecek. Kotu uygulanmis sandwich nasil olur?",
+          options: [
+            "Cok kisa",
+            "Sahte guc + gercek elestiri + sahte gelecek = report 'aslinda sadece elestiri vardi' anlar = guven kaybi",
+            "Cok uzun",
+            "TR ile yazilmis",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Sandwich manipulatif olur eger guc + gelecek 'yumusatici dolgu' ise. Tum parcalar = gercek + ozune dair. Aksi halde report formatu cozer + guvensizlik.",
+        },
+        {
+          question: "'One thing to level up' — neden TEK sey?",
+          options: [
+            "Tembelik",
+            "Insan beyni ayni anda 1-2 davranis degisikligi tutar. 5 sey = hicbiri degismez. Tek sey + ona odaklan = gercek aksiyon.",
+            "Yararsiz",
+            "Standart sablon",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Coklu elestiri = bilissel asiri yuk = report kapanir. Tek + spesifik = sahiplenebilir + olculebilir.",
+        },
+        {
+          question: "Sandwich'in 'Future' kismi nicin var?",
+          options: [
+            "Doldurmak icin",
+            "Buyume yolu gosterir = elestiri ceza degil yatirim olur = motivasyon + iliski guclenir",
+            "Kibar olmak icin",
+            "Yararsiz",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Elestiri 'sen yetersizsin' demek degil — 'su kucuk sey + su buyuk sonuc' yatirim cercevesi. 'Future' = neden ugrasayim sorusuna yanit.",
+        },
+      ],
+    },
+    {
+      id: "ex.wfg37.6.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Crack that and these docs become your signature work.",
+      tr_translation: "Bunu çözersen, bu docler senin imza işlerin olur.",
+      ipa: "/kræk ðæt ənd ðiːz dɒks bɪˈkʌm jʊər ˈsɪɡnətʃər wɜːk/",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 37.7 — Performans Problemi Direkt
+// ============================================================
+export const workFeedbackGivingLesson_37_7: BundledLesson = {
+  id: "work.feedback_giving.37.7",
+  skill_id: "work.feedback_giving",
+  index: 7,
+  title: "Performans Problemi Direkt",
+  description:
+    "Junior'a performans dustugunu soylemek: 'I want to flag something' + 'Here's what I'm noticing' + 'What's your take?'. Yargi degil davet — ama net.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.wfg37.7.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "Here's what I'm noticing",
+      tr_translation: "Su anda gozlemledigim sey su (yargisiz gozlem acilisi)",
+      example:
+        "Here's what I'm noticing — your last 3 PRs have come in past the sprint deadline.",
+      example_tr:
+        "Su anda gozlemledigim — son 3 PR'in sprint deadline'ini gecmis.",
+    },
+    {
+      id: "ex.wfg37.7.2",
+      type: "translate",
+      difficulty: 5,
+      direction: "tr_to_en",
+      source:
+        "Bir seyi flag etmek istiyorum — fark ettigim su: son 3 sprintte PR'lerin deadline'i gecti. Sen taraftan nasil gorunuyor?",
+      target:
+        "I want to flag something — here's what I'm noticing: in the last 3 sprints, your PRs have missed the deadline. What's your take on that?",
+      accepted_variants: [
+        "Wanted to flag something — what I'm seeing is your PRs have slipped past deadline 3 sprints running. How does that look from your side?",
+        "I want to flag something — across the last 3 sprints PRs have come in late. What's your read?",
+        "Quick flag — here's what I'm noticing: PRs missing sprint deadline 3 sprints in a row. What's your take?",
+        "Wanted to bring something up — your PRs have missed the deadline 3 sprints straight. What does it look like from where you sit?",
+      ],
+      tr_hint:
+        "Acilis (uyari) + gozlem (yargisiz) + soru (perspektif al) = direkt ama davet. Saldiri degil ortaklasa anlama.",
+    },
+    {
+      id: "ex.wfg37.7.3",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template: "I want to ___ something with you — your last 3 PRs missed deadline.",
+      answer: "flag",
+      distractors: ["alarm", "warn", "report"],
+      tr_hint:
+        "'Flag something' = bir konuyu dikkatine sunmak = profesyonel uyari kalibi. 'Warn' / 'alarm' tehdit gibi gelir.",
+    },
+    {
+      id: "ex.wfg37.7.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "What's",
+        "your",
+        "take",
+        "on",
+        "that",
+        "from",
+        "where",
+        "you",
+        "sit",
+      ],
+      correct_sentence: "What's your take on that from where you sit",
+      tr_translation: "Senin durdugun yerden buna nasil bakiyorsun?",
+    },
+    {
+      id: "ex.wfg37.7.5",
+      type: "spot_mistake",
+      difficulty: 5,
+      incorrect_sentence:
+        "You did wrong, your work is always late, you must fix yourself.",
+      correct_sentence:
+        "I want to flag something — here's what I'm noticing: your last 3 PRs missed the sprint deadline. What's your take on that?",
+      tr_explanation:
+        "'You did wrong' = yargi + karakter saldirisi = defansif yanit. 'Always' = mutlak + abartili = direnclik. 'Fix yourself' = kişisellik. Profesyonel kalip: gozlemi DAVRANIS-bazinda + sebep arama davet = ortak cozum yolu.",
+    },
+    {
+      id: "ex.wfg37.7.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Junior'in 3 sprint ust uste deadline'lari kacirdi. 1:1'inde direkt ama saygili konusuyorsun — yargilamadan, davet ederek.",
+      npc_role: "Junior engineer",
+      setting: "Weekly 1:1, performans konusu",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(want to (flag|bring up|share)|something on my mind|wanted to (bring|raise))",
+            "(here's what i('m| am) (noticing|seeing|observing))",
+            "(last 3 sprints|three sprints in a row|past few sprints)",
+            "(prs|tickets|work) (missed|slipped past|came in past) (deadline|sprint end)",
+          ],
+          hint_tr:
+            "Yumusak ama net acilis: 'I want to flag something — here's what I'm noticing: PRs have missed the deadline 3 sprints in a row.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh — yeah. I know. I've been struggling a bit.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(appreciate (you|the honesty)|thanks for (saying|sharing))",
+            "(want to (understand|hear)|what('s| is) (going on|happening))",
+            "(from (your side|where you sit)|your take|your read)",
+            "(no (judgment|assumptions)|not (assuming|jumping))",
+          ],
+          hint_tr:
+            "Davet et: 'Appreciate the honesty — I want to understand. What's going on from your side? No assumptions.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Honestly the scope feels huge, and I'm stuck a lot. I don't want to keep asking for help.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks for (saying|sharing|naming) that|that('s| is) (real|useful))",
+            "(asking for help|raising your hand) (is|isn't (weakness|bad)) ",
+            "(stuck (silently|alone)|sitting (alone|silently) with (it|a problem)) (is|hurts) (worse|the issue)",
+            "(let's (fix|change|sort) (how|the))",
+          ],
+          hint_tr:
+            "Sorunu cozumle: 'Thanks for naming that. Asking for help isn't weakness — being stuck silently is the real issue. Let's change how that works.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "What would that look like?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(2 things|couple of (changes|things)|two changes)",
+            "(stuck for (30 ?min|an hour)|2-?hour rule|timebox)",
+            "(daily 15|pair (session|review)|check in (with|on))",
+            "(scope|break down|smaller tickets|chunk down)",
+            "(let's (revisit|circle back|check in) (in|after))",
+          ],
+          hint_tr:
+            "Aksiyon + takip: 'Two things — 2-hour stuck rule + I'll break tickets down with you. Let's check in after next sprint.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay. That feels doable. Thanks for not making it weird.",
+        },
+      ],
+    },
+    {
+      id: "ex.wfg37.7.7",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "'You did wrong' vs 'Here's what I'm noticing' — fark?",
+          options: [
+            "Fark yok",
+            "Birincisi yargi + karakter saldirisi (savunma modu). Ikincisi yargisiz gozlem (acik dinleme + ortak cozum yolu).",
+            "Birincisi daha net",
+            "Ikisi ayni anlam",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Yargi = beyin savunma moduna girer = mesaj alinmaz. Gozlem dili = 'gerceklik kontrolu' = report ayni masada oturur.",
+        },
+        {
+          question: "'What's your take?' sorusunun amaci?",
+          options: [
+            "Vakit kazanmak",
+            "Perspektifini ister = sebep ortaya cikar (load? scope? blocker?) = cozum birlikte sekillenir",
+            "Yumusatma",
+            "Manager rolu birakmak",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Sadece soylemek = monolog. Soru sormak = report'un kendi bakisini katar = hangi cozum gercekci bilirsin + sahiplenir.",
+        },
+        {
+          question: "'Always' / 'Never' kelimelerini niye kullanmamali?",
+          options: [
+            "Kotu gramer",
+            "Mutlak ifadeler = abartili + adaletsiz hissettirir = report 'her sey bana saldiri' moduna girer = mesaj kayip",
+            "Cok formal",
+            "Cok kibar",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Always late' = mutlaklik = adaletsiz. 'Last 3 sprints' = veri = inkar edilemez. Mutlaklik = direnclik, veri = anlasma.",
+        },
+      ],
+    },
+    {
+      id: "ex.wfg37.7.8",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "I want to flag something — here's what I'm noticing.",
+      tr_translation: "Bir şey flag etmek istiyorum — şu anda gözlemlediğim şey şu.",
+      ipa: "/aɪ wɒnt tuː flæɡ ˈsʌmθɪŋ hɪərz wɒt aɪm ˈnəʊtɪsɪŋ/",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 37.8 — Async Slack PR Feedback
+// ============================================================
+export const workFeedbackGivingLesson_37_8: BundledLesson = {
+  id: "work.feedback_giving.37.8",
+  skill_id: "work.feedback_giving",
+  index: 8,
+  title: "Async Slack PR Feedback",
+  description:
+    "Yazili async feedback: ton kayboldugu icin daha dikkatli. 'Loved how you X' + 'Suggestion: have you considered Y?'. Sert gorunmeden net.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wfg37.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Have you considered",
+      tr_translation: "X'i dusundun mu? (soru olarak oneri = async'te yumusatici)",
+      example:
+        "Suggestion: have you considered pulling this logic into a hook so we can reuse it?",
+      example_tr:
+        "Oneri: bu mantigi tekrar kullanabilmek icin hook'a cekmeyi dusundun mu?",
+    },
+    {
+      id: "ex.wfg37.8.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Hata isleme katmaninda yaptigin sey hosuma gitti — temiz ve test edilebilir. Oneri: tekrar kullanmak icin retry mantigini hook'a cekmeyi dusundun mu?",
+      target:
+        "Loved how you handled the error layer — clean and testable. Suggestion: have you considered pulling the retry logic into a hook so we can reuse it?",
+      accepted_variants: [
+        "Loved the error layer — clean, testable. Suggestion: any thought on pulling the retry into a hook for reuse?",
+        "Nice work on the error handling — clean + testable. One thought: could the retry logic live in a hook so other call sites can reuse it?",
+        "Big fan of how you structured the error layer — clean and testable. Have you thought about extracting the retry to a hook?",
+        "Really like the error layer — clean and easy to test. Suggestion: could we pull the retry into a reusable hook?",
+      ],
+      tr_hint:
+        "Async'te ton kayip; ovgu acilisi + oneri-soru = sert degil esit. Imperatif ('Pull this out') yerine soru ('Have you considered') daha az emir gibi.",
+    },
+    {
+      id: "ex.wfg37.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Suggestion: have you ___ pulling this into a hook?",
+      answer: "considered",
+      distractors: ["thought", "looked", "tried"],
+      tr_hint:
+        "'Have you considered' = sabit kalip = yazili oneri kibarciligi. 'Have you thought' yakin ama 'considered' daha kurumsal.",
+    },
+    {
+      id: "ex.wfg37.8.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Loved",
+        "how",
+        "you",
+        "handled",
+        "the",
+        "error",
+        "layer",
+        "clean",
+        "and",
+        "testable",
+      ],
+      correct_sentence: "Loved how you handled the error layer clean and testable",
+      tr_translation: "Hata katmanini nasil ele aldigini begendim — temiz ve test edilebilir.",
+    },
+    {
+      id: "ex.wfg37.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "This is wrong. Pull this out to a hook. Why didn't you do that?",
+      correct_sentence:
+        "Loved how you handled the error layer. Suggestion: have you considered pulling the retry into a hook so other call sites can reuse it?",
+      tr_explanation:
+        "Async'te 'This is wrong' + 'Why didn't you' = saldiri gibi okunur (ton yok). Ovgu acilisi + oneri-soru = ayni puanti, kibar paketleme. PR review kulturu = peer = emir degil teklif.",
+    },
+    {
+      id: "ex.wfg37.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Junior'in PR'ini Slack thread'de inceliyorsun. Yapi guzel ama bir parca refactor edilebilir — async feedback yaziyorsun.",
+      npc_role: "Junior engineer (in Slack)",
+      setting: "Slack PR thread",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(loved|nice work|big fan of|really like|impressed by) (how you|the way you)",
+            "(error (layer|handling)|retry (logic)?|the structure)",
+            "(clean|tight|testable|readable|easy to follow)",
+          ],
+          hint_tr:
+            "Once gercek ovgu: 'Loved how you handled the error layer — clean and testable.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Thanks! Anything else jump out?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(suggestion|one thought|small thought|one nit|small thing)",
+            "(have you (considered|thought about|looked at))",
+            "(pull(ing)? (it|this) (out|into)|extract(ing)?|hook|util|helper)",
+            "(reuse|other (call sites|places)|elsewhere)",
+          ],
+          hint_tr:
+            "Soru-oneri: 'One thought — have you considered pulling the retry into a hook? Other call sites could reuse it.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh good call. Want me to do it in this PR or follow-up?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(your call|up to you|either works)",
+            "(follow-?up|next pr|separate (pr|ticket))",
+            "(keep this (small|tight|focused)|don't (block|hold) (the|this) merge)",
+            "(if it's (quick|easy)|if it doesn't (blow up|bloat))",
+          ],
+          hint_tr:
+            "Karari ona birak: 'Your call — happy with follow-up if it bloats this PR. Don't block the merge.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool, I'll do a follow-up. Thanks for the review!",
+        },
+      ],
+    },
+    {
+      id: "ex.wfg37.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Async (Slack / PR) feedback'te EN buyuk risk?",
+          options: [
+            "Cok kisa olmasi",
+            "Ton kayboldugu icin yazili imperatif ('Pull this out') saldiri gibi okunur — soru-oneri formati daha guvenli",
+            "Cok uzun",
+            "Yararsiz",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Yuz yuze konusmada gulumseme + ton mesaja yumusatir. Yazida bu sinyaller yok = aci direkt komut sert hissedilir = peer review kulturu icin 'Have you considered' format guvenli.",
+        },
+        {
+          question: "'Loved how you X' acilisi PR review'da ne yapar?",
+          options: [
+            "Vakit kaybi",
+            "Once spesifik ovgu = okuyucu acik kalir + yargilama korkusu duser = oneri 'saldiri' degil 'iyilestirme' okunur",
+            "Sahte",
+            "Yumusatma manipulasyon",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Spesifik = gercek (jenerik 'good work' degil). Acilis duzgun olunca, devam eden oneri 'gercekten yardim ediyor' okunur — defansif yerine acik.",
+        },
+        {
+          question: "'Why didn't you do X?' niye PR feedback'inde kotu?",
+          options: [
+            "Cok kibar",
+            "Sorgulama formati ('niye yapmadin?') = sucluyor + savunma cagiriyor; 'have you considered Y' = ayni puanti, davet ediyor",
+            "Yararsiz",
+            "Cok yumusak",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Why didn't' = gecmis-yargi. 'Have you considered' = gelecek-davet. Ayni teknik onerisi, butun farkli okunma.",
+        },
+      ],
+    },
+    {
+      id: "ex.wfg37.8.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Have you considered pulling the retry into a hook for reuse?",
+      tr_translation: "Tekrar kullanmak için retry'i hook'a çekmeyi düşündün mü?",
+      ipa: "/həv ju kənˈsɪdəd ˈpʊlɪŋ ðə ˈriːtraɪ ˈɪntuː ə hʊk fə riːˈjuːs/",
+    },
+  ],
+};
+
+// ============================================================
 // Work Feedback Giving lessons registry
 // ============================================================
 export const workFeedbackGivingLessons: ReadonlyArray<BundledLesson> = [
@@ -908,4 +1709,8 @@ export const workFeedbackGivingLessons: ReadonlyArray<BundledLesson> = [
   workFeedbackGivingLesson_37_2,
   workFeedbackGivingLesson_37_3,
   workFeedbackGivingLesson_37_4,
+  workFeedbackGivingLesson_37_5,
+  workFeedbackGivingLesson_37_6,
+  workFeedbackGivingLesson_37_7,
+  workFeedbackGivingLesson_37_8,
 ];

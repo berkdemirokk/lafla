@@ -2032,6 +2032,580 @@ export const a2MicroLesson_late: BundledLesson = {
 };
 
 // ============================================================
+// 16 — Numaralar 1-100 (basic)
+// ============================================================
+export const a2MicroLesson_numbers: BundledLesson = {
+  id: "daily.a2.micro-numbers.1",
+  skill_id: "daily.a2.micro-numbers",
+  index: 16,
+  title: "Numaralar 1-100 — basic",
+  description:
+    "Yaş, fiyat, telefon — günlük hayatta numaraları doğru söyleme: 'I'm 28', 'It's twelve fifty', 'My number is...'",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.a2.nu.1",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "thirteen vs thirty",
+      tr_translation: "13 ve 30 (karıştırılır)",
+      example: "I'm thirty, not thirteen.",
+      example_tr: "Otuz yaşındayım, on üç değil.",
+    },
+    {
+      id: "ex.a2.nu.2",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "twelve fifty",
+      tr_translation: "12.50 (fiyat söyleme)",
+      example: "It's twelve fifty.",
+      example_tr: "On iki elli (12.50).",
+    },
+    {
+      id: "ex.a2.nu.3",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Yirmi sekiz yaşındayım.",
+      target: "I'm twenty-eight years old.",
+      accepted_variants: [
+        "I am twenty-eight.",
+        "I'm 28.",
+        "I'm 28 years old.",
+        "I'm twenty-eight years old.",
+        "Twenty-eight.",
+      ],
+      tr_hint:
+        "'I'm' + sayı + 'years old'. Sadece 'I'm 28' de doğal cevap.",
+    },
+    {
+      id: "ex.a2.nu.4",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "It's five ___, please.",
+      answer: "dollars",
+      distractors: ["dollar", "money", "of dollar"],
+      tr_hint: "Birden fazla için 'dollars' (çoğul). 'Five dollar' yanlış.",
+    },
+    {
+      id: "ex.a2.nu.5",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: ["My", "number", "is", "five", "five", "five", "one", "two", "three", "four"],
+      correct_sentence: "My number is five five five one two three four",
+      tr_translation: "Numaram beş beş beş bir iki üç dört.",
+    },
+    {
+      id: "ex.a2.nu.6",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I have thirty and five years.",
+      correct_sentence: "I'm thirty-five years old.",
+      tr_explanation:
+        "İngilizce'de yaş 'have' ile söylenmez. 'I'm' + sayı + 'years old'. 'Thirty and five' yanlış — 'thirty-five' tek kelime gibi (tire ile).",
+    },
+    {
+      id: "ex.a2.nu.7",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Bir mağazada kasiyer fiyat söyledi, sen yanlış duydun. Sonra yaşını ve telefon numaranı vermen gerek.",
+      npc_role: "Cashier",
+      setting: "Small shop",
+      turns: [
+        {
+          speaker: "npc",
+          message: "That'll be fifteen fifty.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sorry|excuse me).{0,15}(fifteen|fifty|how much)",
+            "(was that|did you say) (fifteen|fifty)",
+            "(fifteen|fifty) (fifty|five|what)\\?",
+            "(could you|can you) (repeat|say) (that|it) again",
+          ],
+          hint_tr:
+            "'Sorry, did you say fifteen or fifty?' kibarca tekrar iste.",
+        },
+        {
+          speaker: "npc",
+          message: "Fifteen fifty. One five point five zero.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you|got it|okay)",
+            "(here you (are|go))",
+            "(sure|alright|okay)",
+            "fifteen fifty",
+          ],
+          hint_tr: "'Got it, thanks!' veya 'Here you go.' ile parayı uzat.",
+        },
+        {
+          speaker: "npc",
+          message: "Could I get your phone number for the receipt?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sure|of course|yes)(,)?.{0,30}\\d",
+            "(it's|my number is).{0,30}\\d",
+            "five five five.{0,15}(one|two|three|four|five|six|seven|eight|nine)",
+            "(zero|five|one|two|three|four|six|seven|eight|nine).{0,30}",
+          ],
+          hint_tr:
+            "Numarayı tek tek söyle: 'Sure, it's five five five, one two three four.'",
+        },
+        {
+          speaker: "npc",
+          message: "Perfect. Thanks!",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.nu.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'm twenty-eight, and it's twelve fifty.",
+      ipa: "aɪm ˈtwɛnti eɪt ænd ɪts twɛlv ˈfɪfti",
+      tr_hint:
+        "'Thirteen' ve 'thirty' farkı: 'thirteen' son hece uzun (-teen), 'thirty' kısa (-ty). Net ayır.",
+    },
+  ],
+};
+
+// ============================================================
+// 17 — Günler ve aylar
+// ============================================================
+export const a2MicroLesson_daysmonths: BundledLesson = {
+  id: "daily.a2.micro-daysmonths.1",
+  skill_id: "daily.a2.micro-daysmonths",
+  index: 17,
+  title: "Günler ve aylar",
+  description:
+    "'See you on Monday', 'My birthday is in May' — günler, aylar ve doğru edatlar (on/in).",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.a2.dm.1",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "on Monday",
+      tr_translation: "Pazartesi günü",
+      example: "See you on Monday!",
+      example_tr: "Pazartesi görüşürüz!",
+    },
+    {
+      id: "ex.a2.dm.2",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "in May",
+      tr_translation: "Mayıs'ta",
+      example: "My birthday is in May.",
+      example_tr: "Doğum günüm Mayıs'ta.",
+    },
+    {
+      id: "ex.a2.dm.3",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Doğum günüm Mayıs'ta.",
+      target: "My birthday is in May.",
+      accepted_variants: [
+        "My birthday's in May.",
+        "I was born in May.",
+        "Mine is in May.",
+        "My birthday falls in May.",
+        "It's in May.",
+      ],
+      tr_hint:
+        "Aylar için 'in' (in May, in June). Günler için 'on' (on Monday).",
+    },
+    {
+      id: "ex.a2.dm.4",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "See you ___ Friday!",
+      answer: "on",
+      distractors: ["in", "at", "by"],
+      tr_hint: "Günler için 'on': on Monday, on Friday, on Sunday.",
+    },
+    {
+      id: "ex.a2.dm.5",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: ["My", "birthday", "is", "on", "the", "tenth", "of", "May"],
+      correct_sentence: "My birthday is on the tenth of May",
+      tr_translation: "Doğum günüm 10 Mayıs'ta.",
+    },
+    {
+      id: "ex.a2.dm.6",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "See you in Monday. My birthday is on May.",
+      correct_sentence: "See you on Monday. My birthday is in May.",
+      tr_explanation:
+        "Edatlar ters: 'on' günler için, 'in' aylar için. 'On Monday' (Pazartesi günü), 'in May' (Mayıs'ta).",
+    },
+    {
+      id: "ex.a2.dm.7",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Bir arkadaşınla planları konuşuyorsun. Doğum günleri ve haftalık plan.",
+      npc_role: "Friend",
+      setting: "Casual chat",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hey, when's your birthday?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it'?s |my birthday'?s )?in (january|february|march|april|may|june|july|august|september|october|november|december)",
+            "(it'?s |my birthday'?s )?on (the )?(first|second|third|fourth|fifth|tenth|fifteenth|twentieth|twenty-?fifth|thirtieth).{0,30}(of )?(january|february|march|april|may|june|july|august|september|october|november|december)",
+            "(in |on )?(january|february|march|april|may|june|july|august|september|october|november|december)",
+          ],
+          hint_tr:
+            "'It's in May' veya 'On the tenth of May.' Aylarda 'in', tarihte 'on'.",
+        },
+        {
+          speaker: "npc",
+          message: "Oh nice! Are you free this week to grab coffee?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|sure)(,)?.{0,15}(monday|tuesday|wednesday|thursday|friday|saturday|sunday)",
+            "(on )?(monday|tuesday|wednesday|thursday|friday|saturday|sunday)",
+            "how about (monday|tuesday|wednesday|thursday|friday|saturday|sunday)",
+            "(i'?m|am) (free|available) on (monday|tuesday|wednesday|thursday|friday|saturday|sunday)",
+          ],
+          hint_tr:
+            "'Sure, how about on Tuesday?' veya 'I'm free on Friday.' Günde 'on' kullan.",
+        },
+        {
+          speaker: "npc",
+          message: "Tuesday works! See you then.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(see you|see ya) on tuesday",
+            "(great|perfect|awesome)(,)?.{0,15}tuesday",
+            "(see you|catch you) (then|later)",
+            "(can'?t wait|looking forward)",
+          ],
+          hint_tr: "'Great, see you on Tuesday!' net kapanış.",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.dm.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "My birthday is on the tenth of May.",
+      ipa: "maɪ ˈbɜːrθdeɪ ɪz ɒn ðə tɛnθ ʌv meɪ",
+      tr_hint:
+        "'Birthday' = 'börth-day'. 'Tenth' içinde 'th' dilini dişlerin arasına koy. 'May' net 'mey'.",
+    },
+  ],
+};
+
+// ============================================================
+// 18 — Time — saat söyleme
+// ============================================================
+export const a2MicroLesson_time: BundledLesson = {
+  id: "daily.a2.micro-time.1",
+  skill_id: "daily.a2.micro-time",
+  index: 18,
+  title: "Time — saat söyleme",
+  description:
+    "'It's 3 PM', 'Half past four', 'Quarter to nine' — günlük saat ifadeleri Türk öğrenci için.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.a2.tm.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "half past four",
+      tr_translation: "dört buçuk (4:30)",
+      example: "It's half past four.",
+      example_tr: "Saat dört buçuk.",
+    },
+    {
+      id: "ex.a2.tm.2",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "quarter to nine",
+      tr_translation: "dokuza çeyrek var (8:45)",
+      example: "It's quarter to nine.",
+      example_tr: "Saat dokuza çeyrek var.",
+    },
+    {
+      id: "ex.a2.tm.3",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Saat üç.",
+      target: "It's three o'clock.",
+      accepted_variants: [
+        "It's 3 o'clock.",
+        "It's 3 PM.",
+        "It is three.",
+        "Three o'clock.",
+        "It's three.",
+      ],
+      tr_hint:
+        "'It's' + saat + 'o'clock'. 'O'clock' sadece tam saatlerde kullanılır (3:00, 4:00).",
+    },
+    {
+      id: "ex.a2.tm.4",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "It's ___ past three. (3:30)",
+      answer: "half",
+      distractors: ["quarter", "thirty", "and a half"],
+      tr_hint:
+        "'Half past' = buçuk. 3:30 → 'half past three' (üç buçuk).",
+    },
+    {
+      id: "ex.a2.tm.5",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: ["It's", "quarter", "to", "nine", "in", "the", "morning"],
+      correct_sentence: "It's quarter to nine in the morning",
+      tr_translation: "Sabah dokuza çeyrek var.",
+    },
+    {
+      id: "ex.a2.tm.6",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "It is 3 o'clock and 30.",
+      correct_sentence: "It's half past three. (or: It's 3:30.)",
+      tr_explanation:
+        "'O'clock and 30' yanlış — 'o'clock' sadece tam saat. 3:30 için 'half past three' veya direkt '3:30' (three thirty) de.",
+    },
+    {
+      id: "ex.a2.tm.7",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Yoldan birine saati soruyorsun, sonra randevu için saat ayarlıyorsun.",
+      npc_role: "Friendly stranger",
+      setting: "Street, daytime",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hi there, can I help you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(excuse me|sorry).{0,20}(time|what time)",
+            "(do you have|got) the time",
+            "(could|can) you tell me the time",
+            "what time is it",
+          ],
+          hint_tr:
+            "'Excuse me, do you have the time?' veya 'What time is it?'",
+        },
+        {
+          speaker: "npc",
+          message: "Sure, it's half past four.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you)( so much| a lot)?",
+            "(oh )?(great|perfect|nice)",
+            "(thanks|thank you)(,)? (i appreciate it)?",
+            "appreciate it",
+          ],
+          hint_tr: "'Thanks!' kısa cevap. Veya 'Oh great, thanks.'",
+        },
+        {
+          speaker: "npc",
+          message: "By the way, when does the bus come?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(at )?(quarter to|quarter past|half past) (one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)",
+            "(at )?(five|six|seven|eight|nine|ten|eleven|twelve)( pm| am)?",
+            "(at )?\\d(:\\d\\d)?",
+            "(i think|maybe) (at )?(five|six|seven)",
+          ],
+          hint_tr:
+            "'At quarter to five' veya 'At 4:45.' İki şekilde de söyleyebilirsin.",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. Have a good one!",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.tm.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "It's quarter to nine in the morning.",
+      ipa: "ɪts ˈkwɔːrtər tə naɪn ɪn ðə ˈmɔːrnɪŋ",
+      tr_hint:
+        "'Quarter' = 'kwortır'. 'To nine' birleşir → 'tu nayn'. Sonda 'morning' alçal.",
+    },
+  ],
+};
+
+// ============================================================
+// 19 — Basic descriptors — büyük/küçük/uzun
+// ============================================================
+export const a2MicroLesson_descriptors: BundledLesson = {
+  id: "daily.a2.micro-descriptors.1",
+  skill_id: "daily.a2.micro-descriptors",
+  index: 19,
+  title: "Basic descriptors — büyük/küçük/uzun",
+  description:
+    "'It's bigger than', 'Too small', 'Just right' — sıfatlar ve karşılaştırma günlük konuşma için.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.a2.ds.1",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "too small",
+      tr_translation: "çok küçük (gereğinden)",
+      example: "This shirt is too small.",
+      example_tr: "Bu gömlek çok küçük.",
+    },
+    {
+      id: "ex.a2.ds.2",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "just right",
+      tr_translation: "tam doğru / tam ölçü",
+      example: "It's just right!",
+      example_tr: "Tam ölçü!",
+    },
+    {
+      id: "ex.a2.ds.3",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Bu, diğerinden daha büyük.",
+      target: "This is bigger than the other one.",
+      accepted_variants: [
+        "This one is bigger than the other.",
+        "It's bigger than the other one.",
+        "This is larger than the other.",
+        "The other one is smaller.",
+        "This one's bigger.",
+      ],
+      tr_hint:
+        "Karşılaştırma: sıfat + 'er' + 'than'. 'Big' → 'bigger than'.",
+    },
+    {
+      id: "ex.a2.ds.4",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "These shoes are ___ small for me.",
+      answer: "too",
+      distractors: ["very", "so much", "more"],
+      tr_hint:
+        "'Too' = gereğinden fazla (negatif). 'Very' sadece güçlendirir, 'too' problem belirtir.",
+    },
+    {
+      id: "ex.a2.ds.5",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: ["This", "one", "is", "bigger", "than", "the", "other"],
+      correct_sentence: "This one is bigger than the other",
+      tr_translation: "Bu, diğerinden daha büyük.",
+    },
+    {
+      id: "ex.a2.ds.6",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "This is more big than that.",
+      correct_sentence: "This is bigger than that.",
+      tr_explanation:
+        "Kısa sıfatlarda 'more' kullanılmaz. 'Big' → 'bigger' (sonu '-er'). 'More big' yanlış. Sadece uzun sıfatlarda 'more': 'more expensive', 'more comfortable'.",
+    },
+    {
+      id: "ex.a2.ds.7",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Mağazada gömlek deniyorsun. Görevli sana yardım ediyor — beden değiştirmek istiyorsun.",
+      npc_role: "Shop assistant",
+      setting: "Clothing store",
+      turns: [
+        {
+          speaker: "npc",
+          message: "How does it fit?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it'?s|this is) (too |a bit )?(small|big|tight|loose)",
+            "(too|a little) (small|big|tight|loose)",
+            "(doesn'?t|does not) fit",
+            "(i need|do you have) (a )?(bigger|smaller|larger) (size|one)",
+          ],
+          hint_tr:
+            "'It's too small' veya 'It's a bit tight.' Net problemi söyle.",
+        },
+        {
+          speaker: "npc",
+          message: "No problem. Want to try a bigger size?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|sure)(,)?.{0,20}(please|that would be|i'?d like)",
+            "(yes|yeah)(,)? (please|thanks)",
+            "(do you have|got) (a |an )?(large|medium|extra large|xl|l|m)",
+            "(can|could) i try (a )?(larger|bigger) (one|size)",
+          ],
+          hint_tr:
+            "'Yes please, do you have a larger size?' kibar ve net.",
+        },
+        {
+          speaker: "npc",
+          message: "Here's the next size up. Try this.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(this|it'?s) (is )?(just right|perfect|great|much better)",
+            "(yes|yeah)(,)? (this|it) (fits|works)",
+            "(i'?ll|i will) (take|get) (it|this one)",
+            "(this|it) (is )?(better|much better)",
+          ],
+          hint_tr:
+            "'This one's just right!' veya 'Much better, I'll take it.'",
+        },
+        {
+          speaker: "npc",
+          message: "Great. I'll ring it up for you.",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.ds.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "This one is bigger than the other.",
+      ipa: "ðɪs wʌn ɪz ˈbɪɡər ðæn ði ˈʌðər",
+      tr_hint:
+        "'Bigger' = 'biger'. 'Than' yumuşak (zayıf form). 'Other' = 'adır'. Akışkan söyle.",
+    },
+  ],
+};
+
+// ============================================================
 // Registry
 // ============================================================
 export const a2MicroLessons: BundledLesson[] = [
@@ -2050,4 +2624,8 @@ export const a2MicroLessons: BundledLesson[] = [
   a2MicroLesson_catchup,
   a2MicroLesson_weekend,
   a2MicroLesson_late,
+  a2MicroLesson_numbers,
+  a2MicroLesson_daysmonths,
+  a2MicroLesson_time,
+  a2MicroLesson_descriptors,
 ];

@@ -33,6 +33,7 @@ import {
   deleteAccountInstant,
   type DeletePreview,
 } from "../lib/delete-account";
+import { hapticImpact, hapticSelection } from "../lib/feedback";
 import { tokens } from "../theme";
 
 const K_AUTO_SPEAK = "lafla.settings.autoSpeak";
@@ -68,6 +69,7 @@ export default function SettingsScreen() {
   }, []);
 
   const handleAnalyticsToggle = async (optOut: boolean) => {
+    hapticSelection();
     setAnalyticsOptOut(optOut);
     try {
       await setAnalyticsEnabled(!optOut);
@@ -111,6 +113,7 @@ export default function SettingsScreen() {
       setDeleteError('Onaylamak için "SİL" yazmalısın.');
       return;
     }
+    hapticImpact("heavy");
     setDeleteStep("deleting");
     setDeleteError(null);
     const res = await deleteAccountInstant();
@@ -131,11 +134,13 @@ export default function SettingsScreen() {
   };
 
   const setAutoSpeakValue = async (v: boolean) => {
+    hapticSelection();
     setAutoSpeak(v);
     await AsyncStorage.setItem(K_AUTO_SPEAK, v ? "true" : "false").catch(() => {});
   };
 
   const toggleReminders = async () => {
+    hapticSelection();
     if (remindersOn) {
       await disableReminders();
       setRemindersOn(false);
@@ -190,20 +195,12 @@ export default function SettingsScreen() {
 
         <Section title="HESAP">
           <Row
-            label="Kilometre Taşları"
-            onPress={() => router.push("/achievements" as never)}
-          />
-          <Row
-            label="Beceri Ağacı"
-            onPress={() => router.push("/skills" as never)}
-          />
-          <Row
-            label="İlgi alanlarımı değiştir"
-            onPress={() => router.push("/onboarding" as never)}
-          />
-          <Row
             label="Profil"
             onPress={() => router.push("/profile" as never)}
+          />
+          <Row
+            label="Seviyemi değiştir"
+            onPress={() => router.push("/onboarding" as never)}
           />
           <Row
             label="Hesabımı sil"

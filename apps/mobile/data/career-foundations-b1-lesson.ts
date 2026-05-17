@@ -1866,6 +1866,792 @@ export const careerB1Lesson_10: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 11 — CV/Resume: Summary Section
+// ============================================================
+export const careerB1Lesson_11: BundledLesson = {
+  id: "career.b1.cvsummary.1",
+  skill_id: "career.b1",
+  index: 11,
+  title: "CV/Resume — Özet Bölümü",
+  description:
+    "CV'nin en üstündeki 2-3 cümlelik özet: 'Detail-oriented X with N years...' + 'Skilled in...' kalıbı.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.cb1.11.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "detail-oriented professional",
+      tr_translation: "detaylara önem veren profesyonel",
+      example: "Detail-oriented professional with three years of experience in backend engineering.",
+      example_tr: "Backend mühendisliğinde üç yıl deneyimli, detaylara önem veren bir profesyonel.",
+    },
+    {
+      id: "ex.cb1.11.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Üç yıl backend deneyimli, sonuç odaklı bir yazılım mühendisi. Ödeme sistemleri ve API tasarımında deneyimliyim. Yüksek trafiklı sistemleri sıfırdan kurdum.",
+      target: "Results-driven software engineer with three years of backend experience. Skilled in payment systems and API design. Have built high-traffic systems from the ground up.",
+      accepted_variants: [
+        "Results-driven backend engineer with 3 years of experience. Skilled in payment systems and API design, with a track record of building high-traffic systems from scratch.",
+        "Results-oriented software engineer with three years in backend, skilled in payment systems and API design. I've built high-traffic systems from the ground up.",
+        "Backend software engineer with three years of experience, results-driven, with skills in payment systems and API design. Built high-traffic systems from scratch.",
+        "Results-driven software engineer, three years in backend. Skilled in payment systems and API design, having built high-traffic systems from the ground up.",
+        "Backend engineer with three years' experience and a results-driven approach. Skilled in payment systems and API design, and have shipped high-traffic systems from scratch.",
+      ],
+      tr_hint:
+        "CV özet formülü: 'sıfat + rol + N years experience. Skilled in X, Y. Have built/shipped Z.' Past simple + present perfect karışımı.",
+    },
+    {
+      id: "ex.cb1.11.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "___ in Python, SQL, and distributed systems.",
+      answer: "Skilled",
+      distractors: ["Skill", "Skilling", "Skills"],
+      tr_hint:
+        "'Skilled in X' = X konusunda yetkin. CV özet bölümünün omurgası — sıfat hali.",
+    },
+    {
+      id: "ex.cb1.11.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Detail-oriented",
+        "engineer",
+        "with",
+        "three",
+        "years",
+        "of",
+        "experience",
+        "in",
+        "fintech",
+      ],
+      correct_sentence:
+        "Detail-oriented engineer with three years of experience in fintech",
+      tr_translation:
+        "Fintech alanında üç yıl deneyimli, detaylara önem veren mühendis.",
+    },
+    {
+      id: "ex.cb1.11.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I am graduated from computer engineering and I have 3 years experience. I am detail oriented person and I can do many things.",
+      correct_sentence:
+        "Graduate of Computer Engineering with three years of experience. Detail-oriented backend engineer skilled in API design and payment systems.",
+      tr_explanation:
+        "Klasik Türk hataları: (1) 'I am graduated' YANLIŞ — doğrusu 'I graduated' (fiil) veya 'I'm a graduate of' (isim). (2) CV özet bölümü 'I' ile başlamaz — eksiltili, sıfat-isim başlangıcı. (3) '3 years experience' → 'three years of experience' (rakam yerine yazı + 'of'). (4) 'I can do many things' = generic, somut skill listele.",
+    },
+    {
+      id: "ex.cb1.11.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Bir kariyer koçu CV özetini birlikte yazıyor. Detayları çıkarmaya çalışıyor.",
+      npc_role: "Career coach",
+      setting: "CV review session (video call)",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Let's draft your summary together. In one sentence, how would you describe yourself professionally?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(detail-oriented|results-driven|product-minded|results-oriented)",
+            "(backend|frontend|software|full-stack|data) engineer",
+            "(\\d+|two|three|four|five) years? of experience",
+            "(in|with) (fintech|e-commerce|saas|payments|ai)",
+          ],
+          hint_tr:
+            "Formül: 'sıfat + rol + N years of experience in X.' Örnek: 'Results-driven backend engineer with three years of experience in fintech.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Good start. Now — what are two or three things you're skilled in? Be specific.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "skilled in",
+            "(python|java|go|typescript|react|sql|postgres)",
+            "(api design|payment systems|distributed systems|microservices)",
+            "(and|,)",
+          ],
+          hint_tr:
+            "'Skilled in X, Y, and Z.' İki-üç somut yetenek. 'Skilled in Python, payment systems, and API design.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect. Last piece — one accomplishment you'd put in this summary?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(have|i've|i have) (built|shipped|scaled|led|launched|delivered)",
+            "(from scratch|from the ground up|end-to-end)",
+            "(\\d+%|percent|x|m|million|k)",
+            "(team of|users|customers|requests)",
+          ],
+          hint_tr:
+            "Somut başarı + present perfect: 'Have built a payment service handling 10M requests per day.' Sayı ekle.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Great — that's a solid three-sentence summary. Recruiters will read this in five seconds.",
+        },
+      ],
+    },
+    {
+      id: "ex.cb1.11.7",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "Hangisi doğru CV özet başlangıcı?",
+          options: [
+            "I am graduated and I have experience",
+            "Detail-oriented software engineer with three years of experience",
+            "Hello, my name is Berk and I want job",
+            "I am working since 3 years",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "CV özeti sıfat + rol ile başlar, 'I' kullanmaz. 'I am graduated' tamamen yanlış — 'graduate of' veya 'I graduated'.",
+        },
+        {
+          question: "'Skilled in X' kalıbından sonra ne gelir?",
+          options: [
+            "Bir tam cümle",
+            "Bir veya birkaç somut beceri/araç",
+            "Bir geçmiş zamanlı fiil",
+            "Bir soru",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Skilled in Python, SQL, and API design.' Somut araç/yetenek listesi gelir, cümle değil.",
+        },
+        {
+          question: "Hangisi CV özetinde GÜÇLÜ?",
+          options: [
+            "I can do many things",
+            "I am a hardworking person",
+            "Have shipped a payments rewrite handling 50M requests per day",
+            "I love computers",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Somut sonuç + sayı = güçlü. Generic sıfatlar (hardworking, can do many things) recruiter için boş.",
+        },
+      ],
+    },
+    {
+      id: "ex.cb1.11.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Detail-oriented professional with three years of experience.",
+      ipa: "/ˈdiːteɪl ˈɔːrientɪd prəˈfɛʃənəl wɪð θriː jɪərz əv ɪkˈspɪəriəns/",
+      tr_hint:
+        "'Detail-oriented' = 'DEE-teyl OR-ee-en-tid'. Türk hatası: 'experience' = 'eks-PIR-yıns' (3 hece), 'eks-pe-ri-ans' DEĞİL. 'Professional' vurgu 'FESH'.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 12 — Cover Letter for First Application
+// ============================================================
+export const careerB1Lesson_12: BundledLesson = {
+  id: "career.b1.coverletter.1",
+  skill_id: "career.b1",
+  index: 12,
+  title: "İlk İş Başvurusu — Cover Letter",
+  description:
+    "Kapak mektubu açılışı, gövde ve kapanış: 'Dear hiring manager', 'I am writing to apply for...', kapanış formülü.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.cb1.12.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Dear hiring manager",
+      tr_translation: "Sayın işe alım yöneticisi",
+      example: "Dear hiring manager, I am writing to apply for the Backend Engineer role.",
+      example_tr: "Sayın işe alım yöneticisi, Backend Mühendisi pozisyonu için başvuruyorum.",
+    },
+    {
+      id: "ex.cb1.12.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Sayın işe alım yöneticisi, LinkedIn'de yayınlanan Backend Mühendisi pozisyonu için başvurmak üzere yazıyorum. Üç yıllık ödeme sistemleri deneyimimle ekibinize hızlıca katkı sağlayabileceğime inanıyorum.",
+      target: "Dear hiring manager, I am writing to apply for the Backend Engineer role posted on LinkedIn. With three years of experience in payment systems, I am confident I can contribute to your team quickly.",
+      accepted_variants: [
+        "Dear hiring manager, I'm writing to apply for the Backend Engineer position I saw on LinkedIn. With three years in payment systems, I believe I can ramp up and contribute to your team quickly.",
+        "Dear hiring manager — I am writing to apply for the Backend Engineer role listed on LinkedIn. Given my three years of experience in payment systems, I'm confident I can add value to your team early on.",
+        "Dear hiring manager, I'm writing in response to your Backend Engineer opening on LinkedIn. With three years of payment-systems experience, I'm confident I can hit the ground running with your team.",
+        "Dear hiring manager, I am writing to apply for the Backend Engineer role you posted on LinkedIn. With three years' experience in payment systems, I believe I would be a strong contributor to your team from day one.",
+        "Dear hiring manager, I'm writing to express my interest in the Backend Engineer role on LinkedIn. With three years in payment systems, I'm confident I can contribute to your team quickly.",
+      ],
+      tr_hint:
+        "Cover letter formülü: 'Dear hiring manager + I am writing to apply for + With X experience + I am confident I can contribute.'",
+    },
+    {
+      id: "ex.cb1.12.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I am writing to ___ for the Backend Engineer position.",
+      answer: "apply",
+      distractors: ["applying", "application", "applied"],
+      tr_hint:
+        "'I am writing to + temel fiil' = standart cover letter açılışı. 'to apply' / 'to express interest' / 'to inquire'.",
+    },
+    {
+      id: "ex.cb1.12.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "I",
+        "am",
+        "writing",
+        "to",
+        "apply",
+        "for",
+        "the",
+        "Backend",
+        "Engineer",
+        "role",
+      ],
+      correct_sentence: "I am writing to apply for the Backend Engineer role",
+      tr_translation: "Backend Mühendisi pozisyonu için başvurmak üzere yazıyorum.",
+    },
+    {
+      id: "ex.cb1.12.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Hi sir, I want to make application for your job because I am graduated and I need this job urgently.",
+      correct_sentence:
+        "Dear hiring manager, I am writing to apply for the Backend Engineer role posted on your careers page. With three years of payment-systems experience, I believe I can contribute to your team quickly.",
+      tr_explanation:
+        "Birden çok hata: (1) 'Hi sir' samimi+arkaik karışımı — 'Dear hiring manager' standart. (2) 'make application' Türkçe direkt çeviri — doğrusu 'apply' veya 'submit my application'. (3) 'I am graduated' YANLIŞ — 'I'm a graduate of' veya 'I graduated'. (4) 'I need this job urgently' = leverage kaybı, asla yazma. Cover letter = sen ne katacaksın, ne istiyorsun değil.",
+    },
+    {
+      id: "ex.cb1.12.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Bir kariyer mentoru cover letter'ını birlikte gözden geçiriyor. Açılış, gövde ve kapanışı kontrol ediyor.",
+      npc_role: "Career mentor",
+      setting: "Cover letter review (chat)",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Send me your opening line — how are you starting the letter?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "dear (hiring manager|recruiter|team)",
+            "i am writing to (apply|express|inquire)",
+            "(backend|frontend|product|data) (engineer|manager|analyst)",
+            "(role|position|opening|opportunity)",
+          ],
+          hint_tr:
+            "Standart açılış: 'Dear hiring manager, I am writing to apply for the [Role] position.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Good. Now the second paragraph — what makes you a fit? Give me one sentence.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "with (\\d+|two|three|four|five) years?",
+            "(experience|background) in",
+            "(i (am|'m) confident|i believe|i can)",
+            "(contribute|add value|hit the ground running|ramp up)",
+          ],
+          hint_tr:
+            "Formül: 'With X years of experience in Y, I am confident I can contribute to your team.' Somut deneyim + güvenli ton.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Strong. And how are you closing the letter?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|thanks) for (your time|considering|the consideration)",
+            "(would love|would welcome|look forward) (the chance|the opportunity|to discuss|to hearing)",
+            "(best regards|kind regards|sincerely|best)",
+          ],
+          hint_tr:
+            "Kapanış: 'Thank you for your time. I would welcome the opportunity to discuss further. Best regards, [Name].'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "That's a clean letter — recruiter will get exactly what they need in under a minute.",
+        },
+      ],
+    },
+    {
+      id: "ex.cb1.12.7",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "Hangisi standart cover letter açılışı?",
+          options: [
+            "Hi sir, I need this job",
+            "Hello, my name is Berk and I am 28",
+            "Dear hiring manager, I am writing to apply for the Backend Engineer role",
+            "To whom it may concerns",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Dear hiring manager' + 'I am writing to apply for' = standart. 'To whom it may concerns' yanlış yazım (doğrusu 'concern') + çok eskimiş.",
+        },
+        {
+          question: "Cover letter'da hangisi yasak?",
+          options: [
+            "Üç yıllık ödeme sistemleri deneyimimden bahsetmek",
+            "'I need this job urgently' yazmak",
+            "Şirketin misyonuna referans vermek",
+            "Spesifik bir başarı paylaşmak",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Aciliyet/ihtiyaç asla yazma — leverage'ı düşürür. Cover letter sen ne katacaksın'a odaklanır.",
+        },
+        {
+          question: "Profesyonel kapanış hangisi?",
+          options: [
+            "See you soon!",
+            "Bye bye",
+            "Best regards, [Name]",
+            "I am waiting your answer",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Best regards' / 'Kind regards' / 'Sincerely' = standart. 'I am waiting your answer' Türkçe direkt çevirisi — yanlış.",
+        },
+      ],
+    },
+    {
+      id: "ex.cb1.12.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I am writing to apply for the Backend Engineer role.",
+      ipa: "/aɪ æm ˈraɪtɪŋ tə əˈplaɪ fə ðə ˈbækˌɛnd ˌɛndʒɪˈnɪər rəʊl/",
+      tr_hint:
+        "'I am writing' = 'ay-em RAY-ting'. 'To apply' bağlanır → 'tu-ı-PLAY'. 'Engineer' = 'en-cı-NIYR' (vurgu sonda). Resmi ama doğal ton.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 13 — Phone Screening with Recruiter
+// ============================================================
+export const careerB1Lesson_13: BundledLesson = {
+  id: "career.b1.phonescreen.1",
+  skill_id: "career.b1",
+  index: 13,
+  title: "Telefon Screening — Recruiter Sorusu",
+  description:
+    "İlk telefon görüşmesi: 'Tell me about yourself', 'What are you looking for?' soruları için temiz cevaplar.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.cb1.13.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "What are you looking for",
+      tr_translation: "Ne arıyorsun (rolde)",
+      example: "What are you looking for in your next role?",
+      example_tr: "Bir sonraki rolünde ne arıyorsun?",
+    },
+    {
+      id: "ex.cb1.13.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Sıradaki rolde aradığım şey daha geniş kapsam ve gerçek bir sahiplenme kültürü. Eğer ekipte iyi bir tonla işlersek, gelişimimi orada görüyorum.",
+      target: "What I'm looking for in my next role is broader scope and a real ownership culture. If the team has a good rhythm, that's where I see myself growing.",
+      accepted_variants: [
+        "In my next role, I'm looking for broader scope and a real culture of ownership. If the team clicks, that's where I'd like to grow.",
+        "What I want next is wider scope and a genuine ownership culture. If the team has the right tone, I can see myself growing there.",
+        "I'm looking for broader scope and a strong ownership culture in my next role. If the team feels right, that's where I see myself growing.",
+        "For my next role, I'm after broader scope and a real ownership culture. If the team has a good rhythm, that's the place I'd grow.",
+        "What I'm hoping for next is bigger scope and a real ownership culture. If the team clicks, that's where I want to invest the next few years.",
+      ],
+      tr_hint:
+        "Formül: 'What I'm looking for is X and Y. If [condition], that's where I see myself growing.' Conditional 1 + present continuous.",
+    },
+    {
+      id: "ex.cb1.13.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Tell me a bit ___ yourself.",
+      answer: "about",
+      distractors: ["of", "on", "for"],
+      tr_hint:
+        "'Tell me about yourself' = telefon screening klasik açılış. 'About' = hakkında. 'Of' yanlış preposition.",
+    },
+    {
+      id: "ex.cb1.13.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "I",
+        "am",
+        "looking",
+        "for",
+        "broader",
+        "scope",
+        "and",
+        "more",
+        "ownership",
+      ],
+      correct_sentence: "I am looking for broader scope and more ownership",
+      tr_translation: "Daha geniş kapsam ve daha fazla sahiplenme arıyorum.",
+    },
+    {
+      id: "ex.cb1.13.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I am working since 2021 and I am graduated from CS. I am looking for good company with good salary and I can start immediately.",
+      correct_sentence:
+        "I've been working since 2021 — I'm a graduate of Computer Science with three years in fintech. I'm looking for broader scope and a strong engineering culture, and I have a one-month notice.",
+      tr_explanation:
+        "Çoklu hata: (1) 'I am working since 2021' yanlış tense — 'I've been working since 2021' (present perfect continuous, süre devam ediyor). (2) 'I am graduated' YANLIŞ — 'I'm a graduate of' veya 'I graduated'. (3) 'good company with good salary' generic + para erken — recruiter'a 'scope' ve 'culture' söyle. (4) 'I can start immediately' = panik sinyali; notice period söyle.",
+    },
+    {
+      id: "ex.cb1.13.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Recruiter ile ilk telefon görüşmesi. 30 dakikalık screening — temel sorular.",
+      npc_role: "Recruiter",
+      setting: "First phone screen (audio call, 30 min)",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Thanks for jumping on. To get us started — could you tell me a bit about yourself?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you) for (the time|having me|reaching out)",
+            "i('m| am) a (backend|frontend|software|full-stack|data) (engineer|developer)",
+            "(\\d+|two|three|four|five) years",
+            "currently (at|on|working|based)",
+          ],
+          hint_tr:
+            "Telefon screen formülü: rol + N years + şu anki iş + ne arıyorsun. Kısa ve net — 60 saniye.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. And what are you looking for in your next role?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(looking for|want|hoping for|after)",
+            "(broader|bigger|more) (scope|impact|ownership|responsibility)",
+            "(culture|engineering|product) (of|with)",
+            "(grow|develop|stretch|learn)",
+          ],
+          hint_tr:
+            "'Looking for broader scope and a strong ownership culture. That's where I see myself growing.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sounds good. Quick logistics — what's your notice period and when could you start?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(one|two|four|six) (month|week)s?",
+            "notice (period|of)",
+            "(could|would) (start|begin|join)",
+            "(\\d+ )?(weeks|month)s? from",
+          ],
+          hint_tr:
+            "Logistik: 'I have a one-month notice period, so I could start about four weeks from signing.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect, that works. I'll send over next steps after this call.",
+        },
+      ],
+    },
+    {
+      id: "ex.cb1.13.7",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question:
+            "Recruiter 'Tell me about yourself' diyorsa ideal cevap kaç saniye olmalı?",
+          options: [
+            "5 saniye — kısa kes",
+            "60 saniye — rol + deneyim + şu anki iş + ne arıyorsun",
+            "10 dakika — tüm CV'yi anlat",
+            "Hiç cevap verme",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "60 saniye standart. 4 parça formülü: rol + N years + currently + looking for.",
+        },
+        {
+          question: "'What are you looking for?' sorusuna en iyi cevap?",
+          options: [
+            "Iyi maaş ve sigorta",
+            "Yeni iş, çünkü mevcut iş kötü",
+            "Broader scope and a strong engineering culture",
+            "Bilmiyorum, ne olursa",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Scope' + 'culture' = profesyonel sinyal. Para erken cevap değil, mevcut işi kötülemek leverage kaybı.",
+        },
+        {
+          question: "'Notice period' nedir?",
+          options: [
+            "Mola süresi",
+            "Bildirim süresi (eski işe vereceğin)",
+            "Görüşme süresi",
+            "Maaş bildirimi",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Mevcut işverene 'ayrılıyorum' deyip kaç hafta/ay daha çalışacağın — Türkiye'de genellikle 1 ay.",
+        },
+      ],
+    },
+    {
+      id: "ex.cb1.13.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Tell me a bit about yourself.",
+      ipa: "/tɛl miː ə bɪt əˈbaʊt jɔːˈsɛlf/",
+      tr_hint:
+        "'Tell me' bağlanır → 'tel-MII'. 'A bit about' = 'ı-bit-ı-BAUT'. 'Yourself' vurgu 'SELF'. Recruiter'ın klasik açılışı — tonu samimi.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 14 — Accepting or Declining an Offer
+// ============================================================
+export const careerB1Lesson_14: BundledLesson = {
+  id: "career.b1.offer.1",
+  skill_id: "career.b1",
+  index: 14,
+  title: "İş Teklifi Geldi — Accept/Decline",
+  description:
+    "Resmi teklif cevabı: 'I'm thrilled to accept' kabul kalıbı + 'After consideration, I'll have to decline' kibar reddetme.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.cb1.14.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "I'm thrilled to accept",
+      tr_translation: "Kabul ettiğim için çok heyecanlıyım",
+      example: "I'm thrilled to accept the offer and look forward to joining the team.",
+      example_tr: "Teklifi kabul ettiğim için çok heyecanlıyım ve ekibe katılmayı dört gözle bekliyorum.",
+    },
+    {
+      id: "ex.cb1.14.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Düşünme süremin ardından, bu sefer kibarca reddetmem gerekecek. İlginiz ve süreciniz için içtenlikle teşekkür ederim, gelecekte yollarımız tekrar kesişebilir.",
+      target: "After careful consideration, I'll have to politely decline this time. Thank you sincerely for your interest and your process — I hope our paths cross again in the future.",
+      accepted_variants: [
+        "After giving it careful thought, I'll have to respectfully decline this time. I genuinely appreciate your interest and the process, and I hope our paths cross again down the line.",
+        "After some consideration, I'll have to decline politely on this one. Thank you so much for your interest and the process — I'd love to stay in touch for the future.",
+        "After thinking it over, I'll have to politely decline at this time. I really appreciate your interest and the time your team put in, and I hope we can connect again in the future.",
+        "After careful thought, I'm going to have to decline this time. Thanks so much for your interest and for running such a thoughtful process — I hope our paths cross again.",
+        "After careful consideration, I'll have to respectfully decline. I sincerely appreciate your interest and the process, and would love to stay connected for the future.",
+      ],
+      tr_hint:
+        "Decline formülü: 'After consideration, I'll have to decline + Thank you for X + Stay in touch.' Köprü yakma.",
+    },
+    {
+      id: "ex.cb1.14.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I'm ___ to accept the offer.",
+      answer: "thrilled",
+      distractors: ["thrill", "thrilling", "thrills"],
+      tr_hint:
+        "'I'm thrilled to accept' = standart kabul formülü. 'Thrilled' = çok heyecanlı (past participle sıfat hali).",
+    },
+    {
+      id: "ex.cb1.14.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "After",
+        "careful",
+        "consideration",
+        "I",
+        "will",
+        "have",
+        "to",
+        "decline",
+      ],
+      correct_sentence: "After careful consideration I will have to decline",
+      tr_translation: "Düşünme süremin ardından kibarca reddetmem gerekecek.",
+    },
+    {
+      id: "ex.cb1.14.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Thank you for offer but I cannot accept because I find better job. I am sorry for this situation.",
+      correct_sentence:
+        "Thank you so much for the offer — it was a tough decision. After careful consideration, I'll have to decline as I've accepted another opportunity that aligns more closely with my goals. I'd love to stay in touch.",
+      tr_explanation:
+        "Hata yığını: (1) 'Thank you for offer' eksik artikel — 'for the offer'. (2) 'I find better job' tense ve artikel hatası — 'I've accepted another opportunity' (present perfect). (3) 'I am sorry for this situation' = panik tonu, gereksiz özür; profesyonelce 'tough decision' + 'aligns with my goals'. (4) Köprü yakma — 'I'd love to stay in touch' ekle.",
+    },
+    {
+      id: "ex.cb1.14.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Recruiter resmi teklif yapıyor. Önce kabul, sonra (B paragrafında) düşünme süresi/decline senaryosu.",
+      npc_role: "Recruiter",
+      setting: "Offer call (video)",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Great news — we'd love to extend you the offer. Base is 85K, with a 10% bonus and equity. Can you share where you're landing?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|thanks) (so much|for|for the|for sharing)",
+            "(thrilled|excited|happy|delighted) to (accept|join)",
+            "(look forward|looking forward) to",
+            "(when|what) (would|are|is) (the|next)",
+          ],
+          hint_tr:
+            "Kabul formülü: 'Thank you so much — I'm thrilled to accept. Looking forward to joining the team. When would you like me to start?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Wonderful. Quick question on timing — when could you realistically start?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(one|two|four) (month|week)s?",
+            "notice (period|of)",
+            "(could|would) (start|join|begin)",
+            "(from|after) (signing|the offer|today)",
+          ],
+          hint_tr:
+            "Notice period belirt: 'I have a one-month notice, so I could start about four weeks from signing.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Before you decide — would you also be open to hearing if we sweetened the offer slightly?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(after|i've had time|i'd like time|after careful) (consideration|thought|reflection)",
+            "(have to|going to|will have to) (decline|pass)",
+            "(another|other) (offer|opportunity|role)",
+            "(stay in touch|reach out|cross paths|future)",
+          ],
+          hint_tr:
+            "Decline formülü: 'After careful consideration, I'll have to decline — I've accepted another opportunity. I'd love to stay in touch for the future.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Completely understand — thanks for being upfront. Let's definitely stay in touch.",
+        },
+      ],
+    },
+    {
+      id: "ex.cb1.14.7",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "Kabul cevabı için en doğru kalıp?",
+          options: [
+            "OK, I take the job",
+            "I'm thrilled to accept the offer and look forward to joining",
+            "I will come to work tomorrow",
+            "Yes I want it",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'I'm thrilled to accept' = profesyonel standart. 'OK I take' Türkçe direkt çeviri, çok düz.",
+        },
+        {
+          question: "Kibar bir 'hayır' nasıl başlar?",
+          options: [
+            "Sorry but no",
+            "I don't want this job",
+            "After careful consideration, I'll have to decline",
+            "Maybe later",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'After careful consideration' = düşündüm sinyali + 'I'll have to decline' = nazik ama net red.",
+        },
+        {
+          question: "Decline ederken hangisi KRİTİK?",
+          options: [
+            "Mevcut işverene şikayet etmek",
+            "Maaşın çok düşük olduğunu söylemek",
+            "Köprüyü yakma — 'stay in touch' ekle",
+            "Çabuk kapat, detay verme",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Bugün decline ettiğin recruiter, gelecek yıl yeni şirkete geçtiğinde tekrar karşına çıkar. 'Stay in touch' her zaman.",
+        },
+      ],
+    },
+    {
+      id: "ex.cb1.14.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I'm thrilled to accept the offer.",
+      ipa: "/aɪm θrɪld tə əkˈsɛpt ði ˈɒfə/",
+      tr_hint:
+        "'Thrilled' = 'TH-rıld' (Türkçe 't' DEĞİL, 'th' nefesli). 'To accept' = 'tu-ık-SEPT' (vurgu sonda). 'The offer' = 'ðiy-ofır'. Sıcak, samimi ton — robotik değil.",
+    },
+  ],
+};
+
+// ============================================================
 // Registry
 // ============================================================
 export const careerFoundationsB1Lessons: BundledLesson[] = [
@@ -1879,4 +2665,8 @@ export const careerFoundationsB1Lessons: BundledLesson[] = [
   careerB1Lesson_8,
   careerB1Lesson_9,
   careerB1Lesson_10,
+  careerB1Lesson_11,
+  careerB1Lesson_12,
+  careerB1Lesson_13,
+  careerB1Lesson_14,
 ];

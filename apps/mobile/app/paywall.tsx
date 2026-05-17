@@ -17,6 +17,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "../components/Button";
 import { trackEvent } from "../lib/analytics";
 import {
+  hapticImpact,
+  hapticSelection,
+  hapticSuccess,
+} from "../lib/feedback";
+import {
   getOffering,
   isLiveBilling,
   purchasePackage,
@@ -87,11 +92,13 @@ export default function PaywallScreen() {
   }, []);
 
   const handlePurchase = async () => {
+    hapticImpact("medium");
     setLoading(true);
     void trackEvent("purchase_initiated", { plan }).catch(() => {});
     try {
       const result = await purchasePackage(plan);
       if (result.ok) {
+        hapticSuccess();
         void trackEvent("purchase_success", { plan }).catch(() => {});
         Alert.alert(
           "Pro üyelik aktif.",
@@ -126,9 +133,11 @@ export default function PaywallScreen() {
   };
 
   const handleRestore = async () => {
+    hapticImpact("light");
     setLoading(true);
     try {
       const restored = await restorePurchases();
+      if (restored) hapticSuccess();
       Alert.alert(
         restored ? "Geri yüklendi" : "Aktif abonelik yok",
         restored
@@ -147,7 +156,13 @@ export default function PaywallScreen() {
       <StatusBar style="light" />
 
       <View style={styles.header}>
-        <Pressable onPress={() => router.back()} style={styles.closeBtn}>
+        <Pressable
+          onPress={() => {
+            hapticImpact("light");
+            router.back();
+          }}
+          style={styles.closeBtn}
+        >
           <Text style={styles.closeText}>×</Text>
         </Pressable>
       </View>
@@ -176,7 +191,10 @@ export default function PaywallScreen() {
         <View style={styles.plans}>
           <Pressable
             style={[styles.plan, plan === "yearly" && styles.planSelected]}
-            onPress={() => setPlan("yearly")}
+            onPress={() => {
+              hapticSelection();
+              setPlan("yearly");
+            }}
           >
             <View style={styles.savePill}>
               <Text style={styles.savePillText}>%44 İNDİRİM</Text>
@@ -191,7 +209,10 @@ export default function PaywallScreen() {
 
           <Pressable
             style={[styles.plan, plan === "monthly" && styles.planSelected]}
-            onPress={() => setPlan("monthly")}
+            onPress={() => {
+              hapticSelection();
+              setPlan("monthly");
+            }}
           >
             <Text style={styles.planName}>Aylık</Text>
             <Text style={styles.planPrice}>

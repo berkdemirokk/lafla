@@ -641,10 +641,716 @@ export const banterWhatdoyoudoLesson_26_3: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 26.5 — Yazilimci, Non-Tech Karsisina Aciklama
+// ============================================================
+export const banterWhatdoyoudoLesson_26_5: BundledLesson = {
+  id: "banter.whatdoyoudo.26.5",
+  skill_id: "banter.whatdoyoudo",
+  index: 5,
+  title: "Yazilimci — Non-Tech Karsisina",
+  description:
+    "Teknik bilmeyen birine isini nasil anlatirsin? Jargon yok, somut deger var. 'I work in tech' degil, 'I make websites talk to each other'.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.bwdy26.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I work in tech",
+      tr_translation: "Teknolojide calisiyorum (genel + non-tech dostu)",
+      example: "I work in tech — boring stuff, mostly making apps not crash.",
+      example_tr: "Teknolojide calisiyorum — sikici sey, cogunlukla uygulamalarin patlamamasini sagliyorum.",
+    },
+    {
+      id: "ex.bwdy26.5.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Yazilimciyim ama sade haliyle: websitelerin birbiriyle konusmasini sagliyorum.",
+      target: "I work in tech — basically I make websites talk to each other.",
+      accepted_variants: [
+        "I'm in tech, but really I just make apps talk to each other.",
+        "I build the plumbing that connects apps behind the scenes.",
+        "I work in software — the boring stuff that makes apps work.",
+        "I make websites talk to each other, that's the simple version.",
+        "I write code that lets different apps share info.",
+      ],
+      tr_hint:
+        "'Software engineer' = jargon. Non-tech karsisinda: somut metafor (plumbing, talk to each other) = anlasilir + funny.",
+    },
+    {
+      id: "ex.bwdy26.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I work in tech — boring ___, mostly.",
+      answer: "stuff",
+      distractors: ["thing", "work", "job"],
+      tr_hint:
+        "'Boring stuff' = casual self-deprecation. Karsi tarafa 'derine girme' sinyali verir + dogal sohbet acici.",
+    },
+    {
+      id: "ex.bwdy26.5.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "I",
+        "make",
+        "websites",
+        "talk",
+        "to",
+        "each",
+        "other",
+      ],
+      correct_sentence: "I make websites talk to each other",
+      tr_translation: "Websitelerin birbiriyle konusmasini sagliyorum.",
+    },
+    {
+      id: "ex.bwdy26.5.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I am a software engineer working with microservices and Kubernetes orchestration.",
+      correct_sentence:
+        "I work in tech — basically I make different apps share info with each other.",
+      tr_explanation:
+        "Non-tech biri 'microservices/Kubernetes' duyunca goz kayar. Dogru yaklasim: jargon-free metafor + kisa. 'Apps share info' herkesin anladigi sey.",
+    },
+    {
+      id: "ex.bwdy26.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Bir dugunde non-tech akrabaya 'ne is yapiyorsun?' diye soruyorlar. Jargon yok.",
+      npc_role: "Non-tech relative",
+      setting: "Family wedding",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i work in (tech|software)|i'?m in tech)",
+            "(boring stuff|nothing exciting|the boring side)",
+            "(basically|essentially|simply put)",
+            "(make (\\w+) (talk|share|connect)|websites talk to each other)",
+            "(apps (work|share|talk)|behind the scenes)",
+          ],
+          hint_tr:
+            "Jargon-free: 'I work in tech — boring stuff. Basically I make websites talk to each other.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh — so you make websites? Like Facebook?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(kind of|sort of|not exactly|close)",
+            "(more like|think of it as|imagine)",
+            "(the (parts|stuff) (you don'?t see|behind))",
+            "(plumbing|wiring|invisible)",
+            "(makes (it|things) work|behind the screen)",
+            "(when you (click|tap|order))",
+          ],
+          hint_tr:
+            "Metafor: 'Sort of — more like the plumbing behind the website. The stuff you don't see.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Plumbing — ha! So if Instagram breaks, do they call you?",
+        },
+      ],
+    },
+    {
+      id: "ex.bwdy26.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Non-tech karsisinda EN BUYUK hata?",
+          options: [
+            "Cok kibar olmak",
+            "Jargon kullanmak (Kubernetes, microservices, API)",
+            "Sade konusmak",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Jargon = karsi taraf utanir + kafa karisir + sohbet biter. Metafor + somut = herkes anlar.",
+        },
+        {
+          question: "'I work in tech' niye iyi bir aciklama acilisi?",
+          options: [
+            "Generic + cok yararsiz",
+            "Genel + sicakkanli + karsi taraf takip sorusu sorabilir",
+            "Cok agir",
+            "Kotu",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Tech' herkes anlar — kapi acar. Sonra metafor ile somutlastir = mukemmel formul.",
+        },
+        {
+          question: "EN guclu metafor tipi?",
+          options: [
+            "Akademik tanim",
+            "Somut + gunluk hayattan (plumbing, talk to each other, behind the scenes)",
+            "Soyut",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Plumbing' = herkesin evinde var. 'Make X talk to Y' = bos cocuk hayali. Somut = unutulmaz.",
+        },
+      ],
+    },
+    {
+      id: "ex.bwdy26.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I work in tech — basically I make websites talk to each other.",
+      ipa: "aɪ wɜːrk ɪn tek ˈbeɪsɪkli aɪ meɪk ˈwebsaɪts tɔːk tuː iːtʃ ˈʌðər",
+      tr_hint:
+        "'Work in tech' = 'wɜːrk-ɪn-tek' hizli bagla. 'Basically' yumusak kopru. 'Talk to each other' net + dostca ton. Casual self-deprecation tonu.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 26.6 — Freelance / Self-employed Cevap
+// ============================================================
+export const banterWhatdoyoudoLesson_26_6: BundledLesson = {
+  id: "banter.whatdoyoudo.26.6",
+  skill_id: "banter.whatdoyoudo",
+  index: 6,
+  title: "Freelance / Kendi Isim",
+  description:
+    "Maasli degilsin — 'kendi isim var' nasil aciklanir? 'I run my own thing', 'I do freelance gigs' — confident + casual.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.bwdy26.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I run my own thing",
+      tr_translation: "Kendi isimi yuruyorum (casual + confident)",
+      example: "I run my own thing — small design studio.",
+      example_tr: "Kendi isimi yuruyorum — kucuk bir tasarim stüdyosu.",
+    },
+    {
+      id: "ex.bwdy26.6.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Kendi isim var — freelance grafik tasarimci olarak musteri buluyorum.",
+      target: "I do my own freelance gigs — pick up design clients here and there.",
+      accepted_variants: [
+        "I run my own thing — freelance graphic design.",
+        "I'm self-employed — freelance designer, mostly.",
+        "I freelance — design work for various clients.",
+        "I work for myself — graphic design gigs.",
+        "I do my own thing — freelance design.",
+      ],
+      tr_hint:
+        "'Self-employed' = resmi. 'Run my own thing' / 'Do my own gigs' = casual + confident. 'Here and there' = doganal akis.",
+    },
+    {
+      id: "ex.bwdy26.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I run my own ___ — freelance design.",
+      answer: "thing",
+      distractors: ["work", "job", "shop"],
+      tr_hint:
+        "'Run my own thing' = sabit kalip. 'Thing' belirsiz + casual. 'Shop' kucuk dukkan icin gercek isten bahsedilmiyor.",
+    },
+    {
+      id: "ex.bwdy26.6.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "I",
+        "freelance",
+        "mostly",
+        "with",
+        "tech",
+        "startups",
+      ],
+      correct_sentence: "I freelance mostly with tech startups",
+      tr_translation: "Daha cok teknoloji startup'lariyla freelance calisiyorum.",
+    },
+    {
+      id: "ex.bwdy26.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I am unemployed but I do some work sometimes.",
+      correct_sentence:
+        "I run my own thing — freelance design work for tech clients.",
+      tr_explanation:
+        "'Unemployed' = issiz (negatif). Freelance = onemli fark: kendi isin var. 'Run my own thing' = aktif + sahiplik. ABD'de freelance = kucuk patron olmak demek.",
+    },
+    {
+      id: "ex.bwdy26.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Networking event'te freelance oldugunu aciklamak. Confident + casual ton.",
+      npc_role: "Networking contact",
+      setting: "Industry meetup",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i run my own|i'?m self.employed|i work for myself)",
+            "(thing|business|shop|gig)",
+            "(freelance|on my own|independent)",
+            "(design|writing|consulting|coding|dev work)",
+            "(clients|projects|gigs)",
+          ],
+          hint_tr:
+            "Confident giris: 'I run my own thing — freelance design for tech clients.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh nice — how did you make the jump to freelance?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|to be honest|funny story)",
+            "(burned out|got tired|wanted (more|out))",
+            "(corporate|9 to 5|the old job|agency life)",
+            "(started (with|on the side)|tested it first)",
+            "(one client|first gig|word of mouth)",
+            "(took the leap|jumped|made the switch)",
+          ],
+          hint_tr:
+            "Hikaye: 'Honestly burned out at the agency, started with one client on the side, then took the leap.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Respect. What's the hardest part — finding clients or the actual work?",
+        },
+      ],
+    },
+    {
+      id: "ex.bwdy26.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'I am unemployed' niye YANLIS?",
+          options: [
+            "Iyi olur",
+            "Freelance = issiz DEGIL. 'Unemployed' negatif + dogru olmayan etiket",
+            "Cok kibar",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Freelance = aktif is + kendi patronun. 'Unemployed' = is araniyor. ABD'de buyuk fark. 'Self-employed' / 'I run my own thing' = dogru.",
+        },
+        {
+          question: "EN casual + confident freelance acilisi?",
+          options: [
+            "I am presently unemployed",
+            "I run my own thing / I do my own freelance gigs",
+            "I do nothing",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Run my own thing' = sahiplenme + casual. Karsi taraf 'oh cool' der + takip sorulari gelir.",
+        },
+        {
+          question: "Freelance hikayesini anlatma ipucu?",
+          options: [
+            "Cok agir konus",
+            "Hikaye yapisi: eski is -> pivot ani -> simdi (sade + dürüst)",
+            "Hicbir sey paylasma",
+            "Yararsiz",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "ABD networking'de 'burned out / wanted more freedom' standart + saygin. Hikaye = baglanma firsati.",
+        },
+      ],
+    },
+    {
+      id: "ex.bwdy26.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I run my own thing — freelance design, mostly.",
+      ipa: "aɪ rʌn maɪ oʊn θɪŋ ˈfriːlæns dɪˈzaɪn ˈmoʊstli",
+      tr_hint:
+        "'Run my own thing' = 'rʌn-maɪ-oʊn-θɪŋ' bagla, vurgu 'own'da. 'Thing' = 'th' dilini hafifce isir. 'Freelance' = 'friːlæns' net. Confident + casual ton.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 26.7 — Side Hustle Var, Aciklama
+// ============================================================
+export const banterWhatdoyoudoLesson_26_7: BundledLesson = {
+  id: "banter.whatdoyoudo.26.7",
+  skill_id: "banter.whatdoyoudo",
+  index: 7,
+  title: "Day Job + Side Hustle",
+  description:
+    "Bir maasli isin + yandaki tutku projen var — ikisini de nasil baglarsin? 'Day job is X, but on the side I do Y' — Amerikan klasigi.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.bwdy26.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Day job",
+      tr_translation: "Asil isim (genelde maasli, paranin geldigi)",
+      example: "My day job is corporate, but on the side I do photography.",
+      example_tr: "Asil isim kurumsal, ama yan tarafta fotografcilik yapiyorum.",
+    },
+    {
+      id: "ex.bwdy26.7.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Asil isim PM ama yan tarafta podcast yapiyorum yazilimcilarla ilgili.",
+      target: "My day job is PM, but on the side I run a podcast about software engineers.",
+      accepted_variants: [
+        "Day job PM, but my real love is the podcast I run about devs.",
+        "I'm a PM by day, but I also host a podcast about software engineers on the side.",
+        "PM during the week, podcast host on the weekends — about engineering culture.",
+        "Officially a PM, but my side hustle is a podcast on dev culture.",
+        "Day job: PM. Side project: podcast about software engineers.",
+      ],
+      tr_hint:
+        "'Day job' = asil is. 'On the side' / 'side hustle' = ek is/proje. 'Real love' = duygusal vurgu. Iki kimlik bir araya getir.",
+    },
+    {
+      id: "ex.bwdy26.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "My day job is PM, but on the ___ I do photography.",
+      answer: "side",
+      distractors: ["other", "weekend", "outside"],
+      tr_hint:
+        "'On the side' = sabit kalip. 'Side hustle' = ayni anlamda yan is. Asil is + yan is formulu.",
+    },
+    {
+      id: "ex.bwdy26.7.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "My",
+        "side",
+        "hustle",
+        "is",
+        "where",
+        "the",
+        "fun",
+        "is",
+      ],
+      correct_sentence: "My side hustle is where the fun is",
+      tr_translation: "Asil eglence yan isimde.",
+    },
+    {
+      id: "ex.bwdy26.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I have two jobs because one is not enough money.",
+      correct_sentence:
+        "My day job is PM, but on the side I run a podcast — that's where the real fun is.",
+      tr_explanation:
+        "'Two jobs because not enough money' = wedge dolu, dezavantajli. ABD: 'side hustle' = tutku projesi (paradan onemli). 'Where the fun is' = pozitif framing.",
+    },
+    {
+      id: "ex.bwdy26.7.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Networking event'te day job + side hustle ikisini birden anlatmak. Side hustle daha ilginc gozukmeli.",
+      npc_role: "Networking contact",
+      setting: "Casual industry mixer",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(day job|by day|officially|technically)",
+            "(pm|product|engineer|designer|consultant|analyst)",
+            "(but|but on the side|but really)",
+            "(side hustle|side project|on the side|weekend project)",
+            "(podcast|photography|newsletter|writing|teaching|youtube)",
+          ],
+          hint_tr:
+            "Iki kimlik: 'Day job is PM, but on the side I run a podcast about engineering culture.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh cool — what's the podcast about? How long have you been doing it?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it'?s about|focuses on|covers)",
+            "(\\w+ (culture|stories|lessons|life))",
+            "(started (about|around)|been doing it for)",
+            "(\\w+ (years|months)|since (\\w+))",
+            "(honestly|to be real|funny thing)",
+            "(more (energy|fun|life) than the day job|day job pays the bills)",
+          ],
+          hint_tr:
+            "Detaylandir: 'It's about engineering culture. Started about 2 years ago. Honestly more fun than the day job, but the day job pays the bills.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I love that — any chance the side hustle becomes the main thing eventually?",
+        },
+      ],
+    },
+    {
+      id: "ex.bwdy26.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Day job' ne demek?",
+          options: [
+            "Sadece gunduz isi",
+            "Asil maasli isin (paranin geldigi yer, tutku olmasa da)",
+            "Hafta sonu isi",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Day job' = ekmeg parasi getiren is. Mecazi anlamda 'asli is'. 'Side hustle' = tutku projesi / ek gelir.",
+        },
+        {
+          question: "Side hustle anlatirken EN guclu cerceve?",
+          options: [
+            "Para azligini sikayet etmek",
+            "'Where the fun/real life is' = pozitif + tutkulu cerceve",
+            "Cok yorgun oldugunu soylemek",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "ABD: side hustle = ozgurluk + tutku + giriscilik sembolu. 'Where the fun is' / 'real love' = saygi cagirir.",
+        },
+        {
+          question: "'Two jobs because one is not enough money' niye SAKIN?",
+          options: [
+            "Iyi olur",
+            "Tukenmis + carelessizlikten gibi okunur. Tutkudan degil zorunluluktan",
+            "Yararsiz",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Network'te kendini tukenmis gostermek = zayif pozisyon. Tutku/secim cercevesi = guclu + ilham verici.",
+        },
+      ],
+    },
+    {
+      id: "ex.bwdy26.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "My day job is PM, but on the side I run a podcast.",
+      ipa: "maɪ deɪ dʒɒb ɪz piː ɛm bʌt ɒn ðə saɪd aɪ rʌn ə ˈpɒdkæst",
+      tr_hint:
+        "'Day job is PM' = duz + bilgi tonu. 'But on the side' = dramatic pause sonrasi vurgu. 'I run a podcast' = canli + tutku ton degisimi. Iki kimlik kontrasti sesinde gozuk.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 26.8 — Is Arayisinda, Neutral Cevap
+// ============================================================
+export const banterWhatdoyoudoLesson_26_8: BundledLesson = {
+  id: "banter.whatdoyoudo.26.8",
+  skill_id: "banter.whatdoyoudo",
+  index: 8,
+  title: "Is Arayisinda — Neutral Cevap",
+  description:
+    "Su an issizsin — utanmadan, panic yapmadan nasil aciklarsin? 'Between things' / 'In transition' — ABD klasik sigorta dili.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.bwdy26.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Between things",
+      tr_translation: "Su an iki is arasindayim (neutral + confident)",
+      example: "I'm between things right now — taking time to figure out the next move.",
+      example_tr: "Su an iki is arasindayim — bir sonraki adimi dusunmek icin zaman aliyorum.",
+    },
+    {
+      id: "ex.bwdy26.8.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Iki is arasindayim — bir suredir bir sonraki adimimi dusunuyorum.",
+      target: "I'm between things right now — taking some time to figure out what's next.",
+      accepted_variants: [
+        "I'm in transition — figuring out my next move.",
+        "Taking a break to figure things out.",
+        "Between roles right now — exploring what I want to do next.",
+        "I'm in between gigs at the moment, thinking about the next chapter.",
+        "Taking some time off to figure out my next step.",
+      ],
+      tr_hint:
+        "'Unemployed' kullanma. 'Between things' / 'in transition' / 'taking time off' = neutral + agency var. Sen secimle bu durumdasin gibi anlatilir.",
+    },
+    {
+      id: "ex.bwdy26.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Taking a break to ___ things out.",
+      answer: "figure",
+      distractors: ["work", "think", "make"],
+      tr_hint:
+        "'Figure things out' = sabit kalip. 'Net olarak ne istedigini anlamak'. Agency + confident ton verir.",
+    },
+    {
+      id: "ex.bwdy26.8.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "I",
+        "am",
+        "taking",
+        "some",
+        "time",
+        "to",
+        "reset",
+      ],
+      correct_sentence: "I am taking some time to reset",
+      tr_translation: "Kendimi resetlemek icin biraz zaman aliyorum.",
+    },
+    {
+      id: "ex.bwdy26.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I am unemployed and looking for any job.",
+      correct_sentence:
+        "I'm between things right now — taking time to figure out the right next move.",
+      tr_explanation:
+        "'Unemployed and looking for any job' = umutsuz pozisyon sinyali. 'Between things' + 'the right next move' = secimli + confident. Sosyal/networking'de buyuk fark yaratir.",
+    },
+    {
+      id: "ex.bwdy26.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Networking event'te is arayisinda oldugunu sakince anlatmak. Panic yok, agency var.",
+      npc_role: "Networking contact",
+      setting: "Casual industry mixer",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|to be real|right now)",
+            "(between (things|roles|gigs|jobs))",
+            "(in transition|taking (a break|some time)|off)",
+            "(figure (things|it) out|reset|recharge)",
+            "(next (move|chapter|step|thing))",
+          ],
+          hint_tr:
+            "Neutral: 'Honestly, between things right now — taking some time to figure out the next move.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh okay — what was the last role, and what are you looking for next?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(last role was|came from|just left)",
+            "(\\w+ (engineer|pm|designer|consultant|analyst))",
+            "(at (\\w+)|in (\\w+))",
+            "(looking for|leaning toward|exploring)",
+            "(more (impact|autonomy|product|design)|smaller team|bigger|something different)",
+            "(open to (chats|coffee|hearing))",
+          ],
+          hint_tr:
+            "Net + acik: 'Last role was PM at a FinTech. Leaning toward something more product-focused with autonomy. Open to chats.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Good for you for being intentional. Let's keep in touch — I might know someone.",
+        },
+      ],
+    },
+    {
+      id: "ex.bwdy26.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'I am unemployed' niye ZAYIF cevap?",
+          options: [
+            "Iyi olur",
+            "Pasif + umutsuz + agency yok. Karsi taraf 'aciyabilir' yerine 'saygi gosterir' istiyorsun",
+            "Cok kibar",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Networking = guclu pozisyon. 'Unemployed' = pasif. 'Between things' = sen secdin + sen yonetiyorsun.",
+        },
+        {
+          question: "EN guclu transition kalibi?",
+          options: [
+            "I have nothing to do",
+            "'Between things' + 'figure out my next move' (agency + plan)",
+            "I am very sad",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Agency + intentionality = saygi. 'The right next move' der demez karsi taraf 'help edebilirim' moduna girer.",
+        },
+        {
+          question: "Konusmayi nasil ileri tasirsin?",
+          options: [
+            "Sasirip kalmak",
+            "Net: son rol + ne ariyor (sektor / role / takim buyuklugu) + 'open to chats'",
+            "Hicbir sey soylememek",
+            "Yararsiz",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Network'te insanlar yardim etmek istiyor — net hedef = onlar baglantilara hatirlar. Vague olursa hicbir sey hatirlamaz.",
+        },
+      ],
+    },
+    {
+      id: "ex.bwdy26.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'm between things right now — taking time to figure out what's next.",
+      ipa: "aɪm bɪˈtwiːn θɪŋz raɪt naʊ ˈteɪkɪŋ taɪm tuː ˈfɪɡjər aʊt wɒts nekst",
+      tr_hint:
+        "'Between things' = 'bɪ-twiːn-θɪŋz' bagla. 'Right now' = casual onayci. 'Taking time' yumusak + sakince. Confident + relaxed ton — panic yok. 'What's next' bitisini hafifce yukari yapma.",
+    },
+  ],
+};
+
+// ============================================================
 // Banter "What Do You Do?" lessons registry
 // ============================================================
 export const banterWhatdoyoudoLessons: ReadonlyArray<BundledLesson> = [
   banterWhatdoyoudoLesson_26_1,
   banterWhatdoyoudoLesson_26_2,
   banterWhatdoyoudoLesson_26_3,
+  banterWhatdoyoudoLesson_26_5,
+  banterWhatdoyoudoLesson_26_6,
+  banterWhatdoyoudoLesson_26_7,
+  banterWhatdoyoudoLesson_26_8,
 ];

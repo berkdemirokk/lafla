@@ -641,10 +641,773 @@ export const barLesson_7_3: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 7.4 — Signature Cocktail Tavsiye İste
+// ============================================================
+export const barLesson_7_4: BundledLesson = {
+  id: "order.bar.7.4",
+  skill_id: "order.bar",
+  index: 4,
+  title: "Signature Cocktail Tavsiye",
+  description:
+    "'What's your signature?', 'Something not too sweet', 'house special' — menüye bakmadan tavsiye almak.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.7.4.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "signature cocktail",
+      tr_translation: "Mekanın imza kokteyli (özgün tarifi)",
+      example: "What's your signature cocktail?",
+      example_tr: "İmza kokteyliniz hangisi?",
+    },
+    {
+      id: "ex.7.4.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Çok tatlı olmayan bir şey önerir misiniz?",
+      target: "Could you recommend something not too sweet?",
+      accepted_variants: [
+        "Can you recommend something not too sweet?",
+        "What would you recommend that isn't too sweet?",
+        "Got anything that's not too sweet?",
+        "I'd like something not too sweet — any suggestions?",
+        "Something not too sweet, please — what do you recommend?",
+      ],
+      tr_hint:
+        "'Not too sweet' = çok tatlı değil. Türkçe 'şu kadar değil' yerine 'too + sıfat' kalıbı. Tavsiye için 'recommend'.",
+    },
+    {
+      id: "ex.7.4.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "What's the ___ special tonight?",
+      answer: "house",
+      distractors: ["home", "bar", "menu"],
+      tr_hint:
+        "'House special' = mekana özgü, bartender'ın o gece önerdiği. 'Home' eve dair, 'house' işletmeye dair fark var.",
+    },
+    {
+      id: "ex.7.4.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "What",
+        "would",
+        "you",
+        "recommend",
+        "for",
+        "a",
+        "gin",
+        "lover",
+      ],
+      correct_sentence: "What would you recommend for a gin lover",
+      tr_translation: "Cin sevenler için ne tavsiye edersiniz?",
+    },
+    {
+      id: "ex.7.4.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I want strong drink, not sweet, you choose!",
+      correct_sentence:
+        "Could you recommend something strong but not too sweet?",
+      tr_explanation:
+        "'I want' + komut tonu kaba. 'You choose' bartender'ı zorlar. Doğal: 'Could you recommend' + 'something strong but not too sweet' (güçlü ama çok tatlı değil). 'Strong but' = ama bağlacı.",
+    },
+    {
+      id: "ex.7.4.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Cocktail bar'a yeni geldin, menüye bakmadan tavsiye istiyorsun.",
+      npc_role: "Bartender",
+      setting: "Craft cocktail bar, weeknight",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hey, welcome in. Have you been here before?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|first time|never|nope)( actually| really)?",
+            "(this is my|it'?s my) first time",
+            "(no|not yet)[,. ]+ what (would|do) you recommend",
+            "(no|first time)[,. ]+ what'?s (your |the )?(signature|house special|specialty)",
+            "(i'?m new|new here)( to this place)?",
+          ],
+          hint_tr:
+            "'First time' veya 'No, what's your signature?' — sohbeti açar.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool, welcome! Are you more of a gin, whiskey, or tequila person? Or do you want me to surprise you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(gin|whiskey|tequila|vodka|rum)( person| drinker| lover)?",
+            "(i'?m a |more of a )(gin|whiskey|tequila) (person|drinker|fan|lover)",
+            "(usually |mostly )(gin|whiskey|tequila|vodka)",
+            "(surprise me|your call|dealer'?s choice|bartender'?s choice)",
+            "(something|anything) not too (sweet|strong|bitter)",
+            "(what'?s|how is) (your |the )?(signature|house special)",
+          ],
+          hint_tr:
+            "İçki tercihi söyle: 'I'm a gin person' veya 'Surprise me' veya 'Something not too sweet'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. Our signature is a smoky mezcal cocktail — citrus, a little spice, not too sweet. Sound good?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sounds|that sounds) (great|good|perfect|amazing)",
+            "(yeah|yes|sure)[,. ]+ (let'?s|i'?ll) (do|try|have) (it|that|one)",
+            "(i'?ll have|i'?ll go with|let'?s do) (it|that|one|the signature)",
+            "(perfect|amazing|love it|let'?s try it)",
+            "(could|can) i (try|have|get) (it|that|one)",
+          ],
+          hint_tr:
+            "Kabul: 'Sounds great, let's try it' veya 'I'll go with that'.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.4.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Signature cocktail' ne demek?",
+          options: [
+            "İmzalı bardak",
+            "Mekanın özgün, imza kokteyli",
+            "En pahalı içki",
+            "Klasik tarif",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Signature' = mekanın kendine has özel kokteyli — bartender'ın gururla önerdiği.",
+        },
+        {
+          question: "'Something not too sweet' nasıl kurulur?",
+          options: [
+            "Something no sweet",
+            "Something not very sweet much",
+            "Something not too sweet",
+            "Something don't sweet",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Not too + sıfat' = çok değil. Türkçe 'şu kadar değil' düzgün karşılığı bu kalıp.",
+        },
+        {
+          question: "Bartender'a yetki vermek için kısa idiom?",
+          options: [
+            "You decide drink",
+            "Surprise me",
+            "Make whatever",
+            "Random please",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Surprise me' = sen seç. 'Dealer's choice' ve 'bartender's choice' alternatifler.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.4.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "What's your signature, something not too sweet?",
+      ipa: "wʌts jɔːr ˈsɪɡnətʃər ˈsʌmθɪŋ nɒt tuː swiːt",
+      tr_hint:
+        "'Signature' = 'SIG-nə-çər' — 't' yumuşar 'ç' olur. 'Not too sweet' birleşir, 'tuː' uzun. Tavsiye sorma ritmi.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 7.5 — Open a Tab (Hesabı Açık Tut)
+// ============================================================
+export const barLesson_7_5: BundledLesson = {
+  id: "order.bar.7.5",
+  skill_id: "order.bar",
+  index: 5,
+  title: "Open a Tab — Hesabı Açık Tut",
+  description:
+    "Kartla tab açma, açık tutma, kapatma — ABD/UK bar kültürü (Türkiye'de pek yok).",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.7.5.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "card on file",
+      tr_translation: "Kart sistemde saklı (tab için)",
+      example: "Just keep my card on file.",
+      example_tr: "Kartımı sistemde tut.",
+    },
+    {
+      id: "ex.7.5.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Açık tutun, birkaç içki daha alırım.",
+      target: "Just keep it open, I'll get a few more.",
+      accepted_variants: [
+        "Keep the tab open, I'll have a few more.",
+        "Leave it open, I'll order more.",
+        "Keep it running, I'll get another round.",
+        "Just keep my tab open for now.",
+        "Don't close it yet, I'll get more.",
+      ],
+      tr_hint:
+        "'Keep it open' = açık tut. 'Tab' devam ediyor demek. 'A few more' = birkaç tane daha.",
+    },
+    {
+      id: "ex.7.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Could I leave my card and ___ a tab?",
+      answer: "start",
+      distractors: ["open", "make", "create"],
+      tr_hint:
+        "'Start a tab' = tab başlat (yaygın US). 'Open a tab' da doğru ama 'leave my card and start' kalıbında 'start' kullanılır.",
+    },
+    {
+      id: "ex.7.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "I'll",
+        "leave",
+        "my",
+        "card",
+        "if",
+        "that's",
+        "easier",
+      ],
+      correct_sentence: "I'll leave my card if that's easier",
+      tr_translation: "Kolaysa kartımı bırakırım.",
+    },
+    {
+      id: "ex.7.5.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Take my card, hold for drinks pay later all.",
+      correct_sentence:
+        "Could I leave my card and open a tab? I'll settle up at the end.",
+      tr_explanation:
+        "'Take my card, hold' komut + bozuk yapı. Doğru kalıp: 'leave my card' (bırak), 'open a tab' (hesap aç), 'settle up at the end' (sonunda öderim). 'Settle up' = hesapları halletmek.",
+    },
+    {
+      id: "ex.7.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Bara yeni geldin, ilk içkin geliyor — bartender ödeme şeklini soruyor.",
+      npc_role: "Bartender",
+      setting: "Neighborhood bar, US",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Here's your beer. You want to start a tab or pay as you go?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(start|open) a tab( please)?",
+            "(i'?ll|let'?s) (start|open) a tab",
+            "(could|can) i (start|open|leave) (a tab|my card)",
+            "(tab please|tab'?s good|tab works)",
+            "(pay as i go|just this one|i'?ll pay now)",
+          ],
+          hint_tr:
+            "Tab istiyorsan: 'Start a tab, please' veya 'I'll leave my card'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure, I'll need a card. Want me to keep it open or close it after each round?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(just |please )?keep it open",
+            "(keep|leave) it (open|running)",
+            "(open|running)( is good| works| please)?",
+            "(close it|close out) (after|when)",
+            "(here'?s|here is) my card",
+          ],
+          hint_tr:
+            "'Just keep it open' = açık tut. 'Close after each round' = her tur sonra kapat.",
+        },
+        {
+          speaker: "npc",
+          message: "Cool. I've got it. Just flag me when you're ready to close out.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you|appreciate it|cheers)",
+            "(will do|sounds good|got it|perfect)",
+            "(i|will) (let you know|flag you|wave)",
+          ],
+          hint_tr: "Onayla: 'Sounds good, thanks' veya 'Will do, cheers'.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "ABD'de barda 'open a tab' niye yaygın?",
+          options: [
+            "Yasal zorunluluk",
+            "Her içkide kart çekmek yerine biriktirip topluca öde",
+            "Sadece turistler için",
+            "Garson tipi için",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Türkiye'de adisyon mantığı vardır ama kart bırakma yok. ABD'de kart bartender'da kalır, içkiler biriktirilir, çıkışta ödenir.",
+        },
+        {
+          question: "'Card on file' ne demek?",
+          options: [
+            "Kart dosyada",
+            "Kart bartender'da saklı, tab kapatılınca çekilir",
+            "Kart kilitli",
+            "Kart kayıtsız",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'On file' = sistemde / saklı. Bartender kartı geri vermez, tab kapanınca çeker.",
+        },
+        {
+          question: "'Keep it open' ne anlama gelir?",
+          options: [
+            "Kapıyı açık tut",
+            "Bardağı dolu tut",
+            "Tab'i açık bırak — daha içeceğim",
+            "Bara erişim ver",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Bar bağlamında 'keep it open' = tab açık kalsın, daha içki sipariş edeceğim demek.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.5.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could I start a tab? Just keep it open.",
+      ipa: "kʊd aɪ stɑːrt ə tæb dʒʌst kiːp ɪt ˈoʊpən",
+      tr_hint:
+        "'Start a tab' = 'STAR-tə-tæb' bağlanır. 'Just keep it' = 'cas-KEEP-it'. 'Open' iki hece, 'OH-pən'.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 7.6 — Buying Rounds (Bir Tur İkram)
+// ============================================================
+export const barLesson_7_6: BundledLesson = {
+  id: "order.bar.7.6",
+  skill_id: "order.bar",
+  index: 6,
+  title: "Buying Rounds — Tur Sırası",
+  description:
+    "'Next round's on me', 'What are you drinking?' — sırayla ikram kültürü (UK pub'larda zorunlu nezaket).",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.7.6.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "round",
+      tr_translation: "Tur (grup için sıradaki içki seti)",
+      example: "This round's on me.",
+      example_tr: "Bu tur benden.",
+    },
+    {
+      id: "ex.7.6.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Sıradaki tur benden, ne içiyorsun?",
+      target: "Next round's on me, what are you drinking?",
+      accepted_variants: [
+        "Next one's on me — what are you having?",
+        "I've got the next round. What are you drinking?",
+        "Let me get the next round. What'll you have?",
+        "This round's on me. Same again?",
+        "I'll grab the next one. What are you on?",
+      ],
+      tr_hint:
+        "'On me' = benden. 'What are you drinking?' grubun sırasını öğrenmek için. UK'de 'what are you on?' samimi.",
+    },
+    {
+      id: "ex.7.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Same ___, or do you want to switch it up?",
+      answer: "again",
+      distractors: ["one", "more", "thing"],
+      tr_hint:
+        "'Same again?' = aynısından? Tur arası bartender / arkadaş klasik sorusu. 'Switch it up' = değiştir.",
+    },
+    {
+      id: "ex.7.6.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "You",
+        "got",
+        "the",
+        "last",
+        "one",
+        "this",
+        "one's",
+        "on",
+        "me",
+      ],
+      correct_sentence: "You got the last one this one's on me",
+      tr_translation: "Önceki sen aldın, bu seferki benden.",
+    },
+    {
+      id: "ex.7.6.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I pay this drink for you, you pay next, ok?",
+      correct_sentence:
+        "This round's on me — you can grab the next one.",
+      tr_explanation:
+        "'I pay this drink for you' çeviri kokar. Doğal: 'This round's on me' (bu tur benden) + 'you can grab the next one' (sıradakini sen alırsın). 'Grab' = al / hallet samimi.",
+    },
+    {
+      id: "ex.7.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Arkadaşlarınla bardasin, bir tur sen ödüyorsun ve sırayı başlatıyorsun.",
+      npc_role: "Friend",
+      setting: "Group at a pub, casual",
+      turns: [
+        {
+          speaker: "npc",
+          message: "I'm going up to the bar — anyone want anything?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|wait|hold on)[,. ]+ (i'?ll|let me) (get|grab) (this|it|the next|the first)",
+            "(this|the next) (round'?s|one'?s) on me",
+            "(let me|i'?ll) (get|grab) (it|the round|this round|drinks)",
+            "(no no|hold up)[,. ]+ my turn",
+            "(i got|i'?ve got) (this|the next|the round)",
+          ],
+          hint_tr:
+            "Sıra al: 'This round's on me' veya 'Let me grab it' veya 'My turn'.",
+        },
+        {
+          speaker: "npc",
+          message: "Oh nice, thanks! I'll have an IPA.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(got it|cool|sure|no problem|on it)",
+            "(what about|how about) (you|the rest|everyone else)",
+            "(anyone|anybody) else",
+            "(same |another )(round|one|for everyone)",
+            "(ipa)[,. ]+ (got it|coming up|on it)",
+          ],
+          hint_tr:
+            "Sırada diğerleri: 'What about everyone else?' veya 'Anyone else?'",
+        },
+        {
+          speaker: "npc",
+          message: "Sam wants a gin and tonic, and I think Lisa's good with water.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(got it|alright|cool|okay|on it)",
+            "(coming|be) right (back|up)",
+            "(ipa|gin and tonic|water)[,. ]+ (got it|on it)",
+            "(back in a |give me a )?(sec|minute|moment)",
+            "(i'?ll|i will) (get|grab) (them|those|everything)",
+          ],
+          hint_tr: "Onay + ayrıl: 'Got it, be right back' veya 'On it'.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Round' bar bağlamında ne anlama gelir?",
+          options: [
+            "Yuvarlak bardak",
+            "Grup için bir tur içki (herkese bir tane)",
+            "Bar etrafında dolaşmak",
+            "İçki çeşidi",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Round' = grupta sıradaki tur. Birisi tüm masanın içkisini öder. UK pub'larında nezaket kuralı.",
+        },
+        {
+          question: "'This round's on me' nasıl okunur?",
+          options: [
+            "Bu tur üstüme yıkıldı",
+            "Bu tur benim üstüme — ben ödüyorum",
+            "Bu turda ben varım",
+            "Bu tur konseptim",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'On me' = benden / ben karşılıyorum. Pratik idiom: 'Dinner's on me', 'Drinks are on me' — hep aynı kalıp.",
+        },
+        {
+          question: "'Same again?' ne sorar?",
+          options: [
+            "Tekrar gel?",
+            "Aynısından bir tane daha?",
+            "Aynı zaman?",
+            "Aynı insan mı?",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Same again?' = aynı içkiden tekrar mı? Bartender ya da arkadaş tarafından sorulur, tur arasında hızlı kontrol.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.6.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Next round's on me — what are you drinking?",
+      ipa: "nɛkst raʊndz ɒn miː wʌt ɑːr juː ˈdrɪŋkɪŋ",
+      tr_hint:
+        "'Round's' = 'raʊndz' ('s' z sesi olur). 'On me' iki kelime birleşir 'AHN-mee'. 'Drinking' = 'DRIN-king', 'ng' burunsu ses.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 7.7 — Last Call + Uber Çağırma
+// ============================================================
+export const barLesson_7_7: BundledLesson = {
+  id: "order.bar.7.7",
+  skill_id: "order.bar",
+  index: 7,
+  title: "Last Call + Ride Home",
+  description:
+    "'I'm calling it', 'last call', Uber/Lyft çağırma — gece bitirme + güvenli dönüş kalıpları.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.7.7.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "I'm calling it",
+      tr_translation: "Geceyi bitiriyorum (gitme zamanı)",
+      example: "Alright, I'm calling it — early start tomorrow.",
+      example_tr: "Tamam, bitiriyorum — yarın erken kalkacağım.",
+    },
+    {
+      id: "ex.7.7.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bitiriyorum, Uber çağırayım.",
+      target: "I'm calling it, let me grab an Uber.",
+      accepted_variants: [
+        "I'm done, let me call an Uber.",
+        "I'm heading out, I'll order an Uber.",
+        "Alright, I'm out — Uber time.",
+        "Calling it a night, I'll grab a ride.",
+        "I'm gonna head home, let me get an Uber.",
+      ],
+      tr_hint:
+        "'Calling it' = bitiriyorum. 'Grab an Uber' = Uber çağırayım. 'Grab' = hızlı al, samimi. 'Order' da doğru.",
+    },
+    {
+      id: "ex.7.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Let me ___ a ride before it gets too late.",
+      answer: "call",
+      distractors: ["take", "make", "do"],
+      tr_hint:
+        "'Call a ride' = ulaşım çağır (Uber, Lyft, taksi). 'Take a ride' = bin (sürüş için), 'call' = çağır farkı.",
+    },
+    {
+      id: "ex.7.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "I'll",
+        "share",
+        "an",
+        "Uber",
+        "if",
+        "we're",
+        "going",
+        "the",
+        "same",
+        "way",
+      ],
+      correct_sentence: "I'll share an Uber if we're going the same way",
+      tr_translation: "Aynı yöne gidiyorsak Uber'i paylaşırım.",
+    },
+    {
+      id: "ex.7.7.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Bar finish, I take taxi go home now fast.",
+      correct_sentence:
+        "Last call's done — I'm gonna call an Uber and head home.",
+      tr_explanation:
+        "Türkçe kelime sırası + eksik artikel ('take taxi'). Doğal: 'Last call's done' (son sipariş bitti) + 'call an Uber' (Uber çağır) + 'head home' (eve git). 'Gonna' = 'going to' samimi.",
+    },
+    {
+      id: "ex.7.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Bartender last call anonsu yaptı, sen geceyi bitirip eve dönüyorsun.",
+      npc_role: "Bartender",
+      setting: "Bar at closing time, late night",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Last call, folks! Anyone want one more before we shut it down?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?m good|no thanks|i'?ll pass|i'?m done)",
+            "(i'?m calling it|calling it a night|i'?m out)",
+            "(could|can) you (close me out|just close out|settle me up)",
+            "(i'?ll )(just )?(take the check|get the tab|settle up)",
+            "(no thanks|i'?m good)[,. ]+ (i'?ll )?(call|grab) (an |a )?(uber|ride|lyft)",
+          ],
+          hint_tr:
+            "Geceyi bitir: 'I'm calling it' + 'close me out, please'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "No problem. Here's your tab — and hey, you good to get home okay?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|yes|all good|i'?m good)",
+            "(i'?m |i'?ll be )?(calling|grabbing|getting) (an |a )?(uber|lyft|ride|cab)",
+            "(uber|lyft)( is| 's| on the way| ordered)",
+            "(my|the) (ride|uber|car) (is here|'s here|just pulled up)",
+            "(thanks|appreciate it)[,. ]+ (uber|ride) is (here|coming|on the way)",
+          ],
+          hint_tr:
+            "Güvende ol: 'I'm grabbing an Uber' veya 'My ride's on the way'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Good. Get home safe — thanks for coming in tonight.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you|cheers|appreciate it)",
+            "(you too|same|likewise)",
+            "(have a good (night|one)|good night)",
+            "(see you|see ya|catch you) (later|around|next time)",
+          ],
+          hint_tr: "Veda: 'Thanks, you too — have a good night'.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'I'm calling it' tam karşılığı?",
+          options: [
+            "Ben arıyorum",
+            "Geceyi bitiriyorum, gidiyorum",
+            "Karar veriyorum",
+            "Adlandırıyorum",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Calling it' = 'calling it a night' kısaltması — geceyi bitirme idiom'u. 'I'm calling it' tek başına yaygın.",
+        },
+        {
+          question: "'Grab an Uber' nasıl çevrilir?",
+          options: [
+            "Uber'i tut",
+            "Uber'i yakalat",
+            "Uber çağır (hızlıca)",
+            "Uber'i fırlat",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Grab' burada = hızlıca al / çağır. 'Grab a coffee', 'grab lunch' aynı mantıkta. Samimi alternatif: 'call an Uber'.",
+        },
+        {
+          question: "'Get home safe' niye söylenir?",
+          options: [
+            "Eve yatak getir",
+            "Güvenle eve dön — sıcak veda dileği",
+            "Eve güvenli al",
+            "Evi güvenli kıl",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Get home safe' = bartender, arkadaş veya tanıdığın geceleri söylediği güvenlik temennisi — özellikle bar / gece kontekstinde standart.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.7.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "I'm calling it — let me grab an Uber.",
+      ipa: "aɪm ˈkɔːlɪŋ ɪt lɛt miː ɡræb ən ˈuːbər",
+      tr_hint:
+        "'Calling it' = 'KAW-ling-it' bağlanır. 'Grab an' = 'GRA-bən' birleşir. 'Uber' = 'OO-bər', 'u' uzun.",
+    },
+  ],
+};
+
+// ============================================================
 // Bar lessons registry
 // ============================================================
 export const barLessons: ReadonlyArray<BundledLesson> = [
   barLesson_7_1,
   barLesson_7_2,
   barLesson_7_3,
+  barLesson_7_4,
+  barLesson_7_5,
+  barLesson_7_6,
+  barLesson_7_7,
 ];

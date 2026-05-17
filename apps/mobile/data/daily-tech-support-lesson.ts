@@ -874,6 +874,781 @@ export const dailyTechSupportLesson_36_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 36.5 — İnternet Kesik / Provider Ara
+// ============================================================
+export const dailyTechSupportLesson_36_5: BundledLesson = {
+  id: "daily.tech_support.36.5",
+  skill_id: "daily.tech_support",
+  index: 5,
+  title: "İnternet Kesik — Provider Ara",
+  description:
+    "Sabahtan beri internet yok — ISP'yi ara, modem ışıklarını tarif et, hat testi iste: 'My internet's been down since this morning', 'Modem's blinking red'.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dts36.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "blinking red",
+      tr_translation: "Kırmızı yanıp sönüyor (modem hata ışığı)",
+      example: "The modem's blinking red — usually means no signal from the line.",
+      example_tr: "Modem kırmızı yanıp sönüyor — genelde hattan sinyal gelmiyor demek.",
+    },
+    {
+      id: "ex.dts36.5.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Sabahtan beri internetim kesik ve modem kırmızı yanıp sönüyor.",
+      target: "My internet's been down since this morning and the modem is blinking red.",
+      accepted_variants: [
+        "Internet has been out since this morning — modem's flashing red.",
+        "No internet since this morning, and the modem light is blinking red.",
+        "My connection's been down since morning and the modem shows a red blinking light.",
+        "Internet's been out since morning — modem keeps blinking red.",
+        "Since this morning my internet is down and the modem light is red and blinking.",
+      ],
+      tr_hint:
+        "'Has been down since X' = present perfect — ne zamandir kesik. Türk hatasi: 'Internet not work' DEĞIL.",
+    },
+    {
+      id: "ex.dts36.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Could you run a line ___ on my connection?",
+      answer: "test",
+      distractors: ["check", "scan", "fix", "trial"],
+      tr_hint:
+        "'Line test' = hat testi. ISP terimi — agent uzaktan hatti kontrol eder.",
+    },
+    {
+      id: "ex.dts36.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "My",
+        "internet's",
+        "been",
+        "down",
+        "since",
+        "this",
+        "morning",
+      ],
+      correct_sentence: "My internet's been down since this morning",
+      tr_translation: "Sabahtan beri internetim kesik.",
+    },
+    {
+      id: "ex.dts36.5.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Internet not work. Fix please.",
+      correct_sentence:
+        "My internet's been down since this morning — modem is blinking red. Could you run a line test from your end?",
+      tr_explanation:
+        "Türk hatasi: 'Internet not work' = grammatik yok + zaman yok + gozlem yok. Doğru: present perfect ('has been down') + ne zaman ('since this morning') + gozlem (blinking red) + istek (line test).",
+    },
+    {
+      id: "ex.dts36.5.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "ISP'yi aradın — sabahtan beri internet yok. Sorunu net anlatip hat testi isteyeceksin.",
+      npc_role: "ISP Support Agent",
+      setting: "ISP technical support phone call",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Thanks for calling. Can you tell me what's happening with your service today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|hey)",
+            "(my (internet|connection|wi-?fi)'?s? (been|is)) (down|out|off)",
+            "(since (this )?morning|since \\d+ ?am|for (a few |several |about )?hours)",
+            "(the )?modem('?s| is| light is)? (blinking|flashing|showing) red",
+            "(no signal|no connection|completely out|nothing)",
+            "(line is dead|cable light is off)",
+          ],
+          hint_tr:
+            "Net + zaman + gozlem: 'Hi, my internet's been down since this morning — modem's blinking red.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay. Have you tried unplugging the modem for about a minute and plugging it back in?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yep|yeah|already|i have)",
+            "(i'?ve|i have) (already )?(tried|done|unplugged|power cycled|rebooted)",
+            "(unplugged|left it off) (for|about) (\\d+ (seconds|minutes)|a minute|two minutes)",
+            "(no change|still (the same|down|no signal|red)|didn'?t help)",
+            "(still|same) (blinking|flashing) red",
+            "(no luck)",
+          ],
+          hint_tr:
+            "Spesifik kanit: 'Already tried — unplugged for two minutes, still blinking red. No change.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. Let me run a line test from our end — could you stay on while I check?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|sure|of course|absolutely|no problem)",
+            "(i'?ll|i can) (hold|wait|stay on)",
+            "(go ahead|please do|take your time)",
+            "(could|can) you (also )?(check|look at|confirm)",
+            "(any outages|outage in (my|the) area|known issues)",
+            "(thanks|thank you|appreciate (it|that))",
+          ],
+          hint_tr:
+            "Onay + ek soru: 'Sure, I'll hold. Could you also check if there's an outage in my area?'",
+        },
+      ],
+    },
+    {
+      id: "ex.dts36.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "ISP'ye 'internet kesik' demenin DOĞRU yolu?",
+          options: [
+            "'Internet not work'",
+            "'My internet's been down since this morning' — present perfect + zaman + gozlem",
+            "'No internet bad'",
+            "Bagir",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Has been down since X' = ne kadar süredir kesik. Agent kayit acar = hizli tani.",
+        },
+        {
+          question: "Modem isiklarini tarif etmek niye onemli?",
+          options: [
+            "Onemsiz",
+            "Renk + pattern (blinking/solid/off) = agent uzaktan tani koyar — kirmizi = hat sorunu",
+            "Yararsiz",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Blinking red' = no signal. 'Solid red' = baska sorun. Agent tahmin etmez = direkt cozum.",
+        },
+        {
+          question: "'Line test' ne ise yarar?",
+          options: [
+            "Yararsiz",
+            "ISP hatti uzaktan test eder = ev disindaki sorunu (kablo, santral) tespit eder",
+            "Cok agir",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Modem temizse ama internet yoksa = ISP tarafinda sorun. Line test = hizli tani.",
+        },
+      ],
+    },
+    {
+      id: "ex.dts36.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "My internet's been down since this morning.",
+      ipa: "maɪ ˈɪntərnɛts bɪn daʊn sɪns ðɪs ˈmɔːrnɪŋ",
+      tr_hint:
+        "ISP cagrisi acilis. 'Internet's been' bağlanır → 'in-tər-nets-bın'. 'Since this morning' net vurgu.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 36.6 — Parola Sıfırlama / Hesap Kilitli
+// ============================================================
+export const dailyTechSupportLesson_36_6: BundledLesson = {
+  id: "daily.tech_support.36.6",
+  skill_id: "daily.tech_support",
+  index: 6,
+  title: "Parola Sıfırlama — Hesap Kilitli",
+  description:
+    "Hesabin kilitli, 2FA kodu gelmiyor — destek istemen lazim: 'I'm locked out of my account', 'Two-factor isn't reaching my phone'.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dts36.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "locked out",
+      tr_translation: "Hesabıma giremiyorum / kilitli",
+      example: "I'm locked out of my account — too many failed attempts.",
+      example_tr: "Hesabıma giremiyorum — çok fazla başarısız deneme oldu.",
+    },
+    {
+      id: "ex.dts36.6.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "İki faktörlü kod telefonuma gelmiyor — hesabım kilitlendi.",
+      target: "The two-factor code isn't reaching my phone — my account is locked.",
+      accepted_variants: [
+        "I'm not getting the two-factor code on my phone and my account is locked.",
+        "Two-factor isn't coming through to my phone — account's locked out.",
+        "The 2FA code never arrives on my phone and now I'm locked out.",
+        "My OTP isn't reaching me and the account is locked.",
+        "Two-factor codes aren't hitting my phone and my account got locked.",
+      ],
+      tr_hint:
+        "'Isn't reaching my phone' = telefonuma gelmiyor. 2FA / OTP / two-factor hepsi aynı şey.",
+    },
+    {
+      id: "ex.dts36.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Could we reset the password using my ___ questions?",
+      answer: "security",
+      distractors: ["secret", "private", "personal", "account"],
+      tr_hint:
+        "'Security questions' = guvenlik sorulari. 2FA calismayinca alternatif dogrulama yontemi.",
+    },
+    {
+      id: "ex.dts36.6.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "I'm",
+        "locked",
+        "out",
+        "of",
+        "my",
+        "account",
+      ],
+      correct_sentence: "I'm locked out of my account",
+      tr_translation: "Hesabıma giremiyorum.",
+    },
+    {
+      id: "ex.dts36.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I forget password. Open my account.",
+      correct_sentence:
+        "I'm locked out of my account — the two-factor code isn't reaching my phone. Could we verify with security questions instead?",
+      tr_explanation:
+        "Türk hatasi: 'I forget' (simple present) + emir cümlesi. Doğru: 'I'm locked out' (mevcut durum) + sebep (2FA gelmiyor) + alternatif istek (security questions).",
+    },
+    {
+      id: "ex.dts36.6.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Hesabin kilitli, 2FA telefonuna gelmiyor. Destek hattini arayip alternatif dogrulama isteyeceksin.",
+      npc_role: "Account Support Agent",
+      setting: "Account recovery phone call",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Account support, how can I help?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|hey)",
+            "(i'?m|i am) (locked out|unable to (log|sign) in|can'?t (log|sign) in)",
+            "(of (my )?account|to my account)",
+            "(the )?(two-?factor|2fa|otp|verification|security) (code|isn'?t|is not)",
+            "(not (coming|reaching|arriving)|won'?t come)",
+            "(my phone|my number|my device)",
+          ],
+          hint_tr:
+            "Sorun + sebep: 'Hi, I'm locked out of my account — the two-factor code isn't reaching my phone.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sorry to hear that. Have you checked the spam folder or tried requesting a new code?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|yep|already|i have)",
+            "(i'?ve|i have) (already )?(tried|checked|requested|asked for)",
+            "(several|multiple|three|five|a few) (times|new codes)",
+            "(spam|junk) (folder|inbox)",
+            "(nothing|none of them|not a single one|still nothing)",
+            "(showed up|came through|arrived)",
+          ],
+          hint_tr:
+            "Spesifik kanit: 'Already requested five new codes — none came through. Checked spam too.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. I can verify you another way — would security questions or an email backup work?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|sure|absolutely|that works|sounds good)",
+            "(security questions|email( backup)?|backup email)",
+            "(would|would be) (great|perfect|easier|better)",
+            "(let'?s try|let'?s go with|i'?ll do)",
+            "(could you|can you) (also )?(update|change|fix)",
+            "(my phone number|the number on file)",
+          ],
+          hint_tr:
+            "Onay + ek istek: 'Security questions would be great. Could we also update the phone number on file?'",
+        },
+      ],
+    },
+    {
+      id: "ex.dts36.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Locked out' tam olarak ne anlatir?",
+          options: [
+            "Hesabi sildim",
+            "Yanlis sifre denemelerinden veya 2FA sorunundan giris yapamiyorum",
+            "Parola unuttum",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Forgot password' = sifre unutkanligi. 'Locked out' = sistem kilitledi (cok deneme veya 2FA sorunu). Farkli cozumler.",
+        },
+        {
+          question: "2FA gelmiyorsa AGENT'a ne soyle?",
+          options: [
+            "Sus",
+            "'Already requested X codes, none came through' + alternatif iste (security questions / backup email)",
+            "Bagir",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Spesifik kanit (X kez denedim) + alternatif yol = agent bypass kanali acar.",
+        },
+        {
+          question: "'Security questions' niye lazim?",
+          options: [
+            "Yararsiz",
+            "2FA bozulunca alternatif dogrulama — kimligini ispatlamanin baska yolu",
+            "Cok agir",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Hesap acilisinda kurdugun sorular = agent identity verify ederken kullanir. Hazir tut.",
+        },
+      ],
+    },
+    {
+      id: "ex.dts36.6.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "The two-factor code isn't reaching my phone.",
+      ipa: "ðə ˈtuː ˈfæktər koʊd ˈɪzənt ˈriːtʃɪŋ maɪ foʊn",
+      tr_hint:
+        "2FA sikayet kalibi. 'Two-factor' birleşik vurgu. 'Isn't reaching' = gelmiyor — bağlanır.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 36.7 — Faturalama Hatası / Extra Charge
+// ============================================================
+export const dailyTechSupportLesson_36_7: BundledLesson = {
+  id: "daily.tech_support.36.7",
+  skill_id: "daily.tech_support",
+  index: 7,
+  title: "Faturalama Hatası — Extra Charge",
+  description:
+    "Faturanda tanimadigin bir ucret var — sorgulayip aciklama iste: 'I see a charge I don't recognize', 'Could you walk me through this?'.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dts36.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "a charge I don't recognize",
+      tr_translation: "Tanımadığım bir ücret",
+      example: "There's a charge I don't recognize on this month's bill — $47.99.",
+      example_tr: "Bu ayki faturada tanımadığım bir ücret var — 47.99 dolar.",
+    },
+    {
+      id: "ex.dts36.7.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Bu ücretin nereden geldiğini bana açıklayabilir misin?",
+      target: "Could you walk me through where this charge came from?",
+      accepted_variants: [
+        "Can you explain where this charge is coming from?",
+        "Could you tell me what this charge is for?",
+        "Mind walking me through this charge?",
+        "Could you break down this charge for me?",
+        "Can you clarify what this charge covers?",
+      ],
+      tr_hint:
+        "'Walk me through' = adim adim acikla. Faturada belirsiz kalem icin standart kalip.",
+    },
+    {
+      id: "ex.dts36.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I'd like to ___ this charge on my account.",
+      answer: "dispute",
+      distractors: ["argue", "complain", "refuse", "deny"],
+      tr_hint:
+        "'Dispute a charge' = bir ucrete itiraz et. Resmi terim — iade icin gerekir.",
+    },
+    {
+      id: "ex.dts36.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Could",
+        "you",
+        "walk",
+        "me",
+        "through",
+        "this",
+        "charge",
+      ],
+      correct_sentence: "Could you walk me through this charge",
+      tr_translation: "Bu ücreti bana adım adım açıklayabilir misin?",
+    },
+    {
+      id: "ex.dts36.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Money wrong. Give back.",
+      correct_sentence:
+        "I see a charge of $47.99 on June 12 that I don't recognize — could you walk me through where it came from?",
+      tr_explanation:
+        "Belirsiz + emir + saygisiz. Doğru: spesifik tutar + tarih + 'don't recognize' (kibar) + 'walk me through' (acıklama istegi).",
+    },
+    {
+      id: "ex.dts36.7.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Faturanda 47.99 dolarlik tanimadigin bir ucret var. Billing department'i arayip sorgulayacaksin.",
+      npc_role: "Billing Specialist",
+      setting: "Billing department phone call",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Billing, how can I help you today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|hey)",
+            "(i'?m calling about|i have a question about|i see) ",
+            "(a charge|an? (extra|unfamiliar|unknown|unexpected) charge|something) (i (don'?t|do not) recognize|on (my|this) bill)",
+            "(\\$\\d+\\.?\\d*|\\d+ dollars|forty-?seven)",
+            "(on (my|this month'?s|june|may|april) (bill|statement))",
+            "(could you (walk me through|explain|clarify))",
+          ],
+          hint_tr:
+            "Spesifik: 'Hi, I see a charge of $47.99 on my bill that I don't recognize.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Let me pull up your account. Can you give me the date of the charge?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|sure|of course|absolutely)",
+            "(it'?s|posted|dated|on) (june|may|april|march) \\d+",
+            "(june|may|april|march) (\\d+|the \\d+)",
+            "(last (week|month)|two weeks ago)",
+            "(reference|transaction) (is|number)",
+            "(\\d{4,}|\\w+-?\\d+)",
+          ],
+          hint_tr:
+            "Net tarih + referans: 'Yes — it's dated June 12. Transaction reference is TX-44102.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay, I see it — that's actually a one-time setup fee from when you upgraded last month. Want me to send the invoice breakdown?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can) you (also |please )?(walk me through|explain|break (it|that) down)",
+            "(what (does|did) (it|the upgrade) include|what'?s covered)",
+            "(i don'?t remember|i wasn'?t told|nobody mentioned)",
+            "(could|can) we (waive|refund|reverse|credit|dispute)",
+            "(if (this )?wasn'?t (disclosed|mentioned)|since i wasn'?t informed)",
+            "(yes|please|that would (help|work|be great))",
+          ],
+          hint_tr:
+            "Acıklama + iade isteği: 'Could you walk me through what it covers? I wasn't told about a setup fee — could we waive it?'",
+        },
+      ],
+    },
+    {
+      id: "ex.dts36.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Tanimadigin bir ucreti sorgulamanın DOĞRU yolu?",
+          options: [
+            "'Money wrong, give back'",
+            "Spesifik tutar + tarih + 'I don't recognize' + 'walk me through' — 4 nokta kibar",
+            "Bagir",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Tutar + tarih = agent hizla bulur. 'Don't recognize' = neutral ton (suclama yok). 'Walk me through' = acıklama daveti.",
+        },
+        {
+          question: "'Walk me through' niye 'explain' yerine kullanilir?",
+          options: [
+            "Aynisi",
+            "'Walk me through' = adim adim, sabirli aciklama isteği — daha kibar + bilateral",
+            "Yararsiz",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Explain this' biraz emir gibi. 'Walk me through' = beraber bakalim havasi = agent direnci dusuk.",
+        },
+        {
+          question: "'Dispute' ne zaman kullanılır?",
+          options: [
+            "Her zaman",
+            "Aciklama yetersizse + ucret hala yanlissa resmi itiraz — kayda gecer, iade sureci baslar",
+            "Yararsiz",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Once 'walk me through' (yumuşak), sonra cevap tatmin etmezse 'I'd like to dispute' = resmi itiraz. Sira onemli.",
+        },
+      ],
+    },
+    {
+      id: "ex.dts36.7.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "Could you walk me through this charge?",
+      ipa: "kʊd jə wɔːk mi θruː ðɪs tʃɑːrdʒ",
+      tr_hint:
+        "Billing sorgu kalibi. 'Could you' birleşir → 'kud-yə'. 'Walk me through' bağlanır. 'Charge' sonu sert.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 36.8 — Service Plan Değiştir / Upgrade-Downgrade
+// ============================================================
+export const dailyTechSupportLesson_36_8: BundledLesson = {
+  id: "daily.tech_support.36.8",
+  skill_id: "daily.tech_support",
+  index: 8,
+  title: "Service Plan Değiştir — Upgrade/Downgrade",
+  description:
+    "Mevcut planini degistirmek istiyorsun — karsilastir, fiyat sor, ne dahil ogren: 'I want to switch plans', 'What's the difference between X and Y?'.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dts36.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "switch plans",
+      tr_translation: "Plan değiştir (üst/alt seviye)",
+      example: "I'd like to switch plans — the current one's too pricey for what I use.",
+      example_tr: "Plan değiştirmek istiyorum — mevcut plan kullandığıma göre çok pahalı.",
+    },
+    {
+      id: "ex.dts36.8.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Standart ve premium plan arasındaki fark nedir?",
+      target: "What's the difference between the standard and premium plans?",
+      accepted_variants: [
+        "Could you tell me how the standard and premium plans differ?",
+        "How are the standard and premium plans different?",
+        "What separates the standard plan from the premium one?",
+        "Can you compare the standard and premium plans for me?",
+        "What do I get on premium that I don't get on standard?",
+      ],
+      tr_hint:
+        "'Difference between X and Y' = X ile Y arasi fark. Plan karsilastirmada standart kalip.",
+    },
+    {
+      id: "ex.dts36.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I'd like to ___ to the basic plan starting next month.",
+      answer: "downgrade",
+      distractors: ["downsize", "decrease", "lower", "reduce"],
+      tr_hint:
+        "'Downgrade' = alt plana gec. 'Upgrade' = ust plana gec. Plan degisiminde standart terim.",
+    },
+    {
+      id: "ex.dts36.8.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "What's",
+        "the",
+        "difference",
+        "between",
+        "these",
+        "two",
+        "plans",
+      ],
+      correct_sentence: "What's the difference between these two plans",
+      tr_translation: "Bu iki plan arasındaki fark nedir?",
+    },
+    {
+      id: "ex.dts36.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I want change plan. Cheaper one.",
+      correct_sentence:
+        "I'd like to switch plans — could you walk me through the difference between standard and basic, and what I'd save by downgrading?",
+      tr_explanation:
+        "Türk hatasi: 'I want change' (to eksik) + tek kelimelik emir. Doğru: 'I'd like to switch' (kibar) + 'walk me through' + spesifik istek (karsilastirma + tasarruf).",
+    },
+    {
+      id: "ex.dts36.8.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Mevcut planın pahalı geliyor — daha ucuz plana inmek (downgrade) istiyorsun. Plan farkini sor + indirim olup olmadigini ogren.",
+      npc_role: "Customer Service Rep",
+      setting: "Plan change phone call",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Customer service, how can I help you today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|hey)",
+            "(i'?d like to|i want to|i'?m looking to|i'?m calling to)",
+            "(switch|change|move|downgrade|upgrade) (plans|to|my)",
+            "(my current|the )?(plan|subscription)",
+            "(too (pricey|expensive)|more than i (need|use)|cheaper option)",
+            "(what (are )?my options|tell me about)",
+          ],
+          hint_tr:
+            "Niyet + sebep: 'Hi, I'd like to switch plans — my current one's more than I need.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure. You're on Premium at $89 a month. We have Standard at $59 and Basic at $39. Which one interests you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(what'?s|could you tell me) (the |what'?s the )?(difference|main difference)",
+            "(between (standard|basic|the two|those|them))",
+            "(what (do i lose|gets cut|don'?t i get)) (on (standard|basic))",
+            "(walk me through|break (it|that) down|compare them)",
+            "(is there (a|any)) (annual discount|promo|deal|first-?time)",
+            "(any (offers|discounts) for (loyal|long-time))",
+          ],
+          hint_tr:
+            "Karsilastirma + indirim sor: 'What's the difference between Standard and Basic? And is there any loyalty discount?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Standard keeps HD streaming and two devices. Basic is SD, one device. And yes — we can knock 20% off Standard for the first six months if you commit annually.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(let me think|i'?ll go with|i'?ll take|sounds good)",
+            "(standard with the (discount|20% off|six month)|that deal|the annual one)",
+            "(when (does|will) (it|the change|the new plan)) (take effect|kick in|start)",
+            "(any (cancellation|early termination) fee|am i locked in)",
+            "(could|can) (you|i) (get|have) (a confirmation|something in writing|an email)",
+            "(could|can) we (also )?(prorate|adjust this month'?s bill)",
+          ],
+          hint_tr:
+            "Karar + onay: 'I'll go with Standard at the discount. When does it kick in? Could I get a confirmation email?'",
+        },
+      ],
+    },
+    {
+      id: "ex.dts36.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Plan degisirken HANGI 3 sey sormak lazim?",
+          options: [
+            "Sadece fiyat",
+            "Fark (ne dahil) + indirim/promo + ne zaman baslar — 3 nokta hicbir surpriz birakmaz",
+            "Hicbir sey",
+            "Bagir",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Fark = ne kaybedersin. Indirim = gizli tasarruf. Baslangic = fatura ne zaman degisir. Ucu birden = net karar.",
+        },
+        {
+          question: "'Upgrade' ve 'downgrade' ne zaman kullanilir?",
+          options: [
+            "Aynisi",
+            "'Upgrade' = ust plana (daha fazla ozellik/fiyat). 'Downgrade' = alt plana (az ozellik/ucuz)",
+            "Yararsiz",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Telecom/SaaS dili. 'Change plan' yerine 'downgrade/upgrade' = agent direkt anlar = hizli islem.",
+        },
+        {
+          question: "Indirim/promo niye SORULMASI gerekiyor?",
+          options: [
+            "Onemsiz",
+            "Agent sormazsan ofermez — 'retention discount' veya 'loyalty offer' sadece istenince acilir",
+            "Cok agir",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Is there a loyalty discount?' = agent retention paketini acar. Soru sormamak = 20%-30% kaybetmek.",
+        },
+      ],
+    },
+    {
+      id: "ex.dts36.8.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "What's the difference between these two plans?",
+      ipa: "wʌts ðə ˈdɪfərəns bɪˈtwiːn ðiːz tuː plænz",
+      tr_hint:
+        "Plan karsilastirma kalibi. 'What's the' bağlanır → 'wʌts-ðə'. 'Difference between' net vurgu. 'Two plans' sonu net.",
+    },
+  ],
+};
+
+// ============================================================
 // Daily Tech Support lessons registry
 // ============================================================
 export const dailyTechSupportLessons: ReadonlyArray<BundledLesson> = [
@@ -881,4 +1656,8 @@ export const dailyTechSupportLessons: ReadonlyArray<BundledLesson> = [
   dailyTechSupportLesson_36_2,
   dailyTechSupportLesson_36_3,
   dailyTechSupportLesson_36_4,
+  dailyTechSupportLesson_36_5,
+  dailyTechSupportLesson_36_6,
+  dailyTechSupportLesson_36_7,
+  dailyTechSupportLesson_36_8,
 ];

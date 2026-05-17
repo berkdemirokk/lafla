@@ -957,6 +957,819 @@ export const orderGroceryLesson_46_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 46.5 — Ürün Bulamıyorum, Yardım İste
+// ============================================================
+export const orderGroceryLesson_46_5: BundledLesson = {
+  id: "order.grocery.46.5",
+  skill_id: "order.grocery",
+  index: 5,
+  title: "Ürün Bulamıyorum, Yardım İste",
+  description:
+    "Markette bir ürünü bulamadığında doğru yardım isteme kalıpları: 'Where would I find...?', 'What aisle is X in?', 'Do you happen to carry...?' — Türk hatası 'Where is X?' yerine doğal alternatifler.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.og46.5.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Where would I find",
+      tr_translation: "Nerede bulabilirim (kibar, dolaylı soru)",
+      example: "Where would I find the baking soda?",
+      example_tr: "Karbonatı nerede bulabilirim?",
+    },
+    {
+      id: "ex.og46.5.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Karabiber hangi reyonda?",
+      target: "What aisle is the black pepper in?",
+      accepted_variants: [
+        "Which aisle is the black pepper in?",
+        "Where would I find the black pepper?",
+        "What aisle has the black pepper?",
+        "Could you tell me what aisle the black pepper is in?",
+        "Where can I find the black pepper?",
+        "Do you know which aisle the black pepper is in?",
+      ],
+      tr_hint:
+        "'What aisle is X in?' (sonda 'in' kalır — Türk için tuhaf ama doğru). Veya 'Where would I find X?' — daha kibar dolaylı yapı.",
+    },
+    {
+      id: "ex.og46.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Do you ___ happen to carry oat milk?",
+      answer: "guys",
+      distractors: ["all", "ever", "really", "people"],
+      tr_hint:
+        "'Do you guys happen to carry [X]?' — kibar tereddütlü soru. 'You guys' US'de mağaza çalışanına 'siz' demenin yaygın yolu. 'Happen to' = belki, tesadüfen.",
+    },
+    {
+      id: "ex.og46.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "I've",
+        "been",
+        "looking",
+        "everywhere",
+        "for",
+        "tahini",
+      ],
+      correct_sentence: "I've been looking everywhere for tahini",
+      tr_translation: "Her yerde tahin arıyorum (bir süredir).",
+    },
+    {
+      id: "ex.og46.5.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Where is the pomegranate molasses?",
+      correct_sentence: "Where would I find the pomegranate molasses?",
+      tr_explanation:
+        "'Where is X?' gramatik olarak doğru ama markette biraz buyurgan ve direkt durur — Türk öğrencinin en yaygın kalıbı. 'Where would I find X?' veya 'Where do you keep the X?' çok daha doğal ve kibar.",
+    },
+    {
+      id: "ex.og46.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Safeway'desin. Nar ekşisi (pomegranate molasses) arıyorsun ama hiçbir reyonda göremedin. Personeli buluyorsun.",
+      npc_role: "Grocery store employee",
+      setting: "Safeway aisle",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hey, you look a little lost — can I help you find something?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|yes|hi|hey)(,? )?(i'?ve been |i'?m )?looking (everywhere |all over )?for (pomegranate molasses|nar ekşisi)",
+            "(yeah|yes),? (could|can) you (tell me|help me find) (where|what aisle)( i can find| the)? (pomegranate )?molasses( is)?",
+            "(could|can) you (tell me )?(where would i find|what aisle is|where('s| is)) (the )?(pomegranate )?molasses",
+            "(do you|are you) (guys )?(happen to )?(carry|have|sell) (pomegranate )?molasses",
+            "(i'?m |i am )?looking for (pomegranate )?molasses",
+            "(yeah|hi),? where would i find (the )?(pomegranate )?molasses",
+          ],
+          hint_tr:
+            "Aradığın ürünü söyle: 'Yeah, I've been looking everywhere for pomegranate molasses' veya 'Do you guys happen to carry pomegranate molasses?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Hmm, pomegranate molasses — let me think. I'm pretty sure we have it in the international aisle. Want me to check for you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|sure)(,? )?(that('d|s) (be )?(great|nice|awesome|amazing))?(,? )?(thanks|thank you)?",
+            "(yes |yeah )?please(,? )?(if you don'?t mind|if you can)?",
+            "(if you (could|don'?t mind|wouldn'?t mind)|that('d|s) (be )?great)(,? )?thanks?",
+            "(no )?(that's |thats )?(okay|fine)(,? )?(i'?ll )?(check|look)( there)?( myself)?",
+            "(actually|no)(,? )?(i('ll|ll) )?(go )?(check|look)( the international aisle| there)?( myself)?",
+            "(awesome|perfect|great),? thanks?",
+          ],
+          hint_tr:
+            "Kabul: 'Yes please, that'd be great — thanks!' Kendin bakmak istersen: 'No, that's okay, I'll go check.'",
+        },
+        {
+          speaker: "npc",
+          message: "Alright, follow me. Actually — is it for a specific recipe? We might have a substitute if we're out.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|yes),? (it'?s for|i'?m making) (a |an )?[a-z ]+",
+            "(it'?s for|i'?m making|i need it for) (a |an )?[a-z ]+",
+            "(no )?(not really|just )?(general|for cooking|to have on hand)",
+            "(it'?s for|i'?m making) (muhammara|fattoush|baklava|salad dressing|marinade|stew|kebab|kofta)",
+            "(actually|yeah),? (any )?(substitute|alternative)( would be (great|fine|okay))?\\??",
+            "(what|which) (would|do) you recommend\\??",
+          ],
+          hint_tr:
+            "Tarifi söyle: 'Yeah, it's for muhammara' veya 'I'm making a salad dressing.' Alternatif iste: 'Actually, what would you recommend as a substitute?'",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. We've got it on aisle nine — and if not, I'd say balsamic reduction works in a pinch. Here we are!",
+        },
+      ],
+    },
+    {
+      id: "ex.og46.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Markette bir ürünün yerini sormak — en doğal/kibar olan?",
+          options: [
+            "Where is the soy sauce?",
+            "Soy sauce where?",
+            "Where would I find the soy sauce?",
+            "Tell me soy sauce place.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Where would I find X?' kibar dolaylı soru. 'Where is X?' yanlış değil ama biraz direkt — 'Where would I find...' veya 'What aisle is X in?' her zaman daha doğal.",
+        },
+        {
+          question: "'Do you guys happen to carry [X]?' ne demek?",
+          options: [
+            "[X]'i taşımak zorunda mısınız?",
+            "[X]'i siz mi getiriyorsunuz?",
+            "Acaba [X] satıyor musunuz? (tereddütlü, kibar)",
+            "[X]'i şans eseri buldunuz mu?",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Happen to' = 'acaba/tesadüfen' — tereddütlü, kibar tonu. 'You guys' = mağaza personeline 'siz'. Cevap negatif olabilir diye yumuşatma yapar.",
+        },
+        {
+          question: "'What aisle is the rice in?' — son kelime 'in' niye var?",
+          options: [
+            "Yazım hatası, olmamalı.",
+            "İngilizce'de 'aisle' edatla biter, 'in the aisle' yapısı.",
+            "Vurgu için.",
+            "Soru sonu tonlaması için.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Rice is in aisle 5' → soru: 'What aisle is the rice in?' Edat sonda kalır — Türk için tuhaf ama Amerikan İngilizcesi'nde standart. 'In what aisle is the rice?' kitabi durur, kimse demez.",
+        },
+      ],
+    },
+    {
+      id: "ex.og46.5.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Where would I find the tahini?",
+      ipa: "/wɛr wʊd aɪ faɪnd ðə təˈhiːni/",
+      tr_articulation_hint:
+        "'Where would I' birleşir: 'wer-wud-ay'. 'Tahini' = 'tə-HEE-ni' — vurgu ortada, Türkçedeki gibi 'ta-hi-ni' değil. Soru tonu sonda hafif yükseliyor.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 46.6 — Tartım: Deli, Sebze, Et
+// ============================================================
+export const orderGroceryLesson_46_6: BundledLesson = {
+  id: "order.grocery.46.6",
+  skill_id: "order.grocery",
+  index: 6,
+  title: "Tartım: Deli, Sebze, Et",
+  description:
+    "Imperial birim alışkanlığı: pound (lb), ounce (oz), gallon. 'Half a pound', 'a quarter pound', 'about a pound' — yaklaşık tartım dili. Türk için kg/gr beyninden Amerikan ölçü beynine geçiş.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.og46.6.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "a quarter pound",
+      tr_translation: "Çeyrek pound (~113 gram)",
+      example: "Just a quarter pound of cheese, please.",
+      example_tr: "Sadece çeyrek pound peynir, lütfen.",
+    },
+    {
+      id: "ex.og46.6.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bir pound hindi, ince dilimlenmiş lütfen.",
+      target: "A pound of turkey, sliced thin please.",
+      accepted_variants: [
+        "Could I get a pound of turkey, sliced thin?",
+        "A pound of turkey, thinly sliced please.",
+        "I'll take a pound of turkey, sliced thin.",
+        "Can I get a pound of turkey, sliced thin?",
+        "One pound of turkey, sliced thin, please.",
+        "I'd like a pound of turkey, sliced thin.",
+      ],
+      tr_hint:
+        "Deli counter sırası: miktar + ürün + dilim talimatı. 'Sliced thin' veya 'thinly sliced' her ikisi de doğal. 'A pound' = '1 lb' ≈ 454g.",
+    },
+    {
+      id: "ex.og46.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Could I get ___ a pound of grapes?",
+      answer: "about",
+      distractors: ["near", "almost", "circa", "around"],
+      tr_hint:
+        "'About a pound' = 'yaklaşık bir pound'. Sebze tartımında çok yaygın çünkü tam ayarlamak zor. 'Around' da geçer ama 'about' deli/produce için standart.",
+    },
+    {
+      id: "ex.og46.6.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Eight",
+        "ounces",
+        "of",
+        "ground",
+        "beef",
+        "please",
+      ],
+      correct_sentence: "Eight ounces of ground beef please",
+      tr_translation: "Sekiz ons kıyma, lütfen. (~227 gram)",
+    },
+    {
+      id: "ex.og46.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Give me 250 grams turkey, slice thin.",
+      correct_sentence:
+        "Could I get about half a pound of turkey, sliced thin please?",
+      tr_explanation:
+        "Amerika'da gram kullanılmaz — pound/ounce. 250g ≈ yarım pound. 'Give me' kaba — 'Could I get' kibar. 'Slice thin' emir kipi gibi durur; 'sliced thin' (past participle) sıfat olarak doğru.",
+    },
+    {
+      id: "ex.og46.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Costco'da et reyonundasın. 2 pound kıyma, bir pound hindi (ince) ve yarım pound peynir alacaksın. Türk olarak gram düşünmeye eğilimlisin — pound'a alış.",
+      npc_role: "Butcher / meat counter worker",
+      setting: "Costco meat counter",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Howdy! What can I get started for you today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can) I (get|have) (about )?(two pounds|2 pounds|a couple pounds) of ground beef",
+            "(i'?ll |i'd like to )?(take|get|have) (two pounds|2 pounds) of ground beef",
+            "(two pounds|2 pounds) of ground beef( please)?",
+            "(could|can) I (get|have) ground beef(,? )?(two pounds|2 pounds|about two pounds)?",
+            "(i'?d like|i would like) (two pounds|2 lbs|2 pounds) of ground beef",
+          ],
+          hint_tr:
+            "Miktar pound olarak: 'Could I get about two pounds of ground beef, please?' Kıyma = ground beef.",
+        },
+        {
+          speaker: "npc",
+          message: "Two pounds of ground beef, you got it. What's the fat content — eighty-twenty, ninety-ten?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(eighty-twenty|80\\/20|80 20)( please)?",
+            "(ninety-ten|90\\/10|90 10)( please)?",
+            "(eighty-five fifteen|85\\/15)( please)?",
+            "(whichever|either|either one)( is fine| works)?(,? )?thanks?",
+            "(what('s|s) )?(the )?(difference|leaner)\\??",
+            "(which )?(is leaner|do you recommend)\\??",
+          ],
+          hint_tr:
+            "Yağ oranı: '80/20' (eighty-twenty) = standart kıyma, %20 yağ. '90/10' daha yağsız. 'Whichever's fine, thanks.' de geçer.",
+        },
+        {
+          speaker: "npc",
+          message: "Eighty-twenty, good choice. Anything else from the counter?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|yes),? (could|can) I (also )?(get|have) (a pound|1 pound|one pound) of turkey,? (sliced thin|thinly sliced|sliced thinly)( please)?",
+            "(yeah|yes),? (a pound|one pound) of turkey,? (sliced thin|thinly sliced)( please)?",
+            "(could|can) I (get|have) (some |a half pound of |a pound of )?turkey(,? )?(sliced thin|thinly sliced)?",
+            "(yeah|yes),? (also |and )?(a pound|1 lb) of turkey",
+            "(yeah|yes),? (i'?d like|i would like) (a pound|one pound) of turkey,? sliced thin",
+          ],
+          hint_tr:
+            "İkinci ürün: 'Yes, could I also get a pound of turkey, sliced thin please?'",
+        },
+        {
+          speaker: "npc",
+          message: "Pound of turkey, thin slice. Got it. Cheese too, or just the meat?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|yes),? (could|can) I (get|have) (half a pound|a half pound|8 oz|eight ounces) of (swiss|cheddar|provolone|american)( cheese)?",
+            "(half a pound|a half pound) of (swiss|cheddar|provolone)( please)?",
+            "(yeah|yes),? (some )?(swiss|cheddar|provolone)( cheese)?(,? )?(half a pound|a half pound)?( please)?",
+            "(no )?(that('s|s) )?(it|all)(,? )?(thanks|thank you)?",
+            "(just |only )?the meat(,? )?thanks?",
+            "(i'?m |that('s|s) )?good( thanks)?",
+          ],
+          hint_tr:
+            "Devam: 'Yes, half a pound of Swiss, please.' Bitir: 'No, that's it — thanks!'",
+        },
+        {
+          speaker: "npc",
+          message: "Alright, let me get this wrapped up for you. Won't be a minute.",
+        },
+      ],
+    },
+    {
+      id: "ex.og46.6.7",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "Yaklaşık 500 gram kıyma istiyorsun. Amerika'da nasıl söylersin?",
+          options: [
+            "About 500 grams of ground beef.",
+            "Half a kilo of ground beef.",
+            "About a pound of ground beef.",
+            "Five hundred grams ground meat.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "1 pound ≈ 454g. 500g ≈ 'about a pound' veya 'just over a pound'. Amerika'da gram/kilo deli'de geçmez — sadece pound (lb) ve ounce (oz).",
+        },
+        {
+          question: "'A quarter pound of cheese' kaç gram?",
+          options: [
+            "~250 gram",
+            "~113 gram",
+            "~454 gram",
+            "~50 gram",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Quarter = 1/4. 1 pound = 454g → 1/4 pound = ~113g (4 oz). Bir sandwich için ~113g peynir yeterli — Türk gözüne az gelir ama US porsiyon.",
+        },
+        {
+          question: "Et ince dilimlenmesini istiyorsun — doğal olan?",
+          options: [
+            "Slice thin.",
+            "Sliced thin, please.",
+            "Cut thin slices please.",
+            "Thin slicing make.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Sliced thin' (past participle) sabit kalıp — '[ürün], sliced thin please' deli counter standart. 'Slice thin' emir gibi durur; deli'de sıfat formu kullanılır.",
+        },
+      ],
+    },
+    {
+      id: "ex.og46.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "A pound of turkey, sliced thin please.",
+      ipa: "/ə paʊnd əv ˈtɜːrki slaɪst θɪn pliːz/",
+      tr_articulation_hint:
+        "'Pound' = 'paund' — diftong 'au'. 'Turkey' = 'TUR-ki' — vurgu başta. 'Sliced' içinde 'd' yutulur → 'slayst'. 'Thin' için dilini diş arasına koy (θ sesi) — sokak İngilizcesinde 't' gibi çıkar ama doğrusu peltek.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 46.7 — Self-Checkout Problemi, Yardım İste
+// ============================================================
+export const orderGroceryLesson_46_7: BundledLesson = {
+  id: "order.grocery.46.7",
+  skill_id: "order.grocery",
+  index: 7,
+  title: "Self-Checkout Problemi, Yardım İste",
+  description:
+    "Self-checkout'ta sık karşılaşılan problemler ve yardım çağırma: 'This isn't scanning', 'Could you help with this?', 'The machine won't accept...'. Sorunu net tarif etmek = hızlı çözüm.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.og46.7.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "isn't scanning",
+      tr_translation: "Okutmuyor / barkodu okumuyor",
+      example: "This barcode isn't scanning for some reason.",
+      example_tr: "Bu barkod nedense okumuyor.",
+    },
+    {
+      id: "ex.og46.7.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bununla yardım edebilir misiniz?",
+      target: "Could you help with this?",
+      accepted_variants: [
+        "Could you help me with this?",
+        "Can you help with this?",
+        "Could I get some help over here?",
+        "Would you mind helping me with this?",
+        "Hey, could I get a hand with this?",
+        "Sorry, can you give me a hand?",
+      ],
+      tr_hint:
+        "'Help with this' = bununla yardım et (somut bir şey). 'Help me' (kişiye yardım) ile farklı. Self-checkout'ta ekran/ürünü gösterip: 'Could you help with this?'",
+    },
+    {
+      id: "ex.og46.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "The machine ___ accepting my coupon.",
+      answer: "isn't",
+      distractors: ["doesn't", "won't", "can't", "not"],
+      tr_hint:
+        "'Isn't accepting' = şu an kabul etmiyor (-ing devam eden durum). 'Won't accept' (basit hal) da doğru ama anlık problem için 'isn't accepting' daha sık. 'Doesn't' yanlış çünkü genel değil anlık.",
+    },
+    {
+      id: "ex.og46.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "It",
+        "keeps",
+        "asking",
+        "me",
+        "to",
+        "rescan",
+      ],
+      correct_sentence: "It keeps asking me to rescan",
+      tr_translation: "Sürekli yeniden okutmamı istiyor.",
+    },
+    {
+      id: "ex.og46.7.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "The machine no work, please come.",
+      correct_sentence:
+        "This isn't scanning — could you give me a hand?",
+      tr_explanation:
+        "'No work' kırık gramer — Türk 'çalışmıyor' direkt çevirisi. Net tarif: 'isn't scanning' / 'isn't working'. 'Please come' biraz emir gibi — 'Could you give me a hand?' veya 'Could you help with this?' kibar.",
+    },
+    {
+      id: "ex.og46.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Walmart self-checkout'tasin. Bir ürünün barkodu okumuyor, üstüne bir de 'unexpected item' uyarısı geldi. Görevliyi çağırdın.",
+      npc_role: "Self-checkout attendant",
+      setting: "Walmart self-checkout",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hi, you flagged me down — what's the trouble?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|yes|hi|hey),? (this|the barcode) (isn'?t|is not|won'?t) scan(ning)?",
+            "(this|it) (isn'?t|is not|won'?t) (scanning|reading)( for some reason)?",
+            "(the )?machine (isn'?t|is not|won'?t) (scanning|reading|accepting) (this|the (item|barcode))",
+            "(could|can) you (help|give me a hand)( with this)?\\?? (this|the barcode) (isn'?t|won'?t) scan(ning)?",
+            "(sorry|hey),? (this|the item|the barcode) won'?t scan",
+            "(yeah|hi),? (i'?m having (trouble|an issue)|i can'?t get) (with )?(this|the scanner)",
+          ],
+          hint_tr:
+            "Problemi net tarif et: 'Yeah, this barcode isn't scanning' veya 'The machine won't read this item.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Let me take a look. Hmm — yeah, the barcode is pretty scuffed up. I can enter the code manually. Anything else giving you trouble?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|yes),? (it|the machine) (also |keeps )?(saying|complaining about) ['\"]?unexpected item['\"]?( in (the )?bagging area)?",
+            "(actually|yeah),? (it|the screen) keeps (saying|popping up with) ['\"]?unexpected item['\"]?",
+            "(yeah|yes),? (and |also )?(my coupon|the coupon) (isn'?t|won'?t) (apply(ing)?|going through|scanning)",
+            "(yeah|yes),? (the machine|it) (won'?t|isn'?t) (accept(ing)?|take|taking) my (coupon|payment)",
+            "(no )?(that('s|s) |that is )?(it|all)(,? )?(thanks|thank you)?",
+            "(actually |yeah )?(i think |i)('m| am) (also |having trouble (with|getting)) [a-z ]+",
+          ],
+          hint_tr:
+            "Başka problem varsa: 'Yeah, it also keeps saying unexpected item in the bagging area.' Yoksa: 'No, that's it — thanks!'",
+        },
+        {
+          speaker: "npc",
+          message: "Ah, the bagging area thing — usually it's just your bag confusing the scale. I'll clear it. Try scanning again now.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you)(,? so much)?",
+            "(okay|alright|got it),? (thanks|let me try)",
+            "(perfect|great|awesome),? thanks?",
+            "(let me )?(try (it )?(again|now)|give it a shot)",
+            "(it )?(worked|went through)(,? )?(thanks|thank you)( so much)?",
+            "(thanks|appreciate it)(,? )?(i'?ll )?(let you know )?(if it )?happens again",
+          ],
+          hint_tr:
+            "Teşekkür et + deneyeceğini söyle: 'Thanks, let me try again.' Çalışırsa: 'It worked, thanks so much!'",
+        },
+        {
+          speaker: "npc",
+          message: "No problem at all. Just wave me over if it acts up again.",
+        },
+      ],
+    },
+    {
+      id: "ex.og46.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Barkod okutmuyor — en doğru tarif?",
+          options: [
+            "Barcode no read.",
+            "This isn't scanning.",
+            "Barcode broken.",
+            "Scan not work.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'This isn't scanning' = anlık sürmeyen aksiyon, doğru tense. 'Won't scan' (inatla okumuyor) da geçer. Türk öğrencinin 'no work / no read' kalıbı kırık.",
+        },
+        {
+          question: "'Could you give me a hand?' ne demek?",
+          options: [
+            "Elinizi verir misiniz?",
+            "Bana yardım eder misiniz? (idiom)",
+            "El sallar mısınız?",
+            "El sıkışır mıyız?",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Give someone a hand' = yardım etmek (idiom). 'Could you give me a hand with this?' = 'Bununla yardım eder misin?' Çok yaygın günlük kalıp.",
+        },
+        {
+          question: "Self-checkout görevlisi çağırırken en kibar olan?",
+          options: [
+            "Hey! Come here, problem!",
+            "Excuse me, could you help with this?",
+            "You! Help me!",
+            "Worker, machine broken.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Excuse me, could you help with this?' kibar açılış + yardım talebi. Personel zaten yakındaysa el sallamak veya 'Excuse me' yeterli.",
+        },
+      ],
+    },
+    {
+      id: "ex.og46.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Could you help with this?",
+      ipa: "/kʊd ju hɛlp wɪð ðɪs/",
+      tr_articulation_hint:
+        "'Could you' birleşir → 'kudju'. 'With this' içindeki iki th sesi: 'with' içindeki th sesli (ð), 'this' içindekisi de sesli — dilini dişler arasına koy. 'Help' içinde 'l' yumuşak — 'hep' gibi söylenir hızlı konuşmada.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 46.8 — Kupon/İndirim Kasada Uygulanmadı
+// ============================================================
+export const orderGroceryLesson_46_8: BundledLesson = {
+  id: "order.grocery.46.8",
+  skill_id: "order.grocery",
+  index: 8,
+  title: "Kupon/İndirim Kasada Uygulanmadı",
+  description:
+    "Kuponun geçmedi, fiyat raftaki gibi çıkmadı — kibarca itiraz et: 'This coupon's still valid', 'It rang up wrong', 'The shelf price was X'. Çatışmasız sorun çözme dili.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.og46.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "rang up wrong",
+      tr_translation: "Kasada yanlış girildi / yanlış geçti",
+      example: "I think the cereal rang up wrong — it should be on sale.",
+      example_tr: "Sanırım gevrek yanlış geçti — indirimde olmalı.",
+    },
+    {
+      id: "ex.og46.8.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bu kupon hâlâ geçerli — son kullanma tarihi haftaya.",
+      target: "This coupon's still valid — it doesn't expire until next week.",
+      accepted_variants: [
+        "This coupon is still valid — it expires next week.",
+        "The coupon hasn't expired yet — it's good until next week.",
+        "This coupon should still work — it doesn't expire until next week.",
+        "It's still valid — the expiration date is next week.",
+        "This is still good — it doesn't expire till next week.",
+        "The coupon's still active — it's valid through next week.",
+      ],
+      tr_hint:
+        "'Still valid' = hâlâ geçerli. 'Doesn't expire until [tarih]' = '...e kadar süresi dolmuyor'. 'Until' burada Türk için tuhaf — 'till' kasılması da çok yaygın.",
+    },
+    {
+      id: "ex.og46.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "The shelf price ___ two ninety-nine, not three forty-nine.",
+      answer: "said",
+      distractors: ["told", "spoke", "wrote", "was telling"],
+      tr_hint:
+        "'The shelf price said X' = 'rafın fiyat etiketinde X yazıyordu'. 'Said' = burada 'yazıyordu' anlamında — etiketin söylediği. 'Was' yerine 'said' kullanmak fiyat itirazında çok yaygın.",
+    },
+    {
+      id: "ex.og46.8.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "I",
+        "think",
+        "you",
+        "missed",
+        "my",
+        "coupon",
+      ],
+      correct_sentence: "I think you missed my coupon",
+      tr_translation: "Sanırım kuponumu atladınız (uygulamadınız).",
+    },
+    {
+      id: "ex.og46.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Why you not give me discount? Coupon is good!",
+      correct_sentence:
+        "I think the coupon didn't go through — could you take another look?",
+      tr_explanation:
+        "'Why you not give' kırık ve agresif. Amerikan kasada itiraz dili çok yumuşaktır — hata 'makinenin' veya 'durumun' suçudur, kasiyerin değil. 'Didn't go through' = işlemedi (yumuşatma). 'Could you take another look?' = 'Bir daha bakar mısınız?' kibar.",
+    },
+    {
+      id: "ex.og46.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Target'ta kasanın önündesin. Gevrek (cereal) için elinde kupon vardı ama fişte indirim görünmüyor. Ayrıca süt etikette $3.49 yazıyordu ama $3.99 geçti. Kibarca düzelttireceksin.",
+      npc_role: "Cashier",
+      setting: "Target checkout",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Alright, your total comes to forty-seven twenty-two.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(actually|sorry|hey),? (i think|i believe) (you missed|we missed|the coupon didn'?t go through|my coupon didn'?t apply)",
+            "(actually|wait|sorry),? (i had |i have )?a coupon for (the )?(cereal|granola|frosted flakes|cheerios)",
+            "(could|can) you (check|take another look)\\?? (i (had|have) )?a coupon( for the cereal)?",
+            "(sorry|excuse me),? (the )?coupon (didn'?t |hasn'?t )?(apply|go through|come off)",
+            "(hold on|wait),? (i think|did )(the |my )?coupon (apply|go through)\\??",
+            "(sorry|hi),? before you ring (me|that) up — i (had|have) a coupon",
+          ],
+          hint_tr:
+            "Yumuşak itiraz: 'Actually, I think you missed my coupon for the cereal.' Veya: 'Sorry, could you check — I had a coupon for the cereal.'",
+        },
+        {
+          speaker: "npc",
+          message: "Oh sorry about that — let me scan it now. Hmm, the system says it's expired?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(actually|hmm|wait),? (this|the) coupon('s| is)? still valid",
+            "(it|the coupon) (doesn'?t|does not) expire (until|till|before) [a-z ]+",
+            "(it|the coupon) (says|shows) (it expires|good until|valid through) [a-z ]+",
+            "(let me check|hold on)(,? )?(yeah|it says) (it'?s )?(valid|good) (until|till) [a-z ]+",
+            "(the expiration|exp(iration)?(\\.)? date) (is|says) [a-z ]+",
+            "(i think|maybe) (the date|it'?s) [a-z ]+ — (it shouldn'?t be|that('s|s) not) expired",
+          ],
+          hint_tr:
+            "İtiraz et nazikçe: 'Actually, this coupon's still valid — it doesn't expire until next week.' Veya: 'It says it's good until [tarih].'",
+        },
+        {
+          speaker: "npc",
+          message: "Oh, you're right — looks like the date on our end is wrong. Let me override it. Anything else?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|yes|actually),? (i think|i noticed) the milk rang up (wrong|at the wrong price)",
+            "(yeah|yes),? (the shelf price|it) (said|was) [\\d \\.]+,? not [\\d \\.]+",
+            "(also|and),? (the milk|it) (was|should be) [\\d\\$\\. ]+ (on the shelf|in the aisle)",
+            "(yeah|yes),? (the milk|the price on the milk) (looks|seems) (off|wrong)",
+            "(actually|yeah),? (the milk )?rang up (wrong|at)( the wrong price| three ninety-nine)",
+            "(no )?(that('s|s) |i think that'?s )?(it|all)(,? )?(thanks|thank you)?",
+          ],
+          hint_tr:
+            "İkinci itiraz: 'Yeah, also the milk rang up wrong — the shelf price said $3.49, not $3.99.' Yoksa: 'No, that's it — thanks!'",
+        },
+        {
+          speaker: "npc",
+          message: "Got it — I'll do a quick price check on the milk. Hang tight.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you)( so much)?(,? )?(i appreciate it)?",
+            "(no )?(problem|worries|rush)(,? )?(take your time)?",
+            "(sounds good|okay|alright)(,? )?thanks?",
+            "(appreciate it|thanks for checking)",
+            "(of course|sure)(,? )?(no rush|take your time)",
+            "(perfect|great),? thanks?",
+          ],
+          hint_tr:
+            "Teşekkür + sabır: 'Thanks, no rush!' veya 'Appreciate it, take your time.'",
+        },
+        {
+          speaker: "npc",
+          message: "Alright, all fixed. New total is forty-four fifteen. Sorry about the mix-up!",
+        },
+      ],
+    },
+    {
+      id: "ex.og46.8.7",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "'It rang up wrong' ne demek?",
+          options: [
+            "Yanlış zile bastı.",
+            "Telefon yanlış çaldı.",
+            "Kasada yanlış fiyatla geçti.",
+            "Çağrı yanlış gitti.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Ring up' = kasada ürünü geçirmek (eski kasaların zil sesinden gelir). 'Rang up wrong' = yanlış fiyatla geçti. Markette fiyat itirazı için sabit kalıp.",
+        },
+        {
+          question: "Kuponu uygulamayı unuttular — en kibar uyarı?",
+          options: [
+            "Why you no scan coupon?",
+            "Coupon! You forgot!",
+            "I think you missed my coupon — could you check?",
+            "Discount where?",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'I think you missed [X]' = yumuşak suçlama (kasiyerin değil olayın hatası gibi). 'Could you check?' = nazik istek. Amerikan kasada çatışmasız itiraz formülü.",
+        },
+        {
+          question: "Raftaki fiyat $2.99'du ama $3.49 geçti. En doğal cümle?",
+          options: [
+            "Shelf price is two ninety-nine!",
+            "The shelf price said two ninety-nine, not three forty-nine.",
+            "Two ninety-nine on shelf.",
+            "Price wrong, fix it.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'The shelf price said X, not Y' = klasik fiyat itirazı kalıbı. 'Said' burada 'yazıyordu' anlamında — etiketin sözü. Standart, kibar.",
+        },
+      ],
+    },
+    {
+      id: "ex.og46.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "This coupon's still valid.",
+      ipa: "/ðɪs ˈkuːpɑːnz stɪl ˈvælɪd/",
+      tr_articulation_hint:
+        "'Coupon' = 'KOO-pon' (US) — Türkçe 'kupon' gibi değil, ilk hece uzun. 'Coupon's' = 'coupon is' kasılması, 's' ekle. 'Valid' = 'VÆ-lid' — ilk hecede 'æ' (kedi 'a'sı). Sakin ve emin tonu — şikayet değil bilgilendirme.",
+    },
+  ],
+};
+
+// ============================================================
 // Lesson registry
 // ============================================================
 export const orderGroceryLessons: ReadonlyArray<BundledLesson> = [
@@ -964,4 +1777,8 @@ export const orderGroceryLessons: ReadonlyArray<BundledLesson> = [
   orderGroceryLesson_46_2,
   orderGroceryLesson_46_3,
   orderGroceryLesson_46_4,
+  orderGroceryLesson_46_5,
+  orderGroceryLesson_46_6,
+  orderGroceryLesson_46_7,
+  orderGroceryLesson_46_8,
 ];

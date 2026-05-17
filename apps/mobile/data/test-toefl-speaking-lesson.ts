@@ -2013,6 +2013,660 @@ export const toeflSpeakingLesson_10: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 11 — Task 1: Independent — 45 sn formül + hız drili
+// ============================================================
+export const toeflSpeakingLesson_11: BundledLesson = {
+  id: "testprep.toefl.task1.formula.1",
+  skill_id: "testprep.toefl.task1",
+  index: 11,
+  title: "Task 1 — Independent: kişisel görüş 45sn",
+  description:
+    "Task 1 (15 sn hazırlık + 45 sn konuşma): 'Should university students be required to take physical education classes?' Türk adayların ana derdi: 15 sn'de düşünme paniği + uzun introduksiyon ('First of all, I want to say...') = 5-7 sn boş yere yanar.\n\nFORMÜL (her 45 sn'ye uyar):\n  [3 sn] Net pozisyon: 'Yes/No, I (dis)agree that ___.'\n  [4 sn] İki sebep önizleme: 'I have two main reasons.'\n  [15 sn] Sebep 1 + spesifik örnek: 'First, ___. For instance, ___.'\n  [15 sn] Sebep 2 + spesifik örnek: 'Second, ___. For example, ___.'\n  [8 sn] Kapanış: 'For these reasons, ___.'\n\nGirizgah ('Well, in my opinion, I think that maybe...') = ZAMAN HIRSIZI. Direkt pozisyon ile başla.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.toefl.11.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "mandatory",
+      tr_translation: "Zorunlu",
+      example: "PE classes should not be mandatory at the university level.",
+      example_tr: "Üniversite seviyesinde beden eğitimi dersleri zorunlu olmamalı.",
+    },
+    {
+      id: "ex.toefl.11.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Bu fikre katılmıyorum çünkü öğrenciler kendi spor programlarını seçebilmeli.",
+      target:
+        "I disagree with this idea because students should be able to choose their own exercise routines.",
+      accepted_variants: [
+        "I disagree because students should be free to choose their own exercise routines.",
+        "I do not agree with this idea because students should be allowed to choose their own fitness activities.",
+        "I disagree with this statement because students should have the freedom to choose their own workout routines.",
+        "Personally, I disagree because students should be able to pick their own exercise habits.",
+      ],
+      tr_hint:
+        "Task 1 net opener formülü: 'I (dis)agree because ___'. 'I want to say', 'well' gibi dolgu YOK — 45 sn'de yer yok.",
+    },
+    {
+      id: "ex.toefl.11.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template:
+        "I disagree with this statement, and I have ___ main reasons.",
+      answer: "two",
+      distractors: ["a", "some", "the", "many"],
+      tr_hint:
+        "Önizleme cümlesi: 'I have TWO main reasons' — Topic Development işaretçisi. Üç+ sebep 45 sn'ye sığmaz; tek sebep yetersiz.",
+    },
+    {
+      id: "ex.toefl.11.4",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "First of all, I want to say that, well, in my opinion, I think that maybe PE class is not so good idea actually.",
+      correct_sentence:
+        "I disagree that PE classes should be mandatory.",
+      tr_explanation:
+        "Türk adayların klasik tuzağı: aşırı introduksiyon. 'First of all, I want to say that, well, in my opinion, I think that maybe' = 12+ saniye boşa harcanır. Task 1'de bu kadar zaman YOK. Direkt pozisyon: 'I disagree that ___.' Delivery + Topic Development band 2 → band 4 farkı.",
+    },
+    {
+      id: "ex.toefl.11.5",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Proctor independent prompt'u okur. 15 sn hazırlık + 45 sn konuşma. KRİTİK: ilk 3 saniyede net pozisyonu söyle, dolguya zaman harcama. Formülü uygula: pozisyon → 2 sebep önizleme → sebep 1 + örnek → sebep 2 + örnek → kapanış.",
+      npc_role: "TOEFL Proctor",
+      setting: "TOEFL iBT Speaking Section — Task 1",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Question 1. Do you agree or disagree with the following statement? University students should be required to take physical education classes. Use specific reasons and examples to support your answer. You have 15 seconds to prepare and 45 seconds to speak.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "i (strongly )?(agree|disagree) (that|with)",
+            "(two main )?reasons",
+            "first(ly|,)",
+            "(for (example|instance)|such as|specifically)",
+            "second(ly|,)",
+            "(for these reasons|that(s| is) why|in (short|conclusion))",
+          ],
+          hint_tr:
+            "İlk 3 saniyede pozisyon: 'I disagree that PE classes should be mandatory.' Sonra 'I have two main reasons.' Sebep 1: 'First, university students are adults and should manage their own time. For instance, a pre-med student studying 50 hours a week cannot afford a 3-hour gym requirement.' Sebep 2: 'Second, mandatory PE often discourages exercise. For example, my cousin hated forced gym so much that she stopped working out after college.' Kapanış: 'For these reasons, PE should be optional.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Excellent — you hit your position in under 4 seconds. That's the band 4 signature. Make sure both examples are equally specific; vague second examples drop Topic Development by half a band.",
+        },
+      ],
+    },
+    {
+      id: "ex.toefl.11.6",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "Task 1'de ilk 3 saniyede ne yapmalısın?",
+          options: [
+            "Düşünmeye devam et",
+            "Selam ver: 'Hello, my name is...'",
+            "'First of all, I want to say...' ile başla",
+            "Net pozisyonu söyle: 'I (dis)agree that ___'",
+          ],
+          correct_index: 3,
+          tr_explanation:
+            "Net pozisyon ilk 3 sn'de = band 4 Delivery sinyali. 'First of all, I want to say' = 5-7 sn boş yere yanar.",
+        },
+        {
+          question: "15 sn hazırlıkta NE yazmalısın notlara?",
+          options: [
+            "Tam cümleler",
+            "Pozisyon + 2 sebep + 2 örnek anahtar kelimesi (3-5 kelime)",
+            "Hiçbir şey, kafadan konuş",
+            "Tüm 45 sn'lik metin",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Anahtar kelime notları: 'disagree / 1) time → pre-med 50hrs / 2) hate gym → cousin'. Tam cümle yazmak zaman yetmez.",
+        },
+        {
+          question: "Aşağıdaki açılışlardan hangisi 45 sn formülüne UYGUN?",
+          options: [
+            "Well, you know, in my honest opinion, I would actually say that...",
+            "I disagree. There are two main reasons.",
+            "First of all, I want to say that this is a very interesting question...",
+            "Hmm, let me think. So, basically, kind of, I guess...",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Kısa, net, formülün adım 1+2'si birleşik. Dolgu/girizgah = zaman hırsızı.",
+        },
+      ],
+    },
+    {
+      id: "ex.toefl.11.7",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "I disagree. I have two main reasons. First, university students are adults who should manage their own time. Second, mandatory PE often discourages lifelong exercise habits. For these reasons, PE should be optional.",
+      voice_hint: "female_us",
+      tr_hint:
+        "45 sn formülünün iskelet versiyonu — ~25 sn'lik çekirdek. 'I disagree' → 'two main reasons' → 'First/Second' → 'For these reasons'. Pratikte aralarına 1 cümlelik örnek ekle: 35-40 sn'ye sığar. Akıcı ve hızlı, ama anlaşılır ritim.",
+    },
+    {
+      id: "ex.toefl.11.8",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I am agree because student is adult and they can to decide own schedule.",
+      correct_sentence:
+        "I agree because students are adults and they can decide their own schedules.",
+      tr_explanation:
+        "Dört Language Use hatası (Turkish-speaker frequency): (1) 'I am agree' — 'agree' fiildir, 'I agree'. (2) 'Student is adult' — sayım eksik artikel/çoğul: 'students are adults'. (3) 'Can to decide' — modal sonrası bare infinitive: 'can decide'. (4) 'Own schedule' eksik possessive — 'their own schedules'. Band 3 → Band 4.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 12 — Task 2: Campus integrated (gym fee + öğrenci tepkisi)
+// ============================================================
+export const toeflSpeakingLesson_12: BundledLesson = {
+  id: "testprep.toefl.task2.gymfee.1",
+  skill_id: "testprep.toefl.task2",
+  index: 12,
+  title: "Task 2 — Integrated: campus okumalı",
+  description:
+    "Task 2 (45 sn reading + listening + 30 sn hazırlık + 60 sn konuşma): Üniversite duyurusu + öğrenci tepkisi → öğrencinin görüşünü ve sebeplerini reading'le bağla.\n\nREADING (duyuru, 45 sn): Mandatory Gym Membership Fee\nStarting next semester, all full-time students will be charged an additional $200 per semester to fund a renovated campus gym. The university argues that the fee will (1) cover the cost of new equipment and longer operating hours, and (2) encourage healthier lifestyles among students, since paying for the gym makes students more likely to use it.\n\nLISTENING (öğrenci — Sarah): \"I'm really opposed to this. First, this fee is unfair to students like me who never use the gym. I run outside year-round — I shouldn't subsidize equipment I don't touch. Second, the argument that paying makes you use it is backwards. I already pay for a streaming service I rarely watch. Forcing people to pay doesn't create motivation; it just creates resentment.\"\n\nGÖREV: Duyuruyu kısaca özetle → Sarah'ın görüşünü ve İKİ sebebini, her birini reading'in iki argümanından birine bağlayarak anlat.",
+  estimated_minutes: 9,
+  exercises: [
+    {
+      id: "ex.toefl.12.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to subsidize",
+      tr_translation: "Sübvanse etmek, başkasının masrafını paylaşmak",
+      example: "She doesn't want to subsidize a service she never uses.",
+      example_tr: "Hiç kullanmadığı bir hizmetin masrafını paylaşmak istemiyor.",
+    },
+    {
+      id: "ex.toefl.12.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Kadın öğrenci ücrete itiraz ediyor çünkü spor salonunu hiç kullanmadığını ve zorla ödemenin motivasyon yaratmadığını söylüyor.",
+      target:
+        "The female student objects to the fee because she says she never uses the gym and forcing people to pay does not create motivation.",
+      accepted_variants: [
+        "The woman opposes the fee because she argues that she never uses the gym and forcing payment does not create motivation.",
+        "Sarah disagrees with the fee because she says she never uses the gym and being forced to pay does not motivate students.",
+        "The female student is against the fee because she points out that she never uses the gym and mandatory payments do not create real motivation.",
+        "The woman objects to the policy because she says she does not use the gym and forced payment does not motivate students.",
+      ],
+      tr_hint:
+        "Integrated Task 2: reporting + iki sebep + reading'in argümanlarına atıf. 'The student says X, which contradicts the reading's claim that Y'.",
+    },
+    {
+      id: "ex.toefl.12.3",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template:
+        "While the reading argues that paying encourages gym use, the woman ___ that view by giving a counterexample from her own life.",
+      answer: "challenges",
+      distractors: ["agrees", "ignores", "repeats", "summarizes"],
+      tr_hint:
+        "Reading-listening bağlantı fiilleri (band 4): 'challenges', 'contradicts', 'rejects', 'pushes back on'. 'Says' tek başına yetmez — Task 2 integration özünü kaçırır.",
+    },
+    {
+      id: "ex.toefl.12.4",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I think the fee is unfair, and woman also say is not motivate students.",
+      correct_sentence:
+        "The woman argues that the fee is unfair and that forced payment does not motivate students.",
+      tr_explanation:
+        "Üç KRİTİK hata: (1) 'I think' Task 2'de YOK — kendi görüşünü vermezsin, sadece raporlarsın. Tek başına 'I think' band 4 → band 2 cezasıdır. (2) 'Woman also say' eksik artikel + s: 'The woman also says'. (3) 'Is not motivate' yanlış — 'does not motivate' (don't auxiliary + bare verb).",
+    },
+    {
+      id: "ex.toefl.12.5",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Proctor Task 2 integrated promptunu okur. 30 sn hazırlık + 60 sn konuşma. Sıra: (1) policy özeti — reading'in İKİ argümanını da kısaca söyle (2) öğrencinin pozisyonu (3) sebep 1 — reading'in 1. argümanına nasıl karşı çıkıyor (4) sebep 2 — reading'in 2. argümanına nasıl karşı çıkıyor.",
+      npc_role: "TOEFL Proctor",
+      setting: "TOEFL iBT Speaking Section — Task 2",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Question 2. The university is implementing a mandatory gym fee. Briefly summarize the policy, then state the woman's opinion and explain the reasons she gives. You have 30 seconds to prepare and 60 seconds to speak.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(according to|the reading|the announcement|the university)",
+            "(\\$?200|fee|gym|mandatory|all (full.time )?students)",
+            "(the woman|sarah|the female student|she) (objects?|opposes?|disagrees?|is (opposed|against))",
+            "(first|second|moreover|in addition|furthermore)",
+            "(never use|run outside|does not use|subsidize)",
+            "(forcing|forced|mandatory|paying does not motivate|streaming)",
+            "(contradicts?|challenges?|rejects?|pushes? back|disagrees? with)",
+          ],
+          hint_tr:
+            "Yapı: 1) 'According to the announcement, the university will charge all students $200 to fund the gym, arguing it covers costs and encourages exercise.' 2) 'The woman strongly opposes this.' 3) 'First, she pushes back on the cost argument — she runs outside year-round and refuses to subsidize equipment she never touches.' 4) 'Second, she challenges the motivation claim — she gives the example of a streaming service she pays for but rarely uses, showing that forced payment does not create real motivation.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Excellent integration. The streaming-service callback was perfect — that's exactly the kind of specific student example that pushes Topic Development to band 4. Watch the verb 'pushes back on' — clear, idiomatic, and graded well.",
+        },
+      ],
+    },
+    {
+      id: "ex.toefl.12.6",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "Task 2 integrated'da 'I think' demek neden problemdir?",
+          options: [
+            "Çünkü kibar değil",
+            "Çünkü Task 2 raporlama görevidir — kendi görüşünü VERMEZSİN; 'I think' Topic Development cezası getirir",
+            "Sadece dilbilgisi hatasıdır",
+            "Çünkü kelime tekrarıdır",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Task 2 = REPORTING. Kendi görüşünü eklemek görev dışına çıkmaktır — band 4'ten 2-3'e düşer.",
+        },
+        {
+          question: "Reading'in argümanlarına bağlanmak için hangi fiiller band 4?",
+          options: [
+            "Says, tells, talks",
+            "Knows, feels, hopes",
+            "Challenges, contradicts, pushes back on, rejects",
+            "Likes, hates, wants",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Spesifik reporting fiilleri: reading-listening ilişkisini netleştirir. 'Says' x3 = monoton.",
+        },
+        {
+          question: "Sarah neden ücretin motivasyon yarattığı argümanına karşı çıkıyor?",
+          options: [
+            "Çünkü gym sevmiyor",
+            "Çünkü ödediği halde nadiren izlediği streaming servisi örneğini veriyor — zorunlu ödeme = motivasyon DEĞİL",
+            "Çünkü daha ucuz olmalı",
+            "Çünkü diğer öğrenciler kullanmıyor",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Spesifik kişisel karşı-örnek = band 4 integration. Reading'in mantığını CANLI deneyimle çürütüyor.",
+        },
+      ],
+    },
+    {
+      id: "ex.toefl.12.7",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase:
+        "The woman directly challenges the reading's claim that mandatory fees encourage exercise.",
+      tr_hint:
+        "Task 2 integrated band 4 köprü cümlesi. 'Directly challenges' = doğrudan karşı çıkıyor — güçlü reporting. 'The reading's claim that' = okumadaki iddia — possessive + that-clause. 'CHA-llen-ges' üç hece, vurgu ilkte.",
+    },
+    {
+      id: "ex.toefl.12.8",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "She is opposed for the fee because is unfair for students which not use gym.",
+      correct_sentence:
+        "She is opposed to the fee because it is unfair to students who do not use the gym.",
+      tr_explanation:
+        "Dört hata (Turkish frequency): (1) 'Opposed for' yanlış preposition — 'opposed TO'. (2) 'Because is' eksik özne — 'because IT is' (subject drop = Turkish carryover). (3) 'Unfair for students' yerine 'unfair TO students' (insanlara karşı). (4) 'Students which not use' — 'which' nesneler için, kişi 'who'; ayrıca 'do not use' negatif.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 13 — Task 3: Academic concept (network effects)
+// ============================================================
+export const toeflSpeakingLesson_13: BundledLesson = {
+  id: "testprep.toefl.task3.network.1",
+  skill_id: "testprep.toefl.task3",
+  index: 13,
+  title: "Task 3 — Academic concept açıklama",
+  description:
+    "Task 3 (45 sn reading + listening + 30 sn hazırlık + 60 sn konuşma): Akademik kavramı oku → profesörün gerçek dünya örneklerini dinle → kavramı örneklerle açıkla.\n\nREADING (ekonomi pasajı, 45 sn): Network Effects\nA network effect occurs when the value of a product or service increases as more people use it. In a positive network effect, each additional user makes the product more useful to all existing users. This creates a self-reinforcing growth dynamic: a larger user base attracts more users, while a small user base struggles to attract anyone. As a result, markets exhibiting strong network effects often consolidate around one or two dominant players.\n\nLISTENING (profesör — ekonomi): \"Let me illustrate this with two examples. Take the telephone. When only two people owned phones, the device was almost useless — you could call exactly one person. But as more people bought phones, each existing user could reach more people. By the time millions owned phones, owning one became essential, and refusing one became impractical. Now contrast that with a competing social media app that launches today. If only your friend signs up, you have nobody to interact with — so you leave. If you leave, your friend has nobody, so they leave too. Without that critical mass, the app collapses, while the established platform — already huge — keeps growing.\"\n\nGÖREV: Reading'deki network effect kavramını TANIMLA, sonra profesörün iki örneğinin bu kavramı NASIL gösterdiğini açıkla.",
+  estimated_minutes: 9,
+  exercises: [
+    {
+      id: "ex.toefl.13.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "self-reinforcing",
+      tr_translation: "Kendini güçlendiren / besleyen",
+      example:
+        "Network effects create a self-reinforcing growth cycle.",
+      example_tr: "Ağ etkileri kendini besleyen bir büyüme döngüsü yaratır.",
+    },
+    {
+      id: "ex.toefl.13.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Profesör telefon ve sosyal medya örneklerini kullanarak ağ etkilerinin nasıl çalıştığını gösteriyor.",
+      target:
+        "The professor uses the telephone and social media examples to illustrate how network effects work.",
+      accepted_variants: [
+        "Using the telephone and social media examples, the professor illustrates how network effects work.",
+        "The professor demonstrates how network effects function by giving the examples of the telephone and social media.",
+        "The professor shows how network effects work through the examples of the telephone and a social media app.",
+        "The professor illustrates the way network effects operate using examples of the telephone and social media apps.",
+      ],
+      tr_hint:
+        "Task 3 köprü cümlesi formülü: 'The professor uses [examples] to illustrate how [concept from reading] works.' Reading + listening'i tek cümlede bağlar.",
+    },
+    {
+      id: "ex.toefl.13.3",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template:
+        "The professor goes on to ___ that without a critical mass of users, a new social media app collapses.",
+      answer: "explain",
+      distractors: ["disagree", "wonder", "guess", "celebrate"],
+      tr_hint:
+        "Task 3 attribution drili: 'The professor goes on to explain/argue/illustrate' = devam eden reporting kalıbı, band 4 işareti. 'Goes on to' = sonra...e geçer. Tek 'says' yerine bu kalıp Language Use'i yükseltir.",
+    },
+    {
+      id: "ex.toefl.13.4",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "According to reading, network effect is when more people use, the product become more valuable, and professor say telephone is good example.",
+      correct_sentence:
+        "According to the reading, a network effect occurs when more people use a product and it becomes more valuable, and the professor says the telephone is a good example.",
+      tr_explanation:
+        "Beş hata (Turkish carryover paketi): (1) 'According to reading' eksik 'the'. (2) 'Network effect is when more people use' — 'use' tamamlanmamış cümle, nesne eksik. (3) 'Become more valuable' eksik s — 'becomes'. (4) 'Professor say' eksik 'the' + s — 'the professor says'. (5) 'Telephone is good example' eksik artikel — 'a good example'. Definite article eksiklikleri Language Use'i band 3'e iter.",
+    },
+    {
+      id: "ex.toefl.13.5",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Proctor Task 3 promptunu okur. 30 sn hazırlık + 60 sn konuşma. Yapı: (1) reading'in tanımı — kısa ve net (2) örnek 1: telefon — pozitif network effect (3) örnek 2: yeni sosyal medya app — eksik kritik kütle (4) örneklerin kavramı nasıl illustrate ettiğine kapanış.",
+      npc_role: "TOEFL Proctor",
+      setting: "TOEFL iBT Speaking Section — Task 3",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Question 3. Using the examples from the lecture, explain the concept of network effects presented in the reading. You have 30 seconds to prepare and 60 seconds to speak.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(according to|the reading|the passage)",
+            "(network effect|value (increases|grows)|more (people|users))",
+            "(the professor (illustrates|explains|describes|uses|goes on to|provides))",
+            "(telephone|phones?|call|millions?)",
+            "(social media|app|critical mass|nobody|collapses?|leaves?)",
+            "(this (shows|illustrates|demonstrates|paraphrases|integrates)|in (other words|short)|as a result)",
+          ],
+          hint_tr:
+            "Yapı: 1) 'According to the reading, a network effect occurs when a product becomes more valuable as more people use it, creating self-reinforcing growth.' 2) 'The professor illustrates this with two contrasting examples.' 3) 'First, the telephone — when only two people owned phones, it was nearly useless, but as millions joined, owning one became essential.' 4) 'In contrast, a new social media app that nobody else uses provides no value, so people leave, and without critical mass it collapses.' 5) 'Together, these examples paraphrase the concept: scale creates value, and lack of scale destroys it.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Outstanding integration. You explicitly used 'paraphrase' and 'integrate' — both score 24+ vocabulary. And the contrast structure (telephone succeeds, app fails) is the cleanest way to show you understand the self-reinforcing dynamic. Band 4 territory.",
+        },
+      ],
+    },
+    {
+      id: "ex.toefl.13.6",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "Task 3'te kavramı tanımlarken hangi opener band 4?",
+          options: [
+            "I think network effect means...",
+            "According to the reading, a network effect occurs when ___",
+            "Network effect is, like, when stuff gets bigger...",
+            "The professor told us that...",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'According to the reading' + akademik 'occurs when' tanım kalıbı = band 4 standardı.",
+        },
+        {
+          question: "Profesörün iki örneği niye birlikte güçlü?",
+          options: [
+            "İkisi de teknoloji",
+            "Bir örnek başarıyı (telefon) gösterir, diğer örnek başarısızlığı (app) — kavramın HER İKİ yönünü ispatlar",
+            "Sadece dikkat çekmek için",
+            "Süreyi doldurmak için",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Contrast (success + failure) = kavramın hem pozitif hem negatif tarafını illustrate eder. Topic Development band 4.",
+        },
+        {
+          question: "'Score 24+' vocabulary'den hangisi Task 3'te en uygun?",
+          options: [
+            "Stuff, things, get",
+            "Illustrate, integrate, paraphrase, contrast",
+            "Like, kinda, sorta",
+            "Good, bad, big",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Akademik fiiller (illustrate/integrate/paraphrase/contrast) = Language Use band 4 işareti.",
+        },
+      ],
+    },
+    {
+      id: "ex.toefl.13.7",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "According to the reading, a network effect occurs when a product becomes more valuable as additional users join, and the professor illustrates this through the contrast between the telephone and a struggling new app.",
+      voice_hint: "male_us",
+      tr_hint:
+        "Task 3 band 4 model köprü cümle. 'According to the reading' opener → 'occurs when' tanım kalıbı → 'the professor illustrates this through the contrast between' = reading+listening tek cümlede. Yavaş, akademik ritim — TOEFL Speaking ortalama hızı 145-160 kelime/dk.",
+    },
+    {
+      id: "ex.toefl.13.8",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Professor give two example, telephone and app, this examples show how network effects is working.",
+      correct_sentence:
+        "The professor gives two examples, the telephone and an app, and these examples show how network effects work.",
+      tr_explanation:
+        "Beş hata: (1) 'Professor give' eksik 'the' + s — 'The professor gives'. (2) 'Two example' eksik plural — 'examples'. (3) 'Telephone and app' eksik artikel — 'the telephone and an app'. (4) 'This examples' yanlış determinatör — plural 'these examples'. (5) 'Network effects is working' yanlış subject-verb concord (plural subject + plural verb, hem de simple present) — 'effects work'. Task 3 raporlamada bu hatalar Language Use'u band 4'ten 3'e indirir.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 14 — Task 4: Lecture-only summary (cognitive dissonance)
+// ============================================================
+export const toeflSpeakingLesson_14: BundledLesson = {
+  id: "testprep.toefl.task4.dissonance.1",
+  skill_id: "testprep.toefl.task4",
+  index: 14,
+  title: "Task 4 — Lecture summary",
+  description:
+    "Task 4 (20 sn hazırlık + 60 sn konuşma): SADECE dinleme — reading YOK. Profesörün akademik dersini dinle, ana kavramı + iki örneği özetle.\n\nLISTENING (profesör — sosyal psikoloji): \"Today we'll discuss cognitive dissonance — the mental discomfort people feel when their actions contradict their beliefs. When this happens, people don't usually change their behavior; instead, they change their beliefs to match what they're already doing.\n\nLet me give you two examples. First, consider a smoker who knows smoking causes cancer. The action — smoking — clashes with the belief that smoking is dangerous. To reduce the discomfort, the smoker often downplays the risk: 'My grandfather smoked until 90, so the studies must be exaggerated.' The belief shifts to protect the behavior.\n\nSecond, take a student who cheats on an exam but considers herself an honest person. The mismatch is painful. Rather than admit she's dishonest, she rationalizes: 'Everyone cheats in this class — the professor's tests are unfair, so it doesn't really count.' Notice that in both cases, the person doesn't stop the behavior; they just adjust their beliefs to make the behavior acceptable to themselves.\"\n\nGÖREV: Reading yok. Sadece lecture'dan ana kavramı + iki örneği özetle.",
+  estimated_minutes: 9,
+  exercises: [
+    {
+      id: "ex.toefl.14.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "cognitive dissonance",
+      tr_translation: "Bilişsel uyumsuzluk / çelişki",
+      example:
+        "Cognitive dissonance happens when actions and beliefs do not match.",
+      example_tr:
+        "Bilişsel uyumsuzluk, eylemler ve inançlar uyuşmadığında ortaya çıkar.",
+    },
+    {
+      id: "ex.toefl.14.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Profesör bilişsel uyumsuzluğu iki örnekle açıklıyor: sigara içen bir kişi ve bir sınavda kopya çeken bir öğrenci.",
+      target:
+        "The professor explains cognitive dissonance with two examples: a person who smokes and a student who cheats on an exam.",
+      accepted_variants: [
+        "Using two examples, the professor illustrates cognitive dissonance: a smoker and a student who cheats on an exam.",
+        "The professor describes cognitive dissonance through two examples: someone who smokes and a student who cheated on an exam.",
+        "The professor uses two examples to explain cognitive dissonance: a smoker and a student who cheats during an exam.",
+        "The professor illustrates cognitive dissonance with the examples of a smoker and a student who cheats on an exam.",
+      ],
+      tr_hint:
+        "Task 4 reporting: 'The professor explains X with two examples: ___ and ___.' Reading olmadığı için 'according to the reading' KULLANMA — sadece 'the professor' / 'the lecture'.",
+    },
+    {
+      id: "ex.toefl.14.3",
+      type: "fill_blank",
+      difficulty: 4,
+      sentence_template:
+        "The professor goes on to ___ a second example involving a student who cheats but considers herself honest.",
+      answer: "illustrate",
+      distractors: ["forget", "deny", "criticize", "memorize"],
+      tr_hint:
+        "Task 4 attribution drili: 'The professor goes on to illustrate/discuss/present' = devam eden reporting. 'Illustrate' band 4 fiili — 'show' veya 'tell'den çok daha güçlü. Score 24+ vocabulary.",
+    },
+    {
+      id: "ex.toefl.14.4",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Lecture is about a feeling when person do something wrong, and professor give example of smoker which say my grandfather smoke long time.",
+      correct_sentence:
+        "The lecture is about the discomfort people feel when their actions contradict their beliefs, and the professor gives the example of a smoker who says his grandfather smoked for a long time.",
+      tr_explanation:
+        "Altı hata: (1) 'Lecture is' eksik 'The' — definite article. (2) 'A feeling when person do' yanlış — 'feeling' soyut, plural 'people feel' + 'their actions'. (3) 'Wrong' yanlış kavram — kavram 'contradict beliefs', günlük dil değil. (4) 'Professor give' eksik 'the' + s — 'the professor gives'. (5) 'Example of smoker which say' — 'which' kişi için kullanılmaz, 'who'; ayrıca 'says'. (6) 'Smoke long time' eksik tense + artikel — 'smoked for a long time'. Akademik raporlamada hepsi Language Use cezası.",
+    },
+    {
+      id: "ex.toefl.14.5",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Proctor Task 4 promptunu okur. 20 sn hazırlık (Task 2-3'ten kısa!) + 60 sn konuşma. Reading yok — sadece lecture. Yapı: (1) lecture'ın konusu + kavramın tanımı (2) örnek 1: sigara içen — eylem/inanç çelişkisi → inanç değişir (3) örnek 2: kopya çeken öğrenci — paralel mantık (4) ortak nokta: davranış değil, inanç değişir.",
+      npc_role: "TOEFL Proctor",
+      setting: "TOEFL iBT Speaking Section — Task 4",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Question 4. Using points and examples from the lecture, explain the concept of cognitive dissonance as the professor describes it. You have 20 seconds to prepare and 60 seconds to speak.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the (lecture|professor) (is about|discusses|describes|explains|talks about))",
+            "(cognitive )?dissonance",
+            "(actions?|behavior)s? (contradict|clash with|conflict with|do not match)",
+            "(beliefs?|values?)",
+            "(change|adjust|shift|rationalize) (their )?beliefs?",
+            "(first|second|moreover|the professor goes on to)",
+            "(smoker|smoking|cancer|grandfather|exaggerat)",
+            "(student|cheats?|cheating|exam|honest|unfair)",
+            "(in both cases|in each example|the (common|key) point|together)",
+          ],
+          hint_tr:
+            "Yapı: 1) 'The lecture is about cognitive dissonance — the mental discomfort people feel when their actions contradict their beliefs.' 2) 'The professor illustrates this with two examples.' 3) 'First, a smoker who knows smoking causes cancer downplays the risk by saying his grandfather lived to 90 — the belief shifts to protect the behavior.' 4) 'Second, the professor goes on to illustrate a student who cheats on an exam but considers herself honest. She rationalizes by blaming the unfair test.' 5) 'In both cases, the person changes their beliefs, not their behavior — that's the core of cognitive dissonance.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Excellent — your final synthesis sentence ('In both cases, the person changes their beliefs, not their behavior') is exactly the kind of payoff examiners reward. That single line lifts Topic Development from 3 to 4. Two refinements: in 20 seconds of prep, jot keywords for BOTH examples — many test-takers run short on example 2.",
+        },
+      ],
+    },
+    {
+      id: "ex.toefl.14.6",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "Task 4'te reading olmadığı için NE kullanmazsın?",
+          options: [
+            "'The professor explains'",
+            "'According to the reading' — reading yok, sadece lecture var",
+            "'In both cases'",
+            "'For example'",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Task 4 = sadece dinleme. 'According to the reading' kullanmak = görev karışıklığı, Topic Development cezası.",
+        },
+        {
+          question: "Cognitive dissonance'da insanlar genelde NE değiştirir?",
+          options: [
+            "Davranışlarını",
+            "İnançlarını (davranışı koruyup düşünceyi rasyonalize ederler)",
+            "İkisini birden",
+            "Hiçbirini",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Profesörün ana noktası: davranış kalır, inanç değişir (rasyonalizasyon). Bu Task 4'ün 'payoff' cümlesi.",
+        },
+        {
+          question: "Task 4'te ikinci örneği 60 sn içinde RAHAT anlatmak için strateji?",
+          options: [
+            "İlk örneği uzun, ikinciyi 1 cümleyle bitir",
+            "Hazırlıkta 20 sn'yi İKİ örneğe de paylaştır; her birine ~20 sn konuşma planla",
+            "Hızlı konuş",
+            "İkinci örneği atla",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "İki örneği de eşit anlatmak Topic Development band 4. 20 sn hazırlık = her örneğe 8-10 sn not, 2 sn opener/kapanış.",
+        },
+      ],
+    },
+    {
+      id: "ex.toefl.14.7",
+      type: "speech_shadowing",
+      difficulty: 5,
+      native_text:
+        "The professor illustrates cognitive dissonance through two examples — a smoker and a student who cheats — and in both cases, the person adjusts their beliefs rather than changing their behavior.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Task 4 band 4 model — tek cümlede tüm cevabın iskeleti. 'Illustrates' (akademik) + 'through two examples' (yapı) + 'in both cases' (synthesis) + 'adjusts their beliefs rather than changing their behavior' (kavramın özü). Pratikte aralarına örneklerin detayını ekle, 55-60 sn'ye sığar.",
+    },
+    {
+      id: "ex.toefl.14.8",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "In both example the person not change behavior but change his belief for make himself feel better.",
+      correct_sentence:
+        "In both examples, the person does not change their behavior but changes their beliefs to make themselves feel better.",
+      tr_explanation:
+        "Beş hata (Task 4 synthesis cümlesinde KRİTİK — payoff cümlesi): (1) 'Both example' eksik plural — 'both examples'. (2) 'Person not change' eksik auxiliary — 'does not change'. (3) 'Change his belief' tekil/cinsiyet sorunu — 'changes their beliefs' (modern English, gender-neutral plural). (4) 'For make' yanlış purpose yapısı — 'to make' (purpose infinitive). (5) 'Himself feel better' yerine 'themselves feel better' (concord). Synthesis cümlesinde dilbilgisi düşünce Topic Development band 4 → band 3.",
+    },
+  ],
+};
+
+// ============================================================
 // Lesson registry
 // ============================================================
 export const testToeflSpeakingLessons: BundledLesson[] = [
@@ -2026,6 +2680,10 @@ export const testToeflSpeakingLessons: BundledLesson[] = [
   toeflSpeakingLesson_8,
   toeflSpeakingLesson_9,
   toeflSpeakingLesson_10,
+  toeflSpeakingLesson_11,
+  toeflSpeakingLesson_12,
+  toeflSpeakingLesson_13,
+  toeflSpeakingLesson_14,
 ];
 
 export function getToeflSpeakingLesson(id: string): BundledLesson | undefined {

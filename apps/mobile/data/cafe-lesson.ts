@@ -808,6 +808,747 @@ export const cafeLesson_1_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 1.5 — Modifiye Sipariş
+// ============================================================
+export const cafeLesson_1_5: BundledLesson = {
+  id: "order.cafe.1.5",
+  skill_id: "order.cafe",
+  index: 1,
+  title: "Modifiye Sipariş",
+  description:
+    "Sütsüz, ekstra shot, soya sütü, az şeker — siparişi nasıl modifiye edersin? 'Instead of' ve 'with/without' kalıpları.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.1.5.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "instead of",
+      tr_translation: "...yerine",
+      example: "Can I get oat milk instead of regular milk?",
+      example_tr: "Normal süt yerine yulaf sütü alabilir miyim?",
+    },
+    {
+      id: "ex.1.5.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Normal süt yerine yulaf sütü alabilir miyim?",
+      target: "Can I get oat milk instead of regular milk?",
+      accepted_variants: [
+        "Could I have oat milk instead of regular milk?",
+        "Can I have oat milk instead?",
+        "Could I get oat milk instead, please?",
+        "Can you swap the milk for oat milk?",
+        "I'd like oat milk instead of regular, please.",
+      ],
+      tr_hint:
+        "'Instead of' = ...yerine. Kısa versiyon 'instead' tek başına da iş görür.",
+    },
+    {
+      id: "ex.1.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Could I get an extra ___ in that, please?",
+      answer: "shot",
+      distractors: ["cup", "coffee", "espresso"],
+      tr_hint:
+        "'Extra shot' = bir espresso shot daha. 'Extra espresso' Türk-İngilizcesi — native 'shot' der.",
+    },
+    {
+      id: "ex.1.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Can",
+        "I",
+        "get",
+        "that",
+        "with",
+        "soy",
+        "milk",
+        "please",
+      ],
+      correct_sentence: "Can I get that with soy milk please",
+      tr_translation: "Onu soya sütüyle alabilir miyim, lütfen?",
+    },
+    {
+      id: "ex.1.5.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I want without milk and more strong, please.",
+      correct_sentence: "Could I have it without milk and with an extra shot, please?",
+      tr_explanation:
+        "'I want' kaba; 'Could I have' kibar. 'More strong' yanlış — espresso güçlendirmek için 'extra shot' kullanılır. 'Without milk' doğru ama 'no milk' daha doğal.",
+    },
+    {
+      id: "ex.1.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Latte sipariş edeceksin ama laktoz intoleransın var ve daha sert istiyorsun. Modifikasyon yap.",
+      npc_role: "Barista",
+      setting: "Specialty café",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can) i (get|have) a latte",
+            "i('ll| will| d like|'d like) (a |an )?latte",
+            "(could|can) i (get|have) a latte with (oat|soy|almond) milk",
+            "a latte (with|using) (oat|soy|almond)",
+          ],
+          hint_tr:
+            "Latte sipariş et, sütü modifiye et: 'Can I get a latte with [milk type]?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure, what kind of milk? We have oat, almond, soy, and coconut.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oat|almond|soy|coconut)( milk)?( please)?",
+            "i('ll| will|'d like) (have |take )?(oat|almond|soy|coconut)",
+            "(could|can) i (get|have) (oat|almond|soy|coconut)",
+            "with (oat|almond|soy|coconut)",
+          ],
+          hint_tr:
+            "Bir bitkisel süt seç: 'Oat milk, please' veya 'I'll take soy'.",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. Anything else with that?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can) i (get|have) an extra shot",
+            "(an |one )?extra shot( please)?",
+            "make it (a )?(double|stronger)",
+            "with (an )?extra shot",
+            "and (an )?extra shot( please)?",
+          ],
+          hint_tr:
+            "Daha sert istiyorsan: 'Could I get an extra shot?' veya 'Make it a double'.",
+        },
+        {
+          speaker: "npc",
+          message: "Perfect — oat milk latte with an extra shot coming up.",
+        },
+      ],
+    },
+    {
+      id: "ex.1.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Soya sütüyle' demek için en doğal kalıp?",
+          options: [
+            "With soy milk",
+            "From soy milk",
+            "By soy milk",
+            "In soy milk",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Süt tercihi her zaman 'with [milk type]' kalıbında söylenir.",
+        },
+        {
+          question: "Espresso bazlı içecekte 'daha sert yap' nasıl denir?",
+          options: [
+            "Make it stronger coffee",
+            "More coffee inside",
+            "Could I get an extra shot?",
+            "Add more espresso bean",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Native İngilizce'de 'extra shot' = bir espresso shot ekle. 'Stronger' yerine doğal kullanım.",
+        },
+        {
+          question: "'Normal süt yerine yulaf sütü' kibarca?",
+          options: [
+            "No regular milk, oat milk",
+            "Change milk to oat",
+            "Oat milk instead of regular, please",
+            "Don't use normal milk",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Instead of' = ...yerine. Sipariş bağlamında en doğal yapı.",
+        },
+      ],
+    },
+    {
+      id: "ex.1.5.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Can I get oat milk instead, please?",
+      ipa: "kæn aɪ ɡɛt oʊt mɪlk ɪnˈstɛd pliːz",
+      tr_hint:
+        "'Instead' = 'ın-STED', vurgu ikinci hecede. 'Oat' uzun 'oʊ' — Türkçe 'ot' gibi okumamaya dikkat.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 1.6 — Small Talk Sırada
+// ============================================================
+export const cafeLesson_1_6: BundledLesson = {
+  id: "order.cafe.1.6",
+  skill_id: "order.cafe",
+  index: 1,
+  title: "Sırada Small Talk",
+  description:
+    "Kasiyer 'How's your day?' der — sosyal yumuşatma kalıbı, gerçek cevap beklemiyor. Doğal nasıl yanıtlanır?",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.1.6.1",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "How's it going?",
+      tr_translation: "Nasıl gidiyor? (sosyal kalıp)",
+      example: "How's it going? — Good, thanks. You?",
+      example_tr:
+        "Nasıl gidiyor? — İyiyim, teşekkürler. Sen?",
+    },
+    {
+      id: "ex.1.6.2",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "İyiyim, teşekkürler. Sen?",
+      target: "Good, thanks. How about you?",
+      accepted_variants: [
+        "Good, thanks. You?",
+        "I'm good, thanks. You?",
+        "Pretty good, thanks. How about you?",
+        "Not bad, thanks. You?",
+        "Good, thank you. How about yourself?",
+        "I'm doing well, thanks. You?",
+      ],
+      tr_hint:
+        "Kasiyer gerçek cevap beklemiyor — kısa ve pozitif yeter. 'You?' iadesi şart.",
+    },
+    {
+      id: "ex.1.6.3",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "Pretty good, thanks. How ___ you?",
+      answer: "about",
+      distractors: ["are", "with", "for"],
+      tr_hint:
+        "'How about you?' = 'Ya sen?' — sosyal iadenin standart kalıbı.",
+    },
+    {
+      id: "ex.1.6.4",
+      type: "word_order",
+      difficulty: 2,
+      scrambled_tokens: ["Not", "bad", "thanks", "how", "about", "you"],
+      correct_sentence: "Not bad thanks how about you",
+      tr_translation: "Fena değil, teşekkürler. Ya sen?",
+    },
+    {
+      id: "ex.1.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "My day is very stressful because my boss made problem with project.",
+      correct_sentence: "Pretty good, thanks. How about you?",
+      tr_explanation:
+        "'How's your day?' gerçek soru değil — sosyal yumuşatma kalıbı. Detaylı cevap yabancı geliyor; kısa ve pozitif kal. Türk öğrencilerin en sık hatası: tam çevirmek ve uzun cevap vermek.",
+    },
+    {
+      id: "ex.1.6.6",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Kasanın önündesin. Kasiyer samimi, küçük muhabbet açıyor. Doğal cevap ver.",
+      npc_role: "Cashier",
+      setting: "Coffee shop register",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hey, how's your day going?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(pretty good|good|not bad|great|fine)(,)?( thanks| thank you)?",
+            "(it'?s|its) (going )?(good|great|fine|well)",
+            "(good|great|fine)(,)? how (about|are) you",
+            "i'?m (doing )?(good|great|fine|well)",
+            "(can't|cant) complain",
+          ],
+          hint_tr:
+            "Kısa pozitif cevap + iade: 'Good, thanks. You?' veya 'Not bad, how about you?'",
+        },
+        {
+          speaker: "npc",
+          message: "Doing well, thanks for asking! What can I get for you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can) i (get|have) a",
+            "i('ll| will|'d like|d like) (a |an )?",
+            "(a |an )?(latte|cappuccino|americano|coffee|espresso|flat white)",
+            "i('ll|d like) take",
+          ],
+          hint_tr:
+            "Siparişe geç: 'Could I have a [drink], please?'",
+        },
+        {
+          speaker: "npc",
+          message: "Sure thing, coming right up!",
+        },
+      ],
+    },
+    {
+      id: "ex.1.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Kasiyer 'How's your day?' der — ne yaparsın?",
+          options: [
+            "Gerçek gününü detaylıca anlat",
+            "Kısa pozitif cevap + iade et",
+            "Cevap verme, direkt sipariş ver",
+            "'Why are you asking?' diye sor",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Bu sosyal yumuşatma kalıbı — kasiyer gerçek cevap beklemez. 'Good, thanks. You?' yeter.",
+        },
+        {
+          question: "Hangisi en doğal yanıt?",
+          options: [
+            "My day is normal as usual",
+            "Pretty good, thanks. How about you?",
+            "I am very tired today",
+            "It is fine for me",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Pretty good' = oldukça iyi (esnek). 'How about you?' iadesi sosyal akışı sürdürür.",
+        },
+        {
+          question: "'How's it going?' soruluyor — 'It is going well' doğru mu?",
+          options: [
+            "Evet, tam doğru cevap",
+            "Hayır, çok robotik. 'Good, you?' daha doğal",
+            "Sadece İngiliz İngilizcesinde doğru",
+            "Sadece resmi durumda kullanılır",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Direkt cevap robotik. 'Good' veya 'pretty good' + iade daha doğal.",
+        },
+      ],
+    },
+    {
+      id: "ex.1.6.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Pretty good, thanks. How about you?",
+      ipa: "ˈprɪti ɡʊd θæŋks haʊ əˈbaʊt juː",
+      tr_hint:
+        "'Pretty' = 'PRI-ti' (vurgu ilk). 'How about you' birleşir → 'haʊ-ə-BAUT-yu'. Sonda 'you' yumuşak.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 1.7 — Yanlış Sipariş, Geri Verme
+// ============================================================
+export const cafeLesson_1_7: BundledLesson = {
+  id: "order.cafe.1.7",
+  skill_id: "order.cafe",
+  index: 1,
+  title: "Yanlış Sipariş Değiştirtmek",
+  description:
+    "Soya istemiştin, normal süt geldi. Şikayetsiz, kibarca değiştirtmenin kalıpları. 'I think there's a mix-up' tonu.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.1.7.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "I think there's a mix-up",
+      tr_translation: "Bir karışıklık var sanırım",
+      example: "Sorry, I think there's a mix-up with my order.",
+      example_tr: "Pardon, sanırım siparişimde bir karışıklık olmuş.",
+    },
+    {
+      id: "ex.1.7.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Sanırım yanlış süt koymuşlar — soya istemiştim.",
+      target: "I think this has regular milk — I asked for soy.",
+      accepted_variants: [
+        "Sorry, I ordered soy milk, not regular.",
+        "I think there's a mix-up — I asked for soy milk.",
+        "This isn't soy milk, is it? I ordered soy.",
+        "I'm sorry, but I think this has regular milk instead of soy.",
+        "Excuse me, I asked for soy milk in this.",
+      ],
+      tr_hint:
+        "Anahtar: 'I asked for [X]' — şikayet değil, hatırlatma tonu. 'Sorry' ile yumuşat.",
+    },
+    {
+      id: "ex.1.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Sorry, I ___ for soy milk, not regular.",
+      answer: "asked",
+      distractors: ["wanted", "told", "said"],
+      tr_hint:
+        "'Ask for' = istemek (kibarca). 'I asked for X' = X istemiştim. 'Wanted' geçmişte 'istiyordum' olur — biraz pasif.",
+    },
+    {
+      id: "ex.1.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Could",
+        "you",
+        "remake",
+        "it",
+        "with",
+        "soy",
+        "milk",
+        "please",
+      ],
+      correct_sentence: "Could you remake it with soy milk please",
+      tr_translation:
+        "Onu soya sütüyle yeniden yapabilir misiniz, lütfen?",
+    },
+    {
+      id: "ex.1.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "You gave me wrong milk! Change this immediately.",
+      correct_sentence:
+        "Sorry, I think there's a mix-up — I asked for soy milk. Could you remake it?",
+      tr_explanation:
+        "'You gave me wrong' suçlayıcı ve kaba. 'Change immediately' askeri komut gibi. Anglo-Sakson kültüründe 'sorry' + sebep + nazik ricayla başlanır — sen haklı olsan bile.",
+    },
+    {
+      id: "ex.1.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Soya sütlü latte sipariş ettin. İçtin, normal süt olduğunu fark ettin. Barista'ya kibarca durumu açıkla.",
+      npc_role: "Barista",
+      setting: "Pickup counter",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sorry|excuse me|hi)(,)?.{0,30}(mix.?up|wrong|mistake)",
+            "(sorry|excuse me).{0,40}(i (asked|ordered) for|i think this)",
+            "i think (there'?s|theres) a mix.?up",
+            "(sorry|excuse me).{0,30}this (has|isn'?t)",
+            "(i'?m sorry|sorry).{0,40}soy",
+          ],
+          hint_tr:
+            "Yumuşak başla: 'Sorry, I think there's a mix-up...' veya 'Excuse me, I asked for soy milk'.",
+        },
+        {
+          speaker: "npc",
+          message: "Oh, I'm so sorry about that! Let me check — you ordered soy?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|yep)(,)?.{0,20}(soy|i did)",
+            "(that'?s|thats) right",
+            "yes(,)? (a |the )?soy (milk )?latte",
+            "yeah(,)? soy",
+            "correct(,)? soy milk",
+          ],
+          hint_tr: "Doğrula: 'Yes, soy milk' veya 'That's right'.",
+        },
+        {
+          speaker: "npc",
+          message: "I'm really sorry — I'll remake it right now. Sit tight!",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you|appreciate it|no worries|no problem)",
+            "thanks(,)? (no worries|no rush|appreciate it)",
+            "(it'?s|its) (ok|okay|fine|alright)",
+            "no big deal",
+            "thank you so much",
+          ],
+          hint_tr:
+            "Yumuşak kapat: 'Thanks, no worries' veya 'No problem, thank you'.",
+        },
+        {
+          speaker: "npc",
+          message: "Thanks for your patience — be just a sec.",
+        },
+      ],
+    },
+    {
+      id: "ex.1.7.7",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question:
+            "Yanlış süt geldi — Anglo-Sakson kafede en doğru ton hangisi?",
+          options: [
+            "Bu yanlış, değiştir!",
+            "Sorry, I think there's a mix-up — I asked for soy.",
+            "Where's my real coffee?",
+            "You make mistake, fix it.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Sen haklı olsan bile 'sorry' ile başla. Suçlamaz, çözüm odaklı ol.",
+        },
+        {
+          question: "Hangi fiil sipariş hatırlatmada en doğal?",
+          options: [
+            "I wanted soy milk",
+            "I asked for soy milk",
+            "I told you soy milk",
+            "I commanded soy milk",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Asked for' = nazik geçmiş istek. 'Told' suçlayıcı, 'wanted' biraz çocuksu.",
+        },
+        {
+          question: "Barista özür diledi — sen ne dersin?",
+          options: [
+            "It's your fault, but okay",
+            "Yes, you should be sorry",
+            "Thanks, no worries",
+            "Don't do it again",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'No worries' = mesele değil. Karşı tarafı rahatlatır, ilişki sürer.",
+        },
+      ],
+    },
+    {
+      id: "ex.1.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Sorry, I think there's a mix-up with my order.",
+      ipa: "ˈsɒri aɪ θɪŋk ðɛərz ə ˈmɪks ʌp wɪð maɪ ˈɔːrdər",
+      tr_hint:
+        "'There's' = 'ðɛərz' — Türkçe'de zorlu 'th' sesi, dilini hafif ısır. 'Mix-up' tek kelime gibi: 'MIKS-ap'.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 1.8 — To-Go Paketleme
+// ============================================================
+export const cafeLesson_1_8: BundledLesson = {
+  id: "order.cafe.1.8",
+  skill_id: "order.cafe",
+  index: 1,
+  title: "To-Go Paketleme",
+  description:
+    "Birden fazla içecek aldın, taşıman gerek. 'Cup carrier', 'extra napkins', 'tray' — paketleme kalıpları.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.1.8.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "cup carrier",
+      tr_translation: "Karton bardak taşıyıcı (4'lü taşıyıcı)",
+      example: "Could I get a cup carrier for these, please?",
+      example_tr: "Bunlar için bir taşıyıcı alabilir miyim, lütfen?",
+    },
+    {
+      id: "ex.1.8.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bunlar için bir taşıyıcı alabilir miyim?",
+      target: "Could I get a cup carrier for these, please?",
+      accepted_variants: [
+        "Can I have a cup carrier, please?",
+        "Could I get a carrier for these?",
+        "Can I get a tray for these to go?",
+        "Could you put these in a carrier, please?",
+        "A cup carrier, please.",
+        "Could I have a holder for these?",
+      ],
+      tr_hint:
+        "'Cup carrier' = karton 4'lü taşıyıcı. 'Tray' veya 'holder' da kabul.",
+    },
+    {
+      id: "ex.1.8.3",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "Could I get some ___ napkins, please?",
+      answer: "extra",
+      distractors: ["more many", "much", "lots"],
+      tr_hint:
+        "'Extra napkins' = ekstra peçeteler. 'More' da olur ama 'extra' kafe bağlamında daha doğal.",
+    },
+    {
+      id: "ex.1.8.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Could",
+        "you",
+        "double",
+        "cup",
+        "that",
+        "for",
+        "me",
+        "please",
+      ],
+      correct_sentence: "Could you double cup that for me please",
+      tr_translation:
+        "Bardağı çift kat yapabilir misiniz, lütfen? (sıcaktan parmak yakmamak için)",
+    },
+    {
+      id: "ex.1.8.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Give me one bag and three carton holders for cups.",
+      correct_sentence:
+        "Could I get a bag and a cup carrier for these, please?",
+      tr_explanation:
+        "'Give me' kaba — 'Could I get' kibar. 'Carton holders for cups' tanımlayıcı çeviri — native 'cup carrier' veya 'tray' der. Sayıları detaylı söylemek yerine 'a' yeter.",
+    },
+    {
+      id: "ex.1.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Üç içecek sipariş ettin, ofise götüreceksin. Paketleme için kasiyere ricalarını ilet.",
+      npc_role: "Barista",
+      setting: "To-go counter",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Alright, three lattes — anything else?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can) i (get|have) a (cup )?(carrier|tray|holder)",
+            "(could|can) you put.{0,20}(in a |a )?(carrier|tray|holder)",
+            "a (cup )?(carrier|tray|holder)(,)? please",
+            "yes(,)?.{0,15}(carrier|tray|holder)",
+            "can i (get|have) a tray",
+          ],
+          hint_tr:
+            "Taşıyıcı iste: 'Could I get a cup carrier, please?'",
+        },
+        {
+          speaker: "npc",
+          message: "Sure thing. Anything else?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can) i (get|have) (some |a few )?(extra )?napkins",
+            "(some |a few )?(extra )?napkins(,)? please",
+            "and (some |a few )?(extra )?napkins",
+            "(could|can) you add (some |a few )?napkins",
+            "extra napkins too",
+          ],
+          hint_tr:
+            "Peçete iste: 'Could I get some extra napkins, please?'",
+        },
+        {
+          speaker: "npc",
+          message: "Of course. Want me to double-cup the hot ones?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|yep|sure)(,)?( please)?",
+            "(yes|yeah|yep)(,)? that('d| would) be great",
+            "(yes|yeah|yep)(,)? (please|thanks|thank you)",
+            "that('d| would) be (great|perfect|helpful)",
+            "(please|thanks)",
+          ],
+          hint_tr:
+            "Pozitif onay: 'Yes, please' veya 'That'd be great, thanks'.",
+        },
+        {
+          speaker: "npc",
+          message: "Perfect, all set!",
+        },
+      ],
+    },
+    {
+      id: "ex.1.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Üç içeceği taşımak için ne istersin?",
+          options: [
+            "A box for cups",
+            "A cup carrier",
+            "A bag with handle",
+            "A bottle",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Cup carrier' = karton 4'lü taşıyıcı (standart kafe). 'Tray' veya 'holder' da geçer.",
+        },
+        {
+          question: "'Double cup' ne işe yarar?",
+          options: [
+            "İki bardak verir",
+            "Sıcaktan parmak yakmasın diye bardağı çift kat yapar",
+            "İçeceği iki katına çıkarır",
+            "İndirim sağlar",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Sıcak içeceklerde bardak çift kat olur, ısı izolasyonu sağlar. 'Could you double-cup that?'",
+        },
+        {
+          question: "Ekstra peçete istemenin en doğal yolu?",
+          options: [
+            "Give me more napkins",
+            "Could I get some extra napkins, please?",
+            "Napkins much, please",
+            "I need many napkins",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Could I get some extra napkins, please?' — kibar, doğal, kafe-spesifik.",
+        },
+      ],
+    },
+    {
+      id: "ex.1.8.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Could I get a cup carrier and some extra napkins, please?",
+      ipa: "kʊd aɪ ɡɛt ə kʌp ˈkæriər ænd səm ˈɛkstrə ˈnæpkɪnz pliːz",
+      tr_hint:
+        "'Carrier' = 'KÆR-i-ər', üç hece. 'Napkins' = 'NAP-kınz' (Türk 'peçete'ye benzemez). Sondaki 'please' net uzun 'iː'.",
+    },
+  ],
+};
+
+// ============================================================
 // Lesson registry
 // ============================================================
 export const cafeLessons: ReadonlyArray<BundledLesson> = [
@@ -815,6 +1556,10 @@ export const cafeLessons: ReadonlyArray<BundledLesson> = [
   cafeLesson_1_2,
   cafeLesson_1_3,
   cafeLesson_1_4,
+  cafeLesson_1_5,
+  cafeLesson_1_6,
+  cafeLesson_1_7,
+  cafeLesson_1_8,
 ];
 
 export function getCafeLesson(id: string): BundledLesson | undefined {

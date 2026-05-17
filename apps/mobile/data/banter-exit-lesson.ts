@@ -639,10 +639,704 @@ export const banterExitLesson_28_3: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 28.5 — Group Graceful Exit (Grup'tan Graceful Cikis)
+// ============================================================
+export const banterExitLesson_28_5: BundledLesson = {
+  id: "banter.exit.28.5",
+  skill_id: "banter.exit",
+  index: 5,
+  title: "Grup'tan Cikis — Graceful",
+  description:
+    "Arkadas grubundan + iliski kapisi acik tutarak — 'great catching up' tonu.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.bex28.5.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "It was great catching up",
+      tr_translation: "Sohbet etmek harikaydi (uzun zamandir gormeyen icin)",
+      example: "Alright, gonna head out — it was great catching up!",
+      example_tr: "Tamam, ben kalkayim — sohbet harikaydi!",
+    },
+    {
+      id: "ex.bex28.5.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Tamam, ben kalkayim — uzun zamandir gormemistik, harikaydi.",
+      target: "Alright, I'm gonna head out — it's been ages, was great catching up!",
+      accepted_variants: [
+        "Okay, gonna take off — been forever, loved catching up!",
+        "Alright, heading out — so good to see you again!",
+        "Time to bounce — it was awesome reconnecting!",
+        "Gotta run — was great seeing you after so long!",
+      ],
+      tr_hint:
+        "'Catching up' = ozellikle uzun zamandir gormeyenle. 'Been ages' = cok olmustu. Sicak veda.",
+    },
+    {
+      id: "ex.bex28.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "We should do this ___ soon.",
+      answer: "again",
+      distractors: ["once", "now", "later"],
+      tr_hint:
+        "'Do this again soon' = tekrar yapalim. Veda + plan acik birakma kalibi.",
+    },
+    {
+      id: "ex.bex28.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "It",
+        "was",
+        "great",
+        "catching",
+        "up",
+      ],
+      correct_sentence: "It was great catching up",
+      tr_translation: "Sohbet etmek harikaydi.",
+    },
+    {
+      id: "ex.bex28.5.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "OK bye now I going.",
+      correct_sentence:
+        "Alright, I'm gonna head out — it was great catching up, let's do it again soon!",
+      tr_explanation:
+        "'OK bye now I going' = grammatik + soguk. Dogru: warmth + 'catching up' + tekrar plan = iliski yatirimi.",
+    },
+    {
+      id: "ex.bex28.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Eski universiteli arkadas grubuyla 2 saat brunch yedin. Kalkma zamani.",
+      npc_role: "Old friend group",
+      setting: "Sunday brunch wrap-up",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(alright|okay|right)",
+            "(i'?m |gonna |gotta )(head out|take off|run|bounce)",
+            "(it was|this was|been) (great|so good|amazing) (catching up|seeing you)",
+            "(been (ages|forever|too long))",
+            "(don'?t (be a |become a )?stranger|let'?s not (wait|leave it))",
+            "(do this again|next time|round two|on the calendar)",
+          ],
+          hint_tr:
+            "Graceful: 'Alright, gonna head out — was great catching up, let's not leave it so long!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yes! Let's actually plan something next month.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(for sure|absolutely|hundred percent|deal)",
+            "(text me|i'?ll text|drop|shoot) (you )?(some|a few) (dates|times|options)",
+            "(this week|when (i'?m|im) (back|free))",
+            "(love you|love you guys|miss you all|hugs)",
+            "(have (a great|the best|safe) (rest of|trip|drive|day|sunday))",
+            "(see you (soon|next time|in a few))",
+          ],
+          hint_tr:
+            "Kapanis: 'For sure — I'll text dates this week. Love you guys!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Drive safe! Hugs.",
+        },
+      ],
+    },
+    {
+      id: "ex.bex28.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'It was great catching up' NE zaman ozellikle uygun?",
+          options: [
+            "Uzun zamandir gormeyen biriyle veda ederken",
+            "Her gun gordugun is arkadasiyla",
+            "Yeni tanistigin biriyle",
+            "Hicbir zaman",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "'Catching up' = bilgi/haberlesme. Uzun ayriliktan sonra mantikli. Her gun gorenle = garip.",
+        },
+        {
+          question: "Veda + 'let's do this again' niye kombo?",
+          options: [
+            "Iliski kapisi acik kalir + somut bir sonraki adim olur",
+            "Yararsiz",
+            "Cok agir",
+            "Hicbir sey",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Sadece veda = kapanis. Veda + plan = devam sinyali. Iliski yatirimi.",
+        },
+        {
+          question: "'Don't be a stranger' anlami?",
+          options: [
+            "Iletisimi kesme — devam edelim",
+            "Yabanci olma",
+            "Garip olma",
+            "Hicbir sey",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Idiom: 'iliski kaybolmasin'. Sicak veda sonu.",
+        },
+      ],
+    },
+    {
+      id: "ex.bex28.5.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "It was great catching up — don't be a stranger!",
+      ipa: "ɪt wəz ɡreɪt ˈkætʃɪŋ ʌp doʊnt biː ə ˈstreɪndʒər",
+      tr_hint:
+        "'Catching up' = 'kæ-tʃɪŋ-ʌp' bagli. 'Don't be a stranger' = idiom (iletisimi koparma).",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 28.6 — Tired/Bored Escape (Yorgun Cikis)
+// ============================================================
+export const banterExitLesson_28_6: BundledLesson = {
+  id: "banter.exit.28.6",
+  skill_id: "banter.exit",
+  index: 6,
+  title: "Yorgun/Sikildin — Escape",
+  description:
+    "Yorgun veya sikildiginda — kibar + dogal sebep ile cikis. 'Call it a night' jargon.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.bex28.6.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "I'm gonna call it a night",
+      tr_translation: "Bu geceyi burada bitiriyorum (yorgun)",
+      example: "I'm fading — gonna call it a night.",
+      example_tr: "Cok yoruldum — bu geceyi bitiriyorum.",
+    },
+    {
+      id: "ex.bex28.6.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bittim, yarin erken kalkmam lazim — bu geceyi burada bitireyim.",
+      target: "I'm beat — catching an early one tomorrow, so gonna call it a night.",
+      accepted_variants: [
+        "I'm wiped — early start tomorrow, gonna call it.",
+        "Running on fumes — got an early morning, calling it a night.",
+        "Honestly fading — early day tomorrow, time to head home.",
+        "I'm toast — gotta be up early, gonna call it.",
+      ],
+      tr_hint:
+        "'Beat' / 'wiped' / 'toast' = bittim (casual). 'Early one tomorrow' = yarin erken kalkma. Spesifik sebep = kabul edilir.",
+    },
+    {
+      id: "ex.bex28.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Catching an ___ one tomorrow.",
+      answer: "early",
+      distractors: ["earlier", "late", "important"],
+      tr_hint:
+        "'Catching an early one' = erken kalkmak/baslamak. Casual sebep kalibi.",
+    },
+    {
+      id: "ex.bex28.6.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "I'm",
+        "gonna",
+        "call",
+        "it",
+        "a",
+        "night",
+      ],
+      correct_sentence: "I'm gonna call it a night",
+      tr_translation: "Bu geceyi burada bitiriyorum.",
+    },
+    {
+      id: "ex.bex28.6.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I am very tired I go sleep now.",
+      correct_sentence:
+        "I'm honestly beat — gonna call it a night, early start tomorrow.",
+      tr_explanation:
+        "'I am very tired I go sleep now' = direkt cevirme + soguk. Dogru: casual ifade ('beat') + idiom ('call it a night') + sebep.",
+    },
+    {
+      id: "ex.bex28.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Aksam yemegindesin, saat 10 oldu, bittin. Yarin erken toplanti var.",
+      npc_role: "Dinner host",
+      setting: "Late dinner, you're fading",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|i'?m|gotta admit|not gonna lie)",
+            "(beat|wiped|toast|fading|done|exhausted)",
+            "(gonna|gotta) (call it|head home|crash|hit the hay)",
+            "(early (one|start|morning|meeting) tomorrow|early day)",
+            "(was (such a|a) (great|wonderful|fun) (night|dinner|evening))",
+            "(thank you|appreciate (it|the dinner|the meal))",
+          ],
+          hint_tr:
+            "Saglikli: 'Honestly beat — gonna call it, early one tomorrow. Dinner was amazing!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Aw, one more drink? Dessert?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(wish i could|trust me|next time)",
+            "(i'?d (love to|crash|be useless)|gonna be useless tomorrow)",
+            "(rain check on (the |that )?(dessert|drink|round))",
+            "(thank you so much|really appreciate)",
+            "(we'?ll do (it|this) again|next time for sure)",
+            "(text you tomorrow|see you (soon|next week))",
+          ],
+          hint_tr:
+            "Rain check: 'Wish I could — rain check on dessert, thanks so much!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Get home safe — sleep well!",
+        },
+      ],
+    },
+    {
+      id: "ex.bex28.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Call it a night' tam olarak ne demek?",
+          options: [
+            "Geceyi burada bitiriyorum — eve gidiyorum",
+            "Telefon ediyorum",
+            "Iyi geceler",
+            "Hicbir sey",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Idiom: gunu/aksami bitirme karari. 'Call it' = noktaliyorum. Yatma niyeti.",
+        },
+        {
+          question: "Yorgunluk sebebi nasil verilmeli?",
+          options: [
+            "Spesifik + casual ('early one tomorrow', 'long week')",
+            "Detayli isim ve sirket",
+            "Hicbir sey",
+            "Yalan",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Spesifik = kabul edilir. Vague ('not feeling great') = endise yaratir. Casual + net.",
+        },
+        {
+          question: "'Rain check' niye guzel jest?",
+          options: [
+            "Daveti reddediyorum ama tekrar isterim mesaji",
+            "Yagmur uyarisi",
+            "Iptal",
+            "Hicbir sey",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Idiom: 'simdi olmaz ama bir sonraki sefere tutarim'. Iliski koruyan ret.",
+        },
+      ],
+    },
+    {
+      id: "ex.bex28.6.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "I'm beat — catching an early one tomorrow.",
+      ipa: "aɪm biːt ˈkætʃɪŋ ən ˈɜːrli wʌn təˈmɒroʊ",
+      tr_hint:
+        "'Beat' = bittim (idiom, tek hece). 'Catching an early one' = 'kæ-tʃɪŋ-ən-ɜːr-li-wʌn' bagli. Casual yorgunluk.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 28.7 — Workplace End of Day Exit (Is Yeri Cikis)
+// ============================================================
+export const banterExitLesson_28_7: BundledLesson = {
+  id: "banter.exit.28.7",
+  skill_id: "banter.exit",
+  index: 7,
+  title: "Is Yerinde Cikis — Son Saat",
+  description:
+    "Mesai bitiminde ofisten cikis — 'have a good one', 'catch you Monday' kaliplarii. Profesyonel ama casual.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.bex28.7.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "I'm gonna take off",
+      tr_translation: "Ben cikiyorum (mesai bitti)",
+      example: "Alright, I'm gonna take off — have a good one!",
+      example_tr: "Tamam, ben cikiyorum — iyi aksamlar!",
+    },
+    {
+      id: "ex.bex28.7.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Tamam, ben cikiyorum — iyi haftasonlari, pazartesi gorusuruz.",
+      target: "Alright, I'm gonna take off — have a great weekend, catch you Monday!",
+      accepted_variants: [
+        "Heading out — good weekend, see you Monday!",
+        "Taking off — enjoy the weekend, catch you Monday.",
+        "I'm out — have a good one, see you Monday!",
+        "Calling it for the week — happy weekend, Monday it is!",
+      ],
+      tr_hint:
+        "'Take off' = is cikisi (idiom). 'Catch you Monday' = pazartesi gorusuruz. 'Have a good one' = iyi gunler/aksamlar.",
+    },
+    {
+      id: "ex.bex28.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Have a good ___.",
+      answer: "one",
+      distractors: ["day", "time", "night"],
+      tr_hint:
+        "'Have a good one' = kalipta 'one' var. Universal: iyi gunler/aksamlar/haftasonu. Soguk degil + zaman belirtmiyor.",
+    },
+    {
+      id: "ex.bex28.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Catch",
+        "you",
+        "Monday",
+      ],
+      correct_sentence: "Catch you Monday",
+      tr_translation: "Pazartesi gorusuruz.",
+    },
+    {
+      id: "ex.bex28.7.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Goodbye until Monday I leave the office now.",
+      correct_sentence:
+        "Alright, I'm gonna take off — have a good one, catch you Monday!",
+      tr_explanation:
+        "'Goodbye until Monday I leave the office now' = tutuk + formal. Dogru: 'gonna take off' + 'have a good one' + 'catch you Monday' = casual ofis vedasi.",
+    },
+    {
+      id: "ex.bex28.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Cuma 17:30, mesai bitti. Yan masa is arkadasinla veda.",
+      npc_role: "Work colleague",
+      setting: "Office, end of week",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(alright|okay|right|well)",
+            "(i'?m gonna|gonna|gotta|i'?m) (take off|head out|run|jet)",
+            "(have a (good|great|nice) (one|weekend|rest))",
+            "(catch you|see you|see ya) (monday|next week)",
+            "(any (big )?plans|what'?s the plan)",
+            "(enjoy|happy friday)",
+          ],
+          hint_tr:
+            "Casual: 'Alright, gonna take off — have a good one, catch you Monday! Any plans?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Just chilling — you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(same|same here|honestly same|nothing crazy)",
+            "(low key (weekend|plans)|nothing wild|chill weekend)",
+            "(might|maybe|thinking of|gonna try to)",
+            "(grab a (drink|coffee|bite)|catch a (movie|game))",
+            "(rest up|recharge|reset)",
+            "(enjoy yours|enjoy it|hope it'?s good)",
+          ],
+          hint_tr:
+            "Hafif: 'Same — low-key. Might catch a movie. Enjoy yours!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sounds chill. Monday!",
+        },
+      ],
+    },
+    {
+      id: "ex.bex28.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Is yeri vedasinda 'have a good one' niye kullanisli?",
+          options: [
+            "Universal — sabah/aksam/haftasonu, hepsi olur",
+            "Yararsiz",
+            "Cok formal",
+            "Hicbir sey",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "'Have a good one' = zaman + ortam farketmez. 'Have a good day' = sadece sabah. 'One' = generic + casual.",
+        },
+        {
+          question: "'Take off' burada NE anlama gelir?",
+          options: [
+            "Cikmak / ayrilmak (idiom)",
+            "Ucmak",
+            "Soyunmak",
+            "Hicbir sey",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Idiom: 'I'm gonna take off' = cikiyorum. Casual is + sosyal.",
+        },
+        {
+          question: "Cuma cikis vedasi nasil bitirilir?",
+          options: [
+            "'Catch you Monday' + 'have a good one' = somut + warm",
+            "Sadece 'bye'",
+            "Hicbir sey",
+            "Tutuk",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Somut zaman ('Monday') + iyi dilek = profesyonel iliski yatirimi.",
+        },
+      ],
+    },
+    {
+      id: "ex.bex28.7.8",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Alright, I'm gonna take off — catch you Monday!",
+      ipa: "ɔːlˈraɪt aɪm ˈɡʌnə teɪk ɒf kætʃ juː ˈmʌndeɪ",
+      tr_hint:
+        "'Take off' = 'teɪk-ɒf' iki kelime ama bagli soylenir. 'Catch you' = 'kætʃ-juː' = 'gorusuruz' (idiom).",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 28.8 — Don't Keep Them Long (Karsi Tarafi Uzatma)
+// ============================================================
+export const banterExitLesson_28_8: BundledLesson = {
+  id: "banter.exit.28.8",
+  skill_id: "banter.exit",
+  index: 8,
+  title: "Karsi Tarafi Uzatma — Bitir",
+  description:
+    "Karsi taraf mesgul gorunuyor — 'I'll let you go', 'don't wanna keep you' inceligi. Telefon/sohbet bitirme.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.bex28.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I'll let you go",
+      tr_translation: "Seni tutmayayim (sohbeti bitirme inceligi)",
+      example: "Alright, I'll let you go — talk soon!",
+      example_tr: "Tamam, seni tutmayayim — yakinda konusuruz!",
+    },
+    {
+      id: "ex.bex28.8.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Mesgulsundur, seni tutmayayim — bu kadar guzeldi, yakinda konusuruz.",
+      target: "I know you're busy — don't wanna keep you, this was great, talk soon!",
+      accepted_variants: [
+        "I'll let you go — sounds like you're swamped. Loved this, talk soon!",
+        "Don't wanna keep you — was great catching up, chat soon!",
+        "I'll let you run — appreciate the time, talk soon!",
+        "Letting you go — thanks for the chat, soon again!",
+      ],
+      tr_hint:
+        "'Let you go' = seni tutmayayim. 'Don't wanna keep you' = oyalamayayim. Karsi tarafin zamanina saygi = guclu sinyal.",
+    },
+    {
+      id: "ex.bex28.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Don't wanna ___ you.",
+      answer: "keep",
+      distractors: ["bother", "lose", "miss"],
+      tr_hint:
+        "'Don't wanna keep you' = seni alikoymayayim. Telefon/sohbet bitirme inceligi.",
+    },
+    {
+      id: "ex.bex28.8.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "I'll",
+        "let",
+        "you",
+        "go",
+      ],
+      correct_sentence: "I'll let you go",
+      tr_translation: "Seni tutmayayim.",
+    },
+    {
+      id: "ex.bex28.8.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "You are busy I finish call now.",
+      correct_sentence:
+        "I can tell you're slammed — I'll let you go, this was great!",
+      tr_explanation:
+        "'You are busy I finish call now' = robot. Dogru: empati ('slammed') + 'let you go' idiom + olumlu kapanis. Karsi tarafi rahatlat.",
+    },
+    {
+      id: "ex.bex28.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Telefonda 20 dakikadir konusuyorsun, karsi tarafin arka planda toplanti sesi var.",
+      npc_role: "Friend on phone",
+      setting: "Phone call wrap-up",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|alright|okay)",
+            "(i'?ll|let me) (let you (go|run)|stop (holding you|hogging you))",
+            "(don'?t (wanna|want to) keep you)",
+            "(sounds (like|busy)|i can (tell|hear))",
+            "(slammed|swamped|in the middle of)",
+            "(this was (great|so good)|loved (this|catching up)|appreciate (the|this) (call|chat))",
+          ],
+          hint_tr:
+            "Empatik: 'I can tell you're swamped — I'll let you go, this was great!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Honestly, yeah — got a meeting in 2 mins. Thanks!",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no worries|all good|totally|of course)",
+            "(go (handle it|crush it|kill it)|good luck)",
+            "(text me|call me|hit me up|catch up properly)",
+            "(when (you'?re|you have) (free|a sec|some time)|this week)",
+            "(have a (great|good) (rest of|day|one))",
+            "(bye|talk soon|chat soon)",
+          ],
+          hint_tr:
+            "Rahatlatici: 'No worries — go crush it! Text me when you're free.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Will do — bye!",
+        },
+      ],
+    },
+    {
+      id: "ex.bex28.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'I'll let you go' kim icin guclu jest?",
+          options: [
+            "Karsi taraf mesgul/oyaliyor — onun zamanini koruyorsun",
+            "Kendin icin",
+            "Yararsiz",
+            "Hicbir sey",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Cevirme: 'seni serbest birakiyorum'. Empati + saygi. Karsi tarafa kontrol veriyor.",
+        },
+        {
+          question: "Bu kalip Turk kulturune nasil farkli?",
+          options: [
+            "ABD'de cikis hakki vermek = saygi. Turkce'de uzun veda = sicaklik. Farkli normlar.",
+            "Ayni",
+            "Yararsiz",
+            "Hicbir sey",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Turk: uzatma = sicak. ABD: 'let you go' = zamanini onemsiyorum. Iki kultur de saygi ama farkli sergiliyor.",
+        },
+        {
+          question: "Telefonda 'don't wanna keep you' NE zaman?",
+          options: [
+            "Karsi tarafin arka planinda is/cocuk/aciliyet sesi varsa",
+            "Hicbir zaman",
+            "Hemen ilk dakika",
+            "Hicbir sey",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Sinyal okuma: ses + ton + sure. Mesgul sinyal varsa = nazikce cikis = profesyonel.",
+        },
+      ],
+    },
+    {
+      id: "ex.bex28.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Alright, I'll let you go — don't wanna keep you.",
+      ipa: "ɔːlˈraɪt aɪl let juː ɡoʊ doʊnt ˈwɒnə kiːp juː",
+      tr_hint:
+        "'I'll let you go' = 'aɪl-let-juː-ɡoʊ' (idiom, tek nefes). 'Don't wanna keep you' = casual + empatik kapanis.",
+    },
+  ],
+};
+
+// ============================================================
 // Banter Exit lessons registry
 // ============================================================
 export const banterExitLessons: ReadonlyArray<BundledLesson> = [
   banterExitLesson_28_1,
   banterExitLesson_28_2,
   banterExitLesson_28_3,
+  banterExitLesson_28_5,
+  banterExitLesson_28_6,
+  banterExitLesson_28_7,
+  banterExitLesson_28_8,
 ];

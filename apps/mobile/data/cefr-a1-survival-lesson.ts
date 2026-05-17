@@ -1512,6 +1512,825 @@ export const cefrA1SurvivalLesson_10: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 11 — İhtiyaç Bildirme: Tuvalet / Wifi / Yardım
+// ============================================================
+export const cefrA1SurvivalLesson_11: BundledLesson = {
+  id: "daily.survival.a1.11",
+  skill_id: "daily.survival.a1",
+  index: 11,
+  title: "İhtiyaç — Bathroom, Wifi, Help",
+  description:
+    "Bir şeye ihtiyacın var ama nasıl isteyeceğini bilmiyorsun: 'Where is the bathroom?', 'Wifi password, please?', 'Can you help me?'. Kafe, otel, havalimanı için kritik.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.a1s.11.1",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "bathroom",
+      tr_translation: "Tuvalet (ABD)",
+      example: "Where is the bathroom?",
+      example_tr: "Tuvalet nerede?",
+    },
+    {
+      id: "ex.a1s.11.2",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "wifi password",
+      tr_translation: "Wifi şifresi",
+      example: "Wifi password, please?",
+      example_tr: "Wifi şifresi, lütfen?",
+    },
+    {
+      id: "ex.a1s.11.3",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Tuvalet nerede?",
+      target: "Where is the bathroom?",
+      accepted_variants: [
+        "Where's the bathroom?",
+        "Where is the restroom?",
+        "Where's the restroom?",
+        "Excuse me, where is the bathroom?",
+        "Could you tell me where the bathroom is?",
+      ],
+      tr_hint: "ABD'de 'bathroom' veya 'restroom'. 'WC' anlaşılmaz. 'Toilet' İngiltere'de.",
+    },
+    {
+      id: "ex.a1s.11.4",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Wifi şifresi nedir?",
+      target: "What is the wifi password?",
+      accepted_variants: [
+        "What's the wifi password?",
+        "Can I have the wifi password?",
+        "Wifi password, please?",
+        "What's the password for wifi?",
+        "Could I get the wifi password?",
+      ],
+      tr_hint: "Kısa form: 'Wifi password, please?' Resmi: 'What is the wifi password?'",
+    },
+    {
+      id: "ex.a1s.11.5",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "Can you ___ me, please?",
+      answer: "help",
+      distractors: ["do", "make", "give", "say"],
+      tr_hint: "Yardım istemek = 'Can you help me?'. Kalıbı ezberle.",
+    },
+    {
+      id: "ex.a1s.11.6",
+      type: "word_order",
+      difficulty: 2,
+      scrambled_tokens: ["Where", "is", "the", "bathroom"],
+      correct_sentence: "Where is the bathroom",
+      tr_translation: "Tuvalet nerede?",
+    },
+    {
+      id: "ex.a1s.11.7",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Where is WC?",
+      correct_sentence: "Where is the bathroom?",
+      tr_explanation:
+        "Türk turistler 'WC' der ama Amerikalılar genelde anlamaz. ABD'de 'bathroom' veya 'restroom' kullan. Ayrıca 'the' atlanmaz.",
+    },
+    {
+      id: "ex.a1s.11.8",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Bir kafedesin. Tuvalete gitmen ve wifi'ye bağlanman gerekiyor. Garsondan iste.",
+      npc_role: "Café server",
+      setting: "Café",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "excuse me",
+            "(excuse me|hi|hello)(,)?",
+            "(can|could) you help me",
+            "sorry(,)?",
+          ],
+          hint_tr: "'Excuse me' ile başla.",
+        },
+        {
+          speaker: "npc",
+          message: "Yes, how can I help?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "where is the (bathroom|restroom|toilet)",
+            "where'?s the (bathroom|restroom|toilet)",
+            "(can|could) i use the (bathroom|restroom)",
+            "(bathroom|restroom)(,)? please",
+          ],
+          hint_tr: "'Where is the bathroom?' veya 'Restroom, please?'",
+        },
+        {
+          speaker: "npc",
+          message: "It's in the back, on the left.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "thank you",
+            "thanks",
+            "(and|also)(,)? (what'?s |the )?wifi password",
+            "(can i have|what'?s) the wifi password",
+            "wifi password(,)? please",
+          ],
+          hint_tr: "Teşekkür et + wifi sor: 'Thanks. And the wifi password, please?'",
+        },
+        {
+          speaker: "npc",
+          message: "Sure, it's 'cafe2026' — all lowercase.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "thank you",
+            "thanks",
+            "thank you (so |very )?much",
+            "thanks a lot",
+          ],
+          hint_tr: "Teşekkür et: 'Thank you so much.'",
+        },
+      ],
+    },
+    {
+      id: "ex.a1s.11.9",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "ABD'de tuvalet nasıl sorulur?",
+          options: [
+            "Where is WC?",
+            "Where is the bathroom?",
+            "Where toilet?",
+            "WC please?",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "ABD'de 'bathroom' veya 'restroom' yaygın. 'WC' Amerikalılar tarafından anlaşılmaz.",
+        },
+        {
+          question: "Wifi şifresi en kısa kibar nasıl istenir?",
+          options: [
+            "Give wifi.",
+            "Wifi password, please?",
+            "I want wifi now.",
+            "Wifi?",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Please' kibarlık için kritik. Kısa ama nazik: 'Wifi password, please?'",
+        },
+        {
+          question: "Yardım istemek için doğru kalıp?",
+          options: [
+            "Help me give.",
+            "Can you help me?",
+            "You help.",
+            "Help do?",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Can you help me?' = Bana yardım eder misin? Standart, kibar kalıp.",
+        },
+      ],
+    },
+    {
+      id: "ex.a1s.11.10",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Where is the bathroom?",
+      ipa: "wɛər ɪz ðə ˈbæθ.ruːm",
+      tr_hint: "'Where is' bağlanır → 'weriz'. 'bathroom' = 'bath-room', ilk hece vurgulu. 'th' dilini dişe koy.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 12 — Anlamadım: Tekrar Eder Misin
+// ============================================================
+export const cefrA1SurvivalLesson_12: BundledLesson = {
+  id: "daily.survival.a1.12",
+  skill_id: "daily.survival.a1",
+  index: 12,
+  title: "Anlamadım — Could you repeat?",
+  description:
+    "Karşı taraf hızlı/karışık konuştu. 'Sorry, I don't understand', 'Could you repeat?', 'Slowly please'. Donmadan kibarca tekrar iste.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.a1s.12.1",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "Slowly please",
+      tr_translation: "Yavaş, lütfen",
+      example: "Slowly please. I'm learning.",
+      example_tr: "Yavaş lütfen. Öğreniyorum.",
+    },
+    {
+      id: "ex.a1s.12.2",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Could you repeat?",
+      tr_translation: "Tekrar eder misiniz?",
+      example: "Sorry, could you repeat?",
+      example_tr: "Özür dilerim, tekrar eder misiniz?",
+    },
+    {
+      id: "ex.a1s.12.3",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Özür dilerim, anlamadım.",
+      target: "Sorry, I don't understand.",
+      accepted_variants: [
+        "I'm sorry, I don't understand.",
+        "Sorry, I didn't understand.",
+        "I don't understand, sorry.",
+        "Excuse me, I don't understand.",
+        "Sorry, I don't get it.",
+      ],
+      tr_hint: "'Sorry' önce, sonra 'I don't understand'. İki kısa cümle.",
+    },
+    {
+      id: "ex.a1s.12.4",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Daha yavaş konuşur musunuz, lütfen?",
+      target: "Could you speak more slowly, please?",
+      accepted_variants: [
+        "Can you speak more slowly, please?",
+        "Slowly, please.",
+        "Could you slow down, please?",
+        "Please speak slowly.",
+        "More slowly, please.",
+      ],
+      tr_hint: "En kısa: 'Slowly, please.' Kibarca: 'Could you speak more slowly?'",
+    },
+    {
+      id: "ex.a1s.12.5",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "Could you ___ that, please?",
+      answer: "repeat",
+      distractors: ["return", "remake", "redo", "rewrite"],
+      tr_hint: "Tekrar etmek = 'repeat'. 'Could you repeat that?' standart.",
+    },
+    {
+      id: "ex.a1s.12.6",
+      type: "word_order",
+      difficulty: 2,
+      scrambled_tokens: ["Could", "you", "repeat", "that", "please"],
+      correct_sentence: "Could you repeat that please",
+      tr_translation: "Tekrar eder misiniz, lütfen?",
+    },
+    {
+      id: "ex.a1s.12.7",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Repeat please!",
+      correct_sentence: "Could you repeat that, please?",
+      tr_explanation:
+        "'Repeat please' emir gibi durur — kaba. Kibar: 'Could you repeat that, please?' veya 'Sorry, can you repeat?' Soru formu nazikleştirir.",
+    },
+    {
+      id: "ex.a1s.12.8",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Sokakta birinden adres soruyorsun. Çok hızlı konuştu. Anlamadın — tekrar iste.",
+      npc_role: "Local person",
+      setting: "Street",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Go down two blocks, take a left at the lights, then it's on your right.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "sorry(,)? i don'?t understand",
+            "(i'?m )?sorry(,)? (could|can) you repeat",
+            "(could|can) you repeat( that)?",
+            "(slowly|more slowly)(,)? please",
+          ],
+          hint_tr: "'Sorry, I don't understand. Could you repeat?' veya 'Slowly, please.'",
+        },
+        {
+          speaker: "npc",
+          message: "Of course. Two blocks down, left at the lights.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(more |a bit )?slowly(,)? please",
+            "(sorry|excuse me)(,)? slowly",
+            "i'?m learning english",
+            "(one more time|once more)(,)? please",
+          ],
+          hint_tr: "Daha yavaş iste: 'Slowly, please. I'm learning English.'",
+        },
+        {
+          speaker: "npc",
+          message: "Sure. Go... two... blocks... then... left.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "thank you",
+            "thanks",
+            "thank you (so |very )?much",
+            "(okay|ok)(,)? (thank you|thanks)",
+            "(two blocks|left)(,)?( thank you| thanks)?",
+          ],
+          hint_tr: "Anladığını göster + teşekkür et: 'Two blocks, left. Thank you!'",
+        },
+        {
+          speaker: "npc",
+          message: "You're welcome. Good luck!",
+        },
+      ],
+    },
+    {
+      id: "ex.a1s.12.9",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Karşı taraf hızlı konuştu — en kibar ne dersin?",
+          options: [
+            "What?",
+            "Could you speak more slowly, please?",
+            "Stop!",
+            "Speak slowly!",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Could you...?' soru formu + 'please' = en kibar yol. 'Speak slowly!' emir, kaba.",
+        },
+        {
+          question: "Anlamadığını söylemek için doğru kalıp?",
+          options: [
+            "I no understand.",
+            "Me no know.",
+            "Sorry, I don't understand.",
+            "Not understand.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "İngilizce'de olumsuz için 'don't' (do not) gerekli. 'I no understand' tipik Türkçe çeviri hatası.",
+        },
+        {
+          question: "Tekrar istemek için en kullanışlı kelime?",
+          options: [
+            "return",
+            "repeat",
+            "rewrite",
+            "redo",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Konuşmayı tekrar etmek = 'repeat'. 'Could you repeat that?' kalıbı ezberle.",
+        },
+      ],
+    },
+    {
+      id: "ex.a1s.12.10",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Sorry, could you repeat that?",
+      ipa: "ˈsɒri kʊd juː rɪˈpiːt ðæt",
+      tr_hint: "'Sorry' yumuşak. 'could you' birleşir → 'kudja'. 'repeat' ikinci hece vurgulu.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 13 — Evet / Hayır / Belki Temel Cevaplar
+// ============================================================
+export const cefrA1SurvivalLesson_13: BundledLesson = {
+  id: "daily.survival.a1.13",
+  skill_id: "daily.survival.a1",
+  index: 13,
+  title: "Yes / No / Maybe — Temel Cevaplar",
+  description:
+    "Tek kelimelik cevaplar her zaman lazım: 'Yes, please', 'No, thank you', 'Maybe later'. Kibarca evet ve hayır demek.",
+  estimated_minutes: 4,
+  exercises: [
+    {
+      id: "ex.a1s.13.1",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "Yes, please",
+      tr_translation: "Evet, lütfen",
+      example: "Would you like coffee? Yes, please.",
+      example_tr: "Kahve ister misin? Evet, lütfen.",
+    },
+    {
+      id: "ex.a1s.13.2",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "No, thank you",
+      tr_translation: "Hayır, teşekkür ederim",
+      example: "More water? No, thank you.",
+      example_tr: "Daha su ister misin? Hayır, teşekkür ederim.",
+    },
+    {
+      id: "ex.a1s.13.3",
+      type: "translate",
+      difficulty: 1,
+      direction: "tr_to_en",
+      source: "Evet, lütfen.",
+      target: "Yes, please.",
+      accepted_variants: [
+        "Yes.",
+        "Yeah, please.",
+        "Yes, thanks.",
+        "Sure, please.",
+        "Yes please.",
+      ],
+      tr_hint: "Kabul ederken 'please' eklemek kibar. Sadece 'Yes' de olur.",
+    },
+    {
+      id: "ex.a1s.13.4",
+      type: "translate",
+      difficulty: 1,
+      direction: "tr_to_en",
+      source: "Belki sonra.",
+      target: "Maybe later.",
+      accepted_variants: [
+        "Maybe later, thanks.",
+        "Not now, maybe later.",
+        "Later, maybe.",
+        "Perhaps later.",
+        "Maybe in a bit.",
+      ],
+      tr_hint: "'Maybe later' = belki sonra. Kibar reddetme yolu.",
+    },
+    {
+      id: "ex.a1s.13.5",
+      type: "fill_blank",
+      difficulty: 1,
+      sentence_template: "No, ___ you.",
+      answer: "thank",
+      distractors: ["please", "yes", "sorry", "good"],
+      tr_hint: "Kibarca reddet: 'No, thank you.' Sadece 'No' kaba durur.",
+    },
+    {
+      id: "ex.a1s.13.6",
+      type: "word_order",
+      difficulty: 1,
+      scrambled_tokens: ["No", "thank", "you", "very", "much"],
+      correct_sentence: "No thank you very much",
+      tr_translation: "Hayır, çok teşekkür ederim.",
+    },
+    {
+      id: "ex.a1s.13.7",
+      type: "spot_mistake",
+      difficulty: 2,
+      incorrect_sentence: "No.",
+      correct_sentence: "No, thank you.",
+      tr_explanation:
+        "Sadece 'No' kaba durur — bıçak gibi keser. Her zaman 'No, thank you' veya 'No, thanks' ekle. Türkçe'deki 'Hayır' tek başına yeterli ama İngilizce'de yumuşatma şart.",
+    },
+    {
+      id: "ex.a1s.13.8",
+      type: "roleplay_chat",
+      difficulty: 2,
+      scenario_description:
+        "Restoranda garson soruyor. Bazı şeylere evet, bazılarına hayır diyeceksin.",
+      npc_role: "Waiter",
+      setting: "Restaurant",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Would you like some water?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "yes(,)? please",
+            "yes(,)? thanks",
+            "(sure|okay|ok)(,)? (please|thanks)?",
+            "yes",
+          ],
+          hint_tr: "Kibarca kabul et: 'Yes, please.'",
+        },
+        {
+          speaker: "npc",
+          message: "Great. Would you like to see the dessert menu?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "no(,)? thank you",
+            "no(,)? thanks",
+            "no(,)? thank you( very much)?",
+            "maybe later",
+            "not (now|today)(,)? thanks",
+          ],
+          hint_tr: "Kibarca reddet: 'No, thank you.' veya 'Maybe later.'",
+        },
+        {
+          speaker: "npc",
+          message: "Sure. Anything else?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "no(,)? thank you",
+            "no(,)? thanks",
+            "(just |the )?check(,)? please",
+            "(can|could) i (have|get) the (check|bill)",
+            "no(,)? that'?s all",
+          ],
+          hint_tr: "'No, thank you. Just the check, please.'",
+        },
+        {
+          speaker: "npc",
+          message: "Right away.",
+        },
+      ],
+    },
+    {
+      id: "ex.a1s.13.9",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Garson 'More water?' sordu, istiyorsun — en kibar cevap?",
+          options: [
+            "Yes.",
+            "Yes, please.",
+            "Give me.",
+            "OK.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Yes, please' = kibar + net. Sadece 'Yes' tek başına biraz cold.",
+        },
+        {
+          question: "Reddetmek istediğinde EN GÜVENLİ kalıp?",
+          options: [
+            "No.",
+            "Not.",
+            "No, thank you.",
+            "No way.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Sadece 'No' kaba durur. 'No, thank you' = kibar reddetme — her durumda güvenli.",
+        },
+        {
+          question: "Şu an istemiyorsun ama belki sonra — ne dersin?",
+          options: [
+            "Later!",
+            "Maybe later.",
+            "After.",
+            "No no.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Maybe later' = belki sonra. Şu an reddet ama kapıyı açık bırak.",
+        },
+      ],
+    },
+    {
+      id: "ex.a1s.13.10",
+      type: "pronounce_phrase",
+      difficulty: 1,
+      phrase: "No, thank you.",
+      ipa: "noʊ θæŋk juː",
+      tr_hint: "'No' uzun, sonra kısa duraklama. 'thank you' = 'θæŋk-juː', 'th' dilini dişe koy.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 14 — Acil: Yardım / Polis / Doktor
+// ============================================================
+export const cefrA1SurvivalLesson_14: BundledLesson = {
+  id: "daily.survival.a1.14",
+  skill_id: "daily.survival.a1",
+  index: 14,
+  title: "Acil — Help! Police! Doctor!",
+  description:
+    "Acil durumda: 'Help!', 'Call the police!', 'I need a doctor', 'Call 911'. Kısa, yüksek sesli, net cümleler. Hayat kurtarır.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.a1s.14.1",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "Call 911",
+      tr_translation: "911'i ara (ABD acil)",
+      example: "Call 911! It's an emergency.",
+      example_tr: "911'i ara! Acil durum.",
+    },
+    {
+      id: "ex.a1s.14.2",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "I need a doctor",
+      tr_translation: "Doktora ihtiyacım var",
+      example: "Help! I need a doctor.",
+      example_tr: "Yardım! Doktora ihtiyacım var.",
+    },
+    {
+      id: "ex.a1s.14.3",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Yardım! Polis!",
+      target: "Help! Police!",
+      accepted_variants: [
+        "Help! Call the police!",
+        "Help me! Police!",
+        "Someone help! Police!",
+        "Help! Get the police!",
+        "Police! Help!",
+      ],
+      tr_hint: "Kısa ve yüksek sesli. İki kelime: 'Help! Police!' En kritik kelimeler.",
+    },
+    {
+      id: "ex.a1s.14.4",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Doktora ihtiyacım var. 911'i arayın.",
+      target: "I need a doctor. Call 911.",
+      accepted_variants: [
+        "I need a doctor. Please call 911.",
+        "Please, I need a doctor. Call 911.",
+        "Help, I need a doctor. Call 911.",
+        "I need a doctor — call 911!",
+        "Doctor, please. Call 911.",
+      ],
+      tr_hint: "ABD acil numarası: 911. İngiltere: 999. Avrupa: 112.",
+    },
+    {
+      id: "ex.a1s.14.5",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "Call the ___!",
+      answer: "police",
+      distractors: ["polices", "policer", "polis", "policeman"],
+      tr_hint: "Polis (kurum) = 'the police'. 's' eklenmez.",
+    },
+    {
+      id: "ex.a1s.14.6",
+      type: "word_order",
+      difficulty: 2,
+      scrambled_tokens: ["I", "need", "a", "doctor", "now"],
+      correct_sentence: "I need a doctor now",
+      tr_translation: "Şimdi bir doktora ihtiyacım var.",
+    },
+    {
+      id: "ex.a1s.14.7",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I want doctor.",
+      correct_sentence: "I need a doctor.",
+      tr_explanation:
+        "Acil durumda 'want' (istiyorum) zayıf. 'Need' (ihtiyacım var) güçlü ve ciddi. Ayrıca 'a doctor' — sayılabilir isim, 'a' atlanmaz.",
+    },
+    {
+      id: "ex.a1s.14.8",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Sokakta biri kötü düştü. 911'i sen aradın. Operatöre durumu anlat.",
+      npc_role: "911 operator",
+      setting: "Emergency phone call",
+      turns: [
+        {
+          speaker: "npc",
+          message: "911, what's your emergency?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(help|please help)",
+            "(i need|we need) (a doctor|an ambulance|help)",
+            "(someone|a person) (is hurt|fell|is sick)",
+            "(there'?s|there is) an emergency",
+            "(please )?send (a doctor|an ambulance|help)",
+          ],
+          hint_tr: "Net ol: 'Help! Someone is hurt. Send an ambulance.'",
+        },
+        {
+          speaker: "npc",
+          message: "Okay, stay calm. Where are you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?m |we'?re )?(at|on|in|near) [a-z0-9 ,'-]+",
+            "(park|street|main) [a-z]+",
+            "i don'?t know",
+            "(in front of|outside) [a-z]+",
+            "[0-9]+ \\w+ (street|avenue|road)",
+          ],
+          hint_tr: "Yerini söyle: 'On Park Street.' veya 'Outside the hotel.'",
+        },
+        {
+          speaker: "npc",
+          message: "Help is on the way. What happened?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(he|she|a man|a woman) (fell|is sick|is hurt)",
+            "(she|he) (can'?t breathe|isn'?t moving)",
+            "(i don'?t know|i'?m not sure)",
+            "(please )?(hurry|come quickly|come fast)",
+            "(he|she) needs a doctor",
+          ],
+          hint_tr: "'A man fell. He needs a doctor. Please hurry.'",
+        },
+        {
+          speaker: "npc",
+          message: "Ambulance is two minutes away. Stay with them.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay|ok)(,)? thank you",
+            "thank you",
+            "thanks",
+            "(okay|ok)(,)? (i will|i'?ll stay)",
+          ],
+          hint_tr: "'Okay, thank you.'",
+        },
+      ],
+    },
+    {
+      id: "ex.a1s.14.9",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "ABD'de acil numara?",
+          options: [
+            "112",
+            "999",
+            "911",
+            "155",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "ABD'de acil = 911. İngiltere = 999. Avrupa = 112. Türkiye'de 155 değil — ABD'de 911 ezberle.",
+        },
+        {
+          question: "Acil durumda 'doktora ihtiyacım var' nasıl denir?",
+          options: [
+            "I want doctor.",
+            "Doctor me!",
+            "I need a doctor.",
+            "Doctor want.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'I need a doctor' — 'need' (ihtiyacım var) acil için güçlü. 'A doctor' — 'a' atlanmaz.",
+        },
+        {
+          question: "Yardım için en kısa, yüksek sesli kelime?",
+          options: [
+            "Sorry!",
+            "Hello!",
+            "Help!",
+            "Please!",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Help!' = tek kelime, herkes anlar, dikkat çeker. Acil durumda ilk kelime bu olmalı.",
+        },
+      ],
+    },
+    {
+      id: "ex.a1s.14.10",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "Help! Call 911!",
+      ipa: "hɛlp kɔːl naɪn wʌn wʌn",
+      tr_hint: "'Help' kısa ve yüksek. '911' = 'nine-one-one' (TEK TEK rakam). 'dokuz yüz on bir' DENMEZ.",
+    },
+  ],
+};
+
+// ============================================================
 // Lesson registry
 // ============================================================
 export const cefrA1SurvivalLessons: BundledLesson[] = [
@@ -1525,4 +2344,8 @@ export const cefrA1SurvivalLessons: BundledLesson[] = [
   cefrA1SurvivalLesson_8,
   cefrA1SurvivalLesson_9,
   cefrA1SurvivalLesson_10,
+  cefrA1SurvivalLesson_11,
+  cefrA1SurvivalLesson_12,
+  cefrA1SurvivalLesson_13,
+  cefrA1SurvivalLesson_14,
 ];

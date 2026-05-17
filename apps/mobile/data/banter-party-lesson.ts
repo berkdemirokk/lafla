@@ -926,6 +926,775 @@ export const banterPartyLesson_41_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 41.5 — Karşılaşma: How do you know X?
+// ============================================================
+export const banterPartyLesson_41_5: BundledLesson = {
+  id: "banter.party.41.5",
+  skill_id: "banter.party",
+  index: 5,
+  title: "Karşılaşma — How Do You Know X?",
+  description:
+    "Host ile bağ üzerinden tanışmayı derinleştir — 'How do you know the host?', 'Crashed any good parties lately?' — ortak ağ keşfi.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.bp41.5.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "So how do you know the host",
+      tr_translation: "Peki ev sahibini nereden tanıyorsun?",
+      example: "So how do you know the host? Through work?",
+      example_tr: "Peki ev sahibini nereden tanıyorsun? İşten mi?",
+    },
+    {
+      id: "ex.bp41.5.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Peki ev sahibini nereden tanıyorsun?",
+      target: "So how do you know the host?",
+      accepted_variants: [
+        "How do you know the host?",
+        "So, how do you know Sarah?",
+        "How'd you meet the host?",
+        "What's your connection to the host?",
+        "How do you two know each other?",
+      ],
+      tr_hint:
+        "'So' = sohbeti yumuşatan dolgu sözcük. 'The host' = ev sahibi, ismi bilmiyorsan güvenli.",
+    },
+    {
+      id: "ex.bp41.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Crashed any good parties ___?",
+      answer: "lately",
+      distractors: ["latest", "lateness", "later"],
+      tr_hint:
+        "'Lately' = son zamanlarda. 'Crash a party' = davetsiz katılmak (idiom, şakacı kullanılır).",
+    },
+    {
+      id: "ex.bp41.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "We",
+        "go",
+        "way",
+        "back",
+        "from",
+        "college",
+      ],
+      correct_sentence: "We go way back from college",
+      tr_translation: "Üniversiteden çok eski arkadaşız.",
+    },
+    {
+      id: "ex.bp41.5.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "From where you know him?",
+      correct_sentence: "So how do you know him?",
+      tr_explanation:
+        "'From where you know him?' = direkt Türkçe çevirisi, gramer hatası. Doğrusu: 'How do you know him?' — İngilizce'de 'how' (nasıl/nereden) kullanılır, 'from where' değil.",
+    },
+    {
+      id: "ex.bp41.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Çatı katı partisindesin. Tanımadığın biriyle balkonda göz göze geldin. Host bağlantısı üzerinden tanış.",
+      npc_role: "Friendly stranger on balcony",
+      setting: "Rooftop apartment party",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|hi|so)",
+            "(how do you know|how'?d you meet) (the host|sarah|him|her|them)",
+            "(through|from) (work|college|uni|school|friends)",
+            "(what'?s your connection)",
+            "(you (a )?friend of|do you know) (sarah|the host)",
+            "(how do you two know each other)",
+          ],
+          hint_tr:
+            "Aç: 'Hey — so how do you know the host?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh, Sarah and I go way back — we did college together. You?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh nice|cool|that'?s awesome)",
+            "(we (work together|met at work|are coworkers))",
+            "(through (a )?(mutual friend|work|the gym))",
+            "(i'?m friends with) (her brother|her roommate|maya)",
+            "(known her for) (years|a while|ages)",
+            "(small world)",
+          ],
+          hint_tr:
+            "Bağını anlat: 'Oh nice — we actually work together. Known her for two years now.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Small world! Crashed any good parties lately?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(ha|haha|lol)",
+            "(honestly|truthfully)",
+            "(not really|barely|been quiet)",
+            "(this is (the )?first one in)",
+            "(you\\?|what about you|how about you)",
+            "(been (busy|swamped|stuck) with work)",
+          ],
+          hint_tr:
+            "Şakaya gül + soruyu döndür: 'Ha — honestly this is my first one in months. You?'",
+        },
+        {
+          speaker: "npc",
+          message: "Same here — feels good to actually be out!",
+        },
+      ],
+    },
+    {
+      id: "ex.bp41.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'How do you know X?' niye partide güçlü açılış?",
+          options: [
+            "Çok kişisel",
+            "Ortak nokta = host, karşı tarafa hikaye paylaştırır",
+            "Kaba",
+            "Sadece eski arkadaşlara",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Host = paylaşılan bağlantı. Hikaye paylaşımı = doğal sohbet zinciri.",
+        },
+        {
+          question: "'We go way back' ne demek?",
+          options: [
+            "Geri dönüyoruz",
+            "Çok eski arkadaşız (idiom)",
+            "Geri çekiliyoruz",
+            "Geri yürüyoruz",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Go way back' = uzun süredir tanışmak (idiom). 'We go way back from college' = üniversiteden beri tanışıyoruz.",
+        },
+        {
+          question: "'Crashed any good parties lately?' tonu nedir?",
+          options: [
+            "Ciddi sorgu",
+            "Şakacı + casual — 'crash' davetsiz katılma (genelde şaka)",
+            "Saldırgan",
+            "Resmi",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Crash a party' idiom + şaka tonunda. Sohbete espri katar, hafif tutar.",
+        },
+      ],
+    },
+    {
+      id: "ex.bp41.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "So how do you know the host?",
+      ipa: "soʊ haʊ dʊ jə noʊ ðə hoʊst",
+      tr_hint:
+        "'How do you' = 'haʊ-dʊ-jə' birleşir. 'The host' = ðə hoʊst, 'th' diş arası. Meraklı yukarı tonlama.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 41.6 — İçecek/Yemek: Host'a İltifat
+// ============================================================
+export const banterPartyLesson_41_6: BundledLesson = {
+  id: "banter.party.41.6",
+  skill_id: "banter.party",
+  index: 6,
+  title: "İçecek / Yemek — Host'a İltifat",
+  description:
+    "'These drinks are dangerous' (kibar abartma), 'Did you make this? It's amazing' — host'a örtük ve direkt iltifat sanatı.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.bp41.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "These drinks are dangerous",
+      tr_translation: "Bu içecekler tehlikeli (= çok lezzetli, kibar abartma)",
+      example: "Oh wow — these drinks are dangerous!",
+      example_tr: "Vay — bu içecekler tehlikeli! (çok güzel demek)",
+    },
+    {
+      id: "ex.bp41.6.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bunu sen mi yaptın? Harika olmuş!",
+      target: "Did you make this? It's amazing!",
+      accepted_variants: [
+        "Did you make this yourself? It's incredible!",
+        "Wait, you made this? So good!",
+        "You made this? It's unreal!",
+        "Did you make this? It's so good!",
+        "Hold on — you made this? Amazing!",
+      ],
+      tr_hint:
+        "'Did you make this?' = sen mi yaptın? Host'a/sunan kişiye direkt iltifat = sosyal puan.",
+    },
+    {
+      id: "ex.bp41.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "This is ___ good — what's in it?",
+      answer: "ridiculously",
+      distractors: ["ridiculous", "ridicule", "ridiculing"],
+      tr_hint:
+        "'Ridiculously good' = saçma sapan güzel (positif abartma, casual). Adverb (zarf) gerekir.",
+    },
+    {
+      id: "ex.bp41.6.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "You",
+        "have",
+        "got",
+        "to",
+        "give",
+        "me",
+        "the",
+        "recipe",
+      ],
+      correct_sentence: "You have got to give me the recipe",
+      tr_translation: "Tarifi mutlaka bana vermelisin.",
+    },
+    {
+      id: "ex.bp41.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I like food. Food is good.",
+      correct_sentence: "Did you make this? It's seriously incredible.",
+      tr_explanation:
+        "'I like food. Food is good.' = sönük + jenerik, sıfır enerji. Doğrusu: spesifik + host'a yönelik soru + güçlü pozitif sıfat = warm iltifat.",
+    },
+    {
+      id: "ex.bp41.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Ev sahibi mutfakta tabakları yeniliyor. Yaptığı yemeği övmek istiyorsun.",
+      npc_role: "Host in kitchen",
+      setting: "Kitchen counter with food spread",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|sarah|oh wow)",
+            "(did you make (this|these|that))",
+            "(everything (looks|tastes) (amazing|incredible|unreal))",
+            "(this (dip|pasta|cheese|spread)) is (amazing|incredible|so good)",
+            "(seriously|honestly) (good|amazing|unreal)",
+            "(these drinks are dangerous)",
+          ],
+          hint_tr:
+            "Aç: 'Sarah — did you make this? It's seriously incredible.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Aw thanks! Yeah, I tried a new recipe — glad you like it.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(like it|love it|obsessed)",
+            "(you (have |'ve )?(got )?to give me the recipe)",
+            "(what'?s in (it|this))",
+            "(send me the recipe|text me the recipe)",
+            "(could (eat|finish) the whole thing)",
+            "(ridiculously good|so good|next level)",
+          ],
+          hint_tr:
+            "Övgüyü derinleştir: 'I love it — you've got to send me the recipe.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Of course! And try the punch too — kind of my secret weapon.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh|yeah|already)",
+            "(these drinks are dangerous|the punch is dangerous)",
+            "(too good|too easy to drink)",
+            "(might have to pace myself|gotta slow down)",
+            "(what'?s in (it|the punch))",
+            "(no wonder|that explains it)",
+          ],
+          hint_tr:
+            "Şakacı abartma: 'Already tried it — these drinks are dangerous, might have to pace myself!'",
+        },
+        {
+          speaker: "npc",
+          message: "Haha that's the goal — enjoy!",
+        },
+      ],
+    },
+    {
+      id: "ex.bp41.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Host'a yemek iltifatının EN güçlü yolu?",
+          options: [
+            "'Food is good.'",
+            "'Did you make this? It's incredible!' — spesifik + soru",
+            "Sessizlik",
+            "'Not bad.'",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Soru + güçlü sıfat = host hikaye anlatma fırsatı + kendini değerli hisseder.",
+        },
+        {
+          question: "'These drinks are dangerous' niye iltifat?",
+          options: [
+            "Şikayet",
+            "Pozitif abartma — 'o kadar iyi ki dur duramıyorum'",
+            "Uyarı",
+            "Soğuk yorum",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Dangerous' burada casual abartma. Aslında 'çok lezzetli' demek. Host gülerek alır.",
+        },
+        {
+          question: "'You've got to give me the recipe' niye işe yarar?",
+          options: [
+            "Talepkar",
+            "Eylem davetli iltifat — host'a 'bu çok iyi, takip etmek istiyorum' sinyali",
+            "Kaba",
+            "Resmi",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Pratik istek = pasif övgüden daha güçlü. Host kendini özel hisseder, ilişki kapısı açar.",
+        },
+      ],
+    },
+    {
+      id: "ex.bp41.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Did you make this? It's amazing!",
+      ipa: "dɪd jə meɪk ðɪs ɪts əˈmeɪzɪŋ",
+      tr_hint:
+        "'Did you' = 'dɪd-jə' birleşir, hızlı. 'It's amazing' vurgu 'maz' hecesinde. Hayret + sıcak tonlama.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 41.7 — Grup ile Karış: Açık Spot
+// ============================================================
+export const banterPartyLesson_41_7: BundledLesson = {
+  id: "banter.party.41.7",
+  skill_id: "banter.party",
+  index: 7,
+  title: "Grup ile Karış — Açık Spot Bul",
+  description:
+    "Gruba akıllıca dahil ol — 'Mind if I jump in?', 'What were you guys talking about?' — açık dairede kapı bulma sanatı.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.bp41.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Mind if I jump in",
+      tr_translation: "Katılabilir miyim?",
+      example: "Hey — mind if I jump in?",
+      example_tr: "Selam — katılabilir miyim?",
+    },
+    {
+      id: "ex.bp41.7.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Neyden bahsediyordunuz?",
+      target: "What were you guys talking about?",
+      accepted_variants: [
+        "What were y'all talking about?",
+        "So what's the topic?",
+        "Mind catching me up?",
+        "What did I walk into?",
+        "What were we discussing?",
+      ],
+      tr_hint:
+        "'You guys' = casual çoğul 'siz' (US, gender-neutral). Past continuous = 'bahsediyordunuz' = devam eden eylem.",
+    },
+    {
+      id: "ex.bp41.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Don't ___ to break it up — keep going!",
+      answer: "want",
+      distractors: ["like", "wish", "hope"],
+      tr_hint:
+        "'Don't want to break it up' = grubun sohbetini bölmek istemem. Saygılı katılım sinyali.",
+    },
+    {
+      id: "ex.bp41.7.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Sorry",
+        "to",
+        "interrupt",
+        "can",
+        "I",
+        "join",
+        "you",
+      ],
+      correct_sentence: "Sorry to interrupt can I join you",
+      tr_translation: "Bölüyorum, kusura bakmayın — katılabilir miyim?",
+    },
+    {
+      id: "ex.bp41.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I come to your group. You talk what?",
+      correct_sentence:
+        "Hey, mind if I jump in? What were you guys talking about?",
+      tr_explanation:
+        "'I come to your group. You talk what?' = direkt Türkçe kurgusu + gramer bozuk. Doğrusu: 'mind if I jump in' = izin + 'what were you guys talking about' = soru sırası doğru.",
+    },
+    {
+      id: "ex.bp41.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "4 kişilik grup salonda gülerek konuşuyor. Aralarında açık bir alan görüyorsun. Saygılı katıl.",
+      npc_role: "Group of four",
+      setting: "Living room couch area",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|hi|sorry to interrupt)",
+            "(mind if i|can i|could i) (jump in|join|squeeze in|hop in)",
+            "(don'?t (mean to|want to) (interrupt|break it up))",
+            "(what were (you|y'all|you guys) (talking|laughing) about)",
+            "(looks like (a |the )fun (group|conversation))",
+            "(can i (steal a spot|grab a spot))",
+          ],
+          hint_tr:
+            "Aç: 'Hey — mind if I jump in? Looks like the fun group.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Of course! We were just trading travel disaster stories — got any good ones?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh man|wait|haha)",
+            "(i('?ve| have) got one|i have a good one)",
+            "(travel disasters? are my (specialty|thing))",
+            "(this one time (in|at|on)|last year (i|when))",
+            "(missed (a |my )flight|lost (my )?(luggage|passport))",
+            "(don'?t even get me started)",
+          ],
+          hint_tr:
+            "Konuya bağlan: 'Oh man — I've got one. Lost my passport in Italy last year.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "No way — what did you do?!",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay so|alright)",
+            "(panicked first|freaked out)",
+            "(spent (an hour|the night|the day) at the embassy)",
+            "(turns out|long story short)",
+            "(ended up (sleeping|stuck|missing))",
+            "(somehow (made it|got home|worked out))",
+          ],
+          hint_tr:
+            "Hikayeni aç: 'Okay so — panicked first, spent the whole day at the embassy...'",
+        },
+        {
+          speaker: "npc",
+          message: "We need every detail — keep going!",
+        },
+      ],
+    },
+    {
+      id: "ex.bp41.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Açık dairede grubu nasıl tanırsın?",
+          options: [
+            "Sırtları kapalı, dar daire",
+            "Aralarında boşluk var, vücutlar dışa açık = davetkar",
+            "Sessiz duruyorlar",
+            "Hep aynı yere bakıyorlar",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Açık daire (open circle) = sosyal sinyal. Katılım hoş karşılanır. Kapalı daire = özel sohbet, bekle.",
+        },
+        {
+          question: "'What were you guys talking about?' niye doğal?",
+          options: [
+            "Yararsız",
+            "'You guys' casual çoğul + past continuous = grup ritmiyle uyum",
+            "Çok resmi",
+            "Saldırgan",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'You guys' US İngilizcesinde gender-neutral 'siz'. Past continuous = bahsedilen şeyi devam etme niyeti gösterir.",
+        },
+        {
+          question: "Gruba ekleme yaparken EN kötü hamle?",
+          options: [
+            "Hikaye paylaşmak",
+            "Kendi konunu dayatmak / mevcut konuyu kesmek",
+            "Soru sormak",
+            "Gülmek",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Mevcut konuya saygı = grup ritmini korumak. Yeni konu açmak = sosyal hata.",
+        },
+      ],
+    },
+    {
+      id: "ex.bp41.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "What were you guys talking about?",
+      ipa: "wʌt wər jə ɡaɪz ˈtɔːkɪŋ əˈbaʊt",
+      tr_hint:
+        "'What were you' = 'wʌt-wər-jə' bağlanır. 'You guys' = jə ɡaɪz, casual. Vurgu 'talking'. Meraklı + warm tonlama.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 41.8 — Erken Çıkış: Bahane
+// ============================================================
+export const banterPartyLesson_41_8: BundledLesson = {
+  id: "banter.party.41.8",
+  skill_id: "banter.party",
+  index: 8,
+  title: "Erken Çıkış — Kibar Bahane",
+  description:
+    "Saat erken ama gitmen gerek — 'Gotta head out early', 'Thanks for having me' — host'u kırmadan zarif ayrılma.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.bp41.8.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "Gotta head out early",
+      tr_translation: "Erken kalkmam gerek",
+      example: "Sorry — gotta head out early tonight.",
+      example_tr: "Pardon — bu akşam erken kalkmam gerek.",
+    },
+    {
+      id: "ex.bp41.8.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Erken kalktığım için kusura bakma — yarın erken kalkıyorum.",
+      target: "Sorry to head out early — I've got an early morning tomorrow.",
+      accepted_variants: [
+        "Sorry to bail early — early morning tomorrow.",
+        "Gotta head out early — early start tomorrow.",
+        "Wish I could stay — got an early one tomorrow.",
+        "Sorry to take off early — early day tomorrow.",
+        "Bummed to leave early — early morning ahead.",
+      ],
+      tr_hint:
+        "Sebep + üzüntü ifadesi = host'a saygı. 'Got an early morning' = klasik kibar bahane.",
+    },
+    {
+      id: "ex.bp41.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Thanks ___ having me — had a blast!",
+      answer: "for",
+      distractors: ["of", "to", "with"],
+      tr_hint:
+        "'Thanks for having me' = sabit kalıp. 'For + verb-ing' yapısı. 'Had a blast' = çok eğlendim (idiom).",
+    },
+    {
+      id: "ex.bp41.8.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Wish",
+        "I",
+        "could",
+        "stay",
+        "longer",
+        "but",
+      ],
+      correct_sentence: "Wish I could stay longer but",
+      tr_translation: "Daha kalmak isterdim ama...",
+    },
+    {
+      id: "ex.bp41.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I leave now. Goodbye.",
+      correct_sentence:
+        "Hey — gotta head out early, but thanks so much for having me!",
+      tr_explanation:
+        "'I leave now. Goodbye.' = robot + soğuk. Doğrusu: sebep ('gotta head out early') + teşekkür + sıcaklık ('so much for having me') = host etkilenir.",
+    },
+    {
+      id: "ex.bp41.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Saat 22:30, parti devam ediyor ama yarın erken işin var. Önce host'a, sonra grup arkadaşına veda.",
+      npc_role: "Host then group friend",
+      setting: "Party near the entrance",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|sarah|so)",
+            "(gotta|got to|have to) (head out|take off|bounce|call it) early",
+            "(early (start|morning|day)|early one) tomorrow",
+            "(wish i could stay (longer|more))",
+            "(thanks (so much|a ton|so much)) for (having me|the invite)",
+            "(was (such )?(a )?(great|amazing|fun) (night|time|party))",
+          ],
+          hint_tr:
+            "Host'a: 'Hey Sarah — gotta head out early, got an early morning tomorrow. Thanks so much for having me!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Aw bummer! So glad you came though — let's catch up soon!",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(absolutely|for sure|definitely)",
+            "(text|message|hit) (you|me) (this|next) week",
+            "(let'?s grab (coffee|lunch|drinks))",
+            "(soon|sometime soon|this week)",
+            "(can'?t wait|looking forward)",
+            "(thanks again|appreciate it)",
+          ],
+          hint_tr:
+            "Cevapla: 'For sure — I'll text you this week. Let's grab coffee!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "(Maya from earlier walks over) Wait — you're leaving already?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|sadly|unfortunately)",
+            "(early (start|morning|day) tomorrow|got work early)",
+            "(was so (nice|great|fun) (meeting|chatting with) you)",
+            "(let'?s (stay in touch|grab coffee)|can i (get|have) your (number|insta))",
+            "(text me|here'?s my number)",
+            "(get home safe|see you soon)",
+          ],
+          hint_tr:
+            "Arkadaşa: 'Yeah, early morning tomorrow. Was so nice meeting you — let's stay in touch!'",
+        },
+        {
+          speaker: "npc",
+          message: "Yes please! Text me — get home safe!",
+        },
+      ],
+    },
+    {
+      id: "ex.bp41.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Erken çıkışta EN önemli bileşen nedir?",
+          options: [
+            "Sessizce çıkmak",
+            "Sebep + teşekkür + sıcaklık üçlüsü",
+            "Uzun açıklama",
+            "Özür dileme listesi",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Sebep' (early morning) + 'teşekkür' (thanks for having me) + 'sıcaklık' (was great) = host gücenmez, davet yenilenir.",
+        },
+        {
+          question: "'Gotta head out early' niye doğal?",
+          options: [
+            "Çok resmi",
+            "Casual + kararlı + sebep getirmeye hazır",
+            "Yararsız",
+            "Saldırgan",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Gotta' = casual 'have to'. 'Head out' = ayrılmak (idiom). Yumuşak ama net çıkış sinyali.",
+        },
+        {
+          question: "Erken çıkışta hangisi YANLIŞ hamle?",
+          options: [
+            "Sebep söylemek",
+            "Sessizce kaybolmak (küçük partiden)",
+            "Teşekkür etmek",
+            "Takip planı önermek",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Küçük partide 'Irish goodbye' = kabalık. Mutlaka host'a veda + teşekkür gerekir. Büyük etkinlikte farklı.",
+        },
+      ],
+    },
+    {
+      id: "ex.bp41.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Gotta head out early — thanks for having me!",
+      ipa: "ˈɡɑːtə hed aʊt ˈɜːrli θæŋks fɔːr ˈhævɪŋ miː",
+      tr_hint:
+        "'Gotta' = ɡɑːtə, casual. 'Head out' = çıkmak (idiom). Vurgu 'early' + 'thanks'. Üzgün-ama-warm tonlama.",
+    },
+  ],
+};
+
+// ============================================================
 // Banter Party lessons registry
 // ============================================================
 export const banterPartyLessons: ReadonlyArray<BundledLesson> = [
@@ -933,4 +1702,8 @@ export const banterPartyLessons: ReadonlyArray<BundledLesson> = [
   banterPartyLesson_41_2,
   banterPartyLesson_41_3,
   banterPartyLesson_41_4,
+  banterPartyLesson_41_5,
+  banterPartyLesson_41_6,
+  banterPartyLesson_41_7,
+  banterPartyLesson_41_8,
 ];

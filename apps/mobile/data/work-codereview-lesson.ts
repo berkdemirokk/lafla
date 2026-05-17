@@ -620,10 +620,727 @@ export const workCodereviewLesson_15_3: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 15.5 — Nitpick vs Blocker Ayrimi (Severity Prefix)
+// ============================================================
+export const workCodereviewLesson_15_5: BundledLesson = {
+  id: "work.codereview.15.5",
+  skill_id: "work.codereview",
+  index: 5,
+  title: "Nit / Non-blocking / Blocker Ayrimi",
+  description:
+    "Yorumun siddet seviyesini prefix ile sinyalle: 'nit:' = isteğe baglı, 'non-blocking:' = gorus, 'blocker:' = merge engelleyici.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wcr15.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Blocker:",
+      tr_translation: "Engelleyici: (merge engelleyici prefix)",
+      example: "Blocker: this SQL query is vulnerable to injection — needs parameterization before merge.",
+      example_tr: "Engelleyici: bu SQL sorgusu injection'a açık — merge öncesi parametreleştirilmeli.",
+    },
+    {
+      id: "ex.wcr15.5.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Nit: degisken adi biraz mughak. Non-blocking ama dusunmek isteyebilirsin.",
+      target: "Nit: variable name is a bit ambiguous. Non-blocking, but might be worth a thought.",
+      accepted_variants: [
+        "Nit: this name reads a little vague — non-blocking though.",
+        "Small nit: variable name is unclear — totally optional.",
+        "Non-blocking nit: name could be clearer, up to you.",
+        "Nitpick: name is ambiguous — feel free to skip.",
+      ],
+      tr_hint:
+        "'Nit:' = author '5 saniyede karar verir, devam' anlami. 'Non-blocking' altinda iki kez vurgular = baskisiz.",
+    },
+    {
+      id: "ex.wcr15.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "___: this needs to be fixed before merging.",
+      answer: "Blocker",
+      distractors: ["Nit", "FYI", "Idea"],
+      tr_hint:
+        "Sadece 'merge engelleyici' kasit varsa 'Blocker:' kullan. Yumusatma. 'Nit:' kucuk seyler icin.",
+    },
+    {
+      id: "ex.wcr15.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Non-blocking",
+        "but",
+        "worth",
+        "thinking",
+        "about",
+        "later",
+      ],
+      correct_sentence: "Non-blocking but worth thinking about later",
+      tr_translation: "Engelleyici değil ama sonra düşünmeye değer.",
+    },
+    {
+      id: "ex.wcr15.5.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "This is bad and you must change.",
+      correct_sentence:
+        "Blocker: this leaks the API token in logs — needs scrubbing before merge.",
+      tr_explanation:
+        "'Bad' + 'must change' = saldiri + emir = defansif tepki. Doğru: 'Blocker:' prefix + somut sebep + net cikis yolu. Severity netse author savunmaya gecmez, fixler.",
+    },
+    {
+      id: "ex.wcr15.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "PR'da 3 yorum birakacaksin: bir nit, bir non-blocking gorus, bir blocker. Severity'i prefix'le netle.",
+      npc_role: "PR Author",
+      setting: "GitHub PR comment thread",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(nit|nitpick|small nit):? ",
+            "(rename|naming|variable name|could (be|use) (clearer|more descriptive))",
+            "(totally optional|up to you|feel free to skip|your call)",
+          ],
+          hint_tr:
+            "Kucuk yorum: 'Nit: could `tmp` be renamed to `parsedJson`? Up to you.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sounds good — will rename. Any bigger stuff?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(non-?blocking|fyi|something to (think|chew) on):? ",
+            "(this (function|method|approach) (might|could|may))",
+            "(struggle|scale|break) (at|with|when)",
+            "(happy to (defer|punt|table)|fine as is|not blocking the merge)",
+          ],
+          hint_tr:
+            "Gorus: 'Non-blocking: this loop may slow down at 10k items — fine to defer.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Fair — let's table it for now. Anything blocking?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(blocker|hard blocker):? ",
+            "(sql|password|token|secret|api key) (injection|leak|exposure|in logs)",
+            "(needs|must be|has to be) (fixed|patched|scrubbed|parameterized) (before|prior to) (merge|merging|landing)",
+          ],
+          hint_tr:
+            "Blocker: 'Blocker: API token is logged in plaintext — needs scrubbing before merge.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yikes, good catch. Will scrub and push a fix.",
+        },
+      ],
+    },
+    {
+      id: "ex.wcr15.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Nit:' prefix'i ne anlama gelir?",
+          options: [
+            "Merge engelleyici — sart fix",
+            "Kucuk, isteğe baglı oneri — author atlayabilir",
+            "Saldiri",
+            "Soru",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Nit:' = nitpick = kil. Author 'oh, atlayabilirim' anlar = akiş bozulmaz.",
+        },
+        {
+          question: "'Non-blocking:' prefix'i NE iletiyor?",
+          options: [
+            "Merge engellenir",
+            "Gorus belirtiyorum ama bu PR'i durdurmuyorum = saglikli tartisma",
+            "Saldiri",
+            "Sus",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Author bilir: yorumu dusunecek ama hemen fixlemek zorunda degil = follow-up'a kalir.",
+        },
+        {
+          question: "'Blocker:' kullanirken NE eklemeli?",
+          options: [
+            "Sadece 'blocker' yazsam yeter",
+            "Somut sebep + net cikis yolu = author defansif olmaz, fixler",
+            "Hakaret",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Blocker' tek basina = panik + savunma. 'Blocker: SQL injection riski — parameterize edersen yeter' = harekete gecirilebilir.",
+        },
+      ],
+    },
+    {
+      id: "ex.wcr15.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Blocker: needs a fix before we can merge this.",
+      tr_translation: "Engelleyici: bunu merge etmeden önce bir düzeltme lazım.",
+      ipa: "/ˈblɒkər niːdz ə fɪks bɪˈfɔːr wiː kæn mɜːdʒ ðɪs/",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 15.6 — PR'i Kibarce Reddetme (Refactor Iste)
+// ============================================================
+export const workCodereviewLesson_15_6: BundledLesson = {
+  id: "work.codereview.15.6",
+  skill_id: "work.codereview",
+  index: 6,
+  title: "PR'i Kibarce Reddet — Refactor Iste",
+  description:
+    "Approve etmiyorsun ama saldirmiyorsun. 'This could be cleaner — wdyt about extracting?' formati.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wcr15.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "wdyt about extracting",
+      tr_translation: "Çıkarmaya ne dersin? (what do you think hakkinda)",
+      example: "This could be cleaner — wdyt about extracting the parsing into a helper?",
+      example_tr: "Bu daha temiz olabilir — parse'lamayı bir helper'a çıkarmaya ne dersin?",
+    },
+    {
+      id: "ex.wcr15.6.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Sanirim burada bir refactor yardimci olur — fonksiyon biraz buyumus. Cikarmaya ne dersin?",
+      target: "I think a refactor would help here — this function has grown a bit. Wdyt about extracting?",
+      accepted_variants: [
+        "This is getting long — what do you think about pulling out the validation?",
+        "Could we tighten this up? Maybe extract the loop into its own function?",
+        "Worth a refactor pass — wdyt about splitting this up?",
+        "Function's grown a bit — open to extracting some of it?",
+      ],
+      tr_hint:
+        "'Wdyt' = casual 'what do you think'. Soru = davet, emir = saldiri. PR'da hep soru formati.",
+    },
+    {
+      id: "ex.wcr15.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "This could be ___ — would you consider a refactor?",
+      answer: "cleaner",
+      distractors: ["clean", "cleanly", "cleared"],
+      tr_hint:
+        "'Cleaner' = karsilastirmali sifat = 'daha temiz'. 'Clean' = sifat (daha sert). 'Cleaner' = yumusak öneri.",
+    },
+    {
+      id: "ex.wcr15.6.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Open",
+        "to",
+        "pulling",
+        "this",
+        "into",
+        "a",
+        "helper?",
+      ],
+      correct_sentence: "Open to pulling this into a helper?",
+      tr_translation: "Bunu bir helper'a çıkarmaya açık mısın?",
+    },
+    {
+      id: "ex.wcr15.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Reject. Rewrite this all.",
+      correct_sentence:
+        "Not quite ready to approve yet — wdyt about extracting the parsing? Happy to pair if useful.",
+      tr_explanation:
+        "'Reject. Rewrite this all' = ego yikici + actionable degil. Doğru: net durum ('not ready to approve') + somut yon ('extract parsing') + yardim teklif ('happy to pair') = yapici red.",
+    },
+    {
+      id: "ex.wcr15.6.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "PR'a baktın — calisiyor ama 200 satirlik tek fonksiyon. Approve etmek istemiyorsun, refactor isteyeceksin.",
+      npc_role: "Mid-level Dev",
+      setting: "GitHub PR review (Request Changes)",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(this (could be|might be|would be) (cleaner|tighter|more (readable|maintainable)))",
+            "(wdyt|what do you think|thoughts on|open to)",
+            "(extract|pulling|splitting|breaking) (this|it|out) (into|up)",
+            "(a (helper|utility|separate function))",
+          ],
+          hint_tr:
+            "Yumusak red: 'This could be cleaner — wdyt about extracting the parsing into a helper?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Hmm, the function works though. Is the refactor necessary?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fair (point|question)|good (question|point))",
+            "(works (today|now|fine)|i hear you|totally)",
+            "(but|though|however) (when|if|once)",
+            "(future (us|you|me|maintainer)|next change|test (coverage|isolation))",
+            "(will (struggle|thank|hate))",
+            "(happy to (pair|huddle|sketch (it )?out)|can mock it up)",
+          ],
+          hint_tr:
+            "Sebebi: 'Works today, but future you will struggle to test it in isolation. Happy to pair on the extract.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "OK fair — let me extract the parsing bit. I'll push in 30.",
+        },
+      ],
+    },
+    {
+      id: "ex.wcr15.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Approve etmek istemediginde EN onemli prensip?",
+          options: [
+            "Sus, merge etsinler",
+            "Net durum + somut yon + yardim teklif = yapici red",
+            "'Reject' yaz, gecip git",
+            "Bagir",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Belirsiz red = author ne yapacagini bilemez = frustration. Net yon = harekete gecer + iliski korunur.",
+        },
+        {
+          question: "Author 'is the refactor necessary?' diye sorarsa NE yapmali?",
+          options: [
+            "Sus, geri cek",
+            "Sebebini soyle ('future you', 'test in isolation') + pair teklifi",
+            "Bagir",
+            "PR'i kapat",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Refactor istegini savunamiyorsan = istek zayifti. Sebebini netle = ya kabul eder ya da iyi karsi argümen verir.",
+        },
+        {
+          question: "'Wdyt about extracting?' niye 'Extract this' den iyi?",
+          options: [
+            "Daha uzun",
+            "Soru = davet, ortak karar. Emir = ego'na dokunur, defansif olur.",
+            "Daha sert",
+            "Hicbir fark",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Author ozgur secim hissettiginde refactor'i sahiplenir. Emir aldıgında ne kadar dogru olsa da direnir.",
+        },
+      ],
+    },
+    {
+      id: "ex.wcr15.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "This could be cleaner — wdyt about extracting?",
+      tr_translation: "Bu daha temiz olabilir — çıkarmaya ne dersin?",
+      ipa: "/ðɪs kʊd biː ˈkliːnər ˈwʌt duː juː θɪŋk əˈbaʊt ɪkˈstræktɪŋ/",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 15.7 — Approve with Comments (LGTM with thoughts)
+// ============================================================
+export const workCodereviewLesson_15_7: BundledLesson = {
+  id: "work.codereview.15.7",
+  skill_id: "work.codereview",
+  index: 7,
+  title: "LGTM with Comments — Onerilerle Onayla",
+  description:
+    "Approve etmeye hazirsin ama ufak gözlemler var. 'LGTM with a few thoughts — feel free to address later.'",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wcr15.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "LGTM with a few thoughts",
+      tr_translation: "Bana göre iyi görünüyor, birkaç düşünce var (looks good to me)",
+      example: "LGTM with a few thoughts — none blocking, ship when ready.",
+      example_tr: "Bana göre iyi — birkaç düşünce var, hiçbiri engelleyici değil, hazır olunca gönderebilirsin.",
+    },
+    {
+      id: "ex.wcr15.7.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Bana gore iyi gorunuyor — birkac kucuk gözlemim var, sonra ele alabilirsin.",
+      target: "LGTM — left a couple of small thoughts, feel free to address later.",
+      accepted_variants: [
+        "Approving — a few minor thoughts inline, none blocking.",
+        "LGTM with a couple of nits — ship and tackle in a follow-up if you want.",
+        "Looks good! Dropped some minor suggestions, all non-blocking.",
+        "Approving with comments — minor stuff, address whenever.",
+      ],
+      tr_hint:
+        "'Feel free to address later' = author'u serbest birakir = follow-up PR'a kalir. Akiş bozulmaz.",
+    },
+    {
+      id: "ex.wcr15.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Approving — feel free to ___ later.",
+      answer: "address",
+      distractors: ["take", "do", "make"],
+      tr_hint:
+        "'Address a comment' = yorumla ilgilenmek (standart PR jargonu). 'Do a comment' = yanlis kalip.",
+    },
+    {
+      id: "ex.wcr15.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Ship",
+        "it",
+        "—",
+        "follow-up",
+        "PR",
+        "for",
+        "the",
+        "rest",
+      ],
+      correct_sentence: "Ship it — follow-up PR for the rest",
+      tr_translation: "Gönder — geri kalanı sonraki PR'da.",
+    },
+    {
+      id: "ex.wcr15.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Approved but you must fix all my comments before merge.",
+      correct_sentence:
+        "LGTM — comments are non-blocking, feel free to address now or in a follow-up.",
+      tr_explanation:
+        "'Approved but you must fix all' = celiskili sinyal (approve = ok, must fix = blocker). Doğru: approve = yesil isik. Yorumlari 'non-blocking' diye sinyal verirsen author rahat merge eder.",
+    },
+    {
+      id: "ex.wcr15.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "PR'a baktin, kod calisior + temiz. 2 kucuk öneri var. Approve ediyorsun + öneriler 'non-blocking'.",
+      npc_role: "Teammate (PR Author)",
+      setting: "GitHub PR review (Approve)",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(lgtm|looks good to me|approving|approve)",
+            "(with (a few|some|a couple) (thoughts|comments|suggestions|nits)|with comments)",
+            "(none|all|nothing) (blocking|critical|urgent)",
+            "(feel free to|happy to (have you )?(address|tackle|tweak)) (later|whenever|in a follow-?up)",
+          ],
+          hint_tr:
+            "Pozitif onay: 'LGTM with a few thoughts — all non-blocking, feel free to address later.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Thanks! Want me to handle the comments before merge, or follow-up?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(your call|up to you|either works|either is fine)",
+            "(ship (now|today)|merge (now|when ready))",
+            "(follow-?up (pr|ticket|issue))",
+            "(if you (have|find) (a moment|time|the bandwidth))",
+            "(no rush|whenever (works|suits))",
+          ],
+          hint_tr:
+            "Esnek: 'Your call — happy to ship now and follow up later, or tackle inline.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I'll knock them out now — quick wins. Thanks for the review!",
+        },
+      ],
+    },
+    {
+      id: "ex.wcr15.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Approve + yorum gondermenin AVANTAJI?",
+          options: [
+            "Yorumla bloke etmek",
+            "Kod'a yesil isik verirsin + ogrenme firsati birakirsin = ekip akiş",
+            "Yorumlardan kacmak",
+            "Sus",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Her kucuk yorum icin PR bloke etme = hiz dusurur. Approve + non-blocking = author bilir nereye bakacak.",
+        },
+        {
+          question: "'Feel free to address later' niye author'a iyi gelir?",
+          options: [
+            "Stres yaratir",
+            "Author'a karar verme ozgurlugu verir = baskisiz akiş = profesyonel iletisim",
+            "Yararsiz",
+            "Anlamsız",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Author kendisi karar verir (simdi mi, sonra mi) = yetiskin muamelesi = guven.",
+        },
+        {
+          question: "'Approved but you must fix all' niye kotu?",
+          options: [
+            "Cok kibar",
+            "Celiskili sinyal (approve = ok, must fix = blocker) = author kafasi karisir",
+            "Iyidir",
+            "Standart",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Approve = yesil isik. 'Must fix' varsa = 'Request Changes' yapmaliydin. Net ol: approve veya block.",
+        },
+      ],
+    },
+    {
+      id: "ex.wcr15.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "LGTM with a few thoughts — feel free to address later.",
+      tr_translation: "Bana göre iyi — birkaç düşünce var, sonra ele alabilirsin.",
+      ipa: "/ɛl dʒiː tiː ɛm wɪð ə fjuː θɔːts fiːl friː tuː əˈdrɛs ˈleɪtər/",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 15.8 — Yorum Cevaplari (Good catch, fair point, push back)
+// ============================================================
+export const workCodereviewLesson_15_8: BundledLesson = {
+  id: "work.codereview.15.8",
+  skill_id: "work.codereview",
+  index: 8,
+  title: "Yorum Cevabi — Good Catch / Fair Point / Push Back",
+  description:
+    "Reviewer yorum birakti. 3 farkli cevap formati: kabul, kabul + yapacak, karsi cikis.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wcr15.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Fair point — done",
+      tr_translation: "Haklı noktayı yakaladın — yaptım",
+      example: "Fair point — done in the latest commit.",
+      example_tr: "Haklı noktayı yakaladın — son commit'te yaptım.",
+    },
+    {
+      id: "ex.wcr15.8.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Iyi yakalama — son commit'te fixledim. Buradakine karsi cikiyorum: sebebi yorumda var.",
+      target: "Good catch — fixed in the latest commit. Pushing back on this one though — reasoning in the inline comment.",
+      accepted_variants: [
+        "Nice catch — addressed. Pushing back on the other one, see inline.",
+        "Good call — done. Disagreeing gently on the second though, context inline.",
+        "Fixed the first, but pushing back on the second — left a longer note in the thread.",
+        "Got the first — for the second I see it differently, comment inline explains.",
+      ],
+      tr_hint:
+        "Mix: kabul + karsi cikis ayni yanitta. 'Good catch' yumusatir, 'pushing back' net ama saygili.",
+    },
+    {
+      id: "ex.wcr15.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Pushing back on this ___ — reasoning inline.",
+      answer: "one",
+      distractors: ["thing", "comment", "case"],
+      tr_hint:
+        "'Pushing back on this one' = kalip = 'bunda karsi cikiyorum'. 'One' = ima edilen 'comment'.",
+    },
+    {
+      id: "ex.wcr15.8.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Good",
+        "catch",
+        "—",
+        "addressed",
+        "in",
+        "the",
+        "latest",
+        "push",
+      ],
+      correct_sentence: "Good catch — addressed in the latest push",
+      tr_translation: "İyi yakalama — son push'ta düzelttim.",
+    },
+    {
+      id: "ex.wcr15.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "You are wrong here, I will not change this.",
+      correct_sentence:
+        "Pushing back on this one — left a longer comment with the reasoning. Open to a quick huddle if still concerned.",
+      tr_explanation:
+        "'You are wrong' = saldiri = reviewer savunmaya gecer. Doğru: 'pushing back' (saygili karsi cikis) + sebebi belge ('inline comment') + dialog kapisi acik ('huddle if concerned'). Karsi cikmak = profesyonel, saldiri = degil.",
+    },
+    {
+      id: "ex.wcr15.8.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "PR'ina 3 yorum geldi. 1: kucuk fix (kabul + done). 2: gecerli ama farkli fikrin var (push back). 3: senior'dan oneri (good catch + done).",
+      npc_role: "Senior Reviewer",
+      setting: "GitHub PR comment thread (your responses)",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(good (catch|call|point)|nice catch|fair point)",
+            "(done|fixed|addressed|updated|sorted)",
+            "(in (the )?latest (commit|push)|just pushed)",
+          ],
+          hint_tr:
+            "Hizli kabul: 'Good catch — done in the latest commit.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool. The function split though — still think we should pull out the parsing?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(pushing back|gently disagree|see it (a bit )?differently|respectfully disagree)",
+            "(on (this|that) one|here)",
+            "(reasoning|rationale|context|thinking) (inline|in the (comment|thread|pr description))",
+            "(open to (a (huddle|chat|sync)|being wrong|hearing more)|happy to (huddle|sync))",
+          ],
+          hint_tr:
+            "Karsi cikis: 'Pushing back gently — reasoning inline. Open to a huddle if still concerned.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Read your comment — fair, I'll concede. One more on the error handling pattern?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(good (catch|point|call)|nice (catch|one)|fair point)",
+            "(hadn'?t (thought|considered)|didn'?t (think|consider)|never (thought|crossed))",
+            "(updating now|on it|will push (in a sec|shortly|now))",
+            "(thanks for (catching|flagging|the ping))",
+          ],
+          hint_tr:
+            "Senior'dan oneri = sukran + hareket: 'Good catch — hadn't considered that. Pushing a fix now.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sweet — once that lands I'll re-approve.",
+        },
+      ],
+    },
+    {
+      id: "ex.wcr15.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "'Good catch' EN COK NE durumda kullanilir?",
+          options: [
+            "Saldiri",
+            "Reviewer hakli + sen kacirmissin — tanima + tesekkur",
+            "Sus",
+            "Reddet",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Reviewer emek harcadi + sen kacirdin = tek kelimelik takdir = ego'suz iletisim. 'Good catch' altin kalip.",
+        },
+        {
+          question: "Karsi cikarken EN onemli ne eklenir?",
+          options: [
+            "Sadece 'no'",
+            "Sebebi yazili belge (inline comment) + dialog kapisi (huddle teklif)",
+            "Bagir",
+            "Sus",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Pushing back' tek basina = pasif aggresif. Sebebi + dialog kapisi = profesyonel debat. 'Open to being wrong' iliski guclendirir.",
+        },
+        {
+          question: "Senior'dan iyi yorum gelirse NE yapmali?",
+          options: [
+            "Sus",
+            "Tanima + hareket: 'good catch — hadn't considered + pushing fix now'",
+            "Bagir",
+            "Ignore",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Senior'dan ogrenmek = kariyer atlamak. Tanima + hizli aksyion = senior'i yatirim yapmaya devam ettir.",
+        },
+      ],
+    },
+    {
+      id: "ex.wcr15.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Good catch — fixed. Pushing back on the other one though.",
+      tr_translation: "İyi yakalama — düzelttim. Diğerine karşı çıkıyorum ama.",
+      ipa: "/ɡʊd kætʃ fɪkst ˈpʊʃɪŋ bæk ɒn ðiː ˈʌðər wʌn ðoʊ/",
+    },
+  ],
+};
+
+// ============================================================
 // Work Code Review lessons registry
 // ============================================================
 export const workCodereviewLessons: ReadonlyArray<BundledLesson> = [
   workCodereviewLesson_15_1,
   workCodereviewLesson_15_2,
   workCodereviewLesson_15_3,
+  workCodereviewLesson_15_5,
+  workCodereviewLesson_15_6,
+  workCodereviewLesson_15_7,
+  workCodereviewLesson_15_8,
 ];

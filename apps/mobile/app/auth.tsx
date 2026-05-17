@@ -17,6 +17,7 @@ import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../components/Button";
+import { AppleSignInButton } from "../components/AppleSignInButton";
 import {
   signInWithEmail,
   signUpWithEmail,
@@ -184,7 +185,23 @@ export default function Auth() {
               />
             ) : null}
 
-            {/* Apple Sign-In stubbed in current build; restore once credentials refreshed */}
+            {/* Apple Sign-In — iOS only, hides itself on unsupported devices.
+                Required by Apple Guideline 4.8 once any third-party social
+                auth is added. Ships now so we're ready when Google/Facebook
+                are introduced. */}
+            {mode !== "forgot" ? (
+              <View style={styles.appleWrap}>
+                <View style={styles.divider}>
+                  <View style={styles.dividerLine} />
+                  <Text style={styles.dividerText}>veya</Text>
+                  <View style={styles.dividerLine} />
+                </View>
+                <AppleSignInButton
+                  onSuccess={() => router.replace("/onboarding")}
+                  onError={(msg) => setError(msg)}
+                />
+              </View>
+            ) : null}
 
             <Pressable
               onPress={() => {
@@ -308,5 +325,25 @@ const styles = StyleSheet.create({
     color: tokens.text.secondary,
     fontSize: 14,
     fontWeight: tokens.weight.medium,
+  },
+  appleWrap: {
+    marginTop: tokens.spacing.md,
+    gap: tokens.spacing.sm,
+  },
+  divider: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+  },
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: tokens.border.outline,
+  },
+  dividerText: {
+    color: tokens.text.tertiary,
+    fontSize: 12,
+    fontWeight: tokens.weight.medium,
+    letterSpacing: 0.4,
   },
 });

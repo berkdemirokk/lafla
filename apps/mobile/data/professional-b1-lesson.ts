@@ -2267,6 +2267,911 @@ export const professionalB1Lesson_10: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 11 — Müşteri ile Telefon (Sales Call)
+// ============================================================
+export const professionalB1Lesson_11: BundledLesson = {
+  id: "professional.b1.salescall.1",
+  skill_id: "professional.b1",
+  index: 11,
+  title: "Handling an Inbound Sales Call",
+  description:
+    "Müşteri ürün ya da hizmet hakkında telefon ediyor — uygunluk kontrol, fiyat, sonraki adım. 'Thank you for your interest', 'Let me check on availability' kalıpları.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.pb1.11.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Thank you for your interest",
+      tr_translation: "İlginiz için teşekkür ederiz",
+      example:
+        "Thank you for your interest in our service — how can I help you today?",
+      example_tr:
+        "Hizmetimize gösterdiğiniz ilgi için teşekkür ederiz — bugün nasıl yardımcı olabilirim?",
+    },
+    {
+      id: "ex.pb1.11.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "İlginiz için teşekkür ederiz. Müsaitliği bir kontrol edeyim ve birazdan size geri döneyim.",
+      target:
+        "Thank you for your interest. Let me check on availability and I'll get back to you in a moment.",
+      accepted_variants: [
+        "Thanks for your interest. Let me check availability and I'll come back to you shortly.",
+        "Thank you for your interest. I'll just check on availability and get back to you in a moment.",
+        "Thank you for getting in touch. Let me check on availability and I'll get back to you shortly.",
+        "Thanks for reaching out — let me check on availability and I'll get back to you in a moment.",
+        "Thank you for your interest. Allow me to check our availability and I'll be right back with you.",
+      ],
+      tr_hint:
+        "'Thank you for your interest' resmi açılış. 'Let me check' = bir kontrol edeyim. 'Get back to you' = size geri dönmek.",
+    },
+    {
+      id: "ex.pb1.11.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template:
+        "Could I take your name and contact details so I can ___ up with you tomorrow?",
+      answer: "follow",
+      distractors: ["call", "ring", "phone", "send"],
+      tr_hint:
+        "'Follow up with you' = sizi takip etmek / geri dönmek. Sales call sabit kalıbı.",
+    },
+    {
+      id: "ex.pb1.11.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Let",
+        "me",
+        "check",
+        "on",
+        "availability",
+        "and",
+        "I'll",
+        "get",
+        "back",
+        "to",
+        "you",
+      ],
+      correct_sentence:
+        "Let me check on availability and I'll get back to you",
+      tr_translation:
+        "Müsaitliği bir kontrol edeyim ve size geri döneceğim.",
+    },
+    {
+      id: "ex.pb1.11.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I am very sorry sir, I don't know price, you must wait, I will call boss.",
+      correct_sentence:
+        "Apologies for the delay — let me check on the pricing and I'll come back to you shortly.",
+      tr_explanation:
+        "'I am very sorry sir' aşırı formal ve özür dolu — müşteri güveni sarsar. 'I don't know' yerine yetkin dil: 'Let me check'. 'You must wait' emir kipinde kaba; doğrusu 'I'll come back to you shortly'. Profesyonel ton: özürü minimize et, çözüm odaklı konuş.",
+    },
+    {
+      id: "ex.pb1.11.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Şirketinin ürünü hakkında bilgi almak için arayan bir müşteriyle konuşuyorsun. Profesyonel, sıcak ama net olmalısın.",
+      npc_role: "Prospective Customer",
+      setting: "Inbound sales call — software demo enquiry",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Hi, I saw your website and I'm interested in your team plan — could you tell me more?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|thanks) for (your interest|getting in touch|reaching out)",
+            "(of course|absolutely|certainly)",
+            "(could|may) i (ask|take) (your name|a few details)",
+            "(how many|what size) (team|users)",
+          ],
+          hint_tr:
+            "Sıcak aç + kalifiye et: 'Thank you for your interest! Could I ask how many users you're looking for?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "We're a team of about twelve. What does the plan include, and how much is it per month?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the team plan|our team plan) (includes|covers)",
+            "(it('s| is)|the price is) (\\$|£|€)?\\d+",
+            "per (user|month|seat)",
+            "let me (walk you through|talk you through|explain)",
+          ],
+          hint_tr:
+            "Net içerik + fiyat: 'The team plan includes unlimited projects, priority support, and is twelve pounds per user per month.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sounds reasonable. Do you offer a free trial or a discount for annual billing?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|absolutely|we do)",
+            "(a |our )?(14-day|30-day|two-week|free) trial",
+            "(annual billing|paying annually) (gives|saves) you",
+            "let me check on (availability|the current offer|that)",
+          ],
+          hint_tr:
+            "Olumlu cevap + değer: 'Yes, we offer a 14-day free trial, and annual billing saves you about 15 percent.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Great. Could you set me up with the trial today and send the pricing in writing?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(of course|absolutely|certainly|happy to)",
+            "(could|may) i (take|have) (your email|your work email)",
+            "i('ll| will) (send|email|share) (a summary|the pricing|the details)",
+            "(by end of day|within the hour|shortly|right after this call)",
+          ],
+          hint_tr:
+            "Sonraki adımı kilitle: 'Absolutely. Could I take your work email? I'll send the pricing and trial link within the hour.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect — it's anna.kaya@example.com. Speak soon, and thanks for your help.",
+        },
+      ],
+    },
+    {
+      id: "ex.pb1.11.7",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question:
+            "Sales call'da müşteri ürün hakkında bilgi istediğinde profesyonel açılış?",
+          options: [
+            "Wait a moment, I check.",
+            "Thank you for your interest — how can I help?",
+            "Why are you calling so late?",
+            "I am very sorry sir, I don't know.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Thank you for your interest' sıcak ve resmi açılış. Aşırı özür ya da bilgi eksikliği itiraf etmek güveni sarsar.",
+        },
+        {
+          question:
+            "Müsaitliği hemen söyleyemiyorsun — en doğal cümle?",
+          options: [
+            "I don't know now, ask later.",
+            "Maybe yes, maybe no, we will see.",
+            "Let me check on availability and I'll get back to you.",
+            "It is impossible to say.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Let me check on availability' yetkin ve kontrol dilidir. 'I don't know' güveni düşürür.",
+        },
+        {
+          question:
+            "Aramayı bağlamak için sonraki adım söylenmesi gereken şey?",
+          options: [
+            "Goodbye, call again tomorrow.",
+            "Could I take your email so I can follow up?",
+            "Please don't forget us.",
+            "Thank you, bye.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Follow up' = takip. İletişim bilgisini almak satışı kapatma şansını korur. Vedalaşıp kapatmak değer kaybıdır.",
+        },
+      ],
+    },
+    {
+      id: "ex.pb1.11.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Thank you for your interest — let me check on availability and I'll get back to you.",
+      ipa:
+        "/θæŋk juː fər jɔːr ˈɪntrəst lɛt miː tʃɛk ɒn əˌveɪləˈbɪlɪti ənd aɪl ɡɛt bæk tə juː/",
+      tr_hint:
+        "Sales call ana kalıbı. 'Availability' uzun: a-vey-lı-Bİ-lı-ti. 'Get back to you' bağlanır: 'get-back-tu-ya'.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 12 — Toplantı Ajandası (Chairing a Meeting)
+// ============================================================
+export const professionalB1Lesson_12: BundledLesson = {
+  id: "professional.b1.chairing.1",
+  skill_id: "professional.b1",
+  index: 12,
+  title: "Chairing a Meeting",
+  description:
+    "Bir toplantıyı yönetmek: açılış, ajanda, söz dağıtımı, kapanış. 'Let's get started', 'First item on the agenda' kalıpları.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.pb1.12.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "First item on the agenda",
+      tr_translation: "Ajandadaki ilk madde",
+      example:
+        "First item on the agenda — Q2 deliverables. Can someone walk us through the status?",
+      example_tr:
+        "Ajandadaki ilk madde — 2. çeyrek teslimatları. Birisi durumu adım adım anlatabilir mi?",
+    },
+    {
+      id: "ex.pb1.12.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Hadi başlayalım. Bugün üç maddeyi gözden geçireceğiz; herkesin stakeholder güncellemelerini paylaşmak için süresi olacak.",
+      target:
+        "Let's get started. We'll be going through three items today, and everyone will have time to share their stakeholder updates.",
+      accepted_variants: [
+        "Let's get started. We're going through three items today, and everyone will have time to share their stakeholder updates.",
+        "Right, let's get started. We have three items on the agenda today, and there'll be time for everyone to share stakeholder updates.",
+        "Let's get going. We'll cover three items today, and everyone will get time to share their stakeholder updates.",
+        "Let's kick off. We have three items today and everyone will have time to share their stakeholder updates.",
+        "Let's start. Today we're covering three agenda items, and everyone will have time to share their stakeholder updates.",
+      ],
+      tr_hint:
+        "'Let's get started' standart toplantı açılışı. 'Will be going through' = future continuous. 'Stakeholder updates' = paydaş güncellemeleri.",
+    },
+    {
+      id: "ex.pb1.12.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template:
+        "Let's ___ that point for now and come back to it at the end if there's time.",
+      answer: "park",
+      distractors: ["stop", "drop", "skip on", "close"],
+      tr_hint:
+        "'Park that point' = o konuyu bir kenara ayır (toplantı jargonu). 'Skip' kaba; 'park' nazikçe erteler.",
+    },
+    {
+      id: "ex.pb1.12.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "First",
+        "item",
+        "on",
+        "the",
+        "agenda",
+        "is",
+        "the",
+        "Q2",
+        "deliverables",
+      ],
+      correct_sentence:
+        "First item on the agenda is the Q2 deliverables",
+      tr_translation: "Ajandadaki ilk madde 2. çeyrek teslimatları.",
+    },
+    {
+      id: "ex.pb1.12.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Okay friends, today we will talk about some things, please everyone speak now.",
+      correct_sentence:
+        "Right, let's get started. We have three items on the agenda — I'll go through each in turn and open the floor for discussion.",
+      tr_explanation:
+        "'Friends' iş toplantısında garip — 'team' ya da kimseye hitap etmemek doğal. 'Some things' belirsiz; chair olarak ajandayı sayman gerekir. 'Please everyone speak now' yönetimsiz — 'open the floor' kontrolü chair'de tutar. Profesyonel: net ajanda + söz dağıtımı.",
+    },
+    {
+      id: "ex.pb1.12.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Haftalık ekip toplantısını sen yönetiyorsun. Üç ajanda maddesi var ve süre dar. Kontrolü kibarca elde tutmalısın.",
+      npc_role: "Team Member",
+      setting: "Weekly team meeting — video call",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Hey, are we ready? My calendar says we're starting now.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|right|okay)",
+            "let('s| us) get (started|going)",
+            "(thanks for|thanks everyone for) joining",
+            "(we have|there are) three (items|things) on the agenda",
+          ],
+          hint_tr:
+            "Resmi aç: 'Right, let's get started. Thanks for joining — we have three items on the agenda today.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sounds good. Where do you want to start?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(first item|the first item|to kick off|to begin)",
+            "(on the agenda|is|will be)",
+            "(Q2 deliverables|the deliverables|project status|the launch)",
+            "(can|could) (you|someone) (walk us through|give us a quick update)",
+          ],
+          hint_tr:
+            "İlk madde: 'First item on the agenda is the Q2 deliverables. Could you walk us through the status?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure. We've completed the API work, but the design review is still pending — and I want to raise a separate concern about budget.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you) for (the update|the summary)",
+            "let('s| us) park (the budget|that point|that)",
+            "(we'll come back to|i'll add that to)",
+            "(any other items|under any other business)",
+          ],
+          hint_tr:
+            "Konuyu yönet: 'Thanks for the update. Let's park the budget point — I'll add it to AOB and we'll come back to it.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Fine by me. What's the next item?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(moving on|next up|second item|item two)",
+            "(on the agenda|we have|is)",
+            "(stakeholder alignment|the stakeholder update|next week('s| is) priorities)",
+            "(we'll be|we are going to) (looking at|discussing)",
+          ],
+          hint_tr:
+            "İkinci madde: 'Moving on — second item is stakeholder alignment. We'll be discussing next week's priorities.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. We're at fifty minutes — should we wrap?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(let('s| us) wrap up|let me summarise|to wrap up)",
+            "(action items|next steps|key takeaways)",
+            "(i('ll| will) send|i('ll| will) follow up with) (the minutes|a recap)",
+            "(thanks everyone|thanks all|thank you for your time)",
+          ],
+          hint_tr:
+            "Kapanış: 'Let me summarise the action items — I'll send the minutes by end of day. Thanks everyone.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Thanks — that was a tight meeting. See you next week.",
+        },
+      ],
+    },
+    {
+      id: "ex.pb1.12.7",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "Toplantıyı açmak için en profesyonel kalıp?",
+          options: [
+            "Okay friends, let's talk.",
+            "Hello everyone, what should we do?",
+            "Right, let's get started — three items on the agenda today.",
+            "Please speak now, somebody.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Let's get started' + ajanda sayımı chair otoritesini kurar. 'Friends' iş toplantısında garip.",
+        },
+        {
+          question: "'Park that point' ne anlama gelir?",
+          options: [
+            "Konuyu tamamen iptal et",
+            "Konuyu bir kenara ayır, sonra dön",
+            "Konuyu kayda al",
+            "Konuyu reddet",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Park' bir konuyu geçici olarak ertelemek. AOB veya toplantı sonuna ertelenir, iptal değil.",
+        },
+        {
+          question:
+            "Toplantıyı kapatırken chair'in mutlaka yapması gereken?",
+          options: [
+            "Sadece 'thanks' deyip kapatmak",
+            "Action item'ları özetleyip kim ne yapacağını netleştirmek",
+            "Herkese tek tek veda etmek",
+            "Açtığı her konuyu tekrar etmek",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Action item özeti olmadan toplantı yarıda kalmış sayılır. 'Let me summarise the action items' chair sorumluluğu.",
+        },
+      ],
+    },
+    {
+      id: "ex.pb1.12.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "Let's get started — first item on the agenda is the Q2 deliverables.",
+      ipa:
+        "/lɛts ɡɛt ˈstɑːtɪd fɜːst ˈaɪtəm ɒn ði əˈdʒɛndə ɪz ðə kjuː tuː dɪˈlɪvərəbəlz/",
+      tr_hint:
+        "Toplantı açılışı. 'Agenda' = ı-CEN-dı. 'Deliverables' = dı-LİV-rı-bılz. 'Let's get' bağlanır: 'lets-get'.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 13 — Haftalık Status Raporu Yazma
+// ============================================================
+export const professionalB1Lesson_13: BundledLesson = {
+  id: "professional.b1.statusupdate.1",
+  skill_id: "professional.b1",
+  index: 13,
+  title: "Writing a Weekly Status Update",
+  description:
+    "Yöneticiye ya da paydaşa haftalık ilerleme raporu yazma. 'This week: completed', 'Next week: focus on' yapısı, present perfect.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.pb1.13.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "This week we've completed",
+      tr_translation: "Bu hafta tamamladık",
+      example:
+        "This week we've completed the user research and the first round of design reviews.",
+      example_tr:
+        "Bu hafta kullanıcı araştırmasını ve ilk tur tasarım incelemelerini tamamladık.",
+    },
+    {
+      id: "ex.pb1.13.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Bu hafta API entegrasyonunu ve ilk QA turunu tamamladık. Önümüzdeki hafta paydaş onayına ve canlıya alma hazırlığına odaklanacağız.",
+      target:
+        "This week we've completed the API integration and the first round of QA. Next week we'll be focusing on stakeholder sign-off and launch preparation.",
+      accepted_variants: [
+        "This week we completed the API integration and the first QA round. Next week we'll focus on stakeholder sign-off and launch prep.",
+        "We've finished the API integration and the first QA round this week. Next week we're focusing on stakeholder sign-off and launch preparation.",
+        "This week's deliverables: API integration and first QA round complete. Next week we'll be focusing on stakeholder sign-off and launch prep.",
+        "This week we've wrapped up the API integration and first QA pass. Next week the focus is stakeholder sign-off and launch readiness.",
+        "We have completed the API integration and the first round of QA this week. The focus for next week will be stakeholder sign-off and launch preparation.",
+      ],
+      tr_hint:
+        "'We've completed' = present perfect (bitmiş sonuç). 'We'll be focusing on' = future continuous (devam edecek odak). 'Sign-off' = onay.",
+    },
+    {
+      id: "ex.pb1.13.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template:
+        "One blocker to ___ : we're waiting on legal approval before we can ship the new terms.",
+      answer: "flag",
+      distractors: ["say", "alert on", "warning", "note about"],
+      tr_hint:
+        "'Flag a blocker' = bir engeli işaretlemek. Status raporunda sabit kalıp.",
+    },
+    {
+      id: "ex.pb1.13.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Next",
+        "week",
+        "we'll",
+        "be",
+        "focusing",
+        "on",
+        "stakeholder",
+        "alignment",
+      ],
+      correct_sentence:
+        "Next week we'll be focusing on stakeholder alignment",
+      tr_translation:
+        "Önümüzdeki hafta paydaş hizalanmasına odaklanacağız.",
+    },
+    {
+      id: "ex.pb1.13.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I am sorry sir, this week I did some things, next week I will try do more, please don't be angry.",
+      correct_sentence:
+        "Quick update — this week I've completed the onboarding flow and started on analytics. Next week I'll be focusing on the dashboard polish. One blocker to flag: I'm waiting on the analytics API key.",
+      tr_explanation:
+        "'I am sorry sir' + 'please don't be angry' aşırı özür kültürü — Türk profesyonelin sık tuzağı. Status update'te savunmacı olma; yapılanı net listele, sonraki adımı söyle, blocker'ı işaretle. 'Some things' belirsiz — somut deliverable yaz.",
+    },
+    {
+      id: "ex.pb1.13.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Yöneticin Slack'ten 'Haftalık update gönderir misin?' diye yazdı. Önce structured bir update gönderiyorsun, sonra sorularını cevaplıyorsun.",
+      npc_role: "Manager",
+      setting: "Slack DM — weekly update request",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Hey — can you send your weekly update when you have a moment?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(of course|sure|absolutely|happy to)",
+            "(here you go|here it is|sending now|here's a quick recap)",
+            "(this week|so far this week)",
+            "(i('ve| have) completed|we('ve| have) (completed|shipped|wrapped up))",
+          ],
+          hint_tr:
+            "Hazır cevap: 'Of course — here's a quick recap. This week I've completed the onboarding flow.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Great. What's the plan for next week?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(next week|going forward|in the coming week)",
+            "(i('ll| will) be|we('ll| will) be) (focusing|working) on",
+            "(the dashboard|analytics|stakeholder alignment|launch preparation)",
+            "(my main focus|the priority) (will be|is)",
+          ],
+          hint_tr:
+            "Future continuous: 'Next week I'll be focusing on the dashboard polish and stakeholder alignment.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Anything I should be aware of? Any blockers?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(one|a) blocker (to flag|i should mention|on my side)",
+            "i('m| am) waiting on (legal|the api|design|approval)",
+            "(it would help|it would be useful) if (you could|we could)",
+            "(could you|would you mind) (chasing|pinging|nudging)",
+          ],
+          hint_tr:
+            "Net blocker + spesifik istek: 'One blocker to flag — I'm waiting on the analytics API key. Could you nudge the data team?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure, I'll ping them today. Anything else?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that('s| is) (everything|all|it for now))",
+            "(thanks for the support|thanks for nudging them|thanks)",
+            "(i('ll| will) send|i('ll| will) share) (the full update|the written version) (in email|by email|in the channel)",
+            "(let me know|happy to walk through) (if you need more detail|if anything is unclear)",
+          ],
+          hint_tr:
+            "Profesyonel kapanış: 'That's everything for now — I'll send the full written update in email. Thanks for the support!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect, looking forward to it.",
+        },
+      ],
+    },
+    {
+      id: "ex.pb1.13.7",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question:
+            "Status update'in en doğru yapı sırası nedir?",
+          options: [
+            "Özür — vaatler — şikayet",
+            "This week: tamamlananlar — Next week: odak — Blockers",
+            "Selam — havadan sudan — bitti",
+            "Sadece blocker listesi",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Standart status update üç parçalıdır: bu hafta yapılanlar, gelecek hafta odak, ve flag edilen engeller. Özürlü açılış güveni düşürür.",
+        },
+        {
+          question:
+            "'I've completed the API integration' — niye present perfect?",
+          options: [
+            "Geçmişte oldu, şimdi sonucu önemli",
+            "Şu anda yapıyorum demek",
+            "Gelecekte yapacağım demek",
+            "Yanlış kullanım",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "Present perfect: geçmişte tamamlanan ama şimdiyi etkileyen aksiyon. Status raporda haftanın sonucu = present perfect.",
+        },
+        {
+          question: "'Flag a blocker' ne demek?",
+          options: [
+            "Engeli görmezden gel",
+            "Engeli bayrakla işaretle, dikkat çek",
+            "Engeli kapat",
+            "Engeli yeniden tanımla",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Flag' bir konuyu görünür hale getirmek. Status raporunda 'One blocker to flag' sabit kalıp.",
+        },
+      ],
+    },
+    {
+      id: "ex.pb1.13.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "This week I've completed the onboarding flow; next week I'll be focusing on analytics.",
+      ipa:
+        "/ðɪs wiːk aɪv kəmˈpliːtɪd ði ˈɒnbɔːdɪŋ fləʊ nɛkst wiːk aɪl biː ˈfəʊkəsɪŋ ɒn əˈnælɪtɪks/",
+      tr_hint:
+        "Status update kalıbı. 'I've completed' bağlanır: 'ayv-kımp-Lİ-tıd'. 'Focusing' = FOH-kı-sing. Net, kendinden emin.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 14 — Müşteri Şikayetiyle Başa Çıkma
+// ============================================================
+export const professionalB1Lesson_14: BundledLesson = {
+  id: "professional.b1.complainthandling.1",
+  skill_id: "professional.b1",
+  index: 14,
+  title: "Handling a Customer Complaint",
+  description:
+    "Sinirli bir müşteriye profesyonel cevap verme: empati, sorumluluk, çözüm. 'I understand your frustration', 'Let me make this right' kalıpları.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.pb1.14.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I understand your frustration",
+      tr_translation: "Sıkıntınızı anlıyorum",
+      example:
+        "I understand your frustration — let me take a look at your account right now.",
+      example_tr:
+        "Sıkıntınızı anlıyorum — hesabınıza şimdi bir bakayım.",
+    },
+    {
+      id: "ex.pb1.14.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source:
+        "Sıkıntınızı anlıyorum ve bunun için gerçekten üzgünüm. Bunu telafi etmeme izin verin — bugün içinde tam iade ve takip e-postası göndereceğim.",
+      target:
+        "I understand your frustration and I'm genuinely sorry about that. Let me make this right — I'll process a full refund today and send you a follow-up email.",
+      accepted_variants: [
+        "I understand your frustration and I'm really sorry about this. Let me make it right — I'll issue a full refund today and follow up by email.",
+        "I can see why you're frustrated, and I'm sorry. Let me make this right — I'll process a full refund and send you a follow-up email today.",
+        "I understand how frustrating this is and I'm sorry. Let me make this right — I'll arrange a full refund today and email you a confirmation.",
+        "I hear you, and I'm sorry this has happened. Let me make this right — I'll process a refund today and send you a follow-up by email.",
+        "I understand your frustration, and I apologise. Let me make this right — I'll issue a full refund today and follow up with you by email.",
+      ],
+      tr_hint:
+        "'Make this right' = telafi etmek. 'I'm genuinely sorry' = gerçekten üzgünüm (samimi, abartısız). 'Follow-up email' = takip e-postası.",
+    },
+    {
+      id: "ex.pb1.14.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template:
+        "Let me take ___ for this — it shouldn't have happened, and I'll personally make sure it's resolved.",
+      answer: "ownership",
+      distractors: ["responsible", "the blame on", "guilt", "fault for"],
+      tr_hint:
+        "'Take ownership' = sorumluluğu üstlenmek. Şikayet yönetiminde güçlü kalıp; 'take the blame' ise pasif/savunmacı.",
+    },
+    {
+      id: "ex.pb1.14.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Let",
+        "me",
+        "make",
+        "this",
+        "right",
+        "for",
+        "you",
+        "today",
+      ],
+      correct_sentence: "Let me make this right for you today",
+      tr_translation: "Bunu bugün sizin için telafi edeyim.",
+    },
+    {
+      id: "ex.pb1.14.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I am sorry sir, but it is not my fault, you must speak with other department, I cannot do anything.",
+      correct_sentence:
+        "I'm sorry you've had this experience — let me take ownership and see what I can do right now. I won't pass you around.",
+      tr_explanation:
+        "'I am sorry sir' aşırı formal + 'it is not my fault' sorumluluk yıkma — müşteri için en kötü kombinasyon. 'You must speak with other department' = 'pass the buck' = profesyonelce sıyrılma; Batı kültüründe güven kaybettirir. Doğru tepki: empati + sorumluluk + somut aksiyon.",
+    },
+    {
+      id: "ex.pb1.14.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Hizmetinizden memnun olmayan kızgın bir müşteri telefon etti. Sakin kal, empati kur, çöz.",
+      npc_role: "Frustrated Customer",
+      setting: "Inbound complaint call — late delivery + damaged product",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "I've been waiting two weeks for this order, and when it finally arrived, the box was crushed and the product is broken!",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i('m| am) (so |really |truly )?sorry|i apologise|my sincere apologies)",
+            "(i understand|i can understand|i hear) (your frustration|how frustrating)",
+            "(that('s| is)) (not (good enough|acceptable)|absolutely not what we want)",
+            "(let me|allow me to) (take ownership|look into this|put this right)",
+          ],
+          hint_tr:
+            "Empati + sahiplenme: 'I'm really sorry — I understand your frustration. Let me take ownership and put this right.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I want a full refund. I'm not interested in another replacement that takes another two weeks.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(absolutely|of course|completely understandable)",
+            "(let me|i('ll| will)) process (a full refund|the refund) (today|right away|straight away)",
+            "(you should see|the funds will be back) (in your account|within \\d+ (business )?days)",
+            "(no need to|you don't have to) (return|send back|wait for) (a replacement|another product)",
+          ],
+          hint_tr:
+            "Talebi kabul + spesifik aksiyon: 'Absolutely — let me process a full refund right away. You should see the funds in three to five business days.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Fine. And what are you going to do about the damaged item? Should I send it back?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(please don't worry|no need to) (return|send) (it|the item) (back)?",
+            "(we'll|i'll) (cover|sort) (the disposal|recycling)",
+            "(i('ll| will)) (email|send) (you|over) (a prepaid label|disposal instructions) if needed",
+            "(consider that|keep it|please dispose of it) (on us|safely)",
+          ],
+          hint_tr:
+            "Müşteri yükünü azalt: 'Please don't worry about sending it back — consider it on us. I'll email you disposal instructions.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Alright. Honestly, this whole thing has been a nightmare. I'm not sure I'll order from you again.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i completely understand|that('s| is)) (fair|completely fair|understandable)",
+            "(if you('d| would)|should you) give us another (chance|opportunity)",
+            "(i('d| would) like to|let me) (add a credit|offer a discount|apply a) (to your account|on your next order)",
+            "(let me|i('ll| will)) follow up (personally )?(by email|with confirmation) (today|right after this call)",
+          ],
+          hint_tr:
+            "Müşteriyi geri kazan: 'That's completely fair. Let me add a credit to your account and follow up by email today with confirmation.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay — I appreciate you sorting this quickly. Thank you.",
+        },
+      ],
+    },
+    {
+      id: "ex.pb1.14.7",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question:
+            "Sinirli müşteriye en doğru ilk cevap nedir?",
+          options: [
+            "It is not my fault.",
+            "Please calm down, sir.",
+            "I understand your frustration — let me take a look right now.",
+            "You should have read the terms.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Empati + aksiyon en güçlüdür. 'Calm down' patronizing. Suç yıkmak ('not my fault') güveni bitirir.",
+        },
+        {
+          question: "'Take ownership' Türkçesi ve etkisi?",
+          options: [
+            "Sahiplik almak — mülk satın almak",
+            "Sorumluluğu üstlenmek — müşteri güveni inşa eder",
+            "Müşteriye haksızlık yapmak",
+            "Konuyu başka departmana iletmek",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Take ownership' bir sorunun sahiplenilmesi. 'Pass the buck' (sorunu başkasına yıkmak) tersi.",
+        },
+        {
+          question:
+            "Müşteri 'I'll never order again' dediğinde profesyonel cevap?",
+          options: [
+            "Okay, goodbye then.",
+            "That's completely fair — let me add a credit to your account.",
+            "Please don't say that, sir.",
+            "You are being unfair.",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Duyguyu valide et ('completely fair') + somut bir geri kazanma teklifi sun. Yalvarmak veya saldırmak ilişkiyi bitirir.",
+        },
+      ],
+    },
+    {
+      id: "ex.pb1.14.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase:
+        "I understand your frustration — let me make this right for you today.",
+      ipa:
+        "/aɪ ˌʌndəˈstænd jɔː frʌˈstreɪʃən lɛt miː meɪk ðɪs raɪt fə juː təˈdeɪ/",
+      tr_hint:
+        "Şikayet yönetimi ana kalıbı. 'Frustration' = frıs-TREY-şın. 'Make this right' bağlanır: 'meyk-ðıs-rayt'. Yavaş, sakin, kendinden emin.",
+    },
+  ],
+};
+
+// ============================================================
 // Registry
 // ============================================================
 export const professionalB1Lessons: BundledLesson[] = [
@@ -2280,4 +3185,8 @@ export const professionalB1Lessons: BundledLesson[] = [
   professionalB1Lesson_8,
   professionalB1Lesson_9,
   professionalB1Lesson_10,
+  professionalB1Lesson_11,
+  professionalB1Lesson_12,
+  professionalB1Lesson_13,
+  professionalB1Lesson_14,
 ];

@@ -910,6 +910,776 @@ export const workNetworkingLesson_39_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 39.5 — Konferansta Başlatma: What Brings You Here
+// ============================================================
+export const workNetworkingLesson_39_5: BundledLesson = {
+  id: "work.networking.39.5",
+  skill_id: "work.networking",
+  index: 5,
+  title: "Konferansta Başlatma: What Brings You Here",
+  description:
+    "Türk profesyonelin en zor anı: tanımadığın grupta sohbet açmak. 'What brings you here?' + spesifik talk yorumu = sıfır awkward.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wn39.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "So what brings you to the conference?",
+      tr_translation: "Peki seni konferansa getiren ne?",
+      example: "Hey — so what brings you to the conference?",
+      example_tr: "Selam — peki seni konferansa getiren ne?",
+    },
+    {
+      id: "ex.wn39.5.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bugüne kadar hangi konuşmayı beğendin?",
+      target: "Which talk did you like the most so far?",
+      accepted_variants: [
+        "Which session has been your favorite so far?",
+        "Any talks you've really enjoyed so far?",
+        "What's been your favorite talk?",
+        "Which session stood out for you?",
+        "Any standout talks for you so far?",
+        "What's been the best session for you?",
+      ],
+      tr_hint:
+        "'Which talk did you like?' = standart konferans devam sorusu. 'So far' = şimdiye kadar (etkinlik devam ederken).",
+    },
+    {
+      id: "ex.wn39.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "What ___ you to the conference?",
+      answer: "brings",
+      distractors: ["bring", "brought", "bringing"],
+      tr_hint:
+        "'What brings you here?' sabit kalıp — present simple, 'brings' (üçüncü tekil).",
+    },
+    {
+      id: "ex.wn39.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Any",
+        "talks",
+        "you've",
+        "really",
+        "enjoyed",
+        "so",
+        "far",
+      ],
+      correct_sentence: "Any talks you've really enjoyed so far",
+      tr_translation: "Şimdiye kadar gerçekten beğendiğin konuşma var mı?",
+    },
+    {
+      id: "ex.wn39.5.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "What is your job? Why you are here?",
+      correct_sentence: "So what brings you here? What do you do?",
+      tr_explanation:
+        "'What is your job?' Türkçeden direkt çeviri = robot tonu + agresif. 'Why you are here?' grammar bozuk + sorgu hissi. Doğru: 'What brings you here?' + sonra 'What do you do?' (yumuşak + standart).",
+    },
+    {
+      id: "ex.wn39.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Konferansta öğle yemeği kuyruğunda yanındaki kişiyle ilk konuşma. Sen başlatacaksın.",
+      npc_role: "Konferans Katılımcısı",
+      setting: "Conference lunch line",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|hi|hello)",
+            "(so |)what brings you (here|to (the|this) (conference|event|meetup))",
+            "(first time (here|at this one)|been to this before)",
+            "(long line|crazy line|crowded today)",
+            "(enjoying (the|it) so far|how'?s it (going|been))",
+          ],
+          hint_tr:
+            "Doğal açılış: 'Hey — so what brings you to the conference?' veya 'Crazy line — first time here?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yeah, first time. I work at a startup and figured I'd see what's out there. You?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(been (a few times|to this one before)|second year here)",
+            "(came (mostly|mainly) for the (\\w+) (track|sessions))",
+            "(curious about|wanted to (catch|see)) (\\w+)",
+            "(which talk did you (like|enjoy)|any (sessions|talks) stood out)",
+            "(what kind of (startup|company)|what space are you in)",
+          ],
+          hint_tr:
+            "Kendinden konuş + soruyu çevir: 'Second year here — mainly for the AI track. Which talk did you like so far?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "The morning one on shipping fast was great. The speaker was really sharp.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh yeah|totally|same here|completely agree)",
+            "(loved (the|that) part on|the bit about (\\w+))",
+            "(took (some|a few) notes|wrote (that|it) down)",
+            "(are you (trying|going) to (apply|use) any of it)",
+            "(what (does|do) (\\w+) look like (at|for) (your|your team))",
+          ],
+          hint_tr:
+            "Spesifik yorum + içeri çek: 'Same — loved the part on weekly demos. Trying to apply any of it at your startup?'",
+        },
+        {
+          speaker: "npc",
+          message: "Honestly yeah, we ship slow. Could you share what's working for your team?",
+        },
+      ],
+    },
+    {
+      id: "ex.wn39.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Türk profesyonelin EN sık hatası açılışta?",
+          options: [
+            "Çok kibar konuşmak",
+            "'What is your job?' = direkt + sorgu tonu = soğuk",
+            "Sessizlik",
+            "Çok şaka yapmak",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Türkçeden çeviri 'mesleğin ne?' direkt + transactional. ABD/UK normu 'What brings you here?' yumuşak + sohbet başlatıcı.",
+        },
+        {
+          question: "Açılıştan sonra konuya nasıl girilir?",
+          options: [
+            "Hemen iş teklif et",
+            "Sessizlik",
+            "Spesifik talk/session yorumu = ortak deneyim = sohbet açılır",
+            "CV göster",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Which talk did you like?' = ortak deneyim sorusu. Sıfır awkward + her zaman cevabı var = sohbet başlar.",
+        },
+        {
+          question: "'So far' niye önemli kalıp?",
+          options: [
+            "Gereksiz",
+            "Etkinlik devam ederken 'şimdiye kadar' demek doğal — bitmiş gibi sormak yanlış",
+            "Çok ağır",
+            "Yanlış İngilizce",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Konferans hâlâ sürerken 'What was your favorite?' (geçmiş zaman) garip. 'So far' = açık uçlu + doğal.",
+        },
+      ],
+    },
+    {
+      id: "ex.wn39.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "So what brings you here? Any talks you've really enjoyed so far?",
+      tr_translation: "Peki seni buraya getiren ne? Şimdiye kadar gerçekten beğendiğin konuşma var mı?",
+      ipa: "/səʊ wɒt brɪŋz juː hɪər ˈɛni tɔːks juːv ˈrɪəli ɪnˈdʒɔɪd səʊ fɑː/",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 39.6 — Elevator Pitch: 30 Saniyede Kendini Sat
+// ============================================================
+export const workNetworkingLesson_39_6: BundledLesson = {
+  id: "work.networking.39.6",
+  skill_id: "work.networking",
+  index: 6,
+  title: "Elevator Pitch: 30 Saniyede Kendini Sat",
+  description:
+    "Tek kalıp: 'I lead X at Y — we help Z do W.' Rol + şirket + hedef kitle + sonuç = 30 saniyede net pitch.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.wn39.6.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "we help X do Y",
+      tr_translation: "X'lere Y yapmalarında yardımcı oluyoruz",
+      example: "We help fintech startups do compliance faster.",
+      example_tr: "Fintech startup'larına uyum işlerini daha hızlı yapmalarında yardımcı oluyoruz.",
+    },
+    {
+      id: "ex.wn39.6.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Bir SaaS şirketinde ürün ekibini yönetiyorum — KOBİ'lerin muhasebe işlerini otomatize etmesine yardım ediyoruz.",
+      target: "I lead product at a SaaS company — we help small businesses automate their accounting.",
+      accepted_variants: [
+        "I lead the product team at a SaaS — we help SMBs automate accounting.",
+        "I run product at a SaaS company; we help small businesses automate accounting.",
+        "I'm head of product at a SaaS company — we help small businesses do accounting on autopilot.",
+        "Lead product at a SaaS — we help small businesses get their accounting automated.",
+        "I lead product at a SaaS shop, and we help small businesses automate accounting work.",
+      ],
+      tr_hint:
+        "Pitch formülü: 'I lead [X] at [Y] — we help [hedef kitle] [yaptıkları iş].' 4 parça net.",
+    },
+    {
+      id: "ex.wn39.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I lead design ___ a fintech — we help banks ship faster.",
+      answer: "at",
+      distractors: ["in", "on", "with"],
+      tr_hint:
+        "Şirket adı önünde 'at' standart ('at Google', 'at a fintech'). 'In' sektör için ('in fintech') kullanılır.",
+    },
+    {
+      id: "ex.wn39.6.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "I",
+        "lead",
+        "engineering",
+        "at",
+        "a",
+        "fintech",
+        "and",
+        "we",
+        "help",
+        "merchants",
+        "accept",
+        "payments",
+      ],
+      correct_sentence: "I lead engineering at a fintech and we help merchants accept payments",
+      tr_translation: "Bir fintech'te mühendislik ekibini yönetiyorum ve satıcıların ödeme almasına yardım ediyoruz.",
+    },
+    {
+      id: "ex.wn39.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I am working many years and I do many things and our company is doing many products for many people.",
+      correct_sentence: "I lead design at a SaaS — we help small businesses automate accounting.",
+      tr_explanation:
+        "Birinci versiyon 'many' x4 = sıfır spesifiklik = ezberden anlatılan kötü pitch. Doğru pitch: tek rol + tek şirket + tek hedef kitle + tek sonuç. 'Many' kelimesi pitch'i öldürür.",
+    },
+    {
+      id: "ex.wn39.6.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "VC happy hour. Bir partner 'So what do you do?' diye sordu. 30 saniyen var — pitch zamanı.",
+      npc_role: "VC Partner",
+      setting: "VC happy hour networking event",
+      turns: [
+        {
+          speaker: "npc",
+          message: "So, tell me — what do you do?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i (lead|run|head) (\\w+))",
+            "(at (a |an |)(\\w+))",
+            "(we help (\\w+) (\\w+))",
+            "(automate|build|ship|connect|reach|scale|track)",
+            "(small businesses|smbs|merchants|teams|developers|hr leaders|startups)",
+          ],
+          hint_tr:
+            "Tam formül: 'I lead [rol] at [şirket] — we help [hedef] [yaptıkları].' Örnek: 'I lead product at a SaaS — we help SMBs automate accounting.'",
+        },
+        {
+          speaker: "npc",
+          message: "Interesting. What's the biggest pain point you solve?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the biggest one|honestly|mostly|the main thing)",
+            "(\\w+ (spend|waste|lose) (hours|days|time) (on|doing))",
+            "(manual (work|process|entry|reconciliation))",
+            "(we (cut|reduce|kill|eliminate)) (that|it)",
+            "(by (\\w+%)|by (half|\\d+x)|from \\w+ to \\w+)",
+            "(does that (resonate|sound|land) (with you|familiar))",
+          ],
+          hint_tr:
+            "Spesifik pain + sayı: 'Honestly, small businesses spend 5 hours a week on manual entry. We cut that to 30 min.'",
+        },
+        {
+          speaker: "npc",
+          message: "How are you growing?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(mostly|mainly) (inbound|word of mouth|referrals)",
+            "(closing|signing|adding) (\\w+) (a (month|week)|per month|each (week|quarter))",
+            "(\\w+x) (growth|revenue|users) (year over year|since)",
+            "(retention|nrr|expansion) (is|sits at|stays)",
+            "(would love (your take|to hear how you (look|think)) (at|about))",
+            "(happy to (share|send) more|i can send a quick deck)",
+          ],
+          hint_tr:
+            "Net büyüme metriği + soru: 'Mostly inbound — 3x revenue YoY. Would love your take on what good looks like at our stage.'",
+        },
+        {
+          speaker: "npc",
+          message: "Send me a deck — let's get coffee next week.",
+        },
+      ],
+    },
+    {
+      id: "ex.wn39.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Mükemmel pitch'in 4 parçası?",
+          options: [
+            "Tüm CV + tüm projeler",
+            "Rol + şirket + hedef kitle + yaptıkları (sonuç)",
+            "Sadece şirket adı",
+            "Sadece para hedefi",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'I lead [rol] at [şirket] — we help [hedef] [iş yapma].' Dört parça, 20-30 saniye. Karşı taraf hatırlar.",
+        },
+        {
+          question: "Niye 'many things' / 'various products' pitch'i öldürür?",
+          options: [
+            "Aslında iyi",
+            "Belirsizlik = unutulurluk. Spesifik = akılda kalır. Bir tane şey seç.",
+            "Çok uzun",
+            "Yanlış kelime",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Beyin spesifik şeyleri hatırlar. 'Many' = sıfır resim. 'KOBİ muhasebesi otomasyonu' = net resim.",
+        },
+        {
+          question: "Türk profesyonelin pitch hatası?",
+          options: [
+            "Çok kısa",
+            "Aşırı alçakgönüllü ('I just do some things') VEYA tüm kariyer kronolojisi — ortayı tutturamamak",
+            "Çok hızlı konuşmak",
+            "Hiçbiri",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "İki uç da kötü. Aşırı alçakgönüllü = ciddiye alınmaz. Aşırı detay = sıkıcı. Yapısal 4 parça = altın orta.",
+        },
+      ],
+    },
+    {
+      id: "ex.wn39.6.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "I lead product at a SaaS — we help small businesses automate their accounting.",
+      tr_translation: "Bir SaaS şirketinde ürün ekibini yönetiyorum — KOBİ'lerin muhasebelerini otomatize etmesine yardım ediyoruz.",
+      ipa: "/aɪ liːd ˈprɒdʌkt ət ə sæs wiː hɛlp smɔːl ˈbɪznɪsɪz ˈɔːtəmeɪt ðeər əˈkaʊntɪŋ/",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 39.7 — İletişim Takası: LinkedIn vs Business Card
+// ============================================================
+export const workNetworkingLesson_39_7: BundledLesson = {
+  id: "work.networking.39.7",
+  skill_id: "work.networking",
+  index: 7,
+  title: "İletişim Takası: LinkedIn vs Business Card",
+  description:
+    "Hangi kanal? LinkedIn (default), email (warm intro), kartvizit (uluslararası). 'What's the best way to reach you?' = saygılı + opsiyon bırakır.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wn39.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "What's the best way to reach you?",
+      tr_translation: "Sana ulaşmanın en iyi yolu nedir?",
+      example: "Let's stay in touch — what's the best way to reach you?",
+      example_tr: "İletişimde kalalım — sana ulaşmanın en iyi yolu nedir?",
+    },
+    {
+      id: "ex.wn39.7.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "LinkedIn'den seni ekleyebilirim, yoksa kartvizitin var mı?",
+      target: "I could LinkedIn you — or do you have a business card?",
+      accepted_variants: [
+        "Happy to connect on LinkedIn, or do you carry a card?",
+        "I can shoot you a LinkedIn request — or do you have a card on you?",
+        "Want to swap LinkedIn, or do you have a business card?",
+        "Should I ping you on LinkedIn, or do you have a card?",
+        "I'll find you on LinkedIn — unless you have a card?",
+        "LinkedIn works, or do you have a card handy?",
+      ],
+      tr_hint:
+        "'LinkedIn you' = LinkedIn'den eklemek (modern verb-use). İki opsiyon sun = karşı taraf seçer = saygılı.",
+    },
+    {
+      id: "ex.wn39.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Could you make a warm ___ to your colleague?",
+      answer: "intro",
+      distractors: ["talk", "speech", "say"],
+      tr_hint:
+        "'Warm intro' = sıcak tanıştırma (zaten tanıyor olarak). Networking'in en değerli para birimi.",
+    },
+    {
+      id: "ex.wn39.7.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "What's",
+        "the",
+        "best",
+        "way",
+        "to",
+        "reach",
+        "you",
+        "going",
+        "forward",
+      ],
+      correct_sentence: "What's the best way to reach you going forward",
+      tr_translation: "Bundan sonra sana ulaşmanın en iyi yolu nedir?",
+    },
+    {
+      id: "ex.wn39.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Give me your WhatsApp number, I will message you tonight.",
+      correct_sentence: "What's the best way to reach you — LinkedIn or email?",
+      tr_explanation:
+        "'Give me your WhatsApp' = baskıcı + ABD/UK profesyonel bağlamda kişisel sınır ihlali. WhatsApp Türkiye/Latin Amerika norm ama US/UK iş çevresinde iş + özel ayrılır. Doğru: opsiyon sun (LinkedIn/email) + 'What's the best way' kibar yapı.",
+    },
+    {
+      id: "ex.wn39.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Networking sohbeti güzel gitti. Şimdi iletişim kanalı belirleme zamanı + warm intro isteği.",
+      npc_role: "Networking Partner",
+      setting: "End of good conversation at networking event",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(this (was|has been)|really enjoyed) (the chat|talking|chatting)",
+            "(should (we|i)|let'?s) (stay|keep) in touch",
+            "(what'?s the best way to (reach|contact|find) you)",
+            "(linkedin|email|or (both|either))",
+            "(do you (have|carry) a (card|business card))",
+          ],
+          hint_tr:
+            "Kibar opsiyonlu kapanış: 'Should we stay in touch? What's the best way — LinkedIn or email?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "LinkedIn is fine. Actually here's my card — easier than spelling my name.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh great|perfect|amazing|thanks)",
+            "(let me (grab|get|pull out) (mine|one|my card))",
+            "(i'?ll send you mine|here'?s mine|let me give you mine)",
+            "(i don'?t have (cards|one) on me|don'?t carry (cards|them))",
+            "(i'?ll (linkedin you|shoot you a (linkedin request|message)) (tonight|today|when i'?m home))",
+          ],
+          hint_tr:
+            "Karşılık ver: 'Perfect — let me grab mine.' veya 'I don't carry cards — I'll LinkedIn you tonight.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sounds good. By the way — let me know if you ever want me to introduce you to anyone in the space.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh that'?s (huge|amazing|so generous))",
+            "(actually|honestly|that'?d be amazing)",
+            "(would love (a warm intro|an intro) to)",
+            "(if (you know|you'?re close to) anyone (at|working on))",
+            "(no rush|whenever (works|makes sense))",
+            "(happy to (return the favor|do the same|reciprocate))",
+          ],
+          hint_tr:
+            "Teklifi kaçırma — spesifik istek: 'That'd be amazing — would love a warm intro to anyone working on B2B sales tools.'",
+        },
+        {
+          speaker: "npc",
+          message: "Got it — I know two people, will send intros next week.",
+        },
+      ],
+    },
+    {
+      id: "ex.wn39.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "ABD/UK profesyonel ortamında ilk tanışma kanalı?",
+          options: [
+            "WhatsApp",
+            "Telefon numarası",
+            "LinkedIn (default) — email/kartvizit ikinci tercih",
+            "Instagram",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "LinkedIn = profesyonel norm. WhatsApp = Türkiye/Latin Amerika norm ama US/UK'de kişisel = sınır ihlali.",
+        },
+        {
+          question: "'Warm intro' niye değerli?",
+          options: [
+            "Önemsiz",
+            "Tanıdık üzerinden gelen tanıtım = güven transferi = soğuk mesajdan 10x etkili",
+            "Aslında soğuk mesaj daha iyi",
+            "Hiçbir anlamı yok",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Networking'in altın para birimi. Tanıdık tavsiyesi = senin için garanti = karşı taraf cevap verir.",
+        },
+        {
+          question: "Iletişim takasında niye opsiyon sunmalı?",
+          options: [
+            "Gereksiz",
+            "Saygı + karşı taraf rahatı + ona en uygun kanal = ilişkide iyi başlangıç",
+            "Kafa karıştırır",
+            "Çok kibar olur",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'LinkedIn or email?' = karşı taraf seçer. 'Give me your phone' = baskı. İlk izlenim çok önemli.",
+        },
+      ],
+    },
+    {
+      id: "ex.wn39.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "What's the best way to reach you — LinkedIn or email?",
+      tr_translation: "Sana ulaşmanın en iyi yolu nedir — LinkedIn mi email mi?",
+      ipa: "/wɒts ðə bɛst weɪ tuː riːtʃ juː ˈlɪŋktɪn ɔːr ˈiːmeɪl/",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 39.8 — Networking Sonrası Follow-up
+// ============================================================
+export const workNetworkingLesson_39_8: BundledLesson = {
+  id: "work.networking.39.8",
+  skill_id: "work.networking",
+  index: 8,
+  title: "Networking Sonrası Follow-up",
+  description:
+    "Etkinlikten 1-3 gün sonra LinkedIn DM / kısa mesaj: 'Great chatting earlier — hope our paths cross again.' Light touch = ilişki kurulur.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.wn39.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Great chatting earlier",
+      tr_translation: "Daha önce konuşmak güzeldi",
+      example: "Hey — great chatting earlier at the meetup.",
+      example_tr: "Selam — daha önce meetup'ta konuşmak güzeldi.",
+    },
+    {
+      id: "ex.wn39.8.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Tekrar yollarımızın kesişmesini umuyorum — istediğin zaman DM at.",
+      target: "Hope to cross paths again — DM is open anytime.",
+      accepted_variants: [
+        "Hoping our paths cross again — my DMs are open.",
+        "Would love to bump into you again — feel free to DM anytime.",
+        "Hope we run into each other again — DM me whenever.",
+        "Hope to see you around — DMs open whenever you want to chat.",
+        "Looking forward to crossing paths again — feel free to message anytime.",
+      ],
+      tr_hint:
+        "'Cross paths' = yollarımız kesişmek (deyim). 'DM open' = mesajlarım açık (sosyal medya jargonu).",
+    },
+    {
+      id: "ex.wn39.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Hope our paths ___ again soon.",
+      answer: "cross",
+      distractors: ["meet", "go", "come"],
+      tr_hint:
+        "'Cross paths' sabit deyim — 'paths cross/meet'. Yumuşak + güzel kapanış kalıbı.",
+    },
+    {
+      id: "ex.wn39.8.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Great",
+        "chatting",
+        "earlier",
+        "—",
+        "DM",
+        "is",
+        "open",
+        "anytime",
+      ],
+      correct_sentence: "Great chatting earlier — DM is open anytime",
+      tr_translation: "Daha önce konuşmak güzeldi — istediğin zaman DM atabilirsin.",
+    },
+    {
+      id: "ex.wn39.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Hello. I need job urgent. You connect me with CEO of your company today please.",
+      correct_sentence: "Hey — great chatting earlier. Hope our paths cross again; my DMs are open if anything comes up.",
+      tr_explanation:
+        "Birinci versiyon: ilk mesajda büyük talep + zaman baskısı + nezaket sıfır = ignore + block. Doğru follow-up: 'light touch' yaklaşımı, hatırlatma + warm kapı açık bırakma, istek sıfır. İlişki sonradan kurulur.",
+    },
+    {
+      id: "ex.wn39.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Etkinlikten 2 gün sonra LinkedIn DM atıyorsun. Hiç istek yok — sadece 'light touch' bağ kurma.",
+      npc_role: "Networking Partner (LinkedIn DM)",
+      setting: "LinkedIn DM, 2 days after event",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|hi|hello) [a-z]+",
+            "(great|loved|really enjoyed) (chatting|talking|the chat) (earlier|at the (meetup|event|conference))",
+            "(thanks (for|again) the (chat|conversation|recommendation))",
+            "(your (\\w+) (point|insight|take) on)",
+            "(hope (our paths|we) cross again|hope to (see|run into) you)",
+            "(dm.{0,3} (open|always open)|feel free to (ping|message))",
+          ],
+          hint_tr:
+            "Light follow-up: 'Hey Sam — great chatting earlier. Loved your take on shipping fast. Hope our paths cross again — DM open anytime.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Hey! Likewise — your point on weekly demos stuck with me. What are you up to this week?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh nice|that'?s great|glad it (resonated|landed|stuck))",
+            "(mostly|mainly) (heads down|focused|deep) (in|on|with)",
+            "(shipping|launching|wrapping up) (\\w+)",
+            "(you\\?|what about you|how about you|how'?s your week)",
+            "(if you (ever|'?re curious about) (\\w+))",
+            "(happy to (chat|share|jump on a call) (more|about))",
+          ],
+          hint_tr:
+            "Kısa güncelleme + soruyu çevir: 'Glad it resonated! Mostly heads down on a launch this week. You?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Same — prepping a board update. Hey, would you ever do a quick call to compare notes on demos?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|absolutely|definitely|for sure|love to)",
+            "(love to|would (love|enjoy) to)",
+            "(send me (a few times|some slots|3 times)|drop a calendly|happy to find time)",
+            "(next week|sometime next week|after my launch)",
+            "(looking forward to (it|comparing notes))",
+            "(let me know what (works|fits))",
+          ],
+          hint_tr:
+            "Karşılığını ver + concrete next step: 'Absolutely — send me a few times next week, would love to compare notes.'",
+        },
+        {
+          speaker: "npc",
+          message: "Perfect — sending a Calendly now.",
+        },
+      ],
+    },
+    {
+      id: "ex.wn39.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Networking sonrası follow-up'ın TEMEL prensibi?",
+          options: [
+            "Hemen iş iste",
+            "Light touch — hatırlatma + warm kapı, istek SIFIR. İlişki sonradan kurulur.",
+            "Uzun CV gönder",
+            "Hiç yazma",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "İlk mesajda büyük talep = blok. 'Light touch' = hatırlattım + dostum + kapı açık. Karşı taraf zamanı geldiğinde döner.",
+        },
+        {
+          question: "'Hope our paths cross again' niye güzel kapanış?",
+          options: [
+            "Çok ağır",
+            "Yumuşak + samimi + talep yok + olası gelecek tanışma kapısı açar",
+            "Yanlış İngilizce",
+            "Gereksiz",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Türkçedeki 'yolumuz tekrar kesişsin' karşılığı. Talep yok, sıcak, açık uçlu = mükemmel kapanış.",
+        },
+        {
+          question: "'I need job urgent' niye kötü ilk follow-up?",
+          options: [
+            "Aslında iyi",
+            "Henüz ilişki yok + ilk mesajda büyük talep + zaman baskısı + nezaket yok = ignore",
+            "Çok uzun",
+            "Yanlış kelime",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Networking ilişki = yatırım. Önce ilişki sonra istek. İlk mesajda 'iş ver' = sıfır güvenle büyük talep = soğuk.",
+        },
+      ],
+    },
+    {
+      id: "ex.wn39.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Great chatting earlier — hope our paths cross again, DM is open anytime.",
+      tr_translation: "Daha önce konuşmak güzeldi — yollarımızın tekrar kesişmesini umuyorum, DM her zaman açık.",
+      ipa: "/ɡreɪt ˈtʃætɪŋ ˈɜːliə həʊp ˈaʊə pɑːθs krɒs əˈɡɛn diː ɛm ɪz ˈəʊpən ˈɛniˌtaɪm/",
+    },
+  ],
+};
+
+// ============================================================
 // Work Networking lessons registry
 // ============================================================
 export const workNetworkingLessons: ReadonlyArray<BundledLesson> = [
@@ -917,4 +1687,8 @@ export const workNetworkingLessons: ReadonlyArray<BundledLesson> = [
   workNetworkingLesson_39_2,
   workNetworkingLesson_39_3,
   workNetworkingLesson_39_4,
+  workNetworkingLesson_39_5,
+  workNetworkingLesson_39_6,
+  workNetworkingLesson_39_7,
+  workNetworkingLesson_39_8,
 ];

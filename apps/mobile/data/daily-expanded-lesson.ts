@@ -2354,6 +2354,717 @@ export const dailyExpandedLesson_beachsafe: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 16 — Veterinarian appointment (B1)
+// ============================================================
+export const dailyExpandedLesson_vet: BundledLesson = {
+  id: "daily.expanded.vet.1",
+  skill_id: "daily.expanded.vet",
+  index: 16,
+  title: "Veteriner randevu — pet sahibi",
+  description:
+    "Köpek/kedi yıllık kontrolü, aşı, iştahsızlık — veterinerle netleştirme.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.dex.vet.1.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "annual checkup",
+      tr_translation: "Yıllık kontrol muayenesi",
+      example: "She's here for her annual checkup.",
+      example_tr: "Yıllık kontrolü için geldi.",
+    },
+    {
+      id: "ex.dex.vet.1.2",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "off her food",
+      tr_translation: "İştahı kapanmış (iştahsız)",
+      example: "She's been off her food for a couple of days.",
+      example_tr: "Birkaç gündür yemek yemiyor.",
+    },
+    {
+      id: "ex.dex.vet.1.3",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Birkaç gündür yemek yemiyor ve biraz halsiz.",
+      target: "She's been off her food for a few days and seems a bit low-energy.",
+      accepted_variants: [
+        "She hasn't been eating well for a few days and she's a bit sluggish.",
+        "For the past few days she's been off her food and a little lethargic.",
+        "She's barely eaten in a few days and she's not her usual self.",
+        "She's been refusing food for a few days and seems tired.",
+      ],
+      tr_hint:
+        "'Off her food' = iştahsız (sabit kalıp). 'Low-energy / sluggish / lethargic' = halsiz.",
+    },
+    {
+      id: "ex.dex.vet.1.4",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "Is she up to ___ on her vaccinations?",
+      answer: "date",
+      distractors: ["day", "time", "now", "speed"],
+      tr_hint:
+        "'Up to date' = güncel (aşı, evrak vs. için sabit kalıp). 'Up to speed' farklı anlam (bilgili).",
+    },
+    {
+      id: "ex.dex.vet.1.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "My dog don't eat from three day, I want make checkup.",
+      correct_sentence:
+        "My dog hasn't eaten for three days — I'd like to book a checkup.",
+      tr_explanation:
+        "'Don't eat from three day' yanlış — Present Perfect lazım: 'hasn't eaten for three days'. 'I want make' yerine 'I'd like to book / get' kibar ve doğru (modal yapısı).",
+    },
+    {
+      id: "ex.dex.vet.1.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Köpeğinle veterinerdesin. Hem yıllık kontrol hem son günlerdeki iştahsızlık konusu var.",
+      npc_role: "Veterinarian",
+      setting: "Veterinary clinic exam room",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hi there — who do we have today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|good (morning|afternoon))",
+            "this is [a-z]+",
+            "(her|his) name is [a-z]+",
+            "(she'?s|he'?s) (here for|due for) (a |her |his )?(annual )?(checkup|check-?up|vaccinations?)",
+          ],
+          hint_tr:
+            "Hayvanı tanıt: 'Hi, this is Luna — she's here for her annual checkup.'",
+        },
+        {
+          speaker: "npc",
+          message: "Lovely. Any concerns since the last visit?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|actually)",
+            "(she'?s|he'?s) been off (her|his) food",
+            "(she|he) hasn'?t been eating",
+            "(seems|looks) (a bit|kind of) (tired|low-?energy|sluggish|lethargic)",
+            "(for|since) (a few|several|two|three) days",
+          ],
+          hint_tr:
+            "'Yes — she's been off her food for a few days and seems a bit low-energy.'",
+        },
+        {
+          speaker: "npc",
+          message: "Okay. Any vomiting or diarrhoea? Drinking normally?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|not really|nothing) (vomiting|throwing up)",
+            "(she'?s|he'?s) (drinking|still drinks) (water|normally|fine)",
+            "(once|twice|a little) (last night|yesterday)",
+            "(no )?diarrhoea|diarrhea",
+          ],
+          hint_tr:
+            "Net cevap: 'No vomiting. She's still drinking water normally.'",
+        },
+        {
+          speaker: "npc",
+          message: "Is she up to date on her vaccinations?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|i think so)",
+            "(she'?s|he'?s) up to date",
+            "(her|his) last (shots?|vaccinations?) (were|was)",
+            "(i'?m )?not sure — could you check (the )?records?",
+          ],
+          hint_tr:
+            "'Yes, she should be up to date — her last shots were in spring.'",
+        },
+        {
+          speaker: "npc",
+          message: "Alright — I'll examine her, then we'll run a quick blood test to be safe.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay|sure|sounds good|that works)",
+            "(how much|what'?s the cost|how much will (that|it) be)",
+            "(will|does) (it|she) need (fasting|to fast)",
+            "(thanks?|thank you)",
+          ],
+          hint_tr:
+            "Onayla + soru: 'Sounds good — how much will the blood test be?'",
+        },
+      ],
+    },
+    {
+      id: "ex.dex.vet.1.7",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "She's been off her food for a few days.",
+      tr_hint:
+        "'Off her food' = 'of hır fuud'. 'been' zayıf ses 'bin'. Doğal, endişeli ton.",
+    },
+    {
+      id: "ex.dex.vet.1.8",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "spay/neuter",
+      tr_translation: "Kısırlaştırma (dişi/erkek)",
+      example: "Has she been spayed?",
+      example_tr: "Kısırlaştırıldı mı?",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 17 — Dry cleaner drop-off (A2)
+// ============================================================
+export const dailyExpandedLesson_drycleaner: BundledLesson = {
+  id: "daily.expanded.drycleaner.1",
+  skill_id: "daily.expanded.drycleaner",
+  index: 17,
+  title: "Kuru temizleme — kıyafet bırakma",
+  description:
+    "Takım elbise, leke, teslim tarihi — kuru temizlemeciyle netleştirme.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dex.drycleaner.1.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "drop off",
+      tr_translation: "Bırakmak (bir yere teslim etmek)",
+      example: "I'd like to drop off a suit.",
+      example_tr: "Bir takım elbise bırakmak istiyorum.",
+    },
+    {
+      id: "ex.dex.drycleaner.1.2",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "stain",
+      tr_translation: "Leke",
+      example: "There's a coffee stain on the lapel.",
+      example_tr: "Yakada bir kahve lekesi var.",
+    },
+    {
+      id: "ex.dex.drycleaner.1.3",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bu lekeler çıkar mı sizce?",
+      target: "Do you think these stains will come out?",
+      accepted_variants: [
+        "Do you think you can get these stains out?",
+        "Will these stains come out?",
+        "Can you remove these stains?",
+        "Do you reckon these stains will come off?",
+      ],
+      tr_hint:
+        "'Come out' = leke için 'çıkmak'. 'Get … out / remove' = çıkarmak.",
+    },
+    {
+      id: "ex.dex.drycleaner.1.4",
+      type: "fill_blank",
+      difficulty: 2,
+      sentence_template: "How long ___ these to be ready?",
+      answer: "for",
+      distractors: ["to", "until", "before", "of"],
+      tr_hint:
+        "'How long for X to + fiil' = X'in … olması ne kadar sürer. 'For + nesne + to + fiil' yapısı.",
+    },
+    {
+      id: "ex.dex.drycleaner.1.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I want clean this jacket fast, when can I take?",
+      correct_sentence:
+        "I'd like to get this jacket cleaned — when can I pick it up?",
+      tr_explanation:
+        "'I want clean' yanlış — 'I'd like to get … cleaned' (causative: get + nesne + V3). 'When can I take' eksik — 'pick it up' (kuru temizlemeden almak için doğru fiil) ve 'it' objesi şart.",
+    },
+    {
+      id: "ex.dex.drycleaner.1.6",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Kuru temizlemeye lekeli bir takım elbise bırakıyorsun. Süre ve leke konusunu netleştir.",
+      npc_role: "Dry cleaner clerk",
+      setting: "Dry cleaning shop counter",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hi — what can I do for you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|good (morning|afternoon))",
+            "(i'?d like|could i|i want) to (drop off|leave|get .{0,30} cleaned)",
+            "(i have|i'?ve got) (a )?(suit|jacket|shirt|dress|coat)",
+            "(this )?(suit|jacket|shirt|dress) (needs|for) (a )?clean(ing)?",
+          ],
+          hint_tr:
+            "'Hi — I'd like to drop off this suit for cleaning.'",
+        },
+        {
+          speaker: "npc",
+          message: "Sure. Any stains or spots I should know about?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|actually).{0,30}(stain|spot)",
+            "(there'?s|i'?ve got) (a )?(coffee|wine|oil|grease|food) stain",
+            "(on|near) the (lapel|sleeve|collar|cuff|front)",
+            "(do you think|will) (it|they|the stain) come out",
+          ],
+          hint_tr:
+            "Lekeyi göster: 'Yeah, there's a coffee stain on the lapel — will it come out?'",
+        },
+        {
+          speaker: "npc",
+          message: "We'll do our best — coffee usually comes out, but no guarantees on the lapel.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay|alright|got it|fair enough|understood)",
+            "(thanks?|thank you)",
+            "(please )?(try|do) your best",
+            "(that'?s )?fine",
+          ],
+          hint_tr: "'Got it — please do your best, thanks.'",
+        },
+        {
+          speaker: "npc",
+          message: "Standard service is three days. Express is next-day for ten dollars extra.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(standard|three days?) (is|works) (fine|okay)",
+            "(i'?ll go with|let'?s do) (standard|express|next-?day)",
+            "(how long for these to be ready)",
+            "(could i|can i) (get|have) (it|them) (by|on|before)",
+          ],
+          hint_tr:
+            "Karar: 'Standard is fine, thanks.' veya 'Let's do express.'",
+        },
+        {
+          speaker: "npc",
+          message: "Perfect. Here's your ticket — pick up after 4 PM on Thursday.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks?|thank you|perfect|great)",
+            "(see you|i'?ll see you) (then|thursday)",
+            "(do i|should i) (pay now|pay on pickup)",
+          ],
+          hint_tr: "'Perfect, thanks — see you Thursday.'",
+        },
+      ],
+    },
+    {
+      id: "ex.dex.drycleaner.1.7",
+      type: "speech_shadowing",
+      difficulty: 3,
+      native_text: "Will the stain come out, do you think?",
+      voice_hint: "female_us",
+      tr_hint:
+        "'Come out' = 'kam aut' (leke 'çıkmak'). Cümle sonunda hafif yükselen tonla 'do you think?' nazikleştirir.",
+    },
+    {
+      id: "ex.dex.drycleaner.1.8",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "pick up",
+      tr_translation: "Almak (bırakılan bir şeyi)",
+      example: "When can I pick it up?",
+      example_tr: "Ne zaman alabilirim?",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 18 — Post office package shipping (B1)
+// ============================================================
+export const dailyExpandedLesson_postoffice: BundledLesson = {
+  id: "daily.expanded.postoffice.1",
+  skill_id: "daily.expanded.postoffice",
+  index: 18,
+  title: "Posta ofisi — paket gönderme",
+  description:
+    "USPS gişesinde paket gönderme: hız seçeneği, takip, sigorta — ABD bürokrasisini öğren.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.dex.postoffice.1.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "priority mail",
+      tr_translation: "Öncelikli posta (USPS, 1-3 gün)",
+      example: "I'd like to send this priority mail.",
+      example_tr: "Bunu öncelikli postayla göndermek istiyorum.",
+    },
+    {
+      id: "ex.dex.postoffice.1.2",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "tracking number",
+      tr_translation: "Takip numarası",
+      example: "Does that come with a tracking number?",
+      example_tr: "Takip numarası dahil mi?",
+    },
+    {
+      id: "ex.dex.postoffice.1.3",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bu paketi Türkiye'ye göndermek istiyorum — en ucuz seçenek nedir?",
+      target: "I'd like to send this package to Turkey — what's the cheapest option?",
+      accepted_variants: [
+        "I want to ship this to Turkey — what's the most affordable way?",
+        "I'd like to mail this package to Turkey — what's the cheapest shipping?",
+        "I need to send this to Turkey — what's the lowest-cost option?",
+        "Could I send this to Turkey, please? What's the cheapest way?",
+      ],
+      tr_hint:
+        "'Send / ship / mail' üçü de gönderme. 'Cheapest option' = en ucuz seçenek.",
+    },
+    {
+      id: "ex.dex.postoffice.1.4",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Priority ___ first-class?",
+      answer: "or",
+      distractors: ["and", "than", "to", "of"],
+      tr_hint:
+        "Gişe görevlisi sıkça iki seçenek arasında seçim sorar: 'Priority or first-class?' — kısa, ABD bürokrasi diliyle.",
+    },
+    {
+      id: "ex.dex.postoffice.1.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I want send this to Turkey, how many days it takes?",
+      correct_sentence:
+        "I'd like to send this to Turkey — how long does it take?",
+      tr_explanation:
+        "'I want send' yanlış — modal'dan sonra 'to' lazım: 'I'd like to send'. 'How many days it takes' yanlış soru yapısı — soruda yardımcı fiil önde olmalı: 'How long does it take?' (doğal kalıp).",
+    },
+    {
+      id: "ex.dex.postoffice.1.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "USPS gişesindesin. Türkiye'ye küçük bir paket gönderiyorsun. Hız, fiyat, takip — hepsini netleştir.",
+      npc_role: "USPS clerk",
+      setting: "US Post Office counter",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Next, please. How can I help you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|good (morning|afternoon))",
+            "(i'?d like|could i|i need) to (send|ship|mail) (this|a package)",
+            "(i'?m )?sending (this|a package) to [a-z]+",
+            "(this is going to|destination is) [a-z]+",
+          ],
+          hint_tr:
+            "'Hi — I'd like to send this package to Turkey, please.'",
+        },
+        {
+          speaker: "npc",
+          message: "Sure. Anything fragile, liquid, or perishable inside?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|nothing|no fragile|no liquids)",
+            "(just|only) (clothes|books|gifts|documents)",
+            "(it'?s )?(just|only) [a-z]+",
+            "(no|nothing) (like that|special)",
+          ],
+          hint_tr:
+            "Net cevap: 'No, just clothes and a couple of books.'",
+        },
+        {
+          speaker: "npc",
+          message: "Priority or first-class? Priority's faster but costs more.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(how much|what'?s the (price|cost|difference))",
+            "(how long|how many days) (does (each|it) take|for each)",
+            "(let'?s do|i'?ll go with|i'?ll take) (priority|first-?class)",
+            "(what'?s the cheapest|the cheaper one)",
+          ],
+          hint_tr:
+            "Önce fiyat/süre sor: 'How much is the difference? And how long for each?'",
+        },
+        {
+          speaker: "npc",
+          message: "Priority's about $45 and arrives in 6 to 10 business days. First-class is $30 but can take three weeks.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(let'?s do|i'?ll go with|i'?ll take) priority",
+            "(let'?s do|i'?ll go with) first-?class",
+            "(is )?tracking included",
+            "(does it|do they) come with (a )?tracking (number)?",
+          ],
+          hint_tr:
+            "Karar + takip sor: 'Let's go with priority. Is tracking included?'",
+        },
+        {
+          speaker: "npc",
+          message: "Yes, tracking and up to $100 of insurance are included with priority.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(perfect|great|sounds good|thanks?)",
+            "(could i|can i) (get|add) (extra )?insurance",
+            "(do i|should i) (fill out|need) (a )?(customs )?form",
+          ],
+          hint_tr:
+            "Onayla + gümrük formu sor: 'Great — do I need to fill out a customs form?'",
+        },
+        {
+          speaker: "npc",
+          message: "Yes — here's the customs form. Fill it in and I'll print the label.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks?|thank you|got it|sure)",
+            "(could i|can i) pay (by card|with card|cash)",
+            "(perfect|alright)",
+          ],
+          hint_tr: "'Got it — can I pay by card?'",
+        },
+      ],
+    },
+    {
+      id: "ex.dex.postoffice.1.7",
+      type: "listen_and_transcribe",
+      difficulty: 3,
+      audio_text: "Priority or first-class?",
+      transcription_target: "Priority or first-class?",
+      tr_hint:
+        "Gişede sık duyulur. 'Priority' = 'pray-or-ti'. 'First-class' = 'first klæs'. Kısa, hızlı tonla.",
+    },
+    {
+      id: "ex.dex.postoffice.1.8",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "customs form",
+      tr_translation: "Gümrük beyanı formu (yurt dışı paketler için)",
+      example: "Do I need to fill out a customs form?",
+      example_tr: "Gümrük formu doldurmam gerekiyor mu?",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 19 — DMV driver's license renewal (B1)
+// ============================================================
+export const dailyExpandedLesson_dmv: BundledLesson = {
+  id: "daily.expanded.dmv.1",
+  skill_id: "daily.expanded.dmv",
+  index: 19,
+  title: "DMV — sürücü belgesi yenileme",
+  description:
+    "ABD DMV ofisinde ehliyet yenileme: göz testi, fotoğraf, adres güncelleme — Türk için yepyeni bürokrasi.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.dex.dmv.1.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "renew",
+      tr_translation: "Yenilemek (ehliyet, pasaport vb.)",
+      example: "I'm here to renew my license.",
+      example_tr: "Ehliyetimi yenilemeye geldim.",
+    },
+    {
+      id: "ex.dex.dmv.1.2",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "eye test",
+      tr_translation: "Göz testi (DMV'de zorunlu olabilir)",
+      example: "Do I need to retake the eye test?",
+      example_tr: "Göz testini tekrar yapmam gerekiyor mu?",
+    },
+    {
+      id: "ex.dex.dmv.1.3",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Ehliyetimi yenilemeye geldim — randevum saat 10'da.",
+      target: "I'm here to renew my license — my appointment's at 10.",
+      accepted_variants: [
+        "I came in to renew my driver's license — I have a 10 o'clock appointment.",
+        "I'd like to renew my license. My appointment is at 10.",
+        "I'm here for a license renewal — I'm booked for 10 AM.",
+        "I have a 10 AM appointment to renew my driver's license.",
+      ],
+      tr_hint:
+        "'I'm here to + fiil' = …için geldim (sabit kalıp). 'Renew' = yenilemek.",
+    },
+    {
+      id: "ex.dex.dmv.1.4",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I'd like ___ renew my license.",
+      answer: "to",
+      distractors: ["for", "—", "that", "of"],
+      tr_hint:
+        "'I'd like to + fiil' sabit. Türk hatası: 'I want renew' / 'I'd like renew' — 'to' atlanır. EKLEMEYİ unutma.",
+    },
+    {
+      id: "ex.dex.dmv.1.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I want renew license, my address is also changed.",
+      correct_sentence:
+        "I'd like to renew my license — and my address has changed.",
+      tr_explanation:
+        "'I want renew' yanlış — 'I'd like to renew' (kibar + 'to' şart). 'License' önce iyelik 'my' lazım. 'My address is also changed' yerine Present Perfect: 'has changed' (sonucu olan değişiklik).",
+    },
+    {
+      id: "ex.dex.dmv.1.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "DMV gişesindesin. Ehliyet yenileme + adres güncelleme. Görevli sırayla soracak — sakin kal, kısa cevap ver.",
+      npc_role: "DMV clerk",
+      setting: "DMV office counter",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Next. How can I help you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello|good (morning|afternoon))",
+            "(i'?d like|i'?m here) to renew (my )?(license|driver'?s license)",
+            "(i have|i'?ve got) (an )?appointment",
+            "(i'?m here for|i came in for) (a )?(license )?renewal",
+          ],
+          hint_tr:
+            "'Hi — I'm here to renew my driver's license. I have a 10 o'clock appointment.'",
+        },
+        {
+          speaker: "npc",
+          message: "Sure. Can I see your current license and a proof of address?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sure|yes|of course|here you go)",
+            "(here'?s|this is) (my )?(license|id|utility bill|lease)",
+            "(i'?ve got|i brought) (a )?(utility bill|lease|bank statement)",
+          ],
+          hint_tr: "'Sure, here you go — and here's a utility bill for proof of address.'",
+        },
+        {
+          speaker: "npc",
+          message: "Has any of your information changed since the last renewal?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|actually).{0,30}(address|name|phone)",
+            "(my )?address has changed",
+            "(i )?moved (recently|last (month|year))",
+            "(no|nothing|everything'?s the same)",
+          ],
+          hint_tr:
+            "'Yes — my address has changed. I moved last month.'",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. I'll update the address. Do I need to retake the eye test today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i was going to ask|that'?s what i wanted to ask)",
+            "(do i|am i) (need to|required to|supposed to) (retake|take) (it|the eye test)",
+            "(is it|that'?s) required",
+            "(sure|okay|yes).{0,20}(if|that)",
+          ],
+          hint_tr:
+            "Sor: 'Actually, do I need to retake the eye test? I wasn't sure.'",
+        },
+        {
+          speaker: "npc",
+          message: "Yes, it's standard at renewal. Step over to the machine and read line four.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sure|okay|alright|got it|will do)",
+            "(thanks?|thank you)",
+            "(without|with) my glasses",
+          ],
+          hint_tr: "'Sure, got it — with my glasses, right?'",
+        },
+        {
+          speaker: "npc",
+          message: "Glasses are fine. (later) Looks good. Now look at the camera for the photo.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay|sure|got it|alright)",
+            "(should i|do i) smile",
+            "(thanks?|thank you|perfect)",
+            "(how long|when will|when does) (the new one|my license) (arrive|come)",
+          ],
+          hint_tr:
+            "'Got it. How long until the new license arrives?'",
+        },
+      ],
+    },
+    {
+      id: "ex.dex.dmv.1.7",
+      type: "pronounce_phrase",
+      difficulty: 2,
+      phrase: "I'd like to renew my driver's license.",
+      tr_hint:
+        "'I'd like' = 'ayd layk' (kısa, kibar). 'renew' = 'ri-NYU'. 'driver's license' = 'drayvırs laysıns'. Sakin, profesyonel ton.",
+    },
+    {
+      id: "ex.dex.dmv.1.8",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Do I must take eye test again?",
+      correct_sentence: "Do I need to retake the eye test?",
+      tr_explanation:
+        "'Do I must' yanlış — 'must' soruda 'do' ile birleşmez. Doğrusu 'Do I need to + fiil?' veya 'Must I + fiil?'. Ayrıca 'retake' (tekrar yapmak) tek fiilde toplanır, 'take again'den daha doğal.",
+    },
+  ],
+};
+
+// ============================================================
 // Registry
 // ============================================================
 export const dailyExpandedLessons: ReadonlyArray<BundledLesson> = [
@@ -2372,4 +3083,8 @@ export const dailyExpandedLessons: ReadonlyArray<BundledLesson> = [
   dailyExpandedLesson_dentist,
   dailyExpandedLesson_worship,
   dailyExpandedLesson_beachsafe,
+  dailyExpandedLesson_vet,
+  dailyExpandedLesson_drycleaner,
+  dailyExpandedLesson_postoffice,
+  dailyExpandedLesson_dmv,
 ];

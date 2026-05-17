@@ -221,46 +221,10 @@ export default function ProfileScreen() {
 
           <Pressable
             style={styles.row}
-            onPress={() => router.push("/achievements" as never)}
+            onPress={() => router.push("/paywall" as never)}
           >
-            <Text style={styles.rowIcon}>🏆</Text>
-            <Text style={styles.rowText}>Başarımlar</Text>
-            <Text style={styles.rowChevron}>›</Text>
-          </Pressable>
-
-          <Pressable
-            style={styles.row}
-            onPress={() => router.push("/skills" as never)}
-          >
-            <Text style={styles.rowIcon}>🌳</Text>
-            <Text style={styles.rowText}>Beceri Ağacı</Text>
-            <Text style={styles.rowChevron}>›</Text>
-          </Pressable>
-
-          <Pressable
-            style={styles.row}
-            onPress={() => router.push("/journal" as never)}
-          >
-            <Text style={styles.rowIcon}>📓</Text>
-            <Text style={styles.rowText}>Günlük</Text>
-            <Text style={styles.rowChevron}>›</Text>
-          </Pressable>
-
-          <Pressable
-            style={styles.row}
-            onPress={() => router.push("/freechat" as never)}
-          >
-            <Text style={styles.rowIcon}>💬</Text>
-            <Text style={styles.rowText}>AI Sohbet</Text>
-            <Text style={styles.rowChevron}>›</Text>
-          </Pressable>
-
-          <Pressable
-            style={styles.row}
-            onPress={() => router.push("/referral" as never)}
-          >
-            <Text style={styles.rowIcon}>🎁</Text>
-            <Text style={styles.rowText}>Arkadaş Davet</Text>
+            <Text style={styles.rowIcon}>👑</Text>
+            <Text style={styles.rowText}>Pro'ya Geç</Text>
             <Text style={styles.rowChevron}>›</Text>
           </Pressable>
 
@@ -270,33 +234,6 @@ export default function ProfileScreen() {
           >
             <Text style={styles.rowIcon}>⚙️</Text>
             <Text style={styles.rowText}>Ayarlar</Text>
-            <Text style={styles.rowChevron}>›</Text>
-          </Pressable>
-
-          <Pressable
-            style={styles.row}
-            onPress={() => router.push("/about" as never)}
-          >
-            <Text style={styles.rowIcon}>ℹ️</Text>
-            <Text style={styles.rowText}>Hakkında</Text>
-            <Text style={styles.rowChevron}>›</Text>
-          </Pressable>
-
-          <Pressable
-            style={styles.row}
-            onPress={() => router.push("/help" as never)}
-          >
-            <Text style={styles.rowIcon}>❓</Text>
-            <Text style={styles.rowText}>Yardım</Text>
-            <Text style={styles.rowChevron}>›</Text>
-          </Pressable>
-
-          <Pressable
-            style={styles.row}
-            onPress={() => router.push("/paywall" as never)}
-          >
-            <Text style={styles.rowIcon}>👑</Text>
-            <Text style={styles.rowText}>Pro'ya Geç</Text>
             <Text style={styles.rowChevron}>›</Text>
           </Pressable>
 

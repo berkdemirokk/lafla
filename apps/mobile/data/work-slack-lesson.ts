@@ -844,6 +844,700 @@ export const workSlackLesson_9_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 9.5 — Async Stand-up: 3-Line Blocker Report
+// ============================================================
+export const workSlackLesson_9_5: BundledLesson = {
+  id: "work.slack.9.5",
+  skill_id: "work.slack",
+  index: 5,
+  title: "Async Standup - 3 Satir Format",
+  description:
+    "Async standup mesaji: Yesterday / Today / Blockers — tarama-friendly, scannable, 30 saniyede okunur.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.ws9.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "EOD",
+      tr_translation: "Mesai sonu (End Of Day)",
+      example: "Will push the PR by EOD — let me know if anything urgent.",
+      example_tr: "PR'i mesai sonuna kadar yollarim — acil bir sey varsa haber ver.",
+    },
+    {
+      id: "ex.ws9.5.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Dun: oauth flow bittti. Bugun: PR review bekliyorum + cache layer'a baslayacagim. Engel: yok.",
+      target: "Y: wrapped OAuth flow. T: waiting on PR review, then starting cache layer. B: none.",
+      accepted_variants: [
+        "Yesterday: shipped OAuth. Today: PR review + kicking off cache layer. Blockers: none.",
+        "Y: OAuth done. T: PR review then cache work. B: clear.",
+        "Done: OAuth flow. Doing: review wait + cache layer kickoff. Blocked: nope.",
+        "Yesterday: OAuth merged. Today: review + cache. No blockers.",
+      ],
+      tr_hint:
+        "'Y:/T:/B:' kisaltma standart. 'Wrapped' = bitirdim (casual). 'Kicking off' = baslamak. Belirsiz 'studying' tarzi anti-pattern.",
+    },
+    {
+      id: "ex.ws9.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Heads ___: deploy might slip to tomorrow.",
+      answer: "up",
+      distractors: ["on", "in", "out"],
+      tr_hint:
+        "'Heads up' deyim = onceden uyari. Standup'ta risk sinyali vermek icin standart.",
+    },
+    {
+      id: "ex.ws9.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "On",
+        "track",
+        "for",
+        "Friday",
+        "ship",
+      ],
+      correct_sentence: "On track for Friday ship",
+      tr_translation: "Cuma teslimi yolunda gidiyor.",
+    },
+    {
+      id: "ex.ws9.5.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Yesterday I was studying the codebase and trying to understand the auth module.",
+      correct_sentence:
+        "Y: ramped up on auth module. T: starting the password reset task. B: none.",
+      tr_explanation:
+        "'I was studying' = belirsiz + uzun. Standup = scannable. 'Ramped up' = ogrenip hazirlandim (jargon). Format = Y:/T:/B:.",
+    },
+    {
+      id: "ex.ws9.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "9 AM #daily-standup kanalina async update yaziyorsun. Tech lead bir takip soru soruyor.",
+      npc_role: "Tech Lead",
+      setting: "Slack #daily-standup",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(y:|yesterday:|yday:)",
+            "(t:|today:|tday:)",
+            "(b:|blockers?:|blocked:)",
+            "(shipped|merged|wrapped|finished|deployed|pushed)",
+            "(working on|starting|continuing|kicking off|picking up)",
+            "(none|no blockers|all clear|nothing|n/a|clear)",
+          ],
+          hint_tr:
+            "Format: 'Y: shipped X. T: starting Y. B: none.' Üç satir, scannable.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Nice — heads up, the design team needs your input on the modal by EOD. Doable?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yep|yeah|sure|will do|on it|got it)",
+            "(by eod|before (eod|end of day)|today)",
+            "(squeeze it in|fit it in|carve out time)",
+            "(after|once) (i (wrap|finish|push))",
+            "(might|may) (need to|have to) (push|deprioritize|shift)",
+            "(let me know|tag me|ping me) (if (priorities|things) shift)",
+          ],
+          hint_tr:
+            "Net cevap: 'On it — will squeeze in before EOD. Tagging you when done.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Appreciate it. Tag me when ready.",
+        },
+      ],
+    },
+    {
+      id: "ex.ws9.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Async standup mesajinin amaci NE?",
+          options: [
+            "Yoneticiye sevgi gostermek",
+            "Takimin bilgisi olmasi + blocker'lari hizla cikarmak = scannable, 30 sn'de okunur",
+            "Mesaj sayisi artirma",
+            "Cv yazma",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Async kultur = herkes kendi zamani okur. 3 satir = saygi. Roman yazmak = saygisizlik.",
+        },
+        {
+          question: "'Heads up' kalıbı NE icin?",
+          options: [
+            "Selam vermek",
+            "Onceden uyari — risk/degisiklik sinyali (Cuma teslimi kayabilir gibi)",
+            "Tesekkur",
+            "Onemsiz",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Heads up: deploy might slip' = surpriz olmasin diye onceden bildirim. Profesyonel sinyal.",
+        },
+        {
+          question: "Niye 'I was studying' standup'ta KOTU?",
+          options: [
+            "Yanlis gramer",
+            "Belirsiz + gostermez ne basardin — somut cikti yok",
+            "Cok kisa",
+            "Kotu degil",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Tech lider 'studying' okuyor = '8 saat ne yapti?' diye dusunuyor. 'Ramped up on X' = somut + olcumlenebilir.",
+        },
+      ],
+    },
+    {
+      id: "ex.ws9.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Heads up — might slip to tomorrow.",
+      ipa: "/hɛdz ʌp maɪt slɪp tu təˈmɑroʊ/",
+      tr_articulation_hint:
+        "'Heads up' birlesik (hed-zap). 'Might slip' = belki gecikir, nazik bayrak. 'To tomorrow' yumusak ge-cis. Endise yok, sade uyari tonu.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 9.6 — DM to Manager: Formality Calibration
+// ============================================================
+export const workSlackLesson_9_6: BundledLesson = {
+  id: "work.slack.9.6",
+  skill_id: "work.slack",
+  index: 6,
+  title: "Yoneticiye DM - Formalite Ayari",
+  description:
+    "Yoneticiye Slack DM: 'Dear Sir' yok, 'Hey' var. Saygi = netlik ve zaman degeri, formalite degil.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.ws9.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Got 5 min?",
+      tr_translation: "5 dakikan var mi?",
+      example: "Hey — got 5 min later today to chat about my Q2 goals?",
+      example_tr: "Selam — bugun Q2 hedeflerim icin 5 dakikan olur mu?",
+    },
+    {
+      id: "ex.ws9.6.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Selam, vaktiniz olursa yarinki 1-on-1 oncesi PTO talebimi konusabilir miyiz?",
+      target: "Hey — when you have a min, can we touch base on my PTO request before tomorrow's 1:1?",
+      accepted_variants: [
+        "Hey! Got a sec before our 1:1 tomorrow? Wanted to flag a PTO request.",
+        "Hi — quick one: can we cover my PTO ask before the 1:1 tomorrow?",
+        "Hey, whenever you have a moment — PTO request I'd like to chat through before 1:1.",
+        "Hi! Hoping to bring up a PTO request in tomorrow's 1:1 — any prep notes you'd want?",
+      ],
+      tr_hint:
+        "'Dear Manager' / 'Saygilarimla' yazmak = yabancilastirma. Slack = 'Hey + isim'. Saygi NETLIK ile gosterilir.",
+    },
+    {
+      id: "ex.ws9.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Wanted to ___ base on the promo conversation.",
+      answer: "touch",
+      distractors: ["take", "make", "get"],
+      tr_hint:
+        "'Touch base' deyim = kisa goruşmek, durum sormak. Yoneticiyle iletisim icin natural.",
+    },
+    {
+      id: "ex.ws9.6.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Whenever",
+        "you",
+        "have",
+        "a",
+        "min",
+      ],
+      correct_sentence: "Whenever you have a min",
+      tr_translation: "Müsait olduğunuzda.",
+    },
+    {
+      id: "ex.ws9.6.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Dear Sir, I am sending you this message to request a meeting at your earliest convenience.",
+      correct_sentence:
+        "Hey Mike — got 10 min this week to chat about my growth plan? No rush on timing.",
+      tr_explanation:
+        "'Dear Sir' + 'I am sending you' = email-1950 tonu. ABD startup Slack = 'Hey + isim'. Asiri formalite = yabanci + bot gibi gelir.",
+    },
+    {
+      id: "ex.ws9.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Yoneticine DM atiyorsun — gelecek hafta 2 gun OOO olacaksin (kisisel sebep). Calibration on noktasi.",
+      npc_role: "Engineering Manager",
+      setting: "Slack DM with manager",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|hi) (mike|sarah|name)",
+            "(quick (heads up|note|one)|wanted to (flag|let you know))",
+            "(taking|planning to take|out) (thursday|friday|next (week|tuesday)) (and|through))?",
+            "(ooo|out of office|off|pto) (on|next week|those days)",
+            "(personal (stuff|matter|reason)|family (thing|matter))",
+            "(handed off|prepped|covered|delegated) (to|with) ",
+            "(any concerns|anything blocking|let me know)",
+          ],
+          hint_tr:
+            "Net + saygili: 'Hey Mike — heads up, OOO Thu-Fri next week (personal). Anything blocking?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "All good — thanks for the heads up. Anything time-sensitive I should know about?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|appreciate it)",
+            "(prepped|handed off|covered) (with|to) (rachel|the team|dan)",
+            "(deploy|launch|review) (is|will be) (covered|handled|on track)",
+            "(emergency|urgent|fire) (only|just), (text|call|sms) (me|then)",
+            "(slack on mute|signed out|ooo on slack) (otherwise|but)",
+            "(no fires|nothing urgent|all under control)",
+          ],
+          hint_tr:
+            "Hand-off + acil iletisim: 'Rachel covering the deploy. Text for true emergencies only.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect. Enjoy the time off!",
+        },
+      ],
+    },
+    {
+      id: "ex.ws9.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "ABD startup'inda yoneticiye Slack DM: 'Dear Sir' kullanmali mi?",
+          options: [
+            "Evet, saygi gostergesi",
+            "Hayir — Slack = 'Hey + isim'. Asiri formalite = yabancilastirma + sahte sinyal",
+            "Belki bazen",
+            "Cuma ler haric",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Turk sirket kulturu = formal hierarşi. ABD startup = first-name basis + casual ton. Yoneticini 'Sir' diye cagirmak = uyumsuz + asiri mesafe.",
+        },
+        {
+          question: "Yoneticine saygi NASIL Slack'te gosterilir?",
+          options: [
+            "Cok uzun + resmi yazarak",
+            "Netlik + onun zamanini koruma + 'no rush' eklemek",
+            "Hic yazmamak",
+            "Surekli ozur dileyerek",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Yoneticinin en degerli kaynagi = zaman. 3 satir net DM = saygi. Roman = saygisizlik.",
+        },
+        {
+          question: "'Touch base' ne demek?",
+          options: [
+            "Beysbol oynamak",
+            "Kisa goruşme / durum kontrolu — yoneticiyle natural iletisim kalibi",
+            "Yere dokunmak",
+            "Bilmiyorum",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Wanted to touch base on X' = X hakkinda kisa konusalim. Yoneticiyle 1:1 baslangic kalibi.",
+        },
+      ],
+    },
+    {
+      id: "ex.ws9.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Got 5 min later today?",
+      ipa: "/ɡɑt faɪv mɪn ˈleɪtər təˈdeɪ/",
+      tr_articulation_hint:
+        "'Got 5 min' = gat-faiv-min, hizla bagla. Soru yukselen tonu sonda. Yapay degil, rahat ton — yoneticiyle dahi casual.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 9.7 — Thread Migration: When Channel Gets Long
+// ============================================================
+export const workSlackLesson_9_7: BundledLesson = {
+  id: "work.slack.9.7",
+  skill_id: "work.slack",
+  index: 7,
+  title: "Thread Acma - Kanali Temiz Tutma",
+  description:
+    "Mesaj uzayinca thread'e tasi: 'Putting this in a thread to keep the channel clean' = kultur normu.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.ws9.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "FYI",
+      tr_translation: "Bilgine sunmak / haberin olsun (For Your Information)",
+      example: "FYI: pushed the hotfix — no action needed from your end.",
+      example_tr: "Haberin olsun: hotfix yollandi — senden bir sey gerekmiyor.",
+    },
+    {
+      id: "ex.ws9.7.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Bu uzun olacak, thread'e gecirip ayrintilari orada acikliyorum.",
+      target: "Threading this — dropping the full breakdown below to keep #eng clean.",
+      accepted_variants: [
+        "Long one — putting it in a thread so the channel stays tidy.",
+        "Moving this to a thread, will write up the details there.",
+        "Threading this to avoid noise — TLDR here, details in thread.",
+        "Going to thread the long version — channel-friendly.",
+      ],
+      tr_hint:
+        "'Sending you this' = Turk hatasi (ceviri sendromu). 'Threading this' / 'FYI:' = native, action-first.",
+    },
+    {
+      id: "ex.ws9.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "TL;___: PR is merged, deploy is queued.",
+      answer: "DR",
+      distractors: ["LR", "DC", "DM"],
+      tr_hint:
+        "'TLDR' = Too Long Didn't Read — kisa ozet etiketi. Uzun mesajdan once kullanilir.",
+    },
+    {
+      id: "ex.ws9.7.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Putting",
+        "the",
+        "full",
+        "context",
+        "in",
+        "thread",
+      ],
+      correct_sentence: "Putting the full context in thread",
+      tr_translation: "Tüm detayı thread'e koyuyorum.",
+    },
+    {
+      id: "ex.ws9.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "I am sending you a long explanation about the bug we found in production yesterday during the deploy of the new release version.",
+      correct_sentence:
+        "FYI: production bug from yesterday's deploy. Full breakdown in thread.",
+      tr_explanation:
+        "Turk klasiği: 'I am sending you' + roman cumle = email tonu, asiri uzun. Doğru: 'FYI:' etiket + headline + thread'e tasi.",
+    },
+    {
+      id: "ex.ws9.7.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "#engineering kanalinda yeni bir bug buldun. Aciklamasi uzun. Headline at + thread'e gec.",
+      npc_role: "Senior engineer",
+      setting: "Slack #engineering channel",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(heads up|fyi|🚨|👀)",
+            "(found|spotted|caught|hit) (a|an) (bug|issue|edge case)",
+            "(in (prod|staging|production)|on the (deploy|release))",
+            "(threading|putting in (a |the )?thread|details below|breakdown in thread)",
+            "(tldr|tl;dr|short version)",
+            "(no action needed|need eyes|need help|low priority)",
+          ],
+          hint_tr:
+            "Headline + thread isareti: 'FYI: caught a prod bug. Full details in thread 👇'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Thanks for threading! Reading the breakdown now.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(of course|np|always|happy to)",
+            "(tldr|short version) (in (the )?thread|above)",
+            "(let me know|tag me|ping me) (if you need|for follow-ups)",
+            "(happy to (huddle|hop on|jump on a call))",
+            "(no rush|whenever) (on (reading|replying))",
+          ],
+          hint_tr:
+            "Devam: 'NP — TLDR up top. Happy to huddle if it's faster.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Will read first, ping you if I have Qs.",
+        },
+      ],
+    },
+    {
+      id: "ex.ws9.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Uzun mesaj icin ana kanal vs thread?",
+          options: [
+            "Ana kanalda 10 satir at, herkes okusun",
+            "Headline ana kanala + tum detay thread'e — noise azalt, sinyal koru",
+            "DM at",
+            "Hic yazma",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Ana kanal = grup dikkati. 10-satirlik mesaj = herkesin dakikalarini calar. Thread = isteyenlerin okumasi.",
+        },
+        {
+          question: "'FYI:' niye Turk yazilimcilari icin faydali?",
+          options: [
+            "Cok formal",
+            "'I am sending you' / 'I would like to inform' icin native kisa yol — action-first sinyal",
+            "Onemsiz",
+            "Yanlis kullanim",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Turkce'den ceviri = uzun giris. 'FYI:' = etiket ile ne tur mesaj oldugunu hemen soyler — daha az kelime, daha cok netlik.",
+        },
+        {
+          question: "TLDR ne ise yarar?",
+          options: [
+            "Sadece sosyal medya",
+            "Uzun yazinin basinda 1-cumlelik ozet = okuyucuya saygi",
+            "Argo, kullanma",
+            "Yanlis",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'TLDR: deploy is green' = 30 saniye okuma vs 3 dakika. Yogun PM/lead'lar bu kisaltmayi takdir eder.",
+        },
+      ],
+    },
+    {
+      id: "ex.ws9.7.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Putting this in a thread to keep the channel clean.",
+      ipa: "/ˈpʊtɪŋ ðɪs ɪn ə θrɛd tu kip ðə ˈtʃænəl klin/",
+      tr_articulation_hint:
+        "'Putting this' = put-ting-this, kisa duraklama. 'In a thread' birlesik. 'Channel clean' iki vurguyla. Aciklayici, kibirli olmayan ton.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 9.8 — Emoji Reactions: When 👍 Is Enough
+// ============================================================
+export const workSlackLesson_9_8: BundledLesson = {
+  id: "work.slack.9.8",
+  skill_id: "work.slack",
+  index: 8,
+  title: "Emoji Reaksiyon - Ne Zaman Yeter, Ne Zaman Yazi",
+  description:
+    "👍 yeter mi? Acknowledgement icin emoji ok. Karar/onay/tartisma icin yazili cevap sart.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.ws9.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "ack",
+      tr_translation: "Onay / aldim sinyali (acknowledge kisaltma)",
+      example: "Just need an ack — 👀 or 👍 works.",
+      example_tr: "Sadece bir 'aldim' sinyali yeter — 👀 ya da 👍 olur.",
+    },
+    {
+      id: "ex.ws9.8.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "PR'yi gordum, sonra detayli yorum atacagim — bekletme.",
+      target: "👀 on the PR — will drop detailed comments soon, don't wait on me.",
+      accepted_variants: [
+        "Eyes on the PR — full review coming, no need to block on me.",
+        "Saw the PR (eyes emoji) — comments incoming, ship without me if needed.",
+        "Got the PR — will leave proper review, but no need to wait.",
+        "👀 PR — review coming, feel free to merge if green elsewhere.",
+      ],
+      tr_hint:
+        "'I saw the PR but I will write later' = uzun. Native: emoji ack + 'don't wait on me' = signal-rich.",
+    },
+    {
+      id: "ex.ws9.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "A thumbs ___ from you and we're good to ship.",
+      answer: "up",
+      distractors: ["on", "in", "out"],
+      tr_hint:
+        "'Thumbs up' = 👍 emojisinin yazili karsiligi. Onay sinyali.",
+    },
+    {
+      id: "ex.ws9.8.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Need",
+        "more",
+        "than",
+        "an",
+        "emoji",
+        "here",
+      ],
+      correct_sentence: "Need more than an emoji here",
+      tr_translation: "Burada emoji yeterli değil, açıklama lazım.",
+    },
+    {
+      id: "ex.ws9.8.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "👍",
+      correct_sentence:
+        "Pushing back on the timeline — Q3 ship is tight given the design review delay. Can we discuss?",
+      tr_explanation:
+        "Tartismali bir karara 👍 atmak = pasif onay + sonra anlasmazlik. Karar/risk/itiraz icin YAZILI cevap sart. Emoji = acknowledgement only.",
+    },
+    {
+      id: "ex.ws9.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Manager mesaj atti: 'Q3 hedefini kasim 1'e kaydiriyoruz, herkes onay versin'. Sen aslinda risk goruyorsun.",
+      npc_role: "Engineering Manager",
+      setting: "Slack channel decision message",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|quick (one|thought|flag)|wanted to (flag|push back))",
+            "(before|wanted to) (we (lock|commit)|sign off|stamp)",
+            "(some (concerns|risks|questions)|a few risks|something to flag)",
+            "(scope (creep|risk)|timeline (risk|tight)|capacity (concern|issue))",
+            "(can we|could we) (discuss|huddle|talk through|jump on a call)",
+            "(taking this to (a thread|dm)|in thread)",
+          ],
+          hint_tr:
+            "Pasif 👍 yerine yazili itiraz: 'Hey — quick flag before we lock this. Concerned about scope.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Appreciate you flagging. What's the specific risk?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(design (review|sign-off)|qa (cycle|window)|capacity) (still|isn'?t|hasn'?t)",
+            "(buffer|slack|breathing room) (built in|in the timeline)",
+            "(if|when) (we slip|things slip|design lands late)",
+            "(could we|what if we|maybe we) (move|push|carve out)",
+            "(happy to (write up|share|jump on))",
+            "(thread|huddle|1:1) (to (go deeper|dig in|cover))",
+          ],
+          hint_tr:
+            "Spesifik risk: 'Design review still pending — no buffer if it slips. Could we add a week?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Fair point. Let's huddle this afternoon.",
+        },
+      ],
+    },
+    {
+      id: "ex.ws9.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Ne zaman 👍 yeter, ne zaman yazi gerekir?",
+          options: [
+            "Her zaman emoji yeterli",
+            "Acknowledgement (aldim/gordum) = emoji. Karar/itiraz/risk = YAZILI cevap sart",
+            "Sadece yazi",
+            "Bilmiyorum",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Manager 'lunch order?' = 🍕 yeter. Manager 'shipping Friday, all good?' = risk varsa YAZ. Pasif onay = sonra 'soylemedi' suclamasi.",
+        },
+        {
+          question: "'👀' (eyes emoji) NE icin?",
+          options: [
+            "Bakiyorum / takipteyim sinyali — okuyacam ama hemen yazamiyorum",
+            "Sasirma",
+            "Yanlis kullanim",
+            "Sadece reklam",
+          ],
+          correct_index: 0,
+          tr_explanation:
+            "👀 = 'gordum, takipteyim, sonra donerim'. PR review beklerken ya da uzun mesaja signal vermek icin altın deger.",
+        },
+        {
+          question: "Sessiz kalmak vs pasif 👍?",
+          options: [
+            "Aynidir",
+            "Yazili itiraz = profesyonel sinyal. Sessizlik = kabul + sonra surpriz = takima zarar",
+            "Sessizlik daha iyi",
+            "Onemsiz",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Turk kulturu = sessiz onaylama. ABD startup = yazili itiraz beklenir, takdir edilir. Pasif 👍 atip sonra 'olmaz' demek = kotu sinyal.",
+        },
+      ],
+    },
+    {
+      id: "ex.ws9.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "A thumbs up works for me.",
+      ipa: "/ə θʌmz ʌp wɜrks fɔr mi/",
+      tr_articulation_hint:
+        "'Thumbs up' = thamz-ap, th uzerinde dil dislere. 'Works for me' birlesik (works-fır-mi). Onay tonu, soru tonu degil.",
+    },
+  ],
+};
+
+// ============================================================
 // Work Slack lessons registry
 // ============================================================
 export const workSlackLessons: ReadonlyArray<BundledLesson> = [
@@ -851,4 +1545,8 @@ export const workSlackLessons: ReadonlyArray<BundledLesson> = [
   workSlackLesson_9_2,
   workSlackLesson_9_3,
   workSlackLesson_9_4,
+  workSlackLesson_9_5,
+  workSlackLesson_9_6,
+  workSlackLesson_9_7,
+  workSlackLesson_9_8,
 ];

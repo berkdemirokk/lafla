@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
   turkish: {
     fontSize: 34,
     fontWeight: tokens.weight.extrabold,
-    color: tokens.text.inverseOnSurface,
+    color: tokens.text.primary,
     textAlign: "center",
     letterSpacing: -0.6,
     paddingHorizontal: 8,

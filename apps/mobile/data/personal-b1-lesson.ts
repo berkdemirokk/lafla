@@ -2260,6 +2260,976 @@ export const personalB1Lesson_10: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 11 — New Year's Resolutions: Sharing Goals Like an Adult
+// ============================================================
+export const personalB1Lesson_11: BundledLesson = {
+  id: "personal.b1.resolutions.1",
+  skill_id: "personal.b1.resolutions",
+  index: 11,
+  title: "Yeni Yıl Kararları — Goals",
+  description:
+    "'I will...' boş söz değil. 'This year I want to / My goal is to' + somut plan + niye. Yetişkin, gerçekçi, yargısız.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.pb1.11.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "My goal is to",
+      tr_translation: "Hedefim ... yapmak",
+      example: "My goal is to read one book a month — nothing crazy, just steady.",
+      example_tr: "Hedefim ayda bir kitap okumak — abartısız, sadece istikrarlı.",
+    },
+    {
+      id: "ex.pb1.11.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bu yıl daha çok kendime vakit ayırmak istiyorum.",
+      target: "This year I want to make more time for myself.",
+      accepted_variants: [
+        "This year I'm going to make more time for myself.",
+        "I want to carve out more time for myself this year.",
+        "My goal this year is to make more time for me.",
+        "I'd like to make more time for myself this year.",
+        "I want to prioritise myself a bit more this year.",
+      ],
+      tr_hint:
+        "'This year I want to + base' = klasik kalıp. 'Make time for' = vakit ayırmak. Self-care imalı.",
+    },
+    {
+      id: "ex.pb1.11.3",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Spora başlayacağım — bu sefer gerçekten, ufak adımlarla.",
+      target: "I'm going to start working out — for real this time, in small steps.",
+      accepted_variants: [
+        "I'm going to start exercising — actually this time, small steps.",
+        "I'm going to get into working out — for real, slowly.",
+        "I'll start working out — properly this time, one step at a time.",
+        "I'm planning to start exercising — for real, baby steps.",
+      ],
+      tr_hint:
+        "'Going to + base' = niyet planı. 'I make sport' YANLIŞ — 'work out / exercise / start working out' doğru.",
+    },
+    {
+      id: "ex.pb1.11.4",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I've ___ smoking for three weeks now — slow but real.",
+      answer: "quit",
+      distractors: ["left", "stopped to", "finished"],
+      tr_hint:
+        "Present perfect + 'quit smoking' = sigarayı bıraktım. 'Stopped to smoke' = sigara içmek için durdum (yanlış anlam). 'Left smoking' = anlamsız.",
+    },
+    {
+      id: "ex.pb1.11.5",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "this",
+        "year",
+        "I'm",
+        "going",
+        "to",
+        "be",
+        "kinder",
+        "to",
+        "myself",
+      ],
+      correct_sentence: "this year I'm going to be kinder to myself",
+      tr_translation: "Bu yıl kendime daha nazik olacağım.",
+    },
+    {
+      id: "ex.pb1.11.6",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I will lose 10 kilos and read 50 books and learn guitar this year.",
+      correct_sentence:
+        "This year I want to focus on one thing — moving my body three times a week. The rest can wait.",
+      tr_explanation:
+        "Üç hedefi aynı anda 'I will' ile söz vermek = gerçekçi değil, klişe. Yetişkin yaklaşım: 'I want to focus on one thing' = tek hedef, somut sıklık ('three times a week'). 'I will + kocaman söz' yerine 'I want to / going to + ufak adım'.",
+    },
+    {
+      id: "ex.pb1.11.7",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Yılbaşı sonrası kahve. Yabancı arkadaşın 'Yeni yıl kararın var mı?' diye soruyor. Klişeye düşmeden, yetişkin paylaş.",
+      npc_role: "Friend",
+      setting: "Coffee in early January",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "So — any new year's resolutions, or are you anti-that whole thing?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?ve got one|i have one|just one)",
+            "(this year i (want to|am going to|'?m going to))",
+            "(nothing huge|nothing crazy|small one)",
+            "(i'?m trying to|i'?d like to)",
+          ],
+          hint_tr:
+            "Klişeye girme — tek somut hedef. 'This year I want to + base'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Tell me. What's the one thing?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(my goal is to|i want to|i'?m going to)",
+            "(work out|exercise|move my body|read|sleep|cook|see (my )?friends)",
+            "(three times|twice|once) a week",
+            "(in small steps|slowly|nothing crazy|baby steps)",
+          ],
+          hint_tr:
+            "Somut hedef + somut sıklık. 'My goal is to X — Y times a week.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Honestly? That sounds doable. Most people tell me they'll change their whole life by February.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|exactly|right)",
+            "(that'?s why|that'?s the thing|i'?ve learned)",
+            "(small (steps|wins|things)|sustainable|stick with)",
+            "(rather|i'?d rather) (do one thing|build slowly)",
+          ],
+          hint_tr:
+            "Felsefeni özetle. 'Small steps' / 'I'd rather do one thing well'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Wise. Okay, what's the why behind it — why this one?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|truth is|the why is)",
+            "(i'?ve been (feeling|noticing|running)|i'?ve felt)",
+            "(burnout|low energy|out of shape|disconnected)",
+            "(i want to feel|i want to be) (more|better|like myself)",
+          ],
+          hint_tr:
+            "Niyetinin 'why'ı = duygusal bağ. 'I've been feeling X — I want to feel Y.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "That actually lands. Okay — I'm stealing your approach.",
+        },
+      ],
+    },
+    {
+      id: "ex.pb1.11.8",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "Hangi yapı yetişkin bir hedef açıklamasıdır?",
+          options: [
+            "I will change everything this year",
+            "My goal is to read one book a month",
+            "I make sport now",
+            "I'm going to be perfect",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'My goal is to + base + somut sıklık' = gerçekçi. 'I will change everything' klişe; 'I make sport' Türkçeden direkt çeviri (yanlış); 'be perfect' boş söz.",
+        },
+        {
+          question: "'Spor yapmaya başladım' İngilizce nasıl doğru?",
+          options: [
+            "I started to make sport.",
+            "I'm starting sport.",
+            "I've started working out.",
+            "I do sport beginning.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Work out / exercise' doğru fiil. Present perfect ('I've started') = yakın geçmiş, devam ediyor. 'Make sport' Türkçeden direkt çeviri.",
+        },
+        {
+          question: "'Going to + base' ne için kullanılır?",
+          options: [
+            "Geçmişte yapılan iş",
+            "Önceden düşünülmüş plan / niyet",
+            "Genel doğru bilgi",
+            "Şu an olan eylem",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Be going to + base' = önceden karar verilmiş plan / niyet. 'This year I'm going to work out.'",
+        },
+      ],
+    },
+    {
+      id: "ex.pb1.11.9",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "My goal is to be kinder to myself this year.",
+      ipa: "maɪ ɡoʊl ɪz tə bi ˈkaɪndər tə maɪˈsɛlf ðɪs jɪər",
+      tr_hint:
+        "Sakin, kararlı. 'Kinder to myself' bağlanır. Cümle baskısız — bir söz verir gibi değil, tanıtır gibi.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 12 — Self-Care & Setting Limits
+// ============================================================
+export const personalB1Lesson_12: BundledLesson = {
+  id: "personal.b1.self-care.1",
+  skill_id: "personal.b1.self-care",
+  index: 12,
+  title: "Self-Care — Sınır Koyma",
+  description:
+    "'I need some me-time'. Suçluluksuz sınır. Sosyal medya molası, telefondan uzak akşam. Yetişkin self-care dili.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.pb1.12.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "me-time",
+      tr_translation: "Kendine ayırılan vakit",
+      example: "I need some me-time this weekend — nothing personal, just running low.",
+      example_tr:
+        "Bu hafta sonu biraz kendime vakte ihtiyacım var — kişisel değil, sadece tankım boşaldı.",
+    },
+    {
+      id: "ex.pb1.12.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "burnout",
+      tr_translation: "Tükenmişlik",
+      example: "I've been close to burnout — I need to actually rest this time.",
+      example_tr:
+        "Tükenmişliğe yaklaşmıştım — bu sefer gerçekten dinlenmem gerek.",
+    },
+    {
+      id: "ex.pb1.12.3",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bu hafta sosyal medyadan ara veriyorum.",
+      target: "I'm taking a break from social media this week.",
+      accepted_variants: [
+        "I'm off social media this week.",
+        "I'm taking a week off social media.",
+        "I'm staying off social this week.",
+        "I'm having a social media break this week.",
+        "Taking a break from social media for the week.",
+      ],
+      tr_hint:
+        "'Take a break from + noun' = -den mola almak. Present continuous = bu hafta süren plan.",
+    },
+    {
+      id: "ex.pb1.12.4",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Bu akşam gelemem — bencillikten değil, kendime nefes vermem lazım.",
+      target: "I can't make it tonight — not being selfish, I just need to breathe.",
+      accepted_variants: [
+        "I can't make it tonight — it's not personal, I just need some space.",
+        "Can't come tonight — not being rude, I just need a quiet evening.",
+        "I won't make it tonight — I need an evening to myself, that's all.",
+        "Can't tonight — I need to recharge, nothing personal.",
+      ],
+      tr_hint:
+        "Sınır + güvence. 'Make it' = gelmek (informel). 'Need some space / need to breathe' = nefes alanı.",
+    },
+    {
+      id: "ex.pb1.12.5",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I'm trying to set better ___ around work hours after seven.",
+      answer: "boundaries",
+      distractors: ["limits to", "borders", "frontiers"],
+      tr_hint:
+        "İlişkisel/iş sınırları için 'boundaries' standart. 'Limits' fiziksel sınır; 'borders/frontiers' ülke sınırı.",
+    },
+    {
+      id: "ex.pb1.12.6",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "I'm",
+        "logging",
+        "off",
+        "early",
+        "tonight",
+        "to",
+        "actually",
+        "rest",
+      ],
+      correct_sentence: "I'm logging off early tonight to actually rest",
+      tr_translation: "Bu gece gerçekten dinlenmek için erken bağlantıyı kesiyorum.",
+    },
+    {
+      id: "ex.pb1.12.7",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "Sorry I cannot come, I am very busy, maybe next time, I am tired also.",
+      correct_sentence:
+        "I can't make it tonight — I'm running on empty and need a quiet evening. Let's do it next week?",
+      tr_explanation:
+        "Yığın özür ('sorry...busy...tired') = suçluluk + belirsiz. Yetişkin sınır: net 'I can't', kısa gerçek sebep ('running on empty'), somut alternatif ('next week?'). 'Maybe' boş — somut gün öner.",
+    },
+    {
+      id: "ex.pb1.12.8",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Arkadaşın bu Cumartesi büyük doğum günü partisi yapıyor. Sen tükenmişsin — gelmeyeceksin. Mesajlaşıyorsunuz, sınır koyman lazım — sevgiyle.",
+      npc_role: "Friend",
+      setting: "Text exchange a day before her birthday party",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "You're still coming Saturday right? I'm so excited, everyone's confirmed.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|hi).{0,20}(can we talk|i wanted to|i need to)",
+            "(i can'?t make it|i won'?t make it|i'?m going to have to miss)",
+            "(saturday|the party|your birthday)",
+            "(i feel awful|i'?m sorry|i hate doing this)",
+          ],
+          hint_tr:
+            "Yumuşak giriş + net mesaj. 'I can't make it' direkt ama nazik.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh. Really? Is everything okay?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|truth is|nothing dramatic)",
+            "(i'?ve been close to burnout|i'?m running on empty|completely fried)",
+            "(this week|lately|the last few weeks)",
+            "(i need (a quiet|me-time|to actually rest))",
+          ],
+          hint_tr:
+            "Gerçek sebep — tükenmişlik. Drama değil, dürüst durum.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I get it, I do. I just — I really wanted you there. It feels like you've been pulling back from everyone.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that'?s fair|i hear that|you'?re not wrong)",
+            "(it'?s not about you|nothing personal|it'?s not personal)",
+            "(i'?m trying to set|setting (better )?boundaries)",
+            "(protect (my energy|my peace|my time))",
+          ],
+          hint_tr:
+            "Duygusunu doğrula + kişiselleştirmemesini söyle. 'It's not about you' kalıbı.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay. Are you okay though? Like, really?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i will be|i'?m getting there|i'?m working on it)",
+            "(taking (a break|some time|a step back))",
+            "(from (social|work|everything))",
+            "(thank you for asking|means a lot)",
+          ],
+          hint_tr:
+            "Dürüst durumunu söyle + ona teşekkür et. Açık kalp + sınır.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay. Coffee next week, just us — and no excuses then.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(deal|done|i'?d love that)",
+            "(thank you for (getting it|understanding|being kind))",
+            "(have the best night|enjoy saturday|celebrate enough for me)",
+            "(i love you|love you)",
+          ],
+          hint_tr:
+            "Anlaşma + sıcak kapanış. Suçluluk değil — sevgi.",
+        },
+      ],
+    },
+    {
+      id: "ex.pb1.12.9",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "'Me-time' ne demek?",
+          options: [
+            "Benim zamanım = saatim",
+            "Kendime ayırdığım vakit",
+            "Toplantı saati",
+            "Yalnız olduğum anlar (üzgün)",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Me-time' = bilinçli kendine ayrılmış vakit (self-care). Pozitif. 'Lonely' değil 'alone-by-choice'.",
+        },
+        {
+          question: "Sağlıklı sınır cümlesi hangisi?",
+          options: [
+            "Sorry I cannot, I am busy",
+            "Maybe next time",
+            "I can't make it tonight — let's do next week?",
+            "I will try to come",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Net 'can't' + somut alternatif ('next week?') = yetişkin sınır. 'Maybe / I will try' = belirsiz, güven vermez.",
+        },
+        {
+          question: "'Burnout' Türkçesi?",
+          options: ["Sıkılma", "Tükenmişlik", "Yorgunluk (fiziksel)", "Hayal kırıklığı"],
+          correct_index: 1,
+          tr_explanation:
+            "'Burnout' = tükenmişlik (zihinsel + duygusal). 'Tired' = yorgun (fiziksel). 'Burnout' daha derin, klinik.",
+        },
+      ],
+    },
+    {
+      id: "ex.pb1.12.10",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I'm taking a break from social media this week.",
+      ipa: "aɪm ˈteɪkɪŋ ə breɪk frəm ˈsoʊʃəl ˈmiːdiə ðɪs wiːk",
+      tr_hint:
+        "'Taking a break' bağlı — 'tey-kın-ı-breyk'. 'Social media' = 'soʊ-şıl-miː-di-ə'. Sakin, savunmasız.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 13 — Picking Up a New Hobby
+// ============================================================
+export const personalB1Lesson_13: BundledLesson = {
+  id: "personal.b1.new-hobby.1",
+  skill_id: "personal.b1.new-hobby",
+  index: 13,
+  title: "Yeni Hobi Başlama — Paylaşım",
+  description:
+    "'I've gotten into pottery.' Yeni başladığın şeyi heyecanla ama abartmadan paylaş. Türkçe 'I started to do X' yerine yetişkin yapı.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.pb1.13.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I've gotten into",
+      tr_translation: "... ile ilgilenmeye başladım / merak sardım",
+      example: "I've gotten into pottery — total beginner, but I'm loving it.",
+      example_tr:
+        "Çömlekçilikle ilgilenmeye başladım — tamamen acemiyim ama bayılıyorum.",
+    },
+    {
+      id: "ex.pb1.13.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "creative outlet",
+      tr_translation: "Yaratıcı çıkış / yaratıcılığı boşaltma alanı",
+      example: "It's been a creative outlet — I needed something not on a screen.",
+      example_tr:
+        "Yaratıcı bir çıkış oldu — ekran dışı bir şeye ihtiyacım vardı.",
+    },
+    {
+      id: "ex.pb1.13.3",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Birkaç aydır çömlekçilik yapıyorum — beklediğimden çok daha rahatlatıcı.",
+      target: "I've been doing pottery for a few months — way more calming than I expected.",
+      accepted_variants: [
+        "I've been into pottery for a couple of months — more relaxing than I thought.",
+        "I started pottery a few months ago — surprisingly calming.",
+        "I've been doing pottery for a few months — really therapeutic, actually.",
+        "I picked up pottery a few months back — it's been so calming.",
+      ],
+      tr_hint:
+        "Present perfect continuous ('I've been doing') = devam eden hobi. 'Way more X than expected' = beklediğimden çok daha X.",
+    },
+    {
+      id: "ex.pb1.13.4",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "İyi olmak için değil — sadece elimle bir şey yapmak için yapıyorum.",
+      target: "I'm not doing it to be good at it — just to make something with my hands.",
+      accepted_variants: [
+        "I'm not in it to be good — I just like making something with my hands.",
+        "It's not about being good — it's about using my hands.",
+        "I don't care about being good — I just want to make stuff with my hands.",
+        "Not trying to master it — just enjoying using my hands.",
+      ],
+      tr_hint:
+        "Yetişkin hobi felsefesi — başarı baskısı yok. 'To be good at + noun' kalıbı.",
+    },
+    {
+      id: "ex.pb1.13.5",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "I picked ___ guitar again after maybe ten years off.",
+      answer: "up",
+      distractors: ["on", "out", "in"],
+      tr_hint:
+        "'Pick up + noun' = bir hobiye/aktiviteye (yeniden) başlamak. 'Pick on' = sataşmak (farklı anlam).",
+    },
+    {
+      id: "ex.pb1.13.6",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "it's",
+        "been",
+        "a",
+        "really",
+        "good",
+        "creative",
+        "outlet",
+        "for",
+        "me",
+      ],
+      correct_sentence: "it's been a really good creative outlet for me",
+      tr_translation: "Benim için gerçekten iyi bir yaratıcı çıkış oldu.",
+    },
+    {
+      id: "ex.pb1.13.7",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "I started to make new hobby. I do pottery class one time every week.",
+      correct_sentence:
+        "I've gotten into pottery — I've been going to a class once a week, and it's been a great creative outlet.",
+      tr_explanation:
+        "'Make new hobby' Türkçeden direkt çeviri (yanlış). 'Hobi yapmak' İngilizcede yok — 'pick up / get into + spesifik hobi'. 'One time every week' yerine 'once a week' (standart). Present perfect ('I've been going') = devam eden alışkanlık.",
+    },
+    {
+      id: "ex.pb1.13.8",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Yıl sonu buluşmasında eski iş arkadaşınla. 'Boş zamanlarında ne yapıyorsun?' diye soruyor. Yeni hobinden bahset — natürel, abartısız.",
+      npc_role: "Friend",
+      setting: "End-of-year catch-up coffee",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Outside work — what's been keeping you busy lately?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?ve actually|honestly|funnily enough)",
+            "(gotten into|picked up|started)",
+            "(pottery|painting|climbing|cooking|guitar|knitting|running)",
+            "(a few months ago|recently|this year)",
+          ],
+          hint_tr:
+            "'I've gotten into / I've picked up + hobi'. Ne zaman başladığını ekle.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh wow, where did that come from? I don't remember you being into that.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|truth is|yeah it'?s new)",
+            "(i needed|i was looking for|i wanted)",
+            "(something (off|not on) (a )?screen|something with my hands)",
+            "(creative outlet|to switch off|away from work)",
+          ],
+          hint_tr:
+            "Niye başladığını söyle. 'Needed something with my hands / off-screen' kalıpları.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Are you any good?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|truly|terrible|awful|not really)",
+            "(i'?m (not |)trying to be good|not in it to be good)",
+            "(it'?s not about|that'?s not the point)",
+            "(just (enjoying|loving|doing) (it|the process))",
+          ],
+          hint_tr:
+            "Mütevazı ama net. 'I'm not in it to be good' = başarı için yapmıyorum.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I love that. I keep thinking I should pick something up too. What made you actually start instead of just talking about it?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i (just )?signed up|i booked|i paid for)",
+            "(a (taster|first|trial) class|a beginner course)",
+            "(before i (could )?talk myself out|before overthinking)",
+            "(low stakes|nothing fancy|small commitment)",
+          ],
+          hint_tr:
+            "Somut ilk adımını paylaş. 'Sign up for a class' / 'before I could talk myself out of it'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay, I needed to hear that. Send me where you go?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|of course|will do)",
+            "(i'?ll text|i'?ll send|i'?ll drop the link)",
+            "(small studio|nothing fancy|down in)",
+            "(come along|come with me|join one)",
+          ],
+          hint_tr:
+            "Olumlu paylaşım + onu davet et. 'Come along to a class' kalıbı.",
+        },
+      ],
+    },
+    {
+      id: "ex.pb1.13.9",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "'I've gotten into pottery' ne demek?",
+          options: [
+            "Çömlekçilik içine düştüm (kaza)",
+            "Çömlekçilikle ilgilenmeye başladım",
+            "Çömlekçilik bitti",
+            "Çömlekçiliği iyi biliyorum",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Get into + hobi/konu' = -ye merak sarmak, ilgilenmeye başlamak. Yeni başlangıçlar için doğal kalıp.",
+        },
+        {
+          question: "'Yeni bir hobi yapıyorum' İngilizce doğru hangisi?",
+          options: [
+            "I make a new hobby.",
+            "I do new hobby.",
+            "I've picked up a new hobby.",
+            "I am hobby new.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'Pick up a hobby' = bir hobiye başlamak (doğal kalıp). 'Make/do a hobby' Türkçeden direkt çeviri — yanlış.",
+        },
+        {
+          question: "'Creative outlet' Türkçesi?",
+          options: [
+            "Yaratıcı mağaza",
+            "Yaratıcı çıkış / boşaltma alanı",
+            "Yaratıcı kişi",
+            "Yaratıcı eksiklik",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Outlet' burada 'çıkış kanalı' anlamında. Stres + duygu için yaratıcı bir kanal. Wellness vocab.",
+        },
+      ],
+    },
+    {
+      id: "ex.pb1.13.10",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I've gotten into pottery — it's been a real creative outlet.",
+      ipa: "aɪv ˈɡɒtən ˈɪntə ˈpɒtəri ɪts bɪn ə riːl kriˈeɪtɪv ˈaʊtlɛt",
+      tr_hint:
+        "'I've gotten into' bağlanır — 'ayv-gat-nin-tu'. 'Creative outlet' = 'kri-ey-tiv-aut-let'. Heyecanlı ama abartısız.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 14 — Therapy & Well-being: Talking Openly
+// ============================================================
+export const personalB1Lesson_14: BundledLesson = {
+  id: "personal.b1.therapy.1",
+  skill_id: "personal.b1.therapy",
+  index: 14,
+  title: "Therapy / Well-being — Açık Konuşma",
+  description:
+    "'I started seeing a therapist' — utanmadan, drama yapmadan. Türk için yeni alan: terapi ABD/UK'da standart, stigma az. Açık + sınırlı paylaşım.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.pb1.14.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I started seeing a therapist",
+      tr_translation: "Bir terapiste görünmeye / gitmeye başladım",
+      example: "I started seeing a therapist a few months ago — it's been really helpful.",
+      example_tr:
+        "Birkaç ay önce bir terapiste gitmeye başladım — gerçekten faydalı oldu.",
+    },
+    {
+      id: "ex.pb1.14.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "It's been really helpful",
+      tr_translation: "Gerçekten faydalı oldu / iyi geliyor",
+      example: "It's been really helpful — small shifts, but real ones.",
+      example_tr:
+        "Gerçekten faydalı oldu — küçük değişimler ama gerçek olanlar.",
+    },
+    {
+      id: "ex.pb1.14.3",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Birkaç aydır terapiye gidiyorum — kendi kendime fark edemediğim şeyleri çözmeme yardım ediyor.",
+      target:
+        "I've been in therapy for a few months — it's helping me work through things I couldn't see on my own.",
+      accepted_variants: [
+        "I've been seeing a therapist for a few months — it's helping me with stuff I couldn't see by myself.",
+        "I've been doing therapy for a few months — it's helping me unpack things.",
+        "I've been in therapy a few months now — it's been good for working through things.",
+        "I've been seeing someone for a few months — it's been helpful in ways I didn't expect.",
+      ],
+      tr_hint:
+        "'I've been in therapy / seeing a therapist / doing therapy' — üçü de doğal. 'Work through' = (duygu/sorunu) çalışıp çözmek.",
+    },
+    {
+      id: "ex.pb1.14.4",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Detaya girmek istemiyorum ama iyi bir yerdeyim ve sormana sevindim.",
+      target: "I'd rather not get into the details, but I'm in a good place — and thanks for asking.",
+      accepted_variants: [
+        "I won't go into details, but I'm doing okay — and I appreciate you asking.",
+        "I'll keep the details to myself, but I'm in a good place — thanks for checking in.",
+        "I'd rather not unpack the whole thing, but I'm okay — really, thanks for asking.",
+        "Not getting into the specifics, but I'm in a better place — and means a lot you asked.",
+      ],
+      tr_hint:
+        "Sınır + sıcaklık. 'I'd rather not + base' = -mek istemem. 'In a good place' = duygusal olarak iyi.",
+    },
+    {
+      id: "ex.pb1.14.5",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "It's just nice to have someone outside my life who I can ___ openly with.",
+      answer: "talk",
+      distractors: ["speak to", "tell", "say"],
+      tr_hint:
+        "'Talk openly with someone' = biriyle açık konuşmak. 'Speak to' edat farkı; 'tell/say' yanlış kalıp (nesne ister).",
+    },
+    {
+      id: "ex.pb1.14.6",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "I've",
+        "been",
+        "seeing",
+        "a",
+        "therapist",
+        "and",
+        "it's",
+        "been",
+        "really",
+        "helpful",
+      ],
+      correct_sentence: "I've been seeing a therapist and it's been really helpful",
+      tr_translation: "Bir terapiste gidiyorum ve gerçekten faydalı oldu.",
+    },
+    {
+      id: "ex.pb1.14.7",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence:
+        "I go to psychologist because I am crazy, please don't tell anyone, it's secret.",
+      correct_sentence:
+        "I've been seeing a therapist — it's been really helpful, actually. Nothing dramatic, just working through some stuff.",
+      tr_explanation:
+        "ABD/UK kültüründe terapi normal — 'crazy / secret' damgalama Türkçe refleksi. Yetişkin: utanma yok, sadece açık + sınırlı paylaşım. 'Working through some stuff' = belirsiz ama dürüst (detaya girmeden kabul). 'Psychologist' yerine 'therapist' günlük dilde daha yaygın.",
+    },
+    {
+      id: "ex.pb1.14.8",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Yakın arkadaşın 'son zamanlarda nasılsın?' diye soruyor — gerçekten merak ediyor. Terapiye gittiğini bu sefer paylaşmaya karar verdin.",
+      npc_role: "Close friend",
+      setting: "Quiet dinner, just the two of you",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "How are you actually doing these days? Not the surface answer.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|truth is|good question)",
+            "(better|getting there|in a better place)",
+            "(than (i was|six months ago|last year))",
+            "(there'?s actually|i'?ve actually got)",
+          ],
+          hint_tr:
+            "Yüzeyel cevap verme — dürüst başla. 'Honestly, I'm in a better place than I was'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yeah? Tell me. What's changed?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i started|i'?ve been) (seeing a therapist|in therapy|doing therapy)",
+            "(a few months ago|back in|since)",
+            "(it'?s been (really |)helpful|it'?s helping)",
+            "(working through|figuring out|making sense of)",
+          ],
+          hint_tr:
+            "Net açıkla. 'I started seeing a therapist + ne zaman + nasıl gidiyor'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh — that's a big step. I'm really glad. Was it hard to start?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|honestly|harder than i thought)",
+            "(the (first|hardest) part was)",
+            "(admitting (i needed|to myself)|booking the (first|actual) session)",
+            "(once i did|after that|once i started)",
+          ],
+          hint_tr:
+            "Başlamanın zorluğunu paylaş. 'Admitting I needed it' / 'Booking the first session'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Can I ask what you're working on, or is that too much?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?d rather not|i'?ll keep the details|not getting into specifics)",
+            "(but (i appreciate|thanks for|it means))",
+            "(big stuff|some old patterns|things i couldn'?t see)",
+            "(i'?m in a good place|i'?m okay)",
+          ],
+          hint_tr:
+            "Sınır + sıcaklık. 'I'd rather not get into the details, but thanks for asking'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Totally fair. I just — I'm proud of you. That takes guts.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|means a lot|that means a lot)",
+            "(genuinely|honestly|really)",
+            "(coming from you|hearing that)",
+            "(i'?m glad i (told|said|shared))",
+          ],
+          hint_tr:
+            "Sıcaklığı kabul et — geri çevirme. 'That means a lot, genuinely'.",
+        },
+      ],
+    },
+    {
+      id: "ex.pb1.14.9",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "Terapiye gittiğini paylaşırken yetişkin tonu hangisi?",
+          options: [
+            "I go to psychologist because I am crazy",
+            "It is my secret, please don't tell",
+            "I've been seeing a therapist — it's been really helpful",
+            "I have psychological problem",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "Present perfect ('I've been seeing') + sakin değer yargısı ('really helpful') = utanmasız + yetişkin. ABD/UK'da terapi normal — 'crazy/secret/problem' damgalama dili.",
+        },
+        {
+          question: "'Work through' fiili ne anlama gelir?",
+          options: [
+            "İş üzerinde çalışmak",
+            "(Duygu/sorun) çalışıp anlamak, çözmeye çalışmak",
+            "Saatleri uzatmak",
+            "İşten kaçmak",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Work through' = (zor bir şeyi) zamanla işleyip anlamak. Terapi/duygusal süreçler için temel fiil.",
+        },
+        {
+          question: "Detay vermek istemediğinde en doğal sınır cümlesi hangisi?",
+          options: [
+            "Don't ask me, it's private!",
+            "I cannot say, sorry sorry.",
+            "I'd rather not get into the details, but thanks for asking.",
+            "It's none of your business.",
+          ],
+          correct_index: 2,
+          tr_explanation:
+            "'I'd rather not + base' = nazik sınır. 'Thanks for asking' = duygusal sıcaklık. Diğerleri ya agresif ya da utanç dolu.",
+        },
+      ],
+    },
+    {
+      id: "ex.pb1.14.10",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "I started seeing a therapist — it's been really helpful.",
+      ipa: "aɪ ˈstɑːrtɪd ˈsiːɪŋ ə ˈθɛrəpɪst ɪts bɪn ˈriːli ˈhɛlpfəl",
+      tr_hint:
+        "Sakin, savunmasız. 'Therapist' = 'θɛr-ə-pɪst' (th sesi — dil dişlerin arasında). 'Really helpful' bağlı. Utançsız, doğal.",
+    },
+  ],
+};
+
+// ============================================================
 // Registry
 // ============================================================
 export const personalB1Lessons: BundledLesson[] = [
@@ -2273,4 +3243,8 @@ export const personalB1Lessons: BundledLesson[] = [
   personalB1Lesson_8,
   personalB1Lesson_9,
   personalB1Lesson_10,
+  personalB1Lesson_11,
+  personalB1Lesson_12,
+  personalB1Lesson_13,
+  personalB1Lesson_14,
 ];

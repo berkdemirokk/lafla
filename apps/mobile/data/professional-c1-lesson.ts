@@ -2675,6 +2675,1148 @@ export const professionalC1Lesson_10: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 11 — Board meeting quarterly review (Q3 highlights, headwinds)
+// ============================================================
+export const professionalC1Lesson_11: BundledLesson = {
+  id: "professional.c1.board.2",
+  skill_id: "professional.c1",
+  index: 11,
+  title: "Kurul Toplantısı — Çeyrek Highlight Sunma",
+  description:
+    "Q3 review'unu çerçeveleyerek sun: 'Q3 highlights include…', 'On the headwinds front…', 'Looking ahead, our north star remains…'. Pozitifi abartmadan, negatifi gizlemeden bir kurul registeri.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.pc1.11.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "Q3 highlights include",
+      tr_translation: "Q3'ün öne çıkanları şunlar (kurul açılışı, övünmeden manşet sunmak)",
+      example:
+        "Q3 highlights include record net retention at 118%, expansion into two new verticals, and the closing of our Series D.",
+      example_tr:
+        "Q3'ün öne çıkanları şunlar: %118 ile rekor net retention, iki yeni dikeye genişleme ve Series D'nin kapanması.",
+    },
+    {
+      id: "ex.pc1.11.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "On the headwinds front",
+      tr_translation: "Aksi yönlü rüzgârlar tarafında (negatif kısma geçiş, kurul registeri)",
+      example:
+        "On the headwinds front, we saw FX drag of 240 bps and a softening in EMEA enterprise — both within our scenario planning.",
+      example_tr:
+        "Aksi rüzgârlar tarafında, 240 bps döviz baskısı ve EMEA enterprise'da yumuşama gördük — her ikisi de senaryo planlamamızın içinde.",
+    },
+    {
+      id: "ex.pc1.11.3",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "Our north star remains",
+      tr_translation: "Kuzey yıldızımız (ana yön göstergesi) hâlâ şu (stratejik yönelim)",
+      example:
+        "Our north star remains durable, capital-efficient growth — and every decision this quarter was filtered through that lens.",
+      example_tr:
+        "Kuzey yıldızımız hâlâ kalıcı, sermaye-verimli büyüme — ve bu çeyrek alınan her karar bu mercekten süzüldü.",
+    },
+    {
+      id: "ex.pc1.11.4",
+      type: "translate",
+      difficulty: 6,
+      direction: "tr_to_en",
+      source:
+        "Q3'ün öne çıkanları şunlar: rekor net retention, iki yeni dikey ve marj genişlemesi. Aksi rüzgârlar tarafında EMEA yumuşadı, ama bu senaryo planlamamızın içinde. Kuzey yıldızımız hâlâ kalıcı, sermaye-verimli büyüme.",
+      target:
+        "Q3 highlights include record net retention, two new verticals, and margin expansion. On the headwinds front, EMEA softened — but that was within our scenario planning. Our north star remains durable, capital-efficient growth.",
+      accepted_variants: [
+        "Q3 highlights: record net retention, two new verticals, margin expansion. On the headwinds side, EMEA softened, though it was within our scenarios. Our north star is still durable, capital-efficient growth.",
+        "The Q3 highlights are record retention, two new verticals, and margin expansion. As for headwinds, EMEA cooled — but we'd planned for it. Our north star: durable, capital-efficient growth.",
+        "Highlights from Q3: record net retention, two new verticals, expanding margin. On headwinds, EMEA was softer — within our planning envelope. North star unchanged: durable, capital-efficient growth.",
+        "Q3 highlights include record NRR, two new verticals and margin expansion. On the headwinds front, EMEA softened, but that sat within our scenarios. Our north star remains durable, capital-efficient growth.",
+      ],
+      tr_hint:
+        "Kurul triptiği: highlights (pozitif) + headwinds (negatif, ama çerçevelenmiş) + north star (stratejik yön). 'Within our scenario planning' = sürpriz değil sinyali.",
+    },
+    {
+      id: "ex.pc1.11.5",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "Were it not for the FX drag, operating margin would have ___ 32% — the underlying business is stronger than the headline.",
+      answer: "cleared",
+      distractors: ["pass", "passed", "reach"],
+      tr_hint:
+        "Subjunctive (C1): 'Were it not for X, Y would have…' = X olmasaydı Y olurdu. 'Cleared 32%' = %32'yi aştı. Kurulda alttaki gücü göstermek.",
+    },
+    {
+      id: "ex.pc1.11.6",
+      type: "spot_mistake",
+      difficulty: 6,
+      incorrect_sentence:
+        "Q3 was good. Some things were bad too but we are fine. Next quarter will be better, trust me.",
+      correct_sentence:
+        "Q3 highlights include record retention and margin expansion. On the headwinds front, EMEA softened — within our planning. Looking ahead, our north star remains durable growth, and Q4 guidance is anchored in three observable leading indicators.",
+      tr_explanation:
+        "'Good / bad / trust me' = kurulda yöneticinin değil, çırağın dili. C1 kurul registeri: 'highlights include' (somut), 'on the headwinds front' (geçiş), 'north star' (stratejik), 'anchored in leading indicators' (veri taahhüdü). 'Trust me' = güveni azaltır.",
+    },
+    {
+      id: "ex.pc1.11.7",
+      type: "roleplay_chat",
+      difficulty: 7,
+      scenario_description:
+        "CEO'sun, Q3 kurul toplantısının açılış 6 dakikalık review'unu sunuyorsun. Lead independent director kritik sorular soruyor. Highlights + headwinds + north star üçlüsünü dengeli kullan, hedge ile güven topla.",
+      npc_role: "Lead Independent Director",
+      setting: "Quarterly board meeting, in-person, audit chair present",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Let's open with your Q3 read. Three minutes — what do we need to know, and what would you flag?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|appreciate the (frame|time)|let me (open|frame) (it|this))",
+            "(q3 highlights (include|are)|the q3 highlights)",
+            "(record (net retention|nrr|margin)|two new verticals|margin expansion)",
+            "(on the headwinds front|on the headwind side|as for headwinds)",
+            "(within (our )?scenario planning|in our planning envelope|within the planning band)",
+            "(our north star remains|the north star is still|north star unchanged)",
+          ],
+          hint_tr:
+            "Açılış triptiği: 'Let me frame it. Q3 highlights include record NRR, two new verticals, and margin expansion. On the headwinds front, EMEA softened — within our scenario planning. Our north star remains durable, capital-efficient growth.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Margin expansion with EMEA softening — what's holding the line? Be specific.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fair (push|callout|question)|that'?s the right pressure)",
+            "(three (drivers|levers|factors))",
+            "(mix shift (toward|into)|pricing discipline|operating leverage)",
+            "(were it not for|had we not|absent (the )?fx)",
+            "(operating margin would have (cleared|exceeded|come in at))",
+            "(underlying (business|run-rate) is (stronger|healthier) than the headline)",
+          ],
+          hint_tr:
+            "Subjunctive + drivers: 'Fair push. Three drivers — mix shift into higher-tier, pricing discipline, and operating leverage. Were it not for FX drag, margin would have cleared 32. Underlying business is stronger than the headline suggests.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "And on EMEA — is this cyclical or are we losing share? The honest read, please.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the honest read|to be candid|i'?ll be straight with the board)",
+            "(predominantly cyclical|largely macro|sector-wide softening)",
+            "(but i'?d be doing (the board|you) a disservice if i (didn'?t|failed to))",
+            "(flag (a )?(secondary signal|share dynamic|competitive pressure))",
+            "(in (the )?mid-market (slice|tier|segment))",
+            "(we'?ve (already )?(deployed|launched|repriced|stood up))",
+            "(by (q4|year-end|the next read)|tripwire (is|set at))",
+          ],
+          hint_tr:
+            "Şeffaf çerçeveleme: 'Honest read — predominantly cyclical, sector-wide. But I'd be doing the board a disservice if I didn't flag a share dynamic in mid-market. We've already repriced; tripwire set at NRR below 108 by year-end.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Looking ahead — if you had to bet the next twelve months on one decision the board should help you make, what is it?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that'?s the (right|sharpest) question|appreciate (the )?frame)",
+            "(if i had to (pick|choose|bet on) one|the one decision)",
+            "(capital allocation|build vs buy|geographic concentration|platform consolidation)",
+            "(without (committing prematurely|getting ahead of)|it would be premature to)",
+            "(would come back to (the board|you) with (a structured|the modeled|a paper))",
+            "(by (q1|the next meeting|the january session))",
+            "(north star (filter|test|lens))",
+          ],
+          hint_tr:
+            "Stratejik kapanış: 'The one decision — capital allocation for the next twelve months. Without committing prematurely, I'd come back to the board with a structured paper by Q1, run through the north star filter.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Good. We'll see the structured view in January. Thank you.",
+        },
+      ],
+    },
+    {
+      id: "ex.pc1.11.8",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "Kurulda Q3 review'unu açmanın EN sağlam üçlü çerçevesi?",
+          options: [
+            "İyi haberler — sonra her şey",
+            "Highlights (somut) + Headwinds (çerçevelenmiş) + North star (stratejik yön)",
+            "Önce kötü haber, sonra iyi",
+            "Sadece sayılar",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Kurul üçlüsü = övünme yok, gizleme yok, yön kayıp değil. 'Highlights / headwinds / north star' = profesyonel registerin omurgası.",
+        },
+        {
+          question: "'Were it not for the FX drag, margin would have cleared 32%' yapısı NEDEN güçlü?",
+          options: [
+            "Önemli değil",
+            "Subjunctive + üçüncü tip koşul = altta yatan iş gücünü gösterir, mazeret değil veri çerçevesi olur",
+            "Çok karmaşık",
+            "Standart değil",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "C1 subjunctive ile mazeret tonundan çıkıp 'underlying strength' okumasına geçilir. 'Because of FX, margin was bad' = mazeret. 'Were it not for FX, margin would have cleared' = senaryo analizi.",
+        },
+        {
+          question: "'Without committing prematurely, I'd come back with a structured paper' NEDEN doğru hedge?",
+          options: [
+            "Önemli değil",
+            "Stratejik soruya hızlı evet/hayır = riskli. 'Without committing prematurely' = ciddiyetle ele alacağım taahhüdü",
+            "Zaman kazanma taktiği",
+            "Çok temkinli",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Kurul büyük stratejik sorularda 'çabuk cevap' aramaz, 'düşünülmüş cevap' arar. 'Premature commitment' kötü; 'structured paper' iyi. Hedge = ciddiyet.",
+        },
+      ],
+    },
+    {
+      id: "ex.pc1.11.9",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "On the headwinds front, EMEA softened — but that sat within our scenario planning.",
+      ipa: "ɒn ðə ˈhɛdwɪndz frʌnt iː-ɛm-iː-eɪ ˈsɒftənd bʌt ðæt sæt wɪˈðɪn aʊə sɪˈnɑːrɪoʊ",
+      tr_hint:
+        "Kurul geçişi. 'Headwinds front' = aksi rüzgârlar tarafı. 'Sat within' = içinde durdu. Sakin, ölçülü, mazeret değil çerçeve.",
+    },
+    {
+      id: "ex.pc1.11.10",
+      type: "speech_shadowing",
+      difficulty: 6,
+      native_text:
+        "Q3 highlights include record net retention, two new verticals and margin expansion — and our north star remains durable, capital-efficient growth.",
+      voice_hint: "female_uk",
+      tr_hint:
+        "Kurul açılışı. Pozitif manşet + stratejik bağ. 'Capital-efficient growth' = sermaye-verimli büyüme. Yavaş, net, kontrollü.",
+    },
+    {
+      id: "ex.pc1.11.11",
+      type: "listen_and_transcribe",
+      difficulty: 6,
+      audio_text:
+        "Looking ahead, were it not for the FX drag we are modelling, the underlying run-rate would have cleared the high end of our guidance band.",
+      transcription_target:
+        "Looking ahead, were it not for the FX drag we are modelling, the underlying run-rate would have cleared the high end of our guidance band.",
+      tr_hint:
+        "Subjunctive + finans dili. 'FX drag' = döviz baskısı. 'Run-rate' = yıllıklandırılmış akım. 'Guidance band' = tahmin aralığı. 'Cleared the high end' = üst sınırı geçti.",
+    },
+    {
+      id: "ex.pc1.11.12",
+      type: "vocab_tile",
+      difficulty: 6,
+      word_or_phrase: "Were it not for",
+      tr_translation: "Olmasaydı (subjunctive, kurul registeri — 'if it were not for' formal versiyon)",
+      example:
+        "Were it not for the one-off restructuring charge, EPS would have come in at the top of the range.",
+      example_tr:
+        "Tek seferlik yeniden yapılandırma yükü olmasaydı, EPS aralığın üst ucunda gerçekleşirdi.",
+    },
+    {
+      id: "ex.pc1.11.13",
+      type: "spot_mistake",
+      difficulty: 6,
+      incorrect_sentence:
+        "I think margin would be better but FX was bad so it is what it is, we will try harder next quarter.",
+      correct_sentence:
+        "Were it not for the FX drag, operating margin would have cleared the high end of our band. The underlying run-rate is intact, and our north star is unchanged.",
+      tr_explanation:
+        "'It is what it is / try harder' = pasif, savunmacı, yöneticinin değil ekibin dili. C1 kurul: 'were it not for' (subjunctive ile alttaki gücü göster), 'cleared the high end' (somut), 'underlying run-rate is intact' (mazeret değil okuma), 'north star unchanged' (yön kaybı yok).",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 12 — M&A diligence soft sounding (We're exploring strategic options)
+// ============================================================
+export const professionalC1Lesson_12: BundledLesson = {
+  id: "professional.c1.ma_diligence.1",
+  skill_id: "professional.c1",
+  index: 12,
+  title: "M&A Yumuşak Sondaj — Stratejik Seçenekler Konuşması",
+  description:
+    "Potansiyel bir hedef şirketle ilk informal görüşme. Niyetini sızdırma, ama merakı belli et: 'We're exploring strategic options', 'Without committing prematurely', 'It would be premature to characterise this as…'. Diligence öncesi koreografi.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.pc1.12.1",
+      type: "vocab_tile",
+      difficulty: 6,
+      word_or_phrase: "We're exploring strategic options",
+      tr_translation: "Stratejik seçenekleri değerlendiriyoruz (M&A'in formal yumuşak açılışı)",
+      example:
+        "Without being more specific than I should be, we're exploring strategic options in the adjacent category.",
+      example_tr:
+        "Olmam gerektiğinden daha spesifik olmadan söyleyeyim — komşu kategoride stratejik seçenekleri değerlendiriyoruz.",
+    },
+    {
+      id: "ex.pc1.12.2",
+      type: "vocab_tile",
+      difficulty: 6,
+      word_or_phrase: "Without committing prematurely",
+      tr_translation: "Erken taahhütte bulunmadan (niyeti sızdırmadan ilgi gösterme hedge'i)",
+      example:
+        "Without committing prematurely, we'd be open to a deeper conversation under the right structure.",
+      example_tr:
+        "Erken taahhütte bulunmadan söyleyeyim — doğru yapı altında daha derin bir konuşmaya açık olurduk.",
+    },
+    {
+      id: "ex.pc1.12.3",
+      type: "vocab_tile",
+      difficulty: 6,
+      word_or_phrase: "It would be premature to characterise this as",
+      tr_translation: "Bunu … olarak nitelendirmek erken olur (etiketten kaçınma, esneklik koruma)",
+      example:
+        "It would be premature to characterise this as a process — think of it as a structured exploration.",
+      example_tr:
+        "Bunu bir 'süreç' olarak nitelendirmek erken olur — yapılandırılmış bir keşif olarak düşünün.",
+    },
+    {
+      id: "ex.pc1.12.4",
+      type: "translate",
+      difficulty: 6,
+      direction: "tr_to_en",
+      source:
+        "Erken taahhütte bulunmadan söyleyeyim — stratejik seçenekleri değerlendiriyoruz. Bunu bir süreç olarak nitelendirmek erken olur, ama doğru yapı altında daha derin bir konuşmaya açık olurduk.",
+      target:
+        "Without committing prematurely, we're exploring strategic options. It would be premature to characterise this as a process — but under the right structure, we'd be open to a deeper conversation.",
+      accepted_variants: [
+        "Without getting ahead of ourselves, we're exploring strategic options. I'd hesitate to call this a process — but with the right structure in place, a deeper conversation would be on the table.",
+        "Without overcommitting, we're exploring strategic options. It's too early to frame this as a process, but under the right structure we'd engage more deeply.",
+        "Without committing too early, we're looking at strategic options. Premature to characterise as a process — though under the right structure we'd lean in further.",
+        "Without getting ahead of where we are, we're exploring strategic options. I wouldn't characterise this as a process yet, but a deeper conversation under the right structure is something we'd entertain.",
+      ],
+      tr_hint:
+        "M&A koreografisi: niyet sızdırmama + ilgi gösterme + esneklik. Üç hedge zinciri ('without committing' + 'it would be premature' + 'under the right structure') = profesyonel diligence dili.",
+    },
+    {
+      id: "ex.pc1.12.5",
+      type: "fill_blank",
+      difficulty: 6,
+      sentence_template:
+        "Had the timing been different, we might have ___ this earlier — but we're at the right moment now.",
+      answer: "broached",
+      distractors: ["mention", "raised it up", "told you"],
+      tr_hint:
+        "Conditional 3: 'Had X been different, we might have Y.' = X farklı olsaydı, Y yapmış olabilirdik. 'Broach' = hassas konuyu nazikçe açmak. M&A formal fiili.",
+    },
+    {
+      id: "ex.pc1.12.6",
+      type: "spot_mistake",
+      difficulty: 6,
+      incorrect_sentence:
+        "We want to buy your company. Tell me the price and we can start negotiating now.",
+      correct_sentence:
+        "Without committing prematurely, we're exploring strategic options in your space. It would be premature to characterise this as a process — but under the right structure, we'd be open to a deeper conversation.",
+      tr_explanation:
+        "'We want to buy / tell me the price' = M&A'de değerlemeyi yukarı çeker, pazarlık gücünü kaybedersin, hatta etik sınırı zorlar (insider, signalling). C1 diligence dili = niyeti gizlemeden ama bağlanmadan ilgi göster: 'exploring options', 'without committing', 'premature to characterise', 'under the right structure'.",
+    },
+    {
+      id: "ex.pc1.12.7",
+      type: "roleplay_chat",
+      difficulty: 7,
+      scenario_description:
+        "Şirketinin CEO'susun. Komşu kategoride bir özel şirketin kurucusuyla informal bir akşam yemeğindesin. İlk yumuşak sondajı yapacaksın — niyetini sızdırmadan ilgini belli et, etiketlerden kaç, esneklik koru.",
+      npc_role: "Founder/CEO of a private adjacent-category company",
+      setting: "Informal dinner, no advisors present, no signed NDA",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "I'll be honest — when your team asked for this dinner, I assumed it was either a partnership or an acquisition pitch. Which is it?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(appreciate the (directness|candour)|fair (open|to ask))",
+            "(without (committing prematurely|getting ahead of (myself|ourselves)|overcommitting))",
+            "(we'?re exploring strategic options|exploring (the )?strategic (options|landscape))",
+            "(it would be premature to characterise this as)",
+            "(an? (acquisition|deal|process) (per se|specifically))",
+            "(think of (this|tonight) as|treat (this|tonight) as) (a (structured exploration|conversation|first sounding))",
+          ],
+          hint_tr:
+            "Yumuşak açılış: 'Appreciate the directness. Without committing prematurely, we're exploring strategic options. It would be premature to characterise this as an acquisition per se — think of tonight as a structured exploration.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Strategic options is a phrase I've heard before. What's actually on your mind?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fair (push|read|callout)|you'?re right to (press|push))",
+            "(what'?s on (our|my) mind is)",
+            "(the strategic (rationale|logic|fit) (looks|reads) compelling)",
+            "(your (platform|footprint|category position|customer base))",
+            "(complementary to|adjacent to|sits naturally alongside)",
+            "(had the (timing|moment|setup) been different)",
+            "(we might have broached (this|the conversation) earlier|would have raised this sooner)",
+            "(under the right structure|with the right framing|in the right form)",
+          ],
+          hint_tr:
+            "Bir adım açıl: 'Fair push. What's on our mind is the strategic fit. Your platform sits naturally alongside ours. Had the timing been different, we might have broached this earlier — under the right structure, a deeper conversation feels right.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "If — and I'm saying if — we were open to a conversation, what would 'the right structure' look like to you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thoughtful (way to|frame|question)|that'?s the right (question|frame))",
+            "(a (mutual|two-way) nda|short-form nda first|nda before (any )?numbers)",
+            "(\\d+ to \\d+ weeks of (mutual diligence|two-way diligence|joint sounding))",
+            "(no exclusivity until|exclusivity only after)",
+            "(your (board|cap table|investors) on a parallel track|aligned in parallel)",
+            "(give both sides (an off-ramp|optionality|the ability to walk))",
+            "(no leak risk|tight (perimeter|circle)|need-to-know basis)",
+          ],
+          hint_tr:
+            "Yapı çiz: 'Thoughtful frame. Mutual NDA first, then 4 to 6 weeks of two-way diligence. No exclusivity until structure clarity. Your board kept in the loop in parallel. Tight perimeter, off-ramp on both sides.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "And valuation? Are we anywhere near each other or am I wasting both our evenings?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it would be (premature|early) to (anchor|put a number on|price))",
+            "(without (anchoring|prejudicing|pre-committing))",
+            "(the (range|band|territory) we'?d be (thinking|working) in)",
+            "(public comparables|peer multiples|recent (transactions|deals))",
+            "(suggest (we'?re|the conversation is) in a (live|viable|workable) zone)",
+            "(not in (anchor|number) territory tonight|wouldn'?t want to anchor over dinner)",
+            "(your evening (isn'?t|wouldn'?t be) wasted)",
+          ],
+          hint_tr:
+            "Değerleme hedge: 'It would be premature to anchor a number tonight. Without prejudicing the conversation, public comparables suggest we're in a live zone. Your evening is not being wasted — I just wouldn't want to anchor over a dinner.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Alright. Send me a mutual NDA draft this week. We'll see if there's something here.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(grateful|appreciate (the|your) (openness|engagement|willingness))",
+            "(in your inbox|coming your way|with you) (by (wednesday|thursday|midweek|eod))",
+            "(tight circle (this|on (our|my) side)|kept narrow on our end)",
+            "(your team can (lead|run) the (drafting|first pass))",
+            "(look forward to (the next|a deeper) (sounding|conversation|sit-down))",
+          ],
+          hint_tr:
+            "Kapanış: 'Grateful for the openness. Mutual NDA in your inbox by Wednesday — tight circle on our side. Happy for your team to lead the drafting. Look forward to the deeper sounding.'",
+        },
+      ],
+    },
+    {
+      id: "ex.pc1.12.8",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "İlk M&A sondajında 'we want to buy you' demenin EN büyük zararı?",
+          options: [
+            "Çok dürüst",
+            "Pazarlık gücünü kaybetmek + değerlemeyi yukarı anchor'lamak + esnekliği yok etmek",
+            "Önemsiz",
+            "Kibar değil",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "M&A'de niyet ne kadar sıkı ifade edilirse, karşı taraf o kadar yüksek anchor koyar. 'Exploring strategic options' = niyet belli, taahhüt yok = serbestlik korunur.",
+        },
+        {
+          question: "'It would be premature to characterise this as a process' kalıbı NE işe yarar?",
+          options: [
+            "Bilmem",
+            "Etiket koymadan ilerleme = banker/board zorunluluklarını tetiklememek + esnekliği korumak",
+            "Çok temkinli",
+            "Standart değil",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Resmi 'process' = banker hizmetleri, board onayı, fairness opinion zorunlulukları. 'Structured exploration' = aynı içerik, çok daha az yük.",
+        },
+        {
+          question: "Akşam yemeği sondajında değerleme sorusuna doğru cevap?",
+          options: [
+            "Net bir rakam ver, güveni göster",
+            "'Premature to anchor a number — public comparables suggest a live zone' = bilgi var, anchor yok",
+            "Hiç cevaplama",
+            "Çok yüksek söyle",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Anchor numarası söyleyen taraf sonraki pazarlığın taban veya tavanını kaybeder. 'Live zone' = ciddiyim sinyali + esneklik. M&A koreografisinin kalbi.",
+        },
+      ],
+    },
+    {
+      id: "ex.pc1.12.9",
+      type: "pronounce_phrase",
+      difficulty: 6,
+      phrase: "Without committing prematurely, we're exploring strategic options.",
+      ipa: "wɪˈðaʊt kəˈmɪtɪŋ ˌpriːməˈtʃʊəli wɪər ɪkˈsplɔːrɪŋ strəˈtiːdʒɪk ˈɒpʃənz",
+      tr_hint:
+        "M&A hedge'inin omurgası. 'Prematurely' /ˌpriːməˈtʃʊəli/ — vurgu ikinci hecede. 'Strategic options' yavaş, net. Ölçülü, sızdırmayan ton.",
+    },
+    {
+      id: "ex.pc1.12.10",
+      type: "speech_shadowing",
+      difficulty: 7,
+      native_text:
+        "Had the timing been different, we might have broached this earlier — but it would be premature to characterise tonight as anything more than a sounding.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Conditional 3 + M&A hedge. 'Broach' = hassas konuyu açmak. 'Sounding' = informal sondaj. Ölçülü, mesafeli, ama net niyet sinyali.",
+    },
+    {
+      id: "ex.pc1.12.11",
+      type: "listen_and_transcribe",
+      difficulty: 6,
+      audio_text:
+        "Were we to move forward, we'd want a mutual NDA in place, a tight perimeter, and an off-ramp for both sides at any stage.",
+      transcription_target:
+        "Were we to move forward, we'd want a mutual NDA in place, a tight perimeter, and an off-ramp for both sides at any stage.",
+      tr_hint:
+        "Subjunctive 'were we to' = ilerleseydik. 'Mutual NDA' = karşılıklı gizlilik. 'Tight perimeter' = dar bilgi çemberi. 'Off-ramp' = çıkış yolu.",
+    },
+    {
+      id: "ex.pc1.12.12",
+      type: "vocab_tile",
+      difficulty: 6,
+      word_or_phrase: "tight perimeter",
+      tr_translation: "Dar bilgi çemberi (kim bilecek, kim bilmeyecek)",
+      example:
+        "We'll keep this on a tight perimeter — three people on our side until you're ready to widen it.",
+      example_tr:
+        "Bunu dar bir bilgi çemberinde tutacağız — siz çemberi genişletmeye hazır olana dek bizim tarafımızda üç kişi.",
+    },
+    {
+      id: "ex.pc1.12.13",
+      type: "spot_mistake",
+      difficulty: 6,
+      incorrect_sentence:
+        "Ok we are interested, please send me numbers tomorrow and we will decide in one week if we buy you.",
+      correct_sentence:
+        "Without committing prematurely, we'd want a mutual NDA first, four to six weeks of two-way diligence, and a tight perimeter. It would be premature to characterise this as anything more than a structured exploration.",
+      tr_explanation:
+        "'Send me numbers tomorrow, decide in a week if we buy' = hem timing'i hem yapıyı hem de niyet kontrolünü kaybeder; karşı taraf 'aceleyle ihtiyacın var' okur ve pozisyonu sıkılaştırır. C1 M&A: NDA → two-way diligence → tight perimeter → off-ramp. Yapı = pazarlık gücü.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 13 — Layoff announcement, empathic but clear
+// ============================================================
+export const professionalC1Lesson_13: BundledLesson = {
+  id: "professional.c1.layoff.1",
+  skill_id: "professional.c1",
+  index: 13,
+  title: "İşten Çıkarma Duyurusu — Empatik ama Net",
+  description:
+    "Etkilenecek ekibe layoff duyurusu yapma: 'Difficult decisions ahead', 'We owe you transparency', 'This is on me, not on you'. Empati + sorumluluk + somut adımlar — etrafından dolaşmadan.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.pc1.13.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "Difficult decisions ahead",
+      tr_translation: "Önümüzde zor kararlar (kötü haberin açılış çerçevesi)",
+      example:
+        "I want to be straight with you — there are difficult decisions ahead, and I'd rather hear them from me than read them in a Slack channel.",
+      example_tr:
+        "Sizinle açık olmak istiyorum — önümüzde zor kararlar var ve bunları bir Slack kanalından okumanızdansa benden duymanızı tercih ederim.",
+    },
+    {
+      id: "ex.pc1.13.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "We owe you transparency",
+      tr_translation: "Size şeffaflık borçluyuz (sorumluluk + açıklığın açılışı)",
+      example:
+        "We owe you transparency, even when — especially when — the answer is hard to deliver.",
+      example_tr:
+        "Size şeffaflık borçluyuz — cevabı vermek zor olduğunda bile, hatta tam o zaman.",
+    },
+    {
+      id: "ex.pc1.13.3",
+      type: "vocab_tile",
+      difficulty: 6,
+      word_or_phrase: "This is on me, not on you",
+      tr_translation: "Bu benim üzerimde, sizin üzerinizde değil (sorumluluk üstlenme)",
+      example:
+        "This is on me, not on you — the misread was at the leadership level, and the cost should not fall on the people closest to the work.",
+      example_tr:
+        "Bu benim üzerimde, sizin üzerinizde değil — yanlış okuma liderlik seviyesindeydi, maliyet işe en yakın olanların üzerine düşmemeli.",
+    },
+    {
+      id: "ex.pc1.13.4",
+      type: "translate",
+      difficulty: 6,
+      direction: "tr_to_en",
+      source:
+        "Açık olmak istiyorum: önümüzde zor kararlar var. Size şeffaflık borçluyuz. Bu benim üzerimde, sizin üzerinizde değil — ama önümüzdeki adımları sizinle birlikte ve onurla atmak istiyorum.",
+      target:
+        "I want to be straight with you: there are difficult decisions ahead. We owe you transparency. This is on me, not on you — but I want to walk the next steps with you and with dignity.",
+      accepted_variants: [
+        "I'll be straight: difficult decisions are ahead. You're owed transparency. This sits with me, not with you — but I want us to walk the next steps together, with dignity.",
+        "Let me be straight with you — difficult decisions ahead. We owe you transparency. The accountability is mine, not yours — but I want to take the next steps with you, with dignity.",
+        "I want to be direct: there are hard decisions coming. You deserve transparency. This is on me, not the team — and I want us to walk through the next steps together, with dignity intact.",
+        "Being straight with you: difficult decisions lie ahead. We owe you transparency. The weight of this is mine — but I want to take the next steps alongside you, with dignity.",
+      ],
+      tr_hint:
+        "Layoff açılışının dört adımı: doğrudan ('be straight') + zorluk ('difficult decisions') + şeffaflık ('we owe you transparency') + sorumluluk ('this is on me'). Eufemizm yok, mesafe yok.",
+    },
+    {
+      id: "ex.pc1.13.5",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "If I could have ___ this without affecting the team, I would have — but the math wouldn't bend, and I owe you that truth.",
+      answer: "absorbed",
+      distractors: ["take", "took", "stop"],
+      tr_hint:
+        "Conditional 3 + 'absorb' = soğurmak, yutmak. 'If I could have absorbed it, I would have' = soğurabilseydim, soğururdum. Sorumluluk sahnesi.",
+    },
+    {
+      id: "ex.pc1.13.6",
+      type: "spot_mistake",
+      difficulty: 6,
+      incorrect_sentence:
+        "Hi everyone. Due to challenging market conditions and the need to right-size our cost base, we are unfortunately going to have to let some people go. HR will reach out with details.",
+      correct_sentence:
+        "I want to be straight with you — there are difficult decisions ahead, and roughly 12% of our team will be affected. This is on me, not on you. We owe you transparency, severance details, and time. I'll stay in this room as long as you have questions.",
+      tr_explanation:
+        "'Challenging conditions / right-size / let some people go' = corporate eufemizm = empati eksikliği + güven kaybı. C1 empatik layoff dili: doğrudan rakam ('12%'), sorumluluk ('this is on me'), somut destek ('severance, time'), erişim ('I'll stay in this room'). Empati yumuşaklık değil, açıklıktır.",
+    },
+    {
+      id: "ex.pc1.13.7",
+      type: "roleplay_chat",
+      difficulty: 7,
+      scenario_description:
+        "CEO'sun, tüm şirkete layoff duyurusu yaptın. Toplantı sonrası bir senior çalışan kalıyor ve sert ama haklı sorular soruyor. Mesafe koyma — empatik, net, sorumluluğu üstlenen kal.",
+      npc_role: "Senior tenured employee (10+ years), directly affected",
+      setting: "After all-hands, one-on-one in CEO office, door closed",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Ten years. I gave this company ten years. I want a straight answer — did you really not see this coming?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you for (the ten years|staying|coming in|being direct))",
+            "(you deserve|you'?re owed|i owe you) (a straight answer|the truth|honesty)",
+            "(the honest answer is|to be candid|i'?ll be straight)",
+            "(we saw (the )?(softening|risk|signal)|we saw it (forming|building) (in q\\d+|over the (past|last)))",
+            "(but i (misread|underestimated|got wrong))",
+            "(this is on me|the misread is mine|that accountability sits with me)",
+            "(if i could have absorbed (this|it) without affecting (the team|you), i would have)",
+          ],
+          hint_tr:
+            "Sorumluluk üstlen: 'You deserve a straight answer. The honest one — we saw the softening in Q2, but I misread how long it would last. This is on me. If I could have absorbed it without affecting the team, I would have.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Then why is it me sitting here and not someone hired six months ago who hasn't even shipped anything yet?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fair (question|push|challenge)|you'?re right to (ask|press)|the question deserves an answer)",
+            "(i won'?t (sugar-coat|dodge|deflect) (it|that)|i'?ll be honest)",
+            "(the criteria (we used|i applied))",
+            "(role consolidation|forward-looking (capability|capacity|skill mix)|role overlap)",
+            "(not (performance|effort|contribution)|nothing to do with (performance|how you'?ve shown up))",
+            "(your record (here|over ten years) is (exemplary|strong|undisputed))",
+            "(this isn'?t a verdict on (you|your value|your work))",
+          ],
+          hint_tr:
+            "Şeffaf kriter + onur: 'Fair question. I won't dodge it. The criteria were role consolidation and forward-looking capability mix, not performance. Your ten-year record is undisputed. This isn't a verdict on you.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "So what do I actually walk out of here with? I don't want platitudes — I want specifics.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(you'?re owed specifics|specifics is the right ask|let me be specific)",
+            "(\\d+ (months|weeks) of severance|severance of \\d+ (months|weeks))",
+            "(equity (acceleration|will vest|treatment)|all unvested|accelerated vesting)",
+            "(healthcare (continuation|extended|cobra (covered|paid for)) (through|until))",
+            "(outplacement (support|coaching|services)|a (dedicated|senior) coach)",
+            "(my (network|rolodex|introductions) (is|are) yours|i'?ll (open|put) every door (i can|open for you))",
+            "(you can (use|put) my name (and number|directly) on (your )?cv)",
+          ],
+          hint_tr:
+            "Somut + cömert: 'You're owed specifics. Six months of severance, accelerated equity, healthcare through end of year, dedicated outplacement coach. My network is yours — put my name directly on your CV.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "What do I tell my team tomorrow when they ask me whether they should trust this place?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that'?s a question i'?ve sat with|i'?ve been (thinking|sitting) with that)",
+            "(tell them (what you saw|the truth as you (saw|experienced) it)|don'?t (sanitise|soften) it for me)",
+            "(if i could (re-earn|rebuild) (your )?trust|earning (trust|that) back)",
+            "(it would be premature to ask (for|that))",
+            "(what (they|the team) can (count on|rely on))",
+            "(transparency (now|from this point on)|monthly (updates|reads))",
+            "(no more (surprises|blindsides)|no second (round|wave) (without|in absence of))",
+          ],
+          hint_tr:
+            "İnce sorumluluk: 'Tell them what you saw — don't soften it for me. It would be premature to ask for trust. What they can count on is monthly transparent updates and no second wave without us being straight first.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Alright. I needed that conversation. Thank you for not hiding behind HR.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you for (staying|the directness|the ten years|coming in))",
+            "(you didn'?t have to|i know you didn'?t owe me)",
+            "(door (stays|is) open|reach out (anytime|whenever))",
+            "(at any (point|stage|hour))",
+            "(this conversation (matters|stays with me|i won'?t forget))",
+          ],
+          hint_tr:
+            "Kapanış: 'Thank you for staying — you didn't have to. My door stays open at any hour. This conversation stays with me.'",
+        },
+      ],
+    },
+    {
+      id: "ex.pc1.13.8",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "Layoff açılışında EN sağlıklı çerçeve?",
+          options: [
+            "'Challenging market conditions / we have to right-size' = corporate eufemizm",
+            "'Difficult decisions ahead + we owe you transparency + this is on me' = empati + sorumluluk + somut",
+            "Etrafından dolaş, HR konuşsun",
+            "Sayı verme, soyut kal",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Eufemizm = mesafe = güven kaybı. Doğrudan + sorumluluk üstlenmiş + somut adım = onurlu duyuru. Empati yumuşaklık değil, açıklıktır.",
+        },
+        {
+          question: "'This is on me, not on you' NEDEN kritik?",
+          options: [
+            "Önemsiz",
+            "Liderlik = sonuçların sahibi olmak. Kararı 'pazar koşulları'na atfetmek sorumluluğu dağıtır, güveni keser",
+            "Çok dramatik",
+            "Standart değil",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "'Conditions made me do it' = lidersizlik. 'This is on me' = lider. Etkilenenler 'kötü kararla gönderildim' ile 'kötü şansla gönderildim' arasındaki farkı yıllarca hatırlar.",
+        },
+        {
+          question: "'It would be premature to ask for trust' NEDEN doğru hedge?",
+          options: [
+            "Önemsiz",
+            "Layoff sonrası 'trust me' demek = kibrin işareti. Güven yeniden kazanılır, talep edilmez",
+            "Çok temkinli",
+            "Standart değil",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Layoff bir güven kırılmasıdır. 'Trust me' = kırılmayı görmezden gelmek. 'Premature to ask for trust' = kırılmayı kabul + zamanla geri kazanma çerçevesi. Olgun liderlik.",
+        },
+      ],
+    },
+    {
+      id: "ex.pc1.13.9",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "This is on me, not on you — and I owe you that truth.",
+      ipa: "ðɪs ɪz ɒn miː nɒt ɒn juː ænd aɪ oʊ juː ðæt truːθ",
+      tr_hint:
+        "Sorumluluğun temel cümlesi. 'On me' vurgulu. 'I owe you that truth' yavaş, ağırlıklı. Mesafesiz, mazeretsiz.",
+    },
+    {
+      id: "ex.pc1.13.10",
+      type: "speech_shadowing",
+      difficulty: 6,
+      native_text:
+        "If I could have absorbed this without affecting the team, I would have — the math wouldn't bend, and I owe you the dignity of saying so directly.",
+      voice_hint: "female_us",
+      tr_hint:
+        "Conditional 3 + sorumluluk. 'Absorb' = soğur. 'The math wouldn't bend' = matematik eğilmedi. 'Dignity of saying so directly' = doğrudan söylemenin onuru. Sıcak ama net.",
+    },
+    {
+      id: "ex.pc1.13.11",
+      type: "listen_and_transcribe",
+      difficulty: 6,
+      audio_text:
+        "You're owed specifics — six months of severance, accelerated equity, healthcare through year-end, and a dedicated outplacement coach.",
+      transcription_target:
+        "You're owed specifics — six months of severance, accelerated equity, healthcare through year-end, and a dedicated outplacement coach.",
+      tr_hint:
+        "Somut destek dili. 'Severance' = tazminat. 'Accelerated equity' = hızlandırılmış hisse hakkı. 'Outplacement coach' = iş geçişi koçu. Liste netliği = onur.",
+    },
+    {
+      id: "ex.pc1.13.12",
+      type: "vocab_tile",
+      difficulty: 6,
+      word_or_phrase: "the math wouldn't bend",
+      tr_translation: "Matematik eğilmedi (= sayıları başka türlü çıkaramadım, idiyomatik)",
+      example:
+        "I ran the model six different ways — the math wouldn't bend, and pretending otherwise wouldn't have served anyone.",
+      example_tr:
+        "Modeli altı farklı şekilde çalıştırdım — matematik eğilmedi, aksini iddia etmek kimseye hizmet etmezdi.",
+    },
+    {
+      id: "ex.pc1.13.13",
+      type: "spot_mistake",
+      difficulty: 6,
+      incorrect_sentence:
+        "Unfortunately due to circumstances beyond our control we have to make some hard choices but please trust me we will get through this together.",
+      correct_sentence:
+        "There are difficult decisions ahead, and roughly 12% of our team will be affected. This is on me, not on you. It would be premature to ask for your trust today — what I can offer is transparency, six months of severance, and my door open at any hour.",
+      tr_explanation:
+        "'Circumstances beyond our control / trust me / together' = sorumluluk dağıtma + güven dilenme + sahte ortaklık. C1 empatik layoff: somut rakam ('12%'), sorumluluk ('on me'), güven hedge'i ('premature to ask'), somut adım ('severance, door open'). Empati = açıklık, dolayım değil.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 14 — Crisis comms press statement (We take this seriously, Effective immediately)
+// ============================================================
+export const professionalC1Lesson_14: BundledLesson = {
+  id: "professional.c1.crisis.2",
+  skill_id: "professional.c1",
+  index: 14,
+  title: "Kriz İletişimi — Basın Açıklaması",
+  description:
+    "Ciddi bir olay sonrası şirket adına basın açıklaması ve gazeteci sorularına cevap: 'We take this seriously', 'Effective immediately, we are…', 'Without prejudging the investigation…'. Kabul etme, sahiplenme, somut aksiyon — hukuki gerilimi yönet.",
+  estimated_minutes: 8,
+  exercises: [
+    {
+      id: "ex.pc1.14.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "We take this seriously",
+      tr_translation: "Bunu ciddiye alıyoruz (kriz açıklamasının formal sorumluluk açılışı)",
+      example:
+        "Let me be unequivocal — we take this seriously, we have engaged independent counsel, and we will share findings.",
+      example_tr:
+        "Net olayım — bunu ciddiye alıyoruz, bağımsız hukuk danışmanlığı görevlendirdik ve bulguları paylaşacağız.",
+    },
+    {
+      id: "ex.pc1.14.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "Effective immediately, we are",
+      tr_translation: "Etkin biçimde derhal, şunu yapıyoruz (somut aksiyonun başlangıç kalıbı)",
+      example:
+        "Effective immediately, we are suspending the program, commissioning an external review, and preserving all relevant records.",
+      example_tr:
+        "Etkin biçimde derhal, programı askıya alıyor, dış inceleme başlatıyor ve ilgili tüm kayıtları muhafaza ediyoruz.",
+    },
+    {
+      id: "ex.pc1.14.3",
+      type: "vocab_tile",
+      difficulty: 6,
+      word_or_phrase: "Without prejudging the investigation",
+      tr_translation: "Soruşturmayı önyargıyla yargılamadan (hukuki hedge, kabul tuzağından kaçınma)",
+      example:
+        "Without prejudging the investigation, the steps we have already taken reflect the gravity with which we are treating this.",
+      example_tr:
+        "Soruşturmayı önyargıyla yargılamadan söyleyeyim — atılan adımlar bu meseleyi ele aldığımız ciddiyetin yansımasıdır.",
+    },
+    {
+      id: "ex.pc1.14.4",
+      type: "translate",
+      difficulty: 6,
+      direction: "tr_to_en",
+      source:
+        "Bunu ciddiye alıyoruz. Etkin biçimde derhal, programı askıya alıyor ve bağımsız bir dış inceleme başlatıyoruz. Soruşturmayı önyargıyla yargılamadan söyleyeyim — şeffaf olmaya kararlıyız ve bulguları kamuoyuyla paylaşacağız.",
+      target:
+        "We take this seriously. Effective immediately, we are suspending the program and commissioning an independent external review. Without prejudging the investigation, we are committed to transparency and we will share findings publicly.",
+      accepted_variants: [
+        "We take this seriously. With immediate effect, we are suspending the programme and standing up an independent external review. Without prejudging the inquiry, we're committed to transparency and will make findings public.",
+        "This is being treated with the seriousness it deserves. Effective immediately, we have suspended the program and commissioned an independent review. Without prejudging the process, we will be transparent and publish findings.",
+        "We are treating this with the utmost seriousness. Effective immediately, the program is suspended and an independent external review is underway. Without prejudging that review, we are committed to transparency and will share what is found.",
+        "We take this seriously. As of today, the program is suspended and an external independent review has been commissioned. Without prejudging the investigation, transparency is our commitment, and findings will be public.",
+      ],
+      tr_hint:
+        "Kriz açıklamasının üçlüsü: ciddiyet beyanı ('we take this seriously') + somut derhal aksiyon ('effective immediately') + hukuki hedge ('without prejudging'). Üç beraber = sorumluluk + harekete geçme + dava riskini yönetme.",
+    },
+    {
+      id: "ex.pc1.14.5",
+      type: "fill_blank",
+      difficulty: 5,
+      sentence_template:
+        "Had this been brought to our attention sooner, we would have ___ — and we are now operating with that lesson in front of us.",
+      answer: "acted",
+      distractors: ["act", "do something", "react"],
+      tr_hint:
+        "Conditional 3: 'Had this been brought sooner, we would have acted.' = Daha önce dikkatimize sunulsaydı, harekete geçerdik. Kriz dilinde geçmişin kabulü + öğrenme.",
+    },
+    {
+      id: "ex.pc1.14.6",
+      type: "spot_mistake",
+      difficulty: 6,
+      incorrect_sentence:
+        "We are aware of the allegations. We deny them completely. Our company has always followed best practices and we have nothing to hide.",
+      correct_sentence:
+        "We take this seriously. Effective immediately, we are suspending the program and commissioning an independent external review. Without prejudging the investigation, we are committed to transparency and will share findings publicly.",
+      tr_explanation:
+        "'Deny completely / nothing to hide / always followed best practices' = kriz iletişiminin üç klasik tuzağı: erken inkâr (sonra bulgu çıkarsa felaket), defansif 'nothing to hide' (saklıyor sinyali), abartılı geçmiş iddiası (bir karşı örnek manşeti yıkar). C1 doğru ton: ciddiyet + somut adım + hukuki hedge + şeffaflık taahhüdü.",
+    },
+    {
+      id: "ex.pc1.14.7",
+      type: "roleplay_chat",
+      difficulty: 7,
+      scenario_description:
+        "CEO'sun. Şirketinde ciddi bir uyumluluk olayı patlak verdi (manşetlere düştü). Press call'da senior bir gazeteci sert sorular yöneltiyor. Ciddiyet + somut aksiyon + hukuki hedge. Erken inkâr veya boş kabul yok.",
+      npc_role: "Senior investigative reporter (financial press)",
+      setting: "Press call, on-the-record, GC listening on the line",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Let me start broad — what's your reaction to the allegations published this morning?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you for|appreciate (you )?being on the call|grateful for the chance)",
+            "(let me be (unequivocal|direct|clear))",
+            "(we take this seriously|treating this with the seriousness it deserves)",
+            "(effective immediately|with immediate effect|as of today)",
+            "(we are (suspending|standing down|halting)|the program is suspended)",
+            "(commissioning|standing up|engaging) (an? (independent|external) (review|investigation|inquiry|counsel))",
+            "(without prejudging (the (investigation|review|inquiry|process))|won'?t prejudge)",
+          ],
+          hint_tr:
+            "Açılış: 'Thank you for being on the call. Let me be unequivocal — we take this seriously. Effective immediately, the program is suspended and we are commissioning an independent external review. Without prejudging the investigation, we will be transparent.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Were you, the CEO, personally aware of these practices before this morning?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fair question|that'?s the question (everyone is asking|that matters))",
+            "(to the best of my recollection|as of my (current )?knowledge|to my (knowledge|understanding))",
+            "(i was not aware (of (the )?(specific|particular) (practices|conduct|allegations))|no, i was not personally aware of (the specifics|those specifics))",
+            "(but i would be doing (you|the public) a disservice|i won'?t (hide|shelter) behind (a careful|that) answer)",
+            "(accountability for (the system|the culture|what happens (under|on) my watch) (sits|rests) with me)",
+            "(the independent review will (look at|examine|address) (escalation|what was known|when))",
+          ],
+          hint_tr:
+            "Kişisel bilgi + sistemik sorumluluk: 'Fair question. To my knowledge I was not personally aware of the specifics. But I won't shelter behind that — accountability for what happens on my watch sits with me. The independent review will examine what was known and when.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Your competitors have suggested this is a cultural problem at your company. Is it?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it would be premature (to (characterise|label) (this )?(as|either way))|too early to (label|characterise))",
+            "(without prejudging (the review|the findings))",
+            "(what i can speak to|what i won'?t do)",
+            "(is (dismiss|wave away|brush off) the question|isn'?t to (dismiss|deflect) (it|the question))",
+            "(if the review (surfaces|uncovers|identifies) (cultural|systemic) (issues|drivers))",
+            "(we will act on them (publicly|in the open|transparently))",
+            "(the bar (i hold us to|we are accountable to) is higher than)",
+          ],
+          hint_tr:
+            "Etiketten kaç + taahhüt: 'It would be premature to characterise the culture either way without the review. What I won't do is dismiss the question. If the review surfaces systemic drivers, we will act on them publicly. The bar I hold us to is higher than the law alone.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Will heads roll? Specifically — are you committing to disciplinary action and to publishing the review findings?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(let me (separate|be precise about|take those one at a time) (the two|both))",
+            "(on (disciplinary )?action|on the question of consequence)",
+            "(it would prejudice (the (review|investigation|process))|i won'?t prejudge (individuals|consequences))",
+            "(but where (the (findings|review) (warrants?|supports?))|where there is (cause|evidence))",
+            "(consequences will follow at every level (including (my own|the top|leadership)))",
+            "(on publication|on transparency)",
+            "(we are committing to (publish|share) (the (findings|substantive findings|core findings))|findings will be published)",
+            "(in a form that doesn'?t (compromise|prejudice) (witnesses|individuals|the process))",
+          ],
+          hint_tr:
+            "İki ayır: 'Let me take those one at a time. On disciplinary action — I won't prejudge individuals; where findings warrant, consequences will follow at every level, including my own. On publication — we are committing to share the substantive findings, in a form that protects witnesses.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Final question. If this had broken six months earlier, would you still be CEO today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that'?s a (sharp|fair|searching) question|a question i'?ve (asked myself|sat with))",
+            "(had it broken (six months )?(earlier|sooner), i would have)",
+            "(acted on what i knew (then|at the time))",
+            "(whether i (would still be|remain) (in the role|ceo))",
+            "(isn'?t (my call alone|for me alone (to make|to decide))|the board'?s judgement|with the board)",
+            "(what i can (commit to|say) is)",
+            "(if (the findings|the review) (conclude|find) (i fell short|my conduct fell short))",
+            "(i will (act on that|step aside|do the right thing) (myself|without prompting))",
+          ],
+          hint_tr:
+            "Sorumluluğun keskin köşesi: 'A question I've sat with. Had it broken earlier, I would have acted on what I knew. Whether I remain CEO isn't my call alone — that's the board's judgement. What I can commit to is this: if the findings conclude my conduct fell short, I will act on that without prompting.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Thank you for taking the questions. We'll be following the review closely.",
+        },
+      ],
+    },
+    {
+      id: "ex.pc1.14.8",
+      type: "recap_quiz",
+      difficulty: 3,
+      questions: [
+        {
+          question: "Kriz basın açıklamasında EN sağlam üçlü?",
+          options: [
+            "Erken inkâr + 'we have nothing to hide' + geçmiş övgüsü",
+            "Ciddiyet beyanı ('we take this seriously') + somut derhal aksiyon ('effective immediately') + hukuki hedge ('without prejudging')",
+            "Sessizlik",
+            "Suçu başka tarafa at",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Erken inkâr = sonraki bulgularda felaket. 'Nothing to hide' = defansif. 'Take seriously + effective immediately + without prejudging' = sorumluluk + hareket + dava riskini yönetme.",
+        },
+        {
+          question: "'Without prejudging the investigation' NEDEN kritik hedge?",
+          options: [
+            "Önemsiz",
+            "Erken kabul/inkâr = bulgudan önce pozisyon = dava + güven riski; hedge = soruşturmaya alan açar",
+            "Sorumluluktan kaçma",
+            "Standart değil",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Kriz iletişiminde erken pozisyon almak hukuki ve itibari maliyetleri yukarı çeker. 'Without prejudging' = soruşturmanın bütünlüğüne saygı + somut adım atmaya engel değil.",
+        },
+        {
+          question: "Gazeteci 'CEO olarak biliyor muydun?' diye sorduğunda EN olgun cevap?",
+          options: [
+            "'Tabii ki bilmiyordum, suç değilim'",
+            "Kişisel bilgi ('to my knowledge, no') + sistemik sorumluluk ('accountability sits with me') + soruşturma çerçevesi",
+            "Yorum yok",
+            "Bütün suçu astlara yık",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Kişisel bilgisizliğin arkasına sığınmak = liderlik kaybı. Bilgisizliği kabul + sistemik sorumluluğu üstlenme + soruşturmaya yönlendirme = olgun crisis dili.",
+        },
+      ],
+    },
+    {
+      id: "ex.pc1.14.9",
+      type: "pronounce_phrase",
+      difficulty: 5,
+      phrase: "Effective immediately, we are suspending the program and commissioning an independent review.",
+      ipa: "ɪˈfɛktɪv ɪˈmiːdiətli wiː ɑːr səˈspɛndɪŋ ðə ˈproʊɡræm ænd kəˈmɪʃənɪŋ",
+      tr_hint:
+        "Kriz aksiyonu. 'Effective immediately' yavaş, ağırlıklı. 'Commissioning' /kəˈmɪʃənɪŋ/ — vurgu ikinci hecede. Kararlı, formal, mesafesiz.",
+    },
+    {
+      id: "ex.pc1.14.10",
+      type: "speech_shadowing",
+      difficulty: 6,
+      native_text:
+        "Without prejudging the investigation, accountability for what happens on my watch sits with me — and if the findings conclude I fell short, I will act on that without prompting.",
+      voice_hint: "male_uk",
+      tr_hint:
+        "Sorumluluğun keskin tarafı. 'On my watch' = benim nöbetimde. 'Act on that without prompting' = kimse demeden hareket edeceğim. Sakin, formal, kaçışsız.",
+    },
+    {
+      id: "ex.pc1.14.11",
+      type: "listen_and_transcribe",
+      difficulty: 6,
+      audio_text:
+        "Where the findings warrant, consequences will follow at every level, including my own — and the substantive findings will be made public.",
+      transcription_target:
+        "Where the findings warrant, consequences will follow at every level, including my own — and the substantive findings will be made public.",
+      tr_hint:
+        "Hukuki + ahlaki taahhüt. 'Warrant' = haklı kıl. 'Every level including my own' = en üstü dahil. 'Substantive findings' = esaslı bulgular. 'Made public' = kamuoyuyla paylaşılacak.",
+    },
+    {
+      id: "ex.pc1.14.12",
+      type: "vocab_tile",
+      difficulty: 6,
+      word_or_phrase: "Where the findings warrant",
+      tr_translation: "Bulgular gerektirdiğinde (koşullu hukuki taahhüt — pre-judgment yok ama taahhüt var)",
+      example:
+        "Where the findings warrant, leadership changes will follow — that is not a hypothetical, it is a commitment.",
+      example_tr:
+        "Bulgular gerektirdiğinde liderlik değişiklikleri gelecek — bu varsayım değil, taahhüttür.",
+    },
+    {
+      id: "ex.pc1.14.13",
+      type: "spot_mistake",
+      difficulty: 6,
+      incorrect_sentence:
+        "These allegations are 100% false and we will sue anyone who repeats them. Our culture is the best in the industry and we have always done the right thing.",
+      correct_sentence:
+        "We take this seriously. Effective immediately, the program is suspended and an independent external review is underway. Without prejudging the investigation, accountability for what happens on my watch sits with me, and where findings warrant, consequences will follow at every level.",
+      tr_explanation:
+        "'100% false / will sue / culture is the best / always done the right thing' = klasik crisis comms felaketleri: erken inkâr (bulgu çıkarsa yıkım), tehdit (Streisand effect), abartılı övgü (bir karşı örnek manşeti yıkar). C1 kriz dili: ciddiyet + derhal aksiyon + hukuki hedge + somut sorumluluk + koşullu sonuç taahhüdü.",
+    },
+  ],
+};
+
+// ============================================================
 // Professional C1 lessons registry
 // ============================================================
 export const professionalC1Lessons: ReadonlyArray<BundledLesson> = [
@@ -2688,4 +3830,8 @@ export const professionalC1Lessons: ReadonlyArray<BundledLesson> = [
   professionalC1Lesson_8,
   professionalC1Lesson_9,
   professionalC1Lesson_10,
+  professionalC1Lesson_11,
+  professionalC1Lesson_12,
+  professionalC1Lesson_13,
+  professionalC1Lesson_14,
 ];

@@ -846,6 +846,699 @@ export const dailyTransportLesson_17_4: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 17.5 — Metro/Subway Pass + Contactless Pay
+// ============================================================
+export const dailyTransportLesson_17_5: BundledLesson = {
+  id: "daily.transport.17.5",
+  skill_id: "daily.transport",
+  index: 5,
+  title: "Metro Kart / Tap to Pay",
+  description:
+    "MetroCard/OMNY/Oyster: 'Where's the nearest station?', 'Tap to pay', contactless turnike.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dt17.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Tap to pay",
+      tr_translation: "Temassız öde (turnike / kartla)",
+      example: "Just tap to pay at the turnstile — no card needed.",
+      example_tr: "Turnikede temassız öde — karta gerek yok.",
+    },
+    {
+      id: "ex.dt17.5.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "En yakın metro istasyonu nerede? Apple Pay ile binebilir miyim?",
+      target: "Where's the nearest subway station? Can I tap in with Apple Pay?",
+      accepted_variants: [
+        "Closest station around here? Does Apple Pay work at the gate?",
+        "Where can I catch the subway? Is contactless okay?",
+        "Nearest metro stop — and can I just tap my phone?",
+        "Where's the closest station? Apple Pay accepted?",
+      ],
+      tr_hint:
+        "'Tap in' = turnikede temassız ödeme. 'Apple Pay' = telefondan ödeme. NYC OMNY destekler.",
+    },
+    {
+      id: "ex.dt17.5.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Where do I ___ up a MetroCard?",
+      answer: "pick",
+      distractors: ["take", "get", "buy"],
+      tr_hint:
+        "'Pick up a MetroCard' = MetroCard alıp gel. 'Pick up' = bir şey alıp gitme kalıbı.",
+    },
+    {
+      id: "ex.dt17.5.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Does",
+        "contactless",
+        "work",
+        "at",
+        "the",
+        "turnstile",
+      ],
+      correct_sentence: "Does contactless work at the turnstile",
+      tr_translation: "Turnikede temassız ödeme çalışıyor mu?",
+    },
+    {
+      id: "ex.dt17.5.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Pay phone here possible?",
+      correct_sentence:
+        "Excuse me — can I tap to pay with my phone at the turnstile?",
+      tr_explanation:
+        "'Pay phone here possible?' = grammatik değil + belirsiz. Doğru: 'Excuse me' + tam soru ('tap to pay') + nere (turnstile).",
+    },
+    {
+      id: "ex.dt17.5.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "NYC sokağında, en yakın subway istasyonunu ve OMNY contactless ödemeyi soruyorsun.",
+      npc_role: "Local New Yorker",
+      setting: "Manhattan sidewalk",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(excuse me|sorry to bother)",
+            "(quick question|wondering|hoping you could help)",
+            "(where'?s|how do i find|closest|nearest) (the )?(subway|metro|station|stop)",
+            "(around here|in this area|nearby)",
+            "(first time|just visiting|tourist)",
+          ],
+          hint_tr:
+            "Saygili açılış: 'Excuse me — where's the nearest subway station?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure! Two blocks down on 6th Avenue. Big green globe outside.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(perfect|amazing|that'?s helpful|thank you)",
+            "(one more (thing|question)|quick follow up)",
+            "(can i (just )?(tap|use))",
+            "(apple pay|google pay|contactless|my phone|my card)",
+            "(at the (turnstile|gate)|to get in)",
+            "(omny|metrocard|need to (buy|pick up))",
+          ],
+          hint_tr:
+            "Devam: 'Thanks! Can I just tap with Apple Pay at the turnstile?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yep — OMNY readers take contactless. Tap your phone and walk through.",
+        },
+      ],
+    },
+    {
+      id: "ex.dt17.5.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "NYC'de turnikede telefonla nasıl ödenir?",
+          options: [
+            "MetroCard mecburi",
+            "OMNY okuyucusunda Apple Pay / Google Pay 'tap to pay'",
+            "Sadece nakit",
+            "Imkansiz",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "OMNY = NYC contactless sistemi. Apple Pay / Google Pay / contactless kart hepsi tap to pay yapar.",
+        },
+        {
+          question: "En yakın istasyonu sorarken kibarlık?",
+          options: [
+            "Sadece 'Subway?' bağır",
+            "'Excuse me — where's the nearest subway station?' = saygi + spesifik",
+            "Susarak göster",
+            "Telefonla göster",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "NY'liler hizli ama saygiya cevap verir. 'Excuse me' = duraksat + dikkat al = net cevap.",
+        },
+        {
+          question: "OMNY kullanırken bilet alman gerekir mi?",
+          options: [
+            "Evet, her zaman",
+            "Hayır — kart/telefon turnikede direkt tap = bilet otomatik",
+            "Sadece nakit isterler",
+            "Kuyruğa girilir",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "OMNY = direkt ödeme. Bilet/kart almana gerek yok. Tap = giriş. Cüzdan açma yok.",
+        },
+      ],
+    },
+    {
+      id: "ex.dt17.5.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Where's the nearest subway station?",
+      ipa: "wɛərz ðə ˈnɪrəst ˈsʌbweɪ ˈsteɪʃən",
+      tr_hint:
+        "Sokakta klasik soru. 'Where's the' bağlanır → 'wɛərz-ðə'. 'Nearest' = NIR-ist. 'Subway' = SUB-wey.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 17.6 — Bus: Does this go to...
+// ============================================================
+export const dailyTransportLesson_17_6: BundledLesson = {
+  id: "daily.transport.17.6",
+  skill_id: "daily.transport",
+  index: 6,
+  title: "Otobüsten Yön Sorma",
+  description:
+    "Otobüs şoförüne / yolcuya: 'Does this bus go to...?', 'When's the next one?' — Türk hatası 'Bus where go?' yerine doğru kalıp.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dt17.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Does this bus go to",
+      tr_translation: "Bu otobüs ... gidiyor mu?",
+      example: "Does this bus go to Times Square?",
+      example_tr: "Bu otobüs Times Square'a gidiyor mu?",
+    },
+    {
+      id: "ex.dt17.6.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Bu otobüs Times Square'a gidiyor mu? Bir sonraki ne zaman?",
+      target: "Does this bus go to Times Square? When's the next one?",
+      accepted_variants: [
+        "Is this bus heading to Times Square? When does the next one come?",
+        "Times Square — this bus? And when's the next one?",
+        "Will this bus stop at Times Square? Next one — when?",
+        "Does this route hit Times Square? When's the next bus?",
+      ],
+      tr_hint:
+        "Türk hatası: 'Bus where go?' ❌. Doğru: 'Does this bus go to...?' (yardımcı fiil + özne).",
+    },
+    {
+      id: "ex.dt17.6.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "When's the ___ one?",
+      answer: "next",
+      distractors: ["later", "after", "another"],
+      tr_hint:
+        "'When's the next one?' = bir sonraki ne zaman? 'Next' = sıradaki. Otobüs/tren beklerken kalıp.",
+    },
+    {
+      id: "ex.dt17.6.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "Does",
+        "this",
+        "bus",
+        "stop",
+        "at",
+        "Central",
+        "Park",
+      ],
+      correct_sentence: "Does this bus stop at Central Park",
+      tr_translation: "Bu otobüs Central Park'ta duruyor mu?",
+    },
+    {
+      id: "ex.dt17.6.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Bus where go? Times Square yes?",
+      correct_sentence:
+        "Excuse me — does this bus go to Times Square?",
+      tr_explanation:
+        "'Bus where go?' = klasik Türk hatası (tercüme). 'Does' yardımcı fiili gerekli + 'this bus' + 'go to + yer'. Saygılı ve net.",
+    },
+    {
+      id: "ex.dt17.6.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Otobüs durağında, yanındaki yolcuya doğru hat olup olmadığını sor.",
+      npc_role: "Fellow Bus Passenger",
+      setting: "Bus stop",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(excuse me|sorry|hi)",
+            "(quick question|just checking|wondering)",
+            "(does this (bus|route|line)) (go (to|toward)|stop at|head (to|toward))",
+            "(times square|central park|downtown|midtown|the airport|brooklyn)",
+            "(or do i (need|have to) (take|switch|transfer))",
+          ],
+          hint_tr:
+            "Net acılış: 'Excuse me — does this bus go to Times Square?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Not this one — you want the M5. Stop's across the street.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh|got it|i see|gotcha)",
+            "(thanks|thank you|appreciate it|life saver)",
+            "(when'?s the next one|how often (do they|does it) (come|run))",
+            "(roughly|any idea|approximately) (how (long|often|frequent))",
+            "(makes sense|that helps)",
+          ],
+          hint_tr:
+            "Bilgi al + teşekkür: 'Got it — thanks! When's the next M5?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Every 10 minutes or so. Should be one along soon.",
+        },
+      ],
+    },
+    {
+      id: "ex.dt17.6.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Otobüs sorarken Türk klasik hatası nedir?",
+          options: [
+            "'Excuse me'",
+            "'Bus where go?' (yardımcı fiil yok + tercüme)",
+            "'Thank you'",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Türkçe'de yardımcı fiil yok ama İngilizce'de 'Does/Is' gerekli. 'Does this bus go to...?' doğru.",
+        },
+        {
+          question: "Yanlış otobüse bindiysen NE yap?",
+          options: [
+            "Susarak in",
+            "Şoföre kibarca sor: 'Does this go to X?' + yanlışsa hemen in",
+            "Bağır",
+            "Bilmez davran",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Erken kontrol = vakit kaybı yok. Şoför kaba değil — soru kibarca soruluyor.",
+        },
+        {
+          question: "'When's the next one?' kullanımı?",
+          options: [
+            "Restoranda",
+            "Otobüs/tren beklerken sıradaki ne zaman geliyor sorusu",
+            "Kafe",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Transit beklerken sıralı bir sonraki seferi sormak için ideal kalıp. Kısa + doğal.",
+        },
+      ],
+    },
+    {
+      id: "ex.dt17.6.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Does this bus go to Times Square?",
+      ipa: "dʌz ðɪs bʌs ɡoʊ tə taɪmz skwɛər",
+      tr_hint:
+        "Klasik soru. 'Does this' bağlanır → 'dʌs-ðis'. 'Times Square' iki kelime: 'taymz-skwer'. Soru tonu yükselir.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 17.7 — Train Delay / Platform Change
+// ============================================================
+export const dailyTransportLesson_17_7: BundledLesson = {
+  id: "daily.transport.17.7",
+  skill_id: "daily.transport",
+  index: 7,
+  title: "Tren Gecikmesi / Platform Değişikliği",
+  description:
+    "Tren geç kalktı, platform değişti: 'Train's running late', 'Different platform now', anonsları anlamak ve hızlıca tepki.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dt17.7.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Train's running late",
+      tr_translation: "Tren geç kalkıyor / gecikiyor",
+      example: "Looks like the train's running late — any update?",
+      example_tr: "Tren geç kalkıyor galiba — bir bilgi var mı?",
+    },
+    {
+      id: "ex.dt17.7.2",
+      type: "translate",
+      difficulty: 4,
+      direction: "tr_to_en",
+      source: "Anons platformu değiştirdi galiba — şimdi hangi peron?",
+      target: "Sounds like the platform changed — which one now?",
+      accepted_variants: [
+        "Did they switch the platform? Which one are we on?",
+        "Platform change — where do I go now?",
+        "Heard the announcement — different platform now?",
+        "New platform? Which track is it on?",
+      ],
+      tr_hint:
+        "'Platform' = peron. 'Track' = ray (US tren). 'Switch the platform' = peron değiştirmek. Anonsu kaçırdıysan kibarca sor.",
+    },
+    {
+      id: "ex.dt17.7.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Train's been ___ for 20 minutes.",
+      answer: "delayed",
+      distractors: ["late", "slow", "stopped"],
+      tr_hint:
+        "'Been delayed' = geciktirildi (passive). Resmi/doğal. 'Late' de OK ama 'been delayed' daha bilgilendirici.",
+    },
+    {
+      id: "ex.dt17.7.4",
+      type: "word_order",
+      difficulty: 4,
+      scrambled_tokens: [
+        "Which",
+        "platform",
+        "is",
+        "it",
+        "on",
+        "now",
+      ],
+      correct_sentence: "Which platform is it on now",
+      tr_translation: "Şu an hangi peronda?",
+    },
+    {
+      id: "ex.dt17.7.5",
+      type: "spot_mistake",
+      difficulty: 4,
+      incorrect_sentence: "Train late! Platform what?",
+      correct_sentence:
+        "Excuse me — the train's running late and I missed the announcement. Which platform is it on now?",
+      tr_explanation:
+        "Panik + grammatik değil. Doğru: 'Excuse me' + durum açıkla (running late + missed announcement) + spesifik soru (which platform).",
+    },
+    {
+      id: "ex.dt17.7.6",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Tren istasyonunda anonsu duyamadın. Personele platform değişikliğini soruyorsun.",
+      npc_role: "Station Staff",
+      setting: "Train station",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(excuse me|sorry|hi)",
+            "(i (missed|couldn'?t catch)|didn'?t hear) (the announcement|that)",
+            "(train (to|for)|the \\d+ (am|pm) (to|for))",
+            "(running late|delayed|on time)",
+            "(which (platform|track)|where (do i|do we) (board|catch it))",
+            "(any update|what'?s going on)",
+          ],
+          hint_tr:
+            "Net + sebep: 'Excuse me — I missed the announcement. Train to Boston — which platform?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yeah, it's been delayed 20 minutes. Moved to Platform 7.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(got it|okay|gotcha|understood)",
+            "(thanks|thank you|appreciate it)",
+            "(any (estimate|idea|sense)) (when|how long)",
+            "(boarding (time|soon)|departure)",
+            "(should i (head over|go now)|enough time)",
+            "(announcement (board|screen)|where to (check|watch))",
+          ],
+          hint_tr:
+            "Takip: 'Got it, thanks. Any estimate when it'll board?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Should board in about 10 minutes. Watch the screens for updates.",
+        },
+      ],
+    },
+    {
+      id: "ex.dt17.7.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Anonsu duyamadın — NE yap?",
+          options: [
+            "Susarak bekle",
+            "Personele kibarca: 'I missed the announcement — which platform?'",
+            "Bağır",
+            "Sosyal medya",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Personel için sıradan soru. 'Missed the announcement' = anonsu duyamadım, makul sebep. Net + saygılı.",
+        },
+        {
+          question: "'Running late' ile 'delayed' farkı?",
+          options: [
+            "Aynı şey",
+            "'Running late' = doğal/günlük, 'delayed' = resmi/passive — ikisi de OK",
+            "Farkli ulkeler",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "İkisi de geç anlamı. 'Running late' = konuşma. 'Delayed' = pano/duyuru. Bağlamı göre kullan.",
+        },
+        {
+          question: "Platform değişti — nereye bakarsın?",
+          options: [
+            "Telefon",
+            "Departure board / screen — gerçek zamanlı peron bilgisi",
+            "Hicbir sey",
+            "Cep",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Tren istasyonlarında büyük ekranlar/panolar = canlı durum. Platform değişikliği önce orada yazılır.",
+        },
+      ],
+    },
+    {
+      id: "ex.dt17.7.8",
+      type: "pronounce_phrase",
+      difficulty: 4,
+      phrase: "The train's running late — different platform now.",
+      ipa: "ðə treɪnz ˈrʌnɪŋ leɪt ˈdɪfərənt ˈplætfɔrm naʊ",
+      tr_hint:
+        "Iki bilgi tek cumle. 'Train's' kısaltma. 'Running late' birleşik akış. 'Different platform now' net + son 'now' vurgu.",
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 17.8 — Offering Your Seat (Yer Verme)
+// ============================================================
+export const dailyTransportLesson_17_8: BundledLesson = {
+  id: "daily.transport.17.8",
+  skill_id: "daily.transport",
+  index: 8,
+  title: "Otobüste Yer Verme",
+  description:
+    "Yaşlı / hamile / engelli birine yer teklif etme: 'Would you like my seat?' — saygılı, baskısız Batı kültürü.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.dt17.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Would you like my seat",
+      tr_translation: "Yerimi ister misiniz?",
+      example: "Would you like my seat? I'm getting off soon anyway.",
+      example_tr: "Yerimi ister misiniz? Zaten birazdan inecektim.",
+    },
+    {
+      id: "ex.dt17.8.2",
+      type: "translate",
+      difficulty: 3,
+      direction: "tr_to_en",
+      source: "Yerimi ister misiniz? Buyrun, oturun lütfen.",
+      target: "Would you like my seat? Please, take it.",
+      accepted_variants: [
+        "Here, please have my seat.",
+        "Please, take my seat — I'm fine standing.",
+        "Would you like to sit? I'm getting off soon.",
+        "Go ahead, take my spot.",
+      ],
+      tr_hint:
+        "'Please, take it' = buyrun, oturun. 'Would you like my seat?' = saygılı teklif. Baskısız, kabul edebilir ya da reddedebilir.",
+    },
+    {
+      id: "ex.dt17.8.3",
+      type: "fill_blank",
+      difficulty: 3,
+      sentence_template: "Please, ___ my seat.",
+      answer: "take",
+      distractors: ["have", "use", "sit"],
+      tr_hint:
+        "'Take my seat' = yerimi al/otur. 'Take' burada = al, otur anlamında. Doğal teklif kalıbı.",
+    },
+    {
+      id: "ex.dt17.8.4",
+      type: "word_order",
+      difficulty: 3,
+      scrambled_tokens: [
+        "I'm",
+        "getting",
+        "off",
+        "at",
+        "the",
+        "next",
+        "stop",
+      ],
+      correct_sentence: "I'm getting off at the next stop",
+      tr_translation: "Bir sonraki durakta ineceğim.",
+    },
+    {
+      id: "ex.dt17.8.5",
+      type: "spot_mistake",
+      difficulty: 3,
+      incorrect_sentence: "Sit here! You old!",
+      correct_sentence:
+        "Would you like my seat? I'm getting off at the next stop anyway.",
+      tr_explanation:
+        "'You old!' = çok kaba + doğrudan. Batı kültüründe yaş söylenmez. Doğru: nazik teklif + neden (next stop) = baskısız.",
+    },
+    {
+      id: "ex.dt17.8.6",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Kalabalık otobüste, yanına hamile bir kadın geldi. Yerini teklif ediyorsun.",
+      npc_role: "Pregnant Passenger",
+      setting: "Crowded bus",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(excuse me|hi|hey)",
+            "(would you like|do you want|please take|here'?s)",
+            "(my seat|this seat|to sit|to take a seat)",
+            "(i'?m (getting off|standing|fine|happy to stand))",
+            "(no worries|no problem|happy to)",
+          ],
+          hint_tr:
+            "Saygılı teklif: 'Excuse me — would you like my seat?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh, are you sure? That's so kind, thank you.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(absolutely|of course|definitely|for sure)",
+            "(please|go ahead) (take it|sit|have it)",
+            "(i'?m (getting off|fine standing|happy to))",
+            "(no worries|no problem|don'?t mention it|my pleasure)",
+            "(next stop|in (a |the )?(minute|few stops))",
+          ],
+          hint_tr:
+            "Onayla: 'Of course — please, take it. I'm getting off soon.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Thank you so much. Really appreciate it.",
+        },
+      ],
+    },
+    {
+      id: "ex.dt17.8.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Yaşlı/hamileye yer teklifinde DOĞRU yaklaşım?",
+          options: [
+            "'You old, sit!' = açıkça yaş söyle",
+            "'Would you like my seat?' = saygılı + baskısız teklif",
+            "Susarak kalk",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Batı kültüründe yaş/durum söylenmez (utandırır). Saygılı soru sorulur. Kabul/red kendi seçimi.",
+        },
+        {
+          question: "Neden 'I'm getting off soon anyway' ekle?",
+          options: [
+            "Mecbur değil",
+            "Baskıyı azaltır = 'zaten kalkacaktım' = rahat kabul",
+            "Yalan söyle",
+            "Hicbir sey",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Karşı tarafın utanmasını engeller. 'Senin için kalkmıyorum, zaten kalkacaktım' mesajı = sosyal incelik.",
+        },
+        {
+          question: "Birisi yer teklifini reddederse?",
+          options: [
+            "Israr et",
+            "'No worries — sure?' bir kez kontrol + kabul et",
+            "Küs ol",
+            "Bağır",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Reddetme hakkı var. Bir kez kontrol kibar, ısrar baskıcı. Saygılı kabul = sosyal zeka.",
+        },
+      ],
+    },
+    {
+      id: "ex.dt17.8.8",
+      type: "pronounce_phrase",
+      difficulty: 3,
+      phrase: "Would you like my seat?",
+      ipa: "wʊd jə laɪk maɪ siːt",
+      tr_hint:
+        "Saygılı teklif. 'Would you' bağlanır → 'wʊd-jə'. 'Like my seat' net. Yumuşak ton + soru yükselen.",
+    },
+  ],
+};
+
+// ============================================================
 // Daily Transport lessons registry
 // ============================================================
 export const dailyTransportLessons: ReadonlyArray<BundledLesson> = [
@@ -853,4 +1546,8 @@ export const dailyTransportLessons: ReadonlyArray<BundledLesson> = [
   dailyTransportLesson_17_2,
   dailyTransportLesson_17_3,
   dailyTransportLesson_17_4,
+  dailyTransportLesson_17_5,
+  dailyTransportLesson_17_6,
+  dailyTransportLesson_17_7,
+  dailyTransportLesson_17_8,
 ];
