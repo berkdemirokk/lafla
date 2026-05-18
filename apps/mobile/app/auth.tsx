@@ -129,6 +129,7 @@ export default function Auth() {
               autoCapitalize="none"
               autoCorrect={false}
               autoComplete="email"
+              accessibilityLabel="Email adresi"
             />
 
             {mode !== "forgot" && (
@@ -144,6 +145,7 @@ export default function Auth() {
                   autoComplete={
                     mode === "signup" ? "new-password" : "current-password"
                   }
+                  accessibilityLabel="Parola"
                 />
               </>
             )}
@@ -173,6 +175,9 @@ export default function Auth() {
                   setMode("forgot");
                 }}
                 style={styles.forgotRow}
+                hitSlop={8}
+                accessibilityRole="button"
+                accessibilityLabel="Parolamı unuttum"
               >
                 <Text style={styles.forgotText}>Parolamı unuttum</Text>
               </Pressable>
@@ -215,6 +220,15 @@ export default function Auth() {
                 );
               }}
               style={styles.switchRow}
+              hitSlop={8}
+              accessibilityRole="button"
+              accessibilityLabel={
+                mode === "signup"
+                  ? "Giriş yapma ekranına geç"
+                  : mode === "forgot"
+                  ? "Giriş yapma ekranına geri dön"
+                  : "Kayıt ol ekranına geç"
+              }
             >
               <Text style={styles.switchText}>
                 {mode === "signup"

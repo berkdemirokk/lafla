@@ -20,6 +20,7 @@ import {
   View,
 } from "react-native";
 import { tokens } from "../theme";
+import { getLocale } from "../lib/i18n";
 import {
   isAppleSignInAvailable,
   signInWithApple,
@@ -35,7 +36,21 @@ interface Props {
   label?: string;
 }
 
-function errorToTurkish(code?: string): string {
+function errorMessage(code: string | undefined, locale: "tr" | "en"): string {
+  if (locale === "en") {
+    switch (code) {
+      case "module-missing":
+        return "Apple Sign-In is not available in this build.";
+      case "unavailable":
+        return "Apple Sign-In is not available on this device.";
+      case "ios-only":
+        return "Apple Sign-In is iOS-only.";
+      case "missing-identity-token":
+        return "Couldn't obtain Apple identity token. Please try again.";
+      default:
+        return code ?? "Apple Sign-In failed.";
+    }
+  }
   switch (code) {
     case "module-missing":
       return "Apple Sign-In bu sürümde aktif değil.";
@@ -50,10 +65,16 @@ function errorToTurkish(code?: string): string {
   }
 }
 
+function buttonLabel(locale: "tr" | "en"): string {
+  return locale === "en" ? "Continue with Apple" : "Apple ile devam et";
+}
+
 export function AppleSignInButton({ onSuccess, onError, label }: Props) {
   const [available, setAvailable] = useState(false);
   const [loading, setLoading] = useState(false);
   const [pressed, setPressed] = useState(false);
+  const locale = getLocale();
+  const resolvedLabel = label ?? buttonLabel(locale);
 
   useEffect(() => {
     let cancelled = false;
@@ -80,10 +101,10 @@ export function AppleSignInButton({ onSuccess, onError, label }: Props) {
       } else if (result.cancelled) {
         // User tapped cancel — silently ignore.
       } else {
-        onError?.(errorToTurkish(result.error));
+        onError?.(errorMessage(result.error, locale));
       }
     } catch (e: any) {
-      onError?.(e?.message ?? "Apple ile giriş başarısız.");
+      onError?.(e?.message ?? errorMessage(undefined, locale));
     } finally {
       setLoading(false);
     }
@@ -97,7 +118,7 @@ export function AppleSignInButton({ onSuccess, onError, label }: Props) {
       onPressOut={() => setPressed(false)}
       disabled={loading}
       accessibilityRole="button"
-      accessibilityLabel={label ?? "Apple ile devam et"}
+      accessibilityLabel={resolvedLabel}
     >
       {loading ? (
         <ActivityIndicator color="#ffffff" />
@@ -108,7 +129,7 @@ export function AppleSignInButton({ onSuccess, onError, label }: Props) {
               mark in the system font; on other platforms the button is hidden
               before render, so the glyph never appears. */}
           <Text style={styles.logo}></Text>
-          <Text style={styles.label}>{label ?? "Apple ile devam et"}</Text>
+          <Text style={styles.label}>{resolvedLabel}</Text>
         </View>
       )}
     </Pressable>

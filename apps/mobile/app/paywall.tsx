@@ -223,12 +223,18 @@ export default function PaywallScreen() {
             style={styles.restoreBtn}
             onPress={handleRestore}
             disabled={loading}
+            hitSlop={8}
+            accessibilityRole="button"
+            accessibilityLabel="Satın alımları geri yükle"
           >
             <Text style={styles.restoreText}>Restore purchases</Text>
           </Pressable>
 
           <Text style={styles.disclaimer}>
-            Subscriptions auto-renew. Cancel in App Store.
+            Subscription auto-renews monthly at the displayed price until
+            cancelled at least 24 hours before the renewal date. Payment is
+            charged to your Apple ID at confirmation. Manage or cancel from
+            iOS Settings → Apple ID → Subscriptions.
           </Text>
 
           <View style={styles.termsLinks}>
@@ -236,6 +242,9 @@ export default function PaywallScreen() {
               onPress={() =>
                 Linking.openURL("https://berkdemirokk.github.io/lafla/terms.html")
               }
+              hitSlop={8}
+              accessibilityRole="link"
+              accessibilityLabel="Kullanım koşulları"
             >
               <Text style={styles.termsLink}>Terms of Use</Text>
             </Pressable>
@@ -246,6 +255,9 @@ export default function PaywallScreen() {
                   "https://berkdemirokk.github.io/lafla/privacy.html",
                 )
               }
+              hitSlop={8}
+              accessibilityRole="link"
+              accessibilityLabel="Gizlilik politikası"
             >
               <Text style={styles.termsLink}>Privacy Policy</Text>
             </Pressable>

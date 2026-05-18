@@ -109,6 +109,10 @@ export default function Home() {
     return newOne ?? fresh[0] ?? SAMPLE_SCENES[0] ?? null;
   }, [state.completed]);
 
+  // First-time user (0 completed) gets a welcome card instead of the
+  // "today's scene" hero so the home doesn't look like it loaded broken data.
+  const isFirstRun = state.completed.size === 0;
+
   const streak = state.profile?.current_streak ?? 0;
 
   // useCallback so SceneCard's memo doesn't re-render every time
@@ -150,8 +154,24 @@ export default function Home() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Hero card — günün önerilen sahnesi */}
-        {hero ? (
+        {/* Hero — welcome card for first-time users, otherwise today's scene */}
+        {isFirstRun ? (
+          <Pressable
+            onPress={goHero}
+            style={({ pressed }) => [styles.hero, pressed && styles.heroPressed]}
+            accessibilityRole="button"
+            accessibilityLabel="İlk sahneni seç"
+          >
+            <Text style={styles.heroEyebrow}>HOŞ GELDİN</Text>
+            <Text style={styles.heroEmoji}>👋</Text>
+            <Text style={styles.heroTitle} numberOfLines={3}>
+              İngilizce'ye{"\n"}5 dakikada başla
+            </Text>
+            <Text style={styles.heroSub}>
+              Aşağıdaki modlardan birinden bir sahne seç ve konuşmaya başla.
+            </Text>
+          </Pressable>
+        ) : hero ? (
           <Pressable
             onPress={goHero}
             style={({ pressed }) => [styles.hero, pressed && styles.heroPressed]}
