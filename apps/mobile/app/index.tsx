@@ -7,6 +7,13 @@ import { View, Text, StyleSheet, Pressable } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+  withDelay,
+  Easing,
+} from "react-native-reanimated";
 import { useSession } from "../lib/useSession";
 import { getCurrentProfile } from "../lib/auth";
 import { tokens } from "../theme";
@@ -14,6 +21,39 @@ import { tokens } from "../theme";
 export default function Splash() {
   const router = useRouter();
   const { session, loading } = useSession();
+
+  // Brand reveal animation — wordmark fade-in (200ms), accent line draws
+  // out (240ms, delayed 120ms), tagline fades in last (delayed 320ms).
+  // Total length ~500ms; well inside the 300ms route delay below since
+  // most animations are driven on the UI thread via Reanimated.
+  const wordmarkOpacity = useSharedValue(0);
+  const wordmarkTranslate = useSharedValue(8);
+  const accentScale = useSharedValue(0);
+  const taglineOpacity = useSharedValue(0);
+
+  useEffect(() => {
+    wordmarkOpacity.value = withTiming(1, { duration: 220 });
+    wordmarkTranslate.value = withTiming(0, {
+      duration: 220,
+      easing: Easing.out(Easing.cubic),
+    });
+    accentScale.value = withDelay(
+      120,
+      withTiming(1, { duration: 260, easing: Easing.out(Easing.cubic) }),
+    );
+    taglineOpacity.value = withDelay(320, withTiming(1, { duration: 200 }));
+  }, [accentScale, taglineOpacity, wordmarkOpacity, wordmarkTranslate]);
+
+  const wordmarkStyle = useAnimatedStyle(() => ({
+    opacity: wordmarkOpacity.value,
+    transform: [{ translateY: wordmarkTranslate.value }],
+  }));
+  const accentStyle = useAnimatedStyle(() => ({
+    transform: [{ scaleX: accentScale.value }],
+  }));
+  const taglineStyle = useAnimatedStyle(() => ({
+    opacity: taglineOpacity.value,
+  }));
 
   useEffect(() => {
     if (loading) return;
@@ -64,9 +104,13 @@ export default function Splash() {
       <StatusBar style="light" />
 
       <View style={styles.center}>
-        <Text style={styles.wordmark}>Lafla</Text>
-        <View style={styles.accentLine} />
-        <Text style={styles.tagline}>Konuş, çalış.</Text>
+        <Animated.Text style={[styles.wordmark, wordmarkStyle]}>
+          Lafla
+        </Animated.Text>
+        <Animated.View style={[styles.accentLine, accentStyle]} />
+        <Animated.Text style={[styles.tagline, taglineStyle]}>
+          Konuş, çalış.
+        </Animated.Text>
       </View>
 
       <View style={styles.bottomHint}>

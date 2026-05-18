@@ -462,6 +462,31 @@ function VerdictView({
       ? "Sağlam başlangıç. Sahne ileride tekrar gelecek."
       : "Bir tur daha kazandırır. Sahne yarın yine planda.";
 
+  // Count-up animation — score climbs from 0 to its final value over ~900ms.
+  // setInterval on RAF-ish cadence keeps it readable without Reanimated; the
+  // verdict screen is short-lived enough that a plain interval is acceptable.
+  const [displayedScore, setDisplayedScore] = useState(0);
+  useEffect(() => {
+    const target = sceneResult.score;
+    if (target <= 0) {
+      setDisplayedScore(0);
+      return;
+    }
+    const steps = 40;
+    const stepMs = 22;
+    let i = 0;
+    const id = setInterval(() => {
+      i += 1;
+      // Ease-out curve so the climb decelerates as it approaches the target.
+      const t = Math.min(1, i / steps);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const value = Math.round(target * eased);
+      setDisplayedScore(value);
+      if (i >= steps) clearInterval(id);
+    }, stepMs);
+    return () => clearInterval(id);
+  }, [sceneResult.score]);
+
   return (
     <ScrollView contentContainerStyle={verdictStyles.content}>
       <Text style={verdictStyles.title}>Sahne tamamlandı</Text>
@@ -469,7 +494,7 @@ function VerdictView({
 
       <View style={verdictStyles.scoreCard}>
         <Text style={verdictStyles.scoreLabel}>Akıcılık</Text>
-        <Text style={verdictStyles.scoreNum}>{sceneResult.score}</Text>
+        <Text style={verdictStyles.scoreNum}>{displayedScore}</Text>
         <Text style={verdictStyles.scoreOf}>/ 100</Text>
       </View>
 

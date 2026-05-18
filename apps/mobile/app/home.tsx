@@ -67,9 +67,14 @@ const MODE_ROWS: ReadonlyArray<ModeRow> = [
 interface HomeState {
   profile: LocalProfile | null;
   completed: Set<string>;
+  hydrated: boolean;
 }
 
-const EMPTY_STATE: HomeState = { profile: null, completed: new Set() };
+const EMPTY_STATE: HomeState = {
+  profile: null,
+  completed: new Set(),
+  hydrated: false,
+};
 
 export default function Home() {
   const router = useRouter();
@@ -80,7 +85,7 @@ export default function Home() {
       getLocalProfile(),
       getCompletedLessonIds(),
     ]);
-    setState({ profile, completed });
+    setState({ profile, completed, hydrated: true });
   }, []);
 
   useFocusEffect(
@@ -111,7 +116,9 @@ export default function Home() {
 
   // First-time user (0 completed) gets a welcome card instead of the
   // "today's scene" hero so the home doesn't look like it loaded broken data.
-  const isFirstRun = state.completed.size === 0;
+  // Gate on `hydrated` so returning users don't briefly see the welcome
+  // card before their real progress lands.
+  const isFirstRun = state.hydrated && state.completed.size === 0;
 
   const streak = state.profile?.current_streak ?? 0;
 
@@ -154,8 +161,22 @@ export default function Home() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Hero — welcome card for first-time users, otherwise today's scene */}
-        {isFirstRun ? (
+        {/* Hero — skeleton while loading, welcome card for first-time
+            users, otherwise today's scene */}
+        {!state.hydrated ? (
+          <View style={[styles.hero, styles.heroSkeleton]}>
+            <View style={[styles.skel, { width: 80, height: 11 }]} />
+            <View
+              style={[
+                styles.skel,
+                { width: 48, height: 48, marginTop: 12, borderRadius: 12 },
+              ]}
+            />
+            <View style={[styles.skel, { width: 240, height: 28, marginTop: 8 }]} />
+            <View style={[styles.skel, { width: 220, height: 28, marginTop: 4 }]} />
+            <View style={[styles.skel, { width: 180, height: 14, marginTop: 12 }]} />
+          </View>
+        ) : isFirstRun ? (
           <Pressable
             onPress={goHero}
             style={({ pressed }) => [styles.hero, pressed && styles.heroPressed]}
@@ -411,6 +432,18 @@ const styles = StyleSheet.create({
     letterSpacing: -0.8,
     lineHeight: 30,
     marginTop: 4,
+  },
+  heroSkeleton: {
+    // De-emphasize the border + shadow during loading so the placeholder
+    // doesn't pulse the hot-pink glow before content arrives.
+    borderColor: tokens.border.light,
+    shadowOpacity: 0,
+    elevation: 0,
+  },
+  skel: {
+    backgroundColor: tokens.bg.surfaceContainerHigh,
+    borderRadius: 6,
+    opacity: 0.7,
   },
   heroSub: {
     marginTop: 10,
