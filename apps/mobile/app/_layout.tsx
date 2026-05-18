@@ -1,4 +1,10 @@
-// Root navigator — light bg default, dark surfaces inherit per-screen.
+// Root navigator — Neon Noir, 10-route minimum surface.
+//
+// History: the previous layout registered 32 screens. After the radical cut
+// we keep only the 10 routes that map to the new single-action home + voice
+// loop. Everything else (decks, listening, reading, tutorial, etc.) was
+// removed from routing. If any deep-link or referral URL still points to an
+// old route, it now 404s; that's acceptable for v0.1.
 
 import { useEffect } from "react";
 import { Stack } from "expo-router";
@@ -37,50 +43,27 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <ErrorBoundary>
-      <Stack
-        screenOptions={{
-          headerShown: false,
-          contentStyle: { backgroundColor: tokens.bg.app },
-          animation: "fade",
-        }}
-      >
-        <Stack.Screen
-          name="index"
-          options={{ contentStyle: { backgroundColor: tokens.bg.onBackground } }}
-        />
-        <Stack.Screen name="auth" />
-        <Stack.Screen name="tutorial" />
-        <Stack.Screen name="onboarding" />
-        <Stack.Screen name="feed" />
-        <Stack.Screen name="lesson/[id]" />
-        <Stack.Screen name="profile" />
-        <Stack.Screen name="achievements" />
-        <Stack.Screen name="skills" />
-        <Stack.Screen name="settings" />
-        <Stack.Screen name="paywall" />
-        <Stack.Screen name="preview/[id]" />
-        <Stack.Screen name="scenario/[id]" />
-        <Stack.Screen name="about" />
-        <Stack.Screen name="help" />
-        <Stack.Screen name="freechat" />
-        <Stack.Screen name="journal" />
-        <Stack.Screen name="referral" />
-        <Stack.Screen name="pronunciation/[id]" />
-        {/* CEFR pivot routes */}
-        <Stack.Screen name="placement-test" />
-        <Stack.Screen name="program-select" />
-        <Stack.Screen name="listening" />
-        <Stack.Screen name="listening/[id]" />
-        <Stack.Screen name="reading" />
-        <Stack.Screen name="reading/[id]" />
-        <Stack.Screen name="review" />
-        <Stack.Screen name="decks" />
-        <Stack.Screen name="deck/[id]" />
-        {/* Maya + drill + share */}
-        <Stack.Screen name="freechat-voice" />
-        <Stack.Screen name="drill" />
-        <Stack.Screen name="share/[template]" />
-      </Stack>
+        <Stack
+          screenOptions={{
+            headerShown: false,
+            contentStyle: { backgroundColor: tokens.bg.app },
+            animation: "fade",
+          }}
+        >
+          <Stack.Screen
+            name="index"
+            options={{ contentStyle: { backgroundColor: tokens.bg.onBackground } }}
+          />
+          <Stack.Screen name="auth" />
+          <Stack.Screen name="onboarding" />
+          <Stack.Screen name="home" />
+          <Stack.Screen name="freechat-voice" />
+          <Stack.Screen name="freechat" />
+          <Stack.Screen name="scenario/[id]" />
+          <Stack.Screen name="paywall" />
+          <Stack.Screen name="profile" />
+          <Stack.Screen name="settings" />
+        </Stack>
       </ErrorBoundary>
     </SafeAreaProvider>
   );

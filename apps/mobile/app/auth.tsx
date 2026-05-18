@@ -88,7 +88,7 @@ export default function Auth() {
 
   const skipAuth = async () => {
     const onboarded = await AsyncStorage.getItem("lafla.onboarded");
-    router.replace(onboarded === "true" ? "/feed" : "/onboarding");
+    router.replace((onboarded === "true" ? "/home" : "/onboarding") as never);
   };
 
   return (

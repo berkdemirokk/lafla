@@ -1,5 +1,5 @@
-// Splash — dark bg, wordmark, glowing yellow line.
-// Auto-routes: signed-in + onboarded → /feed; signed-in only → /onboarding;
+// Splash — dark bg, wordmark, glowing pink line.
+// Auto-routes: signed-in + onboarded → /home; signed-in only → /onboarding;
 // signed-out → /auth. Tap on screen accelerates routing.
 
 import { useEffect } from "react";
@@ -19,19 +19,19 @@ export default function Splash() {
     if (loading) return;
 
     const decide = async () => {
-      // Signed-in + onboarding done → feed
+      // Signed-in + onboarding done → home
       if (session) {
         const profile = await getCurrentProfile();
         if (profile?.onboarding_completed_at) {
-          router.replace("/feed");
+          router.replace("/home" as never);
           return;
         }
       }
-      // Local state — onboarded? feed
+      // Local state — onboarded? home
       try {
         const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
         if (localOnboarded === "true") {
-          router.replace("/feed");
+          router.replace("/home" as never);
           return;
         }
       } catch {}
@@ -46,12 +46,12 @@ export default function Splash() {
     if (loading) return;
     if (session) {
       const profile = await getCurrentProfile();
-      router.replace(profile?.onboarding_completed_at ? "/feed" : "/onboarding");
+      router.replace((profile?.onboarding_completed_at ? "/home" : "/onboarding") as never);
       return;
     }
     try {
       const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
-      router.replace(localOnboarded === "true" ? "/feed" : "/onboarding");
+      router.replace((localOnboarded === "true" ? "/home" : "/onboarding") as never);
     } catch {
       router.replace("/onboarding");
     }

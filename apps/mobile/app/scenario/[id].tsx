@@ -276,7 +276,7 @@ export default function ScenarioScreen() {
               if (nextScenario) {
                 router.replace(`/scenario/${nextScenario}` as never);
               } else {
-                router.replace("/feed");
+                router.replace("/home" as never);
               }
             }}
           />

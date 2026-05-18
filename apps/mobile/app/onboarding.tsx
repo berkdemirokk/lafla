@@ -208,7 +208,7 @@ export default function Onboarding() {
     void trackEvent("onboarding_completed", { level: lvl }).catch(() => {});
     hapticSuccess();
     setSaving(false);
-    router.replace("/feed");
+    router.replace("/home" as never);
   };
 
   return (
