@@ -21,6 +21,14 @@ import { testIeltsSpeakingScenes } from "./test-ielts-speaking-scenes";
 import { testToeflSpeakingScenes } from "./test-toefl-speaking-scenes";
 import { testYdsYokdilScenes } from "./test-yds-yokdil-scenes";
 
+// Pivot 2 (2026-05-18) — Spor & Sağlık modları + Travel/Flört derinleştirme
+import { sportA1A2Scenes } from "./sport-a1-a2-scenes";
+import { sportB1B2Scenes } from "./sport-b1-b2-scenes";
+import { healthA1A2Scenes } from "./health-a1-a2-scenes";
+import { healthB1B2Scenes } from "./health-b1-b2-scenes";
+import { travelExpandedScenes } from "./travel-expanded-scenes";
+import { flirtAdvancedScenes } from "./flirt-advanced-scenes";
+
 export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
 
 export type SceneMode =
@@ -2017,4 +2025,11 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
   ...testIeltsSpeakingScenes,
   ...testToeflSpeakingScenes,
   ...testYdsYokdilScenes,
+  // Pivot 2 — Spor / Sağlık / Travel-derin / Flört-derin
+  ...sportA1A2Scenes,
+  ...sportB1B2Scenes,
+  ...healthA1A2Scenes,
+  ...healthB1B2Scenes,
+  ...travelExpandedScenes,
+  ...flirtAdvancedScenes,
 ];
