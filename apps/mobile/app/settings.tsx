@@ -1,4 +1,12 @@
-// Settings screen — preferences, links, account.
+// Settings screen — preferences, privacy, account, support, about.
+//
+// Layout: five sections each rendered as a card on bg.surfaceContainerLow.
+// Section labels are small-caps tertiary text. Rows give opacity feedback
+// on press. Toggle component wraps native Switch with brand colors.
+//
+// IMPORTANT: lib/sfx.ts is being created by a parallel agent in this same
+// wave — we MUST tolerate it not existing yet. See defensive require
+// pattern below. Same for expo-store-review (not in package.json).
 
 import { useEffect, useState } from "react";
 import {
@@ -24,11 +32,6 @@ import {
   setAnalyticsEnabled,
 } from "../lib/analytics";
 import {
-  disableReminders,
-  enableDailyReminder,
-  isNotificationsEnabled,
-} from "../lib/notifications";
-import {
   previewWhatWillBeDeleted,
   deleteAccountInstant,
   type DeletePreview,
@@ -38,10 +41,43 @@ import { tokens } from "../theme";
 
 const K_AUTO_SPEAK = "lafla.settings.autoSpeak";
 
+// ===== Defensive dynamic loaders =====================================
+// `lib/sfx.ts` ships in this same wave from a sibling agent. If the file
+// is absent at runtime, require() throws — we swallow it and the Ses
+// efektleri row is hidden. Compile-time we can't import the path because
+// the file might not yet exist.
+let setSfxEnabledFn: ((b: boolean) => Promise<void>) | null = null;
+let isSfxEnabledFn: (() => Promise<boolean>) | null = null;
+try {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const sfx = require("../lib/sfx");
+  setSfxEnabledFn = sfx.setSfxEnabled ?? null;
+  isSfxEnabledFn = sfx.isSfxEnabled ?? null;
+} catch {
+  // sfx module not present — row will be hidden.
+}
+
+// `expo-store-review` is optional. If installed, we use the native
+// in-app review prompt; otherwise we fall back to a mailto.
+let storeReviewRequest: (() => Promise<void>) | null = null;
+let storeReviewIsAvailable: (() => Promise<boolean>) | null = null;
+try {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const sr = require("expo-store-review");
+  storeReviewRequest = sr.requestReview ?? null;
+  storeReviewIsAvailable = sr.isAvailableAsync ?? null;
+} catch {
+  // module not installed — mailto fallback used.
+}
+
+const APPLE_SUBS_URL = "https://apps.apple.com/account/subscriptions";
+const PRIVACY_URL = "https://berkdemirokk.github.io/lafla/privacy.html";
+const TERMS_URL = "https://berkdemirokk.github.io/lafla/terms.html";
+
 export default function SettingsScreen() {
   const router = useRouter();
   const [autoSpeak, setAutoSpeak] = useState(true);
-  const [remindersOn, setRemindersOn] = useState(false);
+  const [sfxOn, setSfxOn] = useState(true);
   // "Analytics olmadan kullan" — ON means opted OUT of analytics.
   // We store the inverse internally for clearer call-site semantics.
   const [analyticsOptOut, setAnalyticsOptOut] = useState(false);
@@ -58,12 +94,18 @@ export default function SettingsScreen() {
     (async () => {
       const v = await AsyncStorage.getItem(K_AUTO_SPEAK).catch(() => null);
       if (v === "false") setAutoSpeak(false);
-      setRemindersOn(await isNotificationsEnabled());
       try {
         const enabled = await isAnalyticsEnabled();
         setAnalyticsOptOut(!enabled);
       } catch {
         // ignore
+      }
+      if (isSfxEnabledFn) {
+        try {
+          setSfxOn(await isSfxEnabledFn());
+        } catch {
+          // ignore — keep default ON
+        }
       }
     })();
   }, []);
@@ -75,6 +117,18 @@ export default function SettingsScreen() {
       await setAnalyticsEnabled(!optOut);
     } catch {
       // ignore — opt-out remains in local state, persistence error is non-fatal
+    }
+  };
+
+  const handleSfxToggle = async (v: boolean) => {
+    hapticSelection();
+    setSfxOn(v);
+    if (setSfxEnabledFn) {
+      try {
+        await setSfxEnabledFn(v);
+      } catch {
+        // non-fatal
+      }
     }
   };
 
@@ -109,7 +163,13 @@ export default function SettingsScreen() {
     // Accept both "SİL" (Turkish dotted) and "SIL" (ASCII fallback) so
     // keyboards without a Turkish locale can still confirm.
     const t = deleteConfirmText.trim();
-    if (t !== "SİL" && t !== "SIL" && t !== "sil" && t !== "sİl" && t !== "sil".toLocaleUpperCase("tr")) {
+    if (
+      t !== "SİL" &&
+      t !== "SIL" &&
+      t !== "sil" &&
+      t !== "sİl" &&
+      t !== "sil".toLocaleUpperCase("tr")
+    ) {
       setDeleteError('Onaylamak için "SİL" yazmalısın.');
       return;
     }
@@ -118,7 +178,6 @@ export default function SettingsScreen() {
     setDeleteError(null);
     const res = await deleteAccountInstant();
     if (res.ok) {
-      // Success — wipe local + sign out already done inside lib.
       setDeleteStep("idle");
       router.replace("/" as never);
     } else {
@@ -139,114 +198,164 @@ export default function SettingsScreen() {
     await AsyncStorage.setItem(K_AUTO_SPEAK, v ? "true" : "false").catch(() => {});
   };
 
-  const toggleReminders = async () => {
+  const handleRate = async () => {
     hapticSelection();
-    if (remindersOn) {
-      await disableReminders();
-      setRemindersOn(false);
-    } else {
-      const ok = await enableDailyReminder(19);
-      setRemindersOn(ok);
-      if (!ok) {
-        Alert.alert(
-          "İzin reddedildi",
-          "Ayarlar > Lafla > Bildirimler yolundan açabilirsin.",
-        );
+    if (storeReviewRequest && storeReviewIsAvailable) {
+      try {
+        const ok = await storeReviewIsAvailable();
+        if (ok) {
+          await storeReviewRequest();
+          return;
+        }
+      } catch {
+        // fall through to mailto
       }
     }
+    Linking.openURL(
+      "mailto:hello@lafla.app?subject=Lafla geri bildirim",
+    ).catch(() => Alert.alert("Hata", "Mail uygulaması açılamadı."));
   };
+
+  const openUrl = (url: string) => {
+    hapticSelection();
+    Linking.openURL(url).catch(() =>
+      Alert.alert("Hata", "Bağlantı açılamadı."),
+    );
+  };
+
+  const sfxAvailable = setSfxEnabledFn !== null && isSfxEnabledFn !== null;
+
+  const version = Constants.expoConfig?.version ?? "0.1.0";
+  // buildNumber lives in expoConfig.ios.buildNumber (iOS) or
+  // expoConfig.android.versionCode (Android). Display whichever is set.
+  const iosBuild = Constants.expoConfig?.ios?.buildNumber;
+  const androidBuild = Constants.expoConfig?.android?.versionCode;
+  const build = iosBuild ?? (androidBuild ? String(androidBuild) : null);
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
       <StatusBar style="light" />
 
       <View style={styles.header}>
-        <Pressable onPress={() => router.back()} style={styles.backBtn} hitSlop={12} accessibilityRole="button" accessibilityLabel="Geri">
+        <Pressable
+          onPress={() => router.back()}
+          style={styles.backBtn}
+          hitSlop={12}
+          accessibilityRole="button"
+          accessibilityLabel="Geri"
+        >
           <Text style={styles.backText}>← Geri</Text>
         </Pressable>
         <Text style={styles.title}>Ayarlar</Text>
         <View style={styles.spacer} />
       </View>
 
-      <ScrollView contentContainerStyle={styles.content}>
+      <ScrollView
+        contentContainerStyle={styles.content}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* ===================== TERCİHLER ===================== */}
         <Section title="TERCİHLER">
           <Toggle
+            icon="🔊"
             label="Otomatik telaffuz"
             description="Yeni kelimelerde sesli okuma"
             value={autoSpeak}
             onValueChange={setAutoSpeakValue}
+            isLast={!sfxAvailable}
           />
-          {/* Daily reminder toggle hidden until the notifications backend
-              ships — currently lib/notifications.ts is a no-op stub and the
-              UI would lie about granting permissions. Restore once
-              expo-notifications wiring is real. */}
+          {sfxAvailable && (
+            <Toggle
+              icon="🎵"
+              label="Ses efektleri"
+              description="Doğru / yanlış cevap tıkları"
+              value={sfxOn}
+              onValueChange={handleSfxToggle}
+              isLast
+            />
+          )}
         </Section>
 
+        {/* ===================== GİZLİLİK ===================== */}
         <Section title="GİZLİLİK">
           <Toggle
+            icon="📊"
             label="Analytics olmadan kullan"
             description="Anonim kullanım verisi gönderme. Çökme raporları etkilenmez."
             value={analyticsOptOut}
             onValueChange={handleAnalyticsToggle}
           />
+          <Row
+            icon="🔒"
+            label="Gizlilik politikası"
+            onPress={() => openUrl(PRIVACY_URL)}
+          />
+          <Row
+            icon="📄"
+            label="Kullanım koşulları"
+            onPress={() => openUrl(TERMS_URL)}
+            isLast
+          />
         </Section>
 
+        {/* ===================== HESAP ===================== */}
         <Section title="HESAP">
           <Row
+            icon="👤"
             label="Profil"
-            onPress={() => router.push("/profile" as never)}
+            onPress={() => {
+              hapticSelection();
+              router.push("/profile" as never);
+            }}
           />
-          {/* "Seviyemi değiştir" hidden — re-running onboarding traps the
-              user with no exit, and the rewind would reset track + name.
-              Restore when a dedicated level-change screen exists. */}
           <Row
+            icon="💳"
+            label="Aboneliğim"
+            onPress={() => openUrl(APPLE_SUBS_URL)}
+          />
+          <Row
+            icon="🗑️"
             label="Hesabımı sil"
             onPress={openDeleteFlow}
+            danger
+            isLast
           />
         </Section>
 
+        {/* ===================== DESTEK ===================== */}
         <Section title="DESTEK">
           <Row
+            icon="💬"
             label="Bize yaz"
             onPress={() =>
-              Linking.openURL("mailto:hello@lafla.app?subject=Lafla geribildirim").catch(() =>
+              Linking.openURL(
+                "mailto:hello@lafla.app?subject=Lafla geri bildirim",
+              ).catch(() =>
                 Alert.alert("Hata", "Mail uygulaması açılamadı."),
               )
             }
           />
           <Row
+            icon="⭐"
             label="App Store'da değerlendir"
-            onPress={() =>
-              Alert.alert(
-                "Teşekkürler",
-                "App Store'da yayınlandığında ratings alacağız.",
-              )
-            }
-          />
-          <Row
-            label="Gizlilik Politikası"
-            onPress={() =>
-              Linking.openURL(
-                "https://berkdemirokk.github.io/lafla/privacy.html",
-              ).catch(() => Alert.alert("Hata", "Tarayıcı açılamadı."))
-            }
-          />
-          <Row
-            label="Kullanım Koşulları"
-            onPress={() =>
-              Linking.openURL(
-                "https://berkdemirokk.github.io/lafla/terms.html",
-              ).catch(() => Alert.alert("Hata", "Tarayıcı açılamadı."))
-            }
+            onPress={handleRate}
+            isLast
           />
         </Section>
 
-        <View style={styles.footer}>
-          <Text style={styles.version}>
-            Lafla v{Constants.expoConfig?.version ?? "0.1.0"}
-          </Text>
-          <Text style={styles.tagline}>Konuş, çalış.</Text>
-        </View>
+        {/* ===================== HAKKINDA ===================== */}
+        <Section title="HAKKINDA">
+          <View style={styles.aboutBox}>
+            <Text style={styles.aboutVersion}>
+              Sürüm {version}
+              {build ? `  ·  Build ${build}` : ""}
+            </Text>
+            <Text style={styles.aboutCopyright}>
+              Lafla © 2026 Berk Demirok
+            </Text>
+            <Text style={styles.aboutTagline}>Konuş, çalış.</Text>
+          </View>
+        </Section>
       </ScrollView>
 
       {/* ===================== Account Deletion Modal ===================== */}
@@ -362,6 +471,7 @@ export default function SettingsScreen() {
   );
 }
 
+// ===== Section ========================================================
 function Section({
   title,
   children,
@@ -377,39 +487,62 @@ function Section({
   );
 }
 
+// ===== Row (tappable navigation) =====================================
 function Row({
+  icon,
   label,
   onPress,
+  isLast,
+  danger,
 }: {
+  icon?: string;
   label: string;
   onPress: () => void;
+  isLast?: boolean;
+  danger?: boolean;
 }) {
   return (
-    <Pressable style={styles.row} onPress={onPress}>
-      <Text style={styles.rowLabel}>{label}</Text>
+    <Pressable
+      style={({ pressed }) => [
+        styles.row,
+        isLast && styles.rowLast,
+        pressed && styles.rowPressed,
+      ]}
+      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+    >
+      {icon ? <Text style={styles.rowIcon}>{icon}</Text> : null}
+      <Text style={[styles.rowLabel, danger && styles.rowLabelDanger]}>
+        {label}
+      </Text>
       <Text style={styles.rowChevron}>›</Text>
     </Pressable>
   );
 }
 
+// ===== Toggle =========================================================
 function Toggle({
+  icon,
   label,
   description,
   value,
   onValueChange,
+  isLast,
 }: {
+  icon?: string;
   label: string;
   description?: string;
   value: boolean;
   onValueChange: (v: boolean) => void;
+  isLast?: boolean;
 }) {
   return (
-    <View style={styles.row}>
+    <View style={[styles.row, isLast && styles.rowLast]}>
+      {icon ? <Text style={styles.rowIcon}>{icon}</Text> : null}
       <View style={styles.toggleText}>
         <Text style={styles.rowLabel}>{label}</Text>
-        {description && (
-          <Text style={styles.rowSub}>{description}</Text>
-        )}
+        {description && <Text style={styles.rowSub}>{description}</Text>}
       </View>
       <Switch
         value={value}
@@ -446,7 +579,7 @@ const styles = StyleSheet.create({
     paddingBottom: 80,
   },
   section: {
-    marginBottom: tokens.spacing.lg,
+    marginBottom: tokens.spacing.md,
   },
   sectionLabel: {
     fontSize: 11,
@@ -457,8 +590,10 @@ const styles = StyleSheet.create({
     paddingLeft: 12,
   },
   sectionInner: {
-    backgroundColor: tokens.bg.surfaceContainer,
+    backgroundColor: tokens.bg.surfaceContainerLow,
     borderRadius: tokens.radius.base,
+    borderWidth: 1,
+    borderColor: tokens.border.light,
     overflow: "hidden",
   },
   row: {
@@ -470,11 +605,25 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: tokens.border.light,
   },
+  rowLast: {
+    borderBottomWidth: 0,
+  },
+  rowPressed: {
+    opacity: 0.7,
+  },
+  rowIcon: {
+    fontSize: 18,
+    width: 24,
+    textAlign: "center",
+  },
   rowLabel: {
     flex: 1,
     fontSize: 15,
     fontWeight: tokens.weight.semibold,
     color: tokens.text.primary,
+  },
+  rowLabelDanger: {
+    color: tokens.semantic.error,
   },
   rowSub: {
     fontSize: 12,
@@ -488,19 +637,27 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: tokens.text.tertiary,
   },
-  footer: {
+  // ---- About card ----
+  aboutBox: {
+    paddingHorizontal: 14,
+    paddingVertical: 18,
     alignItems: "center",
-    paddingTop: tokens.spacing.md,
-    gap: 4,
+    gap: 6,
   },
-  version: {
-    color: tokens.text.tertiary,
+  aboutVersion: {
+    color: tokens.text.secondary,
     fontSize: 13,
+    fontWeight: tokens.weight.semibold,
   },
-  tagline: {
+  aboutCopyright: {
+    color: tokens.text.tertiary,
+    fontSize: 12,
+  },
+  aboutTagline: {
     color: tokens.text.tertiary,
     fontSize: 11,
     fontStyle: "italic",
+    marginTop: 4,
   },
   // ---- Delete-account modal ----
   modalBackdrop: {

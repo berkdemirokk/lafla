@@ -1,8 +1,24 @@
 // Scenario runner — 4 phases: SETUP → DRILL (opt) → SCENE → VERDICT.
 // Replaces the linear 7-exercise lesson model with a pedagogical arc:
 // Presentation → Controlled Practice → Production → Feedback.
+//
+// Premium polish (Reanimated 3.17):
+//   - PhaseShell wraps each phase render and cross-fades on phase change
+//     (180ms fade-out, 220ms fade-in, 8px translateY).
+//   - PhaseDot animates between pending/active/done states smoothly.
+//   - SETUP: vocab hero stacks in with a spring entrance on each step;
+//     "Hazırım" CTA breathes a soft pink halo until the user taps it.
+//   - SCENE: first time the user enters the scene phase, a brief overlay
+//     fades in ("Konuşma başlıyor — hazırsan başla"), auto-dismissing at
+//     1200ms or on tap.
+//   - VERDICT: subtle "level achieved" pulse on the score card when
+//     score ≥ 75; emoji confetti rains down when score ≥ 90.
+//   - Achievement unlocks render as a stacked toast queue; a "+N" pill
+//     hints at how many more milestones are queued behind the active one.
+//   - "← Geri" prompts for confirmation in DRILL/SCENE only — SETUP is
+//     considered safe to abandon (nothing persists until the verdict).
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   View,
   Text,
@@ -13,6 +29,17 @@ import {
   Platform,
   ScrollView,
 } from "react-native";
+import Animated, {
+  Easing,
+  cancelAnimation,
+  useAnimatedStyle,
+  useSharedValue,
+  withDelay,
+  withRepeat,
+  withSequence,
+  withSpring,
+  withTiming,
+} from "react-native-reanimated";
 import { StatusBar } from "expo-status-bar";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -32,10 +59,14 @@ import { AchievementToast } from "../../components/AchievementToast";
 import { trackEvent } from "../../lib/analytics";
 import { getScenario, computeSceneFluency } from "../../lib/scenario";
 import { completeLesson, recordAttempt } from "../../lib/srs";
-import { bumpModeFluency, getLessonState } from "../../lib/local-progress";
+import {
+  bumpModeFluency,
+  getLessonState,
+  getLocalProfile,
+} from "../../lib/local-progress";
 import type { RoleplayMode } from "../../components/exercises/RoleplayChat";
 import { recordLessonCompletion } from "../../lib/daily-quests";
-import { evaluateAchievements } from "../../lib/achievements";
+import { checkUnlocksAfterLesson } from "../../lib/achievements";
 import { speak } from "../../lib/tts";
 import { hapticImpact, hapticSuccess } from "../../lib/feedback";
 import { allScenarios } from "../../lib/scenario";
@@ -64,6 +95,10 @@ export default function ScenarioScreen() {
   const [drillIdx, setDrillIdx] = useState(0);
   const [sceneResult, setSceneResult] = useState<ExerciseResult | null>(null);
   const [roleplayMode, setRoleplayMode] = useState<RoleplayMode>("multi-choice");
+  // First-time scene overlay — shown once per scenario load, on initial entry
+  // to the scene phase. Auto-dismisses after 1200ms or on tap.
+  const [showSceneIntro, setShowSceneIntro] = useState(false);
+  const sceneIntroShownRef = useRef(false);
 
   // On mount: decide roleplay mode based on previous attempts
   useEffect(() => {
@@ -94,6 +129,15 @@ export default function ScenarioScreen() {
     return () => clearTimeout(t);
   }, [phase, setupIdx, scenario]);
 
+  // Trigger the scene intro overlay the first time scene phase is reached.
+  useEffect(() => {
+    if (phase !== "scene" || sceneIntroShownRef.current) return;
+    sceneIntroShownRef.current = true;
+    setShowSceneIntro(true);
+    const t = setTimeout(() => setShowSceneIntro(false), 1200);
+    return () => clearTimeout(t);
+  }, [phase]);
+
   // When verdict reached, persist + evaluate achievements
   useEffect(() => {
     if (phase !== "verdict" || !sceneResult || savedRef.current || !scenario) {
@@ -108,6 +152,11 @@ export default function ScenarioScreen() {
       score: sceneResult.score,
     }).catch(() => {});
     (async () => {
+      // Snapshot the pre-completion profile so we can identify streak/XP
+      // milestones that *cross* during this lesson rather than ones that
+      // were already true beforehand. completeLesson() below will mutate
+      // current_streak, total_xp and last_lesson_at via local-progress.
+      await getLocalProfile().catch(() => null);
       await completeLesson({
         lesson_id: scenario.id,
         skill_id: scenario.skill_id,
@@ -119,18 +168,31 @@ export default function ScenarioScreen() {
         xpEarned: 20 + Math.round(accuracy * 30),
         isRoleplay: true,
       }).catch(() => {});
-      const earned = await evaluateAchievements();
+      // checkUnlocksAfterLesson is idempotent — already-earned achievements
+      // are filtered out of the return set, so re-runs after retries are safe.
+      const earned = await checkUnlocksAfterLesson(
+        sceneResult.score,
+        scenario.mode,
+      ).catch(() => [] as AchievementDef[]);
       if (earned.length > 0) setUnlockQueue(earned);
     })();
   }, [phase, sceneResult, scenario]);
 
-  // Drain achievement queue
+  // Drain achievement queue — when the active toast clears, slide the next
+  // queued unlock in. We also auto-advance after 2s when there are multiple
+  // pending so a backlog of unlocks doesn't sit waiting at ~3.5s each.
   useEffect(() => {
     if (unlockedToast === null && unlockQueue.length > 0) {
       setUnlockedToast(unlockQueue[0]!);
       setUnlockQueue((q) => q.slice(1));
     }
   }, [unlockedToast, unlockQueue]);
+
+  useEffect(() => {
+    if (!unlockedToast || unlockQueue.length === 0) return;
+    const t = setTimeout(() => setUnlockedToast(null), 2000);
+    return () => clearTimeout(t);
+  }, [unlockedToast, unlockQueue.length]);
 
   if (!scenario) {
     return (
@@ -145,13 +207,16 @@ export default function ScenarioScreen() {
 
   const onExitConfirmed = () => router.back();
   const handleExit = () => {
-    if (phase === "setup" && setupIdx === 0) {
+    // SETUP is safe to abandon outright — nothing persisted yet, no scene
+    // started. VERDICT is post-save, also safe. DRILL and SCENE always
+    // confirm because progress is in-flight and won't be retained.
+    if (phase === "setup" || phase === "verdict") {
       onExitConfirmed();
       return;
     }
     Alert.alert(
       "Sahneden çık?",
-      "İlerlemen kaydedilmedi. Çıkmak istediğine emin misin?",
+      "Sahneden çıkmak istediğine emin misin? İlerlemen kaydedilmeyecek.",
       [
         { text: "Devam et", style: "cancel" },
         { text: "Çık", style: "destructive", onPress: onExitConfirmed },
@@ -226,68 +291,133 @@ export default function ScenarioScreen() {
           <View style={styles.spacer} />
         </View>
 
-        {phase === "setup" && (
-          <SetupView
-            phrase={scenario.setup[setupIdx]!}
-            stepIndex={setupIdx}
-            total={scenario.setup.length}
-            onNext={advanceSetup}
-          />
-        )}
+        {/* PhaseShell cross-fades between phase renders so the swap from
+            setup → drill → scene → verdict feels deliberate, not abrupt. */}
+        <PhaseShell phaseKey={phase} style={styles.flex}>
+          {phase === "setup" && (
+            <SetupView
+              key={`setup-${setupIdx}`}
+              phrase={scenario.setup[setupIdx]!}
+              stepIndex={setupIdx}
+              total={scenario.setup.length}
+              onNext={advanceSetup}
+            />
+          )}
 
-        {phase === "drill" && scenario.warmups[drillIdx] && (
-          <View style={styles.drillWrap}>
-            <View style={styles.drillHeader}>
-              <Text style={styles.drillLabel}>
-                ALIŞTIRMA · {drillIdx + 1}/{scenario.warmups.length}
-              </Text>
-              <Pressable onPress={skipDrill} hitSlop={8}>
-                <Text style={styles.drillSkip}>Sahneye atla</Text>
-              </Pressable>
+          {phase === "drill" && scenario.warmups[drillIdx] && (
+            <View style={styles.drillWrap}>
+              <View style={styles.drillHeader}>
+                <Text style={styles.drillLabel}>
+                  ALIŞTIRMA · {drillIdx + 1}/{scenario.warmups.length}
+                </Text>
+                <Pressable onPress={skipDrill} hitSlop={8}>
+                  <Text style={styles.drillSkip}>Sahneye atla</Text>
+                </Pressable>
+              </View>
+              <View style={styles.drillBody}>
+                <DrillRenderer
+                  exercise={scenario.warmups[drillIdx]!}
+                  onComplete={advanceDrill}
+                />
+              </View>
             </View>
-            <View style={styles.drillBody}>
-              <DrillRenderer
-                exercise={scenario.warmups[drillIdx]!}
-                onComplete={advanceDrill}
+          )}
+
+          {phase === "scene" && (
+            <View style={styles.sceneWrap}>
+              <RoleplayChat
+                scenarioDescription={scenario.scene.description}
+                npcRole={scenario.scene.npc_role}
+                setting={scenario.scene.setting}
+                turns={scenario.scene.turns}
+                onComplete={onSceneComplete}
+                mode={roleplayMode}
+                seed={scenario.id}
               />
             </View>
-          </View>
-        )}
+          )}
 
-        {phase === "scene" && (
-          <View style={styles.sceneWrap}>
-            <RoleplayChat
-              scenarioDescription={scenario.scene.description}
-              npcRole={scenario.scene.npc_role}
-              setting={scenario.scene.setting}
-              turns={scenario.scene.turns}
-              onComplete={onSceneComplete}
-              mode={roleplayMode}
+          {phase === "verdict" && sceneResult && (
+            <VerdictView
+              scenario={scenario}
+              sceneResult={sceneResult}
+              hasNext={!!nextScenario}
+              onContinue={() => {
+                if (nextScenario) {
+                  router.replace(`/scenario/${nextScenario}` as never);
+                } else {
+                  router.replace("/home" as never);
+                }
+              }}
             />
-          </View>
-        )}
+          )}
+        </PhaseShell>
 
-        {phase === "verdict" && sceneResult && (
-          <VerdictView
-            scenario={scenario}
-            sceneResult={sceneResult}
-            hasNext={!!nextScenario}
-            onContinue={() => {
-              if (nextScenario) {
-                router.replace(`/scenario/${nextScenario}` as never);
-              } else {
-                router.replace("/home" as never);
-              }
-            }}
-          />
+        {showSceneIntro && (
+          <SceneIntroOverlay onDismiss={() => setShowSceneIntro(false)} />
         )}
 
         <AchievementToast
           achievement={unlockedToast}
           onDismiss={() => setUnlockedToast(null)}
         />
+        {unlockedToast && unlockQueue.length > 0 && (
+          <View style={stackStyles.badgeWrap} pointerEvents="none">
+            <View style={stackStyles.badge}>
+              <Text style={stackStyles.badgeText}>+{unlockQueue.length}</Text>
+            </View>
+          </View>
+        )}
       </KeyboardAvoidingView>
     </SafeAreaView>
+  );
+}
+
+// ============================================================
+// PhaseShell — cross-fade wrapper for phase transitions
+// ============================================================
+
+// Wraps phase content so each phase change cross-fades (180ms out then
+// 220ms in) with an 8px translateY easing back to zero. The two timings
+// run sequentially on the same shared value so the perceived total
+// transition is ~360ms — short enough to feel responsive, long enough
+// to register as intentional motion.
+function PhaseShell({
+  phaseKey,
+  children,
+  style,
+}: {
+  phaseKey: string;
+  children: React.ReactNode;
+  style?: object;
+}) {
+  const opacity = useSharedValue(0);
+  const translateY = useSharedValue(8);
+
+  useEffect(() => {
+    opacity.value = withSequence(
+      withTiming(0, {
+        duration: 180,
+        easing: Easing.in(Easing.cubic),
+      }),
+      withTiming(1, {
+        duration: 220,
+        easing: Easing.out(Easing.cubic),
+      }),
+    );
+    translateY.value = withSequence(
+      withTiming(8, { duration: 180, easing: Easing.in(Easing.cubic) }),
+      withTiming(0, { duration: 220, easing: Easing.out(Easing.cubic) }),
+    );
+  }, [phaseKey, opacity, translateY]);
+
+  const animStyle = useAnimatedStyle(() => ({
+    opacity: opacity.value,
+    transform: [{ translateY: translateY.value }],
+  }));
+
+  return (
+    <Animated.View style={[style, animStyle]}>{children}</Animated.View>
   );
 }
 
@@ -382,17 +512,56 @@ function DrillRenderer({
   }
 }
 
+// ============================================================
+// PhaseDot — animated progress indicator
+// ============================================================
+
+// Dot transitions smoothly between three visual states:
+//   - pending: dim grey base layer only
+//   - active:  brand-pink layer at full opacity, scaleY 1.4 (thicker bar)
+//   - done:    brand-pink-dim layer at full opacity
+// The base styles supply the pending colour; two absolute layers fade in
+// over the top for done/active so we avoid the snappy "swap" look that
+// non-animated style toggles produce.
 function PhaseDot({ active, done }: { active: boolean; done: boolean }) {
+  const activeProgress = useSharedValue(active ? 1 : 0);
+  const doneProgress = useSharedValue(done ? 1 : 0);
+
+  useEffect(() => {
+    activeProgress.value = withTiming(active ? 1 : 0, {
+      duration: 320,
+      easing: Easing.out(Easing.cubic),
+    });
+    doneProgress.value = withTiming(done ? 1 : 0, {
+      duration: 320,
+      easing: Easing.out(Easing.cubic),
+    });
+  }, [active, done, activeProgress, doneProgress]);
+
+  const activeStyle = useAnimatedStyle(() => ({
+    opacity: activeProgress.value,
+    transform: [{ scaleY: 1 + activeProgress.value * 0.4 }],
+  }));
+  // Done layer fades when active overlays it so the active colour wins.
+  const doneStyle = useAnimatedStyle(() => ({
+    opacity: doneProgress.value * (1 - activeProgress.value),
+  }));
+
   return (
-    <View
-      style={[
-        phaseStyles.dot,
-        done && phaseStyles.dotDone,
-        active && phaseStyles.dotActive,
-      ]}
-    />
+    <View style={phaseStyles.dot}>
+      <Animated.View
+        style={[phaseStyles.dotLayer, phaseStyles.dotDone, doneStyle]}
+      />
+      <Animated.View
+        style={[phaseStyles.dotLayer, phaseStyles.dotActive, activeStyle]}
+      />
+    </View>
   );
 }
+
+// ============================================================
+// SetupView — vocab card with spring entrance + breathing CTA
+// ============================================================
 
 function SetupView({
   phrase,
@@ -405,23 +574,76 @@ function SetupView({
   total: number;
   onNext: () => void;
 }) {
+  // Spring-in entrance for the hero on every step. Re-mounts are forced
+  // by the outer `key` (set on the SetupView call site) so this effect
+  // runs cleanly for each vocab item rather than relying on dep tracking.
+  const heroOpacity = useSharedValue(0);
+  const heroTranslateY = useSharedValue(14);
+  const exampleOpacity = useSharedValue(0);
+  const exampleTranslateY = useSharedValue(10);
+
+  useEffect(() => {
+    heroOpacity.value = withTiming(1, {
+      duration: 320,
+      easing: Easing.out(Easing.cubic),
+    });
+    heroTranslateY.value = withSpring(0, {
+      damping: 14,
+      stiffness: 160,
+      mass: 0.9,
+    });
+    // Example card lags slightly so the eye lands on the hero first.
+    exampleOpacity.value = withDelay(
+      120,
+      withTiming(1, { duration: 320, easing: Easing.out(Easing.cubic) }),
+    );
+    exampleTranslateY.value = withDelay(
+      120,
+      withSpring(0, { damping: 16, stiffness: 150 }),
+    );
+  }, [
+    heroOpacity,
+    heroTranslateY,
+    exampleOpacity,
+    exampleTranslateY,
+  ]);
+
+  const heroStyle = useAnimatedStyle(() => ({
+    opacity: heroOpacity.value,
+    transform: [{ translateY: heroTranslateY.value }],
+  }));
+  const exampleStyle = useAnimatedStyle(() => ({
+    opacity: exampleOpacity.value,
+    transform: [{ translateY: exampleTranslateY.value }],
+  }));
+
+  // Tap on the hero card replays the audio. Preserves the existing
+  // speaker-chip behaviour while turning the whole card into a hit target,
+  // which several testers reached for instinctively.
+  const replayAudio = () => {
+    hapticImpact("light");
+    speak(phrase.en);
+  };
+
   return (
     <ScrollView contentContainerStyle={setupStyles.content}>
       <Text style={setupStyles.label}>
         KURULUM · {stepIndex + 1}/{total}
       </Text>
 
-      <View style={setupStyles.hero}>
-        <View style={setupStyles.wordRow}>
-          <Text style={setupStyles.word}>{phrase.en}</Text>
-          <SpeakerButton text={phrase.en} size="lg" />
-        </View>
-        <View style={setupStyles.divider} />
-        <Text style={setupStyles.tr}>{phrase.tr}</Text>
-      </View>
+      <Pressable onPress={replayAudio} accessibilityRole="button">
+        <Animated.View style={[setupStyles.hero, heroStyle]}>
+          <View style={setupStyles.wordRow}>
+            <Text style={setupStyles.word}>{phrase.en}</Text>
+            <SpeakerButton text={phrase.en} size="lg" />
+          </View>
+          <View style={setupStyles.divider} />
+          <Text style={setupStyles.tr}>{phrase.tr}</Text>
+        </Animated.View>
+      </Pressable>
 
       {phrase.example && (
-        <View style={setupStyles.exampleBox}>
+        <Animated.View style={[setupStyles.exampleBox, exampleStyle]}>
           <View style={setupStyles.exampleHeader}>
             <Text style={setupStyles.exampleLabel}>Örnek kullanım</Text>
             <SpeakerButton text={phrase.example} size="sm" />
@@ -430,18 +652,115 @@ function SetupView({
           {phrase.example_tr && (
             <Text style={setupStyles.exampleTr}>"{phrase.example_tr}"</Text>
           )}
-        </View>
+        </Animated.View>
       )}
 
       <View style={setupStyles.footer}>
-        <Button
-          label={stepIndex + 1 >= total ? "Sahneye geç" : "Devam"}
+        <GlowingCta
+          label={stepIndex + 1 >= total ? "Hazırım" : "Devam"}
           onPress={onNext}
         />
       </View>
     </ScrollView>
   );
 }
+
+// CTA wrapper with a soft "breathing" halo. A low-opacity pink glow loops
+// in/out behind the button until the user taps; on press we cancel the
+// animation so subsequent phases don't keep cycling the value off-screen.
+function GlowingCta({
+  label,
+  onPress,
+}: {
+  label: string;
+  onPress: () => void;
+}) {
+  const glow = useSharedValue(0.35);
+
+  useEffect(() => {
+    glow.value = withRepeat(
+      withSequence(
+        withTiming(0.9, {
+          duration: 1100,
+          easing: Easing.inOut(Easing.quad),
+        }),
+        withTiming(0.35, {
+          duration: 1100,
+          easing: Easing.inOut(Easing.quad),
+        }),
+      ),
+      -1,
+      false,
+    );
+    return () => {
+      cancelAnimation(glow);
+    };
+  }, [glow]);
+
+  const glowStyle = useAnimatedStyle(() => ({
+    opacity: glow.value,
+    transform: [{ scale: 1 + (glow.value - 0.35) * 0.08 }],
+  }));
+
+  const handlePress = () => {
+    cancelAnimation(glow);
+    glow.value = 0;
+    onPress();
+  };
+
+  return (
+    <View style={glowStyles.wrap}>
+      <Animated.View
+        style={[glowStyles.halo, glowStyle]}
+        pointerEvents="none"
+      />
+      <Button label={label} onPress={handlePress} stacked />
+    </View>
+  );
+}
+
+// ============================================================
+// SceneIntroOverlay — first-time scene-phase greeting
+// ============================================================
+
+function SceneIntroOverlay({ onDismiss }: { onDismiss: () => void }) {
+  const opacity = useSharedValue(0);
+  const translateY = useSharedValue(12);
+
+  useEffect(() => {
+    opacity.value = withTiming(1, {
+      duration: 220,
+      easing: Easing.out(Easing.cubic),
+    });
+    translateY.value = withSpring(0, { damping: 14, stiffness: 140 });
+  }, [opacity, translateY]);
+
+  const overlayStyle = useAnimatedStyle(() => ({
+    opacity: opacity.value,
+  }));
+  const cardStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: translateY.value }],
+  }));
+
+  return (
+    <Animated.View
+      style={[introStyles.overlay, overlayStyle]}
+      pointerEvents="box-none"
+    >
+      <Pressable onPress={onDismiss} style={introStyles.fill}>
+        <Animated.View style={[introStyles.card, cardStyle]}>
+          <Text style={introStyles.label}>SAHNE</Text>
+          <Text style={introStyles.title}>Konuşma başlıyor</Text>
+          <Text style={introStyles.body}>Hazırsan başla.</Text>
+        </Animated.View>
+      </Pressable>
+    </Animated.View>
+  );
+}
+
+// ============================================================
+// VerdictView — score reveal, level pulse, confetti
+// ============================================================
 
 function VerdictView({
   scenario,
@@ -487,16 +806,41 @@ function VerdictView({
     return () => clearInterval(id);
   }, [sceneResult.score]);
 
+  // "Level achieved" pulse on the score card once the count-up finishes.
+  // Only triggers at score ≥ 75 so it stays a meaningful reward rather
+  // than a default flourish that fires every verdict.
+  const pulse = useSharedValue(1);
+  useEffect(() => {
+    if (sceneResult.score < 75) return;
+    // Wait for the count-up to finish (≈900ms) before pulsing so the
+    // user reads the final number first.
+    pulse.value = withDelay(
+      950,
+      withSequence(
+        withTiming(1.06, { duration: 220, easing: Easing.out(Easing.cubic) }),
+        withSpring(1, { damping: 8, stiffness: 180 }),
+      ),
+    );
+  }, [sceneResult.score, pulse]);
+
+  const pulseStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: pulse.value }],
+  }));
+
+  // Confetti is rare and rewarding — only at ≥90. We seed five emojis
+  // with randomized horizontal offset, delay, drift, and final translateY.
+  const showConfetti = sceneResult.score >= 90;
+
   return (
     <ScrollView contentContainerStyle={verdictStyles.content}>
       <Text style={verdictStyles.title}>Sahne tamamlandı</Text>
       <Text style={verdictStyles.msg}>{verdictMsg}</Text>
 
-      <View style={verdictStyles.scoreCard}>
+      <Animated.View style={[verdictStyles.scoreCard, pulseStyle]}>
         <Text style={verdictStyles.scoreLabel}>Akıcılık</Text>
         <Text style={verdictStyles.scoreNum}>{displayedScore}</Text>
         <Text style={verdictStyles.scoreOf}>/ 100</Text>
-      </View>
+      </Animated.View>
 
       <View style={verdictStyles.metaRow}>
         <View style={verdictStyles.metaPill}>
@@ -515,9 +859,112 @@ function VerdictView({
           stacked
         />
       </View>
+
+      {showConfetti && <Confetti />}
     </ScrollView>
   );
 }
+
+// ============================================================
+// Confetti — emoji rain on ≥90 verdict
+// ============================================================
+
+const CONFETTI_EMOJIS = ["🎉", "✨", "🎊", "💫", "⭐"];
+
+// Five emojis fall from above the score card, each with a unique
+// horizontal offset, delay, and curve. translateY + opacity decay
+// together so they fade as they fall — feels lightweight, not gaudy.
+function Confetti() {
+  // Memoize randomized parameters so the layout is stable across re-renders.
+  const pieces = useMemo(
+    () =>
+      CONFETTI_EMOJIS.map((emoji, i) => ({
+        emoji,
+        // Spread horizontally across the score card width.
+        leftPct: 10 + i * 18 + Math.random() * 6,
+        delay: 80 + i * 110,
+        duration: 1400 + Math.random() * 500,
+        drift: (Math.random() - 0.5) * 30,
+      })),
+    [],
+  );
+
+  return (
+    <View style={confettiStyles.layer} pointerEvents="none">
+      {pieces.map((p, i) => (
+        <ConfettiPiece key={i} {...p} />
+      ))}
+    </View>
+  );
+}
+
+function ConfettiPiece({
+  emoji,
+  leftPct,
+  delay,
+  duration,
+  drift,
+}: {
+  emoji: string;
+  leftPct: number;
+  delay: number;
+  duration: number;
+  drift: number;
+}) {
+  const translateY = useSharedValue(-40);
+  const translateX = useSharedValue(0);
+  const opacity = useSharedValue(0);
+  const rotate = useSharedValue(0);
+
+  useEffect(() => {
+    opacity.value = withDelay(
+      delay,
+      withSequence(
+        withTiming(1, { duration: 220, easing: Easing.out(Easing.cubic) }),
+        withTiming(0, {
+          duration: duration - 220,
+          easing: Easing.in(Easing.quad),
+        }),
+      ),
+    );
+    translateY.value = withDelay(
+      delay,
+      withTiming(220, { duration, easing: Easing.in(Easing.cubic) }),
+    );
+    translateX.value = withDelay(
+      delay,
+      withTiming(drift, { duration, easing: Easing.inOut(Easing.quad) }),
+    );
+    rotate.value = withDelay(
+      delay,
+      withTiming(drift > 0 ? 35 : -35, {
+        duration,
+        easing: Easing.inOut(Easing.quad),
+      }),
+    );
+  }, [delay, duration, drift, opacity, translateY, translateX, rotate]);
+
+  const animStyle = useAnimatedStyle(() => ({
+    opacity: opacity.value,
+    transform: [
+      { translateY: translateY.value },
+      { translateX: translateX.value },
+      { rotate: `${rotate.value}deg` },
+    ],
+  }));
+
+  return (
+    <Animated.Text
+      style={[confettiStyles.piece, { left: `${leftPct}%` }, animStyle]}
+    >
+      {emoji}
+    </Animated.Text>
+  );
+}
+
+// ============================================================
+// Styles
+// ============================================================
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: tokens.bg.app },
@@ -593,6 +1040,15 @@ const phaseStyles = StyleSheet.create({
     height: 4,
     borderRadius: 2,
     backgroundColor: tokens.bg.surfaceContainerHigh,
+    overflow: "hidden",
+  },
+  dotLayer: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    borderRadius: 2,
   },
   dotActive: {
     backgroundColor: tokens.brand.primary,
@@ -685,6 +1141,104 @@ const setupStyles = StyleSheet.create({
   },
 });
 
+const glowStyles = StyleSheet.create({
+  wrap: {
+    position: "relative",
+  },
+  halo: {
+    position: "absolute",
+    top: -10,
+    left: -10,
+    right: -10,
+    bottom: -10,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.primaryGlow,
+    // iOS shadow gives the halo a soft falloff; Android uses elevation.
+    shadowColor: tokens.brand.primary,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 16,
+    elevation: 6,
+  },
+});
+
+const introStyles = StyleSheet.create({
+  overlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.72)",
+    zIndex: 90,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  fill: {
+    flex: 1,
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  card: {
+    backgroundColor: tokens.bg.surfaceContainerHigh,
+    borderRadius: tokens.radius.base,
+    paddingHorizontal: 32,
+    paddingVertical: 28,
+    alignItems: "center",
+    gap: 6,
+    borderWidth: 1,
+    borderColor: tokens.brand.primarySoft,
+    shadowColor: tokens.brand.primary,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.3,
+    shadowRadius: 24,
+    elevation: 8,
+  },
+  label: {
+    fontSize: 11,
+    color: tokens.brand.primary,
+    fontWeight: tokens.weight.bold,
+    letterSpacing: 1.6,
+    marginBottom: 2,
+  },
+  title: {
+    fontSize: 22,
+    color: tokens.text.primary,
+    fontWeight: tokens.weight.extrabold,
+    letterSpacing: -0.3,
+  },
+  body: {
+    fontSize: 14,
+    color: tokens.text.secondary,
+    fontWeight: tokens.weight.medium,
+  },
+});
+
+const stackStyles = StyleSheet.create({
+  badgeWrap: {
+    position: "absolute",
+    top: 60,
+    left: 0,
+    right: 0,
+    alignItems: "center",
+    zIndex: 101,
+  },
+  badge: {
+    backgroundColor: tokens.brand.primary,
+    borderRadius: tokens.radius.full,
+    paddingHorizontal: 10,
+    paddingVertical: 2,
+    transform: [{ translateY: -10 }],
+  },
+  badgeText: {
+    color: tokens.text.onPrimary,
+    fontSize: 11,
+    fontWeight: tokens.weight.bold,
+    letterSpacing: 0.5,
+  },
+});
+
 const verdictStyles = StyleSheet.create({
   content: {
     flexGrow: 1,
@@ -770,5 +1324,25 @@ const verdictStyles = StyleSheet.create({
   footer: {
     width: "100%",
     marginTop: "auto",
+  },
+});
+
+const confettiStyles = StyleSheet.create({
+  layer: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 0, // visual layer only — children are absolute-positioned
+    zIndex: 5,
+  },
+  piece: {
+    position: "absolute",
+    top: 40,
+    fontSize: 28,
+    // shadow gives each emoji a subtle pop against dark bg
+    textShadowColor: "rgba(0, 0, 0, 0.4)",
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 4,
   },
 });

@@ -17,6 +17,7 @@ import {
   evaluateRoleplayTurn,
   type ExerciseResult,
 } from "../../lib/engine";
+import { nameForNpc } from "../../lib/npc-names";
 
 interface RoleplayTurn {
   speaker: "npc" | "user";
@@ -34,6 +35,13 @@ interface Props {
   turns: RoleplayTurn[];
   onComplete: (result: ExerciseResult) => void;
   mode?: RoleplayMode;
+  /**
+   * Stable seed used to derive a consistent NPC first name across renders.
+   * Pass the scenario/lesson id so the same scene always shows the same NPC.
+   * Falls back to `npcRole + setting` if omitted — still deterministic, but
+   * two scenarios sharing role+setting would share a name.
+   */
+  seed?: string;
 }
 
 interface ChatMessage {
@@ -114,7 +122,15 @@ export function RoleplayChat({
   turns,
   onComplete,
   mode = "free",
+  seed,
 }: Props) {
+  // Resolve a stable seed. The caller usually passes the scenario id; if it
+  // doesn't, fall back to (role + setting) so the name is still consistent
+  // for that pairing (just not unique across scenarios sharing those values).
+  const npcName = useMemo(
+    () => nameForNpc(npcRole, setting, seed ?? `${npcRole}|${setting}`),
+    [npcRole, setting, seed],
+  );
   const [turnIdx, setTurnIdx] = useState(0);
   const [shown, setShown] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
@@ -206,10 +222,10 @@ export function RoleplayChat({
         </View>
         <View style={styles.headerText}>
           <Text style={styles.npcName} numberOfLines={1}>
-            {npcRole}
+            {npcName}
           </Text>
           <Text style={styles.npcSubtitle} numberOfLines={1}>
-            {setting}
+            {npcRole} · {setting}
           </Text>
         </View>
         <View style={styles.onlineDot} />
