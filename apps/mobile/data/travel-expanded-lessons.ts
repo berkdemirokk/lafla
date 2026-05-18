@@ -56,6 +56,7 @@ const l_air_2: BundledLesson = {
     { id: "ex.air.2.2", type: "roleplay_chat", difficulty: 3, scenario_description: "Aktarman dar — kabin görevlisinden yardım iste.",
       npc_role: "Gate agent", setting: "Mid-flight / arrival gate",
       turns: [
+        { speaker: "npc", message: "Welcome — how can I help you?" },
         { speaker: "user", acceptable_patterns: ["(excuse me|hi)(,)?.{0,30}(connection|connect)", "(will|can) i make my connection", "i('m| am) worried about my connection", "(my )?connection is (tight|short|in 40)", "i only have 40 minutes"],
           hint_tr: "Endişeni anlat: 'Excuse me, will I make my connection?'" },
         { speaker: "npc", message: "What's your connecting flight number?" },
@@ -93,6 +94,7 @@ const l_air_3: BundledLesson = {
     { id: "ex.air.3.2", type: "roleplay_chat", difficulty: 4, scenario_description: "Bagajın gelmedi. Lost & Found bankosuna git, durumu anlat.",
       npc_role: "Lost-luggage clerk", setting: "Airline baggage office",
       turns: [
+        { speaker: "npc", message: "Hello — how can I help you today?" },
         { speaker: "user", acceptable_patterns: ["(hi|excuse me|hello)(,)?.{0,30}(my bag|my luggage|my suitcase)", "my (bag|luggage|suitcase).{0,15}(didn'?t|hasn'?t|never).{0,15}(come|arrive)", "i (can'?t|cannot) find my (bag|luggage)", "(my )?bag is missing", "where is my (bag|luggage)"],
           hint_tr: "Durumu anlat: 'My bag didn't come out at baggage claim'." },
         { speaker: "npc", message: "Sorry to hear that. Do you have your baggage tag?" },
@@ -133,6 +135,7 @@ const l_air_4: BundledLesson = {
     { id: "ex.air.4.2", type: "roleplay_chat", difficulty: 3, scenario_description: "Transit alanında kayboldun, görevliye sor.",
       npc_role: "Gate agent", setting: "Schiphol transit hall",
       turns: [
+        { speaker: "npc", message: "Hi there — do you need directions?" },
         { speaker: "user", acceptable_patterns: ["(excuse me|hi|hello)(,)?.{0,30}(where|how do i get)", "where is gate [a-z]?\\d+", "(how do i|how can i) (get to|find) (gate )?[a-z]\\d+", "i('m| am) looking for gate", "(can|could) you (help|tell)"],
           hint_tr: "Yön sor: 'Excuse me, where is gate D7?'" },
         { speaker: "npc", message: "Gate D7 is in the other terminal. Take the shuttle." },
@@ -244,6 +247,7 @@ const l_air_7: BundledLesson = {
     { id: "ex.air.7.2", type: "roleplay_chat", difficulty: 3, scenario_description: "6 saatlik layover — lounge resepsiyonuna git.",
       npc_role: "Gate agent", setting: "Airport lounge reception",
       turns: [
+        { speaker: "npc", message: "Welcome to the lounge — how can I help?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(am i eligible|can i (enter|come in|use))", "(hi|hello)(,)? i have (a )?priority pass", "can i use my priority pass", "(do you accept|is this) priority pass", "(am i|are we) allowed in"],
           hint_tr: "Sor: 'Hi, am I eligible with Priority Pass?'" },
         { speaker: "npc", message: "Let me check — boarding pass and pass card, please." },
@@ -281,6 +285,7 @@ const l_air_8: BundledLesson = {
     { id: "ex.air.8.2", type: "roleplay_chat", difficulty: 4, scenario_description: "Uçuş 4 saat gecikti — gate görevlisinden hakları öğren.",
       npc_role: "Gate agent", setting: "Delayed flight gate",
       turns: [
+        { speaker: "npc", message: "Hi — are you on the delayed flight?" },
         { speaker: "user", acceptable_patterns: ["(excuse me|hi)(,)?.{0,30}(delay|delayed)", "i('m| am) on the (delayed )?flight to [a-z]+", "(how long|what'?s) the delay", "(my flight|flight) is delayed", "(can|could) you (help|tell me)"],
           hint_tr: "Durumu sor: 'Hi, how long is the delay?'" },
         { speaker: "npc", message: "Around 4 hours. We'll update you at gate B12." },
@@ -318,6 +323,7 @@ const l_air_9: BundledLesson = {
     { id: "ex.air.9.2", type: "roleplay_chat", difficulty: 4, scenario_description: "Yaşlı anneni getirdin — wheelchair yardımı önceden istendi, onayla.",
       npc_role: "Gate agent", setting: "Airline check-in desk",
       turns: [
+        { speaker: "npc", message: "Good morning — how can I help you today?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(wheelchair|assistance|special assistance)", "i (requested|booked) wheelchair (assistance|service)", "(my )?(mother|father|wife|husband) needs assistance", "(could|can) we (have|get) wheelchair", "we have (a )?wheelchair request"],
           hint_tr: "Durumu söyle: 'I requested wheelchair assistance for my mother'." },
         { speaker: "npc", message: "Let me check the booking. Name and flight please." },
@@ -467,6 +473,7 @@ const l_tra_3: BundledLesson = {
     { id: "ex.tra.3.2", type: "roleplay_chat", difficulty: 4, scenario_description: "Rental car bankosu — kayıt + araç teslim alma.",
       npc_role: "Rental car agent", setting: "Car rental counter",
       turns: [
+        { speaker: "npc", message: "Hi, welcome to Avis — picking up a car?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)? i have a reservation", "(my )?reservation is under", "i('m| am) here to pick up (a |my )?car", "(name is|it'?s under) [a-z]+", "i booked online"],
           hint_tr: "Rezervasyonu söyle: 'I have a reservation under Berk'." },
         { speaker: "npc", message: "Passport, driver's license, and credit card, please." },
@@ -507,6 +514,7 @@ const l_tra_4: BundledLesson = {
     { id: "ex.tra.4.2", type: "roleplay_chat", difficulty: 3, scenario_description: "Metroya bilet alacaksın, otomat çalışmıyor.",
       npc_role: "Bus station info", setting: "Metro station kiosk",
       turns: [
+        { speaker: "npc", message: "Hi there — need a hand?" },
         { speaker: "user", acceptable_patterns: ["(excuse me|hi)(,)?.{0,30}(machine|kiosk).{0,20}(not|isn'?t|won'?t)", "the (machine|kiosk) isn'?t (taking|accepting)", "(i can'?t|cannot) (pay|use) the machine", "(my )?card (got |is )?(declined|rejected)", "(can|could) you help (me )?with (the )?machine"],
           hint_tr: "Sorunu anlat: 'The machine isn't taking my card'." },
         { speaker: "npc", message: "Try the contactless one over there." },
@@ -542,6 +550,7 @@ const l_tra_5: BundledLesson = {
     { id: "ex.tra.5.2", type: "roleplay_chat", difficulty: 2, scenario_description: "Otobüse bindin, şoföre durağını sor.",
       npc_role: "Bus station info", setting: "City bus",
       turns: [
+        { speaker: "npc", message: "Hop on — where are you headed?" },
         { speaker: "user", acceptable_patterns: ["(excuse me|hi)(,)?.{0,30}(get off|stop|station)", "(could|can) you tell me when to get off", "i('m| am) going to [a-z]+", "(which|what) stop (is|for) [a-z]+", "(does this bus|do you) (go to|stop at) [a-z]+"],
           hint_tr: "Sor: 'Could you tell me when to get off for City Hall?'" },
         { speaker: "npc", message: "Sure — which stop?" },
@@ -576,6 +585,7 @@ const l_tra_6: BundledLesson = {
     { id: "ex.tra.6.2", type: "roleplay_chat", difficulty: 2, scenario_description: "Sokakta yabancıya yön sor.",
       npc_role: "Bus station info", setting: "City street",
       turns: [
+        { speaker: "npc", message: "Hi — do you need help with directions?" },
         { speaker: "user", acceptable_patterns: ["(excuse me|hi)(,)?.{0,30}(close to|near|how do i get)", "am i close to [a-z]+", "(could|can) you help me find [a-z]+", "(how do i get to|which way to) [a-z]+", "(is|are) [a-z]+ (close|near|far)"],
           hint_tr: "Sor: 'Excuse me, am I close to Trafalgar Square?'" },
         { speaker: "npc", message: "Yes, very close! Just two blocks down." },
@@ -610,6 +620,7 @@ const l_tra_7: BundledLesson = {
     { id: "ex.tra.7.2", type: "roleplay_chat", difficulty: 3, scenario_description: "Peron 11'e koştun, görevliye onaylat.",
       npc_role: "Bus station info", setting: "Train platform 11",
       turns: [
+        { speaker: "npc", message: "Quick — train's about to leave! Need help?" },
         { speaker: "user", acceptable_patterns: ["(excuse me|hi)(,)?.{0,30}(right train|to [a-z]+)", "is this the (right )?train to [a-z]+", "(does this train|is this one) (go to|for) [a-z]+", "(am i|is this) on the right (train|platform)", "(quick )?(question|check)(,)? [a-z]+"],
           hint_tr: "Sor: 'Excuse me, is this the right train to Manchester?'" },
         { speaker: "npc", message: "Yes! Get on quickly, doors are closing." },
@@ -680,6 +691,7 @@ const l_tra_9: BundledLesson = {
     { id: "ex.tra.9.2", type: "roleplay_chat", difficulty: 4, scenario_description: "Rental car'ı geri veriyorsun — yakıt + hasar kontrolü.",
       npc_role: "Rental car agent", setting: "Car rental return lane",
       turns: [
+        { speaker: "npc", message: "Hi — returning the car today?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)? i('m| am) returning (the |my )?car", "here to return (the |my )?(rental|car)", "(i'?m )?dropping off (the |my )?car", "(reservation |it'?s )?under [a-z]+", "(returning|dropping off)(,)? full tank"],
           hint_tr: "Dönüş bildir: 'Hi, I'm returning the car'." },
         { speaker: "npc", message: "Welcome. Did you fill it up?" },
@@ -718,6 +730,7 @@ const l_tra_10: BundledLesson = {
     { id: "ex.tra.10.2", type: "roleplay_chat", difficulty: 3, scenario_description: "Sokakta scooter kiralayacaksın, görevliye veya yoldan geçene sor.",
       npc_role: "Bus station info", setting: "Sidewalk near scooters",
       turns: [
+        { speaker: "npc", message: "Hey — trying to grab a scooter?" },
         { speaker: "user", acceptable_patterns: ["(excuse me|hi)(,)?.{0,30}(unlock|scooter|lime|bird)", "how do i unlock (this |the )?scooter", "(does|do you know) how (this|to use) (works|this app)", "i('m| am) new to (lime|bird|this)", "(can|could) you help me with (the )?scooter"],
           hint_tr: "Sor: 'How do I unlock this scooter?'" },
         { speaker: "npc", message: "Scan the QR code on the handlebar with the app." },
@@ -758,6 +771,7 @@ const l_food_1: BundledLesson = {
     { id: "ex.food.1.2", type: "roleplay_chat", difficulty: 2, scenario_description: "Restoran kapısında host'a sor.",
       npc_role: "Restaurant host", setting: "Restaurant entrance",
       turns: [
+        { speaker: "npc", message: "Hi, welcome! How many in your party?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,15}(table|two|do you have)", "(do you have|is there) a table for (two|2|three|four)", "(any )?table for (two|2|three|four)", "(table for|just) (two|2)", "we don'?t have (a )?reservation"],
           hint_tr: "Sor: 'Hi, do you have a table for two?'" },
         { speaker: "npc", message: "We have a 20-minute wait. Care to wait at the bar?" },
@@ -828,6 +842,7 @@ const l_food_3: BundledLesson = {
     { id: "ex.food.3.2", type: "roleplay_chat", difficulty: 3, scenario_description: "Helal yiyecek arıyorsun, garsona detaylı sor.",
       npc_role: "Waiter", setting: "Restaurant table",
       turns: [
+        { speaker: "npc", message: "Hi there, ready to order or need a minute?" },
         { speaker: "user", acceptable_patterns: ["(excuse me|hi)(,)?.{0,30}(halal|pork|gelatin)", "(is|are) the (chicken|meat|dishes) halal", "(do you have|any) halal options", "(any )?dishes (without|free of) pork", "i (don'?t eat|avoid) pork"],
           hint_tr: "Sor: 'Excuse me, is the chicken halal?'" },
         { speaker: "npc", message: "The chicken isn't halal, but we have a vegetarian section." },
@@ -900,6 +915,7 @@ const l_food_5: BundledLesson = {
     { id: "ex.food.5.2", type: "roleplay_chat", difficulty: 3, scenario_description: "Roma'da yerel restoranda — şef önerisi al.",
       npc_role: "Local recommending dish", setting: "Trattoria in Rome",
       turns: [
+        { speaker: "npc", message: "Welcome! First time at our trattoria?" },
         { speaker: "user", acceptable_patterns: ["(what'?s|whats) the most popular dish", "(what would|do) you recommend", "(any|what'?s the) (signature|specialty|local) dish", "what'?s good here", "(what'?s|whats) the (chef|house) (special|specialty)"],
           hint_tr: "Sor: 'What's the most popular dish here?'" },
         { speaker: "npc", message: "Cacio e pepe — pasta with pecorino and pepper. Roman classic." },
@@ -937,6 +953,7 @@ const l_food_6: BundledLesson = {
     { id: "ex.food.6.2", type: "roleplay_chat", difficulty: 3, scenario_description: "Hesap geldi — servis ücreti ve ödeme.",
       npc_role: "Waiter", setting: "Restaurant table",
       turns: [
+        { speaker: "npc", message: "Anything else, or shall I bring the check?" },
         { speaker: "user", acceptable_patterns: ["(could|can|may) we (have|get) the (bill|check)", "(the )?(bill|check)(,)? please", "(could|can) i settle (up|the bill)", "we'?re ready (for the bill|to pay)", "(check|bill) when (you'?re|youre) (ready|free)"],
           hint_tr: "Hesap iste: 'Could we have the bill, please?'" },
         { speaker: "npc", message: "Of course. Here you go." },
@@ -1047,6 +1064,7 @@ const l_sig_1: BundledLesson = {
     { id: "ex.sig.1.2", type: "roleplay_chat", difficulty: 3, scenario_description: "Müze gişesinde — sıra çok uzun, alternatif sor.",
       npc_role: "Museum ticket desk", setting: "Museum ticket counter",
       turns: [
+        { speaker: "npc", message: "Hi — how many tickets would you like?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(skip.the.line|fast.?track|priority)", "(is there|do you have) a skip.the.line", "(any )?fast.?track (option|tickets)", "(could|can) i (get|buy) a priority (ticket|pass)", "(is there a|how to) (skip|avoid) the queue"],
           hint_tr: "Sor: 'Is there a skip-the-line option?'" },
         { speaker: "npc", message: "Yes, fast-track is 5 euros extra." },
@@ -1082,6 +1100,7 @@ const l_sig_2: BundledLesson = {
     { id: "ex.sig.2.2", type: "roleplay_chat", difficulty: 3, scenario_description: "Telefonla rehbere buluşma yerini onaylat.",
       npc_role: "Tour guide", setting: "Phone call before tour",
       turns: [
+        { speaker: "npc", message: "Hello, this is the walking tour — how can I help?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(walking tour|free tour|meeting point)", "(i'?m calling about|i booked) the walking tour", "(where|what) is the meeting point", "where do we meet for (the )?tour", "(could|can) you (confirm|tell me) the meeting"],
           hint_tr: "Sor: 'Hi, where's the meeting point for the tour?'" },
         { speaker: "npc", message: "Southwest corner of the main square — look for the red umbrella." },
@@ -1119,6 +1138,7 @@ const l_sig_3: BundledLesson = {
     { id: "ex.sig.3.2", type: "roleplay_chat", difficulty: 4, scenario_description: "Otelde sadece bir günün var — resepsiyondan öneri al.",
       npc_role: "Tour guide", setting: "Hotel reception",
       turns: [
+        { speaker: "npc", message: "Good morning — anything I can help you plan today?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(what'?s|whats) worth seeing", "i (only have|have only) one day(,)? what (would|do) you recommend", "(what|where) should i (go|visit|see)", "(any|do you have) (recommendations|suggestions)", "(what'?s|whats) the must.?see"],
           hint_tr: "Sor: 'I only have one day — what's worth seeing?'" },
         { speaker: "npc", message: "Old Town is a must — go early to avoid crowds." },
@@ -1156,6 +1176,7 @@ const l_sig_4: BundledLesson = {
     { id: "ex.sig.4.2", type: "roleplay_chat", difficulty: 2, scenario_description: "Manzaralı yerde, yoldan geçene fotoğraf çektir.",
       npc_role: "Tour guide", setting: "Scenic viewpoint",
       turns: [
+        { speaker: "npc", message: "Wow, great view, isn't it?" },
         { speaker: "user", acceptable_patterns: ["(excuse me|hi)(,)? would you mind", "(could|would) you (take|mind taking) a photo (of us)?", "(sorry to bother|excuse me)(,)?.{0,30}(photo|picture)", "(can you|could you) take (a )?(quick )?photo", "(would you|do you) mind (helping|taking)"],
           hint_tr: "Kibar başla: 'Excuse me, would you mind taking a photo?'" },
         { speaker: "npc", message: "Sure! How do I use this?" },
@@ -1190,6 +1211,7 @@ const l_sig_5: BundledLesson = {
     { id: "ex.sig.5.2", type: "roleplay_chat", difficulty: 3, scenario_description: "Tur operatörünü ara, pickup detayını onaylat.",
       npc_role: "Tour guide", setting: "Phone call with tour operator",
       turns: [
+        { speaker: "npc", message: "Hello, this is GetYourGuide — how can I help?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(booked|tour tomorrow|day tour)", "i('ve| have) booked the (day )?tour for tomorrow", "i('m| am) confirming (my )?tour", "(could|can) you confirm (the )?pickup", "(my )?booking (is for|number is)"],
           hint_tr: "Bağlanma: 'Hi, I've booked the tour for tomorrow'." },
         { speaker: "npc", message: "Of course — name and confirmation code?" },
@@ -1263,6 +1285,7 @@ const l_sig_7: BundledLesson = {
     { id: "ex.sig.7.2", type: "roleplay_chat", difficulty: 3, scenario_description: "Müze girişinde audio guide al.",
       npc_role: "Museum ticket desk", setting: "Audio guide counter",
       turns: [
+        { speaker: "npc", message: "Hi — looking for an audio guide?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(audio guide|english audio)", "(do you have|any) audio guide in english", "(could|can) i (get|rent) an audio guide", "(is there|do you have) (an )?english (audio )?guide", "audio guide(,)? english (please|version)"],
           hint_tr: "Sor: 'Do you have an audio guide in English?'" },
         { speaker: "npc", message: "Yes — five euros and an ID as deposit." },
@@ -1300,6 +1323,7 @@ const l_sig_8: BundledLesson = {
     { id: "ex.sig.8.2", type: "roleplay_chat", difficulty: 4, scenario_description: "Grup turundan ayrıldın, rehberi telefonla ara.",
       npc_role: "Tour guide", setting: "Phone call mid-tour",
       turns: [
+        { speaker: "npc", message: "Hello, tour guide speaking — everything okay?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(i got|i'?m) (lost|separated)", "i('m| am) on (your |the )?tour and (i got|i'?m) lost", "(i lost|i can'?t find) the group", "(i'?m|i am) (separated|behind|stuck)", "(this is|it'?s) [a-z]+ from the tour"],
           hint_tr: "Durum bildir: 'Hi, I'm on your tour and I got separated'." },
         { speaker: "npc", message: "No worries — where are you now?" },
@@ -1340,6 +1364,7 @@ const l_mon_1: BundledLesson = {
     { id: "ex.mon.1.2", type: "roleplay_chat", difficulty: 3, scenario_description: "Döviz bürosunda kur ve komisyon karşılaştır.",
       npc_role: "Currency exchange", setting: "Currency exchange booth",
       turns: [
+        { speaker: "npc", message: "Hi, what can I exchange for you?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(rate|exchange|euros|dollars)", "(what'?s|whats) your rate today (for|to) [a-z]+", "(how much|what) (do you|will i) (get|give) for", "(rate|exchange rate) for (euros|dollars|pounds)", "(could|can) you (tell me|show) (the )?rate"],
           hint_tr: "Sor: 'What's your rate today for euros?'" },
         { speaker: "npc", message: "1.08 euros per dollar." },
@@ -1377,6 +1402,7 @@ const l_mon_2: BundledLesson = {
     { id: "ex.mon.2.2", type: "roleplay_chat", difficulty: 4, scenario_description: "ATM kartını yuttu — banka acil hattını ara.",
       npc_role: "ATM helpline", setting: "Bank phone helpline",
       turns: [
+        { speaker: "npc", message: "Bank helpline, how can I help you?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(atm|machine).{0,15}(swallowed|kept|ate)", "(the )?atm swallowed my card", "(my )?card (is )?stuck in (the )?atm", "(the )?machine (kept|ate|took) my card", "(could|can) you help(,)? (my )?card is stuck"],
           hint_tr: "Anlat: 'The ATM swallowed my card'." },
         { speaker: "npc", message: "Sorry to hear that. Which branch?" },
@@ -1452,6 +1478,7 @@ const l_mon_4: BundledLesson = {
     { id: "ex.mon.4.2", type: "roleplay_chat", difficulty: 4, scenario_description: "Mağazada tax-free formu iste.",
       npc_role: "Currency exchange", setting: "Department store cashier",
       turns: [
+        { speaker: "npc", message: "Hi — will that be all for today?" },
         { speaker: "user", acceptable_patterns: ["(could|can) i (get|have) a tax refund form", "(is this|am i) eligible for tax(.| )?free", "(do you|do you offer) (tax.?free|tax refund)", "(can|could) i (apply for|get) (a )?(vat refund|tax.?free)", "(any|is there) tax.?free option"],
           hint_tr: "Sor: 'Could I get a tax refund form?'" },
         { speaker: "npc", message: "Passport, please. Are you flying out within 90 days?" },
@@ -1489,6 +1516,7 @@ const l_mon_5: BundledLesson = {
     { id: "ex.mon.5.2", type: "roleplay_chat", difficulty: 4, scenario_description: "Restoranda kart reddedildi — bankayı acil ara.",
       npc_role: "ATM helpline", setting: "Bank phone helpline (international)",
       turns: [
+        { speaker: "npc", message: "Bank international support — how can I help?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(card|declined|blocked)", "my card (was|just got) declined", "(my )?card is (being |getting )?(blocked|rejected) abroad", "(i'?m|i am) (abroad|in [a-z]+) and (my )?card", "(could|can) you (check|unblock) my card"],
           hint_tr: "Anlat: 'My card was declined abroad'." },
         { speaker: "npc", message: "Let me check — last four digits and your name?" },
@@ -1561,6 +1589,7 @@ const l_mon_7: BundledLesson = {
     { id: "ex.mon.7.2", type: "roleplay_chat", difficulty: 4, scenario_description: "Büyük çanta aldın, mağazadan eve göndertmek istiyorsun.",
       npc_role: "Currency exchange", setting: "Department store",
       turns: [
+        { speaker: "npc", message: "Hi — found everything you needed?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(ship|deliver) to (turkey|home)", "(do you|can you) ship to (turkey|home)", "(any )?international shipping (option|available)", "(could|can) you (send|deliver) this to turkey", "(is )?(international )?shipping (an option|available)"],
           hint_tr: "Sor: 'Do you ship to Turkey?'" },
         { speaker: "npc", message: "Yes, international shipping is available." },
@@ -1601,6 +1630,7 @@ const l_mis_1: BundledLesson = {
     { id: "ex.mis.1.2", type: "roleplay_chat", difficulty: 3, scenario_description: "Cafe'de telefonun öldü, çalışana şarj sor.",
       npc_role: "Hotel concierge (lost phone)", setting: "Coffee shop counter",
       turns: [
+        { speaker: "npc", message: "Hi, what can I get you?" },
         { speaker: "user", acceptable_patterns: ["(excuse me|hi|sorry to bother)(,)?.{0,30}(charger|charge|phone)", "(do you have|any) (a )?charger (i could|to) borrow", "(could|can) i borrow a charger", "(my )?phone (died|is dead) — (any|do you have a) charger", "(any chance|sorry)(,)? phone died"],
           hint_tr: "Sor: 'Excuse me, do you have a charger I could borrow?'" },
         { speaker: "npc", message: "What kind — iPhone or USB-C?" },
@@ -1636,6 +1666,7 @@ const l_mis_2: BundledLesson = {
     { id: "ex.mis.2.2", type: "roleplay_chat", difficulty: 5, scenario_description: "Polise tutanak için git.",
       npc_role: "Police station (lost wallet)", setting: "Police station front desk",
       turns: [
+        { speaker: "npc", message: "Good afternoon — how can I help you?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(file a report|report (a |my ))?", "i('d| would) like to file a (police )?report", "my wallet (was|got) stolen", "(could|can) i (file|report) (a )?(theft|stolen wallet)", "(i need to|i want to) report a theft"],
           hint_tr: "Aç: 'I'd like to file a report — my wallet was stolen'." },
         { speaker: "npc", message: "Where and when did it happen?" },
@@ -1676,6 +1707,7 @@ const l_mis_3: BundledLesson = {
     { id: "ex.mis.3.2", type: "roleplay_chat", difficulty: 3, scenario_description: "Tren kaçtı, gişeye git.",
       npc_role: "Bus station info", setting: "Train station ticket office",
       turns: [
+        { speaker: "npc", message: "Hi, how can I help you?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(missed|missed my train)", "(i )?(just )?missed (the |my )?train", "(can|could) i use this ticket on the next train", "(any way|is there a way) to (catch|use) (the )?next", "(my )?ticket — (next train|valid still)"],
           hint_tr: "Anlat: 'Hi, I just missed my train'." },
         { speaker: "npc", message: "What kind of ticket — flex or saver?" },
@@ -1713,6 +1745,7 @@ const l_mis_4: BundledLesson = {
     { id: "ex.mis.4.2", type: "roleplay_chat", difficulty: 4, scenario_description: "Eczanede semptom anlat.",
       npc_role: "Hotel concierge (lost phone)", setting: "Pharmacy counter",
       turns: [
+        { speaker: "npc", message: "Hi there — how can I help you today?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(sore throat|fever|sick)", "i (have|feel) (a )?(sore throat|fever|cold|cough)", "i('ve| have) been (sick|feeling unwell) since [a-z]+", "(could|can) you recommend (something|a medicine)", "(do you have|any) (something|medicine) for [a-z]+"],
           hint_tr: "Anlat: 'I have a sore throat and a fever since yesterday'." },
         { speaker: "npc", message: "Any allergies to medications?" },
@@ -1750,6 +1783,7 @@ const l_mis_5: BundledLesson = {
     { id: "ex.mis.5.2", type: "roleplay_chat", difficulty: 5, scenario_description: "Odadasın, çok kötü — resepsiyonu ara.",
       npc_role: "Hotel concierge (lost phone)", setting: "Phone call from hotel room",
       turns: [
+        { speaker: "npc", message: "Front desk, how can I help you?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(not feeling well|need a doctor|food poisoning)", "i('m| am) (not feeling well|very sick) — (could|can) you call (a )?(doctor|house doctor)", "(this is room \\d+|i'?m in room \\d+) — i (need|think i need) a doctor", "i think (it'?s|it might be) food poisoning", "(could|can) you (send|call) (a )?doctor (to|up to) my room"],
           hint_tr: "Anlat: 'I'm not feeling well — could you call a doctor?'" },
         { speaker: "npc", message: "Of course. What are the symptoms?" },
@@ -1787,6 +1821,7 @@ const l_mis_6: BundledLesson = {
     { id: "ex.mis.6.2", type: "roleplay_chat", difficulty: 4, scenario_description: "Operatör mağazasında turist SIM al.",
       npc_role: "Hotel concierge (lost phone)", setting: "Mobile carrier shop",
       turns: [
+        { speaker: "npc", message: "Welcome — how can I help you today?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(tourist sim|sim card|esim)", "(could|can) i (get|buy) a tourist sim", "i('?d| would) like a (tourist )?sim with data", "(any )?(data|sim) plan for (one |a )?week", "(do you have|any) prepaid sim"],
           hint_tr: "Sor: 'I'd like a tourist SIM with data for one week'." },
         { speaker: "npc", message: "10 GB for 15 euros, valid 7 days. Passport, please." },
@@ -1824,6 +1859,7 @@ const l_mis_7: BundledLesson = {
     { id: "ex.mis.7.2", type: "roleplay_chat", difficulty: 5, scenario_description: "Hava nedeniyle uçuş iptal. Havayolunu ara, planı yenile.",
       npc_role: "Gate agent", setting: "Airline phone helpline (cancellation)",
       turns: [
+        { speaker: "npc", message: "Airline support, how can I help you today?" },
         { speaker: "user", acceptable_patterns: ["(hi|hello)(,)?.{0,30}(cancelled|cancellation|storm)", "(my )?flight (was|is) cancelled (due to|because of) (weather|storm)", "i('m| am) stuck — flight cancelled", "(could|can) you help (me )?rebook", "(my flight|i was on) [a-z]{2}\\s?\\d+ — cancelled"],
           hint_tr: "Anlat: 'My flight was cancelled due to the storm'." },
         { speaker: "npc", message: "Sorry to hear. What's your booking code?" },

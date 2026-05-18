@@ -88,6 +88,9 @@ export const travelC1Lesson_1: BundledLesson = {
             "(if it'?s|if there'?s).{0,40}(any (flexibility|chance|possibility)).{0,40}(upgrade|suite|category)",
             "(could|might).{0,40}(consider|look at).{0,40}(upgrade|suite)",
             "(it'?s|its) (our|my).{0,20}(anniversary|honeymoon).{0,80}(suite|upgrade|wondering)",
+            "(i was hoping|i'?d hoped).{0,40}(possible|chance|might be).{0,40}(suite|upgrade|category)",
+            "(any chance|is there a chance).{0,40}(upgrade|suite|better room|something nicer)",
+            "(would it be possible|could it be possible).{0,40}(upgrade|suite|consider)",
           ],
           hint_tr:
             "Hedge'li başla: 'I was wondering if there might be any flexibility on category...' veya leverage'ı yumuşak ekle ('it's our anniversary').",
@@ -104,6 +107,9 @@ export const travelC1Lesson_1: BundledLesson = {
             "(it'?s|its) (our|my).{0,30}(anniversary|honeymoon|birthday)",
             "we'?re celebrating.{0,40}(anniversary|honeymoon|birthday)",
             "(my|our).{0,20}(wife|husband|partner).{0,40}(anniversary|birthday)",
+            "(as a matter of fact|since you ask).{0,40}(anniversary|honeymoon|birthday|special)",
+            "(this trip|the stay) is.{0,40}(our|my).{0,30}(anniversary|honeymoon|birthday)",
+            "(we'?re here for|here to mark).{0,40}(anniversary|honeymoon|milestone)",
           ],
           hint_tr:
             "Vesileni nazikçe söyle: 'Actually, it's our tenth anniversary' — pazarlık yapmıyorsun, paylaşıyorsun.",
@@ -120,6 +126,9 @@ export const travelC1Lesson_1: BundledLesson = {
             "(thank you|i really appreciate|i'?m most grateful|much appreciated)",
             "(that'?s|that is) (so |very |incredibly )?(kind|generous|thoughtful)",
             "i can'?t thank you enough",
+            "(that'?s|that is) (more than|exactly) (i could have|what i).{0,40}(hoped|asked)",
+            "(suits us|works|would be lovely).{0,30}(perfectly|beautifully|wonderfully)",
+            "(very kind of you|how very kind|how thoughtful).{0,30}(thank you|appreciate)",
           ],
           hint_tr:
             "Aşırı sevinme — sakin ve takdirkar: 'That would be wonderful, thank you — I'm most grateful.'",
@@ -315,6 +324,9 @@ export const travelC1Lesson_2: BundledLesson = {
             "(if it'?s not too much trouble|not to be a bother|sorry to ask).{0,60}(any chance|might there be|would there be).{0,40}(better|higher|lounge|upgrade)",
             "(any chance of|is there any chance).{0,40}(club lounge|lounge access|upgrade|better room)",
             "(while we'?re|while you'?re) (there|at it).{0,60}(lounge|upgrade|better)",
+            "(i was wondering|i don'?t suppose).{0,40}(lounge|upgrade|better room|higher floor)",
+            "(if it isn'?t|if it'?s not) (a hassle|too much).{0,40}(lounge|upgrade|better)",
+            "(would|could) (you|it be possible to) (look at|see about).{0,40}(lounge|upgrade|category)",
           ],
           hint_tr:
             "Düşük baskı: 'If it's not too much trouble, any chance of club lounge access?' — gülümseme.",
@@ -331,6 +343,9 @@ export const travelC1Lesson_2: BundledLesson = {
             "(no rush|no pressure|whenever you can)",
             "i (really )?appreciate (it|you|that)",
             "(that'?s|that is) (very |so )?kind of you",
+            "(take your time|in your own time).{0,30}(thank you|appreciate)",
+            "(whatever you can|whatever works) (manage|do).{0,30}(thank you|appreciate)",
+            "(i'?m grateful|i'?m most grateful) for (your|the).{0,30}(time|effort|trouble)",
           ],
           hint_tr:
             "Baskı yapma: 'No rush — really appreciate it.' Cömertliğin ödülü, baskı değil sabır.",
@@ -347,6 +362,9 @@ export const travelC1Lesson_2: BundledLesson = {
             "i can'?t thank you enough",
             "(thank you|much appreciated|i'?m most grateful).{0,30}(so much|very much|sincerely)",
             "(absolute legend|you'?re a star|wonderful)",
+            "(that has|that'?s) made (my|our) (day|stay|trip|evening)",
+            "(genuinely|truly) (appreciate|grateful for) (it|that|your kindness)",
+            "(what a|that'?s a) (lovely|generous) (gesture|surprise|touch)",
           ],
           hint_tr:
             "Şükranı içtenleştir: 'That's incredibly kind — thank you so much.'",
@@ -533,6 +551,9 @@ export const travelC1Lesson_3: BundledLesson = {
             "(i'?d like to|i'?m hoping to|i was hoping to).{0,40}extend.{0,40}(three|3) (more )?nights",
             "(could|might) i extend.{0,40}(three|3) (more )?nights",
             "i need to extend.{0,30}(three|3) (more |additional )?nights",
+            "(would it be|is it) possible.{0,40}(extend|stay on|add).{0,30}(three|3|few more) nights",
+            "(any chance|wondering) (i could|of).{0,30}(extend|adding).{0,30}(three|3|more) nights",
+            "(my plans have|circumstances have).{0,30}(changed|shifted).{0,40}(extend|stay|three|3) more",
           ],
           hint_tr:
             "Niyeti net söyle: 'I'd like to extend by three nights' — sonra rate ricasına geç.",
@@ -549,6 +570,9 @@ export const travelC1Lesson_3: BundledLesson = {
             "(i'?d be|i would be) (enormously|incredibly|most|terribly) grateful.{0,80}(honour|consider|extend)",
             "any (flexibility|chance|possibility).{0,60}(rate|corporate|honour)",
             "(would|could) (you|it) be (possible|feasible).{0,80}(honour|extend|carry)",
+            "(if it'?s at all possible|if there'?s any way).{0,40}(honour|carry|extend).{0,40}(corporate|rate)",
+            "(i know that|i realise).{0,30}(technically|normally).{0,60}(grateful|consider|exception)",
+            "(would you mind|would you consider).{0,40}(applying|extending|honouring).{0,40}(rate|same rate)",
           ],
           hint_tr:
             "Önce anladığını göster, sonra ricayı hedge'le: 'I appreciate that, but I'd be enormously grateful if you could honour the corporate rate on the extension.'",
@@ -564,6 +588,9 @@ export const travelC1Lesson_3: BundledLesson = {
             "(yes|absolutely|indeed|in fact).{0,80}(book|stay|use|regularly|consistently)",
             "we book.{0,40}(regularly|often|consistently|frequently).{0,30}(with you|here)",
             "(my company|we).{0,40}(been|using|partnered).{0,40}(for|over) (years|months)",
+            "(this is|that'?s) (my|our) (third|fourth|fifth|nth) (stay|booking|visit).{0,30}(this year|with you)",
+            "(we have|we'?ve been) (a |an )?(account|preferred|corporate).{0,40}(client|partner).{0,40}(years|long time)",
+            "(yes|certainly) — (we|the firm).{0,40}(regular|frequent|repeat).{0,30}(guest|client|visitor)",
           ],
           hint_tr:
             "Leverage'ı evidence ile sun: 'Yes, we book here consistently — this is my fourth stay this year.'",
@@ -580,6 +607,9 @@ export const travelC1Lesson_3: BundledLesson = {
             "(that'?s|that is).{0,30}(incredibly|extraordinarily|very) (kind|generous|thoughtful)",
             "i (really |truly |genuinely )?appreciate (it|that|you).{0,40}(very much|so much|enormously)",
             "(much obliged|enormously grateful).{0,30}(thank you|to you)",
+            "(that means|that'?s) (a lot|a great deal|enormously helpful).{0,30}(thank you|appreciate)",
+            "(very kind|how kind) of you to (do|make).{0,30}(that|the exception)",
+            "(i won'?t forget|we won'?t forget) (this|the gesture|your kindness)",
           ],
           hint_tr:
             "İçten teşekkür + cömertliği takdir: 'Thank you, I'm enormously grateful — that's incredibly kind of you.'",
@@ -771,6 +801,9 @@ export const travelC1Lesson_4: BundledLesson = {
             "(could|can) you walk me through.{0,40}(eu.?261|my rights|my options)",
             "(under eu.?261|what.{0,20}entitled to).{0,60}(cancellation|delay|disruption)",
             "(i'?d like to|i would like to) understand.{0,60}(eu.?261|options|entitlements|rights)",
+            "(i know this is|i realise this isn'?t).{0,40}(on you|your doing).{0,60}(rights|entitled|261)",
+            "(could you help me|could you clarify).{0,40}(what (i'?m|i am) entitled|my eu.?261)",
+            "(may i ask|just to clarify).{0,40}(compensation|duty of care|eu.?261).{0,30}(applies|covers)",
           ],
           hint_tr:
             "Empati önce: 'I appreciate this isn't your fault, but I'd like to understand my options under EU261.'",
@@ -786,7 +819,10 @@ export const travelC1Lesson_4: BundledLesson = {
             "(could|can) i (get|have) (that|this) in writing.{0,40}(records|claim|reference)",
             "(would you|could you).{0,40}(confirm|put).{0,30}(in writing|on paper|via email)",
             "(i'?d like|i would like).{0,30}(written|in writing).{0,30}(confirmation|record)",
-            "for my records",
+            "(for my|for the) (records|claim|file)",
+            "(would it be possible to|may i ask for).{0,40}(written|email).{0,30}(confirmation|reference)",
+            "(send me|email me).{0,30}(a |the )?(reference|cancellation code|written).{0,30}(please|for my records)",
+            "(i'?ll need|we'?ll need).{0,30}(in writing|written|on paper).{0,30}(for the claim|for insurance)",
           ],
           hint_tr:
             "Paper trail başlat: 'Could I get that in writing for my records?' — EU261 talebi için zorunlu.",
@@ -803,6 +839,9 @@ export const travelC1Lesson_4: BundledLesson = {
             "(can|could) you arrange.{0,40}(hotel|meal|transport|accommodation)",
             "(under duty of care|for tonight).{0,60}(hotel|meal|stay|accommodation)",
             "(re|about).{0,30}duty of care.{0,40}(hotel|meal|tonight)",
+            "(and|also).{0,30}(what (about|happens)|how does that work) (with|for).{0,30}(hotel|meal|accommodation)",
+            "(will the airline|are you|are we) (covering|providing|arranging).{0,40}(hotel|meals|tonight)",
+            "(may i ask|just to confirm).{0,40}(duty of care|hotel|vouchers|tonight)",
           ],
           hint_tr:
             "Duty of care'i sor: 'What about duty of care — hotel and meals tonight?'",
@@ -818,7 +857,10 @@ export const travelC1Lesson_4: BundledLesson = {
             "(thank you|much appreciated|i appreciate it)",
             "(thank you|thanks).{0,30}(for|the).{0,20}(clarity|information|help|patience)",
             "(that'?s|that is) (very|really|much) helpful.{0,30}(thank you|appreciated)",
-            "i really appreciate",
+            "i really appreciate (your|the).{0,30}(help|time|patience|effort)",
+            "(thank you|thanks) for (sorting|handling|managing).{0,30}(this|everything)",
+            "(you'?ve been|that'?s been) (very|extraordinarily|incredibly) helpful",
+            "(genuinely|truly) grateful for (your|the) (assistance|help|guidance)",
           ],
           hint_tr:
             "Takdir et: 'Thank you — that's really helpful.' Defansiften iş ortağına döndürdün.",
@@ -1007,8 +1049,11 @@ export const travelC1Lesson_5: BundledLesson = {
           acceptable_patterns: [
             "(tag number|tag)( is)?.{0,20}[a-z]{2,3}[0-9]{6}",
             "(the tag|baggage tag).{0,20}(reads|is|says).{0,20}[a-z0-9]",
-            "(i have it here|here you go|it'?s)",
-            "(yes|certainly|of course).{0,40}(tag|number)",
+            "(i have it here|here you go|it'?s right here)",
+            "(yes|certainly|of course).{0,40}(tag|number|here)",
+            "(here'?s|here is) (the|my) (tag|baggage receipt|stub)",
+            "(let me|one moment).{0,30}(give|read|find) (you|the).{0,20}(tag|number|receipt)",
+            "(absolutely|sure).{0,30}(it'?s|the number is).{0,30}[a-z0-9]",
           ],
           hint_tr:
             "Tag numarasını ver. 'Yes, the tag is BA876543' veya 'Here you go.'",
@@ -1025,6 +1070,9 @@ export const travelC1Lesson_5: BundledLesson = {
             "the (bag|contents|inside).{0,40}(includes|contains).{0,60}(medication|prescription|suit|keys)",
             "(there'?s|theres).{0,30}(prescription|medication|suit|keys).{0,40}(in|inside) (the |that )?bag",
             "(unfortunately|the issue is).{0,40}(medication|prescription|suit|keys)",
+            "(the problem is|the thing is).{0,40}(medication|prescription|essentials|keys).{0,30}(inside|in the bag)",
+            "(i'?d normally|i would normally).{0,40}(wait|be fine).{0,60}(medication|prescription|critical)",
+            "(unfortunately|sadly).{0,30}(i have|there are).{0,40}(prescription|medication|valuables|essentials) (inside|in there)",
           ],
           hint_tr:
             "Empati önce: 'I understand — but given the contents (medication, suit, keys)...' Eskalasyon zemini.",
@@ -1041,6 +1089,9 @@ export const travelC1Lesson_5: BundledLesson = {
             "(i'?d like to|i would like to) escalate.{0,40}(supervisor|manager).{0,30}(if i may|please)",
             "(could|can) we (get|involve) a supervisor.{0,30}(please)?",
             "(escalate|raise).{0,30}(to a |with a )?supervisor",
+            "(would it be possible|may i ask) to (speak with|have a word with).{0,30}(supervisor|manager)",
+            "(given (the|that)).{0,30}(circumstances|contents|situation).{0,40}(supervisor|escalate|manager)",
+            "(could you|would you) (bring in|call over).{0,30}(a |the )?(supervisor|duty manager)",
           ],
           hint_tr:
             "Eskale et: 'I'd like to escalate this to a supervisor, if I may.' Süpervizör daha geniş yetkiye sahiptir.",
@@ -1057,6 +1108,9 @@ export const travelC1Lesson_5: BundledLesson = {
             "(could|can) (you|i) get.{0,40}(interim|expense|advance|allowance).{0,40}(tonight|essentials)",
             "(would|could) you.{0,40}(arrange|cover).{0,40}(essentials|toiletries|clothing)",
             "(could|can) we open a pir",
+            "(while we wait|in the meantime).{0,40}(pir|report|expense|essentials)",
+            "(i'?d like to|i would like to) (file|raise|open) (a |the )?(pir|report).{0,30}(get|along with).{0,30}(reference|number)",
+            "(may i ask|could you also).{0,30}(advance|cover|provide).{0,40}(essentials|tonight|necessities)",
           ],
           hint_tr:
             "İki rica: 'Could we open a PIR? And could you arrange an interim expense allowance for essentials tonight?'",
@@ -1069,10 +1123,13 @@ export const travelC1Lesson_5: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(thank you|thanks|much appreciated)",
+            "(thank you|thanks|much appreciated).{0,30}(so much|very much|truly)?",
             "(thank you|thanks).{0,30}(for|your).{0,30}(help|patience|understanding)",
-            "i (truly |really )?appreciate (it|you|that)",
+            "i (truly |really )?appreciate (it|you|that).{0,30}(very much|so much|sincerely)?",
             "you'?ve been (very |so |incredibly )?(helpful|kind|understanding)",
+            "(that'?s|that is).{0,30}(very|incredibly|extraordinarily) (kind|generous|thoughtful) of you",
+            "(genuinely|truly) grateful for (your|the).{0,30}(help|kindness|effort|patience)",
+            "(can'?t thank you enough|i won'?t forget this).{0,30}(thank you|appreciate)?",
           ],
           hint_tr:
             "Empati ödülü ver: 'Thank you — you've been incredibly helpful.' Sonraki etkileşim daha kolay.",
@@ -1265,6 +1322,9 @@ export const travelC1Lesson_6: BundledLesson = {
             "(i'?d like to|i would like to).{0,30}(register|make|lodge|file).{0,30}(formal|official) complaint",
             "(could|may) i (register|make|lodge).{0,30}(formal|official) complaint",
             "i'?m here to (raise|put on record|register).{0,40}(concern|complaint|issue)",
+            "(i need to|i want to).{0,30}(put|place) (a |an )?(complaint|issue).{0,30}(on record|formally)",
+            "(could we|may we) (have|take) (a moment|some time).{0,30}(formal complaint|registering|grievance)",
+            "(there'?s a matter|i have a concern).{0,40}(formally|register|on record|formal complaint)",
           ],
           hint_tr:
             "Kayıt-altı dilekçeyle başla: 'I'd like to register a formal complaint about last night.'",
@@ -1281,6 +1341,9 @@ export const travelC1Lesson_6: BundledLesson = {
             "(there was|we had).{0,30}(construction|noise|drilling).{0,30}(from|until|throughout) (around )?(3|three|2|two)",
             "(noise|disturbance).{0,40}(woke us|kept us awake|couldn'?t sleep)",
             "(serious|significant) (noise|disturbance|construction).{0,40}(overnight|all night|early hours)",
+            "(we were kept|i was kept) (up|awake).{0,40}(construction|drilling|hammering).{0,30}(hours|overnight)",
+            "(no one|we weren'?t) (warned|notified|told).{0,40}(construction|works|noise) (overnight|in the early hours)",
+            "(the room|our floor) was (subject to|affected by).{0,40}(construction|drilling|noise).{0,30}(through the night|until)",
           ],
           hint_tr:
             "Olguyu zaman damgalı sun: 'There was construction noise from around 3am until 6am — we couldn't sleep at all.'",
@@ -1297,6 +1360,9 @@ export const travelC1Lesson_6: BundledLesson = {
             "(frankly|to be honest|i must say).{0,60}(fell short|below|expected|standard|calibre)",
             "(this|that) fell.{0,30}(short of|below).{0,30}(expected|expectations|standard|calibre)",
             "(for a (property|hotel) of this (calibre|standard))",
+            "(that said|even so).{0,40}(some warning|advance notice|forewarning).{0,40}(would have|reasonable|fair)",
+            "(the issue is|the trouble is).{0,40}(no notice|without warning|fell short).{0,40}(category|calibre|standard)",
+            "(one expects|guests expect).{0,40}(notification|forewarning).{0,30}(property|hotel) (like this|of this standard)",
           ],
           hint_tr:
             "Ölçülü değerlendirme: 'I appreciate that — but the lack of notification fell short of what one expects for a property of this calibre.'",
@@ -1313,6 +1379,9 @@ export const travelC1Lesson_6: BundledLesson = {
             "(a |some |around |roughly )?(partial|partial) refund.{0,40}(seems|would be).{0,30}(fair|appropriate|reasonable)",
             "(could|would) you (consider|offer).{0,40}(partial refund|night'?s rate|credit)",
             "(50%|half|partial) (refund|credit) (for|of) (the |that )?night",
+            "(a refund|some compensation) on (last night|the night in question).{0,30}(would (be|seem) fair|appropriate)",
+            "(would (it be|you) possible).{0,40}(refund|credit|compensation).{0,40}(night|disturbance)",
+            "(perhaps|maybe).{0,30}(a refund|some credit).{0,40}(reasonable|fair|appropriate).{0,30}(night|disturbance)",
           ],
           hint_tr:
             "Spesifik ve makul: 'A partial refund for the night in question — fifty percent would seem fair.'",
@@ -1329,6 +1398,9 @@ export const travelC1Lesson_6: BundledLesson = {
             "(that'?s|that is) (very|extraordinarily|really) (fair|generous|reasonable)",
             "thank you (very much|so much).{0,30}(handling|resolving|sorting)",
             "i'?m (most|very|truly) (grateful|appreciative)",
+            "(that'?s|that is) (more than|exactly what).{0,30}(fair|hoped|expected)",
+            "(very kind|how kind) of you.{0,30}(handle|resolve|sort) (it|this) so (quickly|graciously)",
+            "(genuinely|truly) appreciate the (way|speed|grace).{0,30}(handled|resolved|sorted)",
           ],
           hint_tr:
             "Cömertliği işaretle: 'That's very fair — thank you for handling this so quickly.' Tekrar konaklamaya kapı açar.",
@@ -1519,6 +1591,9 @@ export const travelC1Lesson_7: BundledLesson = {
             "(i'?d be|i would be) curious.{0,40}(how|what|why).{0,60}(contemporary|modern|today'?s) (romans|italians)",
             "(how do|how would).{0,40}(contemporary|modern|today'?s).{0,40}(relate|engage|reconcile).{0,40}(imperial|legacy|heritage)",
             "(what'?s|what is) (the) (relationship|tension|legacy).{0,60}(modern|contemporary).{0,30}(rome|italy|romans)",
+            "(i'?ve always wondered|i'?ve been curious).{0,40}(how|whether).{0,40}(romans|italians).{0,40}(imperial|legacy|past)",
+            "(if i may|may i ask).{0,40}(how).{0,40}(modern|contemporary) (rome|italians).{0,40}(legacy|imperial|history)",
+            "(could you|might you) (frame|describe).{0,40}(transition|relationship).{0,40}(imperial|legacy|modern)",
           ],
           hint_tr:
             "Tarihçi-soru aç: 'I'd be curious — how do contemporary Romans relate to the imperial legacy?'",
@@ -1535,6 +1610,9 @@ export const travelC1Lesson_7: BundledLesson = {
             "(there'?s|theres) an interesting (parallel|connection|resonance).{0,40}(between|with)",
             "(i'?d be|i would be) curious.{0,40}(how|whether).{0,60}(survives|persists|echoes|features)",
             "(does that|how does).{0,40}(filter|surface|show up).{0,40}(today|now|contemporary|public)",
+            "(one might draw|i can'?t help drawing).{0,40}(parallel|comparison|line).{0,40}(germans|austrians|elsewhere)",
+            "(how does that|in what way does that).{0,40}(play out|manifest).{0,40}(politics|public discourse|today)",
+            "(strikingly similar|that echoes).{0,40}(other|elsewhere|post-imperial).{0,30}(societies|contexts)",
           ],
           hint_tr:
             "Allusion yap: 'There's an interesting parallel with how Germans handled their imperial past.' Veya 'How does that ambivalence surface today?'",
@@ -1551,6 +1629,9 @@ export const travelC1Lesson_7: BundledLesson = {
             "(it'?s|its) interesting.{0,40}(similar|comparable|analogous).{0,40}(turkey|germany|france|elsewhere)",
             "(i'?d hesitate|one hesitates|hard to|tricky to).{0,40}(generalise|generalize|draw|conclude)",
             "(though|that said|to be fair).{0,80}(complex|nuanced|context|different)",
+            "(one sees|we see) (something similar|comparable dynamics).{0,40}(turkey|elsewhere|other contexts)",
+            "(i wouldn'?t want to|i'?m wary of).{0,30}(overstate|oversimplify).{0,40}(parallel|comparison|similarity)",
+            "(in turkey at least|from the turkish side).{0,40}(comparable|similar|parallel).{0,30}(tension|dynamic|debate)",
           ],
           hint_tr:
             "Hedge'li politik dokunuş: 'It's interesting — one sees comparable dynamics in Turkey, though the context is quite different.'",
@@ -1567,6 +1648,9 @@ export const travelC1Lesson_7: BundledLesson = {
             "(one might say|i'?d say|i would say).{0,80}(ambivalence|tension|nuance)",
             "(there'?s|theres) (a) (similar|comparable|parallel).{0,60}(ambivalence|tension|debate)",
             "(very much|certainly|absolutely).{0,40}(contested|debated|live debate)",
+            "(in recent years|of late).{0,40}(ottoman|imperial).{0,40}(charged|politicised|reframed)",
+            "(my own sense is|the way i read it).{0,40}(ottoman|imperial|legacy).{0,40}(complicated|contested|fraught)",
+            "(historians|scholars) in turkey.{0,40}(debate|argue|read).{0,40}(ottoman|imperial|legacy)",
           ],
           hint_tr:
             "Hedge'le ve kişiselleştir: 'In Turkey, the Ottoman legacy is similarly contested — though more politically charged in recent years.'",
@@ -1758,6 +1842,9 @@ export const travelC1Lesson_8: BundledLesson = {
             "(i'?m|i am) (struck by|taken with|drawn to).{0,40}(structure|texture|tension|aromatics)",
             "(beautiful|elegant).{0,40}(integration|balance|tension).{0,40}(tannin|acid|fruit)",
             "(what'?s|whats) striking.{0,40}(here|in this) is the",
+            "(the|that) (nose|palate|finish) is (beautifully|wonderfully).{0,30}(layered|integrated|composed)",
+            "(very|remarkably) (well-?integrated|composed|knit).{0,40}(tannin|acid|fruit)",
+            "(love|admire) how.{0,30}(merlot|cabernet|fruit) (carries|sits with|balances).{0,40}(tannin|structure|acidity)",
           ],
           hint_tr:
             "Spesifik gözlem: 'There's wonderful tension between the fruit and the tannin structure here.'",
@@ -1774,6 +1861,9 @@ export const travelC1Lesson_8: BundledLesson = {
             "(what'?s|whats) your thinking on.{0,40}(assemblage|biodynamics|harvest timing|climate)",
             "(i'?d be|i would be) (curious|interested).{0,40}(how|what).{0,40}(climate|warming).{0,40}(decisions|approach|philosophy)",
             "(has climate change|does climate change).{0,40}(forced|pushed|changed).{0,40}(reconsider|rethink|adjust)",
+            "(may i ask|i'?d love to know).{0,40}(climate|warming).{0,40}(blend|decisions|harvest)",
+            "(over the last|in recent) (decade|years).{0,40}(climate|warming).{0,40}(blend|approach|farming)",
+            "(curious|wondering).{0,30}(picking|harvest|blend).{0,40}(shifted|changed|evolved).{0,30}(climate|warming)",
           ],
           hint_tr:
             "Derin tetikleyici soru: 'How has climate change reshaped your assemblage decisions?'",
@@ -1790,6 +1880,9 @@ export const travelC1Lesson_8: BundledLesson = {
             "(one|i) hear.{0,40}(similar|comparable|same).{0,40}(burgundy|napa|tuscany|elsewhere)",
             "(i'?d be|i would be).{0,30}(interested|curious).{0,40}(whether|how|biodynamic|organic|carbon)",
             "(does that|how does).{0,40}(affect|influence|drive).{0,40}(vineyard|farming|practices)",
+            "(strikingly similar|that resonates with).{0,40}(what i'?ve heard|things i'?ve read).{0,40}(burgundy|elsewhere)",
+            "(may i ask|i'?d love to know).{0,40}(impact|driving|influence).{0,40}(farming|canopy|practice)",
+            "(how does that|in what way does that).{0,40}(translate|filter|carry).{0,40}(viticulture|vineyard|farming)",
           ],
           hint_tr:
             "Allusion + bir sonraki katman: 'One hears similar things from Burgundy — does that influence your farming practices too?'",
@@ -1806,6 +1899,9 @@ export const travelC1Lesson_8: BundledLesson = {
             "(that'?s|that is) (a |an )?(significant|considerable|profound).{0,40}(commitment|undertaking|investment)",
             "(may i|might i|could i) (ask|enquire).{0,40}(how it|whether it|the cost|market)",
             "(it'?s|its) (interesting|striking) how.{0,40}(small estates|small producers).{0,40}(leading|ahead)",
+            "(quite the|that'?s quite a) (leap|step|undertaking).{0,30}(estate|operation) of (your|this) size",
+            "(does the|has the) (market|trade|customer base).{0,40}(reward|recognise|respond to).{0,30}(commitment|certification)",
+            "(impressive|admirable) (commitment|leap) — (any|much) (cost|sacrifice|impact) (on yield|on quality)",
           ],
           hint_tr:
             "Takdir + soru: 'That's a remarkable commitment — has the market rewarded that decision?'",
@@ -1822,6 +1918,9 @@ export const travelC1Lesson_8: BundledLesson = {
             "(what a|that'?s a) (rare|generous|wonderful) (treat|comparison|privilege)",
             "(i'?m most|i'?m incredibly) (grateful|honoured).{0,30}(taste|share|experience)",
             "thank you (so |very )?much for sharing",
+            "(this is|that'?s) (a real|quite a) (privilege|treat|opportunity).{0,30}(grateful|honoured)?",
+            "(genuinely|truly) honoured to (taste|share|experience) (this|the comparison|the vertical)",
+            "(rare opportunity|extraordinary chance) (to taste|to compare).{0,30}(thank you|grateful)",
           ],
           hint_tr:
             "Hediye ricasını kabul et: 'What a generous comparison — thank you for sharing that.'",
@@ -2008,6 +2107,9 @@ export const travelC1Lesson_9: BundledLesson = {
             "(could|can) you (take|drop) me.{0,30}(west end|city centre|byres road)",
             "(west end|city centre)(,)? (please|thanks|cheers)",
             "(heading|going) to.{0,30}(west end|city centre|byres)",
+            "(west end|byres road).{0,20}(if you|when you can|cheers)",
+            "(taking me to|drop me at).{0,30}(west end|byres|city centre)",
+            "(west end|byres road) please — (do you know|if you know).{0,30}(it|the area|the road)",
           ],
           hint_tr:
             "Net hedef + nezaket: 'The West End, please — Byres Road if you know it.'",
@@ -2024,6 +2126,9 @@ export const travelC1Lesson_9: BundledLesson = {
             "(could|would) you (say|repeat) (that|the last bit).{0,30}(again|slower|once more)",
             "(visiting|just visiting|on holiday|for work).{0,40}(few days|week|conference)",
             "(visiting|here).{0,40}(few days|week|holiday)",
+            "(would you mind|do you mind) (saying|repeating).{0,30}(that|the last).{0,30}(slower|again)",
+            "(i'?m sorry|forgive me).{0,30}(missed|lost).{0,30}(that|the last bit|what you said)",
+            "(yes|aye) — (visiting|over|here) for (a few days|the weekend|work)",
           ],
           hint_tr:
             "İki seçenek: yakalarsan cevapla (visiting/working), yakalayamadıysan 'Sorry, didn't quite catch that — could you say it again?'",
@@ -2040,6 +2145,9 @@ export const travelC1Lesson_9: BundledLesson = {
             "(here|in town) (for|on).{0,30}(holiday|work|a few days|conference)",
             "(pure dead brilliant|love it|brilliant).{0,40}(so far|already|hearing)",
             "(visiting|just here).{0,40}(few days|week|holiday)",
+            "(sounds (like|like a)|reckon it'?s).{0,40}(brilliant|cracker|class|grand) (city|town|place)",
+            "(everyone'?s|folks have been) (telling me|saying).{0,40}(love|brilliant|pure dead)",
+            "(yeah|aye) — (holiday|short trip|a quick visit).{0,30}(so far|loving|excited)",
           ],
           hint_tr:
             "Anladığını göster + jargonu iade et: 'Just visiting for a few days — sounds like a pure dead brilliant city already.'",
@@ -2056,6 +2164,9 @@ export const travelC1Lesson_9: BundledLesson = {
             "(sounds|that sounds).{0,30}(great|brilliant|wonderful).{0,30}(will|i'?ll) check",
             "(noted|i'?ll note|adding).{0,30}(to|on) the list",
             "(brel|ashton lane).{0,30}(noted|will check|sounds great)",
+            "(cheers for|thanks for) (the tip|the recommendation).{0,30}(i'?ll|will) (check|try)",
+            "(it'?s|that'?s) on the list — (cheers|thanks) (for|mate)",
+            "(haven'?t been|don'?t know it).{0,30}(but|sounds).{0,30}(brilliant|great|class).{0,30}(cheers|thanks)",
           ],
           hint_tr:
             "Yerel öneriye kapı aç: 'Don't know it, but it's on the list now — cheers for the tip!'",
@@ -2244,6 +2355,9 @@ export const travelC1Lesson_10: BundledLesson = {
             "(yes|actually|in fact).{0,30}(thank you|thanks).{0,40}(could you|i was hoping|i need)",
             "(good morning|morning).{0,40}(could you|wondering).{0,40}(arrange|help|book)",
             "(thank you|yes).{0,30}(i'?d like to|i need to|i was wondering)",
+            "(good morning|morning) — (there|yes), (actually|in fact).{0,30}(could|would|might) you",
+            "(thank you|much appreciated).{0,30}(could you|might you).{0,40}(arrange|book|help with)",
+            "(if you don'?t mind|if it'?s no trouble).{0,40}(arrange|book|help).{0,30}(car|transport|dinner)",
           ],
           hint_tr:
             "Doğal yanıt + niyet: 'Good morning — yes, actually, I was hoping you could help with...'",
@@ -2260,6 +2374,9 @@ export const travelC1Lesson_10: BundledLesson = {
             "(does that mean|do you mean).{0,30}(bring forward|earlier|move earlier)",
             "(prepone|that means).{0,30}(earlier|sooner|bring forward)",
             "(yes|that would be).{0,30}(perfect|great|ideal).{0,30}(8:?30|earlier)",
+            "(forgive me|excuse me) — (i'?m not|i haven'?t).{0,30}(familiar|come across) (with )?(prepone|that word)",
+            "(could you clarify|might i ask).{0,30}(what|whether).{0,30}(prepone|that term) means",
+            "(if (that|prepone) means|so prepone is).{0,30}(earlier|bring forward).{0,30}(yes|then yes)",
           ],
           hint_tr:
             "Bilmediğin terim — kibar netleştirme: 'Sorry, 'prepone' is new to me — does it mean to bring forward?' Veya doğrudan onayla.",
@@ -2276,6 +2393,9 @@ export const travelC1Lesson_10: BundledLesson = {
             "(makes sense|that'?s helpful|brilliant|i may borrow that)",
             "(yes|absolutely)(.{0,30})(8:?30|prepone|earlier).{0,30}(perfect|works|great)",
             "(8:?30|earlier) (would|will) (be|work) (perfect|great|fine)",
+            "(i love that word|i'?ll use that) — (yes|absolutely).{0,30}(8:?30|earlier|prepone)",
+            "(thank you|noted) — (8:?30|the earlier slot) (works|suits) (perfectly|us)",
+            "(please|kindly) (do the needful|prepone it) — (8:?30|earlier) (would be|suits) (perfect|ideal)",
           ],
           hint_tr:
             "Öğrendiğini takdir et + asıl onayı ver: 'Ah, makes sense — I'll borrow that. Yes, 8:30 would be perfect.'",
@@ -2292,6 +2412,9 @@ export const travelC1Lesson_10: BundledLesson = {
             "(also|one more thing|and).{0,40}(recommend|suggest).{0,30}(restaurant|dinner|tonight)",
             "(no|that'?s|that is|thank you).{0,30}(all|it|everything|for now)",
             "(thank you|thanks).{0,30}(do the needful|that'?s great|perfect)",
+            "(if you don'?t mind|while we'?re at it).{0,40}(recommend|suggest|book).{0,30}(dinner|restaurant|table)",
+            "(any chance|may i ask) you (could|might).{0,30}(book|recommend).{0,30}(somewhere|a table) (for|tonight)",
+            "(actually|one more|now that you mention).{0,40}(dinner|restaurant|booking).{0,30}(local|recommendation|tonight)",
           ],
           hint_tr:
             "Bitir veya ek rica: 'Could you also recommend somewhere for dinner tonight — somewhere local, not touristy?'",
@@ -2308,6 +2431,9 @@ export const travelC1Lesson_10: BundledLesson = {
             "(that sounds|sounds).{0,30}(perfect|wonderful|great).{0,30}(thank you|cheers)",
             "(8|eight) (works|is fine|sounds good)",
             "(please|kindly).{0,30}(book|reserve|do the needful)",
+            "(bombay canteen|that one) sounds (ideal|perfect|just right).{0,30}(please|thank you)",
+            "(8 ?pm|eight) (suits|works for|is fine for) (us|me).{0,30}(thank you|appreciate)",
+            "(thank you|much appreciated) — (please proceed|kindly book|go ahead with) (it|the reservation)",
           ],
           hint_tr:
             "Onayla: 'Perfect — please do the needful, thank you.' Yerel kalıbı iade ederek bağ kurarsın.",
@@ -2497,6 +2623,9 @@ export const travelC1Lesson_11: BundledLesson = {
             "(i do|i can).{0,30}(see|appreciate|understand).{0,30}(this is|isn'?t easy)",
             "(thank you|i appreciate).{0,40}(but|however).{0,80}(rate|booking|property|paid)",
             "(i understand).{0,30}(but|however).{0,80}(rate|property|paid for)",
+            "(i realise|i know).{0,40}(it'?s tricky|this isn'?t).{0,30}(your fault|on you).{0,40}(but|however).{0,40}(rate|booking|property)",
+            "(genuinely|really) (sympathise|appreciate).{0,40}(situation|position).{0,40}(rate i paid|booking)",
+            "(i can see|i imagine) this is (tough|stressful).{0,30}(for you|on you).{0,40}(but|however)",
           ],
           hint_tr:
             "Empati önce: 'I understand it's not easy for you either.' Defansif tonu kırar.",
@@ -2513,6 +2642,9 @@ export const travelC1Lesson_11: BundledLesson = {
             "(the issue is|the difficulty is).{0,40}(rate|paid|booked).{0,40}(property|here)",
             "(what does|how does).{0,30}(compensation|the package).{0,30}(look like|work|handle)",
             "(what|how) are you (able|going) to (offer|do|cover)",
+            "(my reservation was for|i booked this specific) (property|location|hotel).{0,40}(rate|paid|expected)",
+            "(could we|may we) (talk through|discuss).{0,40}(compensation|package|making this right)",
+            "(what'?s the|what is the) (compensation|arrangement|offer) (looking like|going to be)",
           ],
           hint_tr:
             "Tutumu söyle, çözümü çek: 'But the rate I paid was for this property — what does compensation look like?'",
@@ -2529,6 +2661,9 @@ export const travelC1Lesson_11: BundledLesson = {
             "(could|would) you (issue|consider).{0,40}(future stay credit|credit|inconvenience)",
             "(would|could) you (also|additionally).{0,40}(future stay|credit|loyalty points|category upgrade)",
             "(i'?d|i would) (also be|appreciate).{0,40}(future stay credit|inconvenience credit)",
+            "(thank you|appreciate that) — (would|might) you (add|include).{0,40}(future stay|credit|loyalty)",
+            "(could we round that out|to make this fully right).{0,40}(future stay|loyalty|credit)",
+            "(perhaps|might).{0,30}(a future stay credit|loyalty points|category upgrade) (could be added|on top)",
           ],
           hint_tr:
             "Üçüncü kalem talep: 'That's a fair start — could you also issue a future stay credit for the inconvenience?'",
@@ -2545,6 +2680,9 @@ export const travelC1Lesson_11: BundledLesson = {
             "(thank you|much appreciated|i'?m grateful).{0,40}(handling|working|prompt)",
             "(could|may) i (also|have).{0,40}(written confirmation|email|in writing)",
             "(perfect|wonderful).{0,30}(thank you|i'?m most grateful)",
+            "(thank you|appreciate that) — (could you also|may i ask).{0,30}(email|written|in writing)",
+            "(very kind|how kind) of you.{0,40}(may i have|could i get) (it|that) in writing",
+            "(that resolves it|that works) — (just|may i get).{0,30}(written|email|confirmation)",
           ],
           hint_tr:
             "Onayla + paper trail: 'That's very fair — thank you. Could I get that in writing?'",
@@ -2729,6 +2867,9 @@ export const travelC1Lesson_12: BundledLesson = {
             "(there'?s|theres) (been |a )?(double charge|duplicate charge|two charges)",
             "(i'?ve been|i was) charged twice.{0,40}(card|account)",
             "(my statement|the bill).{0,40}(shows|has).{0,30}(two|double|duplicate)",
+            "(sorry to bother you|i hope you can help).{0,40}(double|two|duplicate) (charges|payments)",
+            "(it looks like|appears that) (i'?ve|i was) (charged twice|billed twice).{0,30}(card|account)",
+            "(could we look into|may we sort) (something|an issue) — (double|duplicate|two) (charges|transactions)",
           ],
           hint_tr:
             "Olguyu sakin sun: 'Sorry to bother — I've noticed a double charge on my card from your hotel.'",
@@ -2745,6 +2886,9 @@ export const travelC1Lesson_12: BundledLesson = {
             "(could|would) you (look at|reconcile|compare).{0,40}(this|statement|screenshot)",
             "(i can show you|let me show you).{0,30}(statement|screenshot|app)",
             "(could|may) we (go through|reconcile|compare).{0,40}(transactions|line by line)",
+            "(if i may|may i) (show|share) (you )?(my|the).{0,30}(bank|statement|screenshot)",
+            "(my (banking )?app|the app) (shows|has|is showing) (two|double|duplicate).{0,40}(charges|transactions)",
+            "(would you mind|could you).{0,40}(checking against|comparing with).{0,30}(my statement|this)",
           ],
           hint_tr:
             "Delil sun + işbirliği davet et: 'I have my bank statement here showing two — could we reconcile this together?'",
@@ -2761,6 +2905,9 @@ export const travelC1Lesson_12: BundledLesson = {
             "(no worries|these things happen|understood).{0,30}(could you|how do we|what'?s next)",
             "(could you|would you).{0,30}(process|issue|arrange).{0,30}(refund|reversal)",
             "(could|may) i.{0,30}(get|have).{0,30}(written confirmation|in writing|email)",
+            "(thank you for|appreciate you) (catching|confirming|seeing) (that|the duplicate)",
+            "(in that case|with that confirmed).{0,30}(could you|would you).{0,30}(reverse|refund)",
+            "(perfect|right|good) — (could you|would you) (process the refund|email confirmation)",
           ],
           hint_tr:
             "Hatayı kabul ettir + çözüm iste: 'These things happen — could you process the reversal and confirm in writing?'",
@@ -2777,6 +2924,9 @@ export const travelC1Lesson_12: BundledLesson = {
             "(could|may) i.{0,30}(speak with|word with).{0,30}(duty manager|manager)",
             "(thank you|much appreciated).{0,40}(handling|sorting|prompt)",
             "(i appreciate|thank you for).{0,30}(quick|prompt|civil)",
+            "(that'?s|that is) (exactly|just) (what i hoped for|the response i needed)",
+            "(if it'?s no trouble|while we'?re sorting it).{0,40}(duty manager|word with|a moment)",
+            "(very kind|very civil) of you — (thank you|appreciate it) (for sorting|for resolving) (this|it) so",
           ],
           hint_tr:
             "Eskalasyona gerek yoksa takdir et: 'Much appreciated — that's the response I was hoping for.' Yoksa: 'Could I have a quick word with the duty manager too?'",
@@ -2968,6 +3118,9 @@ export const travelC1Lesson_13: BundledLesson = {
             "(thank you|appreciate).{0,30}(clarifying|explaining|the call)",
             "(could you|would you).{0,40}(point me to|cite|reference).{0,40}(clause|terms|conditions)",
             "(i understand|appreciate).{0,30}(but|however).{0,80}(written|citing|clause)",
+            "(thank you for taking|appreciate you taking) the (call|time).{0,40}(clause|terms|policy)",
+            "(may i ask|might you).{0,30}(direct me to|point me to) (the specific|the relevant) (clause|section)",
+            "(i hear you|i take your point).{0,40}(but|however).{0,40}(reference|specific clause|terms and conditions)",
           ],
           hint_tr:
             "Pozisyonunu kabul et, sonra belge iste: 'I appreciate your position — could you point me to the specific clause that covers this?'",
@@ -2984,6 +3137,9 @@ export const travelC1Lesson_13: BundledLesson = {
             "(i'?d|i would).{0,30}(appreciate|like|prefer).{0,40}(written confirmation|in writing).{0,40}(citing|clause|section)",
             "(could you|would you) (confirm|share).{0,40}(by email|in writing).{0,40}(section 4|the clause|policy)",
             "(may i have|could i have) (that|this) (in writing|by email)",
+            "(would it be possible|might it be possible) to (email|send) (me|that) (in writing|with the clause)",
+            "(for my records|for the file).{0,40}(in writing|by email).{0,40}(section 4|clause)",
+            "(i'?d be grateful|i'?d appreciate it).{0,40}(written|in writing|emailed).{0,30}(reference|citing|clause)",
           ],
           hint_tr:
             "Paper trail talep et: 'Could you put that in writing, citing section 4.2 specifically?'",
@@ -3000,6 +3156,9 @@ export const travelC1Lesson_13: BundledLesson = {
             "(given|in light of).{0,40}(circumstances|illness|cancellation|reason).{0,40}(consider|exception|review)",
             "(would|could) (you|the manager).{0,40}(consider|review|escalate).{0,40}(case|circumstances|exception)",
             "(any|is there) (room|chance|possibility).{0,40}(exception|discretion|goodwill)",
+            "(if i may ask|may i ask).{0,40}(escalate|consider).{0,30}(circumstances|case|exception)",
+            "(would there be|is there) any (scope|room) for (discretion|a goodwill gesture)",
+            "(could (you|the team)|might (you|the manager)).{0,40}(make an exception|escalate|review).{0,30}(circumstances|grounds)",
           ],
           hint_tr:
             "Goodwill kapısını aç: 'Given my circumstances [reason], would the manager consider a discretionary exception?'",
@@ -3016,6 +3175,9 @@ export const travelC1Lesson_13: BundledLesson = {
             "(also|additionally).{0,40}(reference number|case number|incident)",
             "(could you|may i have) (a |the )?(reference|case|incident).{0,30}(number)",
             "(for my records|i'?ll be|keeping).{0,40}(card issuer|insurance)",
+            "(thank you|i appreciate) — (could you|may i have).{0,30}(case|reference|incident) number",
+            "(for the file|for the record).{0,30}(could you give|would you provide).{0,30}(case|reference) number",
+            "(grateful|thanks) — (just to close the loop|to keep on file).{0,40}(reference|case number)",
           ],
           hint_tr:
             "Takdir + iz numarası: 'Thank you — could you give me a case reference number for my records?'",
@@ -3031,6 +3193,9 @@ export const travelC1Lesson_13: BundledLesson = {
             "(thank you|much appreciated|noted).{0,30}(record|got it|i'?ve got)",
             "(brilliant|wonderful).{0,30}(thank you|appreciate).{0,30}(time|your help)",
             "(i'?ll be|i will) (in touch|following up|expecting).{0,40}(days|written|email)",
+            "(thank you|appreciate it) — (i'?ll follow up|i'?ll be in touch) (if|should).{0,30}(haven'?t heard|nothing comes)",
+            "(noted|got it) — (thank you|cheers) for (your time|your patience|sorting this)",
+            "(perfect|brilliant), (thank you|much appreciated) — (await|expecting) (the email|the follow-up)",
           ],
           hint_tr:
             "Profesyonel kapat: 'Thank you — I'll be in touch if I haven't heard back by then.'",
@@ -3218,6 +3383,9 @@ export const travelC1Lesson_14: BundledLesson = {
             "(i couldn'?t help|i couldn'?t help but) (notic|see).{0,40}(deck|slide|laptop)",
             "(hope it'?s|i hope you don'?t mind|sorry).{0,40}(asking|but).{0,30}(venture|vc|investing)",
             "(are you|do you work) in (venture|vc|investing)",
+            "(forgive the intrusion|sorry to be nosy).{0,40}(deck|venture|vc)",
+            "(this might be|tell me to mind my own).{0,30}(deck|slides|venture)",
+            "(may i ask|just curious) — (are you|do you happen to be).{0,30}(in venture|in vc|investing)",
           ],
           hint_tr:
             "Yumuşak açılış: 'Sorry to interrupt — I couldn't help noticing the deck. Are you in venture?'",
@@ -3234,6 +3402,9 @@ export const travelC1Lesson_14: BundledLesson = {
             "(i'?m on the|my background).{0,30}(operator|product|founder|building) side",
             "(yes|i work|i'?m involved).{0,40}(early-stage|fintech|saas|consumer|deep tech)",
             "(i run|i lead|i'?m building).{0,40}(company|startup|product)",
+            "(adjacent to it|tangential to vc).{0,40}(building|operator|founder)",
+            "(different angle|same world).{0,40}(operator|founder|building)",
+            "(my background|day job) is (in|on the).{0,30}(operator|product|founder|company) (side)?",
           ],
           hint_tr:
             "Doğal pozisyon: 'I'm on the operator side — building a B2B SaaS in fintech. Different angle, same world.'",
@@ -3249,7 +3420,10 @@ export const travelC1Lesson_14: BundledLesson = {
             "(in a sentence|short version|the bull case|simply put).{0,80}(solving|helping|enabling)",
             "(we|i).{0,30}(help|enable|allow).{0,80}(without|instead of|by)",
             "(the core insight|the wedge|our take).{0,40}(is|was).{0,60}(market|customer|workflow)",
-            "(short version|to be brief|in one line)",
+            "(short version|to be brief|in one line).{0,40}(help|enable|solving)",
+            "(in one line|to keep it short).{0,40}(we (help|enable|allow|let)).{0,40}(without|instead)",
+            "(the problem|pain point) we (solve|address) is.{0,40}(workflow|cost|process|legacy)",
+            "(picture this|imagine).{0,40}(we (help|let|allow)).{0,60}(without|by)",
           ],
           hint_tr:
             "Elevator pitch, pushy değil: 'Short version — we help SMB treasurers automate FX hedging without enterprise software costs.'",
@@ -3265,6 +3439,10 @@ export const travelC1Lesson_14: BundledLesson = {
             "(typically|usually|in most cases).{0,40}(cfo|finance|treasurer|head of)",
             "(our|the) (icp|target|sweet spot).{0,40}(mid.?market|smb|series b|companies)",
             "(it'?s|its) typically.{0,40}(cfo|finance|treasurer|founder|cto)",
+            "(the buyer|the decision maker) is (usually|typically).{0,40}(cfo|treasurer|head of finance)",
+            "(we tend to|we mostly) (sell into|land at).{0,40}(mid.?market|smb|enterprise)",
+            "(our sweet spot|our ideal customer) (is|sits at).{0,40}(mid.?market|companies|smb)",
+            "(we work with|we close).{0,40}(cfo|treasurer|finance team).{0,30}(mid.?market|smb)",
           ],
           hint_tr:
             "Net ICP: 'Typically mid-market CFOs or treasurers — companies doing 50-500m in cross-border revenue.'",
@@ -3281,6 +3459,9 @@ export const travelC1Lesson_14: BundledLesson = {
             "(do you mind|would you mind|happy to).{0,40}(send|share).{0,30}(deck|materials|memo)",
             "(can i|may i).{0,30}(send|share).{0,30}(linkedin|connection|request)",
             "(i'?ll|i will).{0,30}(send|ping|drop).{0,30}(linkedin|deck|email)",
+            "(more than happy|delighted) to (share|send|forward) (the deck|materials)",
+            "(would it be alright|might it be ok) to (drop you|send you) (a linkedin|a note|the deck)",
+            "(let me|i'?d love to) (connect on linkedin|drop you a line).{0,30}(when we|once we) (raise|are ready)",
           ],
           hint_tr:
             "Soft pull, exit hazır: 'Of course — happy to share. Do you mind if I send a LinkedIn request?'",
@@ -3297,6 +3478,9 @@ export const travelC1Lesson_14: BundledLesson = {
             "(thanks|appreciate it).{0,30}(won'?t keep you|enjoy|rest of)",
             "(brilliant|wonderful|pleasure).{0,40}(meeting|chatting|talking)",
             "(i'?ll be|i won'?t) (in touch|keep you|disturb)",
+            "(really good|really nice) (chat|conversation) — (won'?t keep you|enjoy the rest)",
+            "(thanks again|cheers for) (the chat|the time) — (have a|enjoy the) (good flight|rest)",
+            "(pleasure meeting you|good to meet you) — (i'?ll let you|i won'?t keep you) (get back|to it)",
           ],
           hint_tr:
             "Kibar exit: 'Thank you for the chat — won't keep you any longer. Enjoy the rest of the flight.'",
@@ -3476,6 +3660,9 @@ export const travelC1Lesson_15: BundledLesson = {
             "(heading|off to|on the way to).{0,40}(brussels|new york|ankara|paris)",
             "(forgive me|i hope you don'?t mind).{0,40}(noticed|asking).{0,30}(pin|paper|book)",
             "(quite|how).{0,30}(quiet|busy) tonight",
+            "(busy|quiet) (in here|tonight) — (are you|heading) (off|anywhere) (somewhere|interesting)",
+            "(any plans|going somewhere) (interesting|exciting) (tonight|this evening)",
+            "(long day ahead|that kind of evening)",
           ],
           hint_tr:
             "Yumuşak ortam açılışı: 'Quite the evening — heading anywhere interesting?'",
@@ -3492,6 +3679,9 @@ export const travelC1Lesson_15: BundledLesson = {
             "(ah|interesting|brussels).{0,40}(quite the week|busy period|interesting time)",
             "(i'?m heading|i'?m off to|home).{0,40}(istanbul|turkey|ankara)",
             "(i couldn'?t|i couldn'?t help).{0,30}(notice|see).{0,30}(diplomatic|foreign|service)",
+            "(brussels|that) (sounds|must be) (full-on|interesting|quite the trip)",
+            "(i imagine|i can imagine) the (agenda|schedule|week) is (heavy|charged|packed)",
+            "(home (to|for) (istanbul|ankara|turkey)) — (you sound|brussels sounds) (interesting|like a busy time)",
           ],
           hint_tr:
             "Karşılıklı paylaş + ilgi: 'Istanbul, actually. Brussels sounds like quite the week — I imagine the agenda's heavy.'",
@@ -3507,6 +3697,9 @@ export const travelC1Lesson_15: BundledLesson = {
             "(i live in|i'?m based in|i'?m from).{0,40}(beyoğlu|kadıköy|nişantaşı|istanbul)",
             "(i work in|i run|i lead).{0,40}(consulting|tech|finance|policy|research)",
             "(i'?d be curious|i'?d love|i'?m interested).{0,40}(your read|your take|your sense).{0,40}(turkey|eu|brussels)",
+            "(i (work|live) in|over in).{0,40}(beyoğlu|kadıköy|nişantaşı|istanbul).{0,40}(consulting|research|policy)",
+            "(small world|interesting) — (i'?m in|i work in).{0,40}(policy|research|consulting|tech)",
+            "(would you|might you) (mind if|share if) i (asked|brought up).{0,40}(turkey-eu|brussels|policy)",
           ],
           hint_tr:
             "Konum + ilgi alanı + soft hedge'li soru: 'Based in Beyoğlu — I work in policy research. I'd be curious to hear your read on where Turkey-EU relations are heading, if you're at liberty.'",
@@ -3523,6 +3716,9 @@ export const travelC1Lesson_15: BundledLesson = {
             "(i'?d be|i would be).{0,40}(curious|interested).{0,40}(which areas|examples|where|specifically)",
             "(would|could) you share.{0,40}(which|where|any examples).{0,30}(pragmatic|momentum)",
             "(if you'?re|if it'?s).{0,30}(at liberty|appropriate).{0,30}(share|elaborate)",
+            "(may i ask|might you say).{0,40}(where|which areas).{0,40}(progress|momentum|pragmatic)",
+            "(reassuring to hear|interesting to hear) — (any examples|which dossiers) (you could|come to mind)",
+            "(i imagine|i'?d guess).{0,30}(customs|energy|migration) — (would (that|those)|are those) (the areas|fair)",
           ],
           hint_tr:
             "Takdir + spesifik açılım: 'That's encouraging — would you share which areas, if you're at liberty? I imagine customs and energy?'",
@@ -3539,6 +3735,9 @@ export const travelC1Lesson_15: BundledLesson = {
             "(i can|one can) (see|imagine).{0,40}(both sides|each|delicate|sensitive)",
             "(i'?d be|i would be).{0,40}(curious|interested).{0,40}(long view|five year|where you see)",
             "(off the record|if i may|reading you)",
+            "(thank you for|appreciate) (the candour|the frankness).{0,40}(long view|five-?year|where you see)",
+            "(may i press a little|may i push a little).{0,40}(where you see|long view|five years)",
+            "(taking the long view|stepping back).{0,40}(five years|a decade|where things)",
           ],
           hint_tr:
             "Hedge'li bir adım daha: 'I appreciate the candour — and where do you see the long view, in five years?'",
@@ -3555,6 +3754,9 @@ export const travelC1Lesson_15: BundledLesson = {
             "(that'?s|that is).{0,30}(refreshing|reassuring|illuminating)",
             "(i'?ll let you|i won'?t keep|enjoy).{0,40}(get back|prepare|enjoy)",
             "(may i|might i) ask.{0,40}(linkedin|connect)",
+            "(refreshing to hear|illuminating to hear) — (thank you|appreciate) (for sharing|your time)",
+            "(i'?ll let you|i'?ll leave you to) (prepare|your reading|your evening)",
+            "(thank you|grateful) for (the time|the perspective) — (a real|a rare) (treat|privilege)",
           ],
           hint_tr:
             "Kibar kapat: 'Thank you for the perspective — really refreshing. I won't keep you from preparing.'",

@@ -5,15 +5,15 @@
 import type { BundledLesson } from "./cafe-lesson";
 
 // ============================================================
-// 6.1 — Trainer'a hedef aclkla
+// 6.1 — Trainer'a hedef açıkla
 // ============================================================
 export const sport_trainer_6_1: BundledLesson = {
   id: "sport.trainer.goals.1",
   skill_id: "sport.trainer",
   index: 1,
-  title: "Trainer'a SMART hedef ac,klamak",
+  title: "Trainer'a SMART hedef açıklamak",
   description:
-    "Ilk seansta net hedef koy: 'I want to bench 80 kg in 12 weeks.' Trainer plan c,karabilsin.",
+    "İlk seansta net hedef koy: 'I want to bench 80 kg in 12 weeks.' Trainer plan çıkarabilsin.",
   estimated_minutes: 7,
   exercises: [
     {
@@ -21,16 +21,16 @@ export const sport_trainer_6_1: BundledLesson = {
       type: "vocab_tile",
       difficulty: 2,
       word_or_phrase: "rep range",
-      tr_translation: "Tekrar arali (set basna)",
+      tr_translation: "Tekrar aralığı (set başına)",
       example: "For hypertrophy, stay in the 8 to 12 rep range.",
-      example_tr: "Hipertrofi icin 8-12 tekrar aralinda kal.",
+      example_tr: "Hipertrofi için 8-12 tekrar aralığında kal.",
     },
     {
       id: "ex.6.1.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Yeni personal trainer'inla ilk seans. Hedefini SMART formatta ac,kla.",
+        "Yeni personal trainer'ınla ilk seans. Hedefini SMART formatta açıkla.",
       npc_role: "Personal trainer",
       setting: "First intake session, personal training studio",
       turns: [
@@ -49,7 +49,7 @@ export const sport_trainer_6_1: BundledLesson = {
             "in [0-9]+ (weeks|months)",
           ],
           hint_tr:
-            "Hedefini somut soyle: 'I want to bench 80 kg in 12 weeks' veya 'My goal is to build muscle'.",
+            "Hedefini somut söyle: 'I want to bench 80 kg in 12 weeks' veya 'My goal is to build muscle'.",
         },
         {
           speaker: "npc",
@@ -67,7 +67,7 @@ export const sport_trainer_6_1: BundledLesson = {
             "(no|not really)(,)? (i'm|i am) new",
           ],
           hint_tr:
-            "Gec,misini ozetle: 'I've trained on and off for two years' veya 'Starting from scratch'.",
+            "Geçmişini özetle: 'I've trained on and off for two years' veya 'Starting from scratch'.",
         },
         {
           speaker: "npc",
@@ -84,7 +84,7 @@ export const sport_trainer_6_1: BundledLesson = {
             "old (injury|tweak) in my",
           ],
           hint_tr:
-            "Sakatlik durumunu paylas: 'Nothing major' veya 'Old shoulder tweak from last year'.",
+            "Sakatlık durumunu paylaş: 'Nothing major' veya 'Old shoulder tweak from last year'.",
         },
         {
           speaker: "npc",
@@ -97,7 +97,7 @@ export const sport_trainer_6_1: BundledLesson = {
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
-      source: "12 haftada bench'i 80 kg'a c,karmak istiyorum.",
+      source: "12 haftada bench'i 80 kg'a çıkarmak istiyorum.",
       target: "I want to get my bench up to 80 kg in 12 weeks.",
       accepted_variants: [
         "I want to hit 80 kg on bench in 12 weeks.",
@@ -107,7 +107,7 @@ export const sport_trainer_6_1: BundledLesson = {
         "I want to push my bench to 80 kg in 12 weeks.",
       ],
       tr_hint:
-        "'Bench'i X kg'a c,karmak' = 'get my bench up to X kg' veya 'hit X kg on bench'.",
+        "'Bench'i X kg'a çıkarmak' = 'get my bench up to X kg' veya 'hit X kg on bench'.",
     },
     {
       id: "ex.6.1.4",
@@ -117,17 +117,17 @@ export const sport_trainer_6_1: BundledLesson = {
         {
           question: "'Rep range' ne demek?",
           options: [
-            "Setler arasi dinlenme",
-            "Set basna tekrar sayisi araligi",
-            "Toplam haftalik egzersiz",
-            "Agirlik araligi",
+            "Setler arası dinlenme",
+            "Set başına tekrar sayısı aralığı",
+            "Toplam haftalık egzersiz",
+            "Ağırlık aralığı",
           ],
           correct_index: 1,
           tr_explanation:
-            "Rep range = bir sette kac, tekrar yapacaginin araligi (orn. 8-12).",
+            "Rep range = bir sette kaç tekrar yapacağının aralığı (örn. 8-12).",
         },
         {
-          question: "Hedef konusurken en dogal kalip?",
+          question: "Hedef konuşurken en doğal kalıp?",
           options: [
             "I make goal bench 80",
             "My goal is to bench 80 kg",
@@ -136,19 +136,19 @@ export const sport_trainer_6_1: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'My goal is to + V1' SMART hedef bildiriminin standardidir.",
+            "'My goal is to + V1' SMART hedef bildiriminin standardıdır.",
         },
         {
           question: "'Starting from scratch' ne demek?",
           options: [
-            "Yarim yamalak basla",
-            "Sifirdan baslamak",
-            "Egzersizi at",
-            "Sicakla baslamak",
+            "Yarım yamalak başla",
+            "Sıfırdan başlamak",
+            "Egzersizi atla",
+            "Sıcakla başlamak",
           ],
           correct_index: 1,
           tr_explanation:
-            "'From scratch' = sifirdan, hic, deneyimsiz.",
+            "'From scratch' = sıfırdan, hiç deneyimsiz.",
         },
       ],
     },
@@ -162,9 +162,9 @@ export const sport_trainer_6_2: BundledLesson = {
   id: "sport.trainer.progress.1",
   skill_id: "sport.trainer",
   index: 2,
-  title: "Progress check — 4 haftalik degerlendirme",
+  title: "Progress check — 4 haftalık değerlendirme",
   description:
-    "Trainer ile ilerleme konus,: lift volume, body fat, recovery. 'My squat went up 10 kg.'",
+    "Trainer ile ilerleme konuş: lift volume, body fat, recovery. 'My squat went up 10 kg.'",
   estimated_minutes: 7,
   exercises: [
     {
@@ -172,16 +172,16 @@ export const sport_trainer_6_2: BundledLesson = {
       type: "vocab_tile",
       difficulty: 2,
       word_or_phrase: "reps and sets",
-      tr_translation: "Tekrar ve set sayisi",
+      tr_translation: "Tekrar ve set sayısı",
       example: "I'm doing 4 sets of 8 reps on squats.",
-      example_tr: "Squat'ta 4 set 8 tekrar yapiyorum.",
+      example_tr: "Squat'ta 4 set 8 tekrar yapıyorum.",
     },
     {
       id: "ex.6.2.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "4 hafta tamamlandi. Trainer ilerleme kontrol seansi yapiyor.",
+        "4 hafta tamamlandı. Trainer ilerleme kontrol seansı yapıyor.",
       npc_role: "Personal trainer",
       setting: "Personal training session, week 4 check-in",
       turns: [
@@ -200,7 +200,7 @@ export const sport_trainer_6_2: BundledLesson = {
             "(no|some|a bit of) (issues|problems)",
           ],
           hint_tr:
-            "Genel durumu paylas: 'Feeling stronger, sleep is solid, some DOMS in legs'.",
+            "Genel durumu paylaş: 'Feeling stronger, sleep is solid, some DOMS in legs'.",
         },
         {
           speaker: "npc",
@@ -234,7 +234,7 @@ export const sport_trainer_6_2: BundledLesson = {
             "clothes (fit|are) (looser|tighter)",
           ],
           hint_tr:
-            "Vucut kompozisyonu: 'Body fat is down 2%' veya 'Arms look more defined'.",
+            "Vücut kompozisyonu: 'Body fat is down 2%' veya 'Arms look more defined'.",
         },
         {
           speaker: "npc",
@@ -247,7 +247,7 @@ export const sport_trainer_6_2: BundledLesson = {
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
-      source: "Squat'im 10 kg arttim, kondisyon iyiye gidiyor.",
+      source: "Squat'ım 10 kg arttı, kondisyon iyiye gidiyor.",
       target: "My squat went up 10 kg, and conditioning is on the up.",
       accepted_variants: [
         "My squat is up 10 kg and my conditioning is improving.",
@@ -256,7 +256,7 @@ export const sport_trainer_6_2: BundledLesson = {
         "Squat is up by 10 kg and my cardio is improving.",
       ],
       tr_hint:
-        "'Squat'im X kg artti' = 'My squat went up X kg' veya 'is up X kg'.",
+        "'Squat'ım X kg arttı' = 'My squat went up X kg' veya 'is up X kg'.",
     },
     {
       id: "ex.6.2.4",
@@ -265,7 +265,7 @@ export const sport_trainer_6_2: BundledLesson = {
       incorrect_sentence: "I am make 4 series 10 repeats with 60 kilo on squat.",
       correct_sentence: "I'm doing 4 sets of 10 reps at 60 kg on squat.",
       tr_explanation:
-        "'Series' = set degil. Dogrusu 'sets'. 'Repeats' = 'reps'. Agirlik icin 'at X kg' kullanilir, 'with' degil.",
+        "'Series' set değil. Doğrusu 'sets'. 'Repeats' = 'reps'. Ağırlık için 'at X kg' kullanılır, 'with' değil.",
     },
     {
       id: "ex.6.2.5",
@@ -273,7 +273,7 @@ export const sport_trainer_6_2: BundledLesson = {
       difficulty: 2,
       questions: [
         {
-          question: "'4 set 10 tekrar' nasil soylenir?",
+          question: "'4 set 10 tekrar' nasıl söylenir?",
           options: [
             "4 series of 10 repeats",
             "4 sets of 10 reps",
@@ -282,10 +282,10 @@ export const sport_trainer_6_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "Standart format: '[set] sets of [rep] reps'. 'Series' yanlis.",
+            "Standart format: '[set] sets of [rep] reps'. 'Series' yanlış.",
         },
         {
-          question: "'Squat'im artti' demek icin?",
+          question: "'Squat'ım arttı' demek için?",
           options: [
             "My squat became big",
             "My squat went up",
@@ -294,19 +294,19 @@ export const sport_trainer_6_2: BundledLesson = {
           ],
           correct_index: 1,
           tr_explanation:
-            "'Went up' = artti (PR, performans). 'Is up X' de yaygin.",
+            "'Went up' = arttı (PR, performans). 'Is up X' de yaygın.",
         },
         {
           question: "'On the up' ne demek?",
           options: [
-            "Ust kata",
-            "Iyiye gidiyor / yukseliyor",
+            "Üst kata",
+            "İyiye gidiyor / yükseliyor",
             "Tepede",
-            "Yukari kaldir",
+            "Yukarı kaldır",
           ],
           correct_index: 1,
           tr_explanation:
-            "'On the up' = trend yukari yonlu, iyilesme isaret eder.",
+            "'On the up' = trend yukarı yönlü, iyileşmeye işaret eder.",
         },
       ],
     },
@@ -314,15 +314,15 @@ export const sport_trainer_6_2: BundledLesson = {
 };
 
 // ============================================================
-// 6.3 — Sakatlik konus,
+// 6.3 — Sakatlık konuş
 // ============================================================
 export const sport_trainer_6_3: BundledLesson = {
   id: "sport.trainer.injury.1",
   skill_id: "sport.trainer",
   index: 3,
-  title: "Sakatlik tarifi — sharp vs dull pain",
+  title: "Sakatlık tarifi — sharp vs dull pain",
   description:
-    "Trainer'a agriyi yer, zaman, karakter olarak anlat: 'sharp', 'dull', 'flared up', 'tweaked'.",
+    "Trainer'a ağrıyı yer, zaman, karakter olarak anlat: 'sharp', 'dull', 'flared up', 'tweaked'.",
   estimated_minutes: 8,
   exercises: [
     {
@@ -330,16 +330,16 @@ export const sport_trainer_6_3: BundledLesson = {
       type: "vocab_tile",
       difficulty: 3,
       word_or_phrase: "DOMS",
-      tr_translation: "Gecikmis kas agrisi (delayed onset muscle soreness)",
+      tr_translation: "Gecikmiş kas ağrısı (delayed onset muscle soreness)",
       example: "I've got brutal DOMS in my hamstrings today.",
-      example_tr: "Bugun hamstring'lerimde feci DOMS var.",
+      example_tr: "Bugün hamstring'lerimde feci DOMS var.",
     },
     {
       id: "ex.6.3.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Antrenmana basliyorsun ama bel agrisi var. Trainer'a duruma anlat.",
+        "Antrenmana başlıyorsun ama bel ağrın var. Trainer'a durumu anlat.",
       npc_role: "Personal trainer",
       setting: "Pre-session check, training floor",
       turns: [
@@ -358,7 +358,7 @@ export const sport_trainer_6_3: BundledLesson = {
             "(i'?ve|i have) been dealing with",
           ],
           hint_tr:
-            "Durumu soyle: 'My lower back flared up yesterday' veya 'I tweaked my knee'.",
+            "Durumu söyle: 'My lower back flared up yesterday' veya 'I tweaked my knee'.",
         },
         {
           speaker: "npc",
@@ -375,7 +375,7 @@ export const sport_trainer_6_3: BundledLesson = {
             "dull (ache|throb)",
           ],
           hint_tr:
-            "Agriyi tarif et: 'It's a dull ache' veya 'More of a sharp pain when I bend over'.",
+            "Ağrıyı tarif et: 'It's a dull ache' veya 'More of a sharp pain when I bend over'.",
         },
         {
           speaker: "npc",
@@ -392,7 +392,7 @@ export const sport_trainer_6_3: BundledLesson = {
             "i felt (it pop|something) (during|on)",
           ],
           hint_tr:
-            "Ne zaman ve neyle basladi: 'Started yesterday after deadlifts'.",
+            "Ne zaman ve neyle başladı: 'Started yesterday after deadlifts'.",
         },
         {
           speaker: "npc",
@@ -405,7 +405,7 @@ export const sport_trainer_6_3: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "Bel agrim dun deadlift'ten sonra azdi, keskin bir agri.",
+      source: "Bel ağrım dün deadlift'ten sonra azdı, keskin bir ağrı.",
       target: "My lower back flared up after deadlifts yesterday — it's a sharp pain.",
       accepted_variants: [
         "My lower back flared up after deadlifting yesterday — sharp pain.",
@@ -414,7 +414,7 @@ export const sport_trainer_6_3: BundledLesson = {
         "My lower back is sore after deadlifts yesterday, sharp pain.",
       ],
       tr_hint:
-        "'Azdi' = 'flared up' veya 'acted up'. 'Keskin agri' = 'sharp pain'.",
+        "'Azdı' = 'flared up' veya 'acted up'. 'Keskin ağrı' = 'sharp pain'.",
     },
     {
       id: "ex.6.3.4",
@@ -424,38 +424,38 @@ export const sport_trainer_6_3: BundledLesson = {
         {
           question: "'DOMS' ne demek?",
           options: [
-            "Kalici sakatlik",
-            "Gecikmis kas agrisi",
-            "Kalp ritmi degisikligi",
-            "Sicakkanli kompresyon",
+            "Kalıcı sakatlık",
+            "Gecikmiş kas ağrısı",
+            "Kalp ritmi değişikliği",
+            "Sıcakkanlı kompresyon",
           ],
           correct_index: 1,
           tr_explanation:
-            "DOMS = Delayed Onset Muscle Soreness. Antrenmandan 24-48 saat sonra gelen agri.",
+            "DOMS = Delayed Onset Muscle Soreness. Antrenmandan 24-48 saat sonra gelen ağrı.",
         },
         {
-          question: "'Sharp pain' vs 'dull pain' farki?",
+          question: "'Sharp pain' vs 'dull pain' farkı?",
           options: [
-            "Sharp = surekli, dull = bazen",
-            "Sharp = keskin/bicak gibi, dull = donuk/sizi",
-            "Sharp = guc,lu, dull = zayif",
-            "Aynisi",
+            "Sharp = sürekli, dull = bazen",
+            "Sharp = keskin/bıçak gibi, dull = donuk/sızı",
+            "Sharp = güçlü, dull = zayıf",
+            "Aynısı",
           ],
           correct_index: 1,
           tr_explanation:
-            "Sharp = keskin, lokalize. Dull = donuk, yayilan sizi.",
+            "Sharp = keskin, lokalize. Dull = donuk, yayılan sızı.",
         },
         {
           question: "'I tweaked my back' ne demek?",
           options: [
-            "Belimi guc,lendirdim",
-            "Belimi hafifc,e incittim/burktum",
+            "Belimi güçlendirdim",
+            "Belimi hafifçe incittim/burktum",
             "Belimi esnettim",
-            "Belimi tut tum",
+            "Belimi tuttum",
           ],
           correct_index: 1,
           tr_explanation:
-            "'Tweak' = hafifc,e burkma, kuc,uk c,ekme. Tam sakatlik degil ama uyari.",
+            "'Tweak' = hafifçe burkma, küçük çekme. Tam sakatlık değil ama uyarı.",
         },
       ],
     },
@@ -471,7 +471,7 @@ export const sport_trainer_6_5: BundledLesson = {
   index: 5,
   title: "Form check — 'Am I rounding my back?'",
   description:
-    "Hareket sirasinda form sor: 'Is my knee tracking over my toes?' Cue'lari anla, uygula.",
+    "Hareket sırasında form sor: 'Is my knee tracking over my toes?' Cue'ları anla, uygula.",
   estimated_minutes: 7,
   exercises: [
     {
@@ -479,16 +479,16 @@ export const sport_trainer_6_5: BundledLesson = {
       type: "vocab_tile",
       difficulty: 2,
       word_or_phrase: "form check",
-      tr_translation: "Hareket teknigi kontrolu",
+      tr_translation: "Hareket tekniği kontrolü",
       example: "Can I get a form check on this squat?",
-      example_tr: "Bu squat'ta form kontrolu yapabilir misin?",
+      example_tr: "Bu squat'ta form kontrolü yapabilir misin?",
     },
     {
       id: "ex.6.5.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Squat seti aralarinda trainer'a form kontrolu istiyorsun.",
+        "Squat seti aralarında trainer'a form kontrolü istiyorsun.",
       npc_role: "Personal trainer",
       setting: "Squat rack, mid-session",
       turns: [
@@ -550,7 +550,7 @@ export const sport_trainer_6_5: BundledLesson = {
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
-      source: "Squat'ta dizlerim icari mi giriyor?",
+      source: "Squat'ta dizlerim içeri mi giriyor?",
       target: "Are my knees caving in on the squat?",
       accepted_variants: [
         "Are my knees caving in when I squat?",
@@ -560,7 +560,7 @@ export const sport_trainer_6_5: BundledLesson = {
         "Are my knees going inward on the squat?",
       ],
       tr_hint:
-        "'Dizler iceri giriyor' = 'knees caving in' veya 'collapsing inward'.",
+        "'Dizler içeri giriyor' = 'knees caving in' veya 'collapsing inward'.",
     },
     {
       id: "ex.6.5.4",
@@ -569,7 +569,7 @@ export const sport_trainer_6_5: BundledLesson = {
       incorrect_sentence: "My form is good or no? Check please.",
       correct_sentence: "Could you do a form check on this for me?",
       tr_explanation:
-        "'My form is good or no' direkt c,eviri. Native 'Can I get a form check?' veya 'Can you check my form?' der.",
+        "'My form is good or no' direkt çeviri. Native 'Can I get a form check?' veya 'Can you check my form?' der.",
     },
     {
       id: "ex.6.5.5",
@@ -580,37 +580,37 @@ export const sport_trainer_6_5: BundledLesson = {
           question: "'Form check' ne demek?",
           options: [
             "Form doldurmak",
-            "Hareket teknigi kontrolu",
-            "Antrenman kayit formu",
-            "Beden olc,umu",
+            "Hareket tekniği kontrolü",
+            "Antrenman kayıt formu",
+            "Beden ölçümü",
           ],
           correct_index: 1,
           tr_explanation:
-            "Form check = duruusu/hareket teknigini gozetleme.",
+            "Form check = duruşu/hareket tekniğini gözetleme.",
         },
         {
           question: "'Knees caving in' ne demek?",
           options: [
-            "Dizler dis,a aciliyor",
-            "Dizler ic,e dogru cokuyor",
+            "Dizler dışa açılıyor",
+            "Dizler içe doğru çöküyor",
             "Dizler kilitleniyor",
-            "Dizler buyuyor",
+            "Dizler büyüyor",
           ],
           correct_index: 1,
           tr_explanation:
-            "Caving in = ice cokme. Squat'ta tipik form hatasi.",
+            "Caving in = içe çökme. Squat'ta tipik form hatası.",
         },
         {
-          question: "'Tracking over your toes' anlami?",
+          question: "'Tracking over your toes' anlamı?",
           options: [
-            "Ayak parmaklari uzerinden bakmak",
-            "Dizin ayak parmaklari yonunde olmasi",
-            "Dizi ayak ustune koymak",
+            "Ayak parmakları üzerinden bakmak",
+            "Dizin ayak parmakları yönünde olması",
+            "Dizi ayak üstüne koymak",
             "Parmakla diz takibi",
           ],
           correct_index: 1,
           tr_explanation:
-            "Knees tracking over toes = diz ayak yonunde, dis,a/ic,e degil.",
+            "Knees tracking over toes = diz ayak yönünde, dışa/içe değil.",
         },
       ],
     },
@@ -618,15 +618,15 @@ export const sport_trainer_6_5: BundledLesson = {
 };
 
 // ============================================================
-// 6.6 — PR gunu
+// 6.6 — PR günü
 // ============================================================
 export const sport_trainer_6_6: BundledLesson = {
   id: "sport.trainer.pr.1",
   skill_id: "sport.trainer",
   index: 6,
-  title: "PR gunu — 'Going for a triple at 100 kg'",
+  title: "PR günü — 'Going for a triple at 100 kg'",
   description:
-    "Personal record denemesi: trainer'a niyetini soyle, spot iste, attempt'i c,agir.",
+    "Personal record denemesi: trainer'a niyetini söyle, spot iste, attempt'i çağır.",
   estimated_minutes: 7,
   exercises: [
     {
@@ -634,16 +634,16 @@ export const sport_trainer_6_6: BundledLesson = {
       type: "vocab_tile",
       difficulty: 3,
       word_or_phrase: "PR (personal record)",
-      tr_translation: "Kis,isel rekor",
+      tr_translation: "Kişisel rekor",
       example: "I'm going for a PR on deadlift today.",
-      example_tr: "Bugun deadlift'te PR denemeye gidiyorum.",
+      example_tr: "Bugün deadlift'te PR denemeye gidiyorum.",
     },
     {
       id: "ex.6.6.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Isinma setlerini bitirdin. Trainer'a PR denemesi yapacagini soyleyeceksin.",
+        "Isınma setlerini bitirdin. Trainer'a PR denemesi yapacağını söyleyeceksin.",
       npc_role: "Personal trainer",
       setting: "Squat rack, after warm-ups",
       turns: [
@@ -658,7 +658,7 @@ export const sport_trainer_6_6: BundledLesson = {
             "PR attempt today",
           ],
           hint_tr:
-            "Niyetini soyle: 'Going for a triple at 100 kg' veya 'Attempting a new PR'.",
+            "Niyetini söyle: 'Going for a triple at 100 kg' veya 'Attempting a new PR'.",
         },
         {
           speaker: "npc",
@@ -674,7 +674,7 @@ export const sport_trainer_6_6: BundledLesson = {
             "[0-9]+ for (a |the )?(triple|double|single)",
           ],
           hint_tr:
-            "Agirligi soyle: '100 kg' veya 'Targeting 105 for a triple'.",
+            "Ağırlığı söyle: '100 kg' veya 'Targeting 105 for a triple'.",
         },
         {
           speaker: "npc",
@@ -704,7 +704,7 @@ export const sport_trainer_6_6: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "100 kg'da uc,lu PR'a gidiyorum, spot ister misin?",
+      source: "100 kg'da üçlü PR'a gidiyorum, spot ister misin?",
       target: "I'm going for a triple PR at 100 kg — can you spot me?",
       accepted_variants: [
         "Going for a triple at 100 kg — can you spot?",
@@ -713,7 +713,7 @@ export const sport_trainer_6_6: BundledLesson = {
         "Attempting a 100 kg triple PR — got a spot?",
       ],
       tr_hint:
-        "'Uc,lu PR' = 'triple PR'. 'Spot ister misin' = 'can you spot me?'",
+        "'Üçlü PR' = 'triple PR'. 'Spot ister misin' = 'can you spot me?'",
     },
     {
       id: "ex.6.6.4",
@@ -734,33 +734,33 @@ export const sport_trainer_6_6: BundledLesson = {
           question: "'PR' nedir?",
           options: [
             "Public relations",
-            "Personal record (kis,isel rekor)",
+            "Personal record (kişisel rekor)",
             "Pull ratio",
             "Pre-rest",
           ],
           correct_index: 1,
           tr_explanation:
-            "Spor baglaminda PR = Personal Record. Yeni en yuksek agirlik/tekrar.",
+            "Spor bağlamında PR = Personal Record. Yeni en yüksek ağırlık/tekrar.",
         },
         {
           question: "'Spot me' ne demek?",
           options: [
             "Beni bul",
-            "Bana yardim et (agirligi destekle)",
-            "Beni isaretle",
-            "Yerime gec,",
+            "Bana yardım et (ağırlığı destekle)",
+            "Beni işaretle",
+            "Yerime geç",
           ],
           correct_index: 1,
           tr_explanation:
-            "Spot = barbell/dumbbell setinde guvenlik yardimi. 'Spot me' = bana spot ver.",
+            "Spot = barbell/dumbbell setinde güvenlik yardımı. 'Spot me' = bana spot ver.",
         },
         {
           question: "'Going for a triple' ne demek?",
           options: [
-            "Uc, hareket yapacagim",
-            "Uc, tekrar PR denemesi yapacagim",
-            "Uc, kat agir kaldiracagim",
-            "Uc, set yapacagim",
+            "Üç hareket yapacağım",
+            "Üç tekrar PR denemesi yapacağım",
+            "Üç kat ağır kaldıracağım",
+            "Üç set yapacağım",
           ],
           correct_index: 1,
           tr_explanation:
@@ -772,15 +772,15 @@ export const sport_trainer_6_6: BundledLesson = {
 };
 
 // ============================================================
-// 6.7 — Deload haftasi
+// 6.7 — Deload haftası
 // ============================================================
 export const sport_trainer_6_7: BundledLesson = {
   id: "sport.trainer.deload.1",
   skill_id: "sport.trainer",
   index: 7,
-  title: "Deload haftasi — 'I need to back off'",
+  title: "Deload haftası — 'I need to back off'",
   description:
-    "Asiri yorgunluk + plateau: trainer'a deload iste. 'My CNS is fried' demeyi ogren.",
+    "Aşırı yorgunluk + plateau: trainer'a deload iste. 'My CNS is fried' demeyi öğren.",
   estimated_minutes: 8,
   exercises: [
     {
@@ -788,16 +788,16 @@ export const sport_trainer_6_7: BundledLesson = {
       type: "vocab_tile",
       difficulty: 3,
       word_or_phrase: "active recovery",
-      tr_translation: "Aktif dinlenme (hafif aktiviteyle iyilesme)",
+      tr_translation: "Aktif dinlenme (hafif aktiviteyle iyileşme)",
       example: "I'm doing active recovery today — light walk and stretching.",
-      example_tr: "Bugun aktif recovery yapiyorum — hafif yuruyus, esneme.",
+      example_tr: "Bugün aktif recovery yapıyorum — hafif yürüyüş, esneme.",
     },
     {
       id: "ex.6.7.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "8 hafta agir antrenman sonrasi yorgunsun. Trainer'a deload teklif edeceksin.",
+        "8 hafta ağır antrenman sonrası yorgunsun. Trainer'a deload teklif edeceksin.",
       npc_role: "Personal trainer",
       setting: "Pre-session check-in, week 8",
       turns: [
@@ -812,7 +812,7 @@ export const sport_trainer_6_7: BundledLesson = {
             "i('?ve|ve) been (feeling )?(wiped|cooked|run down)",
           ],
           hint_tr:
-            "Durumu soyle: 'I think I need a deload' veya 'My CNS is fried, can we back off?'",
+            "Durumu söyle: 'I think I need a deload' veya 'My CNS is fried, can we back off?'",
         },
         {
           speaker: "npc",
@@ -859,7 +859,7 @@ export const sport_trainer_6_7: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "Sinir sistemim bitik, bu hafta hacmi dusurmem lazim.",
+      source: "Sinir sistemim bitik, bu hafta hacmi düşürmem lazım.",
       target: "My CNS is fried — I need to drop the volume this week.",
       accepted_variants: [
         "My nervous system is cooked — I need to back off volume this week.",
@@ -868,7 +868,7 @@ export const sport_trainer_6_7: BundledLesson = {
         "My CNS is wiped — need to reduce volume this week.",
       ],
       tr_hint:
-        "'CNS fried' = sinir sistemi yanmis,. 'Hacmi dus,urmek' = 'drop/cut volume'.",
+        "'CNS fried' = sinir sistemi yanmış. 'Hacmi düşürmek' = 'drop/cut volume'.",
     },
     {
       id: "ex.6.7.4",
@@ -878,38 +878,38 @@ export const sport_trainer_6_7: BundledLesson = {
         {
           question: "'Deload' ne demek?",
           options: [
-            "Sporu birakmak",
-            "Yuku/volume'u kasitli dus,urme haftasi",
+            "Sporu bırakmak",
+            "Yükü/volume'u kasıtlı düşürme haftası",
             "Yeni program",
-            "Sakatlik tedavisi",
+            "Sakatlık tedavisi",
           ],
           correct_index: 1,
           tr_explanation:
-            "Deload = planlanmis, hafif hafta. Recovery icin volume %40-60 dusurulur.",
+            "Deload = planlanmış hafif hafta. Recovery için volume %40-60 düşürülür.",
         },
         {
           question: "'My CNS is fried' ne anlama gelir?",
           options: [
-            "Sinir sistemim asiri yorgun",
+            "Sinir sistemim aşırı yorgun",
             "Sinirim bozuk",
-            "Beynim acti",
-            "Kalbim hizli",
+            "Beynim açtı",
+            "Kalbim hızlı",
           ],
           correct_index: 0,
           tr_explanation:
-            "CNS = Central Nervous System. 'Fried' = asiri yorgun, tukenmis,.",
+            "CNS = Central Nervous System. 'Fried' = aşırı yorgun, tükenmiş.",
         },
         {
-          question: "'Active recovery' ornegi?",
+          question: "'Active recovery' örneği?",
           options: [
             "Maksimum bench seti",
             "Yatakta hareketsiz yatmak",
-            "Hafif yuruyus + esneme",
+            "Hafif yürüyüş + esneme",
             "Sprint intervalleri",
           ],
           correct_index: 2,
           tr_explanation:
-            "Aktif recovery = dolasimi artiran ama yormayacak hafif aktivite.",
+            "Aktif recovery = dolaşımı artıran ama yormayan hafif aktivite.",
         },
       ],
     },
@@ -917,15 +917,15 @@ export const sport_trainer_6_7: BundledLesson = {
 };
 
 // ============================================================
-// 7.1 — Maraton kayit
+// 7.1 — Maraton kayıt
 // ============================================================
 export const sport_race_7_1: BundledLesson = {
   id: "sport.race.signup.1",
   skill_id: "sport.race",
   index: 8,
-  title: "Maraton kayit — bib pickup, corral, expo",
+  title: "Maraton kayıt — bib pickup, corral, expo",
   description:
-    "Online kayit + expo'da bib alma. 'What's my corral assignment?' diye sor.",
+    "Online kayıt + expo'da bib alma. 'What's my corral assignment?' diye sor.",
   estimated_minutes: 7,
   exercises: [
     {
@@ -933,16 +933,16 @@ export const sport_race_7_1: BundledLesson = {
       type: "vocab_tile",
       difficulty: 2,
       word_or_phrase: "warm up / cool down",
-      tr_translation: "Isinma / sogume",
+      tr_translation: "Isınma / soğuma",
       example: "Always cool down with five minutes of easy jogging.",
-      example_tr: "Her zaman 5 dakika hafif tempo kos,uyla cool down yap.",
+      example_tr: "Her zaman 5 dakika hafif tempo koşuyla cool down yap.",
     },
     {
       id: "ex.7.1.2",
       type: "roleplay_chat",
       difficulty: 3,
       scenario_description:
-        "Marathon expo'sundasin. Bib (yaris numarasi) almak icin gorevliyle konus,uyorsun.",
+        "Marathon expo'sundasın. Bib (yarış numarası) almak için görevliyle konuşuyorsun.",
       npc_role: "Race director",
       setting: "Marathon expo, bib pickup tent",
       turns: [
@@ -960,7 +960,7 @@ export const sport_race_7_1: BundledLesson = {
             "(hi|hello)(,)? (last name|name) [a-z]+",
           ],
           hint_tr:
-            "Adin ve numarani ver: 'Last name Yilmaz, confirmation MR2024-1234'.",
+            "Adını ve numaranı ver: 'Last name Yılmaz, confirmation MR2024-1234'.",
         },
         {
           speaker: "npc",
@@ -993,7 +993,7 @@ export const sport_race_7_1: BundledLesson = {
             "appreciate (it|the help)",
           ],
           hint_tr:
-            "Tesekkur et veya extra sor: 'Thanks! Where's gear check?'",
+            "Teşekkür et veya ek soru sor: 'Thanks! Where's gear check?'",
         },
         {
           speaker: "npc",
@@ -1006,7 +1006,7 @@ export const sport_race_7_1: BundledLesson = {
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
-      source: "Hangi corral'dayim, kac,ta start aliyor?",
+      source: "Hangi corral'dayım, kaçta start alıyor?",
       target: "What's my corral assignment, and what time does it start?",
       accepted_variants: [
         "Which corral am I in, and when does it go off?",
@@ -1015,7 +1015,7 @@ export const sport_race_7_1: BundledLesson = {
         "What's my corral and what time do we head off?",
       ],
       tr_hint:
-        "'Corral assignment' = hangi grup. 'Start aliyor' = 'goes off' veya 'starts'.",
+        "'Corral assignment' = hangi grup. 'Start alıyor' = 'goes off' veya 'starts'.",
     },
     {
       id: "ex.7.1.4",
@@ -1023,40 +1023,40 @@ export const sport_race_7_1: BundledLesson = {
       difficulty: 2,
       questions: [
         {
-          question: "'Corral' (yaris baglaminda) ne demek?",
+          question: "'Corral' (yarış bağlamında) ne demek?",
           options: [
-            "Yaris izi",
-            "Start oncesi gruplandirma alani",
-            "Bitis bandi",
-            "Madalya alani",
+            "Yarış parkuru",
+            "Start öncesi gruplandırma alanı",
+            "Bitiş bandı",
+            "Madalya alanı",
           ],
           correct_index: 1,
           tr_explanation:
-            "Corral = baslamadan once temponun gruplara ayrildigi alan.",
+            "Corral = başlamadan önce temponun gruplara ayrıldığı alan.",
         },
         {
           question: "'Bib' nedir?",
           options: [
-            "Onluk gomlek",
-            "Yarisci numarasi (toplu igneyle tutturulur)",
-            "Cipli ayakkabi",
-            "Yariss medalyasi",
+            "Önlük gömlek",
+            "Yarışçı numarası (toplu iğneyle tutturulur)",
+            "Çipli ayakkabı",
+            "Yarış madalyası",
           ],
           correct_index: 1,
           tr_explanation:
-            "Bib = yarisci uzerinde tasidigi numara karti. Genelde chip ile birlesik.",
+            "Bib = yarışçının üzerinde taşıdığı numara kartı. Genelde chip ile birleşik.",
         },
         {
-          question: "'Cool down' ne icin?",
+          question: "'Cool down' ne için?",
           options: [
-            "Antrenman oncesi nabiz dusurmek",
-            "Antrenman sonrasi vucudu yavasc,a normale dondurmek",
-            "Sicakkanli yapmak",
-            "Su ic,mek",
+            "Antrenman öncesi nabız düşürmek",
+            "Antrenman sonrası vücudu yavaşça normale döndürmek",
+            "Soğukkanlı olmak",
+            "Su içmek",
           ],
           correct_index: 1,
           tr_explanation:
-            "Cool down = aktiviteyi yavasc,a sonlandirma, hafif tempo kos,u/yuruyus.",
+            "Cool down = aktiviteyi yavaşça sonlandırma, hafif tempo koşu/yürüyüş.",
         },
       ],
     },
@@ -1070,9 +1070,9 @@ export const sport_trainer_6_4: BundledLesson = {
   id: "sport.trainer.programming.1",
   skill_id: "sport.trainer",
   index: 4,
-  title: "Hypertrophy mi strength mi? — block sec,",
+  title: "Hypertrophy mi strength mi? — block seç",
   description:
-    "5x5 strength vs 4x10 hypertrophy farki. Trainer'a hedefini soyle, dogru block iste.",
+    "5x5 strength vs 4x10 hypertrophy farkı. Trainer'a hedefini söyle, doğru block iste.",
   estimated_minutes: 8,
   exercises: [
     {
@@ -1080,16 +1080,16 @@ export const sport_trainer_6_4: BundledLesson = {
       type: "vocab_tile",
       difficulty: 3,
       word_or_phrase: "split routine",
-      tr_translation: "Bolunmus, antrenman programi (uss/alt, push/pull/legs)",
+      tr_translation: "Bölünmüş antrenman programı (üst/alt, push/pull/legs)",
       example: "I'm running a push-pull-legs split this block.",
-      example_tr: "Bu blokta push-pull-legs split yapiyorum.",
+      example_tr: "Bu blokta push-pull-legs split yapıyorum.",
     },
     {
       id: "ex.6.4.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Yeni blok basliyor. Trainer'a hipertrofi mi guc, mu istedigini soyleyeceksin.",
+        "Yeni blok başlıyor. Trainer'a hipertrofi mi güç mü istediğini söyleyeceksin.",
       npc_role: "Personal trainer",
       setting: "Program design session",
       turns: [
@@ -1108,7 +1108,7 @@ export const sport_trainer_6_4: BundledLesson = {
             "let'?s (run|do) (hypertrophy|strength)",
           ],
           hint_tr:
-            "Sec, ve soyle: 'Hypertrophy this block' veya 'Strength focus, please'.",
+            "Seç ve söyle: 'Hypertrophy this block' veya 'Strength focus, please'.",
         },
         {
           speaker: "npc",
@@ -1140,7 +1140,7 @@ export const sport_trainer_6_4: BundledLesson = {
             "i'?m good for [0-9]+",
           ],
           hint_tr:
-            "Gun sayisi: 'Four days a week' veya 'I can hit five sessions'.",
+            "Gün sayısı: 'Four days a week' veya 'I can hit five sessions'.",
         },
         {
           speaker: "npc",
@@ -1153,7 +1153,7 @@ export const sport_trainer_6_4: BundledLesson = {
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
-      source: "Bu blokta hipertrofi odakli c,alismak istiyorum, haftada 4 gun.",
+      source: "Bu blokta hipertrofi odaklı çalışmak istiyorum, haftada 4 gün.",
       target: "I want to focus on hypertrophy this block, four days a week.",
       accepted_variants: [
         "I'd like to focus on hypertrophy this block, 4 days a week.",
@@ -1162,7 +1162,7 @@ export const sport_trainer_6_4: BundledLesson = {
         "I want a hypertrophy block, four days a week.",
       ],
       tr_hint:
-        "'Bu blokta hipertrofi odakli' = 'focus on hypertrophy this block'.",
+        "'Bu blokta hipertrofi odaklı' = 'focus on hypertrophy this block'.",
     },
     {
       id: "ex.6.4.4",
@@ -1172,7 +1172,7 @@ export const sport_trainer_6_4: BundledLesson = {
       answer: "split",
       distractors: ["group", "routine", "block", "set"],
       tr_hint:
-        "'Split routine' = bolunmus, program. 'Split' tek basina da yeterli.",
+        "'Split routine' = bölünmüş program. 'Split' tek başına da yeterli.",
     },
     {
       id: "ex.6.4.5",
@@ -1183,33 +1183,33 @@ export const sport_trainer_6_4: BundledLesson = {
           question: "5x5 ne anlama gelir?",
           options: [
             "5 dakika 5 tekrar",
-            "5 set 5 tekrar (strength odakli)",
-            "5 gun 5 hareket",
+            "5 set 5 tekrar (strength odaklı)",
+            "5 gün 5 hareket",
             "Pulse 5x5 cardio",
           ],
           correct_index: 1,
           tr_explanation:
-            "5x5 = 5 set x 5 rep, klasik strength sema.",
+            "5x5 = 5 set x 5 rep, klasik strength şeması.",
         },
         {
           question: "'Hypertrophy' nedir?",
           options: [
-            "Kalp atisi",
-            "Kas buyumesi (size kazanmak)",
-            "Sakatlik durumu",
-            "Cardio antrenmani",
+            "Kalp atışı",
+            "Kas büyümesi (size kazanmak)",
+            "Sakatlık durumu",
+            "Cardio antrenmanı",
           ],
           correct_index: 1,
           tr_explanation:
-            "Hypertrophy = kas hucresi buyumesi; tipik olarak 8-12 rep, orta tempo.",
+            "Hypertrophy = kas hücresi büyümesi; tipik olarak 8-12 rep, orta tempo.",
         },
         {
           question: "'Push-pull-legs split' nedir?",
           options: [
-            "3 gunluk kardio plani",
-            "Itme/c,ekme/bacak olarak gunlere bolunmus, plan",
-            "Eklem hareketi sirasi",
-            "Esneme protokolu",
+            "3 günlük kardiyo planı",
+            "İtme/çekme/bacak olarak günlere bölünmüş plan",
+            "Eklem hareketi sırası",
+            "Esneme protokolü",
           ],
           correct_index: 1,
           tr_explanation:
@@ -1229,7 +1229,7 @@ export const sport_race_7_2: BundledLesson = {
   index: 9,
   title: "Pace stratejisi — 'sub-4 marathon'",
   description:
-    "Hedef sure + negative split planı: 'First half at 5:50/km, then pick it up.'",
+    "Hedef süre + negative split planı: 'First half at 5:50/km, then pick it up.'",
   estimated_minutes: 8,
   exercises: [
     {
@@ -1237,16 +1237,16 @@ export const sport_race_7_2: BundledLesson = {
       type: "vocab_tile",
       difficulty: 3,
       word_or_phrase: "cardio vs strength",
-      tr_translation: "Kardiyo ve kuvvet antrenmaninin dengelenmesi",
+      tr_translation: "Kardiyo ve kuvvet antrenmanının dengelenmesi",
       example: "I balance cardio vs strength — three runs and two lifts a week.",
-      example_tr: "Kardiyo ve kuvveti dengeliyorum — haftada uc, kos,u, iki agirlik.",
+      example_tr: "Kardiyo ve kuvveti dengeliyorum — haftada üç koşu, iki ağırlık.",
     },
     {
       id: "ex.7.2.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Maraton kos,u arkadasinla pace stratejini paylas,iyorsun.",
+        "Maraton koşu arkadaşınla pace stratejini paylaşıyorsun.",
       npc_role: "Coach",
       setting: "Saturday morning long-run debrief",
       turns: [
@@ -1265,7 +1265,7 @@ export const sport_race_7_2: BundledLesson = {
             "(target|goal) is [0-9]+:[0-9]+",
           ],
           hint_tr:
-            "Stratejini soyle: 'Targeting sub-4, negative split — first half at 5:50/km'.",
+            "Stratejini söyle: 'Targeting sub-4, negative split — first half at 5:50/km'.",
         },
         {
           speaker: "npc",
@@ -1282,7 +1282,7 @@ export const sport_race_7_2: BundledLesson = {
             "two bottles of",
           ],
           hint_tr:
-            "Beslenme plani: 'A gel every 7 km, water at every aid station'.",
+            "Beslenme planı: 'A gel every 7 km, water at every aid station'.",
         },
         {
           speaker: "npc",
@@ -1299,7 +1299,7 @@ export const sport_race_7_2: BundledLesson = {
             "[0-9]+:[0-9]+ a goal",
           ],
           hint_tr:
-            "Uc, hedef: A = ideal, B = realistik, C = bitirme. Orn. 'A is sub-4, B is PR, C is just finish'.",
+            "Üç hedef: A = ideal, B = gerçekçi, C = bitirme. Örn. 'A is sub-4, B is PR, C is just finish'.",
         },
         {
           speaker: "npc",
@@ -1312,7 +1312,7 @@ export const sport_race_7_2: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "Ilk yariyi 5:50/km'de kos,acagim, sonra hizlanacagim.",
+      source: "İlk yarıyı 5:50/km'de koşacağım, sonra hızlanacağım.",
       target: "I'll run the first half at 5:50 per km, then pick it up.",
       accepted_variants: [
         "First half at 5:50 per km, then I pick it up.",
@@ -1321,7 +1321,7 @@ export const sport_race_7_2: BundledLesson = {
         "First half conservative at 5:50, then I'll push.",
       ],
       tr_hint:
-        "'Hizlanacagim' = 'pick it up' veya 'push'. 'Per km' = '/km'.",
+        "'Hızlanacağım' = 'pick it up' veya 'push'. 'Per km' = '/km'.",
     },
     {
       id: "ex.7.2.4",
@@ -1331,38 +1331,38 @@ export const sport_race_7_2: BundledLesson = {
         {
           question: "'Negative split' nedir?",
           options: [
-            "Yariyi yarida birakmak",
-            "Ilk yariyi yavas,, ikinci yariyi hizli kos,mak",
+            "Yarıyı yarıda bırakmak",
+            "İlk yarıyı yavaş, ikinci yarıyı hızlı koşmak",
             "Eksili saatte bitirmek",
-            "Bolunmus, antrenman",
+            "Bölünmüş antrenman",
           ],
           correct_index: 1,
           tr_explanation:
-            "Negative split = ikinci yari ilkinden hizli. Marathon stratejisi.",
+            "Negative split = ikinci yarı ilkinden hızlı. Marathon stratejisi.",
         },
         {
           question: "'Sub-4 marathon' ne demek?",
           options: [
             "4 km'lik bir marathon",
             "4 saatten az tamamlanan marathon",
-            "4 kisilik takim yarisi",
-            "4. nesil yariss",
+            "4 kişilik takım yarışı",
+            "4. nesil yarış",
           ],
           correct_index: 1,
           tr_explanation:
-            "Sub-X = X'in altinda. Sub-4 marathon = 3:59:59 veya altinda.",
+            "Sub-X = X'in altında. Sub-4 marathon = 3:59:59 veya altında.",
         },
         {
-          question: "'Pick it up' (kos,u baglaminda)?",
+          question: "'Pick it up' (koşu bağlamında)?",
           options: [
-            "Yerden bir sey al",
-            "Tempoyu artir",
+            "Yerden bir şey al",
+            "Tempoyu artır",
             "Mola ver",
-            "Telefonu ac,",
+            "Telefonu aç",
           ],
           correct_index: 1,
           tr_explanation:
-            "'Pick it up' = tempoyu artirmak. Bisiklet ve kos,uda yaygin.",
+            "'Pick it up' = tempoyu artırmak. Bisiklet ve koşuda yaygın.",
         },
       ],
     },
@@ -1378,7 +1378,7 @@ export const sport_race_7_3: BundledLesson = {
   index: 10,
   title: "Triatlon brief — T1 ve T2 transition'lar",
   description:
-    "Wetsuit c,ikarma, bike mount, gear list. 'Rack number 142.'",
+    "Wetsuit çıkarma, bike mount, gear list. 'Rack number 142.'",
   estimated_minutes: 9,
   exercises: [
     {
@@ -1386,16 +1386,16 @@ export const sport_race_7_3: BundledLesson = {
       type: "vocab_tile",
       difficulty: 4,
       word_or_phrase: "transition (T1, T2)",
-      tr_translation: "Spor degisim alani (yuzme>>bisiklet veya bisiklet>>kos,u)",
+      tr_translation: "Spor değişim alanı (yüzme>>bisiklet veya bisiklet>>koşu)",
       example: "Practice your T1 — wetsuit off, helmet on, bike out.",
-      example_tr: "T1'i prova et — wetsuit cikar, kask tak, bisiklete bin.",
+      example_tr: "T1'i prova et — wetsuit çıkar, kask tak, bisiklete bin.",
     },
     {
       id: "ex.7.3.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Sprint triatlon oncesi briefingdesin. Race director T1/T2 sirasini ac,ikliyor.",
+        "Sprint triatlon öncesi briefingdesin. Race director T1/T2 sırasını açıklıyor.",
       npc_role: "Race director",
       setting: "Athlete briefing tent, race-eve",
       turns: [
@@ -1448,7 +1448,7 @@ export const sport_race_7_3: BundledLesson = {
             "(perfect|all clear)",
           ],
           hint_tr:
-            "Tesekkur et veya cut-off sor: 'Thanks! Is there a cut-off time?'",
+            "Teşekkür et veya cut-off sor: 'Thanks! Is there a cut-off time?'",
         },
         {
           speaker: "npc",
@@ -1461,7 +1461,7 @@ export const sport_race_7_3: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "Bisikleti nereye dizecegim, rack numaram ne?",
+      source: "Bisikleti nereye dizeceğim, rack numaram ne?",
       target: "Where do I rack my bike, and what's my rack number?",
       accepted_variants: [
         "Where do I rack the bike and what's my number?",
@@ -1470,7 +1470,7 @@ export const sport_race_7_3: BundledLesson = {
         "Where do I rack and what's my rack number?",
       ],
       tr_hint:
-        "'Bisikleti dizmek' = 'rack the bike'. 'Rack number' = sira numarasi.",
+        "'Bisikleti dizmek' = 'rack the bike'. 'Rack number' = sıra numarası.",
     },
     {
       id: "ex.7.3.4",
@@ -1479,7 +1479,7 @@ export const sport_race_7_3: BundledLesson = {
       incorrect_sentence: "Where is my bike place number?",
       correct_sentence: "What's my rack number?",
       tr_explanation:
-        "'Bike place number' direkt c,eviri. Native sadece 'rack number' der.",
+        "'Bike place number' direkt çeviri. Native sadece 'rack number' der.",
     },
     {
       id: "ex.7.3.5",
@@ -1490,9 +1490,9 @@ export const sport_race_7_3: BundledLesson = {
           question: "Triatlonda 'T1' nedir?",
           options: [
             "Birinci tur",
-            "Yuzme'den bisiklete gec,is,",
-            "Bisikletten kos,uya gec,is,",
-            "Birinci takim",
+            "Yüzmeden bisiklete geçiş",
+            "Bisikletten koşuya geçiş",
+            "Birinci takım",
           ],
           correct_index: 1,
           tr_explanation:
@@ -1501,26 +1501,26 @@ export const sport_race_7_3: BundledLesson = {
         {
           question: "'Mount line' nedir?",
           options: [
-            "Bisiklete binilen sinir c,izgisi",
-            "Yuzme baslangic c,izgisi",
-            "Bitis hatti",
-            "Dag patikasi",
+            "Bisiklete binilen sınır çizgisi",
+            "Yüzme başlangıç çizgisi",
+            "Bitiş hattı",
+            "Dağ patikası",
           ],
           correct_index: 0,
           tr_explanation:
-            "Mount line = bisiklete bu noktadan once binmek yasak (penalty).",
+            "Mount line = bisiklete bu noktadan önce binmek yasak (penalty).",
         },
         {
           question: "'Wetsuit strippers' ne yapar?",
           options: [
             "Wetsuit satar",
-            "Wetsuit'i hizlica c,ikarmana yardim eder",
+            "Wetsuit'i hızlıca çıkarmana yardım eder",
             "Wetsuit boyar",
             "Wetsuit kurutur",
           ],
           correct_index: 1,
           tr_explanation:
-            "Bazi yarislarda volunteer 'strippers' yuzme cikis,inda wetsuit'i 2 saniyede c,eker.",
+            "Bazı yarışlarda gönüllü 'strippers' yüzme çıkışında wetsuit'i 2 saniyede çeker.",
         },
       ],
     },
@@ -1528,15 +1528,15 @@ export const sport_race_7_3: BundledLesson = {
 };
 
 // ============================================================
-// 7.4 — Taper haftasi
+// 7.4 — Taper haftası
 // ============================================================
 export const sport_race_7_4: BundledLesson = {
   id: "sport.race.taper.1",
   skill_id: "sport.race",
   index: 11,
-  title: "Taper haftasi — 'Cutting volume by 40%'",
+  title: "Taper haftası — 'Cutting volume by 40%'",
   description:
-    "Yaris oncesi son hafta: volume dus,ur, intensity koru. Kos,u arkadas,ina taper'i ac,ikla.",
+    "Yarış öncesi son hafta: volume düşür, intensity koru. Koşu arkadaşına taper'ı açıkla.",
   estimated_minutes: 7,
   exercises: [
     {
@@ -1544,16 +1544,16 @@ export const sport_race_7_4: BundledLesson = {
       type: "vocab_tile",
       difficulty: 3,
       word_or_phrase: "taper",
-      tr_translation: "Yaris oncesi volume azaltma haftasi",
+      tr_translation: "Yarış öncesi volume azaltma haftası",
       example: "I'm tapering this week — only 30 km total.",
-      example_tr: "Bu hafta taper'dayim — toplam 30 km.",
+      example_tr: "Bu hafta taper'dayım — toplam 30 km.",
     },
     {
       id: "ex.7.4.2",
       type: "roleplay_chat",
       difficulty: 3,
       scenario_description:
-        "Kos,u arkadas,iyla cumartesi kahvaltisindasin. Taper haftani ac,ikliyorsun.",
+        "Koşu arkadaşıyla cumartesi kahvaltısındasın. Taper haftanı açıklıyorsun.",
       npc_role: "Gym buddy",
       setting: "Saturday coffee, week before marathon",
       turns: [
@@ -1572,7 +1572,7 @@ export const sport_race_7_4: BundledLesson = {
             "race is (next|this) (sunday|weekend)",
           ],
           hint_tr:
-            "Taper'i ac,ikla: 'I'm tapering — cutting volume by 40%' veya 'Easy week before the race'.",
+            "Taper'ı açıkla: 'I'm tapering — cutting volume by 40%' veya 'Easy week before the race'.",
         },
         {
           speaker: "npc",
@@ -1589,7 +1589,7 @@ export const sport_race_7_4: BundledLesson = {
             "first time (i'?m|im) (tapering|cutting back)",
           ],
           hint_tr:
-            "Hisleri paylas,: 'Yeah, taper crazies are real' veya 'Feels weird, legs are heavy'.",
+            "Hislerini paylaş: 'Yeah, taper crazies are real' veya 'Feels weird, legs are heavy'.",
         },
         {
           speaker: "npc",
@@ -1619,7 +1619,7 @@ export const sport_race_7_4: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "Taper'dayim, bu hafta volume %40 dustu ama intensity ayni.",
+      source: "Taper'dayım, bu hafta volume %40 düştü ama intensity aynı.",
       target: "I'm tapering — volume is down 40% this week but intensity stays the same.",
       accepted_variants: [
         "I'm in taper — cutting volume by 40%, intensity stays.",
@@ -1628,7 +1628,7 @@ export const sport_race_7_4: BundledLesson = {
         "I'm tapering — dropping volume 40% but keeping intensity.",
       ],
       tr_hint:
-        "'Taper'dayim' = 'I'm tapering' veya 'in taper'. 'Intensity stays' = ayni.",
+        "'Taper'dayım' = 'I'm tapering' veya 'in taper'. 'Intensity stays' = aynı.",
     },
     {
       id: "ex.7.4.4",
@@ -1638,38 +1638,38 @@ export const sport_race_7_4: BundledLesson = {
         {
           question: "'Taper' nedir?",
           options: [
-            "Yariss oncesi son hafta volume azaltma",
-            "Hafta sonu uzun kos,u",
-            "Yarissi terketmek",
-            "Yeni programa baslama",
+            "Yarış öncesi son hafta volume azaltma",
+            "Hafta sonu uzun koşu",
+            "Yarışı terk etmek",
+            "Yeni programa başlama",
           ],
           correct_index: 0,
           tr_explanation:
-            "Taper = yaris oncesi 1-3 hafta volume azaltma, intensity korunur.",
+            "Taper = yarış öncesi 1-3 hafta volume azaltma, intensity korunur.",
         },
         {
           question: "'Taper crazies' ne demek?",
           options: [
-            "Taper donemi hatasi",
-            "Az kos,maktan dolayi sinirli/huzursuz hissetmek",
-            "Anormal hizli kos,u",
-            "Yariss sirasinda c,ildirma",
+            "Taper dönemi hatası",
+            "Az koşmaktan dolayı sinirli/huzursuz hissetmek",
+            "Anormal hızlı koşu",
+            "Yarış sırasında çıldırma",
           ],
           correct_index: 1,
           tr_explanation:
-            "Taper crazies = vücut alis,kin oldugu hareketsizlikten huzursuzlanir.",
+            "Taper crazies = vücut alışkın olduğu hareketsizlikten huzursuzlanır.",
         },
         {
-          question: "'Fitness is in the bank' anlami?",
+          question: "'Fitness is in the bank' anlamı?",
           options: [
             "Bankada para birikti",
-            "Yaris fitnessin zaten yapildi/biriktirildi",
+            "Yarış fitness'ın zaten yapıldı/biriktirildi",
             "Bankada antrenman var",
-            "Borc, edinmek",
+            "Borç edinmek",
           ],
           correct_index: 1,
           tr_explanation:
-            "Klise: c,alismayi yaptin, kaydedildi, son hafta cabalama.",
+            "Klişe: çalışmayı yaptın, kaydedildi, son hafta çabalama.",
         },
       ],
     },
@@ -1677,15 +1677,15 @@ export const sport_race_7_4: BundledLesson = {
 };
 
 // ============================================================
-// 7.5 — Amator lig kayit
+// 7.5 — Amatör lig kayıt
 // ============================================================
 export const sport_race_7_5: BundledLesson = {
   id: "sport.race.league.1",
   skill_id: "sport.race",
   index: 12,
-  title: "Sunday league kayit — takim yazdir",
+  title: "Sunday league kayıt — takım yazdır",
   description:
-    "Hali saha ligine takim yazdir: roster, fee, kit color. 'We need a striker.'",
+    "Halı saha ligine takım yazdır: roster, fee, kit color. 'We need a striker.'",
   estimated_minutes: 7,
   exercises: [
     {
@@ -1693,16 +1693,16 @@ export const sport_race_7_5: BundledLesson = {
       type: "vocab_tile",
       difficulty: 2,
       word_or_phrase: "roster",
-      tr_translation: "Takim listesi (kadro)",
+      tr_translation: "Takım listesi (kadro)",
       example: "Send me the roster by Friday — we need 11 plus subs.",
-      example_tr: "Cuma'ya kadar kadroyu yolla — 11 + yedek lazim.",
+      example_tr: "Cuma'ya kadar kadroyu yolla — 11 + yedek lazım.",
     },
     {
       id: "ex.7.5.2",
       type: "roleplay_chat",
       difficulty: 3,
       scenario_description:
-        "Yerel hali saha ligine takim yazdirmak icin organizator ile konus,uyorsun.",
+        "Yerel halı saha ligine takım yazdırmak için organizatörle konuşuyorsun.",
       npc_role: "Race director",
       setting: "Local 6-a-side league registration desk",
       turns: [
@@ -1717,7 +1717,7 @@ export const sport_race_7_5: BundledLesson = {
             "(i'?m|im) (signing|registering) a team",
           ],
           hint_tr:
-            "Takim yazdir: 'I'd like to register a team' veya 'Can we sign up for Sunday league?'",
+            "Takım yazdır: 'I'd like to register a team' veya 'Can we sign up for Sunday league?'",
         },
         {
           speaker: "npc",
@@ -1750,7 +1750,7 @@ export const sport_race_7_5: BundledLesson = {
             "primary (is |color )?",
           ],
           hint_tr:
-            "Renk soyle: 'Red and white' veya 'Our kit is blue'.",
+            "Renk söyle: 'Red and white' veya 'Our kit is blue'.",
         },
         {
           speaker: "npc",
@@ -1780,7 +1780,7 @@ export const sport_race_7_5: BundledLesson = {
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
-      source: "Bir forvet lazim — taniyan var mi?",
+      source: "Bir forvet lazım — tanıyan var mı?",
       target: "We need a striker — any leads?",
       accepted_variants: [
         "We need a striker — anyone know one?",
@@ -1789,7 +1789,7 @@ export const sport_race_7_5: BundledLesson = {
         "We're a striker short — anyone available?",
       ],
       tr_hint:
-        "'Forvet lazim' = 'we need a striker'. 'Taniyan var mi' = 'any leads?'",
+        "'Forvet lazım' = 'we need a striker'. 'Tanıyan var mı' = 'any leads?'",
     },
     {
       id: "ex.7.5.4",
@@ -1800,37 +1800,37 @@ export const sport_race_7_5: BundledLesson = {
           question: "'Roster' ne demek?",
           options: [
             "Tabela",
-            "Takim kadrosu/listesi",
+            "Takım kadrosu/listesi",
             "Saha rotasyonu",
-            "Resim cerc,evesi",
+            "Resim çerçevesi",
           ],
           correct_index: 1,
           tr_explanation:
-            "Roster = takim kadrosu, oyuncu listesi.",
+            "Roster = takım kadrosu, oyuncu listesi.",
         },
         {
           question: "'Sunday league' nedir?",
           options: [
-            "Pazar gunlu profesyonel lig",
-            "Amator/hobi futbol ligi (genelde pazar)",
-            "Kiliise futbol takimi",
-            "Yarismaci kanal ligi",
+            "Pazar günü profesyonel lig",
+            "Amatör/hobi futbol ligi (genelde pazar)",
+            "Kilise futbol takımı",
+            "Yarışmacı kanal ligi",
           ],
           correct_index: 1,
           tr_explanation:
-            "Sunday league = haftalik amator lig. UK'de geleneksel.",
+            "Sunday league = haftalık amatör lig. UK'de geleneksel.",
         },
         {
-          question: "'Any leads?' (oyuncu baglaminda)?",
+          question: "'Any leads?' (oyuncu bağlamında)?",
           options: [
-            "Hic, lider var mi?",
-            "Onerebilecegin biri var mi?",
-            "Kabloluk var mi?",
-            "Onde gelen biri mi?",
+            "Hiç lider var mı?",
+            "Önerebileceğin biri var mı?",
+            "Kabloluk var mı?",
+            "Önde gelen biri mi?",
           ],
           correct_index: 1,
           tr_explanation:
-            "'Leads' = ipuc,u, tavsiye. 'Any leads on a striker?' = forvet onerebilecegin var mi?",
+            "'Leads' = ipucu, tavsiye. 'Any leads on a striker?' = forvet önerebileceğin var mı?",
         },
       ],
     },
@@ -1846,7 +1846,7 @@ export const sport_race_7_6: BundledLesson = {
   index: 13,
   title: "Granfondo — drafting + rotation",
   description:
-    "Yol bisikleti grup ride'i: 'Who's pulling first? We rotate every 5K.'",
+    "Yol bisikleti grup ride'ı: 'Who's pulling first? We rotate every 5K.'",
   estimated_minutes: 8,
   exercises: [
     {
@@ -1854,16 +1854,16 @@ export const sport_race_7_6: BundledLesson = {
       type: "vocab_tile",
       difficulty: 3,
       word_or_phrase: "drafting / pulling",
-      tr_translation: "Slipstream (arkadan korunma) / onde c,ekme",
+      tr_translation: "Slipstream (arkadan korunma) / önde çekme",
       example: "I'll pull for the first 5K, then someone else takes over.",
-      example_tr: "Ilk 5 km'yi ben c,ekerim, sonra baska biri devralsin.",
+      example_tr: "İlk 5 km'yi ben çekerim, sonra başka biri devralsın.",
     },
     {
       id: "ex.7.6.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Yabanci bisikletcilerle grup ride'i baslamadan once plan yapiyorsunuz.",
+        "Yabancı bisikletçilerle grup ride'ı başlamadan önce plan yapıyorsunuz.",
       npc_role: "Gym buddy",
       setting: "Granfondo start line, cycling group",
       turns: [
@@ -1882,7 +1882,7 @@ export const sport_race_7_6: BundledLesson = {
             "(yeah|sure)(,)? (i'?ll|i will)",
           ],
           hint_tr:
-            "Onaylan: 'I'll take the first pull' veya 'Happy to lead the first 5K'.",
+            "Önden geç: 'I'll take the first pull' veya 'Happy to lead the first 5K'.",
         },
         {
           speaker: "npc",
@@ -1916,7 +1916,7 @@ export const sport_race_7_6: BundledLesson = {
             "(pairs|two)( first| up)?",
           ],
           hint_tr:
-            "Formasyonu sec,: 'Single file on the climb, pairs on flats'.",
+            "Formasyonu seç: 'Single file on the climb, pairs on flats'.",
         },
         {
           speaker: "npc",
@@ -1929,7 +1929,7 @@ export const sport_race_7_6: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "Her 5 km'de rotasyon yapalim, ben ilk c,ekisi alirim.",
+      source: "Her 5 km'de rotasyon yapalım, ben ilk çekişi alırım.",
       target: "Let's rotate every 5 K — I'll take the first pull.",
       accepted_variants: [
         "We'll rotate every 5K — I'll pull first.",
@@ -1938,7 +1938,7 @@ export const sport_race_7_6: BundledLesson = {
         "Let's swap every 5 km — I'll start.",
       ],
       tr_hint:
-        "'Rotasyon yapalim' = 'let's rotate'. 'Ilk c,ekisi alirim' = 'I'll take the first pull'.",
+        "'Rotasyon yapalım' = 'let's rotate'. 'İlk çekişi alırım' = 'I'll take the first pull'.",
     },
     {
       id: "ex.7.6.4",
@@ -1947,7 +1947,7 @@ export const sport_race_7_6: BundledLesson = {
       incorrect_sentence: "I will pull the front for first 5 kilometers.",
       correct_sentence: "I'll take the first pull — 5 K up front.",
       tr_explanation:
-        "'Pull the front' yanlis kalip. Native 'take the first pull' veya 'pull first' der.",
+        "'Pull the front' yanlış kalıp. Native 'take the first pull' veya 'pull first' der.",
     },
     {
       id: "ex.7.6.5",
@@ -1957,38 +1957,38 @@ export const sport_race_7_6: BundledLesson = {
         {
           question: "Bisiklette 'drafting' nedir?",
           options: [
-            "Yarisi planlamak",
-            "Onceki bisikletcinin arkasinda slipstream'de gitmek",
-            "Frenleme teknigi",
-            "Diziyle dirsek tutmak",
+            "Yarışı planlamak",
+            "Önceki bisikletçinin arkasında slipstream'de gitmek",
+            "Frenleme tekniği",
+            "Dizle dirsek tutmak",
           ],
           correct_index: 1,
           tr_explanation:
-            "Drafting = onceki bisikletcinin slipstream'inde durarak %30 enerji tasarrufu.",
+            "Drafting = önceki bisikletçinin slipstream'inde durarak %30 enerji tasarrufu.",
         },
         {
-          question: "'Pulling' (bisiklet baglaminda)?",
+          question: "'Pulling' (bisiklet bağlamında)?",
           options: [
-            "Pedaldan c,ekmek",
-            "Bir baskasini c,ekmek (zincirle)",
-            "Grupun onunde ruzgari yarmak",
+            "Pedaldan çekmek",
+            "Bir başkasını çekmek (zincirle)",
+            "Grubun önünde rüzgârı yarmak",
             "Frene basmak",
           ],
           correct_index: 2,
           tr_explanation:
-            "Pulling = onde ruzgari yarmak. Yorucu, bu yuzden rotation yapilir.",
+            "Pulling = önde rüzgârı yarmak. Yorucu, bu yüzden rotation yapılır.",
         },
         {
           question: "'Paceline' nedir?",
           options: [
-            "Hizli c,izgi",
-            "Tek sira halinde gruplu surus",
-            "Tempolu kos,u patikasi",
-            "Hedef hatti",
+            "Hızlı çizgi",
+            "Tek sıra halinde gruplu sürüş",
+            "Tempolu koşu patikası",
+            "Hedef hattı",
           ],
           correct_index: 1,
           tr_explanation:
-            "Paceline = sirali grup surus,, dusuk ruzgar direnci.",
+            "Paceline = sıralı grup sürüşü, düşük rüzgâr direnci.",
         },
       ],
     },
@@ -1996,15 +1996,15 @@ export const sport_race_7_6: BundledLesson = {
 };
 
 // ============================================================
-// 8.1 — Mac analizi futbol
+// 8.1 — Maç analizi futbol
 // ============================================================
 export const sport_tactics_8_1: BundledLesson = {
   id: "sport.tactics.football.1",
   skill_id: "sport.tactics",
   index: 14,
-  title: "Mac analizi — high press, low block",
+  title: "Maç analizi — high press, low block",
   description:
-    "Futbol post-match: high press, low block, gegenpress. Taktigi Ingilizce sozel ac,ikla.",
+    "Futbol post-match: high press, low block, gegenpress. Taktiği İngilizce sözel açıkla.",
   estimated_minutes: 8,
   exercises: [
     {
@@ -2012,16 +2012,16 @@ export const sport_tactics_8_1: BundledLesson = {
       type: "vocab_tile",
       difficulty: 4,
       word_or_phrase: "high press",
-      tr_translation: "Yuksekten pres (rakip yari sahada)",
+      tr_translation: "Yüksekten pres (rakip yarı sahada)",
       example: "City played a really aggressive high press in the first half.",
-      example_tr: "City ilk yarida c,ok agresif high press oynadi.",
+      example_tr: "City ilk yarıda çok agresif high press oynadı.",
     },
     {
       id: "ex.8.1.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Arkadasinla mac sonrasi analiz yapiyorsunuz.",
+        "Arkadaşınla maç sonrası analiz yapıyorsunuz.",
       npc_role: "Coach",
       setting: "Post-match analysis with a friend",
       turns: [
@@ -2040,7 +2040,7 @@ export const sport_tactics_8_1: BundledLesson = {
             "(it was|that was) (a |) (high press|tactical)",
           ],
           hint_tr:
-            "Taktigi ac,ikla: 'They pressed high up the pitch' veya 'It was a high press setup'.",
+            "Taktiği açıkla: 'They pressed high up the pitch' veya 'It was a high press setup'.",
         },
         {
           speaker: "npc",
@@ -2057,7 +2057,7 @@ export const sport_tactics_8_1: BundledLesson = {
             "(they|the manager) (got|went) conservative",
           ],
           hint_tr:
-            "Ikinci yari farkini soyle: 'They dropped into a low block' veya 'Went conservative'.",
+            "İkinci yarı farkını söyle: 'They dropped into a low block' veya 'Went conservative'.",
         },
         {
           speaker: "npc",
@@ -2074,7 +2074,7 @@ export const sport_tactics_8_1: BundledLesson = {
             "double (pivot|number 10)",
           ],
           hint_tr:
-            "Onerini sun: 'I'd switch to a back three' veya 'Bring on a second striker'.",
+            "Önerini sun: 'I'd switch to a back three' veya 'Bring on a second striker'.",
         },
         {
           speaker: "npc",
@@ -2087,7 +2087,7 @@ export const sport_tactics_8_1: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "Yuksek pres oynadilar ama sonra low block'a c,ekildiler.",
+      source: "Yüksek pres oynadılar ama sonra low block'a çekildiler.",
       target: "They pressed high but then dropped into a low block.",
       accepted_variants: [
         "They started with a high press but switched to a low block.",
@@ -2096,7 +2096,7 @@ export const sport_tactics_8_1: BundledLesson = {
         "They pressed up the pitch then dropped deep into a low block.",
       ],
       tr_hint:
-        "'Yuksek pres' = 'high press'. 'Geri c,ekildiler' = 'dropped into / sat in'.",
+        "'Yüksek pres' = 'high press'. 'Geri çekildiler' = 'dropped into / sat in'.",
     },
     {
       id: "ex.8.1.4",
@@ -2106,38 +2106,38 @@ export const sport_tactics_8_1: BundledLesson = {
         {
           question: "'High press' nedir?",
           options: [
-            "Topu yuksek vurmak",
-            "Rakip yari sahasinda agresif basinc, uygulamak",
-            "Smaclamak",
+            "Topu yüksek vurmak",
+            "Rakip yarı sahasında agresif baskı uygulamak",
+            "Smaçlamak",
             "Hava topuna girmek",
           ],
           correct_index: 1,
           tr_explanation:
-            "High press = rakibin yari sahasinda kazanmaya c,alismak.",
+            "High press = rakibin yarı sahasında topu kazanmaya çalışmak.",
         },
         {
           question: "'Low block' nedir?",
           options: [
-            "Alc,ak blok smaci",
-            "Defansif olarak geri c,ekilip kompakt durmak",
+            "Alçak blok smacı",
+            "Defansif olarak geri çekilip kompakt durmak",
             "Yedek listesi",
             "Voleybolda blok",
           ],
           correct_index: 1,
           tr_explanation:
-            "Low block = takim kendi yari sahasinda kompakt savunma yapar.",
+            "Low block = takım kendi yarı sahasında kompakt savunma yapar.",
         },
         {
           question: "'Park the bus' deyimi?",
           options: [
-            "Otobus park etmek",
-            "Tamamen savunmaya c,ekilmek",
+            "Otobüsü park etmek",
+            "Tamamen savunmaya çekilmek",
             "Antrenmana erken gitmek",
-            "Bekleyiste olmak",
+            "Bekleyişte olmak",
           ],
           correct_index: 1,
           tr_explanation:
-            "Mourinho klisesi: tamamen defansif oyun, gole gec,it vermeme.",
+            "Mourinho klişesi: tamamen defansif oyun, gole geçit vermeme.",
         },
       ],
     },
@@ -2145,15 +2145,15 @@ export const sport_tactics_8_1: BundledLesson = {
 };
 
 // ============================================================
-// 8.2 — xG tartismasi
+// 8.2 — xG tartışması
 // ============================================================
 export const sport_tactics_8_2: BundledLesson = {
   id: "sport.tactics.stats.1",
   skill_id: "sport.tactics",
   index: 15,
-  title: "xG tartismasi — 'United underperformed'",
+  title: "xG tartışması — 'United underperformed'",
   description:
-    "Expected goals, possession, npxG. Numara konus,an kafayla mac oku.",
+    "Expected goals, possession, npxG. Sayılarla konuşan kafayla maç oku.",
   estimated_minutes: 9,
   exercises: [
     {
@@ -2161,16 +2161,16 @@ export const sport_tactics_8_2: BundledLesson = {
       type: "vocab_tile",
       difficulty: 4,
       word_or_phrase: "xG (expected goals)",
-      tr_translation: "Beklenen gol degeri (sut kalitesinin istatistigi)",
+      tr_translation: "Beklenen gol değeri (şut kalitesinin istatistiği)",
       example: "They had an xG of 2.8 but only scored once.",
-      example_tr: "xG'leri 2.8'di ama sadece bir gol attilar.",
+      example_tr: "xG'leri 2.8'di ama sadece bir gol attılar.",
     },
     {
       id: "ex.8.2.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Arkadasinla data-odakli analiz yapiyorsun. xG ve possession konus,uyorsunuz.",
+        "Arkadaşınla veri odaklı analiz yapıyorsun. xG ve possession konuşuyorsunuz.",
       npc_role: "Coach",
       setting: "Post-match data deep dive over drinks",
       turns: [
@@ -2223,7 +2223,7 @@ export const sport_tactics_8_2: BundledLesson = {
             "(no.?show|absent) from (the |their )?(striker|9)",
           ],
           hint_tr:
-            "Detaylan: 'Big chances were 6 to 2 but finishing was poor' veya 'Striker had a no-show'.",
+            "Detaylandır: 'Big chances were 6 to 2 but finishing was poor' veya 'Striker had a no-show'.",
         },
         {
           speaker: "npc",
@@ -2236,7 +2236,7 @@ export const sport_tactics_8_2: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "Manchester United xG'sini underperform etti, kac,irilan firsatlar belirleyiciydi.",
+      source: "Manchester United xG'sini underperform etti, kaçırılan fırsatlar belirleyiciydi.",
       target: "Manchester United underperformed their xG — missed chances were the difference.",
       accepted_variants: [
         "United underperformed their xG; missed chances decided it.",
@@ -2255,7 +2255,7 @@ export const sport_tactics_8_2: BundledLesson = {
       answer: "xG",
       distractors: ["xT", "PPDA", "tackle", "rating"],
       tr_hint:
-        "xG = expected goals. Beklenen gol degeri.",
+        "xG = expected goals. Beklenen gol değeri.",
     },
     {
       id: "ex.8.2.5",
@@ -2266,25 +2266,25 @@ export const sport_tactics_8_2: BundledLesson = {
           question: "'xG' (expected goals) ne demek?",
           options: [
             "Toplam gol",
-            "Sutun gole gitme olasiliginin istatistigi",
+            "Şutun gole gitme olasılığının istatistiği",
             "Eksik gol",
-            "Olc,ulen gol",
+            "Ölçülen gol",
           ],
           correct_index: 1,
           tr_explanation:
-            "xG = her sutun gol olma ihtimalinin toplami (0-1 arasi).",
+            "xG = her şutun gol olma ihtimalinin toplamı (0-1 arası).",
         },
         {
           question: "'Sterile possession' ne demek?",
           options: [
             "Steril ortamda kontrol",
-            "Etkisiz, gol firsati yaratmayan top kontrolu",
+            "Etkisiz, gol fırsatı yaratmayan top kontrolü",
             "Sertlik olmadan oynamak",
             "Pasif futbol",
           ],
           correct_index: 1,
           tr_explanation:
-            "Sterile possession = c,ok top tutmak ama sut/firsat olusturamamak.",
+            "Sterile possession = çok top tutmak ama şut/fırsat oluşturamamak.",
         },
         {
           question: "'npxG' nedir?",
@@ -2296,7 +2296,7 @@ export const sport_tactics_8_2: BundledLesson = {
           ],
           correct_index: 0,
           tr_explanation:
-            "npxG = penalti goller cikarilmis, xG, daha 'gerc,ek' resim.",
+            "npxG = penaltı golleri çıkarılmış xG, daha 'gerçek' tablo.",
         },
       ],
     },
@@ -2312,7 +2312,7 @@ export const sport_tactics_8_3: BundledLesson = {
   index: 16,
   title: "Pick-and-roll — switch or drop coverage",
   description:
-    "Basketbol defensive scheme: switch, drop, hedge. Coach gibi konus,.",
+    "Basketbol defensive scheme: switch, drop, hedge. Koç gibi konuş.",
   estimated_minutes: 8,
   exercises: [
     {
@@ -2322,14 +2322,14 @@ export const sport_tactics_8_3: BundledLesson = {
       word_or_phrase: "pick-and-roll",
       tr_translation: "Perdele-yuvarlan (NBA temel hareketi)",
       example: "They run pick-and-roll on every possession.",
-      example_tr: "Her hucumda pick-and-roll oynuyorlar.",
+      example_tr: "Her hücumda pick-and-roll oynuyorlar.",
     },
     {
       id: "ex.8.3.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Arkadasinla NBA mac replay'i izliyorsunuz, defansif coverage tartisiyorsunuz.",
+        "Arkadaşınla NBA maç replay'i izliyorsunuz, defansif coverage tartışıyorsunuz.",
       npc_role: "Coach",
       setting: "NBA League Pass replay session",
       turns: [
@@ -2348,7 +2348,7 @@ export const sport_tactics_8_3: BundledLesson = {
             "(blow.?by|got blown by)",
           ],
           hint_tr:
-            "Coverage'i ac,ikla: 'They switched and got hunted on the mismatch'.",
+            "Coverage'i açıkla: 'They switched and got hunted on the mismatch'.",
         },
         {
           speaker: "npc",
@@ -2365,7 +2365,7 @@ export const sport_tactics_8_3: BundledLesson = {
             "(go|run) ICE",
           ],
           hint_tr:
-            "Onerini yap: 'I'd drop the big and recover' veya 'Hard hedge then switch'.",
+            "Önerini yap: 'I'd drop the big and recover' veya 'Hard hedge then switch'.",
         },
         {
           speaker: "npc",
@@ -2395,7 +2395,7 @@ export const sport_tactics_8_3: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "Switch sonrasi guard'a karsi big oyuncu mismatch oldu.",
+      source: "Switch sonrası guard'a karşı big oyuncu mismatch oldu.",
       target: "After the switch, the big ended up in a mismatch against the guard.",
       accepted_variants: [
         "Post-switch, the big got hunted by the guard mismatch.",
@@ -2414,10 +2414,10 @@ export const sport_tactics_8_3: BundledLesson = {
         {
           question: "'Drop coverage' nedir?",
           options: [
-            "Topu dusurmek",
-            "Pivot/big oyuncunun ribauni korumak icin geri durmasi",
-            "Defansi birakmak",
-            "Faullu blok",
+            "Topu düşürmek",
+            "Pivot/big oyuncunun rim'i korumak için geri durması",
+            "Defansı bırakmak",
+            "Faullü blok",
           ],
           correct_index: 1,
           tr_explanation:
@@ -2426,26 +2426,26 @@ export const sport_tactics_8_3: BundledLesson = {
         {
           question: "'Switch' (defansif) ne demek?",
           options: [
-            "Oyuncu degisikligi",
-            "Defansta perdelendiginde marajlari degis,tirmek",
-            "Hucumdan defansa gec,is,",
-            "Sutu kac,irmak",
+            "Oyuncu değişikliği",
+            "Defansta perdelendiğinde markajları değiştirmek",
+            "Hücumdan defansa geçiş",
+            "Şutu kaçırmak",
           ],
           correct_index: 1,
           tr_explanation:
-            "Switch = pick gelince iki defansif oyuncu hedeflerini degistirir.",
+            "Switch = pick gelince iki defansif oyuncu hedeflerini değiştirir.",
         },
         {
           question: "'Mismatch hunting' ne demek?",
           options: [
-            "Yanlis takimi izleme",
-            "Avantajli marajli oyuncu lehine top getirme",
-            "Spor avi",
+            "Yanlış takımı izleme",
+            "Avantajlı markajı oyuncu lehine top getirme",
+            "Spor avı",
             "Skor kovalama",
           ],
           correct_index: 1,
           tr_explanation:
-            "Mismatch hunting = iyi oyuncuya kotu defansor markaja gelsin diye oyun kurma.",
+            "Mismatch hunting = iyi oyuncuya kötü defansör markaja gelsin diye oyun kurma.",
         },
       ],
     },
@@ -2461,7 +2461,7 @@ export const sport_tactics_8_4: BundledLesson = {
   index: 17,
   title: "Tenis post-match — serve % ve break points",
   description:
-    "Tenis: serve %, unforced errors, break points. Arkadas,la maci dok.",
+    "Tenis: serve %, unforced errors, break points. Arkadaşla maçı dök.",
   estimated_minutes: 7,
   exercises: [
     {
@@ -2469,16 +2469,16 @@ export const sport_tactics_8_4: BundledLesson = {
       type: "vocab_tile",
       difficulty: 3,
       word_or_phrase: "break point",
-      tr_translation: "Servisi kirma fursati",
+      tr_translation: "Servisi kırma fırsatı",
       example: "He converted three of five break points.",
-      example_tr: "Bes break point'ten ucunu kullandi.",
+      example_tr: "Beş break point'ten üçünü kullandı.",
     },
     {
       id: "ex.8.4.2",
       type: "roleplay_chat",
       difficulty: 3,
       scenario_description:
-        "Grand slam finalini izledikten sonra arkadasinla maci konus,uyorsun.",
+        "Grand slam finalini izledikten sonra arkadaşınla maçı konuşuyorsun.",
       npc_role: "Coach",
       setting: "Post-final chat",
       turns: [
@@ -2497,7 +2497,7 @@ export const sport_tactics_8_4: BundledLesson = {
             "(returner|return) (couldn'?t|could not) get in",
           ],
           hint_tr:
-            "Mac analizi: 'His serve was unstoppable on the ad side' veya 'Break point conversion was the difference'.",
+            "Maç analizi: 'His serve was unstoppable on the ad side' veya 'Break point conversion was the difference'.",
         },
         {
           speaker: "npc",
@@ -2531,7 +2531,7 @@ export const sport_tactics_8_4: BundledLesson = {
             "(unforced errors|UEs) (piled up|killed him)",
           ],
           hint_tr:
-            "Detaylan: 'His forehand broke down — too many UEs'.",
+            "Detaylandır: 'His forehand broke down — too many UEs'.",
         },
         {
           speaker: "npc",
@@ -2544,7 +2544,7 @@ export const sport_tactics_8_4: BundledLesson = {
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
-      source: "Birinci servisi yuksek tuttu, kirmak imkansizdi.",
+      source: "Birinci servisini yüksek tuttu, kırmak imkânsızdı.",
       target: "He kept his first serve percentage high — impossible to break.",
       accepted_variants: [
         "His first serve % was so high it was impossible to break.",
@@ -2553,7 +2553,7 @@ export const sport_tactics_8_4: BundledLesson = {
         "He held a huge first serve %, couldn't break him.",
       ],
       tr_hint:
-        "'Birinci servisi yuksek' = 'first serve percentage high'.",
+        "'Birinci servisi yüksek' = 'first serve percentage high'.",
     },
     {
       id: "ex.8.4.4",
@@ -2563,38 +2563,38 @@ export const sport_tactics_8_4: BundledLesson = {
         {
           question: "'Break point' nedir?",
           options: [
-            "Mac kirilan an",
-            "Servisi kirmaya yakin oldugun puan",
-            "Tepe noktasi",
-            "Bilek mola noktasi",
+            "Maçın kırıldığı an",
+            "Servisi kırmaya yakın olduğun puan",
+            "Tepe noktası",
+            "Bilek mola noktası",
           ],
           correct_index: 1,
           tr_explanation:
-            "Break point = bir puan daha alirsan rakibin servisini kirarsin.",
+            "Break point = bir puan daha alırsan rakibin servisini kırarsın.",
         },
         {
           question: "'Unforced error' (UE)?",
           options: [
-            "Rakibin baski yaratti",
-            "Sebepsiz kendi kendine kac,irma",
-            "Hakem hatasi",
-            "Bilek hatasi",
+            "Rakibin baskısı yarattığı hata",
+            "Sebepsiz, kendi kendine kaçırma",
+            "Hakem hatası",
+            "Bilek hatası",
           ],
           correct_index: 1,
           tr_explanation:
-            "UE = oyuncu kimsenin baskisi olmadan top kac,irir.",
+            "UE = oyuncu kimsenin baskısı olmadan topu kaçırır.",
         },
         {
           question: "'Ad side' tenisle ilgili?",
           options: [
-            "Reklam tarafi",
-            "Avantaj tarafi (sol servisi alan)",
-            "Deuce noktasi",
-            "Net tarafi",
+            "Reklam tarafı",
+            "Avantaj tarafı (sol servisi alan)",
+            "Deuce noktası",
+            "File tarafı",
           ],
           correct_index: 1,
           tr_explanation:
-            "Ad side = advantage side; servis alan oyuncunun sol tarafi.",
+            "Ad side = advantage side; servis alan oyuncunun sol tarafı.",
         },
       ],
     },
@@ -2618,16 +2618,16 @@ export const sport_tactics_8_5: BundledLesson = {
       type: "vocab_tile",
       difficulty: 4,
       word_or_phrase: "telegraph (a punch)",
-      tr_translation: "Yumrugu ele vermek (hazirligini gostermek)",
+      tr_translation: "Yumruğu ele vermek (hazırlığını göstermek)",
       example: "He's telegraphing the right hand — drop the shoulder first.",
-      example_tr: "Sag krocheyi telegrafliyor — once omuz dusuyor.",
+      example_tr: "Sağ kroşeyi ele veriyor — önce omuz düşüyor.",
     },
     {
       id: "ex.8.5.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Arkadasinla boks macini canli izliyorsunuz. Yorum yapiyorsunuz.",
+        "Arkadaşınla boks maçını canlı izliyorsunuz. Yorum yapıyorsunuz.",
       npc_role: "Coach",
       setting: "Live boxing watch, ringside commentary",
       turns: [
@@ -2693,7 +2693,7 @@ export const sport_tactics_8_5: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "Sag krocheyi telegrafliyor, c,ok bariz hazirlaniyor.",
+      source: "Sağ kroşeyi ele veriyor, çok bariz hazırlanıyor.",
       target: "He's telegraphing the right — way too obvious in his setup.",
       accepted_variants: [
         "He telegraphs the right hand — setup is way too obvious.",
@@ -2702,7 +2702,7 @@ export const sport_tactics_8_5: BundledLesson = {
         "He's tipping off the right — setup is too clear.",
       ],
       tr_hint:
-        "'Telegrafliyor' = 'telegraphing' veya 'loading up'.",
+        "'Ele veriyor' = 'telegraphing' veya 'loading up'.",
     },
     {
       id: "ex.8.5.4",
@@ -2711,7 +2711,7 @@ export const sport_tactics_8_5: BundledLesson = {
       incorrect_sentence: "He show his punch before he do it.",
       correct_sentence: "He's telegraphing his punches.",
       tr_explanation:
-        "'Show his punch' direkt c,eviri. Native 'telegraph' veya 'tip off' der.",
+        "'Show his punch' direkt çeviri. Native 'telegraph' veya 'tip off' der.",
     },
     {
       id: "ex.8.5.5",
@@ -2721,38 +2721,38 @@ export const sport_tactics_8_5: BundledLesson = {
         {
           question: "'Loading up' (boksta)?",
           options: [
-            "Yuk almak",
-            "Buyuk vurus, icin hazirlik yapmak",
+            "Yük almak",
+            "Büyük vuruş için hazırlık yapmak",
             "Yorulmak",
             "Defansta durmak",
           ],
           correct_index: 1,
           tr_explanation:
-            "Loading up = c,ok guc,lu vurusa hazirlik. Telegraphing'e benzer.",
+            "Loading up = çok güçlü vuruşa hazırlık. Telegraphing'e benzer.",
         },
         {
           question: "'Cutting off the ring' nedir?",
           options: [
             "Ringi terk etmek",
-            "Rakibin kac,is, alanini daraltmak",
-            "Halat kesmek",
+            "Rakibin kaçış alanını daraltmak",
+            "Halatı kesmek",
             "Ringi temizlemek",
           ],
           correct_index: 1,
           tr_explanation:
-            "Cutting off the ring = rakibi koseye sikistirmak icin yon kesme.",
+            "Cutting off the ring = rakibi köşeye sıkıştırmak için yön kesme.",
         },
         {
           question: "'Body work' (boks)?",
           options: [
-            "Vucut sekillendirme",
-            "Govde vuruslari (karina ve kaburgaya)",
+            "Vücut şekillendirme",
+            "Gövde vuruşları (karına ve kaburgaya)",
             "Yer egzersizleri",
-            "Karbon analiz",
+            "Karbon analizi",
           ],
           correct_index: 1,
           tr_explanation:
-            "Body work = govde yumruklari. Macin geneline yayilan strateji.",
+            "Body work = gövde yumrukları. Maçın geneline yayılan strateji.",
         },
       ],
     },
@@ -2768,7 +2768,7 @@ export const sport_tactics_8_6: BundledLesson = {
   index: 19,
   title: "Voleybol set — pin hitter ve block read",
   description:
-    "Volleyball rotasyon, block read, pin hitter. Saha taktigini Ingilizce anlat.",
+    "Volleyball rotasyon, block read, pin hitter. Saha taktiğini İngilizce anlat.",
   estimated_minutes: 7,
   exercises: [
     {
@@ -2776,16 +2776,16 @@ export const sport_tactics_8_6: BundledLesson = {
       type: "vocab_tile",
       difficulty: 3,
       word_or_phrase: "pin hitter",
-      tr_translation: "Antenler/pin yaninda smaclayan oyuncu",
+      tr_translation: "Antenler/pin yanında smaçlayan oyuncu",
       example: "They keep setting the pin — block has to read it.",
-      example_tr: "Hep pin hitter'a paslar gidiyor — blokun okumasi gerek.",
+      example_tr: "Hep pin hitter'a paslar gidiyor — blokun okuması gerek.",
     },
     {
       id: "ex.8.6.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Voleybol macini izlerken takim arkadasiyla taktik tartisiyorsun.",
+        "Voleybol maçını izlerken takım arkadaşıyla taktik tartışıyorsun.",
       npc_role: "Coach",
       setting: "Sideline during a set break",
       turns: [
@@ -2804,7 +2804,7 @@ export const sport_tactics_8_6: BundledLesson = {
             "(commit|cheat) (to|on) the pin",
           ],
           hint_tr:
-            "Onerini yap: 'We need to commit the block to the outside'.",
+            "Önerini yap: 'We need to commit the block to the outside'.",
         },
         {
           speaker: "npc",
@@ -2821,7 +2821,7 @@ export const sport_tactics_8_6: BundledLesson = {
             "(quick|tempo) (sets|attacks) (kill|hurt) us",
           ],
           hint_tr:
-            "Detaylan: 'Hands look the same, slide attack is a threat'.",
+            "Detaylandır: 'Hands look the same, slide attack is a threat'.",
         },
         {
           speaker: "npc",
@@ -2838,7 +2838,7 @@ export const sport_tactics_8_6: BundledLesson = {
             "tip coverage",
           ],
           hint_tr:
-            "Back row sav: 'Libero reads the tip, line defender plays deep'.",
+            "Back row savunma: 'Libero reads the tip, line defender plays deep'.",
         },
         {
           speaker: "npc",
@@ -2851,7 +2851,7 @@ export const sport_tactics_8_6: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "Pin'e c,ok pas gidiyor, blok dis,a kommit etmeli.",
+      source: "Pin'e çok pas gidiyor, blok dışa commit etmeli.",
       target: "They keep setting the pin — block has to commit outside.",
       accepted_variants: [
         "The pin is getting hammered — block needs to commit outside.",
@@ -2860,7 +2860,7 @@ export const sport_tactics_8_6: BundledLesson = {
         "Pin attacks are killing us — load up the outside block.",
       ],
       tr_hint:
-        "'Pin'e pas' = 'setting the pin'. 'Blok kommit etmeli' = 'block has to commit'.",
+        "'Pin'e pas' = 'setting the pin'. 'Blok commit etmeli' = 'block has to commit'.",
     },
     {
       id: "ex.8.6.4",
@@ -2871,37 +2871,37 @@ export const sport_tactics_8_6: BundledLesson = {
           question: "'Pin hitter' nedir?",
           options: [
             "Pin yapan oyuncu",
-            "Saha ucunda smaclayan oyuncu",
-            "Block kirici",
-            "Yedek smach",
+            "Saha ucunda smaçlayan oyuncu",
+            "Blok kırıcı",
+            "Yedek smaççı",
           ],
           correct_index: 1,
           tr_explanation:
-            "Pin = antenler. Pin hitter = sol/sag pin'de saldiran oyuncu.",
+            "Pin = antenler. Pin hitter = sol/sağ pin'de saldıran oyuncu.",
         },
         {
           question: "'Block read' ne demek?",
           options: [
-            "Blokun yon tahmini ve pozisyon almasi",
-            "Block kitabi okumak",
-            "Block hatasi",
+            "Blokun yön tahmini ve pozisyon alması",
+            "Blok kitabı okumak",
+            "Blok hatası",
             "Setter okuma",
           ],
           correct_index: 0,
           tr_explanation:
-            "Block read = blokorun setter/hitter'i okuyup dogru yere ziplamasi.",
+            "Block read = blokçunun setter/hitter'ı okuyup doğru yere zıplaması.",
         },
         {
-          question: "'Commit to the pin' anlami?",
+          question: "'Commit to the pin' anlamı?",
           options: [
-            "Pin'e bagli olmak",
-            "Bloku pin tarafina tamamen ayarlamak",
-            "Bilek antrenmani",
+            "Pin'e bağlı olmak",
+            "Bloğu pin tarafına tamamen ayarlamak",
+            "Bilek antrenmanı",
             "Yedek bekleme",
           ],
           correct_index: 1,
           tr_explanation:
-            "Commit = surekli outside hitter'a karsi pozisyon almak.",
+            "Commit = sürekli outside hitter'a karşı pozisyon almak.",
         },
       ],
     },
@@ -2917,7 +2917,7 @@ export const sport_tactics_9_1: BundledLesson = {
   index: 20,
   title: "Sports bar — 'Who do you have in the final?'",
   description:
-    "Bar'da yabancilarla mac sohbeti: takim sorulari, prediction, banter.",
+    "Bar'da yabancılarla maç sohbeti: takım soruları, prediction, banter.",
   estimated_minutes: 7,
   exercises: [
     {
@@ -2925,16 +2925,16 @@ export const sport_tactics_9_1: BundledLesson = {
       type: "vocab_tile",
       difficulty: 2,
       word_or_phrase: "banter",
-      tr_translation: "Dostane atisma/dalga gec,me",
+      tr_translation: "Dostane atışma/dalga geçme",
       example: "It's just banter, no hard feelings.",
-      example_tr: "Sadece banter, kimseye kotu niyet yok.",
+      example_tr: "Sadece banter, kimseye kötü niyet yok.",
     },
     {
       id: "ex.9.1.2",
       type: "roleplay_chat",
       difficulty: 3,
       scenario_description:
-        "Sports bar'da yabanciyla mac sohbeti basliyor.",
+        "Sports bar'da yabancıyla maç sohbeti başlıyor.",
       npc_role: "Gym buddy",
       setting: "Sports bar before kickoff",
       turns: [
@@ -2953,7 +2953,7 @@ export const sport_tactics_9_1: BundledLesson = {
             "honestly(,)? (no idea|too close to call)",
           ],
           hint_tr:
-            "Tahminini soyle: 'I've got City — they're flying' veya 'I'm taking Real'.",
+            "Tahminini söyle: 'I've got City — they're flying' veya 'I'm taking Real'.",
         },
         {
           speaker: "npc",
@@ -2970,7 +2970,7 @@ export const sport_tactics_9_1: BundledLesson = {
             "(banter|just banter)",
           ],
           hint_tr:
-            "Hafif atisma yap: 'Could go either way, we'll see' veya 'Fair enough, we'll see'.",
+            "Hafif atışma yap: 'Could go either way, we'll see' veya 'Fair enough, we'll see'.",
         },
         {
           speaker: "npc",
@@ -2986,7 +2986,7 @@ export const sport_tactics_9_1: BundledLesson = {
             "(yeah|yes)(,)? (i support|i'?m for)",
           ],
           hint_tr:
-            "Takimini soyle: 'I'm a Galatasaray fan, but I follow United too'.",
+            "Takımını söyle: 'I'm a Galatasaray fan, but I follow United too'.",
         },
         {
           speaker: "npc",
@@ -3019,37 +3019,37 @@ export const sport_tactics_9_1: BundledLesson = {
           question: "'Banter' ne demek?",
           options: [
             "Bahis",
-            "Dostane atisma/saka",
-            "Mac yorumu",
+            "Dostane atışma/şaka",
+            "Maç yorumu",
             "Skor takvimi",
           ],
           correct_index: 1,
           tr_explanation:
-            "Banter = arkadasc,a saka, ozellikle UK/IE spor kulturunde.",
+            "Banter = arkadaşça şaka, özellikle UK/IE spor kültüründe.",
         },
         {
-          question: "'My money's on...' anlami?",
+          question: "'My money's on...' anlamı?",
           options: [
-            "Param u zerinde",
-            "Tahminim (X kazanir)",
+            "Param üzerinde",
+            "Tahminim (X kazanır)",
             "Param kayboldu",
-            "Borc, aldim",
+            "Borç aldım",
           ],
           correct_index: 1,
           tr_explanation:
-            "'My money's on X' = X'e oynarim/tahmin ederim. Mecazi.",
+            "'My money's on X' = X'e oynarım/tahmin ederim. Mecazi.",
         },
         {
           question: "'Round on me' ne demek?",
           options: [
-            "Sira bende",
-            "Sonraki ic,kileri ben odeyecegim",
-            "Ben dagiticam",
-            "Davranis,im uzgun",
+            "Sıra bende",
+            "Sonraki içkileri ben ödeyeceğim",
+            "Ben dağıtacağım",
+            "Davranışım üzgün",
           ],
           correct_index: 1,
           tr_explanation:
-            "'Round on me' = bu turn ic,kileri ben aliyorum (UK bar kulturu).",
+            "'Round on me' = bu tur içkileri ben alıyorum (UK bar kültürü).",
         },
       ],
     },
@@ -3057,15 +3057,15 @@ export const sport_tactics_9_1: BundledLesson = {
 };
 
 // ============================================================
-// 9.2 — Canli mac tepkileri
+// 9.2 — Canlı maç tepkileri
 // ============================================================
 export const sport_tactics_9_2: BundledLesson = {
   id: "sport.tactics.live.1",
   skill_id: "sport.tactics",
   index: 21,
-  title: "Canli mac — 'No way that was offside!'",
+  title: "Canlı maç — 'No way that was offside!'",
   description:
-    "TV onunde tepki: 'He was robbed!', 'What a finish!', 'VAR check'.",
+    "TV önünde tepki: 'He was robbed!', 'What a finish!', 'VAR check'.",
   estimated_minutes: 6,
   exercises: [
     {
@@ -3073,16 +3073,16 @@ export const sport_tactics_9_2: BundledLesson = {
       type: "vocab_tile",
       difficulty: 2,
       word_or_phrase: "He was robbed!",
-      tr_translation: "Hakkini yediler! (haksiz karar)",
+      tr_translation: "Hakkını yediler! (haksız karar)",
       example: "Offside? No way, he was robbed!",
-      example_tr: "Ofsayt mi? Imkansiz, hakkini yediler!",
+      example_tr: "Ofsayt mı? İmkânsız, hakkını yediler!",
     },
     {
       id: "ex.9.2.2",
       type: "roleplay_chat",
       difficulty: 3,
       scenario_description:
-        "Arkadasinla canli mac izliyorsunuz, tartismali ofsayt karari geldi.",
+        "Arkadaşınla canlı maç izliyorsunuz, tartışmalı ofsayt kararı geldi.",
       npc_role: "Gym buddy",
       setting: "Living room, live match",
       turns: [
@@ -3118,7 +3118,7 @@ export const sport_tactics_9_2: BundledLesson = {
             "(can you see|look at) the (lines|review)",
           ],
           hint_tr:
-            "Bekleyis,: 'Come on, give us the goal' veya 'Has to be overturned'.",
+            "Bekleyiş: 'Come on, give us the goal' veya 'Has to be overturned'.",
         },
         {
           speaker: "npc",
@@ -3148,7 +3148,7 @@ export const sport_tactics_9_2: BundledLesson = {
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
-      source: "Ofsayt olmasi imkansiz, hakkini yediler!",
+      source: "Ofsayt olması imkânsız, hakkını yediler!",
       target: "No way that's offside — he was robbed!",
       accepted_variants: [
         "That can't be offside — he got robbed!",
@@ -3157,7 +3157,7 @@ export const sport_tactics_9_2: BundledLesson = {
         "No way! He was robbed on that one.",
       ],
       tr_hint:
-        "'Imkansiz' = 'no way'. 'Hakkini yediler' = 'he was robbed'.",
+        "'İmkânsız' = 'no way'. 'Hakkını yediler' = 'he was robbed'.",
     },
     {
       id: "ex.9.2.4",
@@ -3168,37 +3168,37 @@ export const sport_tactics_9_2: BundledLesson = {
           question: "'He was robbed!' ne anlama gelir?",
           options: [
             "Soyuldu",
-            "Hakkini yediler",
-            "Goluctu",
-            "Sakatlandi",
+            "Hakkını yediler",
+            "Gol oldu",
+            "Sakatlandı",
           ],
           correct_index: 1,
           tr_explanation:
-            "Spor argosunda 'robbed' = haksiz kararla mahrum birakildi.",
+            "Spor argosunda 'robbed' = haksız kararla mahrum bırakıldı.",
         },
         {
           question: "'Top corner' nedir?",
           options: [
-            "Tepe kosesi",
-            "Filenin ust kosesi",
-            "Saha bayragi",
-            "VAR ekrani",
+            "Tepe köşesi",
+            "Filenin üst köşesi",
+            "Saha bayrağı",
+            "VAR ekranı",
           ],
           correct_index: 1,
           tr_explanation:
-            "Top corner = direkle ust direk kesistigi yerin yakini. 'What a top corner finish!'",
+            "Top corner = direkle üst direk kesiştiği yerin yakını. 'What a top corner finish!'",
         },
         {
-          question: "'What a finish!' ne icin kullanilir?",
+          question: "'What a finish!' ne için kullanılır?",
           options: [
-            "Mac sonu icin",
-            "Olaganustu gol/sut icin",
-            "Bitisi tarif etmek icin",
-            "Yemek bittiginde",
+            "Maç sonu için",
+            "Olağanüstü gol/şut için",
+            "Bitişi tarif etmek için",
+            "Yemek bittiğinde",
           ],
           correct_index: 1,
           tr_explanation:
-            "Inanilmaz bir golun veya sutun anindaki standart hayranlik ifadesi.",
+            "İnanılmaz bir golün veya şutun anındaki standart hayranlık ifadesi.",
         },
       ],
     },
@@ -3212,9 +3212,9 @@ export const sport_tactics_9_3: BundledLesson = {
   id: "sport.tactics.betting.1",
   skill_id: "sport.tactics",
   index: 22,
-  title: "Bahis sozlugu — 'I'd take the under'",
+  title: "Bahis sözlüğü — 'I'd take the under'",
   description:
-    "Spread, moneyline, over/under, parlay. Arkadasa pick'ini soyle.",
+    "Spread, moneyline, over/under, parlay. Arkadaşa pick'ini söyle.",
   estimated_minutes: 8,
   exercises: [
     {
@@ -3222,16 +3222,16 @@ export const sport_tactics_9_3: BundledLesson = {
       type: "vocab_tile",
       difficulty: 4,
       word_or_phrase: "over/under",
-      tr_translation: "Toplam (gol/sayi) ust/alt bahsi",
+      tr_translation: "Toplam (gol/sayı) üst/alt bahsi",
       example: "The line is 2.5 goals — I'm taking the under.",
-      example_tr: "Hat 2.5 gol — alti tutuyorum.",
+      example_tr: "Hat 2.5 gol — altını tutuyorum.",
     },
     {
       id: "ex.9.3.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Arkadasinla mac oncesi tahminlerinizi paylasiyorsunuz (dil pratigi).",
+        "Arkadaşınla maç öncesi tahminlerinizi paylaşıyorsunuz (dil pratiği).",
       npc_role: "Gym buddy",
       setting: "Casual pre-game prediction chat",
       turns: [
@@ -3250,7 +3250,7 @@ export const sport_tactics_9_3: BundledLesson = {
             "(parlay|accumulator)",
           ],
           hint_tr:
-            "Pick'ini soyle: 'I'd take the under 2.5' veya 'Moneyline on United'.",
+            "Pick'ini söyle: 'I'd take the under 2.5' veya 'Moneyline on United'.",
         },
         {
           speaker: "npc",
@@ -3267,7 +3267,7 @@ export const sport_tactics_9_3: BundledLesson = {
             "(form|recent form) suggests",
           ],
           hint_tr:
-            "Mantigini ac,ikla: 'Both defenses are solid, finals are cagey'.",
+            "Mantığını açıkla: 'Both defenses are solid, finals are cagey'.",
         },
         {
           speaker: "npc",
@@ -3284,7 +3284,7 @@ export const sport_tactics_9_3: BundledLesson = {
             "(yellow card|red card)",
           ],
           hint_tr:
-            "Prop sec,: 'Haaland anytime scorer' veya 'Over 5.5 corners'.",
+            "Prop seç: 'Haaland anytime scorer' veya 'Over 5.5 corners'.",
         },
         {
           speaker: "npc",
@@ -3297,7 +3297,7 @@ export const sport_tactics_9_3: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "Goller alti 2.5'i tutuyorum, iki takim da defansif gozukuyor.",
+      source: "Goller altı 2.5'i tutuyorum, iki takım da defansif görünüyor.",
       target: "I'm taking the under 2.5 goals — both teams look defensive.",
       accepted_variants: [
         "I'd take the under 2.5 — both look defensive.",
@@ -3306,7 +3306,7 @@ export const sport_tactics_9_3: BundledLesson = {
         "Under 2.5 goals — both sides defensive.",
       ],
       tr_hint:
-        "'Alti tutuyorum' = 'taking the under'. '2.5 goller' = '2.5 goals'.",
+        "'Altını tutuyorum' = 'taking the under'. '2.5 goller' = '2.5 goals'.",
     },
     {
       id: "ex.9.3.4",
@@ -3316,38 +3316,38 @@ export const sport_tactics_9_3: BundledLesson = {
         {
           question: "'Moneyline' nedir?",
           options: [
-            "Kazanani direkt sec,me bahsi",
-            "Para hatti",
-            "Skor cizgisi",
+            "Kazananı direkt seçme bahsi",
+            "Para hattı",
+            "Skor çizgisi",
             "Spread maybe",
           ],
           correct_index: 0,
           tr_explanation:
-            "Moneyline = sadece kim kazanir bahsi (handicap yok).",
+            "Moneyline = sadece kim kazanır bahsi (handikap yok).",
         },
         {
           question: "'Over/under' bahsi nedir?",
           options: [
-            "Yukari/asagi yon bahsi",
-            "Toplam gol/sayi belirli rakamin ustu/alti bahsi",
-            "Suresel bahis",
+            "Yukarı/aşağı yön bahsi",
+            "Toplam gol/sayı belirli rakamın üstü/altı bahsi",
+            "Süresel bahis",
             "Yedek oyuncu bahsi",
           ],
           correct_index: 1,
           tr_explanation:
-            "O/U = belirlenen hattin ustunde veya altinda bitecek mi bahsi.",
+            "O/U = belirlenen hattın üstünde veya altında bitecek mi bahsi.",
         },
         {
           question: "'Parlay' (US) / 'accumulator' (UK)?",
           options: [
-            "Single bahis",
-            "Birden fazla bahsi tek kupona baglamak (hepsi tutarsa kazanc,)",
-            "Iade bahsi",
-            "Ic,e iade",
+            "Tek bahis",
+            "Birden fazla bahsi tek kupona bağlamak (hepsi tutarsa kazanç)",
+            "İade bahsi",
+            "İç iade",
           ],
           correct_index: 1,
           tr_explanation:
-            "Parlay = multiple bet, riskli ama yuksek odeme.",
+            "Parlay = multiple bet, riskli ama yüksek ödeme.",
         },
       ],
     },
@@ -3371,16 +3371,16 @@ export const sport_tactics_9_4: BundledLesson = {
       type: "vocab_tile",
       difficulty: 4,
       word_or_phrase: "fourth and one",
-      tr_translation: "Dorduncu deneme, bir yard kaldi",
+      tr_translation: "Dördüncü deneme, bir yarda kaldı",
       example: "Fourth and one on the goal line — they're going for it.",
-      example_tr: "Gol c,izgisinde fourth and one — denemeye gidiyorlar.",
+      example_tr: "Gol çizgisinde fourth and one — denemeye gidiyorlar.",
     },
     {
       id: "ex.9.4.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Yabanci arkadasina ilk NFL macindaki kararlari ac,ikliyorsun.",
+        "Yabancı arkadaşına ilk NFL maçındaki kararları açıklıyorsun.",
       npc_role: "Gym buddy",
       setting: "NFL Sunday at a friend's place",
       turns: [
@@ -3399,7 +3399,7 @@ export const sport_tactics_9_4: BundledLesson = {
             "(analytics|EPA) says go for it",
           ],
           hint_tr:
-            "Ac,ikla: 'Yeah, short yardage, analytics say go for it'.",
+            "Açıkla: 'Yeah, short yardage, analytics say go for it'.",
         },
         {
           speaker: "npc",
@@ -3416,7 +3416,7 @@ export const sport_tactics_9_4: BundledLesson = {
             "(timeout|saving timeouts) management",
           ],
           hint_tr:
-            "Ac,ikla: 'Hurry-up offense to score before the clock runs out'.",
+            "Açıkla: 'Hurry-up offense to score before the clock runs out'.",
         },
         {
           speaker: "npc",
@@ -3433,7 +3433,7 @@ export const sport_tactics_9_4: BundledLesson = {
             "(condensed|tight) field",
           ],
           hint_tr:
-            "Ac,ikla: 'Inside the 20 — touchdown territory'.",
+            "Açıkla: 'Inside the 20 — touchdown territory'.",
         },
         {
           speaker: "npc",
@@ -3446,7 +3446,7 @@ export const sport_tactics_9_4: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "Two-minute drill = devrenin sonunda hizli hucum yapma kalibi.",
+      source: "Two-minute drill = devrenin sonunda hızlı hücum yapma kalıbı.",
       target: "Two-minute drill is the hurry-up offense at the end of a half or game.",
       accepted_variants: [
         "Two-minute drill is the hurry-up offense used at the end of a half.",
@@ -3455,7 +3455,7 @@ export const sport_tactics_9_4: BundledLesson = {
         "End-of-half hurry-up offense is called the two-minute drill.",
       ],
       tr_hint:
-        "'Hizli hucum' = 'hurry-up offense'. 'Devrenin sonu' = 'end of a half'.",
+        "'Hızlı hücum' = 'hurry-up offense'. 'Devrenin sonu' = 'end of a half'.",
     },
     {
       id: "ex.9.4.4",
@@ -3464,7 +3464,7 @@ export const sport_tactics_9_4: BundledLesson = {
       incorrect_sentence: "They make 4 chance to get 1 yard.",
       correct_sentence: "They went for it on fourth and one.",
       tr_explanation:
-        "'4 chance' direkt c,eviri. NFL'de 'fourth down (and one)' standart kalip.",
+        "'4 chance' direkt çeviri. NFL'de 'fourth down (and one)' standart kalıp.",
     },
     {
       id: "ex.9.4.5",
@@ -3474,38 +3474,38 @@ export const sport_tactics_9_4: BundledLesson = {
         {
           question: "'Red zone' nedir?",
           options: [
-            "Kirmizi kartla cezalandirilan alan",
-            "Rakip 20-yard cizgisi ile end zone arasi",
-            "Tehlikeli antrenman bolgesi",
-            "Yedeklerin bekleme alani",
+            "Kırmızı kartla cezalandırılan alan",
+            "Rakip 20-yard çizgisi ile end zone arası",
+            "Tehlikeli antrenman bölgesi",
+            "Yedeklerin bekleme alanı",
           ],
           correct_index: 1,
           tr_explanation:
-            "Red zone = touchdown'a yakin alan. Verim metrigi.",
+            "Red zone = touchdown'a yakın alan. Verim metriği.",
         },
         {
           question: "'Going for it on fourth' ne anlama gelir?",
           options: [
-            "Dorduncu kez denemek",
-            "Dorduncu deneme'de punt/field goal yerine 1st down icin oynamak",
-            "Bayrakli ceza",
-            "Mac 4. ceyrege gec,ti",
+            "Dördüncü kez denemek",
+            "Dördüncü deneme'de punt/field goal yerine 1st down için oynamak",
+            "Bayraklı ceza",
+            "Maç 4. çeyreğe geçti",
           ],
           correct_index: 1,
           tr_explanation:
-            "4. down'da punt etmek yerine ileri gitmeye c,alismak — riskli karar.",
+            "4. down'da punt etmek yerine ileri gitmeye çalışmak — riskli karar.",
         },
         {
-          question: "'Two-minute drill' kullanim amaci?",
+          question: "'Two-minute drill' kullanım amacı?",
           options: [
-            "Iki dakika dinlenmek",
-            "Devrenin/macin sonunda hizli sayi yapmak",
+            "İki dakika dinlenmek",
+            "Devrenin/maçın sonunda hızlı sayı yapmak",
             "Antrenman drill'i",
-            "Two-minute warning sirasinda",
+            "Two-minute warning sırasında",
           ],
           correct_index: 1,
           tr_explanation:
-            "Hurry-up offense, devrenin/macin sonunda sayi getirmek icin.",
+            "Hurry-up offense, devrenin/maçın sonunda sayı getirmek için.",
         },
       ],
     },
@@ -3519,9 +3519,9 @@ export const sport_tactics_9_5: BundledLesson = {
   id: "sport.tactics.watchparty.1",
   skill_id: "sport.tactics",
   index: 24,
-  title: "Watch party — host'a tesekkur + roast",
+  title: "Watch party — host'a teşekkür + roast",
   description:
-    "Birinin evinde mac izle: snack getir, sofa spot al, takimina takil.",
+    "Birinin evinde maç izle: snack getir, sofa spot al, takımına takıl.",
   estimated_minutes: 7,
   exercises: [
     {
@@ -3529,16 +3529,16 @@ export const sport_tactics_9_5: BundledLesson = {
       type: "vocab_tile",
       difficulty: 2,
       word_or_phrase: "roast (someone)",
-      tr_translation: "Dostane sekilde takilmak/dalga gec,mek",
+      tr_translation: "Dostane şekilde takılmak/dalga geçmek",
       example: "Don't worry, I'm just roasting you — good luck today!",
-      example_tr: "Endisi etme, sadece takiliyorum — bugun bol sans!",
+      example_tr: "Endişelenme, sadece takılıyorum — bugün bol şans!",
     },
     {
       id: "ex.9.5.2",
       type: "roleplay_chat",
       difficulty: 3,
       scenario_description:
-        "Bir arkadasinin evinde mac izleme partisindesin. Hoschelci kapida.",
+        "Bir arkadaşının evinde maç izleme partisindesin. Ev sahibi kapıda karşılıyor.",
       npc_role: "Gym buddy",
       setting: "Friend's apartment, big match viewing",
       turns: [
@@ -3557,7 +3557,7 @@ export const sport_tactics_9_5: BundledLesson = {
             "(this place|nice setup)",
           ],
           hint_tr:
-            "Hediyeli gel: 'Thanks, I brought some chips and beer'.",
+            "Bir şey getirip gel: 'Thanks, I brought some chips and beer'.",
         },
         {
           speaker: "npc",
@@ -3591,7 +3591,7 @@ export const sport_tactics_9_5: BundledLesson = {
             "(good luck|good game)",
           ],
           hint_tr:
-            "Yumusat: 'Just banter, let's see' veya 'Loser buys next round'.",
+            "Yumuşat: 'Just banter, let's see' veya 'Loser buys next round'.",
         },
         {
           speaker: "npc",
@@ -3604,7 +3604,7 @@ export const sport_tactics_9_5: BundledLesson = {
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
-      source: "Bahis: kaybeden bir sonraki turu odesin.",
+      source: "Bahis: kaybeden bir sonraki turu ödesin.",
       target: "Wager: loser buys the next round.",
       accepted_variants: [
         "Bet: loser pays for the next round.",
@@ -3613,7 +3613,7 @@ export const sport_tactics_9_5: BundledLesson = {
         "Wager — loser covers next round.",
       ],
       tr_hint:
-        "'Kaybeden odesin' = 'loser buys/pays'. 'Tur' = 'round'.",
+        "'Kaybeden ödesin' = 'loser buys/pays'. 'Tur' = 'round'.",
     },
     {
       id: "ex.9.5.4",
@@ -3621,40 +3621,40 @@ export const sport_tactics_9_5: BundledLesson = {
       difficulty: 2,
       questions: [
         {
-          question: "'Roast' (sosyal baglam)?",
+          question: "'Roast' (sosyal bağlam)?",
           options: [
-            "Et pisirmek",
-            "Dostane dalga gec,mek",
-            "Cidden hakaret etmek",
-            "Eski hatiralari hatirlamak",
+            "Et pişirmek",
+            "Dostane dalga geçmek",
+            "Ciddi hakaret etmek",
+            "Eski hatıraları hatırlamak",
           ],
           correct_index: 1,
           tr_explanation:
-            "Roast = arkadasc,a dalga (genelde mizahli, kotu niyetsiz).",
+            "Roast = arkadaşça dalga (genelde mizahi, kötü niyetsiz).",
         },
         {
-          question: "'Loser buys the next round' anlami?",
+          question: "'Loser buys the next round' anlamı?",
           options: [
-            "Kaybeden bir sey almali",
-            "Kaybeden sonraki ic,kileri/odemei yapacak",
+            "Kaybeden bir şey almalı",
+            "Kaybeden sonraki içkileri/ödemeyi yapacak",
             "Kaybeden gidiyor",
-            "Kaybeden alkollu",
+            "Kaybeden alkollü",
           ],
           correct_index: 1,
           tr_explanation:
-            "Klasik bar/watch-party bahsi. Kaybeden tum gruba ic,ki/yemek alir.",
+            "Klasik bar/watch-party bahsi. Kaybeden tüm gruba içki/yemek alır.",
         },
         {
-          question: "'Bring it!' (banter baglam)?",
+          question: "'Bring it!' (banter bağlamı)?",
           options: [
-            "Bir sey getir",
-            "Hadi gel/baslat (meydan okuma)",
-            "Buraya tasi",
+            "Bir şey getir",
+            "Hadi gel/başlat (meydan okuma)",
+            "Buraya taşı",
             "Geri ver",
           ],
           correct_index: 1,
           tr_explanation:
-            "'Bring it' = meydan okumayi kabul ediyorum, getir bakalim.",
+            "'Bring it' = meydan okumayı kabul ediyorum, getir bakalım.",
         },
       ],
     },
@@ -3678,16 +3678,16 @@ export const sport_wellness_10_1: BundledLesson = {
       type: "vocab_tile",
       difficulty: 4,
       word_or_phrase: "HRV (heart rate variability)",
-      tr_translation: "Kalp hizi degis,kenligi (recovery metrigi)",
+      tr_translation: "Kalp hızı değişkenliği (recovery metriği)",
       example: "My HRV is tanking — I'm not recovering well.",
-      example_tr: "HRV'm dusus,te — iyi recovery yapamiyorum.",
+      example_tr: "HRV'm düşüşte — iyi recovery yapamıyorum.",
     },
     {
       id: "ex.10.1.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Trainer ile recovery durumunu konus,uyorsun. Watch verilerini paylasiyorsun.",
+        "Trainer ile recovery durumunu konuşuyorsun. Saatten gelen verileri paylaşıyorsun.",
       npc_role: "Personal trainer",
       setting: "Pre-session check-in, week 6",
       turns: [
@@ -3702,7 +3702,7 @@ export const sport_wellness_10_1: BundledLesson = {
             "(my watch|whoop|garmin) says",
           ],
           hint_tr:
-            "Recovery durumunu paylas: 'My HRV is tanking, RHR is elevated, not bouncing back'.",
+            "Recovery durumunu paylaş: 'My HRV is tanking, RHR is elevated, not bouncing back'.",
         },
         {
           speaker: "npc",
@@ -3719,7 +3719,7 @@ export const sport_wellness_10_1: BundledLesson = {
             "(pretty|really) (stressed|burned out)",
           ],
           hint_tr:
-            "Stres faktorlerini paylas: 'Work is crazy, sleep is poor, travel last week'.",
+            "Stres faktörlerini paylaş: 'Work is crazy, sleep is poor, travel last week'.",
         },
         {
           speaker: "npc",
@@ -3749,7 +3749,7 @@ export const sport_wellness_10_1: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "HRV'm dustu, dinlenme nabzim yuksek, iyi toparlanamiyorum.",
+      source: "HRV'm düştü, dinlenme nabzım yüksek, iyi toparlanamıyorum.",
       target: "My HRV is down, resting heart rate is up — I'm not bouncing back.",
       accepted_variants: [
         "HRV is dropping, RHR elevated — I'm not recovering well.",
@@ -3758,7 +3758,7 @@ export const sport_wellness_10_1: BundledLesson = {
         "HRV is in the red, RHR is high, I'm not recovering.",
       ],
       tr_hint:
-        "'Toparlanamiyorum' = 'not bouncing back' veya 'not recovering'.",
+        "'Toparlanamıyorum' = 'not bouncing back' veya 'not recovering'.",
     },
     {
       id: "ex.10.1.4",
@@ -3769,37 +3769,37 @@ export const sport_wellness_10_1: BundledLesson = {
           question: "'HRV' nedir?",
           options: [
             "Heart rate value",
-            "Heart rate variability (kalp atislari arasi varyans)",
+            "Heart rate variability (kalp atışları arası varyans)",
             "High recovery value",
             "Heart range velocity",
           ],
           correct_index: 1,
           tr_explanation:
-            "HRV = kalp atislari arasi zaman farklarinin degis,kenligi. Yuksek = iyi recovery.",
+            "HRV = kalp atışları arası zaman farklarının değişkenliği. Yüksek = iyi recovery.",
         },
         {
-          question: "'I'm not bouncing back' anlami?",
+          question: "'I'm not bouncing back' anlamı?",
           options: [
-            "Toparlanamiyorum",
+            "Toparlanamıyorum",
             "Topu sektiremiyorum",
-            "Geri donmuyorum",
-            "Esnekligim yok",
+            "Geri dönmüyorum",
+            "Esnekliğim yok",
           ],
           correct_index: 0,
           tr_explanation:
-            "'Bounce back' = toparlanmak, eski haline donmek.",
+            "'Bounce back' = toparlanmak, eski haline dönmek.",
         },
         {
           question: "'Resting heart rate elevated' ne demek?",
           options: [
-            "Dinlenme nabzi yukselmis,",
-            "Nabiz yatakta yukseliyor",
-            "Kalp basinci yuksek",
-            "Asagi/yukari hareket",
+            "Dinlenme nabzı yükselmiş",
+            "Nabız yatakta yükseliyor",
+            "Kalp basıncı yüksek",
+            "Aşağı/yukarı hareket",
           ],
           correct_index: 0,
           tr_explanation:
-            "RHR yukselmesi = vucut stres altinda, recovery yetersiz isareti.",
+            "RHR yükselmesi = vücut stres altında, recovery yetersiz işareti.",
         },
       ],
     },
@@ -3815,7 +3815,7 @@ export const sport_wellness_10_2: BundledLesson = {
   index: 26,
   title: "Nutrition — 'I'm in a slight surplus'",
   description:
-    "Macro split: protein 2g/kg, surplus vs deficit. Bulk vs cut tartis.",
+    "Macro split: protein 2g/kg, surplus vs deficit. Bulk vs cut tartış.",
   estimated_minutes: 9,
   exercises: [
     {
@@ -3823,16 +3823,16 @@ export const sport_wellness_10_2: BundledLesson = {
       type: "vocab_tile",
       difficulty: 4,
       word_or_phrase: "macros",
-      tr_translation: "Makro besinler (protein, karb, yag)",
+      tr_translation: "Makro besinler (protein, karb, yağ)",
       example: "I'm hitting my macros every day — protein, carbs, fats.",
-      example_tr: "Macros'larimi her gun tutturuyorum — protein, karb, yag.",
+      example_tr: "Macros'larımı her gün tutturuyorum — protein, karb, yağ.",
     },
     {
       id: "ex.10.2.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Trainer/diyetisyenle macro split tartisiyorsun. Bulk yapacaksin.",
+        "Trainer/diyetisyenle macro split tartışıyorsun. Bulk yapacaksın.",
       npc_role: "Personal trainer",
       setting: "Nutrition consult, mid-block",
       turns: [
@@ -3851,7 +3851,7 @@ export const sport_wellness_10_2: BundledLesson = {
             "(maintenance|maintain)",
           ],
           hint_tr:
-            "Yaklasimini soyle: 'Slight surplus, lean bulking' veya 'Mini cut'.",
+            "Yaklaşımını söyle: 'Slight surplus, lean bulking' veya 'Mini cut'.",
         },
         {
           speaker: "npc",
@@ -3868,7 +3868,7 @@ export const sport_wellness_10_2: BundledLesson = {
             "i (already|usually) hit [0-9]+",
           ],
           hint_tr:
-            "Protein hedefini paylas: 'Yeah, I'm at 2.2g per kg already'.",
+            "Protein hedefini paylaş: 'Yeah, I'm at 2.2g per kg already'.",
         },
         {
           speaker: "npc",
@@ -3898,7 +3898,7 @@ export const sport_wellness_10_2: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "Hafif surplus'tayim, kilo basi 2g protein hedefliyorum.",
+      source: "Hafif surplus'tayım, kilo başına 2g protein hedefliyorum.",
       target: "I'm in a slight surplus, targeting 2g of protein per kg.",
       accepted_variants: [
         "Slight surplus for me — 2g protein per kg target.",
@@ -3907,7 +3907,7 @@ export const sport_wellness_10_2: BundledLesson = {
         "In a mild surplus, hitting 2 grams of protein per kilo.",
       ],
       tr_hint:
-        "'Surplus'tayim' = 'I'm in a surplus'. '2g/kg' = '2g per kg'.",
+        "'Surplus'tayım' = 'I'm in a surplus'. '2g/kg' = '2g per kg'.",
     },
     {
       id: "ex.10.2.4",
@@ -3917,7 +3917,7 @@ export const sport_wellness_10_2: BundledLesson = {
       answer: "macros",
       distractors: ["calories", "meals", "diet", "goals"],
       tr_hint:
-        "'Macros' = makro besinler (protein, karb, yag). Diyet hedefi.",
+        "'Macros' = makro besinler (protein, karb, yağ). Diyet hedefi.",
     },
     {
       id: "ex.10.2.5",
@@ -3927,38 +3927,38 @@ export const sport_wellness_10_2: BundledLesson = {
         {
           question: "'Bulk' ve 'cut' nedir?",
           options: [
-            "Sirayla agirlik artirma/azaltma faz",
-            "Kas kasilmasi",
-            "Setler arasi mola",
-            "Ic,ki tipleri",
+            "Sırayla ağırlık artırma/azaltma fazları",
+            "Kas kasılması",
+            "Setler arası mola",
+            "İçki tipleri",
           ],
           correct_index: 0,
           tr_explanation:
-            "Bulk = kas kazanim fazi (surplus). Cut = yag kaybi fazi (deficit).",
+            "Bulk = kas kazanım fazı (surplus). Cut = yağ kaybı fazı (deficit).",
         },
         {
           question: "'Macros' tam olarak?",
           options: [
             "Makinalar",
-            "Protein, karbonhidrat, yag",
-            "Mikronutrientler",
+            "Protein, karbonhidrat, yağ",
+            "Mikronütrientler",
             "Diyet vitaminleri",
           ],
           correct_index: 1,
           tr_explanation:
-            "Macros = makro besinler. Mikrolar (vitaminler/mineraller) ayri.",
+            "Macros = makro besinler. Mikrolar (vitaminler/mineraller) ayrı.",
         },
         {
           question: "'2g per kg' ne anlama gelir?",
           options: [
             "Toplam 2 gram protein",
-            "Vucut agirliginin her kilosu icin 2 gram protein",
-            "2 gram, kilo basina degisken",
-            "2 grama yakin",
+            "Vücut ağırlığının her kilosu için 2 gram protein",
+            "2 gram, kilo başına değişken",
+            "2 grama yakın",
           ],
           correct_index: 1,
           tr_explanation:
-            "2g/kg = 80 kg icin gunde 160 g protein. Bulking icin standart.",
+            "2g/kg = 80 kg için günde 160 g protein. Bulking için standart.",
         },
       ],
     },
@@ -3982,16 +3982,16 @@ export const sport_wellness_10_3: BundledLesson = {
       type: "vocab_tile",
       difficulty: 3,
       word_or_phrase: "sleep hygiene",
-      tr_translation: "Uyku kalitesini destekleyen aliskanliklar",
+      tr_translation: "Uyku kalitesini destekleyen alışkanlıklar",
       example: "My sleep hygiene is bad — I scroll on my phone in bed.",
-      example_tr: "Sleep hygiene'im kotu — yatakta telefon karistiriyorum.",
+      example_tr: "Sleep hygiene'ım kötü — yatakta telefon karıştırıyorum.",
     },
     {
       id: "ex.10.3.2",
       type: "roleplay_chat",
       difficulty: 3,
       scenario_description:
-        "Trainer'a uyku sorununu ac,iyorsun, performansin etkileniyor.",
+        "Trainer'a uyku sorununu açıyorsun, performansın etkileniyor.",
       npc_role: "Personal trainer",
       setting: "Mid-session check-in",
       turns: [
@@ -4006,7 +4006,7 @@ export const sport_wellness_10_3: BundledLesson = {
             "(only|barely) [0-9]+ hours",
           ],
           hint_tr:
-            "Uyku sorununu ac: 'I'm only getting 6 hours, performance is suffering'.",
+            "Uyku sorununu aç: 'I'm only getting 6 hours, performance is suffering'.",
         },
         {
           speaker: "npc",
@@ -4023,7 +4023,7 @@ export const sport_wellness_10_3: BundledLesson = {
             "(stressed|anxious) at night",
           ],
           hint_tr:
-            "Aliskanliklarini paylas: 'On my phone in bed, coffee after 6 PM'.",
+            "Alışkanlıklarını paylaş: 'On my phone in bed, coffee after 6 PM'.",
         },
         {
           speaker: "npc",
@@ -4053,7 +4053,7 @@ export const sport_wellness_10_3: BundledLesson = {
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
-      source: "Sadece 6 saat uyuyorum, performansim etkileniyor.",
+      source: "Sadece 6 saat uyuyorum, performansım etkileniyor.",
       target: "I'm only getting 6 hours of sleep — performance is suffering.",
       accepted_variants: [
         "Only getting 6 hours, performance is suffering.",
@@ -4071,7 +4071,7 @@ export const sport_wellness_10_3: BundledLesson = {
       incorrect_sentence: "My sleep is in bad mood lately.",
       correct_sentence: "My sleep has been bad lately.",
       tr_explanation:
-        "'In bad mood' kisi icin kullanilir, uyku icin degil. Dogrusu 'sleep has been bad' veya 'sleep is poor'.",
+        "'In bad mood' kişi için kullanılır, uyku için değil. Doğrusu 'sleep has been bad' veya 'sleep is poor'.",
     },
     {
       id: "ex.10.3.5",
@@ -4081,38 +4081,38 @@ export const sport_wellness_10_3: BundledLesson = {
         {
           question: "'Sleep hygiene' nedir?",
           options: [
-            "Uyku temizligi",
-            "Iyi uyku icin aliskanliklar",
+            "Uyku temizliği",
+            "İyi uyku için alışkanlıklar",
             "Yatakta hijyen",
             "Antihistaminik",
           ],
           correct_index: 1,
           tr_explanation:
-            "Sleep hygiene = uykuyu destekleyen davranis,sal aliskanliklar.",
+            "Sleep hygiene = uykuyu destekleyen davranışsal alışkanlıklar.",
         },
         {
           question: "'Wind-down routine' ne demek?",
           options: [
             "Sabah rutini",
-            "Uyku oncesi sakinlestirici aliskanlik dizisi",
-            "Antrenman bitisi",
-            "Pencere ac,ma",
+            "Uyku öncesi sakinleştirici alışkanlık dizisi",
+            "Antrenman bitişi",
+            "Pencere açma",
           ],
           correct_index: 1,
           tr_explanation:
-            "Wind-down = yatmadan once vucudu sakinles,tirme.",
+            "Wind-down = yatmadan önce vücudu sakinleştirme.",
         },
         {
-          question: "'Performance is suffering' anlami?",
+          question: "'Performance is suffering' anlamı?",
           options: [
-            "Sahnede aci c,ekiyorum",
-            "Performansim kotule s,iyor",
-            "Halen yapiyorum",
-            "Yarim performans",
+            "Sahnede acı çekiyorum",
+            "Performansım kötüleşiyor",
+            "Hâlâ yapıyorum",
+            "Yarım performans",
           ],
           correct_index: 1,
           tr_explanation:
-            "'Suffering' burada bir s,ey kotuye gidiyor anlaminda.",
+            "'Suffering' burada bir şey kötüye gidiyor anlamında.",
         },
       ],
     },
@@ -4128,7 +4128,7 @@ export const sport_wellness_10_4: BundledLesson = {
   index: 28,
   title: "Hydration — 'I cramped up on a long run'",
   description:
-    "Elektrolit dengesi, sodium, salt tabs. Uzun calistima sonrasi kramp.",
+    "Elektrolit dengesi, sodyum, salt tabs. Uzun koşu sonrası kramp.",
   estimated_minutes: 7,
   exercises: [
     {
@@ -4145,7 +4145,7 @@ export const sport_wellness_10_4: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 3,
       scenario_description:
-        "Trainer'a uzun kos,uda kramp girdigini ac,ikliyorsun.",
+        "Trainer'a uzun koşuda kramp girdiğini açıklıyorsun.",
       npc_role: "Personal trainer",
       setting: "Post-long-run debrief",
       turns: [
@@ -4160,7 +4160,7 @@ export const sport_wellness_10_4: BundledLesson = {
             "(salty|salt)( sweater|er)?",
           ],
           hint_tr:
-            "Krampi tarif et: 'I cramped up at km 30 — must've been sodium'.",
+            "Krampı tarif et: 'I cramped up at km 30 — must've been sodium'.",
         },
         {
           speaker: "npc",
@@ -4177,7 +4177,7 @@ export const sport_wellness_10_4: BundledLesson = {
             "should'?ve (had|taken) more",
           ],
           hint_tr:
-            "Beslenmeni paylas: 'Just water, no salt' veya 'One gel only'.",
+            "Beslenmeni paylaş: 'Just water, no salt' veya 'One gel only'.",
         },
         {
           speaker: "npc",
@@ -4207,7 +4207,7 @@ export const sport_wellness_10_4: BundledLesson = {
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
-      source: "30. km'de baldirim kramp girdi, elektrolit yetmemis,.",
+      source: "30. km'de baldırıma kramp girdi, elektrolit yetmemiş.",
       target: "My calf cramped up at km 30 — must've been low on electrolytes.",
       accepted_variants: [
         "Calves cramped at km 30 — electrolytes were low.",
@@ -4226,38 +4226,38 @@ export const sport_wellness_10_4: BundledLesson = {
         {
           question: "'Cramped up' ne demek?",
           options: [
-            "Kasilarak hareket etti",
+            "Kasılarak hareket etti",
             "Kramp girdi",
-            "Yuksege tirmandi",
+            "Yükseğe tırmandı",
             "Buruldu",
           ],
           correct_index: 1,
           tr_explanation:
-            "Cramp up = ani kasilma, donma. Yaygin sport sakatligi.",
+            "Cramp up = ani kasılma, donma. Yaygın spor sakatlığı.",
         },
         {
           question: "'Salt tabs' nedir?",
           options: [
             "Tuz tabletleri (elektrolit)",
-            "Tuz kabi",
-            "Yemek tablasi",
+            "Tuz kabı",
+            "Yemek tablası",
             "Kalp pili",
           ],
           correct_index: 0,
           tr_explanation:
-            "Salt tabs = sodyum tabletleri, uzun dayaniklilik sporlarinda.",
+            "Salt tabs = sodyum tabletleri, uzun dayanıklılık sporlarında.",
         },
         {
-          question: "'Low on electrolytes' anlami?",
+          question: "'Low on electrolytes' anlamı?",
           options: [
-            "Elektrolit asagida",
-            "Elektrolit dusuk/yetersiz",
-            "Akimda kac,ak",
-            "Boyutu duduk",
+            "Elektrolit aşağıda",
+            "Elektrolit düşük/yetersiz",
+            "Akımda kaçak",
+            "Boyutu düşük",
           ],
           correct_index: 1,
           tr_explanation:
-            "Low on X = X yetersiz, az. Kramp icin tipik sebep.",
+            "Low on X = X yetersiz, az. Kramp için tipik sebep.",
         },
       ],
     },
@@ -4281,16 +4281,16 @@ export const sport_wellness_10_5: BundledLesson = {
       type: "vocab_tile",
       difficulty: 3,
       word_or_phrase: "tight hip flexors",
-      tr_translation: "Sikismis, kalca fleksor kaslari",
+      tr_translation: "Sıkışmış kalça fleksör kasları",
       example: "Tight hip flexors are killing my squat depth.",
-      example_tr: "Sikismis, kalca fleksorleri squat derinligimi vuruyor.",
+      example_tr: "Sıkışmış kalça fleksörleri squat derinliğimi vuruyor.",
     },
     {
       id: "ex.10.5.2",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Fizyoterapiste hareket kisitliligini ac,ikliyorsun.",
+        "Fizyoterapiste hareket kısıtlılığını açıklıyorsun.",
       npc_role: "Physio",
       setting: "Sports physio consult",
       turns: [
@@ -4305,7 +4305,7 @@ export const sport_wellness_10_5: BundledLesson = {
             "(stiffness|tightness) in (the )?",
           ],
           hint_tr:
-            "Durumu ac,ikla: 'My hips are locked up, can't hit squat depth'.",
+            "Durumu açıkla: 'My hips are locked up, can't hit squat depth'.",
         },
         {
           speaker: "npc",
@@ -4322,7 +4322,7 @@ export const sport_wellness_10_5: BundledLesson = {
             "(since|after) ",
           ],
           hint_tr:
-            "Detaylan: 'A few weeks, worst in the morning and after sitting all day'.",
+            "Detaylandır: 'A few weeks, worst in the morning and after sitting all day'.",
         },
         {
           speaker: "npc",
@@ -4352,7 +4352,7 @@ export const sport_wellness_10_5: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "Kalc,am sikis,mis,, squat'ta dipliye inemiyorum.",
+      source: "Kalçam sıkışmış, squat'ta dibe inemiyorum.",
       target: "My hips are locked up — I can't hit depth on squats.",
       accepted_variants: [
         "Hips are tight, can't get depth on squat.",
@@ -4361,7 +4361,7 @@ export const sport_wellness_10_5: BundledLesson = {
         "Tight hips — depth is gone on squats.",
       ],
       tr_hint:
-        "'Sikismis,' = 'locked up' veya 'tight'. 'Dipliye inemiyorum' = 'can't hit depth'.",
+        "'Sıkışmış' = 'locked up' veya 'tight'. 'Dibe inemiyorum' = 'can't hit depth'.",
     },
     {
       id: "ex.10.5.4",
@@ -4371,38 +4371,38 @@ export const sport_wellness_10_5: BundledLesson = {
         {
           question: "'Hip flexors' nelerdir?",
           options: [
-            "Kalca esnetenler",
-            "Kalca fleksiyonunu yapan kaslar (iliopsoas)",
-            "Kalca kemikleri",
+            "Kalçayı esnetenler",
+            "Kalça fleksiyonunu yapan kaslar (iliopsoas)",
+            "Kalça kemikleri",
             "Hip-hop oyuncular",
           ],
           correct_index: 1,
           tr_explanation:
-            "Hip flexors = iliopsoas grubu. Oturarak gec,en sure ile siklikla sikisir.",
+            "Hip flexors = iliopsoas grubu. Oturarak geçen süre ile sıklıkla sıkışır.",
         },
         {
-          question: "'Locked up' (mobility baglaminda)?",
+          question: "'Locked up' (mobility bağlamında)?",
           options: [
-            "Kilitlendi (kapali)",
-            "Hareket etmiyor / sikismis,",
-            "Anahtarli",
-            "Yansitildi",
+            "Kilitlendi (kapalı)",
+            "Hareket etmiyor / sıkışmış",
+            "Anahtarlı",
+            "Yansıtıldı",
           ],
           correct_index: 1,
           tr_explanation:
-            "Locked up = eklem/kas hareket araligi azalmis, hissi.",
+            "Locked up = eklem/kas hareket aralığı azalmış hissi.",
         },
         {
           question: "'Foam rolling' nedir?",
           options: [
-            "Kopuk yakalama",
-            "Sertc,e koputuk rulosu ile kendi kendine kas masaji",
-            "Kopuk yastiklar",
+            "Köpük yakalama",
+            "Sertçe köpük rulosu ile kendi kendine kas masajı",
+            "Köpük yastıklar",
             "Esneklik testi",
           ],
           correct_index: 1,
           tr_explanation:
-            "Foam rolling = self-myofascial release. Sertlik gec,irir, mobiliteyi destekler.",
+            "Foam rolling = self-myofascial release. Sertliği geçirir, mobiliteyi destekler.",
         },
       ],
     },
@@ -4418,7 +4418,7 @@ export const sport_wellness_10_6: BundledLesson = {
   index: 30,
   title: "Burnout — 'I dread going to the gym'",
   description:
-    "Burnout sinyalleri: motivation drop, missed sessions. Trainer'a ac,ik ol.",
+    "Burnout sinyalleri: motivation drop, missed sessions. Trainer'a açık ol.",
   estimated_minutes: 8,
   exercises: [
     {
@@ -4426,7 +4426,7 @@ export const sport_wellness_10_6: BundledLesson = {
       type: "vocab_tile",
       difficulty: 4,
       word_or_phrase: "dread (something)",
-      tr_translation: "(Bir s,eyden) korkmak, ic,ten c,ekinmek",
+      tr_translation: "(Bir şeyden) korkmak, içten çekinmek",
       example: "I dread going to the gym lately.",
       example_tr: "Spor salonuna gitmekten korkar oldum.",
     },
@@ -4435,7 +4435,7 @@ export const sport_wellness_10_6: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Trainer'a motivasyon dustugunu, salondan kac,inmaya basladigini ac,ikliyorsun.",
+        "Trainer'a motivasyonun düştüğünü, salondan kaçınmaya başladığını açıklıyorsun.",
       npc_role: "Personal trainer",
       setting: "Honest check-in conversation",
       turns: [
@@ -4450,7 +4450,7 @@ export const sport_wellness_10_6: BundledLesson = {
             "(force myself|forcing) to go",
           ],
           hint_tr:
-            "Aciksoyle: 'I've been dreading sessions, motivation is gone'.",
+            "Açık söyle: 'I've been dreading sessions, motivation is gone'.",
         },
         {
           speaker: "npc",
@@ -4467,7 +4467,7 @@ export const sport_wellness_10_6: BundledLesson = {
             "(probably|maybe) a (month|few weeks)",
           ],
           hint_tr:
-            "Sure ver: 'A few weeks, building up' veya 'On and off for a month'.",
+            "Süre ver: 'A few weeks, building up' veya 'On and off for a month'.",
         },
         {
           speaker: "npc",
@@ -4484,7 +4484,7 @@ export const sport_wellness_10_6: BundledLesson = {
             "(let'?s|let us) try (it|something)",
           ],
           hint_tr:
-            "Acik ol: 'Yeah, what do you have in mind?'",
+            "Açık ol: 'Yeah, what do you have in mind?'",
         },
         {
           speaker: "npc",
@@ -4497,7 +4497,7 @@ export const sport_wellness_10_6: BundledLesson = {
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
-      source: "Salona gitmekten korkar oldum, motivasyonum sifir.",
+      source: "Salona gitmekten korkar oldum, motivasyonum sıfır.",
       target: "I've been dreading the gym — my motivation is gone.",
       accepted_variants: [
         "I dread going to the gym; motivation is zero.",
@@ -4506,7 +4506,7 @@ export const sport_wellness_10_6: BundledLesson = {
         "I dread the gym now — zero motivation.",
       ],
       tr_hint:
-        "'Korkar oldum' = 'I've been dreading'. 'Sifir motivasyon' = 'motivation is gone'.",
+        "'Korkar oldum' = 'I've been dreading'. 'Sıfır motivasyon' = 'motivation is gone'.",
     },
     {
       id: "ex.10.6.4",
@@ -4515,7 +4515,7 @@ export const sport_wellness_10_6: BundledLesson = {
       incorrect_sentence: "I have no want to go to gym.",
       correct_sentence: "I don't feel like going to the gym.",
       tr_explanation:
-        "'Have no want' direkt c,eviri. Dogrusu 'don't feel like' veya 'I dread'.",
+        "'Have no want' direkt çeviri. Doğrusu 'don't feel like' veya 'I dread'.",
     },
     {
       id: "ex.10.6.5",
@@ -4526,7 +4526,7 @@ export const sport_wellness_10_6: BundledLesson = {
           question: "'I dread X' ne demek?",
           options: [
             "X'i seviyorum",
-            "X'ten korkar/c,ekinir oldum",
+            "X'ten korkar/çekinir oldum",
             "X'i unuttum",
             "X'i seviyorum ama",
           ],
@@ -4538,25 +4538,25 @@ export const sport_wellness_10_6: BundledLesson = {
           question: "Burnout sinyallerinden biri?",
           options: [
             "Antrenmana erken gelmek",
-            "Motivasyon dusuklugu, oturum kac,irma",
+            "Motivasyon düşüklüğü, oturum kaçırma",
             "Yeni PR atmak",
-            "Daha c,ok recovery",
+            "Daha çok recovery",
           ],
           correct_index: 1,
           tr_explanation:
-            "Burnout: motivasyon dusus,u, performans dusus,u, oturum atlama.",
+            "Burnout: motivasyon düşüşü, performans düşüşü, oturum atlama.",
         },
         {
-          question: "'Open to (something)' anlami?",
+          question: "'Open to (something)' anlamı?",
           options: [
-            "Acik kapi",
-            "Denemeye/yapmaya hazirim",
-            "Acik konus,mak",
-            "Aciktayim",
+            "Açık kapı",
+            "Denemeye/yapmaya hazırım",
+            "Açık konuşmak",
+            "Açıktayım",
           ],
           correct_index: 1,
           tr_explanation:
-            "Open to X = X'i denemeye/kabul etmeye hazir.",
+            "Open to X = X'i denemeye/kabul etmeye hazır.",
         },
       ],
     },

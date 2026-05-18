@@ -76,10 +76,12 @@ export const flirtAdvLesson_9_1: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(did i wake you|sorry.{0,15}woke you)",
-            "go back to sleep",
-            "(it'?s|its) (late|2|early)",
-            "i('ll| will) (still )?be here",
+            "(did i wake you|sorry.{0,15}woke you).{0,30}(go back|get some|sleep)?",
+            "go back to sleep.{0,30}(i'?ll be|i'?m here|i'?m not going)",
+            "(it'?s|its) (late|2|early).{0,30}(here|on my end|my time)",
+            "i('ll| will) (still )?be here.{0,30}(when you|in the morning)?",
+            "(sorry|hey).{0,30}(go back to sleep|get some sleep).{0,30}(i'?ll be|i'?m here)",
+            "(no rush|don'?t worry).{0,30}(sleep|rest).{0,30}(i'?ll be here|talk later)",
           ],
           hint_tr:
             "Şefkatli aç: 'Did I wake you? Sorry — go back to sleep.'",
@@ -92,11 +94,12 @@ export const flirtAdvLesson_9_1: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(missed|miss) (you|your)",
-            "(close|shut) your eyes",
-            "i'?ll (just )?talk",
-            "stay (with me|on)",
-            "tell me about your day",
+            "(missed|miss) (you|your).{0,30}(face|voice|laugh|too)?",
+            "(close|shut) your eyes.{0,30}(i'?ll talk|i'?m here|just listen)",
+            "i'?ll (just )?talk.{0,30}(while you|until you|let you)",
+            "stay (with me|on).{0,30}(line|call|the phone|i'?m here)",
+            "tell me about your day.{0,30}(while you|i'?ll just|i'?m listening)?",
+            "(get back to sleep|just rest).{0,30}(i'?ll be here|i'?m staying)",
           ],
           hint_tr:
             "Yumuşak sürdür: 'Close your eyes, I'll just talk.' veya 'Missed your face too.'",
@@ -234,10 +237,12 @@ export const flirtAdvLesson_9_2: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(thinking|i'?ve been thinking) about",
-            "i (keep|can'?t stop) (thinking|replaying)",
-            "remembered that (thing|time|night|story)",
-            "(been )?missing (your|that)",
+            "(thinking|i'?ve been thinking) about.{0,40}(you|that|the time|when we)",
+            "i (keep|can'?t stop) (thinking|replaying).{0,40}(that|when|the time|you)",
+            "remembered that (thing|time|night|story).{0,40}(you|we|told me|by the)",
+            "(been )?missing (your|that).{0,30}(laugh|face|voice|story|way)",
+            "(your|that) (laugh|voice|face) (keeps|just) (coming back|getting me)",
+            "(can'?t shake|stuck on) (the way|how) (you|we)",
           ],
           hint_tr:
             "Spesifik anıya gir: 'I keep thinking about that night we...'",
@@ -249,11 +254,12 @@ export const flirtAdvLesson_9_2: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(no reason|just|don'?t know)",
-            "your laugh",
-            "something reminded me",
-            "(saw|heard) (something|a song)",
-            "(it'?s|its) the (way|thing) you",
+            "(no reason|just|don'?t know).{0,30}(thought of you|came to mind|hit me)",
+            "your laugh (came back|popped into|hit me)",
+            "something reminded me (of you|of that|just now)",
+            "(saw|heard) (something|a song).{0,30}(reminded me|made me think|stopped me)",
+            "(it'?s|its) the (way|thing) you (laughed|said|do)",
+            "(a song|a smell|the weather) (reminded me|brought it back|got me)",
           ],
           hint_tr:
             "Tetikleyiciyi söyle: 'A song reminded me' veya 'The way you laughed'.",
@@ -389,11 +395,12 @@ export const flirtAdvLesson_9_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(could|can) we do",
-            "(my|your) time",
-            "(what|when) works for you",
-            "tuesday|wednesday|thursday|friday",
-            "(after|before) work",
+            "(could|can) we do.{0,30}(your time|my time|\\d)",
+            "(\\d+|eight|seven|nine) (my|your) time.{0,30}(that'?s|=)",
+            "(what|when) works for you.{0,30}(this week|wednesday|tomorrow|tonight)?",
+            "(tuesday|wednesday|thursday|friday).{0,30}(works|good|\\d).{0,30}(your time|my time)?",
+            "(after|before) work.{0,30}(my time|your time|here)",
+            "(let'?s aim for|how about) (\\d+|eight|seven) (your time|my time)",
           ],
           hint_tr:
             "Saat öner + iki timezone: 'Can we do 8 your time? That's 3 my time.'",
@@ -405,11 +412,12 @@ export const flirtAdvLesson_9_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "i'?m up",
-            "(it'?s|its) (fine|okay|ok)",
-            "(works|good) for me",
-            "i'?ll be (awake|up)",
-            "don'?t worry about it",
+            "i'?m up.{0,30}(anyway|that late|no problem|seriously)",
+            "(it'?s|its) (fine|okay|ok).{0,30}(really|honestly|i mean it)",
+            "(works|good) for me.{0,30}(promise|honestly|either way)?",
+            "i'?ll be (awake|up).{0,30}(anyway|that hour|no worries)",
+            "don'?t worry about it.{0,30}(i'?ll be|seriously|honestly)",
+            "(my schedule|i'?m flexible) — (works|fine) (either way|whatever)",
           ],
           hint_tr: "Rahatlat: 'I'll be up — works for me.'",
         },
@@ -536,11 +544,12 @@ export const flirtAdvLesson_9_4: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "i (hear|get|understand) (you|that)",
-            "i'?m not asking (you to|for)",
-            "(tentative|even tentative|loose)",
-            "(a date|something) on the calendar",
-            "helps me",
+            "i (hear|get|understand) (you|that).{0,30}(i'?m not|just need|all i'?m)",
+            "i'?m not asking (you to|for).{0,40}(commit|book|book now|promise)",
+            "(tentative|even tentative|loose).{0,30}(date|plan|target)",
+            "(a date|something) on the calendar.{0,30}(helps|even loose|even tentative)?",
+            "helps me (cope|get through|hold on)",
+            "(just|even) something (to look forward|to aim at|loose)",
           ],
           hint_tr:
             "Baskı yapmadan ihtiyacını söyle: 'I hear you — I just need something tentative.'",
@@ -552,11 +561,12 @@ export const flirtAdvLesson_9_4: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(tentative|loose|soft) (is fine|works)",
-            "(we can|i'?ll) move it",
-            "(not a contract|not binding)",
-            "just (something|a target)",
-            "we'?ll figure (it out|the money)",
+            "(tentative|loose|soft) (is fine|works|enough)",
+            "(we can|i'?ll) move it.{0,30}(later|if we need|if things change)",
+            "(not a contract|not binding).{0,30}(just|target|aim)",
+            "just (something|a target) (to aim at|on the horizon|to plan around)",
+            "we'?ll figure (it out|the money).{0,30}(later|then|together)",
+            "(low pressure|no promises) — (just|i'?m just) (need a target|after a target)",
           ],
           hint_tr:
             "Esnek tut: 'Tentative is fine — we can move it. Just need a target.'",
@@ -568,10 +578,12 @@ export const flirtAdvLesson_9_4: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(thank you|thanks)",
-            "(that helps|i needed that)",
-            "(love you|appreciate you)",
-            "okay(,)? (good|great)",
+            "(thank you|thanks).{0,30}(that helps|i needed|so much)",
+            "(that helps|i needed that).{0,30}(more than|so much|right now)",
+            "(love you|appreciate you).{0,30}(for that|so much|honestly)",
+            "okay(,)? (good|great).{0,30}(that works|talk soon|love you)",
+            "(thanks for|grateful for) (working with me|hearing me|the flex)",
+            "(perfect|that'?s enough).{0,30}(for now|all i needed)",
           ],
           hint_tr: "Yumuşak kapat: 'Thank you — that helps.'",
         },
@@ -680,10 +692,12 @@ export const flirtAdvLesson_9_5: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(caught myself|i'?ve been) wondering",
-            "(my stuff|my own thing|my issue)",
-            "who'?s alex",
-            "(not accusing|not assuming)",
+            "(caught myself|i'?ve been) wondering.{0,40}(but|who|just curious)",
+            "(my stuff|my own thing|my issue).{0,30}(but|who|just asking)",
+            "who'?s alex.{0,30}(in the|in your|just curious)?",
+            "(not accusing|not assuming).{0,40}(but|just|wanted to ask)",
+            "(totally|completely) (my own|my) (head|brain|thing).{0,30}(but|who|just)",
+            "(owning this|going to own this) — (who'?s|tell me about) alex",
           ],
           hint_tr:
             "Sahiplen + sor: 'Caught myself wondering — totally my stuff — who's Alex?'",
@@ -696,10 +710,12 @@ export const flirtAdvLesson_9_5: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(thanks for|appreciate) (telling|the context)",
-            "(no big deal|all good|that helps)",
-            "(my brain|my head) was (doing|running)",
-            "(felt|i was) (silly|insecure)",
+            "(thanks for|appreciate) (telling|the context).{0,30}(makes sense|that helps)?",
+            "(no big deal|all good|that helps).{0,30}(thanks|appreciate it)?",
+            "(my brain|my head) was (doing|running) (the thing|in circles|on me)",
+            "(felt|i was) (silly|insecure) (for asking|about it|honestly)",
+            "(my anxious brain|the anxious part of me) (was just|got loud)",
+            "(needed to|had to) (ask|name it).{0,30}(thanks for the context|appreciate the answer)",
           ],
           hint_tr:
             "Sakin kapat: 'Thanks — that helps. My brain was just doing the thing.'",
@@ -711,9 +727,12 @@ export const flirtAdvLesson_9_5: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(working on it|trying)",
-            "(don'?t want to|won'?t) (be|become) (that guy|that person)",
-            "(love you|i'?m good)",
+            "(working on it|trying).{0,30}(promise|honestly|every day)",
+            "(don'?t want to|won'?t) (be|become) (that guy|that person).{0,30}(working on it|promise)?",
+            "(love you|i'?m good).{0,30}(thanks for|appreciate)?",
+            "(rather ask than|asking is better than) (stew|spiral|sit with it)",
+            "(yeah|honestly).{0,30}(working on|getting better at) (this|naming things|the spiral)",
+            "(that'?s the goal|that'?s the work) — (asking|not stewing|naming it)",
           ],
           hint_tr:
             "Olgun kapat: 'Working on it — don't want to be that person.'",
@@ -841,10 +860,12 @@ export const flirtAdvLesson_9_6: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(love|adore) our calls",
-            "(fried|wiped|running on fumes|exhausted)",
-            "(can we|could we) (just )?text",
-            "(don'?t have|nothing left) in me",
+            "(love|adore) our calls.{0,30}(but|tonight|though)",
+            "(fried|wiped|running on fumes|exhausted).{0,30}(tonight|today|this week)",
+            "(can we|could we) (just )?text.{0,30}(tonight|instead|for now)?",
+            "(don'?t have|nothing left) in me.{0,30}(tonight|today|for a call)",
+            "(love our calls|missing our calls).{0,30}(but|tonight|just need)",
+            "(my brain'?s|i'?m so).{0,30}(empty|fried|done).{0,30}(tonight|right now)",
           ],
           hint_tr:
             "Sevgi + durum + ricat: 'Love our calls but I'm fried — text tonight?'",
@@ -856,10 +877,12 @@ export const flirtAdvLesson_9_6: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(work|stuff|nothing big)",
-            "(just exhausted|drained|need a quiet night)",
-            "(nothing to do with us|not us)",
-            "(promise|swear)",
+            "(work|stuff|nothing big).{0,30}(promise|swear|honestly)",
+            "(just exhausted|drained|need a quiet night).{0,30}(nothing more|that'?s all)?",
+            "(nothing to do with us|not us).{0,30}(promise|swear|honestly)",
+            "(promise|swear).{0,30}(it'?s not us|nothing'?s wrong|just tired)",
+            "(it'?s work|just work).{0,30}(grinding|crushing me|exhausting)",
+            "(we'?re fine|we'?re good) — (just|i'?m just) (worn out|drained|out of gas)",
           ],
           hint_tr:
             "Rahatlat: 'Just work — nothing to do with us, promise.'",
@@ -871,10 +894,12 @@ export const flirtAdvLesson_9_6: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(thank you|thanks)",
-            "(this is|you are) why",
-            "(love you|appreciate you)",
-            "(tomorrow|catch up tomorrow)",
+            "(thank you|thanks).{0,30}(for understanding|for getting it|so much)",
+            "(this is|you are) why (i love you|i'?m here|this works)",
+            "(love you|appreciate you).{0,30}(so much|for that|for getting it)",
+            "(tomorrow|catch up tomorrow).{0,30}(promise|same time|love you)?",
+            "(you make this|you'?re making this) (easier|possible|so much better)",
+            "(i love that|grateful) you (get it|just get me|don'?t push)",
           ],
           hint_tr:
             "Minnet bildir: 'Thank you. This is why I love you. Catch up tomorrow.'",
@@ -979,10 +1004,12 @@ export const flirtAdvLesson_9_7: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(sent|sending) you (a |something|a little)",
-            "(tracking|package) (incoming|coming)",
-            "(don'?t open|wait) (till|until)",
-            "(silly|small) but",
+            "(sent|sending) you (a |something|a little).{0,40}(in the mail|your way|today)",
+            "(tracking|package) (incoming|coming).{0,30}(soon|this week|today)",
+            "(don'?t open|wait) (till|until).{0,30}(friday|the weekend|i say)",
+            "(silly|small) but (made me think|reminded me|it'?s you)",
+            "(little something|a little thing).{0,30}(coming|on the way|in the mail)",
+            "(got you|picked up) (something|a little thing).{0,30}(silly|small|just because)",
           ],
           hint_tr:
             "Sade ve sıcak: 'Sending you a little something — silly but...'",
@@ -994,10 +1021,12 @@ export const flirtAdvLesson_9_7: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(not telling|nope|you'?ll see)",
-            "open it (on|when)",
-            "(reminds me|made me think) of",
-            "(no big deal|tiny)",
+            "(not telling|nope|you'?ll see).{0,30}(wait|patience|just wait)?",
+            "open it (on|when).{0,30}(friday|the weekend|you get it)",
+            "(reminds me|made me think) of.{0,30}(you|something you said|that time)",
+            "(no big deal|tiny).{0,30}(promise|seriously|honestly)",
+            "(stop asking|don'?t ask) — (you'?ll see|wait for it)",
+            "(zipped lips|sworn to secrecy) — (you'?ll find out|open it)",
           ],
           hint_tr:
             "Gizemi koru: 'Not telling — you'll see. Made me think of that thing you said.'",
@@ -1119,10 +1148,12 @@ export const flirtAdvLesson_10_1: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(two truths|2 truths)",
-            "i('ve| have) (lived|been|met|won|broken)",
-            "i (can'?t|don'?t)",
-            "i (once|one time)",
+            "(two truths|2 truths).{0,30}(and a|a) lie",
+            "i('ve| have) (lived|been|met|won|broken).{0,30}(in|with|same|three|four)",
+            "i (can'?t|don'?t).{0,30}(whistle|cook|drive|swim)",
+            "i (once|one time).{0,30}(met|saw|broke|got bitten)",
+            "(here we go|here are three).{0,30}(one|the lie|guess)",
+            "(guess (the|which) lie|spot the lie).{0,30}(one|two|three)",
           ],
           hint_tr:
             "Üç spesifik şey yaz, ikisi doğru bir tanesi yalan. Cümleler kısa.",
@@ -1135,10 +1166,12 @@ export const flirtAdvLesson_10_1: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(correct|right|got it|nailed it)",
-            "(wrong|nope|actually)",
-            "(close|good guess)",
-            "the (lie|actual) (was|is)",
+            "(correct|right|got it|nailed it).{0,30}(well done|too easy)?",
+            "(wrong|nope|actually).{0,30}(the lie was|it was|number)",
+            "(close|good guess).{0,30}(but|the lie was|actually)",
+            "the (lie|actual) (was|is).{0,30}(number|the first|the second)",
+            "(ha|nice try) — (actually|the lie was) (number|#)",
+            "(you got me|not even close) — (#|number|it was)",
           ],
           hint_tr: "Cevabını ver: 'Nope — actually it's #1' veya 'Got it!'",
         },
@@ -1237,10 +1270,12 @@ export const flirtAdvLesson_10_2: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(sorry to|sorry for) (who|whom)",
-            "(elaborate|defend|justify)",
-            "(controversial|bold|fighting words)",
-            "(cats > dogs|that take)",
+            "(sorry to|sorry for) (who|whom) (exactly|specifically)",
+            "(elaborate|defend|justify) (that take|that opinion|the cats thing)",
+            "(controversial|bold|fighting words).{0,30}(in your bio|to put|to admit)",
+            "(cats > dogs|that take) — (sorry to who|defend it)",
+            "(can'?t just|you can'?t just) (drop|leave) (that|cats > dogs) (and walk|in the bio)",
+            "(you'?re going to|you'?ll) (have to|need to) (defend|justify|explain)",
           ],
           hint_tr:
             "Bio'daki spesifik şeyi yakala, oyuncu meydan oku: 'Sorry to who exactly?'",
@@ -1253,10 +1288,12 @@ export const flirtAdvLesson_10_2: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(dog|cat) person",
-            "(jury'?s out|undecided|both)",
-            "(grew up with|had a)",
-            "(don'?t make me choose|loaded question)",
+            "(dog|cat) person (myself|by upbringing|reluctantly|but)",
+            "(jury'?s out|undecided|both) — (defend|make the case|sell me)",
+            "(grew up with|had a) (dog|cat).{0,30}(so|but|though)",
+            "(don'?t make me choose|loaded question).{0,30}(but|though|i'?ll bite)",
+            "(i'?m a|i lean) (dog|cat) (person|side).{0,30}(but|though|defend)",
+            "(make your case|sell me on cats|convince me) — (i'?m listening|ready)",
           ],
           hint_tr:
             "Pozisyon al ama tartışmayı sürdür: 'Jury's still out — defend the cats.'",
@@ -1382,10 +1419,12 @@ export const flirtAdvLesson_10_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(delete|scrap|nope|kill it)",
-            "(too generic|cliché|everyone says)",
-            "(specific|weird|small detail)",
-            "(let'?s|try)",
+            "(delete|scrap|nope|kill it).{0,30}(start over|that'?s dead|too tired)",
+            "(too generic|cliché|everyone says).{0,30}(that|those words|the same thing)",
+            "(specific|weird|small detail) — (we need|aim for|that'?s the move)",
+            "(let'?s|try) (something|that)? (weirder|smaller|more specific)",
+            "(those are|that'?s) (dating app|app) (death|garbage|clichés)",
+            "(no one reads|nobody remembers) (adventurous|foodie|good vibes)",
           ],
           hint_tr:
             "Reddet ve yön ver: 'Delete that — too generic. Need specific.'",
@@ -1397,10 +1436,12 @@ export const flirtAdvLesson_10_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "i (learn|bake|make|collect|write|play|grew up)",
-            "(one|every|each) (year|month|week)",
-            "i'?ll (fight|debate|argue)",
-            "(badly|terribly|poorly)",
+            "i (learn|bake|make|collect|write|play|grew up).{0,30}(one|every year|on weekends|with)",
+            "(one|every|each) (year|month|week).{0,30}(i learn|i try|i pick up)",
+            "i'?ll (fight|debate|argue) (you|anyone) (on|about) (pineapple|pizza|coffee)",
+            "(badly|terribly|poorly) — (but|the joy is|that'?s the point)",
+            "(i (bake|cook|paint)) (badly|terribly).{0,30}(and (love|enjoy) it)?",
+            "(weird skill|tiny obsession) — (last year was|this year is|currently)",
           ],
           hint_tr:
             "Üç spesifik: yıllık alışkanlık + bir hobi (kötü yaptığın) + bir tartışmalı görüş.",
@@ -1510,10 +1551,12 @@ export const flirtAdvLesson_10_4: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(tiny bookshop|tiny shop)",
-            "(but|only|except)",
-            "(sell|serve|stock)",
-            "(weird|terrible|impossible)",
+            "(tiny bookshop|tiny shop).{0,30}(but only|except|that only)",
+            "(but|only|except).{0,30}(stocks|sells|serves) (books|titles|things) (that|nobody)",
+            "(sell|serve|stock).{0,30}(only|exclusively|nothing but).{0,40}(books|absurd|impossible)",
+            "(weird|terrible|impossible).{0,30}(business|idea|concept).{0,30}(but|together|we)",
+            "(plus|with).{0,30}(judgmental|terrible|imaginary) (staff|cats|customers)",
+            "(open it|build it).{0,30}(but only|only if|except)",
           ],
           hint_tr:
             "Mevcut prompt'u absürtleştir: 'tiny bookshop, but only books that don't exist'.",
@@ -1525,10 +1568,12 @@ export const flirtAdvLesson_10_4: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(written contracts|hr|policy)",
-            "(cats only|cats union)",
-            "(equity|share)",
-            "agreed|deal|signed",
+            "(written contracts|hr|policy).{0,30}(for the cats|of course|first)",
+            "(cats only|cats union).{0,30}(negotiate|demand|require)",
+            "(equity|share).{0,30}(for the cats|of the business|in fish)",
+            "(agreed|deal|signed).{0,30}(tonight|in blood|over coffee)",
+            "(cats|the cats) (get|demand) (equity|stock options|fish bonuses)",
+            "(business plan|term sheet) — (drafted|over wine|tonight)",
           ],
           hint_tr:
             "Mizahı sürdür: 'Cats get equity. We sign tonight.'",
@@ -1639,10 +1684,12 @@ export const flirtAdvLesson_10_5: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(keep|lose|ditch|swap)",
-            "(photo|pic|shot) (1|2|3|one|two|three)",
-            "(group|gym|selfie)",
-            "(smiling|laughing|full body|with the dog)",
+            "(keep|lose|ditch|swap).{0,30}(the|photo|pic|number)",
+            "(photo|pic|shot) (1|2|3|one|two|three).{0,30}(stays|goes|out)",
+            "(group|gym|selfie).{0,30}(shot|mirror|pic).{0,30}(goes|stays|swap)",
+            "(smiling|laughing|full body|with the dog).{0,30}(stays|keep|lead with)",
+            "(lead with|first photo) (the|that) (smiling|laughing|dog|full body)",
+            "(drop|cut) (the gym|the selfie|the group|the sunglasses)",
           ],
           hint_tr:
             "Komut tonuyla: 'Keep #1, lose the gym mirror, swap #3 for the group one.'",
@@ -1654,10 +1701,12 @@ export const flirtAdvLesson_10_5: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(you do but|fair but)",
-            "(every guy|every person) (has|posts)",
-            "(reads|looks|comes off) (insecure|try.?hard|2014)",
-            "(better off|works against)",
+            "(you do but|fair but).{0,30}(every guy|every profile|the algorithm)",
+            "(every guy|every person) (has|posts).{0,30}(one|the same|gym mirror)",
+            "(reads|looks|comes off) (insecure|try.?hard|2014|like 2014)",
+            "(better off|works against).{0,30}(you|the profile|your match rate)",
+            "(it dates you|signals try-hard|reads desperate)",
+            "(swap it for|replace it with) (the dog|something with people|a real moment)",
           ],
           hint_tr:
             "Anlat: 'You do, but every guy has one — it reads try-hard.'",
@@ -1765,10 +1814,12 @@ export const flirtAdvLesson_10_6: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "hey yourself",
-            "(your|the) (dog|cat|plant|view)",
-            "(bigger|real) question",
-            "(noticed|spotted)",
+            "hey yourself.{0,40}(your|the) (dog|cat|plant|view|roommate)",
+            "(your|the) (dog|cat|plant|view) (or|in the).{0,30}(roommate|photo|background)",
+            "(bigger|real) question.{0,40}(dog|cat|plant|view|whose)",
+            "(noticed|spotted) (your|the) (dog|cat|plant|view|bookshelf)",
+            "(hey|hi)(.{0,30}) — (whose|is that your) (dog|cat|plant|kitchen)",
+            "(answer me this|let'?s start with).{0,30}(dog|cat|plant|view)",
           ],
           hint_tr:
             "Aynı 'hey' ile başla + bio'dan soru kanca: 'Hey yourself. Your dog or your roommate's?'",
@@ -1780,10 +1831,12 @@ export const flirtAdvLesson_10_6: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "i (had|have|grew up with)",
-            "(currently|right now) (no|not)",
-            "(landlord|building|lease) (won'?t|says)",
-            "(working on it|in the plan)",
+            "i (had|have|grew up with) (a |one |dogs|cats)",
+            "(currently|right now) (no|not).{0,30}(dog|pet|allowed)",
+            "(landlord|building|lease) (won'?t|says).{0,30}(no|allow)",
+            "(working on it|in the plan).{0,30}(once i move|next year|when i can)",
+            "(grew up with|had one|always wanted).{0,30}(dog|cat|pet)",
+            "(not yet|not currently).{0,30}(but|on my|future)",
           ],
           hint_tr: "Net cevap + soruya geri dön.",
         },
@@ -1885,10 +1938,12 @@ export const flirtAdvLesson_10_7: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(red flags|flags|warning)",
-            "(no drama|queen|real ones) (means|usually)",
-            "(skip|pass|swipe left)",
-            "(translation|what that means)",
+            "(red flags|flags|warning).{0,30}(all over|stacked|in the bio)",
+            "(no drama|queen|real ones) (means|usually|translates to)",
+            "(skip|pass|swipe left).{0,30}(this|him|her|that one)",
+            "(translation|what that means).{0,30}(in practice|when (you|he) says)",
+            "(those phrases|that language) (read as|signal|usually mean)",
+            "(my read|the way i read it) — (run|swipe past|skip)",
           ],
           hint_tr:
             "Çevirisini ver: 'No drama' = sınır koyduğunda 'crazy' der.",
@@ -1900,10 +1955,12 @@ export const flirtAdvLesson_10_7: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(bio|profile) (is data|is information)",
-            "(believe people|first time)",
-            "(not your job|not a project)",
-            "(plenty of|other) matches",
+            "(bio|profile) (is data|is information).{0,30}(believe|trust|listen)",
+            "(believe people|first time) (when they|tell you|show you)",
+            "(not your job|not a project).{0,30}(to fix|to rescue|to convert)",
+            "(plenty of|other) matches.{0,30}(out there|in the sea|on the app)",
+            "(hot doesn'?t outweigh|attraction won'?t fix).{0,30}(red flags|the bio|that)",
+            "(believe him|believe her|believe them) (the first time|when they tell)",
           ],
           hint_tr:
             "Sınır çek: 'Bio is data — believe him the first time.'",
@@ -2013,10 +2070,12 @@ export const flirtAdvLesson_11_1: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(hey|hi)(,)? (i'?m|my name'?s)",
-            "(famous|infamous|the one)",
-            "(thanks for|good of you to) (having me|the invite)",
-            "(heard so much|sam talks about)",
+            "(hey|hi)(,)? (i'?m|my name'?s).{0,30}(sam'?s|the famous|good to meet)",
+            "(famous|infamous|the one).{0,30}(apparently|so they say|i guess)",
+            "(thanks for|good of you to) (having me|the invite).{0,30}(been looking forward|hearing a lot)?",
+            "(heard so much|sam talks about) (you|this house|the parties)",
+            "(great to|good to) (finally meet you|put a face).{0,30}(sam'?s|been hearing)",
+            "(thanks for|appreciate) the (invite|invitation).{0,30}(beautiful place|love the spot)",
           ],
           hint_tr:
             "İsmini söyle + samimi referans: 'Hi, I'm Berk — thanks for having me.'",
@@ -2028,10 +2087,12 @@ export const flirtAdvLesson_11_1: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(only thing|exactly one thing)",
-            "(true|guilty|confirmed)",
-            "(taking credit|underselling)",
-            "(eggs|toast|coffee)",
+            "(only thing|exactly one thing) (i (can|do))",
+            "(true|guilty|confirmed).{0,30}(eggs only|just eggs|that'?s the limit)",
+            "(taking credit|underselling).{0,30}(for too much|on me)",
+            "(eggs|toast|coffee).{0,30}(only|nothing else|don'?t overpromise)",
+            "(guilty as charged|i'?ll take that win).{0,30}(eggs|just one thing)",
+            "(sam'?s|she'?s) (overselling|generous|exaggerating).{0,30}(eggs|toast)",
           ],
           hint_tr:
             "Hafif mizah: 'Guilty — eggs only though. Don't overpromise me.'",
@@ -2142,10 +2203,12 @@ export const flirtAdvLesson_11_2: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(okay|alright)(,)? (someone|i need|fill me in)",
-            "(the horse|backstory|context)",
-            "what (am i|are we) missing",
-            "(no choice|gotta) (tell|explain)",
+            "(okay|alright)(,)? (someone|i need|fill me in).{0,30}(the horse|context)",
+            "(the horse|backstory|context).{0,30}(now|please|i need it)",
+            "what (am i|are we) missing.{0,30}(here|on the horse|with this)",
+            "(no choice|gotta) (tell|explain).{0,30}(me|us|the new guy)",
+            "(now i need|now you'?ve got to) (the story|hear it|tell me)",
+            "(can'?t leave me|you can'?t leave me) (hanging|like this).{0,30}(tell|fill me)",
           ],
           hint_tr:
             "Merak göster: 'Okay, fill me in — what's the horse?'",
@@ -2158,9 +2221,12 @@ export const flirtAdvLesson_11_2: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(please|go on|i'?m listening)",
-            "(this better be|sounds promising)",
-            "(setting the bar|building it up)",
+            "(please|go on|i'?m listening).{0,30}(invested now|all in|tell me everything)",
+            "(this better be|sounds promising).{0,30}(good|worth it|the build-up)",
+            "(setting the bar|building it up).{0,30}(high|already)",
+            "(now i'?m|i'?m) (invested|hooked|all in).{0,30}(go on|please continue)",
+            "(can'?t stop now|too late to back out) — (go on|i need the rest)",
+            "(pulling up a chair|getting comfortable).{0,30}(for this|tell me)",
           ],
           hint_tr: "Devamını iste: 'Please go on — I'm invested now.'",
         },
@@ -2260,10 +2326,12 @@ export const flirtAdvLesson_11_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(should be|i'?m the one) asking",
-            "(how did you two|how long have you)",
-            "(version|story) she (doesn'?t|won'?t)",
-            "(reverse|flip) (this|the interview)",
+            "(should be|i'?m the one) asking.{0,30}(you|the questions|here)",
+            "(how did you two|how long have you).{0,30}(meet|known each other|been friends)",
+            "(version|story) she (doesn'?t|won'?t).{0,30}(tell|share|admit)",
+            "(reverse|flip) (this|the interview).{0,30}(on you|tonight|just for a minute)",
+            "(turn the tables|switch chairs) — (your turn|tell me about you)",
+            "(let me grill you first|i'?m interviewing you now)",
           ],
           hint_tr:
             "Tersine çevir: 'I should be asking you — how did you two meet?'",
@@ -2276,10 +2344,12 @@ export const flirtAdvLesson_11_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(go on|please)",
-            "(plot|hook|got me)",
-            "(have to know|need to know)",
-            "(terrible coffee|the coffee)",
+            "(go on|please).{0,30}(i need the rest|tell me|continue)",
+            "(plot|hook|got me).{0,30}(already|right there|with that)",
+            "(have to know|need to know).{0,30}(the rest|what happened|where this goes)",
+            "(terrible coffee|the coffee).{0,30}(line|story|got me)",
+            "(you opened with|starting with) (terrible coffee) — (i'?m in|please continue)",
+            "(can'?t stop there|don'?t stop now) — (terrible coffee|tell me the rest)",
           ],
           hint_tr:
             "Devamını iste, gerçek ilgi göster.",
@@ -2291,9 +2361,12 @@ export const flirtAdvLesson_11_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(low bar|easy win|setting the bar)",
-            "(take the compliment|i'?ll take it)",
-            "thanks i think",
+            "(low bar|easy win|setting the bar).{0,30}(but|though|i'?ll take it)",
+            "(take the compliment|i'?ll take it).{0,30}(however i can|and run)",
+            "thanks i think.{0,30}(was that a compliment|i'?ll assume so)?",
+            "(that says more|that says a lot) (about the last one|than about me)",
+            "(grading on a curve|the bar was on the floor) (apparently|i guess)",
+            "(i won'?t|won'?t) (turn that down|complain).{0,30}(thank you|appreciate it)",
           ],
           hint_tr:
             "Hafif şaka: 'Low bar but I'll take it.'",
@@ -2388,10 +2461,12 @@ export const flirtAdvLesson_11_4: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(save it for|hold that)",
-            "(cab|later|tonight)",
-            "(behave|easy tiger|down boy)",
-            "(everyone'?s watching|in public)",
+            "(save it for|hold that).{0,30}(cab|later|tonight|the ride home)",
+            "(cab|later|tonight).{0,30}(when we'?re|once we'?re|in private)",
+            "(behave|easy tiger|down boy).{0,30}(we'?ve got|i can'?t|public)",
+            "(everyone'?s watching|in public).{0,30}(save it|hold up|later)",
+            "(hands where i can see them|i can see you).{0,30}(save it|behave)",
+            "(let'?s save the show|cool your jets) — (for later|until we'?re home|cab)",
           ],
           hint_tr:
             "Oyuncu sınır: 'Easy — save it for the cab.'",
@@ -2403,10 +2478,12 @@ export const flirtAdvLesson_11_4: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(noted|on the tab|i'?ll pay up)",
-            "(taking notes|writing it down)",
-            "(deal|interest)",
-            "(later|tonight)",
+            "(noted|on the tab|i'?ll pay up).{0,30}(with interest|tonight|later)",
+            "(taking notes|writing it down).{0,30}(adding to the tab|for later)",
+            "(deal|interest).{0,30}(rate|tonight|i can live with that)",
+            "(later|tonight).{0,30}(promise|with interest|count on it)",
+            "(adding it|putting it) (on the tab|on my list) — (you'?ll collect|i'?m good for it)",
+            "(promise to collect|making it up to you) (later|tonight|the second we'?re alone)",
           ],
           hint_tr:
             "Hafif: 'Noted. On the tab.'",
@@ -2504,10 +2581,12 @@ export const flirtAdvLesson_11_5: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(brace|hit me|lay it on)",
-            "(scared|nervous|honest)",
-            "(good news first|bad news first)",
-            "(let'?s have it)",
+            "(brace|hit me|lay it on).{0,30}(me|honestly|don'?t soften it)",
+            "(scared|nervous|honest).{0,30}(but|tell me|let'?s hear it)",
+            "(good news first|bad news first).{0,30}(go on|please)?",
+            "(let'?s have it|all of it).{0,30}(no holding back|honestly|don'?t spare me)",
+            "(give it to me|don'?t hold back).{0,30}(straight|honest|all of it)",
+            "(deep breath|okay) — (hit me|lay it on me|i'?m ready)",
           ],
           hint_tr:
             "Hazırla: 'Okay — brace me.'",
@@ -2520,10 +2599,12 @@ export const flirtAdvLesson_11_5: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(that'?s|the) (highest|biggest) (compliment|praise)",
-            "(taking it|i'?ll take that)",
-            "(thank her|tell her thanks)",
-            "(big win|huge)",
+            "(that'?s|the) (highest|biggest) (compliment|praise).{0,30}(from her|coming from)?",
+            "(taking it|i'?ll take that).{0,30}(and running|gratefully|to the bank)",
+            "(thank her|tell her thanks).{0,30}(from me|please|next time)",
+            "(big win|huge).{0,30}(coming from sarah|from her)",
+            "(coming from sarah|knowing sarah) — (that'?s|that means) (everything|a lot)",
+            "(framing that|putting that on a t-shirt) — (genuine|highest|huge) (compliment|praise)",
           ],
           hint_tr: "Övgüyü al: 'That's the highest compliment — taking it.'",
         },
@@ -2534,10 +2615,12 @@ export const flirtAdvLesson_11_5: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(translate|what does that mean)",
-            "(figuring out|interpreting)",
-            "(passes|that passes)",
-            "real one|positive",
+            "(translate|what does that mean).{0,30}(in (your|mike'?s) world|in english)",
+            "(figuring out|interpreting).{0,30}(if that'?s good|the verdict|mike-speak)",
+            "(passes|that passes).{0,30}(for praise|with mike|i'?ll take it)",
+            "(real one|positive) (in mike'?s world|coming from mike)",
+            "(mike-speak for|that mike-speak means).{0,30}(good|positive|approval)",
+            "(do i need a decoder|need a translator) (for mike|for that)",
           ],
           hint_tr: "Çeviri iste: 'Translate — is that good?'",
         },
@@ -2639,10 +2722,12 @@ export const flirtAdvLesson_12_1: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(think|imagine|picture) (thanksgiving|christmas|easter)",
-            "basically (a |the )",
-            "(family|relatives) (over|gathered)",
-            "(food|sweets|eating) (everywhere|for days)",
+            "(think|imagine|picture) (thanksgiving|christmas|easter).{0,30}(but|energy|vibes)",
+            "basically (a |the ).{0,30}(long|big) (family|meal|gathering)",
+            "(family|relatives) (over|gathered).{0,30}(for days|for hours|the whole weekend)",
+            "(food|sweets|eating) (everywhere|for days).{0,30}(you can'?t escape|nonstop)",
+            "(it'?s basically|imagine) (thanksgiving|christmas) (but|except).{0,30}(louder|more sweets|3 days)",
+            "(picture this|think of it as).{0,30}(thanksgiving|big lunch).{0,30}(but with|on steroids)",
           ],
           hint_tr:
             "Bağ kur: 'Think Thanksgiving energy — long family meal, lots of sweets.'",
@@ -2654,10 +2739,12 @@ export const flirtAdvLesson_12_1: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(both|depends|spectrum)",
-            "(some people|in my family)",
-            "(religious|cultural|secular)",
-            "(observe it|do it)",
+            "(both|depends|spectrum).{0,30}(family to family|on the family|on the household)",
+            "(some people|in my family).{0,30}(more|less|mostly) (religious|cultural)",
+            "(religious|cultural|secular).{0,30}(side|mix|blend|mostly)",
+            "(observe it|do it).{0,30}(differently|with prayers|just for the food)",
+            "(my family|where i grew up).{0,30}(mostly|more) (cultural|religious|secular)",
+            "(it'?s a|kind of a) (mix|spectrum|blend) — (religious|cultural) (depending|by family)",
           ],
           hint_tr:
             "Nüanslı: 'Both — depends on the family. In mine, more cultural than religious.'",
@@ -2669,10 +2756,12 @@ export const flirtAdvLesson_12_1: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(yes|of course|absolutely)",
-            "(warning|fair warning)",
-            "(prep|brief|prepare you)",
-            "(eat|food)",
+            "(yes|of course|absolutely).{0,30}(but|fair warning|brace yourself)",
+            "(warning|fair warning).{0,30}(you'?ll eat|force-fed|prepare your stomach)",
+            "(prep|brief|prepare you).{0,30}(properly|in advance|the night before)",
+            "(eat|food).{0,30}(non-stop|for hours|until you can'?t move)",
+            "(absolutely|please come) — (fair warning|just so you know) (about the food|the volume)",
+            "(love that|let'?s do it) — (you'?ll be|expect to be) (force-fed|stuffed|exhausted)",
           ],
           hint_tr:
             "Pozitif + uyarı: 'Yes — fair warning, you'll be force-fed.'",
@@ -2768,10 +2857,12 @@ export const flirtAdvLesson_12_2: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(if you|whether you)",
-            "(ate|eaten|had lunch)",
-            "(love language|how she)",
-            "(don'?t take it personally|standard)",
+            "(if you|whether you).{0,30}(ate|eaten|had lunch|had dinner)",
+            "(ate|eaten|had lunch).{0,30}(today|yet|enough)",
+            "(love language|how she).{0,30}(shows love|says i care)",
+            "(don'?t take it personally|standard).{0,30}(turkish mom|mom thing|cultural)",
+            "(she'?s asking if|wants to know if) (you'?ve eaten|you ate today)",
+            "(in turkish culture|here at least).{0,30}(asking if you ate|food = love)",
           ],
           hint_tr:
             "Çevir + bağlamlandır: 'She's asking if you ate — it's a love language.'",
@@ -2783,10 +2874,12 @@ export const flirtAdvLesson_12_2: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(just say|try|repeat)",
-            "(çok teşekkür|teşekkür ederim)",
-            "(she'?ll love|that'?ll do it)",
-            "(send|blow) (a kiss|love)",
+            "(just say|try|repeat) (teşekkür|teşekkürler|çok teşekkür)",
+            "(çok teşekkür|teşekkür ederim).{0,30}(that'?s|means thank you|will do it)",
+            "(she'?ll love|that'?ll do it).{0,30}(trust me|promise|guaranteed)",
+            "(send|blow) (a kiss|love).{0,30}(through the phone|on speaker|to her)",
+            "(she'?ll melt|she'?ll be over the moon).{0,30}(if you say|with one word)",
+            "(easy one|the magic word) — (just say|try) (teşekkürler|teşekkür)",
           ],
           hint_tr:
             "Basit fraz öner: 'Just say teşekkürler — she'll love it.'",
@@ -2798,9 +2891,12 @@ export const flirtAdvLesson_12_2: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(she'?s|she is) (beaming|melting|grinning)",
-            "(major points|jackpot|nailed it)",
-            "(welcome to the family)",
+            "(she'?s|she is) (beaming|melting|grinning).{0,30}(over there|right now|already)",
+            "(major points|jackpot|nailed it).{0,30}(you'?re in|already in)?",
+            "(welcome to the family).{0,30}(officially|i think|that did it)",
+            "(she'?s asking|she'?s already asking) (when you'?re|when we'?re) (visiting|coming)",
+            "(no recovery|you'?re cooked) — (she loves you|she'?s yours now)",
+            "(perfect delivery|nailed the pronunciation) — (she'?s|she is) (smiling|melting)",
           ],
           hint_tr: "Rahatlat: 'She's beaming. Major points.'",
         },
@@ -2899,10 +2995,12 @@ export const flirtAdvLesson_12_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(ramadan|fasting|religious|cultural)",
-            "(month|ninth month)",
-            "(some|in my family|growing up)",
-            "(not strictly|loosely|partly)",
+            "(ramadan|fasting|religious|cultural).{0,30}(month|practice|tradition|for muslims)",
+            "(month|ninth month).{0,30}(of fasting|in the islamic|when we fast)",
+            "(some|in my family|growing up).{0,30}(stricter|less strict|practice)",
+            "(not strictly|loosely|partly).{0,30}(observant|fasting|every day)",
+            "(it'?s ramadan|ramadan started).{0,30}(month-long fast|sunrise to sunset)",
+            "(no food or water|sunrise to sunset) — (that'?s the basic|that'?s how it works)",
           ],
           hint_tr:
             "Açıkla, nüanslı: 'Ramadan — fasting month. I'm not super strict but I keep it.'",
@@ -2914,10 +3012,12 @@ export const flirtAdvLesson_12_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(eat normally|please eat)",
-            "(no expectations|don'?t expect)",
-            "(my practice|my thing)",
-            "(love|appreciate) (you asking)",
+            "(eat normally|please eat).{0,30}(in front of me|like you would|seriously)",
+            "(no expectations|don'?t expect).{0,30}(anything from you|you to change|on you)",
+            "(my practice|my thing).{0,30}(not yours|not (something|anything) you need)",
+            "(love|appreciate) (you asking).{0,30}(but|that means a lot)?",
+            "(seriously|honestly) — (please eat|don'?t hold back) (around me|in front of me)",
+            "(no need to|you don'?t have to) (change anything|hold back|skip meals)",
           ],
           hint_tr:
             "Rahatlat + minnet: 'Please eat normally. Love that you asked.'",
@@ -2929,10 +3029,12 @@ export const flirtAdvLesson_12_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(if you want to|optional)",
-            "(eat together|iftar)",
-            "(sunset|after sunset)",
-            "(it matters|that would)",
+            "(if you want to|optional).{0,30}(eat with me|join me|share iftar)",
+            "(eat together|iftar).{0,30}(at sunset|when i break fast|in the evening)",
+            "(sunset|after sunset).{0,30}(we break fast|i break fast|the meal)",
+            "(it matters|that would) (mean a lot|land well|make my month)",
+            "(if you'?re up for it|optional but) — (iftar|breaking fast) (together|with me)",
+            "(the special thing|the part that matters) — (iftar|sunset meal|when we eat)",
           ],
           hint_tr:
             "Spesifik dile getir: 'If you want — eat with me at sunset. That would matter.'",
@@ -3028,10 +3130,12 @@ export const flirtAdvLesson_12_4: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(loud|warm|chaotic)",
-            "(dad|mom|aunt)",
-            "(politics|deflect|change subject)",
-            "(don'?t refuse|just eat|third time)",
+            "(loud|warm|chaotic).{0,30}(but|in a good way|don'?t worry)",
+            "(dad|mom|aunt).{0,30}(will (ask|hug|talk)|loves to)",
+            "(politics|deflect|change subject).{0,30}(if dad starts|when you hear)",
+            "(don'?t refuse|just eat|third time).{0,30}(when food comes|when they offer)",
+            "(heads up|fair warning) — (it'?s loud|expect chaos|prepare yourself)",
+            "(three rules|here'?s the brief).{0,30}(loud|politics|food|hugs)",
           ],
           hint_tr:
             "3 net madde: ses seviyesi + politika uyarısı + yemek kuralı.",
@@ -3043,10 +3147,12 @@ export const flirtAdvLesson_12_4: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(deflect|pivot|change)",
-            "(soccer|football|the food)",
-            "(my dad'?s|you'?re still learning)",
-            "(weather|safe topic)",
+            "(deflect|pivot|change) (subject|topic|the conversation)",
+            "(soccer|football|the food).{0,30}(always works|safe topic|gets him going)",
+            "(my dad'?s|you'?re still learning).{0,30}(team|english|so polite)",
+            "(weather|safe topic).{0,30}(traffic|the food|something neutral)",
+            "(compliment (the food|the wine)|ask about his team) — (deflects|works every time)",
+            "(say you'?re|tell him you'?re) (still learning|new to this) — (he'?ll lay off|gives you cover)",
           ],
           hint_tr:
             "Somut deflect aracı: 'Pivot to soccer or compliment the food.'",
@@ -3058,10 +3164,12 @@ export const flirtAdvLesson_12_4: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(mom hugs|she hugs)",
-            "(brace|prepare|fair warning)",
-            "(once|brief|quick)",
-            "(survive it|will pass)",
+            "(mom hugs|she hugs).{0,30}(everyone|on sight|automatically)",
+            "(brace|prepare|fair warning).{0,30}(yourself|for the hug|impact)",
+            "(once|brief|quick).{0,30}(hug|squeeze|then it'?s done)",
+            "(survive it|will pass).{0,30}(in seconds|five seconds|quickly)",
+            "(quick hug|fast hug|brace and release) — (you'?ll survive|it'?s over fast)",
+            "(no escape|you can'?t dodge it) — (just go limp|let it happen)",
           ],
           hint_tr: "Uyar + rahatlat: 'Brace yourself — quick hug, then it's over.'",
         },
@@ -3156,9 +3264,12 @@ export const flirtAdvLesson_12_5: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(walk me through|brief me|prep me)",
-            "(what do i bring|host gift)",
-            "(don'?t want to|nervous|mess up)",
+            "(walk me through|brief me|prep me).{0,30}(the day|how it works|the schedule)",
+            "(what do i bring|host gift).{0,30}(wine|something|appropriate)?",
+            "(don'?t want to|nervous|mess up).{0,30}(this|the first time|make a fool)",
+            "(walk me through|brief me) — (what do i bring|what do i say|who'?s there)",
+            "(give me|i need) (the rundown|the full brief|the checklist)",
+            "(want to|hoping to) (get this right|make a good impression|not blow it)",
           ],
           hint_tr:
             "Net soru: 'Walk me through it — what do I bring, what do I say?'",
@@ -3171,9 +3282,12 @@ export const flirtAdvLesson_12_5: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(wine|bottle)",
-            "(red|white|safe choice)",
-            "(grandma|grandpa|siblings)",
+            "(wine|bottle).{0,30}(red or white|something safe|a good)",
+            "(red|white|safe choice).{0,30}(works|preferred|for the table)",
+            "(grandma|grandpa|siblings).{0,30}(coming|there|i should know about)",
+            "(anyone else|who else) (will be|should i know about|i need to charm)",
+            "(red or white|sparkling) — (which|safer choice|preferred)",
+            "(noting|got it) — (wine|red|gift).{0,30}(anything else|who else)",
           ],
           hint_tr:
             "Detayları onayla + ek soru: 'Wine — red or white? Anyone else I should know about?'",
@@ -3185,10 +3299,12 @@ export const flirtAdvLesson_12_5: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(how do you|what'?s your)",
-            "(deflect|answer|handle)",
-            "(ready for|prepared for)",
-            "(joke|laugh it off)",
+            "(how do you|what'?s your).{0,30}(usually deflect|usually handle|go-to response)",
+            "(deflect|answer|handle).{0,30}(that question|grandma|the wedding question)",
+            "(ready for|prepared for).{0,30}(that one|grandma|the question)",
+            "(joke|laugh it off).{0,30}(or|do you|do we both)",
+            "(what do (we|you) do|how do we handle) (when she asks|the marriage question)",
+            "(let me follow your lead|i'?ll mirror you).{0,30}(when grandma asks|when it comes up)",
           ],
           hint_tr:
             "Strateji: 'How do you usually deflect that?'",
@@ -3296,10 +3412,12 @@ export const flirtAdvLesson_13_1: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(when you have|got) (20|10|30) (min|minutes)",
-            "(nothing|not) (scary|alarming|huge)",
-            "(just want|wanted) to (talk|chat)",
-            "(tonight|tomorrow|this week)",
+            "(when you have|got) (20|10|30) (min|minutes).{0,30}(tonight|later|free)",
+            "(nothing|not) (scary|alarming|huge).{0,30}(promise|just|i swear)",
+            "(just want|wanted) to (talk|chat).{0,30}(something through|about something)",
+            "(tonight|tomorrow|this week).{0,30}(when you'?re free|after work|whenever)",
+            "(no rush|whenever works) — (nothing|not).{0,30}(scary|huge|urgent)",
+            "(have a thought|something on my mind) — (low key|small|not urgent)",
           ],
           hint_tr:
             "Yumuşak aç: 'When you have 20 min — nothing scary, just want to talk.'",
@@ -3311,10 +3429,12 @@ export const flirtAdvLesson_13_1: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(yes|i'?m fine|all good)",
-            "(promise|swear|really)",
-            "(small thing|nothing huge)",
-            "(no need to|don'?t) (worry|panic)",
+            "(yes|i'?m fine|all good).{0,30}(promise|honestly|seriously)",
+            "(promise|swear|really).{0,30}(it'?s fine|all good|nothing big)",
+            "(small thing|nothing huge).{0,30}(seriously|i swear|low stakes)",
+            "(no need to|don'?t) (worry|panic).{0,30}(really|honestly|all is well)",
+            "(everything'?s fine|we'?re fine) — (small thing|low key|nothing wrong)",
+            "(low stakes|low key) — (didn'?t mean|sorry if) (to scare you|that landed wrong)",
           ],
           hint_tr:
             "Hemen rahatlat: 'I'm fine, promise — small thing.'",
@@ -3326,9 +3446,12 @@ export const flirtAdvLesson_13_1: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(perfect|works|sounds good)",
-            "(no agenda|low key|easy)",
-            "(see you|talk then)",
+            "(perfect|works|sounds good).{0,30}(see you then|talk then|love you)",
+            "(no agenda|low key|easy).{0,30}(just want to talk|i'?ll keep it short)",
+            "(see you|talk then).{0,30}(love you|after dinner)",
+            "(yes|works for me) — (after dinner|tonight|low key)",
+            "(thank you|appreciate) (for making time|that you'?re open)",
+            "(after dinner works|that'?s perfect) — (no big build|no agenda)",
           ],
           hint_tr: "Onay: 'Perfect — low key, talk then.'",
         },
@@ -3432,10 +3555,12 @@ export const flirtAdvLesson_13_2: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(sitting with|thinking about)",
-            "what you said",
-            "(weren'?t wrong|had a point|fair point)",
-            "(about|specifically)",
+            "(sitting with|thinking about).{0,30}(what you said|the conversation|yesterday)",
+            "what you said.{0,30}(stayed with me|has been on my mind|landed)",
+            "(weren'?t wrong|had a point|fair point).{0,30}(about|on|specifically)",
+            "(about|specifically) (the way|how) (i (shut down|dismissed|reacted))",
+            "(i'?ve been replaying|been turning over) (yesterday|what you said|our talk)",
+            "(you were right|fair point) — (about|on).{0,40}(the way i|how i)",
           ],
           hint_tr:
             "Olgun aç: 'I've been sitting with what you said — you weren't wrong about X.'",
@@ -3448,10 +3573,12 @@ export const flirtAdvLesson_13_2: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(not doing that|not anymore|past that)",
-            "(working on|trying to)",
-            "(want to|need to) (hear|get)",
-            "your (side|version|read)",
+            "(not doing that|not anymore|past that).{0,30}(in this|with us|in our relationship)",
+            "(working on|trying to).{0,30}(be different|stay present|not shut down)",
+            "(want to|need to) (hear|get).{0,30}(your side|the rest|where you'?re at)",
+            "your (side|version|read).{0,30}(of it|fully|all of it)",
+            "(here for it|leaning in) — (your side|how it landed|what hurt)",
+            "(no shutting down|no defense) — (tell me|i'?m here for) (your side|the rest)",
           ],
           hint_tr:
             "Yön bildir: 'Not doing that anymore. Want to hear your side fully.'",
@@ -3463,10 +3590,12 @@ export const flirtAdvLesson_13_2: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(you first|go|tell me)",
-            "(i'?ll listen|i'?m here)",
-            "(no defense|no rebuttal)",
-            "what hurt",
+            "(you first|go|tell me).{0,30}(everything|what hurt|the whole thing)",
+            "(i'?ll listen|i'?m here).{0,30}(no interrupting|no defense|just listening)",
+            "(no defense|no rebuttal).{0,30}(this time|i promise|tonight)",
+            "what hurt (the most|specifically|underneath all of this)",
+            "(holding space|making room) — (for whatever|for the rest)",
+            "(your turn|over to you) — (tell me|walk me through) (what landed|the hurt)",
           ],
           hint_tr:
             "Alan aç: 'You first — I'll listen, no defense.'",
@@ -3563,10 +3692,12 @@ export const flirtAdvLesson_13_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(been thinking|wanted to share)",
-            "(i need|what i need)",
-            "(more|less) (of|reassurance|space|check.?ins)",
-            "(not blaming|not your fault)",
+            "(been thinking|wanted to share).{0,30}(something|with you|how i feel)",
+            "(i need|what i need).{0,30}(is|more|less) (reassurance|space|check.?ins|presence)",
+            "(more|less) (of|reassurance|space|check.?ins).{0,30}(would help|would land|when you travel)",
+            "(not blaming|not your fault).{0,30}(just naming|just sharing|just want you to know)",
+            "(this is mine|owning this).{0,30}(but|and).{0,30}(i need|what i need)",
+            "(in our relationship|between us).{0,30}(i need more|what would help)",
           ],
           hint_tr:
             "'I need' formülü: spesifik isim + suçlama yok.",
@@ -3579,10 +3710,12 @@ export const flirtAdvLesson_13_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(last week|the other day|when you)",
-            "(felt|registered) as",
-            "(small thing|tiny moment)",
-            "(would help|would land)",
+            "(last week|the other day|when you).{0,30}(when|left|said).{0,30}(felt|registered|landed)",
+            "(felt|registered) as.{0,30}(dismissive|absent|distant)",
+            "(small thing|tiny moment).{0,30}(but it|piled up|stuck with me)",
+            "(would help|would land).{0,30}(if you|even|next time)",
+            "(a quick check-?in|a short text) (would help|would mean a lot)",
+            "(next time|in those moments).{0,30}(text me|just say|let me know)",
           ],
           hint_tr:
             "Somut örnek + 'would help' ile çözüm öner.",
@@ -3594,9 +3727,12 @@ export const flirtAdvLesson_13_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(thank you|appreciate)",
-            "(for listening|for getting it)",
-            "(easier|grateful) than i thought",
+            "(thank you|appreciate).{0,30}(for hearing me|for getting it|for not getting defensive)",
+            "(for listening|for getting it).{0,30}(without|on the first try|so quickly)",
+            "(easier|grateful) than i thought.{0,30}(this would be|to say|to bring up)",
+            "(that landed well|i feel heard) — (thank you|grateful)",
+            "(this is why|i love that) (we can talk like this|you get it)",
+            "(meant more|landed deeper) than (i expected|i thought)",
           ],
           hint_tr:
             "Yumuşak kapat: 'Thank you — appreciate you listening.'",
@@ -3689,10 +3825,12 @@ export const flirtAdvLesson_13_4: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(too heated|spinning|escalating)",
-            "(useful|productive|here)",
-            "(10|fifteen|ten) (minutes|min)",
-            "(not walking away|coming back)",
+            "(too heated|spinning|escalating).{0,30}(to be useful|to think|right now)",
+            "(useful|productive|here).{0,30}(right now|in this state|if i stay)",
+            "(10|fifteen|ten) (minutes|min).{0,30}(then i'?m back|to cool|please)",
+            "(not walking away|coming back).{0,30}(just|stepping out|promise)",
+            "(i need|give me) (10 minutes|ten|a beat) — (then i'?m back|to cool down)",
+            "(i'?m about to|i can feel myself) (say something|escalate) — (let me step out|pause)",
           ],
           hint_tr:
             "Üç parça: durumu belirt + zaman ver + bağ koru.",
@@ -3704,10 +3842,12 @@ export const flirtAdvLesson_13_4: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(not leaving|not ending)",
-            "(stepping|taking|pausing)",
-            "(come back|return)",
-            "(promise|swear|hand on it)",
+            "(not leaving|not ending).{0,30}(the conversation|us|the night)",
+            "(stepping|taking|pausing).{0,30}(out|a beat|for ten)",
+            "(come back|return).{0,30}(in ten|in fifteen|soon)",
+            "(promise|swear|hand on it).{0,30}(coming back|i'?ll be back)",
+            "(not abandoning|not avoiding) — (stepping out|taking ten) (to come back better)",
+            "(this isn'?t|this isn'?t me) (walking away|leaving|ending it) — (a pause|a breather)",
           ],
           hint_tr:
             "Net: 'Not leaving — stepping out for 10. I'll be back, promise.'",
@@ -3719,9 +3859,12 @@ export const flirtAdvLesson_13_4: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(thank you|thanks)",
-            "(love you|appreciate this)",
-            "(see you in 10)",
+            "(thank you|thanks).{0,30}(for that|for the space|for trusting me)",
+            "(love you|appreciate this).{0,30}(more than you know|see you soon)",
+            "(see you in 10).{0,30}(love you|i mean it|i'?ll be back)",
+            "(setting a timer|literally setting a timer) — (back in ten|i mean it)",
+            "(stepping out now|going to walk it off) — (back soon|love you)",
+            "(this matters|this means a lot) — (see you in ten|back in a moment)",
           ],
           hint_tr: "Minnetle çık: 'Thank you. See you in 10.'",
         },
@@ -3813,10 +3956,12 @@ export const flirtAdvLesson_13_5: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(want to|need to) (talk about|address) (last week|saturday|the party)",
-            "(i (was|did)|what i did)",
-            "(on me|my fault|i own that)",
-            "(work on|watch for|do better)",
+            "(want to|need to) (talk about|address) (last week|saturday|the party|what i said)",
+            "(i (was|did)|what i did).{0,30}(was dismissive|cut you off|wasn'?t right)",
+            "(on me|my fault|i own that).{0,30}(entirely|no excuse|fully)",
+            "(work on|watch for|do better).{0,30}(it|that pattern|going forward)",
+            "(i was dismissive|i cut you off|i undermined you) — (that was on me|no excuse)",
+            "(want to own|need to own).{0,30}(what i did|last week|saturday) (and apologise)",
           ],
           hint_tr:
             "Üç parça: spesifik eylem + etkisi + plan.",
@@ -3829,10 +3974,12 @@ export const flirtAdvLesson_13_5: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(makes sense|i get|i know)",
-            "(in front of|with your friends)",
-            "(specifically|the way)",
-            "(not making excuses|no excuse)",
+            "(makes sense|i get|i know).{0,30}(why it stung|why it hurt|why)",
+            "(in front of|with your friends).{0,30}(made it worse|added to it|amplified it)",
+            "(specifically|the way).{0,30}(i said it|i delivered it|i shut you down)",
+            "(not making excuses|no excuse).{0,30}(for it|for what i did|just naming it)",
+            "(of course it stung|that absolutely stung) — (especially|in front of your friends)",
+            "(no defending it|i won'?t defend it) — (it landed|the way it landed)",
           ],
           hint_tr:
             "Bahane üretme, etkiyi kabul et: 'Makes sense — in front of your friends made it worse.'",
@@ -3844,10 +3991,12 @@ export const flirtAdvLesson_13_5: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(if i notice|when i feel)",
-            "(stepping out|taking a beat)",
-            "(checking in|asking you)",
-            "(concrete|actually different)",
+            "(if i notice|when i feel) (the urge|myself) (to push back|to interrupt)",
+            "(stepping out|taking a beat).{0,30}(before|instead of|first)",
+            "(checking in|asking you).{0,30}(in private|later|before reacting)",
+            "(concrete|actually different).{0,30}(next time|going forward|from now on)",
+            "(when i feel|if it happens again) — (i'?ll step out|i'?ll pause|i'?ll text you)",
+            "(my plan is|here'?s the plan).{0,40}(catch myself|step out|text you instead)",
           ],
           hint_tr:
             "Somut plan: 'If I notice the urge to push back in public — I'll step out.'",
@@ -3969,10 +4118,12 @@ export const flirtAdvLesson_14_1: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(glad|happy) you'?re (okay|alive|well)",
-            "(moved on|past it|closed)",
-            "(conversation|chapter|this one)",
-            "(take care|wish you well)",
+            "(glad|happy) you'?re (okay|alive|well).{0,30}(but|though|honestly)",
+            "(moved on|past it|closed).{0,30}(from this|from the conversation|chapter)",
+            "(conversation|chapter|this one).{0,30}(is closed|has run|is done)",
+            "(take care|wish you well).{0,30}(genuinely|truly|all the best)",
+            "(glad to hear|good to hear) you'?re (okay|well).{0,30}(but|i'?ve moved on|though)",
+            "(i'?ve moved past|not picking this up).{0,30}(take care|wishing you well)",
           ],
           hint_tr:
             "Üç parça: nezaket + ben kapattım + iyi dilek.",
@@ -3985,10 +4136,12 @@ export const flirtAdvLesson_14_1: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(understand|hear you)",
-            "(not interested|i'?m good|pass)",
-            "(wish you|all the best)",
-            "(take care|good luck)",
+            "(understand|hear you).{0,30}(but|still|i'?m good)",
+            "(not interested|i'?m good|pass).{0,30}(this time|on coffee|thank you)",
+            "(wish you|all the best).{0,30}(genuinely|truly|whatever comes next)",
+            "(take care|good luck).{0,30}(out there|with everything|seriously)",
+            "(answer'?s still no|that'?s still a no) — (kindly|sincerely|but i wish you well)",
+            "(thanks for the offer|appreciate the invite).{0,30}(but|still).{0,30}(pass|no)",
           ],
           hint_tr:
             "İkinci red — sertleşmeden tekrarla.",
@@ -4107,10 +4260,12 @@ export const flirtAdvLesson_14_2: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(noticing|seeing) a pattern",
-            "(reach out|message|ping) when",
-            "(convenient|bored|night)",
-            "(not enough|not for me|not what)",
+            "(noticing|seeing) a pattern.{0,30}(here|with us|that doesn'?t work)",
+            "(reach out|message|ping) when.{0,30}(it'?s convenient|you'?re bored|it suits)",
+            "(convenient|bored|night).{0,30}(contact|messaging|texting)",
+            "(not enough|not for me|not what).{0,30}(i'?m looking for|i need)",
+            "(sporadic contact|inconsistent contact).{0,30}(no plans|isn'?t enough|not for me)",
+            "(this pattern|the dynamic).{0,30}(doesn'?t work for me|isn'?t enough)",
           ],
           hint_tr:
             "Örüntüyü adlandır + 'not for me': 'Noticing a pattern...'",
@@ -4123,10 +4278,12 @@ export const flirtAdvLesson_14_2: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(hear you|get that|fair)",
-            "(but|still|the pattern)",
-            "(wishing you|take care|good luck)",
-            "(not going to|won'?t be)",
+            "(hear you|get that|fair).{0,30}(but|still|the pattern)",
+            "(but|still|the pattern).{0,30}(stands|is the issue|doesn'?t work)",
+            "(wishing you|take care|good luck).{0,30}(out there|seriously|sincerely)",
+            "(not going to|won'?t be).{0,30}(picking this up|engaging|continuing)",
+            "(i hear that|i appreciate it) — (still the pattern|but the dynamic) (stands|isn'?t for me)",
+            "(no hard feelings|nothing personal) — (i'?m just|not the right fit) (out)",
           ],
           hint_tr:
             "Sertleşmeden tekrarla: 'Hear you — but the pattern's the issue.'",
@@ -4231,10 +4388,12 @@ export const flirtAdvLesson_14_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(check in|talk about) (where we are|us)",
-            "(labelling|naming|defining)",
-            "(no pressure|no agenda)",
-            "(clarity|honest|figure out)",
+            "(check in|talk about) (where we are|us).{0,30}(no pressure|no agenda)",
+            "(labelling|naming|defining).{0,30}(this|what we'?re doing|where we are)",
+            "(no pressure|no agenda).{0,30}(just want|just curious|just clarity)",
+            "(clarity|honest|figure out).{0,30}(on this|together|what we are)",
+            "(want to be|i'?d like to be) (on the same page|in clarity) about (us|this)",
+            "(can we talk|could we chat) (about us|where we are) — (low key|no pressure)",
           ],
           hint_tr:
             "Baskısız aç: 'Want to check in on where we are — no pressure.'",
@@ -4246,9 +4405,12 @@ export const flirtAdvLesson_14_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(you first|go|what'?s on your mind)",
-            "(no judgment|open ear)",
-            "(want to hear|let'?s start)",
+            "(you first|go|what'?s on your mind).{0,30}(please|i'?m listening|i want to hear)",
+            "(no judgment|open ear).{0,30}(just listening|whatever you need)",
+            "(want to hear|let'?s start).{0,30}(with you|with how you feel|where you are)",
+            "(over to you|take the lead).{0,30}(no rush|whatever order)",
+            "(go ahead|fire away) — (i'?m here|listening|no defense)",
+            "(start wherever|wherever you want to start) — (i'?m here for it)",
           ],
           hint_tr: "Alan aç: 'You first — what's on your mind?'",
         },
@@ -4260,10 +4422,12 @@ export const flirtAdvLesson_14_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(thanks for|appreciate the)",
-            "(honesty|saying it)",
-            "(for me|where i stand)",
-            "(exclusive|not poly|need clarity)",
+            "(thanks for|appreciate the).{0,30}(honesty|saying it|being clear)",
+            "(honesty|saying it).{0,30}(out loud|to me|that way)",
+            "(for me|where i stand).{0,30}(is different|i'?d want|i need)",
+            "(exclusive|not poly|need clarity).{0,30}(is what i need|for me|going forward)",
+            "(my position|what i want|for me) — (exclusive|not poly|monogamy)",
+            "(thanks for trusting me|appreciate the candor).{0,30}(for me|where i'?m at) (it'?s exclusive|i want monogamy)",
           ],
           hint_tr:
             "Sahiplen + pozisyon al: 'Thanks for the honesty — for me, I'd want exclusive.'",
@@ -4276,10 +4440,12 @@ export const flirtAdvLesson_14_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(figure out|talk through)",
-            "(no rush|no answer tonight)",
-            "(values|needs|deal.?breaker)",
-            "(curious|want to hear)",
+            "(figure out|talk through).{0,30}(together|over time|slowly)",
+            "(no rush|no answer tonight).{0,30}(let'?s sit with it|sleep on it)",
+            "(values|needs|deal.?breaker).{0,30}(don'?t have to match|need to surface|to name)",
+            "(curious|want to hear).{0,30}(what you need|what'?s underneath|more)",
+            "(let'?s not decide tonight|don'?t need an answer tonight) — (just naming it|knowing where each)",
+            "(can we explore|can we sit with) this — (instead of forcing|without resolving)",
           ],
           hint_tr:
             "Yumuşak ilerlet: 'Talk through it — no answer tonight.'",
@@ -4386,10 +4552,12 @@ export const flirtAdvLesson_15_1: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(wasn'?t planning|wasn'?t going to)",
-            "(say this|do this) (yet|tonight)",
-            "(i love you)",
-            "(don'?t have to|no pressure)",
+            "(wasn'?t planning|wasn'?t going to).{0,30}(say this|do this) (yet|tonight)",
+            "(say this|do this) (yet|tonight).{0,30}(but|here we are|i love you)",
+            "(i love you).{0,30}(no pressure|you don'?t have to|just had to say it)",
+            "(don'?t have to|no pressure).{0,30}(say it back|reciprocate|respond)",
+            "(thought it|felt it).{0,30}(and said it|so here it is)",
+            "(just so you know|just want you to know) — (i love you|i think i love you)",
           ],
           hint_tr:
             "Sade ve sıradan: 'Wasn't planning to say this yet — I love you.'",
@@ -4401,10 +4569,12 @@ export const flirtAdvLesson_15_1: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(no rush|take your time)",
-            "(meant it|just felt it)",
-            "(not asking|don'?t need)",
-            "(okay either way|whatever you)",
+            "(no rush|take your time).{0,30}(seriously|i mean it|whenever)",
+            "(meant it|just felt it).{0,30}(and said it|wanted you to know)",
+            "(not asking|don'?t need).{0,30}(anything back|the same|a response)",
+            "(okay either way|whatever you).{0,30}(need|feel|want to say)",
+            "(took the leap|put it out there) — (whatever you need|in your own time)",
+            "(i'?m good|i'?m okay) — (with whatever|with silence|either way)",
           ],
           hint_tr:
             "Baskıyı al: 'No rush. Meant it. Okay either way.'",
@@ -4416,10 +4586,12 @@ export const flirtAdvLesson_15_1: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(thank god|wow|okay)",
-            "(grinning|smiling|relieved)",
-            "(washing dishes|laundry|dishes) (love)",
-            "(of all places|romantic)",
+            "(thank god|wow|okay).{0,30}(was waiting|that came back|i love you too)",
+            "(grinning|smiling|relieved).{0,30}(over here|like an idiot|now)",
+            "(washing dishes|laundry|dishes) (love).{0,30}(declaration|very romantic|of all settings)",
+            "(of all places|romantic).{0,30}(spot|moment|over dishes)",
+            "(i love you too|same back at you) — (apparently|finally|here we are)",
+            "(can'?t believe|wild) (we did this|that just happened) (over dishes|in the kitchen)",
           ],
           hint_tr: "Doğal tepki: 'Wow — okay. Over dishes, very romantic.'",
         },
@@ -4525,10 +4697,12 @@ export const flirtAdvLesson_15_2: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(originally from|grew up in)",
-            "(work in|do|currently)",
-            "(turn it around|ask back|how about you)",
-            "(thank you|honored)",
+            "(originally from|grew up in).{0,30}(istanbul|turkey|ankara)",
+            "(work in|do|currently).{0,30}(consulting|tech|finance|policy|teaching)",
+            "(turn it around|ask back|how about you).{0,30}(how long|where|in this area)",
+            "(thank you|honored).{0,30}(to be here|for having me|for asking)",
+            "(originally from istanbul|grew up in turkey).{0,30}(but i (work|live)|currently)",
+            "(here i am|long story short) — (i (work|do)|background in)",
           ],
           hint_tr:
             "Kısa kendi + soruyu iade et: 'Originally from Istanbul, I work in [X]. How long have you lived here?'",
@@ -4541,10 +4715,12 @@ export const flirtAdvLesson_15_2: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(have you been|ever visited)",
-            "(would love to|happy to)",
-            "(show you|recommend)",
-            "(curious|when did you)",
+            "(have you been|ever visited).{0,30}(istanbul|turkey|that part of the world)",
+            "(would love to|happy to).{0,30}(show you around|share recommendations|put together a list)",
+            "(show you|recommend).{0,30}(places|the good spots|where to eat)",
+            "(curious|when did you).{0,30}(move here|come to this country|settle)",
+            "(if you ever|whenever you) (visit|come over) — (i'?ve got|happy to share) (recs|tips)",
+            "(any plans|thinking of visiting).{0,30}(istanbul|turkey).{0,30}(let me know|happy to help)",
           ],
           hint_tr:
             "İlgi göster: 'Have you been? Happy to give recommendations.'",
@@ -4557,10 +4733,12 @@ export const flirtAdvLesson_15_2: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(thank you|amazing|incredible)",
-            "(smell|looks)",
-            "(can'?t wait|already)",
-            "(having me)",
+            "(thank you|amazing|incredible).{0,30}(for having me|for the meal|spread)",
+            "(smell|looks).{0,30}(incredible|amazing|out of this world)",
+            "(can'?t wait|already).{0,30}(to try|hungry just|drooling)",
+            "(thank you for|appreciate you) (having me|the warm welcome|the spread)",
+            "(this is|that looks) (incredible|amazing|a feast) — (thank you|so kind)",
+            "(my mouth is watering|i'?m already in love with the smell) — (thank you|appreciate)",
           ],
           hint_tr:
             "Yemek + minnet: 'Smells incredible — thank you for having me.'",
@@ -4672,10 +4850,12 @@ export const flirtAdvLesson_15_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(should we|want to) (start )?(looking|hunting)",
-            "(places|apartments)",
-            "(real talk|actually|practical)",
-            "(chores|money|guests|cleanliness)",
+            "(should we|want to) (start )?(looking|hunting).{0,30}(at places|for apartments|together)",
+            "(places|apartments).{0,30}(this weekend|soon|seriously)",
+            "(real talk|actually|practical).{0,30}(chores|money|guests|cleanliness)",
+            "(chores|money|guests|cleanliness).{0,30}(let'?s talk about|on the table|first)",
+            "(serious question|honest question) — (should we|are we) (looking for a place|moving in)",
+            "(thinking about|been thinking about).{0,30}(moving in together|finding a place)",
           ],
           hint_tr:
             "Aç: 'Should we start looking at places? Real talk — chores, money, all of it.'",
@@ -4688,10 +4868,12 @@ export const flirtAdvLesson_15_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(cleanliness|dishes|kitchen)",
-            "(quiet hours|noise|morning)",
-            "(deal.?breaker|non.?negotiable)",
-            "(need|require) (X|Y)",
+            "(cleanliness|dishes|kitchen).{0,30}(specifically|matters|is the one)",
+            "(quiet hours|noise|morning).{0,30}(routine|after 10|before 8)",
+            "(deal.?breaker|non.?negotiable).{0,30}(for me|on this|that one)",
+            "(need|require).{0,30}(quiet mornings|a clean kitchen|space to myself)",
+            "(big one for me|the one i need) is (cleanliness|quiet mornings|the kitchen)",
+            "(my deal-?breaker is|my line is).{0,30}(kitchen|dishes|cleanliness)",
           ],
           hint_tr:
             "Bir somut deal-breaker: 'Cleanliness — kitchen specifically.'",
@@ -4704,10 +4886,12 @@ export const flirtAdvLesson_15_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(makes sense|noted|got it)",
-            "(two-bedroom|extra room|office space)",
-            "(budget|rent|costs)",
-            "(money talk|let'?s do the numbers)",
+            "(makes sense|noted|got it).{0,30}(need a 2-bed|office space|that'?s on the list)",
+            "(two-bedroom|extra room|office space).{0,30}(it is|needed|on the list)",
+            "(budget|rent|costs).{0,30}(let'?s talk|next|split)",
+            "(money talk|let'?s do the numbers).{0,30}(next|while we'?re here)",
+            "(adding (a study|an office) to the list) — (next up|let'?s look at) (budget|rent)",
+            "(noted — 2-bed) — (now|next).{0,30}(money|budget|rent split)",
           ],
           hint_tr:
             "Bütçeye geç: 'Noted — needs a 2-bed. Money talk next?'",
@@ -4720,10 +4904,12 @@ export const flirtAdvLesson_15_3: BundledLesson = {
         {
           speaker: "user",
           acceptable_patterns: [
-            "(week|how long|notice)",
-            "(both okay with|either of us)",
-            "(rule|policy|agreement)",
-            "(my mom|your sister)",
+            "(week|how long|notice).{0,30}(max stay|in advance|before they come)",
+            "(both okay with|either of us).{0,30}(veto|signs off|agrees)",
+            "(rule|policy|agreement).{0,30}(on guests|family stays|drop-?ins)",
+            "(my mom|your sister).{0,30}(stays|visits|comes by)",
+            "(let'?s set|let'?s agree).{0,30}(a max|a rule|notice).{0,30}(for guests|for visits)",
+            "(both of us veto|either can say no) — (and|with) (advance notice|some warning)",
           ],
           hint_tr:
             "Konuk politikası: 'Notice before stays, max duration — let's set it.'",
