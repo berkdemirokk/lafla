@@ -54,3 +54,8 @@ supabase/.temp
 # Content (large, generated artifacts)
 content/scenarios/**/raw/
 content/scenarios/**/*.embeddings.bin
+
+# Python tooling
+__pycache__/
+*.pyc
+.venv-tts/
