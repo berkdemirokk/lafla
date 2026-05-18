@@ -85,12 +85,16 @@ export function captureMessage(
 /**
  * Attach the signed-in user to subsequent events. Pass null on sign-out so
  * later anonymous events don't bleed PII.
+ *
+ * Privacy: we deliberately strip email and any other identifying fields so
+ * the Privacy Nutrition Label's "crash data: not linked to identity" claim
+ * stays true. Only the opaque user id is forwarded.
  */
 export function setUser(user: { id: string; email?: string } | null): void {
   if (!initialized) return;
   try {
     if (user) {
-      Sentry.setUser({ id: user.id, email: user.email });
+      Sentry.setUser({ id: user.id });
     } else {
       Sentry.setUser(null);
     }

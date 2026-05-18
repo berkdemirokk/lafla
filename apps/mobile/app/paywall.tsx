@@ -1,32 +1,13 @@
-// Paywall — Phase 3 rebuild for global English speaking practice positioning.
+// Paywall — Speak+ monthly subscription.
 //
-// Two tiers shown to the user:
-//   1) Speak+ — monthly subscription ($9.99/mo) — primary, highlighted card
-//   2) Exam Pass — one-time purchase ($99) — secondary card with 60-day refund
+// Exam Pass ($99 one-time) was removed from this build because no real
+// non-consumable IAP product is configured in App Store Connect yet; shipping
+// it bound to the yearly subscription would have been IAP misrepresentation
+// (Apple Guideline 3.1.1). It will return as a separate non-consumable IAP
+// in a later release once the App Store Connect product is provisioned.
 //
-// IAP MISMATCH NOTE
-// -----------------
-// The IAP layer (lib/iap.ts) currently exposes PackageId = "monthly" | "yearly"
-// backed by App Store products `lafla.premium.monthly` and `lafla.premium.yearly`
-// (configured for the previous "Lafla Pro" subscription, see comments in iap.ts).
-//
-// For now:
-//   - "Speak+" UI is wired to the existing `monthly` PackageId. The displayed
-//     price ($9.99) and the actual App Store charge MAY differ until the product
-//     is reconfigured in App Store Connect. Listed display price is a marketing
-//     promise; the SDK price (when available via getOffering) overrides it.
-//   - "Exam Pass" has no existing one-time-purchase product wired through
-//     RevenueCat. We fall back to the `yearly` PackageId as a placeholder so
-//     the button does something in dev/sandbox. Real product setup (consumable
-//     or non-consumable, 60-day refund automation) is out of scope here and
-//     tracked separately.
-//
-// When App Store Connect / RevenueCat are reconfigured, update the
-// `tierToPackage` map below and remove this banner.
-//
-// Copy is intentionally all English (global positioning). The single Turkish
-// line "₺99 / ay" is a localized price hint for Turkish users, displayed as
-// secondary text under the USD price.
+// The displayed $9.99 price is a marketing fallback; the live App Store
+// price string from RevenueCat's getOffering() overrides it when available.
 
 import { useEffect, useState } from "react";
 import {
@@ -58,12 +39,11 @@ import {
 import { tokens } from "../theme";
 
 // UI-level tier identifiers (what the user sees / picks).
-type Tier = "speakplus" | "exampass";
+type Tier = "speakplus";
 
-// Map UI tier → IAP PackageId. See header comment for mismatch caveat.
+// Map UI tier → IAP PackageId.
 const tierToPackage = {
   speakplus: "monthly",
-  exampass: "yearly", // placeholder — Exam Pass is not yet a real one-time product
 } as const;
 
 const FEATURES: string[] = [
@@ -107,10 +87,8 @@ export default function PaywallScreen() {
         hapticSuccess();
         void trackEvent("purchase_success", { plan: selected }).catch(() => {});
         Alert.alert(
-          selected === "speakplus" ? "Welcome to Speak+" : "Exam Pass unlocked",
-          selected === "speakplus"
-            ? "All premium features are now available."
-            : "You have 60 days of unlimited exam prep. Good luck!",
+          "Welcome to Speak+",
+          "All premium features are now available.",
           [{ text: "Continue", onPress: () => router.back() }],
         );
         return;
@@ -203,13 +181,9 @@ export default function PaywallScreen() {
         </View>
 
         <View style={styles.plans}>
-          {/* Speak+ — primary, highlighted */}
+          {/* Speak+ — sole tier for this build */}
           <Pressable
-            style={[
-              styles.plan,
-              styles.planPrimary,
-              tier === "speakplus" && styles.planSelected,
-            ]}
+            style={[styles.plan, styles.planPrimary, styles.planSelected]}
             onPress={() => {
               hapticSelection();
               setTier("speakplus");
@@ -228,42 +202,13 @@ export default function PaywallScreen() {
             <Text style={styles.planTagline}>
               All features. Cancel anytime.
             </Text>
-            {tier === "speakplus" && <View style={styles.planCheck} />}
-          </Pressable>
-
-          {/* Exam Pass — secondary */}
-          <Pressable
-            style={[styles.plan, tier === "exampass" && styles.planSelected]}
-            onPress={() => {
-              hapticSelection();
-              setTier("exampass");
-            }}
-            accessibilityRole="button"
-            accessibilityLabel="Select Exam Pass one-time purchase"
-          >
-            <View style={styles.planHeader}>
-              <Text style={styles.planName}>Exam Pass</Text>
-              <View style={styles.guaranteePill}>
-                <Text style={styles.guaranteePillText}>60-DAY GUARANTEE</Text>
-              </View>
-            </View>
-            <Text style={styles.planPrice}>$99 one-time</Text>
-            <Text style={styles.planTagline}>
-              Pass IELTS, TOEFL, or Cambridge speaking — or get your money back.
-            </Text>
-            {tier === "exampass" && <View style={styles.planCheck} />}
+            <View style={styles.planCheck} />
           </Pressable>
         </View>
 
         <View style={styles.cta}>
           <Button
-            label={
-              loading
-                ? "..."
-                : tier === "speakplus"
-                ? "Start free trial"
-                : "Get Exam Pass"
-            }
+            label={loading ? "..." : "Subscribe"}
             onPress={() => void handlePurchase(tier)}
             disabled={loading}
           />

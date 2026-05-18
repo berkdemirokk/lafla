@@ -40,6 +40,22 @@ export async function hasRequestedAtt(): Promise<boolean> {
 }
 
 /**
+ * Read the current ATT status without prompting. Used to gate tracking SDKs
+ * (PostHog, etc.) before any data is sent. Non-iOS returns "granted" because
+ * ATT does not apply there.
+ */
+export async function getAttStatus(): Promise<AttStatus> {
+  if (Platform.OS !== "ios") return "granted";
+  if (!ATT?.getTrackingPermissionsAsync) return "not-determined";
+  try {
+    const { status } = await ATT.getTrackingPermissionsAsync();
+    return (status as AttStatus) ?? "not-determined";
+  } catch {
+    return "not-determined";
+  }
+}
+
+/**
  * Request ATT permission. Resolves with the user's choice (or "not-determined"
  * if we can't ask — Android, simulator, or module missing). Caches the fact we
  * asked so subsequent launches skip silently.

@@ -40,7 +40,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../components/Button";
 import { ProgressDots } from "../components/ProgressDots";
-import { trackEvent } from "../lib/analytics";
+import { initAnalytics, trackEvent } from "../lib/analytics";
 import { requestAttOnce } from "../lib/att";
 import { completeOnboarding } from "../lib/auth";
 import { setCefrLevel, type CefrLevel } from "../lib/cefr-level";
@@ -255,7 +255,13 @@ export default function Onboarding() {
     // Ask for ATT now, after the user has seen value — Apple-recommended
     // timing for higher consent rates. Non-blocking: if the user denies or
     // skips, the app still works (analytics just degrade gracefully).
-    await requestAttOnce().catch(() => {});
+    const attStatus = await requestAttOnce().catch(() => null);
+    // If the user granted tracking, re-initialise PostHog so subsequent
+    // events actually send. _layout.tsx's boot-time initAnalytics() was a
+    // no-op because ATT had not yet resolved.
+    if (attStatus === "granted") {
+      await initAnalytics().catch(() => {});
+    }
     void trackEvent("onboarding_completed", {
       level: lvl,
       track: state.track,

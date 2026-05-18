@@ -185,6 +185,10 @@ export async function isLiveBilling(): Promise<boolean> {
 export async function isPremium(): Promise<boolean> {
   const live = await initIfNeeded();
   if (!live) {
+    // In production the mock store is intentionally unreachable — see
+    // purchasePackage() for the matching guard. Treating a missing SDK as
+    // "not premium" is the safe failure mode.
+    if (!__DEV__) return false;
     return (await readMock()).active;
   }
 
@@ -193,6 +197,7 @@ export async function isPremium(): Promise<boolean> {
   // handle. Without this guard the next line throws "Cannot read properties
   // of null (reading 'getCustomerInfo')" which crashes the paywall screen.
   if (!_purchases) {
+    if (!__DEV__) return false;
     return (await readMock()).active;
   }
 
@@ -200,6 +205,7 @@ export async function isPremium(): Promise<boolean> {
     const info = await _purchases.getCustomerInfo();
     return Boolean(info?.entitlements?.active?.[PREMIUM_ENTITLEMENT]);
   } catch {
+    if (!__DEV__) return false;
     return (await readMock()).active;
   }
 }
@@ -216,6 +222,16 @@ export async function purchasePackage(id: PackageId): Promise<PurchaseResult> {
 
   const live = await initIfNeeded();
   if (!live) {
+    // PRODUCTION SAFETY: the mock path grants premium without any real
+    // charge. In a released build that would be a "give everyone premium"
+    // backdoor (anyone who triggers SDK init failure gets unlocked
+    // content). Gate the mock strictly to __DEV__.
+    if (!__DEV__) {
+      return {
+        ok: false,
+        error: "Billing not available. Please try again or contact support.",
+      };
+    }
     await new Promise((resolve) => setTimeout(resolve, 250));
     try {
       await writeMock({

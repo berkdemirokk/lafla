@@ -20,6 +20,8 @@
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Constants from "expo-constants";
+import { Platform } from "react-native";
+import { getAttStatus } from "./att";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -96,6 +98,19 @@ export async function initAnalytics(): Promise<void> {
       if (!hasUsableKey()) {
         devLog("init", "no PostHog key — skipping");
         return;
+      }
+
+      // Apple ATT gate (Guideline 5.1.2). Do NOT initialize PostHog before
+      // the user has granted tracking permission. Pre-grant we stay in
+      // no-op mode; once ATT resolves with "granted" the onboarding flow
+      // calls initAnalytics() again and we proceed.
+      if (Platform.OS === "ios") {
+        const att = await getAttStatus();
+        if (att !== "granted") {
+          devLog("init", `ATT not granted (${att}) — staying in no-op mode`);
+          optedOut = true;
+          return;
+        }
       }
 
       // Lazy require so Metro doesn't fail when the dep isn't installed yet.
