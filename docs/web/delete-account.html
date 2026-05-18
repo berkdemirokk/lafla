@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#000000" />
+<meta name="description" content="Lafla — Hesabını sil. Uygulama içinden anında veya e-posta ile. Giriş gerekmez. Delete your Lafla account — instant, no login required." />
+<meta name="robots" content="index,follow" />
+<title>Hesap Silme — Lafla</title>
+<style>
+  *,*::before,*::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: #00FFFF; text-decoration: none; }
+  a:hover, a:focus { text-decoration: underline; }
+  a:focus-visible { outline: 2px solid #FF067A; outline-offset: 3px; border-radius: 2px; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 56px 24px 48px; }
+  .brand {
+    display: inline-block;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 32px;
+  }
+  .brand:hover { text-decoration: none; }
+  h1 {
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    font-size: clamp(32px, 6.5vw, 44px);
+    line-height: 1.1;
+    margin: 0 0 8px;
+  }
+  h1::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    background: #FF067A;
+    margin-top: 16px;
+    border-radius: 2px;
+  }
+  .lede {
+    color: #d4d4d4;
+    margin: 16px 0 32px;
+    font-size: 18px;
+  }
+  .banner {
+    background: #1a0010;
+    border: 1px solid #FF067A;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin: 0 0 32px;
+    color: #fff;
+    font-weight: 600;
+  }
+  .banner strong { color: #FF067A; }
+  h2 {
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    font-size: 22px;
+    margin: 40px 0 8px;
+    color: #fff;
+  }
+  h3 {
+    font-weight: 700;
+    font-size: 17px;
+    margin: 18px 0 6px;
+    color: #FF067A;
+    letter-spacing: -0.005em;
+  }
+  p, li { color: #d4d4d4; }
+  ul { padding-left: 22px; }
+  li { margin-bottom: 4px; }
+  ol.steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 24px;
+  }
+  ol.steps li {
+    position: relative;
+    padding: 14px 16px 14px 56px;
+    background: #0d0d0d;
+    border: 1px solid #1a1a1a;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    counter-increment: step;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #FF067A;
+    color: #fff;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+  }
+  .what-table {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 16px 0 24px;
+  }
+  @media (min-width: 600px) { .what-table { grid-template-columns: 1fr 1fr; } }
+  .what-col {
+    background: #0d0d0d;
+    border: 1px solid #1a1a1a;
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .what-col.delete h3 { color: #FF067A; }
+  .what-col.keep h3 { color: #00FFFF; }
+  .what-col ul { margin: 8px 0 0; padding-left: 20px; }
+  .mailto-btn {
+    display: inline-block;
+    background: #FF067A;
+    color: #fff;
+    font-weight: 700;
+    padding: 12px 22px;
+    border-radius: 999px;
+    margin: 8px 0 4px;
+  }
+  .mailto-btn:hover { background: #ff2d8e; text-decoration: none; }
+  .lang-switch { display: flex; gap: 8px; margin-bottom: 24px; }
+  .lang-switch a {
+    padding: 6px 14px;
+    border: 1px solid #1a1a1a;
+    border-radius: 999px;
+    color: #b8b8b8;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .lang-switch a:hover { background: #0d0d0d; text-decoration: none; }
+  hr.divider { border: 0; border-top: 1px solid #1a1a1a; margin: 56px 0 40px; }
+  .lang-tag {
+    display: inline-block;
+    background: #FF067A;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid #1a1a1a;
+    color: #6e6e6e;
+    font-size: 14px;
+  }
+  footer nav a { margin-right: 20px; color: #b8b8b8; }
+  footer .mail a { color: #00FFFF; }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a href="index.html" class="brand">Lafla</a>
+
+  <div class="lang-switch" role="navigation" aria-label="Dil seçimi">
+    <a href="#tr">Türkçe</a>
+    <a href="#en">English</a>
+  </div>
+
+  <article id="tr" lang="tr">
+    <span class="lang-tag">TÜRKÇE</span>
+    <h1>Hesabını Sil</h1>
+    <p class="lede">İki yöntemden biriyle hesabını anında veya 7 iş günü içinde tamamen kaldırabilirsin. <strong>Giriş yapmana gerek yok.</strong></p>
+
+    <p class="banner"><strong>Önemli:</strong> Bu sayfa Apple App Store Review Guideline <strong>5.1.1(v)</strong> uyarınca sunulur. Hesap silmek için Lafla’yı yeniden indirmek veya giriş yapmak <strong>zorunda değilsin</strong>.</p>
+
+    <h2>Yöntem 1 — Uygulama içinden (anında, önerilen)</h2>
+    <p>Hesabını saniyeler içinde silebilirsin:</p>
+    <ol class="steps">
+      <li><strong>Ayarlar</strong> sekmesine gir (alt menüdeki dişli ikonu).</li>
+      <li><strong>Hesap</strong> bölümünde <strong>“Hesabımı sil”</strong>’e dokun.</li>
+      <li>Silinecek verilerin önizlemesini gör; onaylamak için kutucuğa <strong>“SİL”</strong> yaz.</li>
+      <li><strong>“Kalıcı olarak sil”</strong> düğmesine bas — işlem anında, geri alınamaz.</li>
+    </ol>
+    <p style="color:#b8b8b8; font-size:15px;">Premium aboneliğin varsa, otomatik yenilemeyi <strong>iPhone Ayarlar → [Apple Kimliği] → Abonelikler</strong> üzerinden ayrıca iptal etmen gerekir. Apple kuralları gereği uygulamalar abonelikleri doğrudan iptal edemez.</p>
+
+    <h2>Yöntem 2 — E-posta ile (uygulamaya erişimin yoksa)</h2>
+    <p>Telefonunu kaybettiysen veya uygulamaya erişimin yoksa, bize e-posta gönder:</p>
+    <p>
+      <a class="mailto-btn" href="mailto:hello@lafla.app?subject=Account%20deletion&body=Hesabımı%20silmek%20istiyorum.%0AKayıtlı%20e-posta%20adresim%3A%20%5Be-postanı%20yaz%5D%0A%0AI%20want%20to%20delete%20my%20account.%0ARegistered%20email%3A%20%5Byour%20email%5D">hello@lafla.app adresine yaz</a>
+    </p>
+    <ul>
+      <li><strong>Konu:</strong> <code>Account deletion</code></li>
+      <li><strong>İçerik:</strong> Lafla’ya kayıt olduğun e-posta adresi.</li>
+      <li><strong>Yanıt süresi:</strong> En geç <strong>7 iş günü</strong> içinde silindi onayı alırsın.</li>
+    </ul>
+
+    <h2>Neler silinir, neler kalır?</h2>
+    <div class="what-table">
+      <div class="what-col delete">
+        <h3>Silinen veriler</h3>
+        <ul>
+          <li>Hesap kaydı (e-posta, kullanıcı kimliği).</li>
+          <li>Tüm öğrenme ilerlemen (tamamlanan sahneler, XP, streak, cevap geçmişi).</li>
+          <li>Tercih ve ayarların.</li>
+          <li>RevenueCat üzerindeki premium hak kaydı (entitlement).</li>
+          <li>Bulut yedeklemelerin.</li>
+        </ul>
+      </div>
+      <div class="what-col keep">
+        <h3>Saklanan veriler</h3>
+        <ul>
+          <li>Anonimleştirilmiş çökme/hata günlükleri (kişisel olarak seninle ilişkilendirilemez; 30 gün sonra otomatik silinir).</li>
+          <li>Apple tarafında zorunlu tutulan fatura/ödeme kayıtları (vergi mevzuatı gereği).</li>
+        </ul>
+      </div>
+    </div>
+    <p style="color:#b8b8b8; font-size:15px;">Detaylı veri politikamız için <a href="privacy.html">Gizlilik Politikası</a>’na bak.</p>
+
+    <h2>Aboneliğin var mı?</h2>
+    <p>Hesabını silmek aktif Premium aboneliği <strong>otomatik iptal etmez</strong>. iPhone’unda:</p>
+    <ol class="steps">
+      <li><strong>Ayarlar → [Apple Kimliği] → Abonelikler</strong>.</li>
+      <li><strong>Lafla</strong>’yı seç.</li>
+      <li><strong>“Aboneliği iptal et”</strong>’e dokun.</li>
+    </ol>
+  </article>
+
+  <hr class="divider" />
+
+  <article id="en" lang="en">
+    <span class="lang-tag">ENGLISH</span>
+    <h1>Delete Your Account</h1>
+    <p class="lede">Remove your account instantly, or by email within 7 business days. <strong>No login required.</strong></p>
+
+    <p class="banner"><strong>Required by Apple:</strong> This page exists to satisfy App Store Review Guideline <strong>5.1.1(v)</strong>. You do <strong>not</strong> need to reinstall Lafla or sign in to request deletion.</p>
+
+    <h2>Method 1 — In the app (instant, recommended)</h2>
+    <p>You can delete your account in seconds:</p>
+    <ol class="steps">
+      <li>Open the <strong>Settings</strong> tab (gear icon in the bottom navigation).</li>
+      <li>Under <strong>Account</strong>, tap <strong>“Delete my account”</strong>.</li>
+      <li>Review the preview of what will be removed, then type <strong>“SİL”</strong> (the Turkish word for “delete”) to confirm.</li>
+      <li>Tap <strong>“Permanently delete”</strong> — the action is immediate and irreversible.</li>
+    </ol>
+    <p style="color:#b8b8b8; font-size:15px;">If you have an active Premium subscription, you must also cancel auto-renewal via <strong>iPhone Settings → [Apple ID] → Subscriptions</strong>. Apple does not allow apps to cancel subscriptions directly.</p>
+
+    <h2>Method 2 — By email (if you can’t open the app)</h2>
+    <p>If you lost your device or no longer have access, send us an email:</p>
+    <p>
+      <a class="mailto-btn" href="mailto:hello@lafla.app?subject=Account%20deletion&body=I%20want%20to%20delete%20my%20account.%0ARegistered%20email%3A%20%5Byour%20email%5D">Email hello@lafla.app</a>
+    </p>
+    <ul>
+      <li><strong>Subject:</strong> <code>Account deletion</code></li>
+      <li><strong>Body:</strong> The email address you used to register with Lafla.</li>
+      <li><strong>Response time:</strong> You will receive a deletion confirmation within <strong>7 business days</strong>.</li>
+    </ul>
+
+    <h2>What gets deleted, what stays?</h2>
+    <div class="what-table">
+      <div class="what-col delete">
+        <h3>Deleted</h3>
+        <ul>
+          <li>Your account record (email, user ID).</li>
+          <li>All learning progress (completed scenes, XP, streak, answer history).</li>
+          <li>Your preferences and settings.</li>
+          <li>The premium entitlement record stored at RevenueCat.</li>
+          <li>Cloud backups.</li>
+        </ul>
+      </div>
+      <div class="what-col keep">
+        <h3>Retained</h3>
+        <ul>
+          <li>Anonymized crash and error logs (cannot be tied to you personally; auto-purged after 30 days).</li>
+          <li>Billing records held by Apple as required by tax law.</li>
+        </ul>
+      </div>
+    </div>
+    <p style="color:#b8b8b8; font-size:15px;">See our <a href="privacy.html">Privacy Policy</a> for the full data policy.</p>
+
+    <h2>Have a subscription?</h2>
+    <p>Deleting your account <strong>does not</strong> automatically cancel an active Premium subscription. On your iPhone:</p>
+    <ol class="steps">
+      <li><strong>Settings → [Apple ID] → Subscriptions</strong>.</li>
+      <li>Select <strong>Lafla</strong>.</li>
+      <li>Tap <strong>“Cancel subscription”</strong>.</li>
+    </ol>
+  </article>
+
+  <footer>
+    <nav aria-label="Legal">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+    <p class="mail"><a href="mailto:hello@lafla.app">hello@lafla.app</a></p>
+  </footer>
+</main>
+</body>
+</html>

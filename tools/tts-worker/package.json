@@ -1,0 +1,15 @@
+{
+  "name": "@lafla/tts-worker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Cloudflare Worker — tier-2 TTS fallback for the Lafla mobile app (ElevenLabs proxy + R2 cache).",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "dependencies": {
+    "@cloudflare/workers-types": "^4.20260101.0"
+  }
+}

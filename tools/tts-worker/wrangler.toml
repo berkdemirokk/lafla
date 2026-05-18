@@ -1,0 +1,24 @@
+name = "lafla-tts"
+main = "src/worker.ts"
+compatibility_date = "2026-01-01"
+
+# Non-secret build-time vars. Use this for anything safe to log; secrets
+# (ELEVENLABS_API_KEY) go through `wrangler secret put` instead — never put
+# them here.
+[vars]
+PROJECT = "lafla"
+
+# R2 bucket for the persistent TTS cache. The binding name `LAFLA_TTS_CACHE`
+# is what `env.LAFLA_TTS_CACHE` references in src/worker.ts — changing this
+# means updating both files in lockstep.
+[[r2_buckets]]
+binding = "LAFLA_TTS_CACHE"
+bucket_name = "lafla-tts-cache"
+
+# Workers Observability — needed to see logs in the dashboard when an
+# ElevenLabs call fails. Cheap to leave on.
+[observability]
+enabled = true
+
+# Secrets (set out-of-band, NOT committed):
+#   wrangler secret put ELEVENLABS_API_KEY
