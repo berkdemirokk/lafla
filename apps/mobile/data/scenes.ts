@@ -34,7 +34,9 @@ export type SceneMode =
   | "academic"
   | "professional"
   | "personal"
-  | "testprep";
+  | "testprep"
+  | "sport"
+  | "health";
 
 export interface Scene {
   id: string;

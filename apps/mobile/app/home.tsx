@@ -1,25 +1,19 @@
-// Lafla — Home (two-track entry)
+// Lafla — Home (Netflix-rows feed)
 //
-// Strategic pivot: from the Turkish-coach "Maya" funnel to a global,
-// English-speaking practice app with two clear tracks:
-//   1. Daily Life  — real-world conversational English (cafés, work, travel, dating)
-//   2. Exam Prep   — IELTS / TOEFL / Cambridge speaking practice
-//
-// The hero greeting and both track CTAs sit above the fold. A "ready scene"
-// card surfaces an unfinished scenario when one is available. Track-specific
-// routing lands in Phase 4 once scenario data is partitioned; for now both
-// cards route to the same next-scene (or first SAMPLE_SCENE fallback).
-//
-// Layout (top → bottom):
-//   - Top bar: "Lafla" wordmark + streak chip (if streak > 0)
-//   - Hero: "Speak English." headline + subtitle
-//   - Two track cards (stacked): Daily Life · Exam Prep
-//   - Ready-scene card (conditional)
-//   - Bottom nav: Home (active) / Practice / Profile
+// 8 yatay mod satırı + üstte günün önerilen sahnesi. Türkçe-odaklı UI, Neon Noir tema.
+// Mod taksonomisi: Flört / İş / Travel / Sosyal / Sipariş / Banter / Spor / Sağlık.
+// İlk 6 modun mevcut data ile dolu satırları var; Spor ve Sağlık "Yakında" rozeti ile.
 
 import { useCallback, useMemo, useState } from "react";
 import { useFocusEffect, useRouter } from "expo-router";
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Haptics from "expo-haptics";
@@ -29,18 +23,53 @@ import {
   getCompletedLessonIds,
   type LocalProfile,
 } from "../lib/local-progress";
-import { SAMPLE_SCENES, type Scene } from "../data/scenes";
+import { SAMPLE_SCENES, type Scene, type SceneMode } from "../data/scenes";
 import { tokens } from "../theme";
+
+// ---------------------------------------------------------------------------
+// Mode taxonomy — 8 user-facing rows
+// ---------------------------------------------------------------------------
+
+interface ModeRow {
+  key: string;
+  emoji: string;
+  title: string;
+  // Bir satır birden fazla mode'u toplayabilir (örn. İş = work + professional + career).
+  modes: SceneMode[];
+  comingSoon?: boolean;
+}
+
+const MODE_ROWS: ReadonlyArray<ModeRow> = [
+  { key: "flirt", emoji: "🧊", title: "Flört", modes: ["flirt"] },
+  {
+    key: "work",
+    emoji: "💼",
+    title: "İş",
+    modes: ["work", "professional", "career"],
+  },
+  { key: "travel", emoji: "✈️", title: "Travel", modes: ["travel"] },
+  {
+    key: "social",
+    emoji: "👥",
+    title: "Sosyal",
+    modes: ["daily", "personal"],
+  },
+  { key: "order", emoji: "🍽️", title: "Sipariş", modes: ["order"] },
+  { key: "banter", emoji: "🎉", title: "Banter", modes: ["banter"] },
+  { key: "sport", emoji: "💪", title: "Spor", modes: ["sport"], comingSoon: true },
+  { key: "health", emoji: "🩺", title: "Sağlık", modes: ["health"], comingSoon: true },
+];
+
+// ---------------------------------------------------------------------------
+// State + data
+// ---------------------------------------------------------------------------
 
 interface HomeState {
   profile: LocalProfile | null;
   completed: Set<string>;
 }
 
-const EMPTY_STATE: HomeState = {
-  profile: null,
-  completed: new Set(),
-};
+const EMPTY_STATE: HomeState = { profile: null, completed: new Set() };
 
 export default function Home() {
   const router = useRouter();
@@ -60,34 +89,27 @@ export default function Home() {
     }, [load]),
   );
 
-  // Pick the first non-completed scene as today's practice surface.
-  // Prefer shorter ones (≤5 min) for the home card so the user can pick
-  // it off in one sitting.
-  const nextScene = useMemo<Scene | null>(() => {
-    const fresh = SAMPLE_SCENES.filter((s) => !state.completed.has(s.lessonId));
-    if (fresh.length === 0) {
-      // All done — re-surface a random one for review.
-      return SAMPLE_SCENES[0] ?? null;
+  // Sahneleri mod'a göre grupla (memoized — SAMPLE_SCENES her renderda yeniden traverse edilmesin).
+  const scenesByRow = useMemo(() => {
+    const map: Record<string, Scene[]> = {};
+    for (const row of MODE_ROWS) {
+      if (row.comingSoon) {
+        map[row.key] = [];
+        continue;
+      }
+      map[row.key] = SAMPLE_SCENES.filter((s) => row.modes.includes(s.mode));
     }
-    const short = fresh.filter((s) => s.durationMin <= 5);
-    const pool = short.length > 0 ? short : fresh;
-    return pool[0] ?? null;
+    return map;
+  }, []);
+
+  // Hero — günün önerilen sahnesi: tamamlanmamış olan ilk isNew sahne, yoksa ilk tamamlanmamış.
+  const hero = useMemo<Scene | null>(() => {
+    const fresh = SAMPLE_SCENES.filter((s) => !state.completed.has(s.lessonId));
+    const newOne = fresh.find((s) => s.isNew);
+    return newOne ?? fresh[0] ?? SAMPLE_SCENES[0] ?? null;
   }, [state.completed]);
 
   const streak = state.profile?.current_streak ?? 0;
-
-  // Track CTAs share routing for now (Phase 4 will partition by track).
-  // Falls back to the first SAMPLE_SCENE if nothing is unlocked yet.
-  const goTrack = async () => {
-    try {
-      await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    } catch {
-      // haptics is optional
-    }
-    const lessonId = nextScene?.lessonId ?? SAMPLE_SCENES[0]?.lessonId;
-    if (!lessonId) return;
-    router.push(`/scenario/${lessonId}` as never);
-  };
 
   const goScene = async (lessonId: string) => {
     try {
@@ -96,34 +118,24 @@ export default function Home() {
     router.push(`/scenario/${lessonId}` as never);
   };
 
-  const goPractice = async () => {
+  const goHero = async () => {
+    if (!hero) return;
     try {
-      await Haptics.selectionAsync();
+      await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     } catch {}
-    const lessonId = nextScene?.lessonId ?? SAMPLE_SCENES[0]?.lessonId;
-    if (!lessonId) return;
-    router.push(`/scenario/${lessonId}` as never);
-  };
-
-  const goProfile = async () => {
-    try {
-      await Haptics.selectionAsync();
-    } catch {}
-    router.push("/profile" as never);
+    router.push(`/scenario/${hero.lessonId}` as never);
   };
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
       <StatusBar style="light" />
 
-      {/* Top bar: wordmark + streak */}
+      {/* Top bar — wordmark + streak chip */}
       <View style={styles.topBar}>
         <Text style={styles.wordmark}>Lafla</Text>
         {streak > 0 ? (
           <View style={styles.streakChip}>
-            <Text style={styles.streakChipText}>
-              {`🔥 ${streak} day${streak > 1 ? "s" : ""} streak`}
-            </Text>
+            <Text style={styles.streakChipText}>🔥 {streak} gün</Text>
           </View>
         ) : null}
       </View>
@@ -133,99 +145,76 @@ export default function Home() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Hero greeting */}
-        <View style={styles.hero}>
-          <Text style={styles.heroTitle}>Speak English.</Text>
-          <Text style={styles.heroSubtitle}>
-            For real life. For real exams.
-          </Text>
-        </View>
-
-        {/* Track cards */}
-        <View style={styles.tracks}>
-          <TrackCard
-            tag="DAILY LIFE"
-            emoji="🎬"
-            title="Real-world English"
-            description="Cafés, work, dating, travel"
-            cta="Start"
-            tone="primary"
-            onPress={goTrack}
-          />
-          <TrackCard
-            tag="EXAM PREP"
-            emoji="🎓"
-            title="Pass your speaking test"
-            description="IELTS · TOEFL · Cambridge"
-            cta="Start"
-            tone="tertiary"
-            onPress={goTrack}
-          />
-        </View>
-
-        {/* Next scene */}
-        {nextScene ? (
+        {/* Hero card — günün önerilen sahnesi */}
+        {hero ? (
           <Pressable
-            onPress={() => goScene(nextScene.lessonId)}
-            style={({ pressed }) => [
-              styles.sceneCard,
-              pressed && styles.cardPressed,
-            ]}
+            onPress={goHero}
+            style={({ pressed }) => [styles.hero, pressed && styles.heroPressed]}
             accessibilityRole="button"
-            accessibilityLabel={`Scenario practice: ${nextScene.title}`}
+            accessibilityLabel={`Günün sahnesi: ${hero.title.replace(/\n/g, " ")}`}
           >
-            <View style={styles.sceneTop}>
-              <Text style={styles.sceneEyebrow}>READY SCENE</Text>
-              {nextScene.cefrLevel ? (
-                <View style={styles.sceneLevelChip}>
-                  <Text style={styles.sceneLevelChipText}>
-                    {nextScene.cefrLevel}
-                  </Text>
-                </View>
-              ) : null}
-            </View>
-            <View style={styles.sceneBody}>
-              <Text style={styles.sceneEmoji}>{nextScene.emoji}</Text>
-              <View style={styles.sceneTextWrap}>
-                <Text style={styles.sceneTitle} numberOfLines={2}>
-                  {nextScene.title.replace(/\s+/g, " ").trim()}
-                </Text>
-                <Text style={styles.sceneMeta}>
-                  {`${nextScene.durationMin} min · scenario practice`}
-                </Text>
-              </View>
-              <Text style={styles.sceneChev}>›</Text>
-            </View>
+            <Text style={styles.heroEyebrow}>BUGÜN İÇİN</Text>
+            <Text style={styles.heroEmoji}>{hero.emoji}</Text>
+            <Text style={styles.heroTitle} numberOfLines={3}>
+              {hero.title}
+            </Text>
+            <Text style={styles.heroSub}>
+              {hero.durationMin} dk
+              {hero.cefrLevel ? ` · ${hero.cefrLevel}` : ""} · pratiğe başla
+            </Text>
           </Pressable>
         ) : null}
 
-        {/* Streak progress (only if user has any) */}
-        {streak > 0 ? (
-          <View style={styles.streakCard}>
-            <Text style={styles.streakCardEyebrow}>STREAK</Text>
-            <Text style={styles.streakCardTitle}>
-              {`${streak} day${streak > 1 ? "s" : ""} in a row — keep it up`}
-            </Text>
-            <View style={styles.streakDots}>
-              {Array.from({ length: 7 }).map((_, i) => (
-                <View
-                  key={i}
-                  style={[
-                    styles.streakDot,
-                    i < streak && styles.streakDotFilled,
-                  ]}
+        {/* Mod satırları */}
+        {MODE_ROWS.map((row) => {
+          const scenes = scenesByRow[row.key] ?? [];
+          return (
+            <View key={row.key} style={styles.row}>
+              <View style={styles.rowHeader}>
+                <Text style={styles.rowTitle}>
+                  {row.emoji}  {row.title}
+                </Text>
+                {row.comingSoon ? (
+                  <View style={styles.soonChip}>
+                    <Text style={styles.soonChipText}>YAKINDA</Text>
+                  </View>
+                ) : (
+                  <Text style={styles.rowCount}>{scenes.length} sahne</Text>
+                )}
+              </View>
+
+              {row.comingSoon ? (
+                <View style={styles.soonCard}>
+                  <Text style={styles.soonCardText}>
+                    {row.title} senaryoları yakında. İlgini gösterdin —
+                    içerik üretildikçe ilk burada görünecek.
+                  </Text>
+                </View>
+              ) : (
+                <FlatList
+                  data={scenes}
+                  horizontal
+                  showsHorizontalScrollIndicator={false}
+                  keyExtractor={(item) => item.id}
+                  contentContainerStyle={styles.rowList}
+                  renderItem={({ item }) => (
+                    <SceneCard
+                      scene={item}
+                      completed={state.completed.has(item.lessonId)}
+                      onPress={() => goScene(item.lessonId)}
+                    />
+                  )}
                 />
-              ))}
+              )}
             </View>
-          </View>
-        ) : null}
+          );
+        })}
       </ScrollView>
 
-      {/* Bottom nav — 3 tabs */}
+      {/* Bottom nav */}
       <View style={styles.nav}>
-        <NavTab label="Home" active />
-        <NavTab label="Practice" onPress={goPractice} />
-        <NavTab label="Profile" onPress={goProfile} />
+        <NavTab label="Anasayfa" active />
+        <NavTab label="Profil" onPress={() => router.push("/profile" as never)} />
       </View>
     </SafeAreaView>
   );
@@ -235,59 +224,43 @@ export default function Home() {
 // Subcomponents
 // ---------------------------------------------------------------------------
 
-function TrackCard({
-  tag,
-  emoji,
-  title,
-  description,
-  cta,
-  tone,
+function SceneCard({
+  scene,
+  completed,
   onPress,
 }: {
-  tag: string;
-  emoji: string;
-  title: string;
-  description: string;
-  cta: string;
-  tone: "primary" | "tertiary";
+  scene: Scene;
+  completed: boolean;
   onPress: () => void;
 }) {
-  const isPrimary = tone === "primary";
-  const accent = isPrimary ? tokens.brand.primary : tokens.brand.tertiary;
-  const accentSoft = isPrimary
-    ? tokens.brand.primarySoft
-    : tokens.brand.tertiarySoft;
-  const ctaTextColor = isPrimary
-    ? tokens.brand.onPrimary
-    : tokens.brand.onTertiary;
-
   return (
     <Pressable
       onPress={onPress}
       style={({ pressed }) => [
-        trackStyles.card,
-        { borderColor: accentSoft },
-        pressed && trackStyles.cardPressed,
+        cardStyles.card,
+        pressed && cardStyles.cardPressed,
+        completed && cardStyles.cardCompleted,
       ]}
       accessibilityRole="button"
-      accessibilityLabel={`${tag}: ${title}`}
+      accessibilityLabel={`Sahne: ${scene.title.replace(/\n/g, " ")}`}
     >
-      <View style={trackStyles.header}>
-        <Text style={trackStyles.emoji}>{emoji}</Text>
-        <Text style={[trackStyles.tag, { color: accent }]}>{tag}</Text>
+      <View style={cardStyles.cardTop}>
+        <Text style={cardStyles.cardEmoji}>{scene.emoji}</Text>
+        {scene.isNew && !completed ? (
+          <View style={cardStyles.newPill}>
+            <Text style={cardStyles.newPillText}>YENİ</Text>
+          </View>
+        ) : null}
       </View>
-      <Text style={trackStyles.title}>{title}</Text>
-      <Text style={trackStyles.description}>{description}</Text>
-      <View
-        style={[
-          trackStyles.cta,
-          { backgroundColor: accent },
-        ]}
-      >
-        <Text style={[trackStyles.ctaText, { color: ctaTextColor }]}>
-          {cta}
+      <Text style={cardStyles.cardTitle} numberOfLines={3}>
+        {scene.title}
+      </Text>
+      <View style={cardStyles.cardFooter}>
+        <Text style={cardStyles.cardMeta}>
+          {scene.durationMin} dk
+          {scene.cefrLevel ? ` · ${scene.cefrLevel}` : ""}
         </Text>
-        <Text style={[trackStyles.ctaChev, { color: ctaTextColor }]}>›</Text>
+        {completed ? <Text style={cardStyles.completedTick}>✓</Text> : null}
       </View>
     </Pressable>
   );
@@ -307,7 +280,6 @@ function NavTab({
       onPress={onPress}
       style={({ pressed }) => [
         navStyles.tab,
-        active && navStyles.tabActive,
         pressed && !active && navStyles.tabPressed,
       ]}
       accessibilityRole="tab"
@@ -338,7 +310,7 @@ const styles = StyleSheet.create({
     paddingBottom: 4,
   },
   wordmark: {
-    fontSize: 24,
+    fontSize: 26,
     fontWeight: tokens.weight.black,
     color: tokens.text.primary,
     letterSpacing: -0.8,
@@ -359,136 +331,113 @@ const styles = StyleSheet.create({
   },
   scroll: { flex: 1 },
   scrollContent: {
-    padding: 20,
-    paddingTop: 12,
     paddingBottom: 32,
-    gap: 16,
+    paddingTop: 8,
   },
 
-  // Hero greeting
+  // Hero
   hero: {
-    paddingVertical: 12,
-    gap: 6,
-  },
-  heroTitle: {
-    fontSize: 40,
-    fontWeight: tokens.weight.black,
-    color: tokens.text.primary,
-    letterSpacing: -1.4,
-    lineHeight: 44,
-  },
-  heroSubtitle: {
-    fontSize: 16,
-    lineHeight: 22,
-    color: tokens.text.secondary,
-    fontWeight: tokens.weight.medium,
-  },
-
-  // Track cards container
-  tracks: {
-    gap: 12,
-  },
-
-  // Scene card
-  sceneCard: {
-    padding: 16,
-    borderRadius: tokens.radius.base,
-    backgroundColor: tokens.bg.surfaceContainerLow,
+    marginHorizontal: 20,
+    marginBottom: 24,
+    padding: 24,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.bg.surfaceContainer,
     borderWidth: 1,
-    borderColor: tokens.border.light,
-    gap: 12,
+    borderColor: tokens.brand.primary,
+    shadowColor: tokens.brand.primary,
+    shadowOffset: { width: 0, height: 12 },
+    shadowOpacity: 0.35,
+    shadowRadius: 22,
+    elevation: 10,
   },
-  cardPressed: {
-    opacity: 0.85,
+  heroPressed: {
+    opacity: 0.92,
     transform: [{ scale: 0.99 }],
   },
-  sceneTop: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  sceneEyebrow: {
-    fontSize: 11,
-    fontWeight: tokens.weight.extrabold,
-    color: tokens.text.tertiary,
-    letterSpacing: 1.6,
-  },
-  sceneLevelChip: {
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-    borderRadius: tokens.radius.full,
-    backgroundColor: tokens.brand.tertiarySoft,
-  },
-  sceneLevelChipText: {
-    fontSize: 11,
-    fontWeight: tokens.weight.extrabold,
-    color: tokens.brand.tertiary,
-    letterSpacing: 0.4,
-  },
-  sceneBody: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 14,
-  },
-  sceneEmoji: {
-    fontSize: 36,
-  },
-  sceneTextWrap: { flex: 1 },
-  sceneTitle: {
-    fontSize: 16,
-    fontWeight: tokens.weight.extrabold,
-    color: tokens.text.primary,
-    lineHeight: 21,
-    letterSpacing: -0.2,
-  },
-  sceneMeta: {
-    fontSize: 12,
-    fontWeight: tokens.weight.semibold,
-    color: tokens.text.tertiary,
-    marginTop: 2,
-  },
-  sceneChev: {
-    fontSize: 24,
-    color: tokens.text.tertiary,
-    fontWeight: tokens.weight.bold,
-  },
-
-  // Streak card
-  streakCard: {
-    padding: 16,
-    borderRadius: tokens.radius.base,
-    backgroundColor: tokens.bg.surfaceContainerLow,
-    borderWidth: 1,
-    borderColor: tokens.border.light,
-    gap: 10,
-  },
-  streakCardEyebrow: {
+  heroEyebrow: {
     fontSize: 11,
     fontWeight: tokens.weight.extrabold,
     color: tokens.brand.primary,
-    letterSpacing: 1.6,
+    letterSpacing: 1.8,
   },
-  streakCardTitle: {
-    fontSize: 15,
-    fontWeight: tokens.weight.bold,
+  heroEmoji: {
+    fontSize: 48,
+    marginTop: 12,
+    marginBottom: 4,
+  },
+  heroTitle: {
+    fontSize: 26,
+    fontWeight: tokens.weight.black,
     color: tokens.text.primary,
-  },
-  streakDots: {
-    flexDirection: "row",
-    gap: 6,
+    letterSpacing: -0.8,
+    lineHeight: 30,
     marginTop: 4,
   },
-  streakDot: {
-    width: 28,
-    height: 6,
-    borderRadius: 3,
-    backgroundColor: tokens.bg.surfaceContainerHigh,
-  },
-  streakDotFilled: {
-    backgroundColor: tokens.brand.primary,
+  heroSub: {
+    marginTop: 10,
+    fontSize: 13,
+    fontWeight: tokens.weight.semibold,
+    color: tokens.text.secondary,
+    letterSpacing: 0.2,
   },
 
-  // Bottom nav container
+  // Row
+  row: {
+    marginBottom: 22,
+  },
+  rowHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
+    marginBottom: 10,
+  },
+  rowTitle: {
+    fontSize: 18,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.primary,
+    letterSpacing: -0.3,
+  },
+  rowCount: {
+    fontSize: 11,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.tertiary,
+    letterSpacing: 0.4,
+  },
+  rowList: {
+    paddingHorizontal: 16,
+    gap: 12,
+  },
+  soonChip: {
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.bg.surfaceContainerHigh,
+    borderWidth: 1,
+    borderColor: tokens.border.light,
+  },
+  soonChipText: {
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.tertiary,
+    letterSpacing: 1.2,
+  },
+  soonCard: {
+    marginHorizontal: 20,
+    padding: 18,
+    borderRadius: tokens.radius.base,
+    backgroundColor: tokens.bg.surfaceContainerLow,
+    borderWidth: 1,
+    borderColor: tokens.border.light,
+    borderStyle: "dashed",
+  },
+  soonCardText: {
+    fontSize: 13,
+    lineHeight: 19,
+    color: tokens.text.secondary,
+  },
+
+  // Bottom nav
   nav: {
     flexDirection: "row",
     justifyContent: "space-around",
@@ -501,64 +450,66 @@ const styles = StyleSheet.create({
   },
 });
 
-const trackStyles = StyleSheet.create({
+const cardStyles = StyleSheet.create({
   card: {
-    padding: 20,
-    borderRadius: tokens.radius.lg,
+    width: 160,
+    height: 200,
+    padding: 14,
+    borderRadius: tokens.radius.base,
     backgroundColor: tokens.bg.surfaceContainer,
     borderWidth: 1,
-    gap: 8,
+    borderColor: tokens.border.light,
+    justifyContent: "space-between",
   },
   cardPressed: {
-    opacity: 0.9,
-    transform: [{ scale: 0.99 }],
+    opacity: 0.86,
+    transform: [{ scale: 0.97 }],
   },
-  header: {
+  cardCompleted: {
+    opacity: 0.62,
+  },
+  cardTop: {
     flexDirection: "row",
-    alignItems: "center",
-    gap: 10,
-    marginBottom: 2,
+    alignItems: "flex-start",
+    justifyContent: "space-between",
   },
-  emoji: {
-    fontSize: 24,
+  cardEmoji: {
+    fontSize: 32,
   },
-  tag: {
-    fontSize: 11,
+  newPill: {
+    paddingHorizontal: 7,
+    paddingVertical: 2,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.primary,
+  },
+  newPillText: {
+    fontSize: 9,
     fontWeight: tokens.weight.extrabold,
-    letterSpacing: 1.6,
+    color: tokens.text.onPrimary,
+    letterSpacing: 0.8,
   },
-  title: {
-    fontSize: 20,
-    fontWeight: tokens.weight.black,
-    color: tokens.text.primary,
-    letterSpacing: -0.5,
-    lineHeight: 24,
-  },
-  description: {
+  cardTitle: {
     fontSize: 14,
-    color: tokens.text.secondary,
-    lineHeight: 20,
-    marginBottom: 8,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.primary,
+    lineHeight: 18,
+    letterSpacing: -0.2,
   },
-  cta: {
+  cardFooter: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    paddingVertical: 12,
-    paddingHorizontal: 18,
-    borderRadius: tokens.radius.full,
-    alignSelf: "flex-start",
-    minWidth: 110,
   },
-  ctaText: {
-    fontSize: 15,
+  cardMeta: {
+    fontSize: 11,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.tertiary,
+    letterSpacing: 0.2,
+  },
+  completedTick: {
+    fontSize: 14,
     fontWeight: tokens.weight.extrabold,
-    letterSpacing: -0.2,
-  },
-  ctaChev: {
-    fontSize: 20,
-    fontWeight: tokens.weight.black,
-    marginLeft: 8,
+    color: tokens.brand.tertiary,
   },
 });
 
@@ -568,9 +519,6 @@ const navStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 10,
-  },
-  tabActive: {
-    // active styling via label color only — keep nav clean
   },
   tabPressed: {
     opacity: 0.7,
