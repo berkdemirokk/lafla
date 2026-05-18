@@ -42,7 +42,6 @@ import { trackEvent } from "../lib/analytics";
 import { requestAttOnce } from "../lib/att";
 import { completeOnboarding } from "../lib/auth";
 import { setCefrLevel, type CefrLevel } from "../lib/cefr-level";
-import { setUserDisplayName } from "../lib/coach";
 import {
   hapticImpact,
   hapticSelection,
@@ -178,16 +177,15 @@ export default function Onboarding() {
     dispatch({ type: "BACK" });
   };
 
+  // Phase 1 cleanup: the Maya coach subsystem (which persisted the user's
+  // display name) is gone. We still collect the name in onboarding state so
+  // the UX is unchanged, but there's nowhere to persist it yet — Phase 3
+  // will reintroduce a name store as part of the new user profile.
   const handleNameContinue = async () => {
-    const trimmed = state.name.trim();
-    if (trimmed) {
-      await setUserDisplayName(trimmed);
-    }
     goNext();
   };
 
   const handleNameSkip = async () => {
-    await setUserDisplayName("");
     dispatch({ type: "SET_NAME", name: "" });
     goNext();
   };

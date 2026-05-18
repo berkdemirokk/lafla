@@ -20,7 +20,6 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Haptics from "expo-haptics";
 
-import { getCoachState, type CoachState } from "../lib/coach";
 import {
   getLocalProfile,
   getCompletedLessonIds,
@@ -28,6 +27,15 @@ import {
 } from "../lib/local-progress";
 import { SAMPLE_SCENES, type Scene } from "../data/scenes";
 import { tokens } from "../theme";
+
+// NOTE (Phase 1 cleanup): The Maya "coach" subsystem was removed. This file
+// is scheduled for a full rewrite in Phase 3; the local shim below keeps it
+// compiling and behaviourally identical (greeting + CTA still render) until
+// then. Do not extend the shim — replace the screen instead.
+interface CoachState {
+  userDisplayName: string | null;
+  name: string;
+}
 
 interface HomeState {
   coach: CoachState | null;
@@ -40,6 +48,12 @@ const EMPTY_STATE: HomeState = {
   profile: null,
   completed: new Set(),
 };
+
+async function getCoachState(): Promise<CoachState> {
+  // Phase 1 stub — see note above. Returns a neutral default so the existing
+  // hero copy renders without crashing. Replaced wholesale in Phase 3.
+  return { userDisplayName: null, name: "Maya" };
+}
 
 export default function Home() {
   const router = useRouter();

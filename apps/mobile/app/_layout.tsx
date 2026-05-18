@@ -12,7 +12,6 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ErrorBoundary } from "../components/ErrorBoundary";
 import { initAnalytics, trackEvent } from "../lib/analytics";
 import { initSentry } from "../lib/sentry";
-import { warmupLastProvider } from "../lib/llm-router";
 import { tokens } from "../theme";
 
 // Initialize once at module load so the SDK is live before any render —
@@ -24,11 +23,6 @@ export default function RootLayout() {
     // Defensive: also run on mount in case the module-level call was a no-op
     // due to a transient config issue. initSentry() is idempotent.
     initSentry();
-    // Fire-and-forget heartbeat to the last-used LLM provider. If it's
-    // still warm the first chat turn returns in one round trip; if it's
-    // dead we clear the cache here so the first turn starts cleanly at
-    // Groq instead of stalling on a stale provider for the full timeout.
-    void warmupLastProvider();
     // Analytics bootstrap — best-effort. Failures must never crash launch.
     void (async () => {
       try {
@@ -57,7 +51,6 @@ export default function RootLayout() {
           <Stack.Screen name="auth" />
           <Stack.Screen name="onboarding" />
           <Stack.Screen name="home" />
-          <Stack.Screen name="freechat-voice" />
           <Stack.Screen name="freechat" />
           <Stack.Screen name="scenario/[id]" />
           <Stack.Screen name="paywall" />

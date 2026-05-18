@@ -46,15 +46,15 @@ export function levenshtein(a: string, b: string): number {
     for (let j = 1; j <= n; j++) {
       const cost = a[i - 1] === b[j - 1] ? 0 : 1;
       currRow[j] = Math.min(
-        prevRow[j] + 1,        // deletion
-        currRow[j - 1] + 1,    // insertion
-        prevRow[j - 1] + cost, // substitution
+        prevRow[j]! + 1,        // deletion
+        currRow[j - 1]! + 1,    // insertion
+        prevRow[j - 1]! + cost, // substitution
       );
     }
     [prevRow, currRow] = [currRow, prevRow];
   }
 
-  return prevRow[n];
+  return prevRow[n]!;
 }
 
 // Levenshtein → 0..1 similarity (1 = identical)
