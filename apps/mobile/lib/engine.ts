@@ -288,10 +288,34 @@ export function evaluateWordOrder(
   };
 }
 
+/**
+ * Graded scoring for free-form roleplay turns. Binary 0/100 made any natural
+ * English response that didn't match the regex feel like a bug — e.g. "Let me
+ * think about it." scored 0 even though it's a perfectly valid utterance.
+ *
+ * Grading:
+ *   - empty / single stray char       → 0
+ *   - 1-2 English-ish words           → 30 (you attempted something)
+ *   - 3+ English-ish words            → 60 (substantive attempt)
+ *   - full acceptable_pattern match   → 100
+ *
+ * Scene fluency banding (computeSceneFluency) still segments low/mid/high
+ * on the average, so partial credit reflects partial competence honestly.
+ */
 export function evaluateRoleplayTurn(
   patterns: string[],
   input: string,
 ): { matched: boolean; score: number } {
-  const matched = matchAgainstPatterns(input, patterns);
-  return { matched, score: matched ? 100 : 0 };
+  const trimmed = input.trim();
+  if (!trimmed) return { matched: false, score: 0 };
+
+  if (matchAgainstPatterns(trimmed, patterns)) {
+    return { matched: true, score: 100 };
+  }
+
+  const words = trimmed.split(/\s+/).filter((w) => w.length >= 2);
+  if (words.length >= 3) return { matched: false, score: 60 };
+  if (words.length >= 1) return { matched: false, score: 30 };
+
+  return { matched: false, score: 0 };
 }

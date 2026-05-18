@@ -24,6 +24,7 @@ import {
   type LocalProfile,
 } from "../lib/local-progress";
 import { SAMPLE_SCENES, type Scene, type SceneMode } from "../data/scenes";
+import { getScenario } from "../lib/scenario";
 import { tokens } from "../theme";
 
 // ---------------------------------------------------------------------------
@@ -95,6 +96,11 @@ export default function Home() {
   );
 
   // Sahneleri mod'a göre grupla (memoized — SAMPLE_SCENES her renderda yeniden traverse edilmesin).
+  //
+  // CRITICAL: only show scenes that have a corresponding playable lesson.
+  // We have ~980 scene definitions but only ~146 lessons; tapping a scene
+  // without a lesson lands on "Sahne bulunamadı" which feels like a bug.
+  // Pre-filter here so the feed only surfaces what actually plays.
   const scenesByRow = useMemo(() => {
     const map: Record<string, Scene[]> = {};
     for (const row of MODE_ROWS) {
@@ -102,16 +108,22 @@ export default function Home() {
         map[row.key] = [];
         continue;
       }
-      map[row.key] = SAMPLE_SCENES.filter((s) => row.modes.includes(s.mode));
+      map[row.key] = SAMPLE_SCENES.filter(
+        (s) => row.modes.includes(s.mode) && getScenario(s.lessonId) !== null,
+      );
     }
     return map;
   }, []);
 
   // Hero — günün önerilen sahnesi: tamamlanmamış olan ilk isNew sahne, yoksa ilk tamamlanmamış.
+  // Aynı playable-lesson filtresi hero'ya da uygulanır.
   const hero = useMemo<Scene | null>(() => {
-    const fresh = SAMPLE_SCENES.filter((s) => !state.completed.has(s.lessonId));
+    const playable = SAMPLE_SCENES.filter(
+      (s) => getScenario(s.lessonId) !== null,
+    );
+    const fresh = playable.filter((s) => !state.completed.has(s.lessonId));
     const newOne = fresh.find((s) => s.isNew);
-    return newOne ?? fresh[0] ?? SAMPLE_SCENES[0] ?? null;
+    return newOne ?? fresh[0] ?? playable[0] ?? null;
   }, [state.completed]);
 
   // First-time user (0 completed) gets a welcome card instead of the

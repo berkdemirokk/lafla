@@ -49,6 +49,36 @@ function extractExampleFromHint(hint?: string): string | null {
   return match?.[1] ?? null;
 }
 
+/**
+ * Pick a contextual emoji for the NPC avatar based on their role + setting.
+ * Falls back to a generic chat bubble when nothing matches. Keeps the header
+ * from looking like a placeholder (the previous 👤 made every scene feel
+ * identical regardless of context).
+ */
+function avatarEmojiFor(role: string, setting: string): string {
+  const ctx = `${role} ${setting}`.toLowerCase();
+  if (/tinder|date|match|crush|flirt|romance|partner|girlfriend|boyfriend/.test(ctx)) return "💕";
+  if (/coffee|cafe|barista|espresso|latte/.test(ctx)) return "☕";
+  if (/doctor|dr\.|hospital|clinic|gp\b|nurse|er\b|a&e/.test(ctx)) return "🩺";
+  if (/pharmacist|pharmacy|drugstore|eczane/.test(ctx)) return "💊";
+  if (/dentist|dental/.test(ctx)) return "🦷";
+  if (/boss|manager|interview|recruit|hiring|director/.test(ctx)) return "💼";
+  if (/coworker|colleague|team|standup|meeting|slack/.test(ctx)) return "👥";
+  if (/teacher|professor|advisor|tutor|examiner/.test(ctx)) return "📚";
+  if (/waiter|server|restaurant|chef|kitchen|host/.test(ctx)) return "🍽️";
+  if (/friend|buddy|roommate|pal/.test(ctx)) return "🤝";
+  if (/family|mom|dad|parent|sister|brother|cousin/.test(ctx)) return "👨‍👩‍👧";
+  if (/airport|gate|flight|airline|customs|check-in/.test(ctx)) return "✈️";
+  if (/hotel|concierge|reception|bellhop/.test(ctx)) return "🏨";
+  if (/gym|trainer|workout|fitness|coach.*fit/.test(ctx)) return "💪";
+  if (/taxi|driver|uber|lyft|cab/.test(ctx)) return "🚕";
+  if (/shop|store|cashier|sales|retail/.test(ctx)) return "🛍️";
+  if (/bank|teller|atm|currency/.test(ctx)) return "🏦";
+  if (/police|officer|cop/.test(ctx)) return "👮";
+  if (/landlord|neighbor|apartment|rental/.test(ctx)) return "🏠";
+  return "💬";
+}
+
 // Generic distractor pool — wrong but plausible responses
 const GENERIC_DISTRACTORS = [
   "I don't understand.",
@@ -170,11 +200,17 @@ export function RoleplayChat({
       {/* NPC header */}
       <View style={styles.header}>
         <View style={styles.avatar}>
-          <Text style={styles.avatarEmoji}>👤</Text>
+          <Text style={styles.avatarEmoji}>
+            {avatarEmojiFor(npcRole, setting)}
+          </Text>
         </View>
         <View style={styles.headerText}>
-          <Text style={styles.npcName}>{npcRole}</Text>
-          <Text style={styles.npcSubtitle}>{setting}</Text>
+          <Text style={styles.npcName} numberOfLines={1}>
+            {npcRole}
+          </Text>
+          <Text style={styles.npcSubtitle} numberOfLines={1}>
+            {setting}
+          </Text>
         </View>
         <View style={styles.onlineDot} />
       </View>
@@ -271,8 +307,12 @@ export function RoleplayChat({
                 ]}
                 onPress={submitUserTurn}
                 disabled={!input.trim() || !awaitingUserInput}
+                accessibilityRole="button"
+                accessibilityLabel="Gönder"
               >
-                <Text style={styles.sendBtnText}>↑</Text>
+                {/* Right-pointing triangle drawn from borders — crisper than
+                    a unicode glyph and adapts to any font. */}
+                <View style={styles.sendIcon} />
               </Pressable>
             </View>
           )}
@@ -444,10 +484,17 @@ const styles = StyleSheet.create({
   sendBtnDisabled: {
     opacity: 0.4,
   },
-  sendBtnText: {
-    color: tokens.text.onPrimary,
-    fontSize: 22,
-    fontWeight: tokens.weight.black,
+  sendIcon: {
+    width: 0,
+    height: 0,
+    borderTopWidth: 7,
+    borderBottomWidth: 7,
+    borderLeftWidth: 11,
+    borderTopColor: "transparent",
+    borderBottomColor: "transparent",
+    borderLeftColor: tokens.text.onPrimary,
+    // Nudge to optical center — pure right-triangle looks slightly left-heavy.
+    marginLeft: 3,
   },
   finishBar: {
     paddingTop: 12,
