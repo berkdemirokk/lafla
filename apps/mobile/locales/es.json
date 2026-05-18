@@ -1,0 +1,22 @@
+{
+  "common.continue": "Continue",
+  "common.back": "Back",
+  "common.cancel": "Cancel",
+  "common.confirm": "Confirm",
+  "common.skip": "Skip",
+  "common.try_again": "Try again",
+  "common.loading": "Loading",
+  "feed.title": "Feed",
+  "feed.streak_label": "days",
+  "feed.xp_label": "XP",
+  "feed.lessons_label": "lessons",
+  "feed.no_lessons_today": "No lessons today yet",
+  "profile.title": "Profile",
+  "profile.guest_label": "Guest",
+  "profile.signin_to_sync": "Sign in (sync your progress)",
+  "scenario.setup_label": "SETUP",
+  "scenario.drill_label": "DRILL",
+  "scenario.scene_label": "SCENE",
+  "scenario.verdict_title": "Scene Complete",
+  "tagline": "Just say it."
+}
