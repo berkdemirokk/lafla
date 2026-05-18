@@ -1,16 +1,17 @@
-// Lafla — Onboarding (3 steps, ~30 seconds).
+// Lafla — Onboarding (4 steps, ~30 seconds).
 //
-// Three steps in a single file:
-//   1. welcome  — pitch + "Başla"
-//   2. name     — first name (skippable)
-//   3. level    — three big buttons: Beginner / Intermediate / Advanced
+// Four steps in a single file:
+//   1. welcome  — pitch + "Start"
+//   2. track    — pick a goal: Daily Life / Exam Prep / Both (default)
+//   3. name     — first name (skippable)
+//   4. level    — three big buttons: Beginner / Intermediate / Advanced
 //
 // Programs, interests, and the coach-intro animation have been removed
 // for v1. The feed algorithm learns from the user's behaviour on the
 // first few scenarios instead of asking up front. Users who want a more
 // precise level pick can still take the placement test from Settings.
 //
-// State is collected in a single reducer. Each step gets a "Geri" button
+// State is collected in a single reducer. Each step gets a "Back" button
 // (except welcome) and progress dots at the top. The active step is
 // persisted under `lafla.onboarding.step` so closing the app mid-flow
 // resumes exactly where the user left off.
@@ -36,6 +37,7 @@ import Animated, {
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../components/Button";
 import { ProgressDots } from "../components/ProgressDots";
 import { trackEvent } from "../lib/analytics";
@@ -58,20 +60,26 @@ import { tokens } from "../theme";
 // TYPES
 // ============================================================
 
-type OnboardingStep = "welcome" | "name" | "level";
+type OnboardingStep = "welcome" | "track" | "name" | "level";
 
-const STEP_ORDER: OnboardingStep[] = ["welcome", "name", "level"];
+const STEP_ORDER: OnboardingStep[] = ["welcome", "track", "name", "level"];
+
+type Track = "life" | "exam" | "both";
+
+const TRACK_STORAGE_KEY = "lafla.track";
 
 interface OnboardingState {
   step: OnboardingStep;
   name: string;
+  track: Track;
 }
 
 type Action =
   | { type: "GOTO"; step: OnboardingStep }
   | { type: "NEXT" }
   | { type: "BACK" }
-  | { type: "SET_NAME"; name: string };
+  | { type: "SET_NAME"; name: string }
+  | { type: "SET_TRACK"; track: Track };
 
 function reducer(state: OnboardingState, action: Action): OnboardingState {
   switch (action.type) {
@@ -89,6 +97,8 @@ function reducer(state: OnboardingState, action: Action): OnboardingState {
     }
     case "SET_NAME":
       return { ...state, name: action.name };
+    case "SET_TRACK":
+      return { ...state, track: action.track };
     default:
       return state;
   }
@@ -97,6 +107,7 @@ function reducer(state: OnboardingState, action: Action): OnboardingState {
 const INITIAL: OnboardingState = {
   step: "welcome",
   name: "",
+  track: "both",
 };
 
 // 3 coarse level buckets mapped onto CEFR. Users who want a precise level
@@ -111,21 +122,51 @@ interface LevelChoice {
 const LEVEL_CHOICES: LevelChoice[] = [
   {
     emoji: "🌱",
-    label: "Yeni başlıyorum",
-    description: "Birkaç kelime biliyorum, cümle kurmakta zorlanıyorum.",
+    label: "Just starting",
+    description: "I know a few words but struggle to form sentences.",
     cefr: "A1",
   },
   {
     emoji: "📖",
-    label: "Orta seviye",
-    description: "Basit konuşmaları anlıyorum, kendimi anlatabiliyorum.",
+    label: "Intermediate",
+    description: "I understand simple conversations and can express myself.",
     cefr: "B1",
   },
   {
     emoji: "🎯",
-    label: "İleri seviye",
-    description: "Akıcı konuşuyorum, daha doğal hale getirmek istiyorum.",
+    label: "Advanced",
+    description: "I speak fluently and want to sound more natural.",
     cefr: "C1",
+  },
+];
+
+// 3 learning tracks. Default is "both" so users who don't have a strong
+// preference still get a balanced mix.
+interface TrackChoice {
+  id: Track;
+  emoji: string;
+  label: string;
+  description: string;
+}
+
+const TRACK_CHOICES: TrackChoice[] = [
+  {
+    id: "life",
+    emoji: "🎬",
+    label: "Daily Life",
+    description: "Real-world English: cafés, work, dating, travel",
+  },
+  {
+    id: "exam",
+    emoji: "🎓",
+    label: "Exam Prep",
+    description: "Pass IELTS, TOEFL, Cambridge speaking",
+  },
+  {
+    id: "both",
+    emoji: "✨",
+    label: "Both",
+    description: "Mix lifestyle + exam practice",
   },
 ];
 
@@ -190,6 +231,18 @@ export default function Onboarding() {
     goNext();
   };
 
+  const handleTrackContinue = async () => {
+    try {
+      await AsyncStorage.setItem(TRACK_STORAGE_KEY, state.track);
+    } catch {
+      // Track persistence is best-effort; never block onboarding on it.
+    }
+    void trackEvent("onboarding_track_selected", { track: state.track }).catch(
+      () => {},
+    );
+    goNext();
+  };
+
   const handlePickLevel = async (lvl: CefrLevel) => {
     hapticImpact("medium");
     setSaving(true);
@@ -203,7 +256,10 @@ export default function Onboarding() {
     // timing for higher consent rates. Non-blocking: if the user denies or
     // skips, the app still works (analytics just degrade gracefully).
     await requestAttOnce().catch(() => {});
-    void trackEvent("onboarding_completed", { level: lvl }).catch(() => {});
+    void trackEvent("onboarding_completed", {
+      level: lvl,
+      track: state.track,
+    }).catch(() => {});
     hapticSuccess();
     setSaving(false);
     router.replace("/home" as never);
@@ -216,7 +272,7 @@ export default function Onboarding() {
       <View style={styles.header}>
         {state.step !== "welcome" ? (
           <Pressable onPress={goBack} style={styles.backBtn} hitSlop={12}>
-            <Text style={styles.backText}>← Geri</Text>
+            <Text style={styles.backText}>← Back</Text>
           </Pressable>
         ) : (
           <View style={styles.backBtn} />
@@ -233,6 +289,13 @@ export default function Onboarding() {
         keyboardVerticalOffset={Platform.OS === "ios" ? 24 : 0}
       >
         {state.step === "welcome" && <WelcomeStep onNext={goNext} />}
+        {state.step === "track" && (
+          <TrackStep
+            value={state.track}
+            onChange={(track) => dispatch({ type: "SET_TRACK", track })}
+            onContinue={handleTrackContinue}
+          />
+        )}
         {state.step === "name" && (
           <NameStep
             value={state.name}
@@ -262,22 +325,112 @@ function WelcomeStep({ onNext }: { onNext: () => void }) {
           <Text style={styles.heroDot}>·</Text>
         </View>
         <Text style={styles.welcomeTitle}>
-          İngilizce, senin gibi düşünmeyi öğreten app.
+          The English app that teaches you to think on your feet.
         </Text>
         <Text style={styles.welcomePitch}>
-          Klasik ders yok. Gerçek hayattan sahneler — kafe, iş, sohbet, flört.
-          Senin gibi konuşmayı dene.
+          No textbook drills. Real-world scenes — cafés, work, conversations,
+          travel. Practice speaking like yourself.
         </Text>
       </ScrollView>
       <View style={styles.footer}>
-        <Button label="Başla" onPress={onNext} stacked />
+        <Button label="Start" onPress={onNext} stacked />
       </View>
     </View>
   );
 }
 
 // ============================================================
-// STEP 2 — NAME
+// STEP 2 — TRACK
+// ============================================================
+
+function TrackStep({
+  value,
+  onChange,
+  onContinue,
+}: {
+  value: Track;
+  onChange: (t: Track) => void;
+  onContinue: () => void;
+}) {
+  return (
+    <View style={styles.stepShell}>
+      <ScrollView contentContainerStyle={styles.stepScroll}>
+        <Text style={styles.stepHeader}>What's your goal?</Text>
+        <Text style={styles.stepSubtitle}>
+          Pick a track. You can change this later in Settings.
+        </Text>
+
+        <View style={styles.trackGrid}>
+          {TRACK_CHOICES.map((choice) => (
+            <TrackCard
+              key={choice.id}
+              choice={choice}
+              selected={value === choice.id}
+              onPress={() => {
+                hapticSelection();
+                onChange(choice.id);
+              }}
+            />
+          ))}
+        </View>
+      </ScrollView>
+      <View style={styles.footer}>
+        <Button label="Continue" onPress={onContinue} stacked />
+      </View>
+    </View>
+  );
+}
+
+function TrackCard({
+  choice,
+  selected,
+  onPress,
+}: {
+  choice: TrackChoice;
+  selected: boolean;
+  onPress: () => void;
+}) {
+  const scale = useSharedValue(1);
+  const cardStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: scale.value }],
+  }));
+  const handlePress = () => {
+    scale.value = withSequence(
+      withTiming(0.97, { duration: 80 }),
+      withSpring(1, { damping: 12, stiffness: 220 }),
+    );
+    onPress();
+  };
+  return (
+    <Animated.View style={cardStyle}>
+      <Pressable
+        onPress={handlePress}
+        style={({ pressed }) => [
+          styles.trackCard,
+          selected && styles.trackCardSelected,
+          pressed && styles.trackCardPressed,
+        ]}
+      >
+        <Text style={styles.trackEmoji}>{choice.emoji}</Text>
+        <View style={styles.trackText}>
+          <Text style={styles.trackCardTitle}>{choice.label}</Text>
+          <Text style={styles.trackCardDesc}>{choice.description}</Text>
+        </View>
+        <View
+          style={[
+            styles.trackRadio,
+            selected && styles.trackRadioSelected,
+          ]}
+        >
+          {selected ? <View style={styles.trackRadioDot} /> : null}
+        </View>
+      </Pressable>
+    </Animated.View>
+  );
+}
+
+// ============================================================
+// STEP 3 — NAME
 // ============================================================
 
 function NameStep({
@@ -305,9 +458,9 @@ function NameStep({
         contentContainerStyle={styles.stepScroll}
         keyboardShouldPersistTaps="handled"
       >
-        <Text style={styles.stepHeader}>Adın ne?</Text>
+        <Text style={styles.stepHeader}>What's your name?</Text>
         <Text style={styles.stepSubtitle}>
-          Sahnelerde seninle bu isimle konuşulacak.
+          Characters in scenes will address you by this name.
         </Text>
 
         <TextInput
@@ -315,7 +468,7 @@ function NameStep({
           style={styles.input}
           value={value}
           onChangeText={onChange}
-          placeholder="Adın"
+          placeholder="Your name"
           placeholderTextColor={tokens.text.tertiary}
           autoCapitalize="words"
           autoCorrect={false}
@@ -327,12 +480,12 @@ function NameStep({
         />
 
         <Pressable onPress={onSkip} style={styles.linkRow}>
-          <Text style={styles.linkText}>İsim olmadan devam →</Text>
+          <Text style={styles.linkText}>Continue without a name →</Text>
         </Pressable>
       </ScrollView>
       <View style={styles.footer}>
         <Button
-          label="Devam"
+          label="Continue"
           onPress={onContinue}
           disabled={!canContinue}
           stacked
@@ -343,7 +496,7 @@ function NameStep({
 }
 
 // ============================================================
-// STEP 3 — LEVEL
+// STEP 4 — LEVEL
 // ============================================================
 
 function LevelStep({
@@ -356,10 +509,10 @@ function LevelStep({
   return (
     <View style={styles.stepShell}>
       <ScrollView contentContainerStyle={styles.stepScroll}>
-        <Text style={styles.stepHeader}>İngilizcen nerede?</Text>
+        <Text style={styles.stepHeader}>Where's your English?</Text>
         <Text style={styles.stepSubtitle}>
-          Sana doğru zorlukta sahne göstermek için. Sonra ayarlardan
-          değiştirebilirsin.
+          So we can pick scenes at the right difficulty. You can change this
+          later in Settings.
         </Text>
 
         <View style={styles.levelGrid}>
@@ -519,6 +672,63 @@ const styles = StyleSheet.create({
     lineHeight: 26,
     textAlign: "center",
     paddingHorizontal: tokens.spacing.sm,
+  },
+
+  // ---------- Track ----------
+  trackGrid: {
+    gap: 12,
+  },
+  trackCard: {
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderRadius: tokens.radius.lg,
+    borderWidth: 1,
+    borderColor: tokens.border.outline,
+    padding: 18,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 14,
+  },
+  trackCardSelected: {
+    backgroundColor: tokens.brand.primarySoft,
+    borderColor: tokens.brand.primary,
+  },
+  trackCardPressed: {
+    opacity: 0.85,
+  },
+  trackEmoji: {
+    fontSize: 36,
+  },
+  trackText: {
+    flex: 1,
+    gap: 4,
+  },
+  trackCardTitle: {
+    fontSize: 18,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.primary,
+  },
+  trackCardDesc: {
+    fontSize: 14,
+    color: tokens.text.secondary,
+    lineHeight: 20,
+  },
+  trackRadio: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    borderWidth: 2,
+    borderColor: tokens.border.outline,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  trackRadioSelected: {
+    borderColor: tokens.brand.primary,
+  },
+  trackRadioDot: {
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    backgroundColor: tokens.brand.primary,
   },
 
   // ---------- Name ----------

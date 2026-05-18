@@ -1,17 +1,21 @@
-// Lafla — Home (tek-eylem)
+// Lafla — Home (two-track entry)
 //
-// Replaces the previous 11-section feed.tsx with a single primary action:
-// "🎤 Maya ile konuş". Everything else is either secondary (next scene
-// card, streak chip) or moved to the bottom nav. The goal is that within
-// 3 seconds of opening the app the user knows exactly what to do.
+// Strategic pivot: from the Turkish-coach "Maya" funnel to a global,
+// English-speaking practice app with two clear tracks:
+//   1. Daily Life  — real-world conversational English (cafés, work, travel, dating)
+//   2. Exam Prep   — IELTS / TOEFL / Cambridge speaking practice
 //
-// Layout:
-//   - Top bar: wordmark + streak chip
-//   - Hero card: greeting + giant Maya CTA
-//   - Next-scene card: surfaces one unfinished practice scenario
-//   - Bottom nav: Konuş (active), Pratik, Profil
+// The hero greeting and both track CTAs sit above the fold. A "ready scene"
+// card surfaces an unfinished scenario when one is available. Track-specific
+// routing lands in Phase 4 once scenario data is partitioned; for now both
+// cards route to the same next-scene (or first SAMPLE_SCENE fallback).
 //
-// All data is local-first via existing libs (coach, local-progress, scenes).
+// Layout (top → bottom):
+//   - Top bar: "Lafla" wordmark + streak chip (if streak > 0)
+//   - Hero: "Speak English." headline + subtitle
+//   - Two track cards (stacked): Daily Life · Exam Prep
+//   - Ready-scene card (conditional)
+//   - Bottom nav: Home (active) / Practice / Profile
 
 import { useCallback, useMemo, useState } from "react";
 import { useFocusEffect, useRouter } from "expo-router";
@@ -28,44 +32,26 @@ import {
 import { SAMPLE_SCENES, type Scene } from "../data/scenes";
 import { tokens } from "../theme";
 
-// NOTE (Phase 1 cleanup): The Maya "coach" subsystem was removed. This file
-// is scheduled for a full rewrite in Phase 3; the local shim below keeps it
-// compiling and behaviourally identical (greeting + CTA still render) until
-// then. Do not extend the shim — replace the screen instead.
-interface CoachState {
-  userDisplayName: string | null;
-  name: string;
-}
-
 interface HomeState {
-  coach: CoachState | null;
   profile: LocalProfile | null;
   completed: Set<string>;
 }
 
 const EMPTY_STATE: HomeState = {
-  coach: null,
   profile: null,
   completed: new Set(),
 };
-
-async function getCoachState(): Promise<CoachState> {
-  // Phase 1 stub — see note above. Returns a neutral default so the existing
-  // hero copy renders without crashing. Replaced wholesale in Phase 3.
-  return { userDisplayName: null, name: "Maya" };
-}
 
 export default function Home() {
   const router = useRouter();
   const [state, setState] = useState<HomeState>(EMPTY_STATE);
 
   const load = useCallback(async () => {
-    const [coach, profile, completed] = await Promise.all([
-      getCoachState(),
+    const [profile, completed] = await Promise.all([
       getLocalProfile(),
       getCompletedLessonIds(),
     ]);
-    setState({ coach, profile, completed });
+    setState({ profile, completed });
   }, []);
 
   useFocusEffect(
@@ -88,17 +74,19 @@ export default function Home() {
     return pool[0] ?? null;
   }, [state.completed]);
 
-  const userName = state.coach?.userDisplayName ?? null;
-  const coachName = state.coach?.name ?? "Maya";
   const streak = state.profile?.current_streak ?? 0;
 
-  const goMaya = async () => {
+  // Track CTAs share routing for now (Phase 4 will partition by track).
+  // Falls back to the first SAMPLE_SCENE if nothing is unlocked yet.
+  const goTrack = async () => {
     try {
       await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     } catch {
       // haptics is optional
     }
-    router.push("/freechat-voice" as never);
+    const lessonId = nextScene?.lessonId ?? SAMPLE_SCENES[0]?.lessonId;
+    if (!lessonId) return;
+    router.push(`/scenario/${lessonId}` as never);
   };
 
   const goScene = async (lessonId: string) => {
@@ -106,6 +94,22 @@ export default function Home() {
       await Haptics.selectionAsync();
     } catch {}
     router.push(`/scenario/${lessonId}` as never);
+  };
+
+  const goPractice = async () => {
+    try {
+      await Haptics.selectionAsync();
+    } catch {}
+    const lessonId = nextScene?.lessonId ?? SAMPLE_SCENES[0]?.lessonId;
+    if (!lessonId) return;
+    router.push(`/scenario/${lessonId}` as never);
+  };
+
+  const goProfile = async () => {
+    try {
+      await Haptics.selectionAsync();
+    } catch {}
+    router.push("/profile" as never);
   };
 
   return (
@@ -117,7 +121,9 @@ export default function Home() {
         <Text style={styles.wordmark}>Lafla</Text>
         {streak > 0 ? (
           <View style={styles.streakChip}>
-            <Text style={styles.streakChipText}>🔥 {streak} gün</Text>
+            <Text style={styles.streakChipText}>
+              {`🔥 ${streak} day${streak > 1 ? "s" : ""} streak`}
+            </Text>
           </View>
         ) : null}
       </View>
@@ -127,35 +133,34 @@ export default function Home() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Hero — Maya CTA */}
-        <View style={styles.heroCard}>
-          <Text style={styles.heroEyebrow}>
-            {coachName.toUpperCase()} · BUGÜN
+        {/* Hero greeting */}
+        <View style={styles.hero}>
+          <Text style={styles.heroTitle}>Speak English.</Text>
+          <Text style={styles.heroSubtitle}>
+            For real life. For real exams.
           </Text>
-          <Text style={styles.heroGreeting}>
-            {userName ? `Selam ${userName}!` : "Selam!"}
-          </Text>
-          <Text style={styles.heroBody}>
-            İngilizce konuşma pratiği için hazır mısın? 5 dakika konuş, anında
-            geri bildirim al.
-          </Text>
+        </View>
 
-          <Pressable
-            onPress={goMaya}
-            style={({ pressed }) => [
-              styles.heroBtn,
-              pressed && styles.heroBtnPressed,
-            ]}
-            accessibilityRole="button"
-            accessibilityLabel={`${coachName} ile konuşmaya başla`}
-          >
-            <Text style={styles.heroBtnIcon}>🎤</Text>
-            <View style={styles.heroBtnText}>
-              <Text style={styles.heroBtnTitle}>{coachName} ile konuş</Text>
-              <Text style={styles.heroBtnSub}>~5 dk · sesli pratik</Text>
-            </View>
-            <Text style={styles.heroBtnChev}>›</Text>
-          </Pressable>
+        {/* Track cards */}
+        <View style={styles.tracks}>
+          <TrackCard
+            tag="DAILY LIFE"
+            emoji="🎬"
+            title="Real-world English"
+            description="Cafés, work, dating, travel"
+            cta="Start"
+            tone="primary"
+            onPress={goTrack}
+          />
+          <TrackCard
+            tag="EXAM PREP"
+            emoji="🎓"
+            title="Pass your speaking test"
+            description="IELTS · TOEFL · Cambridge"
+            cta="Start"
+            tone="tertiary"
+            onPress={goTrack}
+          />
         </View>
 
         {/* Next scene */}
@@ -167,10 +172,10 @@ export default function Home() {
               pressed && styles.cardPressed,
             ]}
             accessibilityRole="button"
-            accessibilityLabel={`Sahne pratiği: ${nextScene.title}`}
+            accessibilityLabel={`Scenario practice: ${nextScene.title}`}
           >
             <View style={styles.sceneTop}>
-              <Text style={styles.sceneEyebrow}>HAZIR SAHNE</Text>
+              <Text style={styles.sceneEyebrow}>READY SCENE</Text>
               {nextScene.cefrLevel ? (
                 <View style={styles.sceneLevelChip}>
                   <Text style={styles.sceneLevelChipText}>
@@ -186,7 +191,7 @@ export default function Home() {
                   {nextScene.title.replace(/\s+/g, " ").trim()}
                 </Text>
                 <Text style={styles.sceneMeta}>
-                  {nextScene.durationMin} dk · senaryo pratiği
+                  {`${nextScene.durationMin} min · scenario practice`}
                 </Text>
               </View>
               <Text style={styles.sceneChev}>›</Text>
@@ -197,9 +202,9 @@ export default function Home() {
         {/* Streak progress (only if user has any) */}
         {streak > 0 ? (
           <View style={styles.streakCard}>
-            <Text style={styles.streakCardEyebrow}>SERİ</Text>
+            <Text style={styles.streakCardEyebrow}>STREAK</Text>
             <Text style={styles.streakCardTitle}>
-              {streak} gün üst üste — devam et
+              {`${streak} day${streak > 1 ? "s" : ""} in a row — keep it up`}
             </Text>
             <View style={styles.streakDots}>
               {Array.from({ length: 7 }).map((_, i) => (
@@ -216,14 +221,11 @@ export default function Home() {
         ) : null}
       </ScrollView>
 
-      {/* Bottom nav — 3 sekme */}
+      {/* Bottom nav — 3 tabs */}
       <View style={styles.nav}>
-        <NavTab label="Konuş" active />
-        <NavTab
-          label="Pratik"
-          onPress={() => router.push(`/scenario/${nextScene?.lessonId ?? SAMPLE_SCENES[0].lessonId}` as never)}
-        />
-        <NavTab label="Profil" onPress={() => router.push("/profile" as never)} />
+        <NavTab label="Home" active />
+        <NavTab label="Practice" onPress={goPractice} />
+        <NavTab label="Profile" onPress={goProfile} />
       </View>
     </SafeAreaView>
   );
@@ -232,6 +234,64 @@ export default function Home() {
 // ---------------------------------------------------------------------------
 // Subcomponents
 // ---------------------------------------------------------------------------
+
+function TrackCard({
+  tag,
+  emoji,
+  title,
+  description,
+  cta,
+  tone,
+  onPress,
+}: {
+  tag: string;
+  emoji: string;
+  title: string;
+  description: string;
+  cta: string;
+  tone: "primary" | "tertiary";
+  onPress: () => void;
+}) {
+  const isPrimary = tone === "primary";
+  const accent = isPrimary ? tokens.brand.primary : tokens.brand.tertiary;
+  const accentSoft = isPrimary
+    ? tokens.brand.primarySoft
+    : tokens.brand.tertiarySoft;
+  const ctaTextColor = isPrimary
+    ? tokens.brand.onPrimary
+    : tokens.brand.onTertiary;
+
+  return (
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [
+        trackStyles.card,
+        { borderColor: accentSoft },
+        pressed && trackStyles.cardPressed,
+      ]}
+      accessibilityRole="button"
+      accessibilityLabel={`${tag}: ${title}`}
+    >
+      <View style={trackStyles.header}>
+        <Text style={trackStyles.emoji}>{emoji}</Text>
+        <Text style={[trackStyles.tag, { color: accent }]}>{tag}</Text>
+      </View>
+      <Text style={trackStyles.title}>{title}</Text>
+      <Text style={trackStyles.description}>{description}</Text>
+      <View
+        style={[
+          trackStyles.cta,
+          { backgroundColor: accent },
+        ]}
+      >
+        <Text style={[trackStyles.ctaText, { color: ctaTextColor }]}>
+          {cta}
+        </Text>
+        <Text style={[trackStyles.ctaChev, { color: ctaTextColor }]}>›</Text>
+      </View>
+    </Pressable>
+  );
+}
 
 function NavTab({
   label,
@@ -305,75 +365,28 @@ const styles = StyleSheet.create({
     gap: 16,
   },
 
-  // Hero card (Maya CTA)
-  heroCard: {
-    padding: 24,
-    borderRadius: tokens.radius.lg,
-    backgroundColor: tokens.bg.surfaceContainer,
-    borderWidth: 1,
-    borderColor: tokens.border.light,
-    gap: 12,
+  // Hero greeting
+  hero: {
+    paddingVertical: 12,
+    gap: 6,
   },
-  heroEyebrow: {
-    fontSize: 11,
-    fontWeight: tokens.weight.extrabold,
-    color: tokens.brand.tertiary,
-    letterSpacing: 1.6,
-  },
-  heroGreeting: {
-    fontSize: 32,
+  heroTitle: {
+    fontSize: 40,
     fontWeight: tokens.weight.black,
     color: tokens.text.primary,
-    letterSpacing: -1,
-    lineHeight: 36,
+    letterSpacing: -1.4,
+    lineHeight: 44,
   },
-  heroBody: {
-    fontSize: 15,
+  heroSubtitle: {
+    fontSize: 16,
     lineHeight: 22,
     color: tokens.text.secondary,
-    marginBottom: 8,
+    fontWeight: tokens.weight.medium,
   },
-  heroBtn: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 14,
-    paddingVertical: 18,
-    paddingHorizontal: 20,
-    borderRadius: tokens.radius.full,
-    backgroundColor: tokens.brand.primary,
-    shadowColor: tokens.brand.primary,
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.4,
-    shadowRadius: 18,
-    elevation: 8,
-  },
-  heroBtnPressed: {
-    opacity: 0.9,
-    transform: [{ scale: 0.98 }],
-  },
-  heroBtnIcon: {
-    fontSize: 28,
-  },
-  heroBtnText: {
-    flex: 1,
-  },
-  heroBtnTitle: {
-    fontSize: 18,
-    fontWeight: tokens.weight.extrabold,
-    color: tokens.text.onPrimary,
-    letterSpacing: -0.3,
-  },
-  heroBtnSub: {
-    fontSize: 12,
-    color: tokens.text.onPrimary,
-    opacity: 0.85,
-    fontWeight: tokens.weight.semibold,
-    marginTop: 2,
-  },
-  heroBtnChev: {
-    fontSize: 24,
-    color: tokens.text.onPrimary,
-    fontWeight: tokens.weight.black,
+
+  // Track cards container
+  tracks: {
+    gap: 12,
   },
 
   // Scene card
@@ -485,6 +498,67 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: tokens.border.light,
     backgroundColor: tokens.bg.surfaceContainerLowest,
+  },
+});
+
+const trackStyles = StyleSheet.create({
+  card: {
+    padding: 20,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    gap: 8,
+  },
+  cardPressed: {
+    opacity: 0.9,
+    transform: [{ scale: 0.99 }],
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    marginBottom: 2,
+  },
+  emoji: {
+    fontSize: 24,
+  },
+  tag: {
+    fontSize: 11,
+    fontWeight: tokens.weight.extrabold,
+    letterSpacing: 1.6,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: tokens.weight.black,
+    color: tokens.text.primary,
+    letterSpacing: -0.5,
+    lineHeight: 24,
+  },
+  description: {
+    fontSize: 14,
+    color: tokens.text.secondary,
+    lineHeight: 20,
+    marginBottom: 8,
+  },
+  cta: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingVertical: 12,
+    paddingHorizontal: 18,
+    borderRadius: tokens.radius.full,
+    alignSelf: "flex-start",
+    minWidth: 110,
+  },
+  ctaText: {
+    fontSize: 15,
+    fontWeight: tokens.weight.extrabold,
+    letterSpacing: -0.2,
+  },
+  ctaChev: {
+    fontSize: 20,
+    fontWeight: tokens.weight.black,
+    marginLeft: 8,
   },
 });
 

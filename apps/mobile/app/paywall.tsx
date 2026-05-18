@@ -1,4 +1,32 @@
-// Premium paywall — Cyber-Electric Modern. RevenueCat wired.
+// Paywall — Phase 3 rebuild for global English speaking practice positioning.
+//
+// Two tiers shown to the user:
+//   1) Speak+ — monthly subscription ($9.99/mo) — primary, highlighted card
+//   2) Exam Pass — one-time purchase ($99) — secondary card with 60-day refund
+//
+// IAP MISMATCH NOTE
+// -----------------
+// The IAP layer (lib/iap.ts) currently exposes PackageId = "monthly" | "yearly"
+// backed by App Store products `lafla.premium.monthly` and `lafla.premium.yearly`
+// (configured for the previous "Lafla Pro" subscription, see comments in iap.ts).
+//
+// For now:
+//   - "Speak+" UI is wired to the existing `monthly` PackageId. The displayed
+//     price ($9.99) and the actual App Store charge MAY differ until the product
+//     is reconfigured in App Store Connect. Listed display price is a marketing
+//     promise; the SDK price (when available via getOffering) overrides it.
+//   - "Exam Pass" has no existing one-time-purchase product wired through
+//     RevenueCat. We fall back to the `yearly` PackageId as a placeholder so
+//     the button does something in dev/sandbox. Real product setup (consumable
+//     or non-consumable, 60-day refund automation) is out of scope here and
+//     tracked separately.
+//
+// When App Store Connect / RevenueCat are reconfigured, update the
+// `tierToPackage` map below and remove this banner.
+//
+// Copy is intentionally all English (global positioning). The single Turkish
+// line "₺99 / ay" is a localized price hint for Turkish users, displayed as
+// secondary text under the USD price.
 
 import { useEffect, useState } from "react";
 import {
@@ -29,50 +57,31 @@ import {
 } from "../lib/iap";
 import { tokens } from "../theme";
 
-type Plan = "monthly" | "yearly";
+// UI-level tier identifiers (what the user sees / picks).
+type Tier = "speakplus" | "exampass";
 
-const FEATURES: Array<{ emoji: string; title: string; description: string }> = [
-  {
-    emoji: "🚫",
-    title: "Reklamsız",
-    description: "Tüm reklamları kaldır, kesintisiz pratik.",
-  },
-  {
-    emoji: "🛡️",
-    title: "Esneklik Günü",
-    description: "Bir gün kaçırırsan aktif günlerin korunur (ayda 2 kez).",
-  },
-  {
-    emoji: "🎯",
-    title: "Sınırsız Telaffuz",
-    description: "Premium ses + telaffuz analizi.",
-  },
-  {
-    emoji: "📊",
-    title: "Detaylı İstatistik",
-    description: "Hangi konularda gelişebilirsin, AI önerisi.",
-  },
-  {
-    emoji: "⚡",
-    title: "Erken Erişim",
-    description: "Yeni ders ve özelliklere ilk sen ulaş.",
-  },
-  {
-    emoji: "💛",
-    title: "Geliştiriciyi Destekle",
-    description: "Tek kişilik takım, Pro üyelik Lafla'nın yakıtı.",
-  },
+// Map UI tier → IAP PackageId. See header comment for mismatch caveat.
+const tierToPackage = {
+  speakplus: "monthly",
+  exampass: "yearly", // placeholder — Exam Pass is not yet a real one-time product
+} as const;
+
+const FEATURES: string[] = [
+  "Practice unlimited scenarios",
+  "Personalized speech feedback",
+  "Exam-specific drills (IELTS/TOEFL)",
+  "Track fluency improvement",
+  "Daily streak protection",
 ];
 
 export default function PaywallScreen() {
   const router = useRouter();
-  const [plan, setPlan] = useState<Plan>("yearly");
+  const [tier, setTier] = useState<Tier>("speakplus");
   const [loading, setLoading] = useState(false);
-  const [live, setLive] = useState<boolean | null>(null);
-  const [prices, setPrices] = useState<{
-    monthly: string;
-    yearly: string;
-  } | null>(null);
+  const [, setLive] = useState<boolean | null>(null);
+  const [livePrices, setLivePrices] = useState<{
+    monthly: string | null;
+  }>({ monthly: null });
 
   useEffect(() => {
     void trackEvent("paywall_viewed").catch(() => {});
@@ -81,52 +90,53 @@ export default function PaywallScreen() {
       setLive(isLive);
       if (isLive) {
         const offering = await getOffering();
-        if (offering?.monthly?.price && offering?.yearly?.price) {
-          setPrices({
-            monthly: offering.monthly.price,
-            yearly: offering.yearly.price,
-          });
+        if (offering?.monthly?.price) {
+          setLivePrices({ monthly: offering.monthly.price });
         }
       }
     })();
   }, []);
 
-  const handlePurchase = async () => {
+  const handlePurchase = async (selected: Tier) => {
     hapticImpact("medium");
     setLoading(true);
-    void trackEvent("purchase_initiated", { plan }).catch(() => {});
+    void trackEvent("purchase_initiated", { plan: selected }).catch(() => {});
     try {
-      const result = await purchasePackage(plan);
+      const result = await purchasePackage(tierToPackage[selected]);
       if (result.ok) {
         hapticSuccess();
-        void trackEvent("purchase_success", { plan }).catch(() => {});
+        void trackEvent("purchase_success", { plan: selected }).catch(() => {});
         Alert.alert(
-          "Pro üyelik aktif.",
-          "Tüm Pro özellikler artık kullanımında.",
-          [{ text: "Devam", onPress: () => router.back() }],
+          selected === "speakplus" ? "Welcome to Speak+" : "Exam Pass unlocked",
+          selected === "speakplus"
+            ? "All premium features are now available."
+            : "You have 60 days of unlimited exam prep. Good luck!",
+          [{ text: "Continue", onPress: () => router.back() }],
         );
         return;
       }
       if (result.cancelled) {
-        // user cancelled — silent
         void trackEvent("purchase_failed", {
-          plan,
+          plan: selected,
           reason: "cancelled",
         }).catch(() => {});
         return;
       }
       void trackEvent("purchase_failed", {
-        plan,
+        plan: selected,
         reason: result.error ?? "unknown",
       }).catch(() => {});
       Alert.alert(
-        "Satın alma başarısız",
-        result.error ?? "Bilinmeyen bir hata oluştu.",
+        "Purchase failed",
+        result.error ?? "Something went wrong. Please try again.",
       );
     } catch (e: unknown) {
-      const msg = e instanceof Error ? e.message : "Bilinmeyen hata";
-      void trackEvent("purchase_failed", { plan, reason: msg }).catch(() => {});
-      Alert.alert("Hata", msg);
+      const msg = e instanceof Error ? e.message : "Unknown error";
+      void trackEvent("purchase_failed", {
+        plan: selected,
+        reason: msg,
+      }).catch(() => {});
+      Alert.alert("Error", msg);
     } finally {
       setLoading(false);
     }
@@ -139,17 +149,21 @@ export default function PaywallScreen() {
       const restored = await restorePurchases();
       if (restored) hapticSuccess();
       Alert.alert(
-        restored ? "Geri yüklendi" : "Aktif abonelik yok",
+        restored ? "Restored" : "No active subscription",
         restored
-          ? "Pro özelliklerine erişebilirsin."
-          : "Bu Apple ID'de aktif bir Lafla aboneliği bulunmuyor.",
+          ? "Your premium features are back."
+          : "We couldn't find an active Lafla subscription on this Apple ID.",
       );
     } catch {
-      Alert.alert("Hata", "Geri yükleme başarısız.");
+      Alert.alert("Error", "Restore failed.");
     } finally {
       setLoading(false);
     }
   };
+
+  // Prefer the live App Store price string if available; otherwise fall back
+  // to the marketing display price.
+  const speakPlusPrice = livePrices.monthly ?? "$9.99 / month";
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
@@ -162,6 +176,8 @@ export default function PaywallScreen() {
             router.back();
           }}
           style={styles.closeBtn}
+          accessibilityRole="button"
+          accessibilityLabel="Close"
         >
           <Text style={styles.closeText}>×</Text>
         </Pressable>
@@ -169,57 +185,73 @@ export default function PaywallScreen() {
 
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.hero}>
-          <Text style={styles.crown}>👑</Text>
-          <Text style={styles.title}>Lafla Pro</Text>
+          <Text style={styles.title}>Speak English. For real.</Text>
           <Text style={styles.subtitle}>
-            Reklamsız, ekstra özellikler.{"\n"}Profesyonel pratik. Sınırsız.
+            Daily speaking practice that actually moves the needle.
           </Text>
         </View>
 
         <View style={styles.featureList}>
           {FEATURES.map((f) => (
-            <View key={f.title} style={styles.feature}>
-              <Text style={styles.featureEmoji}>{f.emoji}</Text>
-              <View style={styles.featureText}>
-                <Text style={styles.featureTitle}>{f.title}</Text>
-                <Text style={styles.featureDesc}>{f.description}</Text>
+            <View key={f} style={styles.feature}>
+              <View style={styles.checkCircle}>
+                <Text style={styles.checkMark}>✓</Text>
               </View>
+              <Text style={styles.featureText}>{f}</Text>
             </View>
           ))}
         </View>
 
         <View style={styles.plans}>
+          {/* Speak+ — primary, highlighted */}
           <Pressable
-            style={[styles.plan, plan === "yearly" && styles.planSelected]}
+            style={[
+              styles.plan,
+              styles.planPrimary,
+              tier === "speakplus" && styles.planSelected,
+            ]}
             onPress={() => {
               hapticSelection();
-              setPlan("yearly");
+              setTier("speakplus");
             }}
+            accessibilityRole="button"
+            accessibilityLabel="Select Speak+ monthly plan"
           >
-            <View style={styles.savePill}>
-              <Text style={styles.savePillText}>%44 İNDİRİM</Text>
+            <View style={styles.planHeader}>
+              <Text style={styles.planName}>Speak+</Text>
+              <View style={styles.popularPill}>
+                <Text style={styles.popularPillText}>MOST POPULAR</Text>
+              </View>
             </View>
-            <Text style={styles.planName}>Yıllık</Text>
-            <Text style={styles.planPrice}>
-              {prices?.yearly ?? "999 ₺/yıl"}
+            <Text style={styles.planPrice}>{speakPlusPrice}</Text>
+            <Text style={styles.planPriceLocal}>₺99 / ay</Text>
+            <Text style={styles.planTagline}>
+              All features. Cancel anytime.
             </Text>
-            <Text style={styles.planMonthly}>≈ 83 ₺/ay</Text>
-            {plan === "yearly" && <View style={styles.planCheck} />}
+            {tier === "speakplus" && <View style={styles.planCheck} />}
           </Pressable>
 
+          {/* Exam Pass — secondary */}
           <Pressable
-            style={[styles.plan, plan === "monthly" && styles.planSelected]}
+            style={[styles.plan, tier === "exampass" && styles.planSelected]}
             onPress={() => {
               hapticSelection();
-              setPlan("monthly");
+              setTier("exampass");
             }}
+            accessibilityRole="button"
+            accessibilityLabel="Select Exam Pass one-time purchase"
           >
-            <Text style={styles.planName}>Aylık</Text>
-            <Text style={styles.planPrice}>
-              {prices?.monthly ?? "149 ₺/ay"}
+            <View style={styles.planHeader}>
+              <Text style={styles.planName}>Exam Pass</Text>
+              <View style={styles.guaranteePill}>
+                <Text style={styles.guaranteePillText}>60-DAY GUARANTEE</Text>
+              </View>
+            </View>
+            <Text style={styles.planPrice}>$99 one-time</Text>
+            <Text style={styles.planTagline}>
+              Pass IELTS, TOEFL, or Cambridge speaking — or get your money back.
             </Text>
-            <Text style={styles.planMonthly}>İstediğin zaman iptal</Text>
-            {plan === "monthly" && <View style={styles.planCheck} />}
+            {tier === "exampass" && <View style={styles.planCheck} />}
           </Pressable>
         </View>
 
@@ -228,11 +260,11 @@ export default function PaywallScreen() {
             label={
               loading
                 ? "..."
-                : plan === "yearly"
-                ? "Yıllık plan ile başla"
-                : "Aylık plan ile başla"
+                : tier === "speakplus"
+                ? "Start free trial"
+                : "Get Exam Pass"
             }
-            onPress={handlePurchase}
+            onPress={() => void handlePurchase(tier)}
             disabled={loading}
           />
           {loading && (
@@ -247,26 +279,30 @@ export default function PaywallScreen() {
             onPress={handleRestore}
             disabled={loading}
           >
-            <Text style={styles.restoreText}>Satın alımları geri yükle</Text>
+            <Text style={styles.restoreText}>Restore purchases</Text>
           </Pressable>
 
           <Text style={styles.disclaimer}>
-            Abonelik App Store hesabına faturalandırılır. Otomatik yenilenir;
-            mevcut dönem bitmeden 24 saat önce iptal etmezsen yenilenir.
-            İstediğin zaman App Store ayarlarından iptal edebilirsin.
+            Subscriptions auto-renew. Cancel in App Store.
           </Text>
 
           <View style={styles.termsLinks}>
             <Pressable
-              onPress={() => Linking.openURL("https://berkdemirokk.github.io/lafla/terms.html")}
+              onPress={() =>
+                Linking.openURL("https://berkdemirokk.github.io/lafla/terms.html")
+              }
             >
-              <Text style={styles.termsLink}>Kullanım koşulları</Text>
+              <Text style={styles.termsLink}>Terms of Use</Text>
             </Pressable>
             <Text style={styles.termsDot}> · </Text>
             <Pressable
-              onPress={() => Linking.openURL("https://berkdemirokk.github.io/lafla/privacy.html")}
+              onPress={() =>
+                Linking.openURL(
+                  "https://berkdemirokk.github.io/lafla/privacy.html",
+                )
+              }
             >
-              <Text style={styles.termsLink}>Gizlilik politikası</Text>
+              <Text style={styles.termsLink}>Privacy Policy</Text>
             </Pressable>
           </View>
         </View>
@@ -276,7 +312,7 @@ export default function PaywallScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: tokens.bg.onBackground },
+  safe: { flex: 1, backgroundColor: tokens.bg.app },
   header: {
     flexDirection: "row",
     justifyContent: "flex-end",
@@ -288,12 +324,12 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: tokens.bg.inverseSurfaceLight,
+    backgroundColor: tokens.bg.surfaceContainer,
     alignItems: "center",
     justifyContent: "center",
   },
   closeText: {
-    color: tokens.text.inverseOnSurface,
+    color: tokens.text.primary,
     fontSize: 24,
     fontWeight: tokens.weight.bold,
     lineHeight: 28,
@@ -306,103 +342,129 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 20,
   },
-  crown: {
-    fontSize: 64,
-    marginBottom: 12,
-  },
   title: {
-    fontSize: 30,
+    fontSize: 32,
     fontWeight: tokens.weight.black,
-    color: tokens.brand.primary,
+    color: tokens.text.primary,
     letterSpacing: -0.5,
-    marginBottom: 8,
+    marginBottom: 10,
+    textAlign: "center",
   },
   subtitle: {
     fontSize: 15,
-    color: tokens.text.secondaryFixedDim,
+    color: tokens.text.secondary,
     textAlign: "center",
     lineHeight: 22,
   },
   featureList: {
     gap: 14,
-    paddingVertical: tokens.spacing.lg,
+    paddingVertical: tokens.spacing.md,
   },
   feature: {
     flexDirection: "row",
-    gap: 14,
-    alignItems: "flex-start",
+    gap: 12,
+    alignItems: "center",
   },
-  featureEmoji: {
-    fontSize: 28,
-    width: 32,
+  checkCircle: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
+    alignItems: "center",
+    justifyContent: "center",
   },
-  featureText: { flex: 1 },
-  featureTitle: {
-    fontSize: 16,
-    fontWeight: tokens.weight.bold,
-    color: tokens.text.inverseOnSurface,
-    marginBottom: 2,
-  },
-  featureDesc: {
+  checkMark: {
+    color: tokens.brand.tertiary,
     fontSize: 13,
-    color: tokens.text.secondaryFixedDim,
-    lineHeight: 18,
+    fontWeight: tokens.weight.black,
+  },
+  featureText: {
+    flex: 1,
+    fontSize: 15,
+    color: tokens.text.primary,
+    fontWeight: tokens.weight.medium,
   },
   plans: {
-    flexDirection: "row",
-    gap: 10,
-    paddingVertical: tokens.spacing.md,
+    gap: 12,
+    paddingVertical: tokens.spacing.sm,
   },
   plan: {
-    flex: 1,
-    backgroundColor: tokens.bg.inverseSurface,
+    backgroundColor: tokens.bg.surfaceContainer,
     borderRadius: tokens.radius.base,
-    padding: 14,
+    padding: 18,
     borderWidth: 2,
-    borderColor: "rgba(255,255,255,0.08)",
+    borderColor: tokens.border.outlineVariant,
     position: "relative",
+  },
+  planPrimary: {
+    backgroundColor: tokens.bg.surfaceContainerHigh,
+    borderColor: tokens.brand.primarySoft,
   },
   planSelected: {
     borderColor: tokens.brand.primary,
-    backgroundColor: tokens.bg.inverseSurfaceLight,
+    backgroundColor: tokens.bg.surfaceContainerHigh,
+  },
+  planHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 8,
   },
   planName: {
-    color: tokens.text.inverseOnSurface,
-    fontSize: 14,
-    fontWeight: tokens.weight.bold,
-    marginBottom: 4,
+    color: tokens.text.primary,
+    fontSize: 18,
+    fontWeight: tokens.weight.extrabold,
   },
   planPrice: {
     color: tokens.brand.primary,
-    fontSize: 20,
+    fontSize: 26,
     fontWeight: tokens.weight.black,
     marginBottom: 2,
   },
-  planMonthly: {
-    color: tokens.text.secondaryFixedDim,
-    fontSize: 11,
+  planPriceLocal: {
+    color: tokens.text.secondary,
+    fontSize: 13,
+    fontWeight: tokens.weight.medium,
+    marginBottom: 6,
+  },
+  planTagline: {
+    color: tokens.text.secondary,
+    fontSize: 13,
+    lineHeight: 18,
   },
   planCheck: {
     position: "absolute",
-    top: 8,
-    right: 8,
+    top: 12,
+    right: 12,
     width: 18,
     height: 18,
     borderRadius: 9,
     backgroundColor: tokens.brand.primary,
   },
-  savePill: {
-    position: "absolute",
-    top: -10,
-    right: 8,
+  popularPill: {
     backgroundColor: tokens.brand.primary,
     paddingHorizontal: 8,
     paddingVertical: 3,
     borderRadius: 8,
-    zIndex: 2,
   },
-  savePillText: {
-    color: tokens.text.onPrimary,
+  popularPillText: {
+    color: tokens.brand.onPrimary,
+    fontSize: 10,
+    fontWeight: tokens.weight.black,
+    letterSpacing: 0.5,
+  },
+  guaranteePill: {
+    backgroundColor: tokens.brand.tertiarySoft,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
+  },
+  guaranteePillText: {
+    color: tokens.brand.tertiary,
     fontSize: 10,
     fontWeight: tokens.weight.black,
     letterSpacing: 0.5,
@@ -424,7 +486,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   termsLink: {
-    color: tokens.text.secondaryFixedDim,
+    color: tokens.text.secondary,
     fontSize: 11,
     textDecorationLine: "underline",
   },
@@ -434,11 +496,11 @@ const styles = StyleSheet.create({
   },
   restoreBtn: {
     alignItems: "center",
-    marginTop: tokens.spacing.md,
+    marginTop: tokens.spacing.sm,
     paddingVertical: 8,
   },
   restoreText: {
-    color: tokens.text.secondaryFixedDim,
+    color: tokens.text.secondary,
     fontSize: 13,
     fontWeight: tokens.weight.medium,
     textDecorationLine: "underline",
