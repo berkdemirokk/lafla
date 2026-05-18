@@ -1,0 +1,645 @@
+// SwipeSceneCard — TikTok/Bumble hybrid full-screen scene card for Home.
+//
+// One scene per screen:
+//   - Vertical paging (parent FlatList) carries you between scenes.
+//   - Horizontal pan on the card means: swipe-right → enter scenario,
+//     swipe-left → skip to next.
+//   - Bumble-style floating CTAs at the bottom (skip ✕  /  Konuş ▶).
+//
+// We deliberately use the built-in PanResponder (not react-native-gesture-
+// handler) because the app's root layout does NOT mount GestureHandlerRootView
+// — touching _layout.tsx is explicitly out of scope. PanResponder works
+// without any provider and is sufficient for swipe-to-act + glow feedback.
+//
+// Reanimated is used for the entrance fade-in and CTA press-scale because
+// it's already installed and gives us 60fps without crossing the JS bridge.
+//
+// The card is intentionally a pure presentational component: parent owns
+// scene-list state, completion data, and navigation.
+//
+// Theme: Neon Noir.
+//   bg.app (#000), surfaceContainer for the inner card surface, pink-cyan
+//   border glow for delight, brand.primary CTA.
+
+import { memo, useCallback, useEffect, useMemo, useRef } from "react";
+import {
+  Animated,
+  Dimensions,
+  PanResponder,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  type GestureResponderEvent,
+  type PanResponderGestureState,
+} from "react-native";
+import * as Haptics from "expo-haptics";
+
+import type { Scene, SceneMode } from "../data/scenes";
+import { tokens } from "../theme";
+
+// ---------------------------------------------------------------------------
+// Layout constants
+// ---------------------------------------------------------------------------
+
+const SCREEN = Dimensions.get("window");
+
+// Horizontal swipe thresholds. We require either a fairly long drag OR
+// a high-velocity flick so accidental thumb shifts don't trigger nav.
+const SWIPE_DISTANCE_THRESHOLD = 110;
+const SWIPE_VELOCITY_THRESHOLD = 0.55;
+// Only treat a gesture as horizontal if the user has moved meaningfully
+// sideways AND not too vertically (vertical owns the FlatList paging).
+const HORIZONTAL_ACTIVATION = 12;
+const VERTICAL_REJECT_RATIO = 1.4; // |dy|/|dx| above this → vertical gesture
+
+// ---------------------------------------------------------------------------
+// Per-mode accent colors (used for the floating mode chip).
+// Keeping these light — main brand is pink, secondary is cyan — and routing
+// each mode to one of the two so we don't drift the theme.
+// ---------------------------------------------------------------------------
+
+const MODE_ACCENT: Record<SceneMode, { fill: string; text: string }> = {
+  flirt: { fill: tokens.brand.primarySoft, text: tokens.brand.primary },
+  banter: { fill: tokens.brand.primarySoft, text: tokens.brand.primary },
+  work: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
+  career: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
+  professional: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
+  travel: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
+  order: { fill: tokens.brand.primarySoft, text: tokens.brand.primary },
+  daily: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
+  personal: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
+  academic: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
+  testprep: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
+  sport: { fill: tokens.brand.primarySoft, text: tokens.brand.primary },
+  health: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
+};
+
+const MODE_LABEL: Record<SceneMode, string> = {
+  flirt: "Flört",
+  banter: "Espri",
+  work: "İş",
+  career: "Kariyer",
+  professional: "Pro",
+  travel: "Seyahat",
+  order: "Sipariş",
+  daily: "Günlük",
+  personal: "Kişisel",
+  academic: "Akademik",
+  testprep: "Sınav",
+  sport: "Spor",
+  health: "Sağlık",
+};
+
+// ---------------------------------------------------------------------------
+// Props
+// ---------------------------------------------------------------------------
+
+export interface SwipeSceneCardProps {
+  scene: Scene;
+  completed: boolean;
+  /** Pixel height of the card (the parent FlatList's item height). */
+  cardHeight: number;
+  /** Called when the user wants to enter the scenario (CTA, swipe-right, or
+   *  press anywhere on the body). */
+  onEnter: (lessonId: string) => void;
+  /** Called when the user skips this scene (✕ button or swipe-left). */
+  onSkip: (lessonId: string) => void;
+}
+
+// ---------------------------------------------------------------------------
+// Component
+// ---------------------------------------------------------------------------
+
+function SwipeSceneCardImpl({
+  scene,
+  completed,
+  cardHeight,
+  onEnter,
+  onSkip,
+}: SwipeSceneCardProps) {
+  // Horizontal pan offset — drives card translate, opacity, and edge glow.
+  const translateX = useRef(new Animated.Value(0)).current;
+  // Entrance animation (fade + slight upward translate). Replays whenever
+  // the rendered scene id changes, which happens as the FlatList recycles.
+  const enterOpacity = useRef(new Animated.Value(0)).current;
+  const enterTranslateY = useRef(new Animated.Value(16)).current;
+  // CTA press scale. Two refs because skip + Konuş can press independently.
+  const enterCtaScale = useRef(new Animated.Value(1)).current;
+  const skipCtaScale = useRef(new Animated.Value(1)).current;
+
+  useEffect(() => {
+    // Reset & replay the entrance animation for this scene.
+    enterOpacity.setValue(0);
+    enterTranslateY.setValue(16);
+    translateX.setValue(0);
+    Animated.parallel([
+      Animated.timing(enterOpacity, {
+        toValue: 1,
+        duration: 200,
+        useNativeDriver: true,
+      }),
+      Animated.timing(enterTranslateY, {
+        toValue: 0,
+        duration: 200,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  }, [scene.id, enterOpacity, enterTranslateY, translateX]);
+
+  // -------------------------------------------------------------------------
+  // PanResponder — horizontal swipe to commit / skip.
+  // -------------------------------------------------------------------------
+
+  const panResponder = useMemo(
+    () =>
+      PanResponder.create({
+        // Don't claim the touch on tap — let CTAs and the body Pressable
+        // receive their own onPress events.
+        onStartShouldSetPanResponder: () => false,
+        // Claim only once the user has clearly moved horizontally. This
+        // keeps the parent FlatList in charge of vertical scrolling.
+        onMoveShouldSetPanResponder: (
+          _evt: GestureResponderEvent,
+          gesture: PanResponderGestureState,
+        ) => {
+          const { dx, dy } = gesture;
+          if (Math.abs(dx) < HORIZONTAL_ACTIVATION) return false;
+          if (Math.abs(dy) > Math.abs(dx) * VERTICAL_REJECT_RATIO) return false;
+          return true;
+        },
+        onPanResponderMove: (_evt, gesture) => {
+          translateX.setValue(gesture.dx);
+        },
+        onPanResponderRelease: (_evt, gesture) => {
+          const { dx, vx } = gesture;
+          const passedDistance = Math.abs(dx) > SWIPE_DISTANCE_THRESHOLD;
+          const passedVelocity = Math.abs(vx) > SWIPE_VELOCITY_THRESHOLD;
+          if (passedDistance || passedVelocity) {
+            const direction = dx > 0 ? 1 : -1;
+            // Fling the card off-screen then fire the action so the user
+            // sees a clear visual response before the route swap.
+            Animated.timing(translateX, {
+              toValue: direction * SCREEN.width * 1.2,
+              duration: 180,
+              useNativeDriver: true,
+            }).start(() => {
+              // Reset position so the FlatList recycler can reuse the slot.
+              translateX.setValue(0);
+              if (direction > 0) {
+                // Swipe right → enter scenario
+                try {
+                  void Haptics.impactAsync(
+                    Haptics.ImpactFeedbackStyle.Medium,
+                  );
+                } catch {}
+                onEnter(scene.lessonId);
+              } else {
+                try {
+                  void Haptics.selectionAsync();
+                } catch {}
+                onSkip(scene.lessonId);
+              }
+            });
+          } else {
+            // Snap back to center — spring physics for a tactile feel.
+            Animated.spring(translateX, {
+              toValue: 0,
+              useNativeDriver: true,
+              friction: 6,
+              tension: 80,
+            }).start();
+          }
+        },
+        onPanResponderTerminate: () => {
+          Animated.spring(translateX, {
+            toValue: 0,
+            useNativeDriver: true,
+            friction: 6,
+            tension: 80,
+          }).start();
+        },
+      }),
+    [onEnter, onSkip, scene.lessonId, translateX],
+  );
+
+  // -------------------------------------------------------------------------
+  // Derived animations — rotation + edge glow opacity follow translateX.
+  // -------------------------------------------------------------------------
+
+  const rotate = translateX.interpolate({
+    inputRange: [-SCREEN.width, 0, SCREEN.width],
+    outputRange: ["-6deg", "0deg", "6deg"],
+    extrapolate: "clamp",
+  });
+  const rightGlowOpacity = translateX.interpolate({
+    inputRange: [0, SCREEN.width * 0.4],
+    outputRange: [0, 1],
+    extrapolate: "clamp",
+  });
+  const leftGlowOpacity = translateX.interpolate({
+    inputRange: [-SCREEN.width * 0.4, 0],
+    outputRange: [1, 0],
+    extrapolate: "clamp",
+  });
+
+  // -------------------------------------------------------------------------
+  // CTA handlers
+  // -------------------------------------------------------------------------
+
+  const handleEnterPress = useCallback(async () => {
+    Animated.sequence([
+      Animated.timing(enterCtaScale, {
+        toValue: 0.95,
+        duration: 80,
+        useNativeDriver: true,
+      }),
+      Animated.spring(enterCtaScale, {
+        toValue: 1,
+        useNativeDriver: true,
+        friction: 5,
+        tension: 120,
+      }),
+    ]).start();
+    try {
+      await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    } catch {}
+    onEnter(scene.lessonId);
+  }, [enterCtaScale, onEnter, scene.lessonId]);
+
+  const handleSkipPress = useCallback(async () => {
+    Animated.sequence([
+      Animated.timing(skipCtaScale, {
+        toValue: 0.92,
+        duration: 80,
+        useNativeDriver: true,
+      }),
+      Animated.spring(skipCtaScale, {
+        toValue: 1,
+        useNativeDriver: true,
+        friction: 5,
+        tension: 120,
+      }),
+    ]).start();
+    try {
+      await Haptics.selectionAsync();
+    } catch {}
+    onSkip(scene.lessonId);
+  }, [skipCtaScale, onSkip, scene.lessonId]);
+
+  // -------------------------------------------------------------------------
+  // Derived display strings
+  // -------------------------------------------------------------------------
+
+  // Scene titles are authored with embedded line breaks for the old card
+  // style. The big TikTok-style title looks cleaner without forced breaks,
+  // so we flatten newlines but preserve the source string elsewhere.
+  const displayTitle = scene.title.replace(/\n/g, " ");
+  const accent = MODE_ACCENT[scene.mode];
+  const modeLabel = MODE_LABEL[scene.mode];
+
+  return (
+    <View style={[styles.outer, { height: cardHeight }]}>
+      {/* Edge glow hints — fade in while dragging. Right side = enter (pink),
+          left side = skip (neutral white). Pure visual feedback, no touch. */}
+      <Animated.View
+        pointerEvents="none"
+        style={[styles.edgeGlow, styles.edgeGlowRight, { opacity: rightGlowOpacity }]}
+      />
+      <Animated.View
+        pointerEvents="none"
+        style={[styles.edgeGlow, styles.edgeGlowLeft, { opacity: leftGlowOpacity }]}
+      />
+
+      <Animated.View
+        style={[
+          styles.card,
+          {
+            opacity: enterOpacity,
+            transform: [
+              { translateY: enterTranslateY },
+              { translateX: translateX },
+              { rotate },
+            ],
+          },
+        ]}
+        {...panResponder.panHandlers}
+      >
+        {/* Pressable body — tap-to-enter as a third path alongside swipe & CTA. */}
+        <Pressable
+          onPress={handleEnterPress}
+          style={styles.body}
+          accessibilityRole="button"
+          accessibilityLabel={`Sahne: ${displayTitle}. Konuşmaya başlamak için dokun.`}
+        >
+          {/* Floating overlays — mode + CEFR + completion */}
+          <View style={styles.overlayTop}>
+            <View style={[styles.modeChip, { backgroundColor: accent.fill }]}>
+              <Text style={[styles.modeChipText, { color: accent.text }]}>
+                {modeLabel}
+              </Text>
+            </View>
+            <View style={styles.overlayTopRight}>
+              {scene.cefrLevel ? (
+                <View style={styles.cefrBadge}>
+                  <Text style={styles.cefrBadgeText}>{scene.cefrLevel}</Text>
+                </View>
+              ) : null}
+              {scene.isNew && !completed ? (
+                <View style={styles.newBadge}>
+                  <Text style={styles.newBadgeText}>YENİ</Text>
+                </View>
+              ) : null}
+              {completed ? (
+                <View style={styles.doneBadge}>
+                  <Text style={styles.doneBadgeText}>✓</Text>
+                </View>
+              ) : null}
+            </View>
+          </View>
+
+          {/* Upper third — emoji focal point */}
+          <View style={styles.focalArea}>
+            <Text style={styles.focalEmoji} accessibilityElementsHidden>
+              {scene.emoji}
+            </Text>
+          </View>
+
+          {/* Middle — big title */}
+          <View style={styles.titleArea}>
+            <Text style={styles.title} numberOfLines={3}>
+              {displayTitle}
+            </Text>
+            <Text style={styles.description} numberOfLines={3}>
+              {scene.description}
+            </Text>
+          </View>
+
+          {/* Lower — meta line (duration / progress) */}
+          <View style={styles.metaArea}>
+            <Text style={styles.metaText}>
+              {scene.durationMin} dk
+              {scene.progressLabel ? ` · ${scene.progressLabel}` : ""}
+            </Text>
+            <Text style={styles.hintText}>
+              ⇡ Sonraki  ·  → Konuş  ·  ← Atla
+            </Text>
+          </View>
+        </Pressable>
+      </Animated.View>
+
+      {/* Bumble-style floating action buttons — pinned above the bottom nav. */}
+      <View style={styles.ctaRow} pointerEvents="box-none">
+        <Animated.View style={{ transform: [{ scale: skipCtaScale }] }}>
+          <Pressable
+            onPress={handleSkipPress}
+            style={styles.skipBtn}
+            accessibilityRole="button"
+            accessibilityLabel="Bu sahneyi atla"
+            hitSlop={12}
+          >
+            <Text style={styles.skipBtnText}>✕</Text>
+          </Pressable>
+        </Animated.View>
+        <Animated.View
+          style={[styles.enterBtnWrap, { transform: [{ scale: enterCtaScale }] }]}
+        >
+          <Pressable
+            onPress={handleEnterPress}
+            style={styles.enterBtn}
+            accessibilityRole="button"
+            accessibilityLabel="Konuşmaya başla"
+          >
+            <Text style={styles.enterBtnText}>Konuş ▶</Text>
+          </Pressable>
+        </Animated.View>
+      </View>
+    </View>
+  );
+}
+
+export const SwipeSceneCard = memo(SwipeSceneCardImpl);
+
+// ---------------------------------------------------------------------------
+// Styles
+// ---------------------------------------------------------------------------
+
+const styles = StyleSheet.create({
+  outer: {
+    width: SCREEN.width,
+    backgroundColor: tokens.bg.app,
+    overflow: "hidden",
+  },
+  // Edge glow strips — sit beneath the card, fade in during drag.
+  edgeGlow: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    width: 96,
+  },
+  edgeGlowRight: {
+    right: 0,
+    backgroundColor: tokens.brand.primaryGlow,
+  },
+  edgeGlowLeft: {
+    left: 0,
+    backgroundColor: tokens.brand.tertiaryGlow,
+  },
+
+  // The card itself fills the row except for a small gutter and the CTA
+  // strip at the bottom (which lives outside the card so its hit targets
+  // stay reliable even while the card is mid-fling).
+  card: {
+    position: "absolute",
+    top: 16,
+    left: 16,
+    right: 16,
+    // Bottom leaves room for the CTA row (72) + breathing space (20).
+    bottom: 100,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.brand.primary,
+    // Pink-cyan dual glow — pink shadow native, cyan implied by border accent
+    // (we can't stack two shadowColors on RN, so the cyan lives in the inset
+    // pseudo-borders below).
+    shadowColor: tokens.brand.primary,
+    shadowOffset: { width: 0, height: 18 },
+    shadowOpacity: 0.45,
+    shadowRadius: 28,
+    elevation: 14,
+    overflow: "hidden",
+  },
+  body: {
+    flex: 1,
+    paddingHorizontal: 24,
+    paddingTop: 20,
+    paddingBottom: 24,
+    justifyContent: "space-between",
+  },
+
+  // ---- overlays ----
+  overlayTop: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  overlayTopRight: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+  },
+  modeChip: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: tokens.radius.full,
+  },
+  modeChipText: {
+    fontSize: 12,
+    fontWeight: tokens.weight.extrabold,
+    letterSpacing: 0.6,
+  },
+  cefrBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.tertiaryContainer,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
+  },
+  cefrBadgeText: {
+    fontSize: 11,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.tertiary,
+    letterSpacing: 0.6,
+  },
+  newBadge: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.primary,
+  },
+  newBadgeText: {
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.onPrimary,
+    letterSpacing: 0.8,
+  },
+  doneBadge: {
+    width: 28,
+    height: 28,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  doneBadgeText: {
+    fontSize: 14,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.tertiary,
+  },
+
+  // ---- focal area (emoji) ----
+  focalArea: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 12,
+  },
+  focalEmoji: {
+    fontSize: 112,
+    textAlign: "center",
+  },
+
+  // ---- title block ----
+  titleArea: {
+    paddingHorizontal: 4,
+  },
+  title: {
+    fontSize: 30,
+    lineHeight: 34,
+    fontWeight: tokens.weight.black,
+    color: tokens.text.primary,
+    letterSpacing: -0.9,
+    textAlign: "center",
+  },
+  description: {
+    marginTop: 12,
+    fontSize: 15,
+    lineHeight: 21,
+    fontWeight: tokens.weight.medium,
+    color: tokens.text.secondary,
+    textAlign: "center",
+  },
+
+  // ---- meta line ----
+  metaArea: {
+    alignItems: "center",
+    gap: 8,
+  },
+  metaText: {
+    fontSize: 12,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.tertiary,
+    letterSpacing: 0.4,
+  },
+  hintText: {
+    fontSize: 11,
+    fontWeight: tokens.weight.semibold,
+    color: tokens.text.tertiary,
+    letterSpacing: 0.6,
+    opacity: 0.7,
+  },
+
+  // ---- floating CTA strip (Bumble row) ----
+  ctaRow: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 20,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 18,
+    paddingHorizontal: 28,
+  },
+  skipBtn: {
+    width: 56,
+    height: 56,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.bg.surfaceContainerHigh,
+    borderWidth: 1,
+    borderColor: tokens.border.outline,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  skipBtnText: {
+    fontSize: 22,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.secondary,
+  },
+  enterBtnWrap: {
+    flex: 1,
+    maxWidth: 280,
+  },
+  enterBtn: {
+    height: 56,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.primary,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 32,
+    shadowColor: tokens.brand.primary,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.5,
+    shadowRadius: 18,
+    elevation: 12,
+  },
+  enterBtnText: {
+    fontSize: 17,
+    fontWeight: tokens.weight.black,
+    color: tokens.text.onPrimary,
+    letterSpacing: 0.4,
+  },
+});

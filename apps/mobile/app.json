@@ -94,6 +94,8 @@
       "sentryDsn": "",
       "posthogKey": "",
       "posthogHost": "https://eu.i.posthog.com",
+      "ttsEndpoint": "",
+      "ttsVoiceId": "21m00Tcm4TlvDq8ikWAM",
       "eas": {
         "projectId": "a7b18723-d431-481b-92cd-18a4c1104171"
       }

@@ -1,21 +1,39 @@
-// Lafla — Home (Netflix-rows feed)
+// Lafla — Home (TikTok/Bumble hybrid swipe stack)
 //
-// 8 yatay mod satırı + üstte günün önerilen sahnesi. Türkçe-odaklı UI, Neon Noir tema.
-// Mod taksonomisi: Flört / İş / Travel / Sosyal / Sipariş / Banter / Spor / Sağlık.
-// İlk 6 modun mevcut data ile dolu satırları var; Spor ve Sağlık "Yakında" rozeti ile.
+// Replaces the previous Netflix-rows feed. The new home is a vertical
+// pager of full-screen scene cards:
+//   - One scene per screen, edge-to-edge dark Neon Noir.
+//   - Vertical swipe (up/down) snaps between scenes via FlatList paging.
+//   - Horizontal swipe + bottom CTAs handle "Konuş ▶" (enter scenario) and
+//     "✕ Atla" (skip to next scene).
+//
+// Data flow preserved from the previous version:
+//   - SAMPLE_SCENES filtered by getScenario(s.lessonId) !== null (only
+//     playable scenes; we have ~980 scenes but ~146 playable lessons).
+//   - Completion via getCompletedLessonIds().
+//   - Streak chip via getLocalProfile().current_streak.
+//   - Bottom 2-tab nav (Anasayfa / Profil) unchanged.
+//
+// Ordering: deterministic shuffle (seeded by today's date) so the day's
+// first card is stable for a session, then completed scenes drift toward
+// the back of the stack. New (isNew) cards get a small boost so featured
+// content surfaces early.
 
-import { memo, useCallback, useMemo, useState } from "react";
+import { memo, useCallback, useMemo, useRef, useState } from "react";
 import { useFocusEffect, useRouter } from "expo-router";
 import {
+  Dimensions,
   FlatList,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   View,
+  type ListRenderItemInfo,
+  type NativeScrollEvent,
+  type NativeSyntheticEvent,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import * as Haptics from "expo-haptics";
 
 import {
@@ -23,46 +41,51 @@ import {
   getCompletedLessonIds,
   type LocalProfile,
 } from "../lib/local-progress";
-import { SAMPLE_SCENES, type Scene, type SceneMode } from "../data/scenes";
+import { SAMPLE_SCENES, type Scene } from "../data/scenes";
 import { getScenario } from "../lib/scenario";
 import { tokens } from "../theme";
+import { SwipeSceneCard } from "../components/SwipeSceneCard";
 
 // ---------------------------------------------------------------------------
-// Mode taxonomy — 8 user-facing rows
+// Layout constants
 // ---------------------------------------------------------------------------
 
-interface ModeRow {
-  key: string;
-  emoji: string;
-  title: string;
-  // Bir satır birden fazla mode'u toplayabilir (örn. İş = work + professional + career).
-  modes: SceneMode[];
-  comingSoon?: boolean;
+const SCREEN = Dimensions.get("window");
+
+// Top chrome: status bar inset + wordmark + streak chip.
+// Bottom chrome: 2-tab nav.
+// These two are subtracted from the window height to give each card its
+// row height for the vertical pager.
+const TOP_BAR_HEIGHT = 52;
+const BOTTOM_NAV_HEIGHT = 60;
+
+// ---------------------------------------------------------------------------
+// Deterministic shuffle (seeded by date)
+// ---------------------------------------------------------------------------
+
+// Hash-then-sort: each scene gets a stable numeric key for today's seed.
+// This is NOT cryptographic — we just want the same order across a day so
+// the "today's pick" never moves mid-session.
+function todaySeed(): number {
+  const d = new Date();
+  // YYYYMMDD as an integer.
+  return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
 }
 
-const MODE_ROWS: ReadonlyArray<ModeRow> = [
-  { key: "flirt", emoji: "🧊", title: "Flört", modes: ["flirt"] },
-  {
-    key: "work",
-    emoji: "💼",
-    title: "İş",
-    modes: ["work", "professional", "career"],
-  },
-  { key: "travel", emoji: "✈️", title: "Seyahat", modes: ["travel"] },
-  {
-    key: "social",
-    emoji: "👥",
-    title: "Sosyal",
-    modes: ["daily", "personal"],
-  },
-  { key: "order", emoji: "🍽️", title: "Sipariş", modes: ["order"] },
-  { key: "banter", emoji: "🎉", title: "Espri", modes: ["banter"] },
-  { key: "sport", emoji: "💪", title: "Spor", modes: ["sport"], comingSoon: true },
-  { key: "health", emoji: "🩺", title: "Sağlık", modes: ["health"], comingSoon: true },
-];
+function hashString(input: string, seed: number): number {
+  // 32-bit FNV-1a, mixed with the day seed at the end.
+  let h = 2166136261 >>> 0;
+  for (let i = 0; i < input.length; i++) {
+    h ^= input.charCodeAt(i);
+    h = Math.imul(h, 16777619) >>> 0;
+  }
+  h ^= seed;
+  h = Math.imul(h, 16777619) >>> 0;
+  return h >>> 0;
+}
 
 // ---------------------------------------------------------------------------
-// State + data
+// State
 // ---------------------------------------------------------------------------
 
 interface HomeState {
@@ -77,9 +100,21 @@ const EMPTY_STATE: HomeState = {
   hydrated: false,
 };
 
+// ---------------------------------------------------------------------------
+// Component
+// ---------------------------------------------------------------------------
+
 export default function Home() {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const [state, setState] = useState<HomeState>(EMPTY_STATE);
+  const listRef = useRef<FlatList<Scene>>(null);
+  // Track which card is on screen so haptics fire on snap (and so we can
+  // expose an "index/total" hint later if we want).
+  const [activeIndex, setActiveIndex] = useState(0);
+  const lastIndexRef = useRef(0);
+
+  // ---- data hydration -----------------------------------------------------
 
   const load = useCallback(async () => {
     const [profile, completed] = await Promise.all([
@@ -95,190 +130,165 @@ export default function Home() {
     }, [load]),
   );
 
-  // Sahneleri mod'a göre grupla (memoized — SAMPLE_SCENES her renderda yeniden traverse edilmesin).
-  //
-  // CRITICAL: only show scenes that have a corresponding playable lesson.
-  // We have ~980 scene definitions but only ~146 lessons; tapping a scene
-  // without a lesson lands on "Sahne bulunamadı" which feels like a bug.
-  // Pre-filter here so the feed only surfaces what actually plays.
-  const scenesByRow = useMemo(() => {
-    const map: Record<string, Scene[]> = {};
-    for (const row of MODE_ROWS) {
-      if (row.comingSoon) {
-        map[row.key] = [];
-        continue;
-      }
-      map[row.key] = SAMPLE_SCENES.filter(
-        (s) => row.modes.includes(s.mode) && getScenario(s.lessonId) !== null,
-      );
-    }
-    return map;
-  }, []);
+  // ---- scene ordering -----------------------------------------------------
 
-  // Hero — günün önerilen sahnesi: tamamlanmamış olan ilk isNew sahne, yoksa ilk tamamlanmamış.
-  // Aynı playable-lesson filtresi hero'ya da uygulanır.
-  const hero = useMemo<Scene | null>(() => {
+  // Playable + deterministically shuffled + completed-drift-to-back.
+  // We compute the playable list and stable shuffle once (no deps on
+  // `completed`) so the order doesn't reshuffle as the user finishes
+  // scenes. Completion only adds a "drift" pass which is also stable.
+  const playableShuffled = useMemo<Scene[]>(() => {
+    const seed = todaySeed();
     const playable = SAMPLE_SCENES.filter(
       (s) => getScenario(s.lessonId) !== null,
     );
-    const fresh = playable.filter((s) => !state.completed.has(s.lessonId));
-    const newOne = fresh.find((s) => s.isNew);
-    return newOne ?? fresh[0] ?? playable[0] ?? null;
-  }, [state.completed]);
+    // Sort by hash(scene.id, seed). isNew gets a -1 bias so featured cards
+    // bubble toward the top of today's order without dominating it.
+    const ranked = playable
+      .map((s) => ({
+        scene: s,
+        key: hashString(s.id, seed) - (s.isNew ? 0x40000000 : 0),
+      }))
+      .sort((a, b) => a.key - b.key)
+      .map((x) => x.scene);
+    return ranked;
+  }, []);
 
-  // First-time user (0 completed) gets a welcome card instead of the
-  // "today's scene" hero so the home doesn't look like it loaded broken data.
-  // Gate on `hydrated` so returning users don't briefly see the welcome
-  // card before their real progress lands.
-  const isFirstRun = state.hydrated && state.completed.size === 0;
+  // Drift completed scenes to the back, keeping relative order otherwise.
+  // This recomputes when `state.completed` changes (i.e. after a session),
+  // which is fine: the user is back on Home and a re-sort is expected.
+  const scenes = useMemo<Scene[]>(() => {
+    if (state.completed.size === 0) return playableShuffled;
+    const fresh: Scene[] = [];
+    const done: Scene[] = [];
+    for (const s of playableShuffled) {
+      if (state.completed.has(s.lessonId)) done.push(s);
+      else fresh.push(s);
+    }
+    return fresh.concat(done);
+  }, [playableShuffled, state.completed]);
 
   const streak = state.profile?.current_streak ?? 0;
 
-  // useCallback so SceneCard's memo doesn't re-render every time
-  // `state.completed` changes for unrelated cards.
+  // ---- callbacks ----------------------------------------------------------
+
   const goScene = useCallback(
-    async (lessonId: string) => {
-      try {
-        await Haptics.selectionAsync();
-      } catch {}
+    (lessonId: string) => {
       router.push(`/scenario/${lessonId}` as never);
     },
     [router],
   );
 
-  const goHero = useCallback(async () => {
-    if (!hero) return;
-    try {
-      await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    } catch {}
-    router.push(`/scenario/${hero.lessonId}` as never);
-  }, [hero, router]);
+  // Skip = advance to next card programmatically. We don't mutate the
+  // playable list; we just nudge the pager. If we're already at the last
+  // card, wrap to the first (TikTok behavior — infinite-ish feed feel).
+  const goSkip = useCallback(
+    (_lessonId: string) => {
+      const total = scenes.length;
+      if (total <= 1) return;
+      const next = (lastIndexRef.current + 1) % total;
+      listRef.current?.scrollToIndex({ index: next, animated: true });
+    },
+    [scenes.length],
+  );
+
+  // ---- card height: window minus chrome ----------------------------------
+
+  // We compute this in render rather than useMemo because Dimensions can
+  // change on orientation/resize, and the cost is trivial.
+  const cardHeight =
+    SCREEN.height - insets.top - insets.bottom - TOP_BAR_HEIGHT - BOTTOM_NAV_HEIGHT;
+
+  // ---- FlatList wiring ----------------------------------------------------
+
+  const renderItem = useCallback(
+    ({ item }: ListRenderItemInfo<Scene>) => (
+      <SwipeSceneCard
+        scene={item}
+        completed={state.completed.has(item.lessonId)}
+        cardHeight={cardHeight}
+        onEnter={goScene}
+        onSkip={goSkip}
+      />
+    ),
+    [cardHeight, goScene, goSkip, state.completed],
+  );
+
+  const keyExtractor = useCallback((s: Scene) => s.id, []);
+
+  const getItemLayout = useCallback(
+    (_: ArrayLike<Scene> | null | undefined, index: number) => ({
+      length: cardHeight,
+      offset: cardHeight * index,
+      index,
+    }),
+    [cardHeight],
+  );
+
+  const onMomentumScrollEnd = useCallback(
+    (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+      const y = e.nativeEvent.contentOffset.y;
+      const idx = Math.round(y / Math.max(cardHeight, 1));
+      if (idx !== lastIndexRef.current) {
+        lastIndexRef.current = idx;
+        setActiveIndex(idx);
+        try {
+          void Haptics.selectionAsync();
+        } catch {}
+      }
+    },
+    [cardHeight],
+  );
+
+  // ---- render -------------------------------------------------------------
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
       <StatusBar style="light" />
 
-      {/* Top bar — wordmark + streak chip */}
+      {/* Top bar — wordmark + streak chip. Floats over the cards so it
+          doesn't eat into the immersive look but stays reachable. */}
       <View style={styles.topBar}>
         <Text style={styles.wordmark}>Lafla</Text>
-        {streak > 0 ? (
-          <View style={styles.streakChip}>
-            <Text style={styles.streakChipText}>🔥 {streak} gün</Text>
-          </View>
-        ) : null}
+        <View style={styles.topBarRight}>
+          {streak > 0 ? (
+            <View style={styles.streakChip}>
+              <Text style={styles.streakChipText}>🔥 {streak} gün</Text>
+            </View>
+          ) : null}
+          {scenes.length > 0 ? (
+            <Text style={styles.countText}>
+              {Math.min(activeIndex + 1, scenes.length)} / {scenes.length}
+            </Text>
+          ) : null}
+        </View>
       </View>
 
-      <ScrollView
-        style={styles.scroll}
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}
-      >
-        {/* Hero — skeleton while loading, welcome card for first-time
-            users, otherwise today's scene */}
-        {!state.hydrated ? (
-          <View style={[styles.hero, styles.heroSkeleton]}>
-            <View style={[styles.skel, { width: 80, height: 11 }]} />
-            <View
-              style={[
-                styles.skel,
-                { width: 48, height: 48, marginTop: 12, borderRadius: 12 },
-              ]}
-            />
-            <View style={[styles.skel, { width: 240, height: 28, marginTop: 8 }]} />
-            <View style={[styles.skel, { width: 220, height: 28, marginTop: 4 }]} />
-            <View style={[styles.skel, { width: 180, height: 14, marginTop: 12 }]} />
-          </View>
-        ) : isFirstRun ? (
-          <Pressable
-            onPress={goHero}
-            style={({ pressed }) => [styles.hero, pressed && styles.heroPressed]}
-            accessibilityRole="button"
-            accessibilityLabel="İlk sahneni seç"
-          >
-            <Text style={styles.heroEyebrow}>HOŞ GELDİN</Text>
-            <Text style={styles.heroEmoji}>👋</Text>
-            <Text style={styles.heroTitle} numberOfLines={3}>
-              İngilizce'ye{"\n"}5 dakikada başla
-            </Text>
-            <Text style={styles.heroSub}>
-              Aşağıdaki modlardan birinden bir sahne seç ve konuşmaya başla.
-            </Text>
-          </Pressable>
-        ) : hero ? (
-          <Pressable
-            onPress={goHero}
-            style={({ pressed }) => [styles.hero, pressed && styles.heroPressed]}
-            accessibilityRole="button"
-            accessibilityLabel={`Günün sahnesi: ${hero.title.replace(/\n/g, " ")}`}
-          >
-            <Text style={styles.heroEyebrow}>BUGÜN İÇİN</Text>
-            <Text style={styles.heroEmoji}>{hero.emoji}</Text>
-            <Text style={styles.heroTitle} numberOfLines={3}>
-              {hero.title}
-            </Text>
-            <Text style={styles.heroSub}>
-              {hero.durationMin} dk
-              {hero.cefrLevel ? ` · ${hero.cefrLevel}` : ""} · pratiğe başla
-            </Text>
-          </Pressable>
-        ) : null}
+      {/* Body: vertical pager OR empty state */}
+      {scenes.length === 0 ? (
+        <EmptyState onProfile={() => router.push("/profile" as never)} />
+      ) : (
+        <FlatList
+          ref={listRef}
+          data={scenes}
+          renderItem={renderItem}
+          keyExtractor={keyExtractor}
+          pagingEnabled
+          showsVerticalScrollIndicator={false}
+          snapToInterval={cardHeight}
+          snapToAlignment="start"
+          decelerationRate="fast"
+          disableIntervalMomentum
+          getItemLayout={getItemLayout}
+          initialNumToRender={2}
+          windowSize={3}
+          maxToRenderPerBatch={2}
+          removeClippedSubviews
+          onMomentumScrollEnd={onMomentumScrollEnd}
+        />
+      )}
 
-        {/* Mod satırları */}
-        {MODE_ROWS.map((row) => {
-          const scenes = scenesByRow[row.key] ?? [];
-          return (
-            <View key={row.key} style={styles.row}>
-              <View style={styles.rowHeader}>
-                <Text style={styles.rowTitle}>
-                  {row.emoji}  {row.title}
-                </Text>
-                {row.comingSoon ? (
-                  <View style={styles.soonChip}>
-                    <Text style={styles.soonChipText}>YAKINDA</Text>
-                  </View>
-                ) : (
-                  <Text style={styles.rowCount}>{scenes.length} sahne</Text>
-                )}
-              </View>
-
-              {row.comingSoon ? (
-                <View style={styles.soonCard}>
-                  <Text style={styles.soonCardText}>
-                    {row.title} senaryoları yakında. İlgini gösterdin —
-                    içerik üretildikçe ilk burada görünecek.
-                  </Text>
-                </View>
-              ) : (
-                <FlatList
-                  data={scenes}
-                  horizontal
-                  showsHorizontalScrollIndicator={false}
-                  keyExtractor={(item) => item.id}
-                  contentContainerStyle={styles.rowList}
-                  initialNumToRender={4}
-                  maxToRenderPerBatch={4}
-                  windowSize={3}
-                  getItemLayout={(_, index) => ({
-                    length: 172,
-                    offset: 172 * index,
-                    index,
-                  })}
-                  renderItem={({ item }) => (
-                    <SceneCard
-                      scene={item}
-                      completed={state.completed.has(item.lessonId)}
-                      onPress={goScene}
-                    />
-                  )}
-                />
-              )}
-            </View>
-          );
-        })}
-      </ScrollView>
-
-      {/* Bottom nav */}
-      <View style={styles.nav}>
+      {/* Bottom nav — Anasayfa active, Profil to /profile */}
+      <View style={[styles.nav, { height: BOTTOM_NAV_HEIGHT }]}>
         <NavTab label="Anasayfa" active />
         <NavTab label="Profil" onPress={() => router.push("/profile" as never)} />
       </View>
@@ -287,56 +297,43 @@ export default function Home() {
 }
 
 // ---------------------------------------------------------------------------
-// Subcomponents
+// Empty state
 // ---------------------------------------------------------------------------
 
-interface SceneCardProps {
-  scene: Scene;
-  completed: boolean;
-  onPress: (lessonId: string) => void;
-}
-
-const SceneCard = memo(function SceneCard({
-  scene,
-  completed,
-  onPress,
-}: SceneCardProps) {
-  const handlePress = useCallback(() => onPress(scene.lessonId), [
-    onPress,
-    scene.lessonId,
-  ]);
+// Falls through only if SAMPLE_SCENES is empty OR every scene fails the
+// playable filter. In practice this shouldn't happen — but the previous
+// home had no empty state, and showing nothing reads as a broken app.
+const EmptyState = memo(function EmptyState({
+  onProfile,
+}: {
+  onProfile: () => void;
+}) {
   return (
-    <Pressable
-      onPress={handlePress}
-      style={({ pressed }) => [
-        cardStyles.card,
-        pressed && cardStyles.cardPressed,
-        completed && cardStyles.cardCompleted,
-      ]}
-      accessibilityRole="button"
-      accessibilityLabel={`Sahne: ${scene.title.replace(/\n/g, " ")}`}
-    >
-      <View style={cardStyles.cardTop}>
-        <Text style={cardStyles.cardEmoji}>{scene.emoji}</Text>
-        {scene.isNew && !completed ? (
-          <View style={cardStyles.newPill}>
-            <Text style={cardStyles.newPillText}>YENİ</Text>
-          </View>
-        ) : null}
-      </View>
-      <Text style={cardStyles.cardTitle} numberOfLines={3}>
-        {scene.title}
+    <View style={styles.emptyWrap}>
+      <Text style={styles.emptyEmoji}>🌙</Text>
+      <Text style={styles.emptyTitle}>Daha çok sahne yakında</Text>
+      <Text style={styles.emptySub}>
+        İçerik üretildikçe ilk burada görünecek. Bu arada profilinden
+        ayarlarına göz at.
       </Text>
-      <View style={cardStyles.cardFooter}>
-        <Text style={cardStyles.cardMeta}>
-          {scene.durationMin} dk
-          {scene.cefrLevel ? ` · ${scene.cefrLevel}` : ""}
-        </Text>
-        {completed ? <Text style={cardStyles.completedTick}>✓</Text> : null}
-      </View>
-    </Pressable>
+      <Pressable
+        onPress={onProfile}
+        style={({ pressed }) => [
+          styles.emptyCta,
+          pressed && styles.emptyCtaPressed,
+        ]}
+        accessibilityRole="button"
+        accessibilityLabel="Profile git"
+      >
+        <Text style={styles.emptyCtaText}>Profil</Text>
+      </Pressable>
+    </View>
   );
 });
+
+// ---------------------------------------------------------------------------
+// Bottom nav tab
+// ---------------------------------------------------------------------------
 
 function NavTab({
   label,
@@ -374,18 +371,22 @@ const styles = StyleSheet.create({
     backgroundColor: tokens.bg.app,
   },
   topBar: {
+    height: TOP_BAR_HEIGHT,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 20,
-    paddingTop: 8,
-    paddingBottom: 4,
   },
   wordmark: {
     fontSize: 26,
     fontWeight: tokens.weight.black,
     color: tokens.text.primary,
     letterSpacing: -0.8,
+  },
+  topBarRight: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
   },
   streakChip: {
     paddingHorizontal: 10,
@@ -401,199 +402,65 @@ const styles = StyleSheet.create({
     color: tokens.brand.primary,
     letterSpacing: 0.3,
   },
-  scroll: { flex: 1 },
-  scrollContent: {
-    paddingBottom: 32,
-    paddingTop: 8,
-  },
-
-  // Hero
-  hero: {
-    marginHorizontal: 20,
-    marginBottom: 24,
-    padding: 24,
-    borderRadius: tokens.radius.lg,
-    backgroundColor: tokens.bg.surfaceContainer,
-    borderWidth: 1,
-    borderColor: tokens.brand.primary,
-    shadowColor: tokens.brand.primary,
-    shadowOffset: { width: 0, height: 12 },
-    shadowOpacity: 0.35,
-    shadowRadius: 22,
-    elevation: 10,
-  },
-  heroPressed: {
-    opacity: 0.92,
-    transform: [{ scale: 0.99 }],
-  },
-  heroEyebrow: {
-    fontSize: 11,
-    fontWeight: tokens.weight.extrabold,
-    color: tokens.brand.primary,
-    letterSpacing: 1.8,
-  },
-  heroEmoji: {
-    fontSize: 48,
-    marginTop: 12,
-    marginBottom: 4,
-  },
-  heroTitle: {
-    fontSize: 26,
-    fontWeight: tokens.weight.black,
-    color: tokens.text.primary,
-    letterSpacing: -0.8,
-    lineHeight: 30,
-    marginTop: 4,
-  },
-  heroSkeleton: {
-    // De-emphasize the border + shadow during loading so the placeholder
-    // doesn't pulse the hot-pink glow before content arrives.
-    borderColor: tokens.border.light,
-    shadowOpacity: 0,
-    elevation: 0,
-  },
-  skel: {
-    backgroundColor: tokens.bg.surfaceContainerHigh,
-    borderRadius: 6,
-    opacity: 0.7,
-  },
-  heroSub: {
-    marginTop: 10,
-    fontSize: 13,
-    fontWeight: tokens.weight.semibold,
-    color: tokens.text.secondary,
-    letterSpacing: 0.2,
-  },
-
-  // Row
-  row: {
-    marginBottom: 22,
-  },
-  rowHeader: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 20,
-    marginBottom: 10,
-  },
-  rowTitle: {
-    fontSize: 18,
-    fontWeight: tokens.weight.extrabold,
-    color: tokens.text.primary,
-    letterSpacing: -0.3,
-  },
-  rowCount: {
+  countText: {
     fontSize: 11,
     fontWeight: tokens.weight.bold,
     color: tokens.text.tertiary,
-    letterSpacing: 0.4,
-  },
-  rowList: {
-    paddingHorizontal: 16,
-    gap: 12,
-  },
-  soonChip: {
-    paddingHorizontal: 8,
-    paddingVertical: 3,
-    borderRadius: tokens.radius.full,
-    backgroundColor: tokens.bg.surfaceContainerHigh,
-    borderWidth: 1,
-    borderColor: tokens.border.light,
-  },
-  soonChipText: {
-    fontSize: 10,
-    fontWeight: tokens.weight.extrabold,
-    color: tokens.text.tertiary,
-    letterSpacing: 1.2,
-  },
-  soonCard: {
-    marginHorizontal: 20,
-    padding: 18,
-    borderRadius: tokens.radius.base,
-    backgroundColor: tokens.bg.surfaceContainerLow,
-    borderWidth: 1,
-    borderColor: tokens.border.light,
-    borderStyle: "dashed",
-  },
-  soonCardText: {
-    fontSize: 13,
-    lineHeight: 19,
-    color: tokens.text.secondary,
+    letterSpacing: 0.6,
   },
 
-  // Bottom nav
+  // ---- empty state ----
+  emptyWrap: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 32,
+  },
+  emptyEmoji: {
+    fontSize: 64,
+    marginBottom: 16,
+  },
+  emptyTitle: {
+    fontSize: 22,
+    fontWeight: tokens.weight.black,
+    color: tokens.text.primary,
+    textAlign: "center",
+    letterSpacing: -0.5,
+  },
+  emptySub: {
+    marginTop: 10,
+    fontSize: 14,
+    lineHeight: 20,
+    color: tokens.text.secondary,
+    textAlign: "center",
+  },
+  emptyCta: {
+    marginTop: 22,
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.primary,
+  },
+  emptyCtaPressed: {
+    opacity: 0.86,
+    transform: [{ scale: 0.97 }],
+  },
+  emptyCtaText: {
+    fontSize: 15,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.onPrimary,
+    letterSpacing: 0.4,
+  },
+
+  // ---- bottom nav ----
   nav: {
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    height: 60,
     paddingHorizontal: 8,
     borderTopWidth: 1,
     borderTopColor: tokens.border.light,
     backgroundColor: tokens.bg.surfaceContainerLowest,
-  },
-});
-
-const cardStyles = StyleSheet.create({
-  card: {
-    width: 160,
-    height: 200,
-    padding: 14,
-    borderRadius: tokens.radius.base,
-    backgroundColor: tokens.bg.surfaceContainer,
-    borderWidth: 1,
-    borderColor: tokens.border.light,
-    justifyContent: "space-between",
-  },
-  cardPressed: {
-    opacity: 0.86,
-    transform: [{ scale: 0.97 }],
-  },
-  cardCompleted: {
-    opacity: 0.62,
-  },
-  cardTop: {
-    flexDirection: "row",
-    alignItems: "flex-start",
-    justifyContent: "space-between",
-  },
-  cardEmoji: {
-    fontSize: 32,
-  },
-  newPill: {
-    paddingHorizontal: 7,
-    paddingVertical: 2,
-    borderRadius: tokens.radius.full,
-    backgroundColor: tokens.brand.primary,
-  },
-  newPillText: {
-    fontSize: 9,
-    fontWeight: tokens.weight.extrabold,
-    color: tokens.text.onPrimary,
-    letterSpacing: 0.8,
-  },
-  cardTitle: {
-    fontSize: 14,
-    fontWeight: tokens.weight.extrabold,
-    color: tokens.text.primary,
-    lineHeight: 18,
-    letterSpacing: -0.2,
-  },
-  cardFooter: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  cardMeta: {
-    fontSize: 11,
-    fontWeight: tokens.weight.bold,
-    color: tokens.text.tertiary,
-    letterSpacing: 0.2,
-  },
-  completedTick: {
-    fontSize: 14,
-    fontWeight: tokens.weight.extrabold,
-    color: tokens.brand.tertiary,
   },
 });
 

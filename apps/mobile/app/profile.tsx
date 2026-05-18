@@ -1,11 +1,26 @@
-// Profile screen — adult metric dashboard + account + settings.
+// Profile screen — premium stats dashboard (Neon Noir).
 //
-// Pivoted from the XP/streak gamification surface to a Strava/Whoop-style
-// view: real practice minutes, vocab size, scene completion, CEFR
-// sub-skill bars, and a weekly recap card. The legacy auth and settings
-// rows are preserved unchanged.
+// Replaces the previous settings-style list with a Strava/Whoop-flavored
+// dashboard: hero stat strip (streak / XP / completed), per-mode progress
+// rails for the 8 canonical modes, then a slim account section at the
+// bottom. All data is read locally; no network on mount.
+//
+// Mode taxonomy used (8 surfaces shown to user):
+//   🧊 Flört   → scenes.mode === "flirt"
+//   💼 İş      → scenes.mode === "work"
+//   ✈️ Seyahat → scenes.mode === "travel"
+//   👥 Sosyal  → scenes.mode === "daily"   (everyday social register)
+//   🍽️ Sipariş → scenes.mode === "order"
+//   🎉 Espri   → scenes.mode === "banter"
+//   💪 Spor    → scenes.mode === "sport"
+//   🩺 Sağlık  → scenes.mode === "health"
+//
+// SceneMode also has career / academic / professional / personal / testprep,
+// which intentionally don't surface here — they roll up into the user-facing
+// 8 above (e.g. "career" lives under İş context-wise, but to keep counts
+// honest we only count exact matches; this is documented and intentional).
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -13,97 +28,109 @@ import {
   ScrollView,
   Pressable,
   Alert,
+  RefreshControl,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { getCurrentProfile, signOut, type Profile } from "../lib/auth";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+  Easing,
+} from "react-native-reanimated";
+import { signOut } from "../lib/auth";
 import { supabase } from "../lib/supabase";
 import {
   getCompletedLessonIds,
   getLocalProfile,
   type LocalProfile,
 } from "../lib/local-progress";
-import {
-  disableReminders,
-  enableDailyReminder,
-  isNotificationsEnabled,
-} from "../lib/notifications";
+import { SAMPLE_SCENES, type SceneMode } from "../data/scenes";
 import { tokens } from "../theme";
-import {
-  computeMetrics,
-  getWeeklyReport,
-  type UserMetrics,
-  type WeeklyReport,
-} from "../lib/metrics";
-import { StatsHero } from "../components/StatsHero";
-import { MetricBar } from "../components/MetricBar";
-import { WeeklyReportCard } from "../components/WeeklyReportCard";
+
+// ---------------------------------------------------------------
+// Mode taxonomy
+// ---------------------------------------------------------------
+
+type ModeRow = {
+  key: SceneMode;
+  emoji: string;
+  label: string;
+};
+
+const MODES: ReadonlyArray<ModeRow> = [
+  { key: "flirt", emoji: "🧊", label: "Flört" },
+  { key: "work", emoji: "💼", label: "İş" },
+  { key: "travel", emoji: "✈️", label: "Seyahat" },
+  { key: "daily", emoji: "👥", label: "Sosyal" },
+  { key: "order", emoji: "🍽️", label: "Sipariş" },
+  { key: "banter", emoji: "🎉", label: "Espri" },
+  { key: "sport", emoji: "💪", label: "Spor" },
+  { key: "health", emoji: "🩺", label: "Sağlık" },
+];
+
+// Precompute total lesson counts per mode at module load — SAMPLE_SCENES is
+// a bundled constant, so this never changes between renders or sessions.
+const TOTAL_PER_MODE: Record<string, number> = MODES.reduce(
+  (acc, m) => {
+    acc[m.key] = SAMPLE_SCENES.filter((s) => s.mode === m.key).length;
+    return acc;
+  },
+  {} as Record<string, number>,
+);
+
+// ---------------------------------------------------------------
+// Screen
+// ---------------------------------------------------------------
 
 export default function ProfileScreen() {
   const router = useRouter();
-  const [profile, setProfile] = useState<Profile | null>(null);
-  const [local, setLocal] = useState<LocalProfile | null>(null);
+  const [displayName, setDisplayName] = useState<string>("Hoş geldin");
   const [signedIn, setSignedIn] = useState(false);
-  const [lessonsCompleted, setLessonsCompleted] = useState(0);
-  const [remindersOn, setRemindersOn] = useState(false);
-  const [metrics, setMetrics] = useState<UserMetrics | null>(null);
-  const [weekly, setWeekly] = useState<WeeklyReport | null>(null);
+  const [local, setLocal] = useState<LocalProfile | null>(null);
+  const [completed, setCompleted] = useState<Set<string>>(new Set());
+  const [refreshing, setRefreshing] = useState(false);
 
-  useEffect(() => {
-    (async () => {
+  const loadAll = useCallback(async () => {
+    // Display name lives in AsyncStorage under `lafla.displayName` per the
+    // dashboard spec — fallback "Hoş geldin" when not set yet.
+    try {
+      const name = await AsyncStorage.getItem("lafla.displayName");
+      setDisplayName(name && name.trim().length > 0 ? name : "Hoş geldin");
+    } catch {
+      setDisplayName("Hoş geldin");
+    }
+
+    try {
       const { data } = await supabase.auth.getUser();
       setSignedIn(!!data.user);
-      // Always read local
-      const lp = await getLocalProfile();
-      setLocal(lp);
-      const completed = await getCompletedLessonIds();
-      setLessonsCompleted(completed.size);
-      setRemindersOn(await isNotificationsEnabled());
-      // Override with cloud values if signed in
-      if (data.user) {
-        const p = await getCurrentProfile();
-        setProfile(p);
-        const { count } = await supabase
-          .from("lesson_state")
-          .select("*", { count: "exact", head: true })
-          .eq("user_id", data.user.id)
-          .not("completed_at", "is", null);
-        if (count !== null && count !== undefined) setLessonsCompleted(count);
-      }
-      // Adult-tone metrics — fully local, no network.
-      try {
-        const [m, w] = await Promise.all([computeMetrics(), getWeeklyReport()]);
-        setMetrics(m);
-        setWeekly(w);
-      } catch {
-        // Soft-fail: profile still renders with — placeholders.
-      }
-    })();
+    } catch {
+      setSignedIn(false);
+    }
+
+    try {
+      const [p, c] = await Promise.all([
+        getLocalProfile(),
+        getCompletedLessonIds(),
+      ]);
+      setLocal(p);
+      setCompleted(c);
+    } catch {
+      // Soft-fail: chips fall back to 0.
+    }
   }, []);
 
-  const toggleReminders = async () => {
-    if (remindersOn) {
-      await disableReminders();
-      setRemindersOn(false);
-      Alert.alert("Bildirimler kapatıldı", "Her gün hatırlatıcı almayacaksın.");
-    } else {
-      const ok = await enableDailyReminder(19);
-      if (ok) {
-        setRemindersOn(true);
-        Alert.alert(
-          "Bildirimler açık ✓",
-          "Her gün saat 19:00'da ders hatırlatıcısı alacaksın.",
-        );
-      } else {
-        Alert.alert(
-          "İzin reddedildi",
-          "Ayarlar > Lafla > Bildirimler yolundan açabilirsin.",
-        );
-      }
-    }
-  };
+  useEffect(() => {
+    loadAll();
+  }, [loadAll]);
+
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    await loadAll();
+    setRefreshing(false);
+  }, [loadAll]);
 
   const handleSignOut = () => {
     Alert.alert("Hesap", "Çıkış yapmak istediğine emin misin?", [
@@ -119,154 +146,256 @@ export default function ProfileScreen() {
     ]);
   };
 
-  const handleResetLocal = () => {
-    Alert.alert(
-      "Veriyi sıfırla",
-      "Yerel ilerlemen silinecek. Devam edilsin mi?",
-      [
-        { text: "Vazgeç", style: "cancel" },
-        {
-          text: "Sıfırla",
-          style: "destructive",
-          onPress: async () => {
-            await AsyncStorage.clear().catch(() => {});
-            router.replace("/onboarding");
-          },
-        },
-      ],
-    );
-  };
+  const streak = local?.current_streak ?? 0;
+  const xp = local?.total_xp ?? 0;
+  const completedCount = completed.size;
 
-  const streakNum = profile?.current_streak ?? local?.current_streak ?? 0;
-  const consistencyText =
-    lessonsCompleted === 0
-      ? "Henüz başlamadın"
-      : `${streakNum} günlük aktif`;
+  // Per-mode completion counts derived from the in-memory Set.
+  const completedPerMode: Record<string, number> = MODES.reduce(
+    (acc, m) => {
+      acc[m.key] = SAMPLE_SCENES.filter(
+        (s) => s.mode === m.key && completed.has(s.lessonId),
+      ).length;
+      return acc;
+    },
+    {} as Record<string, number>,
+  );
 
   return (
     <SafeAreaView style={styles.safe} edges={["top"]}>
       <StatusBar style="light" />
 
       <View style={styles.header}>
-        <Pressable onPress={() => router.back()} style={styles.backBtn} hitSlop={12} accessibilityRole="button" accessibilityLabel="Geri">
+        <Pressable
+          onPress={() => router.back()}
+          style={styles.backBtn}
+          hitSlop={12}
+          accessibilityRole="button"
+          accessibilityLabel="Geri"
+        >
           <Text style={styles.backText}>← Geri</Text>
         </Pressable>
         <Text style={styles.title}>Profil</Text>
         <View style={styles.spacer} />
       </View>
 
-      <ScrollView contentContainerStyle={styles.content}>
-        {/* Identity strip — slimmer, no oversized avatar tile. */}
-        <View style={styles.identityRow}>
-          <View style={styles.avatarSmall}>
-            <Text style={styles.avatarSmallText}>
-              {(profile?.display_name ?? "L")[0]?.toUpperCase()}
-            </Text>
-          </View>
-          <View style={styles.identityCol}>
-            <Text style={styles.name}>
-              {signedIn
-                ? profile?.display_name ?? "Lafla kullanıcısı"
-                : "Misafir"}
-            </Text>
-            <View style={styles.identityMetaRow}>
-              <View style={styles.consistencyDot} />
-              <Text style={styles.consistencyText}>{consistencyText}</Text>
-              <Text style={styles.metaDivider}>·</Text>
-              <Text style={styles.consistencyText}>
-                {profile?.is_premium ? "Pro" : "Free"}
-              </Text>
-            </View>
-          </View>
-          {!signedIn && (
-            <Pressable
-              onPress={() => router.push("/auth")}
-              style={styles.signinPill}
-            >
-              <Text style={styles.signinPillText}>Giriş</Text>
-            </Pressable>
-          )}
+      <ScrollView
+        contentContainerStyle={styles.content}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor={tokens.brand.tertiary}
+            colors={[tokens.brand.primary]}
+            progressBackgroundColor={tokens.bg.surfaceContainer}
+          />
+        }
+      >
+        {/* Greeting */}
+        <Text style={styles.greeting} numberOfLines={1}>
+          {displayName}
+        </Text>
+
+        {/* Hero stat strip — 3 chips. */}
+        <View style={styles.heroRow}>
+          <StatChip
+            icon="🔥"
+            value={String(streak)}
+            label="gün seri"
+            accent={tokens.brand.primary}
+            glow={tokens.brand.primaryGlow}
+          />
+          <StatChip
+            icon="⭐"
+            value={String(xp)}
+            label="XP"
+            accent={tokens.brand.tertiary}
+            glow={tokens.brand.tertiaryGlow}
+          />
+          <StatChip
+            icon="✅"
+            value={String(completedCount)}
+            label="tamamlanan"
+            accent={tokens.brand.tertiary}
+            glow={tokens.brand.tertiaryGlow}
+          />
         </View>
 
-        {/* Adult metric hero — 2x2 real stats grid. */}
-        <StatsHero metrics={metrics} />
-
-        {/* CEFR sub-skill bars. */}
-        <View style={styles.skillsBlock}>
-          <Text style={styles.blockLabel}>BECERİ KIRILIMI</Text>
-          {metrics ? (
-            <>
-              <MetricBar label="Dinleme" level={metrics.skillBreakdown.listening} />
-              <MetricBar label="Konuşma" level={metrics.skillBreakdown.speaking} />
-              <MetricBar
-                label="Telaffuz"
-                level={metrics.skillBreakdown.pronunciation}
+        {/* Modes */}
+        <Text style={styles.sectionLabel}>MODLAR</Text>
+        <View style={styles.modeList}>
+          {MODES.map((m) => {
+            const total = TOTAL_PER_MODE[m.key] ?? 0;
+            const done = completedPerMode[m.key] ?? 0;
+            const ratio = total > 0 ? Math.min(1, done / total) : 0;
+            return (
+              <ModeRowView
+                key={m.key}
+                emoji={m.emoji}
+                label={m.label}
+                done={done}
+                total={total}
+                ratio={ratio}
+                onPress={() => router.push("/home" as never)}
               />
-              <MetricBar
-                label="Kelime"
-                level={metrics.skillBreakdown.vocabulary}
-              />
-            </>
-          ) : (
-            <Text style={styles.blockPlaceholder}>Hazırlanıyor…</Text>
-          )}
+            );
+          })}
         </View>
 
-        {/* Weekly recap card. */}
-        <WeeklyReportCard report={weekly} />
-
-        {/* Settings */}
-        <View style={styles.section}>
-          <Text style={styles.sectionLabel}>AYARLAR</Text>
-
-          <Pressable
-            style={styles.row}
-            onPress={() => router.push("/paywall" as never)}
-          >
-            <Text style={styles.rowIcon}>👑</Text>
-            <Text style={styles.rowText}>Pro'ya Geç</Text>
-            <Text style={styles.rowChevron}>›</Text>
-          </Pressable>
-
-          <Pressable
-            style={styles.row}
+        {/* Account */}
+        <Text style={styles.sectionLabel}>HESAP</Text>
+        <View style={styles.accountCard}>
+          <AccountRow
+            icon="⚙️"
+            label="Ayarlar"
             onPress={() => router.push("/settings" as never)}
-          >
-            <Text style={styles.rowIcon}>⚙️</Text>
-            <Text style={styles.rowText}>Ayarlar</Text>
-            <Text style={styles.rowChevron}>›</Text>
-          </Pressable>
-
-          {/* Reminder row hidden until lib/notifications.ts is real. */}
-          {/* "İlgi alanlarımı değiştir" hidden — interests step was removed
-              from onboarding; restoring it would route to a flow that
-              doesn't update profile data. */}
-
-          <Pressable style={styles.row} onPress={handleResetLocal}>
-            <Text style={styles.rowIcon}>🧹</Text>
-            <Text style={styles.rowText}>İlerlemeyi sıfırla</Text>
-            <Text style={styles.rowChevron}>›</Text>
-          </Pressable>
-
-          {signedIn && (
-            <Pressable
-              style={[styles.row, styles.rowDanger]}
-              onPress={handleSignOut}
-            >
-              <Text style={styles.rowIcon}>🚪</Text>
-              <Text style={[styles.rowText, styles.rowTextDanger]}>
-                Çıkış yap
-              </Text>
-              <Text style={styles.rowChevron}>›</Text>
-            </Pressable>
-          )}
+          />
+          <View style={styles.rowDivider} />
+          <AccountRow
+            icon="🗑️"
+            label="Hesabımı sil"
+            danger
+            onPress={() => router.push("/settings" as never)}
+          />
         </View>
+
+        {signedIn && (
+          <Pressable
+            style={({ pressed }) => [
+              styles.signOutBtn,
+              pressed && styles.pressed,
+            ]}
+            onPress={handleSignOut}
+            accessibilityRole="button"
+            accessibilityLabel="Çıkış yap"
+          >
+            <Text style={styles.signOutText}>Çıkış yap</Text>
+          </Pressable>
+        )}
 
         <Text style={styles.versionText}>Lafla v0.1.0 · Konuş, çalış.</Text>
       </ScrollView>
     </SafeAreaView>
   );
 }
+
+// ---------------------------------------------------------------
+// Sub-components
+// ---------------------------------------------------------------
+
+interface StatChipProps {
+  icon: string;
+  value: string;
+  label: string;
+  accent: string;
+  glow: string;
+}
+
+function StatChip({ icon, value, label, accent, glow }: StatChipProps) {
+  return (
+    <View
+      style={[
+        styles.chip,
+        {
+          borderColor: accent,
+          shadowColor: glow,
+        },
+      ]}
+    >
+      <Text style={styles.chipIcon}>{icon}</Text>
+      <Text style={[styles.chipValue, { color: accent }]}>{value}</Text>
+      <Text style={styles.chipLabel} numberOfLines={1}>
+        {label}
+      </Text>
+    </View>
+  );
+}
+
+interface ModeRowProps {
+  emoji: string;
+  label: string;
+  done: number;
+  total: number;
+  ratio: number;
+  onPress: () => void;
+}
+
+function ModeRowView({ emoji, label, done, total, ratio, onPress }: ModeRowProps) {
+  // Animate the fill bar from 0 → ratio on mount. Reanimated v3 — all work
+  // happens on the UI thread; no per-frame JS callbacks.
+  const fill = useSharedValue(0);
+  useEffect(() => {
+    fill.value = withTiming(ratio, {
+      duration: 650,
+      easing: Easing.out(Easing.cubic),
+    });
+  }, [ratio, fill]);
+
+  const fillStyle = useAnimatedStyle(() => ({
+    width: `${fill.value * 100}%`,
+  }));
+
+  return (
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [
+        styles.modeRow,
+        pressed && styles.pressed,
+      ]}
+      accessibilityRole="button"
+      accessibilityLabel={`${label}, ${done} / ${total} tamamlandı`}
+    >
+      <Text style={styles.modeEmoji}>{emoji}</Text>
+      <View style={styles.modeBody}>
+        <View style={styles.modeTopRow}>
+          <Text style={styles.modeLabel}>{label}</Text>
+          <Text style={styles.modeCount}>
+            {done} / {total}
+          </Text>
+        </View>
+        <View style={styles.barTrack}>
+          <Animated.View style={[styles.barFill, fillStyle]} />
+        </View>
+      </View>
+    </Pressable>
+  );
+}
+
+interface AccountRowProps {
+  icon: string;
+  label: string;
+  danger?: boolean;
+  onPress: () => void;
+}
+
+function AccountRow({ icon, label, danger, onPress }: AccountRowProps) {
+  return (
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [
+        styles.accountRow,
+        pressed && styles.pressed,
+      ]}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+    >
+      <Text style={styles.accountIcon}>{icon}</Text>
+      <Text
+        style={[
+          styles.accountLabel,
+          danger && { color: tokens.semantic.error },
+        ]}
+      >
+        {label}
+      </Text>
+      <Text style={styles.accountChevron}>›</Text>
+    </Pressable>
+  );
+}
+
+// ---------------------------------------------------------------
+// Styles
+// ---------------------------------------------------------------
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: tokens.bg.app },
@@ -283,142 +412,179 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: tokens.weight.extrabold,
     color: tokens.text.primary,
+    fontFamily: tokens.font.display,
   },
   spacer: { width: 70 },
   content: {
-    padding: tokens.spacing.md,
-    paddingBottom: 80,
+    paddingHorizontal: tokens.spacing.md,
+    paddingTop: tokens.spacing.base,
+    paddingBottom: 96,
   },
-  identityRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 12,
+  greeting: {
+    fontSize: 22,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.primary,
     marginBottom: tokens.spacing.md,
+    fontFamily: tokens.font.display,
   },
-  avatarSmall: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: tokens.bg.surfaceContainerHigh,
+
+  // Hero strip
+  heroRow: {
+    flexDirection: "row",
+    gap: 10,
+    marginBottom: tokens.spacing.lg,
+  },
+  chip: {
+    flex: 1,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderRadius: tokens.radius.base,
+    borderWidth: 1,
+    paddingVertical: 14,
+    paddingHorizontal: 10,
     alignItems: "center",
     justifyContent: "center",
-  },
-  avatarSmallText: {
-    fontSize: 20,
-    fontWeight: tokens.weight.bold,
-    color: tokens.text.primary,
-  },
-  identityCol: {
-    flex: 1,
     gap: 4,
+    // Neon glow — iOS only honors these; Android falls back to flat border.
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 1,
+    shadowRadius: 12,
   },
-  name: {
-    fontSize: 18,
-    fontWeight: tokens.weight.bold,
-    color: tokens.text.primary,
+  chipIcon: {
+    fontSize: 22,
   },
-  identityMetaRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 6,
+  chipValue: {
+    fontSize: 22,
+    fontWeight: tokens.weight.extrabold,
+    fontFamily: tokens.font.display,
   },
-  consistencyDot: {
-    width: 6,
-    height: 6,
-    borderRadius: 3,
-    backgroundColor: tokens.brand.tertiary,
-  },
-  consistencyText: {
-    fontSize: 12,
-    color: tokens.text.secondary,
-    fontWeight: tokens.weight.medium,
-  },
-  metaDivider: {
-    fontSize: 12,
-    color: tokens.text.tertiary,
-  },
-  signinPill: {
-    backgroundColor: tokens.brand.tertiarySoft,
-    borderWidth: 1,
-    borderColor: tokens.brand.tertiary,
-    paddingHorizontal: 14,
-    paddingVertical: 6,
-    borderRadius: tokens.radius.full,
-  },
-  signinPillText: {
-    color: tokens.brand.tertiary,
-    fontWeight: tokens.weight.semibold,
-    fontSize: 12,
-  },
-  skillsBlock: {
-    backgroundColor: tokens.bg.surfaceContainer,
-    borderRadius: tokens.radius.base,
-    borderWidth: 1,
-    borderColor: tokens.border.light,
-    padding: tokens.spacing.md,
-    marginBottom: tokens.spacing.md,
-  },
-  blockLabel: {
+  chipLabel: {
     fontSize: 11,
-    fontWeight: tokens.weight.bold,
     color: tokens.text.tertiary,
-    letterSpacing: 1.2,
-    marginBottom: 8,
+    fontWeight: tokens.weight.medium,
+    letterSpacing: 0.4,
+    textAlign: "center",
   },
-  blockPlaceholder: {
-    fontSize: 13,
-    color: tokens.text.tertiary,
-    paddingVertical: 12,
-  },
-  section: {
-    backgroundColor: tokens.bg.surfaceContainer,
-    borderRadius: tokens.radius.base,
-    padding: 4,
-  },
+
+  // Section
   sectionLabel: {
     fontSize: 11,
     fontWeight: tokens.weight.bold,
     color: tokens.text.tertiary,
-    letterSpacing: 1.2,
-    paddingHorizontal: 12,
-    paddingTop: 12,
-    paddingBottom: 8,
+    letterSpacing: 1.4,
+    marginBottom: 10,
+    marginTop: 4,
   },
-  row: {
+
+  // Mode rows
+  modeList: {
+    gap: 8,
+    marginBottom: tokens.spacing.lg,
+  },
+  modeRow: {
     flexDirection: "row",
     alignItems: "center",
+    gap: 14,
+    backgroundColor: tokens.bg.surfaceContainerLow,
+    borderRadius: tokens.radius.base,
+    borderWidth: 1,
+    borderColor: tokens.border.light,
     paddingHorizontal: 14,
     paddingVertical: 14,
-    gap: 12,
   },
-  rowIcon: { fontSize: 20 },
-  rowText: {
+  modeEmoji: {
+    fontSize: 24,
+  },
+  modeBody: {
+    flex: 1,
+    gap: 8,
+  },
+  modeTopRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "baseline",
+  },
+  modeLabel: {
+    fontSize: 15,
+    fontWeight: tokens.weight.semibold,
+    color: tokens.text.primary,
+  },
+  modeCount: {
+    fontSize: 13,
+    fontWeight: tokens.weight.semibold,
+    color: tokens.text.secondary,
+    fontVariant: ["tabular-nums"],
+  },
+  barTrack: {
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: tokens.bg.surfaceContainerHigh,
+    overflow: "hidden",
+  },
+  barFill: {
+    height: "100%",
+    backgroundColor: tokens.brand.primary,
+    borderRadius: 3,
+  },
+
+  // Account
+  accountCard: {
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderRadius: tokens.radius.base,
+    borderWidth: 1,
+    borderColor: tokens.border.light,
+    overflow: "hidden",
+    marginBottom: tokens.spacing.md,
+  },
+  accountRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 16,
+    paddingVertical: 16,
+    gap: 14,
+  },
+  accountIcon: {
+    fontSize: 20,
+  },
+  accountLabel: {
     flex: 1,
     fontSize: 15,
     fontWeight: tokens.weight.semibold,
     color: tokens.text.primary,
   },
-  rowChevron: {
-    fontSize: 20,
+  accountChevron: {
+    fontSize: 22,
     color: tokens.text.tertiary,
   },
-  rowBadge: {
-    color: tokens.brand.tertiary,
-    fontSize: 13,
-    fontWeight: tokens.weight.bold,
+  rowDivider: {
+    height: 1,
+    backgroundColor: tokens.border.light,
+    marginLeft: 50,
   },
-  rowDanger: {
-    marginTop: 8,
-    borderTopWidth: 1,
-    borderTopColor: tokens.border.light,
+
+  // Sign out
+  signOutBtn: {
+    backgroundColor: tokens.semantic.errorContainer,
+    borderRadius: tokens.radius.base,
+    borderWidth: 1,
+    borderColor: tokens.semantic.error,
+    paddingVertical: 14,
+    alignItems: "center",
+    marginBottom: tokens.spacing.md,
   },
-  rowTextDanger: {
+  signOutText: {
     color: tokens.semantic.error,
+    fontWeight: tokens.weight.bold,
+    fontSize: 15,
   },
+
+  pressed: {
+    opacity: 0.7,
+  },
+
   versionText: {
     textAlign: "center",
     color: tokens.text.tertiary,
     fontSize: 12,
-    marginTop: tokens.spacing.lg,
+    marginTop: tokens.spacing.base,
   },
 });

@@ -74,6 +74,20 @@ import { grammarCapsuleLessons } from "./grammar-capsules-lesson";
 import { testIeltsSpeakingLessons } from "./test-ielts-speaking-lesson";
 import { testToeflSpeakingLessons } from "./test-toefl-speaking-lesson";
 import { testYdsYokdilLessons } from "./test-yds-yokdil-lesson";
+// ---- Pivot 2 (Spor + Sağlık modes + C1 layer + Travel/Flört derinleşme) ----
+import { sportA1A2Lessons } from "./sport-a1-a2-lessons";
+import { sportB1B2Lessons } from "./sport-b1-b2-lessons";
+import { sportC1Lessons } from "./sport-c1-lessons";
+import { healthA1A2Lessons } from "./health-a1-a2-lessons";
+import { healthB1B2Lessons } from "./health-b1-b2-lessons";
+import { healthC1Lessons } from "./health-c1-lessons";
+import { travelExpandedLessons } from "./travel-expanded-lessons";
+import { travelC1Lessons } from "./travel-c1-lessons";
+import { flirtAdvancedLessons } from "./flirt-advanced-lessons";
+import { flirtC1Lessons } from "./flirt-c1-lessons";
+import { banterC1Lessons } from "./banter-c1-lessons";
+import { orderC1Lessons } from "./order-c1-lessons";
+import { socialC1Lessons } from "./social-c1-lessons";
 import type { BundledLesson } from "./cafe-lesson";
 
 export const allLessons: ReadonlyArray<BundledLesson> = [
@@ -150,6 +164,21 @@ export const allLessons: ReadonlyArray<BundledLesson> = [
   ...testIeltsSpeakingLessons,
   ...testToeflSpeakingLessons,
   ...testYdsYokdilLessons,
+  // Pivot 2 — Spor & Sağlık (A1-C1 across all relevant modes)
+  ...sportA1A2Lessons,
+  ...sportB1B2Lessons,
+  ...sportC1Lessons,
+  ...healthA1A2Lessons,
+  ...healthB1B2Lessons,
+  ...healthC1Lessons,
+  // Pivot 2 — Travel/Flört derinleşme + C1 katman
+  ...travelExpandedLessons,
+  ...travelC1Lessons,
+  ...flirtAdvancedLessons,
+  ...flirtC1Lessons,
+  ...banterC1Lessons,
+  ...orderC1Lessons,
+  ...socialC1Lessons,
 ];
 
 export function getLesson(id: string): BundledLesson | undefined {
