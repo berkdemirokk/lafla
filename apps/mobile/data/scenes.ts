@@ -29,6 +29,15 @@ import { healthB1B2Scenes } from "./health-b1-b2-scenes";
 import { travelExpandedScenes } from "./travel-expanded-scenes";
 import { flirtAdvancedScenes } from "./flirt-advanced-scenes";
 
+// Pivot 2 — C1 katmanı (7 mod, ~100 sahne, near-native register)
+import { flirtC1Scenes } from "./flirt-c1-scenes";
+import { banterC1Scenes } from "./banter-c1-scenes";
+import { travelC1Scenes } from "./travel-c1-scenes";
+import { orderC1Scenes } from "./order-c1-scenes";
+import { socialC1Scenes } from "./social-c1-scenes";
+import { sportC1Scenes } from "./sport-c1-scenes";
+import { healthC1Scenes } from "./health-c1-scenes";
+
 export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
 
 export type SceneMode =
@@ -2032,4 +2041,12 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
   ...healthB1B2Scenes,
   ...travelExpandedScenes,
   ...flirtAdvancedScenes,
+  // Pivot 2 — C1 katmanı (7 mod)
+  ...flirtC1Scenes,
+  ...banterC1Scenes,
+  ...travelC1Scenes,
+  ...orderC1Scenes,
+  ...socialC1Scenes,
+  ...sportC1Scenes,
+  ...healthC1Scenes,
 ];
