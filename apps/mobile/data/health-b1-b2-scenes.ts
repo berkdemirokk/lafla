@@ -25,7 +25,7 @@ export const healthB1B2Scenes: ReadonlyArray<Scene> = [
     emoji: "👂",
     title: "KBB'de kulak\nçınlaması —\ntinnitus tarif et",
     description:
-      "ENT'te: 'I've been having a ringing in my left ear for about three weeks.' Süre + sıklık + tetikleyici.",
+      "ENT'te: 'There's been a ringing in my left ear for about three weeks now.' Süre + sıklık + tetikleyici.",
     durationMin: 8,
     mode: "health",
     cefrLevel: "B1",

@@ -159,7 +159,7 @@ export const sportC1Scenes: ReadonlyArray<Scene> = [
     emoji: "🏎️",
     title: "F1'den NBA'e —\nstratejiyi\ndiller arası taşımak",
     description:
-      "Bir konuşma, üç sahne. 'Verstappen's undercut was Spoelstra-level chess — pit window like a timeout.' Spor-arası analoji.",
+      "Bir konuşma, üç sahne. 'Verstappen's undercut was pure timing — same nerve as calling a 20-second timeout with the lead slipping.' Spor-arası analoji, ama tutarlı.",
     durationMin: 12,
     mode: "sport",
     cefrLevel: "C1",

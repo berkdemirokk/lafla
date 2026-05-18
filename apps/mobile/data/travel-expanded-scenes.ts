@@ -111,7 +111,7 @@ export const travelExpandedScenes: ReadonlyArray<Scene> = [
   {
     id: "scene-travel-airport-5-8",
     emoji: "⏰",
-    title: "Uçuş 4 saat\ngecikti — vouch'er\niste",
+    title: "Uçuş 4 saat\ngecikti —\nvoucher iste",
     description:
       "Meal voucher, hotel voucher, EU261 nakit. Gate görevlisinden ne, ne zaman çıkar — düzenli bilgi al.",
     durationMin: 7,
@@ -436,7 +436,7 @@ export const travelExpandedScenes: ReadonlyArray<Scene> = [
     emoji: "🚶",
     title: "Free walking\ntour'a katıl —\nrehbere sor",
     description:
-      "'Where do we meet?' Sandstone Square'de kırmızı şemsiyeli rehber. Tip-based, süre, dil seçeneği.",
+      "'Where do we meet?' Meydanın güneybatı köşesinde kırmızı şemsiyeli rehber. Tip-based, süre, dil seçeneği.",
     durationMin: 5,
     mode: "travel",
     cefrLevel: "A2",
@@ -565,7 +565,7 @@ export const travelExpandedScenes: ReadonlyArray<Scene> = [
   {
     id: "scene-travel-money-9-3",
     emoji: "🛍️",
-    title: "Pazarda pazarlık —\n'too expensive'\nde",
+    title: "Pazarda pazarlık —\n'Could you do\nbetter?'",
     description:
       "Marrakech, İstanbul Grand Bazaar. 'Could you do better?' İlk teklif, walk-away taktiği, yarı yol.",
     durationMin: 5,
@@ -696,7 +696,7 @@ export const travelExpandedScenes: ReadonlyArray<Scene> = [
   {
     id: "scene-travel-mishap-10-5",
     emoji: "🆘",
-    title: "Otel odasında\ngida zehirlenmesi —\nyardım çağır",
+    title: "Otel odasında\ngıda zehirlenmesi —\nyardım çağır",
     description:
       "Resepsiyonu ara: 'I'm not feeling well — could you call a doctor?' House doctor, acil müdahale, fatura.",
     durationMin: 7,

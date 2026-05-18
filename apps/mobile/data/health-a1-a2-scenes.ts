@@ -152,7 +152,7 @@ export const healthA1A2Scenes: ReadonlyArray<Scene> = [
     emoji: "🩺",
     title: "Doktora şikayet —\n'I don't\nfeel well'",
     description:
-      "Genel rahatsızlık. 'I'm tired', 'I have no energy', 'Since two days'. Basit şikayet ifadeleri.",
+      "Genel rahatsızlık. 'I'm tired', 'I have no energy', 'For two days now'. Basit şikayet ifadeleri.",
     durationMin: 5,
     mode: "health",
     cefrLevel: "A1",

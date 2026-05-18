@@ -86,7 +86,7 @@ export const healthC1Scenes: ReadonlyArray<Scene> = [
     emoji: "🪞",
     title: "Terapist intake —\nanhedonia ve\nego-dystonic düşünceler",
     description:
-      "'Üzgünüm' demenin ötesinde. 'Six months of pervasive anhedonia, ego-dystonic intrusive thoughts about my worth — not ideation, but corrosive.' Sofistike öz-rapor.",
+      "'Üzgünüm' demenin ötesinde. 'Six months of pervasive anhedonia, persistent self-critical rumination — not active ideation, but corrosive.' Sofistike öz-rapor.",
     durationMin: 16,
     mode: "health",
     cefrLevel: "C1",
@@ -130,7 +130,7 @@ export const healthC1Scenes: ReadonlyArray<Scene> = [
     emoji: "🩸",
     title: "Endokrinolog'la\nCGM verisi okuma —\nTime-in-Range",
     description:
-      "Tip 1 diyabet. 'My TIR is 72%, but I'm getting nocturnal hypos twice a week. Basal tapering or dual-wave bolus for that 9 PM rise?' Veri-temelli müzakere.",
+      "Tip 1 diyabet, pump kullanıcı. 'My TIR is 72%, but I'm getting nocturnal hypos twice a week. Should I lower basal or try an extended bolus for that 9 PM rise?' Veri-temelli müzakere.",
     durationMin: 15,
     mode: "health",
     cefrLevel: "C1",

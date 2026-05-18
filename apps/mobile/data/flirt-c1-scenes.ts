@@ -205,7 +205,7 @@ export const flirtC1Scenes: ReadonlyArray<Scene> = [
     emoji: "🌒",
     title: "Gece üçte —\nkorktuğun şeyi\nilk kez söyle",
     description:
-      "Yatakta, ışıklar kapalı, ses tonu düşük. Yıllardır kimseye söylemediğin bir şeyi söyleyeceksin — terk edilme korkun, yetersizlik hissin, bir bağımlılık. 'I'm going to say something I've never said out loud, and I want you to just hear it — not fix it.' Çerçeveleme + teslimiyet.",
+      "Yatakta, ışıklar kapalı, ses tonu düşük. Yıllardır kimseye söylemediğin derin bir korku — yıllardır taşıdığın bir şey. 'I'm going to say something I've never said out loud, and I want you to just hear it — not fix it.' Çerçeveleme + teslimiyet.",
     durationMin: 14,
     mode: "flirt",
     cefrLevel: "C1",

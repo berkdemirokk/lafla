@@ -38,7 +38,7 @@ export const socialC1Scenes: ReadonlyArray<Scene> = [
     emoji: "📚",
     title: "Edebiyatçılarla\nyemek — okumadığın\nkitabı gez",
     description:
-      "Masa bir romanı tartışıyor, sen okumadın. Bilmediğini sahteleme — 'I haven't read it, but the premise reminds me of...' ile zarif gez.",
+      "Masa bir romanı tartışıyor, sen okumadın. Bilmediğini sahteleme — 'I haven't read it — what made it stick for you?' ile merak göster, sahtekarlık etme.",
     durationMin: 11,
     mode: "daily",
     cefrLevel: "C1",

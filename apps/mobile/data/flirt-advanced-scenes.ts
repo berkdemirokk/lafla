@@ -131,7 +131,7 @@ export const flirtAdvancedScenes: ReadonlyArray<Scene> = [
   {
     id: "scene-flirt-apps-10-2",
     emoji: "🪝",
-    title: "Bio'dan kanca bul —\nhamamböceği\nayrıntısını yakala",
+    title: "Bio'dan kanca bul —\nspesifik detayı\nyakala",
     description:
       "'Cats > dogs (sorry)' parantez = hook. Tartışmaya dal: 'Sorry for who exactly?'",
     durationMin: 8,
@@ -295,7 +295,7 @@ export const flirtAdvancedScenes: ReadonlyArray<Scene> = [
   {
     id: "scene-flirt-culture-12-1",
     emoji: "🇹🇷",
-    title: "Türk geleneğini anlat —\nyabancılaştırma,\nmistik yapma",
+    title: "Türk geleneğini anlat —\negzotikleştirme,\nmistik yapma",
     description:
       "'It's basically X but with Y' kalıbı. Egzotikleştirme yok. 'Think Thanksgiving energy but louder'.",
     durationMin: 9,

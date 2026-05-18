@@ -173,7 +173,7 @@ export const banterC1Scenes: ReadonlyArray<Scene> = [
   {
     id: "scene-banter-c1-culture-1",
     emoji: "📺",
-    title: "SNL referansı —\n'More cowbell,\nplease, Christopher'",
+    title: "SNL referansı —\n'I got a fever, and\nthe only prescription...'",
     description:
       "Late-night, SNL, Office, Succession — Anglo komedi katmanına gir. Reference drop + smirk. Açıklama yok, çekmecede.",
     durationMin: 8,

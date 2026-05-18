@@ -107,7 +107,7 @@ export const orderC1Scenes: ReadonlyArray<Scene> = [
   {
     id: "scene-order-c1-book-1",
     emoji: "👨‍🍳",
-    title: "Chef's table rezerve —\nyer yok deseler\nbile yaratt",
+    title: "Chef's table rezerve —\nyer yok deseler\nbile yarat",
     description:
       "Private kitchen tam dolu. Diplomatik baskıyla aralık aç. 'I appreciate it's tight — is there any flexibility, perhaps an earlier seating?'",
     durationMin: 10,
