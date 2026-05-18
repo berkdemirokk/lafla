@@ -1,47 +1,46 @@
-// Lafla — Text-to-speech wrapper (dual-mode).
+// Lafla — Text-to-speech wrapper (triple-mode, bundled-first).
 //
 // ARCHITECTURE
 // ────────────
-// Two backends, picked at call time:
+// Three backends, tried in order:
 //
-//   1. Remote (ElevenLabs via our own Cloudflare Worker) — used for English text.
+//   0. Bundled MP3 (Chatterbox-generated, ships in the iOS bundle).
+//      • Pre-rendered offline by `tools/tts-generate.py` (open-source
+//        Chatterbox TTS, run locally on the developer's GPU). One MP3
+//        per (text, voiceId) pair, named by djb2(text + "|" + voiceId).
+//      • Resolved at runtime via `AUDIO_INDEX` in `assets/audio/index.ts`,
+//        which is a literal-keyed map of hash → `() => require("…")`. Metro
+//        needs the require() call sites to be literal strings, hence the
+//        generated index.
+//      • Voice id is picked by `pickVoiceId()` below, which mirrors the
+//        keyword priority list in `tools/tts-generate.py:VOICE_MAP`. If
+//        you change one, change both.
+//      • Zero network. Zero $. Instant playback. This is the path we
+//        want users on >99% of the time.
+//
+//   1. Remote (ElevenLabs via our own Cloudflare Worker) — used for English text
+//      when there's no bundled MP3 for the (text, voiceId) pair.
 //      • Mobile app NEVER holds the ElevenLabs API key. It hits our Worker:
 //          POST {extra.ttsEndpoint}/tts
 //          Content-Type: application/json
 //          Body:    { "text": string, "voiceId": string, "lang": string }
 //          200 OK:  Content-Type: audio/mpeg   (raw MP3 bytes)
 //          4xx/5xx: client falls back to expo-speech native synth
-//      • Worker holds the studio API key, calls
-//          ElevenLabs `/v1/text-to-speech/{voice_id}`,
-//        and pipes the MP3 back as `audio/mpeg`. It may apply request-side
-//        caching, per-user quotas, and rate-limiting.
 //      • On the client, the resulting MP3 is written to expo-file-system
 //        (see lib/tts-cache.ts) keyed by hash(text + voiceId). Replays are
 //        served from disk — instant, offline-capable, $0.
 //
 //   2. Native (expo-speech) — used for Turkish text, AND as a fallback when:
-//      • extra.ttsEndpoint is empty (no Worker configured yet — the default)
-//      • Network request fails / non-2xx
-//      • expo-av cannot decode the MP3
+//      • No bundled MP3 and no `extra.ttsEndpoint`.
+//      • Remote fetch fails / non-2xx.
+//      • expo-av cannot decode the MP3.
 //      Apple's on-device synth ("Siri voice") — vasat for English but solid
 //      for Turkish, and a perfect last-resort so the app never goes silent.
 //
-// ENABLING ELEVENLABS
-// ───────────────────
-// Set the Worker URL in app.json:
-//
-//   "extra": {
-//     "ttsEndpoint": "https://lafla-tts.workers.dev",
-//     "ttsVoiceId":  "21m00Tcm4TlvDq8ikWAM"   // "Rachel" — English-US, default
-//   }
-//
-// Leaving `ttsEndpoint` empty means the app behaves identically to the
-// original expo-speech-only build — required for safe rollout.
-//
 // CACHE
 // ─────
-// On-disk MP3 cache lives in lib/tts-cache.ts. This file only orchestrates
-// fetch → store → play.
+// On-disk MP3 cache for the remote path lives in lib/tts-cache.ts. The
+// bundled path is in-bundle and needs no cache.
 //
 // SAFETY
 // ──────
@@ -52,6 +51,7 @@ import * as Speech from "expo-speech";
 import { Audio, AVPlaybackStatus } from "expo-av";
 import Constants from "expo-constants";
 
+import { AUDIO_INDEX } from "../assets/audio";
 import {
   getCachedAudio,
   setCachedAudio,
@@ -74,6 +74,42 @@ const REQUEST_TIMEOUT_MS = 8000;
 // (Apple's Turkish synth is solid; ElevenLabs is English-only in this build).
 const TURKISH_CHARS = /[çğışöüÇĞİŞÖÜ]/;
 
+// ─── voice map (keep in sync with tools/tts-generate.py:VOICE_MAP) ───────
+//
+// First keyword hit wins. Haystack is `${npcRole} ${setting}`.toLowerCase().
+// Same ordering and keyword list as the Python generator — that's the
+// invariant that makes bundled lookup work.
+type VoiceMapEntry = readonly [voiceId: string, keywords: readonly string[]];
+
+const VOICE_MAP: readonly VoiceMapEntry[] = [
+  ["vc_match", ["match", "tinder", "date", "flirt"]],
+  ["vc_doctor", ["doctor", "dr.", "hospital", "clinic", "nurse", "pharmacy", "pharmacist"]],
+  ["vc_service", ["barista", "waiter", "server", "cashier", "shop assistant", "store associate"]],
+  ["vc_coach", ["coach", "trainer", " pt ", "gym"]],
+  ["vc_boss", ["boss", "manager", "interviewer", "director", "examiner"]],
+  ["vc_teacher", ["teacher", "professor", "tutor"]],
+  ["vc_friend", ["friend", "buddy", "roommate", "colleague", "coworker"]],
+  ["vc_family", ["family", "mom", "dad", "cousin", "sibling", "aunt", "uncle"]],
+  ["vc_travel", ["pilot", "gate agent", "flight crew", "stewardess", "concierge"]],
+];
+
+const BUNDLED_DEFAULT_VOICE_ID = "vc_default";
+
+/**
+ * Pick the bundled-audio voice id for a (npcRole, setting) pair. Mirrors
+ * `tools/tts-generate.py:pick_voice`. Returns `vc_default` when nothing
+ * matches.
+ */
+export function pickVoiceId(npcRole?: string, setting?: string): string {
+  const haystack = `${npcRole ?? ""} ${setting ?? ""}`.toLowerCase();
+  for (const [voiceId, keywords] of VOICE_MAP) {
+    for (const kw of keywords) {
+      if (haystack.includes(kw)) return voiceId;
+    }
+  }
+  return BUNDLED_DEFAULT_VOICE_ID;
+}
+
 // ─── module-level playback state ──────────────────────────────────────────
 
 let currentSound: Audio.Sound | null = null;
@@ -86,25 +122,32 @@ export type SpeakOpts = {
   lang?: "en-US" | "tr-TR";
   rate?: number;
   voiceId?: string;
+  /** NPC role for bundled-voice lookup (e.g. "Match", "Doctor"). */
+  npcRole?: string;
+  /** Scene/setting hint that augments voice picking (e.g. "Asking out"). */
+  setting?: string;
 };
 
 /**
  * Speak a phrase. Returns a promise that resolves once playback has been
  * scheduled (NOT when audio finishes). Never rejects.
  *
- * Behaviour:
- *  • Tapping the same phrase twice while it's playing → stop (toggle).
- *  • Tapping a different phrase → stop the current one and play the new one.
- *  • Turkish text → expo-speech (Apple TR voice).
- *  • English text + ttsEndpoint set → ElevenLabs MP3 (cached on disk).
- *  • Any failure on the remote path → expo-speech fallback.
+ * Resolution order:
+ *  • Same phrase re-tapped → stop (toggle).
+ *  • Otherwise, in priority order:
+ *      1. Bundled MP3 (Chatterbox-rendered, hashed by djb2(text|voiceId)).
+ *      2. Remote ElevenLabs via Worker (English only, if endpoint set).
+ *      3. expo-speech / Apple Siri (Turkish always, English last resort).
  */
 export async function speak(text: string, opts?: SpeakOpts): Promise<void> {
   if (!text || !text.trim()) return;
 
   const lang = opts?.lang ?? (TURKISH_CHARS.test(text) ? "tr-TR" : "en-US");
   const rate = opts?.rate ?? 0.95;
-  const voiceId = opts?.voiceId ?? DEFAULT_VOICE_ID;
+  // For the BUNDLED path we resolve a Chatterbox voice id by role/setting.
+  // For the REMOTE path we still use the ElevenLabs voice id from extras.
+  const bundledVoiceId = opts?.voiceId ?? pickVoiceId(opts?.npcRole, opts?.setting);
+  const remoteVoiceId = DEFAULT_VOICE_ID;
 
   // Toggle: same phrase re-tapped → stop and bail.
   if (lastUtterance === text) {
@@ -118,16 +161,30 @@ export async function speak(text: string, opts?: SpeakOpts): Promise<void> {
 
   const myToken = ++playbackToken;
 
+  // 0. Bundled MP3 lookup — tried for BOTH languages, since Chatterbox can
+  // render Turkish too if we ever ship Turkish bundled audio. The index is
+  // hash-keyed; a miss is cheap (one object lookup).
+  const bundledHash = hashText(text, bundledVoiceId);
+  const bundledLoader = AUDIO_INDEX[bundledHash];
+  if (bundledLoader) {
+    try {
+      const ok = await playBundledModule(bundledLoader, myToken);
+      if (ok) return;
+    } catch {
+      // fall through
+    }
+  }
+
   // Turkish → native synth (no remote round-trip).
   if (lang === "tr-TR") {
     speakNative(text, lang, rate);
     return;
   }
 
-  // English + endpoint configured → try the premium path.
+  // English + endpoint configured → try the premium remote path.
   if (TTS_ENDPOINT) {
     try {
-      const uri = await resolveMp3Uri(text, voiceId, lang);
+      const uri = await resolveMp3Uri(text, remoteVoiceId, lang);
       if (myToken !== playbackToken) return; // user moved on
       if (uri) {
         const ok = await playLocalMp3(uri, myToken);
@@ -138,7 +195,7 @@ export async function speak(text: string, opts?: SpeakOpts): Promise<void> {
     }
   }
 
-  // Fallback: expo-speech.
+  // Last resort: expo-speech.
   if (myToken !== playbackToken) return;
   speakNative(text, lang, rate);
 }
@@ -221,6 +278,44 @@ async function unloadCurrentSound(): Promise<void> {
     await s.unloadAsync();
   } catch {
     /* ignore */
+  }
+}
+
+/**
+ * Play a bundled MP3 produced by `require("./assets/audio/<voiceId>/<hash>.mp3")`.
+ * The argument is the lazy loader from AUDIO_INDEX so we don't materialise
+ * every module up front.
+ */
+async function playBundledModule(
+  loader: () => unknown,
+  token: number,
+): Promise<boolean> {
+  try {
+    const mod = loader();
+    const { sound } = await Audio.Sound.createAsync(
+      mod as Parameters<typeof Audio.Sound.createAsync>[0],
+      { shouldPlay: true, volume: 1.0 },
+    );
+    if (token !== playbackToken) {
+      try {
+        await sound.unloadAsync();
+      } catch {
+        /* ignore */
+      }
+      return true; // superseded, not failed
+    }
+    currentSound = sound;
+    sound.setOnPlaybackStatusUpdate((status: AVPlaybackStatus) => {
+      if (!status.isLoaded) return;
+      if (status.didJustFinish) {
+        if (currentSound === sound) currentSound = null;
+        if (lastUtterance && token === playbackToken) lastUtterance = null;
+        sound.unloadAsync().catch(() => undefined);
+      }
+    });
+    return true;
+  } catch {
+    return false;
   }
 }
 
