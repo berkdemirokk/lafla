@@ -43,6 +43,7 @@ import Animated, {
 import { StatusBar } from "expo-status-bar";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { Button } from "../../components/Button";
 import { SpeakerButton } from "../../components/SpeakerButton";
@@ -76,6 +77,24 @@ import type { ExerciseResult } from "../../lib/engine";
 
 type Phase = "setup" | "drill" | "scene" | "verdict";
 
+// Display name persisted by onboarding under `lafla.displayName`. Used by
+// the scene phase (NPC opener personalization) and the verdict screen
+// (Turkish verdict copy injection).
+const K_DISPLAY_NAME = "lafla.displayName";
+
+// Sanitize a display name for safe inline rendering. Strips control chars,
+// collapses whitespace, trims, drops quote chars, and visually truncates
+// long names. Casing is preserved verbatim. The stored value is unchanged.
+function sanitizeName(raw: string | null | undefined): string {
+  if (!raw) return "";
+  // eslint-disable-next-line no-control-regex
+  let cleaned = raw.replace(/[ -]/g, "");
+  cleaned = cleaned.replace(/["`]/g, "");
+  cleaned = cleaned.replace(/\s+/g, " ").trim();
+  if (cleaned.length > 30) cleaned = cleaned.slice(0, 28) + "…";
+  return cleaned;
+}
+
 function findNextScenario(skillId: string, currentId: string): string | null {
   const inSkill = allScenarios()
     .filter((s) => s.skill_id === skillId)
@@ -95,10 +114,29 @@ export default function ScenarioScreen() {
   const [drillIdx, setDrillIdx] = useState(0);
   const [sceneResult, setSceneResult] = useState<ExerciseResult | null>(null);
   const [roleplayMode, setRoleplayMode] = useState<RoleplayMode>("multi-choice");
+  // Personalization: read once on mount, sanitized for inline injection.
+  // Empty string = no name set; both RoleplayChat and VerdictView treat ""
+  // as "render the un-personalized version" so this is safe to read late.
+  const [displayName, setDisplayName] = useState<string>("");
   // First-time scene overlay — shown once per scenario load, on initial entry
   // to the scene phase. Auto-dismisses after 1200ms or on tap.
   const [showSceneIntro, setShowSceneIntro] = useState(false);
   const sceneIntroShownRef = useRef(false);
+
+  // Hydrate the user's display name once on mount. We don't reload it on
+  // every focus because the scenario is a single linear flow — if the user
+  // edits their name in Profile and comes back, they'll get the new value
+  // on the next scenario open, which is fine for a personalization touch.
+  useEffect(() => {
+    (async () => {
+      try {
+        const raw = await AsyncStorage.getItem(K_DISPLAY_NAME);
+        setDisplayName(sanitizeName(raw));
+      } catch {
+        setDisplayName("");
+      }
+    })();
+  }, []);
 
   // On mount: decide roleplay mode based on previous attempts
   useEffect(() => {
@@ -333,6 +371,7 @@ export default function ScenarioScreen() {
                 onComplete={onSceneComplete}
                 mode={roleplayMode}
                 seed={scenario.id}
+                userName={displayName}
               />
             </View>
           )}
@@ -342,6 +381,7 @@ export default function ScenarioScreen() {
               scenario={scenario}
               sceneResult={sceneResult}
               hasNext={!!nextScenario}
+              userName={displayName}
               onContinue={() => {
                 if (nextScenario) {
                   router.replace(`/scenario/${nextScenario}` as never);
@@ -766,20 +806,42 @@ function VerdictView({
   scenario,
   sceneResult,
   hasNext,
+  userName,
   onContinue,
 }: {
   scenario: { mode: string; title: string };
   sceneResult: ExerciseResult;
   hasNext: boolean;
+  /**
+   * Sanitized display name. When non-empty, the Turkish verdict copy is
+   * personalized for each band (high uses "Aferin {name}, ..."; mid/low
+   * prefix with "{name}, ..."). When empty, the original generic copy
+   * is shown so the screen still reads naturally.
+   */
+  userName: string;
   onContinue: () => void;
 }) {
   const { band } = computeSceneFluency([sceneResult.score]);
-  const verdictMsg =
-    band === "high"
-      ? "Bu sahneyi artık akıcı yürütüyorsun."
-      : band === "mid"
-      ? "Sağlam başlangıç. Sahne ileride tekrar gelecek."
-      : "Bir tur daha kazandırır. Sahne yarın yine planda.";
+  // Verdict copy varies by band AND by whether we have a name to address
+  // the user with. The personalized variants change the leading clause to
+  // "Aferin {name}," (high) or "{name}," (mid/low) and keep the rest of
+  // the sentence identical. Falls back to the original generic copy when
+  // userName is empty so first-launch users still see something sensible.
+  const verdictMsg = (() => {
+    if (userName) {
+      if (band === "high") {
+        return `Aferin ${userName}, bu sahneyi artık akıcı yürütüyorsun.`;
+      }
+      if (band === "mid") {
+        return `${userName}, sağlam başlangıç. Sahne ileride tekrar gelecek.`;
+      }
+      return `${userName}, bir tur daha kazandırır. Sahne yarın yine planda.`;
+    }
+    if (band === "high") return "Bu sahneyi artık akıcı yürütüyorsun.";
+    if (band === "mid")
+      return "Sağlam başlangıç. Sahne ileride tekrar gelecek.";
+    return "Bir tur daha kazandırır. Sahne yarın yine planda.";
+  })();
 
   // Count-up animation — score climbs from 0 to its final value over ~900ms.
   // setInterval on RAF-ish cadence keeps it readable without Reanimated; the

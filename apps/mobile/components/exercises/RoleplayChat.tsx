@@ -10,14 +10,46 @@ import {
   ScrollView,
   StyleSheet,
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../Button";
 import { tokens } from "../../theme";
-import { speak } from "../../lib/tts";
+import { speak, stop as stopTts } from "../../lib/tts";
 import {
   evaluateRoleplayTurn,
   type ExerciseResult,
 } from "../../lib/engine";
 import { nameForNpc } from "../../lib/npc-names";
+import { recordUserText } from "../../lib/mistake-tracker";
+
+// AsyncStorage key for the per-app TTS mute preference. Survives across
+// scenarios and app restarts so the user doesn't have to re-mute every chat.
+const K_TTS_MUTED = "lafla.tts.muted";
+
+// NPC reaction prefixes — short ACKs prepended to the next NPC bubble so the
+// scene reacts to the user's score instead of plowing through the script.
+// Rotated deterministically by input hash so the same input always elicits
+// the same reaction (avoids the uncanny "different reaction on retry" feel).
+const REACTIONS_GOOD = ["Got it.", "Nice.", "Perfect."] as const;
+const REACTIONS_MID = ["Hmm, okay.", "I think I follow."] as const;
+const REACTIONS_LOW = ["Sorry, could you say that again?"] as const;
+
+function hashStr(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+
+function pickReactionPrefix(score: number, userInput: string): string | null {
+  const trimmed = userInput.trim();
+  // score 0 (empty / garbage with no recognisable words) → don't tack a
+  // reaction onto the next line. The verdict / lack of progress already
+  // tells the story, and a "say that again" loop on empty input feels broken.
+  if (score === 0 || !trimmed) return null;
+  const h = hashStr(trimmed);
+  if (score >= 80) return REACTIONS_GOOD[h % REACTIONS_GOOD.length]!;
+  if (score >= 40) return REACTIONS_MID[h % REACTIONS_MID.length]!;
+  return REACTIONS_LOW[h % REACTIONS_LOW.length]!;
+}
 
 interface RoleplayTurn {
   speaker: "npc" | "user";
@@ -42,6 +74,12 @@ interface Props {
    * two scenarios sharing role+setting would share a name.
    */
   seed?: string;
+  /**
+   * Display name for the user. When present, the NPC's opening line is
+   * lightly personalized at render time (e.g. "Hi there" → "Hi {name}").
+   * Lesson data is NOT modified — this is purely visual.
+   */
+  userName?: string;
 }
 
 interface ChatMessage {
@@ -55,6 +93,61 @@ function extractExampleFromHint(hint?: string): string | null {
   if (!hint) return null;
   const match = hint.match(/['']([^'']+)['']/);
   return match?.[1] ?? null;
+}
+
+// Sanitize a display name for inline injection into NPC dialog. Strips
+// control chars and quotes that would break the rendered string, collapses
+// whitespace, and hard-caps the length. Casing is preserved.
+function sanitizeUserName(raw: string | null | undefined): string {
+  if (!raw) return "";
+  // eslint-disable-next-line no-control-regex
+  let cleaned = raw.replace(/[ -]/g, "");
+  // Drop quote characters that could disrupt the rendered sentence; leaves
+  // apostrophes (O'Brien) intact because they're meaningful in names.
+  cleaned = cleaned.replace(/["`]/g, "");
+  cleaned = cleaned.replace(/\s+/g, " ").trim();
+  if (cleaned.length > 30) cleaned = cleaned.slice(0, 28) + "…";
+  return cleaned;
+}
+
+// Personalize the opening NPC line by inserting the user's name after the
+// first greeting word. Only mutates the rendered string when:
+//   - userName is non-empty
+//   - the line starts with a recognised greeting token
+// Otherwise returns the original text unchanged.
+//
+// Examples (with name = "Berk"):
+//   "Hi"                          → "Hi Berk"
+//   "Hi there"                    → "Hi Berk"
+//   "Hi there, ready to order?"   → "Hi Berk, ready to order?"
+//   "Welcome!"                    → "Welcome Berk!"
+//   "Hey, how can I help?"        → "Hey Berk, how can I help?"
+//   "Good morning, sir."          → "Good morning Berk, sir."
+//   "So, what'll it be?"          → "So, what'll it be?"   (no greeting → unchanged)
+export function personalizeOpener(
+  text: string,
+  userName: string | null | undefined,
+): string {
+  const name = sanitizeUserName(userName);
+  if (!name) return text;
+  if (!text) return text;
+
+  // Match the greeting token AND any immediately-following "there" filler
+  // word. Group 1 = greeting, group 2 = optional " there", group 3 = the
+  // rest (incl. punctuation immediately after).
+  const pattern =
+    /^(hi|hey|hello|welcome|good\s+morning|good\s+afternoon|good\s+evening)(\s+there)?(.*)$/i;
+  const m = text.match(pattern);
+  if (!m) return text;
+
+  const greeting = m[1]!;
+  const rest = m[3] ?? "";
+
+  // If the remainder starts with a comma/punctuation+space, keep it; we just
+  // splice the name between greeting and remainder. Otherwise insert a
+  // leading space.
+  // Strategy: replace "greeting [there]" with "greeting name" and keep rest.
+  return `${greeting} ${name}${rest}`;
 }
 
 /**
@@ -123,6 +216,7 @@ export function RoleplayChat({
   onComplete,
   mode = "free",
   seed,
+  userName,
 }: Props) {
   // Resolve a stable seed. The caller usually passes the scenario id; if it
   // doesn't, fall back to (role + setting) so the name is still consistent
@@ -136,27 +230,107 @@ export function RoleplayChat({
   const [input, setInput] = useState("");
   const [turnScores, setTurnScores] = useState<number[]>([]);
   const [finished, setFinished] = useState(false);
+  // TTS mute toggle. Persisted to AsyncStorage so it carries across scenarios
+  // and app restarts. We default to false (audio on) because hearing native
+  // pronunciation is core to the product — users have to opt OUT, not in.
+  const [muted, setMuted] = useState(false);
+  // Pending reaction prefix queued by the last user turn. Consumed by the
+  // auto-show effect and prepended onto the next NPC message rendered into
+  // `shown`. We carry it as state (not a ref) so React re-runs the effect
+  // and we don't get a stale-closure read.
+  const [pendingReaction, setPendingReaction] = useState<string | null>(null);
   const scrollRef = useRef<ScrollView>(null);
 
-  // Auto-show NPC turns until next user turn + auto-speak last one
+  // Hydrate the mute preference from storage once on mount. Best-effort —
+  // a storage read failure just leaves the default (unmuted). We don't gate
+  // rendering on this; the first speak() call before hydration completes
+  // will fire normally, which is the desired behavior anyway.
+  useEffect(() => {
+    let cancelled = false;
+    AsyncStorage.getItem(K_TTS_MUTED)
+      .then((raw) => {
+        if (!cancelled && raw === "true") setMuted(true);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const toggleMute = () => {
+    setMuted((prev) => {
+      const next = !prev;
+      AsyncStorage.setItem(K_TTS_MUTED, next ? "true" : "false").catch(() => {});
+      // When muting mid-playback, kill the current sound too — otherwise the
+      // already-scheduled audio keeps going and the toggle feels broken.
+      if (next) stopTts();
+      return next;
+    });
+  };
+
+  // Auto-show NPC turns until next user turn + auto-speak last one.
+  //
+  // Personalization: the FIRST NPC message in the conversation may be
+  // rewritten to inject the user's name after a greeting word (e.g.
+  // "Hi there" → "Hi Berk"). This only fires when:
+  //   - we're flushing from turnIdx === 0 (i.e. opening of the convo)
+  //   - the very first NPC line has not already been shown
+  //   - userName is non-empty
+  // The TTS read-aloud uses the personalized text too so the audio matches
+  // what the user reads on-screen.
   useEffect(() => {
     let i = turnIdx;
+    const isOpening = turnIdx === 0 && shown.length === 0;
     const newShown: ChatMessage[] = [];
     while (i < turns.length && turns[i]!.speaker === "npc") {
-      if (turns[i]!.message) {
-        newShown.push({ speaker: "npc", message: turns[i]!.message! });
+      const raw = turns[i]!.message;
+      if (raw) {
+        // Only the first NPC line of the conversation gets personalized.
+        // Everything that follows in the same opening block (rare, but
+        // some scenes have consecutive NPC lines) is left untouched so we
+        // don't try to inject the name multiple times into one greeting.
+        const isFirstNpcLine = isOpening && newShown.length === 0;
+        let message = isFirstNpcLine
+          ? personalizeOpener(raw, userName)
+          : raw;
+        // Prepend the score-based reaction ACK to the FIRST NPC line of this
+        // block so the scene visibly reacts to what the user just said. We
+        // only do this on the first line in case the script has consecutive
+        // NPC turns — the reaction belongs to the immediate response, not
+        // every follow-up. Personalized opener path never hits this branch
+        // because reactions are queued from user submits, and the opening
+        // block (turnIdx === 0, shown empty) precedes any user turn.
+        if (newShown.length === 0 && pendingReaction && !isFirstNpcLine) {
+          message = `${pendingReaction} ${message}`;
+        }
+        newShown.push({ speaker: "npc", message });
       }
       i++;
     }
     if (newShown.length > 0) {
       setShown((prev) => [...prev, ...newShown]);
       setTurnIdx(i);
-      // Auto-speak the most recent NPC line after a short beat
-      const last = newShown[newShown.length - 1]!.message;
-      const t = setTimeout(() => speak(last), 600);
-      return () => clearTimeout(t);
+      // The reaction (if any) has now been baked into the rendered text.
+      // Clear it so the next NPC block doesn't re-use a stale prefix.
+      if (pendingReaction) setPendingReaction(null);
+      // Auto-speak the most recent NPC line after a short beat — UNLESS the
+      // user has muted TTS, in which case we drop the side effect entirely.
+      // The bubble still renders; only the audio is suppressed.
+      if (!muted) {
+        const last = newShown[newShown.length - 1]!.message;
+        const t = setTimeout(() => speak(last), 600);
+        return () => clearTimeout(t);
+      }
     }
-  }, [turnIdx, turns]);
+    // We intentionally exclude `shown` from deps — the effect already
+    // self-gates by checking `turns[i].speaker === "npc"` and we advance
+    // `turnIdx` past NPC turns, so re-running on `shown` changes would
+    // just no-op anyway. Adding it would re-trigger on every user reply.
+    // `muted` is read for the speak() guard; including it would re-flush
+    // the same NPC block when the toggle flips, so we deliberately omit it
+    // and accept the stale-closure trade (mute applies to the NEXT block).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [turnIdx, turns, userName, pendingReaction]);
 
   // Auto-scroll
   useEffect(() => {
@@ -190,10 +364,31 @@ export function RoleplayChat({
       { speaker: "user", message: input, score: evalResult.score },
     ]);
     setTurnScores((prev) => [...prev, evalResult.score]);
+
+    // Queue the score-based reaction ACK for the NEXT NPC line. Skipped on
+    // the final user turn — there's no next NPC bubble to attach to and the
+    // post-roleplay verdict will deliver the feedback instead.
+    const nextIdx = turnIdx + 1;
+    const isLastTurn = nextIdx >= turns.length;
+    if (!isLastTurn) {
+      const reaction = pickReactionPrefix(evalResult.score, input);
+      if (reaction) setPendingReaction(reaction);
+    }
+
+    // Fire-and-forget mistake capture. Only sub-80 turns are interesting —
+    // an exact-match (100) hit means the user already nailed the target
+    // pattern. Errors are swallowed so a tracker failure (storage quota,
+    // corrupt blob, etc.) never blocks the chat path. Snapshot the input
+    // before clearing state so the call isn't racing with `setInput("")`
+    // below.
+    if (evalResult.score < 80) {
+      const captured = input;
+      recordUserText(captured).catch(() => {});
+    }
+
     setInput("");
 
-    const nextIdx = turnIdx + 1;
-    if (nextIdx >= turns.length) {
+    if (isLastTurn) {
       setFinished(true);
     } else {
       setTurnIdx(nextIdx);
@@ -229,6 +424,21 @@ export function RoleplayChat({
           </Text>
         </View>
         <View style={styles.onlineDot} />
+        {/* TTS mute toggle. Gray-out when muted, cyan when active. We expose
+            it as a Pressable so screen readers can toggle audio output even
+            when there's no system-level media control. */}
+        <Pressable
+          onPress={toggleMute}
+          style={[styles.muteBtn, muted && styles.muteBtnOff]}
+          accessibilityRole="button"
+          accessibilityLabel={muted ? "Sesi aç" : "Sesi kapat"}
+          accessibilityState={{ selected: !muted }}
+          hitSlop={8}
+        >
+          <Text style={[styles.muteIcon, muted && styles.muteIconOff]}>
+            {muted ? "🔇" : "🔊"}
+          </Text>
+        </Pressable>
       </View>
 
       {/* Chat scroll */}
@@ -291,7 +501,19 @@ export function RoleplayChat({
                       setTurnScores((prev) => [...prev, r.score]);
                       setInput("");
                       const nextIdx = turnIdx + 1;
-                      if (nextIdx >= turns.length) setFinished(true);
+                      const isLastTurn = nextIdx >= turns.length;
+                      // Mirror the free-mode path: queue a score-based ACK
+                      // for the next NPC line and (for sub-80 picks) capture
+                      // the mistake. Choice-mode users still benefit from
+                      // both signals.
+                      if (!isLastTurn) {
+                        const reaction = pickReactionPrefix(r.score, fakeInput);
+                        if (reaction) setPendingReaction(reaction);
+                      }
+                      if (r.score < 80) {
+                        recordUserText(fakeInput).catch(() => {});
+                      }
+                      if (isLastTurn) setFinished(true);
                       else setTurnIdx(nextIdx);
                     }, 50);
                   }}
@@ -369,25 +591,39 @@ function ChatBubble({ message }: { message: ChatMessage }) {
         </Text>
       </Pressable>
       {isUser && message.score !== undefined && (
-        <View
-          style={[
-            bubbleStyles.scoreChip,
-            message.score >= 75
-              ? bubbleStyles.scoreOk
-              : bubbleStyles.scoreMiss,
-          ]}
-        >
-          <Text
-            style={[
-              bubbleStyles.scoreText,
-              message.score >= 75
-                ? bubbleStyles.scoreTextOk
-                : bubbleStyles.scoreTextMiss,
-            ]}
-          >
-            {message.score >= 75 ? "✓" : "✗"} {message.score}/100
-          </Text>
-        </View>
+        (() => {
+          // 3-tier score chip — gives the user a felt difference between
+          // "close" (60) and "missed" (0). The engine returns {0, 30, 60, 100}
+          // so the thresholds 80 / 40 keep each band non-empty:
+          //   >= 80  → 100 only  → cyan success
+          //   40-79  → 60        → amber warning
+          //   <  40  → 0 or 30   → red error
+          const score = message.score;
+          const isGood = score >= 80;
+          const isMid = score >= 40 && score < 80;
+          const chipStyle = isGood
+            ? bubbleStyles.scoreOk
+            : isMid
+              ? bubbleStyles.scoreMid
+              : bubbleStyles.scoreMiss;
+          const textStyle = isGood
+            ? bubbleStyles.scoreTextOk
+            : isMid
+              ? bubbleStyles.scoreTextMid
+              : bubbleStyles.scoreTextMiss;
+          // Symbols: only the extremes get one. Mid-tier omits the symbol
+          // so the bare number reads as "neutral / partial" instead of
+          // pass/fail.
+          const symbol = isGood ? "✓ " : isMid ? "" : "✕ ";
+          return (
+            <View style={[bubbleStyles.scoreChip, chipStyle]}>
+              <Text style={[bubbleStyles.scoreText, textStyle]}>
+                {symbol}
+                {score}/100
+              </Text>
+            </View>
+          );
+        })()
       )}
     </View>
   );
@@ -432,6 +668,34 @@ const styles = StyleSheet.create({
     height: 10,
     borderRadius: 5,
     backgroundColor: tokens.brand.tertiary, // BLUE online indicator
+  },
+  muteBtn: {
+    // Small circular button at the top-right of the header. Cyan when audio
+    // is on (matches the "online" / brand accent), neutral gray when muted.
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: 8,
+  },
+  muteBtnOff: {
+    // Drop the cyan accent so the muted state is visually distinct without
+    // needing to read the icon.
+    backgroundColor: tokens.bg.surfaceContainerHigh,
+    borderColor: tokens.border.outlineVariant,
+  },
+  muteIcon: {
+    fontSize: 16,
+    lineHeight: 18,
+  },
+  muteIconOff: {
+    // Slight desaturation for the muted glyph — emojis ignore color but
+    // opacity reads as "off" to most users.
+    opacity: 0.6,
   },
   chatScroll: { flex: 1 },
   chatContent: {
@@ -599,6 +863,11 @@ const bubbleStyles = StyleSheet.create({
   scoreOk: {
     backgroundColor: tokens.brand.tertiarySoft,
   },
+  scoreMid: {
+    // Amber band for "partial credit" turns. Uses semantic.warningContainer
+    // so themes can re-skin the warning palette without touching this file.
+    backgroundColor: tokens.semantic.warningContainer,
+  },
   scoreMiss: {
     backgroundColor: tokens.semantic.errorContainer,
   },
@@ -608,6 +877,9 @@ const bubbleStyles = StyleSheet.create({
   },
   scoreTextOk: {
     color: tokens.brand.tertiary,
+  },
+  scoreTextMid: {
+    color: tokens.semantic.warning,
   },
   scoreTextMiss: {
     color: tokens.semantic.error,

@@ -44,10 +44,13 @@ import { signOut } from "../lib/auth";
 import { supabase } from "../lib/supabase";
 import {
   getCompletedLessonIds,
+  getInterests,
   getLocalProfile,
   type LocalProfile,
 } from "../lib/local-progress";
 import { SAMPLE_SCENES, type SceneMode } from "../data/scenes";
+import { getCefrLevel, type CefrLevel } from "../lib/cefr-level";
+import { interestsToModes } from "../lib/interest-mapping";
 import { tokens } from "../theme";
 
 // ---------------------------------------------------------------
@@ -85,22 +88,42 @@ const TOTAL_PER_MODE: Record<string, number> = MODES.reduce(
 // Screen
 // ---------------------------------------------------------------
 
+// Sanitize a display name for safe inline rendering. Strips control chars,
+// collapses whitespace, trims, and visually truncates long names. Casing is
+// preserved verbatim ("berk" stays "berk"). The stored value is unchanged.
+function sanitizeName(raw: string | null | undefined): string {
+  if (!raw) return "";
+  // eslint-disable-next-line no-control-regex
+  const cleaned = raw.replace(/[ -]/g, "").replace(/\s+/g, " ").trim();
+  if (cleaned.length <= 30) return cleaned;
+  return cleaned.slice(0, 28) + "…";
+}
+
 export default function ProfileScreen() {
   const router = useRouter();
-  const [displayName, setDisplayName] = useState<string>("Hoş geldin");
+  // Empty string means "no name set" so the greeting renders as plain
+  // "Merhaba" without a trailing comma.
+  const [displayName, setDisplayName] = useState<string>("");
   const [signedIn, setSignedIn] = useState(false);
   const [local, setLocal] = useState<LocalProfile | null>(null);
   const [completed, setCompleted] = useState<Set<string>>(new Set());
   const [refreshing, setRefreshing] = useState(false);
+  // Onboarding-derived prefs. `cefrLevel` powers the 4th StatChip; the
+  // interest set powers the visible MODES list below. Both default to null
+  // so the dashboard degrades gracefully on first launch.
+  const [cefrLevel, setCefrLevelState] = useState<CefrLevel | null>(null);
+  const [visibleModes, setVisibleModes] =
+    useState<ReadonlyArray<ModeRow>>(MODES);
 
   const loadAll = useCallback(async () => {
     // Display name lives in AsyncStorage under `lafla.displayName` per the
-    // dashboard spec — fallback "Hoş geldin" when not set yet.
+    // dashboard spec. Sanitize before storing in state so render-time logic
+    // doesn't need to defend against control chars or huge names.
     try {
       const name = await AsyncStorage.getItem("lafla.displayName");
-      setDisplayName(name && name.trim().length > 0 ? name : "Hoş geldin");
+      setDisplayName(sanitizeName(name));
     } catch {
-      setDisplayName("Hoş geldin");
+      setDisplayName("");
     }
 
     try {
@@ -111,14 +134,29 @@ export default function ProfileScreen() {
     }
 
     try {
-      const [p, c] = await Promise.all([
+      const [p, c, lvl, interests] = await Promise.all([
         getLocalProfile(),
         getCompletedLessonIds(),
+        getCefrLevel(),
+        getInterests(),
       ]);
       setLocal(p);
       setCompleted(c);
+      setCefrLevelState(lvl);
+      // Filter the 8-mode dashboard down to modes the user expressed
+      // interest in. An empty interests list (skipped onboarding / legacy
+      // install) keeps the full 8-mode list — current behaviour. Modes are
+      // intersected against the user-facing surface set so the dashboard
+      // never sprouts hidden modes like `career` or `professional`.
+      if (interests.length > 0) {
+        const allowed = new Set<SceneMode>(interestsToModes(interests));
+        const filtered = MODES.filter((m) => allowed.has(m.key));
+        setVisibleModes(filtered.length > 0 ? filtered : MODES);
+      } else {
+        setVisibleModes(MODES);
+      }
     } catch {
-      // Soft-fail: chips fall back to 0.
+      // Soft-fail: chips fall back to 0 and the mode list to the full 8.
     }
   }, []);
 
@@ -150,7 +188,10 @@ export default function ProfileScreen() {
   const xp = local?.total_xp ?? 0;
   const completedCount = completed.size;
 
-  // Per-mode completion counts derived from the in-memory Set.
+  // Per-mode completion counts derived from the in-memory Set. We compute
+  // for ALL 8 canonical modes (not just visibleModes) because precompute
+  // is cheap and lets the chip values stay correct if the user toggles
+  // interests in settings later in the same session.
   const completedPerMode: Record<string, number> = MODES.reduce(
     (acc, m) => {
       acc[m.key] = SAMPLE_SCENES.filter(
@@ -191,12 +232,17 @@ export default function ProfileScreen() {
           />
         }
       >
-        {/* Greeting */}
+        {/* Greeting — "Merhaba, {name}" or just "Merhaba" if name unset.
+            Keeps the heading size/colour from the previous raw-displayName
+            rendering; only the content changes. */}
         <Text style={styles.greeting} numberOfLines={1}>
-          {displayName}
+          {displayName ? `Merhaba, ${displayName}` : "Merhaba"}
         </Text>
 
-        {/* Hero stat strip — 3 chips. */}
+        {/* Hero stat strip — 4 chips: streak, XP, completed, and the user's
+            current CEFR level. Level chip renders "—" until onboarding hydrates
+            cefrLevel (or the user has skipped the level step entirely) so the
+            row never collapses to 3 chips mid-render. */}
         <View style={styles.heroRow}>
           <StatChip
             icon="🔥"
@@ -219,12 +265,21 @@ export default function ProfileScreen() {
             accent={tokens.brand.tertiary}
             glow={tokens.brand.tertiaryGlow}
           />
+          <StatChip
+            icon="📚"
+            value={cefrLevel ?? "—"}
+            label="seviye"
+            accent={tokens.brand.primary}
+            glow={tokens.brand.primaryGlow}
+          />
         </View>
 
-        {/* Modes */}
+        {/* Modes — filtered to the user's onboarding-selected interest set.
+            Falls back to the full 8 when interests is empty (skipped step or
+            legacy install) so we never render a blank dashboard. */}
         <Text style={styles.sectionLabel}>MODLAR</Text>
         <View style={styles.modeList}>
-          {MODES.map((m) => {
+          {visibleModes.map((m) => {
             const total = TOTAL_PER_MODE[m.key] ?? 0;
             const done = completedPerMode[m.key] ?? 0;
             const ratio = total > 0 ? Math.min(1, done / total) : 0;
@@ -428,10 +483,11 @@ const styles = StyleSheet.create({
     fontFamily: tokens.font.display,
   },
 
-  // Hero strip
+  // Hero strip — 4 chips fit comfortably with reduced gap + slim horizontal
+  // padding so the row doesn't wrap or clip on a 360-wide device.
   heroRow: {
     flexDirection: "row",
-    gap: 10,
+    gap: 8,
     marginBottom: tokens.spacing.lg,
   },
   chip: {
@@ -440,7 +496,7 @@ const styles = StyleSheet.create({
     borderRadius: tokens.radius.base,
     borderWidth: 1,
     paddingVertical: 14,
-    paddingHorizontal: 10,
+    paddingHorizontal: 6,
     alignItems: "center",
     justifyContent: "center",
     gap: 4,
