@@ -33,7 +33,9 @@ export const tokens = {
   text: {
     primary: "#ffffff",
     secondary: "rgba(255, 255, 255, 0.65)",
-    tertiary: "rgba(255, 255, 255, 0.40)",
+    // Bumped from 0.40 → 0.58 to clear WCAG AA 4.5:1 for body text on
+    // bg.app (#000). Accessibility audit flagged the lower value as ~4.3:1.
+    tertiary: "rgba(255, 255, 255, 0.58)",
     onSurfaceVariant: "rgba(255, 255, 255, 0.75)",
     // On inverse (light) surfaces — rare
     inverseOnSurface: "#0a0a0a",

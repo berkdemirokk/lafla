@@ -145,10 +145,10 @@ export default function ProfileScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top"]}>
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
 
       <View style={styles.header}>
-        <Pressable onPress={() => router.back()} style={styles.backBtn}>
+        <Pressable onPress={() => router.back()} style={styles.backBtn} hitSlop={12} accessibilityRole="button" accessibilityLabel="Geri">
           <Text style={styles.backText}>← Geri</Text>
         </Pressable>
         <Text style={styles.title}>Profil</Text>
@@ -237,25 +237,10 @@ export default function ProfileScreen() {
             <Text style={styles.rowChevron}>›</Text>
           </Pressable>
 
-          <Pressable style={styles.row} onPress={toggleReminders}>
-            <Text style={styles.rowIcon}>🔔</Text>
-            <Text style={styles.rowText}>
-              Günlük hatırlatıcı{" "}
-              <Text style={styles.rowBadge}>
-                {remindersOn ? "(Açık)" : "(Kapalı)"}
-              </Text>
-            </Text>
-            <Text style={styles.rowChevron}>›</Text>
-          </Pressable>
-
-          <Pressable
-            style={styles.row}
-            onPress={() => router.push("/onboarding")}
-          >
-            <Text style={styles.rowIcon}>🎯</Text>
-            <Text style={styles.rowText}>İlgi alanlarımı değiştir</Text>
-            <Text style={styles.rowChevron}>›</Text>
-          </Pressable>
+          {/* Reminder row hidden until lib/notifications.ts is real. */}
+          {/* "İlgi alanlarımı değiştir" hidden — interests step was removed
+              from onboarding; restoring it would route to a flow that
+              doesn't update profile data. */}
 
           <Pressable style={styles.row} onPress={handleResetLocal}>
             <Text style={styles.rowIcon}>🧹</Text>

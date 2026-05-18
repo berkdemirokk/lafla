@@ -1,5 +1,10 @@
 // Lafla — Auth helpers built on Supabase.
-// Apple Sign-In currently stubbed (re-enable with eas credentials refresh).
+//
+// Apple Sign-In NOTE: the high-level orchestrator (request id_token from the
+// native module, hand it to Supabase, persist credentials) lives in
+// ./auth-apple.ts. The low-level Supabase wrapper `signInWithApple` below
+// only exists because some older call sites still use it directly — prefer
+// `signInWithApple` from `./auth-apple.ts` for new code.
 
 import { supabase } from "./supabase";
 
@@ -36,14 +41,6 @@ export async function signInWithApple(identityToken: string, nonce?: string) {
   });
   if (error) throw error;
   return data;
-}
-
-export async function isAppleAuthAvailable(): Promise<boolean> {
-  return false;
-}
-
-export async function signInWithAppleNative(): Promise<never> {
-  throw new Error("Apple Sign-In not enabled in this build");
 }
 
 export async function signOut() {

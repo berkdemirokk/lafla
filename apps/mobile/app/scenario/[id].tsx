@@ -199,14 +199,14 @@ export default function ScenarioScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
       <KeyboardAvoidingView
         style={styles.flex}
         behavior={Platform.OS === "ios" ? "padding" : undefined}
       >
         <View style={styles.header}>
           <Pressable onPress={handleExit} style={styles.exitBtn}>
-            <Text style={styles.exitText}>← Çık</Text>
+            <Text style={styles.exitText}>← Geri</Text>
           </Pressable>
           <View style={styles.phaseDots}>
             <PhaseDot
@@ -592,7 +592,7 @@ const setupStyles = StyleSheet.create({
     marginBottom: tokens.spacing.md,
   },
   hero: {
-    backgroundColor: "rgba(246, 255, 0, 0.14)",
+    backgroundColor: tokens.brand.primarySoft,
     borderWidth: 2,
     borderColor: tokens.brand.primary,
     borderRadius: tokens.radius.base,

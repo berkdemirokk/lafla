@@ -1,7 +1,12 @@
-// Sample feed scenes. Production data comes from content/scenarios/ via the backend.
-// Cyber-Electric Modern: single brand accent across all scenes.
+// Sample feed scenes consumed by Home (Netflix-rows feed) and the scenario
+// loop. Production data eventually moves behind a backend; for now everything
+// is bundled and read synchronously.
+//
+// Theme: Neon Noir (post-pivot 2026-05-18). Earlier comments referenced the
+// retired "Cyber-Electric Modern" palette — disregard those if you find them
+// elsewhere in this file or its imports.
 
-// Wave 3 imports — CEFR + new modes
+// Wave 3 imports — CEFR + mode-tagged scene banks
 import { cefrA1SurvivalScenes } from "./cefr-a1-survival-scenes";
 import { cefrA2DailyScenes } from "./cefr-a2-daily-scenes";
 import { a2MicroScenes } from "./a2-micro-scenes";
@@ -829,7 +834,7 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     emoji: "⚖️",
     title: "Saygılı karşı çık —\nI'd push back,\nrespectfully disagree",
     description:
-      "Senior'la farklı düşünüyorsun — saygılı + argümanlı karşı çıkış. Kuvar olmadan.",
+      "Senior'la farklı düşünüyorsun — saygılı + argümanlı karşı çıkış. Kavgaya dönüşmeden.",
     durationMin: 5,
     mode: "work",
     skillId: "work.meeting",
@@ -894,7 +899,7 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     emoji: "🙇",
     title: "Özür mail'i —\ndropped the ball,\nowning that",
     description:
-      "Hata yaptın / gecikme oldu — sahiplen, sebep ac, çözüm planı sun.",
+      "Hata yaptın / gecikme oldu — sahiplen, sebep aç, çözüm planı sun.",
     durationMin: 5,
     mode: "work",
     skillId: "work.email",
@@ -1830,7 +1835,7 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
   { id: "scene-flirt-rejection-7-7", emoji: "🧘", title: "Olgun kabul —\nappreciate the honesty,\nall good", description: "Reddedilince olgun cevap — ego'yu yere koy.", durationMin: 5, mode: "flirt", skillId: "flirt.rejection", lessonId: "flirt.rejection.7.7", isNew: true, progressLabel: "7/8 ders" },
   { id: "scene-flirt-rejection-7-8", emoji: "🛡️", title: "Israra karşı sınır —\nI've said no,\nplease respect", description: "Reddetmene rağmen ısrar varsa — saygılı sınır.", durationMin: 5, mode: "flirt", skillId: "flirt.rejection", lessonId: "flirt.rejection.7.8", isNew: true, progressLabel: "8/8 ders ✓" },
   // flirt.recovery — son 4 ders
-  { id: "scene-flirt-recovery-8-5", emoji: "🍷", title: "Sarhoş mesaj —\nlast night,\nember-faced apology", description: "Sarhoşken atılmış mesaj — ertesi sabah özür kalıpları.", durationMin: 5, mode: "flirt", skillId: "flirt.recovery", lessonId: "flirt.recovery.8.5", isNew: true, progressLabel: "5/8 ders" },
+  { id: "scene-flirt-recovery-8-5", emoji: "🍷", title: "Sarhoş mesaj —\nlast night,\nred-faced apology", description: "Sarhoşken atılmış mesaj — ertesi sabah özür kalıpları.", durationMin: 5, mode: "flirt", skillId: "flirt.recovery", lessonId: "flirt.recovery.8.5", isNew: true, progressLabel: "5/8 ders" },
   { id: "scene-flirt-recovery-8-6", emoji: "👻", title: "Ghost sonrası dön —\nbeen MIA,\nhere's why", description: "Haftalarca yazmadın — sıfırdan açıklama + dürüstlük.", durationMin: 5, mode: "flirt", skillId: "flirt.recovery", lessonId: "flirt.recovery.8.6", isNew: true, progressLabel: "6/8 ders" },
   { id: "scene-flirt-recovery-8-7", emoji: "🤦", title: "Yanlış kişiye mesaj —\nwrong chat,\nmy bad", description: "Mesajı yanlış sohbete attın — hızlı düzelt + esprili.", durationMin: 5, mode: "flirt", skillId: "flirt.recovery", lessonId: "flirt.recovery.8.7", isNew: true, progressLabel: "7/8 ders" },
   { id: "scene-flirt-recovery-8-8", emoji: "🙈", title: "Garip emoji —\nautocorrect,\nlet me try again", description: "Yanlış emoji/autocorrect — hata düzelt, geçmişi unutturma.", durationMin: 5, mode: "flirt", skillId: "flirt.recovery", lessonId: "flirt.recovery.8.8", isNew: true, progressLabel: "8/8 ders ✓" },

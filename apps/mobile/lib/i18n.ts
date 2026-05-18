@@ -19,25 +19,17 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import trMessages from "../locales/tr.json";
 import enMessages from "../locales/en.json";
-import itMessages from "../locales/it.json";
-import esMessages from "../locales/es.json";
-import deMessages from "../locales/de.json";
-import srMessages from "../locales/sr.json";
 
-export type Locale = "tr" | "en" | "it" | "es" | "de" | "sr";
+export type Locale = "tr" | "en";
 
 const STORAGE_KEY = "lafla.locale";
-const DEFAULT_LOCALE: Locale = "en";
+const DEFAULT_LOCALE: Locale = "tr";
 
 type Dict = Record<string, string>;
 
 const MESSAGES: Record<Locale, Dict> = {
   tr: trMessages as Dict,
   en: enMessages as Dict,
-  it: itMessages as Dict,
-  es: esMessages as Dict,
-  de: deMessages as Dict,
-  sr: srMessages as Dict,
 };
 
 // Subscribers are notified when setLocale runs so any mounted
@@ -50,7 +42,7 @@ let hydrated = false;
 let hydratePromise: Promise<void> | null = null;
 
 function isLocale(value: unknown): value is Locale {
-  return value === "tr" || value === "en" || value === "it" || value === "es" || value === "de" || value === "sr";
+  return value === "tr" || value === "en";
 }
 
 /**
@@ -71,10 +63,6 @@ function detectDeviceLocale(): Locale | null {
     if (typeof tag === "string") {
       const lower = tag.toLowerCase();
       if (lower.startsWith("tr")) return "tr";
-      if (lower.startsWith("it")) return "it";
-      if (lower.startsWith("es")) return "es";
-      if (lower.startsWith("de")) return "de";
-      if (lower.startsWith("sr")) return "sr";
       return "en";
     }
     return null;

@@ -158,10 +158,10 @@ export default function SettingsScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
 
       <View style={styles.header}>
-        <Pressable onPress={() => router.back()} style={styles.backBtn}>
+        <Pressable onPress={() => router.back()} style={styles.backBtn} hitSlop={12} accessibilityRole="button" accessibilityLabel="Geri">
           <Text style={styles.backText}>← Geri</Text>
         </Pressable>
         <Text style={styles.title}>Ayarlar</Text>
@@ -176,12 +176,10 @@ export default function SettingsScreen() {
             value={autoSpeak}
             onValueChange={setAutoSpeakValue}
           />
-          <Toggle
-            label="Günlük hatırlatıcı (19:00)"
-            description="Aktif günlerini sürdürmek için bildirim"
-            value={remindersOn}
-            onValueChange={toggleReminders}
-          />
+          {/* Daily reminder toggle hidden until the notifications backend
+              ships — currently lib/notifications.ts is a no-op stub and the
+              UI would lie about granting permissions. Restore once
+              expo-notifications wiring is real. */}
         </Section>
 
         <Section title="GİZLİLİK">
@@ -198,10 +196,9 @@ export default function SettingsScreen() {
             label="Profil"
             onPress={() => router.push("/profile" as never)}
           />
-          <Row
-            label="Seviyemi değiştir"
-            onPress={() => router.push("/onboarding" as never)}
-          />
+          {/* "Seviyemi değiştir" hidden — re-running onboarding traps the
+              user with no exit, and the rewind would reset track + name.
+              Restore when a dedicated level-change screen exists. */}
           <Row
             label="Hesabımı sil"
             onPress={openDeleteFlow}

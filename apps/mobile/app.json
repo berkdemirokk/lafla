@@ -18,7 +18,7 @@
     },
     "ios": {
       "bundleIdentifier": "com.lafla.app",
-      "supportsTablet": true,
+      "supportsTablet": false,
       "buildNumber": "3",
       "usesAppleSignIn": true,
       "infoPlist": {
@@ -31,10 +31,7 @@
         "NSMicrophoneUsageDescription": "Telaffuzunu değerlendirmek için mikrofona erişim gerekli.",
         "NSSpeechRecognitionUsageDescription": "Söylediğin İngilizce cümleleri anlamak için konuşma tanıma kullanılır.",
         "NSUserTrackingUsageDescription": "Sana daha iyi pratik önerileri sunmak için anonim kullanım verileri toplanır.",
-        "NSPhotoLibraryUsageDescription": "İlerleme kartını galerine kaydedebilmen için izin gerekli.",
-        "UIBackgroundModes": [
-          "audio"
-        ]
+        "NSPhotoLibraryUsageDescription": "İlerleme kartını galerine kaydedebilmen için izin gerekli."
       },
       "privacyManifests": {
         "NSPrivacyTracking": true,

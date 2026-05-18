@@ -4,7 +4,7 @@
 // Mod taksonomisi: Flört / İş / Travel / Sosyal / Sipariş / Banter / Spor / Sağlık.
 // İlk 6 modun mevcut data ile dolu satırları var; Spor ve Sağlık "Yakında" rozeti ile.
 
-import { useCallback, useMemo, useState } from "react";
+import { memo, useCallback, useMemo, useState } from "react";
 import { useFocusEffect, useRouter } from "expo-router";
 import {
   FlatList,
@@ -47,7 +47,7 @@ const MODE_ROWS: ReadonlyArray<ModeRow> = [
     title: "İş",
     modes: ["work", "professional", "career"],
   },
-  { key: "travel", emoji: "✈️", title: "Travel", modes: ["travel"] },
+  { key: "travel", emoji: "✈️", title: "Seyahat", modes: ["travel"] },
   {
     key: "social",
     emoji: "👥",
@@ -55,7 +55,7 @@ const MODE_ROWS: ReadonlyArray<ModeRow> = [
     modes: ["daily", "personal"],
   },
   { key: "order", emoji: "🍽️", title: "Sipariş", modes: ["order"] },
-  { key: "banter", emoji: "🎉", title: "Banter", modes: ["banter"] },
+  { key: "banter", emoji: "🎉", title: "Espri", modes: ["banter"] },
   { key: "sport", emoji: "💪", title: "Spor", modes: ["sport"], comingSoon: true },
   { key: "health", emoji: "🩺", title: "Sağlık", modes: ["health"], comingSoon: true },
 ];
@@ -111,20 +111,25 @@ export default function Home() {
 
   const streak = state.profile?.current_streak ?? 0;
 
-  const goScene = async (lessonId: string) => {
-    try {
-      await Haptics.selectionAsync();
-    } catch {}
-    router.push(`/scenario/${lessonId}` as never);
-  };
+  // useCallback so SceneCard's memo doesn't re-render every time
+  // `state.completed` changes for unrelated cards.
+  const goScene = useCallback(
+    async (lessonId: string) => {
+      try {
+        await Haptics.selectionAsync();
+      } catch {}
+      router.push(`/scenario/${lessonId}` as never);
+    },
+    [router],
+  );
 
-  const goHero = async () => {
+  const goHero = useCallback(async () => {
     if (!hero) return;
     try {
       await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     } catch {}
     router.push(`/scenario/${hero.lessonId}` as never);
-  };
+  }, [hero, router]);
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
@@ -197,11 +202,19 @@ export default function Home() {
                   showsHorizontalScrollIndicator={false}
                   keyExtractor={(item) => item.id}
                   contentContainerStyle={styles.rowList}
+                  initialNumToRender={4}
+                  maxToRenderPerBatch={4}
+                  windowSize={3}
+                  getItemLayout={(_, index) => ({
+                    length: 172,
+                    offset: 172 * index,
+                    index,
+                  })}
                   renderItem={({ item }) => (
                     <SceneCard
                       scene={item}
                       completed={state.completed.has(item.lessonId)}
-                      onPress={() => goScene(item.lessonId)}
+                      onPress={goScene}
                     />
                   )}
                 />
@@ -224,18 +237,24 @@ export default function Home() {
 // Subcomponents
 // ---------------------------------------------------------------------------
 
-function SceneCard({
+interface SceneCardProps {
+  scene: Scene;
+  completed: boolean;
+  onPress: (lessonId: string) => void;
+}
+
+const SceneCard = memo(function SceneCard({
   scene,
   completed,
   onPress,
-}: {
-  scene: Scene;
-  completed: boolean;
-  onPress: () => void;
-}) {
+}: SceneCardProps) {
+  const handlePress = useCallback(() => onPress(scene.lessonId), [
+    onPress,
+    scene.lessonId,
+  ]);
   return (
     <Pressable
-      onPress={onPress}
+      onPress={handlePress}
       style={({ pressed }) => [
         cardStyles.card,
         pressed && cardStyles.cardPressed,
@@ -264,7 +283,7 @@ function SceneCard({
       </View>
     </Pressable>
   );
-}
+});
 
 function NavTab({
   label,

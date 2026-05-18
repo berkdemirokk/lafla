@@ -38,7 +38,9 @@ export default function Splash() {
       router.replace("/onboarding");
     };
 
-    const t = setTimeout(decide, 800);
+    // Short brand reveal — keeps the splash perceivable without delaying
+    // interactive time. Trimmed from 800ms to 300ms after perf audit.
+    const t = setTimeout(decide, 300);
     return () => clearTimeout(t);
   }, [session, loading, router]);
 

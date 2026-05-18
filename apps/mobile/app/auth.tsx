@@ -93,7 +93,7 @@ export default function Auth() {
 
   return (
     <SafeAreaView style={styles.safe}>
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
       <KeyboardAvoidingView
         style={styles.flex}
         behavior={Platform.OS === "ios" ? "padding" : undefined}
@@ -102,7 +102,7 @@ export default function Auth() {
           contentContainerStyle={styles.scroll}
           keyboardShouldPersistTaps="handled"
         >
-          <Pressable style={styles.skipBtn} onPress={skipAuth}>
+          <Pressable style={styles.skipBtn} onPress={skipAuth} hitSlop={12} accessibilityRole="button" accessibilityLabel="Girişi atla">
             <Text style={styles.skipText}>Atla →</Text>
           </Pressable>
           <View style={styles.header}>

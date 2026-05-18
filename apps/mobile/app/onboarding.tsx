@@ -278,7 +278,7 @@ export default function Onboarding() {
       <View style={styles.header}>
         {state.step !== "welcome" ? (
           <Pressable onPress={goBack} style={styles.backBtn} hitSlop={12}>
-            <Text style={styles.backText}>← Back</Text>
+            <Text style={styles.backText}>← Geri</Text>
           </Pressable>
         ) : (
           <View style={styles.backBtn} />
