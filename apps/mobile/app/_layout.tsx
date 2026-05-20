@@ -58,6 +58,7 @@ export default function RootLayout() {
           <Stack.Screen name="scenario/[id]" />
           <Stack.Screen name="freechat" />
           <Stack.Screen name="review" />
+          <Stack.Screen name="placement" />
           <Stack.Screen name="paywall" />
           <Stack.Screen name="profile" />
           <Stack.Screen name="settings" />

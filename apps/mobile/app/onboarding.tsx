@@ -55,6 +55,7 @@ import { initAnalytics, trackEvent } from "../lib/analytics";
 import { requestAttOnce } from "../lib/att";
 import { completeOnboarding } from "../lib/auth";
 import { setCefrLevel, type CefrLevel } from "../lib/cefr-level";
+import { finalizeOnboarding } from "../lib/onboarding-finalize";
 import {
   hapticImpact,
   hapticSelection,
@@ -304,37 +305,41 @@ export default function Onboarding() {
     dispatch({ type: "NEXT" });
   };
 
+  // ---------- Placement test — adaptive yol ----------
+  // Self-report yerine 6-soruluk test ile seviye ölç. Test bitince
+  // /placement screen finalizeOnboarding'i kendi çağırır ve /home'a
+  // yönlendirir. Interests + displayName state'i AsyncStorage'da
+  // zaten saklanmış olduğu için placement screen bunları okuyup
+  // finalize tetikleyebilir.
+  const handleTakeTest = async () => {
+    if (saving) return;
+    hapticImpact("light");
+    // Onboarding state'ini disk'e kaydet (interests + displayName) —
+    // placement screen onlara erişebilsin.
+    await setInterests(state.interests).catch(() => {});
+    const trimmed = state.displayName.trim();
+    if (trimmed.length > 0) {
+      await AsyncStorage.setItem(K_DISPLAY_NAME, trimmed).catch(() => {});
+    }
+    await setOnboardingStep("cefr").catch(() => {});
+    void trackEvent("onboarding_placement_initiated").catch(() => {});
+    router.replace("/placement" as never);
+  };
+
   // ---------- CEFR — finalize ----------
   const handlePickLevel = async (lvl: CefrLevel) => {
     if (saving) return;
     hapticImpact("medium");
     setSaving(true);
 
-    await setCefrLevel(lvl);
-    await setInterests(state.interests).catch(() => {});
-    // Pre-2026-05-20 kullanıcılarda kalmış olabilecek track anahtarını temizle.
-    await AsyncStorage.removeItem("lafla.track").catch(() => {});
-    const trimmed = state.displayName.trim();
-    if (trimmed.length > 0) {
-      await AsyncStorage.setItem(K_DISPLAY_NAME, trimmed).catch(() => {});
-    }
-    await setOnboarded(true);
-    await setOnboardingStep(null);
-    // Hesap varsa profili senkronla (hata yutulur — local zaten kaydedildi).
-    await completeOnboarding(state.interests).catch(() => {});
-
-    // ATT — değer gördükten sonra (Apple önerisi). Reddedilirse de uygulama
-    // çalışır; sadece analytics zarif şekilde devre dışı kalır.
-    const attStatus = await requestAttOnce().catch(() => null);
-    if (attStatus === "granted") {
-      await initAnalytics().catch(() => {});
-    }
-
-    void trackEvent("onboarding_completed", {
+    // 2026-05-21 — finalize logic helper'a taşındı (lib/onboarding-finalize)
+    // Aynı işi /placement ekranı da çağırır (adaptive test sonu).
+    await finalizeOnboarding({
       level: lvl,
       interests: state.interests,
-      had_name: trimmed.length > 0,
-    }).catch(() => {});
+      displayName: state.displayName,
+      source: "self_report",
+    });
 
     hapticSuccess();
     setSaving(false);
@@ -414,7 +419,11 @@ export default function Onboarding() {
           />
         )}
         {state.step === "cefr" && (
-          <CefrStep onPick={handlePickLevel} saving={saving} />
+          <CefrStep
+            onPick={handlePickLevel}
+            onTakeTest={handleTakeTest}
+            saving={saving}
+          />
         )}
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -861,17 +870,45 @@ function NameStep({
 function CefrStep({
   onPick,
   saving,
+  onTakeTest,
 }: {
   onPick: (l: CefrLevel) => void;
   saving: boolean;
+  /** 2026-05-21 — Adaptive placement test alternatifi. */
+  onTakeTest: () => void;
 }) {
   return (
     <StepContainer>
       <ScrollView contentContainerStyle={styles.stepScroll}>
         <Text style={styles.stepHeader}>İngilizce seviyen?</Text>
         <Text style={styles.stepSubtitle}>
-          Tahmin yeter — sahneler bu seviyeden başlar, zamanla otomatik ayarlanır.
+          Test ile ölç (3 dakika) veya kendin seç — zamanla otomatik ayarlanır.
         </Text>
+
+        {/* Placement test CTA — primary path. Lerna AI'da var, Lafla'da
+            self-report yerine artık adaptive 6-soru test. */}
+        <Pressable
+          onPress={onTakeTest}
+          disabled={saving}
+          style={({ pressed }) => [
+            styles.placementCta,
+            pressed && styles.placementCtaPressed,
+            saving && styles.placementCtaDisabled,
+          ]}
+          accessibilityRole="button"
+          accessibilityLabel="3 dakikada adaptive İngilizce seviye testi"
+        >
+          <Text style={styles.placementCtaIcon}>🎯</Text>
+          <View style={styles.placementCtaText}>
+            <Text style={styles.placementCtaTitle}>Test ile ölç</Text>
+            <Text style={styles.placementCtaSub}>
+              6 soru, ~3 dakika — gerçek seviyeni öğren
+            </Text>
+          </View>
+          <Text style={styles.placementCtaArrow}>›</Text>
+        </Pressable>
+
+        <Text style={styles.orDivider}>YA DA KENDİN SEÇ</Text>
 
         <View style={styles.levelGrid}>
           {LEVEL_CHOICES.map((choice) => (
@@ -1113,6 +1150,64 @@ const styles = StyleSheet.create({
   },
 
   // ---------- Seviye ----------
+  // Placement test CTA — Adım 49 (2026-05-21).
+  placementCta: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 14,
+    paddingVertical: 16,
+    paddingHorizontal: 18,
+    marginVertical: 6,
+    borderRadius: tokens.radius.lg,
+    borderWidth: 2,
+    borderColor: tokens.brand.tertiary,
+    backgroundColor: tokens.brand.tertiarySoft,
+    shadowColor: tokens.brand.tertiary,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.45,
+    shadowRadius: 18,
+    elevation: 6,
+  },
+  placementCtaPressed: {
+    opacity: 0.85,
+    transform: [{ scale: 0.98 }],
+  },
+  placementCtaDisabled: {
+    opacity: 0.5,
+  },
+  placementCtaIcon: {
+    fontSize: 32,
+  },
+  placementCtaText: {
+    flex: 1,
+    gap: 2,
+  },
+  placementCtaTitle: {
+    fontSize: 17,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.primary,
+    letterSpacing: -0.2,
+    fontFamily: tokens.font.display,
+  },
+  placementCtaSub: {
+    fontSize: 13,
+    color: tokens.text.secondary,
+    lineHeight: 17,
+  },
+  placementCtaArrow: {
+    fontSize: 26,
+    color: tokens.brand.tertiary,
+    fontWeight: tokens.weight.bold,
+  },
+  orDivider: {
+    fontSize: 11,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.tertiary,
+    letterSpacing: 1.4,
+    textAlign: "center",
+    marginVertical: 18,
+  },
+
   levelGrid: {
     gap: 12,
   },
