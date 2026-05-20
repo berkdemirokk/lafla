@@ -91,7 +91,7 @@
       [
         "react-native-google-mobile-ads",
         {
-          "iosAppId": "ca-app-pub-3940256099942544~1458002511",
+          "iosAppId": "ca-app-pub-9898903071826160~1977700763",
           "androidAppId": "ca-app-pub-3940256099942544~3347511713",
           "userTrackingUsageDescription": "Daha alakalı reklamlar göstermek için anonim kimlik kullanılır.",
           "skAdNetworkItems": [
@@ -124,9 +124,9 @@
       "posthogHost": "https://eu.i.posthog.com",
       "ttsEndpoint": "",
       "ttsVoiceId": "21m00Tcm4TlvDq8ikWAM",
-      "admobBannerIos": "",
+      "admobBannerIos": "ca-app-pub-9898903071826160/7653910722",
       "admobBannerAndroid": "",
-      "admobInterstitialIos": "",
+      "admobInterstitialIos": "ca-app-pub-9898903071826160/8715710953",
       "admobInterstitialAndroid": "",
       "eas": {
         "projectId": "a7b18723-d431-481b-92cd-18a4c1104171"
