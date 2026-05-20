@@ -43,7 +43,11 @@ import {
   type LocalProfile,
 } from "../lib/local-progress";
 import { SAMPLE_SCENES, type SceneMode } from "../data/scenes";
-import { getCefrLevel, type CefrLevel } from "../lib/cefr-level";
+import {
+  getCefrLevel,
+  getRecentDecay,
+  type CefrLevel,
+} from "../lib/cefr-level";
 import {
   getShieldCount,
   getMonthlyGrant,
@@ -114,6 +118,12 @@ export default function ProfileScreen() {
   // interest set powers the visible MODES list below. Both default to null
   // so the dashboard degrades gracefully on first launch.
   const [cefrLevel, setCefrLevelState] = useState<CefrLevel | null>(null);
+  // CEFR rosette zenginleştirme (2026-05-21 — Erosion sürümü).
+  // cefrProgress = fractional kazanım (0..1). Recent decay > 0 ise son
+  // aşınmayı kırmızı pill ile göster. Hem switch-trigger #3 (delta sayısı)
+  // hem CEFR Erosion (loss-aversion) için tek satır okuma.
+  const [cefrProgress, setCefrProgress] = useState<number>(0);
+  const [recentDecay, setRecentDecay] = useState<number>(0);
   const [visibleModes, setVisibleModes] =
     useState<ReadonlyArray<ModeRow>>(MODES);
   // Streak Shield state — switch-trigger #2 (Adım 2, 2026-05-20).
@@ -143,21 +153,27 @@ export default function ProfileScreen() {
     }
 
     try {
-      const [p, c, lvl, interests, shields, grant, recent] = await Promise.all([
-        getLocalProfile(),
-        getCompletedLessonIds(),
-        getCefrLevel(),
-        getInterests(),
-        getShieldCount(),
-        getMonthlyGrant(),
-        recentShieldUseIso(),
-      ]);
+      const [p, c, lvl, interests, shields, grant, recent, decay, progRaw] =
+        await Promise.all([
+          getLocalProfile(),
+          getCompletedLessonIds(),
+          getCefrLevel(),
+          getInterests(),
+          getShieldCount(),
+          getMonthlyGrant(),
+          recentShieldUseIso(),
+          getRecentDecay(),
+          AsyncStorage.getItem("lafla.cefr.progress").catch(() => null),
+        ]);
       setLocal(p);
       setCompleted(c);
       setCefrLevelState(lvl);
       setShieldCount(shields);
       setMonthlyGrant(grant);
       setRecentShieldSave(recent);
+      setRecentDecay(decay);
+      const prog = progRaw ? parseFloat(progRaw) : 0;
+      setCefrProgress(Number.isFinite(prog) && prog >= 0 && prog <= 1 ? prog : 0);
       // Filter the 8-mode dashboard down to modes the user expressed
       // interest in. An empty interests list (skipped onboarding / legacy
       // install) keeps the full 8-mode list — current behaviour. Modes are
@@ -282,12 +298,39 @@ export default function ProfileScreen() {
           />
           <StatChip
             icon="📚"
-            value={cefrLevel ?? "—"}
+            value={cefrLevel ? `${cefrLevel}${cefrProgress > 0 ? `+${cefrProgress.toFixed(2)}` : ""}` : "—"}
             label="seviye"
             accent={tokens.brand.primary}
             glow={tokens.brand.primaryGlow}
           />
         </View>
+
+        {/* CEFR Erosion rozeti — yetişkin loss-aversion (2026-05-21).
+            recentDecay > 0 ise son ihmal aşınmasını sayısal göster.
+            Hearts/Lives'tan çok daha mature: gerçek başarı metriği
+            kullanıcının önünde geriliyor. Premium kullanıcıda decay
+            zaten 0; pill render etmiyor.
+
+            Eğer aşınma yoksa ve progress > 0 ise "+0.04 bu sahnede"
+            yerine tek satır pozitif okuma: "%X · B2'ye yaklaşıyorsun". */}
+        {cefrLevel && recentDecay > 0 && (
+          <View style={styles.erosionPill}>
+            <Text style={styles.erosionPillLabel}>CEFR AŞINMASI</Text>
+            <Text style={styles.erosionPillValue}>
+              −{recentDecay.toFixed(2)} · ihmal cezası
+            </Text>
+          </View>
+        )}
+        {cefrLevel && recentDecay === 0 && cefrProgress > 0 && (
+          <View style={styles.cefrProgressPill}>
+            <Text style={styles.cefrProgressPillLabel}>
+              {cefrLevel} İLERLEMEN
+            </Text>
+            <Text style={styles.cefrProgressPillValue}>
+              %{Math.round(cefrProgress * 100)} · bir üst seviyeye doğru
+            </Text>
+          </View>
+        )}
 
         {/* Streak Shield rozeti — sadece premium kullanıcılarda (grant > 0).
             Free kullanıcı için 0/0 olur, anlamsız. Recent save varsa
@@ -572,6 +615,60 @@ const styles = StyleSheet.create({
     fontWeight: tokens.weight.semibold,
     color: tokens.brand.tertiary,
     letterSpacing: 0.3,
+  },
+  // CEFR Erosion pill — kırmızı, hero strip altında, dikkat çeker
+  // ama paniğe yol açmaz. Tek satır iki bilgi: label + sayısal kayıp.
+  erosionPill: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 10,
+    marginBottom: tokens.spacing.md,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.semantic.errorContainer,
+    borderWidth: 1,
+    borderColor: tokens.semantic.error,
+  },
+  erosionPillLabel: {
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.semantic.error,
+    letterSpacing: 1.2,
+  },
+  erosionPillValue: {
+    fontSize: 12,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.primary,
+    letterSpacing: 0.2,
+  },
+  // CEFR progress pill — pozitif okuma (decay yokken).
+  // Cyan tone — başarı palette. "B1 ilerlemen %32" gibi.
+  cefrProgressPill: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 10,
+    marginBottom: tokens.spacing.md,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
+  },
+  cefrProgressPillLabel: {
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.tertiary,
+    letterSpacing: 1.2,
+  },
+  cefrProgressPillValue: {
+    fontSize: 12,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.primary,
+    letterSpacing: 0.2,
   },
   chip: {
     flex: 1,

@@ -47,12 +47,22 @@ const K_CEFR_LEVEL = "lafla.cefr.level";
 // Türk öğrencisinin YDS/IELTS dünyasından geldiği için CEFR'i sayısal +
 // ölçülebilir göstermek = anladığı dilde feedback.
 const K_CEFR_PROGRESS = "lafla.cefr.progress";
+// 2026-05-21 — CEFR Erosion. Son practice tarihi + son uygulanan decay
+// miktarı (UI'da "geçen hafta -0.04" gösterimi için).
+const K_LAST_PRACTICE_AT = "lafla.cefr.lastPracticeAt";
+const K_RECENT_DECAY = "lafla.cefr.recentDecay";
 
 // Sahne başına eklenen fractional ilerleme. 25 ortalama-skor sahne ≈ 1 level.
 // Yüksek skor (≥75) tam pay, mid yarı, low ufak teselli.
 const PROGRESS_HIGH = 0.04; // ≥75 puan
 const PROGRESS_MID = 0.02; // 50-74
 const PROGRESS_LOW = 0.005; // <50 — sadece görünür olsun, neredeyse 0
+
+// Erosion parametreleri — yetişkin loss-aversion (Duolingo hearts'tan
+// daha mature; Türk YDS audience CEFR'i anladığı için psikoloji çalışır).
+const DECAY_GRACE_DAYS = 3; // 3 gün muafiyet — kısa ara için ceza yok
+const DECAY_PER_DAY = 0.02; // Sonra her gün -0.02 (saatte 0.0008, görünür)
+const DECAY_CAP_PER_WEEK = 0.14; // Maks haftalık decay (7 × 0.02)
 
 export interface CefrProgressDelta {
   /** Önceki kesirli ilerleme (0..1). */
@@ -86,7 +96,12 @@ export async function recordCefrProgress(
   const fromLevel = await getCefrLevel();
   if (!fromLevel) return null;
 
-  // Önceki kesirli ilerleme
+  // 1) Erosion: practice yapıldığında önce decay'i uygula, sonra +delta.
+  //    User gerçek durumda — son hafta ihmal varsa banner zaten görmüştü;
+  //    şimdi bu sahne ile hem decay'i absorb hem yeni ilerleme alıyor.
+  await applyDecayIfDue();
+
+  // Önceki kesirli ilerleme (decay sonrası)
   let before = 0;
   try {
     const raw = await AsyncStorage.getItem(K_CEFR_PROGRESS);
@@ -123,6 +138,10 @@ export async function recordCefrProgress(
 
   try {
     await AsyncStorage.setItem(K_CEFR_PROGRESS, after.toFixed(4));
+    // Practice tarihi güncelle — bir sonraki decay hesabının base'i.
+    await AsyncStorage.setItem(K_LAST_PRACTICE_AT, new Date().toISOString());
+    // Recent decay UI hint'ini sıfırla — practice yaptın, decay banner inmeli
+    await AsyncStorage.removeItem(K_RECENT_DECAY).catch(() => {});
   } catch {
     // Best effort.
   }
@@ -143,10 +162,184 @@ export async function recordCefrProgress(
   };
 }
 
+// ============================================================
+// 2026-05-21 — CEFR Erosion (yetişkin loss-aversion)
+// ============================================================
+
+export interface DecayResult {
+  /** Uygulanan decay miktarı (>=0). 0 ise grace period veya premium muaf. */
+  decayApplied: number;
+  /** Decay öncesi progress (0..1). */
+  before: number;
+  /** Decay sonrası progress (0..1). */
+  after: number;
+  /** Level düştü mü (rare — practice şüpheli kalmışsa). */
+  levelDropped: boolean;
+  /** Eğer level düştüyse yeni level. */
+  newLevel: CefrLevel | null;
+}
+
+/**
+ * Son practice'ten bu yana kaç gün geçti? null = hiç practice yok.
+ */
+async function getDaysSincePractice(): Promise<number | null> {
+  try {
+    const raw = await AsyncStorage.getItem(K_LAST_PRACTICE_AT);
+    if (!raw) return null;
+    const t = new Date(raw).getTime();
+    if (Number.isNaN(t)) return null;
+    return (Date.now() - t) / (24 * 3600 * 1000);
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Decay'i uygula — son practice'ten DECAY_GRACE_DAYS sonrası her
+ * gün için DECAY_PER_DAY tutarında. Premium kullanıcıda no-op.
+ *
+ * Çağrı yerleri:
+ *   1. recordCefrProgress() — practice'ten ÖNCE
+ *   2. Home state load — UI banner için (read-side; decay zaten kaydedildi)
+ *
+ * Idempotent: bir kere uygulandıktan sonra K_LAST_PRACTICE_AT ileri sarılır,
+ * tekrar çağrılırsa muaf gün hesabı 0 döner.
+ */
+export async function applyDecayIfDue(): Promise<DecayResult> {
+  const fromLevel = await getCefrLevel();
+  if (!fromLevel) {
+    return {
+      decayApplied: 0,
+      before: 0,
+      after: 0,
+      levelDropped: false,
+      newLevel: null,
+    };
+  }
+
+  // Premium muaf — Speak+ değer önerisi.
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const iap = require("./iap") as { isPremium: () => Promise<boolean> };
+  const premium = await iap.isPremium().catch(() => false);
+  if (premium) {
+    return {
+      decayApplied: 0,
+      before: 0,
+      after: 0,
+      levelDropped: false,
+      newLevel: null,
+    };
+  }
+
+  const days = await getDaysSincePractice();
+  if (days === null || days <= DECAY_GRACE_DAYS) {
+    return {
+      decayApplied: 0,
+      before: 0,
+      after: 0,
+      levelDropped: false,
+      newLevel: null,
+    };
+  }
+
+  // Mevcut progress
+  let before = 0;
+  try {
+    const raw = await AsyncStorage.getItem(K_CEFR_PROGRESS);
+    if (raw) {
+      const n = parseFloat(raw);
+      if (!Number.isNaN(n) && n >= 0 && n <= 1) before = n;
+    }
+  } catch {
+    // ignore
+  }
+
+  // Decay miktarı — grace period sonrası gün × per-day, haftalık cap'le
+  const decayDays = days - DECAY_GRACE_DAYS;
+  const decayApplied = Math.min(decayDays * DECAY_PER_DAY, DECAY_CAP_PER_WEEK);
+
+  let after = before - decayApplied;
+  let levelDropped = false;
+  let newLevel: CefrLevel | null = null;
+
+  if (after < 0) {
+    // Progress sıfırın altına düştü → bir alt seviyeye düş
+    const prevLevel = adjustLevel(fromLevel, "down");
+    if (prevLevel !== fromLevel) {
+      newLevel = prevLevel;
+      levelDropped = true;
+      // Yeni seviyede progress 1 + after (negatif) = 1 - excess
+      after = Math.max(0, 1 + after);
+      await setCefrLevel(prevLevel);
+    } else {
+      // A1'deyiz, daha aşağı düşemez — 0'da clamp
+      after = 0;
+    }
+  }
+
+  // Kaydet
+  try {
+    await AsyncStorage.setItem(K_CEFR_PROGRESS, after.toFixed(4));
+    // K_LAST_PRACTICE_AT ileri sar — bir sonraki decay base'i bugün
+    await AsyncStorage.setItem(K_LAST_PRACTICE_AT, new Date().toISOString());
+    // Recent decay UI hint — home banner'da gözükür
+    await AsyncStorage.setItem(K_RECENT_DECAY, decayApplied.toFixed(4));
+  } catch {
+    // Best effort.
+  }
+
+  void trackEvent("cefr_decay_applied", {
+    days_idle: days,
+    decay: decayApplied,
+    level_dropped: levelDropped,
+    new_level: newLevel,
+  }).catch(() => {});
+
+  return { decayApplied, before, after, levelDropped, newLevel };
+}
+
+/**
+ * Son decay miktarını oku — UI banner için. Premium kullanıcıda 0 döner.
+ * Practice yapılınca temizlenir.
+ */
+export async function getRecentDecay(): Promise<number> {
+  try {
+    const raw = await AsyncStorage.getItem(K_RECENT_DECAY);
+    if (!raw) return 0;
+    const n = parseFloat(raw);
+    return Number.isNaN(n) ? 0 : n;
+  } catch {
+    return 0;
+  }
+}
+
+/**
+ * Decay'i şu an uygula (home open'da çağrılır — banner için).
+ * Premium muaf, grace period içindeyse 0 döner.
+ */
+export async function checkErosionForUi(): Promise<{
+  decayAmount: number;
+  daysIdle: number;
+  newLevel: CefrLevel | null;
+}> {
+  const days = await getDaysSincePractice();
+  const result = await applyDecayIfDue();
+  const recentDecay = await getRecentDecay();
+  return {
+    decayAmount: recentDecay,
+    daysIdle: days ?? 0,
+    newLevel: result.newLevel,
+  };
+}
+
+// ─── reset ──────────────────────────────────────────────────────────
+
 /** Sıfırla. Account silme veya manuel reset için. */
 export async function clearCefrProgress(): Promise<void> {
   try {
     await AsyncStorage.removeItem(K_CEFR_PROGRESS);
+    await AsyncStorage.removeItem(K_LAST_PRACTICE_AT);
+    await AsyncStorage.removeItem(K_RECENT_DECAY);
   } catch {
     // ignore
   }
