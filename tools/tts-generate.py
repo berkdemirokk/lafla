@@ -263,10 +263,25 @@ def extract_jobs(lesson_path: Path) -> list[Job]:
     return jobs
 
 
-def collect_all_jobs() -> list[Job]:
-    files = sorted(
-        list(DATA_DIR.glob("*lesson*.ts")) + list(DATA_DIR.glob("*lessons.ts"))
-    )
+def collect_all_jobs(only_files: list[str] | None = None) -> list[Job]:
+    """Collect jobs from all lesson files in DATA_DIR.
+
+    If `only_files` is given (list of basenames, e.g. ["intro-tinder-lesson.ts"]),
+    restricts to those files — used for "hero lessons" pragmatic regen path.
+    """
+    if only_files:
+        files: list[Path] = []
+        for name in only_files:
+            p = DATA_DIR / name
+            if p.exists():
+                files.append(p)
+            else:
+                print(f"[warn] --only-files: {name} not found in {DATA_DIR}", file=sys.stderr)
+        files.sort()
+    else:
+        files = sorted(
+            list(DATA_DIR.glob("*lesson*.ts")) + list(DATA_DIR.glob("*lessons.ts"))
+        )
     # Dedupe by filename so `*lesson*.ts` matching `*lessons.ts` doesn't double up.
     seen_paths: set[Path] = set()
     unique_files = []
@@ -418,12 +433,24 @@ def main() -> int:
                     help="Smoke test: only generate the first N missing jobs.")
     ap.add_argument("--dry-run", action="store_true",
                     help="Parse and plan only; don't load the model or write MP3s.")
+    ap.add_argument("--only-files", type=str, default=None,
+                    help="Comma-separated lesson file basenames to limit to "
+                         "(e.g. 'intro-tinder-lesson.ts,bar-lesson.ts'). "
+                         "Hero-priority TTS for production launch.")
     args = ap.parse_args()
 
     AUDIO_OUT_DIR.mkdir(parents=True, exist_ok=True)
 
+    only_files = (
+        [s.strip() for s in args.only_files.split(",") if s.strip()]
+        if args.only_files
+        else None
+    )
+
     print(f"[info] scanning {DATA_DIR}")
-    jobs = collect_all_jobs()
+    if only_files:
+        print(f"[info] restricted to {len(only_files)} file(s): {', '.join(only_files)}")
+    jobs = collect_all_jobs(only_files=only_files)
     by_voice: dict[str, int] = {}
     for j in jobs:
         by_voice[j.voice_id] = by_voice.get(j.voice_id, 0) + 1
