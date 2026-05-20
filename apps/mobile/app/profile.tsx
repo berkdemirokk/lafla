@@ -289,6 +289,20 @@ export default function ProfileScreen() {
           })}
         </View>
 
+        {/* Speak+ — sole paywall entry point. Submission-critical: Apple's
+            reviewer needs at least one navigation path to the IAP surface.
+            Pre-2026-05-20 the paywall existed as a registered route but had
+            zero callers; this row closes that gap. Free-tier hard gating is
+            a post-launch decision (cf. APP_REVIEW_NOTES.md). */}
+        <Text style={styles.sectionLabel}>SPEAK+</Text>
+        <View style={styles.accountCard}>
+          <AccountRow
+            icon="✨"
+            label="Speak+ aboneliği"
+            onPress={() => router.push("/paywall" as never)}
+          />
+        </View>
+
         {/* Account */}
         <Text style={styles.sectionLabel}>HESAP</Text>
         <View style={styles.accountCard}>

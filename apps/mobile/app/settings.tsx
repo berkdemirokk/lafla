@@ -36,7 +36,8 @@ import {
   deleteAccountInstant,
   type DeletePreview,
 } from "../lib/delete-account";
-import { hapticImpact, hapticSelection } from "../lib/feedback";
+import { hapticImpact, hapticSelection, hapticSuccess } from "../lib/feedback";
+import { restorePurchases } from "../lib/iap";
 import { tokens } from "../theme";
 
 const K_AUTO_SPEAK = "lafla.settings.autoSpeak";
@@ -198,6 +199,30 @@ export default function SettingsScreen() {
     await AsyncStorage.setItem(K_AUTO_SPEAK, v ? "true" : "false").catch(() => {});
   };
 
+  // Apple Guideline 3.1.1 — Restore Purchases ulaşılabilirlik. Settings'ten
+  // tetiklenir; paywall'da ayrı bir buton zaten var. SDK live değilse "aktif
+  // abonelik bulunamadı" gibi kibar bir mesaj döner.
+  const handleRestorePurchases = async () => {
+    hapticImpact("light");
+    try {
+      const restored = await restorePurchases();
+      if (restored) {
+        hapticSuccess();
+        Alert.alert(
+          "Geri yüklendi",
+          "Premium özellikler tekrar aktif.",
+        );
+      } else {
+        Alert.alert(
+          "Aktif abonelik bulunamadı",
+          "Bu Apple ID üzerinde aktif bir Lafla aboneliği bulamadık.",
+        );
+      }
+    } catch {
+      Alert.alert("Hata", "Geri yükleme başarısız. Tekrar dene.");
+    }
+  };
+
   const handleRate = async () => {
     hapticSelection();
     if (storeReviewRequest && storeReviewIsAvailable) {
@@ -309,9 +334,25 @@ export default function SettingsScreen() {
             }}
           />
           <Row
+            icon="✨"
+            label="Speak+ Aboneliği"
+            onPress={() => {
+              hapticSelection();
+              router.push("/paywall" as never);
+            }}
+          />
+          <Row
             icon="💳"
             label="Aboneliğim"
             onPress={() => openUrl(APPLE_SUBS_URL)}
+          />
+          {/* Apple Guideline 3.1.1 — Restore Purchases ulaşılabilir hem
+              paywall'dan hem Settings'ten. APP_REVIEW_NOTES'un bu iddiası
+              2026-05-20'ye kadar koddan eksikti, şimdi karşılığı var. */}
+          <Row
+            icon="🔄"
+            label="Satın alımları geri yükle"
+            onPress={handleRestorePurchases}
           />
           <Row
             icon="🗑️"
