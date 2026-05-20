@@ -6,7 +6,7 @@
 // greetings, ordering coffee, asking directions, calling for help, etc.
 // Sentences are short. Vocabulary repeats across lessons by design.
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 1 — Selamlaşma + Temel Tanışma

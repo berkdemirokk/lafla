@@ -1,18 +1,19 @@
-// Lafla — Onboarding (5 adım, ~60 saniye, tamamen Türkçe, premium hareket).
+// Lafla — Onboarding (4 adım, ~45 saniye, tamamen Türkçe, premium hareket).
 //
-// Akış:
+// Akış (2026-05-20 — track adımı söküldü):
 //   1. welcome    — Wordmark glow + tagline + "Başla"
-//   2. track      — "Bugün ne öğrenmek istiyorsun?" → 3 kart (daily/exam/both)
-//                   → AsyncStorage `lafla.track`
-//   3. interests  — "Hangi sahneler senin için önemli?" → 8 chip, çoklu seçim,
+//   2. interests  — "Hangi sahneler senin için önemli?" → 6 chip, çoklu seçim,
 //                   en az 2 zorunlu → AsyncStorage `lafla.interests`
-//   4. name       — "Sana nasıl hitap edelim?" → opsiyonel, atlanabilir
+//   3. name       — "Sana nasıl hitap edelim?" → opsiyonel, atlanabilir
 //                   → AsyncStorage `lafla.displayName`
-//   5. cefr       — "İngilizce seviyen?" → 6 kart (A1–C2) → setCefrLevel
+//   4. cefr       — "İngilizce seviyen?" → 6 kart (A1–C2) → setCefrLevel
+//
+// 6 chip: Flört · İş · Bar · Havaalanı · Günlük · Sipariş. Her chip 1:1
+// SceneMode'a map'lenir (bkz. lib/interest-mapping.ts).
 //
 // Premium hareket için Reanimated 3.17 kullanılır:
 //   - Her adım mount'ta opacity + translateY ile gelir (StepContainer).
-//   - Track/Level kartları + Interest chip'leri onPressIn'de scale 0.97'ye iner,
+//   - Interest chip'leri + Level kartları onPressIn'de scale 0.97'ye iner,
 //     onPressOut'ta spring ile 1.0'a döner.
 //   - ProgressDots aktif noktasının genişliği animasyonla artar (flex 1 → 2.4).
 //
@@ -71,29 +72,26 @@ import { tokens } from "../theme";
 // TİPLER & SABİTLER
 // ============================================================
 
-type OnboardingStep = "welcome" | "track" | "interests" | "name" | "cefr";
+type OnboardingStep = "welcome" | "interests" | "name" | "cefr";
 
 const STEP_ORDER: OnboardingStep[] = [
   "welcome",
-  "track",
   "interests",
   "name",
   "cefr",
 ];
 
-// Persistence keys (yeni 5-adım akışı). Eski `lafla.user.name` anahtarı geçişte
-// temizlenir; yeni isim `lafla.displayName` altında tutulur.
-const K_TRACK = "lafla.track";
+// Persistence keys (yeni 4-adım akışı). Eski `lafla.user.name` anahtarı geçişte
+// temizlenir; yeni isim `lafla.displayName` altında tutulur. `lafla.track`
+// anahtarı 2026-05-20 itibarıyla artık yazılmıyor — orphan kalır, sonraki
+// açılışta ignored olur.
 const K_DISPLAY_NAME = "lafla.displayName";
 const K_LEGACY_NAME = "lafla.user.name";
 
 const MIN_INTERESTS = 2;
 
-type TrackId = "daily" | "exam" | "both";
-
 interface OnboardingState {
   step: OnboardingStep;
-  track: TrackId | null;
   interests: string[];
   displayName: string;
 }
@@ -102,7 +100,6 @@ type Action =
   | { type: "GOTO"; step: OnboardingStep }
   | { type: "NEXT" }
   | { type: "BACK" }
-  | { type: "SET_TRACK"; track: TrackId }
   | { type: "TOGGLE_INTEREST"; id: string }
   | { type: "SET_NAME"; name: string };
 
@@ -120,8 +117,6 @@ function reducer(state: OnboardingState, action: Action): OnboardingState {
       const prev = STEP_ORDER[Math.max(0, idx - 1)];
       return { ...state, step: prev };
     }
-    case "SET_TRACK":
-      return { ...state, track: action.track };
     case "TOGGLE_INTEREST": {
       const exists = state.interests.includes(action.id);
       const next = exists
@@ -138,44 +133,12 @@ function reducer(state: OnboardingState, action: Action): OnboardingState {
 
 const INITIAL: OnboardingState = {
   step: "welcome",
-  track: null,
   interests: [],
   displayName: "",
 };
 
-// ---------- Track seçenekleri ----------
-interface TrackChoice {
-  id: TrackId;
-  emoji: string;
-  title: string;
-  description: string;
-}
-
-const TRACK_CHOICES: TrackChoice[] = [
-  {
-    id: "daily",
-    emoji: "☕",
-    title: "Günlük hayat",
-    description:
-      "Kahve sipariş etmekten flörte, seyahatten arkadaşlıklara — sahnede pratik.",
-  },
-  {
-    id: "exam",
-    emoji: "🎓",
-    title: "Sınav hazırlığı",
-    description:
-      "IELTS, TOEFL, YDS — gerçek formatla puanını yükseltecek odaklı çalışma.",
-  },
-  {
-    id: "both",
-    emoji: "✨",
-    title: "Her ikisi",
-    description:
-      "Hem günlük akıcılık hem sınav skoru. En kapsamlı program — Lafla'nın gücü.",
-  },
-];
-
-// ---------- İlgi alanı (interest) chip'leri ----------
+// ---------- İlgi alanı (interest) chip'leri — 6 mod (2026-05-20 cut) ----------
+// id değerleri lib/interest-mapping.ts'deki InterestId ile eşleşir.
 interface InterestChoice {
   id: string;
   emoji: string;
@@ -183,14 +146,12 @@ interface InterestChoice {
 }
 
 const INTEREST_CHOICES: InterestChoice[] = [
-  { id: "dating", emoji: "🧊", label: "Flört" },
-  { id: "work", emoji: "💼", label: "İş" },
-  { id: "travel", emoji: "✈️", label: "Seyahat" },
-  { id: "social", emoji: "👥", label: "Sosyal" },
-  { id: "ordering", emoji: "🍽️", label: "Sipariş" },
-  { id: "humor", emoji: "🎉", label: "Espri" },
-  { id: "sports", emoji: "💪", label: "Spor" },
-  { id: "health", emoji: "🩺", label: "Sağlık" },
+  { id: "flirt",   emoji: "💕", label: "Flört" },
+  { id: "work",    emoji: "💼", label: "İş" },
+  { id: "bar",     emoji: "🍻", label: "Bar" },
+  { id: "airport", emoji: "✈️", label: "Havaalanı" },
+  { id: "daily",   emoji: "☕", label: "Günlük" },
+  { id: "order",   emoji: "🍽️", label: "Sipariş" },
 ];
 
 // ---------- CEFR seviye kartları (A1–C2, altı tane) ----------
@@ -290,20 +251,6 @@ export default function Onboarding() {
     dispatch({ type: "NEXT" });
   };
 
-  // ---------- Track ----------
-  const handleTrackContinue = async () => {
-    if (!state.track) return;
-    hapticSelection();
-    await AsyncStorage.setItem(K_TRACK, state.track).catch(() => {});
-    void trackEvent("onboarding_track_selected", { track: state.track }).catch(
-      () => {},
-    );
-    void trackEvent("onboarding_step_completed", { step: "track" }).catch(
-      () => {},
-    );
-    dispatch({ type: "NEXT" });
-  };
-
   // ---------- Interests ----------
   const handleInterestsContinue = async () => {
     if (state.interests.length < MIN_INTERESTS) return;
@@ -365,9 +312,8 @@ export default function Onboarding() {
 
     await setCefrLevel(lvl);
     await setInterests(state.interests).catch(() => {});
-    if (state.track) {
-      await AsyncStorage.setItem(K_TRACK, state.track).catch(() => {});
-    }
+    // Pre-2026-05-20 kullanıcılarda kalmış olabilecek track anahtarını temizle.
+    await AsyncStorage.removeItem("lafla.track").catch(() => {});
     const trimmed = state.displayName.trim();
     if (trimmed.length > 0) {
       await AsyncStorage.setItem(K_DISPLAY_NAME, trimmed).catch(() => {});
@@ -386,7 +332,6 @@ export default function Onboarding() {
 
     void trackEvent("onboarding_completed", {
       level: lvl,
-      track: state.track,
       interests: state.interests,
       had_name: trimmed.length > 0,
     }).catch(() => {});
@@ -434,16 +379,6 @@ export default function Onboarding() {
       >
         {state.step === "welcome" && (
           <WelcomeStep onStart={handleWelcomeStart} />
-        )}
-        {state.step === "track" && (
-          <TrackStep
-            selected={state.track}
-            onSelect={(id) => {
-              hapticSelection();
-              dispatch({ type: "SET_TRACK", track: id });
-            }}
-            onContinue={handleTrackContinue}
-          />
         )}
         {state.step === "interests" && (
           <InterestsStep
@@ -747,90 +682,7 @@ function WelcomeStep({ onStart }: { onStart: () => void }) {
 }
 
 // ============================================================
-// ADIM 2 — TRACK (3 kart, tek seçim)
-// ============================================================
-
-function TrackStep({
-  selected,
-  onSelect,
-  onContinue,
-}: {
-  selected: TrackId | null;
-  onSelect: (id: TrackId) => void;
-  onContinue: () => void;
-}) {
-  const canContinue = selected !== null;
-  return (
-    <StepContainer>
-      <ScrollView contentContainerStyle={styles.stepScroll}>
-        <Text style={styles.stepHeader}>Bugün ne öğrenmek istiyorsun?</Text>
-        <Text style={styles.stepSubtitle}>
-          Bir tane seç — sonra Ayarlar'dan değiştirebilirsin.
-        </Text>
-
-        <View style={styles.trackGrid}>
-          {TRACK_CHOICES.map((choice) => (
-            <TrackCard
-              key={choice.id}
-              choice={choice}
-              selected={selected === choice.id}
-              onPress={() => onSelect(choice.id)}
-            />
-          ))}
-        </View>
-      </ScrollView>
-      <View style={styles.footer}>
-        <AnimatedCta
-          label="Devam et"
-          onPress={onContinue}
-          disabled={!canContinue}
-          accessibilityLabel={
-            canContinue
-              ? "Devam et — ilgi alanlarını seç"
-              : "Önce bir program seç"
-          }
-        />
-      </View>
-    </StepContainer>
-  );
-}
-
-function TrackCard({
-  choice,
-  selected,
-  onPress,
-}: {
-  choice: TrackChoice;
-  selected: boolean;
-  onPress: () => void;
-}) {
-  return (
-    <PressScale
-      onPress={onPress}
-      style={[styles.trackCard, selected && styles.trackCardSelected]}
-      accessibilityRole="button"
-      accessibilityLabel={`${choice.title}. ${choice.description}`}
-      accessibilityState={{ checked: selected }}
-    >
-      <Text style={styles.trackEmoji}>{choice.emoji}</Text>
-      <View style={styles.trackText}>
-        <Text style={styles.trackTitle}>{choice.title}</Text>
-        <Text style={styles.trackDesc}>{choice.description}</Text>
-      </View>
-      <View
-        style={[
-          styles.trackRadio,
-          selected && styles.trackRadioSelected,
-        ]}
-      >
-        {selected ? <View style={styles.trackRadioDot} /> : null}
-      </View>
-    </PressScale>
-  );
-}
-
-// ============================================================
-// ADIM 3 — INTERESTS (8 chip, çoklu seçim, min 2)
+// ADIM 2 — INTERESTS (6 chip, çoklu seçim, min 2)
 // ============================================================
 
 function InterestsStep({
@@ -920,7 +772,7 @@ function InterestChip({
 }
 
 // ============================================================
-// ADIM 4 — İSİM (opsiyonel, atlanabilir)
+// ADIM 3 — İSİM (opsiyonel, atlanabilir)
 // ============================================================
 
 function NameStep({
@@ -989,7 +841,7 @@ function NameStep({
 }
 
 // ============================================================
-// ADIM 5 — CEFR SEVİYE
+// ADIM 4 — CEFR SEVİYE
 // ============================================================
 
 function CefrStep({
@@ -1177,69 +1029,6 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     textAlign: "center",
     paddingHorizontal: tokens.spacing.sm,
-  },
-
-  // ---------- Track (3 dikey kart) ----------
-  trackGrid: {
-    gap: 12,
-    marginTop: tokens.spacing.xs,
-  },
-  trackCard: {
-    backgroundColor: tokens.bg.surfaceContainer,
-    borderRadius: tokens.radius.lg,
-    borderWidth: 1.5,
-    borderColor: tokens.border.outline,
-    padding: 18,
-    minHeight: 92,
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 14,
-  },
-  trackCardSelected: {
-    backgroundColor: tokens.brand.primarySoft,
-    borderColor: tokens.brand.primary,
-    shadowColor: tokens.brand.primary,
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4,
-    shadowRadius: 16,
-    elevation: 6,
-  },
-  trackEmoji: {
-    fontSize: 36,
-  },
-  trackText: {
-    flex: 1,
-    gap: 4,
-  },
-  trackTitle: {
-    fontSize: 18,
-    fontWeight: tokens.weight.extrabold,
-    color: tokens.text.primary,
-    fontFamily: tokens.font.display,
-  },
-  trackDesc: {
-    fontSize: 14,
-    color: tokens.text.secondary,
-    lineHeight: 20,
-  },
-  trackRadio: {
-    width: 24,
-    height: 24,
-    borderRadius: 12,
-    borderWidth: 2,
-    borderColor: tokens.border.outline,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  trackRadioSelected: {
-    borderColor: tokens.brand.primary,
-    backgroundColor: tokens.brand.primary,
-  },
-  trackRadioDot: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    backgroundColor: tokens.text.onPrimary,
   },
 
   // ---------- Interests (chip grid) ----------

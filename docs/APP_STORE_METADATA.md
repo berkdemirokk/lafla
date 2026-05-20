@@ -2,6 +2,8 @@
 
 > Ready-to-paste package for the App Store Connect submission. All fields are within Apple's character limits. Primary locale: **tr-TR**. Secondary locale: **en-US**.
 >
+> **2026-05-20 — 6-mode radical cut:** The earlier "8 modes (Flört, İş, Seyahat, Sosyal, Sipariş, Banter, Spor, Sağlık)" / "982 sahne" / "IELTS, TOEFL" framing was rolled back. This document now reflects the shipping six-mode product: **Flört, İş, Bar, Havaalanı, Günlük, Sipariş** with ~480 sahne. Exam Pass IAP also pulled.
+>
 > Cross-references:
 > - Reviewer notes → [`APP_REVIEW_NOTES.md`](./APP_REVIEW_NOTES.md)
 > - Screenshot storyboard → [`APP_STORE_SCREENSHOTS.md`](./APP_STORE_SCREENSHOTS.md)
@@ -25,11 +27,11 @@
 
 | # | Option | Chars | Notes |
 |---|---|---|---|
-| **A (recommended)** | `IELTS, mülakat, flört, espri` | 29 | Four high-intent use cases — one per buyer persona (exam-taker, job-seeker, dating, casual). |
-| B | `Donma. Konuş. Türkçe ipuçlu.` | 28 | Anti-pain hook + differentiator. Stronger emotionally, weaker on keyword indexing. |
-| C | `8 mod · 982 sahne · A1–C1` | 25 | Pure proof-of-scope. Use after we hit ranking traction; weak as a cold-discovery subtitle. |
+| **A (recommended)** | `Donma. Konuş. Türkçe ipuçlu.` | 28 | Anti-pain hook + Türk-first differentiator. With the 6-mode cut + Exam Pass pull, IELTS-stuffed subtitle is no longer honest. This option emotionally targets the real audience pain. |
+| B | `Flört · İş · Bar · Havaalanı` | 29 | Pure mode-list. Solid search index but weaker conversion than the pain hook. Use as fallback. |
+| C | `6 mod · 480+ sahne · A1–C1` | 26 | Proof-of-scope. Use after we hit ranking traction; weak as a cold-discovery subtitle. |
 
-> **Decision:** Ship Option A — Apple indexes the subtitle for search, so packing four use cases beats one tagline.
+> **Decision:** Ship Option A — the IELTS-driven subtitle from the global pivot is dishonest now (Exam Pass pulled, no testprep mode). Emotional hook beats keyword stuffing once your moat is regional-language correction.
 
 ### Identifiers
 
@@ -44,7 +46,7 @@
 - **Primary:** Education
 - **Secondary:** Lifestyle
 
-> **Rationale on secondary:** We previously used Productivity for the "interview prep" angle. With the broader 8-mode product (Flört, Espri, Sosyal) Lifestyle pulls in browse traffic from a separate cohort — and Education already covers exam-prep search intent. Re-evaluate after 60 days.
+> **Rationale on secondary:** With Flört + Bar + Havaalanı user-facing modes, Lifestyle pulls in browse traffic from the dating/travel cohort that Education's exam-focused indexing misses. Re-evaluate after 60 days. (Earlier rationale referenced 8 modes including Espri — that mode no longer exists.)
 
 ### Age Rating
 
@@ -59,7 +61,7 @@
 | Mature / Suggestive Themes | **Infrequent / Mild** (Flört mode references dating; no explicit content) |
 | Horror / Fear | None |
 | Medical / Treatment Info | None |
-| Alcohol / Tobacco / Drug References | **Infrequent / Mild** (Sosyal / Sipariş modes reference bar / drink ordering) |
+| Alcohol / Tobacco / Drug References | **Infrequent / Mild** (Bar + Sipariş modes reference bar / drink ordering) |
 | Simulated Gambling | None |
 | Gambling | None |
 | Unrestricted Web Access | None |
@@ -82,15 +84,15 @@ Her sahne 60 saniyenin altında. Telefonun kasarsa kasasın — Lafla beklemiyor
 
 ✨ NE BULURSUN
 
-🎯 8 mod, tek akış: Flört, İş, Seyahat, Sosyal, Sipariş, Espri, Spor, Sağlık
-🎬 982 gerçek sahne — A1 başlangıçtan C1 ileri seviyeye CEFR haritası
+🎯 6 mod, tek akış: Flört, İş, Bar, Havaalanı, Günlük, Sipariş
+🎬 480+ gerçek sahne — A1 başlangıçtan C1 ileri seviyeye CEFR haritası
 🇹🇷 Türkçeye özel hata yakalama — article eksik, "I am go" hatası, "make picture" tuzakları
 ⚡ 3 saniyenin altında geri bildirim — donduğunda Lafla zaten yanıt vermiş
 🎨 Karanlık, premium tasarım — gözünüzü yormaz, gece de çalışır
 
 🤔 BU UYGULAMA NEDİR?
 
-Lafla, "İngilizceyi bilmek" ile "İngilizce konuşmak" arasındaki uçurumu kapatır. YDS 80 aldın ama kafedeki Amerikalıyla 30 saniye sonra terliyorsun. IELTS hazırlığında reading'i bitirdin ama speaking'de duruyorsun. Lafla bu boşluğu kapatmak için var — 982 gerçek senaryo, hepsi ön-üretilmiş, hiçbiri AI hallüsinasyonu değil.
+Lafla, "İngilizceyi bilmek" ile "İngilizce konuşmak" arasındaki uçurumu kapatır. Sınav notun yüksek ama kafedeki Amerikalıyla 30 saniye sonra terliyorsun. Tinder'da mesaj geldi, 5 dakika düşünüyorsun. Lafla bu boşluğu kapatmak için var — 480+ gerçek senaryo, hepsi ön-üretilmiş, hiçbiri AI hallüsinasyonu değil.
 
 🚀 NEDEN LAFLA?
 
@@ -104,7 +106,7 @@ Her sahnede bu spesifik tuzaklar hedef alınmış. Her düzeltme Türkçe açık
 
 💎 SPEAK+ ÜYELİK
 
-Tüm 982 sahneye erişim, sınırsız tekrar, derin telaffuz analizi ve gelişmiş ilerleme paneli.
+Tüm 480+ sahneye erişim, sınırsız tekrar, derin telaffuz analizi ve gelişmiş ilerleme paneli.
 
 📋 Fiyat: $9.99 / ay (yerel fiyat App Store'da yerel para biriminde gösterilir)
 🔄 Otomatik yenilenir; iPhone Ayarlar → Apple Kimliği → Abonelikler menüsünden istediğin zaman iptal edebilirsin
@@ -114,7 +116,7 @@ Tüm 982 sahneye erişim, sınırsız tekrar, derin telaffuz analizi ve gelişmi
 Destek: hello@lafla.app
 ```
 
-*(approx. 1,380 / 4,000 characters)*
+*(approx. 1,400 / 4,000 characters)*
 
 ---
 
@@ -129,15 +131,15 @@ Every scene runs under 60 seconds. Real moments, real corrections, sub-3-second 
 
 ✨ WHAT YOU GET
 
-🎯 8 modes, one feed: Dating, Work, Travel, Social, Ordering, Banter, Sports, Health
-🎬 982 real scenarios — CEFR-mapped from A1 to C1
+🎯 6 modes, one feed: Dating, Work, Bar, Airport, Daily, Ordering
+🎬 480+ real scenarios — CEFR-mapped from A1 to C1
 🇹🇷 Turkish-tailored error feedback — dropped articles, "I am go" mistakes, "make picture" traps
 ⚡ Sub-3-second feedback loop — corrections land before the freeze sets in
 🎨 Dark, premium design — readable at night, no eye fatigue
 
 🤔 WHAT IS THIS?
 
-Lafla closes the gap between "knowing English" and "speaking English." You scored 80 on YDS but you sweat 30 seconds into a conversation with an American. You finished IELTS reading but speaking still scares you. Lafla is built for that gap — 982 real scenarios, all pre-authored, zero runtime AI hallucination.
+Lafla closes the gap between "knowing English" and "speaking English." You scored high on a translation test but you sweat 30 seconds into a conversation with an American. A Tinder match wrote, you spent five minutes drafting one reply. Lafla is built for that gap — 480+ real scenarios, all pre-authored, zero runtime AI hallucination.
 
 🚀 WHY LAFLA?
 
@@ -151,7 +153,7 @@ Every scene targets these specific traps. Every correction is explained in Turki
 
 💎 SPEAK+ MEMBERSHIP
 
-All 982 scenes unlocked, unlimited replays, deep pronunciation analysis, advanced progress dashboard.
+All 480+ scenes unlocked, unlimited replays, deep pronunciation analysis, advanced progress dashboard.
 
 📋 Pricing: $9.99 / month (local price shown in your App Store currency)
 🔄 Auto-renews; cancel anytime in iPhone Settings → Apple ID → Subscriptions
@@ -161,7 +163,7 @@ All 982 scenes unlocked, unlimited replays, deep pronunciation analysis, advance
 Support: hello@lafla.app
 ```
 
-*(approx. 1,290 / 4,000 characters)*
+*(approx. 1,310 / 4,000 characters)*
 
 ---
 
@@ -173,12 +175,14 @@ ingilizce konuşma,ielts speaking,flört ingilizcesi,yds,toefl,mülakat,telaffuz
 
 *(99 / 100 characters)*
 
+> **2026-05-20 note:** IELTS / TOEFL / YDS *keywords* are kept even though the testprep / academic *modes* were cut. Rationale: the audience that searches "ielts speaking" is still the right buyer — they want speaking fluency for an exam, and Lafla's general speaking pratice fits. We just stopped *claiming* dedicated exam content in the description. The keyword spend stays valid; the in-product promise is now honest.
+
 **Rationale:**
 
 | Keyword | Volume | Intent |
 |---|---|---|
 | `ingilizce konuşma` | Very high | Primary category intent — TR App Store top-volume English-learning term |
-| `ielts speaking` | High | Exam-prep, high ARPU, low-competition long-tail variant |
+| `ielts speaking` | High | Exam-prep audience, high ARPU. We catch the speaking-fluency intent without promising IELTS-specific content |
 | `flört ingilizcesi` | Medium | Owns this niche entirely; competitors do not index this term |
 | `yds` | High | Cold post-exam audience — they passed YDS but can't speak |
 | `toefl` | Medium | Complements IELTS audience, premium-spend segment |
@@ -189,7 +193,7 @@ ingilizce konuşma,ielts speaking,flört ingilizcesi,yds,toefl,mülakat,telaffuz
 
 **Excluded:**
 - ❌ `lafla`, `ingilizce` — already in App Name (Apple auto-indexes, duplicate spend)
-- ❌ `duolingo`, `babbel`, `talkpal`, `cambly` — Apple rejects competitor brand names since 2025
+- ❌ `duolingo`, `babbel`, `talkpal`, `cambly`, `lerna` — Apple rejects competitor brand names since 2025
 - ❌ `learn english` — brutal competition, English keyword cannibalizes TR slot
 
 ---
@@ -225,8 +229,8 @@ speak english,english practice,esl turkish,fluency,pronunciation,ielts,toefl,con
 ```
 Lafla — ilk sürüm. Konuş, çalış.
 
-🎯 8 mod, tek akış: Flört, İş, Seyahat, Sosyal, Sipariş, Espri, Spor, Sağlık
-🎬 İlk dalgada 200+ oynanabilir sahne — bu hafta içinde 400+'a çıkıyor
+🎯 6 mod, tek akış: Flört, İş, Bar, Havaalanı, Günlük, Sipariş
+🎬 480+ oynanabilir sahne — her hafta yenisi ekleniyor
 🇹🇷 Türkçeye özel hata geri bildirimi (article tuzakları, doğrudan çeviri hataları)
 ⚡ Sub-3-saniye geri bildirim döngüsü
 🌙 Neon Noir tema — gece dostu, premium görünüm
@@ -234,15 +238,15 @@ Lafla — ilk sürüm. Konuş, çalış.
 Geri bildirim için: hello@lafla.app
 ```
 
-*(approx. 350 chars)*
+*(approx. 340 chars)*
 
 > **EN (secondary):**
 
 ```
 Lafla — first launch. Speak. Work.
 
-🎯 8 modes, one feed: Dating, Work, Travel, Social, Ordering, Banter, Sports, Health
-🎬 200+ scenarios playable at launch — climbing to 400+ this week
+🎯 6 modes, one feed: Dating, Work, Bar, Airport, Daily, Ordering
+🎬 480+ scenarios playable at launch — new ones added weekly
 🇹🇷 Turkish-tailored error feedback (article traps, direct-translation mistakes)
 ⚡ Sub-3-second feedback loop
 🌙 Neon Noir theme — night-friendly, premium feel
@@ -250,19 +254,19 @@ Lafla — first launch. Speak. Work.
 Feedback: hello@lafla.app
 ```
 
-*(approx. 360 chars)*
+*(approx. 350 chars)*
 
 ---
 
 ## 7. Screenshot Brief — 6.7" iPhone (required) + 6.1" iPhone (optional)
 
-> **Specs:** 6.7" iPhone (iPhone 14/15/16 Pro Max) → 1290 × 2796 px. 6.1" iPhone derivative → 1179 × 2556 px. Apple can auto-derive 6.1" from 6.7" but uploading both gets you the iPhone-15-class auto-preview slot. Caption typography: Inter Bold 64pt headline, Inter Regular 32pt sub. Background: dark gradient `#0B0413 → #1A0928` with neon pink (`#FF2D8A`) + cyan (`#22E0F2`) accent shapes — the Neon Noir palette.
+> **Specs:** 6.7" iPhone (iPhone 14/15/16 Pro Max) → 1290 × 2796 px. 6.1" iPhone derivative → 1179 × 2556 px. Apple can auto-derive 6.1" from 6.7" but uploading both gets you the iPhone-15-class auto-preview slot. Caption typography: Inter Bold 64pt headline, Inter Regular 32pt sub. Background: dark gradient `#0B0413 → #1A0928` with neon pink (`#FF067A`) + cyan (`#00FFFF`) accent shapes — the Neon Noir palette.
 
 ### Screenshot 1 — Hero (Brand Statement)
 
-- **Show:** Lafla wordmark + app icon centered on the dark gradient. Subtle neon-pink underline glow under the wordmark. Small caption strip beneath: 8 mode chips (Flört / İş / Seyahat / Sosyal / Sipariş / Espri / Spor / Sağlık) wrapping on two rows.
+- **Show:** Lafla wordmark + app icon centered on the dark gradient. Subtle neon-pink underline glow under the wordmark. Small caption strip beneath: 6 mode chips (Flört / İş / Bar / Havaalanı / Günlük / Sipariş) wrapping on two rows.
 - **Headline overlay (TR):** `Donmadan İngilizce.`
-- **Sub:** `8 mod · 982 sahne · CEFR A1–C1`
+- **Sub:** `6 mod · 480+ sahne · CEFR A1–C1`
 - **Why first:** The first 1–3 screenshots auto-play in App Store search. Frame 1 answers "what is this" in under a second.
 
 ### Screenshot 2 — Differentiator (Modes Feed)
@@ -291,7 +295,7 @@ Feedback: hello@lafla.app
 
 ### Screenshot 5 — Progress / Streaks
 
-- **Show:** Profile / fluency dashboard. Big circular ring at the top showing `B1+` CEFR level with a glowing cyan progress arc. Below: 7-day bar chart with the current day highlighted hot-pink. Streak counter card: `🔥 12 gün` with a flame icon. Three small mode-progress bars below (Flört 78%, İş 52%, Espri 21%).
+- **Show:** Profile / fluency dashboard. Big circular ring at the top showing `B1+` CEFR level with a glowing cyan progress arc. Below: 7-day bar chart with the current day highlighted hot-pink. Streak counter card: `🔥 12 gün` with a flame icon. Three small mode-progress bars below (Flört 78%, İş 52%, Bar 21%).
 - **Headline overlay (TR):** `CEFR seviyenle gerçek ilerleme.`
 - **Sub:** `XP grindi değil. Akıcılık.`
 - **Why:** Anti-Duolingo positioning. CEFR is a credential Turks already trust (YDS / IELTS world). Connects familiar measurement to a new product.
@@ -299,7 +303,7 @@ Feedback: hello@lafla.app
 ### Screenshot 6 — Pricing / Value
 
 - **Show:** Speak+ paywall surface. Hero: `Speak+ — Tüm sahneler` with a glowing border. Price row: `$9.99 / ay` (local price label below: "yerel para biriminde gösterilir"). Below: four feature rows with checkmark icons:
-  - `✓ 982 sahnenin tamamı`
+  - `✓ 480+ sahnenin tamamı`
   - `✓ Sınırsız tekrar ve telaffuz analizi`
   - `✓ Detaylı ilerleme paneli`
   - `✓ Erken erişim — yeni modlar`
@@ -317,18 +321,18 @@ Feedback: hello@lafla.app
 ### Türkçe (recommended for launch)
 
 ```
-Lafla geldi. 8 mod, 982 sahne, Türkçe ipuçlu hata feedback'i. Flörtten mülakata İngilizce konuşurken donma. İlk hafta yeni içerikler her gün açılıyor.
+Lafla geldi. 6 mod, 480+ sahne, Türkçe ipuçlu hata feedback'i. Flörtten mülakata İngilizce konuşurken donma. Her hafta yeni içerikler.
 ```
 
-*(168 / 170 characters)*
+*(140 / 170 characters)*
 
 ### English
 
 ```
-Lafla just launched. 8 modes, 982 scenarios, Turkish-language error feedback. From dating to interviews, stop freezing in English. New content unlocks daily.
+Lafla just launched. 6 modes, 480+ scenarios, Turkish-language error feedback. From dating to interviews, stop freezing in English. New content weekly.
 ```
 
-*(167 / 170 characters)*
+*(150 / 170 characters)*
 
 > **Why promo text:** This field updates without re-review. Use it for content drops (new modes, exam-season pushes, Black Friday) and for narrative hooks the reviewer doesn't need to approve.
 
@@ -346,8 +350,8 @@ Lafla just launched. 8 modes, 982 scenarios, Turkish-language error feedback. Fr
 
 Demo username + password are entered into App Store Connect's dedicated **Demo Account** fields (not committed to this repo, rotated each submission). The seeded account has:
 
-- Turkish UI onboarding completed
-- Sample completed scenes across all 8 modes
+- Turkish UI onboarding completed (4 steps post-2026-05-20)
+- Sample completed scenes across the 6 modes
 - A small streak history (3 days)
 - Speak+ entitlement granted (review-side TestFlight unlock; on production builds reviewers should use a Sandbox Tester for the IAP path)
 
@@ -365,11 +369,11 @@ If credentials are stale, contact **hello@lafla.app** — fresh tester provision
 ### Notes (paste into the "Notes" box)
 
 ```
-Lafla is a Turkish-first English speaking-practice app. The home feed is gated behind auth — please use the demo credentials in the Demo Account fields. Once signed in, tap any mode row (Flört / İş / Seyahat / Sosyal / Sipariş / Espri / Spor / Sağlık) to enter a scenario flow.
+Lafla is a Turkish-first English speaking-practice app. The home feed is gated behind auth — please use the demo credentials in the Demo Account fields. Once signed in, you land on a TikTok-style vertical swipe feed; swipe up/down to move between scene cards. Each card belongs to one of six modes: Flört (dating), İş (work), Bar, Havaalanı (airport), Günlük (daily), Sipariş (ordering).
 
 Two iOS permissions (Microphone, Speech Recognition) are requested lazily — only when the user first taps a voice exercise, not on first launch. Denying either still leaves the rest of the app usable; we present a graceful "go to Settings" prompt.
 
-The only In-App Purchase shipping in this build is the `lafla.premium.monthly` subscription ($9.99/month base, locally priced via RevenueCat). Restore Purchases is reachable from both the paywall and Settings. The "Exam Pass" tier referenced in older internal docs is NOT in this build and is deferred to a later release.
+The only In-App Purchase shipping in this build is the `lafla.premium.monthly` subscription ($9.99/month base, locally priced via RevenueCat). Restore Purchases is reachable from both the paywall and Settings. The "Exam Pass" tier referenced in older internal docs is NOT in this build and has been removed.
 
 Account deletion: Settings → Hesabımı Sil → confirm by typing "SİL" → immediate deletion via Supabase edge function. No 30-day grace.
 
@@ -393,7 +397,7 @@ Full reviewer brief in the included APP_REVIEW_NOTES.md attached to this submiss
 
 ### Initial Cohort to Court
 
-- **TR users prepping IELTS / TOEFL speaking** — high ARPU, low CAC, high WOM in study communities (Eksi, Reddit r/Turkey, university Discords)
+- **TR users prepping IELTS / TOEFL speaking** — high ARPU, low CAC, high WOM in study communities (Ekşi, Reddit r/Turkey, university Discords). Note: we no longer ship dedicated exam-format content, but the keyword cohort still converts on general speaking fluency.
 - **TR users on a daily English habit** (post-YDS audience) — high D7 retention, lower ARPU
 - **Diaspora Turks in US / Germany** — small slice, but premium-spend, useful for early reviews
 
@@ -412,7 +416,7 @@ The single most "Apple Editorial"-friendly hook we have:
 Secondary hooks to pitch in the Featured submission form:
 
 - **"No runtime LLM, ever."** — Genuinely rare in 2026's app market; data flywheel architecture is a story.
-- **"8 modes including Flört and Espri"** — Mood-driven category framing the Apple editors will not have seen elsewhere.
+- **"6 modes including Flört and Bar"** — Mood-driven category framing the Apple editors will not have seen elsewhere.
 - **"Sub-3-second feedback loop"** — Speed as a feature, defensible because we pre-generate everything.
 
 ### Metrics to Watch (first 90 days)
@@ -434,6 +438,6 @@ Secondary hooks to pitch in the Featured submission form:
 ---
 
 **Owner:** App Store Optimizer
-**Document version:** v1.0 (initial submission package)
-**Last updated:** 2026-05-18
+**Document version:** v1.1 (post-2026-05-20 6-mode cut)
+**Last updated:** 2026-05-20
 **Status:** Ready to paste into App Store Connect

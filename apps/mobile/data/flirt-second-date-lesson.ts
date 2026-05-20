@@ -1,7 +1,7 @@
 // Flort - İkinci Randevu lessons
 // Skill: flirt.second_date (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 42.1 — İkinci Randevu Teklifi

@@ -1,7 +1,7 @@
 // Daily - Emergency lessons
 // Skill: daily.emergency (2 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 22.1 — 911 / Ambulance (Acil Durum)

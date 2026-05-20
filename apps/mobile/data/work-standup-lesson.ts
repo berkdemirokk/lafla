@@ -1,7 +1,7 @@
 // Work - Standup lessons
 // Skill: work.standup (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 33.1 — Klasik Standup Yapisi (Yesterday / Today / Blockers)

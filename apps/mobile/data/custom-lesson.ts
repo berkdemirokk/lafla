@@ -1,7 +1,7 @@
 // Custom order lessons — alerji, vejetaryen, malzeme cikar.
 // Skill: order.custom (3 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 3.1 — Alerji + Diyet Kısıtlaması

@@ -1,7 +1,7 @@
 // Daily - Bank lessons
 // Skill: daily.bank (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 30.1 — ATM'de Para Çekme

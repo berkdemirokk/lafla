@@ -1,7 +1,7 @@
 // Work - Slack lessons
 // Skill: work.slack (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 9.1 — First Day Slack Intro (#intro Kanali)

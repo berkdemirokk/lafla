@@ -2,7 +2,7 @@
 // Adult, realistic, warm tone for Turkish learners (18-35).
 // 15 short everyday micro-moments expanding A2 situational coverage.
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // 1 — Komşudan bir şey ödünç alma

@@ -1,7 +1,7 @@
 // Work - Code Review lessons
 // Skill: work.codereview (3 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 15.1 — Leaving Constructive Review (Yapici Yorum Birakma)

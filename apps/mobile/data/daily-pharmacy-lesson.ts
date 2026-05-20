@@ -1,7 +1,7 @@
 // Daily - Pharmacy lessons
 // Skill: daily.pharmacy (3 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 19.1 — OTC Medicine (Resetsiz Ilac)

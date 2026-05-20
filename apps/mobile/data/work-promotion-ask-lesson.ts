@@ -2,7 +2,7 @@
 // Skill: work.promotion_ask (4 lessons)
 // Promotion/raise konusmasini aktif yonet: gorusme talebi, vaka sunma, maas muzakeresi, hayir cevabini yol haritasina cevirme.
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 38.1 — Gorusme Talebi (Setting up the conversation)

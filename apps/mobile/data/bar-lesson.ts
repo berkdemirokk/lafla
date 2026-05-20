@@ -1,7 +1,7 @@
 // Bar lessons — icki siparisi, cocktail dili, tab + last call.
 // Skill: order.bar (3 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 7.1 — Bar İçecek Sipariş

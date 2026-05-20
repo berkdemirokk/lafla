@@ -1,7 +1,7 @@
 // Work - Coffee Chat / Networking lessons
 // Skill: work.coffeechat (3 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 13.1 — Setting Up the Chat (Cografta Ayarlama)

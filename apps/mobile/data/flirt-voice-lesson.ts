@@ -1,7 +1,7 @@
 // Flort - Sesli Mesaj (voice notes) lessons
 // Skill: flirt.voice (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 3.1 — Voice Note Etiketi

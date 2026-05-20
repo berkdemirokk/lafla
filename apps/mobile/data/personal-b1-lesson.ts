@@ -7,7 +7,7 @@
 // 1 fill_blank, 1 spot_mistake, 1 roleplay_chat (8-12 turns), optional
 // pronounce_phrase.
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 1 — First Conversation on a Dating App

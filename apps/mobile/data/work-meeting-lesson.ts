@@ -1,7 +1,7 @@
 // Work - Meeting lessons
 // Skill: work.meeting (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 10.1 — Sharing Opinion (Fikir Paylasma)

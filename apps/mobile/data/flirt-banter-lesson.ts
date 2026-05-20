@@ -1,7 +1,7 @@
 // Flort - Sohbet Surdurme (banter) lessons
 // Skill: flirt.banter (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 2.1 — İlk Cevaba Karşılık

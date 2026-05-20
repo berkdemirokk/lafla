@@ -1,7 +1,7 @@
 // Daily - Gym lessons
 // Skill: daily.gym (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 35.1 — Üyelik + Tur

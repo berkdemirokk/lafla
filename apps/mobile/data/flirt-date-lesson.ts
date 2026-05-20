@@ -1,7 +1,7 @@
 // Flort - Randevu Teklif lessons
 // Skill: flirt.date (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 4.1 — Casual Coffee Date

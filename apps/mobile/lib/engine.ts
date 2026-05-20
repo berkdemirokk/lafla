@@ -150,6 +150,22 @@ export function matchAgainstPatterns(
 // LESSON RUNNER
 // ============================================================
 
+/**
+ * Shape of a bundled lesson — pre-2026-05-20 this lived in `data/cafe-lesson.ts`
+ * and was re-exported through every lesson file. Moved here during the 6-mode
+ * radical cut so individual lesson files can be deleted without breaking the
+ * type import chain.
+ */
+export interface BundledLesson {
+  id: string;
+  skill_id: string;
+  index: number;
+  title: string;
+  description: string;
+  estimated_minutes: number;
+  exercises: ReadonlyArray<Record<string, unknown>>;
+}
+
 export interface ExerciseResult {
   exercise_id: string;
   exercise_type: string;

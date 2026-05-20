@@ -13,7 +13,7 @@ export const professionalB1Scenes: Scene[] = [
     description:
       "'I'd like to open a current account' — hesap türü, aylık ücret, debit kart. Bankacılık nezaketi.",
     durationMin: 7,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "professional.b1",
     lessonId: "professional.b1.bank.1",
@@ -27,7 +27,7 @@ export const professionalB1Scenes: Scene[] = [
     description:
       "'Could you walk me through the coverage?' — auto/health sigortası alırken sorulacak şeyler.",
     durationMin: 7,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "professional.b1",
     lessonId: "professional.b1.insurance.1",
@@ -41,7 +41,7 @@ export const professionalB1Scenes: Scene[] = [
     description:
       "Hukuki bir kaygıyı kısaca anlat, saatlik ücreti sor, sonraki adımları öğren. Resmi ama net.",
     durationMin: 7,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "professional.b1",
     lessonId: "professional.b1.lawyer.1",
@@ -55,7 +55,7 @@ export const professionalB1Scenes: Scene[] = [
     description:
       "'To the best of my recollection' — kavşakta, kafede ne gördün? Past continuous + past simple disiplin.",
     durationMin: 6,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "professional.b1",
     lessonId: "professional.b1.witness.1",
@@ -69,7 +69,7 @@ export const professionalB1Scenes: Scene[] = [
     description:
       "Devlet dairesinde: hangi form, hangi pencere, ne kadar bekleyeceksin? Express seçenek var mı?",
     durationMin: 6,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "professional.b1",
     lessonId: "professional.b1.govoffice.1",
@@ -83,7 +83,7 @@ export const professionalB1Scenes: Scene[] = [
     description:
       "'I'm afraid I won't be able to come in today' — sebep + süre + devir teslim. Telefon ve e-posta tonu.",
     durationMin: 6,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "professional.b1",
     lessonId: "professional.b1.sickleave.1",
@@ -97,7 +97,7 @@ export const professionalB1Scenes: Scene[] = [
     description:
       "Ev sahibiyle daireyi konuş: 'Would you be open to a twelve-month lease?' Kibarca pazarlık.",
     durationMin: 7,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "professional.b1",
     lessonId: "professional.b1.lease.1",
@@ -111,7 +111,7 @@ export const professionalB1Scenes: Scene[] = [
     description:
       "Üç haftadır çözülmeyen fatura sorunu. 'With respect, I'd like to escalate this to a supervisor.'",
     durationMin: 7,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "professional.b1",
     lessonId: "professional.b1.escalation.1",
@@ -125,7 +125,7 @@ export const professionalB1Scenes: Scene[] = [
     description:
       "Çantan çalındı. Past tense disiplin + 'Could I have a copy of the report for insurance purposes?'",
     durationMin: 7,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "professional.b1",
     lessonId: "professional.b1.policestatement.1",
@@ -139,7 +139,7 @@ export const professionalB1Scenes: Scene[] = [
     description:
       "Oturma izni yenileme: gerekli belgeler, ücret, randevu. 'I'm here to renew my residence permit.'",
     durationMin: 7,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "professional.b1",
     lessonId: "professional.b1.municipality.1",
@@ -153,7 +153,7 @@ export const professionalB1Scenes: Scene[] = [
     description:
       "Müşteri ürün için arıyor. 'Thank you for your interest' + 'Let me check on availability' — net teklif + takip.",
     durationMin: 7,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "professional.b1",
     lessonId: "professional.b1.salescall.1",
@@ -167,7 +167,7 @@ export const professionalB1Scenes: Scene[] = [
     description:
       "Toplantıyı sen yönetiyorsun. 'Let's get started' + 'First item on the agenda' — söz dağıt, zaman yönet, kararı kapat.",
     durationMin: 7,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "professional.b1",
     lessonId: "professional.b1.chairing.1",
@@ -181,7 +181,7 @@ export const professionalB1Scenes: Scene[] = [
     description:
       "Yöneticine haftalık rapor yaz. 'This week: completed' + 'Next week: focus on' yapısı, present perfect disiplin.",
     durationMin: 6,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "professional.b1",
     lessonId: "professional.b1.statusupdate.1",
@@ -195,7 +195,7 @@ export const professionalB1Scenes: Scene[] = [
     description:
       "Sinirli müşteriye profesyonel cevap. 'I understand your frustration' + 'Let me make this right' — savunmaya geçme, çöz.",
     durationMin: 7,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "professional.b1",
     lessonId: "professional.b1.complainthandling.1",

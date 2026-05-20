@@ -1,7 +1,7 @@
 // Complaint lessons — sikayet, geri gonderme, manager.
 // Skill: order.complaint (3 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 5.1 — Yemekle İlgili Şikayet

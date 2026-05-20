@@ -2,7 +2,7 @@
 // Skill: order.fastfood (4 lessons)
 // US fast food / counter chains: McDonald's, Burger King, Chipotle, Subway, Taco Bell, etc.
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 43.1 — Drive-Thru

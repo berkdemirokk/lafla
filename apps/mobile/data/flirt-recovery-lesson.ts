@@ -1,7 +1,7 @@
 // Flort - Awkward Recovery lessons
 // Skill: flirt.recovery (3 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 8.1 — Misread Signal Recovery (Sinyal Hatasi Toparlama)

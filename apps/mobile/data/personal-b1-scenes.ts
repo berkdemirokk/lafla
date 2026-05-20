@@ -12,7 +12,7 @@ export const personalB1Scenes: Scene[] = [
     description:
       "Bio'ya gerçek bir referans, açık uçlu soru. İlk üç mesaj her şeyi belirler.",
     durationMin: 7,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "B1",
     skillId: "personal.b1.dating-app",
     lessonId: "personal.b1.dating-app.1",
@@ -26,7 +26,7 @@ export const personalB1Scenes: Scene[] = [
     description:
       "Open question + boundary. 'What's a normal week look like for you?' + 'Save that for next time.'",
     durationMin: 7,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "B1",
     skillId: "personal.b1.first-date",
     lessonId: "personal.b1.first-date.1",
@@ -40,7 +40,7 @@ export const personalB1Scenes: Scene[] = [
     description:
       "'It's more nuanced than that' + 'How does that work where you're from?'",
     durationMin: 7,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "B1",
     skillId: "personal.b1.culture",
     lessonId: "personal.b1.culture.1",
@@ -54,7 +54,7 @@ export const personalB1Scenes: Scene[] = [
     description:
       "I-statement, spesifik an, ne istediğini söyle. 'Always/never' tuzağı yok.",
     durationMin: 8,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "B1",
     skillId: "personal.b1.we-need-to-talk",
     lessonId: "personal.b1.we-need-to-talk.1",
@@ -68,7 +68,7 @@ export const personalB1Scenes: Scene[] = [
     description:
       "'Thank you for having me' + 'Help me out — am I doing this right?' Saygılı + meraklı.",
     durationMin: 7,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "B1",
     skillId: "personal.b1.in-laws",
     lessonId: "personal.b1.in-laws.1",
@@ -82,7 +82,7 @@ export const personalB1Scenes: Scene[] = [
     description:
       "'How are you / I am fine' ölü. 'Walk me through your day — even the boring bits.'",
     durationMin: 7,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "B1",
     skillId: "personal.b1.long-distance",
     lessonId: "personal.b1.long-distance.1",
@@ -96,7 +96,7 @@ export const personalB1Scenes: Scene[] = [
     description:
       "'I've been sitting with what you said' + 'That's on me.' Sıra önce sende.",
     durationMin: 8,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "B1",
     skillId: "personal.b1.repair",
     lessonId: "personal.b1.repair.1",
@@ -110,7 +110,7 @@ export const personalB1Scenes: Scene[] = [
     description:
       "Aşk ≠ otomatik 'evet'. 'I love you' + 'I need some space tonight — not about you.'",
     durationMin: 7,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "B1",
     skillId: "personal.b1.love-boundaries",
     lessonId: "personal.b1.love-boundaries.1",
@@ -124,7 +124,7 @@ export const personalB1Scenes: Scene[] = [
     description:
       "'I've thought about this a lot' + 'This isn't about getting back together.' Dignity intact.",
     durationMin: 8,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "B1",
     skillId: "personal.b1.breakup",
     lessonId: "personal.b1.breakup.1",
@@ -138,7 +138,7 @@ export const personalB1Scenes: Scene[] = [
     description:
       "'Sorry if you felt' yetmez. 'I see now how that landed' + 'Here's what I'll do differently.'",
     durationMin: 8,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "B1",
     skillId: "personal.b1.apology",
     lessonId: "personal.b1.apology.1",
@@ -152,7 +152,7 @@ export const personalB1Scenes: Scene[] = [
     description:
       "'I will...' boş söz. 'This year I want to / My goal is to' + somut plan + niye. Yetişkin, gerçekçi.",
     durationMin: 8,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "B1",
     skillId: "personal.b1.resolutions",
     lessonId: "personal.b1.resolutions.1",
@@ -166,7 +166,7 @@ export const personalB1Scenes: Scene[] = [
     description:
       "'I need some me-time.' Sosyal medya molası, telefonsuz akşam. Yetişkin self-care dili, özür yok.",
     durationMin: 8,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "B1",
     skillId: "personal.b1.self-care",
     lessonId: "personal.b1.self-care.1",
@@ -180,7 +180,7 @@ export const personalB1Scenes: Scene[] = [
     description:
       "'I've gotten into pottery.' Türkçe 'I started to do X' değil — yetişkin yapı, doğal coşku.",
     durationMin: 8,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "B1",
     skillId: "personal.b1.new-hobby",
     lessonId: "personal.b1.new-hobby.1",
@@ -194,7 +194,7 @@ export const personalB1Scenes: Scene[] = [
     description:
       "'I started seeing a therapist' — açık ama sınırlı paylaşım. ABD/UK'da standart; stigma az, drama yok.",
     durationMin: 8,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "B1",
     skillId: "personal.b1.therapy",
     lessonId: "personal.b1.therapy.1",

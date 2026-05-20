@@ -1,7 +1,7 @@
 // Daily - Taxi lessons (taksi / Uber / Lyft)
 // Skill: daily.taxi (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 32.1 — Taksi Çevirme + Adres

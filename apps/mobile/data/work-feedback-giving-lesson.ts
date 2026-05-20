@@ -2,7 +2,7 @@
 // Skill: work.feedback_giving (4 lessons)
 // Constructive feedback to peers / reports: SBI, negative delivery, positive praise, action + follow-up.
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 37.1 — SBI Yontemi

@@ -1,14 +1,14 @@
 // Daily - Airport lessons (havalimanı / uçuş senaryoları)
 // Skill: daily.airport (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 44.1 — Check-in + Bagaj
 // ============================================================
-export const dailyAirportLesson_44_1: BundledLesson = {
-  id: "daily.airport.44.1",
-  skill_id: "daily.airport",
+export const airportLesson_44_1: BundledLesson = {
+  id: "airport.44.1",
+  skill_id: "airport",
   index: 1,
   title: "Check-in + Bagaj",
   description:
@@ -252,9 +252,9 @@ export const dailyAirportLesson_44_1: BundledLesson = {
 // ============================================================
 // Lesson 44.2 — Güvenlik (Security)
 // ============================================================
-export const dailyAirportLesson_44_2: BundledLesson = {
-  id: "daily.airport.44.2",
-  skill_id: "daily.airport",
+export const airportLesson_44_2: BundledLesson = {
+  id: "airport.44.2",
+  skill_id: "airport",
   index: 2,
   title: "Güvenlik (Security)",
   description:
@@ -486,9 +486,9 @@ export const dailyAirportLesson_44_2: BundledLesson = {
 // ============================================================
 // Lesson 44.3 — Kayıp Valiz
 // ============================================================
-export const dailyAirportLesson_44_3: BundledLesson = {
-  id: "daily.airport.44.3",
-  skill_id: "daily.airport",
+export const airportLesson_44_3: BundledLesson = {
+  id: "airport.44.3",
+  skill_id: "airport",
   index: 3,
   title: "Kayıp Valiz",
   description:
@@ -735,9 +735,9 @@ export const dailyAirportLesson_44_3: BundledLesson = {
 // ============================================================
 // Lesson 44.4 — Uçuş İptali / Gecikme
 // ============================================================
-export const dailyAirportLesson_44_4: BundledLesson = {
-  id: "daily.airport.44.4",
-  skill_id: "daily.airport",
+export const airportLesson_44_4: BundledLesson = {
+  id: "airport.44.4",
+  skill_id: "airport",
   index: 4,
   title: "Uçuş İptali / Gecikme",
   description:
@@ -968,9 +968,9 @@ export const dailyAirportLesson_44_4: BundledLesson = {
 // ============================================================
 // Lesson 44.5 — Check-in Problemi: Bagaj Fazla
 // ============================================================
-export const dailyAirportLesson_44_5: BundledLesson = {
-  id: "daily.airport.44.5",
-  skill_id: "daily.airport",
+export const airportLesson_44_5: BundledLesson = {
+  id: "airport.44.5",
+  skill_id: "airport",
   index: 5,
   title: "Check-in Problemi: Bagaj Fazla",
   description:
@@ -1167,9 +1167,9 @@ export const dailyAirportLesson_44_5: BundledLesson = {
 // ============================================================
 // Lesson 44.6 — Gate Değişikliği: Sorma
 // ============================================================
-export const dailyAirportLesson_44_6: BundledLesson = {
-  id: "daily.airport.44.6",
-  skill_id: "daily.airport",
+export const airportLesson_44_6: BundledLesson = {
+  id: "airport.44.6",
+  skill_id: "airport",
   index: 6,
   title: "Gate Değişikliği: Sorma",
   description:
@@ -1362,9 +1362,9 @@ export const dailyAirportLesson_44_6: BundledLesson = {
 // ============================================================
 // Lesson 44.7 — Connecting Flight Kaçırma: Masa Şikayeti
 // ============================================================
-export const dailyAirportLesson_44_7: BundledLesson = {
-  id: "daily.airport.44.7",
-  skill_id: "daily.airport",
+export const airportLesson_44_7: BundledLesson = {
+  id: "airport.44.7",
+  skill_id: "airport",
   index: 7,
   title: "Connecting Flight Kaçırma: Masa Şikayeti",
   description:
@@ -1575,9 +1575,9 @@ export const dailyAirportLesson_44_7: BundledLesson = {
 // ============================================================
 // Lesson 44.8 — Custom & Immigration: ABD/UK
 // ============================================================
-export const dailyAirportLesson_44_8: BundledLesson = {
-  id: "daily.airport.44.8",
-  skill_id: "daily.airport",
+export const airportLesson_44_8: BundledLesson = {
+  id: "airport.44.8",
+  skill_id: "airport",
   index: 8,
   title: "Custom & Immigration: ABD/UK",
   description:
@@ -1800,13 +1800,13 @@ export const dailyAirportLesson_44_8: BundledLesson = {
 // ============================================================
 // Daily Airport lessons registry
 // ============================================================
-export const dailyAirportLessons: ReadonlyArray<BundledLesson> = [
-  dailyAirportLesson_44_1,
-  dailyAirportLesson_44_2,
-  dailyAirportLesson_44_3,
-  dailyAirportLesson_44_4,
-  dailyAirportLesson_44_5,
-  dailyAirportLesson_44_6,
-  dailyAirportLesson_44_7,
-  dailyAirportLesson_44_8,
+export const airportLessons: ReadonlyArray<BundledLesson> = [
+  airportLesson_44_1,
+  airportLesson_44_2,
+  airportLesson_44_3,
+  airportLesson_44_4,
+  airportLesson_44_5,
+  airportLesson_44_6,
+  airportLesson_44_7,
+  airportLesson_44_8,
 ];

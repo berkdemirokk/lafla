@@ -1,6 +1,6 @@
 // Career Advanced B2 scenes — 10 standalone scenarios.
 // Hedef: orta-kariyer Turk profesyoneller, yabanci sirketlerde nuanslı durum yönetimi.
-// cefrLevel: "B2", mode: "career". Bagimsiz sahneler (her biri kendi lesson'una point eder).
+// cefrLevel: "B2", mode: "work". Bagimsiz sahneler (her biri kendi lesson'una point eder).
 
 import type { Scene } from "./scenes";
 
@@ -12,7 +12,7 @@ export const careerAdvancedB2Scenes: Scene[] = [
     description:
       "Teklif geldi, sayı düşük. Data ile karşı teklif, gerekirse zarif geri çekiliş.",
     durationMin: 7,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B2",
     skillId: "career.b2",
     lessonId: "career.b2.salary_negotiation.1",
@@ -26,7 +26,7 @@ export const careerAdvancedB2Scenes: Scene[] = [
     description:
       "Manager 'su konuda zayıfsın' dedi. Defansif olmadan dinle, haksız noktayı sorgula.",
     durationMin: 7,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B2",
     skillId: "career.b2",
     lessonId: "career.b2.review_receiving.1",
@@ -40,7 +40,7 @@ export const careerAdvancedB2Scenes: Scene[] = [
     description:
       "Peer review: yapıcı eleştiri. Karakter değil davranış — Situation/Behavior/Impact.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B2",
     skillId: "career.b2",
     lessonId: "career.b2.feedback_giving_peer.1",
@@ -54,7 +54,7 @@ export const careerAdvancedB2Scenes: Scene[] = [
     description:
       "Manager'in yaklaşımı yanlış sence. Yumuşak pushback + alternatif + otoritesini koru.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B2",
     skillId: "career.b2",
     lessonId: "career.b2.disagree_manager.1",
@@ -68,7 +68,7 @@ export const careerAdvancedB2Scenes: Scene[] = [
     description:
       "Terfi konuşmasını aç: scope + sayısal impact + timing. Vakayı düzgün sun.",
     durationMin: 7,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B2",
     skillId: "career.b2",
     lessonId: "career.b2.promotion_ask.1",
@@ -82,7 +82,7 @@ export const careerAdvancedB2Scenes: Scene[] = [
     description:
       "İki takım arkadaşı çatışmada. Tansiyonu düşür, ortak hedefe çek, çözüm yarat.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B2",
     skillId: "career.b2",
     lessonId: "career.b2.mediation.1",
@@ -96,7 +96,7 @@ export const careerAdvancedB2Scenes: Scene[] = [
     description:
       "Deadline gerçekçi değil. Sus mu, kabul mu? Üçüncü yol: risk bildir + trade-off teklif.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B2",
     skillId: "career.b2",
     lessonId: "career.b2.deadline_pushback.1",
@@ -110,7 +110,7 @@ export const careerAdvancedB2Scenes: Scene[] = [
     description:
       "İşi devret: net sahiplik + outcome + check-in kadansı. Mikromanagement değil.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B2",
     skillId: "career.b2",
     lessonId: "career.b2.delegation.1",
@@ -124,7 +124,7 @@ export const careerAdvancedB2Scenes: Scene[] = [
     description:
       "Karar verdin, gidiyorsun. Sıcak ama kesin söyle. Transition planı + minnettarlık.",
     durationMin: 7,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B2",
     skillId: "career.b2",
     lessonId: "career.b2.resignation.1",
@@ -138,7 +138,7 @@ export const careerAdvancedB2Scenes: Scene[] = [
     description:
       "İstifa sonrası counter-offer geldi. Esnek olma — kararında kal, ilişkiyi koru.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B2",
     skillId: "career.b2",
     lessonId: "career.b2.counter_offer.1",
@@ -152,7 +152,7 @@ export const careerAdvancedB2Scenes: Scene[] = [
     description:
       "Recruiter algoritmasına yaz: 'Spearheaded', 'cross-functional', '40% growth'. ATS + insan iki taraf.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B2",
     skillId: "career.b2",
     lessonId: "career.b2.linkedin_keywords.1",
@@ -166,7 +166,7 @@ export const careerAdvancedB2Scenes: Scene[] = [
     description:
       "'Bu ekibi nasıl ölçerdin?', 'Liderlik felsefen?'. Vizyon + çerçeve + somut. Soyutta kalma.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B2",
     skillId: "career.b2",
     lessonId: "career.b2.director_interview.1",
@@ -180,7 +180,7 @@ export const careerAdvancedB2Scenes: Scene[] = [
     description:
       "Equity pazarlığı: vesting, cliff, refresh grant. 'My total comp expectation...' — paket, kuru rakam değil.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B2",
     skillId: "career.b2",
     lessonId: "career.b2.equity_negotiation.1",
@@ -194,7 +194,7 @@ export const careerAdvancedB2Scenes: Scene[] = [
     description:
       "360 formu: akranın güçlü yanları + 'areas to level up'. SBI + metrik + yumuşatıcı dil. Promo materyali.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B2",
     skillId: "career.b2",
     lessonId: "career.b2.peer_360_review.1",

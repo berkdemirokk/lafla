@@ -12,7 +12,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     description:
       "Mülakatın ilk sorusu: rol + deneyim + şu anki iş + ne arıyorsun. 60 saniyede sığar.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "career.b1",
     lessonId: "career.b1.tellme.1",
@@ -26,7 +26,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     description:
       "'Neden biz?' sorusuna ürün + ekip + zaman formülü. 'Great company' yetmez — spesifik ol.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "career.b1",
     lessonId: "career.b1.whycompany.1",
@@ -40,7 +40,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     description:
       "Geçmiş rolleri kronolojik anlat: rol + sorumluluk + sonuç. 'Since 2 years' değil, 'for two years'.",
     durationMin: 7,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "career.b1",
     lessonId: "career.b1.history.1",
@@ -54,7 +54,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     description:
       "Recruiter maaş soruyor: aralık + flexibility. Erken aşamada 'I'd like to learn more first.'",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "career.b1",
     lessonId: "career.b1.salary.1",
@@ -68,7 +68,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     description:
       "Strength + örnek; weakness + ne yaptın. 'I'm a perfectionist' klişesini at — somut konuş.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "career.b1",
     lessonId: "career.b1.strengths.1",
@@ -82,7 +82,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     description:
       "Mevcut işten neden ayrılıyorsun? Pozitif çerçeve + ileri odak. Eski şirkete sövme.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "career.b1",
     lessonId: "career.b1.whyleaving.1",
@@ -96,7 +96,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     description:
       "'Sorun var mı?' geldiğinde 2-3 hazır sorun olsun. Success metric, ekip kültürü, sonraki adım.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "career.b1",
     lessonId: "career.b1.askquestions.1",
@@ -110,7 +110,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     description:
       "Mülakat sonrası teşekkür: spesifik konu + 'reinforced my interest' + sonraki adım.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "career.b1",
     lessonId: "career.b1.followup.1",
@@ -124,7 +124,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     description:
       "Teklif geldi: kabul ('thrilled to accept') veya nazik ret ('after careful consideration').",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "career.b1",
     lessonId: "career.b1.offer.1",
@@ -138,7 +138,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     description:
       "Yeni şirkette ilk gün: ekibe kendini tanıt + small talk + kahve daveti.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "career.b1",
     lessonId: "career.b1.firstday.1",
@@ -152,7 +152,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     description:
       "CV'nin en üstündeki özet: 'Detail-oriented X with N years' + 'Skilled in...'. Recruiter 6 saniye bakıyor.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "career.b1",
     lessonId: "career.b1.cvsummary.1",
@@ -166,7 +166,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     description:
       "Kapak mektubu: 'Dear hiring manager' + 'I am writing to apply for...' + nazik kapanış formülü.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "career.b1",
     lessonId: "career.b1.coverletter.1",
@@ -180,7 +180,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     description:
       "İlk telefon: 'Tell me about yourself' + 'What are you looking for?' temiz, kısa cevaplar.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "career.b1",
     lessonId: "career.b1.phonescreen.1",
@@ -194,7 +194,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     description:
       "Resmi teklif cevabı: 'I'm thrilled to accept' kabul + 'After consideration, I'll have to decline' ret.",
     durationMin: 6,
-    mode: "career",
+    mode: "work",
     cefrLevel: "B1",
     skillId: "career.b1",
     lessonId: "career.b1.offer.1",

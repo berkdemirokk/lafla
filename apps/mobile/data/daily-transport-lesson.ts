@@ -1,7 +1,7 @@
 // Daily - Transport lessons
 // Skill: daily.transport (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 17.1 — Uber / Lyft Ride

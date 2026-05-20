@@ -1,4 +1,14 @@
-# App Store Listing — Türkçe (TR)
+# App Store Listing — Türkçe (TR)  ⚠️ DEPRECATED
+
+> **2026-05-20:** Bu doküman Maya-çağı pre-pivot draft. Çelişen 3 ayrı App Store metin draft'ı (`APP_STORE_TR.md`, `APP_STORE_EN.md`, `APP_STORE_META.md`) **2026-05-20 6-mod cut sonrası terkedildi**.
+>
+> **TEK KAYNAK:** [`APP_STORE_METADATA.md`](./APP_STORE_METADATA.md) — 22KB, TR + EN birlikte, screenshot brief + keywords + reviewer notes hepsi içinde. Submission için oraya bak.
+>
+> Bu dosya tarih amacıyla tutuluyor. İçerik: Maya AI koç (silindi), ₺149/ay (artık $9.99/₺99), 500+ senaryo (artık 480+), 5 mod (artık 6), "vize mülakatı" gibi spesifik claim'ler (artık genel speaking).
+
+---
+
+## (eski içerik — referans için)
 
 > Lafla v0.1.0 — App Store Connect submission metadata (Türkçe). Karakter sınırları Apple'ın dayattığı limitlerdir. **2026-05 strategic pivot:** "Lafla" markası İngilizce arama hacmi sıfır olduğu için ASO ağırlığını TR pazarındaki yüksek-niyet anahtarlarına (YDS, IELTS, mülakat, vize) veriyoruz.
 

@@ -2,7 +2,7 @@
 // Skill: order.grocery (4 lessons)
 // US supermarket / grocery store English: Trader Joe's, Whole Foods, Kroger, Safeway, Target, Walmart, Costco, etc.
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 46.1 — Reyonu Bulma

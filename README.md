@@ -1,197 +1,185 @@
 # Lafla
 
-> **Söyle gitsin.** *Just say it.*
+> **Söyle gitsin.** Türk-first İngilizce konuşma simülatörü.
 
-Bağlam temelli İngilizce hayatta kalma simülatörü. Tinder'dan Slack'e, akşam barından konferans Zoom'una — donduğun her İngilizce anına hazır pratik.
-
-Turkish-first English speaking app. Built for Turkish-speaking users 18-35 who can read English but freeze in real moments.
+Türk 18-35 yaş için: gerçek hayatta donduğun anlarda İngilizce hazırlığı. Tinder'da bir mesaja cevap, Slack'te bir feedback, havaalanında check-in, bardaki bir tanışma — sahne sahne pratik, hata desenleri Türkçe.
 
 ---
 
 ## Hedef Kullanıcı
 
-Türkçe konuşan 18-35 yaş, İngilizce **okuyabilen ama gerçek anda donan** genç. Yurtdışı flört, remote iş, sosyal medya — international yaşam için İngilizce isteyen.
+Türkçe konuşan 18-35 yaş, İngilizce **okuyabilen ama gerçek anda donan** genç. Yurtdışı flört, remote iş, sosyal medya, seyahat — international yaşam için İngilizce isteyen.
 
-## 5 Mod, Sıfır Tabu
+## 6 Mod
 
-- **Flört Modu** — Tinder, Bumble, gerçek tanışmalar
-- **İş Modu** — Slack, Zoom, e-mail, kahve sohbetleri
-- **Banter Modu** — Bar, parti, takılma, jokes
-- **Daily Modu** — Sipariş, taxi, alışveriş, otel
-- **Order Modu** — Kafe, restoran, bar, delivery
+| Mod | Ne öğretir |
+|---|---|
+| 💕 **Flört** | Tinder/Bumble açılış, voice note, ikinci randevu, iptal, ret, recovery |
+| 💼 **İş** | Slack, meeting, email, standup, code review, interview, networking, promotion ask |
+| 🍻 **Bar** | İçecek siparişi + bar sohbet açılışı / pickup |
+| ✈️ **Havaalanı** | Check-in, security, customs, baggage, flight changes |
+| ☕ **Günlük** | Yön sorma, ulaşım, otel, banka, kuaför, eczane, gym, tech support, smalltalk |
+| 🍽️ **Sipariş** | Kafe, restoran, fastfood, grocery, delivery, hesap, bahşiş, şikayet |
+
+Onboarding'de 6 chip'ten en az 2 seçersin; feed CEFR seviyene + ilgi alanlarına göre kişiselleşir. **480+ sahne, ~50 lesson set.**
 
 ---
 
-## 1. Stack
+## Stack
 
 | Layer | Tech |
 |---|---|
-| Mobile | Expo SDK 52 + React Native + TypeScript |
-| Web (landing) | Static HTML at `apps/web/` |
+| Mobile | Expo SDK 53 + React Native + TypeScript (iOS-only) |
 | Backend / DB / Auth | Supabase (Postgres) |
-| Build | EAS Build |
+| Build | EAS Build (`appVersionSource: "remote"`) |
 | CI/CD | GitHub Actions → TestFlight |
-| Local state | AsyncStorage |
-| TTS | expo-speech |
-| Analytics / Errors | PostHog, Sentry (scaffolded) |
-| Payments | RevenueCat (scaffolded) |
+| Local state | AsyncStorage + SecureStore (session) |
+| TTS | expo-speech (system) + bundled MP3'ler (Chatterbox-generated) |
+| STT | expo-speech-recognition |
+| Analytics / Errors | PostHog, Sentry (ATT-gated) |
+| Payments | RevenueCat (Speak+ ₺99/ay) |
 
-## 2. Getting Started
+## Getting Started
 
-**Prereqs:** Node ≥ 20, pnpm ≥ 9, Xcode (for iOS), Android Studio (for Android), Expo account.
+**Prereqs:** Windows PC (geliştirici) + macOS runner (EAS Build), Node ≥ 20, pnpm ≥ 9, Xcode (CI), Expo account, GitHub CLI authed.
 
 ```bash
-# 1. Clone
-git clone <repo-url> lafla
+git clone git@github.com:berkdemirokk/lafla.git
 cd lafla
-
-# 2. Install
 pnpm install
 
-# 3. Environment
-cp apps/mobile/.env.example apps/mobile/.env.local
-# Fill in:
+cp apps/mobile/.env.local.example apps/mobile/.env.local
+# Doldur:
 #   EXPO_PUBLIC_SUPABASE_URL=
 #   EXPO_PUBLIC_SUPABASE_ANON_KEY=
-#   EXPO_PUBLIC_POSTHOG_KEY=        (optional)
-#   EXPO_PUBLIC_SENTRY_DSN=         (optional)
-#   EXPO_PUBLIC_REVENUECAT_KEY=     (optional)
+#   (gerekirse PostHog / Sentry / RevenueCat anahtarları — opsiyonel)
 
-# 4. Run
 pnpm --filter mobile start
-# Then press i (iOS) or a (Android) in Expo CLI
+# Expo CLI'da "i" → iOS simulator
 ```
 
-Useful root scripts:
+Root scriptleri:
 
 ```bash
-pnpm typecheck          # Run TypeScript across the workspace
-pnpm lint               # Run linting across the workspace
-pnpm build              # Build all packages
-pnpm dev:mobile         # Start the Expo dev server
-pnpm dev:api            # Start the Cloudflare Workers API (when present)
-pnpm generate:content   # Ollama-based scenario generation (PC-only)
+pnpm typecheck       # workspace typecheck
+pnpm dev:mobile      # Expo dev server
 ```
 
-## 3. Project Structure
+## Project Structure
 
 ```
 lafla/
 ├── apps/
-│   ├── mobile/              Expo SDK 52 + RN + TS uygulaması
-│   │   ├── app/             expo-router screens (auth, onboarding, tutorial, feed, lesson/, scenario/, ...)
-│   │   ├── components/      Paylaşılan UI bileşenleri
-│   │   ├── data/            Bundled lesson scenarios (cafe-lesson.ts vb.)
-│   │   ├── lib/             Engine, storage, hooks, services
-│   │   ├── theme/           Cyber-Electric Modern design tokens
-│   │   └── assets/          Fontlar, sesler, görseller
-│   ├── api/                 Cloudflare Workers backend (scaffold)
-│   └── web/                 Statik landing sayfası
-├── packages/
-│   ├── content-types/       Paylaşılan TypeScript tipleri
-│   ├── pattern-matcher/     Levenshtein + embedding similarity
-│   ├── grammar-engine/      a/an, plurals, tenses, be-fiil
-│   ├── lesson-runner/       Lesson exercise dispatcher
-│   ├── mastery/             HLR (half-life regression) skoru
-│   └── srs/                 Spaced repetition zamanlayıcı
-├── content/                 Üretilen senaryo paketleri (PC offline)
-├── docs/                    ADR'lar, analytics, store metadata, integration guides
-├── scripts/                 Ollama-based content generation
-├── supabase/                Database migrations & policies
-├── mockups/                 Tasarım mockup'ları
-├── eas.json                 EAS Build profilleri
-└── pnpm-workspace.yaml      Monorepo workspace tanımı
+│   └── mobile/              # Expo iOS uygulaması — tek aktif workspace
+│       ├── app/             # expo-router (index, auth, onboarding, home, scenario/[id], paywall, profile, settings)
+│       ├── components/      # Paylaşılan UI bileşenleri (SwipeSceneCard, exercises/, ...)
+│       ├── data/            # Bundled lesson + scene paketleri (~50 lesson set, 480+ scene)
+│       ├── lib/             # engine, srs, supabase, iap, speech, analytics, theme tüketicileri
+│       ├── locales/         # tr.json + en.json (UI tek tük, kullanıcının Türkçe görür — EN şu an Sparse)
+│       ├── theme/index.ts   # Neon Noir tokens (#FF067A pink + #00FFFF cyan + black)
+│       └── assets/          # icon, splash, audio (vc_*/ MP3'ler — ~32MB)
+├── docs/                    # ADR'lar, App Store metadata, integration guides
+├── supabase/migrations/     # initial schema (profiles, lesson_state, skill_mastery, attempts)
+├── .github/workflows/       # expo-testflight.yml
+├── eas.json                 # build profilleri
+└── pnpm-workspace.yaml      # mobile-only
 ```
 
-## 4. Architecture Decisions
+> **Not:** `packages/pattern-matcher`, `packages/lesson-runner`, `packages/content-types` — mobile import etmedi, **2026-05-20 pivot-3'te silindi**. Pattern matching ve lesson runner logic'i `apps/mobile/lib/engine.ts`'de inline.
+
+## Architecture Decisions
 
 Tam liste: [`docs/ADR-001-data-flywheel.md`](docs/ADR-001-data-flywheel.md), [`docs/ADR-002-hybrid-swipe-ui.md`](docs/ADR-002-hybrid-swipe-ui.md), [`docs/ADR-003-turkish-first.md`](docs/ADR-003-turkish-first.md).
 
-**Local-first state.** AsyncStorage is the source of truth on-device for progress, streaks, attempts, settings. Supabase syncs in the background; the app must remain fully usable offline. UI never blocks on a network call.
+**Local-first state.** AsyncStorage on-device source of truth: progress, streaks, attempts, settings. Supabase syncs in background; UI never blocks on network.
 
-**No runtime LLM (data flywheel).** Content is generated *offline* on PC (Ollama + Llama 3.1 8B), curated, and shipped as static scenario bundles. Runtime evaluation uses pattern matching + grammar rules + a regex/variant library — no model calls per attempt. Every user attempt enriches the variant library. Costs $0/month forever; latency stays under 100 ms; no provider lock-in.
+**No runtime LLM.** Content is pre-generated (Claude in-session yazımı + Chatterbox TTS, both on PC), curated, shipped as static `.ts` bundles. Runtime scoring = Levenshtein + token overlap (`lib/engine.ts`) + accepted_variants library. Every user attempt enriches the variant library (long-term flywheel — needs backend).
 
-**Turkish-first content.** UI, error explanations, hints, and cultural notes are Turkish by default. English is the *target*, not the language of instruction. Common Türk-İngilizce hata patterns (article eksikliği, doğrudan çeviri tuzakları, TH sesi, be-fiil unutma) are explicit first-class corrections.
+**Türk-first content.** UI, error explanations, hints, cultural notes Türkçe. English target dil. TR→EN doğrudan çeviri tuzakları (`be` fiili eksik, `bored from` vs `bored of`, article eksikliği) pattern matcher'a gömülü.
 
-## 5. Content Authoring
+## Content Authoring
 
-A skill is a bundled `.ts` file under `apps/mobile/data/`. Use **`apps/mobile/data/cafe-lesson.ts`** as the canonical template.
+Bir lesson `apps/mobile/data/`'da `.ts` dosyası. **[`apps/mobile/data/cafe-lesson.ts`](apps/mobile/data/cafe-lesson.ts)** kanonik şablon.
 
-Each lesson exports a `BundledLesson` with:
+Her lesson `BundledLesson` (`lib/engine.ts`) export eder:
 
-- `id` — e.g. `order.cafe.1.1`
-- `skill_id` — e.g. `order.cafe`
-- `index` — order within the skill
-- `title` — Turkish, short
-- `description` — Turkish, 1-2 cümle, hangi kalıbı öğrettiğini söyler
-- `estimated_minutes`
-- `exercises[]` — `vocab_tile`, `translate`, `multiple_choice`, `roleplay`, etc.
+- `id` — örn. `order.cafe.1.1`
+- `skill_id` — örn. `order.cafe`
+- `index`, `title`, `description`, `estimated_minutes`
+- `exercises[]` — `vocab_tile`, `translate`, `fill_blank`, `word_order`, `spot_mistake`, `pronounce_phrase`, `speech_shadowing`, `roleplay_chat`, `recap_quiz`
 
-Steps to add a new skill:
+Yeni lesson eklerken:
 
-1. Copy `cafe-lesson.ts` → `<mode>-<topic>-lesson.ts`.
-2. Update `id`/`skill_id` to be unique and dotted (`work.standup.1.1`).
-3. Author 4-8 exercises, every `translate` exercise must include `accepted_variants` covering plausible correct phrasings.
-4. Register the lesson in `apps/mobile/data/lessons.ts` (dispatcher).
-5. Add the skill node to the skill tree if it's new.
-6. `pnpm typecheck` to verify types.
+1. Bir benzer lesson'ı kopyala, `id`/`skill_id` benzersiz yap.
+2. 6 modun birine ait olduğundan emin ol (flirt | work | bar | airport | daily | order). Yeni mode = `SceneMode` tipini değiştirmek + onboarding chip eklemek demek; **bu basit bir lesson ekleme değil**.
+3. `accepted_variants` cömertçe doldur — pattern matcher'a yardım.
+4. `apps/mobile/data/lessons.ts` dispatcher'a import et.
+5. `apps/mobile/data/scenes.ts`'e karşılık gelen Scene ekle (mode + lessonId).
+6. `pnpm --filter mobile typecheck`.
 
-Türkçe kalite notları: doğrudan çeviri yapma, gündelik tonu koru, `accepted_variants` cömertçe doldur, Türk-İngilizce tuzaklarını açıkça yakala.
+Türkçe kalite notları: doğrudan çeviri yapma, gündelik tonu koru, `tr_translation`/`tr_hint`/`tr_explanation` alanlarını gerçek Türk-İngilizce hata desenine yedir.
 
-## 6. Theming
+## Theming
 
-Design system is **Cyber-Electric Modern**. All tokens live in [`apps/mobile/theme/index.ts`](apps/mobile/theme/index.ts) — colors, spacing, radii, typography, shadows. Components must consume tokens; **no hardcoded hex values, no magic numbers**. If a token doesn't exist for what you need, add it to `theme/index.ts` first.
+Design system: **Neon Noir**. Tüm token'lar [`apps/mobile/theme/index.ts`](apps/mobile/theme/index.ts).
 
-## 7. Testing
+- **Mode:** dark only (`userInterfaceStyle: "dark"`)
+- **Primary:** `#FF067A` (hot pink) — CTA, brand identity, streak
+- **Tertiary:** `#00FFFF` (electric cyan) — accent, success
+- **Surface:** near-black `#000`/`#0a0a0a` ile elevation tints
 
-> **TODO — no automated tests yet.** Tracking item before scale.
+Bileşenler token tüketir; **hardcoded hex yasak**. Token yoksa önce `theme/index.ts`'e ekle.
 
-Planned coverage:
+> **Not:** Şu an Space Grotesk + Inter font'ları kodda yazıyor ama yüklü değil — system fallback. `expo-font` ile yüklemek follow-up.
 
-- **Unit** — `packages/pattern-matcher`, `packages/grammar-engine`, `packages/mastery`, `packages/srs` (pure logic, easy wins first).
-- **Engine** — `apps/mobile/lib/engine` exercise dispatch and progress reducers.
-- **Content lint** — schema validation for every `*-lesson.ts` (id uniqueness, accepted_variants non-empty for translate, regex compiles).
-- **Component** — React Native Testing Library on key screens (lesson, scenario, feed, paywall).
-- **E2E** — Detox or Maestro for happy paths: onboarding → first lesson → streak → achievement.
-- **Manual QA** — physical iPhone + Android device smoke before each TestFlight build.
+## Testing
 
-## 8. Deployment
+> **No automated tests yet.** Bu açık bir teknik borç ve `engine.ts` için Jest'i ayrı bir PR'da ekleyeceğiz. Şu an her release manuel iPhone smoke ile gidiyor.
+
+Planlanan kapsama:
+- **Unit** — `lib/engine.ts` (Levenshtein, normalize, evaluateTranslate, evaluateRoleplayTurn).
+- **Content lint** — her `*-lesson.ts` schema validation (id uniqueness, accepted_variants non-empty, regex compiles).
+- **Component** — RN Testing Library: scenario, paywall, onboarding.
+- **E2E** — Maestro: onboarding → first lesson → verdict → streak.
+
+## Deployment
 
 GitHub Actions → EAS Build → TestFlight → App Store Connect.
 
 - Workflow: [`.github/workflows/expo-testflight.yml`](.github/workflows/expo-testflight.yml)
-- Trigger: push a tag `lafla-v*` (or run manually via `workflow_dispatch`).
-- Required secret: `EXPO_TOKEN`.
-- Build profiles: see [`eas.json`](eas.json).
-- Bundle IDs: `com.lafla.app` (iOS + Android).
+- Trigger: `lafla-v*` tag push veya `workflow_dispatch`.
+- Required secrets: `EXPO_TOKEN`, `APP_STORE_CONNECT_KEY_ID`, `APP_STORE_CONNECT_ISSUER_ID`, `APP_STORE_CONNECT_PRIVATE_KEY`, `APPLE_TEAM_ID`.
+- Build profilleri: [`eas.json`](eas.json). `ascAppId` hâlâ `FILL_AFTER_APP_CREATED` — App Store Connect'te ürün oluşturulduktan sonra güncellenecek.
+- Bundle ID: `com.lafla.app`.
 
 Release tag flow:
 
 ```bash
-git tag lafla-v0.1.0
-git push origin lafla-v0.1.0
-# Workflow builds with EAS and submits to TestFlight automatically.
+git tag lafla-v0.2.0
+git push origin lafla-v0.2.0
+# Workflow EAS ile build, TestFlight'a submit.
 ```
 
 App Store / Play Store metadata: [`docs/APP_STORE_EN.md`](docs/APP_STORE_EN.md), [`docs/APP_STORE_TR.md`](docs/APP_STORE_TR.md), [`docs/APP_STORE_SCREENSHOTS.md`](docs/APP_STORE_SCREENSHOTS.md).
 
-## 9. Türk-Özel Özellikler
+## Türk-Özel Özellikler
 
-- **Türk-İngilizce hata veritabanı** — doğrudan çeviri tuzakları, article eksikliği, TH sesi
-- **Türkçe UI** default, EN seçenek
+- **TR→EN doğrudan çeviri hata veritabanı** (engine.ts + lesson `tr_hint`'leri)
+- **Türkçe UI default**, App Store Connect'te dil `tr` + `en`
 - **Düzeltme açıklamaları Türkçe** — "be fiilini unuttun çünkü..."
 - **Kültürel notlar** — Batı dating, work culture, social codes
 
-## 10. Fiyatlandırma
+## Fiyatlandırma
 
 | Plan | Fiyat |
 |---|---|
-| Free | 1 mod tam, 30 dk/gün |
-| Pro | 49 TL/ay veya 399 TL/yıl |
-| Lifetime | 999 TL (tek seferlik) |
+| Free | Sınırlı içerik (terms TBD) |
+| **Speak+** | ₺99/ay (App Store local price `lafla.premium.monthly`) |
 
-## 11. License
+> **Exam Pass kaldırıldı** (2026-05-20). IELTS/TOEFL "outcome-guaranteed" satışı reddedildi — iki haftalık global pivot iptal, geri Türk-first.
+
+## License
 
 **Proprietary. All rights reserved © Berk Demirok.**
 
-This source code is not licensed for redistribution, modification, or commercial use without explicit written permission. No part of this repository may be copied, reproduced, or used to train any model.
+Bu kaynak kod açık değildir, redistribute / fork / commercial use yasaktır. Hiçbir parçası başka bir modeli eğitmek için kullanılamaz.

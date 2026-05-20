@@ -59,36 +59,23 @@ const VERTICAL_REJECT_RATIO = 1.4; // |dy|/|dx| above this → vertical gesture
 // each mode to one of the two so we don't drift the theme.
 // ---------------------------------------------------------------------------
 
+// 6 mod (2026-05-20 cut). Pink (primary) = sıcak/sosyal; cyan (tertiary) = işlevsel.
 const MODE_ACCENT: Record<SceneMode, { fill: string; text: string }> = {
-  flirt: { fill: tokens.brand.primarySoft, text: tokens.brand.primary },
-  banter: { fill: tokens.brand.primarySoft, text: tokens.brand.primary },
-  work: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
-  career: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
-  professional: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
-  travel: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
-  order: { fill: tokens.brand.primarySoft, text: tokens.brand.primary },
-  daily: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
-  personal: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
-  academic: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
-  testprep: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
-  sport: { fill: tokens.brand.primarySoft, text: tokens.brand.primary },
-  health: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
+  flirt:   { fill: tokens.brand.primarySoft,  text: tokens.brand.primary  },
+  work:    { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
+  bar:     { fill: tokens.brand.primarySoft,  text: tokens.brand.primary  },
+  airport: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
+  daily:   { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
+  order:   { fill: tokens.brand.primarySoft,  text: tokens.brand.primary  },
 };
 
 const MODE_LABEL: Record<SceneMode, string> = {
-  flirt: "Flört",
-  banter: "Espri",
-  work: "İş",
-  career: "Kariyer",
-  professional: "Pro",
-  travel: "Seyahat",
-  order: "Sipariş",
-  daily: "Günlük",
-  personal: "Kişisel",
-  academic: "Akademik",
-  testprep: "Sınav",
-  sport: "Spor",
-  health: "Sağlık",
+  flirt:   "Flört",
+  work:    "İş",
+  bar:     "Bar",
+  airport: "Havaalanı",
+  daily:   "Günlük",
+  order:   "Sipariş",
 };
 
 // ---------------------------------------------------------------------------

@@ -3,7 +3,7 @@
 // Hedef: orta-kariyer Turk profesyonel, yabanci sirkette nuanslı durum yönetimi.
 // Diplomatik dil, neden-arkasi (tr_explanation) odakli.
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 1 — Salary Negotiation: counter-offer with data

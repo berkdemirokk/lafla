@@ -1,7 +1,7 @@
 // Work - Email lessons
 // Skill: work.email (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 11.1 — Subject + Greeting + Ask (Email Yapisi)

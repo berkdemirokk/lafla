@@ -2,7 +2,7 @@
 // Skill: work.networking (4 lessons)
 // Konferans / meetup / professional event small talk.
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 39.1 — Konferansta Açılış

@@ -2,7 +2,7 @@
 // Skill: work.disagree (4 lessons)
 // Professional disagreement: saglikli karsi cikis, steelman, agree-to-disagree.
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 34.1 — Manager'a Karsi Cikma

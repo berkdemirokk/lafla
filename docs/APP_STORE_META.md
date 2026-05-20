@@ -1,4 +1,10 @@
-# Lafla — App Store Metadata
+# Lafla — App Store Metadata  ⚠️ DEPRECATED
+
+> **2026-05-20:** Bu doküman Maya-çağı pre-pivot draft. **TEK KAYNAK:** [`APP_STORE_METADATA.md`](./APP_STORE_METADATA.md). İçerik: 5 mod (artık 6), 410 sahne (artık 480+), "Sohbet/Sipariş/İş/Flört/Günlük" eski 5-mod taksonomisi.
+
+---
+
+## (eski içerik)
 
 Hazır draft. App Store Connect'e gireceğin metinler.
 

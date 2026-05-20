@@ -1,64 +1,48 @@
-// Sample feed scenes consumed by Home (Netflix-rows feed) and the scenario
-// loop. Production data eventually moves behind a backend; for now everything
-// is bundled and read synchronously.
+// Sample feed scenes consumed by Home (TikTok/Bumble swipe stack) and the
+// scenario loop. Production data eventually moves behind a backend; for now
+// everything is bundled and read synchronously.
 //
-// Theme: Neon Noir (post-pivot 2026-05-18). Earlier comments referenced the
-// retired "Cyber-Electric Modern" palette — disregard those if you find them
-// elsewhere in this file or its imports.
+// Theme: Neon Noir. Earlier comments referenced the retired "Cyber-Electric
+// Modern" palette — ignore if you find them.
+//
+// 2026-05-20 — 6 mod cut. Removed scene packs: academic, testprep (IELTS/
+// TOEFL/YDS), sport, health, travel (non-airport), banter (non-bar), C1
+// advanced/specialized/social, conversation-scripts, grammar-capsules,
+// flirt-advanced. Surviving packs are remapped to the 6 user-facing modes
+// inside their own files (personal→daily, career/professional→work).
 
-// Wave 3 imports — CEFR + mode-tagged scene banks
 import { cefrA1SurvivalScenes } from "./cefr-a1-survival-scenes";
 import { cefrA2DailyScenes } from "./cefr-a2-daily-scenes";
 import { a2MicroScenes } from "./a2-micro-scenes";
 import { careerFoundationsB1Scenes } from "./career-foundations-b1-scenes";
 import { careerAdvancedB2Scenes } from "./career-advanced-b2-scenes";
-import { travelBureaucracyB1Scenes } from "./travel-bureaucracy-b1-scenes";
-import { travelHospitalityB2Scenes } from "./travel-hospitality-b2-scenes";
-import { academicB2Scenes } from "./academic-b2-scenes";
 import { professionalB1Scenes } from "./professional-b1-scenes";
 import { professionalC1Scenes } from "./professional-c1-scenes";
-import { specializedC1Scenes } from "./specialized-c1-scenes";
 import { personalB1Scenes } from "./personal-b1-scenes";
 import { dailyExpandedScenes } from "./daily-expanded-scenes";
-import { conversationScriptsScenes } from "./conversation-scripts-scenes";
-import { grammarCapsuleScenes } from "./grammar-capsules-scenes";
-import { testIeltsSpeakingScenes } from "./test-ielts-speaking-scenes";
-import { testToeflSpeakingScenes } from "./test-toefl-speaking-scenes";
-import { testYdsYokdilScenes } from "./test-yds-yokdil-scenes";
-
-// Pivot 2 (2026-05-18) — Spor & Sağlık modları + Travel/Flört derinleştirme
-import { sportA1A2Scenes } from "./sport-a1-a2-scenes";
-import { sportB1B2Scenes } from "./sport-b1-b2-scenes";
-import { healthA1A2Scenes } from "./health-a1-a2-scenes";
-import { healthB1B2Scenes } from "./health-b1-b2-scenes";
-import { travelExpandedScenes } from "./travel-expanded-scenes";
-import { flirtAdvancedScenes } from "./flirt-advanced-scenes";
-
-// Pivot 2 — C1 katmanı (7 mod, ~100 sahne, near-native register)
-import { flirtC1Scenes } from "./flirt-c1-scenes";
-import { banterC1Scenes } from "./banter-c1-scenes";
-import { travelC1Scenes } from "./travel-c1-scenes";
-import { orderC1Scenes } from "./order-c1-scenes";
-import { socialC1Scenes } from "./social-c1-scenes";
-import { sportC1Scenes } from "./sport-c1-scenes";
-import { healthC1Scenes } from "./health-c1-scenes";
 
 export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
 
+// Six user-facing modes (post-2026-05-20 radical cut).
+// Migration table for old SceneMode values, used in adım 8:
+//   banter   + bar context   → bar
+//   banter   + non-bar       → DELETE
+//   order    + bar/drink     → bar
+//   order    + cafe/restaurant/delivery/etc → order (kept)
+//   daily    + airport/flight/customs → airport
+//   travel   + airport       → airport
+//   travel   + other (hotel, hospitality, bureaucracy) → DELETE
+//   career   → work
+//   professional → work
+//   personal → daily
+//   academic | testprep | sport | health → DELETE
 export type SceneMode =
   | "flirt"
-  | "work"
-  | "banter"
-  | "order"
-  | "daily"
-  | "travel"
-  | "career"
-  | "academic"
-  | "professional"
-  | "personal"
-  | "testprep"
-  | "sport"
-  | "health";
+  | "work"      // work + career + professional birleşti
+  | "bar"       // YENİ — bar-lesson + banter-bar merge
+  | "airport"   // YENİ — daily-airport rename + travel-*'in havaalanı parçaları
+  | "daily"     // daily + personal + cefr-survival/daily birleşti
+  | "order";
 
 export interface Scene {
   id: string;
@@ -329,7 +313,7 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     description:
       "Barda kalabalık, bartender'ın dikkatini çek — 'On tap', 'glass of', 'a sec' kalıpları.",
     durationMin: 5,
-    mode: "order",
+    mode: "bar",
     skillId: "order.bar",
     lessonId: "order.bar.7.1",
     isNew: true,
@@ -342,7 +326,7 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     description:
       "Viski + cocktail terminolojisi: sek/buzlu/twist — premium bar dili.",
     durationMin: 5,
-    mode: "order",
+    mode: "bar",
     skillId: "order.bar",
     lessonId: "order.bar.7.2",
     isNew: true,
@@ -355,7 +339,7 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     description:
       "Bar gece kapamak: hesap açma + son sipariş + 'close out' idiom'ları.",
     durationMin: 5,
-    mode: "order",
+    mode: "bar",
     skillId: "order.bar",
     lessonId: "order.bar.7.3",
     isNew: true,
@@ -1434,9 +1418,9 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     description:
       "Bar'da yabancıyla kibar sohbet aç: çevre temelli soru, creepy değil saygılı.",
     durationMin: 5,
-    mode: "banter",
-    skillId: "banter.bar",
-    lessonId: "banter.bar.24.1",
+    mode: "bar",
+    skillId: "bar.approach",
+    lessonId: "bar.approach.24.1",
     isNew: true,
     progressLabel: "1/3 ders",
   },
@@ -1447,9 +1431,9 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     description:
       "Birine içki teklif et — 'no strings' tonu, saygılı çıkış kapısı.",
     durationMin: 5,
-    mode: "banter",
-    skillId: "banter.bar",
-    lessonId: "banter.bar.24.2",
+    mode: "bar",
+    skillId: "bar.approach",
+    lessonId: "bar.approach.24.2",
     isNew: true,
     progressLabel: "2/3 ders",
   },
@@ -1460,204 +1444,9 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
     description:
       "Arkadaşın doğum günü kalabalığı — saygılı katılım + bağ noktası bulma.",
     durationMin: 5,
-    mode: "banter",
-    skillId: "banter.bar",
-    lessonId: "banter.bar.24.3",
-    isNew: true,
-    progressLabel: "3/3 ders ✓",
-  },
-  {
-    id: "scene-banter-roast-25-1",
-    emoji: "😅",
-    title: "Self-deprecating —\npeaked in high school,\nfair warning",
-    description:
-      "Kendiyle dalga geçmek = cana yakın + güvenli + ABD sosyal kültürünün anahtarı.",
-    durationMin: 5,
-    mode: "banter",
-    skillId: "banter.roast",
-    lessonId: "banter.roast.25.1",
-    isNew: true,
-    progressLabel: "1/3 ders",
-  },
-  {
-    id: "scene-banter-roast-25-2",
-    emoji: "🔥",
-    title: "Hafif roast —\nsure Jan,\nbold of you to assume",
-    description:
-      "Yakın arkadaşa playful atışma — sevgi + eşit enerji + ironik onaylama.",
-    durationMin: 5,
-    mode: "banter",
-    skillId: "banter.roast",
-    lessonId: "banter.roast.25.2",
-    isNew: true,
-    progressLabel: "2/3 ders",
-  },
-  {
-    id: "scene-banter-roast-25-3",
-    emoji: "🙊",
-    title: "Sınır —\nread the room,\ncame out wrong",
-    description:
-      "Atışma çok ileri gitti — saygılı geri çekilme, 'didn't mean to hit a nerve' tonu.",
-    durationMin: 5,
-    mode: "banter",
-    skillId: "banter.roast",
-    lessonId: "banter.roast.25.3",
-    isNew: true,
-    progressLabel: "3/3 ders ✓",
-  },
-  {
-    id: "scene-banter-whatdoyoudo-26-1",
-    emoji: "💼",
-    title: "What do you do? —\nserver therapist,\nchaos coordinator",
-    description:
-      "Klasik party sorusunu memorable yap: title + ironik gerçek açıklama formülü.",
-    durationMin: 5,
-    mode: "banter",
-    skillId: "banter.whatdoyoudo",
-    lessonId: "banter.whatdoyoudo.26.1",
-    isNew: true,
-    progressLabel: "1/3 ders",
-  },
-  {
-    id: "scene-banter-whatdoyoudo-26-2",
-    emoji: "🤔",
-    title: "Geri sor —\nwhat drew you,\nwhat keeps you up",
-    description:
-      "Karşı tarafa derin networking soruları: hikaye + retrospektif + 'unexpected'.",
-    durationMin: 5,
-    mode: "banter",
-    skillId: "banter.whatdoyoudo",
-    lessonId: "banter.whatdoyoudo.26.2",
-    isNew: true,
-    progressLabel: "2/3 ders",
-  },
-  {
-    id: "scene-banter-whatdoyoudo-26-3",
-    emoji: "🎯",
-    title: "Kişisele geç —\nenough work talk,\nwhat lights you up",
-    description:
-      "10 dakika iş konuştun — kişisel ilgi alanlarına saygılı geçiş. Memorable bağ kur.",
-    durationMin: 5,
-    mode: "banter",
-    skillId: "banter.whatdoyoudo",
-    lessonId: "banter.whatdoyoudo.26.3",
-    isNew: true,
-    progressLabel: "3/3 ders ✓",
-  },
-  {
-    id: "scene-banter-compliment-27-1",
-    emoji: "🌟",
-    title: "İltifat verme —\nnoticed how you handled,\nlearned a lot",
-    description:
-      "Etkili iltifat: spesifik olay + ne yaptılar + sen ne hissettin. Sosyal sermaye.",
-    durationMin: 5,
-    mode: "banter",
-    skillId: "banter.compliment",
-    lessonId: "banter.compliment.27.1",
-    isNew: true,
-    progressLabel: "1/3 ders",
-  },
-  {
-    id: "scene-banter-compliment-27-2",
-    emoji: "🙏",
-    title: "İltifat alma —\nmeans a lot,\ncoming from you",
-    description:
-      "İltifatı reddetmek = saygısızlık. Kabul + teşekkür + karşı tarafa bağ kur.",
-    durationMin: 5,
-    mode: "banter",
-    skillId: "banter.compliment",
-    lessonId: "banter.compliment.27.2",
-    isNew: true,
-    progressLabel: "2/3 ders",
-  },
-  {
-    id: "scene-banter-compliment-27-3",
-    emoji: "↩️",
-    title: "İltifat yansıt —\nright back at you,\ncouldn't have done without",
-    description:
-      "Karşı taraf sana iltifat etti — samimi + spesifik kanıtla geri yansıt.",
-    durationMin: 5,
-    mode: "banter",
-    skillId: "banter.compliment",
-    lessonId: "banter.compliment.27.3",
-    isNew: true,
-    progressLabel: "3/3 ders ✓",
-  },
-  {
-    id: "scene-banter-exit-28-1",
-    emoji: "🚶",
-    title: "Grup vedası —\ngonna head out,\ndon't kill the party",
-    description:
-      "Arkadaş grubundan zarif ayrılış: sebep + warmth + 'round 2' yatırımı.",
-    durationMin: 5,
-    mode: "banter",
-    skillId: "banter.exit",
-    lessonId: "banter.exit.28.1",
-    isNew: true,
-    progressLabel: "1/3 ders",
-  },
-  {
-    id: "scene-banter-exit-28-2",
-    emoji: "👻",
-    title: "Irish goodbye —\nsnuck out,\nhope it didn't seem rude",
-    description:
-      "Kalabalık partide sessizce sıvış + ertesi gün self-aware follow-up mesajı.",
-    durationMin: 5,
-    mode: "banter",
-    skillId: "banter.exit",
-    lessonId: "banter.exit.28.2",
-    isNew: true,
-    progressLabel: "2/3 ders",
-  },
-  {
-    id: "scene-banter-exit-28-3",
-    emoji: "🔗",
-    title: "Networking çıkış —\ndon't monopolize,\nLinkedIn me",
-    description:
-      "Networking sohbetinden saygılı çıkış + iletişim köprüsü kurma (LinkedIn).",
-    durationMin: 5,
-    mode: "banter",
-    skillId: "banter.exit",
-    lessonId: "banter.exit.28.3",
-    isNew: true,
-    progressLabel: "3/3 ders ✓",
-  },
-  {
-    id: "scene-banter-opinions-29-1",
-    emoji: "🌶️",
-    title: "Hot take —\nincoming,\nready to be wrong",
-    description:
-      "Cesur fikir paylaş ama tartışmaya açık: 'hot take' uyarısı + ego'suz cesaret.",
-    durationMin: 5,
-    mode: "banter",
-    skillId: "banter.opinions",
-    lessonId: "banter.opinions.29.1",
-    isNew: true,
-    progressLabel: "1/3 ders",
-  },
-  {
-    id: "scene-banter-opinions-29-2",
-    emoji: "🤝",
-    title: "Saygılı debat —\nsee it differently,\nwhere do you stand",
-    description:
-      "Arkadaşla farklı düşün ama kavga değil — perspektif sun + karşı tarafı duy.",
-    durationMin: 5,
-    mode: "banter",
-    skillId: "banter.opinions",
-    lessonId: "banter.opinions.29.2",
-    isNew: true,
-    progressLabel: "2/3 ders",
-  },
-  {
-    id: "scene-banter-opinions-29-3",
-    emoji: "🔄",
-    title: "Zarif teslim —\nfair point,\nupdating my view",
-    description:
-      "Karşı taraf haklıysa kabullenmek = güç. Ego'dan büyük öğrenmeye açık ol.",
-    durationMin: 5,
-    mode: "banter",
-    skillId: "banter.opinions",
-    lessonId: "banter.opinions.29.3",
+    mode: "bar",
+    skillId: "bar.approach",
+    lessonId: "bar.approach.24.3",
     isNew: true,
     progressLabel: "3/3 ders ✓",
   },
@@ -1712,15 +1501,7 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
   { id: "scene-work-network-39-3", emoji: "🔗", title: "LinkedIn —\nstay in touch,\nconnect", description: "Bağlantı kur, contact paylaş.", durationMin: 5, mode: "work", skillId: "work.networking", lessonId: "work.networking.39.3", isNew: true, progressLabel: "3/4 ders" },
   { id: "scene-work-network-39-4", emoji: "📧", title: "Follow-up email —\ngreat meeting,\nnext step", description: "Tanışma sonrası mail at, harekete geç.", durationMin: 5, mode: "work", skillId: "work.networking", lessonId: "work.networking.39.4", isNew: true, progressLabel: "4/4 ders ✓" },
   // banter.elevator
-  { id: "scene-banter-elev-40-1", emoji: "☁️", title: "Hava + hafta —\ncrazy weather,\nhump day", description: "Asansörde havadan/günden bahset.", durationMin: 5, mode: "banter", skillId: "banter.elevator", lessonId: "banter.elevator.40.1", isNew: true, progressLabel: "1/4 ders" },
-  { id: "scene-banter-elev-40-2", emoji: "🛗", title: "Kat banter —\nwhat floor,\nhold the door", description: "Kat seç, kapıyı tut, jest.", durationMin: 5, mode: "banter", skillId: "banter.elevator", lessonId: "banter.elevator.40.2", isNew: true, progressLabel: "2/4 ders" },
-  { id: "scene-banter-elev-40-3", emoji: "🏢", title: "Building gossip —\nnew café,\nrenovating", description: "Binada yenilik dedikodusu yap.", durationMin: 5, mode: "banter", skillId: "banter.elevator", lessonId: "banter.elevator.40.3", isNew: true, progressLabel: "3/4 ders" },
-  { id: "scene-banter-elev-40-4", emoji: "👋", title: "Çıkış —\nhave a good one,\nsee you around", description: "Asansörden kibar veda.", durationMin: 5, mode: "banter", skillId: "banter.elevator", lessonId: "banter.elevator.40.4", isNew: true, progressLabel: "4/4 ders ✓" },
   // banter.party
-  { id: "scene-banter-party-41-1", emoji: "🥂", title: "Yeni biri —\nhow do you know,\nwant a drink", description: "Partide yeni biriyle yanaşma.", durationMin: 5, mode: "banter", skillId: "banter.party", lessonId: "banter.party.41.1", isNew: true, progressLabel: "1/4 ders" },
-  { id: "scene-banter-party-41-2", emoji: "🗣️", title: "Grup katıl —\nmind if I jump in,\npiggyback", description: "Grup konuşmasına ekle, piggyback.", durationMin: 5, mode: "banter", skillId: "banter.party", lessonId: "banter.party.41.2", isNew: true, progressLabel: "2/4 ders" },
-  { id: "scene-banter-party-41-3", emoji: "🍷", title: "Yemek / içecek —\nhave you tried the dip,\ndry january", description: "İçeçek/yemek üzerinden sohbet ısıt.", durationMin: 5, mode: "banter", skillId: "banter.party", lessonId: "banter.party.41.3", isNew: true, progressLabel: "3/4 ders" },
-  { id: "scene-banter-party-41-4", emoji: "🚪", title: "Veda —\nIrish goodbye,\ngrab coffee sometime", description: "Partiden çıkış: Irish goodbye veya plan kur.", durationMin: 5, mode: "banter", skillId: "banter.party", lessonId: "banter.party.41.4", isNew: true, progressLabel: "4/4 ders ✓" },
   // flirt.second_date
   { id: "scene-flirt-second-42-1", emoji: "💕", title: "İkinci teklif —\nhad a great time,\nfree this weekend", description: "İlk randevu sonrası ikinciyi teklif et.", durationMin: 5, mode: "flirt", skillId: "flirt.second_date", lessonId: "flirt.second_date.42.1", isNew: true, progressLabel: "1/4 ders" },
   { id: "scene-flirt-second-42-2", emoji: "🎨", title: "Aktivite —\nhave you been to X,\nI know a place", description: "Dinner-and-drinks dışında: museum, hike.", durationMin: 5, mode: "flirt", skillId: "flirt.second_date", lessonId: "flirt.second_date.42.2", isNew: true, progressLabel: "2/4 ders" },
@@ -1732,15 +1513,11 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
   { id: "scene-order-ff-43-3", emoji: "⚠️", title: "Alerji + sub —\nallergic, no mayo,\nsub fries", description: "Alerjiyi söyle, değişiklik iste.", durationMin: 5, mode: "order", skillId: "order.fastfood", lessonId: "order.fastfood.43.3", isNew: true, progressLabel: "3/4 ders" },
   { id: "scene-order-ff-43-4", emoji: "❌", title: "Sorun —\nwrong order,\nrefund please", description: "Yanlış sipariş + iade isteği.", durationMin: 5, mode: "order", skillId: "order.fastfood", lessonId: "order.fastfood.43.4", isNew: true, progressLabel: "4/4 ders ✓" },
   // daily.airport
-  { id: "scene-daily-airport-44-1", emoji: "✈️", title: "Check-in —\nflight number,\naisle/window", description: "Havaalanı check-in + bagaj.", durationMin: 5, mode: "daily", skillId: "daily.airport", lessonId: "daily.airport.44.1", isNew: true, progressLabel: "1/4 ders" },
-  { id: "scene-daily-airport-44-2", emoji: "🛂", title: "Güvenlik —\nshoes off,\nliquids", description: "Security kontrolü diyalogları.", durationMin: 5, mode: "daily", skillId: "daily.airport", lessonId: "daily.airport.44.2", isNew: true, progressLabel: "2/4 ders" },
-  { id: "scene-daily-airport-44-3", emoji: "🧳", title: "Kayıp valiz —\ndidn't make it,\nbaggage claim form", description: "Valizin gelmedi: PIR + telafi.", durationMin: 5, mode: "daily", skillId: "daily.airport", lessonId: "daily.airport.44.3", isNew: true, progressLabel: "3/4 ders" },
-  { id: "scene-daily-airport-44-4", emoji: "🚫", title: "İptal / gecikme —\nrebook, voucher,\nrefund", description: "Uçuş iptali: rebook + tazminat.", durationMin: 5, mode: "daily", skillId: "daily.airport", lessonId: "daily.airport.44.4", isNew: true, progressLabel: "4/4 ders ✓" },
+  { id: "scene-daily-airport-44-1", emoji: "✈️", title: "Check-in —\nflight number,\naisle/window", description: "Havaalanı check-in + bagaj.", durationMin: 5, mode: "airport", skillId: "airport", lessonId: "airport.44.1", isNew: true, progressLabel: "1/4 ders" },
+  { id: "scene-daily-airport-44-2", emoji: "🛂", title: "Güvenlik —\nshoes off,\nliquids", description: "Security kontrolü diyalogları.", durationMin: 5, mode: "airport", skillId: "airport", lessonId: "airport.44.2", isNew: true, progressLabel: "2/4 ders" },
+  { id: "scene-daily-airport-44-3", emoji: "🧳", title: "Kayıp valiz —\ndidn't make it,\nbaggage claim form", description: "Valizin gelmedi: PIR + telafi.", durationMin: 5, mode: "airport", skillId: "airport", lessonId: "airport.44.3", isNew: true, progressLabel: "3/4 ders" },
+  { id: "scene-daily-airport-44-4", emoji: "🚫", title: "İptal / gecikme —\nrebook, voucher,\nrefund", description: "Uçuş iptali: rebook + tazminat.", durationMin: 5, mode: "airport", skillId: "airport", lessonId: "airport.44.4", isNew: true, progressLabel: "4/4 ders ✓" },
   // banter.taxi
-  { id: "scene-banter-taxi-45-1", emoji: "🚕", title: "Driver selam —\nwhere you from,\nweather", description: "Taksi/Uber şoförüyle başlangıç.", durationMin: 5, mode: "banter", skillId: "banter.taxi", lessonId: "banter.taxi.45.1", isNew: true, progressLabel: "1/4 ders" },
-  { id: "scene-banter-taxi-45-2", emoji: "🚦", title: "Trafiğe yorum —\nbrutal, always like this", description: "Trafikten beraber yakın, bağ kur.", durationMin: 5, mode: "banter", skillId: "banter.taxi", lessonId: "banter.taxi.45.2", isNew: true, progressLabel: "2/4 ders" },
-  { id: "scene-banter-taxi-45-3", emoji: "🌐", title: "Tanışma —\nhow long driving,\nwhat brought you", description: "Driver'ı tanı, hayat hikayesi.", durationMin: 5, mode: "banter", skillId: "banter.taxi", lessonId: "banter.taxi.45.3", isNew: true, progressLabel: "3/4 ders" },
-  { id: "scene-banter-taxi-45-4", emoji: "👋", title: "İniş —\ndrive safe,\ntip is on the app", description: "İndi-bindi: sıcak veda.", durationMin: 5, mode: "banter", skillId: "banter.taxi", lessonId: "banter.taxi.45.4", isNew: true, progressLabel: "4/4 ders ✓" },
   // order.grocery
   { id: "scene-order-grocery-46-1", emoji: "🛒", title: "Reyon —\nwhere's the aisle,\ndo you carry", description: "Reyonu bulma + personel sor.", durationMin: 5, mode: "order", skillId: "order.grocery", lessonId: "order.grocery.46.1", isNew: true, progressLabel: "1/4 ders" },
   { id: "scene-order-grocery-46-2", emoji: "🥩", title: "Et / balık —\nhalf a pound,\ntrim the fat", description: "Deli counter: porsiyon + özelleştirme.", durationMin: 5, mode: "order", skillId: "order.grocery", lessonId: "order.grocery.46.2", isNew: true, progressLabel: "2/4 ders" },
@@ -1964,94 +1741,40 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
   { id: "scene-daily-tech-36-7", emoji: "💸", title: "Faturalama hatası —\nextra charge,\nreverse", description: "Faturada fazla kalem — itiraz et, iade iste.", durationMin: 5, mode: "daily", skillId: "daily.tech_support", lessonId: "daily.tech_support.36.7", isNew: true, progressLabel: "7/8 ders" },
   { id: "scene-daily-tech-36-8", emoji: "📦", title: "Plan değiştir —\nupgrade,\ndowngrade", description: "Service plan upgrade / downgrade — yeni paket.", durationMin: 5, mode: "daily", skillId: "daily.tech_support", lessonId: "daily.tech_support.36.8", isNew: true, progressLabel: "8/8 ders ✓" },
   // daily.airport — son 4 ders
-  { id: "scene-daily-airport-44-5", emoji: "⚖️", title: "Bagaj fazla —\noverweight,\npay or repack", description: "Bagaj ağır geldi — fazla ücret mi, çantayı boşalt mı?", durationMin: 5, mode: "daily", skillId: "daily.airport", lessonId: "daily.airport.44.5", isNew: true, progressLabel: "5/8 ders" },
-  { id: "scene-daily-airport-44-6", emoji: "🚪", title: "Gate değişikliği —\ndid the gate change,\nB12 to B22", description: "Kapı değişti mi sor — anonsu kaçırdın.", durationMin: 5, mode: "daily", skillId: "daily.airport", lessonId: "daily.airport.44.6", isNew: true, progressLabel: "6/8 ders" },
-  { id: "scene-daily-airport-44-7", emoji: "⏰", title: "Connecting kaçırdım —\nmissed connection,\nrebook", description: "Aktarmayı kaçırdın — masa şikayeti + yeniden bilet.", durationMin: 5, mode: "daily", skillId: "daily.airport", lessonId: "daily.airport.44.7", isNew: true, progressLabel: "7/8 ders" },
-  { id: "scene-daily-airport-44-8", emoji: "🛃", title: "Custom & Immigration —\npurpose of visit,\nhow long", description: "Pasaport kontrolü: ziyaret amacı, süre, adres.", durationMin: 5, mode: "daily", skillId: "daily.airport", lessonId: "daily.airport.44.8", isNew: true, progressLabel: "8/8 ders ✓" },
+  { id: "scene-daily-airport-44-5", emoji: "⚖️", title: "Bagaj fazla —\noverweight,\npay or repack", description: "Bagaj ağır geldi — fazla ücret mi, çantayı boşalt mı?", durationMin: 5, mode: "airport", skillId: "airport", lessonId: "airport.44.5", isNew: true, progressLabel: "5/8 ders" },
+  { id: "scene-daily-airport-44-6", emoji: "🚪", title: "Gate değişikliği —\ndid the gate change,\nB12 to B22", description: "Kapı değişti mi sor — anonsu kaçırdın.", durationMin: 5, mode: "airport", skillId: "airport", lessonId: "airport.44.6", isNew: true, progressLabel: "6/8 ders" },
+  { id: "scene-daily-airport-44-7", emoji: "⏰", title: "Connecting kaçırdım —\nmissed connection,\nrebook", description: "Aktarmayı kaçırdın — masa şikayeti + yeniden bilet.", durationMin: 5, mode: "airport", skillId: "airport", lessonId: "airport.44.7", isNew: true, progressLabel: "7/8 ders" },
+  { id: "scene-daily-airport-44-8", emoji: "🛃", title: "Custom & Immigration —\npurpose of visit,\nhow long", description: "Pasaport kontrolü: ziyaret amacı, süre, adres.", durationMin: 5, mode: "airport", skillId: "airport", lessonId: "airport.44.8", isNew: true, progressLabel: "8/8 ders ✓" },
   // daily.salon — son 4 ders
   { id: "scene-daily-salon-31-5", emoji: "💈", title: "Erkek kuaför —\nfade, trim,\nbeard line up", description: "Erkek kuaförde fade + sakal — net stil tarif et.", durationMin: 5, mode: "daily", skillId: "daily.salon", lessonId: "daily.salon.31.5", isNew: true, progressLabel: "5/8 ders" },
   { id: "scene-daily-salon-31-6", emoji: "💁", title: "Kadın kuaför —\nlayers, highlights,\nbangs", description: "Kadın kuaförde katlar / highlights / kakül.", durationMin: 5, mode: "daily", skillId: "daily.salon", lessonId: "daily.salon.31.6", isNew: true, progressLabel: "6/8 ders" },
   { id: "scene-daily-salon-31-7", emoji: "💅", title: "Tırnak renk —\nnude,\ngel polish", description: "Manikür renk seçimi — gel polish + finish.", durationMin: 5, mode: "daily", skillId: "daily.salon", lessonId: "daily.salon.31.7", isNew: true, progressLabel: "7/8 ders" },
   { id: "scene-daily-salon-31-8", emoji: "📅", title: "Checkout —\ntip, rebook,\nstylist's card", description: "Salondan çıkış: bahşiş + sonraki randevu.", durationMin: 5, mode: "daily", skillId: "daily.salon", lessonId: "daily.salon.31.8", isNew: true, progressLabel: "8/8 ders ✓" },
   // banter.bar — son 4 ders
-  { id: "scene-banter-bar-24-5", emoji: "🍺", title: "Yabancıyla sohbet —\nhow's the night,\nwhat're you drinking", description: "Bar'da yanındaki yabancıyla buz kırma.", durationMin: 5, mode: "banter", skillId: "banter.bar", lessonId: "banter.bar.24.5", isNew: true, progressLabel: "5/8 ders" },
-  { id: "scene-banter-bar-24-6", emoji: "👥", title: "Gruba katıl —\nmind if I join,\npiggyback", description: "Bardaki bir gruba kibarca dahil ol.", durationMin: 5, mode: "banter", skillId: "banter.bar", lessonId: "banter.bar.24.6", isNew: true, progressLabel: "6/8 ders" },
-  { id: "scene-banter-bar-24-7", emoji: "👋", title: "Sohbet bitir —\ngood chatting,\ngonna find my friends", description: "Bar sohbetini saygılı bitir — masum exit.", durationMin: 5, mode: "banter", skillId: "banter.bar", lessonId: "banter.bar.24.7", isNew: true, progressLabel: "7/8 ders" },
-  { id: "scene-banter-bar-24-8", emoji: "📱", title: "Numara iste —\ngrab your number,\nIG handle", description: "İletişim bilgisi iste — saygılı + opt-out alan.", durationMin: 5, mode: "banter", skillId: "banter.bar", lessonId: "banter.bar.24.8", isNew: true, progressLabel: "8/8 ders ✓" },
+  { id: "scene-banter-bar-24-5", emoji: "🍺", title: "Yabancıyla sohbet —\nhow's the night,\nwhat're you drinking", description: "Bar'da yanındaki yabancıyla buz kırma.", durationMin: 5, mode: "bar", skillId: "bar.approach", lessonId: "bar.approach.24.5", isNew: true, progressLabel: "5/8 ders" },
+  { id: "scene-banter-bar-24-6", emoji: "👥", title: "Gruba katıl —\nmind if I join,\npiggyback", description: "Bardaki bir gruba kibarca dahil ol.", durationMin: 5, mode: "bar", skillId: "bar.approach", lessonId: "bar.approach.24.6", isNew: true, progressLabel: "6/8 ders" },
+  { id: "scene-banter-bar-24-7", emoji: "👋", title: "Sohbet bitir —\ngood chatting,\ngonna find my friends", description: "Bar sohbetini saygılı bitir — masum exit.", durationMin: 5, mode: "bar", skillId: "bar.approach", lessonId: "bar.approach.24.7", isNew: true, progressLabel: "7/8 ders" },
+  { id: "scene-banter-bar-24-8", emoji: "📱", title: "Numara iste —\ngrab your number,\nIG handle", description: "İletişim bilgisi iste — saygılı + opt-out alan.", durationMin: 5, mode: "bar", skillId: "bar.approach", lessonId: "bar.approach.24.8", isNew: true, progressLabel: "8/8 ders ✓" },
   // banter.roast — son 4 ders
-  { id: "scene-banter-roast-25-5", emoji: "🙃", title: "Self-deprecating —\nclassic me,\nproof I'm human", description: "Kendine takıl — sympathy + relatability.", durationMin: 5, mode: "banter", skillId: "banter.roast", lessonId: "banter.roast.25.5", isNew: true, progressLabel: "5/8 ders" },
-  { id: "scene-banter-roast-25-6", emoji: "🎉", title: "Bakanlık şakası —\nbig promotion,\nbow before you", description: "Arkadaşın yükseldi — tatlı dalga + tebrik.", durationMin: 5, mode: "banter", skillId: "banter.roast", lessonId: "banter.roast.25.6", isNew: true, progressLabel: "6/8 ders" },
-  { id: "scene-banter-roast-25-7", emoji: "📱", title: "Group chat roast —\nyou said what,\nscreenshot saved", description: "Group chat'te yakalanan saçmalık — sıcak roast.", durationMin: 5, mode: "banter", skillId: "banter.roast", lessonId: "banter.roast.25.7", isNew: true, progressLabel: "7/8 ders" },
-  { id: "scene-banter-roast-25-8", emoji: "🛡️", title: "Roast diffuse —\ngood one,\nmove on", description: "Sana yapılan dalgayı yumuşat — kabul + döndür.", durationMin: 5, mode: "banter", skillId: "banter.roast", lessonId: "banter.roast.25.8", isNew: true, progressLabel: "8/8 ders ✓" },
   // banter.whatdoyoudo — son 4 ders
-  { id: "scene-banter-wdyd-26-5", emoji: "💻", title: "Yazılımcı + non-tech —\nbasitleştir,\nanalogy", description: "Tech rolünü non-tech birine anlat — analoji kullan.", durationMin: 5, mode: "banter", skillId: "banter.whatdoyoudo", lessonId: "banter.whatdoyoudo.26.5", isNew: true, progressLabel: "5/8 ders" },
-  { id: "scene-banter-wdyd-26-6", emoji: "🏢", title: "Freelance —\nself-employed,\nrun my own", description: "Freelance/girişimcisin — kısa + öz tanıt.", durationMin: 5, mode: "banter", skillId: "banter.whatdoyoudo", lessonId: "banter.whatdoyoudo.26.6", isNew: true, progressLabel: "6/8 ders" },
-  { id: "scene-banter-wdyd-26-7", emoji: "🎭", title: "Day job + side hustle —\nby day X,\nby night Y", description: "Ana iş + yan iş anlat — dengeli.", durationMin: 5, mode: "banter", skillId: "banter.whatdoyoudo", lessonId: "banter.whatdoyoudo.26.7", isNew: true, progressLabel: "7/8 ders" },
-  { id: "scene-banter-wdyd-26-8", emoji: "🔄", title: "İş arıyorum —\nbetween things,\nin transition", description: "İşsizsin / arıyorsun — neutral + olgun.", durationMin: 5, mode: "banter", skillId: "banter.whatdoyoudo", lessonId: "banter.whatdoyoudo.26.8", isNew: true, progressLabel: "8/8 ders ✓" },
   // banter.compliment — son 4 ders
-  { id: "scene-banter-comp-27-5", emoji: "👗", title: "Tarz iltifati —\nlove the jacket,\nwhere'd you get", description: "Kıyafet/aksesuar iltifati — spesifik + warm.", durationMin: 5, mode: "banter", skillId: "banter.compliment", lessonId: "banter.compliment.27.5", isNew: true, progressLabel: "5/8 ders" },
-  { id: "scene-banter-comp-27-6", emoji: "🙇", title: "İltifat alma —\nthanks, really,\ndon't deflect", description: "İltifatı utangaçca reddetme — kabul et.", durationMin: 5, mode: "banter", skillId: "banter.compliment", lessonId: "banter.compliment.27.6", isNew: true, progressLabel: "6/8 ders" },
-  { id: "scene-banter-comp-27-7", emoji: "🔁", title: "Geri iltifat —\nright back atcha,\nsincere", description: "Karşılıklı iltifat — samimi + spesifik.", durationMin: 5, mode: "banter", skillId: "banter.compliment", lessonId: "banter.compliment.27.7", isNew: true, progressLabel: "7/8 ders" },
-  { id: "scene-banter-comp-27-8", emoji: "😬", title: "Awkward iltifat —\nuhh thanks,\nredirect", description: "Garip iltifata nazikçe yön değiştir.", durationMin: 5, mode: "banter", skillId: "banter.compliment", lessonId: "banter.compliment.27.8", isNew: true, progressLabel: "8/8 ders ✓" },
   // banter.exit — son 4 ders
-  { id: "scene-banter-exit-28-5", emoji: "🚪", title: "Gruptan çıkış —\ngotta head out,\ngreat catching up", description: "Sosyal gruptan kibar veda — graceful exit.", durationMin: 5, mode: "banter", skillId: "banter.exit", lessonId: "banter.exit.28.5", isNew: true, progressLabel: "5/8 ders" },
-  { id: "scene-banter-exit-28-6", emoji: "😴", title: "Yorgun escape —\nearly start,\ncalling it", description: "Yorgun/sıkıldın — Geçerli mazeretle çık.", durationMin: 5, mode: "banter", skillId: "banter.exit", lessonId: "banter.exit.28.6", isNew: true, progressLabel: "6/8 ders" },
-  { id: "scene-banter-exit-28-7", emoji: "🕔", title: "İş yerinde çıkış —\nheading out,\nsee you tomorrow", description: "Ofisten son saat çıkışı — sıcak veda.", durationMin: 5, mode: "banter", skillId: "banter.exit", lessonId: "banter.exit.28.7", isNew: true, progressLabel: "7/8 ders" },
-  { id: "scene-banter-exit-28-8", emoji: "✋", title: "Uzatma —\nlast thing,\nlet me let you go", description: "Karşı tarafı bırakmayan biri — kibarca bitir.", durationMin: 5, mode: "banter", skillId: "banter.exit", lessonId: "banter.exit.28.8", isNew: true, progressLabel: "8/8 ders ✓" },
   // banter.opinions — son 4 ders
-  { id: "scene-banter-opinions-29-5", emoji: "🍕", title: "Yemek tartışması —\npineapple on pizza", description: "Hafif yemek atışması — opinion battle.", durationMin: 5, mode: "banter", skillId: "banter.opinions", lessonId: "banter.opinions.29.5", isNew: true, progressLabel: "5/8 ders" },
-  { id: "scene-banter-opinions-29-6", emoji: "🎬", title: "Film tartışması —\nworst movie,\noverrated", description: "Film/show tartış — playful disagreement.", durationMin: 5, mode: "banter", skillId: "banter.opinions", lessonId: "banter.opinions.29.6", isNew: true, progressLabel: "6/8 ders" },
-  { id: "scene-banter-opinions-29-7", emoji: "🌅", title: "Sabah vs gece —\nmorning person,\nnight owl", description: "Sabahçı mı gececi mi — playful debate.", durationMin: 5, mode: "banter", skillId: "banter.opinions", lessonId: "banter.opinions.29.7", isNew: true, progressLabel: "7/8 ders" },
-  { id: "scene-banter-opinions-29-8", emoji: "🤝", title: "Saygılı karşı görüş —\nfair, but consider", description: "Karşı görüş sun — saygıyla, devamı.", durationMin: 5, mode: "banter", skillId: "banter.opinions", lessonId: "banter.opinions.29.8", isNew: true, progressLabel: "8/8 ders ✓" },
   // banter.elevator — son 4 ders
-  { id: "scene-banter-elev-40-5", emoji: "🌧️", title: "Yağmurlu gün —\ndid you get caught,\nstaying dry", description: "Yağmurlu gün asansör buz kırma.", durationMin: 5, mode: "banter", skillId: "banter.elevator", lessonId: "banter.elevator.40.5", isNew: true, progressLabel: "5/8 ders" },
-  { id: "scene-banter-elev-40-6", emoji: "🏠", title: "Komşu selamla —\nyou must be new,\nnice to meet", description: "Apartman komşusuyla ilk selam — warm.", durationMin: 5, mode: "banter", skillId: "banter.elevator", lessonId: "banter.elevator.40.6", isNew: true, progressLabel: "6/8 ders" },
-  { id: "scene-banter-elev-40-7", emoji: "👀", title: "Tanıdık yüz —\nseen you around,\nintroduce myself", description: "Sürekli gördüğün biri — kendini tanıt.", durationMin: 5, mode: "banter", skillId: "banter.elevator", lessonId: "banter.elevator.40.7", isNew: true, progressLabel: "7/8 ders" },
-  { id: "scene-banter-elev-40-8", emoji: "🛗", title: "Kat geliyor —\nthis is me,\nhave a good one", description: "Asansörden iniş anı — sıcak veda kalıpları.", durationMin: 5, mode: "banter", skillId: "banter.elevator", lessonId: "banter.elevator.40.8", isNew: true, progressLabel: "8/8 ders ✓" },
   // banter.party — son 4 ders
-  { id: "scene-banter-party-41-5", emoji: "🤝", title: "How do you know —\nclassic opener,\nthrough work", description: "Partide klasik açılış — tanışma yolu sor.", durationMin: 5, mode: "banter", skillId: "banter.party", lessonId: "banter.party.41.5", isNew: true, progressLabel: "5/8 ders" },
-  { id: "scene-banter-party-41-6", emoji: "🍽️", title: "Host'a iltifat —\nthe food is amazing,\ngreat playlist", description: "Host'a samimi iltifat — partiyi öv.", durationMin: 5, mode: "banter", skillId: "banter.party", lessonId: "banter.party.41.6", isNew: true, progressLabel: "6/8 ders" },
-  { id: "scene-banter-party-41-7", emoji: "👥", title: "Karış — open spot —\nslot bul, dahil ol", description: "Partide gruba katılma — açık alan bul.", durationMin: 5, mode: "banter", skillId: "banter.party", lessonId: "banter.party.41.7", isNew: true, progressLabel: "7/8 ders" },
-  { id: "scene-banter-party-41-8", emoji: "🌙", title: "Erken çıkış —\nearly morning,\nbahane", description: "Partiden erken çık — kibar bahane + warm exit.", durationMin: 5, mode: "banter", skillId: "banter.party", lessonId: "banter.party.41.8", isNew: true, progressLabel: "8/8 ders ✓" },
   // banter.taxi — son 4 ders
-  { id: "scene-banter-taxi-45-5", emoji: "🌤️", title: "Hava + trafik chat —\nbeautiful day,\ntraffic's brutal", description: "Sürücüyle ortak hava/trafik konuları.", durationMin: 5, mode: "banter", skillId: "banter.taxi", lessonId: "banter.taxi.45.5", isNew: true, progressLabel: "5/8 ders" },
-  { id: "scene-banter-taxi-45-6", emoji: "🍴", title: "Yerel tavsiye —\nbest food,\nlocal spot", description: "Şofördan yerel restoran/yer tavsiyesi al.", durationMin: 5, mode: "banter", skillId: "banter.taxi", lessonId: "banter.taxi.45.6", isNew: true, progressLabel: "6/8 ders" },
-  { id: "scene-banter-taxi-45-7", emoji: "🤐", title: "Konuşkan şoför —\nuzaklaş,\nshort answers", description: "Konuşkan şoförden kibar mesafe.", durationMin: 5, mode: "banter", skillId: "banter.taxi", lessonId: "banter.taxi.45.7", isNew: true, progressLabel: "7/8 ders" },
-  { id: "scene-banter-taxi-45-8", emoji: "💵", title: "İniş + teşekkür —\nthanks man,\ntip on app", description: "Sürücüye teşekkür + tip onayı.", durationMin: 5, mode: "banter", skillId: "banter.taxi", lessonId: "banter.taxi.45.8", isNew: true, progressLabel: "8/8 ders ✓" },
   // ============================================================
-  // Wave 3 — CEFR-tagged scenes (new modes + adult pivot)
+  // CEFR-tagged scenes (post-2026-05-20 — surviving packs)
+  // career-* and professional-* relabeled to "work" inside their files;
+  // personal-b1 relabeled to "daily"; A1 survival + A2 daily/micro keep "daily".
   // ============================================================
   ...cefrA1SurvivalScenes,
   ...cefrA2DailyScenes,
   ...a2MicroScenes,
   ...careerFoundationsB1Scenes,
   ...careerAdvancedB2Scenes,
-  ...travelBureaucracyB1Scenes,
-  ...travelHospitalityB2Scenes,
-  ...academicB2Scenes,
   ...professionalB1Scenes,
   ...professionalC1Scenes,
-  ...specializedC1Scenes,
   ...personalB1Scenes,
   ...dailyExpandedScenes,
-  ...conversationScriptsScenes,
-  ...grammarCapsuleScenes,
-  ...testIeltsSpeakingScenes,
-  ...testToeflSpeakingScenes,
-  ...testYdsYokdilScenes,
-  // Pivot 2 — Spor / Sağlık / Travel-derin / Flört-derin
-  ...sportA1A2Scenes,
-  ...sportB1B2Scenes,
-  ...healthA1A2Scenes,
-  ...healthB1B2Scenes,
-  ...travelExpandedScenes,
-  ...flirtAdvancedScenes,
-  // Pivot 2 — C1 katmanı (7 mod)
-  ...flirtC1Scenes,
-  ...banterC1Scenes,
-  ...travelC1Scenes,
-  ...orderC1Scenes,
-  ...socialC1Scenes,
-  ...sportC1Scenes,
-  ...healthC1Scenes,
 ];

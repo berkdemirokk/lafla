@@ -1,7 +1,7 @@
 // Daily - Salon lessons
 // Skill: daily.salon (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 31.1 — Saç Kestirme

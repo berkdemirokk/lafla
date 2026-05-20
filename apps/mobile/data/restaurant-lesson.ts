@@ -1,7 +1,7 @@
 // Restaurant lessons — Lafla mobile bundle.
 // Sister to cafe-lesson.ts.
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 2.1 — Garson Çağırma + Menü

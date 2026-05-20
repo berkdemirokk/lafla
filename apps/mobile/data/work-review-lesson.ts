@@ -1,7 +1,7 @@
 // Work - Performance Review lessons
 // Skill: work.review (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 12.1 — Self Review (Kendi Cikarlarini Anlatma)

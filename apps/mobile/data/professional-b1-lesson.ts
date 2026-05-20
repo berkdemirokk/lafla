@@ -4,7 +4,7 @@
 // landlords, customer service escalations, police statements, municipalities.
 // Tone: formal-but-not-stiff. Heavy on "I would like to" / "Could you please".
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 1 — Banka Hesap Açtırma (Foreign Bank)

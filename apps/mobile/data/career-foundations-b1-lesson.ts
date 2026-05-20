@@ -3,7 +3,7 @@
 // foreign-company interviews or remote English communication.
 // 2026 corporate tone: remote, async, OKRs, hybrid, IC, scope.
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 1 — Tell Me About Yourself (60-second pitch)

@@ -1,7 +1,7 @@
 // Work - Interview lessons
 // Skill: work.interview (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 14.1 — Tell Me About Yourself (Elevator Pitch)

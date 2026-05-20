@@ -1,4 +1,14 @@
-# App Store Listing — English (EN)
+# App Store Listing — English (EN)  ⚠️ DEPRECATED
+
+> **2026-05-20:** This document is a Maya-era pre-pivot draft. Three conflicting App Store text drafts (`APP_STORE_TR.md`, `APP_STORE_EN.md`, `APP_STORE_META.md`) were **abandoned after the 6-mode radical cut on 2026-05-20**.
+>
+> **SINGLE SOURCE OF TRUTH:** [`APP_STORE_METADATA.md`](./APP_STORE_METADATA.md) — 22KB, both TR + EN, screenshot brief + keywords + reviewer notes consolidated. Look there for submission.
+>
+> This file is kept for historical reference. Content reflects: Maya AI coach (removed), Pro $X/month (now Speak+ $9.99 only), 500+ scenarios (now 480+), 5 modes (now 6), specific exam-prep claims (now general speaking).
+
+---
+
+## (legacy content — for reference)
 
 > Lafla v0.1.0 — English localization for App Store Connect submission. Character limits per Apple's product page constraints.
 

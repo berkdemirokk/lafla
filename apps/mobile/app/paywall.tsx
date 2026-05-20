@@ -16,9 +16,10 @@
 // flip the trialAvailable flag below, not by hardcoding the string.
 //
 // Social proof: we chose the conservative product-metric option
-// ("8 mod, 980 sahne, sıfır LLM bekleme") over fabricated user counts or
+// ("6 mod, 480+ sahne, sıfır LLM bekleme") over fabricated user counts or
 // anonymized testimonials. The other two would be invented numbers /
 // invented quotes pre-launch, which is dishonest and risks store review.
+// Counts updated 2026-05-20 after the 6-mode radical cut.
 
 import { useEffect, useState } from "react";
 import {
@@ -74,8 +75,8 @@ interface FeatureRow {
 const FEATURES: FeatureRow[] = [
   {
     icon: "🎯",
-    title: "Sınırsız sahne pratiği",
-    subtitle: "Günde 5 dakika, gerçek konuşmalar.",
+    title: "6 mod, gerçek hayat",
+    subtitle: "Flört · İş · Bar · Havaalanı · Günlük · Sipariş — donduğun her an.",
   },
   {
     icon: "🎙️",
@@ -83,9 +84,9 @@ const FEATURES: FeatureRow[] = [
     subtitle: "Türkçe konuşana özel pronunciation feedback.",
   },
   {
-    icon: "📚",
-    title: "IELTS / TOEFL sınav modu",
-    subtitle: "Speaking bölümünü gerçek formatla çalış.",
+    icon: "♾️",
+    title: "Sınırsız sahne pratiği",
+    subtitle: "Günde 5 dakika, 480+ sahne arasından senin için seçilmiş.",
   },
   {
     icon: "📈",
@@ -366,12 +367,12 @@ export default function PaywallScreen() {
         <Animated.View style={[styles.proofCard, proofStyle]}>
           <View style={styles.proofRow}>
             <View style={styles.proofStat}>
-              <Text style={styles.proofNumber}>8</Text>
+              <Text style={styles.proofNumber}>6</Text>
               <Text style={styles.proofLabel}>mod</Text>
             </View>
             <View style={styles.proofDivider} />
             <View style={styles.proofStat}>
-              <Text style={styles.proofNumber}>980</Text>
+              <Text style={styles.proofNumber}>480+</Text>
               <Text style={styles.proofLabel}>sahne</Text>
             </View>
             <View style={styles.proofDivider} />

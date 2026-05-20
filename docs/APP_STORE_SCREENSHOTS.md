@@ -1,4 +1,12 @@
-# App Store Screenshots & Preview Video — Storyboard
+# App Store Screenshots & Preview Video — Storyboard  ⚠️ NEEDS UPDATE
+
+> **2026-05-20 status:** Bu doküman pre-pivot 8-mod tasarım planı. Mode chips (Flört/İş/Banter/Spor/Sağlık/Travel/Seyahat) eski. Senaryo bahçesi (CEFR rail %Banter 21% etc.) ile pivot-3 sonrası uyumsuz.
+>
+> **Quick fix path:** [`APP_STORE_METADATA.md` Section 7](./APP_STORE_METADATA.md) artık güncel screenshot brief'i içeriyor (6 mod, 480+ sahne, Bar/Airport çipleri). Bu doküman daha detaylı pixel-level planning + animation video storyboard için tutuluyor — pre-shoot review'da 8→6 mod refactor yap.
+>
+> **Bu PR'da değiştirilmedi**, ayrı bir "App Store creative refresh" PR'ında yapılacak. Şu an MVP submission için Section 7 yeterli.
+
+---
 
 > Lafla v0.1.0 — App Store Connect requires screenshots in specific device sizes. This doc covers the **6.7" iPhone (iPhone 14/15/16 Pro Max @ 1290 × 2796 px)** as the primary set. Apple auto-derives the 6.5" set; iPad and Apple Watch are not required for v0.1.0.
 

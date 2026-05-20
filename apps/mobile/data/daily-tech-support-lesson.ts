@@ -1,7 +1,7 @@
 // Daily - Tech Support lessons
 // Skill: daily.tech_support (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 36.1 — Sorunu Tarif Et

@@ -1,7 +1,7 @@
 // Daily - Shopping lessons
 // Skill: daily.shopping (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 18.1 — Asking for Size / Availability

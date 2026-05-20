@@ -12,6 +12,14 @@ jobs:
     timeout-minutes: 90
     env:
       EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      # 2026-05-20: GitHub Actions Node 20 deprecation kicks in 2026-06-02.
+      # All upstream actions used here (actions/checkout@v4, setup-node@v4,
+      # cache@v4, upload-artifact@v4, apple-actions/upload-testflight-build@v3,
+      # expo/expo-github-action@v8, pnpm/action-setup@v4) still ship Node 20
+      # by default. Force them to Node 24 now so we catch any breakage before
+      # GitHub flips it automatically. If a specific action fails on Node 24,
+      # we'll pin the offending action version rather than reverting this.
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
     steps:
       - name: Checkout
         uses: actions/checkout@v4

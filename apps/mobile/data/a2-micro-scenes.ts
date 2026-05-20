@@ -54,7 +54,7 @@ export const a2MicroScenes: Scene[] = [
     description:
       "'Come over for dinner Saturday?' — tarih, saat, getireyim mi.",
     durationMin: 5,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "A2",
     skillId: "daily.a2.micro-invite",
     lessonId: "daily.a2.micro-invite.1",
@@ -68,7 +68,7 @@ export const a2MicroScenes: Scene[] = [
     description:
       "'Today's my last day' — meslektaşlara samimi, profesyonel veda.",
     durationMin: 5,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "A2",
     skillId: "daily.a2.micro-farewell",
     lessonId: "daily.a2.micro-farewell.1",
@@ -96,7 +96,7 @@ export const a2MicroScenes: Scene[] = [
     description:
       "Yas tutan birine ağırbaşlı, kısa destek. 'If you need anything…'",
     durationMin: 5,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "A2",
     skillId: "daily.a2.micro-condolences",
     lessonId: "daily.a2.micro-condolences.1",
@@ -110,7 +110,7 @@ export const a2MicroScenes: Scene[] = [
     description:
       "'Congrats on the promotion!' + içten kutla, kutlama daveti yap.",
     durationMin: 4,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "A2",
     skillId: "daily.a2.micro-promotion",
     lessonId: "daily.a2.micro-promotion.1",
@@ -180,7 +180,7 @@ export const a2MicroScenes: Scene[] = [
     description:
       "'It's been ages!' Eski tanıdıkla yolda karşılaştın, kısa hasret.",
     durationMin: 5,
-    mode: "personal",
+    mode: "daily",
     cefrLevel: "A2",
     skillId: "daily.a2.micro-catchup",
     lessonId: "daily.a2.micro-catchup.1",

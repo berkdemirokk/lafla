@@ -272,9 +272,11 @@ async function computeSkillBreakdown(
       ? masteryScores.reduce((a, b) => a + b, 0) / masteryScores.length
       : 0;
 
-  // Mode-derived: speaking ≈ flirt/banter/daily/career, listening ≈ work/order/travel.
-  const speakingModes = ["flirt", "banter", "daily", "career", "personal"];
-  const listeningModes = ["work", "order", "travel", "academic", "professional"];
+  // Mode-derived (post-2026-05-20 6-mode cut):
+  //   speaking ≈ flirt, bar, daily, airport (conversational pressure modes)
+  //   listening ≈ work, order (more receptive — meeting notes, menu callouts)
+  const speakingModes = ["flirt", "bar", "daily", "airport"];
+  const listeningModes = ["work", "order"];
 
   function modeScore(modeIds: string[]): number {
     const scores = modeIds

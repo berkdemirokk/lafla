@@ -1,7 +1,7 @@
 // Flort - Opener lessons (Tinder/Bumble acilis mesajlari)
 // Skill: flirt.opener (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 1.1 — Soru Sorarak Opener

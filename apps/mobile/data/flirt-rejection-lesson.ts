@@ -1,7 +1,7 @@
 // Flort - Red / Red Yeme lessons
 // Skill: flirt.rejection (3 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 7.1 — Letting Someone Down Kindly (Kibarca Reddetme)

@@ -2,23 +2,16 @@
 //
 // Replaces the previous settings-style list with a Strava/Whoop-flavored
 // dashboard: hero stat strip (streak / XP / completed), per-mode progress
-// rails for the 8 canonical modes, then a slim account section at the
+// rails for the 6 canonical modes, then a slim account section at the
 // bottom. All data is read locally; no network on mount.
 //
-// Mode taxonomy used (8 surfaces shown to user):
-//   🧊 Flört   → scenes.mode === "flirt"
-//   💼 İş      → scenes.mode === "work"
-//   ✈️ Seyahat → scenes.mode === "travel"
-//   👥 Sosyal  → scenes.mode === "daily"   (everyday social register)
-//   🍽️ Sipariş → scenes.mode === "order"
-//   🎉 Espri   → scenes.mode === "banter"
-//   💪 Spor    → scenes.mode === "sport"
-//   🩺 Sağlık  → scenes.mode === "health"
-//
-// SceneMode also has career / academic / professional / personal / testprep,
-// which intentionally don't surface here — they roll up into the user-facing
-// 8 above (e.g. "career" lives under İş context-wise, but to keep counts
-// honest we only count exact matches; this is documented and intentional).
+// Mode taxonomy (post-2026-05-20 6-mode cut — matches onboarding chips):
+//   💕 Flört     → scenes.mode === "flirt"
+//   💼 İş        → scenes.mode === "work"   (work + career + professional merged)
+//   🍻 Bar       → scenes.mode === "bar"
+//   ✈️ Havaalanı → scenes.mode === "airport"
+//   ☕ Günlük    → scenes.mode === "daily"  (daily + personal merged)
+//   🍽️ Sipariş   → scenes.mode === "order"
 
 import { useCallback, useEffect, useState } from "react";
 import {
@@ -63,15 +56,14 @@ type ModeRow = {
   label: string;
 };
 
+// 6 mod (2026-05-20 cut). Onboarding chip'leri ile aynı sıra ve emoji.
 const MODES: ReadonlyArray<ModeRow> = [
-  { key: "flirt", emoji: "🧊", label: "Flört" },
-  { key: "work", emoji: "💼", label: "İş" },
-  { key: "travel", emoji: "✈️", label: "Seyahat" },
-  { key: "daily", emoji: "👥", label: "Sosyal" },
-  { key: "order", emoji: "🍽️", label: "Sipariş" },
-  { key: "banter", emoji: "🎉", label: "Espri" },
-  { key: "sport", emoji: "💪", label: "Spor" },
-  { key: "health", emoji: "🩺", label: "Sağlık" },
+  { key: "flirt",   emoji: "💕", label: "Flört" },
+  { key: "work",    emoji: "💼", label: "İş" },
+  { key: "bar",     emoji: "🍻", label: "Bar" },
+  { key: "airport", emoji: "✈️", label: "Havaalanı" },
+  { key: "daily",   emoji: "☕", label: "Günlük" },
+  { key: "order",   emoji: "🍽️", label: "Sipariş" },
 ];
 
 // Precompute total lesson counts per mode at module load — SAMPLE_SCENES is

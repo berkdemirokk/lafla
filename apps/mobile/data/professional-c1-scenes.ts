@@ -12,7 +12,7 @@ export const professionalC1Scenes: ReadonlyArray<Scene> = [
     description:
       "Independent director 'rakamlar neden düştü?' diyor. 'For context' + 'I'd push back on the framing' + tripwire dili.",
     durationMin: 8,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "C1",
     skillId: "professional.c1",
     lessonId: "professional.c1.board.1",
@@ -26,7 +26,7 @@ export const professionalC1Scenes: ReadonlyArray<Scene> = [
     description:
       "VP'inin VP'sini koridorda yakaladın. Manşet + tek karar + maliyet. 'I'm elevating this to you' kalıbı.",
     durationMin: 7,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "C1",
     skillId: "professional.c1",
     lessonId: "professional.c1.skip_pitch.1",
@@ -40,7 +40,7 @@ export const professionalC1Scenes: ReadonlyArray<Scene> = [
     description:
       "Hook + credibility + value. 'I'll be honest with you' + 'here's what I want to leave you with'.",
     durationMin: 7,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "C1",
     skillId: "professional.c1",
     lessonId: "professional.c1.keynote.1",
@@ -54,7 +54,7 @@ export const professionalC1Scenes: ReadonlyArray<Scene> = [
     description:
       "Olay devam ederken 800 kişiye konuş. 'Here's what we know — and what we don't' + 'we take full ownership' + somut takvim.",
     durationMin: 8,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "C1",
     skillId: "professional.c1",
     lessonId: "professional.c1.crisis.1",
@@ -68,7 +68,7 @@ export const professionalC1Scenes: ReadonlyArray<Scene> = [
     description:
       "FT muhabiri 'kriz' diyor, sen 'planlı geçiş'. 'I'd push back on the framing' + 'let me put that in context'.",
     durationMin: 7,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "C1",
     skillId: "professional.c1",
     lessonId: "professional.c1.press.1",
@@ -82,7 +82,7 @@ export const professionalC1Scenes: ReadonlyArray<Scene> = [
     description:
       "Tier 1 fund partner ile cold intro. Zaman taahhüdü + qualification + sayı snapshot + tight process.",
     durationMin: 7,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "C1",
     skillId: "professional.c1",
     lessonId: "professional.c1.investor.1",
@@ -96,7 +96,7 @@ export const professionalC1Scenes: ReadonlyArray<Scene> = [
     description:
       "M&A müzakeresinde 14.5x anchor savun. 'I'd hate for this to fall apart over' + 'help me understand the constraint'.",
     durationMin: 8,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "C1",
     skillId: "professional.c1",
     lessonId: "professional.c1.negotiation.1",
@@ -110,7 +110,7 @@ export const professionalC1Scenes: ReadonlyArray<Scene> = [
     description:
       "Eng vs Marketing vs Product. 'What I'm hearing from each of you' + 'let me try to land this'.",
     durationMin: 8,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "C1",
     skillId: "professional.c1",
     lessonId: "professional.c1.conflict.1",
@@ -124,7 +124,7 @@ export const professionalC1Scenes: ReadonlyArray<Scene> = [
     description:
       "CMO'ya 'ekibi dinlemiyorsun' mesajı. 'I'd be doing you a disservice' + spesifik kanıt + 'I've got your back'.",
     durationMin: 7,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "C1",
     skillId: "professional.c1",
     lessonId: "professional.c1.feedback.1",
@@ -138,7 +138,7 @@ export const professionalC1Scenes: ReadonlyArray<Scene> = [
     description:
       "Recorded interview. 'To the best of my recollection' + 'I'd want to review the documentation'.",
     durationMin: 7,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "C1",
     skillId: "professional.c1",
     lessonId: "professional.c1.legal.1",
@@ -152,7 +152,7 @@ export const professionalC1Scenes: ReadonlyArray<Scene> = [
     description:
       "'Q3 highlights include' + 'On the headwinds front' + 'Looking ahead'. Abartmadan, gizlemeden — kurul registeri.",
     durationMin: 8,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "C1",
     skillId: "professional.c1",
     lessonId: "professional.c1.board.2",
@@ -166,7 +166,7 @@ export const professionalC1Scenes: ReadonlyArray<Scene> = [
     description:
       "Potansiyel hedefle ilk informal: 'We're exploring strategic options' + 'Without committing prematurely'. Diligence öncesi koreografi.",
     durationMin: 8,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "C1",
     skillId: "professional.c1",
     lessonId: "professional.c1.ma_diligence.1",
@@ -180,7 +180,7 @@ export const professionalC1Scenes: ReadonlyArray<Scene> = [
     description:
       "Etkilenecek ekibe konuş: 'We owe you transparency' + 'This is on me, not on you'. Etrafından dolaşmadan, somut adımlarla.",
     durationMin: 8,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "C1",
     skillId: "professional.c1",
     lessonId: "professional.c1.layoff.1",
@@ -194,7 +194,7 @@ export const professionalC1Scenes: ReadonlyArray<Scene> = [
     description:
       "Olay sonrası basına: 'We take this seriously' + 'Effective immediately, we are' + 'Without prejudging the investigation'. Hukuki gerilimi yönet.",
     durationMin: 8,
-    mode: "professional",
+    mode: "work",
     cefrLevel: "C1",
     skillId: "professional.c1",
     lessonId: "professional.c1.crisis.2",

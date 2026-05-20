@@ -1,7 +1,7 @@
 // Tipping lessons — bahsis kulturu ABD/UK/EU.
 // Skill: order.tipping (2 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 6.1 — ABD Bahşiş Kültürü

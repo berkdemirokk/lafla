@@ -1,7 +1,7 @@
 // Flort - Iptal Etme lessons
 // Skill: flirt.cancel (3 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 5.1 — Same-Day Cancel (Aynı Gün İptal)

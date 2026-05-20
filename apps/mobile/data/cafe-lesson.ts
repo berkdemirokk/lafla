@@ -2,18 +2,7 @@
 // Sourced from content/scenarios/order/cafe.lessons.json
 // In production this will come from the backend API.
 
-import type { LessonProgress } from "../lib/engine";
-
-// Re-export type used widely below for the dispatcher
-export interface BundledLesson {
-  id: string;
-  skill_id: string;
-  index: number;
-  title: string;
-  description: string;
-  estimated_minutes: number;
-  exercises: ReadonlyArray<Record<string, unknown>>;
-}
+import type { BundledLesson, LessonProgress } from "../lib/engine";
 
 // ============================================================
 // Lesson 1.1 — Temel Kafe Sipariş

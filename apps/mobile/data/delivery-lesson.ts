@@ -1,7 +1,7 @@
 // Delivery lessons — Uber Eats / DoorDash siparis notlari + pickup.
 // Skill: order.delivery (2 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 8.1 — Delivery App Sipariş

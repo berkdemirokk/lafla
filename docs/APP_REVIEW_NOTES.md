@@ -11,8 +11,8 @@ Lafla gates content behind authentication. Demo credentials are provided through
 If credentials in App Store Connect are stale or missing, contact `hello@lafla.app` and we will issue a fresh tester within one business day.
 
 The demo account is pre-seeded with:
-- Onboarding completed (Turkish UI)
-- Sample completed scenarios across multiple modes (Flört, İş, Travel, Sosyal, Sipariş, Banter, Spor, Sağlık)
+- Onboarding completed (Turkish UI, 4-step flow: welcome → interests → name → cefr)
+- Sample completed scenarios across the 6 modes (Flört, İş, Bar, Havaalanı, Günlük, Sipariş)
 - A small streak history so the home feed looks lived-in
 
 ---
@@ -21,12 +21,12 @@ The demo account is pre-seeded with:
 
 1. **Launch** → Splash → Auth screen
 2. **Sign in** with the demo credentials from App Store Connect
-3. **Land on home** — Netflix-style feed with 8 mode rows + a hero "Bugün için" scene card
-4. **Tap a scene card** — opens a scenario flow with setup → drill → recap exercises (vocab tile, translate, fill blank, word order, spot mistake, roleplay chat, recap quiz)
-5. **Return to home** — verify completed scene shows the green check + reduced-opacity card
-6. **Profile** tab → see XP / streak / settings entry
-7. **Settings** → notification toggle, language preference, account deletion entry
-8. **Paywall** — accessible from upgrade CTAs; verify Restore Purchases button works
+3. **Land on home** — **TikTok-style vertical swipe feed**, one full-screen scene card per page. Top: time-aware greeting ("Günaydın, [name]") + streak chip. Bottom: 2-tab nav (Anasayfa / Profil). Swipe up/down to move between scene cards.
+4. **Tap "Konuş ▶" on a card** — opens the scenario flow (4 phases: SETUP → DRILL → SCENE → VERDICT). Exercise types in mix: vocab_tile, translate, fill_blank, word_order, spot_mistake, pronounce_phrase, speech_shadowing, roleplay_chat, recap_quiz, listen_and_transcribe.
+5. **After verdict** — return to home; the completed scene drifts to the back of the feed.
+6. **Profile** tab → 6 mode progress rails (Flört / İş / Bar / Havaalanı / Günlük / Sipariş) + XP / streak / settings entry.
+7. **Settings** → notification toggle, language preference, account deletion entry.
+8. **Paywall** — accessible from upgrade CTAs; verify Restore Purchases button works.
 
 ---
 
@@ -36,7 +36,7 @@ Subscription product:
 
 - **`lafla.premium.monthly`** — Speak+ monthly subscription (priced per App Store Connect product configuration; displayed local price overrides the marketing copy via RevenueCat `getOffering`).
 
-The "Exam Pass" one-time tier referenced in earlier internal docs is **NOT shipping in this build** — the paywall surface in this build only offers the monthly subscription. A non-consumable Exam Pass product is planned for a later release.
+The "Exam Pass" one-time tier referenced in earlier internal docs is **NOT shipping in this build** and was **removed entirely 2026-05-20** with the 6-mode product cut — the paywall surface offers only the monthly subscription.
 
 **Restore Purchases** button is present on the paywall and in Settings.
 
@@ -94,7 +94,7 @@ Version + build number are set by EAS Build at submission time; check the binary
 |---|---|
 | 2.1 — App incomplete (auth wall) | Demo account provided via App Store Connect |
 | 3.1.1 — IAP not via Apple | All paid features gated through Apple IAP / RevenueCat; no alt payment links |
-| 4.2 — Minimum functionality | 900+ structured scenarios + 7 exercise types + on-device speech evaluation = a structured language-learning product |
+| 4.2 — Minimum functionality | 480+ structured scenarios + 9 exercise types + on-device speech evaluation = a structured language-learning product |
 | 5.1.1 — Privacy | Privacy Nutrition Label matches actual data flows; account deletion is in-app and immediate |
 | 5.1.2 — Data sharing | PostHog gated behind ATT grant; Sentry receives no PII |
 

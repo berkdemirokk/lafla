@@ -1,7 +1,7 @@
 // Daily - Expanded lessons (15 topics for everyday life abroad).
 // Adult realistic scenarios for Turkish travelers/expats/learners.
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 1 — Yeni komşuyla tanışma (A2)

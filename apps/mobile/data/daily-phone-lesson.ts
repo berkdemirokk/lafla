@@ -1,7 +1,7 @@
 // Daily - Phone Calls lessons
 // Skill: daily.phone (3 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 21.1 — Customer Service Call (Musteri Hizmet)

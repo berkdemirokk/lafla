@@ -3,7 +3,7 @@
 // 10 lessons covering supermarket, pharmacy, doctor, taxi, hotel, shopping,
 // dates & times, weather small talk, lost items / directions, public transport.
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 1 — Süpermarkette tam alışveriş

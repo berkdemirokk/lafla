@@ -1,7 +1,7 @@
 // Daily - Hotel lessons
 // Skill: daily.hotel (3 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 20.1 — Check-in (Otele Giriş)

@@ -1,7 +1,7 @@
 // Flort - What Are We / Iliski Tanimi lessons
 // Skill: flirt.define (4 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 6.1 — Exclusivity Talk (Tek Tek Konusma)

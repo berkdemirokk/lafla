@@ -3,7 +3,7 @@
 // Hedef kitle: Türk üst düzey yönetici / kurucu / direktör — C1 seviyesinde,
 // kurul, basın, yatırımcı, kriz, müzakere senaryoları icin "register awareness" + idiyomatik akicilik.
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 1 — Board Presentation (Kurul sunumu, çeyrek güncellemesi)

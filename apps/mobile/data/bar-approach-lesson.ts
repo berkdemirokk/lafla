@@ -1,14 +1,14 @@
-// Banter - Bar Approach lessons
-// Skill: banter.bar (3 lessons)
+// Bar approach / pickup / social lessons (was banter.bar, moved to bar mode 2026-05-20)
+// Skill: bar.approach (3 lessons)
 
-import type { BundledLesson } from "./cafe-lesson";
+import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // Lesson 24.1 — Bar Approach (Bar'da Yaklasim)
 // ============================================================
-export const banterBarLesson_24_1: BundledLesson = {
-  id: "banter.bar.24.1",
-  skill_id: "banter.bar",
+export const barApproachLesson_24_1: BundledLesson = {
+  id: "bar.approach.24.1",
+  skill_id: "bar.approach",
   index: 1,
   title: "Bar'da Sohbet Acilisi",
   description:
@@ -217,9 +217,9 @@ export const banterBarLesson_24_1: BundledLesson = {
 // ============================================================
 // Lesson 24.2 — Buying Someone a Drink (Birine Icki Almak)
 // ============================================================
-export const banterBarLesson_24_2: BundledLesson = {
-  id: "banter.bar.24.2",
-  skill_id: "banter.bar",
+export const barApproachLesson_24_2: BundledLesson = {
+  id: "bar.approach.24.2",
+  skill_id: "bar.approach",
   index: 2,
   title: "Birine Icki Almak (Saygili)",
   description:
@@ -428,9 +428,9 @@ export const banterBarLesson_24_2: BundledLesson = {
 // ============================================================
 // Lesson 24.3 — Group Banter (Grup Sohbeti)
 // ============================================================
-export const banterBarLesson_24_3: BundledLesson = {
-  id: "banter.bar.24.3",
-  skill_id: "banter.bar",
+export const barApproachLesson_24_3: BundledLesson = {
+  id: "bar.approach.24.3",
+  skill_id: "bar.approach",
   index: 3,
   title: "Bar'da Grup Sohbeti",
   description:
@@ -639,9 +639,9 @@ export const banterBarLesson_24_3: BundledLesson = {
 // ============================================================
 // Lesson 24.5 — Starting a Convo with a Stranger (Bardaki Yabanciyla)
 // ============================================================
-export const banterBarLesson_24_5: BundledLesson = {
-  id: "banter.bar.24.5",
-  skill_id: "banter.bar",
+export const barApproachLesson_24_5: BundledLesson = {
+  id: "bar.approach.24.5",
+  skill_id: "bar.approach",
   index: 5,
   title: "Bardaki Yabanciyla Konusma Baslatma",
   description:
@@ -812,9 +812,9 @@ export const banterBarLesson_24_5: BundledLesson = {
 // ============================================================
 // Lesson 24.6 — Joining a Group (Grup'a Karis)
 // ============================================================
-export const banterBarLesson_24_6: BundledLesson = {
-  id: "banter.bar.24.6",
-  skill_id: "banter.bar",
+export const barApproachLesson_24_6: BundledLesson = {
+  id: "bar.approach.24.6",
+  skill_id: "bar.approach",
   index: 6,
   title: "Bir Gruba Katilma",
   description:
@@ -986,9 +986,9 @@ export const banterBarLesson_24_6: BundledLesson = {
 // ============================================================
 // Lesson 24.7 — Graceful Exit (Sohbeti Bitir)
 // ============================================================
-export const banterBarLesson_24_7: BundledLesson = {
-  id: "banter.bar.24.7",
-  skill_id: "banter.bar",
+export const barApproachLesson_24_7: BundledLesson = {
+  id: "bar.approach.24.7",
+  skill_id: "bar.approach",
   index: 7,
   title: "Sohbeti Kibarca Bitirme",
   description:
@@ -1159,9 +1159,9 @@ export const banterBarLesson_24_7: BundledLesson = {
 // ============================================================
 // Lesson 24.8 — Asking for the @ (Numara/Insta Isteme)
 // ============================================================
-export const banterBarLesson_24_8: BundledLesson = {
-  id: "banter.bar.24.8",
-  skill_id: "banter.bar",
+export const barApproachLesson_24_8: BundledLesson = {
+  id: "bar.approach.24.8",
+  skill_id: "bar.approach",
   index: 8,
   title: "Saygili Iletisim Bilgisi Isteme",
   description:
@@ -1332,12 +1332,12 @@ export const banterBarLesson_24_8: BundledLesson = {
 // ============================================================
 // Banter Bar lessons registry
 // ============================================================
-export const banterBarLessons: ReadonlyArray<BundledLesson> = [
-  banterBarLesson_24_1,
-  banterBarLesson_24_2,
-  banterBarLesson_24_3,
-  banterBarLesson_24_5,
-  banterBarLesson_24_6,
-  banterBarLesson_24_7,
-  banterBarLesson_24_8,
+export const barApproachLessons: ReadonlyArray<BundledLesson> = [
+  barApproachLesson_24_1,
+  barApproachLesson_24_2,
+  barApproachLesson_24_3,
+  barApproachLesson_24_5,
+  barApproachLesson_24_6,
+  barApproachLesson_24_7,
+  barApproachLesson_24_8,
 ];
