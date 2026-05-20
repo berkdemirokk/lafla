@@ -38,6 +38,7 @@ import {
 } from "../lib/delete-account";
 import { hapticImpact, hapticSelection, hapticSuccess } from "../lib/feedback";
 import { restorePurchases } from "../lib/iap";
+import { redeemReferralCode, getRedeemedCode } from "../lib/referral";
 import { tokens } from "../theme";
 
 const K_AUTO_SPEAK = "lafla.settings.autoSpeak";
@@ -223,6 +224,48 @@ export default function SettingsScreen() {
     }
   };
 
+  // Referral code redemption — Adım 7 (2026-05-20).
+  // Kullanıcı önceden redeem etmişse "Davet kodu kullanıldı" gösterir,
+  // yoksa Alert.prompt ile kod ister, validate eder, redeemReferralCode'a
+  // yedirir. Bonus award manuel (Supabase'den admin / cron).
+  const handleReferralRedeem = async () => {
+    const existing = await getRedeemedCode().catch(() => null);
+    if (existing) {
+      Alert.alert(
+        "Davet kodu kullanıldı",
+        `${existing} kodu redeem edildi. 1 ay Speak+ bonusu en geç 24 saat içinde aktif olur.`,
+      );
+      return;
+    }
+    Alert.prompt?.(
+      "Davet kodu",
+      "Arkadaşının verdiği 6 karakterlik kodu gir.",
+      [
+        { text: "Vazgeç", style: "cancel" },
+        {
+          text: "Redeem et",
+          onPress: async (input) => {
+            const code = (input ?? "").trim().toUpperCase();
+            const ok = await redeemReferralCode(code).catch(() => false);
+            if (ok) {
+              hapticSuccess();
+              Alert.alert(
+                "Kod kabul edildi",
+                "Senin ve arkadaşının +1 ay Speak+ bonusu 24 saat içinde işlenir.",
+              );
+            } else {
+              Alert.alert(
+                "Geçersiz kod",
+                "Kod geçersiz veya zaten kullanılmış. Tekrar dene.",
+              );
+            }
+          },
+        },
+      ],
+      "plain-text",
+    );
+  };
+
   const handleRate = async () => {
     hapticSelection();
     if (storeReviewRequest && storeReviewIsAvailable) {
@@ -353,6 +396,12 @@ export default function SettingsScreen() {
             icon="🔄"
             label="Satın alımları geri yükle"
             onPress={handleRestorePurchases}
+          />
+          {/* Referral code redeem — Adım 7. */}
+          <Row
+            icon="🎁"
+            label="Bir davet kodum var"
+            onPress={handleReferralRedeem}
           />
           <Row
             icon="🗑️"

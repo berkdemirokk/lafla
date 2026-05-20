@@ -22,6 +22,7 @@ import {
   Pressable,
   Alert,
   RefreshControl,
+  Share,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
@@ -48,6 +49,10 @@ import {
   getMonthlyGrant,
   recentShieldUseIso,
 } from "../lib/streak-shield";
+import {
+  getMyReferralCode,
+  shareMessage as referralShareMessage,
+} from "../lib/referral";
 import { interestsToModes } from "../lib/interest-mapping";
 import { tokens } from "../theme";
 
@@ -335,6 +340,25 @@ export default function ProfileScreen() {
             icon="✨"
             label="Speak+ aboneliği"
             onPress={() => router.push("/paywall" as never)}
+          />
+          {/* Referral — Adım 7 (2026-05-20). MVP: kod paylaşımı, manuel
+              bonus award (Supabase referral_code tablosu, admin cron). */}
+          <View style={styles.rowDivider} />
+          <AccountRow
+            icon="🎁"
+            label="Arkadaşını davet et — 1 ay ücretsiz"
+            onPress={async () => {
+              try {
+                const code = await getMyReferralCode();
+                const msg = referralShareMessage(code, displayName);
+                await Share.share({
+                  message: msg,
+                  url: `https://berkdemirokk.github.io/lafla/?ref=${encodeURIComponent(code)}`,
+                });
+              } catch {
+                Alert.alert("Hata", "Davet linki oluşturulamadı.");
+              }
+            }}
           />
         </View>
 

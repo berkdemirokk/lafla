@@ -36,6 +36,7 @@ import {
 import * as Haptics from "expo-haptics";
 
 import type { Scene, SceneMode } from "../data/scenes";
+import { hasNativeAudio } from "../data/native-audio-manifest";
 import { tokens } from "../theme";
 
 // ---------------------------------------------------------------------------
@@ -337,6 +338,15 @@ function SwipeSceneCardImpl({
                   <Text style={styles.newBadgeText}>YENİ</Text>
                 </View>
               ) : null}
+              {/* Native audio rozeti — Adım 9 (2026-05-20).
+                  Manifest'te entry'si olan sahneler "🎙️ Native ses" rozeti
+                  alır. Şu an manifest boş; voice actor kontratı sonrası
+                  rozet otomatik gözükmeye başlar. */}
+              {hasNativeAudio(scene.lessonId) ? (
+                <View style={styles.nativeBadge}>
+                  <Text style={styles.nativeBadgeText}>🎙️ NATIVE</Text>
+                </View>
+              ) : null}
               {completed ? (
                 <View style={styles.doneBadge}>
                   <Text style={styles.doneBadgeText}>✓</Text>
@@ -510,6 +520,19 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: tokens.weight.extrabold,
     color: tokens.text.onPrimary,
+    letterSpacing: 0.8,
+  },
+  // Native ses rozeti — Adım 9 (cyan), rakipte yok.
+  nativeBadge: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.tertiary,
+  },
+  nativeBadgeText: {
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.onTertiary,
     letterSpacing: 0.8,
   },
   doneBadge: {

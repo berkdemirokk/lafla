@@ -12,6 +12,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ErrorBoundary } from "../components/ErrorBoundary";
 import { initAnalytics, trackEvent } from "../lib/analytics";
 import { initSentry } from "../lib/sentry";
+import { initAds } from "../lib/ads";
 import { tokens } from "../theme";
 
 // Initialize once at module load so the SDK is live before any render —
@@ -32,6 +33,9 @@ export default function RootLayout() {
         // ignore — analytics is non-critical
       }
     })();
+    // AdMob bootstrap — non-blocking. Premium kullanıcıda zaten ad
+    // render edilmez, ama SDK initialize lifecycle event'leri için open.
+    void initAds().catch(() => {});
   }, []);
 
   return (

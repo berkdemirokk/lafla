@@ -28,6 +28,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  Share,
 } from "react-native";
 import Animated, {
   Easing,
@@ -63,6 +64,9 @@ import {
   recordCefrProgress,
   type CefrProgressDelta,
 } from "../../lib/cefr-level";
+import { ShareCard } from "../../components/ShareCard";
+import { captureRef } from "react-native-view-shot";
+import * as Sharing from "expo-sharing";
 import { completeLesson, recordAttempt } from "../../lib/srs";
 import {
   bumpModeFluency,
@@ -235,6 +239,17 @@ export default function ScenarioScreen() {
           bumpSurpriseCounter: () => Promise<boolean>;
         };
         await vr.bumpSurpriseCounter().catch(() => false);
+      }
+
+      // AdMob interstitial — her 3 sahne tamamlamasında 1 (free-tier only).
+      // Premium kullanıcı için no-op. Intro hariç tutuluyor — kullanıcının
+      // ilk verdict deneyiminde reklam olmasın, value-first.
+      if (!isIntro) {
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
+        const ads = require("../../lib/ads") as {
+          onScenarioComplete: () => Promise<void>;
+        };
+        await ads.onScenarioComplete().catch(() => {});
       }
     })();
   }, [phase, sceneResult, scenario, isIntro]);
@@ -850,6 +865,12 @@ function nextLevelLabel(level: string): string {
   return ladder[level] ?? "üst seviye";
 }
 
+/** Friendly id formatter for share URLs — strips quotes/encoding hazards. */
+function scenarioIdForShare(title: string): string {
+  // Use title (already user-facing); strip newlines + multiline.
+  return title.replace(/\n/g, " ").trim();
+}
+
 function VerdictView({
   scenario,
   sceneResult,
@@ -869,6 +890,11 @@ function VerdictView({
   userName: string;
   onContinue: () => void;
 }) {
+  // Share card ref — view-shot ile capture edilir. Off-screen pozisyonda
+  // render edilir (görünmez ama mounted), kullanıcı "Skoru paylaş"a basınca
+  // captureRef + expo-sharing zincirine alınır.
+  const shareCardRef = useRef<View>(null);
+  const [sharing, setSharing] = useState(false);
   const { band } = computeSceneFluency([sceneResult.score]);
   // Verdict copy varies by band AND by whether we have a name to address
   // the user with. The personalized variants change the leading clause to
@@ -1031,6 +1057,119 @@ function VerdictView({
           label={hasNext ? "Sıradaki sahne" : "Akışa dön"}
           onPress={onContinue}
           stacked
+        />
+        {/* Skoru paylaş — Adım 5 (2026-05-20).
+            Verdict altında ikincil CTA. Story-friendly 1080×1920 card
+            view-shot ile capture, expo-sharing ile native share sheet. */}
+        <View style={verdictStyles.shareRow}>
+          <Pressable
+            onPress={async () => {
+              if (sharing) return;
+              setSharing(true);
+              void trackEvent("share_score_initiated", {
+                score: sceneResult.score,
+                scenario_id: scenario.title,
+              }).catch(() => {});
+              try {
+                const uri = await captureRef(shareCardRef, {
+                  format: "png",
+                  quality: 1,
+                  result: "tmpfile",
+                  // 4x pixel-ratio: 270×480 logical → 1080×1920 actual
+                  width: 1080,
+                  height: 1920,
+                });
+                const available = await Sharing.isAvailableAsync();
+                if (available) {
+                  await Sharing.shareAsync(uri, {
+                    mimeType: "image/png",
+                    dialogTitle: "Skoru paylaş",
+                  });
+                  void trackEvent("share_score_completed", {
+                    score: sceneResult.score,
+                  }).catch(() => {});
+                } else {
+                  Alert.alert(
+                    "Paylaşım yok",
+                    "Bu cihazda paylaşım servisi mevcut değil.",
+                  );
+                }
+              } catch {
+                Alert.alert("Hata", "Skor kartı oluşturulamadı.");
+              } finally {
+                setSharing(false);
+              }
+            }}
+            disabled={sharing}
+            style={({ pressed }) => [
+              verdictStyles.shareBtn,
+              pressed && verdictStyles.shareBtnPressed,
+              sharing && verdictStyles.shareBtnDisabled,
+            ]}
+            accessibilityRole="button"
+            accessibilityLabel="Skoru sosyal medyada paylaş"
+          >
+            <Text style={verdictStyles.shareBtnText}>
+              {sharing ? "Hazırlanıyor..." : "📸 Skoru paylaş"}
+            </Text>
+          </Pressable>
+
+          {/* Arkadaşına gönder — Adım 6 (2026-05-20).
+              Native Share API → text + universal link. Arkadaş tıklayınca
+              docs/index.html'daki script `?scene=` paramı yakalar, app
+              installed ise deep link, değilse App Store fallback. */}
+          <Pressable
+            onPress={async () => {
+              const shareUrl = `https://berkdemirokk.github.io/lafla/?scene=${encodeURIComponent(scenarioIdForShare(scenario.title))}`;
+              const scoreLine =
+                sceneResult.score >= 75
+                  ? `${sceneResult.score}/100 aldım 💪`
+                  : sceneResult.score >= 50
+                    ? `${sceneResult.score}/100 — fena değil`
+                    : `Sen daha iyisini yaparsın 😄`;
+              const message = `Lafla'da bu sahneyi denedim, ${scoreLine} — sen de bak: ${shareUrl}`;
+              try {
+                await Share.share({
+                  message,
+                  url: shareUrl,
+                });
+                void trackEvent("send_to_friend", {
+                  score: sceneResult.score,
+                }).catch(() => {});
+              } catch {
+                // user dismissed — silent
+              }
+            }}
+            style={({ pressed }) => [
+              verdictStyles.shareBtn,
+              pressed && verdictStyles.shareBtnPressed,
+            ]}
+            accessibilityRole="button"
+            accessibilityLabel="Bu sahneyi WhatsApp'ta arkadaşına gönder"
+          >
+            <Text style={verdictStyles.shareBtnText}>💬 Arkadaşına gönder</Text>
+          </Pressable>
+        </View>
+      </View>
+
+      {/* Off-screen share card — capture target. Görünmez ama view-shot
+          için DOM'da olması gerekiyor. position: absolute + top: -2000. */}
+      <View
+        style={{
+          position: "absolute",
+          top: -2000,
+          left: 0,
+        }}
+        pointerEvents="none"
+      >
+        <ShareCard
+          ref={shareCardRef}
+          score={sceneResult.score}
+          cefrLevel={cefrDelta?.toLevel ?? null}
+          cefrProgress={cefrDelta?.after ?? 0}
+          sceneTitle={scenario.title}
+          sceneMode={scenario.mode}
+          userName={userName}
         />
       </View>
 
@@ -1540,6 +1679,37 @@ const verdictStyles = StyleSheet.create({
   footer: {
     width: "100%",
     marginTop: "auto",
+    gap: 10,
+  },
+  // Share row (Adım 5 + Adım 6) — yatay 2 CTA.
+  shareRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 8,
+    justifyContent: "center",
+  },
+  // Skoru paylaş ikincil CTA — Adım 5 (2026-05-20).
+  shareBtn: {
+    paddingVertical: 12,
+    paddingHorizontal: 18,
+    borderRadius: tokens.radius.full,
+    borderWidth: 1.5,
+    borderColor: tokens.brand.tertiary,
+    backgroundColor: tokens.brand.tertiarySoft,
+    alignSelf: "center",
+  },
+  shareBtnPressed: {
+    opacity: 0.85,
+    transform: [{ scale: 0.97 }],
+  },
+  shareBtnDisabled: {
+    opacity: 0.5,
+  },
+  shareBtnText: {
+    fontSize: 13,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.tertiary,
+    letterSpacing: 0.4,
   },
 });
 

@@ -187,6 +187,37 @@
     <p>&copy; <span id="y">2026</span> Lafla. Tüm hakları saklıdır.</p>
   </footer>
 </main>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+
+// 2026-05-20 — Adım 6 (?scene) + Adım 7 (?ref) share/referral landing.
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var scene = params.get('scene');
+  var ref = params.get('ref');
+
+  // Referral kodu varsa localStorage'a yaz — App Store install + ilk
+  // launch sonrasında settings'ten kullanıcı manuel girer (MVP path).
+  // Otomatik attribution Branch/Adjust ile v1.1'de gelir.
+  if (ref) {
+    try { localStorage.setItem('lafla.ref', ref); } catch (e) {}
+    var refBanner = document.createElement('div');
+    refBanner.style.cssText = 'position:sticky;top:0;left:0;right:0;background:#00FFFF;color:#000;padding:16px;text-align:center;font-weight:800;z-index:100;';
+    refBanner.innerHTML = '🎁 Davet kodun hazır: <strong>' + ref.substr(0, 8).replace(/</g, '') + '</strong><br><span style="font-size:13px;font-weight:600;">Lafla\'yı indir, ayarlardan kodu gir, ikiniz de 1 ay Speak+ kazan.</span>';
+    document.body.insertBefore(refBanner, document.body.firstChild);
+  }
+
+  // Scene paylaşımı — universal-link best effort.
+  if (scene) {
+    var banner = document.createElement('div');
+    banner.style.cssText = 'position:sticky;top:0;left:0;right:0;background:#FF067A;color:#fff;padding:16px;text-align:center;font-weight:700;z-index:100;';
+    banner.innerHTML = 'Arkadaşın <strong>"' + scene.substr(0, 60).replace(/</g, '') + '"</strong> sahnesini paylaştı.<br><a href="lafla://scenario/' + encodeURIComponent(scene) + '" style="color:#00FFFF;display:inline-block;margin-top:8px;font-weight:900;">Lafla\'da aç →</a>';
+    document.body.insertBefore(banner, document.body.firstChild);
+    setTimeout(function() {
+      window.location.href = 'lafla://scenario/' + encodeURIComponent(scene);
+    }, 800);
+  }
+})();
+</script>
 </body>
 </html>

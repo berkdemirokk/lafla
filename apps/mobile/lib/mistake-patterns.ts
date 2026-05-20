@@ -711,6 +711,653 @@ export const MISTAKE_PATTERNS: readonly MistakePattern[] = [
       "Görünüm sorusu için 'look LIKE' kalıbı. 'How does she look?' = 'Sağlığı/hâli nasıl?' anlamına gider.",
     weight: 2,
   },
+
+  // ===========================================================
+  // 2026-05-20 — Adım 8 BÜYÜK EXPANSION (native review pending)
+  // 59 → ~125 pattern hedefi. AI-first pass, "TODO native-review"
+  // işaretli olanlar yayın öncesi insan onayından geçer.
+  // ===========================================================
+
+  // ----- TR DIRECT TRANSLATION TRAPS (en sık Türk hataları) -----
+  {
+    id: "bored-from-of",
+    category: "preposition",
+    detector: /\b(bored|tired|sick)\s+from\s+\w+/i,
+    description_tr: "'bored from' (yanlış) → 'bored of/with'",
+    example_wrong: "I'm bored from this movie.",
+    example_right: "I'm bored of this movie.",
+    reason_tr:
+      "Türkçe 'X'ten sıkıldım' → İngilizce 'bored OF/WITH X'. 'From' yanlış prep.",
+    weight: 4,
+  },
+  {
+    id: "afraid-from-of",
+    category: "preposition",
+    detector: /\b(afraid|scared|frightened)\s+from\s+\w+/i,
+    description_tr: "'afraid from' (yanlış) → 'afraid of'",
+    example_wrong: "I'm afraid from dogs.",
+    example_right: "I'm afraid of dogs.",
+    reason_tr:
+      "Türkçe '-den korkmak' → İngilizce 'afraid OF'. 'From' yerine 'of'.",
+    weight: 4,
+  },
+  {
+    id: "make-photo",
+    category: "phrasal-verb",
+    detector: /\bmake\s+(a\s+)?photos?\b/i,
+    description_tr: "'make a photo' (yanlış) → 'take a photo'",
+    example_wrong: "Can you make a photo?",
+    example_right: "Can you take a photo?",
+    reason_tr:
+      "Türkçe 'fotoğraf çekmek/yapmak' → İngilizce 'TAKE a photo'. Her zaman 'take'.",
+    weight: 5,
+  },
+  {
+    id: "make-shower",
+    category: "phrasal-verb",
+    detector: /\bmake\s+(a\s+)?(shower|bath)\b/i,
+    description_tr: "'make a shower' (yanlış) → 'take a shower'",
+    example_wrong: "I'll make a shower.",
+    example_right: "I'll take a shower.",
+    reason_tr: "'Duş almak / banyo yapmak' için 'TAKE'. 'Make' kullanılmaz.",
+    weight: 5,
+  },
+  {
+    id: "make-walk",
+    category: "phrasal-verb",
+    detector: /\bmake\s+(a\s+)?walk\b/i,
+    description_tr: "'make a walk' (yanlış) → 'go for a walk' / 'take a walk'",
+    example_wrong: "Let's make a walk.",
+    example_right: "Let's go for a walk.",
+    reason_tr: "'Yürüyüş yapmak' → 'go for a walk' veya 'take a walk'. 'Make' yanlış.",
+    weight: 4,
+  },
+  {
+    id: "make-mistake",
+    category: "phrasal-verb",
+    detector: /\bdo\s+(a\s+)?mistakes?\b/i,
+    description_tr: "'do a mistake' (yanlış) → 'make a mistake'",
+    example_wrong: "I did a mistake.",
+    example_right: "I made a mistake.",
+    reason_tr:
+      "Türkçe 'hata yaptım' → İngilizce 'MAKE a mistake'. 'Do' İngilizcede yanlış.",
+    weight: 4,
+  },
+  {
+    id: "make-homework",
+    category: "phrasal-verb",
+    detector: /\bmake\s+(my\s+|the\s+|your\s+)?homework\b/i,
+    description_tr: "'make homework' (yanlış) → 'do homework'",
+    example_wrong: "I made my homework.",
+    example_right: "I did my homework.",
+    reason_tr:
+      "Türkçe 'ödev yapmak' kafa karıştırır. İngilizcede 'DO homework' (do/make ayrımı).",
+    weight: 4,
+  },
+  {
+    id: "make-decision",
+    category: "phrasal-verb",
+    detector: /\bdo\s+(a\s+)?decisions?\b/i,
+    description_tr: "'do a decision' (yanlış) → 'make a decision'",
+    example_wrong: "I'll do a decision tomorrow.",
+    example_right: "I'll make a decision tomorrow.",
+    reason_tr: "Karar VERMEK → 'MAKE a decision'. Türkçe 'yapmak' yanıltıcı.",
+    weight: 3,
+  },
+  {
+    id: "open-light",
+    category: "phrasal-verb",
+    detector: /\b(open|close)\s+the\s+(light|lights|TV|radio|computer)\b/i,
+    description_tr: "'open the light' (yanlış) → 'turn on the light'",
+    example_wrong: "Open the light, please.",
+    example_right: "Turn on the light, please.",
+    reason_tr:
+      "Türkçe 'ışığı aç/kapat' → İngilizce 'TURN ON/OFF the light'. 'Open/close' fiziksel kapı/pencere için.",
+    weight: 5,
+  },
+  {
+    id: "look-movie",
+    category: "phrasal-verb",
+    detector: /\b(look|watch)\s+at\s+(a\s+|the\s+)?(movie|film|tv|show)/i,
+    description_tr: "'look at a movie' (yanlış) → 'watch a movie'",
+    example_wrong: "Did you look at the movie?",
+    example_right: "Did you watch the movie?",
+    reason_tr: "Film/dizi için 'WATCH'. 'Look at' bir nesneye gözle bakmak.",
+    weight: 3,
+  },
+  {
+    id: "since-time-perfect",
+    category: "tense",
+    detector: /\b(i|we|they|she|he)\s+(work|live|study|do|am|is|are)\s+(here|there)\s+(since|for)\s+/i,
+    description_tr: "'I work here since...' (yanlış) → 'I have been working here since...'",
+    example_wrong: "I work here since 2 years.",
+    example_right: "I have been working here for 2 years.",
+    reason_tr:
+      "Bir noktadan beri devam eden eylem → present perfect. Süre için 'for', başlangıç için 'since'.",
+    weight: 5,
+  },
+  {
+    id: "informations",
+    category: "false-cognate",
+    detector: /\binformations?\s*(s)\b|\binformations\b/i,
+    description_tr: "'informations' (yanlış) → 'information' (sayılamaz)",
+    example_wrong: "I need more informations.",
+    example_right: "I need more information.",
+    reason_tr:
+      "'Information' sayılamaz isim, çoğul almaz. 'Pieces of information' veya 'some info' diyebilirsin.",
+    weight: 4,
+  },
+  {
+    id: "advices",
+    category: "false-cognate",
+    detector: /\badvices\b/i,
+    description_tr: "'advices' (yanlış) → 'advice' veya 'pieces of advice'",
+    example_wrong: "Thanks for your advices.",
+    example_right: "Thanks for your advice.",
+    reason_tr: "'Advice' sayılamaz. Çoğul yapamazsın.",
+    weight: 4,
+  },
+  {
+    id: "furnitures",
+    category: "false-cognate",
+    detector: /\bfurnitures\b/i,
+    description_tr: "'furnitures' (yanlış) → 'furniture' (sayılamaz)",
+    example_wrong: "I bought new furnitures.",
+    example_right: "I bought new furniture.",
+    reason_tr: "'Furniture' sayılamaz isim. 'Pieces of furniture' diyebilirsin.",
+    weight: 3,
+  },
+  {
+    id: "homeworks",
+    category: "false-cognate",
+    detector: /\bhomeworks\b/i,
+    description_tr: "'homeworks' (yanlış) → 'homework' (sayılamaz)",
+    example_wrong: "I have lots of homeworks.",
+    example_right: "I have lots of homework.",
+    reason_tr: "'Homework' sayılamaz. Çoğul yapamazsın.",
+    weight: 3,
+  },
+  {
+    id: "softwares",
+    category: "false-cognate",
+    detector: /\bsoftwares\b/i,
+    description_tr: "'softwares' (yanlış) → 'software'",
+    example_wrong: "I use many softwares.",
+    example_right: "I use many software programs.",
+    reason_tr: "'Software' sayılamaz. Çoğul için 'software programs' / 'apps' gibi ifadeler.",
+    weight: 3,
+  },
+
+  // ----- TH SESI (telaffuz — pronunciation) -----
+  // Bu kalıplar yazılı pattern olarak yakalanamaz; telaffuz check başka yerde.
+  // Lakin yazımda 'th' yerine 'd/t/f' yazma hatası yakalanabilir.
+  {
+    id: "tink-think",
+    category: "pronunciation",
+    detector: /\b(tink|tought|trough|tree)\s+(of|about|its|its been)/i,
+    description_tr: "Yazımda 'tink/tought' (yanlış) → 'think/thought' (TH sesi)",
+    example_wrong: "I tink so.",
+    example_right: "I think so.",
+    reason_tr:
+      "TH sesi Türkçede yok. Dilini ön dişlerinin arasına koy + nefes ver. 't' değil.",
+    weight: 2,
+  },
+  {
+    id: "free-three",
+    category: "pronunciation",
+    detector: /\bfree\s+(years|days|months|hours|times)\s+(ago|left|ahead)/i,
+    description_tr: "'free' yerine 'three' karışıklığı",
+    example_wrong: "Three years ago — but you wrote 'free'.",
+    example_right: "Three years ago.",
+    reason_tr:
+      "TH+R kombinasyonu zor. 'F' sesi yerine TH sesi: dil ön dişe.",
+    weight: 2,
+  },
+  {
+    id: "dis-this",
+    category: "pronunciation",
+    detector: /\b(dis|dat|dey|dem)\s+(is|are|was|were|will)\b/i,
+    description_tr: "Yazımda 'dis/dat' (yanlış) → 'this/that'",
+    example_wrong: "Dis is nice.",
+    example_right: "This is nice.",
+    reason_tr:
+      "Yumuşak TH sesi — dilini ön dişe koy, ses titreşimli. 'D' yerine.",
+    weight: 2,
+  },
+
+  // ----- V vs W CONFUSION -----
+  {
+    id: "vill-will",
+    category: "pronunciation",
+    detector: /\bvill\s+(go|come|see|do|be|have)\b/i,
+    description_tr: "'vill' (yanlış) → 'will'. V/W karışıklığı yazımda.",
+    example_wrong: "I vill go tomorrow.",
+    example_right: "I will go tomorrow.",
+    reason_tr:
+      "Türkçede V/W ayrımı yok. 'W' için dudakları o şekline getir, ses ver. 'V' diş+dudak.",
+    weight: 2,
+  },
+  {
+    id: "wery-very",
+    category: "pronunciation",
+    detector: /\b(wery|werry)\s+(good|bad|nice|hard|easy|fast)/i,
+    description_tr: "'wery' (yanlış) → 'very'",
+    example_wrong: "It's wery nice.",
+    example_right: "It's very nice.",
+    reason_tr:
+      "'V' dişin alt dudakla teması — Türkçe V'den biraz daha sert. 'W' tamamen dudak.",
+    weight: 2,
+  },
+
+  // ----- ARTICLES (Türkçede yok, en sık eksik) -----
+  {
+    id: "i-am-student",
+    category: "article",
+    detector: /\b(i\s+am|i'?m|she\s+is|he\s+is)\s+(student|teacher|doctor|engineer|nurse|lawyer)\b/i,
+    description_tr: "Meslek isminden önce 'a/an' eksik",
+    example_wrong: "I am student.",
+    example_right: "I am a student.",
+    reason_tr:
+      "Türkçede 'ben öğrenciyim' tek kelime. İngilizcede meslek isminden önce 'a/an' zorunlu (tekil).",
+    weight: 4,
+  },
+  {
+    id: "go-to-school-the",
+    category: "article",
+    detector: /\bgo\s+to\s+the\s+(school|university|hospital|church|prison|bed|work)\b/i,
+    description_tr: "'go to the school' (genelde yanlış) → 'go to school' (genel anlam)",
+    example_wrong: "I go to the school every day.",
+    example_right: "I go to school every day.",
+    reason_tr:
+      "Bir kurumun amacıyla giderken article yok (school, work, bed, church). Spesifik bir bina kastediyorsan 'the' kullan.",
+    weight: 2,
+  },
+  {
+    id: "what-time-the",
+    category: "article",
+    detector: /\bwhat\s+the\s+time\b/i,
+    description_tr: "'what the time' (yanlış) → 'what time'",
+    example_wrong: "What the time is it?",
+    example_right: "What time is it?",
+    reason_tr: "'What time' fixed kalıp, article almaz.",
+    weight: 3,
+  },
+
+  // ----- MORE PREPOSITION LEAKS -----
+  {
+    id: "at-night-in",
+    category: "preposition",
+    detector: /\bin\s+(the\s+)?night\b/i,
+    description_tr: "'in the night' (yanlış) → 'at night'",
+    example_wrong: "I can't sleep in the night.",
+    example_right: "I can't sleep at night.",
+    reason_tr:
+      "Gece için 'AT night'. Diğer zaman ifadeleri farklı: 'in the morning/evening/afternoon' ama 'AT night'.",
+    weight: 3,
+  },
+  {
+    id: "on-the-bus",
+    category: "preposition",
+    detector: /\bin\s+(the\s+)?(bus|train|plane|airplane|metro|subway)\b/i,
+    description_tr: "'in the bus/train' (genelde yanlış) → 'on the bus/train'",
+    example_wrong: "I'm in the bus.",
+    example_right: "I'm on the bus.",
+    reason_tr:
+      "Türkçe 'otobüsteyim' → 'IN the bus' sanırsın ama public transport için 'ON'. Araba/taksi için 'in' (ufak araç).",
+    weight: 3,
+  },
+  {
+    id: "married-with-to",
+    category: "preposition",
+    detector: /\b(married|engaged)\s+with\s+\w+/i,
+    description_tr: "'married with X' (yanlış) → 'married to X'",
+    example_wrong: "She is married with him.",
+    example_right: "She is married to him.",
+    reason_tr:
+      "Türkçe 'X ile evli' → 'married TO X'. 'With' yerine 'to'.",
+    weight: 4,
+  },
+  {
+    id: "depend-of-on",
+    category: "preposition",
+    detector: /\bdepend(s|ing)?\s+of\b/i,
+    description_tr: "'depend of' (yanlış) → 'depend on'",
+    example_wrong: "It depends of you.",
+    example_right: "It depends on you.",
+    reason_tr: "'Depend ON' sabit kalıp. 'Of' yanlış prep.",
+    weight: 4,
+  },
+  {
+    id: "discuss-about",
+    category: "preposition",
+    detector: /\bdiscuss(ed|ing)?\s+about\b/i,
+    description_tr: "'discuss about' (yanlış) → 'discuss' (prep yok)",
+    example_wrong: "We discussed about the topic.",
+    example_right: "We discussed the topic.",
+    reason_tr:
+      "'Discuss' direk obje alır. 'Talk about' karışıklığı: 'talk ABOUT' ama 'discuss' tek başına.",
+    weight: 4,
+  },
+  {
+    id: "listen-music",
+    category: "preposition",
+    detector: /\blisten\s+(music|the\s+music|songs|the\s+song)\b/i,
+    description_tr: "'listen music' (yanlış) → 'listen to music'",
+    example_wrong: "I like to listen music.",
+    example_right: "I like to listen to music.",
+    reason_tr: "'Listen TO' her zaman 'to' alır.",
+    weight: 4,
+  },
+  {
+    id: "wait-someone",
+    category: "preposition",
+    detector: /\bwait\s+(me|you|him|her|us|them)\b/i,
+    description_tr: "'wait me' (yanlış) → 'wait for me'",
+    example_wrong: "Wait me.",
+    example_right: "Wait for me.",
+    reason_tr: "'Wait FOR someone' — 'for' zorunlu prep.",
+    weight: 4,
+  },
+  {
+    id: "search-for",
+    category: "preposition",
+    detector: /\bsearch\s+(me|you|him|her|us|them|something|the\s+\w+)\b/i,
+    description_tr: "'search me' (yanlış: anlam değişir!) → 'search for me'",
+    example_wrong: "I searched my keys.",
+    example_right: "I searched for my keys.",
+    reason_tr:
+      "'Search FOR' arıyorum demek. 'Search me' = beni üst-arama yapma (polis). Anlam farkı kritik.",
+    weight: 4,
+  },
+  {
+    id: "at-noon-on",
+    category: "preposition",
+    detector: /\b(in|on)\s+noon\b/i,
+    description_tr: "'in/on noon' (yanlış) → 'at noon'",
+    example_wrong: "Lunch is on noon.",
+    example_right: "Lunch is at noon.",
+    reason_tr: "'At noon', 'at midnight' — saat noktaları için 'at'.",
+    weight: 2,
+  },
+
+  // ----- WORD ORDER (TR SOV → EN SVO leak) -----
+  {
+    id: "always-i-do",
+    category: "word-order",
+    detector: /\b(always|never|sometimes|often|rarely|usually)\s+i\s+(do|am|have|go|see|like|want|need)\b/i,
+    description_tr: "Sıklık zarfı başta (yanlış) → özneden sonra",
+    example_wrong: "Always I go to gym.",
+    example_right: "I always go to the gym.",
+    reason_tr:
+      "Türkçede 'her zaman ben...' başlayabilir. İngilizcede sıklık zarfı özneden sonra, fiilden önce (ana fiil 'be' değilse).",
+    weight: 4,
+  },
+  {
+    id: "yesterday-i-went",
+    category: "word-order",
+    detector: /\bi\s+(yesterday|today|tomorrow|last\s+\w+|tonight)\s+(go|come|see|do|eat|have|make|take|meet)\b/i,
+    description_tr: "Zaman ifadesi öznesi+fiil arasında (yanlış) → başa veya sona",
+    example_wrong: "I yesterday went home.",
+    example_right: "Yesterday, I went home. / I went home yesterday.",
+    reason_tr:
+      "Türkçe 'ben dün eve gittim' tüm sıralar kabul ama İngilizce zaman ifadesi cümlenin başına veya sonuna gider.",
+    weight: 4,
+  },
+
+  // ----- MISSING AUX -----
+  {
+    id: "you-go-now",
+    category: "missing-aux",
+    detector: /^you\s+(go|come|leave|stay|wait)\s+(now|here|there)\??\s*$/i,
+    description_tr: "Soru veya emir karışıklığı: 'You go now?' (yanlış)",
+    example_wrong: "You go now?",
+    example_right: "Are you going now?",
+    reason_tr:
+      "Türkçe 'gidiyor musun?' tonlama ile soru. İngilizcede aux gerekli: 'Are you ...?' / 'Do you ...?'",
+    weight: 4,
+  },
+  {
+    id: "where-you-going",
+    category: "missing-aux",
+    detector: /\bwhere\s+you\s+(going|come\s+from|live|work)\b/i,
+    description_tr: "'Where you going' (yanlış) → 'Where are you going'",
+    example_wrong: "Where you going?",
+    example_right: "Where are you going?",
+    reason_tr:
+      "Sorularda be-fiili (am/is/are) atlanamaz. 'Where ARE you going'.",
+    weight: 4,
+  },
+  {
+    id: "i-no-go",
+    category: "missing-aux",
+    detector: /\bi\s+no\s+(go|like|want|see|do|come|eat|have|know)\b/i,
+    description_tr: "'I no go' (yanlış) → 'I don't go'",
+    example_wrong: "I no go to school.",
+    example_right: "I don't go to school.",
+    reason_tr:
+      "Olumsuzlama 'do not' veya 'don't' ile. 'No' kelimesi cümle başına gelmez (yes/no cevabı dışında).",
+    weight: 5,
+  },
+
+  // ----- REGISTER (ton hataları) -----
+  {
+    id: "give-me-rude",
+    category: "register",
+    detector: /^give\s+me\s+\w+/i,
+    description_tr: "'Give me X' (kaba) → 'Could you give me X, please?'",
+    example_wrong: "Give me water.",
+    example_right: "Could I have some water, please?",
+    reason_tr:
+      "Türkçe 'su ver' lokantada normal. İngilizce 'give me' kaba. 'Could/Can I have' veya 'Could you...' yumuşatır.",
+    weight: 3,
+  },
+  {
+    id: "i-want-direct",
+    category: "register",
+    detector: /^i\s+want\s+(a|an|the|some|to)\s+/i,
+    description_tr: "'I want X' (direkt) → 'I'd like X' / 'Could I have X?'",
+    example_wrong: "I want a coffee.",
+    example_right: "I'd like a coffee, please.",
+    reason_tr:
+      "'I want' okul İngilizcesi, lokantada kaba duyulur. 'I'd like' veya 'Could I have' kibar.",
+    weight: 3,
+  },
+  {
+    id: "you-must",
+    category: "register",
+    detector: /\byou\s+must\s+(go|do|come|be|have|stay)\b/i,
+    description_tr: "'You must' (sert) → 'You should' veya 'You have to'",
+    example_wrong: "You must come tomorrow.",
+    example_right: "You should come tomorrow.",
+    reason_tr:
+      "'Must' güçlü zorunluluk (kanun gibi). Tavsiye için 'should'; gerekli için 'have to' daha yumuşak.",
+    weight: 3,
+  },
+
+  // ----- SUBJECT-VERB AGREEMENT -----
+  {
+    id: "he-go",
+    category: "subject-verb",
+    detector: /\b(he|she|it)\s+(go|do|have|like|want|need|come|see|know|live|work)\b(?!s)/i,
+    description_tr: "'he go' (yanlış) → 'he goes' (3. tekil -s)",
+    example_wrong: "He go to gym.",
+    example_right: "He goes to the gym.",
+    reason_tr:
+      "3. tekil şahıs (he/she/it) present simple'da fiil -s alır. 'He goes', 'She likes', 'It works'.",
+    weight: 5,
+  },
+  {
+    id: "people-is",
+    category: "subject-verb",
+    detector: /\bpeople\s+(is|was)\b/i,
+    description_tr: "'people is' (yanlış) → 'people are'",
+    example_wrong: "People is crazy.",
+    example_right: "People are crazy.",
+    reason_tr: "'People' çoğul. 'Person' tekil → 'is'. 'People' her zaman 'are'.",
+    weight: 4,
+  },
+
+  // ----- COMMON CALQUES -----
+  {
+    id: "have-X-years",
+    category: "tense",
+    detector: /\bi\s+(have|has)\s+\d+\s+years?\b/i,
+    description_tr: "'I have 25 years' (yanlış) → 'I am 25 years old'",
+    example_wrong: "I have 25 years.",
+    example_right: "I am 25 years old.",
+    reason_tr:
+      "Türkçe '25 yaşımda' veya İspanyolca 'tengo 25 años' → İngilizce 'I AM ... old'. 'Have' kullanılmaz.",
+    weight: 5,
+  },
+  {
+    id: "good-in-at",
+    category: "preposition",
+    detector: /\bgood\s+in\s+(\w+ing|math|english|science|music|sports?|cooking)/i,
+    description_tr: "'good in X' (yanlış) → 'good at X'",
+    example_wrong: "I'm good in math.",
+    example_right: "I'm good at math.",
+    reason_tr: "Becerli olduğun şey için 'good AT', 'bad AT', 'great AT'.",
+    weight: 4,
+  },
+  {
+    id: "interested-in",
+    category: "preposition",
+    detector: /\binterested\s+(at|on|for|with)\s+\w+/i,
+    description_tr: "'interested at/on/for' (yanlış) → 'interested in'",
+    example_wrong: "I'm interested at music.",
+    example_right: "I'm interested in music.",
+    reason_tr: "'Interested IN' sabit kalıp.",
+    weight: 4,
+  },
+  {
+    id: "explain-me",
+    category: "preposition",
+    detector: /\bexplain\s+(me|him|her|us|them|you)\s+/i,
+    description_tr: "'explain me' (yanlış) → 'explain to me'",
+    example_wrong: "Can you explain me this?",
+    example_right: "Can you explain this to me?",
+    reason_tr:
+      "Türkçe 'bana açıkla' direkt obje yapısı; İngilizcede 'explain TO someone'.",
+    weight: 4,
+  },
+  {
+    id: "say-me",
+    category: "preposition",
+    detector: /\bsay\s+(me|him|her|us|them)\s+/i,
+    description_tr: "'say me' (yanlış) → 'tell me' veya 'say to me'",
+    example_wrong: "Say me the truth.",
+    example_right: "Tell me the truth.",
+    reason_tr:
+      "'Say' direkt obje (kişi) almaz. Birine bir şey söylemek için 'TELL'. Veya 'say TO someone'.",
+    weight: 4,
+  },
+  {
+    id: "very-much-like",
+    category: "word-order",
+    detector: /\bi\s+(like|love|enjoy|hate)\s+very\s+much\s+\w+/i,
+    description_tr: "'I like very much X' (yanlış) → 'I like X very much'",
+    example_wrong: "I like very much coffee.",
+    example_right: "I like coffee very much.",
+    reason_tr:
+      "'Very much' nesneyi takip eder: 'I like [object] very much'. Fiilden hemen sonra gelmez.",
+    weight: 3,
+  },
+
+  // ----- FALSE FRIENDS -----
+  {
+    id: "actual-current",
+    category: "false-friend",
+    detector: /\bactual\s+(year|month|week|situation|government|president|state)\b/i,
+    description_tr: "'actual = aktüel/güncel' yanlış. → 'current'",
+    example_wrong: "The actual situation is bad.",
+    example_right: "The current situation is bad.",
+    reason_tr:
+      "İngilizce 'actual' = 'gerçek'. Türkçe 'aktüel/güncel' için 'current' kullan.",
+    weight: 3,
+  },
+  {
+    id: "eventually-eventually",
+    category: "false-friend",
+    detector: /\beventually\s+(i|we|they)\s+(will|can|might)\b/i,
+    description_tr: "'eventually' = 'sonunda', 'belki' değil",
+    example_wrong: "Eventually I'll come (Türk anlamıyla 'belki')",
+    example_right: "Maybe I'll come (belki) — 'eventually' = en sonunda.",
+    reason_tr:
+      "Türkçe 'eventually'i 'belki' sanma — 'sonunda, en nihayetinde' demek. 'Belki' için 'maybe'/'perhaps'.",
+    weight: 2,
+  },
+
+  // ----- COUNTABILITY EXTRA -----
+  {
+    id: "many-money",
+    category: "false-cognate",
+    detector: /\bmany\s+(money|water|time|food|sugar|salt|coffee|tea|milk|bread)\b/i,
+    description_tr: "'many money' (yanlış) → 'much money'",
+    example_wrong: "I don't have many money.",
+    example_right: "I don't have much money.",
+    reason_tr:
+      "Sayılabilir → 'many'. Sayılamayan (money, water, time, sugar) → 'much'.",
+    weight: 4,
+  },
+  {
+    id: "few-water",
+    category: "false-cognate",
+    detector: /\b(a\s+)?few\s+(money|water|time|food|sugar|salt|coffee|tea|milk|bread|sand|air)\b/i,
+    description_tr: "'(a) few water' (yanlış) → '(a) little water'",
+    example_wrong: "I have few money.",
+    example_right: "I have a little money.",
+    reason_tr: "Sayılabilir → 'few'. Sayılamayan → 'little' veya 'a little'.",
+    weight: 3,
+  },
+
+  // ----- DURATION / TIME -----
+  {
+    id: "during-five-hours",
+    category: "preposition",
+    detector: /\bduring\s+\d+\s+(hours?|minutes?|days?|weeks?|months?|years?)\b/i,
+    description_tr: "'during 5 hours' (yanlış) → 'for 5 hours'",
+    example_wrong: "I waited during 5 hours.",
+    example_right: "I waited for 5 hours.",
+    reason_tr:
+      "'During' bir period içinde anlamı (during the meeting). Süre için 'FOR'.",
+    weight: 3,
+  },
+  {
+    id: "until-now-perfect",
+    category: "tense",
+    detector: /\b(i|we|they|she|he)\s+(work|live|study|do|am|is|are)\s+here\s+until\s+now\b/i,
+    description_tr: "'I work here until now' (yanlış) → 'I have been working here until now'",
+    example_wrong: "I work here until now.",
+    example_right: "I have been working here until now.",
+    reason_tr:
+      "Şimdiye kadar süregelen → present perfect. 'Until now' present simple ile tutarsız.",
+    weight: 4,
+  },
+
+  // ----- IDIOMATIC / FIXED EXPRESSIONS -----
+  {
+    id: "in-internet",
+    category: "preposition",
+    detector: /\bin\s+(the\s+)?internet\b/i,
+    description_tr: "'in the internet' (yanlış) → 'on the internet'",
+    example_wrong: "I found it in the internet.",
+    example_right: "I found it on the internet.",
+    reason_tr: "Internet 'in' değil 'on' alır. 'On the internet', 'on Facebook', 'on YouTube'.",
+    weight: 3,
+  },
+  {
+    id: "go-to-shopping",
+    category: "preposition",
+    detector: /\bgo\s+to\s+shopping\b/i,
+    description_tr: "'go to shopping' (yanlış) → 'go shopping'",
+    example_wrong: "I want to go to shopping.",
+    example_right: "I want to go shopping.",
+    reason_tr:
+      "'Go shopping' fixed kalıp, prep yok. Aynı: 'go swimming', 'go fishing'.",
+    weight: 4,
+  },
+
+  // ----- TODO native-review (henüz native İngilizce öğretmeni filtreleyecek) -----
 ];
 
 // ---------------------------------------------------------------------------

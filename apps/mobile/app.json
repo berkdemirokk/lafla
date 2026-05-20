@@ -87,6 +87,26 @@
         {
           "userTrackingPermission": "Sana daha iyi pratik önerileri sunmak için anonim kullanım verileri toplanır."
         }
+      ],
+      [
+        "react-native-google-mobile-ads",
+        {
+          "iosAppId": "ca-app-pub-3940256099942544~1458002511",
+          "androidAppId": "ca-app-pub-3940256099942544~3347511713",
+          "userTrackingUsageDescription": "Daha alakalı reklamlar göstermek için anonim kimlik kullanılır.",
+          "skAdNetworkItems": [
+            "cstr6suwn9.skadnetwork",
+            "4fzdc2evr5.skadnetwork",
+            "2u9pt9hc89.skadnetwork",
+            "8s468mfl3y.skadnetwork",
+            "klf5c3l5u5.skadnetwork",
+            "ggvn48r87g.skadnetwork",
+            "prcb7njmu6.skadnetwork",
+            "m8dbw4sv7c.skadnetwork",
+            "v9wttpbfk9.skadnetwork",
+            "n38lu8286q.skadnetwork"
+          ]
+        }
       ]
     ],
     "experiments": {
@@ -104,6 +124,10 @@
       "posthogHost": "https://eu.i.posthog.com",
       "ttsEndpoint": "",
       "ttsVoiceId": "21m00Tcm4TlvDq8ikWAM",
+      "admobBannerIos": "",
+      "admobBannerAndroid": "",
+      "admobInterstitialIos": "",
+      "admobInterstitialAndroid": "",
       "eas": {
         "projectId": "a7b18723-d431-481b-92cd-18a4c1104171"
       }
