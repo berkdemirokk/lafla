@@ -27,6 +27,7 @@
     "expo-haptics": "~14.1.4",
     "expo-linking": "~7.1.7",
     "expo-localization": "~16.1.6",
+    "expo-notifications": "^55.0.23",
     "expo-print": "~14.1.4",
     "expo-router": "~5.1.11",
     "expo-secure-store": "~14.2.4",
@@ -54,7 +55,10 @@
   "expo": {
     "doctor": {
       "reactNativeDirectoryCheck": {
-        "exclude": ["expo-av", "@babel/runtime"],
+        "exclude": [
+          "expo-av",
+          "@babel/runtime"
+        ],
         "listUnknownPackages": false
       }
     }

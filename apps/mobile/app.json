@@ -75,6 +75,14 @@
       "expo-speech-recognition",
       "expo-apple-authentication",
       [
+        "expo-notifications",
+        {
+          "icon": "./assets/icon.png",
+          "color": "#FF067A",
+          "sounds": []
+        }
+      ],
+      [
         "expo-tracking-transparency",
         {
           "userTrackingPermission": "Sana daha iyi pratik önerileri sunmak için anonim kullanım verileri toplanır."

@@ -224,8 +224,20 @@ export default function ScenarioScreen() {
         scenario.mode,
       ).catch(() => [] as AchievementDef[]);
       if (earned.length > 0) setUnlockQueue(earned);
+
+      // Variable reward sayacı (Adım 4, 2026-05-20). Sahne tamamlanınca
+      // counter++. Threshold'a ulaşırsa bir sonraki home açılışında
+      // "🎁 SÜRPRİZ" banner'ı gözükür. Intro sahnesinde tetikleme yapmaz —
+      // ilk sahne zaten zorla "yeni-hissi" veriyor.
+      if (!isIntro) {
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
+        const vr = require("../../lib/variable-reward") as {
+          bumpSurpriseCounter: () => Promise<boolean>;
+        };
+        await vr.bumpSurpriseCounter().catch(() => false);
+      }
     })();
-  }, [phase, sceneResult, scenario]);
+  }, [phase, sceneResult, scenario, isIntro]);
 
   // Drain achievement queue — when the active toast clears, slide the next
   // queued unlock in. We also auto-advance after 2s when there are multiple

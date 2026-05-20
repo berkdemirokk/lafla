@@ -43,6 +43,11 @@ import {
 } from "../lib/local-progress";
 import { SAMPLE_SCENES, type SceneMode } from "../data/scenes";
 import { getCefrLevel, type CefrLevel } from "../lib/cefr-level";
+import {
+  getShieldCount,
+  getMonthlyGrant,
+  recentShieldUseIso,
+} from "../lib/streak-shield";
 import { interestsToModes } from "../lib/interest-mapping";
 import { tokens } from "../theme";
 
@@ -106,6 +111,13 @@ export default function ProfileScreen() {
   const [cefrLevel, setCefrLevelState] = useState<CefrLevel | null>(null);
   const [visibleModes, setVisibleModes] =
     useState<ReadonlyArray<ModeRow>>(MODES);
+  // Streak Shield state — switch-trigger #2 (Adım 2, 2026-05-20).
+  // shieldCount = bu ay kalan shield sayısı (premium: 2'den, free: 0'dan).
+  // monthlyGrant = bilgi amaçlı tooltip (gönderiliyor mu / gönderilmiyor mu).
+  // recentSave = son 24h içinde shield kullanıldıysa ISO timestamp.
+  const [shieldCount, setShieldCount] = useState<number>(0);
+  const [monthlyGrant, setMonthlyGrant] = useState<number>(0);
+  const [recentShieldSave, setRecentShieldSave] = useState<string | null>(null);
 
   const loadAll = useCallback(async () => {
     // Display name lives in AsyncStorage under `lafla.displayName` per the
@@ -126,15 +138,21 @@ export default function ProfileScreen() {
     }
 
     try {
-      const [p, c, lvl, interests] = await Promise.all([
+      const [p, c, lvl, interests, shields, grant, recent] = await Promise.all([
         getLocalProfile(),
         getCompletedLessonIds(),
         getCefrLevel(),
         getInterests(),
+        getShieldCount(),
+        getMonthlyGrant(),
+        recentShieldUseIso(),
       ]);
       setLocal(p);
       setCompleted(c);
       setCefrLevelState(lvl);
+      setShieldCount(shields);
+      setMonthlyGrant(grant);
+      setRecentShieldSave(recent);
       // Filter the 8-mode dashboard down to modes the user expressed
       // interest in. An empty interests list (skipped onboarding / legacy
       // install) keeps the full 8-mode list — current behaviour. Modes are
@@ -265,6 +283,23 @@ export default function ProfileScreen() {
             glow={tokens.brand.primaryGlow}
           />
         </View>
+
+        {/* Streak Shield rozeti — sadece premium kullanıcılarda (grant > 0).
+            Free kullanıcı için 0/0 olur, anlamsız. Recent save varsa
+            "kurtarıldı" altı satırı önce gösterilir (FOMO + reward). */}
+        {monthlyGrant > 0 && (
+          <View style={styles.shieldRow}>
+            <Text style={styles.shieldText}>
+              🛡️ {shieldCount} / {monthlyGrant} streak shield
+              {monthlyGrant === 2 ? " · bu ay" : ""}
+            </Text>
+            {recentShieldSave && (
+              <Text style={styles.shieldSavedText}>
+                ✨ Son 24 saatte 1 shield streak'ini kurtardı
+              </Text>
+            )}
+          </View>
+        )}
 
         {/* Modes — filtered to the user's onboarding-selected interest set.
             Falls back to the full 8 when interests is empty (skipped step or
@@ -494,7 +529,25 @@ const styles = StyleSheet.create({
   heroRow: {
     flexDirection: "row",
     gap: 8,
+    marginBottom: tokens.spacing.sm,
+  },
+  // Streak Shield rozeti satırı — hero altında.
+  shieldRow: {
     marginBottom: tokens.spacing.lg,
+    paddingHorizontal: 4,
+    gap: 2,
+  },
+  shieldText: {
+    fontSize: 12,
+    fontWeight: tokens.weight.semibold,
+    color: tokens.text.secondary,
+    letterSpacing: 0.2,
+  },
+  shieldSavedText: {
+    fontSize: 11,
+    fontWeight: tokens.weight.semibold,
+    color: tokens.brand.tertiary,
+    letterSpacing: 0.3,
   },
   chip: {
     flex: 1,

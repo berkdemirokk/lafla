@@ -156,7 +156,23 @@ export async function bumpStreak() {
   } else {
     const dayMs = 24 * 60 * 60 * 1000;
     const daysAgo = Math.floor((today.getTime() - (lastDate?.getTime() ?? 0)) / dayMs);
-    streak = daysAgo === 1 ? streak + 1 : 1;
+    if (daysAgo === 1) {
+      // Normal extension — yesterday → today, streak++.
+      streak = streak + 1;
+    } else if (daysAgo === 2) {
+      // Streak Shield path (2026-05-20). Exactly 1 day missed → try to
+      // consume a shield to preserve the streak (silently). Multi-day
+      // absences (≥3) skip this; user has to start over.
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const ss = require("./streak-shield") as {
+        consumeShieldIfAvailable: () => Promise<boolean>;
+      };
+      const saved = await ss.consumeShieldIfAvailable().catch(() => false);
+      streak = saved ? streak + 1 : 1;
+    } else {
+      // 3+ days missed → hard reset.
+      streak = 1;
+    }
   }
 
   const next = await setLocalProfile({
