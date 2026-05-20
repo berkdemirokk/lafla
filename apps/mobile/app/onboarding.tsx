@@ -338,7 +338,21 @@ export default function Onboarding() {
 
     hapticSuccess();
     setSaving(false);
-    router.replace("/home" as never);
+
+    // 2026-05-20 — switch-trigger #1: force-first scene.
+    // Onboarding biter bitmez kullanıcıyı doğrudan home feed'e koymak
+    // yerine zorunlu bir "Tinder DM" sahnesi gösteriyoruz. Amaç: kullanıcı
+    // ilk 90 saniyede "evet bu ben" momentini yaşasın. Daha önce intro
+    // tamamlandıysa (`lafla.intro.tinder.completed=true`) bu adım atlanır
+    // ve home feed normal akar.
+    const introDone = await AsyncStorage.getItem(
+      "lafla.intro.tinder.completed",
+    ).catch(() => null);
+    if (introDone === "true") {
+      router.replace("/home" as never);
+    } else {
+      router.replace("/scenario/intro.tinder.0.1?intro=true" as never);
+    }
   };
 
   // ---------- Render ----------

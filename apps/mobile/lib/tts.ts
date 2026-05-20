@@ -70,6 +70,32 @@ const DEFAULT_VOICE_ID =
 const CACHE_TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 const REQUEST_TIMEOUT_MS = 8000;
 
+// 2026-05-20 — iOS sessizleştirme anahtarı (yan switch) açıkken default
+// audio mode TTS'i susturuyor. Türk kullanıcı telefonunu hep sessizde
+// tutar (sınıf/iş/metro); language-learning app'in DUYULMASI gerek.
+// playsInSilentModeIOS: true → mute switch'i bypass et. allowsRecordingIOS
+// false → record session'a düşmesin (mic perm prompt'unu erken tetiklemez).
+// İlk speak() çağrısında bir kez set edilir; idempotent.
+let _audioModeSet = false;
+async function ensureAudioModeForTts(): Promise<void> {
+  if (_audioModeSet) return;
+  try {
+    await Audio.setAudioModeAsync({
+      playsInSilentModeIOS: true,
+      allowsRecordingIOS: false,
+      staysActiveInBackground: false,
+      interruptionModeIOS: 1, // DoNotMix — ringer + media respect each other
+      interruptionModeAndroid: 1, // DoNotMix
+      shouldDuckAndroid: true,
+      playThroughEarpieceAndroid: false,
+    });
+    _audioModeSet = true;
+  } catch {
+    // Best effort — bir cihaz hata verirse audio session default kalır,
+    // bundled MP3 path zaten volume 1.0; en kötü sessiz modda susar.
+  }
+}
+
 // Turkish-only characters — if any of these appear we route to expo-speech
 // (Apple's Turkish synth is solid; ElevenLabs is English-only in this build).
 const TURKISH_CHARS = /[çğışöüÇĞİŞÖÜ]/;
@@ -141,6 +167,10 @@ export type SpeakOpts = {
  */
 export async function speak(text: string, opts?: SpeakOpts): Promise<void> {
   if (!text || !text.trim()) return;
+
+  // iOS sessizleştirme switch'i + audio session config — 2026-05-20 bug fix.
+  // İlk speak() çağrısında bir kez set edilir, sonrakilerde no-op.
+  await ensureAudioModeForTts();
 
   const lang = opts?.lang ?? (TURKISH_CHARS.test(text) ? "tr-TR" : "en-US");
   const rate = opts?.rate ?? 0.95;

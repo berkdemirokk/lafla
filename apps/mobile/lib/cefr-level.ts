@@ -42,6 +42,116 @@ export const CEFR_LEVEL_LABELS_TR: Record<
 
 const K_CEFR_LEVEL = "lafla.cefr.level";
 
+// 2026-05-20 — switch-trigger #3: fractional CEFR progress (0.0..1.0)
+// Verdict ekranındaki "B1+0.32 → B1+0.36" animasyonunu beslemek için.
+// Türk öğrencisinin YDS/IELTS dünyasından geldiği için CEFR'i sayısal +
+// ölçülebilir göstermek = anladığı dilde feedback.
+const K_CEFR_PROGRESS = "lafla.cefr.progress";
+
+// Sahne başına eklenen fractional ilerleme. 25 ortalama-skor sahne ≈ 1 level.
+// Yüksek skor (≥75) tam pay, mid yarı, low ufak teselli.
+const PROGRESS_HIGH = 0.04; // ≥75 puan
+const PROGRESS_MID = 0.02; // 50-74
+const PROGRESS_LOW = 0.005; // <50 — sadece görünür olsun, neredeyse 0
+
+export interface CefrProgressDelta {
+  /** Önceki kesirli ilerleme (0..1). */
+  before: number;
+  /** Yeni kesirli ilerleme (0..1). Level bump olduysa 0'a düşer ve `bumped` true olur. */
+  after: number;
+  /** Eklenen delta — animasyon hız hesabında kullanılır. */
+  delta: number;
+  /** Önceki level. */
+  fromLevel: CefrLevel;
+  /** Yeni level (bumped olduysa farklı). */
+  toLevel: CefrLevel;
+  /** Bir üst seviyeye çıkmak için gereken sahne sayısı (high band varsayımı). */
+  scenesToNext: number;
+  /** Bu sahnede level atladıysa true. */
+  bumped: boolean;
+}
+
+/**
+ * Sahne sonunda çağrılır. Skoru fractional progress'e ekler, gerekirse
+ * level bump yapar. Verdict ekranı bu objeyi tüketip "B1+0.32 → B1+0.36"
+ * animasyonu + "B2'ye N sahne kaldı" mikro mesajını renderlamak için
+ * kullanır.
+ *
+ * No-op (`null` döner) sadece kullanıcı henüz CEFR seçmediyse — bu durum
+ * adım 4 (onboarding cefr step) atlandığında oluşur ki bu olmamalı.
+ */
+export async function recordCefrProgress(
+  score: number,
+): Promise<CefrProgressDelta | null> {
+  const fromLevel = await getCefrLevel();
+  if (!fromLevel) return null;
+
+  // Önceki kesirli ilerleme
+  let before = 0;
+  try {
+    const raw = await AsyncStorage.getItem(K_CEFR_PROGRESS);
+    if (raw) {
+      const n = parseFloat(raw);
+      if (!Number.isNaN(n) && n >= 0 && n <= 1) before = n;
+    }
+  } catch {
+    // Best effort.
+  }
+
+  const delta =
+    score >= 75 ? PROGRESS_HIGH : score >= 50 ? PROGRESS_MID : PROGRESS_LOW;
+  const rawAfter = before + delta;
+
+  let after = rawAfter;
+  let toLevel = fromLevel;
+  let bumped = false;
+
+  if (rawAfter >= 1) {
+    const next = getStretchLevel(fromLevel);
+    if (next) {
+      toLevel = next;
+      after = rawAfter - 1; // taşan kadar yeni level'a aktarılır
+      bumped = true;
+      // Yeni level set + certificate award (cert side-effect swallowed)
+      await setCefrLevel(next);
+      await onLevelAdvanced(next).catch(() => {});
+    } else {
+      // C2 — daha yukarısı yok. Progress 1'de tutulur.
+      after = 1;
+    }
+  }
+
+  try {
+    await AsyncStorage.setItem(K_CEFR_PROGRESS, after.toFixed(4));
+  } catch {
+    // Best effort.
+  }
+
+  const scenesToNext = Math.max(
+    1,
+    Math.ceil((1 - after) / PROGRESS_HIGH),
+  );
+
+  return {
+    before,
+    after,
+    delta,
+    fromLevel,
+    toLevel,
+    scenesToNext,
+    bumped,
+  };
+}
+
+/** Sıfırla. Account silme veya manuel reset için. */
+export async function clearCefrProgress(): Promise<void> {
+  try {
+    await AsyncStorage.removeItem(K_CEFR_PROGRESS);
+  } catch {
+    // ignore
+  }
+}
+
 export async function getCefrLevel(): Promise<CefrLevel | null> {
   try {
     const raw = await AsyncStorage.getItem(K_CEFR_LEVEL);

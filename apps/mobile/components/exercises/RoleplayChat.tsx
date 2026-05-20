@@ -20,6 +20,7 @@ import {
 } from "../../lib/engine";
 import { nameForNpc } from "../../lib/npc-names";
 import { recordUserText } from "../../lib/mistake-tracker";
+import { detectMistakes, getPattern } from "../../lib/mistake-patterns";
 
 // AsyncStorage key for the per-app TTS mute preference. Survives across
 // scenarios and app restarts so the user doesn't have to re-mute every chat.
@@ -31,7 +32,16 @@ const K_TTS_MUTED = "lafla.tts.muted";
 // the same reaction (avoids the uncanny "different reaction on retry" feel).
 const REACTIONS_GOOD = ["Got it.", "Nice.", "Perfect."] as const;
 const REACTIONS_MID = ["Hmm, okay.", "I think I follow."] as const;
-const REACTIONS_LOW = ["Sorry, could you say that again?"] as const;
+// 2026-05-20 — low-score reactions made HONEST. Eski tek option "Sorry,
+// could you say that again?" + scripted NPC reply = "Sorry, sure thing!"
+// kullanıcıya cevabını anladığım yalanı söylüyordu. Şimdi off-topic
+// olduğunu açıkça belirtiyor; kullanıcı "Sahneyi bitir" butonuyla kaçabilir
+// veya sıradaki turn'e geçebilir (en kötü "biraz konudan saptık" intibası).
+const REACTIONS_LOW = [
+  "Hmm, that's a bit off-topic — let me try anyway.",
+  "Not sure I caught that. Moving on...",
+  "Okay, not quite what I asked but —",
+] as const;
 
 function hashStr(s: string): number {
   let h = 0;
@@ -86,6 +96,19 @@ interface ChatMessage {
   speaker: "npc" | "user";
   message: string;
   score?: number;
+  // 2026-05-20 — switch-trigger #2: inline error UI.
+  // Eğer kullanıcının mesajı bir bilinen Türk-İngilizce hata pattern'ini
+  // tetiklediyse, bubble altına Türkçe açıklama baloncuğu rendere düşer.
+  // Bubble bazlı — sahnede sıralı olarak göründüğü için kullanıcı hatasını
+  // konuşma akışı içinde görür (verdict ekranına ertelemek yerine).
+  mistake?: {
+    /** Kullanıcı metninde patlayan substring (örn. "I am go"). Highlight için. */
+    matched: string;
+    /** Bir cümle Türkçe açıklama. */
+    reason_tr: string;
+    /** "I am going / I go" gibi doğru karşılık. */
+    correct_example: string;
+  };
 }
 
 // Extract the example English sentence from hint_tr (text between single quotes)
@@ -359,9 +382,38 @@ export function RoleplayChat({
       currentTurn.acceptable_patterns ?? [],
       input,
     );
+
+    // 2026-05-20 — switch-trigger #2: inline error detection.
+    // Kullanıcının mesajını mistake-patterns ile tara. İlk hit'i (en yüksek
+    // önemli) bubble altına attach et; konuşma akışı içinde Türkçe açıklama
+    // gösterilir. Yan etkisi yok — `recordUserText` zaten tracker'a yazıyor.
+    const hits = detectMistakes(input);
+    let mistakeInline: ChatMessage["mistake"];
+    if (hits.length > 0) {
+      // En ağır pattern'i öncelik ver (weight desc). detectMistakes pattern
+      // sırasına göre döner — kalite için weight-bazlı yeniden sırala.
+      const ranked = hits
+        .map((h) => ({ h, pat: getPattern(h.patternId) }))
+        .filter((x) => x.pat)
+        .sort((a, b) => (b.pat!.weight ?? 0) - (a.pat!.weight ?? 0));
+      const top = ranked[0];
+      if (top) {
+        mistakeInline = {
+          matched: top.h.matchedSubstring,
+          reason_tr: top.pat!.reason_tr,
+          correct_example: top.pat!.example_right,
+        };
+      }
+    }
+
     setShown((prev) => [
       ...prev,
-      { speaker: "user", message: input, score: evalResult.score },
+      {
+        speaker: "user",
+        message: input,
+        score: evalResult.score,
+        mistake: mistakeInline,
+      },
     ]);
     setTurnScores((prev) => [...prev, evalResult.score]);
 
@@ -554,6 +606,24 @@ export function RoleplayChat({
               </Pressable>
             </View>
           )}
+
+          {/* 2026-05-20 — escape hatch. Bazı lesson scriptleri NPC'nin son
+              repliğini "I'll be back with the cards" gibi final-tonda yazıyor
+              ama turn'ler bitmemiş oluyor; kullanıcı "ekrandayım takıldım"
+              diyor. ≥2 user turn sonra her zaman görünür bir "Sahneyi bitir"
+              linki kullanıcıyı kilitlenmekten korur. Skor şu ana kadarki
+              turnScores ortalaması olur. */}
+          {turnScores.length >= 2 && (
+            <Pressable
+              onPress={() => setFinished(true)}
+              style={styles.endSceneLink}
+              hitSlop={10}
+              accessibilityRole="button"
+              accessibilityLabel="Sahneyi şimdi bitir ve sonucu gör"
+            >
+              <Text style={styles.endSceneText}>Sahneyi bitir →</Text>
+            </Pressable>
+          )}
         </View>
       ) : (
         <View style={styles.finishBar}>
@@ -590,6 +660,25 @@ function ChatBubble({ message }: { message: ChatMessage }) {
           {message.message} 🔊
         </Text>
       </Pressable>
+
+      {/* Inline mistake hint — 2026-05-20 switch-trigger #2.
+          Lerna AI Türkçe açıklamayı verdict ekranında verir; Lafla sahne
+          akışı içinde verir. Rakibe karşı kullanıcı "neden yanlış"
+          sorusunu CEVAP YAZARKEN değil, ZIPLAYIP YAZINCA anlıyor. */}
+      {isUser && message.mistake && (
+        <View style={bubbleStyles.mistakeBox}>
+          <Text style={bubbleStyles.mistakeMatched}>
+            ✗ {message.mistake.matched}
+          </Text>
+          <Text style={bubbleStyles.mistakeCorrect}>
+            ✓ {message.mistake.correct_example}
+          </Text>
+          <Text style={bubbleStyles.mistakeReason}>
+            {message.mistake.reason_tr}
+          </Text>
+        </View>
+      )}
+
       {isUser && message.score !== undefined && (
         (() => {
           // 3-tier score chip — gives the user a felt difference between
@@ -780,6 +869,19 @@ const styles = StyleSheet.create({
     paddingTop: 12,
     paddingBottom: 8,
   },
+  // 2026-05-20 — "Sahneyi bitir" escape link (≥2 user turn sonra görünür).
+  endSceneLink: {
+    alignSelf: "center",
+    paddingTop: 10,
+    paddingBottom: 4,
+    paddingHorizontal: 12,
+  },
+  endSceneText: {
+    fontSize: 13,
+    fontWeight: tokens.weight.semibold,
+    color: tokens.brand.tertiary,
+    letterSpacing: 0.3,
+  },
   choiceCol: {
     gap: 8,
   },
@@ -883,5 +985,39 @@ const bubbleStyles = StyleSheet.create({
   },
   scoreTextMiss: {
     color: tokens.semantic.error,
+  },
+
+  // Inline error baloncuğu — switch-trigger #2 (2026-05-20).
+  // User bubble'ın altına bir küçük "düzeltme kartı" yapışır. ✗ matched
+  // (kırmızı), ✓ correct example (cyan), Türkçe açıklama (soft gray).
+  mistakeBox: {
+    marginTop: 6,
+    marginBottom: 2,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: tokens.semantic.error,
+    backgroundColor: tokens.semantic.errorContainer,
+    alignSelf: "flex-end",
+    maxWidth: "100%",
+  },
+  mistakeMatched: {
+    fontSize: 13,
+    fontWeight: tokens.weight.bold,
+    color: tokens.semantic.error,
+    marginBottom: 2,
+    textDecorationLine: "line-through",
+  },
+  mistakeCorrect: {
+    fontSize: 13,
+    fontWeight: tokens.weight.bold,
+    color: tokens.brand.tertiary,
+    marginBottom: 6,
+  },
+  mistakeReason: {
+    fontSize: 12,
+    lineHeight: 17,
+    color: tokens.text.secondary,
   },
 });

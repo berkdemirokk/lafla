@@ -59,6 +59,10 @@ import { AchievementToast } from "../../components/AchievementToast";
 
 import { trackEvent } from "../../lib/analytics";
 import { getScenario, computeSceneFluency } from "../../lib/scenario";
+import {
+  recordCefrProgress,
+  type CefrProgressDelta,
+} from "../../lib/cefr-level";
 import { completeLesson, recordAttempt } from "../../lib/srs";
 import {
   bumpModeFluency,
@@ -105,9 +109,16 @@ function findNextScenario(skillId: string, currentId: string): string | null {
 }
 
 export default function ScenarioScreen() {
-  const { id } = useLocalSearchParams<{ id: string }>();
+  const { id, intro } = useLocalSearchParams<{
+    id: string;
+    intro?: string;
+  }>();
   const router = useRouter();
   const scenario = id ? getScenario(id) : null;
+  // 2026-05-20 switch-trigger #1: ?intro=true onboarding sonrası force-first
+  // sahneden gelir. VERDICT bittiğinde "Devam" home yerine paywall'a gider
+  // ve `lafla.intro.tinder.completed` true yazılır — bir daha tetiklenmez.
+  const isIntro = intro === "true";
 
   const [phase, setPhase] = useState<Phase>("setup");
   const [setupIdx, setSetupIdx] = useState(0);
@@ -383,6 +394,18 @@ export default function ScenarioScreen() {
               hasNext={!!nextScenario}
               userName={displayName}
               onContinue={() => {
+                // Switch-trigger #1 — force-first intro scene biterse:
+                // 1) "completed" flag yaz (bir daha tetiklenmez)
+                // 2) Paywall'a yönlendir (kullanıcı ilk skoru ile Speak+
+                //    teklifini görür — value-first, value-after pattern)
+                if (isIntro) {
+                  void AsyncStorage.setItem(
+                    "lafla.intro.tinder.completed",
+                    "true",
+                  ).catch(() => {});
+                  router.replace("/paywall?from=intro" as never);
+                  return;
+                }
                 if (nextScenario) {
                   router.replace(`/scenario/${nextScenario}` as never);
                 } else {
@@ -802,6 +825,19 @@ function SceneIntroOverlay({ onDismiss }: { onDismiss: () => void }) {
 // VerdictView — score reveal, level pulse, confetti
 // ============================================================
 
+// CEFR ladder helper for the "B2'ye N sahne kaldı" copy (switch-trigger #3).
+function nextLevelLabel(level: string): string {
+  const ladder: Record<string, string> = {
+    A1: "A2",
+    A2: "B1",
+    B1: "B2",
+    B2: "C1",
+    C1: "C2",
+    C2: "C2",
+  };
+  return ladder[level] ?? "üst seviye";
+}
+
 function VerdictView({
   scenario,
   sceneResult,
@@ -893,6 +929,46 @@ function VerdictView({
   // with randomized horizontal offset, delay, drift, and final translateY.
   const showConfetti = sceneResult.score >= 90;
 
+  // 2026-05-20 — switch-trigger #3: CEFR delta animation.
+  // recordCefrProgress sahne sonunda çağrılır → before/after döner.
+  // 950ms sonra (skor count-up'tan sonra) animasyon başlar; ilerleme
+  // chip'i "B1+0.32 → B1+0.36" şeklinde + "B2'ye N sahne kaldı" satırı.
+  const [cefrDelta, setCefrDelta] = useState<CefrProgressDelta | null>(null);
+  const [displayedProgress, setDisplayedProgress] = useState<number | null>(
+    null,
+  );
+  const savedDeltaRef = useRef(false);
+
+  useEffect(() => {
+    if (savedDeltaRef.current) return;
+    savedDeltaRef.current = true;
+    (async () => {
+      const d = await recordCefrProgress(sceneResult.score).catch(() => null);
+      if (!d) return;
+      setCefrDelta(d);
+      // Animate from before → after over ~700ms starting after the score count-up
+      const target = d.after;
+      const start = d.before;
+      const totalMs = 700;
+      const steps = 30;
+      const stepMs = totalMs / steps;
+      const startDelay = 950;
+      const startTimer = setTimeout(() => {
+        setDisplayedProgress(start);
+        let i = 0;
+        const id = setInterval(() => {
+          i += 1;
+          const t = Math.min(1, i / steps);
+          const eased = 1 - Math.pow(1 - t, 3);
+          const value = start + (target - start) * eased;
+          setDisplayedProgress(value);
+          if (i >= steps) clearInterval(id);
+        }, stepMs);
+      }, startDelay);
+      return () => clearTimeout(startTimer);
+    })();
+  }, [sceneResult.score]);
+
   return (
     <ScrollView contentContainerStyle={verdictStyles.content}>
       <Text style={verdictStyles.title}>Sahne tamamlandı</Text>
@@ -903,6 +979,30 @@ function VerdictView({
         <Text style={verdictStyles.scoreNum}>{displayedScore}</Text>
         <Text style={verdictStyles.scoreOf}>/ 100</Text>
       </Animated.View>
+
+      {/* CEFR delta — switch-trigger #3.
+          Türk öğrencisinin YDS/IELTS dünyasından geldiği için CEFR
+          ölçeği = anladığı dil. "B1+0.32 → B1+0.36" şeklinde fractional
+          ilerleme + "B2'ye N sahne kaldı" mikro mesajı. */}
+      {cefrDelta && displayedProgress !== null && (
+        <View style={verdictStyles.cefrCard}>
+          <Text style={verdictStyles.cefrLabel}>
+            {cefrDelta.bumped ? "✨ Seviye atladın" : "İlerleme"}
+          </Text>
+          <Text style={verdictStyles.cefrValue}>
+            {cefrDelta.bumped
+              ? `${cefrDelta.fromLevel} → ${cefrDelta.toLevel}`
+              : `${cefrDelta.toLevel}+${displayedProgress.toFixed(2)}`}
+          </Text>
+          <Text style={verdictStyles.cefrSub}>
+            {cefrDelta.bumped
+              ? `${cefrDelta.toLevel} seviyesine ilk adımı attın.`
+              : cefrDelta.toLevel === "C2"
+                ? "C2 ustalık — en üst seviye."
+                : `${nextLevelLabel(cefrDelta.toLevel)}'ye ${cefrDelta.scenesToNext} sahne kaldı.`}
+          </Text>
+        </View>
+      )}
 
       <View style={verdictStyles.metaRow}>
         <View style={verdictStyles.metaPill}>
@@ -1355,6 +1455,48 @@ const verdictStyles = StyleSheet.create({
     fontSize: 22,
     color: tokens.text.secondaryFixedDim,
     fontWeight: tokens.weight.bold,
+  },
+  // CEFR delta card (switch-trigger #3, 2026-05-20).
+  // Skor count-up'tan sonra 950ms gecikme ile beliren mini kart.
+  // Türk öğrencisinin YDS/IELTS dünyasından geldiği için CEFR = anladığı dil.
+  cefrCard: {
+    alignSelf: "center",
+    paddingHorizontal: 18,
+    paddingVertical: 14,
+    marginBottom: tokens.spacing.md,
+    borderRadius: tokens.radius.lg,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
+    backgroundColor: tokens.brand.tertiarySoft,
+    shadowColor: tokens.brand.tertiary,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.4,
+    shadowRadius: 14,
+    elevation: 4,
+    minWidth: 240,
+  },
+  cefrLabel: {
+    fontSize: 11,
+    fontWeight: tokens.weight.bold,
+    color: tokens.brand.tertiary,
+    letterSpacing: 0.8,
+    textTransform: "uppercase",
+    textAlign: "center",
+    marginBottom: 2,
+  },
+  cefrValue: {
+    fontSize: 28,
+    fontWeight: tokens.weight.black,
+    color: tokens.text.primary,
+    letterSpacing: -0.8,
+    textAlign: "center",
+    fontFamily: tokens.font.display,
+  },
+  cefrSub: {
+    fontSize: 12,
+    color: tokens.text.secondary,
+    textAlign: "center",
+    marginTop: 4,
   },
   metaRow: {
     flexDirection: "row",

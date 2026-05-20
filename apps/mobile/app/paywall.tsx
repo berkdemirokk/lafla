@@ -42,7 +42,7 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { StatusBar } from "expo-status-bar";
-import { useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { trackEvent } from "../lib/analytics";
 import {
@@ -102,6 +102,20 @@ const FEATURES: FeatureRow[] = [
 
 export default function PaywallScreen() {
   const router = useRouter();
+  // 2026-05-20 — switch-trigger #1 context.
+  // ?from=intro: intro Tinder sahnesi → paywall → kapat butonu /home'a
+  // router.replace ile gider (back stack boş çünkü onboarding hep replace).
+  // Diğer durumlarda eski davranış (router.back()).
+  const { from } = useLocalSearchParams<{ from?: string }>();
+  const isFromIntro = from === "intro";
+  const handleClose = () => {
+    hapticImpact("light");
+    if (isFromIntro) {
+      router.replace("/home" as never);
+    } else {
+      router.back();
+    }
+  };
   // Single-tier build — kept as state so the IAP-wiring shape stays stable
   // when Exam Pass returns.
   const [tier] = useState<Tier>("speakplus");
@@ -227,7 +241,19 @@ export default function PaywallScreen() {
         Alert.alert(
           "Speak+ aktif",
           "Tüm premium özellikler artık senin.",
-          [{ text: "Devam", onPress: () => router.back() }],
+          [
+            {
+              text: "Devam",
+              onPress: () => {
+                // intro akışından geliyorsa back stack boş — /home'a git
+                if (isFromIntro) {
+                  router.replace("/home" as never);
+                } else {
+                  router.back();
+                }
+              },
+            },
+          ],
         );
         return;
       }
@@ -293,13 +319,10 @@ export default function PaywallScreen() {
 
       <View style={styles.header}>
         <Pressable
-          onPress={() => {
-            hapticImpact("light");
-            router.back();
-          }}
+          onPress={handleClose}
           style={styles.closeBtn}
           accessibilityRole="button"
-          accessibilityLabel="Kapat"
+          accessibilityLabel={isFromIntro ? "Şimdilik atla" : "Kapat"}
         >
           <Text style={styles.closeText}>×</Text>
         </Pressable>
