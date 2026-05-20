@@ -30,9 +30,12 @@ import {
 import type { ExerciseResult } from "../../lib/engine";
 import {
   gradePronunciation,
+  gradePronunciationWithPhonemes,
   type WordBand,
   type PronunciationBand,
+  type PhonemeAnalysisResult,
 } from "../../lib/pronunciation-grader";
+import { PhonemeFeedback } from "../PhonemeFeedback";
 
 interface Props {
   phrase: string;
@@ -46,6 +49,9 @@ interface GradedState {
   score: number;
   bandsByWord: WordBand[];
   heard: string;
+  /** Phoneme analysis — sadece skor <85 ise hesaplanır + gösterilir.
+   *  Türk-niche moat: ELSA/Speak generic %, Lafla per-fonem TR ipucu. */
+  phonemes: PhonemeAnalysisResult | null;
 }
 
 const BAND_COLORS: Record<PronunciationBand, string> = {
@@ -181,8 +187,28 @@ export function PronouncePhrase({ phrase, trHint, onComplete }: Props) {
         gradedThisSession.current = true;
         const g = gradePronunciation(phrase, text);
         hapticForScore(g.score);
-        setGraded({ score: g.score, bandsByWord: g.bandsByWord, heard: text });
+        // Phoneme-level analiz sadece skor <85 ise — kullanıcı zaten
+        // başardıysa "fonem ipucu" gürültü, başaramadıysa altın değerinde.
+        // Async; UI'a "graded" set ettikten sonra setState ile gelir.
+        setGraded({
+          score: g.score,
+          bandsByWord: g.bandsByWord,
+          heard: text,
+          phonemes: null,
+        });
         setStage("graded");
+        if (g.score < 85) {
+          gradePronunciationWithPhonemes(phrase, text)
+            .then((pa) => {
+              setGraded((prev) =>
+                prev ? { ...prev, phonemes: pa } : prev,
+              );
+            })
+            .catch(() => {
+              // Best effort — phoneme analysis failure shouldn't break
+              // the basic graded UI.
+            });
+        }
       },
       onError: (e) => {
         hapticError();
@@ -262,6 +288,14 @@ export function PronouncePhrase({ phrase, trHint, onComplete }: Props) {
             <Text style={styles.scoreValue}>{graded.score}/100</Text>
           </View>
           <Text style={styles.feedbackText}>{feedbackFor(graded.score)}</Text>
+
+          {/* Phoneme-level feedback — skor <85 ise gözükür.
+              Türk için en zor fonemler (TH, V/W, AE, etc.) inline coaching.
+              Bu Lafla'nın ELSA/Speak'e karşı moat'i — generic % değil,
+              "şu sesi şöyle çıkar" Türkçe ipucu. */}
+          {graded.phonemes && (
+            <PhonemeFeedback analysis={graded.phonemes} />
+          )}
         </View>
       )}
 

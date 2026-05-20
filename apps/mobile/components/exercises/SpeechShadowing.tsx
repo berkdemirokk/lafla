@@ -19,7 +19,12 @@ import {
   startListening,
   stopListening,
 } from "../../lib/speech-recognition";
-import { gradePronunciation } from "../../lib/pronunciation-grader";
+import {
+  gradePronunciation,
+  gradePronunciationWithPhonemes,
+  type PhonemeAnalysisResult,
+} from "../../lib/pronunciation-grader";
+import { PhonemeFeedback } from "../PhonemeFeedback";
 import { hapticForScore, hapticSelection } from "../../lib/feedback";
 import type { ExerciseResult } from "../../lib/engine";
 
@@ -50,6 +55,11 @@ export function SpeechShadowing({
   const [idx, setIdx] = useState(0);
   const [phase, setPhase] = useState<Phase>("speaking");
   const [lastScore, setLastScore] = useState<number | null>(null);
+  // Phoneme-level feedback — sadece skor <85 ise hesaplanır.
+  // 2026-05-21 — Türk-niche moat.
+  const [lastPhonemes, setLastPhonemes] = useState<PhonemeAnalysisResult | null>(
+    null,
+  );
   const resultsRef = useRef<PhraseResult[]>([]);
   // Latest interim/final transcript for the current phrase.
   const heardRef = useRef<string>("");
@@ -107,6 +117,7 @@ export function SpeechShadowing({
       setIdx(idx + 1);
       setPhase("speaking");
       setLastScore(null);
+      setLastPhonemes(null);
       heardRef.current = "";
       gradedRef.current = false;
     }, FEEDBACK_HOLD_MS);
@@ -120,6 +131,22 @@ export function SpeechShadowing({
     if (!skipped && current) {
       const g = gradePronunciation(current, heardRef.current);
       score = g.score;
+      // Phoneme analysis async — gelene kadar lastPhonemes null kalır,
+      // UI hazır olduğunda PhonemeFeedback otomatik render eder.
+      const heardSnapshot = heardRef.current;
+      const targetSnapshot = current;
+      if (score < 85) {
+        setLastPhonemes(null);
+        gradePronunciationWithPhonemes(targetSnapshot, heardSnapshot)
+          .then((pa) => setLastPhonemes(pa))
+          .catch(() => {
+            // best effort
+          });
+      } else {
+        setLastPhonemes(null);
+      }
+    } else {
+      setLastPhonemes(null);
     }
     setLastScore(score);
     hapticForScore(score);
@@ -293,6 +320,12 @@ export function SpeechShadowing({
 
       {phase === "feedback" && lastScore !== null ? (
         <Text style={styles.scoreLine}>{lastScore}/100</Text>
+      ) : null}
+
+      {/* Phoneme-level feedback — Türk-niche moat (2026-05-21).
+          Sadece skor <85 ve analiz hazır olduğunda gözükür. */}
+      {phase === "feedback" && lastPhonemes ? (
+        <PhonemeFeedback analysis={lastPhonemes} />
       ) : null}
 
       <View style={styles.spacer} />
