@@ -251,6 +251,57 @@ export default function ScenarioScreen() {
         };
         await ads.onScenarioComplete().catch(() => {});
       }
+
+      // SRS vocab enqueue — bu sahnenin vocab_tile ve translate hedeflerini
+      // review queue'ya at. Recall faktörü success path = 1.5×, fail = 0.4×.
+      // Intro sahnesi dahil — kullanıcı ilk Tinder cümlelerini hatırlasın.
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const srsVocab = require("../../lib/srs-vocab") as {
+        enqueueVocab: (i: {
+          word: string;
+          translation: string;
+          source_lesson_id: string;
+          source_lesson_title: string;
+          was_correct?: boolean;
+        }) => Promise<void>;
+      };
+      // Lesson exercises'i tarar — vocab_tile + translate enqueue eder.
+      const lessonExercises = scenario.warmups ?? [];
+      // scenario.warmups type BundledLesson["exercises"] = ReadonlyArray<Record<string, unknown>>
+      for (const ex of lessonExercises) {
+        const exObj = ex as Record<string, unknown>;
+        const type = exObj["type"] as string | undefined;
+        if (type === "vocab_tile") {
+          const word = exObj["word_or_phrase"] as string | undefined;
+          const tr = exObj["tr_translation"] as string | undefined;
+          if (word && tr) {
+            await srsVocab
+              .enqueueVocab({
+                word,
+                translation: tr,
+                source_lesson_id: scenario.id,
+                source_lesson_title: scenario.title,
+                was_correct: true,
+              })
+              .catch(() => {});
+          }
+        } else if (type === "translate") {
+          const target = exObj["target"] as string | undefined;
+          const source = exObj["source"] as string | undefined;
+          if (target && source) {
+            // Translate ödeve girer ama daha düşük weight — half-life baseline 1.0
+            await srsVocab
+              .enqueueVocab({
+                word: target,
+                translation: source,
+                source_lesson_id: scenario.id,
+                source_lesson_title: scenario.title,
+                was_correct: true,
+              })
+              .catch(() => {});
+          }
+        }
+      }
     })();
   }, [phase, sceneResult, scenario, isIntro]);
 
