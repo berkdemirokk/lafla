@@ -118,7 +118,60 @@ export const workMeetingLesson_10_1: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Makes sense. Let's discuss the trade-offs as a group.",
+            "Interesting — what about the migration cost? Option B might be more expensive short-term.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fair point|good point|valid concern|that'?s fair)",
+            "(you'?re right|absolutely)(,)? (short-term|initially)",
+            "(short[- ]term yes|in the short term)(,)? but (long[- ]term|over time)",
+            "(i (see|hear) (the|that) concern)(,)? (but |however )?",
+            "(roughly|about|around) (.+) (per (sprint|quarter|month))",
+            "(happy to|i can) (model|estimate) the (cost|numbers)",
+          ],
+          hint_tr:
+            "Karşıt görüşü kabul et + cevap ver: 'Fair point — short-term yes, but long-term we save on maintenance.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay, that's reasonable. Anyone else have concerns before we move on?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i (can|will) )?(send|share|drop) (the|a) (doc|writeup|breakdown)",
+            "(happy to|can) (follow up|circle back) (with|after) (numbers|details)",
+            "(if (it'?d|it would) help|i can)",
+            "(let me know if|happy to)",
+            "(that'?s|thats) (all|it) from me",
+            "(no|nothing) (else|more) from (my )?(side|end)",
+          ],
+          hint_tr:
+            "Kapanış teklifi: 'I can drop the breakdown in Slack after this' veya 'Nothing else from my side'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect — drop it in the channel and we'll vote async tomorrow.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sounds good|works for me|on it|will do)",
+            "(thanks|thank you|appreciate it)",
+            "(will (have it|post it) (by|before) (eod|tomorrow|tonight))",
+            "(perfect|got it|noted)",
+            "(i'?ll (have|share) (it|the doc) (by|before))",
+          ],
+          hint_tr:
+            "Onayla: 'On it — will post by EOD' veya 'Sounds good, thanks!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Great, thanks for the input. Moving on to the next item.",
         },
       ],
     },

@@ -120,6 +120,66 @@ export const flirtBanterLesson_2_1: BundledLesson = {
           hint_tr:
             "Devam: 'Tiny costumes?? I need photos.' veya 'This story just got better.'",
         },
+        {
+          speaker: "npc",
+          message:
+            "Hahaha okay I'll dig them up. Your turn — give me a weird hobby of yours.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|truly) (my weird thing|mine) is (.+)",
+            "i (collect|read|watch|make) (way too many |an embarrassing amount of )?(.+)",
+            "(weirdly )?(into|obsessed with) (.+)",
+            "(don'?t judge me|brace yourself) but",
+            "(my thing is|i'?m secretly into) (.+)",
+            "i'?ve (memorized|watched|read) (every|all the) (.+)",
+          ],
+          hint_tr:
+            "Garip hobini paylaş: 'Honestly, I've watched every Studio Ghibli film three times' veya 'Don't judge me — I collect vintage stamps'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay that's actually weirdly charming. So what brings you here — work, school, just chaos?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?m|i am) here for (work|school|studies|erasmus|grad school)",
+            "(work|school|studies|erasmus) brought me",
+            "(originally |actually )?(i'?m|i am) from (turkey|istanbul|.+) but (i'?m|i am) here for",
+            "(i moved here|moved here) (for|because of)",
+            "(definitely|honestly) (chaos|the chaos)",
+            "(a bit of |kind of )?all three",
+            "(i'?m on|currently on) exchange",
+          ],
+          hint_tr:
+            "Cevap: 'Honestly, work and a little chaos' veya 'I'm on Erasmus from Turkey, studying [field]'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh nice — Turkey! Okay now I have a lot of follow-up questions. What's the one thing you miss most?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly )?(food|the food|my mom'?s food|my mom'?s cooking)",
+            "(definitely|hundred percent) (the |my )?(food|tea|breakfast|family)",
+            "(simit|menemen|kahvaltı|çay|turkish breakfast)",
+            "(probably|easily) (my family|my mom|my friends)",
+            "(too many things|where do i start)",
+            "(the |my )?(neighborhood|street|view|sea|bosphorus)",
+          ],
+          hint_tr:
+            "Türk öğrencinin klasik özlemi: 'Honestly, my mom's cooking — and Turkish breakfast' veya 'The view of the Bosphorus, hands down'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay now I'm hungry AND nostalgic for a place I've never been. Solid combo.",
+        },
       ],
     },
     {

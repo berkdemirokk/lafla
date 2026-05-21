@@ -118,6 +118,59 @@ export const dailyTaxiLesson_32_1: BundledLesson = {
         },
         {
           speaker: "npc",
+          message:
+            "Got it. Should be about twenty-five minutes with this traffic.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|got it|sounds good|works for me)",
+            "(that'?s fine|that works)",
+            "(any (chance|way) (it'?s|its) (faster|quicker))",
+            "(could you (try|aim for) (twenty|fifteen))",
+            "(do (we|i) have time to (stop|grab))",
+            "(okay (let'?s )?go|let'?s do it)",
+          ],
+          hint_tr:
+            "Onayla: 'Sounds good, thanks' veya pazarlık: 'Any chance it's faster?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "How are you paying — card or cash?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(card|cash|apple pay)( please)?",
+            "(by card|by cash|with apple pay)",
+            "(do you (take|accept) (apple pay|card|cash))",
+            "(i'?ll (pay )?(with|by) (card|cash|apple pay))",
+            "(credit card|debit card)( please)?",
+            "(card if (that'?s|thats) ok)",
+          ],
+          hint_tr:
+            "Ödeme: 'Card, please' veya 'Apple Pay if you take it'. NYC taksilerde kart standart.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Card works. There's a tablet in the back for tipping.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you|got it|perfect)",
+            "(no problem|sounds good)",
+            "(i'?ll )?(handle|do) (it|that) (when we (arrive|stop))",
+            "(thanks for letting me know|appreciate the heads[- ]up)",
+            "(perfect|great)(,)? thanks",
+          ],
+          hint_tr:
+            "Onayla: 'Got it, thanks' veya 'Thanks for the heads-up'.",
+        },
+        {
+          speaker: "npc",
           message: "Alright, buckle up.",
         },
       ],

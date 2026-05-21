@@ -117,7 +117,60 @@ export const workEmailLesson_11_1: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Send the proposal — I'll review and get back by Wed.",
+            "Got it — what's the impact if we don't get the extra resource?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(we'?d|we would) (slip|miss) (the deadline|by (one|two) weeks?)",
+            "(likely|probably) (a |around )?(one|two|three) week (slip|delay)",
+            "(we'?d need to) (cut scope|deprioritize|push) (.+)",
+            "(impact (would|is)|risk (would|is)) (.+)",
+            "(launch would|we'?d have to) (slip|push back)",
+            "(realistically )?(.+) (would slip|gets delayed)",
+          ],
+          hint_tr:
+            "Etki: 'We'd likely slip launch by two weeks' veya 'We'd need to cut scope on the dashboard'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay — and what about the existing team's bandwidth?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(team is|everyone is|we'?re) (already )?(at|maxed) (capacity|out)",
+            "(already )?stretched (thin)?",
+            "(no |limited )?(slack|bandwidth) (left|on the team)",
+            "(could )?(borrow|loan) from (.+)",
+            "(if (we|i) can|i can) (rebalance|reshuffle)",
+            "(everyone is)?( pretty )?(loaded|busy)",
+          ],
+          hint_tr:
+            "Bandwidth: 'Team is already stretched thin' veya 'No slack left this sprint'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Understood. Send the proposal — I'll review and get back by Wed.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(will do|sounds good|perfect|on it)",
+            "(thanks|thank you|appreciate (it|that))",
+            "(i'?ll (have it|send it) (by|before) (eod|tomorrow|tonight))",
+            "(sending|drafting) (it )?now",
+            "(thanks|thank you) for (your time|the time|considering it)",
+          ],
+          hint_tr:
+            "Kapanış: 'Will do — sending it before EOD. Thanks!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sounds good. Talk Wednesday.",
         },
       ],
     },

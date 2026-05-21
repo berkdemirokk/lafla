@@ -146,7 +146,60 @@ export const dailySalonLesson_31_1: BundledLesson = {
         },
         {
           speaker: "npc",
-          message: "Sounds good. Let's get you washed first.",
+          message: "Got it. How do you usually style it at home?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly |mostly )?(air[- ]dry|blow[- ]dry) (it)?",
+            "(i (just )?(let it dry|air[- ]dry))",
+            "(usually )?(nothing special|wash and go)",
+            "(i (use|put) a (little|some) (product|gel|mousse))",
+            "(low maintenance|something easy)",
+            "(i don'?t (style|do much))",
+          ],
+          hint_tr:
+            "Şekillendirme: 'Honestly, I just air-dry it' veya 'Low maintenance, please'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay, I'll cut it so it falls nicely with no styling. Sound good?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|that sounds (great|perfect|good))",
+            "(perfect|sounds (great|amazing|good))",
+            "(that'?d be (great|perfect|amazing))",
+            "(yes|please)(,)? (i'?d|i would) (love|appreciate) that",
+            "(exactly what i (want|need))",
+            "(thank you|thanks)",
+          ],
+          hint_tr:
+            "Onayla: 'Yes, that sounds perfect — thank you!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool. Last question — any spots I should be extra careful with? Cowlicks, sensitive areas?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|nope)(,)? (nothing|i don'?t think so)",
+            "(actually )?(yes|yeah)(,)? (there'?s a |i have a )?(cowlick|swirl|sensitive spot)",
+            "(my crown|the back|the front) (has|gets) (.+)",
+            "(everything'?s|i'?m) (fine|good)",
+            "(just (be )?gentle|careful) (around the ears|near my (ears|neckline))",
+            "(nothing comes to mind)",
+          ],
+          hint_tr:
+            "Cevap: 'Actually, yes — I have a cowlick at the crown' veya 'No, nothing comes to mind'.",
+        },
+        {
+          speaker: "npc",
+          message: "Good to know. Let's get you washed first.",
         },
       ],
     },

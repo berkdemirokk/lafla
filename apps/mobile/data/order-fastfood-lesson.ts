@@ -159,7 +159,41 @@ export const orderFastfoodLesson_43_1: BundledLesson = {
         },
         {
           speaker: "npc",
-          message: "Perfect. Pull up to the first window.",
+          message: "Anything else, or is that it?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that'?s|thats) (it|all)( please| thanks)?",
+            "(no|nope)(,)? (that'?s|thats) (it|everything)",
+            "(i'?m|i am) good(,)? thanks",
+            "(just |only )?that(,)? thanks",
+            "(actually )?(could|can) i (also |)?(add|get) (a |an )?(apple pie|mcflurry|nugget)",
+            "(no|nope) thanks(,)? (that'?s|thats) all",
+          ],
+          hint_tr:
+            "Bitir: 'That's it, thanks' veya ekleme: 'Could I also get an apple pie?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Alright, your total is twelve forty-seven. Pull up to the first window for payment.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you|got it|sounds good)( !|\\.)?",
+            "(okay|alright|perfect)(,)? thanks",
+            "(driving|coming|pulling) up now",
+            "on my way",
+            "(thanks|thank you) so much",
+          ],
+          hint_tr:
+            "Onayla: 'Got it, thanks!' veya 'Pulling up now'.",
+        },
+        {
+          speaker: "npc",
+          message: "Great, see you at the window!",
         },
       ],
     },

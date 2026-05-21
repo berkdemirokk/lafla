@@ -117,7 +117,60 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "You too! Talk later.",
+            "Right? Did you do anything fun this weekend?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly )?(nothing (crazy|special)|just relaxed|stayed in)",
+            "(saw|met up with) (friends|family)",
+            "(went to|tried) (a new (cafe|restaurant|place)|the (gym|park|beach))",
+            "(spent most of it )?(catching up on (sleep|laundry))",
+            "(you|how about you)\\?",
+            "(yours|your weekend)\\?",
+          ],
+          hint_tr:
+            "Hafta sonu: 'Honestly, nothing crazy — just relaxed. You?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Same — totally needed it. Quick coffee before the 10 AM?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|yes|definitely|absolutely)(,)?( i'?m in)?",
+            "(could (not |never )?say no|i'?m down)",
+            "(let'?s|i'?ll )?(grab|do) (coffee|one)",
+            "(meet you (at|in) (the kitchen|the break room))",
+            "(maybe (after|later)|rain check)",
+            "(can'?t today|wish i could)",
+          ],
+          hint_tr:
+            "Onay: 'Yeah, I'm in — meet you in the break room' veya 'Rain check, slammed today'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sweet — give me two minutes.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sounds good|works for me|see you (in|there))",
+            "(take your time|no rush)",
+            "(meet you (there|in the kitchen))",
+            "(coming|on my way)",
+            "(perfect|great|cool)",
+          ],
+          hint_tr:
+            "Onayla: 'Sounds good, see you there' veya 'Take your time, no rush'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool, see you in a bit.",
         },
       ],
     },

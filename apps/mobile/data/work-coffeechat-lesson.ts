@@ -118,7 +118,60 @@ export const workCoffeechatLesson_13_1: BundledLesson = {
         {
           speaker: "npc",
           message:
+            "Got it. Are you currently in an IC role yourself, or thinking about the path?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(currently|right now|at the moment) (an? )?(ic|engineer|developer|designer)",
+            "(i'?m|i am) (still |currently )?(an? )?ic",
+            "(been an ic|been engineering) for (\\d+|two|three|four|five) years",
+            "(thinking about|exploring|considering) the (path|transition|move)",
+            "(not yet|not officially|kind of)",
+            "(in (a )?senior (engineer|ic)|staff level)",
+          ],
+          hint_tr:
+            "Mevcut rol: 'Currently an IC, been engineering for 4 years' veya 'Still exploring the path'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect, very relatable starting point. Any specific company you'd want me to draw examples from?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(whatever you'?re|whichever you'?re) (comfortable (with|sharing)|happy to share)",
+            "(your current|current company|where you are now)",
+            "(no preference|open to (any|whatever))",
+            "(would love to hear about|curious about) (.+)",
+            "(could you talk about|happy to focus on) (.+)",
+            "(any |all )?(your experience|examples) (helpful|valuable)",
+          ],
+          hint_tr:
+            "Esnek ol: 'Whatever you're comfortable sharing' veya 'Your current company would be great'.",
+        },
+        {
+          speaker: "npc",
+          message:
             "Cool, send me a few times next week!",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(will do|on it|sending now|coming right up)",
+            "(thanks|thank you|appreciate (it|that)) so much",
+            "(i'?ll )?(send|share) (a few|some) (times|slots) (today|by eod)",
+            "(perfect|great|sounds good)(,)? (thanks|thank you)",
+            "(really )?(appreciate|grateful for) (this|your time)",
+          ],
+          hint_tr:
+            "Teşekkür + onay: 'Will do — sending a few slots by EOD. Really appreciate this!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Looking forward to it — see you next week.",
         },
       ],
     },

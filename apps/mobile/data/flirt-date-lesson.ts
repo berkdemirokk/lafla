@@ -133,6 +133,64 @@ export const flirtDateLesson_4_1: BundledLesson = {
           hint_tr:
             "Yer öner veya bırak: 'I know a great spot near downtown — text it to you?' veya 'You pick, I'm open.'",
         },
+        {
+          speaker: "npc",
+          message:
+            "Cool — surprise me. Should I expect you to be late or are you a clock person?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly )?(clock person|on time|always early)",
+            "(i'?m|i am) (usually|always) on time",
+            "(annoyingly )?punctual",
+            "(fair warning|honestly) (i'?m a |sometimes a )?(little late|few minutes late)",
+            "(somewhere in between|five minutes either way)",
+            "(don'?t worry|i'?ll be there)",
+          ],
+          hint_tr:
+            "Dakiklik: 'Honestly, I'm a clock person — five minutes early' veya 'Fair warning, sometimes a few minutes late'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Good to know — I'm the same. So what should I know before Thursday?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?m |i am )?(fair warning|warning|disclaimer)",
+            "(i talk too much|i'?m a little shy|i ask too many questions)",
+            "(nothing scary|nothing crazy|just )(.+)",
+            "(don'?t order|please don'?t bring up) (.+)",
+            "(i'?m bringing|i'?ll bring) (a |my )?(.+)",
+            "(just )?bring (.+)",
+          ],
+          hint_tr:
+            "Hafif tanıtım: 'Fair warning, I ask too many questions' veya 'Nothing crazy, just bring your appetite'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Hahaha noted. Okay, Thursday at 7 — I'll see you there.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(can'?t wait|looking forward|see you (there|then))",
+            "(see you|catch you) (thursday|then)",
+            "(it'?s a |this is a )?(plan|date)",
+            "(perfect|sounds good|great)",
+            "(thursday|7 pm) it is",
+          ],
+          hint_tr:
+            "Onayla: 'Can't wait — see you Thursday!' veya 'Sounds good, Thursday it is'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Same — text me if anything changes. Excited.",
+        },
       ],
     },
     {

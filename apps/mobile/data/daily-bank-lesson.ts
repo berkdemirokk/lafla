@@ -138,7 +138,60 @@ export const dailyBankLesson_30_1: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Sure thing. Two hundred coming right up — and your new card will arrive in five to seven business days.",
+            "Sure. How would you like the bills — twenties, fifties, or a mix?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(twenties|fifties|a mix|mixed)( please)?",
+            "(could|can) i (have|get) (it )?in (twenties|fifties|small bills)",
+            "(mostly |a mix of )?(twenties|fifties)",
+            "(whatever (works|you have))",
+            "(small bills|smaller bills|big bills)( please)?",
+            "(no preference|either is fine)",
+          ],
+          hint_tr:
+            "Banknot: 'A mix, please' veya 'Mostly twenties, thanks'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. Anything else while you're here?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(actually )?(yes|yeah)(,)? (what'?s|whats) (the |your )?(exchange rate|conversion rate) for (try|turkish lira)",
+            "(could|can) (you|i) (check|see) (the )?(exchange rate|conversion) (from|for) (try|usd)",
+            "(do you|can you) (exchange|convert) (try|lira) to (usd|dollars)",
+            "(how much is|what'?s) (.+) (try|lira) in (usd|dollars)",
+            "(no|nope)(,)? (that'?s|thats) (it|all)",
+            "(i'?m|i am) (also )?wondering about (the )?(exchange rate|conversion)",
+          ],
+          hint_tr:
+            "Türk öğrenci klasik sorusu: 'Actually, what's the exchange rate for TRY to USD today?' ABD bankalarında TRY → USD nadiren tutulur ama dene.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure, let me check — today's rate is around 32 lira to the dollar. We don't usually hold TRY, but I can point you to a currency exchange.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you|appreciate it|that'?d be great)",
+            "(yes|yeah)(,)? (that would help|that'?d help|please)",
+            "(could|can) you (write down|share) (the address|where)",
+            "(perfect|sounds good)(,)? thank you",
+            "(no worries|got it)(,)? thanks",
+          ],
+          hint_tr:
+            "Teşekkür + devam: 'Thanks, that'd help a lot' veya 'Could you write down the address?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure thing. Two hundred dollars and your new card will arrive in five to seven business days.",
         },
       ],
     },

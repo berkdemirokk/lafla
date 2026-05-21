@@ -118,7 +118,61 @@ export const workInterviewLesson_14_1: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Solid. Let's dive into a technical question.",
+            "That's good context. Can you walk me through your proudest project so far?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(my proudest|the one i'?m most proud of) (project|piece of work) (was|is) (.+)",
+            "(at (acme|my current company))(,)? i (built|led|owned)",
+            "(the challenge was|the context was|the problem was)",
+            "(the outcome|the result|the impact) was",
+            "(we (shipped|launched|reduced|increased)) (.+) by (.+)",
+            "(stack|tech) (was|included) (.+)",
+          ],
+          hint_tr:
+            "STAR formatı: 'At Acme I led the payments migration — context, what I did, impact in numbers'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Nice — what was the hardest part of that?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|the hardest part was|biggest challenge)",
+            "(buy[- ]in from|aligning|getting alignment with)",
+            "(legacy code|technical debt|cross[- ]team dependencies)",
+            "(scope (creep|change)|shifting requirements)",
+            "(managing (stakeholders|expectations)|communicating)",
+            "(i (had to|ended up)) (.+)",
+          ],
+          hint_tr:
+            "Zorluk: 'Honestly, the hardest part was aligning three teams on the migration timing'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Good answer. Any questions for me before we dive into the technical part?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|actually)(,)? (a (few|couple)|two) (things|questions)",
+            "(curious about|interested in) (the team structure|the tech stack|the roadmap)",
+            "(what does (success|the first 90 days) look like)",
+            "(could you tell me about|how would you describe) (the culture|the team)",
+            "(what (are|do) the (next|biggest) (priorities|challenges))",
+            "(save (those|them) for the end|happy to (save|defer))",
+          ],
+          hint_tr:
+            "Soru: 'Yeah, curious about the team structure' veya 'What does success look like in the first 90 days?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Solid questions — let's circle back to those. First, the technical part.",
         },
       ],
     },

@@ -121,6 +121,58 @@ export const workStandupLesson_33_1: BundledLesson = {
         {
           speaker: "npc",
           message:
+            "Quick question — do you need anyone to review your PR before the end of the day?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|yes)(,)? (would be )?(great|helpful|nice)(,)?( if (you|someone) could)?",
+            "(if (anyone has|someone has) bandwidth)",
+            "(any (reviewer|eyes) (would be )?welcome)",
+            "(could |would )(you|someone) (take a look|review)",
+            "(no|nope)(,)? (i'?m good|all good)",
+            "(actually|honestly) (yes|yeah)(,)? (would appreciate|that'?d help)",
+          ],
+          hint_tr:
+            "Cevap: 'Yeah, would appreciate any eyes' veya 'No, I'm good for now'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool, I'll tag Maya — she had bandwidth this morning.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you|appreciate it|sounds good|perfect)",
+            "(works for me|that works)",
+            "(thanks |awesome )(— |, )?i'?ll (ping|loop in) her",
+            "(thanks|thank you)(,)? (i'?ll )?(message|ping) (her|maya)",
+            "(great|perfect)(,)? thanks",
+          ],
+          hint_tr:
+            "Teşekkür: 'Thanks, appreciate it' veya 'Perfect, I'll ping her after standup'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Alright, anything else from your side before we move on?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|nope)(,)? (that'?s|thats) (it|all|everything)",
+            "(nothing else|all good|i'?m good)( on my end)?",
+            "(i'?m )?good( thanks)?",
+            "(all clear|all good|that'?s a wrap)",
+            "(actually )?one more thing(,)? (.+)",
+          ],
+          hint_tr:
+            "Bitir: 'No, that's it on my end' veya 'All good, thanks'.",
+        },
+        {
+          speaker: "npc",
+          message:
             "Sounds good. Next up, Ali.",
         },
       ],

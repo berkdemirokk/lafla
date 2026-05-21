@@ -121,8 +121,58 @@ export const restaurantLesson_2_1: BundledLesson = {
         },
         {
           speaker: "npc",
+          message: "Got it. Any reservation under a name?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,)? (under |it'?s under )?[a-z]+",
+            "(no|nope)(,)? we'?re walking in",
+            "no reservation(,)? (just walking in|sorry)",
+            "no(,)? (just walked in|we just came in)",
+            "(yes|it'?s) under [a-z]+",
+            "we don'?t have one",
+          ],
+          hint_tr:
+            "Rezervasyon: 'Yes, under [name]' veya 'No, just walking in'. Türk öğrenci 'walk-in' der genelde — anlaşılmaz değil ama tam karşılığı 'rezervasyonsuz'.",
+        },
+        {
+          speaker: "npc",
+          message: "No problem — we've got room. Follow me.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you|great|perfect)(,)?",
+            "(awesome|appreciate it|sounds good)",
+            "(thanks|thank you) so much",
+            "(cool|nice|great)(,)? thanks",
+          ],
+          hint_tr:
+            "Teşekkür: 'Thanks!' veya 'Great, thank you'.",
+        },
+        {
+          speaker: "npc",
           message:
-            "Perfect. Follow me. Here are your menus — I'll be back in a few minutes.",
+            "Here are your menus. Can I get you anything to drink while you decide?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can) (i|we) (have|get) (some |a )?(water|wine|beer|sparkling water|tap water)",
+            "(just |only )?(water|tap water)( please)?",
+            "(some |a )?(water|wine|beer|sparkling water)( please)?",
+            "(we'?ll|i'?ll) (have|take) (water|wine|beer)",
+            "(give us|let us have) (a moment|a minute|a sec)",
+            "just (water|tap water)(,)? thanks",
+          ],
+          hint_tr:
+            "İçecek: 'Just water, please' veya 'A glass of wine, please'. ABD'de su ücretsiz — 'tap water' = musluk suyu.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sounds good — I'll be back with that in a minute.",
         },
       ],
     },

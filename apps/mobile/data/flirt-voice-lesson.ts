@@ -115,6 +115,65 @@ export const flirtVoiceLesson_3_1: BundledLesson = {
           hint_tr:
             "Teşekkür et + bekle: 'Cool, one sec' veya 'Sending now'.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Okay just listened — your accent is really nice. Where are you from originally?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you|appreciate it)(,)?.{0,30}(turkey|istanbul|ankara|izmir)",
+            "(originally |actually )?(from )?(turkey|istanbul|ankara|izmir)",
+            "(thanks |haha )?(originally from )?(turkey|istanbul|ankara|izmir)",
+            "(turkish|i'?m turkish)( actually)?",
+            "(born and raised in )?(turkey|istanbul)",
+            "(haha thanks|aw thanks)(,)? (turkey|istanbul)",
+          ],
+          hint_tr:
+            "Teşekkür + cevap: 'Thanks! Originally from Turkey, Istanbul'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh nice — Istanbul! Are you here on Erasmus or living long-term?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|yes)(,)? (on |i'?m on )?erasmus( for the year)?",
+            "(actually|honestly)(,)? (just )?(on |doing )?erasmus",
+            "(i'?m|i am) (here for|doing) (a semester|the year|my master'?s|exchange)",
+            "(long-term|here for good|moved here)",
+            "(planning to stay|might stay|will see)",
+            "(this is|it'?s) my (first |second )?(year|semester)",
+          ],
+          hint_tr:
+            "Cevap: 'Yeah, on Erasmus for the year' veya 'Doing my master's, so maybe two years'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool — what's been the biggest culture shock so far?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly )?(the food|the portion sizes|the tipping|how friendly people are|how expensive)",
+            "(definitely|probably) (the |.+)?(food|tipping|small talk|small-talk)",
+            "(everyone (smiles|chats)|the small talk culture)",
+            "(how (early|late) (everything|people)|portion sizes)",
+            "(coming from turkey|in turkey we|back home)",
+            "(too many to count|where do i start)",
+          ],
+          hint_tr:
+            "Klasik kültür şoku: 'Honestly, the tipping — in Turkey we don't tip 20%' veya 'How much small talk strangers do'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Hahaha okay, I'm gonna voice you back — way more to say than I can type.",
+        },
       ],
     },
     {

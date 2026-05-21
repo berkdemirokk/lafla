@@ -147,7 +147,61 @@ export const dailyGymLesson_35_1: BundledLesson = {
         },
         {
           speaker: "npc",
-          message: "Right this way — I'll show you the cardio floor first.",
+          message:
+            "Sure thing. Any classes you're interested in — yoga, spin, HIIT?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,)? (i'?d like to (try|see) )?(yoga|spin|hiit|pilates|boxing|crossfit)",
+            "(any |what (classes|times)) (do you )?(have|offer)",
+            "(i'?m |i am )(into|interested in) (yoga|spin|hiit|pilates)",
+            "(could|can) (you|i) (see|check) the (class )?(schedule|timetable)",
+            "(no|nope)(,)? (just )?the (weight (room|floor)|cardio|gym)",
+            "(open to|down for) (anything|whatever)",
+          ],
+          hint_tr:
+            "Sınıf: 'I'd like to try yoga' veya 'Can I see the class schedule?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Great. Do you have any specific fitness goals — weight loss, strength, just staying active?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(mostly |honestly )?(just (staying|getting back) (active|in shape))",
+            "(strength|build muscle|get stronger)",
+            "(weight loss|losing weight|cutting)",
+            "(general fitness|just to (move|stay healthy))",
+            "(a mix|both)( really)?",
+            "(honestly|truly) (no specific goal|nothing specific)",
+          ],
+          hint_tr:
+            "Hedef: 'Honestly, just staying active' veya 'I want to build some strength'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. We have trainers who can help with that if you want — first session is free.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh )?(nice|cool|good to know|that'?s great)",
+            "(i'?d like to|would love to) (try (that|it)|book a session)",
+            "(maybe|perhaps) (later|down the road|once i settle in)",
+            "(thanks for letting me know)",
+            "(could|can) (i|you) (book|set up) (a session|the free one)",
+            "(no|nope)(,)? (i'?m good|i'?ll figure it out)",
+          ],
+          hint_tr:
+            "Cevap: 'Nice, I'd like to try that' veya 'Maybe later, thanks'.",
+        },
+        {
+          speaker: "npc",
+          message: "Cool — right this way, I'll show you the cardio floor first.",
         },
       ],
     },

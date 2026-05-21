@@ -124,7 +124,60 @@ export const billLesson_4_1: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Of course, my apologies. I'll have it corrected.",
+            "Of course, my apologies. I'll have it corrected. Anything else on the bill look off?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|nope)(,)? (that'?s|thats) (it|all)",
+            "(no|nope)(,)? (everything else|the rest) looks (right|fine|good)",
+            "(no|nope)(,)? (we'?re|i'?m) good",
+            "(actually )?(yes|yeah)(,)?.{0,30}(charge|item|line)",
+            "(could|can) you (also |) ?check the (tax|tip|drinks)",
+            "the rest is fine",
+          ],
+          hint_tr:
+            "Devam: 'No, the rest looks fine'. İkinci kalem varsa: 'Could you also check the drinks?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. Are we splitting the check, or all on one card tonight?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(all on one|one card|together)( please)?",
+            "(let'?s |we can )?split (it|the check|evenly)",
+            "(split it|separate checks)( please)?",
+            "(we'?ll|i'?ll) (just )?pay (together|on one card)",
+            "(could|can) we split (it|the bill) (evenly|by item)",
+            "(it'?s |all )?on me",
+          ],
+          hint_tr:
+            "Bölüşme: 'Let's split it evenly' veya 'All on one card, please'. ABD'de hesap bölmek (split) çok normal.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sounds good. I'll grab a fresh check and be right back.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you|appreciate it)(,)? (no rush|take your time)?",
+            "no rush(,)? thanks",
+            "(thanks|thank you) so much",
+            "(perfect|great|awesome)(,)? thanks",
+            "(no worries|no problem)",
+          ],
+          hint_tr:
+            "Yumuşak kapat: 'Thanks, no rush' veya 'Perfect, thank you'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "My pleasure — thanks for letting me know.",
         },
       ],
     },

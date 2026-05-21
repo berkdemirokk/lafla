@@ -139,6 +139,98 @@ export const cafeLesson_1_1: BundledLesson = {
       tr_explanation:
         "'I will take' kafede garip — eşya alır gibi. Doğrusu 'I'll have a [drink], please'. 'One' yerine 'a' doğal.",
     },
+    {
+      id: "ex.1.1.11",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Sabah, hareketli bir kafedesin. Sıra geldi, basit sipariş veriyorsun.",
+      npc_role: "Barista",
+      setting: "Busy morning coffee shop",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Morning! What can I get for you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could|can) i (have|get) a (coffee|latte|americano|espresso)",
+            "i('ll|'d like) (have |take )?a (coffee|latte|americano|espresso)",
+            "(a |an )?(coffee|latte|americano|espresso)( please)?",
+            "good morning,? (a |i'?d like a )(coffee|latte|americano)",
+            "morning,? (a |i'?d like a )(coffee|latte|americano)",
+          ],
+          hint_tr:
+            "Kibar sipariş: 'Could I have a coffee, please?' Türk öğrenci espressoyu küçük sanır — kafenin standardını sor.",
+        },
+        {
+          speaker: "npc",
+          message: "Sure. What size — small, medium, or large?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(small|medium|large)( please)?",
+            "i('ll take|'d like|'ll have) (a |the )?(small|medium|large)",
+            "(make it |just )?(small|medium|large)",
+            "medium,? please",
+            "a small one",
+          ],
+          hint_tr: "Boyut: 'Medium, please' veya 'Small one, thanks'.",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. For here or to go?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(for here|to go|take away|take-away)( please)?",
+            "(i'?ll have it |make it )?(for here|to go)",
+            "to go(,)? thanks",
+            "for here(,)? thank you",
+          ],
+          hint_tr: "'For here' = burada içerim. 'To go' = paket.",
+        },
+        {
+          speaker: "npc",
+          message: "Anything else with that — maybe a pastry?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "no(,)? (thanks|thank you)( that'?s it)?",
+            "(that'?s it|just (the |that))",
+            "i('m| am) good(,)? thanks",
+            "(no thanks|no thank you)",
+            "(yes|sure)(,)? (a |one )?(croissant|muffin|cookie|pastry|bagel)",
+            "(could|can) i (also |)?(get|have) a (croissant|muffin|cookie|bagel)",
+          ],
+          hint_tr:
+            "Hayır: 'No thanks, that's it'. Evet: 'Sure, a croissant too, please'.",
+        },
+        {
+          speaker: "npc",
+          message: "Card or cash today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(card|cash|apple pay)( please)?",
+            "by card",
+            "(credit |debit )?card,? (please|thanks)",
+            "i('ll|'d like to) pay (by |with )?(card|cash|apple pay)",
+            "do you (take|accept) apple pay",
+          ],
+          hint_tr: "Ödeme: 'Card, please' veya 'Apple Pay, if that works'.",
+        },
+        {
+          speaker: "npc",
+          message: "Perfect, all set. Have a great morning!",
+        },
+      ],
+    },
   ],
 };
 
@@ -244,6 +336,58 @@ export const cafeLesson_1_2: BundledLesson = {
             "make it (a )?(small|medium|large)",
           ],
           hint_tr: "Boyutu söyle: '[Size], please' veya 'I'll take [size]'.",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. Hot or iced today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hot|iced)( please)?",
+            "i('ll|'d like) (have |take )?(it )?(hot|iced)",
+            "(make it |just )?(hot|iced)",
+            "hot,? please",
+            "iced,? please",
+            "(hot|iced) for me",
+            "iced sounds (good|great)",
+          ],
+          hint_tr:
+            "Sıcak mı buzlu mu? 'Hot, please' veya 'Iced, please'. Türk öğrenci sıcak espressoyu küçük sanır — Türkiye'deki gibi normal bardak değil, çok küçük fincan gelir.",
+        },
+        {
+          speaker: "npc",
+          message: "Cool. Any milk preference, or stick with whole?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(whole|oat|almond|soy|skim)( milk)?( is fine| please)?",
+            "i('ll|'d like) (have |take )?(whole|oat|almond|soy|skim)",
+            "(whole|oat|almond|soy|skim) (milk )?(please|is fine)",
+            "(just |with )?(whole|oat|almond|soy|skim)",
+            "(no milk|black|none)",
+            "(whatever|whatever you have) is fine",
+          ],
+          hint_tr:
+            "Süt tercihi: 'Oat milk, please' veya 'Whole is fine'. Sütsüz istiyorsan: 'Black, please'.",
+        },
+        {
+          speaker: "npc",
+          message: "Sweet. What name should I put on the cup?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it'?s )?(under )?[a-z]+",
+            "(my name is|name is|i'm|i am) [a-z]+",
+            "(it'?s |just )?[a-z]+(,)? (.{1,30})?",
+            "[a-z]+ — [a-z](,? [a-z])+",
+            "under [a-z]+",
+            "[a-z]+,? thanks",
+          ],
+          hint_tr:
+            "İsmini söyle. Türk ismiyse hecele: 'Berk — B, E, R, K'. Yoksa barista yanlış yazar.",
         },
         {
           speaker: "npc",

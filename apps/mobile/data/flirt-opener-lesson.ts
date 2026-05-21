@@ -121,6 +121,62 @@ export const flirtOpenerLesson_1_1: BundledLesson = {
         {
           speaker: "npc",
           message:
+            "Nice — opposites attract right? So tell me, what brings you to the city — work, school, just visiting?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?m|i am) here for (work|school|studies|erasmus|grad school|my master'?s)",
+            "(work|school|studies|erasmus) brought me",
+            "(i'?m|i am) (studying|working|doing my master'?s|on erasmus)",
+            "(originally |actually )?(i'?m|i am) from (turkey|istanbul|.+) but (i'?m|i am) here for",
+            "(just |only )?(visiting|passing through)",
+            "(i moved here|moved here) (for|because of)",
+            "(i'?m|i am) on (exchange|erasmus)",
+          ],
+          hint_tr:
+            "Cevap: 'I'm here for my master's' veya 'I'm on Erasmus, studying [field]'. Türk öğrenci yurt dışında 'Erasmus' kelimesini doğal kullanır.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh cool — what are you studying? Anything I can pretend to understand?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?m|i am) (studying|doing|in) (engineering|computer science|cs|business|psychology|architecture|design|economics|medicine|law)",
+            "(it'?s|its) (engineering|computer science|business|psychology)",
+            "(mostly |basically )?(engineering|computer science|business|psychology|architecture|economics)",
+            "(my major is|i major in) (.+)",
+            "i study (.+)",
+            "(don'?t worry|i'?ll keep it simple)",
+            "(it'?s|its) (boring|nerdy|technical)(,)? trust me",
+          ],
+          hint_tr:
+            "Bölüm söyle: 'I'm doing computer science' veya 'I study business, kind of boring honestly'. Türk öğrenci 'department' der genelde — native 'major' veya 'studying X' kullanır.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay, smart and funny — dangerous combo. What about outside class? Coffee snob, runner, plant parent?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(big |huge )?(coffee snob|coffee person|runner|plant parent|gym rat|cat person|dog person)",
+            "(definitely|honestly|kind of) (a )?(coffee snob|runner|plant parent|cat person|dog person)",
+            "(more of a |i'?m more of a )(coffee|tea|gym|reader|gamer) person",
+            "(none of the above|all of the above)",
+            "(actually|honestly) (i'?m into) (.+)",
+            "(boring answer but|low key) (.+)",
+          ],
+          hint_tr:
+            "Hobi/kişilik söyle: 'Honestly, huge coffee snob' veya 'More of a runner — I run mornings'.",
+        },
+        {
+          speaker: "npc",
+          message:
             "Nice — opposites attract right? What's your worst 'wing it' story?",
         },
       ],
@@ -555,7 +611,43 @@ export const flirtOpenerLesson_1_3: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Refreshing honesty — okay, ask me something then. Make it good.",
+            "Okay, do it then — hit me with your best specific question.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay |alright |so )?if you had to (pick|choose|describe)",
+            "(what'?s|tell me) (the most |) ?(unexpected|surprising|weirdest) thing",
+            "(quick |honest |real )?question[,:]?",
+            "(would you rather) (.+)",
+            "(what'?s your )?(deal breaker|toxic trait|red flag)",
+            "(serious question )?(.+)\\?",
+          ],
+          hint_tr:
+            "Spesifik soru: 'Quick question — what's the most unexpected thing on your camera roll right now?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay that's a good one, ngl — I'd say a screenshot of a recipe I'll never make. You?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly )?(mine|same|same here) (is|would be)",
+            "(probably )?a (screenshot|photo|video) of",
+            "(my answer is|for me it'?s)",
+            "(definitely|hundred percent) (a |an )?",
+            "(haha |lol )?(saving|sending|stealing) that answer",
+            "(same energy|love that)",
+          ],
+          hint_tr:
+            "Kendi cevabını ver: 'Honestly mine is a screenshot of a meme from 2019 I keep forgetting to send'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay we're already vibing — let's see if you can keep this up at coffee.",
         },
       ],
     },
