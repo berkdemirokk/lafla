@@ -72,7 +72,13 @@
       "expo-av",
       "expo-file-system",
       "expo-localization",
-      "expo-speech-recognition",
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "Telaffuzunu değerlendirmek ve sahnede sesle cevap verebilmek için mikrofon erişimi gerekli.",
+          "speechRecognitionPermission": "Söylediğin İngilizce cümleleri anlamak için konuşma tanıma kullanılır."
+        }
+      ],
       "expo-apple-authentication",
       [
         "expo-notifications",

@@ -77,18 +77,15 @@ function clearActive() {
 }
 
 export async function isAvailable(): Promise<boolean> {
-  const mod = loadModule();
-  if (!mod) return false;
-  try {
-    if (typeof mod.isRecognitionAvailable === "function") {
-      return Boolean(mod.isRecognitionAvailable());
-    }
-    // If the function is missing but the module loaded, assume yes —
-    // older versions of the package don't expose isRecognitionAvailable.
-    return true;
-  } catch {
-    return false;
-  }
+  // 2026-05-21 — daha lenient. Önceden isRecognitionAvailable() false
+  // dönerse direkt false dönüyorduk; ama iOS'ta bu fonksiyon izin VERİLMEDEN
+  // önce false dönebiliyor → kullanıcı voice butonunu hiç göremezdi.
+  //
+  // Yeni: native modül yüklendiyse TRUE dön. Gerçek izin kontrolü
+  // startListening içinde permission flow'unda yapılır; reddedilirse
+  // onError tetiklenir, kullanıcı text mode'a düşer. Bu yol hem Expo
+  // Go'da (require fails → false) hem prod'da (modül yükü → true) sağlam.
+  return loadModule() !== null;
 }
 
 export async function requestPermission(): Promise<boolean> {

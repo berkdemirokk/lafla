@@ -1,8 +1,16 @@
 // CEFR Placement question bank (Adım: 2026-05-21).
 //
-// Adaptive test havuzu — her CEFR seviyesi için 4 multiple-choice soru.
+// Adaptive test havuzu — her CEFR seviyesi için 8 multiple-choice soru.
 // Sorular Türk öğrencisinin sıklıkla yanılgıya düştüğü noktalardan
 // seçildi (mistake-patterns.ts ile aynı pedagojik yatak).
+//
+// Her seviyede çeşitlilik var:
+//   - Grammar gap (boşluk doldurma) — ~3/8
+//   - Türkçe → English çeviri seçimi — ~2/8
+//   - Vocabulary / idiom seçimi — ~2/8
+//   - "Spot the error" (yanlış cümleyi seç) — ~1/8
+// Bu karışım, sadece grammar'da iyi olan kullanıcıların testi "oyun"
+// olarak geçmesini engeller.
 //
 // Adaptive algoritma:
 //   - B1 ile başla (median)
@@ -10,7 +18,7 @@
 //   - Yanlış → bir alt seviyeye in (B1 → A2 → A1)
 //   - 6 soru sonra final = en yüksek "correct" seviye (veya A1 fallback)
 //
-// 24 soru total — 5 soru görür kullanıcı, sıkça oynanan placement test
+// 48 soru total — 6 soru görür kullanıcı, sıkça oynanan placement test
 // olarak hızlı + bilgi sızdırmaz.
 
 import type { CefrLevel } from "../lib/cefr-level";
@@ -76,6 +84,57 @@ const A1: PlacementQuestion[] = [
     correct_index: 0,
     explanation_tr: "Çoğul → 'cats' (-s). 'I have' sahiplik için.",
   },
+  {
+    id: "a1.5",
+    level: "A1",
+    prompt: "He has ___ apple.",
+    options: ["an", "a", "the", "—"],
+    correct_index: 0,
+    explanation_tr:
+      "Sesli harfle başlayan tekil isim (apple → 'a' sesi) → 'an'. Türk öğrenciler 'a apple' der ama bu yanlış; sesli harf öncesi 'an' kullanılır.",
+  },
+  {
+    id: "a1.6",
+    level: "A1",
+    prompt: "Türkçe 'Onlar mutlu' karşılığı?",
+    options: [
+      "They are happy.",
+      "They is happy.",
+      "They happy.",
+      "Them are happy.",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "'They' çoğul → 'are'. Türkçede yardımcı fiil yok ('Onlar mutlu') ama İngilizce'de 'be' fiili şart: They ARE happy.",
+  },
+  {
+    id: "a1.7",
+    level: "A1",
+    prompt: "Hangi cümle GRAMER OLARAK YANLIŞ?",
+    options: [
+      "She have a dog.",
+      "She has a dog.",
+      "I have a dog.",
+      "They have a dog.",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "Tekil 3. şahıs (he/she/it) → 'has', diğerleri → 'have'. 'She have' Türk öğrencilerin klasik hatası; doğrusu 'She HAS'.",
+  },
+  {
+    id: "a1.8",
+    level: "A1",
+    prompt: "Türkçe 'okula gitmiyorum' karşılığı? (bugün, alışkanlık değil)",
+    options: [
+      "I don't go to school.",
+      "I no go to school.",
+      "I am not go to school.",
+      "I don't going to school.",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "Present simple olumsuz: don't + base verb. 'No' Türkçe etkisi ('hayır/değil' karışıklığı); 'I no go' yanlış. 'Don't going' da yanlış — don't sonrası -ing gelmez.",
+  },
 ];
 
 // ============================================================
@@ -122,6 +181,52 @@ const A2: PlacementQuestion[] = [
     correct_index: 0,
     explanation_tr:
       "'Doesn't' var → fiil sade (drink). 'Doesn't drinks' yanlış.",
+  },
+  {
+    id: "a2.5",
+    level: "A2",
+    prompt: "I ___ to Paris last summer.",
+    options: ["went", "goed", "go", "have gone"],
+    correct_index: 0,
+    explanation_tr:
+      "'Go' düzensiz fiil: go → went → gone. 'Goed' diye bir kelime yok; Türk öğrenciler düzensiz fiilleri ezberlemediği için '-ed' eklemeye çalışır.",
+  },
+  {
+    id: "a2.6",
+    level: "A2",
+    prompt: "The meeting is ___ Monday.",
+    options: ["on", "in", "at", "to"],
+    correct_index: 0,
+    explanation_tr:
+      "Günler için 'on' (on Monday), aylar/yıllar için 'in' (in May), saatler için 'at' (at 3pm). Türkçede tek edat ('Pazartesi') olduğu için karıştırılır.",
+  },
+  {
+    id: "a2.7",
+    level: "A2",
+    prompt: "Türkçe 'Bu çocukları tanıyor musun?' karşılığı?",
+    options: [
+      "Do you know these children?",
+      "Do you know this children?",
+      "Are you know these children?",
+      "Do you know these childs?",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "Çoğul → 'these' (this değil). 'Child' düzensiz çoğul: childs DEĞİL, 'children'. Soru kalıbı 'Do you...?' — 'Are you know' yanlış.",
+  },
+  {
+    id: "a2.8",
+    level: "A2",
+    prompt: "Hangi cümle GRAMER OLARAK YANLIŞ?",
+    options: [
+      "I can to swim.",
+      "I can swim.",
+      "She can dance.",
+      "Can you help me?",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "Modal fiillerden sonra (can, will, must, should) 'to' GELMEZ — direkt base form. 'I can to swim' yaygın Türk hatası; doğrusu 'I can swim'.",
   },
 ];
 
@@ -175,6 +280,52 @@ const B1: PlacementQuestion[] = [
     explanation_tr:
       "'Tell someone TO do' kalıbı. 'For' yanlış prep.",
   },
+  {
+    id: "b1.5",
+    level: "B1",
+    prompt: "I ___ Paris twice in my life.",
+    options: [
+      "have visited",
+      "visited",
+      "have been visited",
+      "am visiting",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "'In my life' = hayat tecrübesi (henüz biten bir zaman değil) → present perfect. Türk öğrenciler 'visited' der (past simple) ama 'in my life' present perfect tetikleyicisi.",
+  },
+  {
+    id: "b1.6",
+    level: "B1",
+    prompt: "I enjoy ___ books in the evening.",
+    options: ["reading", "to read", "read", "to reading"],
+    correct_index: 0,
+    explanation_tr:
+      "'Enjoy' + V-ing (gerund). enjoy/finish/avoid/mind hep gerund alır. 'Enjoy to read' yaygın Türk hatası — doğrusu 'enjoy READING'.",
+  },
+  {
+    id: "b1.7",
+    level: "B1",
+    prompt: "Türkçe 'Bu ev tahtadan yapılmış' karşılığı?",
+    options: [
+      "This house is made of wood.",
+      "This house is made by wood.",
+      "This house is made from wood.",
+      "This house made wood.",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "Malzeme + görünür → 'made OF'. 'Made by' = kişi/aktör (made by my father). 'Made from' = işlenmiş/dönüşmüş malzeme (wine is made from grapes). Çoğu Türk öğrenci 'made by' der — yanlış.",
+  },
+  {
+    id: "b1.8",
+    level: "B1",
+    prompt: "If it rains tomorrow, we ___ stay home.",
+    options: ["will", "would", "are", "—"],
+    correct_index: 0,
+    explanation_tr:
+      "1st conditional (gerçekçi gelecek): if + present, WILL + base. 'Would' 2nd conditional için (hayali). Türk öğrenciler ikisini karıştırır.",
+  },
 ];
 
 // ============================================================
@@ -226,6 +377,62 @@ const B2: PlacementQuestion[] = [
     correct_index: 0,
     explanation_tr:
       "1st conditional: if + present simple, will + base. 'Would' her iki yerde fazla.",
+  },
+  {
+    id: "b2.5",
+    level: "B2",
+    prompt: "She said she ___ tired the day before.",
+    options: [
+      "had been",
+      "has been",
+      "was",
+      "is",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "Reported speech: direkt 'I was tired yesterday' → indirekt 'she HAD BEEN tired the day before'. Past → past perfect kayar. 'Yesterday' → 'the day before' de değişir.",
+  },
+  {
+    id: "b2.6",
+    level: "B2",
+    prompt: "You ___ told me earlier — now it's too late!",
+    options: [
+      "should have",
+      "should",
+      "must have",
+      "should had",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "Geçmişte yapılmayan tavsiye/pişmanlık → 'should have + V3'. 'Must have' = geçmiş çıkarım ('mutlaka söylemiştir'). 'Should had' diye bir kalıp YOK.",
+  },
+  {
+    id: "b2.7",
+    level: "B2",
+    prompt: "Türkçe 'Konferans 200 kişi tarafından izlendi' karşılığı?",
+    options: [
+      "The conference was watched by 200 people.",
+      "The conference watched by 200 people.",
+      "The conference is watched by 200 people.",
+      "200 people watched by the conference.",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "Passive voice geçmiş: was/were + V3 + by. 'Conference watched' (auxiliary olmadan) yanlış. 'Is watched' geniş zaman olur — Türkçedeki '-di' geçmiş tetikleyicisi.",
+  },
+  {
+    id: "b2.8",
+    level: "B2",
+    prompt: "Hangi cümle GRAMER OLARAK YANLIŞ?",
+    options: [
+      "If I would have known, I would have called.",
+      "If I had known, I would have called.",
+      "Had I known, I would have called.",
+      "I wish I had known.",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "3rd conditional: if + PAST PERFECT (had + V3), would have + V3. 'If I would have' İngilizce'de YANLIŞ (yaygın hata olsa da). Doğrusu 'If I HAD known'.",
   },
 ];
 
@@ -279,6 +486,168 @@ const C1: PlacementQuestion[] = [
     explanation_tr:
       "3rd conditional inversion: 'Had I known' = 'If I had known' → would have V3.",
   },
+  {
+    id: "c1.5",
+    level: "C1",
+    prompt: "If she had studied medicine, she ___ a doctor now.",
+    options: [
+      "would be",
+      "would have been",
+      "is",
+      "will be",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "Mixed conditional: geçmiş şart (3rd if-clause) + şimdiki sonuç (2nd main clause). 'Had studied' geçmiş ama 'now' şimdi → would BE (would have been DEĞİL).",
+  },
+  {
+    id: "c1.6",
+    level: "C1",
+    prompt: "The committee ___ of five members.",
+    options: ["comprises", "comprises of", "is comprised", "comprised by"],
+    correct_index: 0,
+    explanation_tr:
+      "'Comprise' kendisi 'içerir' demek, preposition ALMAZ. 'Comprises of' yaygın bir hata; doğrusu 'comprises' veya 'is composed of' / 'consists of'. C1 register'ında çok ayırt edici.",
+  },
+  {
+    id: "c1.7",
+    level: "C1",
+    prompt: "Türkçe 'Bu rapor, durumu yeterince ortaya koymuyor' karşılığı?",
+    options: [
+      "This report does not adequately portray the situation.",
+      "This report is not adequate to portray the situation.",
+      "This report not portrays adequately the situation.",
+      "This report doesn't portray adequate the situation.",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "Zarf yeri: 'adequately' (zarf) ana fiilin ÖNÜNE gelir → 'does not adequately portray'. 'Adequate' sıfat — yanlış kategori. C1 register'ında 'portray' resmi seçim.",
+  },
+  {
+    id: "c1.8",
+    level: "C1",
+    prompt: "Hangi cümle GRAMER OLARAK YANLIŞ?",
+    options: [
+      "Despite of the rain, we went out.",
+      "Despite the rain, we went out.",
+      "In spite of the rain, we went out.",
+      "Although it was raining, we went out.",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "'Despite' kendisi preposition — 'of' ALMAZ. 'In spite OF' alır ama 'despite OF' YANLIŞ. Türk öğrencilerin C1 seviyesinde dahi yaptığı klasik karışım.",
+  },
+];
+
+// ============================================================
+// C2 — ustalık (mastery)
+// ============================================================
+// Native speaker bile bazılarını kaçırabilir. Cleft sentences,
+// advanced subjunctive, nuanced collocations, register-discriminating
+// idioms. Türk öğrencisinin C2 seviyesinde dahi tökezlediği noktalar.
+const C2: PlacementQuestion[] = [
+  {
+    id: "c2.1",
+    level: "C2",
+    prompt: "___ for his timely intervention, the deal would have collapsed.",
+    options: [
+      "Were it not",
+      "If it was not",
+      "Was it not",
+      "Had it not",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "Formal subjunctive inversion: 'Were it not for X' = 'If it were not for X'. 'Was it not' colloquial subjunctive, formal C2 register'da 'were' tercih edilir. 'Had it not' yalnızca past perfect ile çalışır (Had it not BEEN for...). 'Were it not for' kalıbı şart ifade eder.",
+  },
+  {
+    id: "c2.2",
+    level: "C2",
+    prompt: "It was the manager ___ I spoke to, not the assistant.",
+    options: ["whom", "who", "which", "that which"],
+    correct_index: 0,
+    explanation_tr:
+      "Cleft sentence + preposition'un nesnesi → formal English'te 'whom' (object case). Spoken English'te 'who' yaygın ama formal register'da 'whom' doğru. 'Which' insanlar için yanlış. C2'de case ayrımı kritik.",
+  },
+  {
+    id: "c2.3",
+    level: "C2",
+    prompt: "Such ___ that the entire ecosystem was transformed.",
+    options: [
+      "was the impact",
+      "the impact was",
+      "was impact",
+      "had the impact been",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "'Such + be + subject + that' inversion: 'Such was the impact that...'. Normal sıra 'The impact was such that' olur ama 'Such' başa alındığında inversion ŞART. C2 edebi register.",
+  },
+  {
+    id: "c2.4",
+    level: "C2",
+    prompt: "The evidence lent ___ to the prosecutor's theory.",
+    options: [
+      "credence",
+      "credit",
+      "credibility",
+      "credentials",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "Sabit kolokasyon: 'lend credence TO' = inandırıcılık katmak. 'Credit' borç/övgü, 'credibility' kişinin güvenilirliği, 'credentials' belgeler. Anlam yakın ama collocation tek doğru: 'credence'. Bu tür incelikli kelime seçimi C2 ayırt edicisi.",
+  },
+  {
+    id: "c2.5",
+    level: "C2",
+    prompt: "Türkçe 'Keşke gerçeği daha önce bilseydim' (edebi/yüksek register) karşılığı?",
+    options: [
+      "Would that I had known the truth sooner.",
+      "I wish I would have known the truth sooner.",
+      "If only I would know the truth sooner.",
+      "I wish I knew the truth more before.",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "Edebi 'wish' alternatifi: 'Would that + past perfect' = geçmiş için pişmanlık (formal/literary). 'I wish I would have known' YANLIŞ — wish'ten sonra 'would have' kullanılmaz; 'had known' doğru. Standart versiyon: 'I wish I had known'.",
+  },
+  {
+    id: "c2.6",
+    level: "C2",
+    prompt: "She kept the document hidden ___ it fall into the wrong hands.",
+    options: ["lest", "unless", "in case", "so that"],
+    correct_index: 0,
+    explanation_tr:
+      "'Lest' = -mesin diye (negative purpose, formal). Subjunctive alır → 'lest it FALL' (fall'a -s gelmez). 'Unless' = -medikçe (şart, anlam ters). 'In case' modern alternatif ama register düşer. 'So that' positive purpose. C2 formal/edebi register.",
+  },
+  {
+    id: "c2.7",
+    level: "C2",
+    prompt: "Hangi cümle GRAMER VEYA REGISTER OLARAK YANLIŞ?",
+    options: [
+      "Whomever did this must come forward.",
+      "Whoever did this must come forward.",
+      "I'll give it to whoever wants it.",
+      "She'll hire whomever she interviews.",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "'Whoever/whomever' içinden GEÇTİĞİ yan cümlenin rolü belirler, dış cümle değil. 'Did this' fiil → SUBJECT lazım → 'whoever' (object 'whomever' DEĞİL). Yaygın hyper-correction: insanlar 'whomever' daha 'eğitimli' duyduğu için yanlış yerlerde kullanır. C2 case-sensitivity testi.",
+  },
+  {
+    id: "c2.8",
+    level: "C2",
+    prompt: "The findings, ___ controversial, were ultimately accepted by the academic community.",
+    options: [
+      "albeit",
+      "although",
+      "even though it was",
+      "despite being",
+    ],
+    correct_index: 0,
+    explanation_tr:
+      "'Albeit' = -se de (concessive conjunction, formal). Tek başına sıfat/zarf/isim cümleciği önüne gelir — özne+fiil GEREKMEZ ('albeit controversial'). 'Although' tam cümle ister ('although they WERE controversial'). 'Despite being' de doğru olabilirdi ama 'albeit' tek kelime + ekonomik — C2 yazılı register'da tercih edilir. 'Even though it was' burada singular/plural uyumsuz (findings = plural).",
+  },
 ];
 
 export const PLACEMENT_BANK: Record<CefrLevel, PlacementQuestion[]> = {
@@ -287,7 +656,7 @@ export const PLACEMENT_BANK: Record<CefrLevel, PlacementQuestion[]> = {
   B1,
   B2,
   C1,
-  C2: C1, // C2 sorularımız yok henüz; C1'i tekrar kullan
+  C2,
 };
 
 // ============================================================
@@ -317,23 +686,52 @@ export function pickQuestionFromLevel(
 }
 
 /**
- * Adaptive flow:
- *   1. Start at B1.
- *   2. Each correct answer → up one level; each wrong → down one.
- *   3. After N=6 questions, final = highest level where user got it
- *      correct (highest "competence proven"). Fallback: A1.
+ * Adaptive flow (revised 2026-05-21 — bug fix).
+ *
+ * Önceki sürüm: "en yüksek doğru cevaplanan seviye" — kullanıcı şanslı
+ * tek doğru ile uçuyordu, üst seviyelerde yanlış olsa bile.
+ *
+ * Yeni algoritma — mastery-based, yürüdüğümüz her seviyede yeterlik:
+ *   1. Her CEFR seviyesinde correct/total oranını hesapla.
+ *   2. C2'den A1'e doğru indir, ilk "MASTERED" olanı dön:
+ *      - MASTERED = (total ≥ 2 AND correct/total ≥ 0.5) — istatistiksel
+ *        olarak bu seviyede yetkin
+ *      - VEYA 1/1 (tek shot doğru) — adaptive bu seviyeyi sundu, geçti
+ *   3. Hiçbir seviye mastered değilse, en düşük "en az 1 doğru" → fallback
+ *   4. Hiç doğru yoksa A1 floor.
  */
 export function computeFinalLevel(
   history: { level: CefrLevel; correct: boolean }[],
 ): CefrLevel {
-  // En yüksek doğru cevaplanan seviye
-  let highest: CefrLevel = "A1";
+  if (history.length === 0) return "A1";
+
+  const perLevel = new Map<CefrLevel, { correct: number; total: number }>();
   for (const h of history) {
-    if (h.correct && CEFR_ORDER.indexOf(h.level) > CEFR_ORDER.indexOf(highest)) {
-      highest = h.level;
-    }
+    const s = perLevel.get(h.level) ?? { correct: 0, total: 0 };
+    s.total += 1;
+    if (h.correct) s.correct += 1;
+    perLevel.set(h.level, s);
   }
-  return highest;
+
+  // C2'den A1'e doğru — ilk MASTERED bulunca dön
+  for (let i = CEFR_ORDER.length - 1; i >= 0; i--) {
+    const level = CEFR_ORDER[i]!;
+    const s = perLevel.get(level);
+    if (!s) continue;
+    // Çoklu attempt: %50+ doğru
+    if (s.total >= 2 && s.correct / s.total >= 0.5) return level;
+    // Tek attempt + doğru: adaptive zoru sundu, kullanıcı geçti
+    if (s.total === 1 && s.correct === 1) return level;
+  }
+
+  // Hiçbir seviye mastered değil — en düşük "doğru var" döndür (sympathetic)
+  for (let i = 0; i < CEFR_ORDER.length; i++) {
+    const s = perLevel.get(CEFR_ORDER[i]!);
+    if (s && s.correct >= 1) return CEFR_ORDER[i]!;
+  }
+  return "A1";
 }
 
-export const PLACEMENT_QUESTION_COUNT = 6;
+// 2026-05-21: 6 → 10 (kısa test güvensiz ölçüm yapıyordu, 10 soru
+// adaptive cycle'da 3-4 seviye visit + her seviyede 2-3 question yapar).
+export const PLACEMENT_QUESTION_COUNT = 10;

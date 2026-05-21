@@ -58,6 +58,9 @@ export default function PlacementScreen() {
   const [finished, setFinished] = useState(false);
   const [finalLevel, setFinalLevel] = useState<CefrLevel | null>(null);
   const [saving, setSaving] = useState(false);
+  // 2026-05-21 — adaptive transition feedback. Sonraki soru daha kolay
+  // veya zor olursa kullanıcıya açıklayalım. Boş string → render edilmez.
+  const [adaptiveHint, setAdaptiveHint] = useState<string | null>(null);
 
   // Bir kez seç — turn boyunca aynı soru
   const current: PlacementQuestion | null = useMemo(() => {
@@ -109,10 +112,20 @@ export default function PlacementScreen() {
         return;
       }
 
-      // Adaptive geçiş
+      // Adaptive geçiş + mikro açıklama (2026-05-21 fix).
+      // Önceden tek doğru → tam +1 seviye, tek yanlış → tam -1.
+      // Şimdi: hâlâ ±1 seviye ama UI'da "bu zor geldi, basitleştirdik"
+      // veya "kolay yaptın, zorlaştırdık" feedback'i toast olarak göster.
       const nextLevel = isCorrect
         ? nextLevelUp(current.level)
         : nextLevelDown(current.level);
+      setAdaptiveHint(
+        nextLevel !== current.level
+          ? isCorrect
+            ? `Bunu kolay yaptın — biraz zorlaştırıyoruz ⤴︎`
+            : `Bu zor geldi, basitleştiriyoruz ⤵︎`
+          : null,
+      );
       setCurrentLevel(nextLevel);
       setRevealed(false);
       setSelectedIdx(null);
@@ -211,6 +224,14 @@ export default function PlacementScreen() {
       </View>
 
       <ScrollView contentContainerStyle={styles.body}>
+        {/* Adaptive transition hint — bir önceki cevap seviye değiştirdiyse
+            burada kullanıcıya neden değiştiğini söyler. Bu küçük şeffaflık
+            kullanıcının "Niye bu soru bu kadar basit/zor?" sorusuna cevap. */}
+        {adaptiveHint && (
+          <View style={styles.adaptiveHint}>
+            <Text style={styles.adaptiveHintText}>{adaptiveHint}</Text>
+          </View>
+        )}
         <Text style={styles.prompt}>{current.prompt}</Text>
         {current.prompt_tr ? (
           <Text style={styles.promptTr}>{current.prompt_tr}</Text>
@@ -351,6 +372,24 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 24,
     lineHeight: 20,
+  },
+  // Adaptive hint pill — bir önceki cevaba göre seviye değiştiyse mikro
+  // açıklama. "Bunu kolay yaptın" / "Bu zor geldi". Pink/Cyan tint.
+  adaptiveHint: {
+    alignSelf: "center",
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
+    marginBottom: 18,
+  },
+  adaptiveHintText: {
+    fontSize: 12,
+    fontWeight: tokens.weight.bold,
+    color: tokens.brand.tertiary,
+    letterSpacing: 0.3,
   },
 
   optionsCol: { gap: 10, marginTop: 16 },

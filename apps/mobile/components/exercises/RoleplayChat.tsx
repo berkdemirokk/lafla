@@ -751,7 +751,61 @@ export function RoleplayChat({
             </View>
           )}
 
-          {mode === "multi-choice" && currentTurn ? (
+          {/* 2026-05-21 CRITICAL FIX — voice mode multi-choice'tan ÖNCE
+              kontrol edilir. Önceden multi-choice (ilk deneme) kullanıcısı
+              voice butonunu HİÇ görmüyordu, sadece 3 buton. User dedi ki:
+              "konuşamıyorum yazma zorunlu hala". Sebep buydu.
+
+              Yeni öncelik:
+                1. inputMode voice + sttAvailable → 🎙️ Konuş (her zaman kazanır)
+                2. else multi-choice ilk deneme → 3 buton (training wheels)
+                3. else → klavye
+
+              Multi-choice "training wheels" yine var ama sadece voice modunda
+              olmayan veya STT'siz cihaz/Expo Go için. Voice = Lafla'nın
+              omurgası, default'ta görünmeli. */}
+          {inputMode === "voice" && sttAvailable ? (
+            <View style={styles.voiceBar}>
+              <Pressable
+                style={[
+                  styles.micBtn,
+                  recording && styles.micBtnRecording,
+                  !awaitingUserInput && styles.micBtnDisabled,
+                ]}
+                onPress={recording ? stopVoiceCapture : startVoiceCapture}
+                disabled={!awaitingUserInput}
+                accessibilityRole="button"
+                accessibilityLabel={
+                  recording ? "Konuşmayı bitir" : "Konuşmaya başla"
+                }
+              >
+                <Text style={styles.micEmoji}>
+                  {recording ? "🔴" : "🎙️"}
+                </Text>
+                <Text style={styles.micLabel}>
+                  {recording ? "Dinliyor..." : "Konuşmak için bas"}
+                </Text>
+              </Pressable>
+              {recording && interimText ? (
+                <View style={styles.interimBox}>
+                  <Text style={styles.interimText} numberOfLines={3}>
+                    {interimText}
+                  </Text>
+                </View>
+              ) : null}
+              <Pressable
+                onPress={toggleInputMode}
+                style={styles.inputModeToggle}
+                hitSlop={10}
+                accessibilityRole="button"
+                accessibilityLabel="Yazarak gönder"
+              >
+                <Text style={styles.inputModeToggleText}>
+                  ⌨️ Yazarak gönder
+                </Text>
+              </Pressable>
+            </View>
+          ) : mode === "multi-choice" && currentTurn ? (
             <View style={styles.choiceCol}>
               {buildChoiceOptions(currentTurn).map((opt, i) => (
                 <Pressable
@@ -799,51 +853,10 @@ export function RoleplayChat({
                 </Pressable>
               ))}
             </View>
-          ) : inputMode === "voice" && sttAvailable ? (
-            // 2026-05-21 — voice-first roleplay (the omurga of Lafla).
-            // Big tap-target mic button replaces the keyboard. STT streams
-            // interim text below; final transcript auto-submits.
-            <View style={styles.voiceBar}>
-              <Pressable
-                style={[
-                  styles.micBtn,
-                  recording && styles.micBtnRecording,
-                  !awaitingUserInput && styles.micBtnDisabled,
-                ]}
-                onPress={recording ? stopVoiceCapture : startVoiceCapture}
-                disabled={!awaitingUserInput}
-                accessibilityRole="button"
-                accessibilityLabel={
-                  recording ? "Konuşmayı bitir" : "Konuşmaya başla"
-                }
-              >
-                <Text style={styles.micEmoji}>
-                  {recording ? "🔴" : "🎙️"}
-                </Text>
-                <Text style={styles.micLabel}>
-                  {recording ? "Dinliyor..." : "Konuşmak için bas"}
-                </Text>
-              </Pressable>
-              {recording && interimText ? (
-                <View style={styles.interimBox}>
-                  <Text style={styles.interimText} numberOfLines={3}>
-                    {interimText}
-                  </Text>
-                </View>
-              ) : null}
-              <Pressable
-                onPress={toggleInputMode}
-                style={styles.inputModeToggle}
-                hitSlop={10}
-                accessibilityRole="button"
-                accessibilityLabel="Yazarak gönder"
-              >
-                <Text style={styles.inputModeToggleText}>
-                  ⌨️ Yazarak gönder
-                </Text>
-              </Pressable>
-            </View>
           ) : (
+            // Klavye fallback — voice unavailable VEYA kullanıcı text seçti
+            // VEYA multi-choice değil. Hint pill voice'a geri dönüş için
+            // sttAvailable koşuluyla render edilir.
             <View>
               <View style={styles.inputRow}>
                 <TextInput
