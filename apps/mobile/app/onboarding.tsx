@@ -153,6 +153,7 @@ const INTEREST_CHOICES: InterestChoice[] = [
   { id: "airport", emoji: "✈️", label: "Havaalanı" },
   { id: "daily",   emoji: "☕", label: "Günlük" },
   { id: "order",   emoji: "🍽️", label: "Sipariş" },
+  { id: "ielts",   emoji: "🎓", label: "IELTS" },
 ];
 
 // ---------- CEFR seviye kartları (A1–C2, altı tane) ----------
@@ -354,7 +355,7 @@ export default function Onboarding() {
       "lafla.intro.tinder.completed",
     ).catch(() => null);
     if (introDone === "true") {
-      router.replace("/home" as never);
+      router.replace("/today" as never);
     } else {
       router.replace("/scenario/intro.tinder.0.1?intro=true" as never);
     }

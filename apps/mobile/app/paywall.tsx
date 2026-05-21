@@ -108,10 +108,13 @@ export default function PaywallScreen() {
   // Diğer durumlarda eski davranış (router.back()).
   const { from } = useLocalSearchParams<{ from?: string }>();
   const isFromIntro = from === "intro";
+  // 2026-05-21 — free quota gate. Sahne limiti dolduğunda paywall'a
+  // yönlendirildiyse hero copy farklı (loss-aversion vs upsell).
+  const isFromQuota = from === "quota";
   const handleClose = () => {
     hapticImpact("light");
     if (isFromIntro) {
-      router.replace("/home" as never);
+      router.replace("/today" as never);
     } else {
       router.back();
     }
@@ -247,7 +250,7 @@ export default function PaywallScreen() {
               onPress: () => {
                 // intro akışından geliyorsa back stack boş — /home'a git
                 if (isFromIntro) {
-                  router.replace("/home" as never);
+                  router.replace("/today" as never);
                 } else {
                   router.back();
                 }
@@ -329,13 +332,28 @@ export default function PaywallScreen() {
       </View>
 
       <ScrollView contentContainerStyle={styles.content}>
-        {/* HERO */}
+        {/* HERO — context-aware copy.
+            intro: ilk sahne sonrası value-after teklif
+            quota: günlük free sahne dolduktan sonra loss-aversion mesaj
+            default: cold paywall */}
         <Animated.View style={[styles.hero, heroStyle]}>
-          <Text style={styles.title}>Speak English. For real.</Text>
-          <Text style={styles.subtitle}>
-            5 dakikada gerçek pratik. Türkçe konuşan biri için, Türkçe
-            hatalarını çözen feedback.
-          </Text>
+          {isFromQuota ? (
+            <>
+              <Text style={styles.title}>Bugün için 3 sahne bitti.</Text>
+              <Text style={styles.subtitle}>
+                Yarın sıfırlanır. Veya Speak+ ile bugün sınırsız devam et —
+                reklamsız, plansız.
+              </Text>
+            </>
+          ) : (
+            <>
+              <Text style={styles.title}>Speak English. For real.</Text>
+              <Text style={styles.subtitle}>
+                5 dakikada gerçek pratik. Türkçe konuşan biri için, Türkçe
+                hatalarını çözen feedback.
+              </Text>
+            </>
+          )}
         </Animated.View>
 
         {/* SPEAK+ CARD */}

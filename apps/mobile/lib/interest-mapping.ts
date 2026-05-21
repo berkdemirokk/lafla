@@ -18,7 +18,8 @@ export type InterestId =
   | "bar"
   | "airport"
   | "daily"
-  | "order";
+  | "order"
+  | "ielts";  // 2026-05-21 — IELTS Speaking simulator (7. mod)
 
 export const INTEREST_TO_MODES: Record<InterestId, SceneMode[]> = {
   flirt:   ["flirt"],
@@ -27,6 +28,7 @@ export const INTEREST_TO_MODES: Record<InterestId, SceneMode[]> = {
   airport: ["airport"],
   daily:   ["daily"],
   order:   ["order"],
+  ielts:   ["ielts"],
 };
 
 /**

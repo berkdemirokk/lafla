@@ -63,7 +63,7 @@ export default function Splash() {
       if (session) {
         const profile = await getCurrentProfile();
         if (profile?.onboarding_completed_at) {
-          router.replace("/home" as never);
+          router.replace("/today" as never);
           return;
         }
       }
@@ -71,7 +71,7 @@ export default function Splash() {
       try {
         const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
         if (localOnboarded === "true") {
-          router.replace("/home" as never);
+          router.replace("/today" as never);
           return;
         }
       } catch {}
@@ -88,12 +88,12 @@ export default function Splash() {
     if (loading) return;
     if (session) {
       const profile = await getCurrentProfile();
-      router.replace((profile?.onboarding_completed_at ? "/home" : "/onboarding") as never);
+      router.replace((profile?.onboarding_completed_at ? "/today" : "/onboarding") as never);
       return;
     }
     try {
       const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
-      router.replace((localOnboarded === "true" ? "/home" : "/onboarding") as never);
+      router.replace((localOnboarded === "true" ? "/today" : "/onboarding") as never);
     } catch {
       router.replace("/onboarding");
     }

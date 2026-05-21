@@ -42,7 +42,8 @@ export type SceneMode =
   | "bar"       // YENİ — bar-lesson + banter-bar merge
   | "airport"   // YENİ — daily-airport rename + travel-*'in havaalanı parçaları
   | "daily"     // daily + personal + cefr-survival/daily birleşti
-  | "order";
+  | "order"
+  | "ielts";    // 2026-05-21 — IELTS Speaking simulator (Part 1/2/3)
 
 export interface Scene {
   id: string;

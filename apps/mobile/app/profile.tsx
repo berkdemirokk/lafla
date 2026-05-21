@@ -59,6 +59,7 @@ import {
 } from "../lib/referral";
 import { interestsToModes } from "../lib/interest-mapping";
 import { tokens } from "../theme";
+import { TabBar } from "../components/TabBar";
 
 // ---------------------------------------------------------------
 // Mode taxonomy
@@ -78,6 +79,7 @@ const MODES: ReadonlyArray<ModeRow> = [
   { key: "airport", emoji: "✈️", label: "Havaalanı" },
   { key: "daily",   emoji: "☕", label: "Günlük" },
   { key: "order",   emoji: "🍽️", label: "Sipariş" },
+  { key: "ielts",   emoji: "🎓", label: "IELTS" },
 ];
 
 // Precompute total lesson counts per mode at module load — SAMPLE_SCENES is
@@ -377,6 +379,17 @@ export default function ProfileScreen() {
             Pre-2026-05-20 the paywall existed as a registered route but had
             zero callers; this row closes that gap. Free-tier hard gating is
             a post-launch decision (cf. APP_REVIEW_NOTES.md). */}
+        {/* History — 2026-05-21. Local 200 kayıt ring buffer. Modes filter
+            + relative date. Tek sahne row'una basınca scenario re-open. */}
+        <Text style={styles.sectionLabel}>İLERLEME</Text>
+        <View style={styles.accountCard}>
+          <AccountRow
+            icon="📜"
+            label="Geçmiş sahneler"
+            onPress={() => router.push("/history" as never)}
+          />
+        </View>
+
         <Text style={styles.sectionLabel}>SPEAK+</Text>
         <View style={styles.accountCard}>
           <AccountRow
@@ -438,6 +451,7 @@ export default function ProfileScreen() {
 
         <Text style={styles.versionText}>Lafla v0.1.0 · Konuş, çalış.</Text>
       </ScrollView>
+      <TabBar active="profile" />
     </SafeAreaView>
   );
 }

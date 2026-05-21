@@ -156,7 +156,7 @@ export default function PlacementScreen() {
       "lafla.intro.tinder.completed",
     ).catch(() => null);
     if (introDone === "true") {
-      router.replace("/home" as never);
+      router.replace("/today" as never);
     } else {
       router.replace("/scenario/intro.tinder.0.1?intro=true" as never);
     }

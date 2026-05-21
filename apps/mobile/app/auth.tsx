@@ -483,7 +483,7 @@ export default function Auth() {
 
   const skipAuth = async () => {
     const onboarded = await AsyncStorage.getItem("lafla.onboarded");
-    router.replace((onboarded === "true" ? "/home" : "/onboarding") as never);
+    router.replace((onboarded === "true" ? "/today" : "/onboarding") as never);
   };
 
   const switchMode = (next: Mode) => {

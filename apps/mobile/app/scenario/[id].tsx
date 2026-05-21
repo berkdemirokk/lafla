@@ -75,6 +75,12 @@ import {
   incrementPlanProgress,
 } from "../../lib/daily-plan";
 import {
+  shouldGatePaywall,
+  incrementFreeTier,
+} from "../../lib/free-tier";
+import { recordSceneCompletion } from "../../lib/scene-history";
+import type { SceneMode } from "../../data/scenes";
+import {
   bumpModeFluency,
   getLessonState,
   getLocalProfile,
@@ -201,6 +207,24 @@ export default function ScenarioScreen() {
       mode: scenario.mode,
     }).catch(() => {});
   }, [scenario]);
+
+  // 2026-05-21 — Free-tier paywall gate.
+  // intro (force-first Tinder) → her zaman geç, ilk değer öncesi paywall yok
+  // Premium → geç
+  // Free quota dolduysa → /paywall'a redirect
+  // Gate check FIRST_RENDER'da, scenario hidden olur.
+  useEffect(() => {
+    if (!scenario || isIntro) return;
+    (async () => {
+      const gated = await shouldGatePaywall().catch(() => false);
+      if (gated) {
+        void trackEvent("paywall_triggered_by_free_quota", {
+          scenario_id: scenario.id,
+        }).catch(() => {});
+        router.replace("/paywall?from=quota" as never);
+      }
+    })();
+  }, [scenario, isIntro, router]);
   const [unlockedToast, setUnlockedToast] = useState<AchievementDef | null>(null);
   const [unlockQueue, setUnlockQueue] = useState<AchievementDef[]>([]);
   const savedRef = useRef(false);
@@ -420,6 +444,23 @@ export default function ScenarioScreen() {
     // sayılır; tek artırım, "Bugünün planı: 5 sahne · 20 dk" başlangıcının
     // her tamamlamada güncel kalması için.)
     incrementPlanProgress().catch(() => {});
+
+    // 2026-05-21 — Free-tier sayacı artır (premium muaf).
+    // Sahne tamamlandığında — verdict ekranı açılırken. Bir sonraki sahne
+    // açılışında shouldGatePaywall true dönerse paywall'a yönlendirir.
+    // intro/Tinder sahnesi sayılmaz (force-first ücretsiz pattern).
+    if (!isIntro) {
+      incrementFreeTier().catch(() => {});
+    }
+
+    // 2026-05-21 — Local history record (History sayfası için).
+    // intro dahil her sahne kaydedilir — kullanıcı geçmişini görmek için.
+    recordSceneCompletion({
+      lessonId: scenario.id,
+      title: scenario.title,
+      mode: scenario.mode as SceneMode,
+      score: result.score,
+    }).catch(() => {});
     hapticSuccess();
     setPhase("verdict");
   };
@@ -542,7 +583,7 @@ export default function ScenarioScreen() {
                 if (nextScenario) {
                   router.replace(`/scenario/${nextScenario}` as never);
                 } else {
-                  router.replace("/home" as never);
+                  router.replace("/today" as never);
                 }
               }}
             />

@@ -140,7 +140,7 @@ export default function ReviewScreen() {
           </Text>
           <Button
             label="Anasayfa"
-            onPress={() => router.replace("/home" as never)}
+            onPress={() => router.replace("/today" as never)}
             stacked
           />
         </View>
@@ -169,7 +169,7 @@ export default function ReviewScreen() {
           <View style={{ marginTop: 24, width: "100%" }}>
             <Button
               label="Anasayfa"
-              onPress={() => router.replace("/home" as never)}
+              onPress={() => router.replace("/today" as never)}
               stacked
             />
           </View>

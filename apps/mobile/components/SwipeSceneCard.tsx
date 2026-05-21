@@ -68,6 +68,7 @@ const MODE_ACCENT: Record<SceneMode, { fill: string; text: string }> = {
   airport: { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
   daily:   { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
   order:   { fill: tokens.brand.primarySoft,  text: tokens.brand.primary  },
+  ielts:   { fill: tokens.brand.tertiarySoft, text: tokens.brand.tertiary },
 };
 
 const MODE_LABEL: Record<SceneMode, string> = {
@@ -77,6 +78,7 @@ const MODE_LABEL: Record<SceneMode, string> = {
   airport: "Havaalanı",
   daily:   "Günlük",
   order:   "Sipariş",
+  ielts:   "IELTS",
 };
 
 // ---------------------------------------------------------------------------
