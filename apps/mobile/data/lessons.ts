@@ -51,9 +51,17 @@ import { professionalC1Lessons } from "./professional-c1-lesson";
 // === bar (drink ordering + approach merged) ===
 import { barLessons } from "./bar-lesson";
 import { barApproachLessons } from "./bar-approach-lesson";
+// 2026-05-21 — bar depth pack: +12 sahne (order.bar.7.8-13 + bar.approach.24.9-14)
+// Mevcut 10 sahne → 22'ye çıkar. Turn sayısı 10-12, voice-first acceptable_patterns.
+import { barExpandedLessons } from "./bar-expanded-lesson";
 
 // === havaalanı ===
 import { airportLessons } from "./airport-lesson";
+// 2026-05-21 — airport depth pack: +12 sahne (airport.44.9-20)
+// Immigration, lost bag, missed connection, upgrade, dietary, special
+// assistance, customs, navigating, layover, phone/wifi, power bank.
+// Mevcut 8 sahne → 20'ye çıkar.
+import { airportExpandedLessons } from "./airport-expanded-lesson";
 
 // === günlük (daily + personal + cefr survival/daily birleşti — 18 lesson set) ===
 import { dailyDirectionsLessons } from "./daily-directions-lesson";
@@ -121,8 +129,10 @@ export const allLessons: ReadonlyArray<BundledLesson> = [
   // bar
   ...barLessons,
   ...barApproachLessons,
+  ...barExpandedLessons,
   // havaalanı
   ...airportLessons,
+  ...airportExpandedLessons,
   // günlük
   ...dailyDirectionsLessons,
   ...dailyTransportLessons,
