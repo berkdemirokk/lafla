@@ -28,7 +28,6 @@ export const AUDIO_INDEX: Record<string, () => any> = {
   "3e6bb99b": () => require("./vc_doctor/3e6bb99b.mp3"),
   "42f6e76c": () => require("./vc_default/42f6e76c.mp3"),
   "45611c7a": () => require("./vc_default/45611c7a.mp3"),
-  "469e0aa3": () => require("./vc_match/469e0aa3.mp3"),
   "47ead38a": () => require("./vc_friend/47ead38a.mp3"),
   "48f11ce2": () => require("./vc_default/48f11ce2.mp3"),
   "4a9cd237": () => require("./vc_default/4a9cd237.mp3"),
