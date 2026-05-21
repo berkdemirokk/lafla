@@ -71,6 +71,10 @@ import { captureRef } from "react-native-view-shot";
 import * as Sharing from "expo-sharing";
 import { completeLesson, recordAttempt } from "../../lib/srs";
 import {
+  getNextInPlan,
+  incrementPlanProgress,
+} from "../../lib/daily-plan";
+import {
   bumpModeFluency,
   getLessonState,
   getLocalProfile,
@@ -140,6 +144,12 @@ export default function ScenarioScreen() {
   // Null until hydrated or for users who haven't completed onboarding's
   // level step — RoleplayChat treats null as "matched mode" (no delta).
   const [userLevel, setUserLevel] = useState<CefrLevel | null>(null);
+  // 2026-05-21 — Daily Plan auto-advance. Bu sahne kullanıcının bugünkü
+  // planındaysa nextInPlan bir sonraki Scene objesi, değilse null. Verdict
+  // ekranı "Sıradaki sahne 3s" countdown'unu burada gözükür.
+  const [nextInPlanScene, setNextInPlanScene] = useState<
+    import("../../data/scenes").Scene | null
+  >(null);
   // First-time scene overlay — shown once per scenario load, on initial entry
   // to the scene phase. Auto-dismisses after 1200ms or on tap.
   const [showSceneIntro, setShowSceneIntro] = useState(false);
@@ -161,8 +171,19 @@ export default function ScenarioScreen() {
       } catch {
         setUserLevel(null);
       }
+      // Daily plan next-in-line lookup. Bu sahne kullanıcının bugünkü plan
+      // sırasındaysa, bir sonraki sahneyi bul — verdict ekranı auto-advance
+      // için kullanır. Best-effort; başarısızsa nextInPlan null kalır,
+      // verdict legacy navigate'e döner.
+      if (scenario?.id) {
+        try {
+          setNextInPlanScene(await getNextInPlan(scenario.id));
+        } catch {
+          setNextInPlanScene(null);
+        }
+      }
     })();
-  }, []);
+  }, [scenario?.id]);
 
   // On mount: decide roleplay mode based on previous attempts
   useEffect(() => {
@@ -394,6 +415,11 @@ export default function ScenarioScreen() {
       exercise_type: "roleplay_chat",
       is_correct: result.score >= 60,
     }).catch(() => {});
+    // Daily plan progress — sadece bu sahne planın bir parçasıysa artar.
+    // (getNextInPlan null değilse veya scenario.id planda son sahneyse de
+    // sayılır; tek artırım, "Bugünün planı: 5 sahne · 20 dk" başlangıcının
+    // her tamamlamada güncel kalması için.)
+    incrementPlanProgress().catch(() => {});
     hapticSuccess();
     setPhase("verdict");
   };
@@ -482,8 +508,13 @@ export default function ScenarioScreen() {
             <VerdictView
               scenario={scenario}
               sceneResult={sceneResult}
-              hasNext={!!nextScenario}
+              hasNext={!!nextScenario || !!nextInPlanScene}
               userName={displayName}
+              planNextLabel={
+                nextInPlanScene
+                  ? nextInPlanScene.title.replace(/\n/g, " ")
+                  : null
+              }
               onContinue={() => {
                 // Switch-trigger #1 — force-first intro scene biterse:
                 // 1) "completed" flag yaz (bir daha tetiklenmez)
@@ -495,6 +526,17 @@ export default function ScenarioScreen() {
                     "true",
                   ).catch(() => {});
                   router.replace("/paywall?from=intro" as never);
+                  return;
+                }
+                // 2026-05-21 — Daily Plan auto-advance.
+                // Plan sırasındaki bir sonraki sahne varsa direkt ona git
+                // (legacy "next in skill" yerine plan akışı önceliklidir).
+                // Plan bitti veya kullanıcı plan dışı bir sahnedeyse legacy
+                // davranış: aynı skill'de sıradaki veya home.
+                if (nextInPlanScene) {
+                  router.replace(
+                    `/scenario/${nextInPlanScene.lessonId}` as never,
+                  );
                   return;
                 }
                 if (nextScenario) {
@@ -941,6 +983,7 @@ function VerdictView({
   hasNext,
   userName,
   onContinue,
+  planNextLabel,
 }: {
   scenario: { mode: string; title: string };
   sceneResult: ExerciseResult;
@@ -953,12 +996,34 @@ function VerdictView({
    */
   userName: string;
   onContinue: () => void;
+  /**
+   * 2026-05-21 — Daily Plan auto-advance copy.
+   * Plan sırasında bir sonraki sahne varsa başlığı buraya gelir. VerdictView
+   * 3s countdown gösterip otomatik onContinue tetikler. null ise legacy
+   * davranış: manuel "Devam" butonu.
+   */
+  planNextLabel: string | null;
 }) {
   // Share card ref — view-shot ile capture edilir. Off-screen pozisyonda
   // render edilir (görünmez ama mounted), kullanıcı "Skoru paylaş"a basınca
   // captureRef + expo-sharing zincirine alınır.
   const shareCardRef = useRef<View>(null);
   const [sharing, setSharing] = useState(false);
+  // 2026-05-21 — Daily Plan auto-advance countdown.
+  // planNextLabel varsa kullanıcı 3-2-1 sayar ve otomatik bir sonraki
+  // sahneye geçer. "Şimdi git" butonuyla atlanabilir; "Mola al" pause eder.
+  const [autoCountdown, setAutoCountdown] = useState<number | null>(
+    planNextLabel ? 3 : null,
+  );
+  useEffect(() => {
+    if (autoCountdown === null) return;
+    if (autoCountdown <= 0) {
+      onContinue();
+      return;
+    }
+    const t = setTimeout(() => setAutoCountdown((n) => (n ?? 0) - 1), 1000);
+    return () => clearTimeout(t);
+  }, [autoCountdown, onContinue]);
   const { band } = computeSceneFluency([sceneResult.score]);
   // Verdict copy varies by band AND by whether we have a name to address
   // the user with. The personalized variants change the leading clause to
@@ -1117,11 +1182,39 @@ function VerdictView({
       )}
 
       <View style={verdictStyles.footer}>
-        <Button
-          label={hasNext ? "Sıradaki sahne" : "Akışa dön"}
-          onPress={onContinue}
-          stacked
-        />
+        {/* 2026-05-21 — Daily Plan: planNextLabel varsa "3s sonra sıradaki"
+            countdown. Aksi takdirde eski davranış: tek dokunuşlu Devam. */}
+        {planNextLabel && autoCountdown !== null ? (
+          <View>
+            <Button
+              label={
+                autoCountdown > 0
+                  ? `Sıradaki: ${planNextLabel} (${autoCountdown}s)`
+                  : `Sıradaki: ${planNextLabel}`
+              }
+              onPress={() => {
+                setAutoCountdown(null);
+                onContinue();
+              }}
+              stacked
+            />
+            <Pressable
+              onPress={() => setAutoCountdown(null)}
+              style={verdictStyles.pauseLink}
+              hitSlop={10}
+              accessibilityRole="button"
+              accessibilityLabel="Otomatik geçişi durdur"
+            >
+              <Text style={verdictStyles.pauseLinkText}>⏸ Mola al</Text>
+            </Pressable>
+          </View>
+        ) : (
+          <Button
+            label={hasNext ? "Sıradaki sahne" : "Akışa dön"}
+            onPress={onContinue}
+            stacked
+          />
+        )}
         {/* Skoru paylaş — Adım 5 (2026-05-20).
             Verdict altında ikincil CTA. Story-friendly 1080×1920 card
             view-shot ile capture, expo-sharing ile native share sheet. */}
@@ -1744,6 +1837,21 @@ const verdictStyles = StyleSheet.create({
     width: "100%",
     marginTop: "auto",
     gap: 10,
+  },
+  // 2026-05-21 — auto-advance pause hint. Daily plan countdown bar altında
+  // tek satır küçük link: "⏸ Mola al". Tıklayınca countdown durur, kullanıcı
+  // istediği zaman tekrar manuel basabilir.
+  pauseLink: {
+    alignSelf: "center",
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    marginTop: 8,
+  },
+  pauseLinkText: {
+    fontSize: 12,
+    fontWeight: tokens.weight.semibold,
+    color: tokens.text.tertiary,
+    letterSpacing: 0.3,
   },
   // Share row (Adım 5 + Adım 6) — yatay 2 CTA.
   shareRow: {
