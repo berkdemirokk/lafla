@@ -9,6 +9,19 @@
 // who want extra practice. Hidden behind a "Daha çok pratik" button.
 
 import { allLessons, type BundledLesson } from "../data/lessons";
+import { SAMPLE_SCENES, type CefrLevel } from "../data/scenes";
+
+// 2026-05-21 — scenario-level CEFR adaptation. Each Scenario inherits the
+// `cefrLevel` of its matching Scene (data/scenes.ts). RoleplayChat reads
+// both this anchor level and the user's level to modulate hint visibility
+// and difficulty cues — e.g. user.A1 in a B2 scene → always show TR hint,
+// user.C1 in a B1 scene → hide hints by default (challenge mode).
+//
+// Building a Map once at module load avoids O(n) scans per scenario lookup.
+const _lessonLevelMap = new Map<string, CefrLevel>();
+for (const s of SAMPLE_SCENES) {
+  if (s.cefrLevel) _lessonLevelMap.set(s.lessonId, s.cefrLevel);
+}
 
 export interface SetupPhrase {
   en: string;
@@ -31,6 +44,15 @@ export interface Scenario {
   title: string;
   description: string;
   estimated_minutes: number;
+  /**
+   * Anchor CEFR level for this scenario — the level it was authored for.
+   * Sourced from the matching Scene in data/scenes.ts. Optional because
+   * a small handful of lessons may exist without a Scene mapping.
+   *
+   * RoleplayChat compares this to the user's level to adapt hint
+   * visibility and pacing (loss-aversion / challenge cues).
+   */
+  cefrLevel?: CefrLevel;
   setup: SetupPhrase[];
   scene: {
     description: string;
@@ -82,6 +104,7 @@ export function lessonToScenario(lesson: BundledLesson): Scenario | null {
     title: lesson.title,
     description: lesson.description ?? "",
     estimated_minutes: lesson.estimated_minutes ?? 3,
+    cefrLevel: _lessonLevelMap.get(lesson.id),
     setup,
     scene: {
       description: roleplay.scenario_description,

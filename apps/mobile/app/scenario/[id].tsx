@@ -62,7 +62,9 @@ import { trackEvent } from "../../lib/analytics";
 import { getScenario, computeSceneFluency } from "../../lib/scenario";
 import {
   recordCefrProgress,
+  getCefrLevel,
   type CefrProgressDelta,
+  type CefrLevel,
 } from "../../lib/cefr-level";
 import { ShareCard } from "../../components/ShareCard";
 import { captureRef } from "react-native-view-shot";
@@ -133,15 +135,19 @@ export default function ScenarioScreen() {
   // Empty string = no name set; both RoleplayChat and VerdictView treat ""
   // as "render the un-personalized version" so this is safe to read late.
   const [displayName, setDisplayName] = useState<string>("");
+  // 2026-05-21 — user's current CEFR level, paired with scenario.cefrLevel
+  // (scene anchor) to drive RoleplayChat's stretch/matched/review adaptation.
+  // Null until hydrated or for users who haven't completed onboarding's
+  // level step — RoleplayChat treats null as "matched mode" (no delta).
+  const [userLevel, setUserLevel] = useState<CefrLevel | null>(null);
   // First-time scene overlay — shown once per scenario load, on initial entry
   // to the scene phase. Auto-dismisses after 1200ms or on tap.
   const [showSceneIntro, setShowSceneIntro] = useState(false);
   const sceneIntroShownRef = useRef(false);
 
-  // Hydrate the user's display name once on mount. We don't reload it on
-  // every focus because the scenario is a single linear flow — if the user
-  // edits their name in Profile and comes back, they'll get the new value
-  // on the next scenario open, which is fine for a personalization touch.
+  // Hydrate the user's display name + CEFR level once on mount. Single
+  // effect so the scenario starts with the personalization context it needs;
+  // both reads are best-effort (empty string / null on failure).
   useEffect(() => {
     (async () => {
       try {
@@ -149,6 +155,11 @@ export default function ScenarioScreen() {
         setDisplayName(sanitizeName(raw));
       } catch {
         setDisplayName("");
+      }
+      try {
+        setUserLevel(await getCefrLevel());
+      } catch {
+        setUserLevel(null);
       }
     })();
   }, []);
@@ -461,6 +472,8 @@ export default function ScenarioScreen() {
                 mode={roleplayMode}
                 seed={scenario.id}
                 userName={displayName}
+                sceneLevel={scenario.cefrLevel}
+                userLevel={userLevel ?? undefined}
               />
             </View>
           )}

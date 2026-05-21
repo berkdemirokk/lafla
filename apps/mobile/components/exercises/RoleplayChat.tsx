@@ -90,6 +90,22 @@ interface Props {
    * Lesson data is NOT modified — this is purely visual.
    */
   userName?: string;
+  /**
+   * 2026-05-21 — scene-level CEFR adaptation.
+   * - `sceneLevel`: anchor level of the scenario (from data/scenes.ts)
+   * - `userLevel`: current CEFR level (from lib/cefr-level.ts)
+   *
+   * Delta = userLevelIndex - sceneLevelIndex:
+   *   < 0 → "stretch" mode — scene above user. Always show TR hint, accept
+   *         simpler patterns. UI shows a "+1 zorla" badge above the input.
+   *   = 0 → matched mode — current behavior. Hint shown on demand.
+   *   > 0 → "review" mode — user above scene. Hide TR hint by default;
+   *         user can tap to reveal. UI shows "Kolay tekrar" badge.
+   *
+   * Both optional so legacy callers (no level data) keep working.
+   */
+  sceneLevel?: "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
+  userLevel?: "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
 }
 
 interface ChatMessage {
@@ -231,6 +247,10 @@ function buildChoiceOptions(turn: RoleplayTurn): string[] {
     .map((x) => x.o);
 }
 
+// CEFR level order — index used for delta comparison. Kept inline (vs a
+// shared util) so the component is self-contained for tests.
+const CEFR_ORDER = ["A1", "A2", "B1", "B2", "C1", "C2"] as const;
+
 export function RoleplayChat({
   scenarioDescription,
   npcRole,
@@ -240,7 +260,18 @@ export function RoleplayChat({
   mode = "free",
   seed,
   userName,
+  sceneLevel,
+  userLevel,
 }: Props) {
+  // Delta: positive = user above scene (review mode), negative = below (stretch).
+  // Both levels required for non-neutral adaptation; either missing → 0.
+  const levelDelta = useMemo(() => {
+    if (!sceneLevel || !userLevel) return 0;
+    return CEFR_ORDER.indexOf(userLevel) - CEFR_ORDER.indexOf(sceneLevel);
+  }, [sceneLevel, userLevel]);
+  // Mode classification — keeps render branches readable.
+  const adaptMode: "stretch" | "matched" | "review" =
+    levelDelta < 0 ? "stretch" : levelDelta > 0 ? "review" : "matched";
   // Resolve a stable seed. The caller usually passes the scenario id; if it
   // doesn't, fall back to (role + setting) so the name is still consistent
   // for that pairing (just not unique across scenarios sharing those values).
@@ -520,9 +551,41 @@ export function RoleplayChat({
       {/* Input or finalize */}
       {!finished ? (
         <View style={styles.inputBar}>
-          {mode !== "free" && currentTurn?.hint_tr && (
+          {/* Level adaptation badge — shows when the user's CEFR level
+              differs from the scene's anchor. Single-line, color-coded:
+                stretch → amber "+1 zorla seni" (loss-aversion: this is
+                          above your level, hint always on, take a swing)
+                review  → cyan "kolay tekrar" (this is below your level,
+                          hint hidden by default, build fluency reps)
+              Matched (delta 0) renders nothing — the default UI is
+              already calibrated to user level. */}
+          {adaptMode === "stretch" && (
+            <View style={styles.stretchBadge}>
+              <Text style={styles.stretchBadgeText}>
+                +1 ZORLA · {sceneLevel}{userLevel ? ` (sen ${userLevel})` : ""}
+              </Text>
+            </View>
+          )}
+          {adaptMode === "review" && (
+            <View style={styles.reviewBadge}>
+              <Text style={styles.reviewBadgeText}>
+                KOLAY TEKRAR · {sceneLevel}{userLevel ? ` (sen ${userLevel})` : ""}
+              </Text>
+            </View>
+          )}
+
+          {/* TR hint — visibility depends on mode AND adaptation:
+              - stretch (user below scene): ALWAYS show, regardless of mode
+              - review  (user above scene): NEVER show (user shouldn't lean
+                on it for content below their level)
+              - matched: legacy behavior — only in non-free mode */}
+          {(adaptMode === "stretch"
+            ? currentTurn?.hint_tr
+            : adaptMode === "matched"
+              ? mode !== "free" && currentTurn?.hint_tr
+              : null) && (
             <View style={styles.hintBox}>
-              <Text style={styles.hintText}>💡 {currentTurn.hint_tr}</Text>
+              <Text style={styles.hintText}>💡 {currentTurn?.hint_tr}</Text>
             </View>
           )}
 
@@ -824,6 +887,40 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: tokens.text.primary,
     lineHeight: 18,
+  },
+  // CEFR adaptation badges — sit just above the input bar so the
+  // user reads the level cue before they type. Compact single-line.
+  stretchBadge: {
+    alignSelf: "flex-start",
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.semantic.warningContainer,
+    borderWidth: 1,
+    borderColor: tokens.semantic.warning,
+    marginBottom: 6,
+  },
+  stretchBadgeText: {
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.semantic.warning,
+    letterSpacing: 1,
+  },
+  reviewBadge: {
+    alignSelf: "flex-start",
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
+    marginBottom: 6,
+  },
+  reviewBadgeText: {
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.tertiary,
+    letterSpacing: 1,
   },
   inputRow: {
     flexDirection: "row",
