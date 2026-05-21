@@ -21,10 +21,22 @@ import {
 import { nameForNpc } from "../../lib/npc-names";
 import { recordUserText } from "../../lib/mistake-tracker";
 import { detectMistakes, getPattern } from "../../lib/mistake-patterns";
+import {
+  isAvailable as isSttAvailable,
+  startListening as startStt,
+  stopListening as stopStt,
+} from "../../lib/speech-recognition";
 
 // AsyncStorage key for the per-app TTS mute preference. Survives across
 // scenarios and app restarts so the user doesn't have to re-mute every chat.
 const K_TTS_MUTED = "lafla.tts.muted";
+
+// 2026-05-21 — voice-first roleplay. User defaults to VOICE input (the whole
+// point of Lafla) and can opt into keyboard mode via the toggle in the input
+// bar. Preference persists so the user only chooses once. New users start
+// with voice; the choice survives across scenarios and app restarts.
+const K_INPUT_MODE = "lafla.roleplay.inputMode";
+type InputMode = "voice" | "text";
 
 // NPC reaction prefixes — short ACKs prepended to the next NPC bubble so the
 // scene reacts to the user's score instead of plowing through the script.
@@ -284,6 +296,28 @@ export function RoleplayChat({
   const [input, setInput] = useState("");
   const [turnScores, setTurnScores] = useState<number[]>([]);
   const [finished, setFinished] = useState(false);
+  // 2026-05-21 — voice-first roleplay state.
+  //
+  // inputMode = "voice" (default) → big mic button replaces the text input;
+  // STT transcribes user speech and auto-submits. "text" → legacy keyboard
+  // input with submit button. Preference persists via K_INPUT_MODE.
+  //
+  // recording = true while expo-speech-recognition is active. We track it
+  // explicitly so the UI can show the "listening" affordance and avoid
+  // double-starting.
+  //
+  // interimText = the partial transcript streamed back from STT during a
+  // listening window. Shown as a small ghost-text under the mic so the user
+  // sees their words being heard in real time.
+  //
+  // sttAvailable = result of the lib's runtime probe (Expo Go / simulator
+  // returns false). If false we silently fall back to text mode regardless
+  // of stored preference, since voice would be a dead button.
+  const [inputMode, setInputMode] = useState<InputMode>("voice");
+  const [recording, setRecording] = useState(false);
+  const [interimText, setInterimText] = useState("");
+  const [sttAvailable, setSttAvailable] = useState(false);
+  const sttAbortRef = useRef<AbortController | null>(null);
   // TTS mute toggle. Persisted to AsyncStorage so it carries across scenarios
   // and app restarts. We default to false (audio on) because hearing native
   // pronunciation is core to the product — users have to opt OUT, not in.
@@ -310,6 +344,55 @@ export function RoleplayChat({
       cancelled = true;
     };
   }, []);
+
+  // Hydrate voice input preference + STT availability probe. The order
+  // matters: probe availability first, then read stored mode. If STT is
+  // unavailable (simulator, Expo Go, denied perm) we force text mode
+  // regardless of stored preference so the user isn't stuck staring at a
+  // dead mic button.
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const avail = await isSttAvailable().catch(() => false);
+      if (cancelled) return;
+      setSttAvailable(avail);
+      if (!avail) {
+        setInputMode("text");
+        return;
+      }
+      try {
+        const raw = await AsyncStorage.getItem(K_INPUT_MODE);
+        if (cancelled) return;
+        if (raw === "text") setInputMode("text");
+        // any other value (incl null/voice) → keep default "voice"
+      } catch {
+        // best effort — default stays as set
+      }
+    })();
+    return () => {
+      cancelled = true;
+      // Tear down any in-flight STT session when the component unmounts.
+      sttAbortRef.current?.abort();
+      sttAbortRef.current = null;
+    };
+  }, []);
+
+  // Toggle between voice and text input. Persisted so each user only picks
+  // once. When switching AWAY from voice while recording, stop the listener.
+  const toggleInputMode = () => {
+    setInputMode((prev) => {
+      const next: InputMode = prev === "voice" ? "text" : "voice";
+      AsyncStorage.setItem(K_INPUT_MODE, next).catch(() => {});
+      if (prev === "voice" && recording) {
+        sttAbortRef.current?.abort();
+        sttAbortRef.current = null;
+        void stopStt().catch(() => {});
+        setRecording(false);
+        setInterimText("");
+      }
+      return next;
+    });
+  };
 
   const toggleMute = () => {
     setMuted((prev) => {
@@ -405,6 +488,85 @@ export function RoleplayChat({
       turnScores.reduce((a, b) => a + b, 0) / turnScores.length,
     );
   }, [turnScores]);
+
+  // Voice capture handlers. Owns the lifecycle of one listening window.
+  // - startVoiceCapture: requests mic, starts STT, streams interim transcripts
+  //   into interimText, on final result writes to `input` and auto-submits.
+  // - stopVoiceCapture: user cancellation (e.g. tapped mic again to stop).
+  //   The transcript-so-far is still committed if non-empty (more forgiving
+  //   than throwing the user's words away if they stop early).
+  const startVoiceCapture = () => {
+    if (!awaitingUserInput || recording) return;
+    setInterimText("");
+    setRecording(true);
+    const controller = new AbortController();
+    sttAbortRef.current = controller;
+
+    let finalText = "";
+    void startStt({
+      lang: "en-US",
+      timeoutMs: 8000,
+      signal: controller.signal,
+      onResult: (text, isFinal) => {
+        // Interim and final updates use the same path. We display interim
+        // text live; on isFinal we commit and auto-submit so the user
+        // doesn't have to tap an extra button.
+        setInterimText(text);
+        if (isFinal && text.trim()) {
+          finalText = text.trim();
+        }
+      },
+      onError: () => {
+        // Permission denied / not-available / mic error — fall back to text
+        // mode for THIS turn (preference stays voice unless user explicitly
+        // toggles). We avoid surfacing the raw error string; the empty
+        // interim + recording=false visually conveys "didn't catch that."
+        setRecording(false);
+        setInterimText("");
+        sttAbortRef.current = null;
+      },
+    }).catch(() => {
+      setRecording(false);
+      setInterimText("");
+      sttAbortRef.current = null;
+    });
+
+    // When the listening window closes (timeout or `end` event from the lib),
+    // sttAbortRef stays set but recording flips false. Poll for finality via
+    // a one-shot timeout that matches the lib's timeoutMs + a small buffer.
+    const closeTimer = setTimeout(() => {
+      if (!recording) return;
+      void stopStt().catch(() => {});
+      setRecording(false);
+      const text = finalText || interimText;
+      if (text.trim()) {
+        setInput(text.trim());
+        // Submit on next tick so React commits the input update first.
+        setTimeout(() => submitUserTurn(), 50);
+      }
+      setInterimText("");
+      sttAbortRef.current = null;
+    }, 8500);
+
+    // Clean up the close timer if the user aborts manually.
+    controller.signal.addEventListener("abort", () => clearTimeout(closeTimer), {
+      once: true,
+    });
+  };
+
+  const stopVoiceCapture = () => {
+    if (!recording) return;
+    const captured = interimText;
+    sttAbortRef.current?.abort();
+    sttAbortRef.current = null;
+    void stopStt().catch(() => {});
+    setRecording(false);
+    setInterimText("");
+    if (captured.trim()) {
+      setInput(captured.trim());
+      setTimeout(() => submitUserTurn(), 50);
+    }
+  };
 
   const submitUserTurn = () => {
     if (!awaitingUserInput || !input.trim() || !currentTurn) return;
@@ -637,36 +799,95 @@ export function RoleplayChat({
                 </Pressable>
               ))}
             </View>
-          ) : (
-            <View style={styles.inputRow}>
-              <TextInput
-                style={styles.input}
-                value={input}
-                onChangeText={setInput}
-                placeholder="İngilizce cevap yaz..."
-                placeholderTextColor={tokens.text.tertiary}
-                editable={awaitingUserInput}
-                multiline
-                autoCapitalize="sentences"
-                returnKeyType="send"
-                blurOnSubmit={false}
-                onSubmitEditing={submitUserTurn}
-              />
+          ) : inputMode === "voice" && sttAvailable ? (
+            // 2026-05-21 — voice-first roleplay (the omurga of Lafla).
+            // Big tap-target mic button replaces the keyboard. STT streams
+            // interim text below; final transcript auto-submits.
+            <View style={styles.voiceBar}>
               <Pressable
                 style={[
-                  styles.sendBtn,
-                  (!input.trim() || !awaitingUserInput) &&
-                    styles.sendBtnDisabled,
+                  styles.micBtn,
+                  recording && styles.micBtnRecording,
+                  !awaitingUserInput && styles.micBtnDisabled,
                 ]}
-                onPress={submitUserTurn}
-                disabled={!input.trim() || !awaitingUserInput}
+                onPress={recording ? stopVoiceCapture : startVoiceCapture}
+                disabled={!awaitingUserInput}
                 accessibilityRole="button"
-                accessibilityLabel="Gönder"
+                accessibilityLabel={
+                  recording ? "Konuşmayı bitir" : "Konuşmaya başla"
+                }
               >
-                {/* Right-pointing triangle drawn from borders — crisper than
-                    a unicode glyph and adapts to any font. */}
-                <View style={styles.sendIcon} />
+                <Text style={styles.micEmoji}>
+                  {recording ? "🔴" : "🎙️"}
+                </Text>
+                <Text style={styles.micLabel}>
+                  {recording ? "Dinliyor..." : "Konuşmak için bas"}
+                </Text>
               </Pressable>
+              {recording && interimText ? (
+                <View style={styles.interimBox}>
+                  <Text style={styles.interimText} numberOfLines={3}>
+                    {interimText}
+                  </Text>
+                </View>
+              ) : null}
+              <Pressable
+                onPress={toggleInputMode}
+                style={styles.inputModeToggle}
+                hitSlop={10}
+                accessibilityRole="button"
+                accessibilityLabel="Yazarak gönder"
+              >
+                <Text style={styles.inputModeToggleText}>
+                  ⌨️ Yazarak gönder
+                </Text>
+              </Pressable>
+            </View>
+          ) : (
+            <View>
+              <View style={styles.inputRow}>
+                <TextInput
+                  style={styles.input}
+                  value={input}
+                  onChangeText={setInput}
+                  placeholder="İngilizce cevap yaz..."
+                  placeholderTextColor={tokens.text.tertiary}
+                  editable={awaitingUserInput}
+                  multiline
+                  autoCapitalize="sentences"
+                  returnKeyType="send"
+                  blurOnSubmit={false}
+                  onSubmitEditing={submitUserTurn}
+                />
+                <Pressable
+                  style={[
+                    styles.sendBtn,
+                    (!input.trim() || !awaitingUserInput) &&
+                      styles.sendBtnDisabled,
+                  ]}
+                  onPress={submitUserTurn}
+                  disabled={!input.trim() || !awaitingUserInput}
+                  accessibilityRole="button"
+                  accessibilityLabel="Gönder"
+                >
+                  {/* Right-pointing triangle drawn from borders — crisper than
+                      a unicode glyph and adapts to any font. */}
+                  <View style={styles.sendIcon} />
+                </Pressable>
+              </View>
+              {sttAvailable && (
+                <Pressable
+                  onPress={toggleInputMode}
+                  style={styles.inputModeToggle}
+                  hitSlop={10}
+                  accessibilityRole="button"
+                  accessibilityLabel="Sesli konuşmaya geç"
+                >
+                  <Text style={styles.inputModeToggleText}>
+                    🎙️ Sesli konuşmaya geç
+                  </Text>
+                </Pressable>
+              )}
             </View>
           )}
 
@@ -961,6 +1182,78 @@ const styles = StyleSheet.create({
     borderLeftColor: tokens.text.onPrimary,
     // Nudge to optical center — pure right-triangle looks slightly left-heavy.
     marginLeft: 3,
+  },
+  // 2026-05-21 — voice input UI. Big tap target replaces the keyboard +
+  // send-button pair. Recording state flips colors so the user has clear
+  // visual feedback that the mic is hot.
+  voiceBar: {
+    alignItems: "center",
+    paddingVertical: 8,
+    gap: 12,
+  },
+  micBtn: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 12,
+    paddingVertical: 18,
+    paddingHorizontal: 32,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.primary,
+    minWidth: 240,
+    shadowColor: tokens.brand.primary,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.5,
+    shadowRadius: 16,
+    elevation: 6,
+  },
+  micBtnRecording: {
+    backgroundColor: tokens.semantic.error,
+    shadowColor: tokens.semantic.error,
+    shadowOpacity: 0.6,
+  },
+  micBtnDisabled: {
+    opacity: 0.4,
+  },
+  micEmoji: {
+    fontSize: 22,
+  },
+  micLabel: {
+    fontSize: 16,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.onPrimary,
+    letterSpacing: 0.4,
+  },
+  // Interim transcript ghost — shows what STT is hearing in real time so
+  // the user can see if it picked them up before final commit.
+  interimBox: {
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.border.light,
+    maxWidth: "90%",
+  },
+  interimText: {
+    fontSize: 14,
+    color: tokens.text.secondary,
+    fontStyle: "italic",
+    textAlign: "center",
+  },
+  // Small pill below the input row to swap voice ↔ text. Low visual
+  // weight so it doesn't compete with the primary action.
+  inputModeToggle: {
+    alignSelf: "center",
+    paddingHorizontal: 14,
+    paddingVertical: 6,
+    marginTop: 4,
+  },
+  inputModeToggleText: {
+    fontSize: 12,
+    fontWeight: tokens.weight.semibold,
+    color: tokens.text.tertiary,
+    letterSpacing: 0.3,
   },
   finishBar: {
     paddingTop: 12,
