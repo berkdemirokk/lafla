@@ -47,6 +47,9 @@ import { careerFoundationsB1Lessons } from "./career-foundations-b1-lesson";
 import { careerAdvancedB2Lessons } from "./career-advanced-b2-lesson";
 import { professionalB1Lessons } from "./professional-b1-lesson";
 import { professionalC1Lessons } from "./professional-c1-lesson";
+// 2026-05-21 — Tech English niche (Türk yazılımcı): work.tech sub-skill
+// PR review, on-call, sprint, interview, salary negotiation tech-specific.
+import { techEnglishLessons } from "./tech-english-lesson";
 
 // === bar (drink ordering + approach merged) ===
 import { barLessons } from "./bar-lesson";
@@ -71,6 +74,15 @@ import { ieltsLessons } from "./ielts-lesson";
 // Examiner walkthrough format — user paragraph anahtar cümlelerini yazar/söyler
 // roleplay_chat ile. Band 7+ collocations (notable increase, albeit, false dichotomy)
 import { ieltsWritingLessons } from "./ielts-writing-lesson";
+
+// === Massive content expansion (2026-05-21) — 1-month retention ===
+// 5 paralel agent çıktıları + tech English. Toplam +265 sahne.
+import { barDeepLessons } from "./bar-deep-lesson";
+import { airportDeepLessons } from "./airport-deep-lesson";
+import { storyArcLessons } from "./story-arc-lesson";
+import { dailyExpansionLessons } from "./daily-expansion-lesson";
+import { flirtDeepLessons } from "./flirt-deep-lesson";
+import { workExpansionLessons } from "./work-expansion-lesson";
 
 // === günlük (daily + personal + cefr survival/daily birleşti — 18 lesson set) ===
 import { dailyDirectionsLessons } from "./daily-directions-lesson";
@@ -135,6 +147,7 @@ export const allLessons: ReadonlyArray<BundledLesson> = [
   ...careerAdvancedB2Lessons,
   ...professionalB1Lessons,
   ...professionalC1Lessons,
+  ...techEnglishLessons,
   // bar
   ...barLessons,
   ...barApproachLessons,
@@ -145,6 +158,13 @@ export const allLessons: ReadonlyArray<BundledLesson> = [
   // ielts (7. mod) — Speaking + Writing depth
   ...ieltsLessons,
   ...ieltsWritingLessons,
+  // Massive content expansion 2026-05-21 (+250 sahne)
+  ...barDeepLessons,           // +30
+  ...airportDeepLessons,       // +30
+  ...storyArcLessons,          // +40 (Berlin/NYC/IELTS arcs)
+  ...dailyExpansionLessons,    // +50
+  ...flirtDeepLessons,         // +50
+  ...workExpansionLessons,     // +50
   // günlük
   ...dailyDirectionsLessons,
   ...dailyTransportLessons,
