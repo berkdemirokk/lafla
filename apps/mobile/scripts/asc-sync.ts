@@ -552,42 +552,62 @@ async function syncReviewDetail(
   versionId: string,
   dryRun: boolean,
 ): Promise<void> {
+  // `||` (not `??`) — GitHub Actions empty-secret = "" değil undefined değil,
+  // empty string'in default'a düşmesini sağla
   const demoEmail =
-    process.env.DEMO_ACCOUNT_EMAIL ?? "apple_reviewer_2026_05@lafla.app";
+    process.env.DEMO_ACCOUNT_EMAIL || "apple_reviewer_2026_05@lafla.app";
   const demoPassword = process.env.DEMO_ACCOUNT_PASSWORD;
-  const contactFirst = process.env.CONTACT_FIRST_NAME ?? "Berk";
-  const contactLast = process.env.CONTACT_LAST_NAME ?? "Demirok";
-  const contactEmail = process.env.CONTACT_EMAIL ?? "hello@lafla.app";
+  const contactFirst = process.env.CONTACT_FIRST_NAME || "Berk";
+  const contactLast = process.env.CONTACT_LAST_NAME || "Demirok";
+  const contactEmail = process.env.CONTACT_EMAIL || "hello@lafla.app";
   const contactPhone = process.env.CONTACT_PHONE;
 
-  const attrs: ReviewDetailAttrs = {
-    contactFirstName: contactFirst,
-    contactLastName: contactLast,
-    contactEmail,
-    demoAccountName: demoEmail,
-    demoAccountRequired: true,
-    notes: REVIEW_NOTES,
-  };
+  console.log(`\n[review-detail] Sync App Store Review Information`);
 
+  // Apple zorunlu fields (CREATE için):
+  // contactFirstName, contactLastName, contactPhone, contactEmail
+  // Eğer phone yoksa CREATE fail eder — gracefully skip et, sen ASC web UI'da gir.
+  const existingId = await getReviewDetailId(token, versionId);
+
+  if (!existingId && !contactPhone) {
+    console.log(
+      "  ⏭️  CREATE skipped — CONTACT_PHONE env yok ve Apple CREATE için phone zorunlu.",
+    );
+    console.log(
+      "      Çözüm: ASC web UI → Version 1.0 → App Review Information → manuel doldur.",
+    );
+    console.log(
+      "      VEYA: GitHub secret CONTACT_PHONE ekle (örn '+90 555 123 4567'), workflow tekrar çalıştır.",
+    );
+    return;
+  }
+
+  // PATCH path — sadece set olan field'ları gönder
+  const attrs: ReviewDetailAttrs = {};
+  attrs.contactFirstName = contactFirst;
+  attrs.contactLastName = contactLast;
+  attrs.contactEmail = contactEmail;
+  attrs.demoAccountName = demoEmail;
+  attrs.demoAccountRequired = true;
+  attrs.notes = REVIEW_NOTES;
   if (contactPhone) attrs.contactPhone = contactPhone;
   if (demoPassword) attrs.demoAccountPassword = demoPassword;
 
-  console.log(`\n[review-detail] Sync App Store Review Information`);
   if (!demoPassword) {
     console.log(
-      "  ⚠️  DEMO_ACCOUNT_PASSWORD env yok — demoAccountPassword skipped (sen ASC web UI'da elden gir)",
+      "  ⚠️  DEMO_ACCOUNT_PASSWORD env yok — demoAccountPassword skipped",
     );
   }
   if (!contactPhone) {
     console.log(
-      "  ⚠️  CONTACT_PHONE env yok — contactPhone skipped (sen ASC web UI'da elden gir)",
+      "  ⚠️  CONTACT_PHONE env yok — contactPhone skipped (Apple required field, sen ASC web UI'da elden gir)",
     );
   }
 
-  const existingId = await getReviewDetailId(token, versionId);
   if (existingId) {
     await patchReviewDetail(token, existingId, attrs, dryRun);
   } else {
+    // Bu noktada contactPhone garantili (yukarıda check var)
     await createReviewDetail(token, versionId, attrs, dryRun);
   }
 }
