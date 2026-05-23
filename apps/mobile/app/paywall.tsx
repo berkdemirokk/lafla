@@ -111,6 +111,10 @@ export default function PaywallScreen() {
   // 2026-05-21 — free quota gate. Sahne limiti dolduğunda paywall'a
   // yönlendirildiyse hero copy farklı (loss-aversion vs upsell).
   const isFromQuota = from === "quota";
+  // 2026-05-21 — premium feature gate: IELTS band tahmini veya verdict
+  // detaylı analiz isteyince. Bu route'larda value-specific hero copy.
+  const isFromIeltsBand = from === "ielts-band";
+  const isFromVerdict = from === "verdict-feedback";
   const handleClose = () => {
     hapticImpact("light");
     if (isFromIntro) {
@@ -337,7 +341,23 @@ export default function PaywallScreen() {
             quota: günlük free sahne dolduktan sonra loss-aversion mesaj
             default: cold paywall */}
         <Animated.View style={[styles.hero, heroStyle]}>
-          {isFromQuota ? (
+          {isFromIeltsBand ? (
+            <>
+              <Text style={styles.title}>IELTS Band Tahmini{"\n"}sadece ₺99/ay.</Text>
+              <Text style={styles.subtitle}>
+                Mock test merkezi ₺500. Speak+ aboneliği aylık ₺99 — sınırsız
+                tahmin + detaylı analiz + sınırsız sahne.
+              </Text>
+            </>
+          ) : isFromVerdict ? (
+            <>
+              <Text style={styles.title}>Hangi cümlede{"\n"}ne yanlıştı?</Text>
+              <Text style={styles.subtitle}>
+                Speak+ sahneni cümle cümle ayrıştırır: senin Türk hatalarına
+                özel "yanlış → doğru" rehberi.
+              </Text>
+            </>
+          ) : isFromQuota ? (
             <>
               <Text style={styles.title}>Bugün için 3 sahne bitti.</Text>
               <Text style={styles.subtitle}>

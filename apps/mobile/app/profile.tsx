@@ -394,6 +394,12 @@ export default function ProfileScreen() {
         <Text style={styles.sectionLabel}>İLERLEME</Text>
         <View style={styles.accountCard}>
           <AccountRow
+            icon="🎯"
+            label="IELTS Band Tahminim · Speak+"
+            onPress={() => router.push("/ielts-band" as never)}
+          />
+          <View style={styles.rowDivider} />
+          <AccountRow
             icon="📜"
             label="Geçmiş sahneler"
             onPress={() => router.push("/history" as never)}

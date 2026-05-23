@@ -1057,6 +1057,54 @@ function VerdictView({
   // captureRef + expo-sharing zincirine alınır.
   const shareCardRef = useRef<View>(null);
   const [sharing, setSharing] = useState(false);
+  const router = useRouter();
+
+  // 2026-05-21 — Premium gate: deep feedback. Free kullanıcı locked
+  // preview görür, premium gerçek hata listesi + alternatif öner.
+  const [premium, setPremium] = useState<boolean | null>(null);
+  const [topMistakes, setTopMistakes] = useState<
+    Array<{ matched: string; reason_tr: string; correct_example: string }>
+  >([]);
+  useEffect(() => {
+    (async () => {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const iap = require("../../lib/iap") as {
+        isPremium: () => Promise<boolean>;
+      };
+      const isP = await iap.isPremium().catch(() => false);
+      setPremium(isP);
+      if (isP) {
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
+        const tracker = require("../../lib/mistake-tracker") as {
+          getTopMistakes: (n: number) => Promise<Array<{
+            patternId: string;
+            count: number;
+          }>>;
+        };
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
+        const patterns = require("../../lib/mistake-patterns") as {
+          getPattern: (id: string) => {
+            reason_tr: string;
+            example_right: string;
+            example_wrong?: string;
+          } | undefined;
+        };
+        const top = await tracker.getTopMistakes(3).catch(() => []);
+        const enriched = top
+          .map((m) => {
+            const pat = patterns.getPattern(m.patternId);
+            if (!pat) return null;
+            return {
+              matched: pat.example_wrong ?? m.patternId,
+              reason_tr: pat.reason_tr,
+              correct_example: pat.example_right,
+            };
+          })
+          .filter((x): x is NonNullable<typeof x> => !!x);
+        setTopMistakes(enriched);
+      }
+    })();
+  }, []);
   // 2026-05-21 — Daily Plan auto-advance countdown.
   // planNextLabel varsa kullanıcı 3-2-1 sayar ve otomatik bir sonraki
   // sahneye geçer. "Şimdi git" butonuyla atlanabilir; "Mola al" pause eder.
@@ -1227,6 +1275,45 @@ function VerdictView({
 
       {sceneResult.feedback && (
         <Text style={verdictStyles.feedback}>{sceneResult.feedback}</Text>
+      )}
+
+      {/* 2026-05-21 — Premium deep feedback. Free user'da locked preview,
+          premium user'da gerçek hata analizi + alternatif. */}
+      {premium === false && (
+        <Pressable
+          onPress={() =>
+            router.push("/paywall?from=verdict-feedback" as never)
+          }
+          style={({ pressed }) => [
+            verdictStyles.feedbackLocked,
+            pressed && { opacity: 0.85 },
+          ]}
+          accessibilityRole="button"
+          accessibilityLabel="Speak+ ile detaylı analiz"
+        >
+          <Text style={verdictStyles.feedbackLockedLabel}>
+            🔒 SPEAK+ — DETAYLI ANALİZ
+          </Text>
+          <Text style={verdictStyles.feedbackLockedText}>
+            Hangi cümlede ne yanlıştı, doğrusu neydi — premium'da göreceksin.
+          </Text>
+        </Pressable>
+      )}
+      {premium === true && topMistakes.length > 0 && (
+        <View style={verdictStyles.feedbackPremium}>
+          <Text style={verdictStyles.feedbackPremiumLabel}>
+            🔍 EN ÇOK TEKRARLAYAN HATAN
+          </Text>
+          {topMistakes.map((m, i) => (
+            <View key={i} style={verdictStyles.mistakeRow}>
+              <Text style={verdictStyles.mistakeReason}>{m.reason_tr}</Text>
+              <View style={verdictStyles.mistakeFix}>
+                <Text style={verdictStyles.mistakeWrong}>✗ {m.matched}</Text>
+                <Text style={verdictStyles.mistakeRight}>✓ {m.correct_example}</Text>
+              </View>
+            </View>
+          ))}
+        </View>
       )}
 
       <View style={verdictStyles.footer}>
@@ -1880,6 +1967,63 @@ const verdictStyles = StyleSheet.create({
     paddingHorizontal: 16,
     lineHeight: 20,
     marginBottom: tokens.spacing.md,
+  },
+  // 2026-05-21 — Premium deep feedback gate
+  feedbackLocked: {
+    width: "100%",
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1.5,
+    borderColor: tokens.brand.primary,
+    marginBottom: tokens.spacing.md,
+    gap: 4,
+  },
+  feedbackLockedLabel: {
+    fontSize: 11,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.primary,
+    letterSpacing: 1.4,
+  },
+  feedbackLockedText: {
+    fontSize: 13,
+    color: tokens.text.primary,
+    lineHeight: 18,
+  },
+  feedbackPremium: {
+    width: "100%",
+    padding: 14,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderLeftWidth: 3,
+    borderLeftColor: tokens.brand.tertiary,
+    marginBottom: tokens.spacing.md,
+    gap: 12,
+  },
+  feedbackPremiumLabel: {
+    fontSize: 11,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.tertiary,
+    letterSpacing: 1.4,
+  },
+  mistakeRow: { gap: 4 },
+  mistakeReason: {
+    fontSize: 13,
+    fontWeight: tokens.weight.semibold,
+    color: tokens.text.primary,
+    lineHeight: 18,
+  },
+  mistakeFix: { gap: 2, paddingLeft: 8 },
+  mistakeWrong: {
+    fontSize: 12,
+    color: tokens.semantic.error,
+    fontStyle: "italic",
+  },
+  mistakeRight: {
+    fontSize: 12,
+    color: tokens.brand.tertiary,
+    fontWeight: tokens.weight.bold,
   },
   footer: {
     width: "100%",
