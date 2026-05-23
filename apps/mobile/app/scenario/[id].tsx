@@ -1318,6 +1318,9 @@ function VerdictView({
       <Text style={verdictStyles.msg}>{verdictMsg}</Text>
 
       <Animated.View style={[verdictStyles.scoreCard, pulseStyle]}>
+        {/* 2026-05-23 premium: inner highlight, "iOS button bevel" tactile
+            depth. Verdict en kritik psikolojik moment — premium feedback. */}
+        <View style={verdictStyles.scoreCardHighlight} pointerEvents="none" />
         <Text style={verdictStyles.scoreLabel}>Akıcılık</Text>
         <Text style={verdictStyles.scoreNum}>{displayedScore}</Text>
         <Text style={verdictStyles.scoreOf}>/ 100</Text>
@@ -1980,10 +1983,33 @@ const verdictStyles = StyleSheet.create({
     alignItems: "baseline",
     backgroundColor: tokens.brand.secondary,
     paddingHorizontal: 36,
-    paddingVertical: 24,
-    borderRadius: tokens.radius.base,
+    paddingVertical: 28,
+    borderRadius: tokens.radius.lg,
     marginBottom: tokens.spacing.md,
     gap: 4,
+    // 2026-05-23 premium pass: floating drop shadow + hairline border.
+    // "Skor kartı havada lebeliyor" hissi — verdict en kritik psikolojik
+    // moment, premium tactile feedback gerek.
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.06)",
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.45,
+    shadowRadius: 18,
+    elevation: 10,
+    position: "relative",
+    overflow: "hidden",
+  },
+  // Inner highlight — Apple iOS button bevel feel. 1px üst beyaz hat.
+  scoreCardHighlight: {
+    position: "absolute",
+    top: 0,
+    left: 1,
+    right: 1,
+    height: 1,
+    backgroundColor: "rgba(255, 255, 255, 0.10)",
+    borderTopLeftRadius: tokens.radius.lg,
+    borderTopRightRadius: tokens.radius.lg,
   },
   scoreLabel: {
     color: tokens.text.secondaryFixedDim,

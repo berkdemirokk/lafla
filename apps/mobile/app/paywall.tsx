@@ -532,6 +532,9 @@ export default function PaywallScreen() {
 
         {/* SPEAK+ CARD — content changes with toggle. */}
         <Animated.View style={[styles.planCard, cardStyle]}>
+          {/* Premium inner highlight — 1px üst beyaz hat, iOS button bevel.
+              Pembe halo arkasında "ışık alıyor" izlenimi. */}
+          <View style={styles.planCardHighlight} pointerEvents="none" />
           <View style={styles.planGlow} pointerEvents="none" />
 
           <View style={styles.planHeader}>
@@ -782,26 +785,43 @@ const styles = StyleSheet.create({
     backgroundColor: tokens.bg.surfaceContainerHigh,
     borderRadius: tokens.radius.lg,
     padding: 22,
-    borderWidth: 2,
+    borderWidth: 1.5,
     borderColor: tokens.brand.primary,
     position: "relative",
     overflow: "hidden",
     marginBottom: tokens.spacing.md,
-    // Subtle pink glow shadow on iOS; Android picks up elevation below.
+    // 2026-05-23 premium pass:
+    // - borderWidth 2 → 1.5 (Apple HIG hairline)
+    // - shadowOpacity 0.35 → 0.30 (more focused)
+    // - shadowRadius 20 → 24 (softer, broader spread)
+    // - shadowOffset 0,8 → 0,6 (less dramatic drop, more "floating")
     shadowColor: tokens.brand.primary,
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.35,
-    shadowRadius: 20,
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.30,
+    shadowRadius: 24,
     elevation: 8,
+  },
+  // Inner highlight — Apple buton bevel feel, üst kenarda 1px ışık
+  // yansıması. Premium tactile depth (Linear / Notion seviyesi).
+  planCardHighlight: {
+    position: "absolute",
+    top: 0,
+    left: 1,
+    right: 1,
+    height: 1,
+    backgroundColor: "rgba(255, 255, 255, 0.18)",
+    borderTopLeftRadius: tokens.radius.lg,
+    borderTopRightRadius: tokens.radius.lg,
   },
   planGlow: {
     position: "absolute",
-    top: -60,
-    right: -40,
-    width: 200,
-    height: 200,
-    borderRadius: 100,
+    top: -80,
+    right: -50,
+    width: 240,
+    height: 240,
+    borderRadius: 120,
     backgroundColor: tokens.brand.primarySoft,
+    opacity: 0.65,
   },
   planHeader: {
     flexDirection: "row",

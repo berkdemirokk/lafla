@@ -474,7 +474,14 @@ export function RoleplayChat({
       // The bubble still renders; only the audio is suppressed.
       if (!muted) {
         const last = newShown[newShown.length - 1]!.message;
-        const t = setTimeout(() => speak(last), 600);
+        // 2026-05-23 — Audio audit fix: npcRole + setting'i speak()'e geçir.
+        // Önceki versiyon sadece text geçiyordu — tts.ts'in pickVoiceId
+        // fallback'i her NPC için vc_default kullanıyordu. Şimdi bundled
+        // voice (vc_match / vc_friend / etc) doğru NPC için seçilir.
+        const t = setTimeout(
+          () => speak(last, { npcRole, setting }),
+          600,
+        );
         return () => clearTimeout(t);
       }
     }
@@ -729,7 +736,7 @@ export function RoleplayChat({
         </View>
 
         {shown.map((msg, i) => (
-          <ChatBubble key={i} message={msg} />
+          <ChatBubble key={i} message={msg} npcRole={npcRole} setting={setting} />
         ))}
 
         {finished && (
@@ -969,7 +976,15 @@ export function RoleplayChat({
   );
 }
 
-function ChatBubble({ message }: { message: ChatMessage }) {
+function ChatBubble({
+  message,
+  npcRole,
+  setting,
+}: {
+  message: ChatMessage;
+  npcRole?: string;
+  setting?: string;
+}) {
   const isUser = message.speaker === "user";
 
   return (
@@ -980,7 +995,15 @@ function ChatBubble({ message }: { message: ChatMessage }) {
       ]}
     >
       <Pressable
-        onPress={() => speak(message.message)}
+        // 2026-05-23 — Audio audit fix: NPC bubble'ında speaker icon tap'lendiğinde
+        // doğru voice route'lensin (vc_match, vc_friend, vc_doctor). User
+        // bubble'ında default English voice yeterli.
+        onPress={() =>
+          speak(
+            message.message,
+            isUser ? undefined : { npcRole, setting },
+          )
+        }
         style={[
           bubbleStyles.bubble,
           isUser ? bubbleStyles.bubbleUser : bubbleStyles.bubbleNpc,
