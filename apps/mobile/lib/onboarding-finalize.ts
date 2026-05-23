@@ -28,6 +28,7 @@ import {
   setOnboarded,
   setOnboardingStep,
 } from "./onboarding-state";
+import { addBreadcrumb, captureException } from "./sentry";
 
 const K_DISPLAY_NAME = "lafla.displayName";
 
@@ -40,29 +41,51 @@ export interface FinalizeOpts {
 }
 
 export async function finalizeOnboarding(opts: FinalizeOpts): Promise<void> {
-  await setCefrLevel(opts.level);
-  await setInterests(opts.interests).catch(() => {});
-  await AsyncStorage.removeItem("lafla.track").catch(() => {});
+  // 2026-05-23 — Sentry breadcrumb: onboarding finalize çalışıyor. Mid-finalize
+  // crash'leri (Supabase timeout, ATT prompt crash) buradan track edebilelim.
+  addBreadcrumb({
+    category: "onboarding",
+    message: "finalize_start",
+    data: { source: opts.source, level: opts.level },
+  });
 
-  const trimmed = opts.displayName.trim();
-  if (trimmed.length > 0) {
-    await AsyncStorage.setItem(K_DISPLAY_NAME, trimmed).catch(() => {});
+  try {
+    await setCefrLevel(opts.level);
+    await setInterests(opts.interests).catch(() => {});
+    await AsyncStorage.removeItem("lafla.track").catch(() => {});
+
+    const trimmed = opts.displayName.trim();
+    if (trimmed.length > 0) {
+      await AsyncStorage.setItem(K_DISPLAY_NAME, trimmed).catch(() => {});
+    }
+
+    await setOnboarded(true);
+    await setOnboardingStep(null);
+    await completeOnboarding(opts.interests).catch(() => {});
+
+    // ATT — value seen (Apple HIG önerisi). Granted ise analytics re-init.
+    const attStatus = await requestAttOnce().catch(() => null);
+    if (attStatus === "granted") {
+      await initAnalytics().catch(() => {});
+    }
+
+    addBreadcrumb({
+      category: "onboarding",
+      message: "finalize_complete",
+      data: { source: opts.source, att: attStatus ?? "unknown" },
+    });
+
+    void trackEvent("onboarding_completed", {
+      level: opts.level,
+      interests: opts.interests,
+      had_name: trimmed.length > 0,
+      source: opts.source,
+    }).catch(() => {});
+  } catch (err) {
+    // Onboarding finalize partial failure'da kullanıcı stuck olabilir —
+    // Sentry'ye throw'u yansıt, sonra re-throw et ki caller "tekrar dene"
+    // UI'ı gösterebilsin.
+    captureException(err, { source: "finalizeOnboarding", opts });
+    throw err;
   }
-
-  await setOnboarded(true);
-  await setOnboardingStep(null);
-  await completeOnboarding(opts.interests).catch(() => {});
-
-  // ATT — value seen (Apple HIG önerisi). Granted ise analytics re-init.
-  const attStatus = await requestAttOnce().catch(() => null);
-  if (attStatus === "granted") {
-    await initAnalytics().catch(() => {});
-  }
-
-  void trackEvent("onboarding_completed", {
-    level: opts.level,
-    interests: opts.interests,
-    had_name: trimmed.length > 0,
-    source: opts.source,
-  }).catch(() => {});
 }

@@ -57,6 +57,7 @@ import { StatusBar } from "expo-status-bar";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { trackEvent } from "../lib/analytics";
+import { addBreadcrumb } from "../lib/sentry";
 import {
   hapticImpact,
   hapticSuccess,
@@ -284,6 +285,13 @@ export default function PaywallScreen() {
     hapticImpact("medium");
     setLoading(true);
     void trackEvent("purchase_initiated", { plan: selected }).catch(() => {});
+    // Sentry breadcrumb: ödeme akışı başladı. Apple Sandbox / Sandbox tester
+    // ile reproduce edemediğimiz prod purchase fail'leri için zincir bırak.
+    addBreadcrumb({
+      category: "iap",
+      message: "purchase_initiated",
+      data: { plan: selected, fromIntro: isFromIntro },
+    });
     try {
       const result = await purchasePackage(selected);
       if (result.ok) {

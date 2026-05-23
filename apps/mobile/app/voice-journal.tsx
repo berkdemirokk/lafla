@@ -36,6 +36,7 @@ import { tokens } from "../theme";
 import { Button } from "../components/Button";
 import { hapticImpact, hapticSuccess, hapticError } from "../lib/feedback";
 import { trackEvent } from "../lib/analytics";
+import { captureException } from "../lib/sentry";
 import {
   preparePath,
   saveEntry,
@@ -183,6 +184,11 @@ export default function VoiceJournalScreen() {
         // eslint-disable-next-line no-console
         console.warn("[voice-journal] startRecording failed:", err);
       }
+      // Prod observability: mic init failures sessizce kullanıcıya "yine olmuyor"
+      // diye düşündürüyordu. Sentry'ye düşür ki AudioSession config drift'ini
+      // (background music çalarken kayıt başlatma vs.) tanıyabilelim.
+      captureException(err, { source: "voice-journal.startRecording" });
+      markRecordingInactive();
       Alert.alert("Kayıt başlamadı", "Mikrofon hazır değil, tekrar dene.");
     }
   };
@@ -222,6 +228,9 @@ export default function VoiceJournalScreen() {
         // eslint-disable-next-line no-console
         console.warn("[voice-journal] stopRecording failed:", err);
       }
+      // Prod observability: kayıt bitirme fail'i = potansiyel data loss.
+      // Hangi durumda olduğunu öğrenebilelim diye Sentry'ye düşür.
+      captureException(err, { source: "voice-journal.stopRecording" });
       Alert.alert("Kaydedilemedi", "Bir şeyler ters gitti, tekrar dene.");
     } finally {
       recordingRef.current = null;

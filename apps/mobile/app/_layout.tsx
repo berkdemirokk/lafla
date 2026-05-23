@@ -1,10 +1,15 @@
-// Root navigator — Neon Noir, 10-route minimum surface.
+// Root navigator — Neon Noir, lean surface.
 //
 // History: the previous layout registered 32 screens. After the radical cut
-// we keep only the 10 routes that map to the new single-action home + voice
-// loop. Everything else (decks, listening, reading, tutorial, etc.) was
-// removed from routing. If any deep-link or referral URL still points to an
-// old route, it now 404s; that's acceptable for v0.1.
+// (2026-05-20) we kept only routes that map to the single-action home + voice
+// loop. Faz 2 (v0.8.0) added phoneme-drill + listen-mode as silent-environment
+// alternatives. Faz 3 (v0.9.0) kept the route surface stable. Current count
+// is 16 — 10 core routes plus diary, voice-journal, relationships, profile,
+// phoneme-drill, listen-mode. If any deep-link or referral URL still points to
+// an old removed route, it 404s; that remains acceptable for v0.x.
+//
+// 2026-05-23 — Faz 3 son durumu: 16 route, hepsi kullanıcı-tarafından
+// erişilebilir. Yeni ekran eklerken bu listeyi güncel tut.
 
 import { useEffect } from "react";
 import { Stack } from "expo-router";
