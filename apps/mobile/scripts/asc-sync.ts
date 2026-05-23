@@ -268,6 +268,38 @@ function loadConfig(): JwtConfig {
 }
 
 // ─────────────────────────────────────────────────────────────────
+// Emoji strip — Apple ASC description/whatsNew alanlarında emoji
+// kabul etmiyor (2026-05-23 ENTITY_ERROR.ATTRIBUTE.INVALID.INVALID_CHARACTERS).
+// Web UI'da paste edebilirsin, ama API push'unda kaldırılmalı.
+//
+// Unicode aralıkları:
+//   \u{1F300}-\u{1F9FF} — misc symbols, emoticons, transport, supplemental
+//   \u{2600}-\u{27BF}   — misc symbols + dingbats (✨ ⚡ ✦ vs.)
+//   \u{FE00}-\u{FE0F}   — variation selectors (text/emoji style)
+//   \u{1F1E0}-\u{1F1FF} — regional indicators (flag halves)
+//   \u{200D}            — ZWJ (composite emoji glue)
+// ─────────────────────────────────────────────────────────────────
+
+function stripEmojis(s: string): string {
+  return (
+    s
+      .replace(
+        /[\u{1F300}-\u{1F9FF}\u{1FA00}-\u{1FAFF}]/gu,
+        "",
+      )
+      .replace(/[\u{2600}-\u{27BF}]/gu, "")
+      .replace(/[\u{1F1E0}-\u{1F1FF}]/gu, "")
+      .replace(/[\u{FE00}-\u{FE0F}]/gu, "")
+      .replace(/‍/g, "")
+      // Toplama: arta kalan multi-space'leri tek space yap
+      .replace(/ {2,}/g, " ")
+      // Boş satır başı emoji silindiyse satır başını koru
+      .replace(/^\s+$/gm, "")
+      .trim()
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────
 // HTTP — Apple ASC API v1, JSON:API spec'i (data/relationships).
 // ─────────────────────────────────────────────────────────────────
 
@@ -416,30 +448,42 @@ async function main(): Promise<void> {
         token,
         loc.id,
         {
-          description: METADATA.tr.description,
+          description: stripEmojis(METADATA.tr.description),
           keywords: METADATA.tr.keywords,
           marketingUrl: "https://berkdemirokk.github.io/lafla/",
-          promotionalText: METADATA.tr.promotionalText,
+          promotionalText: stripEmojis(METADATA.tr.promotionalText),
           supportUrl: "https://berkdemirokk.github.io/lafla/",
         },
         dryRun,
       );
-      await patchVersionWhatsNew(token, versionId, loc.id, METADATA.tr.whatsNew, dryRun);
+      await patchVersionWhatsNew(
+        token,
+        versionId,
+        loc.id,
+        stripEmojis(METADATA.tr.whatsNew),
+        dryRun,
+      );
     } else if (locale.startsWith("en")) {
       console.log(`\n[EN] localization ${loc.id} (${locale}):`);
       await patchLocalization(
         token,
         loc.id,
         {
-          description: METADATA.en.description,
+          description: stripEmojis(METADATA.en.description),
           keywords: METADATA.en.keywords,
           marketingUrl: "https://berkdemirokk.github.io/lafla/",
-          promotionalText: METADATA.en.promotionalText,
+          promotionalText: stripEmojis(METADATA.en.promotionalText),
           supportUrl: "https://berkdemirokk.github.io/lafla/",
         },
         dryRun,
       );
-      await patchVersionWhatsNew(token, versionId, loc.id, METADATA.en.whatsNew, dryRun);
+      await patchVersionWhatsNew(
+        token,
+        versionId,
+        loc.id,
+        stripEmojis(METADATA.en.whatsNew),
+        dryRun,
+      );
     } else {
       console.log(`  ⏭️  Skipping ${locale} (not TR or EN)`);
     }
