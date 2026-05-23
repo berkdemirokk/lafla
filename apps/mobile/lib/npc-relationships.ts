@@ -24,8 +24,15 @@ import { isObject, parseSafe } from "./json-safe";
 const K_REL = "lafla.npc.relationships";
 
 export interface NpcRelationship {
-  /** NPC name — "Mia", "Sam", "Dr. Chen". Identity. */
+  /** Composite identity key: `${bucket}:${name}` — "barista:Mia",
+   *  "romantic:Sam". 2026-05-23 fix: name alone collided because pools
+   *  share names (Sam in romantic+family, Theo in barista+workplace). */
+  id: string;
+  /** NPC name — "Mia", "Sam", "Dr. Chen". For display. */
   name: string;
+  /** Bucket/context — "romantic", "barista", "workplace", etc. Used to
+   *  disambiguate same-named NPCs from different pools. */
+  bucket: string;
   /** Toplam karşılaşma sayısı (sahne completion). */
   sceneCount: number;
   /** En son ne zaman konuştun. ISO. */
@@ -79,7 +86,9 @@ function isRelationship(x: unknown): x is NpcRelationship {
   if (!isObject(x)) return false;
   const o = x as Record<string, unknown>;
   return (
+    typeof o.id === "string" &&
     typeof o.name === "string" &&
+    typeof o.bucket === "string" &&
     typeof o.sceneCount === "number" &&
     typeof o.lastInteraction === "string" &&
     typeof o.firstMet === "string" &&
@@ -111,26 +120,35 @@ async function writeAll(list: NpcRelationship[]): Promise<void> {
 /**
  * Bir NPC ile sahne tamamlandığında çağrılır. Yeni NPC ise oluşturur,
  * mevcut NPC ise sceneCount artırır + lastInteraction günceller.
+ *
+ * 2026-05-23 fix: `npcBucket` parametresi ZORUNLU oldu. İki farklı pool'da
+ * aynı isim olabiliyor (Sam: romantic+family, Theo: barista+workplace).
+ * Composite id `${bucket}:${name}` ile ayrılırlar.
  */
 export async function recordInteraction(args: {
   npcName: string;
+  npcBucket: string;
   mode: string;
 }): Promise<NpcRelationship> {
   const name = args.npcName.trim();
+  const bucket = args.npcBucket.trim() || "generic";
   if (!name) {
     // Sentinel — invalid input. Throw'lamıyoruz çünkü call site
     // her zaman fire-and-forget; sessiz no-op return ediyoruz.
     return {
+      id: `${bucket}:unknown`,
       name: "unknown",
+      bucket,
       sceneCount: 0,
       lastInteraction: new Date().toISOString(),
       firstMet: new Date().toISOString(),
       modes: [],
     };
   }
+  const compositeId = `${bucket}:${name}`;
   const list = await readAll();
   const now = new Date().toISOString();
-  const idx = list.findIndex((r) => r.name === name);
+  const idx = list.findIndex((r) => r.id === compositeId);
   if (idx >= 0) {
     const existing = list[idx]!;
     const modes = existing.modes.includes(args.mode)
@@ -148,7 +166,9 @@ export async function recordInteraction(args: {
   }
   // Yeni NPC.
   const created: NpcRelationship = {
+    id: compositeId,
     name,
+    bucket,
     sceneCount: 1,
     lastInteraction: now,
     firstMet: now,
@@ -163,12 +183,18 @@ export async function recordInteraction(args: {
  * Tek NPC'nin mevcut ilişki state'i — sahne başında banner için.
  * NPC daha hiç görülmediyse null döner (UI banner göstermez, sahne
  * "yabancı" hissi ile başlar — natural).
+ *
+ * Bucket-aware lookup — recordInteraction ile aynı composite key.
+ * Eski caller'lar bucket parametresi vermezse "generic" varsayılır
+ * (eski davranış değişmez ama collision riskinden uzaklaşır).
  */
 export async function getRelationship(
   npcName: string,
+  npcBucket = "generic",
 ): Promise<NpcRelationship | null> {
   const list = await readAll();
-  return list.find((r) => r.name === npcName) ?? null;
+  const compositeId = `${npcBucket}:${npcName}`;
+  return list.find((r) => r.id === compositeId) ?? null;
 }
 
 /**

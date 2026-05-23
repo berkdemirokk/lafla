@@ -5,7 +5,7 @@
 // veya React Native Share API ile Instagram/Twitter/WhatsApp'a gönderilir.
 //
 // Tasarım: dark gradient (Neon Noir) + büyük skor + CEFR rozet + Lafla
-// logo + günün sahnesi snippet'i. Türk öğrenci arkadaşına "bak Tinder
+// logo + günün sahnesi snippet'i. Türk öğrenci arkadaşına "bak Match
 // senaryosunda 78 aldım" diye gönderir → organik viral.
 
 import { forwardRef } from "react";

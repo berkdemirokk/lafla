@@ -108,7 +108,7 @@ const TURKISH_CHARS = /[çğışöüÇĞİŞÖÜ]/;
 type VoiceMapEntry = readonly [voiceId: string, keywords: readonly string[]];
 
 const VOICE_MAP: readonly VoiceMapEntry[] = [
-  ["vc_match", ["match", "tinder", "date", "flirt"]],
+  ["vc_match", ["match", "match", "date", "flirt"]],
   ["vc_doctor", ["doctor", "dr.", "hospital", "clinic", "nurse", "pharmacy", "pharmacist"]],
   ["vc_service", ["barista", "waiter", "server", "cashier", "shop assistant", "store associate"]],
   ["vc_coach", ["coach", "trainer", " pt ", "gym"]],

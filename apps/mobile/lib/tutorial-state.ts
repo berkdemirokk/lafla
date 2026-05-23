@@ -17,7 +17,7 @@ const K_HOME_SEEN = "lafla.tutorial.home.seen";
 /**
  * Home tutorial overlay daha önce gösterildi mi?
  * False döner ise overlay render edilir.
- * İlk açılışta + Tinder forced-first sonrası sonsuza dek true.
+ * İlk açılışta + dating-app forced-first sonrası sonsuza dek true.
  */
 export async function hasSeenHomeTutorial(): Promise<boolean> {
   try {

@@ -13,11 +13,11 @@
 // personal-b1 is kept under "daily".
 // daily-airport was renamed to airport-lesson.
 
-// === intro (force-first tutorial — Tinder DM) ===
+// === intro (force-first tutorial — Match DM) ===
 // Bu lesson onboarding biter bitmez zorunlu trigger edilir (bkz.
 // app/onboarding.tsx → handlePickLevel). Kullanıcı home feed'e
 // ulaşmadan 90 saniyede "evet bu ben" momentini yaşar.
-import { introTinderLessons } from "./intro-tinder-lesson";
+import { introMatchLessons } from "./intro-match-lesson";
 
 // === flört (9 lesson set) ===
 import { flirtOpenerLessons } from "./flirt-opener-lesson";
@@ -119,8 +119,8 @@ import { orderGroceryLessons } from "./order-grocery-lesson";
 import type { BundledLesson } from "../lib/engine";
 
 export const allLessons: ReadonlyArray<BundledLesson> = [
-  // intro tutorial (force-first scene — Tinder DM)
-  ...introTinderLessons,
+  // intro tutorial (force-first scene — Match DM)
+  ...introMatchLessons,
   // flört
   ...flirtOpenerLessons,
   ...flirtBanterLessons,

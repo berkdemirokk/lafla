@@ -36,8 +36,8 @@ export interface NativeAudioBundle {
 // güncellenir, "🎙️ Native ses" rozeti otomatik gözükmeye başlar.
 //
 // TARGET LIST (v1.1 hedefi — voice actor brief'i için):
-//   1. intro.tinder.0.1     — Berk Demirok (founder) veya 1. native
-//   2. flirt.opener.1.1     — Tinder match opener
+//   1. intro.match.0.1     — Berk Demirok (founder) veya 1. native
+//   2. flirt.opener.1.1     — Match match opener
 //   3. flirt.opener.1.4     — Flirty opener
 //   4. flirt.date.13.1      — İlk randevuda buluşma
 //   5. work.slack.16.1      — Slack mesajı atma

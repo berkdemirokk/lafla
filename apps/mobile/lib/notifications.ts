@@ -95,8 +95,10 @@ const D3_CHALLENGES = [
     body: "'I'd like a beer' diyorsun ama barmen 'tap or bottled?' diyor. Cevap?",
   },
   {
-    title: "Tinder match yazdı",
-    body: "'Hey what's up :)' geldi. Donmadan 3 saniye cevap — pratik?",
+    // 2026-05-23 — Trademark fix. Önceki "Match match yazdı" + Match UX
+    // copy klonlaması Apple 5.0 reject risk'iydi. Generic dating app ref'ı.
+    title: "Eşleşmen yazdı",
+    body: "Yeni biriyle tanıştın — donmadan ilk cevabı ver. 3 saniyen var.",
   },
   {
     title: "Havaalanı görevlisi durdurdu",

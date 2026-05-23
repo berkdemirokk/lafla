@@ -54,7 +54,7 @@ type NpcBucket = keyof typeof NAME_POOLS;
  */
 function bucketFor(role: string, setting: string): NpcBucket {
   const ctx = `${role} ${setting}`.toLowerCase();
-  if (/tinder|date|match|crush|flirt|romance|partner|girlfriend|boyfriend/.test(ctx)) {
+  if (/match|date|match|crush|flirt|romance|partner|girlfriend|boyfriend/.test(ctx)) {
     return "romantic";
   }
   if (/coffee|cafe|barista|espresso|latte|waiter|server|restaurant|chef|kitchen|host/.test(ctx)) {
@@ -115,6 +115,29 @@ export function nameForNpc(
   setting: string,
   seed: string,
 ): string {
+  return nameAndBucketForNpc(npcRole, setting, seed).name;
+}
+
+/**
+ * Like {@link nameForNpc} but also returns the bucket so the caller can
+ * distinguish NPCs that share a name across pools.
+ *
+ * 2026-05-23 — NPC Relationships fix. Pools overlap ("Sam" appears in both
+ * `romantic` and `family`, "Theo" in `barista` + `workplace`, "Alex" in
+ * `romantic` + `generic`). Recording interactions keyed by name alone
+ * collapsed two fictional NPCs into one — a barista Theo and a workplace
+ * Theo were treated as the same person in `/relationships`. Use the
+ * returned `bucket` to build a composite key `${bucket}:${name}` so each
+ * pool's NPC stays distinct.
+ *
+ * Pool ordering MUST NOT change (see NAME_POOLS comment) — we keep the
+ * overlapping names and disambiguate at the relationship-tracker layer.
+ */
+export function nameAndBucketForNpc(
+  npcRole: string,
+  setting: string,
+  seed: string,
+): { name: string; bucket: string } {
   const bucket = bucketFor(npcRole, setting);
   const pool = NAME_POOLS[bucket];
   // Empty seed → fall back to the (role+setting) tuple so we still produce
@@ -122,5 +145,5 @@ export function nameForNpc(
   const effectiveSeed = seed && seed.length > 0 ? seed : `${npcRole}|${setting}`;
   const idx = djb2(effectiveSeed) % pool.length;
   // Pools are non-empty by construction; the non-null assertion is safe.
-  return pool[idx]!;
+  return { name: pool[idx]!, bucket };
 }

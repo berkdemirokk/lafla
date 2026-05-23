@@ -124,7 +124,7 @@ const FEATURES: FeatureRow[] = [
 export default function PaywallScreen() {
   const router = useRouter();
   // 2026-05-20 — switch-trigger #1 context.
-  // ?from=intro: intro Tinder sahnesi → paywall → kapat butonu /home'a
+  // ?from=intro: intro Match sahnesi → paywall → kapat butonu /home'a
   // router.replace ile gider (back stack boş çünkü onboarding hep replace).
   // Diğer durumlarda eski davranış (router.back()).
   const { from } = useLocalSearchParams<{ from?: string }>();

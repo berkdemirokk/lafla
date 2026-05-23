@@ -15,7 +15,7 @@
 //   - requestAttOnce → initAnalytics (granted ise)
 //   - trackEvent("onboarding_completed")
 //
-// intro Tinder yönlendirmesi caller'da. Bu helper sadece state finalize eder.
+// intro Match yönlendirmesi caller'da. Bu helper sadece state finalize eder.
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 

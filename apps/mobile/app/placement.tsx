@@ -271,14 +271,14 @@ export default function PlacementScreen() {
       source: "placement_test",
     });
 
-    // Intro Tinder zorunlu sahne (Switch-1) — placement sonrası da aynı kural
+    // Intro Match zorunlu sahne (Switch-1) — placement sonrası da aynı kural
     const introDone = await AsyncStorage.getItem(
-      "lafla.intro.tinder.completed",
+      "lafla.intro.match.completed",
     ).catch(() => null);
     if (introDone === "true") {
       router.replace("/today" as never);
     } else {
-      router.replace("/scenario/intro.tinder.0.1?intro=true" as never);
+      router.replace("/scenario/intro.match.0.1?intro=true" as never);
     }
   };
 

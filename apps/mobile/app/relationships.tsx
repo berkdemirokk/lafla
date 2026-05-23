@@ -143,7 +143,7 @@ export default function RelationshipsScreen() {
               const accent = TIER_COLOR[info.tier];
               const bg = TIER_SOFT[info.tier];
               return (
-                <View key={rel.name} style={styles.card}>
+                <View key={rel.id} style={styles.card}>
                   <View
                     style={[styles.avatarCircle, { backgroundColor: bg }]}
                   >

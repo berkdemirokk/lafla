@@ -16,14 +16,14 @@
 //   5. Verdict (Türkçe ipuçlu skor)
 //   6. Paywall — Speak+ teklifi (sadece ilk kez)
 //
-// Bir kez tamamlandığında AsyncStorage `lafla.intro.tinder.completed=true`
+// Bir kez tamamlandığında AsyncStorage `lafla.intro.match.completed=true`
 // yazılır; daha sonra normal akış (home feed) açılır.
 
 import type { BundledLesson } from "../lib/engine";
 
-export const introTinderLesson_0_1: BundledLesson = {
-  id: "intro.tinder.0.1",
-  skill_id: "intro.tinder",
+export const introMatchLesson_0_1: BundledLesson = {
+  id: "intro.match.0.1",
+  skill_id: "intro.match",
   index: 1,
   title: "İlk dating app Mesajı",
   description:
@@ -34,7 +34,7 @@ export const introTinderLesson_0_1: BundledLesson = {
     // 1) Vocab tile — kısa, kullanıcıyı UI'a alıştır
     // ============================================================
     {
-      id: "ex.intro.tinder.1.1",
+      id: "ex.intro.match.1.1",
       type: "vocab_tile",
       difficulty: 1,
       word_or_phrase: "what's up",
@@ -49,7 +49,7 @@ export const introTinderLesson_0_1: BundledLesson = {
     // 2) Multiple choice — Türk kullanıcısının düşeceği tuzak
     // ============================================================
     {
-      id: "ex.intro.tinder.1.2",
+      id: "ex.intro.match.1.2",
       type: "multiple_choice",
       difficulty: 2,
       question: "Match yazdı: 'hey what's up :)' — En doğal cevap?",
@@ -68,7 +68,7 @@ export const introTinderLesson_0_1: BundledLesson = {
     // 3) Roleplay chat — NPC ilk yazar, kullanıcı cevaplar (KEY MOMENT)
     // ============================================================
     {
-      id: "ex.intro.tinder.1.3",
+      id: "ex.intro.match.1.3",
       type: "roleplay_chat",
       difficulty: 3,
       scenario_description:
@@ -119,6 +119,6 @@ export const introTinderLesson_0_1: BundledLesson = {
   ],
 };
 
-export const introTinderLessons: ReadonlyArray<BundledLesson> = [
-  introTinderLesson_0_1,
+export const introMatchLessons: ReadonlyArray<BundledLesson> = [
+  introMatchLesson_0_1,
 ];

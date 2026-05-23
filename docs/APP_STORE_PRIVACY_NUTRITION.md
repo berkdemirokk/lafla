@@ -1,4 +1,6 @@
-# App Store Privacy Nutrition Label — Lafla v0.1.0
+# App Store Privacy Nutrition Label — Lafla v0.4.5
+
+> **Last updated:** 2026-05-23 — added Voice Journal (local audio recordings), Daily Diary (local text), NPC Relationships (local tracker), Pronunciation history (local FIFO buffer). All new data is **local-only** (AsyncStorage + documentDirectory) and **not collected** by Apple's definition — no nutrition label disclosure required.
 
 > Apple's App Store privacy questionnaire ("Data Type" matrix). Filled out exactly as Lafla will submit. Source of truth — App Store Connect form must match this doc; if anything drifts, **update this file first**, then mirror to App Store Connect.
 

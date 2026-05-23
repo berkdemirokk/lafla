@@ -81,7 +81,7 @@ import {
 import { recordSceneCompletion } from "../../lib/scene-history";
 import { recordVocabFromScene } from "../../lib/vocab-book";
 import { recordInteraction } from "../../lib/npc-relationships";
-import { nameForNpc } from "../../lib/npc-names";
+import { nameAndBucketForNpc } from "../../lib/npc-names";
 import type { SceneMode } from "../../data/scenes";
 import {
   bumpModeFluency,
@@ -136,7 +136,7 @@ export default function ScenarioScreen() {
   const scenario = id ? getScenario(id) : null;
   // 2026-05-20 switch-trigger #1: ?intro=true onboarding sonrası force-first
   // sahneden gelir. VERDICT bittiğinde "Devam" home yerine paywall'a gider
-  // ve `lafla.intro.tinder.completed` true yazılır — bir daha tetiklenmez.
+  // ve `lafla.intro.match.completed` true yazılır — bir daha tetiklenmez.
   const isIntro = intro === "true";
 
   const [phase, setPhase] = useState<Phase>("setup");
@@ -226,7 +226,7 @@ export default function ScenarioScreen() {
   }, [scenario]);
 
   // 2026-05-21 — Free-tier paywall gate.
-  // intro (force-first Tinder) → her zaman geç, ilk değer öncesi paywall yok
+  // intro (force-first Match) → her zaman geç, ilk değer öncesi paywall yok
   // Premium → geç
   // Free quota dolduysa → /paywall'a redirect
   // Gate check FIRST_RENDER'da, scenario hidden olur.
@@ -327,7 +327,7 @@ export default function ScenarioScreen() {
 
       // SRS vocab enqueue — bu sahnenin vocab_tile ve translate hedeflerini
       // review queue'ya at. Recall faktörü success path = 1.5×, fail = 0.4×.
-      // Intro sahnesi dahil — kullanıcı ilk Tinder cümlelerini hatırlasın.
+      // Intro sahnesi dahil — kullanıcı ilk Match cümlelerini hatırlasın.
       // eslint-disable-next-line @typescript-eslint/no-require-imports
       const srsVocab = require("../../lib/srs-vocab") as {
         enqueueVocab: (i: {
@@ -465,7 +465,7 @@ export default function ScenarioScreen() {
     // 2026-05-21 — Free-tier sayacı artır (premium muaf).
     // Sahne tamamlandığında — verdict ekranı açılırken. Bir sonraki sahne
     // açılışında shouldGatePaywall true dönerse paywall'a yönlendirir.
-    // intro/Tinder sahnesi sayılmaz (force-first ücretsiz pattern).
+    // intro/Match sahnesi sayılmaz (force-first ücretsiz pattern).
     if (!isIntro) {
       incrementFreeTier().catch(() => {});
     }
@@ -491,14 +491,20 @@ export default function ScenarioScreen() {
     // Fire-and-forget — sahne flow'unu bloklamaz, hata olsa bile verdict
     // ekranı normal akar.
     try {
-      // role + setting Scene içinde gömülü — scenario.scene varsa oradan
-      // çek, yoksa "" pass'la. nameForNpc düşük seed'lere graceful.
+      // role + setting Scene içinde gömülü. nameAndBucketForNpc bucket'ı
+      // da döner — bu sayede "barista:Mia" vs "workplace:Mia" gibi
+      // collision'lar relationship tracker'da ayrı kalır.
       const role = scenario.scene?.npc_role ?? "";
       const setting = scenario.scene?.setting ?? "";
       if (role || setting) {
-        const npcName = nameForNpc(role, setting, scenario.id);
+        const { name, bucket } = nameAndBucketForNpc(
+          role,
+          setting,
+          scenario.id,
+        );
         void recordInteraction({
-          npcName,
+          npcName: name,
+          npcBucket: bucket,
           mode: scenario.mode,
         }).catch(() => {});
       }
@@ -644,7 +650,7 @@ export default function ScenarioScreen() {
                 //    teklifini görür — value-first, value-after pattern)
                 if (isIntro) {
                   void AsyncStorage.setItem(
-                    "lafla.intro.tinder.completed",
+                    "lafla.intro.match.completed",
                     "true",
                   ).catch(() => {});
                   router.replace("/paywall?from=intro" as never);

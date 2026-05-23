@@ -32,7 +32,7 @@ export interface VocabItem {
   word: string;
   /** Türkçe karşılığı (vocab_tile.tr_translation veya translate.source). */
   translation: string;
-  /** Hangi sahneden geldi — review ekranında "Tinder opener" gibi context. */
+  /** Hangi sahneden geldi — review ekranında "Match opener" gibi context. */
   source_lesson_id: string;
   /** Lesson title — UI'da görünür context. */
   source_lesson_title: string;

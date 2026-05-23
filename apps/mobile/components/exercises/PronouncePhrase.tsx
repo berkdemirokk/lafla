@@ -35,7 +35,6 @@ import {
   type PronunciationBand,
   type PhonemeAnalysisResult,
 } from "../../lib/pronunciation-grader";
-import { recordCefrProgress } from "../../lib/cefr-level";
 import { pushPronScore } from "../../lib/pronunciation-history";
 import { PhonemeFeedback } from "../PhonemeFeedback";
 
@@ -244,17 +243,13 @@ export function PronouncePhrase({ phrase, trHint, onComplete }: Props) {
   const handleContinue = () => {
     if (!graded) return;
     const score = graded.score;
-    // 2026-05-23 — CEFR audit fix #2: feed the phoneme-derived score into
-    // the CEFR engine so pronunciation actually drives level progress.
-    // Previously the phoneme grader's output lived only in this component's
-    // UI and was discarded once handleContinue fired — the audit called
-    // this out as the single biggest credibility gap in the level engine.
-    // Fire-and-forget; level updates are best-effort and must never block
-    // the lesson flow. If recordCefrProgress throws (no CEFR set yet, etc.)
-    // the catch keeps the exercise progressing.
-    void recordCefrProgress(score).catch(() => {});
-    // Also append to pronunciation-history so the IELTS Band Estimator can
-    // compute a real pronunciation column instead of `fluency - 0.25`.
+    // 2026-05-23 — CEFR fix v2: phoneme score'u sadece pronunciation-history'e
+    // yaz, recordCefrProgress'a YAZMA. Eski versiyon (PronouncePhrase +
+    // SpeechShadowing + scenario verdict) aynı CEFR kanalına 3 kere yazıyordu:
+    // user level'lar tasarımdan 2-3× hızlı yükseliyordu (audit confirmed
+    // double-count). Tek source-of-truth: scene verdict (scenario/[id].tsx
+    // line ~1260). Phoneme history sadece IELTS Band Estimator pron column
+    // için ayrı kanal — CEFR'a doğrudan etkisi yok.
     void pushPronScore(score, "pronounce_phrase").catch(() => {});
     onComplete({
       exercise_id: "pronounce_phrase",

@@ -220,7 +220,7 @@ export function personalizeOpener(
  */
 function avatarEmojiFor(role: string, setting: string): string {
   const ctx = `${role} ${setting}`.toLowerCase();
-  if (/tinder|date|match|crush|flirt|romance|partner|girlfriend|boyfriend/.test(ctx)) return "💕";
+  if (/match|date|match|crush|flirt|romance|partner|girlfriend|boyfriend/.test(ctx)) return "💕";
   if (/coffee|cafe|barista|espresso|latte/.test(ctx)) return "☕";
   if (/doctor|dr\.|hospital|clinic|gp\b|nurse|er\b|a&e/.test(ctx)) return "🩺";
   if (/pharmacist|pharmacy|drugstore|eczane/.test(ctx)) return "💊";
