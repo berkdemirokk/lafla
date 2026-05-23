@@ -287,8 +287,10 @@ const styles = StyleSheet.create({
     borderRadius: tokens.radius.lg,
     backgroundColor: tokens.bg.surfaceContainer,
     borderWidth: 1,
-    borderColor: tokens.border.light,
+    borderColor: tokens.border.outlineVariant,
     gap: 8,
+    // Faz 1 premium polish
+    ...tokens.shadow.card,
   },
   benefitsTitle: {
     fontSize: 14,

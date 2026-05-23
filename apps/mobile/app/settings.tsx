@@ -681,10 +681,12 @@ const styles = StyleSheet.create({
   },
   sectionInner: {
     backgroundColor: tokens.bg.surfaceContainerLow,
-    borderRadius: tokens.radius.base,
+    borderRadius: tokens.radius.lg,
     borderWidth: 1,
-    borderColor: tokens.border.light,
+    borderColor: tokens.border.outlineVariant,
     overflow: "hidden",
+    // Faz 1 premium polish — settings sections lift off bg
+    ...tokens.shadow.card,
   },
   row: {
     flexDirection: "row",

@@ -301,8 +301,11 @@ const styles = StyleSheet.create({
     borderRadius: tokens.radius.lg,
     backgroundColor: tokens.bg.surfaceContainer,
     borderWidth: 1,
-    borderColor: tokens.border.light,
+    borderColor: tokens.border.outlineVariant,
     gap: 6,
+    // 2026-05-23 premium polish (Faz 1) — tokens.shadow.card spread.
+    // Linear/Notion tarzı floating depth.
+    ...tokens.shadow.card,
   },
   cardPressed: { opacity: 0.86, transform: [{ scale: 0.99 }] },
   cardHeader: {
