@@ -27,7 +27,7 @@ export function AdBanner() {
   if (show !== true) return null;
 
   return (
-    <View accessibilityLabel="Reklam alanı (Speak+ ile kalkar)">
+    <View accessibilityLabel="Reklam alanı (Lafla Pro ile kalkar)">
       <BannerAd
         unitId={getBannerUnitId()}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}

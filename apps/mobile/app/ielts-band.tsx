@@ -1,11 +1,11 @@
 // Lafla — IELTS Band Estimator screen (Premium killer feature).
 //
 // 2026-05-21 — Türk öğrenci IELTS mock test ₺500 öderken biz ₺99/ay
-// Speak+'ta sunuyoruz. Bu ekran Premium kullanıcı için açık, free
+// Lafla Pro'ta sunuyoruz. Bu ekran Premium kullanıcı için açık, free
 // kullanıcı için paywall'a yönlendiriyor.
 //
 // UX:
-//   Free → büyük preview "Tahmini Band'in: 7.0 (örnek)" + "Speak+ al"
+//   Free → büyük preview "Tahmini Band'in: 7.0 (örnek)" + "Lafla Pro al"
 //   Premium → gerçek estimate + komponent breakdown + advice
 
 import { useEffect, useState } from "react";
@@ -114,7 +114,7 @@ function PaywallPreview({ onUpgrade }: { onUpgrade: () => void }) {
       </View>
 
       <View style={styles.benefitsCard}>
-        <Text style={styles.benefitsTitle}>Speak+ ile açılan:</Text>
+        <Text style={styles.benefitsTitle}>Lafla Pro ile açılan:</Text>
         <BenefitLine icon="🎯" text="IELTS Band tahminin — Speaking + Writing" />
         <BenefitLine icon="🔍" text="Her cümle için ayrıntılı hata analizi" />
         <BenefitLine icon="🔥" text="Hard mode — gerçek sınav zorluğu" />
@@ -126,7 +126,7 @@ function PaywallPreview({ onUpgrade }: { onUpgrade: () => void }) {
         onPress={onUpgrade}
         style={({ pressed }) => [styles.cta, pressed && styles.ctaPressed]}
       >
-        <Text style={styles.ctaText}>Speak+ ile aç — ₺99/ay</Text>
+        <Text style={styles.ctaText}>Lafla Pro ile aç — ₺99/ay</Text>
       </Pressable>
     </View>
   );

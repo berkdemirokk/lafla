@@ -203,7 +203,7 @@ document.getElementById('y').textContent = new Date().getFullYear();
     try { localStorage.setItem('lafla.ref', ref); } catch (e) {}
     var refBanner = document.createElement('div');
     refBanner.style.cssText = 'position:sticky;top:0;left:0;right:0;background:#00FFFF;color:#000;padding:16px;text-align:center;font-weight:800;z-index:100;';
-    refBanner.innerHTML = '🎁 Davet kodun hazır: <strong>' + ref.substr(0, 8).replace(/</g, '') + '</strong><br><span style="font-size:13px;font-weight:600;">Lafla\'yı indir, ayarlardan kodu gir, ikiniz de 1 ay Speak+ kazan.</span>';
+    refBanner.innerHTML = '🎁 Davet kodun hazır: <strong>' + ref.substr(0, 8).replace(/</g, '') + '</strong><br><span style="font-size:13px;font-weight:600;">Lafla\'yı indir, ayarlardan kodu gir, ikiniz de 1 ay Lafla Pro kazan.</span>';
     document.body.insertBefore(refBanner, document.body.firstChild);
   }
 

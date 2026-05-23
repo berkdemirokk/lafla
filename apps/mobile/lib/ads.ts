@@ -1,6 +1,6 @@
 // Lafla — AdMob ads (free-tier monetization).
 //
-// 2026-05-20 — Strategic placement: Speak+ premium kullanıcı sıfır reklam
+// 2026-05-20 — Strategic placement: Lafla Pro premium kullanıcı sıfır reklam
 // görür (üstelik premium positioning'i destekler). Free kullanıcı:
 //   - Interstitial after EVERY 3 scene completion
 //   - Banner on home (bottom, just above tab bar — non-intrusive)

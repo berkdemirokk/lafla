@@ -121,7 +121,7 @@ function PaywallPreview({ onUpgrade }: { onUpgrade: () => void }) {
       </View>
 
       <View style={styles.benefitsCard}>
-        <Text style={styles.benefitsTitle}>Speak+ ile açılan:</Text>
+        <Text style={styles.benefitsTitle}>Lafla Pro ile açılan:</Text>
         <BenefitLine icon="📊" text="Top 5 zayıflığın — sıralı, sayılı" />
         <BenefitLine icon="🎯" text="Her hatanın doğru karşılığı" />
         <BenefitLine icon="📚" text="Drill önerisi — bu hatayı çözecek sahneler" />
@@ -132,7 +132,7 @@ function PaywallPreview({ onUpgrade }: { onUpgrade: () => void }) {
         onPress={onUpgrade}
         style={({ pressed }) => [styles.cta, pressed && { opacity: 0.88 }]}
       >
-        <Text style={styles.ctaText}>Speak+ ile aç — ₺99/ay</Text>
+        <Text style={styles.ctaText}>Lafla Pro ile aç — ₺99/ay</Text>
       </Pressable>
     </View>
   );

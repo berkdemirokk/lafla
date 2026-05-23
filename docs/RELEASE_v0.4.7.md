@@ -14,7 +14,7 @@ Daha derin pratik. Daha sağlam ölçüm.
 
 • 800+ sahne — 132 yeni hikaye yayı: Erasmus Amsterdam, Londra'da junior dev, NY tech konferansı, Tokyo solo seyahat, US vize mülakatı, freelance müşteri yönetimi ve daha fazlası. Birbirine bağlı, gerçekçi sahneler.
 
-• Yıllık abonelik (₺999) — Speak+ aylık ₺99 yerine 2 ay bedava.
+• Yıllık abonelik (₺999) — Lafla Pro aylık ₺99 yerine 2 ay bedava.
 
 • Seviye testi artık konuşma + dinleme ile bitiyor. Sadece gramer cevaplayıp B1 alma devri kapandı — gerçek seviyeni gösterir.
 
@@ -40,7 +40,7 @@ Deeper practice. Sharper measurement.
 
 • 800+ scenes — 132 new story arcs: Erasmus Amsterdam, junior dev in London, NY tech conference, Tokyo solo travel, US visa interview, freelance client management, and more. Connected, realistic scenes.
 
-• Yearly subscription (₺999) — 2 months free vs Speak+ monthly ₺99.
+• Yearly subscription (₺999) — 2 months free vs Lafla Pro monthly ₺99.
 
 • Placement test now ends with speaking + listening. No more answering grammar and getting B1 — it shows your real level.
 

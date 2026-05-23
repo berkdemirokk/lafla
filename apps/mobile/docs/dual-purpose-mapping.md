@@ -2,7 +2,7 @@
 
 ## Why this matters
 
-Lafla operates two tracks (Daily Life and Exam Prep), but many users straddle both — they have IELTS in 90 days AND a trip to London next month. Roughly 30% of well-designed lifestyle scenarios can double as IELTS/TOEFL speaking practice with zero or minimal content rework, which means a single authored scene serves two SKUs: Speak+ subscribers and Exam Pass buyers. This is the highest-leverage content we ship — one production cost, two revenue streams, and a stronger value prop for the ~40% of our addressable market who care about both outcomes.
+Lafla operates two tracks (Daily Life and Exam Prep), but many users straddle both — they have IELTS in 90 days AND a trip to London next month. Roughly 30% of well-designed lifestyle scenarios can double as IELTS/TOEFL speaking practice with zero or minimal content rework, which means a single authored scene serves two SKUs: Lafla Pro subscribers and Exam Pass buyers. This is the highest-leverage content we ship — one production cost, two revenue streams, and a stronger value prop for the ~40% of our addressable market who care about both outcomes.
 
 ## Mapping table
 

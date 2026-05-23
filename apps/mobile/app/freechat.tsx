@@ -7,7 +7,7 @@
 //   2. Kullanıcı serbest text yazar
 //   3. pickFollowup() pattern matcher cevabı sınıflandırır, NPC reply gönderir
 //   4. Switch-2 inline error UI burada da çalışır (Türkçe hata ipucu)
-//   5. 5. user turn sonra paywall ("Speak+ ile uzunluk sınırı yok")
+//   5. 5. user turn sonra paywall ("Lafla Pro ile uzunluk sınırı yok")
 //
 // Latency: 0 LLM, <5ms per turn. iMessage tarzı bubble UI; RoleplayChat'in
 // daha minimal versiyonu (skor chip yok — bu "akıcılık testi" değil sohbet).
@@ -74,7 +74,7 @@ export default function FreechatScreen() {
   const scrollRef = useRef<ScrollView | null>(null);
 
   // Sahne açılışında analytics + premium check (kullanıcı premium'sa
-  // turn limit'i devre dışı kalır — Speak+ "uzunluk sınırı yok" sözünü
+  // turn limit'i devre dışı kalır — Lafla Pro "uzunluk sınırı yok" sözünü
   // bu noktada yerine getiriyoruz).
   useEffect(() => {
     void trackEvent("freechat_opened", { prompt_id: prompt.id }).catch(
@@ -150,7 +150,7 @@ export default function FreechatScreen() {
           {
             speaker: "npc",
             text: "(...)",
-            hint_tr: "Devam etmek için Speak+ gerekli — uzunluk sınırı yok.",
+            hint_tr: "Devam etmek için Lafla Pro gerekli — uzunluk sınırı yok.",
           },
         ]);
         setPaywallGate(true);
@@ -231,9 +231,9 @@ export default function FreechatScreen() {
           <View style={styles.paywallBox}>
             <Text style={styles.paywallTitle}>Sohbet devam etmek istiyor</Text>
             <Text style={styles.paywallSub}>
-              Ücretsiz: 5 mesaj. Speak+ ile uzunluk sınırı yok.
+              Ücretsiz: 5 mesaj. Lafla Pro ile uzunluk sınırı yok.
             </Text>
-            <Button label="Speak+ açıkla" onPress={handlePaywall} stacked />
+            <Button label="Lafla Pro açıkla" onPress={handlePaywall} stacked />
             <Pressable onPress={handleExit} style={styles.paywallSkip}>
               <Text style={styles.paywallSkipText}>Şimdilik atla</Text>
             </Pressable>

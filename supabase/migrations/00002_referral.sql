@@ -22,5 +22,5 @@ create index if not exists profiles_redeemed_idx on profiles (redeemed_referral_
 --     AND redeemer.redeemed_referral_code IS NOT NULL;
 --
 -- Award flow:
---   1. RevenueCat admin → grant 30-day Speak+ promo to both redeemer + referrer
+--   1. RevenueCat admin → grant 30-day Lafla Pro promo to both redeemer + referrer
 --   2. UPDATE profiles SET referral_bonus_awarded_at = now() WHERE id IN (...)

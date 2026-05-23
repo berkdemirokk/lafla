@@ -618,7 +618,7 @@ export default function ScenarioScreen() {
                     ]}
                   >
                     {isPremiumState === false
-                      ? "🔒 🔥 HARD MODE · Speak+ ile aç"
+                      ? "🔒 🔥 HARD MODE · Lafla Pro ile aç"
                       : hardMode
                         ? "🔥 HARD MODE açık — no hint, ×0.85 puan"
                         : "🔥 Hard Mode dene · Premium"}
@@ -704,7 +704,7 @@ export default function ScenarioScreen() {
               onContinue={() => {
                 // Switch-trigger #1 — force-first intro scene biterse:
                 // 1) "completed" flag yaz (bir daha tetiklenmez)
-                // 2) Paywall'a yönlendir (kullanıcı ilk skoru ile Speak+
+                // 2) Paywall'a yönlendir (kullanıcı ilk skoru ile Lafla Pro
                 //    teklifini görür — value-first, value-after pattern)
                 if (isIntro) {
                   void AsyncStorage.setItem(
@@ -1430,10 +1430,10 @@ function VerdictView({
             pressed && { opacity: 0.85 },
           ]}
           accessibilityRole="button"
-          accessibilityLabel="Speak+ ile detaylı analiz"
+          accessibilityLabel="Lafla Pro ile detaylı analiz"
         >
           <Text style={verdictStyles.feedbackLockedLabel}>
-            🔒 SPEAK+ — DETAYLI ANALİZ
+            🔒 LAFLA PRO — DETAYLI ANALİZ
           </Text>
           <Text style={verdictStyles.feedbackLockedText}>
             Hangi cümlede ne yanlıştı, doğrusu neydi — premium'da göreceksin.

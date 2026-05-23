@@ -217,7 +217,7 @@ export async function applyDecayIfDue(): Promise<DecayResult> {
     };
   }
 
-  // Premium muaf — Speak+ değer önerisi.
+  // Premium muaf — Lafla Pro değer önerisi.
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const iap = require("./iap") as { isPremium: () => Promise<boolean> };
   const premium = await iap.isPremium().catch(() => false);

@@ -74,7 +74,7 @@ export async function getMyReferralCode(): Promise<string> {
 }
 
 /**
- * Bir referral kodu redeem et — referrer'a +1 ay Speak+ tetikler (manuel
+ * Bir referral kodu redeem et — referrer'a +1 ay Lafla Pro tetikler (manuel
  * award için Supabase'e yazılır). Aynı kod 2 kez redeem edilemez (cleanup
  * server-side). Returns true if accepted.
  */
@@ -137,5 +137,5 @@ export function buildReferralLink(code: string): string {
 
 export function shareMessage(code: string, name?: string): string {
   const namePart = name && name.trim() ? `${name.trim()}, ` : "";
-  return `${namePart}Lafla'da İngilizce konuşma pratiği yapıyorum — sen de denesene. Bu linkle ikimiz de 1 ay Speak+ kazanırız: ${buildReferralLink(code)}`;
+  return `${namePart}Lafla'da İngilizce konuşma pratiği yapıyorum — sen de denesene. Bu linkle ikimiz de 1 ay Lafla Pro kazanırız: ${buildReferralLink(code)}`;
 }

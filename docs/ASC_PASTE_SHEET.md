@@ -68,8 +68,8 @@ All countries with Turkey as primary
 | Auto-Renewal | Yes |
 | Cleared for Sale | Yes |
 
-**Localized Display Name TR:** `Speak+ Aylık`
-**Localized Display Name EN:** `Speak+ Monthly`
+**Localized Display Name TR:** `Lafla Pro Aylık`
+**Localized Display Name EN:** `Lafla Pro Monthly`
 
 **Localized Description TR:**
 ```
@@ -96,8 +96,8 @@ All 935 scenes unlocked, unlimited replays, deep pronunciation analysis, IELTS B
 | Auto-Renewal | Yes |
 | Cleared for Sale | Yes |
 
-**Localized Display Name TR:** `Speak+ Yıllık`
-**Localized Display Name EN:** `Speak+ Yearly`
+**Localized Display Name TR:** `Lafla Pro Yıllık`
+**Localized Display Name EN:** `Lafla Pro Yearly`
 
 **Localized Description TR:**
 ```
@@ -251,7 +251,7 @@ Her sahnede bu spesifik tuzaklar hedef alınmış. Her düzeltme Türkçe açık
 
 🎓 IELTS Speaking moduyla Part 1, 2, 3 simulasyonu — band 7+ için gerekli yapıyı kazan.
 
-💎 SPEAK+ ÜYELİK
+💎 LAFLA PRO ÜYELİK
 
 Tüm 935 sahneye erişim, sınırsız tekrar, derin telaffuz analizi, IELTS Band tahmini, kişisel zayıflık raporu ve gelişmiş ilerleme paneli.
 
@@ -297,7 +297,7 @@ Every scene targets these specific traps. Every correction is explained in Turki
 
 🎓 IELTS Speaking mode covers Parts 1, 2, and 3 — the structure you need for band 7+.
 
-💎 SPEAK+ MEMBERSHIP
+💎 LAFLA PRO MEMBERSHIP
 
 All 935 scenes unlocked, unlimited replays, deep pronunciation analysis, IELTS Band estimate, personal weakness report, advanced progress dashboard.
 

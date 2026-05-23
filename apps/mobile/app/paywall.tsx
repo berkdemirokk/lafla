@@ -1,4 +1,4 @@
-// Paywall — Speak+ monthly + yearly subscription tiers.
+// Paywall — Lafla Pro monthly + yearly subscription tiers.
 //
 // 2026-05-23 — Yearly tier added. The Trend Researcher audit flagged that
 // shipping monthly-only was leaving ~40% of LTV on the table vs Duolingo Super
@@ -298,7 +298,7 @@ export default function PaywallScreen() {
         hapticSuccess();
         void trackEvent("purchase_success", { plan: selected }).catch(() => {});
         Alert.alert(
-          "Speak+ aktif",
+          "Lafla Pro aktif",
           "Tüm premium özellikler artık senin.",
           [
             {
@@ -429,7 +429,7 @@ export default function PaywallScreen() {
             <>
               <Text style={styles.title}>IELTS Band Tahmini{"\n"}sadece ₺99/ay.</Text>
               <Text style={styles.subtitle}>
-                Mock test merkezi ₺500. Speak+ aboneliği aylık ₺99 — sınırsız
+                Mock test merkezi ₺500. Lafla Pro aboneliği aylık ₺99 — sınırsız
                 tahmin + detaylı analiz + sınırsız sahne.
               </Text>
             </>
@@ -438,14 +438,14 @@ export default function PaywallScreen() {
               <Text style={styles.title}>🔥 Hard Mode{"\n"}gerçek sınav zorluğu.</Text>
               <Text style={styles.subtitle}>
                 No hint, ×0.85 puan çarpanı. C1/C2 hedefi için: pratiği zorlaştır,
-                sınavda rahatla. Speak+ ile aç.
+                sınavda rahatla. Lafla Pro ile aç.
               </Text>
             </>
           ) : isFromWeakness ? (
             <>
               <Text style={styles.title}>Hangi hatayı tekrar{"\n"}tekrar yapıyorsun?</Text>
               <Text style={styles.subtitle}>
-                Speak+ son 30 günde yakaladığın hataları sıralar. Top 5 zayıflık
+                Lafla Pro son 30 günde yakaladığın hataları sıralar. Top 5 zayıflık
                 + doğru karşılıkları + drill önerisi.
               </Text>
             </>
@@ -453,7 +453,7 @@ export default function PaywallScreen() {
             <>
               <Text style={styles.title}>Hangi cümlede{"\n"}ne yanlıştı?</Text>
               <Text style={styles.subtitle}>
-                Speak+ sahneni cümle cümle ayrıştırır: senin Türk hatalarına
+                Lafla Pro sahneni cümle cümle ayrıştırır: senin Türk hatalarına
                 özel "yanlış → doğru" rehberi.
               </Text>
             </>
@@ -461,7 +461,7 @@ export default function PaywallScreen() {
             <>
               <Text style={styles.title}>Bugün için 3 sahne bitti.</Text>
               <Text style={styles.subtitle}>
-                Yarın sıfırlanır. Veya Speak+ ile bugün sınırsız devam et —
+                Yarın sıfırlanır. Veya Lafla Pro ile bugün sınırsız devam et —
                 reklamsız, plansız.
               </Text>
             </>
@@ -541,7 +541,7 @@ export default function PaywallScreen() {
           </Pressable>
         </Animated.View>
 
-        {/* SPEAK+ CARD — content changes with toggle. */}
+        {/* LAFLA PRO CARD — content changes with toggle. */}
         <Animated.View style={[styles.planCard, cardStyle]}>
           {/* Premium inner highlight — 1px üst beyaz hat, iOS button bevel.
               Pembe halo arkasında "ışık alıyor" izlenimi. */}
@@ -550,7 +550,7 @@ export default function PaywallScreen() {
 
           <View style={styles.planHeader}>
             <View>
-              <Text style={styles.planName}>Speak+</Text>
+              <Text style={styles.planName}>Lafla Pro</Text>
               <Text style={styles.planEyebrow}>{cardEyebrow}</Text>
             </View>
             <View style={styles.popularPill}>
@@ -795,7 +795,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.4,
   },
 
-  // ---------- SPEAK+ CARD ----------
+  // ---------- LAFLA PRO CARD ----------
   planCard: {
     backgroundColor: tokens.bg.surfaceContainerHigh,
     borderRadius: tokens.radius.lg,

@@ -76,8 +76,8 @@ English fallback). Submit for review **with the first build that includes
 RevenueCat** — products stay `Waiting for Review` until then.
 
 **Tier copy for App Store Connect (Turkish):**
-- Monthly: "Speak+ Aylık — Sınırsız sahne, premium özellikler. ₺99/ay."
-- Yearly: "Speak+ Yıllık — 12 ay tek ödeme. Aylık ₺83 eşdeğeri (~%16 indirim)."
+- Monthly: "Lafla Pro Aylık — Sınırsız sahne, premium özellikler. ₺99/ay."
+- Yearly: "Lafla Pro Yıllık — 12 ay tek ödeme. Aylık ₺83 eşdeğeri (~%16 indirim)."
 
 ---
 

@@ -36,14 +36,14 @@ ASC'de https://appstoreconnect.apple.com → My Apps → Lafla.
 
 ### A.3 Subscription (In-App Purchase)
 
-- [ ] `lafla.premium.monthly` ürünü konfigüre — Speak+ aylık abonelik
-  - Localized name (TR): "Speak+ Aylık"
-  - Localized name (EN): "Speak+ Monthly"
+- [ ] `lafla.premium.monthly` ürünü konfigüre — Lafla Pro aylık abonelik
+  - Localized name (TR): "Lafla Pro Aylık"
+  - Localized name (EN): "Lafla Pro Monthly"
   - Price tier: TR Tier 30 (₺99/ay) veya doğrudan custom
   - Auto-renewal: Yes
-- [ ] `lafla.premium.yearly` ürünü konfigüre — Speak+ yıllık abonelik **(2026-05-23: geri eklendi)**
-  - Localized name (TR): "Speak+ Yıllık"
-  - Localized name (EN): "Speak+ Yearly"
+- [ ] `lafla.premium.yearly` ürünü konfigüre — Lafla Pro yıllık abonelik **(2026-05-23: geri eklendi)**
+  - Localized name (TR): "Lafla Pro Yıllık"
+  - Localized name (EN): "Lafla Pro Yearly"
   - Price tier: TR Tier 200 (₺999/yıl) veya doğrudan custom
   - Auto-renewal: Yes
   - Subscription Group: Aynı grupta monthly ile (Apple upgrade/downgrade için zorunlu)
@@ -83,7 +83,7 @@ ASC'de https://appstoreconnect.apple.com → My Apps → Lafla.
   3. Scenario in-progress
   4. Contrastive feedback (TR correction card — money shot)
   5. Progress / streaks
-  6. Pricing / Speak+ paywall
+  6. Pricing / Lafla Pro paywall
 
 - [ ] **Ölçüler:** 1290 × 2796 px (6.7" iPhone)
 - [ ] **Üretim seçenekleri:**
@@ -130,7 +130,7 @@ ASC'de https://appstoreconnect.apple.com → My Apps → Lafla.
 - [ ] **Listen Mode** — /listen-mode route TTS clip + typing input akıyor mu (Faz 2)
 - [ ] **Voice Journal** — /voice-journal kayıt + timeline, sweep race fix doğrula (Faz 2)
 - [ ] **Profile** — 7 mod rail görünüyor, streak ve XP doğru
-- [ ] **Speak+ row** — Profile'dan tıklanınca paywall açılıyor
+- [ ] **Lafla Pro row** — Profile'dan tıklanınca paywall açılıyor
 - [ ] **Paywall yearly default** — segmented toggle Yıllık preselected, ₺999/yıl + %X indirim pill
 - [ ] **Paywall monthly toggle** — tap ederse ₺99/ay fiyat değişiyor
 - [ ] **Restore Purchases** — Settings → "Satın alımları geri yükle" → "Aktif abonelik bulunamadı" Alert
@@ -171,7 +171,7 @@ ASC'de https://appstoreconnect.apple.com → My Apps → Lafla.
 
 > Hızlı follow-up'lar — submission'ı bloke etmedi ama launch sonrası 1-2 hafta içinde:
 
-- Free tier hard gate (örn. 3 sahne/mod ücretsiz, sonrası Speak+)
+- Free tier hard gate (örn. 3 sahne/mod ücretsiz, sonrası Lafla Pro)
 - Push notifications metin döngüsü (`lib/notifications.ts` scaffold dolu değil)
 - `lib/engine.ts` için Jest testleri
 - Bundle splitting — `lessons.ts` lazy require
@@ -185,7 +185,7 @@ ASC'de https://appstoreconnect.apple.com → My Apps → Lafla.
 | Soru | Cevap |
 |---|---|
 | Bundle ID | `com.lafla.app` |
-| Speak+ IAP IDs | `lafla.premium.monthly` (₺99/ay), `lafla.premium.yearly` (₺999/yıl) |
+| Lafla Pro IAP IDs | `lafla.premium.monthly` (₺99/ay), `lafla.premium.yearly` (₺999/yıl) |
 | RevenueCat Offering | `default` (packages: `$rc_monthly`, `$rc_annual`) |
 | Master commit (submit hazır) | `4edb017` (v0.9.0) veya sonrası |
 | Latest tag | `lafla-v0.9.0` |

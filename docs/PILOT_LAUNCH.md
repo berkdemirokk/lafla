@@ -469,7 +469,7 @@ Once exit criteria (section 8) are met, here's the launch sequence. None of this
 > 3/ 30 günlük beta'da 50 kullanıcı, [D7 retention rakamı]% D7 retention, [NPS skoru] NPS. Buradan dürüst geri bildirim aldım, ürünü onlarla şekillendirdim.
 >
 > 4/ İndirme: [App Store link]
-> Ücretsiz başla, sevdiysen Speak+ $9.99/ay.
+> Ücretsiz başla, sevdiysen Lafla Pro $9.99/ay.
 >
 > 5/ Beta'cılara: ömür boyu %50 indirim koduniz e-postanızda. Buradaki herkese: ilk hafta retweet edenlere 3 ay ücretsiz, DM atın.
 >

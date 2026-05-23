@@ -14,7 +14,7 @@
 //   3. NPC follow-up
 //   4. User 2. cevap — daha kısa
 //   5. Verdict (Türkçe ipuçlu skor)
-//   6. Paywall — Speak+ teklifi (sadece ilk kez)
+//   6. Paywall — Lafla Pro teklifi (sadece ilk kez)
 //
 // Bir kez tamamlandığında AsyncStorage `lafla.intro.match.completed=true`
 // yazılır; daha sonra normal akış (home feed) açılır.

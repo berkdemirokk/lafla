@@ -395,7 +395,7 @@ export default function ProfileScreen() {
           })}
         </View>
 
-        {/* Speak+ — sole paywall entry point. Submission-critical: Apple's
+        {/* Lafla Pro — sole paywall entry point. Submission-critical: Apple's
             reviewer needs at least one navigation path to the IAP surface.
             Pre-2026-05-20 the paywall existed as a registered route but had
             zero callers; this row closes that gap. Free-tier hard gating is
@@ -405,13 +405,13 @@ export default function ProfileScreen() {
         <View style={styles.accountCard}>
           <AccountRow
             icon="band"
-            label="IELTS Band Tahminim · Speak+"
+            label="IELTS Band Tahminim · Lafla Pro"
             onPress={() => router.push("/ielts-band" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
             icon="weakness"
-            label="Zayıflık Raporu · Speak+"
+            label="Zayıflık Raporu · Lafla Pro"
             onPress={() => router.push("/weakness-report" as never)}
           />
           <View style={styles.rowDivider} />
@@ -468,11 +468,11 @@ export default function ProfileScreen() {
           />
         </View>
 
-        <Text style={styles.sectionLabel}>SPEAK+</Text>
+        <Text style={styles.sectionLabel}>LAFLA PRO</Text>
         <View style={styles.accountCard}>
           <AccountRow
             icon="premium"
-            label="Speak+ aboneliği"
+            label="Lafla Pro aboneliği"
             onPress={() => router.push("/paywall" as never)}
           />
           {/* Referral — Adım 7 (2026-05-20). MVP: kod paylaşımı, manuel

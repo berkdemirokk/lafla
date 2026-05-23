@@ -193,7 +193,7 @@
 - **Used for tracking:** **Conditional — Yes if ATT granted, No if denied**
 - **Purposes:**
   - Third-Party Advertising (AdMob serves the ad)
-  - App Functionality (free-tier scaffold; Speak+ users see zero ads — `isPremium()` short-circuits the ad load)
+  - App Functionality (free-tier scaffold; Lafla Pro users see zero ads — `isPremium()` short-circuits the ad load)
 - **Note for reviewer:**
   - AdMob is initialized AFTER the ATT prompt resolves (`lib/ads.ts` → `initAds()` is sequenced after `requestAttOnce()`).
   - When ATT is denied, the SDK is started with `requestNonPersonalizedAdsOnly: true` (no IDFA-based personalization, no cross-app tracking).

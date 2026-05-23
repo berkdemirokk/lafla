@@ -85,7 +85,7 @@
 
 ### 0.9 Paywall (Yearly default + monthly toggle)
 
-- [ ] **Paywall aç** (Profile → Speak+ veya quota exceeded)
+- [ ] **Paywall aç** (Profile → Lafla Pro veya quota exceeded)
 - [ ] **Segmented toggle** üstte (Aylık / Yıllık)
 - [ ] **Yıllık preselected** (default)
 - [ ] **Yıllık fiyat** ₺999/yıl, %X indirim pill (live priceAmountMicros'tan)

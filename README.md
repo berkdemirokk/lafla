@@ -53,8 +53,8 @@ Onboarding'de 6 chip'ten en az 2 seçersin; feed CEFR seviyene + ilgi alanların
 | TTS | expo-speech (system) + bundled MP3'ler (Chatterbox-generated) |
 | STT | expo-speech-recognition (Apple on-device) |
 | Analytics / Errors | PostHog, Sentry (ATT-gated; Sentry breadcrumbs on critical flows) |
-| Ads | AdMob (free-tier banner + interstitial; Speak+ = zero ads) |
-| Payments | RevenueCat (Speak+ ₺99/ay veya ₺999/yıl) |
+| Ads | AdMob (free-tier banner + interstitial; Lafla Pro = zero ads) |
+| Payments | RevenueCat (Lafla Pro ₺99/ay veya ₺999/yıl) |
 | ASO | App Store Connect (TR primary, EN-US secondary) |
 
 ## Getting Started
@@ -194,8 +194,8 @@ App Store / Play Store metadata: [`docs/APP_STORE_METADATA.md`](docs/APP_STORE_M
 | Plan | Fiyat | IAP ID |
 |---|---|---|
 | Free | 3 sahne/mod ücretsiz, AdMob banner + interstitial | — |
-| **Speak+ Aylık** | ₺99/ay (App Store local price) | `lafla.premium.monthly` |
-| **Speak+ Yıllık** | ₺999/yıl (~%16 indirim vs 12× aylık) | `lafla.premium.yearly` |
+| **Lafla Pro Aylık** | ₺99/ay (App Store local price) | `lafla.premium.monthly` |
+| **Lafla Pro Yıllık** | ₺999/yıl (~%16 indirim vs 12× aylık) | `lafla.premium.yearly` |
 
 > Paywall'da segmented toggle ile yıllık default preselected. RevenueCat offering `default` altında iki package: `$rc_monthly` + `$rc_annual`.
 >

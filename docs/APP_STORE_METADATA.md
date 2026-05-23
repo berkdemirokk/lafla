@@ -122,7 +122,7 @@ Her sahnede bu spesifik tuzaklar hedef alınmış. Her düzeltme Türkçe açık
 
 🎓 IELTS Speaking moduyla Part 1, 2, 3 simulasyonu — band 7+ için gerekli yapıyı kazan.
 
-💎 SPEAK+ ÜYELİK
+💎 LAFLA PRO ÜYELİK
 
 Tüm 935 sahneye erişim, sınırsız tekrar, derin telaffuz analizi, IELTS Band tahmini, kişisel zayıflık raporu ve gelişmiş ilerleme paneli.
 
@@ -175,7 +175,7 @@ Every scene targets these specific traps. Every correction is explained in Turki
 
 🎓 IELTS Speaking mode covers Parts 1, 2, and 3 — the structure you need for band 7+.
 
-💎 SPEAK+ MEMBERSHIP
+💎 LAFLA PRO MEMBERSHIP
 
 All 935 scenes unlocked, unlimited replays, deep pronunciation analysis, IELTS Band estimate, personal weakness report, advanced progress dashboard.
 
@@ -213,7 +213,7 @@ ingilizce konuşma,ielts speaking,flört ingilizcesi,yds,toefl,mülakat,telaffuz
 | `yds` | High | Cold post-exam audience — they passed YDS but can't speak |
 | `toefl` | Medium | Complements IELTS audience, premium-spend segment |
 | `mülakat` | Medium | Spans job + academic + visa intents under one anchor |
-| `telaffuz` | Medium | Direct match to Speak+ pronunciation feature |
+| `telaffuz` | Medium | Direct match to Lafla Pro pronunciation feature |
 | `akıcı` | Medium | Outcome-anchor — "akıcı İngilizce" is the audience aspiration |
 | `konuşma pratiği` | Medium | "Speaking practice" Turkish equivalent — broad-tail catcher |
 
@@ -240,7 +240,7 @@ speak english,esl turkish,fluency,pronunciation,phoneme,ielts,toefl,conversation
 | `english practice` | Captures "practice English" search variant |
 | `esl turkish` | Hyper-niche, low competition, exact-match for our audience |
 | `fluency` | Outcome anchor |
-| `pronunciation` | Speak+ feature match |
+| `pronunciation` | Lafla Pro feature match |
 | `ielts` | Same exam-prep segment as TR list |
 | `toefl` | Same |
 | `conversation` | Generic but high-tail |
@@ -336,7 +336,7 @@ Feedback: hello@lafla.app
 
 ### Screenshot 6 — Pricing / Value
 
-- **Show:** Speak+ paywall surface. Hero: `Speak+ — Tüm sahneler` with a glowing border. Segmented toggle (Aylık / Yıllık) at the top with **Yıllık** preselected. Price row: `₺999 / yıl` (with `%16 indirim` pill). Below: four feature rows with checkmark icons:
+- **Show:** Lafla Pro paywall surface. Hero: `Lafla Pro — Tüm sahneler` with a glowing border. Segmented toggle (Aylık / Yıllık) at the top with **Yıllık** preselected. Price row: `₺999 / yıl` (with `%16 indirim` pill). Below: four feature rows with checkmark icons:
   - `✓ 935 sahnenin tamamı`
   - `✓ Sınırsız tekrar ve telaffuz analizi`
   - `✓ IELTS Band tahmini + kişisel zayıflık raporu`
@@ -388,7 +388,7 @@ Demo username + password are entered into App Store Connect's dedicated **Demo A
 - Sample completed scenes across the 7 modes (Flört, İş, Bar, Havaalanı, Günlük, Sipariş, IELTS)
 - A small streak history (3 days)
 - Voice Journal: 2 sample audio entries (so the reviewer can verify mic permission flow without leaving the app)
-- Speak+ entitlement granted (review-side TestFlight unlock; on production builds reviewers should use a Sandbox Tester for the IAP path)
+- Lafla Pro entitlement granted (review-side TestFlight unlock; on production builds reviewers should use a Sandbox Tester for the IAP path)
 
 If credentials are stale, contact **hello@lafla.app** — fresh tester provisioned within one business day.
 
@@ -472,11 +472,11 @@ Secondary hooks to pitch in the Featured submission form:
 | Tap → Install conversion | 32%+ | <25% → re-test Screenshots 1–3 |
 | Keyword ranking (top 50) | 7 of 9 keywords | <5 → revisit keyword list |
 | Search vs Browse install ratio | 70/30 | Below 60% search → ASO under-pulling |
-| Trial → Paid (Speak+) | 15%+ | <10% → paywall surface needs rework |
+| Trial → Paid (Lafla Pro) | 15%+ | <10% → paywall surface needs rework |
 
 ### Review Management
 
-- **Trigger first 100 review prompts at:** scene completion #5, after a 3-day streak hits, after a Speak+ trial day-1 success moment. **Never** on app launch.
+- **Trigger first 100 review prompts at:** scene completion #5, after a 3-day streak hits, after a Lafla Pro trial day-1 success moment. **Never** on app launch.
 - **Goal:** 100 reviews in week 1, 4.5+ average. Below 4.2 average is a panic threshold.
 - **Reply policy:** Founder replies personally in TR for the first 90 days. Direct reply to every <4-star review with a real solution + invitation to `hello@lafla.app`.
 

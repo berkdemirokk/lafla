@@ -233,7 +233,7 @@ export default function SettingsScreen() {
     if (existing) {
       Alert.alert(
         "Davet kodu kullanıldı",
-        `${existing} kodu redeem edildi. 1 ay Speak+ bonusu en geç 24 saat içinde aktif olur.`,
+        `${existing} kodu redeem edildi. 1 ay Lafla Pro bonusu en geç 24 saat içinde aktif olur.`,
       );
       return;
     }
@@ -251,7 +251,7 @@ export default function SettingsScreen() {
               hapticSuccess();
               Alert.alert(
                 "Kod kabul edildi",
-                "Senin ve arkadaşının +1 ay Speak+ bonusu 24 saat içinde işlenir.",
+                "Senin ve arkadaşının +1 ay Lafla Pro bonusu 24 saat içinde işlenir.",
               );
             } else {
               Alert.alert(
@@ -378,7 +378,7 @@ export default function SettingsScreen() {
           />
           <Row
             icon="✨"
-            label="Speak+ Aboneliği"
+            label="Lafla Pro Aboneliği"
             onPress={() => {
               hapticSelection();
               router.push("/paywall" as never);

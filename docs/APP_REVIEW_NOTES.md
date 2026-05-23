@@ -15,7 +15,7 @@ The demo account is pre-seeded with:
 - Sample completed scenarios across the **7 modes**: Flört (dating), İş (work), Bar, Havaalanı (airport), Günlük (daily), Sipariş (ordering), IELTS Speaking
 - A small streak history so the home feed looks lived-in
 - Two sample Voice Journal entries (so the reviewer can verify the mic + local storage flow without leaving the app)
-- Speak+ entitlement granted on the review-only TestFlight build (production builds: use Sandbox Tester for IAP)
+- Lafla Pro entitlement granted on the review-only TestFlight build (production builds: use Sandbox Tester for IAP)
 
 ---
 
@@ -37,8 +37,8 @@ The demo account is pre-seeded with:
 
 Two subscription products in the same Subscription Group:
 
-- **`lafla.premium.monthly`** — Speak+ monthly subscription (₺99 base; displayed local price overrides marketing copy via RevenueCat `getOffering`).
-- **`lafla.premium.yearly`** — Speak+ yearly subscription (₺999 base; ~16% saving vs. 12× monthly).
+- **`lafla.premium.monthly`** — Lafla Pro monthly subscription (₺99 base; displayed local price overrides marketing copy via RevenueCat `getOffering`).
+- **`lafla.premium.yearly`** — Lafla Pro yearly subscription (₺999 base; ~16% saving vs. 12× monthly).
 
 The paywall presents both via a segmented toggle (default: Yıllık / Yearly preselected — this is the recommended tier; the user can switch to Aylık / Monthly with a tap).
 

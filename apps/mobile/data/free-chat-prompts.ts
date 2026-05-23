@@ -8,7 +8,7 @@
 // - Kullanıcı serbest text yazar
 // - Pattern matcher cevabı kabaca sınıflandırır
 // - Sınıfa göre 1 follow-up NPC reply (tell-me-more, contrast, encourage)
-// - 5 user turn sonra paywall ("Speak+ ile uzunluk sınırı yok")
+// - 5 user turn sonra paywall ("Lafla Pro ile uzunluk sınırı yok")
 //
 // Latency budget: 0 LLM, regex tabanlı sınıflandırma <1ms.
 // Pedagoji: Switch-2 inline error UI bu sahnede de çalışır (Türkçe ipucu).
@@ -375,5 +375,5 @@ export function pickPromptOfDay(): FreeChatPrompt {
   return FREE_CHAT_PROMPTS[idx]!;
 }
 
-/** Free-tier turn limit. Speak+ removes the limit. */
+/** Free-tier turn limit. Lafla Pro removes the limit. */
 export const FREE_CHAT_FREE_TURN_LIMIT = 5;

@@ -1,7 +1,7 @@
 // Lafla — IELTS Band Estimator (Premium killer feature).
 //
 // 2026-05-21 — Türk audience'ın #1 ödeme sebebi. Mock test merkezleri
-// ₺500 alıyor, biz ₺99/ay Speak+'ta sunuyoruz. Pattern matching +
+// ₺500 alıyor, biz ₺99/ay Lafla Pro'ta sunuyoruz. Pattern matching +
 // phoneme grader + scene history ensemble.
 //
 // Formula:

@@ -1,6 +1,6 @@
 // Lafla — Free-tier gate (paywall trigger).
 //
-// 2026-05-21 — Speak+ değer önerisini gerçek bir engel ile destekle.
+// 2026-05-21 — Lafla Pro değer önerisini gerçek bir engel ile destekle.
 // Önceden: free kullanıcı sınırsız sahne oynayabiliyordu, AdMob banner
 // tek "değer" engeliydi. ₺99/ay neden ödenir? Cevap yoktu.
 //
