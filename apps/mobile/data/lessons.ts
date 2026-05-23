@@ -67,6 +67,10 @@ import { airportExpandedLessons } from "./airport-expanded-lesson";
 // Part 1×6 (B1 familiar topics), Part 2×5 (B2 cue card), Part 3×4 (C1
 // abstract discussion). Türk audience'ın #1 ödeme sebebi.
 import { ieltsLessons } from "./ielts-lesson";
+// IELTS Writing depth pack: Task 1×8 + Task 2×8 (16 total)
+// Examiner walkthrough format — user paragraph anahtar cümlelerini yazar/söyler
+// roleplay_chat ile. Band 7+ collocations (notable increase, albeit, false dichotomy)
+import { ieltsWritingLessons } from "./ielts-writing-lesson";
 
 // === günlük (daily + personal + cefr survival/daily birleşti — 18 lesson set) ===
 import { dailyDirectionsLessons } from "./daily-directions-lesson";
@@ -138,8 +142,9 @@ export const allLessons: ReadonlyArray<BundledLesson> = [
   // havaalanı
   ...airportLessons,
   ...airportExpandedLessons,
-  // ielts (7. mod)
+  // ielts (7. mod) — Speaking + Writing depth
   ...ieltsLessons,
+  ...ieltsWritingLessons,
   // günlük
   ...dailyDirectionsLessons,
   ...dailyTransportLessons,
