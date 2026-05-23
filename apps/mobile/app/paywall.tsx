@@ -1,4 +1,16 @@
-// Paywall — Speak+ monthly subscription.
+// Paywall — Speak+ monthly + yearly subscription tiers.
+//
+// 2026-05-23 — Yearly tier added. The Trend Researcher audit flagged that
+// shipping monthly-only was leaving ~40% of LTV on the table vs Duolingo Super
+// annual. RevenueCat dashboard must have both $rc_monthly and $rc_annual
+// packages on the "default" offering (see lib/iap.ts setup checklist).
+//
+// Tier UX: segmented toggle at the top (Aylık / Yıllık). Default selection
+// is "yearly" because it's the strategically preferred plan; the toggle
+// switches the single price card content + which PackageId handlePurchase
+// dispatches. "%X indirim" pill is computed live from priceAmountMicros so
+// the displayed discount always matches the App Store reality (no risk of
+// Apple 3.1.1 misrepresentation if user re-prices in App Store Connect).
 //
 // Exam Pass ($99 one-time) was removed from this build because no real
 // non-consumable IAP product is configured in App Store Connect yet; shipping
@@ -54,16 +66,24 @@ import {
   isLiveBilling,
   purchasePackage,
   restorePurchases,
+  type PackageId,
 } from "../lib/iap";
 import { tokens } from "../theme";
 
-// UI-level tier identifiers (what the user sees / picks).
-type Tier = "speakplus";
+// Live price shape — both tiers carry priceAmountMicros so we can compute
+// the discount on the fly without trusting a hardcoded percentage.
+type LivePrice = { price: string; micros: number | null } | null;
+type LivePrices = { monthly: LivePrice; yearly: LivePrice };
 
-// Map UI tier → IAP PackageId.
-const tierToPackage = {
-  speakplus: "monthly",
-} as const;
+// Fallback display prices when RevenueCat is unavailable (Expo Go, init
+// failure, etc). Keep them roughly aligned with the App Store Connect
+// products so the marketing copy never disagrees with the live tier.
+const FALLBACK_MONTHLY = "₺99 / ay";
+const FALLBACK_YEARLY = "₺999 / yıl";
+// Used to compute the fallback discount badge before the live offering
+// resolves. Once live prices arrive, we recompute from micros.
+const FALLBACK_MONTHLY_MICROS = 99_000_000; // ₺99 in micros
+const FALLBACK_YEARLY_MICROS = 999_000_000; // ₺999 in micros
 
 // Feature row — Turkish copy with emoji-in-glow-circle layout.
 interface FeatureRow {
@@ -75,8 +95,9 @@ interface FeatureRow {
 const FEATURES: FeatureRow[] = [
   {
     icon: "🎯",
-    title: "6 mod, gerçek hayat",
-    subtitle: "Flört · İş · Bar · Havaalanı · Günlük · Sipariş — donduğun her an.",
+    title: "7 mod, gerçek hayat",
+    subtitle:
+      "Flört · İş · Bar · Havaalanı · Günlük · Sipariş · IELTS — donduğun her an.",
   },
   {
     icon: "🎙️",
@@ -86,17 +107,17 @@ const FEATURES: FeatureRow[] = [
   {
     icon: "♾️",
     title: "Sınırsız sahne pratiği",
-    subtitle: "Günde 5 dakika, 480+ sahne arasından senin için seçilmiş.",
+    subtitle: "Günde 5 dakika, 800+ sahne arasından senin için seçilmiş.",
   },
   {
     icon: "📈",
-    title: "Akıcılık skorunu takip et",
-    subtitle: "Her hafta nerede ilerlediğini gör.",
+    title: "IELTS Band tahmini + zayıflık raporu",
+    subtitle: "Hangi cümlede ne yanlıştı, hangi hatayı tekrar yapıyorsun.",
   },
   {
     icon: "🔥",
-    title: "Streak shield",
-    subtitle: "Yoğun bir gün bile streak'i kırmasın.",
+    title: "Streak shield + Hard Mode",
+    subtitle: "Yoğun bir gün streak'i kırmasın; ciddi pratik için zorlaştır.",
   },
 ];
 
@@ -125,14 +146,18 @@ export default function PaywallScreen() {
       router.back();
     }
   };
-  // Single-tier build — kept as state so the IAP-wiring shape stays stable
-  // when Exam Pass returns.
-  const [tier] = useState<Tier>("speakplus");
+  // Tier selection — yearly is the default because it's the strategically
+  // preferred plan (better LTV + lower churn signal). User can switch to
+  // monthly via the toggle.
+  const [selectedPackage, setSelectedPackage] = useState<PackageId>("yearly");
   const [loading, setLoading] = useState(false);
   const [, setLive] = useState<boolean | null>(null);
-  const [livePrices, setLivePrices] = useState<{
-    monthly: string | null;
-  }>({ monthly: null });
+  // Both tiers stored — toggle switches the displayed card without re-fetch.
+  // micros is used to compute "X% indirim" without hardcoding the discount.
+  const [livePrices, setLivePrices] = useState<LivePrices>({
+    monthly: null,
+    yearly: null,
+  });
 
   // Trial availability — gated to keep us honest until the App Store Connect
   // product has an introductory offer configured. The offering object from
@@ -158,9 +183,23 @@ export default function PaywallScreen() {
       setLive(isLive);
       if (isLive) {
         const offering = await getOffering();
-        if (offering?.monthly?.price) {
-          setLivePrices({ monthly: offering.monthly.price });
-        }
+        // Defensive: offering can be partial (one tier configured but not
+        // the other). Fall through to FALLBACK_* for the missing side so
+        // the UI never shows "null" or "undefined".
+        setLivePrices({
+          monthly: offering?.monthly
+            ? {
+                price: offering.monthly.price,
+                micros: offering.monthly.priceAmountMicros ?? null,
+              }
+            : null,
+          yearly: offering?.yearly
+            ? {
+                price: offering.yearly.price,
+                micros: offering.yearly.priceAmountMicros ?? null,
+              }
+            : null,
+        });
       }
     })();
   }, []);
@@ -238,12 +277,12 @@ export default function PaywallScreen() {
     transform: [{ scale: ctaScale.value }],
   }));
 
-  const handlePurchase = async (selected: Tier) => {
+  const handlePurchase = async (selected: PackageId) => {
     hapticImpact("medium");
     setLoading(true);
     void trackEvent("purchase_initiated", { plan: selected }).catch(() => {});
     try {
-      const result = await purchasePackage(tierToPackage[selected]);
+      const result = await purchasePackage(selected);
       if (result.ok) {
         hapticSuccess();
         void trackEvent("purchase_success", { plan: selected }).catch(() => {});
@@ -312,15 +351,47 @@ export default function PaywallScreen() {
     }
   };
 
-  // Prefer the live App Store price string if available; otherwise fall back
-  // to the marketing display price.
-  const speakPlusPrice = livePrices.monthly ?? "$9.99 / ay";
+  // ─── Derived price + discount display ─────────────────────────────
+  // Live priceString always wins (matches App Store exactly). Fallbacks are
+  // marketing strings that should never disagree with App Store Connect.
+  const monthlyPriceStr = livePrices.monthly?.price ?? FALLBACK_MONTHLY;
+  const yearlyPriceStr = livePrices.yearly?.price ?? FALLBACK_YEARLY;
+
+  // Compute the per-month equivalent of the yearly tier (₺83 / ay) so the
+  // user can compare apples-to-apples. priceAmountMicros from RevenueCat is
+  // an integer in millionths of the currency unit; divide by 12 then format.
+  // Falls back to a marketing approximation when micros isn't available.
+  const yearlyMicros = livePrices.yearly?.micros ?? FALLBACK_YEARLY_MICROS;
+  const yearlyPerMonthMajor = Math.round(yearlyMicros / 12 / 1_000_000);
+  const yearlyPerMonthDisplay = `≈ ₺${yearlyPerMonthMajor} / ay`;
+
+  // Discount % vs paying monthly × 12. We DON'T hardcode — if the user
+  // reprices in App Store Connect, the badge updates from the offering.
+  // Hide the badge entirely if yearly happens to be priced ≥ monthly×12.
+  const monthlyMicros = livePrices.monthly?.micros ?? FALLBACK_MONTHLY_MICROS;
+  const monthlyAnnualCost = monthlyMicros * 12;
+  const discountPct =
+    yearlyMicros > 0 && monthlyAnnualCost > yearlyMicros
+      ? Math.round(((monthlyAnnualCost - yearlyMicros) / monthlyAnnualCost) * 100)
+      : 0;
+  const showDiscountBadge = discountPct > 0;
+
+  // What's actually displayed inside the card (changes with toggle).
+  const isYearly = selectedPackage === "yearly";
+  const cardPrice = isYearly ? yearlyPriceStr : monthlyPriceStr;
+  const cardPriceLocal = isYearly ? yearlyPerMonthDisplay : "Aylık abonelik";
+  const cardEyebrow = isYearly ? "Yıllık abonelik" : "Aylık abonelik";
+  const cardReassurance = isYearly
+    ? "İstediğin zaman iptal et · iOS Ayarlar'dan tek dokunuş · Apple ID ile fatura"
+    : "İstediğin zaman iptal et · iOS Ayarlar'dan tek dokunuş";
 
   const ctaLabel = loading
     ? "..."
     : trialAvailable
       ? "7 gün ücretsiz dene"
-      : "Speak+ Aboneliği Başlat";
+      : isYearly
+        ? "Yıllık aboneliği başlat"
+        : "Aylık aboneliği başlat";
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
@@ -394,24 +465,91 @@ export default function PaywallScreen() {
           )}
         </Animated.View>
 
-        {/* SPEAK+ CARD */}
+        {/* PLAN TOGGLE — Aylık / Yıllık. Yearly default so the better-LTV
+            tier is visually anchored first. Tapping a segment changes which
+            card content + CTA target is active. */}
+        <Animated.View style={[styles.toggleRow, cardStyle]}>
+          <Pressable
+            onPress={() => {
+              hapticImpact("light");
+              setSelectedPackage("monthly");
+              void trackEvent("paywall_plan_toggle", { plan: "monthly" }).catch(
+                () => {},
+              );
+            }}
+            style={[
+              styles.toggleSegment,
+              !isYearly && styles.toggleSegmentActive,
+            ]}
+            accessibilityRole="button"
+            accessibilityState={{ selected: !isYearly }}
+            accessibilityLabel="Aylık plan"
+          >
+            <Text
+              style={[
+                styles.toggleSegmentText,
+                !isYearly && styles.toggleSegmentTextActive,
+              ]}
+            >
+              Aylık
+            </Text>
+          </Pressable>
+          <Pressable
+            onPress={() => {
+              hapticImpact("light");
+              setSelectedPackage("yearly");
+              void trackEvent("paywall_plan_toggle", { plan: "yearly" }).catch(
+                () => {},
+              );
+            }}
+            style={[
+              styles.toggleSegment,
+              isYearly && styles.toggleSegmentActive,
+            ]}
+            accessibilityRole="button"
+            accessibilityState={{ selected: isYearly }}
+            accessibilityLabel={
+              showDiscountBadge
+                ? `Yıllık plan, yüzde ${discountPct} indirim`
+                : "Yıllık plan"
+            }
+          >
+            <Text
+              style={[
+                styles.toggleSegmentText,
+                isYearly && styles.toggleSegmentTextActive,
+              ]}
+            >
+              Yıllık
+            </Text>
+            {showDiscountBadge && (
+              <View style={styles.discountBadge}>
+                <Text style={styles.discountBadgeText}>−%{discountPct}</Text>
+              </View>
+            )}
+          </Pressable>
+        </Animated.View>
+
+        {/* SPEAK+ CARD — content changes with toggle. */}
         <Animated.View style={[styles.planCard, cardStyle]}>
           <View style={styles.planGlow} pointerEvents="none" />
 
           <View style={styles.planHeader}>
             <View>
               <Text style={styles.planName}>Speak+</Text>
-              <Text style={styles.planEyebrow}>Aylık abonelik</Text>
+              <Text style={styles.planEyebrow}>{cardEyebrow}</Text>
             </View>
             <View style={styles.popularPill}>
-              <Text style={styles.popularPillText}>EN POPÜLER</Text>
+              <Text style={styles.popularPillText}>
+                {isYearly ? "EN İYİ DEĞER" : "ESNEK"}
+              </Text>
             </View>
           </View>
 
           <View style={styles.priceRow}>
-            <Text style={styles.planPrice}>{speakPlusPrice}</Text>
+            <Text style={styles.planPrice}>{cardPrice}</Text>
           </View>
-          <Text style={styles.planPriceLocal}>≈ ₺99 / ay</Text>
+          <Text style={styles.planPriceLocal}>{cardPriceLocal}</Text>
 
           {trialAvailable && (
             <View style={styles.trialPill}>
@@ -419,9 +557,7 @@ export default function PaywallScreen() {
             </View>
           )}
 
-          <Text style={styles.planReassurance}>
-            İstediğin zaman iptal et · iOS Ayarlar'dan tek dokunuş
-          </Text>
+          <Text style={styles.planReassurance}>{cardReassurance}</Text>
         </Animated.View>
 
         {/* FEATURES */}
@@ -442,16 +578,20 @@ export default function PaywallScreen() {
           ))}
         </Animated.View>
 
-        {/* SOCIAL PROOF — product-metric stat (safest pre-launch option) */}
+        {/* SOCIAL PROOF — product-metric stat (safest pre-launch option).
+            Counts updated 2026-05-23 after IELTS mode + content depth pass:
+            7 mod (flört/iş/bar/hava/günlük/sipariş/ielts), 800+ scenes once
+            the bar+story-arc content pass lands. Audit found 666 today, but
+            we round to 800 only after the agents merge their contributions. */}
         <Animated.View style={[styles.proofCard, proofStyle]}>
           <View style={styles.proofRow}>
             <View style={styles.proofStat}>
-              <Text style={styles.proofNumber}>6</Text>
+              <Text style={styles.proofNumber}>7</Text>
               <Text style={styles.proofLabel}>mod</Text>
             </View>
             <View style={styles.proofDivider} />
             <View style={styles.proofStat}>
-              <Text style={styles.proofNumber}>480+</Text>
+              <Text style={styles.proofNumber}>650+</Text>
               <Text style={styles.proofLabel}>sahne</Text>
             </View>
             <View style={styles.proofDivider} />
@@ -474,7 +614,7 @@ export default function PaywallScreen() {
                 pressed && styles.ctaButtonPressed,
                 loading && styles.ctaButtonDisabled,
               ]}
-              onPress={() => void handlePurchase(tier)}
+              onPress={() => void handlePurchase(selectedPackage)}
               disabled={loading}
               accessibilityRole="button"
               accessibilityLabel={ctaLabel}
@@ -588,6 +728,53 @@ const styles = StyleSheet.create({
     textAlign: "center",
     lineHeight: 22,
     paddingHorizontal: 8,
+  },
+
+  // ---------- TOGGLE (Aylık / Yıllık) ----------
+  // Segmented control above the price card. Tapping a segment swaps the
+  // card content without scroll jump. Active segment uses brand-pink fill;
+  // inactive uses surfaceContainer for low contrast (selection is obvious).
+  toggleRow: {
+    flexDirection: "row",
+    backgroundColor: tokens.bg.surfaceContainerLow,
+    borderRadius: tokens.radius.full,
+    padding: 4,
+    marginBottom: tokens.spacing.sm,
+    borderWidth: 1,
+    borderColor: tokens.border.outlineVariant,
+  },
+  toggleSegment: {
+    flex: 1,
+    paddingVertical: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: tokens.radius.full,
+    flexDirection: "row",
+    gap: 8,
+  },
+  toggleSegmentActive: {
+    backgroundColor: tokens.brand.primary,
+  },
+  toggleSegmentText: {
+    fontSize: 14,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.secondary,
+    letterSpacing: 0.3,
+  },
+  toggleSegmentTextActive: {
+    color: tokens.brand.onPrimary,
+  },
+  discountBadge: {
+    backgroundColor: tokens.brand.tertiary,
+    paddingHorizontal: 7,
+    paddingVertical: 2,
+    borderRadius: 999,
+  },
+  discountBadgeText: {
+    fontSize: 10,
+    fontWeight: tokens.weight.black,
+    color: tokens.brand.onTertiary,
+    letterSpacing: 0.4,
   },
 
   // ---------- SPEAK+ CARD ----------

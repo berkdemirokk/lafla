@@ -27,6 +27,7 @@ import {
   type SceneHistoryEntry,
 } from "./scene-history";
 import { getActiveMistakes } from "./mistake-tracker";
+import { getPronAvg, getPronCount } from "./pronunciation-history";
 
 const MIN_SCENES_FOR_BAND = 4;
 
@@ -104,9 +105,25 @@ export async function estimateSpeakingBand(): Promise<BandEstimate> {
     mistakeRate > 3 ? -0.5 : mistakeRate > 1.5 ? -0.25 : 0.25;
   const grammar = clampBand(fluency + grammarAdjust);
 
-  // 4. PRONUNCIATION — phoneme grader skoru yok şu an scene-history'de,
-  // bunu fluency ile yaklaşık alıyoruz. İleride phoneme score history'den.
-  const pronunciation = clampBand(fluency - 0.25); // konservatif
+  // 4. PRONUNCIATION — gerçek phoneme grader history'sinden.
+  //
+  // 2026-05-23 — Eski versiyon `fluency - 0.25` placeholder kullanıyordu.
+  // CEFR audit bunu Band Estimator'ın #1 zayıflığı olarak işaretledi: Türk
+  // IELTS adayı pronunciation kolonunun KENDİ telaffuzunu yansıtmasını
+  // bekler, flat bir çıkarma değil. PronouncePhrase + SpeechShadowing
+  // egzersizleri artık `pushPronScore` ile her skoru yazıyor; biz burada
+  // son 30'un ortalamasını alıp band'e çeviriyoruz.
+  //
+  // Yeterli örnek yoksa (3 altı) eski fluency-derived approximation'a
+  // düşeriz — gürültülü ortalama göstermek tahminin güvenilirliğine zarar
+  // verir. 3 değeri pragmatik: bir sahnede ~3-5 telaffuz var, ilk
+  // IELTS sahnesinden sonra zaten doluyor.
+  const pronCount = await getPronCount().catch(() => 0);
+  const pronAvg = pronCount >= 3 ? await getPronAvg().catch(() => null) : null;
+  const pronunciation =
+    pronAvg !== null
+      ? clampBand(scoreToBand(pronAvg))
+      : clampBand(fluency - 0.25);
 
   // Genel band — komponentlerin ortalaması (gerçek IELTS rubric'e paralel)
   const speakingBand = roundToHalf(

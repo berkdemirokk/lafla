@@ -1,6 +1,6 @@
 # RevenueCat — Production Wiring Guide
 
-**STATUS (May 2026, updated):**
+**STATUS (2026-05-23, updated for yearly tier launch):**
 - ✅ `react-native-purchases` SDK wired in `lib/iap.ts`
 - ✅ Production iOS API key live in `apps/mobile/app.json`
   (`appl_bqTdlDWgyIlphLIlVGGRuNDtuIu`)
@@ -8,20 +8,26 @@
   `lib/iap.ts` matches it exactly (note the space + caps — RC identifiers
   are immutable, code follows the dashboard)
 - ✅ RC offering `default` exists with `$rc_monthly` + `$rc_annual` packages
+- ✅ Paywall (`app/paywall.tsx`) now displays both tiers via segmented toggle.
+  Yearly is the default selection. Discount % is computed live from
+  `priceAmountMicros` ratio so it always matches the App Store reality.
 - ⚠️  **App Store Connect IAP products NOT yet created**. The two RC products
   (`monthly`, `yearly`) currently point at RC's internal **Test Store**, not
   real App Store products. Sandbox / production purchases will fail until
   the App Store side is wired (see §1 below).
 
-**Remaining steps to go live:**
-1. In App Store Connect: create `lafla.premium.monthly` + `lafla.premium.yearly`
-   as auto-renewable subscriptions in the same group (see §1)
+**Remaining steps to go live (do these IN ORDER — App Store Connect side):**
+1. In App Store Connect → Subscriptions: create `lafla.premium.monthly`
+   (₺99/ay) and `lafla.premium.yearly` (₺999/yıl) as auto-renewable
+   subscriptions in the same subscription group "Lafla Premium". Same level
+   in the group means user can switch between them. See §1 below.
 2. In RC dashboard → Products → "Lafla (App Store)" → **+ New** (or **Import**)
-   → add both product IDs from step 1
-3. Attach both products to the `Lafla Pro` entitlement
+   → add both product IDs from step 1.
+3. Attach both products to the `Lafla Pro` entitlement.
 4. In the `default` offering: replace the Test Store packages with App Store
-   ones (or create new packages bound to the App Store products)
-5. EAS dev build → sandbox test → submit for review
+   ones (or create new packages bound to the App Store products).
+5. EAS dev build → sandbox test (both tiers + tier-switching) → submit for
+   review.
 
 Until step 1 lands, the paywall shows real UI but `purchasePackage()` will
 return `{ ok: false, error: "..." }`. Mock fallback (Expo Go) still works.
@@ -49,16 +55,29 @@ The public surface of `lib/iap.ts` and `lib/premium-gate.ts` is the contract.
 
 ## 1. Configure products in App Store Connect
 
-Create two **auto-renewable subscriptions** in the same subscription group:
+Create two **auto-renewable subscriptions** in the same subscription group
+(group: "Lafla Premium"). Same group level means iOS lets the user upgrade
+or downgrade between them without a refund refund dance.
 
-| Product ID            | Type      | Price (TR) | Duration |
-| --------------------- | --------- | ---------- | -------- |
-| `lafla.premium.monthly` | Auto-renew | 99 ₺      | 1 month  |
-| `lafla.premium.yearly`  | Auto-renew | 599 ₺     | 1 year   |
+| Product ID              | Type       | Price (TR) | Duration | Notes |
+| ----------------------- | ---------- | ---------- | -------- | ----- |
+| `lafla.premium.monthly` | Auto-renew | ₺99        | 1 month  | Flexible tier |
+| `lafla.premium.yearly`  | Auto-renew | ₺999       | 1 year   | Best value — ≈₺83/ay |
+
+The yearly price is ₺999 (≈ ₺83/ay equivalent, ~16% cheaper than 12 months
+of monthly). This matches the Trend Researcher recommendation: competitive
+with Duolingo Super Türkiye (~₺680/yıl equivalent) while staying below
+Speak's ₺4188/yıl. The "−%X" badge on the paywall toggle computes this
+ratio live from `priceAmountMicros` so any future re-pricing in App Store
+Connect auto-updates the badge — never re-hardcode it.
 
 Mirror the localized name / description per locale (Turkish first,
 English fallback). Submit for review **with the first build that includes
 RevenueCat** — products stay `Waiting for Review` until then.
+
+**Tier copy for App Store Connect (Turkish):**
+- Monthly: "Speak+ Aylık — Sınırsız sahne, premium özellikler. ₺99/ay."
+- Yearly: "Speak+ Yıllık — 12 ay tek ödeme. Aylık ₺83 eşdeğeri (~%16 indirim)."
 
 ---
 

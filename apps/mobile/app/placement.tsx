@@ -1,10 +1,17 @@
-// Placement — adaptive CEFR test (2026-05-21).
+// Placement — adaptive CEFR test (2026-05-21, +speaking/listening 2026-05-23).
 //
 // Onboarding'in son adımı (self-report cefr) yerine veya onun "Test ile
-// belirle" CTA'sı arkasında. 6 soru, adaptive: doğru → seviye yukarı,
-// yanlış → aşağı. Final level setCefrLevel ile kaydedilir, kullanıcı
-// home'a yönlendirilir (intro Tinder zorunlu sahne onboarding tarafı
-// hâlâ koşar).
+// belirle" CTA'sı arkasında. 10 MCQ adaptive (B1 ile başla, ±1 seviye),
+// sonra 1 zorunlu speaking + 1 zorunlu listening ile final calibration.
+//
+// 2026-05-23 — CEFR audit fix #1: önceki versiyon SADECE okuma/grammar
+// MCQ test ediyordu. Bir speaking app için bu ölümcül bir gap'ti — Türk
+// öğrencisi grammar'ı pasif tanıyıp B1 alabiliyordu ama konuşamıyor, B1
+// sahneleri batırıyor, trust ilk gün kayboluyordu. Şimdi son iki adım
+// gerçek speaking (PronouncePhrase + phoneme grader) ve gerçek listening
+// (TTS audio + transcribe). Eğer her ikisinde de düşük puan alırsa
+// final level otomatik -1 band düşer ("okumana göre B1 idin ama dinleme
+// + konuşma A2 — sana A2 sahneleri sunuyoruz").
 
 import { useEffect, useMemo, useState } from "react";
 import {
@@ -33,6 +40,9 @@ import { type CefrLevel } from "../lib/cefr-level";
 import { trackEvent } from "../lib/analytics";
 import { finalizeOnboarding } from "../lib/onboarding-finalize";
 import { getInterests } from "../lib/local-progress";
+import { PronouncePhrase } from "../components/exercises/PronouncePhrase";
+import { ListenAndTranscribe } from "../components/exercises/ListenAndTranscribe";
+import type { ExerciseResult } from "../lib/engine";
 import {
   PLACEMENT_QUESTION_COUNT,
   computeFinalLevel,
@@ -41,6 +51,72 @@ import {
   pickQuestionFromLevel,
   type PlacementQuestion,
 } from "../data/cefr-placement-bank";
+
+// ─── Speaking + listening prompts, indexed by the MCQ-derived level ─
+// Each level gets a CEFR-tuned phrase. PronouncePhrase grades phoneme-by-
+// phoneme via the Levenshtein-on-IPA pipeline; ListenAndTranscribe plays
+// via TTS then asks the user to type back. Both are well-tested existing
+// exercises — we're just wiring them into the placement flow.
+
+const SPEAKING_PHRASES: Record<CefrLevel, { phrase: string; tr: string }> = {
+  A1: { phrase: "Hello, my name is Alex.", tr: "Merhaba, benim adım Alex." },
+  A2: {
+    phrase: "I usually go to work by bus.",
+    tr: "Genelde işe otobüsle giderim.",
+  },
+  B1: {
+    phrase: "I'd like to know more about your weekend.",
+    tr: "Hafta sonun hakkında daha çok bilgi almak isterim.",
+  },
+  B2: {
+    phrase: "If I had known earlier, I would have prepared something.",
+    tr: "Daha önce bilseydim bir şeyler hazırlardım.",
+  },
+  C1: {
+    phrase: "On balance, the proposal warrants further consideration.",
+    tr: "Genel olarak, öneri daha fazla değerlendirilmeyi hak ediyor.",
+  },
+  C2: {
+    phrase: "Were it not for the complications, the project would have wrapped up.",
+    tr: "Komplikasyonlar olmasaydı proje tamamlanmış olacaktı.",
+  },
+};
+
+const LISTENING_PHRASES: Record<CefrLevel, { sentence: string; tr: string }> = {
+  A1: { sentence: "Where is the bathroom?", tr: "Tuvalet nerede?" },
+  A2: {
+    sentence: "Could I have a cup of coffee, please?",
+    tr: "Bir fincan kahve alabilir miyim, lütfen?",
+  },
+  B1: {
+    sentence: "Could you tell me where the nearest pharmacy is?",
+    tr: "Bana en yakın eczanenin nerede olduğunu söyler misin?",
+  },
+  B2: {
+    sentence: "I'm afraid the meeting has been postponed.",
+    tr: "Maalesef toplantı ertelendi.",
+  },
+  C1: {
+    sentence: "In hindsight, we should have allocated more resources.",
+    tr: "Geriye dönüp bakınca daha çok kaynak ayırmalıydık.",
+  },
+  C2: {
+    sentence: "Were the data to prove inconclusive, we'd revisit our assumptions.",
+    tr: "Veri yetersiz çıkarsa varsayımlarımızı tekrar gözden geçireceğiz.",
+  },
+};
+
+// Test phases. "mcq" → 10 MCQ adaptive; "speaking" → 1 PronouncePhrase
+// at MCQ-derived level; "listening" → 1 ListenAndTranscribe at same level;
+// "done" → result + handoff. Each phase has a single source of truth state
+// so back navigation never desyncs.
+type Phase = "mcq" | "speaking" | "listening" | "done";
+
+// Adjustment rule: if BOTH speaking and listening miss ≥50% the user is
+// passive-only (reads grammar but can't speak / understand audio). Drop
+// one band — better to start them too low than too high. If only one
+// fails we keep the MCQ level (could be a one-off bad read or noise).
+const FAIL_THRESHOLD = 50;
 
 interface HistoryEntry {
   level: CefrLevel;
@@ -55,7 +131,15 @@ export default function PlacementScreen() {
   const [usedIds, setUsedIds] = useState<Set<string>>(new Set());
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
-  const [finished, setFinished] = useState(false);
+  // 2026-05-23 — replaced single `finished` flag with a Phase machine so
+  // the post-MCQ speaking + listening steps don't have to bolt onto the
+  // old boolean. `done` is the new terminal state.
+  const [phase, setPhase] = useState<Phase>("mcq");
+  const [mcqDerivedLevel, setMcqDerivedLevel] = useState<CefrLevel | null>(
+    null,
+  );
+  const [speakingScore, setSpeakingScore] = useState<number | null>(null);
+  const [listeningScore, setListeningScore] = useState<number | null>(null);
   const [finalLevel, setFinalLevel] = useState<CefrLevel | null>(null);
   const [saving, setSaving] = useState(false);
   // 2026-05-21 — adaptive transition feedback. Sonraki soru daha kolay
@@ -64,10 +148,10 @@ export default function PlacementScreen() {
 
   // Bir kez seç — turn boyunca aynı soru
   const current: PlacementQuestion | null = useMemo(() => {
-    if (finished) return null;
+    if (phase !== "mcq") return null;
     return pickQuestionFromLevel(currentLevel, usedIds);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentLevel, finished]);
+  }, [currentLevel, phase]);
 
   useEffect(() => {
     if (current) {
@@ -100,13 +184,18 @@ export default function PlacementScreen() {
       ];
       setHistory(newHistory);
 
-      // Test bitti mi?
+      // MCQ tamamlandı — speaking + listening phase'lerine geç.
+      // Final level şu an YAPILMIYOR; speaking + listening sonucu birleşince
+      // applyMcqLevelAdjustment ile karara bağlanacak.
       if (newHistory.length >= PLACEMENT_QUESTION_COUNT) {
-        const lvl = computeFinalLevel(newHistory);
-        setFinalLevel(lvl);
-        setFinished(true);
-        void trackEvent("placement_completed", {
-          final_level: lvl,
+        const mcqLevel = computeFinalLevel(newHistory);
+        setMcqDerivedLevel(mcqLevel);
+        setPhase("speaking");
+        setRevealed(false);
+        setSelectedIdx(null);
+        setAdaptiveHint(null);
+        void trackEvent("placement_mcq_completed", {
+          mcq_level: mcqLevel,
           history: newHistory,
         }).catch(() => {});
         return;
@@ -130,6 +219,37 @@ export default function PlacementScreen() {
       setRevealed(false);
       setSelectedIdx(null);
     }, 1500); // 1.5s explanation süresi
+  };
+
+  // ─── speaking + listening handlers ──────────────────────────
+  // 2026-05-23 — wrap the existing exercise components so the placement
+  // test gets free reuse of phoneme grader + TTS + STT pipelines.
+
+  const handleSpeakingComplete = (result: ExerciseResult) => {
+    setSpeakingScore(result.score);
+    void trackEvent("placement_speaking_completed", {
+      score: result.score,
+      mcq_level: mcqDerivedLevel,
+    }).catch(() => {});
+    setPhase("listening");
+  };
+
+  const handleListeningComplete = (result: ExerciseResult) => {
+    setListeningScore(result.score);
+    // Now we have all three signals — compute the adjusted final level.
+    const adjusted = applyOralAdjustment(
+      mcqDerivedLevel ?? "A1",
+      speakingScore,
+      result.score,
+    );
+    setFinalLevel(adjusted);
+    setPhase("done");
+    void trackEvent("placement_completed", {
+      final_level: adjusted,
+      mcq_level: mcqDerivedLevel,
+      speaking_score: speakingScore,
+      listening_score: result.score,
+    }).catch(() => {});
   };
 
   const handleAccept = async () => {
@@ -167,9 +287,55 @@ export default function PlacementScreen() {
   const progress = history.length;
   const total = PLACEMENT_QUESTION_COUNT;
 
+  // ─── speaking phase ─────────────────────────────────────────
+  if (phase === "speaking" && mcqDerivedLevel) {
+    const target = SPEAKING_PHRASES[mcqDerivedLevel];
+    return (
+      <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
+        <StatusBar style="light" />
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>Konuşma testi</Text>
+          <Text style={styles.headerSub}>
+            Bu cümleyi sesli oku — telaffuzun seviye tahmininin son ayağı.
+          </Text>
+        </View>
+        <ScrollView contentContainerStyle={styles.body}>
+          <PronouncePhrase
+            phrase={target.phrase}
+            trHint={target.tr}
+            onComplete={handleSpeakingComplete}
+          />
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
+
+  // ─── listening phase ────────────────────────────────────────
+  if (phase === "listening" && mcqDerivedLevel) {
+    const target = LISTENING_PHRASES[mcqDerivedLevel];
+    return (
+      <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
+        <StatusBar style="light" />
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>Dinleme testi</Text>
+          <Text style={styles.headerSub}>
+            Cümleyi dinle ve duyduğunu yaz. Son adım.
+          </Text>
+        </View>
+        <ScrollView contentContainerStyle={styles.body}>
+          <ListenAndTranscribe
+            sentence={target.sentence}
+            trHint={target.tr}
+            onComplete={handleListeningComplete}
+          />
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
+
   // ─── finished state ─────────────────────────────────────────
 
-  if (finished && finalLevel) {
+  if (phase === "done" && finalLevel) {
     return (
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
         <StatusBar style="light" />
@@ -182,6 +348,16 @@ export default function PlacementScreen() {
           <Text style={styles.doneSub}>
             {levelDescription(finalLevel)}
           </Text>
+          {/* If the oral checks demoted the user from their MCQ level we
+              surface a one-line explanation. Better to admit "we adjusted"
+              than to silently disagree with the user's own intuition. */}
+          {mcqDerivedLevel && mcqDerivedLevel !== finalLevel ? (
+            <Text style={styles.doneAdjustment}>
+              📖 Okuma: {mcqDerivedLevel} · 🎙️ Konuşma & dinleme:{" "}
+              {finalLevel} — sahneler {finalLevel}'den başlar, pratik
+              ettikçe yukarı çıkar.
+            </Text>
+          ) : null}
           <Text style={styles.doneFoot}>
             Sahneler bu seviyeden başlar. Yanlış mı? Ayarlar'dan değiştirebilirsin.
           </Text>
@@ -295,6 +471,39 @@ export default function PlacementScreen() {
 
 // ─── helpers ────────────────────────────────────────────────────────
 
+/**
+ * Final level adjustment based on speaking + listening evidence.
+ *
+ * The MCQ side measures recognition + grammar — a Turkish learner who's
+ * spent years reading English can hit B1 on MCQ while being unable to
+ * speak or understand audio at all. The two oral checks let us catch
+ * that mismatch and demote the level so day-1 scenes don't drown them.
+ *
+ * Rule:
+ *   - BOTH speaking AND listening < 50 → MCQ level − 1 (clamped at A1)
+ *   - Either one alone failing is treated as noise (one-off mis-read,
+ *     STT glitch, or unfamiliar accent). We keep the MCQ level.
+ *   - When both are ≥ 50 we trust the MCQ result fully.
+ *
+ * The asymmetry is intentional: we'd rather start a B1 user at A2 by
+ * mistake (a few easy wins → they reclassify upward via real practice
+ * via PROGRESS_HIGH inside cefr-level.ts) than start an A2 at B1 and
+ * have them churn.
+ */
+function applyOralAdjustment(
+  mcqLevel: CefrLevel,
+  speakingScore: number | null,
+  listeningScore: number | null,
+): CefrLevel {
+  if (speakingScore === null || listeningScore === null) return mcqLevel;
+  const bothFailed =
+    speakingScore < FAIL_THRESHOLD && listeningScore < FAIL_THRESHOLD;
+  if (!bothFailed) return mcqLevel;
+  const lower = nextLevelDown(mcqLevel);
+  // nextLevelDown returns the same level if already at A1 — guards the floor.
+  return lower;
+}
+
 function levelDescription(l: CefrLevel): string {
   switch (l) {
     case "A1":
@@ -331,6 +540,14 @@ const styles = StyleSheet.create({
     color: tokens.text.primary,
     fontFamily: tokens.font.display,
     letterSpacing: -0.3,
+  },
+  // Subtitle used during speaking + listening phases (no progress dots
+  // there — single oral check, no "X of Y" framing).
+  headerSub: {
+    fontSize: 13,
+    color: tokens.text.secondary,
+    lineHeight: 18,
+    marginTop: 2,
   },
   dotsRow: { flexDirection: "row", gap: 6 },
   dot: {
@@ -499,6 +716,20 @@ const styles = StyleSheet.create({
     textAlign: "center",
     paddingHorizontal: 12,
     marginBottom: 16,
+  },
+  doneAdjustment: {
+    fontSize: 13,
+    color: tokens.brand.tertiary,
+    textAlign: "center",
+    paddingHorizontal: 18,
+    paddingVertical: 12,
+    marginBottom: 14,
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderRadius: tokens.radius.base,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
+    lineHeight: 18,
+    fontWeight: tokens.weight.semibold,
   },
   doneFoot: {
     fontSize: 12,

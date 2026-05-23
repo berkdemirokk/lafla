@@ -3306,6 +3306,3892 @@ export const barLesson_24_29: BundledLesson = {
 };
 
 // ============================================================
+// SECTION C — order.bar 7.29 to 7.43 (30-scene expansion pack)
+// 2026-05-23 — CEFR-balanced: A2x6, B1x6, B2x2, C1x1 in this section
+// Topics: wine bar, cocktail mixology, pub match, hotel bar, beach,
+// brewery, wedding, whisky tasting.
+// ============================================================
+
+// ============================================================
+// Lesson 7.29 — Wine Bar A2 — House Red Basics
+// ============================================================
+export const barLesson_7_29: BundledLesson = {
+  id: "order.bar.7.29",
+  skill_id: "order.bar",
+  index: 29,
+  title: "Sarap Bari — Ev Kirmizisi",
+  description:
+    "A2: Basit sarap siparisi. Kadeh, fiyat, tesekkur. Tek cumle yapilar.",
+  estimated_minutes: 4,
+  exercises: [
+    {
+      id: "ex.7.29.1",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "a glass of red",
+      tr_translation: "Bir kadeh kirmizi sarap",
+      example: "A glass of red, please.",
+      example_tr: "Bir kadeh kirmizi sarap, lutfen.",
+    },
+    {
+      id: "ex.7.29.2",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "house wine",
+      tr_translation: "Mekanin standart sarabi (uygun fiyatli)",
+      example: "I'll have the house wine.",
+      example_tr: "Ev sarabini alirim.",
+    },
+    {
+      id: "ex.7.29.3",
+      type: "roleplay_chat",
+      difficulty: 2,
+      scenario_description:
+        "A2 sarap bari. Sik bir mekan degil — basit kadeh siparisi.",
+      npc_role: "Wine bar server",
+      setting: "Small wine bar, casual",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hi! What can I get you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(a |one )?(glass of )?(red|white|rose|wine)( please)?",
+            "(i want|i'?d like) (a |one )?(red|white) wine",
+            "(the |a )?house (red|white|wine)( please)?",
+            "(red wine|white wine)(,)? (please)?",
+            "(can i have|i'?ll have) (one |a )?wine",
+          ],
+          hint_tr:
+            "A2 sade: 'A glass of red, please'. Tek cumle, kibar.",
+        },
+        {
+          speaker: "npc",
+          message: "Sure. The house red is six dollars.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay|ok|good|great)",
+            "(that'?s )?(fine|okay|good)",
+            "(yes|sure)(,)? (please)",
+            "(six dollars|six bucks)\\??\\s*(okay)?",
+            "(perfect|sounds good)",
+          ],
+          hint_tr:
+            "Fiyat kabul: 'Okay, that's fine'.",
+        },
+        {
+          speaker: "npc",
+          message: "Anything else? Water? Bread?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(water|bread)(,)? (please)?",
+            "(yes|yeah)(,)? (some |a glass of )?(water|bread)",
+            "(no|no thanks|just the wine)",
+            "(just water)( please)?",
+            "(no thank you)",
+          ],
+          hint_tr:
+            "A2: 'Water, please' veya 'No, thanks'.",
+        },
+        {
+          speaker: "npc",
+          message: "Coming right up.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|thanks)",
+            "(thanks a lot)",
+            "(cheers|thanks)",
+            "(thank you)",
+          ],
+          hint_tr:
+            "Tesekkur: 'Thank you'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 7.30 — Cocktail Bar A2 — Gin and Tonic
+// ============================================================
+export const barLesson_7_30: BundledLesson = {
+  id: "order.bar.7.30",
+  skill_id: "order.bar",
+  index: 30,
+  title: "Cin Tonik — Basit Siparis",
+  description:
+    "A2: En kolay kokteyl — gin and tonic. Buz, limon. Tek cumle yapilar.",
+  estimated_minutes: 4,
+  exercises: [
+    {
+      id: "ex.7.30.1",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "gin and tonic",
+      tr_translation: "Cin tonik (kolay siparis)",
+      example: "A gin and tonic, please.",
+      example_tr: "Bir cin tonik, lutfen.",
+    },
+    {
+      id: "ex.7.30.2",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "with lemon",
+      tr_translation: "Limonlu",
+      example: "With lemon, please.",
+      example_tr: "Limonlu, lutfen.",
+    },
+    {
+      id: "ex.7.30.3",
+      type: "roleplay_chat",
+      difficulty: 2,
+      scenario_description:
+        "A2 kokteyl bari. En tanidik kokteyl — G and T.",
+      npc_role: "Bartender",
+      setting: "Cocktail bar, simple order",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hello. What can I make for you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(a |one )?(gin and tonic|g and t)( please)?",
+            "(i want|i'?d like) (a )?gin and tonic",
+            "(can i have) (a |one )?(gin and tonic|g and t)",
+            "(g and t)(,)? (please)",
+            "(gin tonic)( please)?",
+          ],
+          hint_tr:
+            "A2: 'A gin and tonic, please'. Tanidik kokteyl.",
+        },
+        {
+          speaker: "npc",
+          message: "With ice?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,)? (ice|please)",
+            "(yes|yeah)(,)? (with ice)",
+            "(no ice|without ice)( please)?",
+            "(yes please)",
+            "(a little|some) ice",
+          ],
+          hint_tr:
+            "A2: 'Yes, with ice'.",
+        },
+        {
+          speaker: "npc",
+          message: "Lemon or lime?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(lemon|lime)( please)?",
+            "(with )?lemon",
+            "(with )?lime",
+            "(both)(,)? (please)?",
+            "(lemon)(,)? (thank you)?",
+          ],
+          hint_tr:
+            "Sec: 'Lemon, please'.",
+        },
+        {
+          speaker: "npc",
+          message: "That's nine dollars.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(here you go|here'?s my card)",
+            "(okay|sure)",
+            "(card|cash)( please)?",
+            "(here)",
+            "(thank you|thanks)",
+          ],
+          hint_tr:
+            "A2 ode: 'Here you go'.",
+        },
+        {
+          speaker: "npc",
+          message: "One moment.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 7.31 — Pub A2 — Beer at the Counter (Match Night)
+// ============================================================
+export const barLesson_7_31: BundledLesson = {
+  id: "order.bar.7.31",
+  skill_id: "order.bar",
+  index: 31,
+  title: "Mac Gecesi — Bira Siparisi",
+  description:
+    "A2: Kalabalik pub, kisa siparis. 'A beer, please' yeterli.",
+  estimated_minutes: 4,
+  exercises: [
+    {
+      id: "ex.7.31.1",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "a pint",
+      tr_translation: "Bir pint bira (~500ml)",
+      example: "A pint, please.",
+      example_tr: "Bir pint, lutfen.",
+    },
+    {
+      id: "ex.7.31.2",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "on tap",
+      tr_translation: "Fıçı (taze bira)",
+      example: "What's on tap?",
+      example_tr: "Fıçıda ne var?",
+    },
+    {
+      id: "ex.7.31.3",
+      type: "roleplay_chat",
+      difficulty: 2,
+      scenario_description:
+        "A2 pub. Mac gecesi. Bartender hizli. Kisa cumleler.",
+      npc_role: "Pub bartender",
+      setting: "Pub during a football match",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Yes, what?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(a |one )?(beer|pint|lager)( please)?",
+            "(a pint of )?(lager|beer)( please)?",
+            "(what'?s on tap)\\??",
+            "(one beer|two beers)( please)?",
+            "(a pint)(,)? (please)?",
+          ],
+          hint_tr:
+            "Kisa: 'A pint, please'. Kalabalikta detay yok.",
+        },
+        {
+          speaker: "npc",
+          message: "Lager or ale?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(lager|ale)( please)?",
+            "(a |the )?(lager|ale)",
+            "(lager)(,)? (thanks)?",
+            "(ale)(,)? (please)?",
+            "(any|whatever)",
+          ],
+          hint_tr:
+            "Sec: 'Lager, please'. Lager = acik bira, ale = koyu.",
+        },
+        {
+          speaker: "npc",
+          message: "Five pounds.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(here you go|here'?s)",
+            "(card|cash)",
+            "(here)",
+            "(thank you|thanks)",
+            "(okay)",
+          ],
+          hint_tr:
+            "Ode: 'Here you go'.",
+        },
+        {
+          speaker: "npc",
+          message: "Cheers.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 7.32 — Hotel Bar A2 — Charge to Room
+// ============================================================
+export const barLesson_7_32: BundledLesson = {
+  id: "order.bar.7.32",
+  skill_id: "order.bar",
+  index: 32,
+  title: "Otel Bari — Odaya Yaz",
+  description:
+    "A2: Otel bari. Icki + 'charge to my room' kalibi. Oda numarasi.",
+  estimated_minutes: 4,
+  exercises: [
+    {
+      id: "ex.7.32.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "charge to my room",
+      tr_translation: "Odama yaz (otel bari odeme)",
+      example: "Charge it to my room, please.",
+      example_tr: "Odama yaz lutfen.",
+    },
+    {
+      id: "ex.7.32.2",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "room number",
+      tr_translation: "Oda numarasi",
+      example: "Room 405.",
+      example_tr: "Oda 405.",
+    },
+    {
+      id: "ex.7.32.3",
+      type: "roleplay_chat",
+      difficulty: 2,
+      scenario_description:
+        "A2 otel bari. Iki gecelik kaliyorsun. Odaya yazdir.",
+      npc_role: "Hotel bartender",
+      setting: "Hotel lobby bar",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Good evening. What would you like?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(a |one )?(beer|wine|gin and tonic)( please)?",
+            "(i'?d like|can i have) (a )?(beer|drink|wine)",
+            "(a glass of )?(red|white) (wine)?( please)?",
+            "(could i have|i want) (a )?(cocktail|beer)",
+            "(a |one )?(coffee|tea)( please)?",
+          ],
+          hint_tr:
+            "Sade: 'A glass of red, please'.",
+        },
+        {
+          speaker: "npc",
+          message: "Of course. Are you a guest?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,)? (i'?m a guest|room (\\d+))",
+            "(yes)(,)? (i'?m staying here)",
+            "(yes)(,)? (room four oh five|room (\\d+))",
+            "(yeah)(,)? (i'?m in room (\\d+))",
+            "(i'?m staying in room (\\d+))",
+          ],
+          hint_tr:
+            "Otelci: 'Yes, room 405'.",
+        },
+        {
+          speaker: "npc",
+          message: "Can you charge it to your room?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,)? (charge it to my room|to my room please)",
+            "(yes please)(,)? (room (\\d+))",
+            "(charge to (my )?room|put it on (my )?room)( please)?",
+            "(yes)(,)? (please charge it)",
+            "(my room please)",
+          ],
+          hint_tr:
+            "Otel kalip: 'Yes, charge it to my room'.",
+        },
+        {
+          speaker: "npc",
+          message: "Sign here, please.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay|sure)",
+            "(thank you|thanks)",
+            "(here you go)",
+            "(of course)",
+            "(done)",
+          ],
+          hint_tr:
+            "Imza: 'Sure, thank you'.",
+        },
+        {
+          speaker: "npc",
+          message: "Enjoy your stay.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 7.33 — Beach Bar A2 — Frozen Cocktail in the Sun
+// ============================================================
+export const barLesson_7_33: BundledLesson = {
+  id: "order.bar.7.33",
+  skill_id: "order.bar",
+  index: 33,
+  title: "Plaj Bari — Donmus Kokteyl",
+  description:
+    "A2: Plaj bari. Donmus (frozen) kokteyl, su, paid in advance.",
+  estimated_minutes: 4,
+  exercises: [
+    {
+      id: "ex.7.33.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "frozen",
+      tr_translation: "Donmus (kokteyl)",
+      example: "Frozen margarita, please.",
+      example_tr: "Donmus margarita, lutfen.",
+    },
+    {
+      id: "ex.7.33.2",
+      type: "vocab_tile",
+      difficulty: 1,
+      word_or_phrase: "a straw",
+      tr_translation: "Pipet",
+      example: "Can I have a straw?",
+      example_tr: "Pipet alabilir miyim?",
+    },
+    {
+      id: "ex.7.33.3",
+      type: "roleplay_chat",
+      difficulty: 2,
+      scenario_description:
+        "A2 plaj bari. Gunes yakici, sicak. Soguk donmus kokteyl ariyorsun.",
+      npc_role: "Beach bar server",
+      setting: "Beach bar, sunny day",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hi! Hot day, huh?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,)? (very hot|so hot)",
+            "(yes)(,)? (it'?s hot)",
+            "(yeah)(,)? (i need something cold)",
+            "(hot)(,)? (i need a drink)",
+            "(very hot|burning hot)",
+          ],
+          hint_tr:
+            "A2: 'Yes, very hot'.",
+        },
+        {
+          speaker: "npc",
+          message: "Frozen drink? We have margarita, pina colada, daiquiri.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(a |one )?(frozen )?(margarita|pina colada|daiquiri)( please)?",
+            "(i want|i'?d like) (a )?(margarita|pina colada|daiquiri)",
+            "(pina colada|margarita)(,)? (please)?",
+            "(the )?(pina colada)( please)?",
+            "(a )?(margarita)",
+          ],
+          hint_tr:
+            "Sec: 'A frozen margarita, please'.",
+        },
+        {
+          speaker: "npc",
+          message: "Salt on the rim?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,)? (salt)( please)?",
+            "(no|no salt)( please|, thanks)?",
+            "(yes please)",
+            "(a little salt|some salt)",
+            "(no thanks)",
+          ],
+          hint_tr:
+            "Tuz: 'Yes, salt please'.",
+        },
+        {
+          speaker: "npc",
+          message: "And a straw?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,)? (please)?",
+            "(yes)(,)? (a straw)( please)?",
+            "(please)",
+            "(yes thanks)",
+            "(no thanks)",
+          ],
+          hint_tr:
+            "Pipet: 'Yes, please'.",
+        },
+        {
+          speaker: "npc",
+          message: "Twelve dollars. Pay now please.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(here you go|here'?s my card)",
+            "(here)",
+            "(card)( please)?",
+            "(cash)",
+            "(thank you|thanks)",
+          ],
+          hint_tr:
+            "Ode: 'Here you go'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 7.34 — Brewery A2 — Flight of Beers
+// ============================================================
+export const barLesson_7_34: BundledLesson = {
+  id: "order.bar.7.34",
+  skill_id: "order.bar",
+  index: 34,
+  title: "Brewery — Bira Flight'i",
+  description:
+    "A2: Brewery'de 'flight' (4 kucuk tatim birasi). Basit secim.",
+  estimated_minutes: 4,
+  exercises: [
+    {
+      id: "ex.7.34.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "a flight",
+      tr_translation: "Tatim seti (4 kucuk bira)",
+      example: "Can I get a flight?",
+      example_tr: "Bir flight alabilir miyim?",
+    },
+    {
+      id: "ex.7.34.2",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "taster",
+      tr_translation: "Tatim olcusu (kucuk bardak)",
+      example: "Just a taster, please.",
+      example_tr: "Sadece tatim, lutfen.",
+    },
+    {
+      id: "ex.7.34.3",
+      type: "roleplay_chat",
+      difficulty: 2,
+      scenario_description:
+        "A2 brewery. Ilk kez geldin. Flight ile farkli biralari tatmak istiyorsun.",
+      npc_role: "Brewery server",
+      setting: "Local brewery taproom",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Welcome! First time here?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,)? (first time)",
+            "(yes)(,)? (i don'?t know the beers)",
+            "(yeah)(,)? (i'?m new here)",
+            "(yes)(,)? (just visiting)",
+            "(first time|new here)",
+          ],
+          hint_tr:
+            "A2: 'Yes, first time'.",
+        },
+        {
+          speaker: "npc",
+          message: "Try a flight? Four small beers.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,)? (please|a flight)",
+            "(yes)(,)? (i want a flight)",
+            "(sounds good|great)",
+            "(yes please)(,)? (a flight)",
+            "(four beers)(,)? (yes please)",
+          ],
+          hint_tr:
+            "Kabul: 'Yes, a flight please'.",
+        },
+        {
+          speaker: "npc",
+          message: "Pick four — lager, IPA, stout, wheat, sour.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(lager|ipa|stout|wheat|sour)(,)? (and )?(lager|ipa|stout|wheat|sour)(,)? (and )?(lager|ipa|stout|wheat|sour)(,)? (and )?(lager|ipa|stout|wheat|sour)",
+            "(the |a )?(lager|ipa|stout|wheat|sour)",
+            "(your choice|you pick|surprise me)",
+            "(i don'?t know|you choose)",
+            "(give me|i'?ll try) (the )?(lager|ipa|stout|wheat)",
+          ],
+          hint_tr:
+            "A2 sec: 'Lager, IPA, stout, wheat'. Veya 'You choose'.",
+        },
+        {
+          speaker: "npc",
+          message: "Good choice. Fifteen dollars.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(here you go|here'?s)",
+            "(card|cash)",
+            "(here)",
+            "(thank you|thanks)",
+            "(okay)",
+          ],
+          hint_tr:
+            "Ode: 'Here you go'.",
+        },
+        {
+          speaker: "npc",
+          message: "Coming right up.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 7.35 — Wine Bar B1 — By the Glass vs Bottle
+// ============================================================
+export const barLesson_7_35: BundledLesson = {
+  id: "order.bar.7.35",
+  skill_id: "order.bar",
+  index: 35,
+  title: "Sarap Bari — Kadeh mi Sise mi",
+  description:
+    "B1: Kadeh mi sise mi? Fiyat karsilastirma, ikinci kadehe karar.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.7.35.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "by the glass",
+      tr_translation: "Kadeh hesabi (sise yerine)",
+      example: "What do you have by the glass?",
+      example_tr: "Kadeh hesabinda ne var?",
+    },
+    {
+      id: "ex.7.35.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "worth it",
+      tr_translation: "Degmek, paraya degmek",
+      example: "Is the bottle worth it for two people?",
+      example_tr: "Iki kisi icin sise paraya deger mi?",
+    },
+    {
+      id: "ex.7.35.3",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "B1 sarap bari. Iki kisisin. Sise mi yoksa iki kadeh mi mantikli?",
+      npc_role: "Wine bar server",
+      setting: "Wine bar, two guests",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hi, looking at the wine list?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,)? (we'?re trying to decide|figuring it out)",
+            "(yeah)(,)? (what do you have by the glass)",
+            "(we'?re between|deciding between) (a glass and a bottle)",
+            "(can you tell us|what'?s good)( by the glass)?",
+            "(what do you recommend) (by the glass|on the list)",
+          ],
+          hint_tr:
+            "B1: 'We're deciding between glasses and a bottle'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "If you're both having two, the bottle's usually better value. What kind do you like?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(we usually go for|we both like) (red|white|rose)",
+            "(we'?re into|we like) (light reds|full-bodied|crisp whites)",
+            "(something )?(medium|light|smooth|dry)",
+            "(could you suggest|any recommendation)",
+            "(we'?ve been drinking|recently we'?ve liked) (\\w+)",
+          ],
+          hint_tr:
+            "B1: 'We usually go for medium-bodied reds'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. There's a Spanish Garnacha — fruity, easy-drinking, thirty-two for the bottle.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sounds good|let'?s go with that|we'?ll take it)",
+            "(could we try a glass first|can we taste it first)",
+            "(is it worth it|better than the glass option)",
+            "(what'?s the glass price)( for that one)?",
+            "(let'?s do the bottle)(,)? (please)",
+          ],
+          hint_tr:
+            "B1: 'Could we try a glass first?' veya 'Let's do the bottle'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Of course — small taste, on me. Then you decide.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|that'?s really kind)",
+            "(appreciate it|that'?s very nice of you)",
+            "(thanks)(,)? (we appreciate it)",
+            "(perfect|sounds great)",
+            "(thanks)(,)? (saves us from making a bad call)",
+          ],
+          hint_tr:
+            "B1 tesekkur: 'That's really kind, thank you'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Here — taste away. No rush at all.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh that'?s lovely|that'?s really nice)",
+            "(yeah|yes)(,)? (we'?ll take the bottle)",
+            "(we'?ll go with the bottle)",
+            "(perfect|we like it)(,)? (the bottle please)",
+            "(that works for us|we'?re sold)",
+          ],
+          hint_tr:
+            "Karar: 'We'll take the bottle'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 7.36 — Cocktail Bar B1 — Modify the Drink
+// ============================================================
+export const barLesson_7_36: BundledLesson = {
+  id: "order.bar.7.36",
+  skill_id: "order.bar",
+  index: 36,
+  title: "Kokteyl — Daha Az Tatli Yap",
+  description:
+    "B1: Kokteyli ozellestir — daha az tatli, daha guclu, farkli bardak.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.7.36.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "less sweet",
+      tr_translation: "Daha az tatli",
+      example: "Could you make it less sweet?",
+      example_tr: "Daha az tatli yapabilir misin?",
+    },
+    {
+      id: "ex.7.36.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "go easy on",
+      tr_translation: "Az koymak, hafif tutmak",
+      example: "Go easy on the syrup, please.",
+      example_tr: "Surubu hafif tut, lutfen.",
+    },
+    {
+      id: "ex.7.36.3",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "B1 kokteyl bari. Menude bir kokteyl var ama daha az tatli istiyorsun.",
+      npc_role: "Bartender",
+      setting: "Cocktail bar",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "What can I get you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?d like|could i get) (a |the )?(margarita|whiskey sour|espresso martini|mojito)",
+            "(the |a )?(margarita|whiskey sour) (please)?(,)? (but )?(less sweet)?",
+            "(i'?ll have the (\\w+))(,)? (but can you )(make it less sweet)",
+            "(can you do|could you make) (the (\\w+)) (less sweet)",
+            "(the (\\w+))(,)? (go easy on the (sugar|syrup))",
+          ],
+          hint_tr:
+            "B1 ozellestir: 'A margarita, but less sweet'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure — how sweet are we talking?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(go easy on the syrup|less syrup)",
+            "(half the sugar|half the sweetness)",
+            "(just a little (sweetness|sugar))",
+            "(make it (drier|more tart))",
+            "(you know|you can decide)(,)? (just not too sweet)",
+          ],
+          hint_tr:
+            "B1: 'Half the syrup' veya 'Just a little sweetness'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. Want it stronger to balance, or same booze?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(same booze|same strength|keep it the same)",
+            "(stronger|make it stronger)(,)? (if you can)?",
+            "(your call|whatever balances it)",
+            "(i trust you|bartender'?s call)",
+            "(maybe a touch stronger)",
+          ],
+          hint_tr:
+            "B1: 'Same strength' veya 'Maybe a touch stronger'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool. Lime garnish, or something else?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(lime is great|lime works|lime please)",
+            "(whatever you do (normally|usually))",
+            "(could you do|how about) (a (\\w+) garnish)",
+            "(skip the garnish|no garnish please)",
+            "(your call|whatever fits)",
+          ],
+          hint_tr:
+            "B1: 'Lime works' veya 'Whatever fits'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Coming up — give me a minute.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no rush|take your time)",
+            "(thanks|appreciate the patience)",
+            "(perfect)",
+            "(thanks for accommodating)",
+            "(sounds great)",
+          ],
+          hint_tr:
+            "B1 bekleme: 'No rush, thanks'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 7.37 — Brewery B1 — Growler To-Go
+// ============================================================
+export const barLesson_7_37: BundledLesson = {
+  id: "order.bar.7.37",
+  skill_id: "order.bar",
+  index: 37,
+  title: "Brewery — Growler Doldurma",
+  description:
+    "B1: Brewery'den 'growler' (yeniden doldurulabilir bira sisesi) al, eve goturul.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.7.37.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "growler",
+      tr_translation: "Yeniden doldurulabilir bira sisesi (~2L)",
+      example: "Can I get a growler fill?",
+      example_tr: "Bir growler doldurabilir miyim?",
+    },
+    {
+      id: "ex.7.37.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "to-go",
+      tr_translation: "Paket, gotur (eve)",
+      example: "Is the IPA available to-go?",
+      example_tr: "IPA paket olarak alabilir miyim?",
+    },
+    {
+      id: "ex.7.37.3",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "B1 brewery. Friends evine gidiyorsunuz, growler doldurmak istiyorsun.",
+      npc_role: "Brewery employee",
+      setting: "Local brewery, to-go counter",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Hey, what can I get going for you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could i get|i'?d like) (a growler fill|a growler to-go)",
+            "(do you )?(fill )?growlers( here)?",
+            "(can i take|do you sell) (a growler|beer to-go)",
+            "(i'?m heading to a (party|friend'?s))(,)? (need a growler)",
+            "(a growler of (the )?(ipa|lager|stout))( to-go)?",
+          ],
+          hint_tr:
+            "B1: 'I'd like a growler to-go'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure thing. Bring your own or buy one of ours?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?ll buy one of yours|need to buy one)",
+            "(i brought my own|got mine here)",
+            "(how much is yours|what'?s the deposit)\\??",
+            "(let me buy one|i need one)",
+            "(do you charge a deposit|is there a deposit)",
+          ],
+          hint_tr:
+            "B1: 'I'll buy one of yours, please'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Eight bucks for the growler, fifteen to fill it. Which beer?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fill it with the (ipa|lager|stout|sour|pilsner))",
+            "(the (ipa|lager|stout))(,)? (please)?",
+            "(what'?s your most popular|which is best for a group)",
+            "(could you suggest something|something crowd-pleasing)",
+            "(let'?s go with the (ipa|lager))",
+          ],
+          hint_tr:
+            "B1 sec: 'Fill it with the IPA' veya 'Something crowd-pleasing'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Good call. IPA keeps well for a few days if you don't open it.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(perfect|good to know)",
+            "(thanks)(,)? (how long can i keep it)\\??",
+            "(once it'?s opened|after we open it)(,)? (how long does it last)",
+            "(any tips for keeping it fresh)",
+            "(should i refrigerate it right away)",
+          ],
+          hint_tr:
+            "B1 takip sor: 'How long does it last once opened?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Once opened, drink within 24 hours — flat after that.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(good to know|got it)",
+            "(thanks for the tip|appreciate it)",
+            "(we'?ll polish it off tonight)",
+            "(no problem|we'?ll finish it)",
+            "(thanks)(,)? (that helps)",
+          ],
+          hint_tr:
+            "B1 onayla: 'We'll polish it off tonight'. 'Polish off' = bitirmek.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 7.38 — Wedding Bar B1 — Open Bar Etiquette
+// ============================================================
+export const barLesson_7_38: BundledLesson = {
+  id: "order.bar.7.38",
+  skill_id: "order.bar",
+  index: 38,
+  title: "Dugun Bari — Open Bar",
+  description:
+    "B1: Dugun open bar. Bedava ama bahsis kulturu. Sade siparis.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.7.38.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "open bar",
+      tr_translation: "Bedava bar (etkinlikte tum icecekler dahil)",
+      example: "It's an open bar all night.",
+      example_tr: "Tum gece open bar.",
+    },
+    {
+      id: "ex.7.38.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "tip the bartender",
+      tr_translation: "Bartender'a bahsis vermek",
+      example: "Always tip the bartender at an open bar.",
+      example_tr: "Open bar'da hep bartender'a bahsis ver.",
+    },
+    {
+      id: "ex.7.38.3",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "B1 dugun. Open bar — odeme yok ama bahsis adabi var.",
+      npc_role: "Wedding bartender",
+      setting: "Wedding reception, open bar",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "What can I get you for the toast?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(a glass of |some )?(champagne|prosecco|sparkling)( please)?",
+            "(i'?ll have|i'?d like) (the champagne|sparkling)",
+            "(is there |what )(sparkling|bubbly) (you )?(have|recommend)",
+            "(could i get|please) (a glass of bubbly)",
+            "(champagne sounds (perfect|right))",
+          ],
+          hint_tr:
+            "B1: 'A glass of champagne, please'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Of course — the bride's family chose a nice cava.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh nice|that'?s lovely)",
+            "(cava sounds great|i love cava)",
+            "(perfect choice|good call)",
+            "(can'?t wait to try it)",
+            "(thanks for letting me know|good to know)",
+          ],
+          hint_tr:
+            "B1 yorum: 'Oh nice, cava sounds great'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Here you go. Anything else later — beer, wine, cocktails — just come back.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|appreciate it)",
+            "(thanks)(,)? (i'?ll be back for sure)",
+            "(perfect)(,)? (might come grab a beer later)",
+            "(thanks)(,)? (i'?ll definitely take you up on that)",
+            "(sounds great)(,)? (cheers)",
+          ],
+          hint_tr:
+            "B1: 'I'll take you up on that' — kibarca kabul.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Of course — enjoy the toast.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you)( so much)?",
+            "(here'?s a tip|a little something for you)",
+            "(could i (drop|leave) (a tip|something))",
+            "(i'?ll leave (a few|a little) (in the jar|tip))",
+            "(thanks again)",
+          ],
+          hint_tr:
+            "B1 dugun adab: 'Here's a tip for you'. Open bar'da bahsis adettir.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh, you don't have to — but thank you, really.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 7.39 — Cocktail Bar B1 — Substitute Ingredient
+// ============================================================
+export const barLesson_7_39: BundledLesson = {
+  id: "order.bar.7.39",
+  skill_id: "order.bar",
+  index: 39,
+  title: "Kokteyl — Malzeme Degisikligi",
+  description:
+    "B1: Kokteyldeki bir malzemeyi degistir (cilantro/kakule sevmiyorum).",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.7.39.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "substitute",
+      tr_translation: "Yerine baska bir malzeme koymak",
+      example: "Can you substitute the cilantro?",
+      example_tr: "Cilantro yerine baska bir sey koyabilir misin?",
+    },
+    {
+      id: "ex.7.39.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "leave out",
+      tr_translation: "Cikartmak (malzemeyi)",
+      example: "Could you leave the egg white out?",
+      example_tr: "Yumurta akini cikarabilir misin?",
+    },
+    {
+      id: "ex.7.39.3",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "B1 kokteyl bari. Menudeki kokteylde sevmedigin bir malzeme var.",
+      npc_role: "Bartender",
+      setting: "Mixology cocktail bar",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "What looks good?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the (\\w+) sounds great)(,)? (but) (can you|could you) (leave out|skip) (the (\\w+))",
+            "(i'?d like the (\\w+))(,)? (but) (without (the )?(\\w+))",
+            "(could you substitute|swap) (the (\\w+))( for something)?",
+            "(i'?m not a fan of (\\w+))(,)? (can you (skip|leave out) it)",
+            "(any way to make the (\\w+) without (\\w+))",
+          ],
+          hint_tr:
+            "B1: 'I'd like the X but without the cilantro' veya 'Substitute the X'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure — what don't you like about it?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it tastes (soapy|like soap)|i find it (soapy|bitter))",
+            "(i'?ve never been a fan|i don'?t love the (taste|flavor))",
+            "(it makes me sneeze|i'?m allergic)",
+            "(too (bitter|strong) for me)",
+            "(just a personal thing)(,)? (i just don'?t enjoy it)",
+          ],
+          hint_tr:
+            "B1: 'I find it soapy' veya 'Just a personal thing'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. I can swap in mint — works really nicely.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(mint sounds (perfect|great))",
+            "(yeah|yes)(,)? (let'?s do that|go for it)",
+            "(that would be great|amazing)",
+            "(perfect|love mint)",
+            "(works for me|i trust you)",
+          ],
+          hint_tr:
+            "B1 kabul: 'Mint sounds perfect'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Any other tweaks? Strength, sweetness, citrus?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|nope)(,)? (that'?s it)",
+            "(maybe |could you )?(less sweet|a touch drier)",
+            "(extra (citrus|lime|lemon))",
+            "(stronger if you can|a little more booze)",
+            "(your call)(,)? (i trust you)",
+          ],
+          hint_tr:
+            "B1: 'No, that's it' veya 'Maybe less sweet'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool — coming up in a few.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks for being flexible|appreciate it)",
+            "(thanks)(,)? (sounds great)",
+            "(no rush|take your time)",
+            "(perfect|excited to try it)",
+            "(thanks)(,)? (looking forward to it)",
+          ],
+          hint_tr:
+            "B1: 'Thanks for being flexible'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 7.40 — Cocktail Bar B1 — Bitter vs Sour Balance
+// ============================================================
+export const barLesson_7_40: BundledLesson = {
+  id: "order.bar.7.40",
+  skill_id: "order.bar",
+  index: 40,
+  title: "Kokteyl — Aci ya da Eksi",
+  description:
+    "B1: 'I'm in the mood for something bitter' — tat profilini anlat.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.7.40.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "in the mood for",
+      tr_translation: "Canim cekiyor / istiyorum (su an)",
+      example: "I'm in the mood for something bitter.",
+      example_tr: "Canim aci bir sey cekiyor.",
+    },
+    {
+      id: "ex.7.40.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "flavor profile",
+      tr_translation: "Tat profili (aci, eksi, tatli)",
+      example: "What's the flavor profile?",
+      example_tr: "Tat profili nedir?",
+    },
+    {
+      id: "ex.7.40.3",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "B1 kokteyl bari. Ne istedigini kesin bilmiyorsun. Tat profili ile anlat.",
+      npc_role: "Bartender",
+      setting: "Cocktail bar, casual",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Looking at the menu, or want some help?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(some help|could use some help)(,)? (please)?",
+            "(i don'?t know what i want|hard to decide)",
+            "(could you suggest something)",
+            "(i'?m in the mood for something|i feel like having something) (bitter|sour|smoky|refreshing|strong)",
+            "(menu is huge|too many options)(,)? (help me out)",
+          ],
+          hint_tr:
+            "B1: 'I'm in the mood for something bitter'. 'In the mood for' = canim cekiyor.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got you. Bitter, sour, smoky, refreshing — any of those?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(bitter|sour|smoky|refreshing)(,)? (please|i think)",
+            "(maybe )?(bitter|sour|smoky)",
+            "(leaning toward|i'?d say) (bitter|sour|smoky|refreshing)",
+            "(something between bitter and sour)",
+            "(let'?s try (bitter|sour|smoky))",
+          ],
+          hint_tr:
+            "B1: 'Leaning toward bitter' veya 'Smoky please'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool — bitter is my favorite category. Negroni or boulevardier?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(what'?s the difference)",
+            "(i know the negroni|familiar with negroni)(,)? (what'?s a boulevardier)",
+            "(let'?s do the (negroni|boulevardier))",
+            "(boulevardier sounds new|let me try the boulevardier)",
+            "(your favorite|which do you make better)",
+          ],
+          hint_tr:
+            "B1 keşfet: 'What's the difference?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Boulevardier is whiskey-based, deeper, less herbal. Negroni's gin, more herbaceous.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?ll try the boulevardier|let'?s do the boulevardier)",
+            "(negroni sounds right tonight)",
+            "(let me try something new|the boulevardier)",
+            "(deeper appeals to me|i like deeper)",
+            "(your call|surprise me)",
+          ],
+          hint_tr:
+            "B1 sec: 'Let me try something new — boulevardier'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Great choice. Coming up.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks for the help|appreciate the guidance)",
+            "(thanks|perfect)",
+            "(can'?t wait)",
+            "(thanks for walking me through it)",
+            "(thanks)(,)? (you'?ve sold me)",
+          ],
+          hint_tr:
+            "B1 tesekkur: 'Thanks for walking me through it'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 7.41 — Wine Bar B2 — Returning a Corked Bottle
+// ============================================================
+export const barLesson_7_41: BundledLesson = {
+  id: "order.bar.7.41",
+  skill_id: "order.bar",
+  index: 41,
+  title: "Sarap Mantarlanmis — Iade",
+  description:
+    "B2: 'I think it's corked' — sarap kusurlu, kibarca iade etmek.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.7.41.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "corked",
+      tr_translation: "Mantarlanmis, bozulmus (sarap)",
+      example: "I think this bottle is corked.",
+      example_tr: "Sanirim bu sise mantarlanmis.",
+    },
+    {
+      id: "ex.7.41.2",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "off-putting",
+      tr_translation: "Itici, hosa gitmeyen",
+      example: "There's an off-putting smell.",
+      example_tr: "Itici bir koku var.",
+    },
+    {
+      id: "ex.7.41.3",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "I might be wrong",
+      tr_translation: "Yaniliyor olabilirim (yumusatici hedge)",
+      example: "I might be wrong, but it smells off.",
+      example_tr: "Yaniliyor olabilirim ama kokusu garip.",
+    },
+    {
+      id: "ex.7.41.4",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "B2 sik sarap bari. Acilan sise mantar tadi veriyor. Kibarca iade.",
+      npc_role: "Sommelier",
+      setting: "Upscale wine bar",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "How is the wine? Is it to your taste?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i might be wrong|i could be mistaken)(,)? (but i think it might be corked)",
+            "(actually|to be honest)(,)? (there'?s something (off|off-putting) about it)",
+            "(would you mind tasting it)(,)? (it smells a bit off to me)",
+            "(i hate to ask)(,)? (but could you (take a look|try it))",
+            "(forgive me if i'?m wrong)(,)? (something seems (off|wrong))",
+          ],
+          hint_tr:
+            "B2 hedge: 'I might be wrong, but I think it's corked'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Of course — let me have a look.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|appreciate it)",
+            "(thanks for indulging me|thanks for checking)",
+            "(sorry to be a bother)",
+            "(thank you)(,)? (i didn'?t want to make a fuss)",
+            "(thanks for taking a look)",
+          ],
+          hint_tr:
+            "B2: 'Thanks for indulging me'. 'Indulge' = nazikce dinlemek.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "You're right — there's definite TCA. Let me bring a new bottle.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|that'?s a relief)",
+            "(thanks for confirming)(,)? (i wasn'?t sure)",
+            "(appreciate you taking it seriously)",
+            "(thanks)(,)? (i was second-guessing myself)",
+            "(that'?s reassuring|good to know it wasn'?t just me)",
+          ],
+          hint_tr:
+            "B2: 'Thanks for confirming — I was second-guessing myself'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "It happens, even with good producers. Would you prefer the same bottle or a different one?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(let'?s try the same one again|same bottle if you can)",
+            "(actually|on second thought)(,)? (could we try something different)",
+            "(what would you recommend in a similar style)",
+            "(i'?d hate to risk another corked bottle|let'?s switch)",
+            "(your call|i'?ll defer to you)",
+          ],
+          hint_tr:
+            "B2: 'On second thought, something different' veya 'Same bottle'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Smart move. I'll bring a similar Burgundy from a different producer.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(perfect|sounds wonderful)",
+            "(thank you so much|really appreciate your patience)",
+            "(thanks for handling it so gracefully)",
+            "(that'?s very kind|much appreciated)",
+            "(can'?t thank you enough|thank you)",
+          ],
+          hint_tr:
+            "B2: 'Thanks for handling it so gracefully'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 7.42 — Cocktail Bar B2 — Mezcal Smoky Debate
+// ============================================================
+export const barLesson_7_42: BundledLesson = {
+  id: "order.bar.7.42",
+  skill_id: "order.bar",
+  index: 42,
+  title: "Mezcal — Dumanli Tat Tartismasi",
+  description:
+    "B2: Mezcal cok dumanli mi olmali? Smokiness preference, hedging.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.7.42.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "smokiness",
+      tr_translation: "Dumanli olma derecesi",
+      example: "How much smokiness do you like?",
+      example_tr: "Ne kadar dumanli sevcrsin?",
+    },
+    {
+      id: "ex.7.42.2",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "on the fence",
+      tr_translation: "Karasizim, arada kaldim (idiom)",
+      example: "I'm on the fence about mezcal.",
+      example_tr: "Mezcal konusunda karasizim.",
+    },
+    {
+      id: "ex.7.42.3",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "an acquired taste",
+      tr_translation: "Aliştikça sevilen tat",
+      example: "Mezcal is an acquired taste.",
+      example_tr: "Mezcal aliştikça sevilen bir tat.",
+    },
+    {
+      id: "ex.7.42.4",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "B2 kokteyl bari. Bartender mezcal kokteyl onerdi ama sen tereddutlusun.",
+      npc_role: "Cocktail bartender",
+      setting: "Craft cocktail bar",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Have you had mezcal before? I'd love to make you a mezcal negroni.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?m on the fence about mezcal)(,)? (it'?s pretty smoky for me)",
+            "(i'?ve had it once|tried it a couple times)(,)? (the smokiness was a lot)",
+            "(i'?d say it'?s an acquired taste)(,)? (and i'?m not sure i'?ve acquired it yet)",
+            "(i find the smokiness intense)(,)? (could you tone it down)\\??",
+            "(honestly|to be fair)(,)? (i'?ve struggled with mezcal)",
+          ],
+          hint_tr:
+            "B2: 'I'm on the fence about mezcal'. Hedge ile durusunu yumusat.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Fair. Not all mezcals are smoke bombs. There's a milder one I could use.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that would be (great|helpful))(,)? (i'?d be willing to give it another shot)",
+            "(could you walk me through the difference)",
+            "(if you think i'?d enjoy it)(,)? (i'?m game)",
+            "(i'?d be open to trying it)(,)? (with your guidance)",
+            "(on balance|for what it'?s worth)(,)? (i'?m happy to try a milder one)",
+          ],
+          hint_tr:
+            "B2 stance shift: 'I'd be willing to give it another shot'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "The milder one has more vegetal, earthy notes — less of the campfire vibe.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that actually sounds appealing)(,)? (let'?s do it)",
+            "(vegetal i can get behind|earthy works for me)",
+            "(less campfire is exactly what i need)",
+            "(sold|i'?m in)",
+            "(could i smell it first|could i have a taste before)",
+          ],
+          hint_tr:
+            "B2: 'Vegetal I can get behind' — kabulu nuance ile.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I'll give you a small taste of the spirit first, so you can judge.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that would be wonderful|much appreciated)",
+            "(thanks for being patient with me)",
+            "(you'?re a saint|thanks for indulging me)",
+            "(perfect|that puts me at ease)",
+            "(thanks)(,)? (i hate ordering something i won'?t enjoy)",
+          ],
+          hint_tr:
+            "B2 nuance: 'Thanks for indulging me'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Of course. Here — taste neat, then tell me.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(actually|wow)(,)? (this is much smoother than i expected)",
+            "(i can see myself enjoying this|i could get used to this)",
+            "(let'?s build the cocktail|i'?m sold)",
+            "(albeit (smoky|earthy))(,)? (it'?s actually quite balanced)",
+            "(my preconceptions were off|i was wrong to be hesitant)",
+          ],
+          hint_tr:
+            "B2: 'My preconceptions were off — let's build the cocktail'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 7.43 — Whisky Tasting C1 — Peat vs Sherry Nuance
+// ============================================================
+export const barLesson_7_43: BundledLesson = {
+  id: "order.bar.7.43",
+  skill_id: "order.bar",
+  index: 43,
+  title: "Viski Tatim — Peat ve Sherry",
+  description:
+    "C1: Single malt viski tatimi. Peat, sherry cask, finish — terimleri kullan.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.7.43.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "peated",
+      tr_translation: "Turba kokulu (Islay viskiler)",
+      example: "I tend to gravitate toward heavily peated drams.",
+      example_tr: "Genelde kuvvetli peated viskilere yoneliyorum.",
+    },
+    {
+      id: "ex.7.43.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "sherry cask",
+      tr_translation: "Sherry fici (eskitilmis viski varili)",
+      example: "Sherry cask finishes add dried-fruit depth.",
+      example_tr: "Sherry fici eskitmesi kuru meyve derinligi katar.",
+    },
+    {
+      id: "ex.7.43.3",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "on balance",
+      tr_translation: "Genel olarak, her seyi tartistirinca (C1 hedge)",
+      example: "On balance, I'd lean toward Islay.",
+      example_tr: "Genel olarak Islay'a egilirim.",
+    },
+    {
+      id: "ex.7.43.4",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "for what it's worth",
+      tr_translation: "Bence (mutevazi gorus belirtici)",
+      example: "For what it's worth, I prefer non-chill-filtered.",
+      example_tr: "Bence chill-filtered olmayan daha iyi.",
+    },
+    {
+      id: "ex.7.43.5",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "C1 viski bari. Bartender uzman, sen de tatim deneyiminle konusuyorsun.",
+      npc_role: "Whisky specialist",
+      setting: "Whisky bar, tasting flight",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "What's your usual when it comes to single malts?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(on balance|generally)(,)? (i tend to gravitate toward (peated|sherry-cask|highland) drams)",
+            "(my palate (skews|leans) toward) (peated islay|sherried speyside)",
+            "(for what it'?s worth)(,)? (i tend to favor (\\w+))",
+            "(historically|over time)(,)? (i'?ve come to appreciate (\\w+))",
+            "(if pushed to commit)(,)? (i'?d say (\\w+))",
+          ],
+          hint_tr:
+            "C1 hedge: 'On balance, I tend to gravitate toward peated drams'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Strong opening. Would you say peat dominates your preference, or are you open to sherry-driven profiles?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(peat dominates|peat is the through-line)(,)? (but i'?m by no means averse to sherry)",
+            "(while peat is my anchor)(,)? (i can be persuaded by a well-crafted sherry finish)",
+            "(albeit a peat enthusiast)(,)? (i appreciate the depth a good sherry cask can bring)",
+            "(i wouldn'?t want to pigeonhole myself)(,)? (sherry has been growing on me)",
+            "(it'?s less a dichotomy than a spectrum)(,)? (i enjoy both done well)",
+          ],
+          hint_tr:
+            "C1 nuance: 'Albeit a peat enthusiast, I appreciate good sherry'. 'Albeit' = -e ragmen.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I have a sixteen-year Caol Ila finished in oloroso — peat and sherry married. Want to try a dram?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that sounds right up my alley)(,)? (i'?d love a dram)",
+            "(that combination intrigues me)(,)? (let'?s give it a go)",
+            "(an oloroso finish on caol ila is precisely my (wheelhouse|sweet spot))",
+            "(i couldn'?t pass that up|how could i refuse)",
+            "(please)(,)? (and would you mind suggesting a glass shape)",
+          ],
+          hint_tr:
+            "C1: 'That sounds right up my alley' — heyecanli kabul.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I'll serve it in a Glencairn, with a few drops of water on the side. Neat first.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(perfect — neat is how i prefer to make first impressions)",
+            "(i appreciate you walking me through the ritual)",
+            "(a glencairn'?s the right call here|that'?s the proper glassware)",
+            "(i'?ll reserve judgment until i'?ve let it open up)",
+            "(thank you)(,)? (i'?ll give it the attention it deserves)",
+          ],
+          hint_tr:
+            "C1: 'I'll reserve judgment until I've let it open up'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Tell me what you find — be honest, even if you don't love it.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(on the nose|first impression) — (briny smoke|dried fig|raisin) (giving way to (\\w+))",
+            "(it'?s remarkably balanced — the peat doesn'?t (overwhelm|drown out) the sherry)",
+            "(albeit (smoky|sweet))(,)? (the finish is (long|elegant))",
+            "(for what it'?s worth|in my view))?(,)? (this is an exceptional dram)",
+            "(i'?d struggle to find fault here|hard to fault)",
+          ],
+          hint_tr:
+            "C1 tatim: 'On the nose, briny smoke giving way to dried fig'. Cesarli, nuance ile.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// SECTION D — bar.approach 24.30 to 24.44 (social depth pack 2)
+// 2026-05-23 — CEFR-balanced: B1x6, B2x6, C1x3 in this section
+// Topics: sports pub social, jazz lounge, brewery social, hotel bar,
+// wedding social, wine bar discussion, speakeasy nerdery.
+// ============================================================
+
+// ============================================================
+// Lesson 24.30 — Sports Pub B1 — Buying a Round After a Goal
+// ============================================================
+export const barLesson_24_30: BundledLesson = {
+  id: "bar.approach.24.30",
+  skill_id: "bar.approach",
+  index: 30,
+  title: "Mac Sonu — Round Ismarla",
+  description:
+    "B1: Takimin gol atti. Yanindaki yabanciya 'round on me' ismarla.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.24.30.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "this round's on me",
+      tr_translation: "Bu tur benden (icki ikrami)",
+      example: "This round's on me!",
+      example_tr: "Bu tur benden!",
+    },
+    {
+      id: "ex.24.30.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I owe you",
+      tr_translation: "Sana borcluyum (sonra odeyecegim)",
+      example: "Next round I owe you.",
+      example_tr: "Sonraki tur senin, ben borcluyum.",
+    },
+    {
+      id: "ex.24.30.3",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "B1 pub. Mac kazanildi. Yanindaki taraftar grubuyla kutluyorsun.",
+      npc_role: "Fellow fan at the pub",
+      setting: "Sports pub after a goal",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "What a goal! Did you see that header?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(unreal|insane|incredible)\\!?\\s*(perfect (timing|placement))?",
+            "(i'?ve been waiting all season for that)",
+            "(no chance for the keeper|keeper had no chance)",
+            "(this round'?s on me)(,)? (what are you drinking)",
+            "(let me buy you a beer|next one'?s on me)",
+          ],
+          hint_tr:
+            "B1: 'Unreal! This round's on me — what are you drinking?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh, you don't have to — but yeah, I'll have a lager. Cheers!",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no worries|happy to)(,)? (had to celebrate)",
+            "(don'?t mention it|my pleasure)",
+            "(one lager coming up)",
+            "(absolutely|cheers)(,)? (you can grab the next one)",
+            "(i insist|won'?t take no for an answer)",
+          ],
+          hint_tr:
+            "B1: 'You can grab the next one' — round culture.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Deal. Where are you from? Haven't seen you here before.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?m from turkey|originally from istanbul)",
+            "(visiting from turkey|over from istanbul for a week)",
+            "(i'?m a (galatasaray|fenerbahce) fan back home)",
+            "(turkish football is in my blood|i grew up watching turkish football)",
+            "(istanbul|turkey)(,)? (just here for the match)",
+          ],
+          hint_tr:
+            "B1: 'Visiting from Istanbul — I'm a Galatasaray fan back home'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Nice — Turkish football has some passionate fans, I hear.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(passionate is putting it (mildly|lightly))",
+            "(yeah|absolutely)(,)? (you haven'?t seen passion until you'?ve been to a derby)",
+            "(the istanbul derby is a different level|next-level intensity)",
+            "(you should see (fenerbahce|galatasaray) home games)",
+            "(in turkey|in istanbul)(,)? (football is religion)",
+          ],
+          hint_tr:
+            "B1 idiom: 'Passionate is putting it mildly' = az bile soyledin.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sounds wild. Cheers — to good football wherever you are.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(cheers to that)",
+            "(i'?ll drink to that)",
+            "(here'?s to good football|to the beautiful game)",
+            "(no matter the league|wherever it'?s played)",
+            "(cheers, mate)",
+          ],
+          hint_tr:
+            "B1 toast: 'I'll drink to that' = ona icerim.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 24.31 — Sports Pub B1 — TV Volume Question
+// ============================================================
+export const barLesson_24_31: BundledLesson = {
+  id: "bar.approach.24.31",
+  skill_id: "bar.approach",
+  index: 31,
+  title: "Pub TV — Sesi Acabilir mi",
+  description:
+    "B1: Mac TV'de ama sessiz. Bartender'a 'turn up the volume' iste.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.24.31.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "turn up the volume",
+      tr_translation: "Sesi acmak",
+      example: "Could you turn up the volume?",
+      example_tr: "Sesi acabilir misiniz?",
+    },
+    {
+      id: "ex.24.31.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "would you mind",
+      tr_translation: "Rica etsem... (kibarca istemek)",
+      example: "Would you mind changing the channel?",
+      example_tr: "Kanal degistirir misiniz lutfen?",
+    },
+    {
+      id: "ex.24.31.3",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "B1 spor pub. Yayini istiyorsun ama TV sessiz, kanal yanlis.",
+      npc_role: "Pub bartender",
+      setting: "Sports pub before kickoff",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Heya — what can I get you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(a |one )?(pint|beer|lager)( please)?(,)? (and a quick question)",
+            "(could i get a pint)(,)? (and would you mind changing the channel)\\??",
+            "(a beer please)(,)? (are you showing the (turkey|fenerbahce|galatasaray) match)",
+            "(beer first)(,)? (then i wanted to ask about the tv)",
+            "(could we get the (champions league|premier league) match on)",
+          ],
+          hint_tr:
+            "B1 cift istek: Beer + ricam var.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure — pint of what?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the (lager|ipa|stout))( please)?",
+            "(whatever'?s on draft|whatever you'?ve got cold)",
+            "(a guinness|a peroni|a stella)",
+            "(your most popular)",
+            "(the lager)(,)? (and could we change the channel)",
+          ],
+          hint_tr:
+            "B1: 'The lager, please'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Coming up. What about the channel?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(would you mind putting on the (champions league|turkey match))",
+            "(could you switch the channel to (\\w+))",
+            "(could we get sound|could you turn up the volume)",
+            "(any chance you could (change|switch) to the match)",
+            "(the screen on the left)(,)? (could you turn it up)",
+          ],
+          hint_tr:
+            "B1: 'Would you mind putting on the Champions League?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yeah, no problem — I'll put it on the corner screen with sound.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(amazing|that'?d be great)",
+            "(thanks so much|appreciate it)",
+            "(perfect|you'?re the best)",
+            "(legend|thank you)",
+            "(thanks)(,)? (kickoff is in five)",
+          ],
+          hint_tr:
+            "B1 minnet: 'You're the best — thanks!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "No worries. Enjoy the match.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(cheers|will do)",
+            "(thanks again)",
+            "(fingers crossed|let'?s hope for a good one)",
+            "(hopefully a high-scoring one)",
+            "(thanks)(,)? (here we go)",
+          ],
+          hint_tr:
+            "B1: 'Fingers crossed for a good match'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 24.32 — Brewery B1 — Ask About Tours
+// ============================================================
+export const barLesson_24_32: BundledLesson = {
+  id: "bar.approach.24.32",
+  skill_id: "bar.approach",
+  index: 32,
+  title: "Brewery Turu — Saatler Sor",
+  description:
+    "B1: Brewery turu. 'When's the next tour?' sor, kayit ol, sorular.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.24.32.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "behind the scenes",
+      tr_translation: "Perde arkasi (sergi/uretim alani)",
+      example: "I'd love to see behind the scenes.",
+      example_tr: "Perde arkasini gormek isterim.",
+    },
+    {
+      id: "ex.24.32.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "from scratch",
+      tr_translation: "Sifirdan (uretmek)",
+      example: "They brew from scratch on site.",
+      example_tr: "Burda sifirdan uretim yapiyorlar.",
+    },
+    {
+      id: "ex.24.32.3",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "B1 brewery. Tur saatlerini ve sureleri ogrenmek istiyorsun.",
+      npc_role: "Brewery host",
+      setting: "Brewery taproom",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Welcome — first visit?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,)? (first time|been wanting to come for a while)",
+            "(yeah)(,)? (a friend recommended (this place|you guys))",
+            "(yes)(,)? (i'?d love to see behind the scenes)",
+            "(first time)(,)? (do you offer tours)",
+            "(yes)(,)? (heard great things)",
+          ],
+          hint_tr:
+            "B1: 'First time — do you offer tours?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yeah! We do tours at 2 and 4. Want to join?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(definitely|absolutely)(,)? (the (two|four) one (works|sounds good))",
+            "(could i sign up for the (\\d+) o'?clock one)",
+            "(how long does the tour take|how long is it)",
+            "(is there a fee|do i need to pay extra)",
+            "(let me grab the (two|four))(,)? (yes please)",
+          ],
+          hint_tr:
+            "B1: 'How long is the tour?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "About forty-five minutes. Includes a tasting flight at the end.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that'?s great value|sounds amazing)",
+            "(i'?m in|sign me up)",
+            "(do i pay now or after)",
+            "(perfect)(,)? (i'?ll do the (two|four) o'?clock)",
+            "(do you do anything behind the scenes)\\??",
+          ],
+          hint_tr:
+            "B1: 'Sign me up' = kayit edin beni.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Pay now — twenty bucks. You'll see the brewhouse, the fermenters, everything from scratch.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(here you go|here'?s my card)",
+            "(amazing|i love seeing how it'?s done)",
+            "(do you have any beers in barrel-aging)",
+            "(can i bring my camera|photos okay)\\??",
+            "(twenty bucks)(,)? (here you go)",
+          ],
+          hint_tr:
+            "B1 ek soru: 'Can I bring my camera?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Photos are fine, no flash near the lab. Meet by the big doors at two.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(got it|perfect|see you at two)",
+            "(thanks)(,)? (looking forward to it)",
+            "(big doors at two|see you there)",
+            "(i'?ll have a beer until then)",
+            "(awesome|thanks for setting me up)",
+          ],
+          hint_tr:
+            "B1: 'I'll have a beer until then'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 24.33 — Hotel Bar B1 — Asking for City Recs
+// ============================================================
+export const barLesson_24_33: BundledLesson = {
+  id: "bar.approach.24.33",
+  skill_id: "bar.approach",
+  index: 33,
+  title: "Otel Bari — Sehir Onerisi",
+  description:
+    "B1: Otel bartender'i yerel. Yarinki gun icin oneri iste.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.24.33.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "off the beaten path",
+      tr_translation: "Turistik olmayan, az bilinen yer",
+      example: "Anywhere off the beaten path?",
+      example_tr: "Turistik olmayan bir yer var mi?",
+    },
+    {
+      id: "ex.24.33.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "must-see",
+      tr_translation: "Mutlaka gorulmesi gereken",
+      example: "What's a must-see in this city?",
+      example_tr: "Bu sehirde mutlaka gormem gereken nedir?",
+    },
+    {
+      id: "ex.24.33.3",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "B1 otel bari. Bartender yerel. Sabah icin oneri istiyorsun.",
+      npc_role: "Hotel bartender (local)",
+      setting: "Hotel bar, evening",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Settling in for the night, or heading out?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(just |kind of )?(settling in)(,)? (one drink before bed)",
+            "(staying in)(,)? (early start tomorrow)",
+            "(thinking about tomorrow actually)(,)? (any tips)",
+            "(could you recommend something to do tomorrow)",
+            "(i'?ve been doing the touristy stuff)(,)? (need something different)",
+          ],
+          hint_tr:
+            "B1: 'Could you recommend something for tomorrow?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure — what kind of vibe? Touristy must-sees or local spots?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(local spots|off the beaten path)(,)? (please)",
+            "(i'?ve done the must-sees|tired of tourist traps)",
+            "(somewhere locals actually go|where do you go)",
+            "(off-the-beaten-path is more my style)",
+            "(maybe a bit of both|mix of both)",
+          ],
+          hint_tr:
+            "B1 idiom: 'Off the beaten path' = az bilinen.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool — there's a small district called Old Mill, half-hour walk. Great coffee, vintage shops, local artists.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that sounds perfect|right up my alley)",
+            "(how do i get there|walking directions)\\??",
+            "(when does it (open|come alive))",
+            "(any spots i must hit|favorite coffee place)",
+            "(could you write it down|spell that for me)",
+          ],
+          hint_tr:
+            "B1: 'Right up my alley' = tam bana gore.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Coffee place is called Brew Lab — order the cortado. The bookstore next door is a gem.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(brew lab|cortado)(,)? (got it)",
+            "(amazing|thanks for the (intel|insider tip))",
+            "(i'?ll definitely go)",
+            "(let me write that down)",
+            "(you'?re a (lifesaver|godsend))",
+          ],
+          hint_tr:
+            "B1: 'Thanks for the insider tip!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Have a great day. Tell them Marcus sent you.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(will do|absolutely)",
+            "(thanks marcus|appreciate it)",
+            "(i'?ll let them know)",
+            "(thanks again|cheers)",
+            "(can'?t wait|thanks so much)",
+          ],
+          hint_tr:
+            "B1: 'I'll let them know — thanks Marcus!'",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 24.34 — Wedding Bar B1 — Toast and Champagne
+// ============================================================
+export const barLesson_24_34: BundledLesson = {
+  id: "bar.approach.24.34",
+  skill_id: "bar.approach",
+  index: 34,
+  title: "Dugun — Toast Yap",
+  description:
+    "B1: Dugunde kisa konusma + sampanya kaldirma. Geleneksel kaliplar.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.24.34.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "raise a glass",
+      tr_translation: "Kadeh kaldirmak (toast)",
+      example: "Let's raise a glass to the couple.",
+      example_tr: "Cifte kadeh kaldiralim.",
+    },
+    {
+      id: "ex.24.34.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "many happy years",
+      tr_translation: "Nice mutlu yillar",
+      example: "Wishing you many happy years.",
+      example_tr: "Nice mutlu yillar dilerim.",
+    },
+    {
+      id: "ex.24.34.3",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "B1 dugun. Yan masadakilerle toast yapiyorsun. Cifti taniyorsun.",
+      npc_role: "Wedding guest at your table",
+      setting: "Wedding reception, table conversation",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "How do you know the couple?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i went to (uni|college|school) with (the bride|the groom))",
+            "(i'?ve known (\\w+) since (school|university))",
+            "(work with (\\w+))(,)? (we sit next to each other)",
+            "(family friend|childhood friend)",
+            "(\\w+) (and i) (go way back)",
+          ],
+          hint_tr:
+            "B1: 'I went to uni with the bride'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh nice. Beautiful ceremony, huh?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(absolutely|gorgeous)",
+            "(the vows had me in tears)",
+            "(loved the (music|setting|venue))",
+            "(stunning|couldn'?t have asked for better)",
+            "(it was perfect|exactly what they wanted)",
+          ],
+          hint_tr:
+            "B1: 'The vows had me in tears'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Toast is coming up. You giving one?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|not me|i'?m just here as a guest)",
+            "(not officially)(,)? (but i'?ll raise a glass)",
+            "(no)(,)? (the (best man|maid of honor) is doing it)",
+            "(no formal one|happy to keep it casual)",
+            "(no)(,)? (but i'?ll definitely cheer)",
+          ],
+          hint_tr:
+            "B1: 'Not officially, but I'll raise a glass'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Same. Cheers, then — to many happy years.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(cheers — to many happy years)",
+            "(to the happy couple|to the bride and groom)",
+            "(here'?s to (love|forever))",
+            "(many happy years|long may they last)",
+            "(cheers, may they have it all)",
+          ],
+          hint_tr:
+            "B1 toast: 'To many happy years'. Klasik dugun kalibi.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cheers. Enjoy the dancing later.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(you too|i plan to)",
+            "(can'?t wait|been (looking|waiting) forward to it)",
+            "(i'?ll see you on the dance floor)",
+            "(save me a dance)",
+            "(thanks)(,)? (you too)",
+          ],
+          hint_tr:
+            "B1: 'I'll see you on the dance floor' — sicak sosyallesme.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 24.35 — Jazz Lounge B1 — First Impression
+// ============================================================
+export const barLesson_24_35: BundledLesson = {
+  id: "bar.approach.24.35",
+  skill_id: "bar.approach",
+  index: 35,
+  title: "Jazz Lounge — Ilk Izlenim",
+  description:
+    "B1: Jazz lounge'a ilk kez geliyorsun. Yanindaki muzikseverle sohbet.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.24.35.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "how often",
+      tr_translation: "Ne sıklıkla",
+      example: "How often do you come here?",
+      example_tr: "Buraya ne sıklıkla geliyorsun?",
+    },
+    {
+      id: "ex.24.35.2",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "live music",
+      tr_translation: "Canli muzik",
+      example: "I'm a big live music fan.",
+      example_tr: "Canli muzik tutkunuyum.",
+    },
+    {
+      id: "ex.24.35.3",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "B1 jazz lounge. Solist saksafon caliyor. Yanindaki adam alkisliyor.",
+      npc_role: "Regular jazz patron",
+      setting: "Jazz lounge during a set",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Beautiful, isn't she?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|absolutely)(,)? (incredible (tone|touch))",
+            "(amazing|stunning)",
+            "(i could listen for hours)",
+            "(her control is something else)",
+            "(yes)(,)? (this is my first time hearing her)",
+          ],
+          hint_tr:
+            "B1: 'Her control is something else'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "First time at the lounge?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,)? (a friend recommended it)",
+            "(yeah)(,)? (i'?ve been meaning to come for ages)",
+            "(yes)(,)? (i'?m a big live music fan)",
+            "(first time)(,)? (how often do you come)",
+            "(yes)(,)? (loving the vibe so far)",
+          ],
+          hint_tr:
+            "B1: 'How often do you come?' — sohbet aclmasi.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Every Tuesday for ten years. Best-kept secret in the city.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(ten years|wow)(,)? (you must know all the musicians)",
+            "(best-kept secret — i can see why)",
+            "(any acts coming up i shouldn'?t miss)",
+            "(what makes tuesday special)",
+            "(amazing)(,)? (this is going on my regular list)",
+          ],
+          hint_tr:
+            "B1: 'You must know all the musicians'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yeah — next Thursday they've got a trio from New Orleans. Sold out usually.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks for the tip|good to know)",
+            "(i'?ll see if i can grab a ticket)",
+            "(new orleans trio|that sounds amazing)",
+            "(how do you get tickets|where do you book)",
+            "(any chance of standing room)",
+          ],
+          hint_tr:
+            "B1: 'I'll see if I can grab a ticket'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Book online tomorrow morning. They go fast.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(will do — first thing|on it)",
+            "(thanks)(,)? (you'?ve made my week)",
+            "(i appreciate the heads-up|thanks for letting me know)",
+            "(i'?ll set an alarm)",
+            "(thanks)(,)? (might see you next week)",
+          ],
+          hint_tr:
+            "B1: 'I'll set an alarm — thanks for the heads-up'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 24.36 — Wine Bar B2 — Natural Wine Debate
+// ============================================================
+export const barLesson_24_36: BundledLesson = {
+  id: "bar.approach.24.36",
+  skill_id: "bar.approach",
+  index: 36,
+  title: "Naturel Sarap Tartismasi",
+  description:
+    "B2: Naturel sarap modu — funky, ya seviyorsun ya nefret. Goris yumusatma.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.24.36.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "natural wine",
+      tr_translation: "Naturel sarap (mudahalesiz)",
+      example: "Are you into natural wine?",
+      example_tr: "Naturel sarap sever misin?",
+    },
+    {
+      id: "ex.24.36.2",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "I get why",
+      tr_translation: "Anlamasi zor degil / mantikli (B2 stance)",
+      example: "I get why people love it.",
+      example_tr: "Insanlarin onu sevmesini anliyorum.",
+    },
+    {
+      id: "ex.24.36.3",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "polarizing",
+      tr_translation: "Bolucu, taraf yaptiran",
+      example: "It's pretty polarizing.",
+      example_tr: "Oldukca bolucu bir konu.",
+    },
+    {
+      id: "ex.24.36.4",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "B2 sarap bari. Yanindaki kisi naturel sarap tutkunu. Sen daha klasiksin.",
+      npc_role: "Natural wine enthusiast",
+      setting: "Trendy wine bar",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "You into natural wine? This pet-nat is wild.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?m on the fence|i go back and forth) (about natural wine)",
+            "(i get why people love it)(,)? (but it'?s not always my thing)",
+            "(it'?s polarizing|i can see both sides)",
+            "(i appreciate the philosophy)(,)? (the execution is hit or miss for me)",
+            "(some i love)(,)? (others taste more like cider than wine)",
+          ],
+          hint_tr:
+            "B2: 'It's polarizing — I can see both sides'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Fair point. What turns you off?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sometimes there'?s a (funky|barnyard|cidery) note that overwhelms the fruit)",
+            "(when it'?s done well it'?s magical)(,)? (when it'?s not it'?s muddled)",
+            "(i wish more producers struck a balance)",
+            "(the inconsistency from bottle to bottle is what gets me)",
+            "(i prefer wines where you can taste the grape)",
+          ],
+          hint_tr:
+            "B2: 'I prefer wines where you can taste the grape'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "That's a totally valid critique. Want to try one that might convert you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?m open to being convinced)",
+            "(go for it|i could be wrong)",
+            "(sure)(,)? (give me your best argument)",
+            "(could you frame why this one'?s special)",
+            "(i'?d rather (taste than argue|let the wine make the case))",
+          ],
+          hint_tr:
+            "B2 stance: 'I'm open to being convinced'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "This Slovenian skin-contact white — looks orange, tastes like honeyed apricot.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(orange wine done well is something special)",
+            "(skin contact i can usually get behind)",
+            "(slovenian whites have a real moment going on)",
+            "(let'?s give it a fair shot)",
+            "(i'?ve had a couple skin contacts i liked)",
+          ],
+          hint_tr:
+            "B2: 'Skin contact I can usually get behind'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Promise no barnyard.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that'?s reassuring|appreciate that)",
+            "(no barnyard is the bare minimum)",
+            "(haha — let'?s see)",
+            "(i'?ll trust you on this one)",
+            "(if you'?re wrong)(,)? (next round'?s on you)",
+          ],
+          hint_tr:
+            "B2: 'I'll trust you on this one'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 24.37 — Sports Pub B2 — Controversial Ref Call
+// ============================================================
+export const barLesson_24_37: BundledLesson = {
+  id: "bar.approach.24.37",
+  skill_id: "bar.approach",
+  index: 37,
+  title: "Hakem Karari — Tartisma",
+  description:
+    "B2: Hakem hatali penalti verdi. Yan masadaki rakip taraftar la kibarca tartisma.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.24.37.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "could've gone either way",
+      tr_translation: "Iki taraflı olabilirdi (B2 hedge)",
+      example: "Honestly, it could've gone either way.",
+      example_tr: "Acikcasi iki taraflı olabilirdi.",
+    },
+    {
+      id: "ex.24.37.2",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "no contact",
+      tr_translation: "Temas yok (penaltidaki)",
+      example: "There was barely any contact.",
+      example_tr: "Neredeyse hic temas yoktu.",
+    },
+    {
+      id: "ex.24.37.3",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "soft penalty",
+      tr_translation: "Yumusak penalti (kuskulu)",
+      example: "That was a really soft penalty.",
+      example_tr: "Oldukca yumusak bir penaltidi.",
+    },
+    {
+      id: "ex.24.37.4",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "B2 pub. Mac sirasinda kuskulu penalti. Yan masaaki rakip taraftarla sohbet.",
+      npc_role: "Rival team fan",
+      setting: "Sports pub, mid-match",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "How is that a penalty? No contact!",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|honestly)(,)? (i thought it was a soft call too)",
+            "(in fairness|to be fair)(,)? (it could'?ve gone either way)",
+            "(my team'?s benefiting)(,)? (but i can see your point)",
+            "(i was waiting for var to overturn it)",
+            "(if my team conceded that)(,)? (i'?d be livid)",
+          ],
+          hint_tr:
+            "B2 hedge: 'My team's benefiting but I can see your point'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "At least you're honest. The ref's been awful all night.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i wouldn'?t go that far|i'?d push back a little there)",
+            "(he'?s had a rough game)(,)? (but he'?s not the worst i'?ve seen)",
+            "(consistency'?s the issue more than competence)",
+            "(refs have a thankless job)(,)? (i feel for them sometimes)",
+            "(he should'?ve gone to the monitor at least)",
+          ],
+          hint_tr:
+            "B2: 'Refs have a thankless job' = takdir gormeyen is.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Thankless? Try fifteen grand a game. They should be perfect.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(salary aside|that'?s a fair point on the money)(,)? (the pressure is unreal)",
+            "(i hear you)(,)? (but humans make mistakes — even well-paid ones)",
+            "(perfection'?s a lot to ask in real-time)",
+            "(var should make these calls easier)(,)? (it doesn'?t)",
+            "(you'?re not wrong about accountability)",
+          ],
+          hint_tr:
+            "B2 nuance: 'You're not wrong about accountability'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Anyway — good game, even if we lose now.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it'?s been a cracker|brilliant football regardless)",
+            "(both teams played their hearts out)",
+            "(win or lose)(,)? (this is why we watch)",
+            "(no shame in losing one like this)",
+            "(absolutely|enjoying it whatever the result)",
+          ],
+          hint_tr:
+            "B2 idiom: 'It's been a cracker' = harika mac.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cheers, mate. Respect.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(cheers|respect right back)",
+            "(no hard feelings)",
+            "(may the better team (win|recover))",
+            "(safe travels home)",
+            "(enjoy the rest of it)",
+          ],
+          hint_tr:
+            "B2: 'No hard feelings' = kirgin degilim.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 24.38 — Jazz Lounge B2 — Request a Song
+// ============================================================
+export const barLesson_24_38: BundledLesson = {
+  id: "bar.approach.24.38",
+  skill_id: "bar.approach",
+  index: 38,
+  title: "Jazz — Sarki Istegi",
+  description:
+    "B2: Setin sonunda muzisyene yaklasip belirli bir sarki iste, ozenle.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.24.38.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "if it's in your wheelhouse",
+      tr_translation: "Eger uzmanlik alaniniza giriyorsa (rica)",
+      example: "Only if it's in your wheelhouse.",
+      example_tr: "Sadece uzmanlik alaniniza giriyorsa.",
+    },
+    {
+      id: "ex.24.38.2",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "would it be too much to ask",
+      tr_translation: "Cok mu rica olur (kibar istek)",
+      example: "Would it be too much to ask for one tune?",
+      example_tr: "Bir sarki rica etsem cok mu olur?",
+    },
+    {
+      id: "ex.24.38.3",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "B2 jazz lounge. Set arasi. Piyaniste yaklasip kibarca rica.",
+      npc_role: "Jazz pianist on break",
+      setting: "Jazz lounge, set break",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Hi — you enjoying the set?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(immensely|tremendously)(,)? (your touch on (\\w+) was breathtaking)",
+            "(your version of (\\w+) gave me chills)",
+            "(i'?ve been (smiling|grinning) the whole set)",
+            "(you'?ve got a real way with ballads|the ballads in particular landed)",
+            "(thank you for what you do up there)",
+          ],
+          hint_tr:
+            "B2 ovgu: 'Your touch on X was breathtaking'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Thanks — means a lot. Any feedback?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(only positive — i wouldn'?t change a thing)",
+            "(nothing constructive)(,)? (just gratitude)",
+            "(if anything)(,)? (i'?d love (a longer (set|encore)|to hear (a |an )(\\w+)))",
+            "(would it be too much to ask|if it'?s in your wheelhouse)(,)? (could you (play|do) (a |an )?(\\w+))",
+            "(my only feedback is — please come back next month)",
+          ],
+          hint_tr:
+            "B2 rica: 'Would it be too much to ask for one tune?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I'm open to requests — what'd you have in mind?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(only if it'?s in your wheelhouse) — (something by (\\w+))",
+            "(i'?d love to hear (your take on) (\\w+))",
+            "((\\w+))(,)? (if it'?s not asking too much)",
+            "(no pressure)(,)? (but (\\w+) would make my night)",
+            "(maybe something by (monk|coltrane|bill evans|herbie))",
+          ],
+          hint_tr:
+            "B2 rica: 'I'd love to hear your take on Round Midnight'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I can absolutely do that. Any particular arrangement?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(your call entirely|whatever moves you)",
+            "(i'?m happy to be surprised)",
+            "(maybe a sparse arrangement|slow and quiet if possible)",
+            "(however you usually approach it)",
+            "(i trust your instincts more than mine)",
+          ],
+          hint_tr:
+            "B2: 'I trust your instincts more than mine'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool. I'll work it into the second set.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(you'?ve made my night|made my whole week)",
+            "(thank you)(,)? (genuinely)",
+            "(i'?ll be listening (with all my (attention|focus)|closely))",
+            "(thank you for being so (gracious|generous))",
+            "(thanks)(,)? (i won'?t forget this)",
+          ],
+          hint_tr:
+            "B2: 'Thank you for being so gracious'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 24.39 — Jazz Lounge B2 — Musician Sit-In Chat
+// ============================================================
+export const barLesson_24_39: BundledLesson = {
+  id: "bar.approach.24.39",
+  skill_id: "bar.approach",
+  index: 39,
+  title: "Jazz — Misafir Solist Sohbeti",
+  description:
+    "B2: Yanindaki kisi de cazci. Sit-in yapip yapmadigini sor, kariyer sohbeti.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.24.39.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "sit in",
+      tr_translation: "Konuk sanatci olarak katilmak (caz/blues)",
+      example: "Do they let people sit in?",
+      example_tr: "Konuk sanatci kabul ediyorlar mi?",
+    },
+    {
+      id: "ex.24.39.2",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "have a go at",
+      tr_translation: "Bir denemek, sansini denemek (idiom)",
+      example: "I'd love to have a go at that tune.",
+      example_tr: "O parcayi bir denemek isterdim.",
+    },
+    {
+      id: "ex.24.39.3",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "B2 jazz lounge. Yanindaki adam saxofon casesi tasiyor. Soruyorsun.",
+      npc_role: "Visiting saxophonist",
+      setting: "Jazz lounge",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Mind if I take this seat?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(go ahead|please)(,)? (it'?s all yours)",
+            "(of course not)(,)? (i noticed the sax case)",
+            "(absolutely)(,)? (are you playing tonight)",
+            "(please|all yours)(,)? (you a musician)",
+            "(by all means)(,)? (sit down)",
+          ],
+          hint_tr:
+            "B2: 'I noticed the sax case — are you playing tonight?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Hoping to. I'm passing through, asked if they'd let me sit in.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(this place is supposed to be welcoming to that)",
+            "(what kind of stuff do you play|where'?s home base)",
+            "(are you on tour|where you headed next)",
+            "(what'?s your usual repertoire|what'?s your scene)",
+            "(any recent records out)",
+          ],
+          hint_tr:
+            "B2: 'Are you on tour — where you headed next?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Tour for two weeks. Mostly bebop and post-bop. You play?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(not professionally|just for fun)",
+            "(i fooled around with (piano|guitar|sax) for years)(,)? (nothing serious)",
+            "(i wish i had the chops to sit in)",
+            "(strictly listener these days|i mostly listen now)",
+            "(i grew up around it|always been in my orbit)",
+          ],
+          hint_tr:
+            "B2: 'I fooled around with piano for years, nothing serious'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Listeners keep the scene alive. We'd be playing to empty rooms otherwise.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that'?s generous of you to say)",
+            "(i'?ve never thought of it that way)",
+            "(if anything)(,)? (live music needs more listeners these days)",
+            "(streaming has changed everything)(,)? (rooms like this matter)",
+            "(thank you for putting it that way)",
+          ],
+          hint_tr:
+            "B2: 'Streaming has changed everything — rooms like this matter'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cheers. If they call me up, stay close — I'll dedicate one to you.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that would absolutely make my night)",
+            "(i'?ll hold you to that)",
+            "(no pressure)(,)? (but i'?ll be (rooting|cheering) hard)",
+            "(thank you)(,)? (genuinely an honor)",
+            "(fingers crossed they call you up)",
+          ],
+          hint_tr:
+            "B2: 'I'll hold you to that' = sözünü tutarim diye bekliyorum.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 24.40 — Brewery B2 — Head Brewer Q&A
+// ============================================================
+export const barLesson_24_40: BundledLesson = {
+  id: "bar.approach.24.40",
+  skill_id: "bar.approach",
+  index: 40,
+  title: "Brewmaster — Soru Sor",
+  description:
+    "B2: Brewery'de head brewer ziyaret etti. Profesyonel soru sorusturma.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.24.40.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "hop-forward",
+      tr_translation: "Sasli hops baskin (bira)",
+      example: "I love hop-forward IPAs.",
+      example_tr: "Hops baskin IPA'lari severim.",
+    },
+    {
+      id: "ex.24.40.2",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "dry-hopped",
+      tr_translation: "Kuru hops eklenmis (aroma artirir)",
+      example: "Is it dry-hopped or single addition?",
+      example_tr: "Dry-hop mu yoksa tek ekleme mi?",
+    },
+    {
+      id: "ex.24.40.3",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "what got you into",
+      tr_translation: "Seni neye bulastirdi (hobi/meslek)",
+      example: "What got you into brewing?",
+      example_tr: "Seni biracilik dunyasina ne soktu?",
+    },
+    {
+      id: "ex.24.40.4",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "B2 brewery. Brewmaster bara geldi, sohbet aciliyor. Profesyonel soru.",
+      npc_role: "Head brewer",
+      setting: "Brewery taproom",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "How are you liking the lineup tonight?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the (ipa|stout|sour) is exceptional)(,)? (especially the (\\w+))",
+            "(genuinely impressed — particularly with (\\w+))",
+            "(your sour caught me off guard|the stout has real depth)",
+            "(i can taste the care|every beer feels intentional)",
+            "(loving it|wish i lived closer)",
+          ],
+          hint_tr:
+            "B2: 'Genuinely impressed — particularly with the sour'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Appreciate that. Any beer-geek questions for me?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(is the ipa dry-hopped|how much hop variety do you use)",
+            "(what'?s your fermentation temperature philosophy)",
+            "(do you source local malt|talk to me about your grain bill)",
+            "(what got you into brewing in the first place)",
+            "(how do you balance hop-forward with drinkability)",
+          ],
+          hint_tr:
+            "B2: 'What got you into brewing?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Started homebrewing in college, never stopped. Twenty years later, here we are.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(twenty years is no small thing|that'?s a real arc)",
+            "(was there a moment you knew this was the path)",
+            "(any beer style you keep coming back to)",
+            "(what'?s a style you'?ve been (chasing|trying to perfect))",
+            "(any styles you'?ve sworn off)",
+          ],
+          hint_tr:
+            "B2: 'Any beer style you keep coming back to?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Pilsner. Hardest beer to brew well, in my opinion. Nowhere to hide.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that'?s a brewer'?s answer right there)",
+            "(i'?ve heard the (nowhere to hide|no place to hide) thing before)",
+            "(do you have one on tap)(,)? (i'?d love to try)",
+            "(makes sense — clarity (reveals|exposes) flaws)",
+            "(humbling style to chase)",
+          ],
+          hint_tr:
+            "B2: 'That's a brewer's answer right there'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "We don't always have one — but next month, yes. Come back.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(consider it done|i'?ll be back)",
+            "(put me on the (mailing|email) list)",
+            "(can you let me know when it drops)",
+            "(absolutely — thanks for the chat)",
+            "(i'?ll mark my calendar)",
+          ],
+          hint_tr:
+            "B2: 'Put me on the mailing list'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 24.41 — Hotel Bar B2 — Businessman Small Talk
+// ============================================================
+export const barLesson_24_41: BundledLesson = {
+  id: "bar.approach.24.41",
+  skill_id: "bar.approach",
+  index: 41,
+  title: "Otel Bari — Is Adami Sohbeti",
+  description:
+    "B2: Otel barinda yanindaki is adami. Iste ne yaptigini sor, samimi ama profesyonel.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.24.41.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "in town for",
+      tr_translation: "Sehirde -in icin (sebep)",
+      example: "Are you in town for work?",
+      example_tr: "Sehre is icin mi geldin?",
+    },
+    {
+      id: "ex.24.41.2",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "wear many hats",
+      tr_translation: "Cok rol oynamak (idiom)",
+      example: "I wear many hats at my company.",
+      example_tr: "Sirketimde cok rol ustleniyorum.",
+    },
+    {
+      id: "ex.24.41.3",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "what line of work",
+      tr_translation: "Hangi sektorde calisiyorsun",
+      example: "What line of work are you in?",
+      example_tr: "Hangi sektorde calisiyorsun?",
+    },
+    {
+      id: "ex.24.41.4",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "B2 otel bari. Yanindaki adam laptop kapadi, viskisini yudumluyor.",
+      npc_role: "Business traveler",
+      setting: "Hotel bar, evening",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Long day. Cheers.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(cheers|i'?ll second that)",
+            "(here'?s to the day being over)",
+            "(in town for work)\\??",
+            "(rough day or just long)\\??",
+            "(cheers — looks like you earned it)",
+          ],
+          hint_tr:
+            "B2: 'Cheers — looks like you earned it'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yeah, in town for a conference. You?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(visiting|on a trip)(,)? (a bit of work, a bit of leisure)",
+            "(i'?m here for a few days|just exploring)",
+            "(what line of work are you in)\\??",
+            "(what'?s the conference about)",
+            "(work as well|i'?m in (\\w+))",
+          ],
+          hint_tr:
+            "B2: 'What line of work are you in?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Tech — I run product at a fintech startup.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh interesting|fintech is a wild space right now)",
+            "(product at a startup — you must wear many hats)",
+            "(what'?s the elevator pitch for your company)",
+            "(how big is the team|early stage)",
+            "(what brought you into fintech specifically)",
+          ],
+          hint_tr:
+            "B2 idiom: 'You must wear many hats'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Many hats is right. Some days I'm doing customer calls, some days writing specs at midnight.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(midnight specs sounds (familiar|like my old life))",
+            "(burnout-adjacent|hope you'?re pacing yourself)",
+            "(is the runway long enough to make it sustainable)",
+            "(at what point does it start to feel rewarding)",
+            "(i hope you'?ve got a good team around you)",
+          ],
+          hint_tr:
+            "B2: 'I hope you've got a good team around you'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Decent team. We're getting there. Anyway — cheers to surviving Mondays.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(cheers — to better mondays)",
+            "(here'?s to friday eventually arriving)",
+            "(may the next round be on someone else'?s tab)",
+            "(to making it through)",
+            "(genuinely — best of luck with the company)",
+          ],
+          hint_tr:
+            "B2: 'Genuinely — best of luck with the company'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 24.42 — Jazz Lounge C1 — Set Break Critique
+// ============================================================
+export const barLesson_24_42: BundledLesson = {
+  id: "bar.approach.24.42",
+  skill_id: "bar.approach",
+  index: 42,
+  title: "Jazz Set Critique — Nuanced Banter",
+  description:
+    "C1: Set arasinda kritik konuşmak — caz teorisi, ovgu+yumusak elestiri.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.24.42.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "that said",
+      tr_translation: "Bununla birlikte (C1 stance shift)",
+      example: "Great rhythm section — that said, the horns felt tentative.",
+      example_tr: "Iyi ritim sectionu — bununla birlikte, nefesliler cekingen.",
+    },
+    {
+      id: "ex.24.42.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "tentative",
+      tr_translation: "Cekingen, kararsiz",
+      example: "The solos felt a bit tentative tonight.",
+      example_tr: "Bu aksam solo'lar biraz cekingen geldi.",
+    },
+    {
+      id: "ex.24.42.3",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "I'd push back on",
+      tr_translation: "-e karsi cikarim (nazikce itiraz)",
+      example: "I'd push back on that — the drummer was on fire.",
+      example_tr: "Ona itiraz ederim — davulcu mukemmeldi.",
+    },
+    {
+      id: "ex.24.42.4",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "in the pocket",
+      tr_translation: "Tam ritmde (caz/groove)",
+      example: "The bassist was deep in the pocket.",
+      example_tr: "Basci tam ritimdeydi.",
+    },
+    {
+      id: "ex.24.42.5",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "C1 jazz lounge. Set arasi. Yanindaki yaslica beyfendi caz aficionado.",
+      npc_role: "Seasoned jazz aficionado",
+      setting: "Jazz lounge, set break",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "Thoughts on the first set?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the rhythm section was locked in|the bassist was deep in the pocket)(,)? (that said|though)(,)? (the horns felt tentative)",
+            "(on balance|net-net)(,)? (a strong set with some uneven moments)",
+            "(beautifully played for the most part)(,)? (albeit (uneven|a little uneven) in the solos)",
+            "(the leader chose ambitious tempos)(,)? (which paid off (most of the time|in places))",
+            "(the arrangement of (\\w+) was thoughtful)(,)? (though i missed the original'?s (warmth|drive))",
+          ],
+          hint_tr:
+            "C1: 'The rhythm section was locked in, that said, the horns felt tentative'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Interesting. I thought the horns were searching, not tentative — there's a difference.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that'?s a fair (distinction|nuance))",
+            "(point taken|i can see the case for (searching|exploratory))",
+            "(i'?d push back gently — searching usually has direction)(,)? (and tonight i missed that thread)",
+            "(maybe i was reading hesitation where there was intention)",
+            "(an interesting reframe — i'?ll grant you the difference)",
+          ],
+          hint_tr:
+            "C1 stance: 'Point taken — I can see the case for searching'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Either way — what'd you make of the leader's choice to open with the ballad?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(bold choice|risky opener — usually you ease in)",
+            "(opening with the ballad set a contemplative tone)(,)? (whether or not it served the energy curve is debatable)",
+            "(it asked a lot of the room early)",
+            "(for what it'?s worth|in my view))?(,)? (it would'?ve landed harder mid-set)",
+            "(unconventional)(,)? (but i respected the conviction)",
+          ],
+          hint_tr:
+            "C1: 'It asked a lot of the room early'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Conviction. Yeah — I'd grant you that. There was no hedging up there.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no hedging is the highest praise in this music)",
+            "(commitment over polish — i'?ll take that every time)",
+            "(in a streaming era)(,)? (live music lives or dies on conviction)",
+            "(absolutely — better to fail boldly than coast)",
+            "(that'?s the bargain you make for live (jazz|music))",
+          ],
+          hint_tr:
+            "C1: 'In a streaming era, live music lives or dies on conviction'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "You don't talk like a casual fan. Do you play?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(strictly listener|on the listening side of the music)(,)? (but i'?ve read more theory than i probably should have)",
+            "(i had piano lessons as a kid|i played for years in my (twenties|youth))(,)? (nothing to write home about)",
+            "(no — but i grew up with (parents|family) who did)",
+            "(a serious amateur at best|deeply curious is more accurate)",
+            "(no instrument now)(,)? (but jazz has been the soundtrack to most of my life)",
+          ],
+          hint_tr:
+            "C1: 'Strictly listener — but I've read more theory than I should have'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 24.43 — Wine Bar C1 — Terroir and Vintage Discussion
+// ============================================================
+export const barLesson_24_43: BundledLesson = {
+  id: "bar.approach.24.43",
+  skill_id: "bar.approach",
+  index: 43,
+  title: "Sarap — Terroir ve Vintage",
+  description:
+    "C1: Sarap derinligi — terroir, vintage variation, climate change.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.24.43.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "terroir",
+      tr_translation: "Topragin/iklimin sarapta yansimasi",
+      example: "Terroir defines great wine.",
+      example_tr: "Terroir, harika sarabi tanimlar.",
+    },
+    {
+      id: "ex.24.43.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "vintage variation",
+      tr_translation: "Yildan yila degisim",
+      example: "Vintage variation is increasing.",
+      example_tr: "Vintage degisim artiyor.",
+    },
+    {
+      id: "ex.24.43.3",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "albeit",
+      tr_translation: "-e ragmen / olsa da",
+      example: "Albeit warmer, the vintage was excellent.",
+      example_tr: "Daha sicak olsa da, yil mukemmeldi.",
+    },
+    {
+      id: "ex.24.43.4",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "case in point",
+      tr_translation: "Iyi bir ornek (idiom)",
+      example: "Bordeaux 2003 — case in point.",
+      example_tr: "Bordeaux 2003 — iyi bir ornek.",
+    },
+    {
+      id: "ex.24.43.5",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "C1 fine wine bari. Master sommelier ile sohbet. Iklim degisikligi ve vintage.",
+      npc_role: "Master sommelier",
+      setting: "Fine wine bar",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "How do you find this 2018?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(albeit (riper|warmer) than i'?d normally expect)(,)? (it'?s surprisingly graceful)",
+            "(it threads the needle between concentration and finesse)",
+            "(case in point for (skilled winemaking|why producer matters more than vintage))",
+            "(on balance|net-net)(,)? (a successful interpretation of a (warm|challenging) year)",
+            "(the acid retention is remarkable for the conditions)",
+          ],
+          hint_tr:
+            "C1: 'Albeit warmer than I'd normally expect, it's surprisingly graceful'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "You picked up on the acid. Most don't. What's your read on the terroir expression?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the (limestone|granite|chalk) character is unmistakable here)",
+            "(typicity is there)(,)? (albeit pushed by the warmth)",
+            "(i can taste the place|the sense of origin comes through)",
+            "(for what it'?s worth|in my view))?(,)? (the terroir wins over the vintage signature)",
+            "(it'?s a (transparent|honest) wine — you can read the (site|land) through it)",
+          ],
+          hint_tr:
+            "C1: 'For what it's worth, the terroir wins over the vintage signature'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "How worried are you about climate change in classic regions?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(genuinely concerned)(,)? (though i think adaptation will outpace catastrophe)",
+            "(burgundy is the canary in the coal mine|burgundy worries me most)",
+            "(producers are already pivoting — earlier picks, north-facing slopes)",
+            "(it'?s less about extinction and more about identity erosion)",
+            "(classic vintages as we knew them may become heritage memories)",
+          ],
+          hint_tr:
+            "C1 idiom: 'Burgundy is the canary in the coal mine'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Heritage memories — that's a phrase. Mind if I steal it?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(please do — it'?s yours)",
+            "(it'?s not (original to me|mine to own))(,)? (steal away)",
+            "(consider it a gift)",
+            "(any time)(,)? (consider it (open-source|public domain))",
+            "(steal it — and if you use it on instagram tag me)",
+          ],
+          hint_tr:
+            "C1: 'Consider it a gift'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Let me pour you something I think you'll appreciate — older vintage, similar terroir.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i couldn'?t refuse if i tried)",
+            "(a side-by-side comparison is exactly what this conversation needs)",
+            "(please — i'?d love to see the evolution)",
+            "(you'?re spoiling me)(,)? (genuinely)",
+            "(this is the kind of conversation i live for)",
+          ],
+          hint_tr:
+            "C1: 'A side-by-side comparison is exactly what this conversation needs'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Lesson 24.44 — Speakeasy C1 — Historical Cocktail Nerdery
+// ============================================================
+export const barLesson_24_44: BundledLesson = {
+  id: "bar.approach.24.44",
+  skill_id: "bar.approach",
+  index: 44,
+  title: "Speakeasy — Tarihi Kokteyl Sohbeti",
+  description:
+    "C1: Speakeasy bartender ile pre-Prohibition kokteyl tarihi. Profesyonel dile.",
+  estimated_minutes: 7,
+  exercises: [
+    {
+      id: "ex.24.44.1",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "pre-Prohibition",
+      tr_translation: "Yasak oncesi (ABD kokteyl tarihi)",
+      example: "I'm fascinated by pre-Prohibition cocktails.",
+      example_tr: "Yasak oncesi kokteyllere hayranim.",
+    },
+    {
+      id: "ex.24.44.2",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "give or take",
+      tr_translation: "Asagi yukari (idiom)",
+      example: "Mid-1800s, give or take.",
+      example_tr: "1800'lerin ortasi, asagi yukari.",
+    },
+    {
+      id: "ex.24.44.3",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "a lost art",
+      tr_translation: "Kaybolmus bir sanat",
+      example: "Stirring properly is a lost art.",
+      example_tr: "Dogru karistirma kaybolmus bir sanat.",
+    },
+    {
+      id: "ex.24.44.4",
+      type: "vocab_tile",
+      difficulty: 5,
+      word_or_phrase: "purist",
+      tr_translation: "Saf, klasige sadik (kisi)",
+      example: "I'm a bit of a purist about Manhattans.",
+      example_tr: "Manhattan konusunda biraz tutucuyum.",
+    },
+    {
+      id: "ex.24.44.5",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "C1 speakeasy. Bartender 1920'ler reseteleri kullaniyor. Tarihi sohbet.",
+      npc_role: "Speakeasy mixologist",
+      setting: "Hidden speakeasy bar",
+      turns: [
+        {
+          speaker: "npc",
+          message:
+            "First time here? What draws you in?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?ve been chasing pre-Prohibition cocktails for years)",
+            "(reading (\\w+)'?s book made me want to find places like this)",
+            "(modern bars have lost (the thread|the craft) — i wanted to taste the original spirit)",
+            "(stirring properly is a lost art)(,)? (and i heard this place still respects it)",
+            "(i'?m a bit of a purist about old-school recipes)",
+          ],
+          hint_tr:
+            "C1: 'Modern bars have lost the thread — I wanted to taste the original spirit'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "You're our kind of guest. What's your gateway cocktail to that era?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the (sazerac|martinez|old fashioned|manhattan)) (was where it started for me)",
+            "(probably the martinez|sazerac is my origin story)",
+            "(i fell down the rabbit hole through the (jerry thomas|charles baker) recipes)",
+            "(my (gateway|entry point) was the (manhattan|sazerac))(,)? (and i never left)",
+            "(it was a particularly good old fashioned that did it)",
+          ],
+          hint_tr:
+            "C1: 'I fell down the rabbit hole through the Jerry Thomas recipes'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Jerry Thomas — circa 1862, give or take. Let me make you something he'd recognize.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i would be honored)(,)? (no question)",
+            "(please — that'?s exactly what i'?m here for)",
+            "(could i ask you to walk me through the build|i'?d love to see the process)",
+            "(spare no detail|consider me a captive audience)",
+            "(if you'?re willing)(,)? (i'?d treasure that)",
+          ],
+          hint_tr:
+            "C1: 'Spare no detail — consider me a captive audience'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Genever, not London Dry. Old Tom if I had it. Real Boker's bitters. Stirred, never shaken.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(genever changes everything — far closer to the original profile)",
+            "(boker'?s bitters is the detail most modern bars skip)",
+            "(stirred is the only acceptable answer here)",
+            "(that'?s a faithful build|a faithful approach)",
+            "(this is the level of fidelity i was hoping for)",
+          ],
+          hint_tr:
+            "C1: 'That's a faithful build — exactly the fidelity I was hoping for'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cocktail purists are getting rarer. It's nice to meet a fellow traveler.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the feeling is mutual)(,)? (genuinely)",
+            "(fellow traveler is the highest compliment)",
+            "(it'?s a lonely hobby sometimes — places like this make it worth it)",
+            "(thank you for keeping the (flame|tradition) alive)",
+            "(here'?s to the (craft|art|tradition) — long may it (live|endure))",
+          ],
+          hint_tr:
+            "C1: 'Here's to the craft — long may it endure'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
 // EXPORT ARRAY
 // ============================================================
 export const barDeepLessons: BundledLesson[] = [
@@ -3341,4 +7227,36 @@ export const barDeepLessons: BundledLesson[] = [
   barLesson_24_27,
   barLesson_24_28,
   barLesson_24_29,
+  // 2026-05-23 expansion: order.bar 7.29-7.43 (15 scenes)
+  barLesson_7_29,
+  barLesson_7_30,
+  barLesson_7_31,
+  barLesson_7_32,
+  barLesson_7_33,
+  barLesson_7_34,
+  barLesson_7_35,
+  barLesson_7_36,
+  barLesson_7_37,
+  barLesson_7_38,
+  barLesson_7_39,
+  barLesson_7_40,
+  barLesson_7_41,
+  barLesson_7_42,
+  barLesson_7_43,
+  // 2026-05-23 expansion: bar.approach 24.30-24.44 (15 scenes)
+  barLesson_24_30,
+  barLesson_24_31,
+  barLesson_24_32,
+  barLesson_24_33,
+  barLesson_24_34,
+  barLesson_24_35,
+  barLesson_24_36,
+  barLesson_24_37,
+  barLesson_24_38,
+  barLesson_24_39,
+  barLesson_24_40,
+  barLesson_24_41,
+  barLesson_24_42,
+  barLesson_24_43,
+  barLesson_24_44,
 ];

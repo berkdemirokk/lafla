@@ -26,6 +26,8 @@ import {
 } from "../../lib/pronunciation-grader";
 import { PhonemeFeedback } from "../PhonemeFeedback";
 import { hapticForScore, hapticSelection } from "../../lib/feedback";
+import { recordCefrProgress } from "../../lib/cefr-level";
+import { pushPronScore } from "../../lib/pronunciation-history";
 import type { ExerciseResult } from "../../lib/engine";
 
 type Phase = "speaking" | "listening" | "feedback";
@@ -93,6 +95,15 @@ export function SpeechShadowing({
               finalResults.length,
           );
     const skippedAll = finalResults.every((r) => r.skipped);
+    // 2026-05-23 — CEFR audit fix #2: feed the phoneme-derived shadowing
+    // score into the CEFR engine. Skipped (no STT available) sessions are
+    // not credited — feeding 100 from a free-pass skip would inflate level
+    // progress dishonestly. Real attempts count; silence costs zero.
+    if (!skippedAll && avg > 0) {
+      void recordCefrProgress(avg).catch(() => {});
+      // Also append to pronunciation-history for the IELTS Band Estimator.
+      void pushPronScore(avg, "speech_shadowing").catch(() => {});
+    }
     onComplete({
       exercise_id: "speech_shadowing",
       exercise_type: "speech_shadowing",
