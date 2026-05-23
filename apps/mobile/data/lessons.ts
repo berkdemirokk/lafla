@@ -63,6 +63,11 @@ import { airportLessons } from "./airport-lesson";
 // Mevcut 8 sahne → 20'ye çıkar.
 import { airportExpandedLessons } from "./airport-expanded-lesson";
 
+// === IELTS Speaking (7. mod, 2026-05-21) ===
+// Part 1×6 (B1 familiar topics), Part 2×5 (B2 cue card), Part 3×4 (C1
+// abstract discussion). Türk audience'ın #1 ödeme sebebi.
+import { ieltsLessons } from "./ielts-lesson";
+
 // === günlük (daily + personal + cefr survival/daily birleşti — 18 lesson set) ===
 import { dailyDirectionsLessons } from "./daily-directions-lesson";
 import { dailyTransportLessons } from "./daily-transport-lesson";
@@ -133,6 +138,8 @@ export const allLessons: ReadonlyArray<BundledLesson> = [
   // havaalanı
   ...airportLessons,
   ...airportExpandedLessons,
+  // ielts (7. mod)
+  ...ieltsLessons,
   // günlük
   ...dailyDirectionsLessons,
   ...dailyTransportLessons,
