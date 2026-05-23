@@ -11,7 +11,7 @@
 // swipe-able sahne kartları.
 
 import { useCallback, useMemo, useRef, useState } from "react";
-import { useFocusEffect, useRouter } from "expo-router";
+import { useFocusEffect, useLocalSearchParams, useRouter } from "expo-router";
 import {
   Dimensions,
   FlatList,
@@ -19,6 +19,7 @@ import {
   StyleSheet,
   Text,
   View,
+  type LayoutChangeEvent,
   type ListRenderItemInfo,
   type NativeScrollEvent,
   type NativeSyntheticEvent,
@@ -51,6 +52,31 @@ const K_DISPLAY_NAME = "lafla.displayName";
 const MIN_FEED = 5;
 const SCREEN = Dimensions.get("window");
 const TOP_BAR_HEIGHT = 48;
+
+// Mode label haritası — top bar başlığında ve aria-label'larda kullanılır.
+// Order ve sceneMode değerleri data/scenes.ts SceneMode tipiyle birebir.
+const MODE_LABELS: Record<SceneMode, string> = {
+  flirt: "Flört",
+  work: "İş",
+  bar: "Bar",
+  airport: "Havaalanı",
+  daily: "Günlük",
+  order: "Sipariş",
+  ielts: "IELTS",
+};
+
+function isSceneMode(value: unknown): value is SceneMode {
+  return (
+    typeof value === "string" &&
+    (value === "flirt" ||
+      value === "work" ||
+      value === "bar" ||
+      value === "airport" ||
+      value === "daily" ||
+      value === "order" ||
+      value === "ielts")
+  );
+}
 
 // ───────────────────────────────────────────────────────────────
 // Deterministic shuffle (seeded by date)
@@ -97,6 +123,26 @@ export default function Home() {
   const listRef = useRef<FlatList<Scene>>(null);
   const lastIndexRef = useRef(0);
 
+  // 2026-05-23 — Mode filter override.
+  // Profile ekranındaki mod chip'leri "/home?mode=<key>" ile push eder.
+  // Param varsa o mod tek başına filtrelenir (interests + cefr cascade'ini
+  // bypass eder, sadece CEFR ±1 kalır). Tab nav "Akış" tıklayınca param
+  // gitsin diye router.replace("/home") çalışıyor — natural reset.
+  const params = useLocalSearchParams<{ mode?: string | string[] }>();
+  const rawMode = Array.isArray(params.mode) ? params.mode[0] : params.mode;
+  const modeOverride: SceneMode | null = isSceneMode(rawMode) ? rawMode : null;
+
+  // 2026-05-23 — Card height ölçümü onLayout ile.
+  // Önceki: SCREEN.height - insets - topBar - tabBar. AdBanner yüksekliğini
+  // kaçırıyordu → snapToInterval kartın görünür yüksekliğinden büyüktü →
+  // her swipe 1.1-1.2 kart kayıyordu. Şimdi FlatList'in container'ı
+  // onLayout'la measured height'i veriyor, snap + getItemLayout tam.
+  const [measuredHeight, setMeasuredHeight] = useState<number | null>(null);
+  const onListContainerLayout = useCallback((e: LayoutChangeEvent) => {
+    const h = e.nativeEvent.layout.height;
+    if (h > 0 && h !== measuredHeight) setMeasuredHeight(h);
+  }, [measuredHeight]);
+
   const load = useCallback(async () => {
     const [profile, completed, cefrLevel, interests, nameRaw] =
       await Promise.all([
@@ -132,6 +178,11 @@ export default function Home() {
     );
 
     const filterByInterests = (list: Scene[]): Scene[] => {
+      // modeOverride > interests precedence: kullanıcı profilden bir mod chip
+      // tıkladıysa onun tek başına filtrelenmesini ister, interest cascade'i
+      // ezilir. Bu olmadan "İş" tıklayıp "günlük" sahnesi görmek gibi
+      // 2026-05-23 bug'ı oluşuyordu (intent ↔ feed mismatch).
+      if (modeOverride) return list.filter((s) => s.mode === modeOverride);
       if (!state.interestModes || state.interestModes.length === 0) return list;
       const set = new Set(state.interestModes);
       return list.filter((s) => set.has(s.mode));
@@ -143,7 +194,13 @@ export default function Home() {
     };
 
     let filtered = filterByCefr(filterByInterests(playable));
-    if (filtered.length < MIN_FEED) filtered = filterByCefr(playable);
+    // modeOverride aktifse interest fallback yapılmamalı — kullanıcı net bir
+    // mod istedi, az sahne varsa CEFR'a düşülür ama interest'e geri dönmez.
+    if (filtered.length < MIN_FEED && !modeOverride) {
+      filtered = filterByCefr(playable);
+    }
+    // Bu safety net hem normal akışta hem modeOverride aktifken devrede:
+    // o mod hiç sahnesi yoksa yine tüm playable'a düş (boş feed'den iyi).
     if (filtered.length < MIN_FEED) filtered = playable;
 
     return filtered
@@ -153,7 +210,7 @@ export default function Home() {
       }))
       .sort((a, b) => a.key - b.key)
       .map((x) => x.scene);
-  }, [state.cefrLevel, state.interestModes]);
+  }, [state.cefrLevel, state.interestModes, modeOverride]);
 
   // Completed scenes drift to back
   const scenes = useMemo<Scene[]>(() => {
@@ -184,8 +241,12 @@ export default function Home() {
     [scenes.length],
   );
 
-  const cardHeight =
+  // measured > computed: onLayout sonrası gerçek yüksekliği kullan. İlk
+  // render'da measured yok → computed fallback (AdBanner hesaba katılmaz
+  // ama bu sadece ilk frame; ikinci frame'de measured devreye girer).
+  const computedHeight =
     SCREEN.height - insets.top - insets.bottom - TOP_BAR_HEIGHT - TAB_BAR_HEIGHT;
+  const cardHeight = measuredHeight ?? computedHeight;
 
   const renderItem = useCallback(
     ({ item }: ListRenderItemInfo<Scene>) => (
@@ -228,33 +289,63 @@ export default function Home() {
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
       <StatusBar style="light" />
 
-      {/* Top bar — sadece başlık */}
+      {/* Top bar — başlık + (varsa) filtrelenen mod chip'i + "tümü" reset.
+          Kullanıcı profilden "İş" tıkladıysa "Akış · İş ✕" şeklinde görür
+          ve ✕ tıklayarak filtreyi sıfırlayabilir (router.replace ile
+          query param drop edilir, normal feed döner). */}
       <View style={styles.topBar}>
-        <Text style={styles.title}>Akış</Text>
+        <Text style={styles.title}>
+          Akış{modeOverride ? ` · ${MODE_LABELS[modeOverride]}` : ""}
+        </Text>
+        {modeOverride && (
+          <Pressable
+            onPress={() => router.replace("/home" as never)}
+            style={({ pressed }) => [
+              styles.clearFilter,
+              pressed && { opacity: 0.6 },
+            ]}
+            accessibilityRole="button"
+            accessibilityLabel="Mod filtresini kaldır, tüm akışı göster"
+            hitSlop={8}
+          >
+            <Text style={styles.clearFilterText}>Tümü ✕</Text>
+          </Pressable>
+        )}
       </View>
 
-      {scenes.length === 0 ? (
-        <EmptyState onTo={() => router.replace("/today" as never)} />
-      ) : (
-        <FlatList
-          ref={listRef}
-          data={scenes}
-          renderItem={renderItem}
-          keyExtractor={keyExtractor}
-          pagingEnabled
-          showsVerticalScrollIndicator={false}
-          snapToInterval={cardHeight}
-          snapToAlignment="start"
-          decelerationRate="fast"
-          disableIntervalMomentum
-          getItemLayout={getItemLayout}
-          initialNumToRender={2}
-          windowSize={3}
-          maxToRenderPerBatch={2}
-          removeClippedSubviews
-          onMomentumScrollEnd={onMomentumScrollEnd}
-        />
-      )}
+      {/* FlatList container — onLayout ile measured height'i alır.
+          flex:1 sayesinde topBar + AdBanner + TabBar arasında kalan alanı
+          tam kaplar. Bu measured height snapToInterval ile birebir
+          olduğu için her swipe tam 1 kart kayar. */}
+      <View style={styles.listContainer} onLayout={onListContainerLayout}>
+        {scenes.length === 0 ? (
+          <EmptyState onTo={() => router.replace("/today" as never)} />
+        ) : measuredHeight === null ? (
+          // İlk frame: measured yok → boş frame (FlatList'i computed height ile
+          // render etmek snap'i bozardı, AdBanner gelmeden önce ölçüm hayalet).
+          // measuredHeight ikinci layout pass'inde dolar (genelde <16ms).
+          <View />
+        ) : (
+          <FlatList
+            ref={listRef}
+            data={scenes}
+            renderItem={renderItem}
+            keyExtractor={keyExtractor}
+            pagingEnabled
+            showsVerticalScrollIndicator={false}
+            snapToInterval={cardHeight}
+            snapToAlignment="start"
+            decelerationRate="fast"
+            disableIntervalMomentum
+            getItemLayout={getItemLayout}
+            initialNumToRender={2}
+            windowSize={3}
+            maxToRenderPerBatch={2}
+            removeClippedSubviews
+            onMomentumScrollEnd={onMomentumScrollEnd}
+          />
+        )}
+      </View>
 
       <AdBanner />
       <TabBar active="home" />
@@ -291,13 +382,30 @@ const styles = StyleSheet.create({
   topBar: {
     height: TOP_BAR_HEIGHT,
     paddingHorizontal: 20,
-    justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   title: {
     fontSize: 20,
     fontWeight: tokens.weight.black,
     color: tokens.text.primary,
     letterSpacing: -0.5,
+  },
+  listContainer: {
+    flex: 1,
+  },
+  clearFilter: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.bg.surfaceContainer,
+  },
+  clearFilterText: {
+    fontSize: 12,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.secondary,
+    letterSpacing: 0.3,
   },
   emptyWrap: {
     flex: 1,

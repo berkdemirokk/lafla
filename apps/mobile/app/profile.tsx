@@ -380,7 +380,16 @@ export default function ProfileScreen() {
                 done={done}
                 total={total}
                 ratio={ratio}
-                onPress={() => router.push("/home" as never)}
+                // 2026-05-23 — mode param pass et. Önceden tüm chip'ler aynı
+                // /home'a gidiyordu, akış kişiselleşmiş listeyi gösteriyor,
+                // tıklanan mod silinip gidiyordu (bug: "İş tıklıyom günlük
+                // çıkıyor"). Şimdi /home?mode=<key> ile spesifik filtre.
+                onPress={() =>
+                  router.push({
+                    pathname: "/home",
+                    params: { mode: m.key },
+                  } as never)
+                }
               />
             );
           })}
