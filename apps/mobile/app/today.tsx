@@ -73,6 +73,7 @@ import { interestsToModes } from "../lib/interest-mapping";
 import { TutorialOverlay } from "../components/TutorialOverlay";
 import { AdBanner } from "../components/AdBanner";
 import { VoiceWaveform } from "../components/VoiceWaveform";
+import { Icon } from "../components/Icon";
 import { tokens } from "../theme";
 import { TabBar } from "../components/TabBar";
 import type { Scene, SceneMode } from "../data/scenes";
@@ -500,17 +501,23 @@ export default function Today() {
         {state.streakAtRisk ? (
           <Animated.View entering={FadeInDown.delay(120).duration(360)}>
             <View style={styles.warningBanner}>
+              <Icon name="streak" size={14} color={tokens.semantic.warning} />
               <Text style={styles.warningText}>
-                🔥 Streak risk altında — 1 sahne kurtarır
+                Streak risk altında — 1 sahne kurtarır
               </Text>
             </View>
           </Animated.View>
         ) : state.erosionDecay > 0 ? (
           <Animated.View entering={FadeInDown.delay(120).duration(360)}>
             <View style={styles.erosionBanner}>
-              <Text style={styles.erosionLabel}>
-                ⚠ CEFR İLERLEMEN GERİLİYOR
-              </Text>
+              <View style={styles.erosionLabelRow}>
+                <Icon
+                  name="warning"
+                  size={12}
+                  color={tokens.semantic.error}
+                />
+                <Text style={styles.erosionLabel}>CEFR İLERLEMEN GERİLİYOR</Text>
+              </View>
               <Text style={styles.erosionText}>
                 {state.erosionDroppedLevel
                   ? `${state.erosionDaysIdle} gün ara — ${state.erosionDroppedLevel}'e düştün.`
@@ -536,7 +543,10 @@ export default function Today() {
               accessibilityRole="button"
               accessibilityLabel={`Sürpriz sahne: ${state.surprise.title.replace(/\n/g, " ")}`}
             >
-              <Text style={styles.surpriseLabel}>🎁 SÜRPRİZ</Text>
+              <View style={styles.bannerLabelRow}>
+                <Icon name="surprise" size={12} color={tokens.brand.primary} />
+                <Text style={styles.surpriseLabel}>SÜRPRİZ</Text>
+              </View>
               <Text style={styles.surpriseTitle} numberOfLines={2}>
                 {state.surprise.title.replace(/\n/g, " ")}
               </Text>
@@ -558,9 +568,16 @@ export default function Today() {
               accessibilityRole="button"
               accessibilityLabel={`Bugün için: ${state.daily.title.replace(/\n/g, " ")}`}
             >
-              <Text style={styles.dailyLabel}>
-                {state.dailyCompleted ? "✓ BUGÜN TAMAMLANDI" : "📍 BUGÜN İÇİN"}
-              </Text>
+              <View style={styles.bannerLabelRow}>
+                <Icon
+                  name={state.dailyCompleted ? "checkmark" : "target"}
+                  size={12}
+                  color={tokens.brand.tertiary}
+                />
+                <Text style={styles.dailyLabel}>
+                  {state.dailyCompleted ? "BUGÜN TAMAMLANDI" : "BUGÜN İÇİN"}
+                </Text>
+              </View>
               <Text style={styles.dailyTitle} numberOfLines={2}>
                 {state.daily.title.replace(/\n/g, " ")}
               </Text>
@@ -580,7 +597,10 @@ export default function Today() {
               accessibilityRole="button"
               accessibilityLabel={`Bugünkü tekrar: ${state.vocabDue} kelime`}
             >
-              <Text style={styles.vocabLabel}>📚 KELİME TEKRARI</Text>
+              <View style={styles.bannerLabelRow}>
+                <Icon name="vocab" size={12} color={tokens.semantic.warning} />
+                <Text style={styles.vocabLabel}>KELİME TEKRARI</Text>
+              </View>
               <Text style={styles.vocabText}>
                 {state.vocabDue} kelime · ~{state.vocabDueMin} dk
               </Text>
@@ -605,15 +625,26 @@ export default function Today() {
                 : "Bugünün cümlesini yazmak için günlüğü aç"
             }
           >
-            <Text
-              style={
-                state.diaryWrittenToday
-                  ? styles.diaryDoneLabel
-                  : styles.diaryNudgeLabel
-              }
-            >
-              {state.diaryWrittenToday ? "✓ BUGÜN" : "✎ GÜNLÜK"}
-            </Text>
+            <View style={styles.bannerLabelRow}>
+              <Icon
+                name={state.diaryWrittenToday ? "checkmark" : "diary"}
+                size={12}
+                color={
+                  state.diaryWrittenToday
+                    ? tokens.brand.tertiary
+                    : tokens.brand.primary
+                }
+              />
+              <Text
+                style={
+                  state.diaryWrittenToday
+                    ? styles.diaryDoneLabel
+                    : styles.diaryNudgeLabel
+                }
+              >
+                {state.diaryWrittenToday ? "BUGÜN" : "GÜNLÜK"}
+              </Text>
+            </View>
             <Text
               style={
                 state.diaryWrittenToday
@@ -639,14 +670,16 @@ export default function Today() {
             accessibilityRole="button"
             accessibilityLabel="Akıştan rastgele sahneler keşfet"
           >
-            <Text style={styles.exploreEmoji}>🎬</Text>
+            <View style={styles.exploreIconCircle}>
+              <Icon name="explore" size={22} color={tokens.brand.primary} />
+            </View>
             <View style={styles.exploreText}>
               <Text style={styles.exploreTitle}>Akış'tan keşfet</Text>
               <Text style={styles.exploreSub}>
-                Plan dışı 500+ sahneyi kaydırarak gez.
+                Plan dışı 800+ sahneyi kaydırarak gez.
               </Text>
             </View>
-            <Text style={styles.exploreArrow}>›</Text>
+            <Icon name="chevronRight" size={20} color={tokens.text.tertiary} />
           </Pressable>
         </Animated.View>
       </Animated.ScrollView>
@@ -826,6 +859,9 @@ const styles = StyleSheet.create({
 
   // Warning/erosion banners
   warningBanner: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
     paddingVertical: 10,
     paddingHorizontal: 14,
     borderRadius: tokens.radius.full,
@@ -833,6 +869,29 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: tokens.semantic.warning,
     alignSelf: "center",
+  },
+  // Banner label row — icon + text combo used across surprise/daily/vocab/diary
+  bannerLabelRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+  },
+  erosionLabelRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 5,
+    marginBottom: 4,
+  },
+  // Explore card icon circle — replaces standalone emoji
+  exploreIconCircle: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: tokens.brand.primarySoft,
+    borderWidth: 1,
+    borderColor: tokens.brand.primary,
+    alignItems: "center",
+    justifyContent: "center",
   },
   warningText: {
     fontSize: 12,

@@ -769,30 +769,48 @@ export function RoleplayChat({
           {!hardMode && adaptMode === "stretch" && (
             <View style={styles.stretchBadge}>
               <Text style={styles.stretchBadgeText}>
-                +1 ZORLA · {sceneLevel}{userLevel ? ` (sen ${userLevel})` : ""}
+                BU SAHNE {sceneLevel}{userLevel ? ` · SEN ${userLevel}` : ""} · İPUÇLARI AÇIK
               </Text>
             </View>
           )}
           {!hardMode && adaptMode === "review" && (
             <View style={styles.reviewBadge}>
               <Text style={styles.reviewBadgeText}>
-                KOLAY TEKRAR · {sceneLevel}{userLevel ? ` (sen ${userLevel})` : ""}
+                {sceneLevel} TEKRARI · SEN {userLevel} · İPUÇSUZ
               </Text>
             </View>
           )}
 
-          {/* TR hint — visibility depends on mode AND adaptation:
-              - stretch (user below scene): ALWAYS show, regardless of mode
-              - review  (user above scene): NEVER show (user shouldn't lean
-                on it for content below their level)
-              - matched: legacy behavior — only in non-free mode */}
-          {(adaptMode === "stretch"
-            ? currentTurn?.hint_tr
-            : adaptMode === "matched"
-              ? mode !== "free" && currentTurn?.hint_tr
-              : null) && (
-            <View style={styles.hintBox}>
-              <Text style={styles.hintText}>💡 {currentTurn?.hint_tr}</Text>
+          {/* TR hint — visibility + DETAIL adapts to CEFR delta.
+              2026-05-23 — Audit feedback: roleplay daha gerçekçi seviye göre.
+              Eski binary "var/yok" logic değişti:
+              - stretch (user altı): FULL hint, büyük + colored bg (yardım net)
+              - matched: subtle hint (sadece non-free mode)
+              - review (user üstü): ASLA hint (kullanıcı kendisi düşünmeli)
+              - hardMode: ASLA hint (premium challenge)
+
+              Stretch'te hint görsel olarak daha PROMINENT — "yardım için
+              buradayım" hissi; review'da hiç yok — "sen biliyorsun" güveni. */}
+          {!hardMode &&
+            (adaptMode === "stretch"
+              ? currentTurn?.hint_tr
+              : adaptMode === "matched"
+                ? mode !== "free" && currentTurn?.hint_tr
+                : null) && (
+            <View
+              style={[
+                styles.hintBox,
+                adaptMode === "stretch" && styles.hintBoxStretch,
+              ]}
+            >
+              <Text
+                style={[
+                  styles.hintText,
+                  adaptMode === "stretch" && styles.hintTextStretch,
+                ]}
+              >
+                {currentTurn?.hint_tr}
+              </Text>
             </View>
           )}
 
@@ -1178,10 +1196,24 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 4,
   },
+  // 2026-05-23 — Stretch mode (user altı sahne) için yardımı PROMINENT
+  // yap. Daha kalın border, daha büyük padding, koyu pembe accent —
+  // "burada destek var" hissi. Matched/review'da default subtle kalır.
+  hintBoxStretch: {
+    paddingVertical: 12,
+    paddingHorizontal: 14,
+    borderLeftWidth: 4,
+    borderRadius: 12,
+  },
   hintText: {
     fontSize: 13,
     color: tokens.text.primary,
     lineHeight: 18,
+  },
+  hintTextStretch: {
+    fontSize: 14,
+    lineHeight: 20,
+    fontWeight: tokens.weight.medium,
   },
   // CEFR adaptation badges — sit just above the input bar so the
   // user reads the level cue before they type. Compact single-line.

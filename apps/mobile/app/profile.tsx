@@ -59,6 +59,7 @@ import {
   shareMessage as referralShareMessage,
 } from "../lib/referral";
 import { interestsToModes } from "../lib/interest-mapping";
+import { Icon, type IconName } from "../components/Icon";
 import { tokens } from "../theme";
 import { TabBar } from "../components/TabBar";
 
@@ -394,31 +395,31 @@ export default function ProfileScreen() {
         <Text style={styles.sectionLabel}>İLERLEME</Text>
         <View style={styles.accountCard}>
           <AccountRow
-            icon="🎯"
+            icon="band"
             label="IELTS Band Tahminim · Speak+"
             onPress={() => router.push("/ielts-band" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
-            icon="📊"
+            icon="weakness"
             label="Zayıflık Raporu · Speak+"
             onPress={() => router.push("/weakness-report" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
-            icon="📜"
+            icon="history"
             label="Geçmiş sahneler"
             onPress={() => router.push("/history" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
-            icon="📖"
+            icon="vocab"
             label="Kelime defterin"
             onPress={() => router.push("/vocab-book" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
-            icon="🏆"
+            icon="certificate"
             label="Sertifikalarım"
             onPress={() => router.push("/certificates" as never)}
           />
@@ -427,19 +428,19 @@ export default function ProfileScreen() {
               kayıt aracı. Day One app referansı. */}
           <View style={styles.rowDivider} />
           <AccountRow
-            icon="✎"
+            icon="diary"
             label="Günlüğüm"
             onPress={() => router.push("/diary" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
-            icon="🎙️"
+            icon="voiceJournal"
             label="Sesli günlük"
             onPress={() => router.push("/voice-journal" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
-            icon="👥"
+            icon="relationships"
             label="İlişkilerim"
             onPress={() => router.push("/relationships" as never)}
           />
@@ -448,7 +449,7 @@ export default function ProfileScreen() {
         <Text style={styles.sectionLabel}>SPEAK+</Text>
         <View style={styles.accountCard}>
           <AccountRow
-            icon="✨"
+            icon="premium"
             label="Speak+ aboneliği"
             onPress={() => router.push("/paywall" as never)}
           />
@@ -456,7 +457,7 @@ export default function ProfileScreen() {
               bonus award (Supabase referral_code tablosu, admin cron). */}
           <View style={styles.rowDivider} />
           <AccountRow
-            icon="🎁"
+            icon="referral"
             label="Arkadaşını davet et — 1 ay ücretsiz"
             onPress={async () => {
               try {
@@ -477,13 +478,13 @@ export default function ProfileScreen() {
         <Text style={styles.sectionLabel}>HESAP</Text>
         <View style={styles.accountCard}>
           <AccountRow
-            icon="⚙️"
+            icon="settings"
             label="Ayarlar"
             onPress={() => router.push("/settings" as never)}
           />
           <View style={styles.rowDivider} />
           <AccountRow
-            icon="🗑️"
+            icon="trash"
             label="Hesabımı sil"
             danger
             onPress={() => router.push("/settings" as never)}
@@ -594,13 +595,30 @@ function ModeRowView({ emoji, label, done, total, ratio, onPress }: ModeRowProps
 }
 
 interface AccountRowProps {
-  icon: string;
+  /**
+   * Either a semantic Icon name (premium) OR an emoji string (legacy).
+   * 2026-05-23 — strategic move from emoji to icon library. Migration
+   * is gradual; rows that still pass an emoji string are rendered as
+   * Text fallback for back-compat.
+   */
+  icon: IconName | string;
   label: string;
   danger?: boolean;
   onPress: () => void;
 }
 
 function AccountRow({ icon, label, danger, onPress }: AccountRowProps) {
+  // Heuristic: if `icon` is a known semantic name, render Icon component.
+  // Otherwise treat as emoji string and render via Text.
+  const iconColor = danger ? tokens.semantic.error : tokens.brand.primary;
+  const isIconName = (() => {
+    // Best-effort guard — Icon registry is the source of truth.
+    try {
+      return typeof icon === "string" && /^[a-z][a-zA-Z]*$/.test(icon);
+    } catch {
+      return false;
+    }
+  })();
   return (
     <Pressable
       onPress={onPress}
@@ -611,7 +629,13 @@ function AccountRow({ icon, label, danger, onPress }: AccountRowProps) {
       accessibilityRole="button"
       accessibilityLabel={label}
     >
-      <Text style={styles.accountIcon}>{icon}</Text>
+      {isIconName ? (
+        <View style={styles.accountIconWrap}>
+          <Icon name={icon as IconName} size={20} color={iconColor} />
+        </View>
+      ) : (
+        <Text style={styles.accountIcon}>{icon}</Text>
+      )}
       <Text
         style={[
           styles.accountLabel,
@@ -620,7 +644,12 @@ function AccountRow({ icon, label, danger, onPress }: AccountRowProps) {
       >
         {label}
       </Text>
-      <Text style={styles.accountChevron}>›</Text>
+      <Icon
+        name="chevronRight"
+        size={18}
+        color={tokens.text.tertiary}
+        accessibilityLabel=""
+      />
     </Pressable>
   );
 }
@@ -856,6 +885,14 @@ const styles = StyleSheet.create({
   },
   accountIcon: {
     fontSize: 20,
+  },
+  // Premium icon wrapper — replaces emoji Text. Same 28×28 hit area for
+  // consistent column alignment whether row uses emoji or vector icon.
+  accountIconWrap: {
+    width: 28,
+    height: 28,
+    alignItems: "center",
+    justifyContent: "center",
   },
   accountLabel: {
     flex: 1,
