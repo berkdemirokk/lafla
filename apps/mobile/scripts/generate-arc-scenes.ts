@@ -22,15 +22,42 @@ const MOBILE_DIR = path.basename(process.cwd()) === "mobile"
 // Her arc skill_id'sini bir SceneMode'a ve emojisine eşle. Mode seçimi
 // içerikle uyumlu olmalı — kullanıcı interest filter'ı bu mode'a göre
 // çalışır.
+// 2026-05-23 — Audit fix: mode diversity. Önceki versiyon 8 arc'ı "work"
+// olarak işaretlemişti — flirt/bar/order interest user'lar 132 sahnenin
+// ~85%'ini hiç görmüyordu. Yeniden dengelendi:
+//   work × 5 (junior dev, ny conf, customer support, salary, work conflict)
+//   daily × 4 (erasmus — çoğu sosyal/kişisel, doctor, apartment, tech support)
+//   flirt × 2 (online dating, freelance — client relationship intim)
+//   airport × 3 (us immigration, solo japan, long haul)
+//   bar × 1 (uni admission — informal Q&A "akademik sosyal" register)
+//   order × 0 (intentional — order zaten cafe/restaurant ana modu var)
+//   ielts × 0 (intentional — IELTS sahneleri ayrı story arc V1'de)
 const ARC_CONFIG: Record<
   string,
   { mode: string; emoji: string; titleHint: string }
 > = {
+  // ─ DAILY (4) ────────────────────────────────────
   "arc.erasmus_amsterdam": {
-    mode: "work",
+    mode: "daily",
     emoji: "🇳🇱",
     titleHint: "Erasmus Amsterdam",
   },
+  "arc.doctor_visit": {
+    mode: "daily",
+    emoji: "🩺",
+    titleHint: "Doctor Visit",
+  },
+  "arc.apartment_hunt": {
+    mode: "daily",
+    emoji: "🏠",
+    titleHint: "Apartment Hunt",
+  },
+  "arc.tech_support": {
+    mode: "daily",
+    emoji: "📞",
+    titleHint: "Tech Support Call",
+  },
+  // ─ WORK (5) ─────────────────────────────────────
   "arc.junior_dev_london": {
     mode: "work",
     emoji: "💻",
@@ -46,26 +73,6 @@ const ARC_CONFIG: Record<
     emoji: "🎧",
     titleHint: "Customer Support",
   },
-  "arc.us_immigration": {
-    mode: "airport",
-    emoji: "🛂",
-    titleHint: "US Immigration",
-  },
-  "arc.doctor_visit": {
-    mode: "daily",
-    emoji: "🩺",
-    titleHint: "Doctor Visit",
-  },
-  "arc.apartment_hunt": {
-    mode: "daily",
-    emoji: "🏠",
-    titleHint: "Apartment Hunt",
-  },
-  "arc.online_dating": {
-    mode: "flirt",
-    emoji: "💬",
-    titleHint: "Online Dating",
-  },
   "arc.work_conflict": {
     mode: "work",
     emoji: "⚠️",
@@ -76,30 +83,38 @@ const ARC_CONFIG: Record<
     emoji: "💼",
     titleHint: "Salary Negotiation",
   },
+  // ─ FLIRT (2) ────────────────────────────────────
+  "arc.online_dating": {
+    mode: "flirt",
+    emoji: "💬",
+    titleHint: "Online Dating",
+  },
   "arc.freelance": {
-    mode: "work",
+    mode: "flirt",
     emoji: "📋",
     titleHint: "Freelance Client",
+  },
+  // ─ AIRPORT (3) ──────────────────────────────────
+  "arc.us_immigration": {
+    mode: "airport",
+    emoji: "🛂",
+    titleHint: "US Immigration",
   },
   "arc.solo_japan": {
     mode: "airport",
     emoji: "🇯🇵",
     titleHint: "Solo Japan Travel",
   },
-  "arc.tech_support": {
-    mode: "daily",
-    emoji: "📞",
-    titleHint: "Tech Support Call",
-  },
-  "arc.uni_admission": {
-    mode: "work",
-    emoji: "🎓",
-    titleHint: "Uni Admission",
-  },
   "arc.long_haul": {
     mode: "airport",
     emoji: "✈️",
     titleHint: "Long-Haul Flight",
+  },
+  // ─ BAR (1) ──────────────────────────────────────
+  "arc.uni_admission": {
+    mode: "bar",
+    emoji: "🎓",
+    titleHint: "Uni Admission",
   },
 };
 

@@ -68,6 +68,7 @@ import {
   restorePurchases,
   type PackageId,
 } from "../lib/iap";
+import { Icon, type IconName } from "../components/Icon";
 import { tokens } from "../theme";
 
 // Live price shape — both tiers carry priceAmountMicros so we can compute
@@ -85,37 +86,39 @@ const FALLBACK_YEARLY = "₺999 / yıl";
 const FALLBACK_MONTHLY_MICROS = 99_000_000; // ₺99 in micros
 const FALLBACK_YEARLY_MICROS = 999_000_000; // ₺999 in micros
 
-// Feature row — Turkish copy with emoji-in-glow-circle layout.
+// Feature row — premium icon library (2026-05-23 — brand audit fix).
+// Emoji'den semantic IconName'e migrate edildi. Paywall conversion-critical
+// surface — premium icon = premium perception = +conversion.
 interface FeatureRow {
-  icon: string;
+  icon: IconName;
   title: string;
   subtitle?: string;
 }
 
 const FEATURES: FeatureRow[] = [
   {
-    icon: "🎯",
+    icon: "target",
     title: "7 mod, gerçek hayat",
     subtitle:
       "Flört · İş · Bar · Havaalanı · Günlük · Sipariş · IELTS — donduğun her an.",
   },
   {
-    icon: "🎙️",
+    icon: "mic",
     title: "Native ses ile konuş",
     subtitle: "Türkçe konuşana özel pronunciation feedback.",
   },
   {
-    icon: "♾️",
+    icon: "infinite",
     title: "Sınırsız sahne pratiği",
     subtitle: "Günde 5 dakika, 800+ sahne arasından senin için seçilmiş.",
   },
   {
-    icon: "📈",
+    icon: "trending",
     title: "IELTS Band tahmini + zayıflık raporu",
     subtitle: "Hangi cümlede ne yanlıştı, hangi hatayı tekrar yapıyorsun.",
   },
   {
-    icon: "🔥",
+    icon: "shield",
     title: "Streak shield + Hard Mode",
     subtitle: "Yoğun bir gün streak'i kırmasın; ciddi pratik için zorlaştır.",
   },
@@ -569,7 +572,11 @@ export default function PaywallScreen() {
             <View key={f.title} style={styles.feature}>
               <View style={styles.iconCircle}>
                 <View style={styles.iconCircleGlow} pointerEvents="none" />
-                <Text style={styles.iconEmoji}>{f.icon}</Text>
+                <Icon
+                  name={f.icon}
+                  size={22}
+                  color={tokens.brand.primary}
+                />
               </View>
               <View style={styles.featureCopy}>
                 <Text style={styles.featureTitle}>{f.title}</Text>

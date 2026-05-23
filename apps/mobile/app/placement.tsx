@@ -13,7 +13,7 @@
 // final level otomatik -1 band düşer ("okumana göre B1 idin ama dinleme
 // + konuşma A2 — sana A2 sahneleri sunuyoruz").
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   View,
   Text,
@@ -179,20 +179,32 @@ export default function PlacementScreen() {
   }, [current?.id]);
 
   // ─── Persistence (audit fix #2) ─────────────────────────────
-  // Mount'ta saklı state varsa restore et; analytics started/resumed ayrımı.
-  // Restore başarısız olursa state default kalır — yeni baştan başlar.
+  //
+  // 2026-05-23 — Audit fix v2: race + done-phase persist düzeltildi.
+  //   • restoredRef gate: persist effect restore TAMAMLANANA kadar yazma
+  //     yapmaz. Eski versiyon initial-commit ile default state'i kaydedip
+  //     restore'un üzerine yazıyordu (silent state loss).
+  //   • "done" phase artık persist EDİLİR — force-close on done ekranı →
+  //     re-open'da "done" state restore + finalLevel görünür, kullanıcı
+  //     handleAccept'i bulup tıklayabilir. Eski versiyon done'u skip'liyordu
+  //     → restore "listening" phase'i ile geliyordu → tekrar listening test
+  //     yaptırıyordu (30s emotional whiplash).
+  const restoredRef = useRef(false);
+
   useEffect(() => {
     (async () => {
       try {
         const raw = await AsyncStorage.getItem(K_PLACEMENT_STATE);
         if (!raw) {
           void trackEvent("placement_started").catch(() => {});
+          restoredRef.current = true;
           return;
         }
         const saved = JSON.parse(raw) as PersistedPlacement;
         // Sanity check — eski yapı varsa görmezden gel.
         if (!saved || typeof saved.phase !== "string") {
           void trackEvent("placement_started").catch(() => {});
+          restoredRef.current = true;
           return;
         }
         setPhase(saved.phase);
@@ -208,15 +220,20 @@ export default function PlacementScreen() {
         );
       } catch {
         void trackEvent("placement_started").catch(() => {});
+      } finally {
+        // restoredRef'i HER yolda işaretle — restore başarısız olsa bile
+        // persist'in çalışmasına izin ver (yeni baştan başlama akışı).
+        restoredRef.current = true;
       }
     })();
   }, []);
 
-  // Her state transition'ında AsyncStorage'a yaz. Debounce gerek değil —
-  // setState'ler discrete olduğu için 1-3 yazma/dk; AsyncStorage çok hızlı.
-  // "done" fazına ulaşılınca silinmesi handleAccept'te yapılır.
+  // Her state transition'ında AsyncStorage'a yaz. Restore tamamlanana
+  // kadar BEKLER (restoredRef gate).
   useEffect(() => {
-    if (phase === "done") return; // done -> handleAccept silecek
+    // Restore henüz olmadıysa yazma — default state'i restore'un üzerine
+    // yazma race'ini önler.
+    if (!restoredRef.current) return;
     const persisted: PersistedPlacement = {
       phase,
       history,
@@ -336,8 +353,11 @@ export default function PlacementScreen() {
     setSaving(true);
     hapticSuccess();
 
-    // Persistence temizliği — placement tamamlandı, restore state'i sil.
-    void AsyncStorage.removeItem(K_PLACEMENT_STATE).catch(() => {});
+    // 2026-05-23 — audit fix: K_PLACEMENT_STATE'i ÖNCE değil SONRA sil.
+    // Önceki versiyon finalizeOnboarding'den ÖNCE remove ediyordu —
+    // eğer finalize throw ederse user "ne placement ne onboarded"
+    // state'inde kalıyordu (broken). Şimdi: finalize success'inden
+    // sonra atomik temizlik (line below).
 
     // Finalize onboarding (helper) — setCefrLevel + setOnboarded + ATT +
     // analytics + completeOnboarding (Supabase sync). Interests + name
@@ -352,6 +372,9 @@ export default function PlacementScreen() {
       displayName: nameRaw ?? "",
       source: "placement_test",
     });
+
+    // Finalize başarılı — şimdi atomik temizlik. Restore state'i sil.
+    void AsyncStorage.removeItem(K_PLACEMENT_STATE).catch(() => {});
 
     // Intro Match zorunlu sahne (Switch-1) — placement sonrası da aynı kural
     const introDone = await AsyncStorage.getItem(

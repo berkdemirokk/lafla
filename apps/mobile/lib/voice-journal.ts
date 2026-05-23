@@ -27,6 +27,22 @@ const K_INDEX = "lafla.voice-journal.index";
 const MAX_ENTRIES = 30;
 const DIR_NAME = "voice-journal";
 
+// 2026-05-23 — Race fix: getEntries() opportunistic sweep'i active
+// recording'i silebilir. Voice-journal screen useFocusEffect ile
+// load() fire eder; user backgroundlar + döner → sweep çalışır → live
+// .m4a (saveEntry henüz çağrılmamış, index'te yok) ORPHAN sayılır + silinir.
+// Module-level tracking: kayıt başlarken aktif URI'yi işaretle, sweep
+// onu skip eder.
+let _activeRecordingUri: string | null = null;
+
+export function markRecordingActive(uri: string): void {
+  _activeRecordingUri = uri;
+}
+
+export function markRecordingInactive(): void {
+  _activeRecordingUri = null;
+}
+
 export interface VoiceEntry {
   /** Unique id (timestamp-based). */
   id: string;
@@ -172,9 +188,16 @@ async function sweepOrphanFiles(index: VoiceEntry[]): Promise<void> {
         return slash >= 0 ? e.uri.slice(slash + 1) : e.uri;
       }),
     );
-    // Index'te olmayan + .m4a uzantılı dosyaları sil.
+    // Active recording'in target filename'i — SKIP, sweep'lemek yok.
+    const activeName = _activeRecordingUri
+      ? _activeRecordingUri.slice(_activeRecordingUri.lastIndexOf("/") + 1)
+      : null;
+    // Index'te olmayan + .m4a uzantılı dosyaları sil, active hariç.
     const orphans = fileNames.filter(
-      (name) => name.endsWith(".m4a") && !knownNames.has(name),
+      (name) =>
+        name.endsWith(".m4a") &&
+        !knownNames.has(name) &&
+        name !== activeName,
     );
     await Promise.all(
       orphans.map((name) =>

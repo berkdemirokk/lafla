@@ -79,6 +79,17 @@ const GLYPHS: Record<string, GlyphDef> = {
   info: { lib: "ion", glyph: "information-circle-outline" },
   star: { lib: "ion", glyph: "star" },
   starOutline: { lib: "ion", glyph: "star-outline" },
+  // 2026-05-23 brand audit fix — verdict + paywall coverage:
+  lock: { lib: "ion", glyph: "lock-closed-outline" },
+  magnify: { lib: "ion", glyph: "search-outline" },
+  pauseCircle: { lib: "ion", glyph: "pause-circle-outline" },
+  playCircle: { lib: "ion", glyph: "play-circle-outline" },
+  camera: { lib: "ion", glyph: "camera-outline" },
+  message: { lib: "ion", glyph: "chatbubble-ellipses-outline" },
+  flex: { lib: "mc", glyph: "arm-flex-outline" },
+  bolt: { lib: "ion", glyph: "flash-outline" },
+  infinite: { lib: "ion", glyph: "infinite" },
+  trending: { lib: "ion", glyph: "trending-up" },
 
   // ─── Today / surprise
   surprise: { lib: "ion", glyph: "sparkles-outline" },

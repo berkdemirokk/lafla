@@ -42,6 +42,8 @@ import {
   getEntries,
   deleteEntry,
   updateEntryNote,
+  markRecordingActive,
+  markRecordingInactive,
   type VoiceEntry,
 } from "../lib/voice-journal";
 
@@ -151,6 +153,9 @@ export default function VoiceJournalScreen() {
       });
       const uri = await preparePath();
       targetPathRef.current = uri;
+      // 2026-05-23 — sweep race fix: kayıt başlamadan önce active URI'yi
+      // module-level register et. getEntries() sweep'i bu dosyayı skip eder.
+      markRecordingActive(uri);
       const recording = new Audio.Recording();
       await recording.prepareToRecordAsync(
         Audio.RecordingOptionsPresets.HIGH_QUALITY,
@@ -221,6 +226,8 @@ export default function VoiceJournalScreen() {
     } finally {
       recordingRef.current = null;
       targetPathRef.current = null;
+      // Active URI tracking'i de temizle — sweep tekrar normal çalışsın.
+      markRecordingInactive();
       // Restore audio mode for playback.
       void Audio.setAudioModeAsync({
         allowsRecordingIOS: false,
