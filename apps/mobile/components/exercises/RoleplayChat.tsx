@@ -11,6 +11,14 @@ import {
   StyleSheet,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Animated, {
+  Easing,
+  cancelAnimation,
+  useAnimatedStyle,
+  useSharedValue,
+  withRepeat,
+  withTiming,
+} from "react-native-reanimated";
 import { Button } from "../Button";
 import { tokens } from "../../theme";
 import { speak, stop as stopTts } from "../../lib/tts";
@@ -19,6 +27,7 @@ import {
   type ExerciseResult,
 } from "../../lib/engine";
 import { nameForNpc } from "../../lib/npc-names";
+import { maybePrependBridge } from "../../lib/npc-bridge";
 import { recordUserText } from "../../lib/mistake-tracker";
 import { detectMistakes, getPattern } from "../../lib/mistake-patterns";
 import {
@@ -315,6 +324,18 @@ export function RoleplayChat({
   const [input, setInput] = useState("");
   const [turnScores, setTurnScores] = useState<number[]>([]);
   const [finished, setFinished] = useState(false);
+  // 2026-05-23 — Faz 3 LLM-siz smart conversation:
+  //
+  // hintAttention: user cevabı vermeden 5sn geçtiyse hint box glow yapar.
+  // 0 = idle, 1 = glowing. Reanimated shared value, idle timer reset
+  // her input change / record start'ta.
+  //
+  // forceShowHint: 2 ardışık 0 score turn'den sonra hint görünürlüğü
+  // adaptMode'a bakmaksızın ZORLA açılır — kullanıcı sıkışıyor demektir,
+  // pedagojik destek lazım.
+  const [forceShowHint, setForceShowHint] = useState(false);
+  const idleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hintAttention = useSharedValue(0);
   // 2026-05-21 — voice-first roleplay state.
   //
   // inputMode = "voice" (default) → big mic button replaces the text input;
@@ -335,6 +356,53 @@ export function RoleplayChat({
   const [inputMode, setInputMode] = useState<InputMode>("voice");
   const [recording, setRecording] = useState(false);
   const [interimText, setInterimText] = useState("");
+
+  // ─── Faz 3: Smart hint timing (5sn idle → glow) ──────────────────
+  // User cevap girmeden 5 saniye geçtiyse hint box subtle pulse yapar.
+  // Trigger: input edit, voice record start. Timer expire → glow ON.
+  // Submit / next turn → reset + glow OFF.
+  useEffect(() => {
+    // User aktivite gösterdi (input edit veya recording başladı) → reset.
+    if (input.trim().length > 0 || recording) {
+      if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+      cancelAnimation(hintAttention);
+      hintAttention.value = withTiming(0, { duration: 200 });
+      return;
+    }
+    // Idle → 5sn sonra glow başlat.
+    if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+    idleTimerRef.current = setTimeout(() => {
+      hintAttention.value = withRepeat(
+        withTiming(1, {
+          duration: 1100,
+          easing: Easing.inOut(Easing.sin),
+        }),
+        -1,
+        true,
+      );
+    }, 5000);
+    return () => {
+      if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+    };
+  }, [input, recording, turnIdx, hintAttention]);
+
+  // ─── Faz 3: Adaptive force-show hint ──────────────────────────────
+  // 2 ardışık 0/30 score (low) turn'den sonra hint'i ZORLA göster — kullanıcı
+  // sıkışıyor demektir. adaptMode review veya hardMode olsa bile devreye girer.
+  useEffect(() => {
+    if (turnScores.length < 2) {
+      setForceShowHint(false);
+      return;
+    }
+    const lastTwo = turnScores.slice(-2);
+    const bothLow = lastTwo.every((s) => s < 50);
+    setForceShowHint(bothLow);
+  }, [turnScores]);
+
+  const hintGlowStyle = useAnimatedStyle(() => ({
+    shadowOpacity: 0.2 + hintAttention.value * 0.55,
+    shadowRadius: 8 + hintAttention.value * 14,
+  }));
   const [sttAvailable, setSttAvailable] = useState(false);
   const sttAbortRef = useRef<AbortController | null>(null);
   // TTS mute toggle. Persisted to AsyncStorage so it carries across scenarios
@@ -449,6 +517,20 @@ export function RoleplayChat({
         let message = isFirstNpcLine
           ? personalizeOpener(raw, userName)
           : raw;
+        // 2026-05-23 Faz 3: NPC bridge phrase injection (mini-Markov).
+        // 30% deterministic chance of "Right,", "Hmm,", "Yeah," etc. prefix.
+        // Score-aware: bucket selection prevScore'a göre — good/partial/low/opening.
+        // Aynı sahne her zaman aynı bridge alır (seed = scenario id + turnIdx).
+        const prevScore =
+          turnScores.length > 0
+            ? turnScores[turnScores.length - 1]!
+            : null;
+        message = maybePrependBridge(
+          message,
+          seed ?? `${npcRole}|${setting}`,
+          i,
+          isFirstNpcLine ? null : prevScore,
+        );
         // Prepend the score-based reaction ACK to the FIRST NPC line of this
         // block so the scene visibly reacts to what the user just said. We
         // only do this on the first line in case the script has consecutive
@@ -791,27 +873,41 @@ export function RoleplayChat({
 
               Stretch'te hint görsel olarak daha PROMINENT — "yardım için
               buradayım" hissi; review'da hiç yok — "sen biliyorsun" güveni. */}
+          {/* Faz 3 — hint visibility:
+              - hardMode true → ASLA gösterme (premium challenge)
+              - forceShowHint (2 ardışık low score) → ZORLA göster (override review)
+              - stretch → her zaman göster (PROMINENT styling)
+              - matched + non-free → göster
+              - review → gösterme
+              hintGlowStyle (Reanimated): 5sn idle → shadow opacity/radius pulse */}
           {!hardMode &&
-            (adaptMode === "stretch"
-              ? currentTurn?.hint_tr
-              : adaptMode === "matched"
-                ? mode !== "free" && currentTurn?.hint_tr
-                : null) && (
-            <View
+            currentTurn?.hint_tr &&
+            (forceShowHint ||
+              adaptMode === "stretch" ||
+              (adaptMode === "matched" && mode !== "free")) && (
+            <Animated.View
               style={[
                 styles.hintBox,
-                adaptMode === "stretch" && styles.hintBoxStretch,
+                (adaptMode === "stretch" || forceShowHint) &&
+                  styles.hintBoxStretch,
+                hintGlowStyle,
               ]}
             >
+              {forceShowHint && (
+                <Text style={styles.hintForcedLabel}>
+                  Sıkıştın mı? İpucu açıldı:
+                </Text>
+              )}
               <Text
                 style={[
                   styles.hintText,
-                  adaptMode === "stretch" && styles.hintTextStretch,
+                  (adaptMode === "stretch" || forceShowHint) &&
+                    styles.hintTextStretch,
                 ]}
               >
                 {currentTurn?.hint_tr}
               </Text>
-            </View>
+            </Animated.View>
           )}
 
           {/* 2026-05-21 CRITICAL FIX — voice mode multi-choice'tan ÖNCE
@@ -1195,6 +1291,23 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 8,
     marginBottom: 4,
+    // Faz 3 — idle glow için shadow ground state. Animated style hintGlowStyle
+    // shadowOpacity + shadowRadius'u dinamik üzerine yazar.
+    shadowColor: tokens.brand.primary,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0,
+    shadowRadius: 8,
+  },
+  // 2026-05-23 Faz 3: forceShowHint state'inde gösterilen küçük eyebrow.
+  // "Sıkıştın mı? İpucu açıldı:" — pedagojik nudge, user'a hint'in NEDEN
+  // açıldığını söyler (otomatik mid-scene rescue).
+  hintForcedLabel: {
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.primary,
+    letterSpacing: 1,
+    marginBottom: 3,
+    textTransform: "uppercase",
   },
   // 2026-05-23 — Stretch mode (user altı sahne) için yardımı PROMINENT
   // yap. Daha kalın border, daha büyük padding, koyu pembe accent —
