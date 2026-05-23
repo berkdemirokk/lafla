@@ -422,6 +422,27 @@ export default function ProfileScreen() {
             label="Sertifikalarım"
             onPress={() => router.push("/certificates" as never)}
           />
+          {/* 2026-05-23 — Engagement: text + ses günlük girişleri.
+              Brand-safe: confetti yok, achievement yok, sadece kişisel
+              kayıt aracı. Day One app referansı. */}
+          <View style={styles.rowDivider} />
+          <AccountRow
+            icon="✎"
+            label="Günlüğüm"
+            onPress={() => router.push("/diary" as never)}
+          />
+          <View style={styles.rowDivider} />
+          <AccountRow
+            icon="🎙️"
+            label="Sesli günlük"
+            onPress={() => router.push("/voice-journal" as never)}
+          />
+          <View style={styles.rowDivider} />
+          <AccountRow
+            icon="👥"
+            label="İlişkilerim"
+            onPress={() => router.push("/relationships" as never)}
+          />
         </View>
 
         <Text style={styles.sectionLabel}>SPEAK+</Text>

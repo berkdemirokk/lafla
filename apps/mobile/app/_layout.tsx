@@ -72,6 +72,9 @@ export default function RootLayout() {
           <Stack.Screen name="paywall" />
           <Stack.Screen name="profile" />
           <Stack.Screen name="settings" />
+          <Stack.Screen name="diary" />
+          <Stack.Screen name="voice-journal" />
+          <Stack.Screen name="relationships" />
         </Stack>
       </ErrorBoundary>
     </SafeAreaProvider>

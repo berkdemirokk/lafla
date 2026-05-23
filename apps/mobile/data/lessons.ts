@@ -80,6 +80,7 @@ import { ieltsWritingLessons } from "./ielts-writing-lesson";
 import { barDeepLessons } from "./bar-deep-lesson";
 import { airportDeepLessons } from "./airport-deep-lesson";
 import { storyArcLessons } from "./story-arc-lesson";
+import { storyArcV2Lessons } from "./story-arc-v2-lesson";
 import { dailyExpansionLessons } from "./daily-expansion-lesson";
 import { flirtDeepLessons } from "./flirt-deep-lesson";
 import { workExpansionLessons } from "./work-expansion-lesson";
@@ -162,6 +163,7 @@ export const allLessons: ReadonlyArray<BundledLesson> = [
   ...barDeepLessons,           // +30
   ...airportDeepLessons,       // +30
   ...storyArcLessons,          // +40 (Berlin/NYC/IELTS arcs)
+  ...storyArcV2Lessons,        // +36 (Erasmus/JuniorDev/NYConf/CustSupp arcs)
   ...dailyExpansionLessons,    // +50
   ...flirtDeepLessons,         // +50
   ...workExpansionLessons,     // +50

@@ -61,6 +61,7 @@ import {
   getDueMinutes as getVocabDueMinutes,
 } from "../lib/srs-vocab";
 import { getOrCreateDailyPlan, getPlanSummary } from "../lib/daily-plan";
+import { getTodayEntry } from "../lib/daily-diary";
 import {
   hasSeenHomeTutorial,
   markHomeTutorialSeen,
@@ -112,6 +113,10 @@ interface TodayState {
   planEstimatedMin: number;
   planIsComplete: boolean;
   planFirstScene: Scene | null;
+  // 2026-05-23 — Daily diary nudge state. Bugün entry yoksa Today'de
+  // subtle bir banner gösterilir. Banner agresif değil — kullanıcı
+  // istediği zaman atlar.
+  diaryWrittenToday: boolean;
 }
 
 const EMPTY: TodayState = {
@@ -134,6 +139,7 @@ const EMPTY: TodayState = {
   planEstimatedMin: 0,
   planIsComplete: false,
   planFirstScene: null,
+  diaryWrittenToday: false,
 };
 
 export default function Today() {
@@ -242,6 +248,8 @@ export default function Today() {
       planScenes[0] ??
       null;
     const tutorialSeen = await hasSeenHomeTutorial().catch(() => true);
+    // Diary today entry — defansif, hata olsa bile Today crash etmesin.
+    const diaryToday = await getTodayEntry().catch(() => null);
 
     setState({
       profile,
@@ -263,6 +271,7 @@ export default function Today() {
       planEstimatedMin: planSummary.estimatedMin,
       planIsComplete: planSummary.isComplete,
       planFirstScene,
+      diaryWrittenToday: diaryToday !== null,
     });
     setShowTutorial(!tutorialSeen);
   }, []);
@@ -469,8 +478,48 @@ export default function Today() {
           </Animated.View>
         )}
 
+        {/* Diary nudge — bugün yazılmamışsa ince bir banner. Yazılmışsa
+            "Bugün ✓" ile pasif satır göster (negative reinforcement YOK).
+            Brand-safe: confetti, mascot, sound effect yok. */}
+        <Animated.View entering={FadeInDown.delay(330).duration(360)}>
+          <Pressable
+            onPress={() => router.push("/diary" as never)}
+            style={({ pressed }) => [
+              state.diaryWrittenToday ? styles.diaryDone : styles.diaryNudge,
+              pressed && styles.pressed,
+            ]}
+            accessibilityRole="button"
+            accessibilityLabel={
+              state.diaryWrittenToday
+                ? "Bugünün günlük cümlesi yazıldı"
+                : "Bugünün cümlesini yazmak için günlüğü aç"
+            }
+          >
+            <Text
+              style={
+                state.diaryWrittenToday
+                  ? styles.diaryDoneLabel
+                  : styles.diaryNudgeLabel
+              }
+            >
+              {state.diaryWrittenToday ? "✓ BUGÜN" : "✎ GÜNLÜK"}
+            </Text>
+            <Text
+              style={
+                state.diaryWrittenToday
+                  ? styles.diaryDoneText
+                  : styles.diaryNudgeText
+              }
+            >
+              {state.diaryWrittenToday
+                ? "Bugünün cümlesi yazıldı"
+                : "Bugün 1 cümle İngilizce yaz"}
+            </Text>
+          </Pressable>
+        </Animated.View>
+
         {/* "Akış'ta keşfet" CTA — kullanıcı plan dışı bir şey istiyorsa */}
-        <Animated.View entering={FadeInDown.delay(360).duration(360)}>
+        <Animated.View entering={FadeInDown.delay(380).duration(360)}>
           <Pressable
             onPress={() => router.push("/home" as never)}
             style={({ pressed }) => [
@@ -757,6 +806,51 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: tokens.weight.bold,
     color: tokens.text.primary,
+    letterSpacing: -0.1,
+  },
+
+  // Diary nudge — ciddi/yetişkin minimal banner. Day One app referansı.
+  // Bugün yazılmamışsa active (pembe accent), yazıldıysa pasif (cyan ✓).
+  diaryNudge: {
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.brand.primary,
+    borderLeftWidth: 3,
+    gap: 2,
+  },
+  diaryNudgeLabel: {
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.primary,
+    letterSpacing: 1.4,
+  },
+  diaryNudgeText: {
+    fontSize: 14,
+    fontWeight: tokens.weight.semibold,
+    color: tokens.text.primary,
+    letterSpacing: -0.1,
+  },
+  diaryDone: {
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.bg.surfaceContainerLow,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiarySoft,
+    gap: 2,
+  },
+  diaryDoneLabel: {
+    fontSize: 10,
+    fontWeight: tokens.weight.bold,
+    color: tokens.brand.tertiary,
+    letterSpacing: 1.4,
+  },
+  diaryDoneText: {
+    fontSize: 13,
+    color: tokens.text.secondary,
     letterSpacing: -0.1,
   },
 

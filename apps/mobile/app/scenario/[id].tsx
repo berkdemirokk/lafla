@@ -80,6 +80,8 @@ import {
 } from "../../lib/free-tier";
 import { recordSceneCompletion } from "../../lib/scene-history";
 import { recordVocabFromScene } from "../../lib/vocab-book";
+import { recordInteraction } from "../../lib/npc-relationships";
+import { nameForNpc } from "../../lib/npc-names";
 import type { SceneMode } from "../../data/scenes";
 import {
   bumpModeFluency,
@@ -482,6 +484,27 @@ export default function ScenarioScreen() {
     // kelimeler çift yazılmaz). Retention için kullanıcı "bu hafta 24
     // kelime öğrendim" hissini görsün.
     recordVocabFromScene(scenario.id, scenario.mode as SceneMode).catch(() => {});
+
+    // 2026-05-23 — NPC İlişkileri (Engagement #6). Sahnenin NPC ismini
+    // çek + relationship counter artır. Lafla'nın USP'si: aynı NPC ile
+    // tekrar konuşunca ilişki "Tanıdık → Arkadaş → Yakın" yükseliyor.
+    // Fire-and-forget — sahne flow'unu bloklamaz, hata olsa bile verdict
+    // ekranı normal akar.
+    try {
+      // role + setting Scene içinde gömülü — scenario.scene varsa oradan
+      // çek, yoksa "" pass'la. nameForNpc düşük seed'lere graceful.
+      const role = scenario.scene?.npc_role ?? "";
+      const setting = scenario.scene?.setting ?? "";
+      if (role || setting) {
+        const npcName = nameForNpc(role, setting, scenario.id);
+        void recordInteraction({
+          npcName,
+          mode: scenario.mode,
+        }).catch(() => {});
+      }
+    } catch {
+      // Defense-in-depth — relationships shouldn't ever break a scene.
+    }
     hapticSuccess();
     setPhase("verdict");
   };
