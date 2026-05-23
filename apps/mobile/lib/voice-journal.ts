@@ -136,9 +136,56 @@ export async function saveEntry(args: {
 /**
  * Tüm entry'leri yeni → eski sıralı döner. Profile / Voice Journal
  * timeline bu listeyi listeler.
+ *
+ * 2026-05-23 — Audit fix: opportunistic orphan-file sweep.
+ *   Bir önceki versiyon documentDirectory'deki dosyaları hiç temizlemiyordu.
+ *   Recording crash (force-close veya OOM) sonrası saveEntry hiç çalışmazdı
+ *   — m4a dosyası diskte kalır, index'te yoktu, hiç silinmezdi. Aylar sonra:
+ *   10-100MB orphan birikimi.
+ *
+ *   Çözüm: getEntries() her çağrıldığında dir'i tara, index URI'larında
+ *   olmayan tüm .m4a dosyalarını sil. Fire-and-forget — kullanıcı bekletmez.
+ *   Idempotent: index'teki kayıtlara dokunmaz.
  */
 export async function getEntries(): Promise<VoiceEntry[]> {
-  return await readIndex();
+  const list = await readIndex();
+  // Orphan sweep — best-effort, blocking değil.
+  void sweepOrphanFiles(list).catch(() => {});
+  return list;
+}
+
+/**
+ * Index'te bulunmayan m4a dosyalarını sil. getEntries() içinden fire-and-
+ * forget çağrılır. Dir yoksa veya boşsa no-op.
+ */
+async function sweepOrphanFiles(index: VoiceEntry[]): Promise<void> {
+  const dir = getDirUri();
+  try {
+    const info = await FileSystem.getInfoAsync(dir);
+    if (!info.exists || !info.isDirectory) return;
+    const fileNames = await FileSystem.readDirectoryAsync(dir);
+    if (fileNames.length === 0) return;
+    // Index'teki tüm URI'lardan dosya adlarını çıkar.
+    const knownNames = new Set(
+      index.map((e) => {
+        const slash = e.uri.lastIndexOf("/");
+        return slash >= 0 ? e.uri.slice(slash + 1) : e.uri;
+      }),
+    );
+    // Index'te olmayan + .m4a uzantılı dosyaları sil.
+    const orphans = fileNames.filter(
+      (name) => name.endsWith(".m4a") && !knownNames.has(name),
+    );
+    await Promise.all(
+      orphans.map((name) =>
+        FileSystem.deleteAsync(`${dir}${name}`, { idempotent: true }).catch(
+          () => {},
+        ),
+      ),
+    );
+  } catch {
+    // Best effort — sweep başarısızlığı kritik değil.
+  }
 }
 
 /**

@@ -80,7 +80,12 @@ import {
 } from "../../lib/free-tier";
 import { recordSceneCompletion } from "../../lib/scene-history";
 import { recordVocabFromScene } from "../../lib/vocab-book";
-import { recordInteraction } from "../../lib/npc-relationships";
+import {
+  recordInteraction,
+  getRelationship,
+  tierFor,
+  type NpcRelationship,
+} from "../../lib/npc-relationships";
 import { nameAndBucketForNpc } from "../../lib/npc-names";
 import type { SceneMode } from "../../data/scenes";
 import {
@@ -163,6 +168,12 @@ export default function ScenarioScreen() {
   // sahne başlamadan kullanıcı seçer. Free user toggle'a basınca paywall'a.
   const [hardMode, setHardMode] = useState(false);
   const [isPremiumState, setIsPremiumState] = useState<boolean | null>(null);
+  // 2026-05-23 — Audit fix #3: NPC ilişki banner sahne içinde.
+  // recordInteraction sahne bitiminde counter artırıyor, AMA sahne öncesi
+  // tier'ı UI'da göstermiyorduk — feature "shipped but invisible" idi.
+  // Şimdi mount'ta getRelationship çek, RoleplayChat üstünde subtle chip
+  // ile göster: "Mia · Arkadaş · 5. sahnen".
+  const [npcRel, setNpcRel] = useState<NpcRelationship | null>(null);
   useEffect(() => {
     (async () => {
       // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -203,6 +214,21 @@ export default function ScenarioScreen() {
           setNextInPlanScene(await getNextInPlan(scenario.id));
         } catch {
           setNextInPlanScene(null);
+        }
+      }
+      // NPC relationship pre-fetch. Bu NPC daha önce karşıya geldiyse
+      // tier'ı UI'da göster. Yeni karşılaşmada null kalır → banner yok.
+      if (scenario?.scene?.npc_role || scenario?.scene?.setting) {
+        try {
+          const { name, bucket } = nameAndBucketForNpc(
+            scenario.scene.npc_role ?? "",
+            scenario.scene.setting ?? "",
+            scenario.id,
+          );
+          const rel = await getRelationship(name, bucket);
+          setNpcRel(rel);
+        } catch {
+          setNpcRel(null);
         }
       }
     })();
@@ -616,6 +642,31 @@ export default function ScenarioScreen() {
 
           {phase === "scene" && (
             <View style={styles.sceneWrap}>
+              {/* NPC ilişki banner — sahnede tanıdık biri varsa subtle chip.
+                  Brand-safe: sade tek satır, "Mia · Arkadaş · 6. sahnen".
+                  Yeni NPC ise (null) render edilmez — yabancı hissi natural. */}
+              {npcRel && npcRel.sceneCount > 0 && (
+                <View style={styles.npcRelBanner}>
+                  <Text style={styles.npcRelEmoji}>👤</Text>
+                  <Text style={styles.npcRelName}>{npcRel.name}</Text>
+                  <Text style={styles.npcRelSep}>·</Text>
+                  <Text
+                    style={[
+                      styles.npcRelTier,
+                      tierFor(npcRel.sceneCount).tier === "close" &&
+                        styles.npcRelTierClose,
+                      tierFor(npcRel.sceneCount).tier === "friend" &&
+                        styles.npcRelTierFriend,
+                    ]}
+                  >
+                    {tierFor(npcRel.sceneCount).labelTr}
+                  </Text>
+                  <Text style={styles.npcRelSep}>·</Text>
+                  <Text style={styles.npcRelCount}>
+                    {npcRel.sceneCount + 1}. sahnen
+                  </Text>
+                </View>
+              )}
               <RoleplayChat
                 scenarioDescription={scenario.scene.description}
                 npcRole={scenario.scene.npc_role}
@@ -1682,6 +1733,52 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 16,
     paddingBottom: 16,
+  },
+  // NPC ilişki banner — sahnede tanıdık biri varsa subtle chip.
+  // Brand-safe: minimal, tek satır, çok az renk. Lafla DNA'sının USP'sini
+  // sahnenin başında HİSSETTİRİR (recordInteraction silent yazma yerine).
+  npcRelBanner: {
+    flexDirection: "row",
+    alignItems: "center",
+    alignSelf: "center",
+    gap: 6,
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 9999,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.border.outlineVariant,
+    marginBottom: 12,
+    marginTop: 4,
+  },
+  npcRelEmoji: { fontSize: 13 },
+  npcRelName: {
+    fontSize: 13,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.primary,
+    letterSpacing: -0.1,
+  },
+  npcRelSep: {
+    fontSize: 11,
+    color: tokens.text.tertiary,
+    fontWeight: tokens.weight.medium,
+  },
+  npcRelTier: {
+    fontSize: 12,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.secondary,
+    letterSpacing: 0.2,
+  },
+  npcRelTierFriend: {
+    color: tokens.brand.tertiary,
+  },
+  npcRelTierClose: {
+    color: tokens.brand.primary,
+  },
+  npcRelCount: {
+    fontSize: 11,
+    color: tokens.text.tertiary,
+    fontWeight: tokens.weight.medium,
   },
   drillWrap: {
     flex: 1,

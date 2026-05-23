@@ -118,6 +118,25 @@ type Phase = "mcq" | "speaking" | "listening" | "done";
 // fails we keep the MCQ level (could be a one-off bad read or noise).
 const FAIL_THRESHOLD = 50;
 
+// 2026-05-23 — Audit fix: placement state persistence.
+//   Önceki versiyon tüm phase state'ini React useState'te tutuyordu. User
+//   8 dakikalık testin ortasında telefon kapanırsa (call, OOM, force-close)
+//   tüm progress kaybolurdu — baştan başlamak gerekti. Şimdi her transition'da
+//   state AsyncStorage'a yazılır; mount'ta restore edilir; handleAccept'te
+//   temizlenir.
+const K_PLACEMENT_STATE = "lafla.placement.state";
+
+interface PersistedPlacement {
+  phase: Phase;
+  history: HistoryEntry[];
+  currentLevel: CefrLevel;
+  usedIds: string[]; // Set serialize edilmiyor — array olarak yaz/oku
+  mcqDerivedLevel: CefrLevel | null;
+  speakingScore: number | null;
+  listeningScore: number | null;
+  finalLevel: CefrLevel | null;
+}
+
 interface HistoryEntry {
   level: CefrLevel;
   correct: boolean;
@@ -159,9 +178,69 @@ export default function PlacementScreen() {
     }
   }, [current?.id]);
 
+  // ─── Persistence (audit fix #2) ─────────────────────────────
+  // Mount'ta saklı state varsa restore et; analytics started/resumed ayrımı.
+  // Restore başarısız olursa state default kalır — yeni baştan başlar.
   useEffect(() => {
-    void trackEvent("placement_started").catch(() => {});
+    (async () => {
+      try {
+        const raw = await AsyncStorage.getItem(K_PLACEMENT_STATE);
+        if (!raw) {
+          void trackEvent("placement_started").catch(() => {});
+          return;
+        }
+        const saved = JSON.parse(raw) as PersistedPlacement;
+        // Sanity check — eski yapı varsa görmezden gel.
+        if (!saved || typeof saved.phase !== "string") {
+          void trackEvent("placement_started").catch(() => {});
+          return;
+        }
+        setPhase(saved.phase);
+        setHistory(saved.history ?? []);
+        setCurrentLevel(saved.currentLevel ?? "B1");
+        setUsedIds(new Set(saved.usedIds ?? []));
+        setMcqDerivedLevel(saved.mcqDerivedLevel);
+        setSpeakingScore(saved.speakingScore);
+        setListeningScore(saved.listeningScore);
+        setFinalLevel(saved.finalLevel);
+        void trackEvent("placement_resumed", { phase: saved.phase }).catch(
+          () => {},
+        );
+      } catch {
+        void trackEvent("placement_started").catch(() => {});
+      }
+    })();
   }, []);
+
+  // Her state transition'ında AsyncStorage'a yaz. Debounce gerek değil —
+  // setState'ler discrete olduğu için 1-3 yazma/dk; AsyncStorage çok hızlı.
+  // "done" fazına ulaşılınca silinmesi handleAccept'te yapılır.
+  useEffect(() => {
+    if (phase === "done") return; // done -> handleAccept silecek
+    const persisted: PersistedPlacement = {
+      phase,
+      history,
+      currentLevel,
+      usedIds: Array.from(usedIds),
+      mcqDerivedLevel,
+      speakingScore,
+      listeningScore,
+      finalLevel,
+    };
+    void AsyncStorage.setItem(
+      K_PLACEMENT_STATE,
+      JSON.stringify(persisted),
+    ).catch(() => {});
+  }, [
+    phase,
+    history,
+    currentLevel,
+    usedIds,
+    mcqDerivedLevel,
+    speakingScore,
+    listeningScore,
+    finalLevel,
+  ]);
 
   // ─── interaction ────────────────────────────────────────────
 
@@ -256,6 +335,9 @@ export default function PlacementScreen() {
     if (!finalLevel || saving) return;
     setSaving(true);
     hapticSuccess();
+
+    // Persistence temizliği — placement tamamlandı, restore state'i sil.
+    void AsyncStorage.removeItem(K_PLACEMENT_STATE).catch(() => {});
 
     // Finalize onboarding (helper) — setCefrLevel + setOnboarded + ATT +
     // analytics + completeOnboarding (Supabase sync). Interests + name
