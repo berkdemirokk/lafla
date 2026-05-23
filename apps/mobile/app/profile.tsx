@@ -834,11 +834,18 @@ const styles = StyleSheet.create({
   // Account
   accountCard: {
     backgroundColor: tokens.bg.surfaceContainer,
-    borderRadius: tokens.radius.base,
+    borderRadius: tokens.radius.lg,
     borderWidth: 1,
-    borderColor: tokens.border.light,
+    borderColor: tokens.border.outlineVariant,
     overflow: "hidden",
     marginBottom: tokens.spacing.md,
+    // 2026-05-23 premium pass: floating depth shadow + larger radius.
+    // Linear/Notion seviyesi tactile feel.
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.32,
+    shadowRadius: 12,
+    elevation: 4,
   },
   accountRow: {
     flexDirection: "row",

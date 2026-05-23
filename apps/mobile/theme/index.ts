@@ -93,6 +93,27 @@ export const tokens = {
     xl: 36,
     full: 9999,
   },
+  // 2026-05-23 — Premium shadow tokens. Spread into card-like styles
+  // for Linear/Notion-grade tactile depth. Apple HIG: 0,4 offset + 12
+  // radius is the "lifted floating" sweet spot.
+  shadow: {
+    // Default card shadow — subtle floating depth.
+    card: {
+      shadowColor: "#000000",
+      shadowOffset: { width: 0, height: 4 },
+      shadowOpacity: 0.28,
+      shadowRadius: 12,
+      elevation: 4,
+    },
+    // Hero/featured shadow — stronger lift for primary CTAs.
+    hero: {
+      shadowColor: "#000000",
+      shadowOffset: { width: 0, height: 6 },
+      shadowOpacity: 0.40,
+      shadowRadius: 18,
+      elevation: 8,
+    },
+  },
   spacing: {
     xs: 4,
     base: 8,

@@ -586,8 +586,15 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 14,
     backgroundColor: tokens.bg.surfaceContainer,
-    borderRadius: tokens.radius.base,
+    borderRadius: tokens.radius.lg,
     borderWidth: 1,
+    // 2026-05-23 premium polish: floating depth shadow + larger radius
+    // (Apple HIG card pattern). Linear/Notion seviyesi tactile feel.
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.28,
+    shadowRadius: 12,
+    elevation: 4,
     borderColor: tokens.border.light,
     gap: 8,
   },

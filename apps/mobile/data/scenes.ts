@@ -20,6 +20,7 @@ import { professionalB1Scenes } from "./professional-b1-scenes";
 import { professionalC1Scenes } from "./professional-c1-scenes";
 import { personalB1Scenes } from "./personal-b1-scenes";
 import { dailyExpandedScenes } from "./daily-expanded-scenes";
+import { storyArcV2Scenes } from "./story-arc-v2-scenes";
 
 export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
 
@@ -2231,4 +2232,5 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
   ...professionalC1Scenes,
   ...personalB1Scenes,
   ...dailyExpandedScenes,
+  ...storyArcV2Scenes, // 132 sahne, auto-generated (Story Arc V2)
 ];

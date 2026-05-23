@@ -418,9 +418,15 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 14,
     backgroundColor: tokens.bg.surfaceContainer,
-    borderRadius: tokens.radius.base,
+    borderRadius: tokens.radius.lg,
     borderWidth: 1,
-    borderColor: tokens.border.light,
+    borderColor: tokens.border.outlineVariant,
+    // Premium polish — floating depth (Linear/Notion tactile)
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.22,
+    shadowRadius: 10,
+    elevation: 3,
   },
   entryDateCol: {
     width: 64,

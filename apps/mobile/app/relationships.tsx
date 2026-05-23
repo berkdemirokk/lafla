@@ -237,8 +237,14 @@ const styles = StyleSheet.create({
     borderRadius: tokens.radius.lg,
     backgroundColor: tokens.bg.surfaceContainer,
     borderWidth: 1,
-    borderColor: tokens.border.light,
+    borderColor: tokens.border.outlineVariant,
     alignItems: "center",
+    // Premium polish — floating depth shadow (Apple Music card feel)
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.28,
+    shadowRadius: 12,
+    elevation: 4,
   },
   avatarCircle: {
     width: 54,
