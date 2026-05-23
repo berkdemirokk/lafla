@@ -1,6 +1,8 @@
-# App Store Privacy Nutrition Label — Lafla v0.4.5
+# App Store Privacy Nutrition Label — Lafla v0.9.0
 
-> **Last updated:** 2026-05-23 — added Voice Journal (local audio recordings), Daily Diary (local text), NPC Relationships (local tracker), Pronunciation history (local FIFO buffer). All new data is **local-only** (AsyncStorage + documentDirectory) and **not collected** by Apple's definition — no nutrition label disclosure required.
+> **Last updated:** 2026-05-23 (Faz 3 / v0.9.0). Critical change vs. prior versions: **AdMob is shipping** (free-tier banner + interstitial). "Advertising Data" section MUST be declared. ATT prompt gates personalized ads + PostHog tracking — without consent, both fall to non-personalized / non-tracked paths.
+>
+> Voice Journal (local audio recordings), Daily Diary (local text), NPC Relationships (local tracker), Pronunciation history (local FIFO buffer): all **local-only** (AsyncStorage + documentDirectory). These never leave the device — no nutrition label disclosure required for those flows.
 
 > Apple's App Store privacy questionnaire ("Data Type" matrix). Filled out exactly as Lafla will submit. Source of truth — App Store Connect form must match this doc; if anything drifts, **update this file first**, then mirror to App Store Connect.
 
@@ -9,7 +11,7 @@
 > 2. **Linked to identity** — is the data tied to the user's identity (account, device ID that persists)?
 > 3. **Used for tracking** — is the data used for tracking across apps/websites owned by other companies (ATT trigger)?
 >
-> For Lafla: **we do not track across apps/websites owned by other companies.** Every "Used for Tracking" answer below is "No." We never share data with third-party ad networks; PostHog and Sentry are first-party analytics + crash tools.
+> For Lafla: **tracking is conditional on ATT.** If the user grants ATT, PostHog tracks usage events AND AdMob may serve personalized ads (potentially across apps via IDFA). If the user denies ATT, PostHog is never initialized and AdMob falls to `requestNonPersonalizedAdsOnly`. Because the app *can* track under user consent, the App Store "Does this app use data for tracking?" question must be answered **Yes**.
 
 ---
 
@@ -87,11 +89,13 @@
 ### Audio Data
 
 - **Collected:** Yes
-- **Linked to user:** Yes
+- **Linked to user:** Yes (only the pronunciation-eval audio flows; Voice Journal audio is local-only and uncollected)
 - **Used for tracking:** No
 - **Purposes:**
-  - App Functionality (pronunciation analysis, Maya voice chat transcription)
-- **Note for reviewer:** Voice recordings are sent to our speech-to-text provider for the duration of the request. Recordings are **not stored long-term** — they are auto-deleted within 30 days of session, and the user can request immediate deletion via Settings → Delete Account.
+  - App Functionality (pronunciation analysis via on-device + system STT)
+- **Note for reviewer:** There are TWO audio paths:
+  1. **Pronunciation evaluation** (PronouncePhrase + Roleplay STT): uses Apple's on-device Speech Recognition framework (`expo-speech-recognition`). Audio buffers are processed locally by iOS and either consumed in-process or routed through Apple's STT. Lafla does NOT operate its own STT server — we never store or transmit pronunciation audio off-device.
+  2. **Voice Journal** (`/voice-journal` route): user-recorded reflective audio, saved to `FileSystem.documentDirectory/voice-journal/`. **Never leaves the device.** Deleted when the user deletes the entry or the account.
 
 ### Customer Support
 
@@ -112,10 +116,10 @@
 
 ### Other User Content
 
-- **Collected:** Yes (text messages within Maya conversations)
+- **Collected:** Yes (text answers in scenarios — translate / fill-blank / roleplay turns / IELTS responses)
 - **Linked to user:** Yes
 - **Used for tracking:** No
-- **Purposes:** App Functionality (Maya needs your text to respond; SRS needs your answers to schedule reviews)
+- **Purposes:** App Functionality (pattern matcher needs the user's answer to score it; SRS needs answers to schedule reviews; mastery model needs response history). NOTE: scoring is fully on-device (`lib/engine.ts` + `lib/mistake-patterns.ts`). No runtime LLM call — user's text never leaves the device for evaluation. Aggregated mastery state syncs to Supabase for cross-device continuity.
 
 ---
 
@@ -184,7 +188,19 @@
 
 ### Advertising Data
 
-- **Collected:** No (we do not run ads in v0.1.0 — Pro-only tier; ad-supported free tier is a future decision)
+- **Collected:** Yes (AdMob — free-tier monetization)
+- **Linked to user:** No (we never link AdMob's device-side ad ID to our `users.id`)
+- **Used for tracking:** **Conditional — Yes if ATT granted, No if denied**
+- **Purposes:**
+  - Third-Party Advertising (AdMob serves the ad)
+  - App Functionality (free-tier scaffold; Speak+ users see zero ads — `isPremium()` short-circuits the ad load)
+- **Note for reviewer:**
+  - AdMob is initialized AFTER the ATT prompt resolves (`lib/ads.ts` → `initAds()` is sequenced after `requestAttOnce()`).
+  - When ATT is denied, the SDK is started with `requestNonPersonalizedAdsOnly: true` (no IDFA-based personalization, no cross-app tracking).
+  - When ATT is granted, AdMob may use IDFA for personalized ads — this is the only path through which Lafla "tracks" by Apple's definition. Hence the App Store question "Does this app use data for tracking?" is answered **Yes**.
+  - `maxAdContentRating: T` (Teen) — content rating clamp.
+  - `tagForChildDirectedTreatment: false` and `tagForUnderAgeOfConsent: false` — app age rating is 12+/17+ with Flört + Bar modes; children-directed treatment would be a 1.3 / 2.3.7 metadata contradiction.
+  - SKAdNetwork: 10 identifier whitelist in app.json `react-native-google-mobile-ads.skAdNetworkItems`.
 
 ### Other Usage Data
 
@@ -247,7 +263,7 @@
 
 **Data Linked to You:**
 - Contact Info (email, name)
-- User Content (audio, customer support, text messages)
+- User Content (audio for pronunciation eval, customer support, text answers in scenarios)
 - Identifiers (user ID)
 - Purchases
 - Usage Data (product interaction)
@@ -255,9 +271,14 @@
 
 **Data Not Linked to You:**
 - Identifiers (device ID — anonymous install ID)
+- Advertising Data (AdMob device-side ad ID, never joined to our `users.id`)
 
-**Data Used to Track You:**
-- None
+**Data Used to Track You (only when ATT is granted):**
+- Identifiers (IDFA via AdMob personalized ads)
+- Usage Data (PostHog product interaction)
+- Advertising Data (AdMob)
+
+> If a user denies ATT, none of the above tracking categories activate. PostHog never initializes, AdMob runs as non-personalized, and the tracking-domains list in app.json (`eu.i.posthog.com`) becomes a no-op.
 
 ---
 
@@ -272,4 +293,4 @@
 | Apple adds new data type categories | Re-read Apple's docs, re-classify Lafla data |
 | Annual review | Walk through every section every 12 months |
 
-Last reviewed: 2026-05-14 (Lafla v0.1.0 submission prep).
+Last reviewed: 2026-05-23 (Lafla v0.9.0 / Faz 3 — AdMob disclosure added, Voice Journal local-only confirmed, "Maya" references removed).
