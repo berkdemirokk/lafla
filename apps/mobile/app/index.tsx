@@ -12,6 +12,8 @@ import Animated, {
   useAnimatedStyle,
   withTiming,
   withDelay,
+  withRepeat,
+  withSequence,
   Easing,
 } from "react-native-reanimated";
 import { useSession } from "../lib/useSession";
@@ -22,37 +24,93 @@ export default function Splash() {
   const router = useRouter();
   const { session, loading } = useSession();
 
-  // Brand reveal animation — wordmark fade-in (200ms), accent line draws
-  // out (240ms, delayed 120ms), tagline fades in last (delayed 320ms).
-  // Total length ~500ms; well inside the 300ms route delay below since
-  // most animations are driven on the UI thread via Reanimated.
+  // Brand reveal animation — wordmark zooms IN from "behind the screen"
+  // with a subtle 3D perspective tilt. Halo glow pulses behind for premium
+  // depth (Headspace splash referansı). Tagline floats in last with gentle
+  // Y-oscillation. Total length ~500ms; well inside the 300ms route delay.
+  //
+  // 2026-05-23 — 3D enhancement. Önce sadece translateY + opacity vardı.
+  // perspective + scale + rotateY ile "wordmark uzaktan yakına" hissi.
+  // Brand-safe: çocuksu değil, Apple "Hello, Photos." stil reveal.
   const wordmarkOpacity = useSharedValue(0);
-  const wordmarkTranslate = useSharedValue(8);
+  const wordmarkScale = useSharedValue(0.7); // 3D zoom-in driver
+  const wordmarkRotate = useSharedValue(8); // hafif Y-rotate 8° → 0°
   const accentScale = useSharedValue(0);
   const taglineOpacity = useSharedValue(0);
+  const taglineFloat = useSharedValue(0); // Y-oscillation driver
+  const haloPulse = useSharedValue(0); // wordmark halo glow
 
   useEffect(() => {
-    wordmarkOpacity.value = withTiming(1, { duration: 220 });
-    wordmarkTranslate.value = withTiming(0, {
-      duration: 220,
+    wordmarkOpacity.value = withTiming(1, { duration: 280 });
+    wordmarkScale.value = withTiming(1, {
+      duration: 380,
+      easing: Easing.out(Easing.cubic),
+    });
+    wordmarkRotate.value = withTiming(0, {
+      duration: 380,
       easing: Easing.out(Easing.cubic),
     });
     accentScale.value = withDelay(
-      120,
-      withTiming(1, { duration: 260, easing: Easing.out(Easing.cubic) }),
+      140,
+      withTiming(1, { duration: 280, easing: Easing.out(Easing.cubic) }),
     );
-    taglineOpacity.value = withDelay(320, withTiming(1, { duration: 200 }));
-  }, [accentScale, taglineOpacity, wordmarkOpacity, wordmarkTranslate]);
+    taglineOpacity.value = withDelay(340, withTiming(1, { duration: 240 }));
+    // Halo pulse — slow loop after entrance.
+    haloPulse.value = withDelay(
+      280,
+      withRepeat(
+        withTiming(1, {
+          duration: 1800,
+          easing: Easing.inOut(Easing.sin),
+        }),
+        -1,
+        true,
+      ),
+    );
+    // Tagline float — subtle 2px Y oscillation, breathing pace.
+    taglineFloat.value = withDelay(
+      400,
+      withRepeat(
+        withSequence(
+          withTiming(1, { duration: 1400, easing: Easing.inOut(Easing.sin) }),
+          withTiming(0, { duration: 1400, easing: Easing.inOut(Easing.sin) }),
+        ),
+        -1,
+        false,
+      ),
+    );
+  }, [
+    accentScale,
+    taglineOpacity,
+    taglineFloat,
+    wordmarkOpacity,
+    wordmarkScale,
+    wordmarkRotate,
+    haloPulse,
+  ]);
 
+  // perspective 800 → kart "ekranın arkasından öne geliyor" hissi.
+  // scale 0.7 → 1 ile yakınlaşma, rotateY 8° → 0° ile hafif "tilted to flat" geçişi.
   const wordmarkStyle = useAnimatedStyle(() => ({
     opacity: wordmarkOpacity.value,
-    transform: [{ translateY: wordmarkTranslate.value }],
+    transform: [
+      { perspective: 800 },
+      { scale: wordmarkScale.value },
+      { rotateY: `${wordmarkRotate.value}deg` },
+    ],
   }));
   const accentStyle = useAnimatedStyle(() => ({
     transform: [{ scaleX: accentScale.value }],
   }));
   const taglineStyle = useAnimatedStyle(() => ({
     opacity: taglineOpacity.value,
+    transform: [{ translateY: taglineFloat.value * -2 }],
+  }));
+  // Halo glow ring — sadece animated shadow opacity + radius. Wordmark'ın
+  // arkasında "ışık halesi" hissi yaratır. Pink primary tinted, çok subtle.
+  const haloStyle = useAnimatedStyle(() => ({
+    opacity: 0.35 + haloPulse.value * 0.35,
+    transform: [{ scale: 0.95 + haloPulse.value * 0.12 }],
   }));
 
   useEffect(() => {
@@ -104,6 +162,12 @@ export default function Splash() {
       <StatusBar style="light" />
 
       <View style={styles.center}>
+        {/* Halo glow ring — wordmark'ın arkasında 3D depth katmanı.
+            pointerEvents: none → tap'i Pressable skip'e geçirir. */}
+        <Animated.View
+          pointerEvents="none"
+          style={[styles.halo, haloStyle]}
+        />
         <Animated.Text style={[styles.wordmark, wordmarkStyle]}>
           Lafla
         </Animated.Text>
@@ -130,6 +194,23 @@ const styles = StyleSheet.create({
   },
   center: {
     alignItems: "center",
+  },
+  // Halo glow ring — wordmark'ın arkasında pulsing 3D depth katmanı.
+  // Pembe radial glow hissi yaratır (gerçek radial gradient yok ama büyük
+  // shadow radius ile illüzyon güçlü). absolutely positioned wordmark'ın
+  // ortasında, zIndex aşağıda.
+  halo: {
+    position: "absolute",
+    width: 280,
+    height: 280,
+    borderRadius: 140,
+    backgroundColor: tokens.brand.primarySoft,
+    shadowColor: tokens.brand.primary,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.9,
+    shadowRadius: 60,
+    elevation: 16,
+    top: -60,
   },
   wordmark: {
     fontSize: 72,

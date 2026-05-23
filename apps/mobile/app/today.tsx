@@ -28,11 +28,14 @@ import Animated, {
   Easing,
   FadeInDown,
   cancelAnimation,
+  interpolate,
+  useAnimatedScrollHandler,
   useAnimatedStyle,
   useSharedValue,
   withDelay,
   withRepeat,
   withSequence,
+  withSpring,
   withTiming,
 } from "react-native-reanimated";
 
@@ -193,9 +196,67 @@ export default function Today() {
     shadowRadius: 12 + heroPulse.value * 10, //       12   → 22
   }));
 
-  const streakStyle = useAnimatedStyle(() => ({
-    transform: [{ scale: 1 + streakPulse.value * 0.12 }],
+  // ─── 3D enhancements (Faz 1A — Reanimated perspective) ──────────
+  // No new deps. Pure Reanimated transform tricks for premium feel.
+  //
+  // 1) heroTilt — press'te kart 3D perspective ile hafifçe yatık.
+  //    Apple Music card press tarzı, çocuksu DEĞİL.
+  // 2) scrollY — scroll handler için. Background waveform parallax driver.
+  // 3) streakFlip — mount sırasında 360° rotateY (1 kere), günün yeni
+  //    streak'i için "fresh new day" hissi.
+  const heroTilt = useSharedValue(0); // 0 = düz, 1 = tam press tilt
+  const scrollY = useSharedValue(0);
+  const streakFlip = useSharedValue(0); // 0 = base, 1 = full 360° flip
+
+  const onScroll = useAnimatedScrollHandler({
+    onScroll: (e) => {
+      scrollY.value = e.contentOffset.y;
+    },
+  });
+
+  // Press handlers — spring-based so press in/out feel natural.
+  const onHeroPressIn = () => {
+    heroTilt.value = withSpring(1, { damping: 14, stiffness: 200 });
+  };
+  const onHeroPressOut = () => {
+    heroTilt.value = withSpring(0, { damping: 16, stiffness: 240 });
+  };
+
+  // 3D press tilt — perspective 1000 gives a moderate parallax depth.
+  // rotateX/Y degrees are intentionally tiny (±4°) so the effect reads
+  // as "tactile depth", not "broken/rotating card".
+  const heroTilt3dStyle = useAnimatedStyle(() => ({
+    transform: [
+      { perspective: 1000 },
+      { rotateX: `${heroTilt.value * -4}deg` },
+      { rotateY: `${heroTilt.value * 2}deg` },
+      { scale: 1 - heroTilt.value * 0.02 },
+    ],
   }));
+
+  // Background waveform parallax — moves at ~30% scroll speed for depth.
+  // Top layer (cyan) moves slightly slower than bottom (pink) for layered feel.
+  const heroBackdropBottomStyle = useAnimatedStyle(() => ({
+    transform: [
+      { translateY: interpolate(scrollY.value, [0, 200], [0, -30]) },
+    ],
+  }));
+  const heroBackdropTopStyle = useAnimatedStyle(() => ({
+    transform: [
+      { translateY: interpolate(scrollY.value, [0, 200], [0, -16]) },
+    ],
+  }));
+
+  const streakStyle = useAnimatedStyle(() => ({
+    transform: [
+      { perspective: 600 },
+      { rotateY: `${streakFlip.value * 360}deg` },
+      { scale: 1 + streakPulse.value * 0.12 },
+    ],
+  }));
+  // NOTE: streak flip useEffect is declared LATER (after `streak` const)
+  // — see ~line 290 below. JS hoisting doesn't help here because `streak`
+  // is a `const` derived from `state`, not a function.
 
   const load = useCallback(async () => {
     const [profile, completed, cefrLevel, interests, nameRaw] =
@@ -285,6 +346,23 @@ export default function Today() {
   const streak = state.profile?.current_streak ?? 0;
   const remainingInPlan = Math.max(0, state.planTotal - state.planCompleted);
 
+  // Streak chip flip — mount-time 360° rotateY. Triggered once when
+  // streak > 0 first becomes true. Combined with existing heartbeat
+  // pulse for layered animation. perspective ensures rotation reads as
+  // 3D card flip, not 2D mirror.
+  useEffect(() => {
+    if (streak > 0 && streakFlip.value === 0) {
+      // Delay a bit so the flip lands after the entrance animation.
+      streakFlip.value = withDelay(
+        500,
+        withTiming(1, {
+          duration: 700,
+          easing: Easing.out(Easing.cubic),
+        }),
+      );
+    }
+  }, [streak, streakFlip]);
+
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
       <StatusBar style="light" />
@@ -304,9 +382,11 @@ export default function Today() {
         ) : null}
       </View>
 
-      <ScrollView
+      <Animated.ScrollView
         contentContainerStyle={styles.scroll}
         showsVerticalScrollIndicator={false}
+        onScroll={onScroll}
+        scrollEventThrottle={16}
       >
         {/* HERO — Daily Plan (en güçlü CTA) */}
         {/*
@@ -320,57 +400,75 @@ export default function Today() {
             • Inner Pressable — transparent surface, owns padding + content + ripple.
         */}
         {state.planFirstScene && !state.planIsComplete ? (
-          <Animated.View
-            entering={FadeInDown.duration(420)}
-            style={[styles.heroFrame, heroGlowStyle]}
-          >
-            <View style={styles.heroBackdrop} pointerEvents="none">
-              <View style={styles.heroBackdropLayerBottom}>
-                <VoiceWaveform
-                  bars={14}
-                  barWidth={3}
-                  gap={8}
-                  height={92}
-                  color={tokens.brand.primary}
-                  accessibilityLabel=""
-                />
-              </View>
-              <View style={styles.heroBackdropLayerTop}>
-                <VoiceWaveform
-                  bars={10}
-                  barWidth={3}
-                  gap={12}
-                  height={58}
-                  color={tokens.brand.tertiary}
-                  accessibilityLabel=""
-                />
-              </View>
-            </View>
-            <Pressable
-              onPress={() =>
-                router.push(
-                  `/scenario/${state.planFirstScene!.lessonId}` as never,
-                )
-              }
-              style={({ pressed }) => [
-                styles.heroPressable,
-                pressed && styles.pressed,
-              ]}
-              accessibilityRole="button"
-              accessibilityLabel={`Bugünün planı: ${remainingInPlan} sahne kaldı`}
+          // Outer wrapper applies the 3D press tilt + persistent halo.
+          // We split into two Animated.View layers so the tilt transform
+          // doesn't conflict with the halo's shadow animation (combining
+          // perspective + animated shadowOpacity on a single view causes
+          // iOS to flicker on first press).
+          <Animated.View style={heroTilt3dStyle}>
+            <Animated.View
+              entering={FadeInDown.duration(420)}
+              style={[styles.heroFrame, heroGlowStyle]}
             >
-              <Text style={styles.planLabel}>
-                {state.planCompleted > 0
-                  ? `▶ DEVAM ET (${state.planCompleted}/${state.planTotal})`
-                  : "▶ BUGÜNÜN PLANI"}
-              </Text>
-              <Text style={styles.planTitle}>
-                {remainingInPlan} sahne · ~{state.planEstimatedMin} dk
-              </Text>
-              <Text style={styles.planSub} numberOfLines={1}>
-                Sıradaki: {state.planFirstScene.title.replace(/\n/g, " ")}
-              </Text>
-            </Pressable>
+              <View style={styles.heroBackdrop} pointerEvents="none">
+                {/* Parallax: bottom pink waveform scrolls -30px over 200px */}
+                <Animated.View
+                  style={[
+                    styles.heroBackdropLayerBottom,
+                    heroBackdropBottomStyle,
+                  ]}
+                >
+                  <VoiceWaveform
+                    bars={14}
+                    barWidth={3}
+                    gap={8}
+                    height={92}
+                    color={tokens.brand.primary}
+                    accessibilityLabel=""
+                  />
+                </Animated.View>
+                {/* Top cyan moves slower (-16px) — depth layering */}
+                <Animated.View
+                  style={[
+                    styles.heroBackdropLayerTop,
+                    heroBackdropTopStyle,
+                  ]}
+                >
+                  <VoiceWaveform
+                    bars={10}
+                    barWidth={3}
+                    gap={12}
+                    height={58}
+                    color={tokens.brand.tertiary}
+                    accessibilityLabel=""
+                  />
+                </Animated.View>
+              </View>
+              <Pressable
+                onPress={() =>
+                  router.push(
+                    `/scenario/${state.planFirstScene!.lessonId}` as never,
+                  )
+                }
+                onPressIn={onHeroPressIn}
+                onPressOut={onHeroPressOut}
+                style={styles.heroPressable}
+                accessibilityRole="button"
+                accessibilityLabel={`Bugünün planı: ${remainingInPlan} sahne kaldı`}
+              >
+                <Text style={styles.planLabel}>
+                  {state.planCompleted > 0
+                    ? `▶ DEVAM ET (${state.planCompleted}/${state.planTotal})`
+                    : "▶ BUGÜNÜN PLANI"}
+                </Text>
+                <Text style={styles.planTitle}>
+                  {remainingInPlan} sahne · ~{state.planEstimatedMin} dk
+                </Text>
+                <Text style={styles.planSub} numberOfLines={1}>
+                  Sıradaki: {state.planFirstScene.title.replace(/\n/g, " ")}
+                </Text>
+              </Pressable>
+            </Animated.View>
           </Animated.View>
         ) : state.planIsComplete ? (
           <Animated.View
@@ -539,7 +637,7 @@ export default function Today() {
             <Text style={styles.exploreArrow}>›</Text>
           </Pressable>
         </Animated.View>
-      </ScrollView>
+      </Animated.ScrollView>
 
       <AdBanner />
       <TabBar active="today" />

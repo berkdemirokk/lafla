@@ -4556,12 +4556,3586 @@ export const customerSupport08: BundledLesson = {
 };
 
 // ============================================================
-// EXPORT — 4 tamamlanan arc, 36 sahne.
-//
-// Not (2026-05-23): Bu modül agent yarıda kesildiğinde 15 arc'ın 4'ü
-// yazılmıştı. Geri kalan 11 arc bir sonraki release'de eklenecek.
-// 36 sahne yine de mevcut katalogu %5+ büyütüyor — register edip
-// kayba uğratmıyoruz.
+// ARC 5 — US IMMIGRATION INTERVIEW (8 sahne)
+// Recurring NPC: Officer Wallace (CBP, then USCIS)
+// ============================================================
+
+export const usImmigration01: BundledLesson = {
+  id: "arc.us_immigration.1",
+  skill_id: "arc.us_immigration",
+  index: 1,
+  title: "Sahne 1 — JFK CBP: ilk karşılaşma",
+  description: "JFK varış, CBP kontuarı. Officer Wallace pasaportunu inceliyor.",
+  estimated_minutes: 4,
+  exercises: [
+    {
+      id: "ex.arc.us_immigration.1.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "the purpose of my visit",
+      tr_translation: "Ziyaret amacım",
+      example: "The purpose of my visit is tourism.",
+      example_tr: "Ziyaret amacım turizm.",
+    },
+    {
+      id: "ex.arc.us_immigration.1.2",
+      type: "roleplay_chat",
+      difficulty: 2,
+      scenario_description:
+        "JFK Terminal 4, CBP booth. Officer Wallace ciddi ama nazik. Net, kısa cevap ver — uzatma.",
+      npc_role: "Officer Wallace (CBP, professional)",
+      setting: "JFK CBP booth, after a 10-hour flight",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Passport. What's the purpose of your visit?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(tourism|business|visiting (family|a friend))",
+            "(the purpose of my visit is)",
+            "(i'?m here (for|on)) (a conference|vacation|business)",
+            "(both — (tourism and)? a short conference)",
+            "(visiting (new york|a friend) for a week)",
+          ],
+          hint_tr:
+            "Kısa + net: 'Tourism.' veya 'Business — a short conference.' Türk uzun cümle kurma — tek kelime/kısa kalıp.",
+        },
+        {
+          speaker: "npc",
+          message: "How long are you staying?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "((seven|ten|fourteen) days|a week|two weeks)",
+            "(i'?m (here|staying) (for|until)) ([a-z]+ \\d+|the (5th|10th))",
+            "(returning on [a-z]+ \\d+|flying out (next|on)) [a-z]+",
+            "(just (a week|over a week))",
+          ],
+          hint_tr:
+            "Süre + dönüş: 'Ten days — flying out on the 5th.' Türk: 'Maybe' belirsiz, kesin sayı + tarih.",
+        },
+        {
+          speaker: "npc",
+          message: "Where are you staying?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(at (a hotel|the marriott|an airbnb)) in (manhattan|brooklyn)",
+            "(with (a friend|family))(,)? (in queens|brooklyn))",
+            "(i have the (address|booking) (right here|on my phone))",
+            "(let me (pull up|show) (the confirmation|booking))",
+          ],
+          hint_tr:
+            "Yer + spesifik: 'At the Marriott in Manhattan.' Türk: 'In New York' yetersiz, otel + bölge.",
+        },
+        {
+          speaker: "npc",
+          message: "Anything to declare?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no(,)? (nothing|nothing to declare))",
+            "(just (personal (items|effects)|gifts under \\$100))",
+            "(some (turkish (delight|sweets))|food (for personal use)))",
+            "(nothing over the limit)",
+          ],
+          hint_tr:
+            "Kısa: 'Nothing to declare.' Türk: yiyecek varsa söyle — 'Some Turkish sweets, personal use.'",
+        },
+        {
+          speaker: "npc",
+          message: "Welcome to the United States. Enjoy your stay.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you(,)? officer)",
+            "(thanks|appreciate it)",
+            "(have a (good|nice) (day|one))",
+          ],
+          hint_tr:
+            "Kapanış kibar: 'Thank you, officer.' Türk: 'OK' soğuk, 'officer' saygı.",
+        },
+      ],
+    },
+  ],
+};
+
+export const usImmigration02: BundledLesson = {
+  id: "arc.us_immigration.2",
+  skill_id: "arc.us_immigration",
+  index: 2,
+  title: "Sahne 2 — Officer Wallace ek soru: 'step aside'",
+  description: "Officer Wallace daha fazla soru sormak istiyor. Panik etme — net cevap.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.arc.us_immigration.2.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Could you clarify?",
+      tr_translation: "Açıklar mısın?",
+      example: "Sorry, could you clarify what you mean?",
+      example_tr: "Pardon, ne demek istediğini açıklar mısın?",
+    },
+    {
+      id: "ex.arc.us_immigration.2.2",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Officer ek inceleme istiyor. Sakin, net, dürüst kal. Aşırı açıklama yapma.",
+      npc_role: "Officer Wallace (digging deeper)",
+      setting: "JFK CBP secondary, small room",
+      turns: [
+        {
+          speaker: "npc",
+          message: "I have a few more questions. You said tourism, but you have a laptop and conference materials. Which is it?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(both|honestly)(,)? (a short conference and tourism)",
+            "(mostly tourism)(,)? (but i'?m attending (one|a) (day|event))",
+            "(let me clarify)",
+            "(i should have (said|mentioned) (both)|the conference is only (one|two) (days|sessions))",
+            "(the conference is unpaid — networking only)",
+          ],
+          hint_tr:
+            "Düzelt: 'Let me clarify — mostly tourism, one conference day.' Türk: 'I lied' panik, sakin düzeltme.",
+        },
+        {
+          speaker: "npc",
+          message: "Why didn't you mention the conference initially?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|i (apologize|apologise))(,)? (i was (rushed|nervous|jet(-| )?lagged))",
+            "(i didn'?t think (one day|networking) counted as business)",
+            "(no (intent|attempt) to mislead)",
+            "(i thought (tourism|leisure) was the (closer|simpler) answer)",
+            "(should i have (declared|filled out) something)",
+          ],
+          hint_tr:
+            "Dürüst + saygılı: 'I apologize — I was jet-lagged, no intent to mislead.' Türk: 'I forget' eksik, sebep + niyet yok.",
+        },
+        {
+          speaker: "npc",
+          message: "Who's paying for the conference fee?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(my (company|employer) in (istanbul|turkey))",
+            "(i (paid|registered) myself)",
+            "(it'?s (free|complimentary) for (community )?attendees)",
+            "(i have the (invoice|registration) (in my email|right here))",
+            "(no us (entity|company) is paying)",
+          ],
+          hint_tr:
+            "Para kim öder = vize tipi. 'My employer in Istanbul paid.' Türk: 'I don't know' tehlikeli, ödeyen kim açık.",
+        },
+        {
+          speaker: "npc",
+          message: "Will you be doing any paid work while here?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no(,)? (no paid work|nothing paid))",
+            "(absolutely not)",
+            "(i (continue|stay) on payroll in (istanbul|turkey))",
+            "(nothing for (a us employer|us clients))",
+            "(i'?m fully aware (that'?s|it'?d be) (not allowed|prohibited))",
+          ],
+          hint_tr:
+            "Net 'no': 'No paid work — I'm aware that's prohibited.' Türk: 'Maybe' tehlikeli, kesin red + farkındalık.",
+        },
+        {
+          speaker: "npc",
+          message: "Okay. I'm going to let you through. Be more thorough next time.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you(,)? officer)",
+            "(understood|i will)",
+            "(noted|appreciated|that'?s on me)",
+            "(thanks for (your patience|hearing me out))",
+            "(have a (good|nice) day)",
+          ],
+          hint_tr:
+            "Sorumluluk: 'Understood — that's on me.' Türk: 'OK thanks' düz, hatayı kabul = saygı.",
+        },
+      ],
+    },
+  ],
+};
+
+export const usImmigration03: BundledLesson = {
+  id: "arc.us_immigration.3",
+  skill_id: "arc.us_immigration",
+  index: 3,
+  title: "Sahne 3 — Bagaj inceleme: Türk yemekleri",
+  description: "Customs inceleme — Türk gümüş tatlıları, çay. Beyan + sakinlik.",
+  estimated_minutes: 4,
+  exercises: [
+    {
+      id: "ex.arc.us_immigration.3.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "These are gifts for",
+      tr_translation: "Bunlar şuna hediye",
+      example: "These are gifts for my friend in Brooklyn.",
+      example_tr: "Bunlar Brooklyn'deki arkadaşıma hediye.",
+    },
+    {
+      id: "ex.arc.us_immigration.3.2",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Bagaj X-ray sonrası açıldı. Türk lokumu, çay, baklava. Açıkla.",
+      npc_role: "Customs agent",
+      setting: "JFK customs inspection area",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Open the bag. What's in these boxes?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(turkish (delight|lokum)|some sweets)",
+            "(black tea|herbal tea)",
+            "(baklava|nuts|dried fruit)",
+            "(these are (gifts|presents) for)",
+            "(all (sealed|packaged|store(-| )?bought))",
+          ],
+          hint_tr:
+            "İçerik + durum: 'Turkish delight, all sealed.' Türk: 'It's food' belirsiz, isim + paket.",
+        },
+        {
+          speaker: "npc",
+          message: "Any meat or dairy?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no(,)? (no meat|no dairy))",
+            "(only (sweets|tea|dried) (and|or) nuts)",
+            "(nothing fresh)",
+            "(i checked the (rules|cbp site) before flying)",
+            "(let me know if any of (it|these) are restricted)",
+          ],
+          hint_tr:
+            "Net 'no' + farkındalık: 'No meat or dairy — I checked the CBP site.' Türk: 'I don't know' eksik, hazırlanmış cevap.",
+        },
+        {
+          speaker: "npc",
+          message: "Total value?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(around (fifty|forty) dollars)",
+            "(maybe \\$\\d+ total)",
+            "(well under the (limit|hundred))",
+            "(receipts (are )?(in the bag|on my phone))",
+            "(less than a hundred (combined|altogether))",
+          ],
+          hint_tr:
+            "Yaklaşık rakam: 'Around fifty dollars total.' Türk: 'I don't know price' tehlikeli, tahmin ver.",
+        },
+        {
+          speaker: "npc",
+          message: "Okay. Repack and move along.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|thanks)",
+            "(appreciate it)",
+            "(have a (good|nice) day)",
+            "(am i (good|cleared) to go)",
+          ],
+          hint_tr:
+            "Kapanış: 'Thank you, have a good day.' Türk: kısa + nazik.",
+        },
+      ],
+    },
+  ],
+};
+
+export const usImmigration04: BundledLesson = {
+  id: "arc.us_immigration.4",
+  skill_id: "arc.us_immigration",
+  index: 4,
+  title: "Sahne 4 — USCIS visa extension: randevu açılışı",
+  description: "Konferans uzadı. USCIS office, visa extension randevusu. Officer Wallace yine karşında.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.arc.us_immigration.4.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to file an extension",
+      tr_translation: "Uzatma başvurusu yapmak",
+      example: "I'd like to file for an extension.",
+      example_tr: "Bir uzatma başvurusu yapmak istiyorum.",
+    },
+    {
+      id: "ex.arc.us_immigration.4.2",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "USCIS field office, NY. Sıra geldi. Belgelerin hazır. Officer Wallace'a açıkla.",
+      npc_role: "Officer Wallace (USCIS desk, recurring)",
+      setting: "USCIS New York field office, appointment slot",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Take a seat. What are we doing today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?d like to (file (for|an)|apply for) (an )?extension)",
+            "(i'?m here to extend (my )?(b(-| )?(1|2)|visitor) (status|visa))",
+            "(my (status|i-94) expires)",
+            "(this is for (an i(-| )?539|extension))",
+            "(i have the forms (filled out|ready))",
+          ],
+          hint_tr:
+            "Açılış: 'I'd like to file for an extension.' Türk: 'I want stay longer' eksik, resmi terim.",
+        },
+        {
+          speaker: "npc",
+          message: "Why the extension?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the conference (was extended|added a second week))",
+            "(i was (invited|asked) to (speak|attend) (an additional session))",
+            "(family (joining|visiting) for a few more days)",
+            "(medical (delay|reason) — i have documentation)",
+            "(business (closed|wrapped up) slower than expected)",
+          ],
+          hint_tr:
+            "Spesifik sebep + kanıt: 'Conference added a second week — here's the letter.' Türk: 'I want more time' belirsiz, somut + belge.",
+        },
+        {
+          speaker: "npc",
+          message: "How will you support yourself during the extension?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(savings|i have funds)",
+            "(my (employer|family) (covers|sponsors))",
+            "(bank statements (are |right )?here)",
+            "(the (hotel|stay) is prepaid)",
+            "(i can show (three months|the funds))",
+          ],
+          hint_tr:
+            "Finansal kanıt: 'Savings — bank statements right here.' Türk: 'I have money' eksik, kanıt + belge.",
+        },
+        {
+          speaker: "npc",
+          message: "And your return ticket?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(already (changed|rebooked) — for [a-z]+ \\d+)",
+            "(i'?ll (rebook|update) (once|after) (the extension|approval))",
+            "(here'?s the (new|updated) itinerary)",
+            "(i have (proof of|the )?return)",
+            "(my employer (booked|holds) the return)",
+          ],
+          hint_tr:
+            "Dönüş planı: 'Already rebooked for the 15th.' Türk: 'I will go back' belirsiz, somut tarih.",
+        },
+        {
+          speaker: "npc",
+          message: "Submit your forms. Processing takes 4-6 weeks.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(understood|noted)",
+            "(can i (stay|remain) (legally )?while (it'?s )?pending)",
+            "(will i get (a receipt|confirmation))",
+            "(what happens if (it'?s denied|i need to leave))",
+            "(thanks for (the clarity|walking me through))",
+          ],
+          hint_tr:
+            "Pratik soru: 'Can I stay legally while pending?' Türk: 'OK' düz, gri alanları öğren.",
+        },
+      ],
+    },
+  ],
+};
+
+export const usImmigration05: BundledLesson = {
+  id: "arc.us_immigration.5",
+  skill_id: "arc.us_immigration",
+  index: 5,
+  title: "Sahne 5 — Kayıp pasaport: konsoloshane çağrısı",
+  description: "Pasaport kayıp. Türk konsoloshanesi + USCIS info. Acil durum.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.arc.us_immigration.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "to report a lost passport",
+      tr_translation: "Kayıp pasaport bildirimi yapmak",
+      example: "I need to report a lost passport.",
+      example_tr: "Kayıp pasaport bildirimi yapmam lazım.",
+    },
+    {
+      id: "ex.arc.us_immigration.5.2",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Türk konsoloshanesini aradın, hızlı işlem lazım. Net + sakin.",
+      npc_role: "Turkish consulate emergency line",
+      setting: "Phone call to Turkish consulate NYC",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Consulate, how can I help?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|good (morning|afternoon))",
+            "(i need to report a lost passport)",
+            "(i (lost|misplaced) my (turkish )?passport (yesterday|this morning))",
+            "(can you (walk me through|guide me on) (next steps|the process))",
+            "(this is (urgent|time(-| )?sensitive)) — (my flight is)",
+          ],
+          hint_tr:
+            "Net başlangıç: 'I need to report a lost passport — this is urgent.' Türk: 'Help me' eksik, durum + aciliyet.",
+        },
+        {
+          speaker: "npc",
+          message: "Did you file a police report?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|i did)(,)? (this morning|two hours ago)",
+            "(not yet — should i (do it|go now))",
+            "(i have the (case|report) number)",
+            "(at the (nypd|local precinct))",
+            "(where (should i|do i) file (one|it))",
+          ],
+          hint_tr:
+            "Belge varsa söyle: 'Yes, I have the case number.' Türk: 'I don't know' kapalı, hazırlık göster.",
+        },
+        {
+          speaker: "npc",
+          message: "Okay — you need to come in person. Bring police report, ID, two photos, fee.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(noted|got it)",
+            "(let me write (this|that) down)",
+            "(what'?s the (earliest|first available) (appointment|slot))",
+            "(is there (an emergency|same(-| )?day) option)",
+            "(do you accept (card|cash))",
+          ],
+          hint_tr:
+            "Liste tekrar: 'Let me write that down.' Türk: 'OK' düz, listeyi onayla.",
+        },
+        {
+          speaker: "npc",
+          message: "Walk-ins for emergencies. Come before 2pm.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?ll be (there|on my way) (within the hour|by noon))",
+            "(thank you (so much|for the help))",
+            "(one more (thing|question))",
+            "(can i (board|fly) without (the new one|emergency travel doc))",
+            "(any (other|additional) (documents|requirements))",
+          ],
+          hint_tr:
+            "Plan + ek soru: 'I'll be there by noon — one more question.' Türk: 'OK bye' düz, kritik bilgi devam.",
+        },
+        {
+          speaker: "npc",
+          message: "Emergency travel doc takes a day. Plan accordingly.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(understood|noted)",
+            "(thank you — (this helps a lot|that'?s exactly what i needed))",
+            "(i'?ll (move|push) my flight)",
+            "(see you (within the hour|shortly))",
+            "(appreciate (the clarity|you taking my call))",
+          ],
+          hint_tr:
+            "Kapanış: 'That's exactly what I needed.' Türk: 'OK thanks' düz, sürecin değerini onurla.",
+        },
+      ],
+    },
+  ],
+};
+
+export const usImmigration06: BundledLesson = {
+  id: "arc.us_immigration.6",
+  skill_id: "arc.us_immigration",
+  index: 6,
+  title: "Sahne 6 — Airbnb host'la 30-day rule",
+  description: "Airbnb host meraklı: 'Are you a citizen?' Diplomatic + dürüst cevap.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.arc.us_immigration.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I'm here on a visa",
+      tr_translation: "Vize ile buradayım",
+      example: "I'm here on a tourist visa for a few weeks.",
+      example_tr: "Birkaç haftalığına turist vizesi ile buradayım.",
+    },
+    {
+      id: "ex.arc.us_immigration.6.2",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Brooklyn Airbnb. Host kapıyı açtı, sohbete daldı. Saygı + sınır.",
+      npc_role: "Airbnb host (curious, friendly)",
+      setting: "Brooklyn brownstone, check-in moment",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Welcome! Are you staying long? You sound foreign — where you from?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|hi)(,)? (about (two|three) weeks)",
+            "(i'?m from (turkey|istanbul))",
+            "(here on a (tourist|business) visa)",
+            "(just (visiting|attending a conference))",
+            "(this is my (first|second) (time|trip))",
+          ],
+          hint_tr:
+            "Açık + sınırlı: 'Three weeks — here on a tourist visa.' Türk: 'I am Turkish' yetersiz, durumu sınırla.",
+        },
+        {
+          speaker: "npc",
+          message: "Turkey — cool! My ex was Turkish. So you a citizen here yet?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no(,)? (just visiting|tourist visa only))",
+            "(haha|nope) — (not yet|not anytime soon)",
+            "(i'?m here on a short(-| )?term visa)",
+            "(no plans to (settle|emigrate))",
+            "(my (life|work) is back in istanbul)",
+          ],
+          hint_tr:
+            "Yumuşak deflect: 'Nope — life is in Istanbul.' Türk: 'No why?' agresif, kibar açıklama.",
+        },
+        {
+          speaker: "npc",
+          message: "Ah okay. Are you allowed to work here?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no — i'?m not allowed to (work|earn) here)",
+            "(just tourism|just attending events)",
+            "(my (job|paycheck) (is|stays) in (turkey|istanbul))",
+            "(it'?d be (against|outside) (my visa|the rules))",
+            "(strictly leisure)",
+          ],
+          hint_tr:
+            "Kesin: 'No — strictly leisure.' Türk: 'Maybe' tehlikeli, host hostili olmasa bile kayıtlı duruş.",
+        },
+        {
+          speaker: "npc",
+          message: "Right. Anyway — wifi's in the welcome packet. Need anything?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks)(,)? (i'?ll (text|message)) (if i need anything)",
+            "(could you recommend (a (coffee|breakfast)) (nearby|on the block))",
+            "(all good for now)",
+            "(appreciate (the welcome|the warmth))",
+            "(thanks (again|so much))",
+          ],
+          hint_tr:
+            "Konuyu değiştir: 'Could you recommend coffee nearby?' Türk: 'OK bye' düz, sohbeti güvenli yere.",
+        },
+      ],
+    },
+  ],
+};
+
+export const usImmigration07: BundledLesson = {
+  id: "arc.us_immigration.7",
+  skill_id: "arc.us_immigration",
+  index: 7,
+  title: "Sahne 7 — Çıkış: 'why was your extension denied?'",
+  description: "JFK çıkış. Officer Wallace yine. Extension reddedildi — neden gecikti sor.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.arc.us_immigration.7.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "I overstayed by",
+      tr_translation: "Şu kadar fazla kaldım",
+      example: "I overstayed by three days — here's the documentation.",
+      example_tr: "Üç gün fazla kaldım — belgelerim burada.",
+    },
+    {
+      id: "ex.arc.us_immigration.7.2",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Çıkışta CBP secondary. Officer Wallace ekrana bakıyor — extension reddi görünüyor.",
+      npc_role: "Officer Wallace (CBP exit, serious)",
+      setting: "JFK CBP exit checkpoint, departure",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Your extension was denied. You overstayed. Explain.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes officer)(,)? (i'?m aware)",
+            "(i overstayed by (three|five) days)",
+            "(the denial (notice|letter) (arrived|came) (late|after my original date))",
+            "(i have (the (notice|paperwork)|documentation))",
+            "(no (intent|attempt) to overstay)",
+          ],
+          hint_tr:
+            "Kabul + kanıt: 'I overstayed by three days — notice came late.' Türk: 'It was not my fault' agresif, kabul + belge.",
+        },
+        {
+          speaker: "npc",
+          message: "When did you learn the extension was denied?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i (received|got) the notice on)",
+            "(it (showed up|hit my mailbox) (two|four) days ago)",
+            "(i (booked|rebooked) the next available flight)",
+            "(here'?s the (envelope|timestamp))",
+            "(i acted within (\\d+|three) (hours|days))",
+          ],
+          hint_tr:
+            "Zaman çizelgesi: 'Notice arrived two days ago — booked next flight.' Türk: 'I don't remember' belirsiz, somut + hızlı tepki.",
+        },
+        {
+          speaker: "npc",
+          message: "Why didn't you depart on your original date as a precaution?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fair (question|point))",
+            "(in (hindsight|retrospect))(,)? (i should have)",
+            "(uscis (guidance|website) (said|stated) (i could stay (while )?pending))",
+            "(i (took|followed) (the official|that) guidance)",
+            "(i acknowledge (the lapse|the mistake))",
+          ],
+          hint_tr:
+            "Resmi rehber + özeleştiri: 'In hindsight, I should have left earlier.' Türk: 'I followed rules' defansif, kabul.",
+        },
+        {
+          speaker: "npc",
+          message: "This will be on your record. May affect future entries.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(understood|i (understand|accept) that)",
+            "(is there (a way to|anything i can do to) (mitigate|appeal))",
+            "(should i (file|submit) anything (proactively|in writing))",
+            "(thank you for (explaining|being direct))",
+            "(i'?ll (consult|reach out to) an (immigration )?attorney)",
+          ],
+          hint_tr:
+            "Kabul + sonraki adım: 'Should I file anything proactively?' Türk: 'Please don't' yalvarış, prosedür sor.",
+        },
+        {
+          speaker: "npc",
+          message: "Consult an attorney. You may proceed today.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you(,)? officer)",
+            "(appreciate (the time|the professionalism))",
+            "(noted — i'?ll (follow up|consult counsel))",
+            "(have a (good|safe) (day|shift))",
+          ],
+          hint_tr:
+            "Saygılı kapanış: 'Appreciate the professionalism.' Türk: 'Thanks bye' düz, durum ciddi, ton ciddi.",
+        },
+      ],
+    },
+  ],
+};
+
+export const usImmigration08: BundledLesson = {
+  id: "arc.us_immigration.8",
+  skill_id: "arc.us_immigration",
+  index: 8,
+  title: "Sahne 8 — Yeniden giriş: 6 ay sonra",
+  description: "Hata sonrası yeniden başvuru. Officer Wallace son kez — geçmişi anlat.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.arc.us_immigration.8.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "I learned from that",
+      tr_translation: "Ondan ders aldım",
+      example: "I overstayed once — I learned from that.",
+      example_tr: "Bir kez fazla kaldım — ondan ders aldım.",
+    },
+    {
+      id: "ex.arc.us_immigration.8.2",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "6 ay sonra JFK. Wallace seni tanıdı. Açık, hazırlıklı, dürüst.",
+      npc_role: "Officer Wallace (CBP, remembers you)",
+      setting: "JFK CBP, return visit",
+      turns: [
+        {
+          speaker: "npc",
+          message: "I remember you. Last time was complicated.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes officer)(,)? (i remember (too|as well))",
+            "(i (came|came back) prepared this time)",
+            "(thanks for (recognizing|remembering))",
+            "(i'?ve (taken steps|consulted counsel) since)",
+            "(i have (everything|the documentation) (in order|here))",
+          ],
+          hint_tr:
+            "Kabul: 'I came prepared this time.' Türk: 'I don't remember' kaçış, hatırla + hazırlık.",
+        },
+        {
+          speaker: "npc",
+          message: "What's different this time?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?m (only here|staying) for (\\d+|five) days)",
+            "(no extensions (planned|considered))",
+            "(return ticket (already )?(booked|here))",
+            "(i consulted (an immigration )?attorney before (this )?trip)",
+            "(everything (over(-| )?documented|thoroughly documented))",
+          ],
+          hint_tr:
+            "Somut farklar: 'Five days only, return ticket here, attorney consulted.' Türk: 'I'm careful now' belirsiz, liste.",
+        },
+        {
+          speaker: "npc",
+          message: "Did you address the overstay on record?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|i did)",
+            "(i (filed|submitted) (a |an )?(explanation|nunc pro tunc))",
+            "(my attorney (filed|wrote) (a letter|the response))",
+            "(here'?s the (receipt|confirmation))",
+            "(i learned from that)",
+          ],
+          hint_tr:
+            "Kanıt + öğrenme: 'I learned from that.' Türk: 'It's not my fault' defansif, sahiplen + belge.",
+        },
+        {
+          speaker: "npc",
+          message: "Honesty helps. Anything else I should know?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no(,)? (everything'?s|it'?s) (on the table|disclosed))",
+            "(i'?ve (nothing|no information) to hide)",
+            "(i (appreciate|value) (the chance to|being able to) (return|come back))",
+            "(happy to answer (anything|more questions))",
+            "(my (record|file) is (open|transparent))",
+          ],
+          hint_tr:
+            "Şeffaflık: 'Nothing to hide — record is open.' Türk: 'Just trust me' eksik, açıklık göster.",
+        },
+        {
+          speaker: "npc",
+          message: "Welcome back. Five days. Don't make me regret it.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(you won'?t|i won'?t)",
+            "(thank you (so much|officer))",
+            "(this means a lot)",
+            "(appreciate the (second chance|trust))",
+            "(i'?ll (be out|fly out) on time)",
+          ],
+          hint_tr:
+            "Onur: 'I appreciate the second chance.' Türk: 'OK thanks' düz, fırsatın değerini anla.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// ARC 6 — DOCTOR VISIT IN ENGLISH COUNTRY (8 sahne)
+// Recurring NPCs: Dr. Patel (GP), Nurse Karen
+// ============================================================
+
+export const doctorVisit01: BundledLesson = {
+  id: "arc.doctor_visit.1",
+  skill_id: "arc.doctor_visit",
+  index: 1,
+  title: "Sahne 1 — Resepsiyon: kayıt + sigorta",
+  description: "GP surgery resepsiyonu. Walk-in. Sigorta kartı + form.",
+  estimated_minutes: 4,
+  exercises: [
+    {
+      id: "ex.arc.doctor_visit.1.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "I have an appointment with",
+      tr_translation: "Şununla randevum var",
+      example: "I have an appointment with Dr. Patel at 10.",
+      example_tr: "Dr. Patel ile 10'da randevum var.",
+    },
+    {
+      id: "ex.arc.doctor_visit.1.2",
+      type: "roleplay_chat",
+      difficulty: 2,
+      scenario_description:
+        "GP surgery, sabah 9:50. Resepsiyonist Nurse Karen. Sıra sende.",
+      npc_role: "Nurse Karen (reception, warm)",
+      setting: "GP surgery reception, Tuesday morning",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Morning — name and appointment?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(morning|hi)",
+            "([a-z]+)(,)? (10am|at ten)",
+            "(i have an appointment with (dr )?patel)",
+            "(first(-| )?time (here|patient))",
+            "(my name'?s [a-z]+)",
+          ],
+          hint_tr:
+            "Açılış: 'Hi — name, 10am with Dr. Patel.' Türk: 'Hello I come' uzun, kısa veri.",
+        },
+        {
+          speaker: "npc",
+          message: "Got you. Do you have your insurance card?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|here you go)",
+            "(here'?s (the card|my insurance))",
+            "(i (have|got) (private|nhs|travel) (insurance|coverage))",
+            "(let me (grab|pull) it (out|up))",
+            "(it'?s on (my phone|the app))",
+          ],
+          hint_tr:
+            "Belge uzat: 'Here you go.' Türk: 'Yes I have' eksik, fiziksel hareket + dil.",
+        },
+        {
+          speaker: "npc",
+          message: "Fill in this form. Take a seat — Dr. Patel will call you.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks)",
+            "(any (sections|fields) i can (skip|leave))",
+            "(should i (write|include) (my passport (number|details)))",
+            "(approximately how long is the wait)",
+            "(appreciate it)",
+          ],
+          hint_tr:
+            "Form sor: 'Any sections I can skip?' Türk: 'OK' düz, belirsizlikleri sor.",
+        },
+        {
+          speaker: "npc",
+          message: "Skip anything that doesn't apply. About 10 minutes wait.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks)",
+            "(got it)",
+            "(i'?ll be in the (waiting room|chair))",
+            "(appreciate the (info|help))",
+          ],
+          hint_tr:
+            "Kapanış: 'Got it — I'll be in the waiting room.' Türk: 'OK' düz, nereye gideceğini söyle.",
+        },
+      ],
+    },
+  ],
+};
+
+export const doctorVisit02: BundledLesson = {
+  id: "arc.doctor_visit.2",
+  skill_id: "arc.doctor_visit",
+  index: 2,
+  title: "Sahne 2 — Dr. Patel: 'what brings you in?'",
+  description: "Muayene odasında. Dr. Patel sorunu öğrenmek istiyor. Spesifik ol.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.arc.doctor_visit.2.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "It's been going on for",
+      tr_translation: "Şu kadar süredir devam ediyor",
+      example: "It's been going on for about a week.",
+      example_tr: "Yaklaşık bir haftadır devam ediyor.",
+    },
+    {
+      id: "ex.arc.doctor_visit.2.2",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Muayene odası. Dr. Patel sandalyede, not defteri. Şikayetini anlat.",
+      npc_role: "Dr. Patel (GP, calm, asks structured questions)",
+      setting: "GP consultation room, first visit",
+      turns: [
+        {
+          speaker: "npc",
+          message: "So — what brings you in today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?ve been having (a sore throat|stomach pain|headaches))",
+            "(i'?ve had (a |this )?(cough|fever|rash))",
+            "(my (throat|stomach|back) (hurts|has been (sore|painful)))",
+            "(it'?s been (going on|happening) for (a week|five days))",
+            "(persistent (cough|nausea|fatigue))",
+          ],
+          hint_tr:
+            "Şikayet + süre: 'A sore throat — about a week.' Türk: 'I am sick' belirsiz, somut + süre.",
+        },
+        {
+          speaker: "npc",
+          message: "How would you describe the pain — sharp, dull, throbbing?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(more (dull|sharp|burning) (than|like))",
+            "(it'?s a (throbbing|stabbing|aching) (pain|feeling))",
+            "(comes and goes|on and off)",
+            "(worse (in the morning|after eating|at night))",
+            "(it (radiates|spreads) (to|toward) (my (neck|shoulder)))",
+          ],
+          hint_tr:
+            "Ağrı kalibresi: 'Throbbing, worse in the morning.' Türk: 'It hurts' yetersiz, sıfat + zaman.",
+        },
+        {
+          speaker: "npc",
+          message: "On a scale of 1 to 10?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(about|maybe) (a )?(\\d+|seven|five|four)",
+            "(\\d+ out of ten|six out of ten)",
+            "(varies (between|from)) \\d+ (to|and) \\d+",
+            "(a (solid|tough) (six|seven))",
+            "(annoying not unbearable)",
+          ],
+          hint_tr:
+            "Sayı: 'A solid six.' Türk: 'It is bad' kapalı, 1-10 evrensel.",
+        },
+        {
+          speaker: "npc",
+          message: "Any fever, nausea, anything else?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no (fever|nausea) — just (the cough|the pain))",
+            "(yes|some) (mild fever|fatigue|loss of appetite)",
+            "(only (when i|after i)) (eat|drink) (something))",
+            "(no other symptoms)",
+            "(now that you mention it — (slight )?(dizziness|chills))",
+          ],
+          hint_tr:
+            "Ek belirti tara: 'Now that you mention it — slight dizziness.' Türk: 'I don't know' kapalı, listeyi tara.",
+        },
+        {
+          speaker: "npc",
+          message: "Any medications? Allergies?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(only (paracetamol|ibuprofen) for (the pain|fever))",
+            "(i'?m on (no medications|nothing regular))",
+            "(allergic to (penicillin|nuts|nothing))",
+            "(no known allergies)",
+            "(i (take|use) (a multivitamin|antihistamines (seasonally)?))",
+          ],
+          hint_tr:
+            "Liste: 'Allergic to penicillin.' Türk: 'I don't take' eksik, açık liste.",
+        },
+        {
+          speaker: "npc",
+          message: "Let's have a look. Open your mouth, please.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(of course|sure)",
+            "(go ahead)",
+            "(let me know if you need (me to|anything))",
+            "(should i (lean back|sit forward))",
+          ],
+          hint_tr:
+            "İşbirliği: 'Should I lean back?' Türk: 'OK' düz, doktora yardım sor.",
+        },
+      ],
+    },
+  ],
+};
+
+export const doctorVisit03: BundledLesson = {
+  id: "arc.doctor_visit.3",
+  skill_id: "arc.doctor_visit",
+  index: 3,
+  title: "Sahne 3 — Diagnosis + reçete: 'I'd like a second opinion?'",
+  description: "Dr. Patel teşhis verdi. Anlamadığını söyle, ikinci görüş iste.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.arc.doctor_visit.3.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "Could you walk me through",
+      tr_translation: "Bunu açıklar mısın",
+      example: "Could you walk me through the treatment?",
+      example_tr: "Tedaviyi adım adım açıklar mısın?",
+    },
+    {
+      id: "ex.arc.doctor_visit.3.2",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Dr. Patel teşhis koydu — sinüsit. Açıkla iste, alternatifleri sor.",
+      npc_role: "Dr. Patel (explaining diagnosis)",
+      setting: "GP consultation, diagnosis phase",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Looks like a sinus infection. I'll prescribe antibiotics.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay)",
+            "(could you (walk me through|explain) (the (next steps|treatment)))",
+            "(what'?s the (course|duration))",
+            "(any (side effects|alternatives) i should (know|consider))",
+            "(do i (definitely|absolutely) need (antibiotics|them))",
+          ],
+          hint_tr:
+            "Açıklama iste: 'Could you walk me through it?' Türk: 'OK' pasif, soru sor.",
+        },
+        {
+          speaker: "npc",
+          message: "Seven days. Twice daily. Side effects: mild stomach upset, possibly drowsiness.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(noted|got it)",
+            "(should i (take it|have it) with (food|water))",
+            "(can i (drive|drink alcohol))",
+            "(what if (the side effects|i feel) (worsen|are severe))",
+            "(when should i (see improvement|expect (it to|to feel) better))",
+          ],
+          hint_tr:
+            "Pratik soru: 'With food? Can I drive?' Türk: 'OK' düz, yaşam fonksiyonu sor.",
+        },
+        {
+          speaker: "npc",
+          message: "With food. No alcohol. If symptoms worsen — come back.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(understood|will do)",
+            "(actually — would (it be okay|you mind) if i (got|sought) (a )?second opinion)",
+            "(i (just want to|like to) be (thorough|certain))",
+            "(no offense — (it'?s a habit|i'?m new to this system))",
+            "(could you (recommend|refer me to) a specialist)",
+          ],
+          hint_tr:
+            "İkinci görüş iste: 'Would you mind if I sought a second opinion?' Türk: 'I don't trust' agresif, kibar + niyet.",
+        },
+        {
+          speaker: "npc",
+          message: "Of course — not at all. I can refer you to ENT if you'd like.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you (for understanding|so much))",
+            "(that would be (helpful|great))",
+            "(can i (start|wait on) the antibiotics (in the meantime|until then))",
+            "(no rush — just (peace of mind|due diligence))",
+            "(appreciate (you not taking it personally|the openness))",
+          ],
+          hint_tr:
+            "Minnet: 'Thanks for not taking it personally.' Türk: 'OK thanks' düz, ilişkiyi koru.",
+        },
+      ],
+    },
+  ],
+};
+
+export const doctorVisit04: BundledLesson = {
+  id: "arc.doctor_visit.4",
+  skill_id: "arc.doctor_visit",
+  index: 4,
+  title: "Sahne 4 — Nurse Karen ile injection: 'will it hurt?'",
+  description: "Karen aşı yapacak. Türk korkusu — net konuş, sakin kal.",
+  estimated_minutes: 4,
+  exercises: [
+    {
+      id: "ex.arc.doctor_visit.4.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "I'm a bit nervous about",
+      tr_translation: "Bu konuda biraz tedirginim",
+      example: "I'm a bit nervous about needles.",
+      example_tr: "İğnelerden biraz tedirginim.",
+    },
+    {
+      id: "ex.arc.doctor_visit.4.2",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Treatment odası. Karen iğne hazırlıyor. Dürüst — endişeni söyle.",
+      npc_role: "Nurse Karen (injection, friendly)",
+      setting: "Treatment room, preparing for injection",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Right — sleeve up. Have you had this jab before?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|never)",
+            "(first time)",
+            "(i had (the other one|a flu shot) (last year|years ago))",
+            "(i'?m a bit nervous about (needles|injections))",
+            "(can you (warn me|count) before)",
+          ],
+          hint_tr:
+            "Dürüst: 'I'm nervous about needles.' Türk: 'I'm fine' bastırma, dürüst = bakım.",
+        },
+        {
+          speaker: "npc",
+          message: "Totally normal. Will it hurt? Honestly, a quick pinch.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay|that helps)",
+            "(should i (look away|distract myself))",
+            "(thanks for (the honesty|warning))",
+            "(let'?s (just|get this) (do it|over with))",
+            "(can i (have a moment|breathe (first|deep)))",
+          ],
+          hint_tr:
+            "Strateji: 'Should I look away?' Türk: 'OK' pasif, başa çıkma sor.",
+        },
+        {
+          speaker: "npc",
+          message: "Take a deep breath. Three, two, one.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay|i'?m ready)",
+            "(breathing|here we go)",
+            "(quick (one|pinch))",
+            "(that wasn'?t (bad|so bad))",
+            "(thank you|done)",
+          ],
+          hint_tr:
+            "Hızlı tepki: 'That wasn't so bad!' Türk: 'OK' düz, doğal hafifletme.",
+        },
+        {
+          speaker: "npc",
+          message: "All done. Any side effects to watch for?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(what should i (watch for|expect))",
+            "(any (common|typical) reactions)",
+            "(when do (i call|i come back) if)",
+            "(can i (work out|drive|drink) after)",
+            "(thanks)",
+          ],
+          hint_tr:
+            "Sonrası sor: 'What should I watch for?' Türk: 'OK thanks' düz, post-care.",
+        },
+        {
+          speaker: "npc",
+          message: "Some soreness. If you spike a fever over 38, call us.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(noted|got it)",
+            "(thanks (karen|so much))",
+            "(over 38 — i'?ll (call|come in))",
+            "(appreciate (the calm|being so patient))",
+          ],
+          hint_tr:
+            "Minnet: 'Appreciate the calm.' Türk: 'Thanks bye' düz, samimi ekle.",
+        },
+      ],
+    },
+  ],
+};
+
+export const doctorVisit05: BundledLesson = {
+  id: "arc.doctor_visit.5",
+  skill_id: "arc.doctor_visit",
+  index: 5,
+  title: "Sahne 5 — Eczane: 'is this safe with my other meds?'",
+  description: "Eczane. Reçete + OTC. Eczacıya etkileşim sor.",
+  estimated_minutes: 4,
+  exercises: [
+    {
+      id: "ex.arc.doctor_visit.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Is this safe to take with",
+      tr_translation: "Şununla almak güvenli mi",
+      example: "Is this safe to take with ibuprofen?",
+      example_tr: "İbuprofenle birlikte almak güvenli mi?",
+    },
+    {
+      id: "ex.arc.doctor_visit.5.2",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Boots eczanesi. Reçetelerini uzattın. Bir de OTC al — etkileşim sor.",
+      npc_role: "Pharmacist (Boots, helpful)",
+      setting: "Boots pharmacy counter, after GP visit",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Got your prescription. Anything else?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|actually)(,)? (something for (a sore throat|cough|congestion))",
+            "(could you (recommend|suggest) (a (cough|throat) (syrup|lozenge)))",
+            "(is (paracetamol|ibuprofen) safe with (these|the antibiotics))",
+            "(any (otc|over the counter) (decongestants|sprays))",
+            "(what'?s (best|safest) for (sleep|congestion))",
+          ],
+          hint_tr:
+            "Ek istek + soru: 'Could you recommend something — is it safe with these?' Türk: 'I need medicine' belirsiz, somut.",
+        },
+        {
+          speaker: "npc",
+          message: "These lozenges work well. Won't interact.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(great|perfect)",
+            "(how often (can|should) i (take|use) (them|these))",
+            "(any (sugar(-| )?free|alcohol(-| )?free) options)",
+            "(can i (combine|alternate) (with paracetamol|with something))",
+            "(safe (during the day|to drive on))",
+          ],
+          hint_tr:
+            "Pratik soru: 'Can I combine with paracetamol?' Türk: 'OK' düz, dozaj sor.",
+        },
+        {
+          speaker: "npc",
+          message: "Up to six a day. Drowsy version exists if you'd prefer.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?ll (skip|pass on) the drowsy)",
+            "(the non(-| )?drowsy is better — i'?m at work)",
+            "(could i (try|get) (both|the drowsy for nights))",
+            "(thanks for (the heads(-| )?up|the options))",
+            "(that'?s it|that'?s all)",
+          ],
+          hint_tr:
+            "Tercih: 'Non-drowsy — I'm at work.' Türk: 'OK' düz, hayat tarzına göre seç.",
+        },
+        {
+          speaker: "npc",
+          message: "That'll be £12.50. Pay at the till.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks)",
+            "(card or contactless)",
+            "(can i (get|have) a receipt for insurance)",
+            "(appreciate the (help|advice))",
+            "(have a (good|nice) one)",
+          ],
+          hint_tr:
+            "Ödeme: 'Card — can I get a receipt for insurance?' Türk: 'OK bye' düz, fatura iste.",
+        },
+      ],
+    },
+  ],
+};
+
+export const doctorVisit06: BundledLesson = {
+  id: "arc.doctor_visit.6",
+  skill_id: "arc.doctor_visit",
+  index: 6,
+  title: "Sahne 6 — Karen geri arıyor: kan testi sonuçları",
+  description: "Karen seni aradı — sonuçlarda bir anomali. Sakin dinle, sor.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.arc.doctor_visit.6.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "Should I be worried?",
+      tr_translation: "Endişelenmeli miyim?",
+      example: "Should I be worried about the results?",
+      example_tr: "Sonuçlar için endişelenmeli miyim?",
+    },
+    {
+      id: "ex.arc.doctor_visit.6.2",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Telefon. Karen sonuçları söylüyor — vitamin D düşük + bir flag. Sakin sor.",
+      npc_role: "Nurse Karen (delivering results by phone)",
+      setting: "Phone call, mid-afternoon",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hi — your blood work is back. Mostly fine, but a couple of flags.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay|i'?m listening)",
+            "(go ahead)",
+            "(what (came up|stood out))",
+            "(should i be (worried|concerned))",
+            "(thanks for (the call|reaching out so soon))",
+          ],
+          hint_tr:
+            "Sakin: 'Okay — go ahead.' Türk: panik soru, dinleme moduna geç.",
+        },
+        {
+          speaker: "npc",
+          message: "Your vitamin D is very low. And one inflammation marker is mildly elevated.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(what does (that|mildly elevated) (mean|imply))",
+            "(is (the inflammation|that) (concerning|something serious))",
+            "(could it be (linked to|from) the (sinus|infection))",
+            "(any (next steps|further tests))",
+            "(how do i (address|raise) the (vitamin d|d))",
+          ],
+          hint_tr:
+            "Açıklama iste: 'What does that mean?' Türk: 'OK' panik, somut soru.",
+        },
+        {
+          speaker: "npc",
+          message: "Likely just the infection. Dr. Patel wants you to retest in two weeks.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(noted|will do)",
+            "(can i (book|schedule) the retest now)",
+            "(should i (start|take) (vitamin d|supplements))",
+            "(any (lifestyle|dietary) changes)",
+            "(should i (worry|be concerned) in the meantime)",
+          ],
+          hint_tr:
+            "Aksiyon + endişe: 'Should I start vitamin D?' Türk: 'OK' pasif, somut adım.",
+        },
+        {
+          speaker: "npc",
+          message: "Start a daily D3 — 1000 IU. And rest. We'll know more in two weeks.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks (karen|for the call))",
+            "(noted — d3 daily)",
+            "(should i (avoid|skip) (anything|exercise))",
+            "(if symptoms (return|change) — should i call)",
+            "(appreciate (the warmth|you walking me through))",
+          ],
+          hint_tr:
+            "Plan onayı: 'D3 daily — noted.' Türk: 'OK thanks' düz, tekrar et = anladım.",
+        },
+        {
+          speaker: "npc",
+          message: "Call us anytime. Take care.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you (so much|again))",
+            "(have a (good|nice) (afternoon|one))",
+            "(speak soon)",
+          ],
+          hint_tr:
+            "Kapanış: 'Speak soon.' Türk: 'Bye' düz, doktor ilişkisi devam.",
+        },
+      ],
+    },
+  ],
+};
+
+export const doctorVisit07: BundledLesson = {
+  id: "arc.doctor_visit.7",
+  skill_id: "arc.doctor_visit",
+  index: 7,
+  title: "Sahne 7 — ER: 'I think I'm having an allergic reaction'",
+  description: "Acil servis. Yeni ilaca alerji. Hızlı, net, hayati bilgi.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.arc.doctor_visit.7.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "I think I'm having a reaction",
+      tr_translation: "Sanırım bir reaksiyon yaşıyorum",
+      example: "I think I'm having an allergic reaction to the antibiotics.",
+      example_tr: "Sanırım antibiyotiğe alerjik reaksiyon yaşıyorum.",
+    },
+    {
+      id: "ex.arc.doctor_visit.7.2",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "A&E (ER) triage. Yüzünde kızarıklık, soluk daralıyor. Çabuk net konuş.",
+      npc_role: "ER triage nurse",
+      setting: "A&E triage desk, evening, urgent",
+      turns: [
+        {
+          speaker: "npc",
+          message: "What's going on?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i think i'?m having (a|an) (allergic )?reaction)",
+            "(rash on (my face|my arms))",
+            "(my (throat|lips) (feel|are) (tight|swelling))",
+            "(breathing (is getting|feels) (harder|tight))",
+            "(took (a new antibiotic|amoxicillin) (an hour|two hours) ago)",
+          ],
+          hint_tr:
+            "Hızlı + spesifik: 'Allergic reaction — took amoxicillin an hour ago.' Türk: 'I feel bad' kapalı, somut.",
+        },
+        {
+          speaker: "npc",
+          message: "When did it start?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(about (twenty|thirty) minutes ago)",
+            "(within (an hour|forty minutes) of (taking|the dose))",
+            "(started (slow|with the rash) — then (worsened|spread))",
+            "(progressing fast)",
+            "(i'?ve been (getting|feeling) worse (the last|in the past) (\\d+|fifteen) minutes)",
+          ],
+          hint_tr:
+            "Zaman çizelgesi: 'Twenty minutes ago — progressing fast.' Türk: 'Just now' yetersiz, dakika + trend.",
+        },
+        {
+          speaker: "npc",
+          message: "Any history of allergies?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no known allergies before)",
+            "(this is the first (reaction|time))",
+            "(i (had|got) penicillin once — fine)",
+            "(none on (file|record))",
+            "(no (epi(-| )?pen|history))",
+          ],
+          hint_tr:
+            "Geçmiş: 'No known allergies before — this is the first.' Türk: 'I don't remember' yetersiz, ER'da net.",
+        },
+        {
+          speaker: "npc",
+          message: "Sit down. We're getting you back now. Any breathing trouble — tell me immediately.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay|will do)",
+            "(it'?s getting (harder|tighter))",
+            "(throat (still )?(tightening|tight))",
+            "(can'?t (take a full|breathe deep) breath)",
+            "(rash spreading)",
+          ],
+          hint_tr:
+            "Sürekli rapor: 'It's getting tighter.' Türk: 'I'm fine' bastırma, sürekli güncelle.",
+        },
+        {
+          speaker: "npc",
+          message: "Hold tight. Doctor's coming. We'll give you epinephrine.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay|thank you)",
+            "(thanks for moving (fast|quickly))",
+            "(my (partner|emergency contact) is [a-z]+ — (number|please call) ...)",
+            "(i'?m on antibiotics — (please log|note))",
+            "(do what you need (to do)?)",
+          ],
+          hint_tr:
+            "Acil bilgi: 'My emergency contact is...' Türk: panik, evden kim aranacak söyle.",
+        },
+      ],
+    },
+  ],
+};
+
+export const doctorVisit08: BundledLesson = {
+  id: "arc.doctor_visit.8",
+  skill_id: "arc.doctor_visit",
+  index: 8,
+  title: "Sahne 8 — Follow-up: Dr. Patel ile sonuç değerlendirme",
+  description: "ER sonrası Dr. Patel ile takip. Olanları özetle, ileriyi planla.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.arc.doctor_visit.8.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "to flag in my file",
+      tr_translation: "Dosyaya not düşmek",
+      example: "Could you flag the allergy in my file?",
+      example_tr: "Alerjiyi dosyama not düşer misin?",
+    },
+    {
+      id: "ex.arc.doctor_visit.8.2",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Dr. Patel'in odası, bir hafta sonra. Sakin, hazırlıklı. Geleceği planla.",
+      npc_role: "Dr. Patel (post-ER follow-up, apologetic)",
+      setting: "GP consultation, one week after ER visit",
+      turns: [
+        {
+          speaker: "npc",
+          message: "I'm so sorry about what happened. Are you feeling better?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks for asking|i appreciate it)",
+            "(much better now|fully recovered)",
+            "(still (a bit )?(shaken|tired) but stable)",
+            "(no need to apologize — (it wasn'?t (predictable|on file))|(it happens))",
+            "(i wanted to (talk through|debrief))",
+          ],
+          hint_tr:
+            "Olgun: 'No need to apologize — wasn't predictable.' Türk: 'It's OK' yetersiz, doktoru rahatla.",
+        },
+        {
+          speaker: "npc",
+          message: "Did the ER discharge with a plan?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|they (gave|sent) me a (summary|discharge note))",
+            "(no more penicillin(-| )?based (drugs|antibiotics))",
+            "(epi(-| )?pen prescribed)",
+            "(they (recommend|suggested) allergy testing)",
+            "(i have the (notes|paperwork) (here|with me))",
+          ],
+          hint_tr:
+            "Plan özeti: 'Epi-pen prescribed, allergy testing recommended.' Türk: 'They said something' eksik, somut.",
+        },
+        {
+          speaker: "npc",
+          message: "Good. I'll refer you to allergy specialist. Anything else worrying you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(could you (flag|add) (the allergy|this) (in|to) my file)",
+            "(should i (carry|wear) (a medic alert|something))",
+            "(when can i (resume|return to) (normal life|exercise))",
+            "(what (other|similar) (drugs|medications) should i avoid)",
+            "(i (want to|wanted to) (understand|map out) (triggers))",
+          ],
+          hint_tr:
+            "Sistematik: 'Could you flag this in my file?' Türk: 'OK' pasif, takım çalışması.",
+        },
+        {
+          speaker: "npc",
+          message: "Flagged already. I'll print a list of related drugs to avoid.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|appreciate (it|that))",
+            "(that'?s (proactive|exactly what i needed))",
+            "(should i (share|carry) (the list|a copy))",
+            "(any (lifestyle|food) (triggers|advice))",
+            "(this (helps|reassures me) (a lot))",
+          ],
+          hint_tr:
+            "Minnet: 'That's proactive.' Türk: 'OK thanks' düz, doktor inisiyatifini onurla.",
+        },
+        {
+          speaker: "npc",
+          message: "Come back in a month. Any questions — call. Don't hesitate.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you (so much|dr patel))",
+            "(this whole experience — (i'?ve|i feel) (well taken care of|grateful))",
+            "(i (will|definitely) come back)",
+            "(thanks for (everything|the follow(-| )?through))",
+            "(see you in a month)",
+          ],
+          hint_tr:
+            "Hasta-doktor ilişki: 'Well taken care of.' Türk: 'Thanks bye' düz, ilişki kalitesi.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// ARC 7 — APARTMENT HUNTING LONDON (8 sahne)
+// Recurring NPCs: Daniel (estate agent), Mrs. Pemberton (landlord)
+// ============================================================
+
+export const apartmentHunt01: BundledLesson = {
+  id: "arc.apartment_hunt.1",
+  skill_id: "arc.apartment_hunt",
+  index: 1,
+  title: "Sahne 1 — Daniel'a ilk arama: budget + criteria",
+  description: "Foxtons Shoreditch. Daniel telefonda — bütçeni ve kriterlerini söyle.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.arc.apartment_hunt.1.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "My budget is around",
+      tr_translation: "Bütçem yaklaşık şu",
+      example: "My budget is around £1500 per month.",
+      example_tr: "Bütçem aylık yaklaşık 1500 sterlin.",
+    },
+    {
+      id: "ex.arc.apartment_hunt.1.2",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Daniel ile telefon görüşmesi. Hızlı sorular — net cevaplar lazım.",
+      npc_role: "Daniel (estate agent, efficient)",
+      setting: "Phone call to Foxtons Shoreditch, Tuesday morning",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Foxtons, Daniel speaking. What can I help with?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi|hello) (daniel)",
+            "(i'?m looking (for|to rent) a (one(-| )?bed|studio))",
+            "(starting (next month|in october))",
+            "(could you (walk me through|tell me about)) (your listings|available units)",
+            "(new to (london|the area) — need (a place|something))",
+          ],
+          hint_tr:
+            "Net açılış: 'Looking for a one-bed, starting next month.' Türk: 'I need house' eksik, oda + zaman.",
+        },
+        {
+          speaker: "npc",
+          message: "Sure — budget?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(my budget is around) (£\\d+|fifteen hundred|two thousand))",
+            "(up to (£\\d+|two grand) (pcm|a month))",
+            "(somewhere (between) £\\d+ (and|to) £\\d+)",
+            "(i'?d like to (stay under|cap at) £\\d+)",
+            "(flexible — depends on (location|the place))",
+          ],
+          hint_tr:
+            "Bütçe: 'Up to £1800 PCM.' Türk: 'Not much' belirsiz, sayı + 'PCM' = per calendar month.",
+        },
+        {
+          speaker: "npc",
+          message: "Areas you're looking at?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(shoreditch|hackney|dalston|angel))",
+            "(zone (1|2) (ideally|preferably))",
+            "(close to (liverpool street|the office in shoreditch))",
+            "(commute under (\\d+|twenty) minutes)",
+            "(open to suggestions — i'?m (still mapping|new))",
+          ],
+          hint_tr:
+            "Bölge: 'Zone 1 or 2, near Liverpool Street.' Türk: 'Center' belirsiz, semt + bölge.",
+        },
+        {
+          speaker: "npc",
+          message: "Move-in date?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(first of (next month|october))",
+            "(flexible — anywhere from (the 1st|mid-month))",
+            "(asap if (the place|right))",
+            "(start of [a-z]+)",
+            "(i'?ve got (two|three) weeks before)",
+          ],
+          hint_tr:
+            "Tarih: 'Flexible — first of October ideally.' Türk: 'Soon' belirsiz, ay + esneklik.",
+        },
+        {
+          speaker: "npc",
+          message: "I'll send three options today. Want to view this weekend?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|absolutely)",
+            "(saturday (works|is good))",
+            "(send me the (addresses|listings) first)",
+            "(can we (do back-to-back|line them up))",
+            "(thanks (daniel|in advance))",
+          ],
+          hint_tr:
+            "Plan: 'Can we do back-to-back?' Türk: 'OK' düz, verimli zaman planı.",
+        },
+      ],
+    },
+  ],
+};
+
+export const apartmentHunt02: BundledLesson = {
+  id: "arc.apartment_hunt.2",
+  skill_id: "arc.apartment_hunt",
+  index: 2,
+  title: "Sahne 2 — İlk viewing: 'this isn't quite what I expected'",
+  description: "Daniel ilk daireyi gösteriyor. İlanda yazandan farklı. Diplomatic feedback.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.arc.apartment_hunt.2.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "It's smaller than I expected",
+      tr_translation: "Beklediğimden küçük",
+      example: "Honestly, it's smaller than I expected.",
+      example_tr: "Açıkçası beklediğimden küçük.",
+    },
+    {
+      id: "ex.arc.apartment_hunt.2.2",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Hackney 1-bed. İçeri girdin — küçük, eski. Daniel beklentide. Dürüst + saygılı.",
+      npc_role: "Daniel (estate agent, gauging your reaction)",
+      setting: "First flat viewing, Hackney, Saturday 11am",
+      turns: [
+        {
+          speaker: "npc",
+          message: "So — what do you think? Cosy, right?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|to be honest)(,)? (smaller than i expected)",
+            "(it'?s (compact|tight))",
+            "(the (kitchen|bathroom) is (tinier|cramped))",
+            "(the listing (looked|seemed) (more spacious|bigger))",
+            "(cosy is one word — (cramped|tiny) is another)",
+          ],
+          hint_tr:
+            "Dürüst: 'Cosy is one word — cramped is another.' Türk: 'Not good' kapalı, mizahlı dürüstlük.",
+        },
+        {
+          speaker: "npc",
+          message: "Fair. What's a dealbreaker?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no (natural light|window in the kitchen))",
+            "(no (washer|dishwasher|storage))",
+            "(the (kitchen|bedroom) (size|layout) (kills it|won'?t work))",
+            "(mould|damp|the smell)",
+            "(too far from (the tube|station))",
+          ],
+          hint_tr:
+            "Dealbreaker net: 'No washer — won't work.' Türk: 'I don't like' belirsiz, somut neden.",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. What's must-have for the next ones?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(natural light|south(-| )?facing)",
+            "(washer in (the unit|the flat))",
+            "(real kitchen — (not a kitchenette|enough counter space))",
+            "(under (\\d+|fifteen) minutes (walk )?from (the tube|the station))",
+            "(separate bedroom — (no studios|not open(-| )?plan))",
+          ],
+          hint_tr:
+            "Must-have liste: 'Washer, natural light, separate bedroom.' Türk: 'Bigger' belirsiz, somut özellik.",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. Two more today — let's recalibrate.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks (for taking my notes|for adjusting))",
+            "(let'?s (see them|head to the next))",
+            "(appreciate (the flexibility|you adjusting))",
+            "(let'?s (move|keep going))",
+            "(no offense on this one — (it'?s just not me|it'?s a no))",
+          ],
+          hint_tr:
+            "Plan onayı: 'Let's recalibrate.' Türk: 'OK' düz, agent'la beraber.",
+        },
+      ],
+    },
+  ],
+};
+
+export const apartmentHunt03: BundledLesson = {
+  id: "arc.apartment_hunt.3",
+  skill_id: "arc.apartment_hunt",
+  index: 3,
+  title: "Sahne 3 — Mrs. Pemberton ile tanışma: landlord interview",
+  description: "İlginç daire — landlord Mrs. Pemberton şahsen görüşmek istiyor. Profesyonel + samimi.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.arc.apartment_hunt.3.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I work as",
+      tr_translation: "Şu olarak çalışıyorum",
+      example: "I work as a software engineer at a fintech.",
+      example_tr: "Bir fintech'te yazılım mühendisi olarak çalışıyorum.",
+    },
+    {
+      id: "ex.arc.apartment_hunt.3.2",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Islington 1-bed. Mrs. Pemberton (75, eski tarz) seni süzüyor. Net + kibar.",
+      npc_role: "Mrs. Pemberton (landlord, traditional, careful)",
+      setting: "Islington flat viewing, landlord present, Saturday afternoon",
+      turns: [
+        {
+          speaker: "npc",
+          message: "I like to meet my tenants. Tell me about yourself.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(of course|happy to)",
+            "(i'?m [a-z]+|i moved to london (last month|recently))",
+            "(originally from (turkey|istanbul))",
+            "(i work as (a software engineer|an engineer) at (a fintech|a startup))",
+            "(it'?s nice to meet you)",
+          ],
+          hint_tr:
+            "Profesyonel tanıtım: 'I'm Burak — work as engineer at fintech.' Türk: uzun monolog, 2-3 cümle.",
+        },
+        {
+          speaker: "npc",
+          message: "Do you smoke? Pets?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|absolutely not)",
+            "(neither — no smoke, no pets)",
+            "(i don'?t smoke (and|nor) have pets)",
+            "(very low(-| )?maintenance tenant)",
+            "(quiet — usually working or out)",
+          ],
+          hint_tr:
+            "Kısa + net: 'Neither — no smoke, no pets.' Türk: 'No' yetersiz, ek bilgi.",
+        },
+        {
+          speaker: "npc",
+          message: "How long do you plan to stay?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(at least (a year|twelve months))",
+            "(ideally (long(-| )?term|two years))",
+            "(my (job|contract) is (long(-| )?term|permanent))",
+            "(i'?m (settled|here to stay))",
+            "(no plans to (move on|leave london))",
+          ],
+          hint_tr:
+            "İstikrar: 'Long-term — job is permanent.' Türk: 'I don't know' kapalı, ev sahibi istikrar arar.",
+        },
+        {
+          speaker: "npc",
+          message: "References? Previous landlord?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|i have)",
+            "(employer reference (ready|on the way))",
+            "(my previous landlord (in turkey|will write))",
+            "(i can (provide|send) (within|in) (24 hours|a day))",
+            "(would (an HR letter|payslips) (also work|help))",
+          ],
+          hint_tr:
+            "Hazır: 'Employer reference ready — 24 hours.' Türk: 'I will get' yetersiz, hızlı + somut.",
+        },
+        {
+          speaker: "npc",
+          message: "I appreciate that. Any questions for me?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|i do)",
+            "(how do you (typically|usually) handle (repairs|maintenance))",
+            "(any (rules|preferences) about (guests|deliveries))",
+            "(how (does|do) (rent|the deposit) (work|get paid))",
+            "(could you tell me a bit about (the neighbours|the building))",
+          ],
+          hint_tr:
+            "Karşılıklı: 'How do you handle repairs?' Türk: 'OK' pasif, kira ilişkisini öğren.",
+        },
+        {
+          speaker: "npc",
+          message: "I respond within 48 hours. Deposit is six weeks, capped by law.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(perfect|that works)",
+            "(thanks for (the clarity|being so direct))",
+            "(i (appreciate|like) (the structure|your approach))",
+            "(when would you (decide|let me know))",
+            "(can i (give you|share) the references (now|today))",
+          ],
+          hint_tr:
+            "Sonraki adım: 'When would you decide?' Türk: 'OK' düz, zaman çizelgesi sor.",
+        },
+      ],
+    },
+  ],
+};
+
+export const apartmentHunt04: BundledLesson = {
+  id: "arc.apartment_hunt.4",
+  skill_id: "arc.apartment_hunt",
+  index: 4,
+  title: "Sahne 4 — Daniel: 'rent fiyatı için pazarlık'",
+  description: "Daire iyi ama fiyat 100 fazla. Daniel'a teklif sun. Profesyonel.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.arc.apartment_hunt.4.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "Is there any flexibility on",
+      tr_translation: "Şu konuda esneklik var mı",
+      example: "Is there any flexibility on the rent?",
+      example_tr: "Kirada herhangi bir esneklik var mı?",
+    },
+    {
+      id: "ex.arc.apartment_hunt.4.2",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Daniel ile telefonda. İslington daire ilgini çekti — pazarlık zamanı.",
+      npc_role: "Daniel (estate agent, negotiating with landlord)",
+      setting: "Phone call, after viewing, Monday morning",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Mrs. Pemberton liked you. The flat's yours if you want it.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(great news|thanks)",
+            "(i'?m (interested|keen) — (with one ask|with one thought))",
+            "(is there any flexibility on (the rent|the price))",
+            "(could we (talk about|discuss) (the asking price))",
+            "(it'?s £100 over my (target|budget))",
+          ],
+          hint_tr:
+            "Pazarlık açış: 'Interested — with one ask.' Türk: 'Yes but cheaper' kaba, kibar açıl.",
+        },
+        {
+          speaker: "npc",
+          message: "She's firm on price. What's your case?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(comparable units in the area (go for|list at) £\\d+)",
+            "(i'?d be (a long(-| )?term|reliable) tenant)",
+            "(i could (offer|pay) (3 months upfront|a longer lease))",
+            "(would (she )?(consider|accept) £\\d+)",
+            "(in exchange for (longer term|early move(-| )?in))",
+          ],
+          hint_tr:
+            "Kanıt + teklif: 'Comparable units go for less — I'd be long-term.' Türk: 'Just give discount' belirsiz, somut.",
+        },
+        {
+          speaker: "npc",
+          message: "Three months upfront is interesting. Let me ask.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|appreciate (you taking it back|the effort))",
+            "(let me know (the response|how she lands))",
+            "(i'?m (flexible|open) on (move(-| )?in|some terms))",
+            "(no rush — (just want to find common ground))",
+            "(i can have funds (ready|by friday))",
+          ],
+          hint_tr:
+            "Sabır: 'No rush — common ground.' Türk: 'Hurry' baskı, agent'a saygı.",
+        },
+        {
+          speaker: "npc",
+          message: "Back in an hour.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|sounds good)",
+            "(i'?ll (stand by|wait for the call))",
+            "(speak soon)",
+            "(let me know either way)",
+          ],
+          hint_tr:
+            "Kapanış: 'Speak soon.' Türk: 'OK bye' düz, kısa.",
+        },
+        {
+          speaker: "npc",
+          message: "She agreed — £50 off if you do 3 months upfront. Deal?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(deal|i'?ll take it)",
+            "(works for me)",
+            "(let'?s (lock it in|get the paperwork going))",
+            "(thanks (daniel|for the push))",
+            "(send the (contract|paperwork))",
+          ],
+          hint_tr:
+            "Kapatma: 'Let's lock it in.' Türk: 'OK' düz, kesin onay.",
+        },
+      ],
+    },
+  ],
+};
+
+export const apartmentHunt05: BundledLesson = {
+  id: "arc.apartment_hunt.5",
+  skill_id: "arc.apartment_hunt",
+  index: 5,
+  title: "Sahne 5 — Contract review: 'this clause concerns me'",
+  description: "Sözleşmede şüpheli madde — Daniel'a sor. Net + ihtiyatlı.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.arc.apartment_hunt.5.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "Could we clarify this clause?",
+      tr_translation: "Bu maddeyi netleştirebilir miyiz?",
+      example: "Could we clarify this clause about deposits?",
+      example_tr: "Depozito ile ilgili bu maddeyi netleştirebilir miyiz?",
+    },
+    {
+      id: "ex.arc.apartment_hunt.5.2",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Daniel'ın ofisinde sözleşme. Bir madde kafanı karıştırdı. Net sor.",
+      npc_role: "Daniel (going through contract)",
+      setting: "Foxtons office, contract signing meeting",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Ready to sign? Any questions?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes — actually|before we sign))",
+            "(a few questions)",
+            "(could we (go through|clarify) clause (\\d+|the deposit one))",
+            "(this section about (early termination|repairs) — (worries me|is unclear))",
+            "(can we walk through the (contract|key terms))",
+          ],
+          hint_tr:
+            "İmza önce: 'Before we sign — a few questions.' Türk: 'OK sign' acele, dur + sor.",
+        },
+        {
+          speaker: "npc",
+          message: "Of course — which clause?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(the (early termination|break clause) (says|states))",
+            "(if i (need to|have to) leave early)",
+            "(am i (liable|on the hook) for the (full|remaining) rent)",
+            "(what counts as (notice|valid reason))",
+            "(could you (explain|walk through) (the break terms))",
+          ],
+          hint_tr:
+            "Spesifik: 'If I need to leave early — am I liable?' Türk: 'I don't understand' kapalı, hipotez ver.",
+        },
+        {
+          speaker: "npc",
+          message: "Six months minimum, then two months' notice. Standard.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(noted|got it)",
+            "(could we (write|add) (an exception for) (job loss|relocation))",
+            "(is that (negotiable|adjustable))",
+            "(any (penalty|fee) (beyond|on top of) (the notice))",
+            "(can we (clarify|specify) what counts as (notice))",
+          ],
+          hint_tr:
+            "Sınırı zorla: 'Could we write an exception for relocation?' Türk: 'OK' kabul, opsiyonu sor.",
+        },
+        {
+          speaker: "npc",
+          message: "I can ask, but Mrs. Pemberton is conservative on this.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(understood)",
+            "(could we at least (add|include) (a |the )?cap on (the penalty|liability))",
+            "(if not — (i need to think|i'?ll consult counsel) before signing)",
+            "(walk me through (worst case|the typical scenarios))",
+            "(let'?s (ask|test) the (relocation|emergency) angle)",
+          ],
+          hint_tr:
+            "Sınır koy: 'I need to consult counsel before signing.' Türk: 'OK sign' uzlaşma, sınır kur.",
+        },
+        {
+          speaker: "npc",
+          message: "Fair. Take it home, run it by someone. I'll wait.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks (for the patience|daniel))",
+            "(i'?ll (look at|review) (it overnight|tonight))",
+            "(back to you (tomorrow|by friday))",
+            "(appreciate (not being rushed|the space))",
+            "(would (twenty(-| )?four|forty(-| )?eight) hours work)",
+          ],
+          hint_tr:
+            "Saygı: 'Appreciate not being rushed.' Türk: 'OK bye' düz, profesyonelliği onurla.",
+        },
+      ],
+    },
+  ],
+};
+
+export const apartmentHunt06: BundledLesson = {
+  id: "arc.apartment_hunt.6",
+  skill_id: "arc.apartment_hunt",
+  index: 6,
+  title: "Sahne 6 — Move-in day: 'the boiler is broken'",
+  description: "Taşındın. İlk gece boiler bozuk. Mrs. Pemberton'a mesaj — net, kibar.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.arc.apartment_hunt.6.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "There's an issue with",
+      tr_translation: "Şununla ilgili bir sorun var",
+      example: "There's an issue with the boiler — no hot water.",
+      example_tr: "Boiler ile ilgili bir sorun var — sıcak su yok.",
+    },
+    {
+      id: "ex.arc.apartment_hunt.6.2",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Mrs. Pemberton'a telefon. Boiler çalışmıyor, sıcak su yok. Sakin + somut.",
+      npc_role: "Mrs. Pemberton (landlord, by phone)",
+      setting: "Phone call, evening of move-in day",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hello — is everything alright?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi mrs pemberton)",
+            "(sorry to call (so soon|on day one))",
+            "(there'?s an issue with (the boiler|the heating))",
+            "(no hot water|no heat)",
+            "(i wanted to flag it (right away|immediately))",
+          ],
+          hint_tr:
+            "Sakin açılış: 'Sorry to call on day one — issue with the boiler.' Türk: 'Help broken' panik, sakin + bilgi.",
+        },
+        {
+          speaker: "npc",
+          message: "Oh dear. Did you try the reset button?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|i tried (it|the reset)) (twice|a few times))",
+            "(no luck|same result)",
+            "(the (display|light) (is showing|reads) (\\d+|an error))",
+            "(let me (read|tell you) (the code|the model))",
+            "(no response — completely (off|dead))",
+          ],
+          hint_tr:
+            "Hata kod: 'Tried twice — display shows F22.' Türk: 'It doesn't work' kapalı, kod oku.",
+        },
+        {
+          speaker: "npc",
+          message: "I'll send my engineer tomorrow. 9am okay?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(9am works)",
+            "(thanks (so much|for the quick response))",
+            "(i'?ll (work from home|stay in) tomorrow)",
+            "(could you (text|send) me the engineer'?s (name|number))",
+            "(any (workaround|tips) for tonight)",
+          ],
+          hint_tr:
+            "Plan + bonus: 'Any workaround for tonight?' Türk: 'OK 9am' düz, geceyi çöz.",
+        },
+        {
+          speaker: "npc",
+          message: "Boil a kettle for now. Sorry for the trouble.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no worries|these things happen)",
+            "(thanks for (responding so fast|moving on this))",
+            "(i appreciate (the quick fix|how you handled it))",
+            "(see you (tomorrow morning|at 9))",
+            "(have a (good|nice) (night|evening))",
+          ],
+          hint_tr:
+            "İlişki: 'These things happen — appreciate the quick fix.' Türk: 'OK bye' düz, anlayış göster.",
+        },
+      ],
+    },
+  ],
+};
+
+export const apartmentHunt07: BundledLesson = {
+  id: "arc.apartment_hunt.7",
+  skill_id: "arc.apartment_hunt",
+  index: 7,
+  title: "Sahne 7 — Komşu şikayeti: 'gürültü'",
+  description: "Daireye taşınalı 2 ay. Üst kat şikayet — Türk müziği yüksek. Çöz.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.arc.apartment_hunt.7.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "I had no idea",
+      tr_translation: "Hiç farkında değildim",
+      example: "I had no idea it carried that much.",
+      example_tr: "O kadar duyulduğunun hiç farkında değildim.",
+    },
+    {
+      id: "ex.arc.apartment_hunt.7.2",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Üst kat komşusu kapına geldi — gergin ama nazik. Türk müziği geceleri yüksek.",
+      npc_role: "Upstairs neighbour (tense, polite)",
+      setting: "Doorstep encounter, Saturday morning",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hi — sorry to bother. The music last night was quite loud.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh|i'?m so sorry)",
+            "(i had no idea (it carried|that)) (so much|through the floor))",
+            "(i (didn'?t realize|wasn'?t aware) — my (fault|bad))",
+            "(thanks for (telling me|coming to me first))",
+            "(let me (apologize|make it right))",
+          ],
+          hint_tr:
+            "Hızlı özür: 'I had no idea — thanks for coming to me.' Türk: 'I didn't' defansif, sorumlu + minnet.",
+        },
+        {
+          speaker: "npc",
+          message: "No worries, just — past midnight is rough.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(completely fair)",
+            "(you'?re right — past midnight (was inconsiderate|crossed a line))",
+            "(it won'?t happen again)",
+            "(i'?ll (keep|turn) (it|the volume) (down|low) after (10|eleven))",
+            "(if it happens again — (knock immediately|let me know))",
+          ],
+          hint_tr:
+            "Söz: 'It won't happen again.' Türk: 'OK' yetersiz, somut taahhüt.",
+        },
+        {
+          speaker: "npc",
+          message: "Appreciate that. I work early shifts.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(of course|understood)",
+            "(i'?ll be (mindful|considerate) — especially weeknights)",
+            "(could i (give you|share) my number)",
+            "(send a text — i'?ll fix it immediately)",
+            "(again — thanks for (approaching me|not going to the landlord))",
+          ],
+          hint_tr:
+            "Pratik: 'Could I give you my number?' Türk: 'Sorry' yetersiz, sistem kur.",
+        },
+        {
+          speaker: "npc",
+          message: "That'd actually help. I'm Sam, by the way.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hi sam|nice to (meet|finally meet) you)",
+            "(i'?m [a-z]+ — (sorry it took an awkward intro|wish it was a better start))",
+            "(let me (grab|send) my (number|whatsapp))",
+            "(if you ever need a (cup of sugar|favor) — knock)",
+            "(thanks for (the kindness|being so reasonable))",
+          ],
+          hint_tr:
+            "İlişki kur: 'Wish it was a better start.' Türk: 'OK Sam' düz, ilişki başlat.",
+        },
+      ],
+    },
+  ],
+};
+
+export const apartmentHunt08: BundledLesson = {
+  id: "arc.apartment_hunt.8",
+  skill_id: "arc.apartment_hunt",
+  index: 8,
+  title: "Sahne 8 — Kontrat yenileme: rent artışı",
+  description: "1 yıl sonra. Mrs. Pemberton kira artışı önerdi. Pazarlık.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.arc.apartment_hunt.8.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "I'd like to discuss the renewal",
+      tr_translation: "Yenileme konusunu konuşmak istiyorum",
+      example: "I'd like to discuss the renewal terms.",
+      example_tr: "Yenileme şartlarını konuşmak istiyorum.",
+    },
+    {
+      id: "ex.arc.apartment_hunt.8.2",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Mrs. Pemberton ile tea, 1 yıl sonra. %8 artış istiyor. Sen %3 öneriyorsun.",
+      npc_role: "Mrs. Pemberton (renewal negotiation)",
+      setting: "Mrs. Pemberton's flat, tea, lease renewal discussion",
+      turns: [
+        {
+          speaker: "npc",
+          message: "I'm thinking 8% increase this year. Market is up.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks for (being upfront|the heads(-| )?up))",
+            "(i'?d like to (discuss|push back on) the (renewal|number))",
+            "(8(%| percent) (is steep|feels high))",
+            "(i was thinking (something closer to) (3|4)(%| percent))",
+            "(could we (find a middle ground|land somewhere in between))",
+          ],
+          hint_tr:
+            "Karşı teklif: 'I was thinking 3%.' Türk: 'No too much' agresif, sayı + sebep.",
+        },
+        {
+          speaker: "npc",
+          message: "Inflation's been 7%. I'm not even keeping pace.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i hear (you|that))",
+            "(but rent inflation in (this area|hackney) is closer to (\\d+|four)(%| percent))",
+            "(i'?ve been (a clean|a reliable) tenant)",
+            "(zero (late payments|issues) over the year)",
+            "(turnover costs (you|the landlord) (more than)|finding new tenants is (expensive|risky))",
+          ],
+          hint_tr:
+            "Veri + ilişki: 'Zero late payments — turnover costs you more.' Türk: 'I am good' belirsiz, sayı + risk.",
+        },
+        {
+          speaker: "npc",
+          message: "True. But 3% won't cover my costs.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(let'?s (split|meet in the middle))",
+            "(would (5|5%|five percent) work)",
+            "(\\d+(%)? — and i'?ll (commit|sign) for two years)",
+            "(in exchange (for longer term|for stability) you get (less risk|guaranteed income))",
+            "(no(-| )?break clause for (year two))",
+          ],
+          hint_tr:
+            "Yaratıcı orta: '5% for two years, no break clause.' Türk: 'Yes OK' kabul, ortak kazanç çerçevele.",
+        },
+        {
+          speaker: "npc",
+          message: "Two-year lock at 5%. I can live with that.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(deal|let'?s do it)",
+            "(thank you (for being open|for meeting me halfway))",
+            "(i'?ll (sign|come by) (this week|whenever))",
+            "(this works for both of us)",
+            "(appreciate (the trust|how reasonable you'?ve been))",
+          ],
+          hint_tr:
+            "Kapanış: 'Appreciate how reasonable you've been.' Türk: 'OK done' düz, ilişkiyi besle.",
+        },
+        {
+          speaker: "npc",
+          message: "You've been a wonderful tenant. Glad to keep you.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that means a lot)",
+            "(thank you|thank you mrs pemberton)",
+            "(this has been (a great year|the easiest landlord experience))",
+            "(see you for tea next month)",
+            "(let'?s (toast|cheers))",
+          ],
+          hint_tr:
+            "Sıcak: 'This has been the easiest landlord experience.' Türk: 'Thanks' düz, ilişki tarih.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// ARC 8 — ONLINE DATING (10 sahne)
+// Recurring NPC: Emma (match, develops)
+// ============================================================
+
+export const onlineDating01: BundledLesson = {
+  id: "arc.online_dating.1",
+  skill_id: "arc.online_dating",
+  index: 1,
+  title: "Sahne 1 — İlk mesaj: Hinge match Emma",
+  description: "Emma sağdan kaydı. İlk mesaj — profilinden bir şey yakala.",
+  estimated_minutes: 4,
+  exercises: [
+    {
+      id: "ex.arc.online_dating.1.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      word_or_phrase: "I noticed you mentioned",
+      tr_translation: "Şunu yazdığını fark ettim",
+      example: "I noticed you mentioned Murakami — favorite book?",
+      example_tr: "Murakami yazdığını fark ettim — favori kitap?",
+    },
+    {
+      id: "ex.arc.online_dating.1.2",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Hinge chat. Emma'yla matchledin. Profilinde 'Murakami fan.' Mesajla.",
+      npc_role: "Emma (match, witty, responsive)",
+      setting: "Hinge chat, first messages",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hey|hi)(,)? (emma)",
+            "(i noticed you mentioned (murakami|the bookstore))",
+            "(have you read (kafka on the shore|norwegian wood))",
+            "(quick question — which (book|murakami) (do you recommend|hooked you))",
+            "(what'?s your favorite (line|quote))",
+          ],
+          hint_tr:
+            "Profilden hook: 'Noticed you mentioned Murakami — which book hooked you?' Türk: 'Hi how are you' düz, somut soru.",
+        },
+        {
+          speaker: "npc",
+          message: "Ha — finally someone who's actually read him. Norwegian Wood first, but Kafka stuck.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(same|i'?m with you))",
+            "(kafka is the (one|wild ride))",
+            "(have you (tried|read) (the wind(-| )?up bird|1q84))",
+            "(i (avoided|skipped) norwegian wood for years — (regretted it|loved it))",
+            "(any (other authors|writers) you (lean toward|love))",
+          ],
+          hint_tr:
+            "İade + spesifik: 'Kafka is the wild ride — any other authors?' Türk: 'Me too' düz, sohbeti uzat.",
+        },
+        {
+          speaker: "npc",
+          message: "Ishiguro is up there. You?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(remains of the day) (is a gut punch|undid me)",
+            "(i'?m (more into|leaning toward) (orhan pamuk|chekhov))",
+            "(reading (\\w+ \\w+) (right now|currently))",
+            "(funny you mention — (i just started|i'?m in the middle of) something)",
+            "(do you (read|like) translated (turkish|fiction))",
+          ],
+          hint_tr:
+            "Kişisel + soru: 'I'm into Pamuk — do you read translated Turkish?' Türk: 'I like X' kapalı, soru iade.",
+        },
+        {
+          speaker: "npc",
+          message: "Never tried Pamuk. Worth it?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(absolutely|highly recommend)",
+            "(start with (snow|my name is red))",
+            "(if you liked (ishiguro|murakami)(,)? (pamuk hits similar))",
+            "(want me to (send you|drop) a title)",
+            "(could be (a fun|the right) (next read|book club))",
+          ],
+          hint_tr:
+            "Davet: 'Could be a fun book club.' Türk: 'Yes good' düz, ortak aktivite öner.",
+        },
+      ],
+    },
+  ],
+};
+
+export const onlineDating02: BundledLesson = {
+  id: "arc.online_dating.2",
+  skill_id: "arc.online_dating",
+  index: 2,
+  title: "Sahne 2 — Buluşmaya davet: 'coffee or cocktails?'",
+  description: "Birkaç gün mesajlaştık. Şimdi buluşma teklif et — düşük baskı.",
+  estimated_minutes: 4,
+  exercises: [
+    {
+      id: "ex.arc.online_dating.2.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "Would you want to grab a drink?",
+      tr_translation: "Bir şeyler içmeye gider misin?",
+      example: "Would you want to grab a drink sometime?",
+      example_tr: "Yakında bir şeyler içmeye gider misin?",
+    },
+    {
+      id: "ex.arc.online_dating.2.2",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Emma ile chat 3. gün. Hala mesajlaşma. Buluşma teklif et — kibar + güvenli.",
+      npc_role: "Emma (still chatting, warming up)",
+      setting: "Hinge chat, third day of messaging",
+      turns: [
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|so)(,)? (we'?ve been (texting|chatting) for days)",
+            "(this is (fun|easy) — but)",
+            "(would you (want|be down) to (grab a drink|meet up))",
+            "(coffee|drinks|tea) (this week|sometime soon))",
+            "(your call — happy to (do|try) (a coffee or cocktails))",
+          ],
+          hint_tr:
+            "Düşük baskı: 'Would you be down to grab a drink — your call.' Türk: 'Let's meet' direkt, opsiyon sun.",
+        },
+        {
+          speaker: "npc",
+          message: "Yes — I was wondering when you'd ask. Drinks. When?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(haha|that'?s the energy)",
+            "(thursday|friday) evening)",
+            "(how does (thursday at 7|friday post-work) sound)",
+            "(any (area|neighbourhood) (you (prefer|usually go))",
+            "(i'?ll (suggest|propose) a (place|wine bar))",
+          ],
+          hint_tr:
+            "Liderlik et: 'Thursday at 7 — any area you prefer?' Türk: 'OK when' belirsiz, gün + saat.",
+        },
+        {
+          speaker: "npc",
+          message: "Thursday works. Soho?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(soho works)",
+            "(there'?s (a place|swift) on old compton)",
+            "(i'?ve been wanting to try)",
+            "(want me to (book|reserve))",
+            "(or you (pick|choose) the spot)",
+          ],
+          hint_tr:
+            "Somut: 'Swift on Old Compton — want me to book?' Türk: 'OK Soho' düz, mekan öner.",
+        },
+        {
+          speaker: "npc",
+          message: "You pick. I'm easy.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(deal|booking now)",
+            "(swift|the place) (at 7|sharp))",
+            "(i'?ll (text|send) you (the address|the booking))",
+            "(looking forward (to it|to thursday))",
+            "(if anything (changes|comes up) — let me know)",
+          ],
+          hint_tr:
+            "Plan kilitle: 'Booking now — text you the address.' Türk: 'OK' düz, somut adım.",
+        },
+        {
+          speaker: "npc",
+          message: "Thursday it is.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(can'?t wait)",
+            "(see you thursday)",
+            "(don'?t (cancel on me|ghost))",
+            "(low bar — (just show up|just be you))",
+          ],
+          hint_tr:
+            "Hafif espri: 'Don't ghost.' Türk: 'OK bye' düz, eğlenceli sınır.",
+        },
+      ],
+    },
+  ],
+};
+
+export const onlineDating03: BundledLesson = {
+  id: "arc.online_dating.3",
+  skill_id: "arc.online_dating",
+  index: 3,
+  title: "Sahne 3 — İlk randevu: 'so tell me about yourself'",
+  description: "Swift bar, Soho. Emma karşında. İlk gerçek konuşma — derinleş.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.arc.online_dating.3.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "What's your story?",
+      tr_translation: "Hikayen ne?",
+      example: "What's your story — how'd you end up in London?",
+      example_tr: "Hikayen ne — nasıl Londra'ya geldin?",
+    },
+    {
+      id: "ex.arc.online_dating.3.2",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Swift bar. İki kokteyl. Klişe sorulardan kaç — gerçek konuş.",
+      npc_role: "Emma (in person, observant)",
+      setting: "Swift bar Soho, first date, Thursday 7pm",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Okay — so tell me about yourself. The non-Hinge version.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(non(-| )?hinge — i like that)",
+            "(i'?ll (try|attempt) (something honest))",
+            "(grew up in (istanbul|izmir)|moved here (for) work)",
+            "(too curious for my own good)",
+            "(i (love|chase) (small details|good conversations))",
+          ],
+          hint_tr:
+            "Klişeden kaç: 'I'll try something honest.' Türk: 'I am 28 engineer' özgeçmiş, kişilik göster.",
+        },
+        {
+          speaker: "npc",
+          message: "What does 'too curious' mean?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i (talk to|ask) cab drivers (way too much|every ride))",
+            "(i'?ll (rabbit(-| )?hole|fall into) a topic for (hours|days))",
+            "(strangers (find me|open up))",
+            "(i (read way too much|chase tangents))",
+            "(my (mom|family) calls it (annoying|charming))",
+          ],
+          hint_tr:
+            "Somut hikaye: 'I talk to cab drivers way too much.' Türk: 'I like to ask' belirsiz, anekdot.",
+        },
+        {
+          speaker: "npc",
+          message: "Same. What's the most interesting thing a stranger ever told you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh|let me think)",
+            "(a (driver|barber|grandma) once said)",
+            "(it was a (line|story) about (regret|joy|fear))",
+            "(it stuck with me because)",
+            "(funnier — (turn it on you|your most interesting))",
+          ],
+          hint_tr:
+            "Hikaye anlat: 'A barber once said...' Türk: 'I don't remember' kapanış, bir kez sahnele.",
+        },
+        {
+          speaker: "npc",
+          message: "I love that. Okay — your turn to ask me something.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(deal|let me think))",
+            "(what'?s something (you used to believe|you'?ve changed your mind on))",
+            "(what does (a perfect|your ideal) sunday look like)",
+            "(if you could (have dinner with anyone|live anywhere) — who/where)",
+            "(what'?s a (small|tiny) thing that (makes you irrationally happy))",
+          ],
+          hint_tr:
+            "İyi soru: 'What's something you've changed your mind on?' Türk: 'Where you from' klişe, derin soru.",
+        },
+        {
+          speaker: "npc",
+          message: "Wow — that's a good one. Let me think.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(take your time)",
+            "(i (love|love when) people (actually think|pause))",
+            "(no rush)",
+            "(in the meantime — (cheers|to thursday))",
+          ],
+          hint_tr:
+            "Sabır: 'I love when people actually think.' Türk: 'OK' düz, an'ı koru.",
+        },
+      ],
+    },
+  ],
+};
+
+export const onlineDating04: BundledLesson = {
+  id: "arc.online_dating.4",
+  skill_id: "arc.online_dating",
+  index: 4,
+  title: "Sahne 4 — Awkward moment: 'do you want kids?'",
+  description: "Bir saat sonra. Konu derinleşti. Emma direkt sordu — net + dürüst.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.arc.online_dating.4.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "I'm open to it",
+      tr_translation: "Açığım buna",
+      example: "Honestly, I'm open to it — but not in a rush.",
+      example_tr: "Açıkçası buna açığım — ama acelem yok.",
+    },
+    {
+      id: "ex.arc.online_dating.4.2",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "İkinci kokteyl. Emma direkt sordu. Defansif değil — dürüst + net konuş.",
+      npc_role: "Emma (digging deeper)",
+      setting: "Same bar, late evening, conversation getting real",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Random — but I'm 32. Do you want kids?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(not random at all — fair question)",
+            "(honestly|i'?ll be honest))",
+            "(i'?m open to it)",
+            "(yes — (not (in a rush|tomorrow))|but (later|right person))",
+            "(probably yes — (you))",
+          ],
+          hint_tr:
+            "Açık: 'Open to it — not in a rush.' Türk: 'Maybe' kaçış, net pozisyon.",
+        },
+        {
+          speaker: "npc",
+          message: "I want them. Within the next few years.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(noted|appreciate (the directness|you saying that))",
+            "(that'?s a (clear|honest) timeline)",
+            "(i'?d need to (think|sit with that))",
+            "(it doesn'?t scare me — (just want to (be honest))",
+            "(could (we|i) ask (what brought it up|why now))",
+          ],
+          hint_tr:
+            "Hızlı yargı yok: 'Doesn't scare me — sit with that.' Türk: 'OK' panik, sakin işleme.",
+        },
+        {
+          speaker: "npc",
+          message: "I just don't want to waste my time.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(totally fair)",
+            "(no time(-| )?wasting from my end (either))",
+            "(if we keep (going|seeing each other) — let'?s keep (this honesty|the lines open))",
+            "(i (respect|admire) the (clarity|directness))",
+            "(want to (revisit|circle back) on (date three|after we know each other))",
+          ],
+          hint_tr:
+            "Saygı + sınır: 'Let's keep the lines open.' Türk: 'OK' düz, plan + onur.",
+        },
+        {
+          speaker: "npc",
+          message: "Deal. Okay — lighter topic. Worst date you've been on?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh god|where do i start)",
+            "(there was (a girl|someone) who (talked about her ex|brought her mum))",
+            "(i'?ve had (some|a few))",
+            "(your turn first|i'?ll trade you one)",
+            "(laughing thinking about it)",
+          ],
+          hint_tr:
+            "Geçiş: 'I'll trade you one.' Türk: 'I had bad date' eksik, story-swap.",
+        },
+      ],
+    },
+  ],
+};
+
+export const onlineDating05: BundledLesson = {
+  id: "arc.online_dating.5",
+  skill_id: "arc.online_dating",
+  index: 5,
+  title: "Sahne 5 — İkinci randevu: 'meet my friend group'",
+  description: "İkinci randevu. Emma seni arkadaş grubuna davet etti — sosyal yorgun ama git.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.arc.online_dating.5.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "I'm a bit of an introvert",
+      tr_translation: "Biraz içe dönüğüm",
+      example: "Heads up — I'm a bit of an introvert.",
+      example_tr: "Şunu bil — biraz içe dönüğüm.",
+    },
+    {
+      id: "ex.arc.online_dating.5.2",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Emma'nın arkadaşı 30. yaşı pub'da. 8 kişi. Yeni insanlarla küçük sohbet.",
+      npc_role: "Emma's friend (curious, friendly)",
+      setting: "Pub, friend's 30th birthday, second date context",
+      turns: [
+        {
+          speaker: "npc",
+          message: "So you're the guy! Emma's been talking. Where'd you two meet?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(haha|hopefully (good things|nothing too damning))",
+            "(hinge — the (classic|usual) story)",
+            "(we bonded over (murakami|books))",
+            "(she'?s (the best|been telling me about you))",
+            "(nice to (finally )?(put a face to|meet)) (the name|the group)",
+          ],
+          hint_tr:
+            "Hafif: 'Nothing too damning, I hope.' Türk: 'Yes she told' düz, espri.",
+        },
+        {
+          speaker: "npc",
+          message: "She doesn't usually bring people. So what's your deal?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no pressure or anything)",
+            "(i'?m [a-z]+ — moved (here|to london) (from istanbul) (last year))",
+            "(software engineer at (a fintech))",
+            "(big reader|outdoors|gym))",
+            "(heads up — (i'?m a bit of an introvert|i warm up slow))",
+          ],
+          hint_tr:
+            "Dürüst + hazır: 'Heads up — I warm up slow.' Türk: 'I am quiet' düz, beklenti yönet.",
+        },
+        {
+          speaker: "npc",
+          message: "Cool. Cool. So how long are you two?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(early days|second date actually)",
+            "(too soon to (label|name) it)",
+            "(it'?s going well so far)",
+            "(ask me in (six weeks|a month))",
+            "(you tell me — should i be (worried|excited))",
+          ],
+          hint_tr:
+            "Sınır + espri: 'Ask me in six weeks.' Türk: 'I don't know' kapalı, sınır + oyun.",
+        },
+        {
+          speaker: "npc",
+          message: "Emma's great. Be good to her.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(noted|that'?s the (intention|plan))",
+            "(she'?s (clearly|lucky to have) good friends)",
+            "(appreciate (the (protectiveness|love)))",
+            "(i (intend|hope) to)",
+            "(if i mess up — (you'?ll let me know|come for me))",
+          ],
+          hint_tr:
+            "Sıcak yanıt: 'Appreciate the love.' Türk: 'OK I will' düz, koruyuculuğu onurla.",
+        },
+      ],
+    },
+  ],
+};
+
+export const onlineDating06: BundledLesson = {
+  id: "arc.online_dating.6",
+  skill_id: "arc.online_dating",
+  index: 6,
+  title: "Sahne 6 — DTR konuşması: 'are we exclusive?'",
+  description: "5. randevu. Define the relationship. Açık + dürüst — defansif değil.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.arc.online_dating.6.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "Where do you see this going?",
+      tr_translation: "Bunu nereye gitti görüyorsun?",
+      example: "Where do you see this going, honestly?",
+      example_tr: "Bunu nereye gittiğini görüyorsun, dürüstçe?",
+    },
+    {
+      id: "ex.arc.online_dating.6.2",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Emma'nın evi, akşam yemeği sonrası kanepe. Sessizlik kırıldı.",
+      npc_role: "Emma (DTR conversation initiator)",
+      setting: "Emma's flat, post-dinner, fifth date",
+      turns: [
+        {
+          speaker: "npc",
+          message: "I want to ask you something. Are we — exclusive?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i was (going to|hoping to) bring it up)",
+            "(i (already am|stopped (swiping|seeing others)) (a while ago|after date two))",
+            "(yes — (if you want|that'?s where i'?m at))",
+            "(i (want|would like) us to (be|be exclusive))",
+            "(what (does|do) (you|that mean) for (you))",
+          ],
+          hint_tr:
+            "Açık: 'I stopped swiping after date two.' Türk: 'Maybe' kaçış, somut + niyet.",
+        },
+        {
+          speaker: "npc",
+          message: "Okay. Same. But where do you see this going?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|i'?ll be honest)(,)? (i can see (this|us) (lasting|going somewhere))",
+            "(i'?m not (here for|playing) (anything casual|games))",
+            "(if (i'?m honest|in my gut) — (i (could see|would want)) (the next chapters))",
+            "(it'?s (early|new) but the (instinct|feeling) is (strong|there))",
+            "(where do you see (us|it) going)",
+          ],
+          hint_tr:
+            "Vizyon: 'I can see this lasting — not playing games.' Türk: 'I like you' eksik, gelecek görüş.",
+        },
+        {
+          speaker: "npc",
+          message: "Same. Just — I've been hurt before. I want to be careful.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i hear (you|that))",
+            "(no rush from my side)",
+            "(let'?s (build it|move at your pace))",
+            "(i'?ll (earn|show) (the trust|it))",
+            "(if i ever (slip|miss something) — (say it|tell me directly))",
+          ],
+          hint_tr:
+            "Empati + söz: 'I'll earn the trust.' Türk: 'OK' yetersiz, somut taahhüt.",
+        },
+        {
+          speaker: "npc",
+          message: "Thanks. That's exactly what I needed to hear.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks for (asking|the courage to bring it up))",
+            "(this is (the easiest|how it should feel))",
+            "(i'?m (in|here|all in))",
+            "(so — (boyfriend and girlfriend|official))",
+            "(officially|then it'?s official)",
+          ],
+          hint_tr:
+            "Kapanış: 'So — officially.' Türk: 'OK' düz, an'ı işaretle.",
+        },
+      ],
+    },
+  ],
+};
+
+export const onlineDating07: BundledLesson = {
+  id: "arc.online_dating.7",
+  skill_id: "arc.online_dating",
+  index: 7,
+  title: "Sahne 7 — İlk kavga: 'you've been distant'",
+  description: "3 ay birlikte. Emma 'you've been distant' dedi. Defansif değil, dinle.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.arc.online_dating.7.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "Help me understand",
+      tr_translation: "Anlamama yardım et",
+      example: "Help me understand what you're feeling.",
+      example_tr: "Ne hissettiğini anlamama yardım et.",
+    },
+    {
+      id: "ex.arc.online_dating.7.2",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Emma'nın mutfağında. Gergin. Eleştiriyi dinle. Defansif olma.",
+      npc_role: "Emma (raising a concern, vulnerable)",
+      setting: "Emma's kitchen, three months in, tense moment",
+      turns: [
+        {
+          speaker: "npc",
+          message: "I need to say something. You've felt distant the last two weeks.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(okay|i'?m listening)",
+            "(thanks for (saying|raising) it)",
+            "(help me understand (what you'?re feeling|where you'?re coming from))",
+            "(i'?d rather (hear it|know now))",
+            "(tell me what you (noticed|saw))",
+          ],
+          hint_tr:
+            "Dinle önce: 'Help me understand.' Türk: 'No I'm not' defansif, dinleme moduna geç.",
+        },
+        {
+          speaker: "npc",
+          message: "You've been on your phone, half-listening. It feels like work has taken you.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(you'?re (right|not wrong))",
+            "(i didn'?t realize (how much|it was that visible))",
+            "(work has been (intense|a lot))",
+            "(that'?s no excuse — (you (deserve|notice) my attention))",
+            "(thanks for (naming|calling) it)",
+          ],
+          hint_tr:
+            "Kabul + minnet: 'Thanks for naming it.' Türk: 'I'm busy' bahane, sorumluluk al.",
+        },
+        {
+          speaker: "npc",
+          message: "I don't want to be the work-widow girlfriend.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(and you won'?t be|that'?s the last thing i want)",
+            "(here'?s what i'?ll (change|commit to))",
+            "(phone (down|off) at dinner — every night)",
+            "(weekly date night — non(-| )?negotiable)",
+            "(if i (slip|fall back) — (call me out (sooner)?))",
+          ],
+          hint_tr:
+            "Somut taahhüt: 'Phone off at dinner.' Türk: 'I will be better' belirsiz, spesifik.",
+        },
+        {
+          speaker: "npc",
+          message: "Thank you. That means a lot.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you (for not bottling it))",
+            "(this is (how|why) we'?ll last)",
+            "(i'?m (sorry|in your corner))",
+            "(can i (hug|come here))",
+            "(let'?s (cook|skip the work talk) tonight)",
+          ],
+          hint_tr:
+            "Onarım: 'This is how we'll last.' Türk: 'OK sorry' düz, çiftlik vizyonu.",
+        },
+      ],
+    },
+  ],
+};
+
+export const onlineDating08: BundledLesson = {
+  id: "arc.online_dating.8",
+  skill_id: "arc.online_dating",
+  index: 8,
+  title: "Sahne 8 — Emma'yı Türk arkadaşlarıyla tanıştırma",
+  description: "Türk arkadaş yemeği. Emma ilk kez geliyor. Kültürel köprü.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.arc.online_dating.8.1",
+      type: "vocab_tile",
+      difficulty: 3,
+      word_or_phrase: "She means a lot to me",
+      tr_translation: "O benim için çok önemli",
+      example: "Heads up — she means a lot to me.",
+      example_tr: "Şunu bil — o benim için çok önemli.",
+    },
+    {
+      id: "ex.arc.online_dating.8.2",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Türk arkadaşın evinde. Emma yanında. Sen iki kültürün arasında köprüsün.",
+      npc_role: "Turkish friend (testing, friendly)",
+      setting: "Turkish friend's flat, Saturday dinner, Emma's first visit",
+      turns: [
+        {
+          speaker: "npc",
+          message: "So this is the famous Emma. How long now?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(four months — yeah)",
+            "(she means a lot to me)",
+            "(be (gentle|nice|good))",
+            "(she'?s (the (real )?deal|special))",
+            "(don'?t (embarrass me|scare her))",
+          ],
+          hint_tr:
+            "Önemli ol: 'She means a lot to me.' Türk: 'Just girlfriend' düz, sahiplen.",
+        },
+        {
+          speaker: "npc",
+          message: "Emma, has he taken you to Istanbul yet?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(not yet|in the works)",
+            "(planning (it for|a trip in) (summer|may))",
+            "(we'?re (saving|holding off) for a (longer trip|right time))",
+            "(she'?s never been — (i'?m excited|big plans))",
+            "(emma — you'?re going to love it)",
+          ],
+          hint_tr:
+            "Plan: 'Planning for summer.' Türk: 'No' yetersiz, gelecek + heyecan.",
+        },
+        {
+          speaker: "npc",
+          message: "Emma — what'd you think of the meze?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(emma)(,)? (you'?ll (love|crush) the (haydari|babaganush))",
+            "(try the (cigara böreği|stuffed grape leaves))",
+            "(she'?s (already convinced|a convert))",
+            "(let me (translate|introduce her to) (this))",
+            "(emma — what'?s your (favorite so far))",
+          ],
+          hint_tr:
+            "Köprü ol: 'Let me translate this.' Türk: pasif izleme, aktif aracılık.",
+        },
+        {
+          speaker: "npc",
+          message: "She's a keeper. Good choice.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|i know)",
+            "(she'?s (the best|spoiling me))",
+            "(i (got|am) (lucky|punching above my weight))",
+            "(she (lights up|completes) the table)",
+            "(don'?t (tell her too much|inflate her ego))",
+          ],
+          hint_tr:
+            "Gurur + espri: 'Punching above my weight.' Türk: 'Yes she is good' düz, samimi övgü.",
+        },
+      ],
+    },
+  ],
+};
+
+export const onlineDating09: BundledLesson = {
+  id: "arc.online_dating.9",
+  skill_id: "arc.online_dating",
+  index: 9,
+  title: "Sahne 9 — Birlikte taşınma konuşması",
+  description: "8 ay birlikte. Beraber yaşama konusu. Net + gerçekçi konuş.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.arc.online_dating.9.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "I think we're ready",
+      tr_translation: "Sanırım hazırız",
+      example: "Honestly, I think we're ready to move in.",
+      example_tr: "Açıkçası sanırım taşınmaya hazırız.",
+    },
+    {
+      id: "ex.arc.online_dating.9.2",
+      type: "roleplay_chat",
+      difficulty: 5,
+      scenario_description:
+        "Pazar sabahı kahve. Emma kira yenileme zamanı dedi — fırsat.",
+      npc_role: "Emma (raising the move-in possibility)",
+      setting: "Sunday morning coffee at Emma's, lease renewal discussion",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Lease renewal's coming. I have to decide soon.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(noted)",
+            "(can we (talk|think) about (this together|something))",
+            "(what if (we|i moved in))",
+            "(i think (we'?re ready|it'?s time))",
+            "(would you (want to|consider) living together)",
+          ],
+          hint_tr:
+            "Açık: 'I think we're ready — would you consider living together?' Türk: 'Maybe' kaçış, net soru.",
+        },
+        {
+          speaker: "npc",
+          message: "I've been thinking about it too. But honestly — terrified.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(same|i hear (you|that))",
+            "(it'?s (a huge|a real) step)",
+            "(let'?s (talk through|map out) (the (worries|practical))",
+            "(what (specifically )?(scares you|the worry))",
+            "(no rush — (let'?s think|just (test|float) it))",
+          ],
+          hint_tr:
+            "Empati + sondaj: 'What specifically scares you?' Türk: 'Why scared' agresif, kibar derinleş.",
+        },
+        {
+          speaker: "npc",
+          message: "What if it ruins what we have? Living with someone is different.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fair (worry|fear))",
+            "(let'?s (set|build) (a few|some) (ground rules|safety nets))",
+            "(separate (closets|workspaces))",
+            "(weekly (check(-| )?in|temperature check))",
+            "(if it doesn'?t work — (we (revisit|reassess))(,)? (no shame))",
+          ],
+          hint_tr:
+            "Yapı: 'Let's build safety nets.' Türk: 'It will be fine' tatmin, somut plan.",
+        },
+        {
+          speaker: "npc",
+          message: "What about logistics? Rent? Chores?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(let'?s (split|share) (rent|costs) (proportionally|fairly))",
+            "(chores — (rotation|whoever (sees|notices) it))",
+            "(separate (accounts|cards) for (now|the first year))",
+            "(let'?s (write|put) (it down|the agreement) on paper)",
+            "(we (revisit|review) in (six months|three months))",
+          ],
+          hint_tr:
+            "Pratik: 'Let's write it down.' Türk: 'We will see' belirsiz, somut sistem.",
+        },
+        {
+          speaker: "npc",
+          message: "Okay. Let's do this — but carefully.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(carefully|together)",
+            "(let'?s (start (looking|searching)|find a place))",
+            "(this (feels|is) (right|the next chapter))",
+            "(i (love|adore) you)",
+            "(let'?s (make this work|do it right))",
+          ],
+          hint_tr:
+            "Kapanış: 'Together — let's do it right.' Türk: 'OK' düz, an'ı işaretle.",
+        },
+      ],
+    },
+  ],
+};
+
+export const onlineDating10: BundledLesson = {
+  id: "arc.online_dating.10",
+  skill_id: "arc.online_dating",
+  index: 10,
+  title: "Sahne 10 — 1. yıldönümü: gerçek konuşma",
+  description: "1 yıl. Romantik akşam. Geriye bak, ileriye bak. Olgun + samimi.",
+  estimated_minutes: 6,
+  exercises: [
+    {
+      id: "ex.arc.online_dating.10.1",
+      type: "vocab_tile",
+      difficulty: 4,
+      word_or_phrase: "I'm grateful for",
+      tr_translation: "Şuna minnettarım",
+      example: "I'm grateful for every day with you.",
+      example_tr: "Seninle geçen her güne minnettarım.",
+    },
+    {
+      id: "ex.arc.online_dating.10.2",
+      type: "roleplay_chat",
+      difficulty: 4,
+      scenario_description:
+        "Restoran. 1. yıldönümü. Şarap. Geriye + ileriye dönüş.",
+      npc_role: "Emma (one-year anniversary, reflective)",
+      setting: "Anniversary dinner, candlelit restaurant",
+      turns: [
+        {
+          speaker: "npc",
+          message: "One year. Can you believe it?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|honestly no)",
+            "(feels like (six months|three))",
+            "(and (also|somehow) (a lifetime|forever))",
+            "(i (remember|still see) (that first night at swift))",
+            "(cheers — (to us|to year one))",
+          ],
+          hint_tr:
+            "Zaman duygusu: 'Feels like six months — and a lifetime.' Türk: 'One year fast' düz, paradoks.",
+        },
+        {
+          speaker: "npc",
+          message: "What's the best part of this year?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|that'?s hard))",
+            "(the (small stuff|tuesday nights))",
+            "(when you (laugh at|tolerate) my (jokes|chaos))",
+            "(istanbul (trip|with my family))",
+            "(every (sunday morning|coffee))",
+          ],
+          hint_tr:
+            "Somut anlar: 'Tuesday nights — small stuff.' Türk: 'Everything' yetersiz, küçük anlar.",
+        },
+        {
+          speaker: "npc",
+          message: "I'm grateful. I really am.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(same|me too)",
+            "(i'?m grateful for (you|this))",
+            "(this year (changed|made) (me|my life))",
+            "(you (taught|showed) me (how to (slow down|trust)))",
+            "(here'?s to year two)",
+          ],
+          hint_tr:
+            "Karşılık: 'You taught me how to slow down.' Türk: 'I love you' yetersiz, dönüşümü adlandır.",
+        },
+        {
+          speaker: "npc",
+          message: "What do you want from year two?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(more (of this|tuesday nights))",
+            "(a trip (somewhere we'?ve never been))",
+            "(less (work stress|phone))",
+            "(maybe (start (looking at|talking about)) (the bigger picture))",
+            "(everything you do — and a bit more (us))",
+          ],
+          hint_tr:
+            "Vizyon: 'Start talking about the bigger picture.' Türk: 'More love' düz, somut hedef.",
+        },
+        {
+          speaker: "npc",
+          message: "Bigger picture sounds good. Let's keep going.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(let'?s)",
+            "(i'?m (here|in) for (all of it))",
+            "(to (year two|chapter two))",
+            "(to (us|the next one))",
+            "(i love you)",
+          ],
+          hint_tr:
+            "Onay: 'I'm here for all of it.' Türk: 'Cheers' düz, taahhüt + duygu.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// EXPORT — devam edecek.
 // ============================================================
 
 export const storyArcV2Lessons: BundledLesson[] = [
