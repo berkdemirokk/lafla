@@ -106,11 +106,14 @@ export default function Splash() {
     opacity: taglineOpacity.value,
     transform: [{ translateY: taglineFloat.value * -2 }],
   }));
-  // Halo glow ring — sadece animated shadow opacity + radius. Wordmark'ın
-  // arkasında "ışık halesi" hissi yaratır. Pink primary tinted, çok subtle.
+  // Halo glow ring — Apple Watch face glow tarzı SUBTLE pulsation.
+  // 2026-05-23 ilk versiyon shadowRadius 60 + opacity 0.7 yapıyordu —
+  // "neon tabela" hissi, brand'a uygun değildi. Şimdi yarı: opacity max
+  // 0.22, scale 0.97→1.05 (sınırlı breath). Cookie Clicker değil,
+  // Headspace meditation halo.
   const haloStyle = useAnimatedStyle(() => ({
-    opacity: 0.35 + haloPulse.value * 0.35,
-    transform: [{ scale: 0.95 + haloPulse.value * 0.12 }],
+    opacity: 0.10 + haloPulse.value * 0.12,
+    transform: [{ scale: 0.97 + haloPulse.value * 0.08 }],
   }));
 
   useEffect(() => {
@@ -195,22 +198,21 @@ const styles = StyleSheet.create({
   center: {
     alignItems: "center",
   },
-  // Halo glow ring — wordmark'ın arkasında pulsing 3D depth katmanı.
-  // Pembe radial glow hissi yaratır (gerçek radial gradient yok ama büyük
-  // shadow radius ile illüzyon güçlü). absolutely positioned wordmark'ın
-  // ortasında, zIndex aşağıda.
+  // Halo glow ring — Apple Watch face glow tarzı. 180px (önceden 280),
+  // shadowRadius 28 (önceden 60), opacity animated 0.10-0.22 (önceden
+  // 0.35-0.70). Premium minimal pulse, "neon tabela" değil.
   halo: {
     position: "absolute",
-    width: 280,
-    height: 280,
-    borderRadius: 140,
+    width: 180,
+    height: 180,
+    borderRadius: 90,
     backgroundColor: tokens.brand.primarySoft,
     shadowColor: tokens.brand.primary,
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.9,
-    shadowRadius: 60,
-    elevation: 16,
-    top: -60,
+    shadowOpacity: 0.55,
+    shadowRadius: 28,
+    elevation: 10,
+    top: -20,
   },
   wordmark: {
     fontSize: 72,

@@ -247,12 +247,18 @@ export default function Today() {
     ],
   }));
 
+  // Streak chip — Apple Activity ring achievement tarzı subtle pop.
+  // 2026-05-23 ilk versiyon 360° rotateY ile flip ediyordu — kullanıcı
+  // "çıkartma gibi durmasın" dedi, çocuksu/Duolingo XP rozeti hissi
+  // veriyordu. Şimdi: spring pop scale (0.85 → 1) + heartbeat pulse.
+  // Tactile, premium, oyun değil.
   const streakStyle = useAnimatedStyle(() => ({
     transform: [
-      { perspective: 600 },
-      { rotateY: `${streakFlip.value * 360}deg` },
-      { scale: 1 + streakPulse.value * 0.12 },
+      // streakFlip 0 → 1 boyunca scale 0.85 → 1 (spring pop)
+      // Sonra heartbeat pulse normal çalışır.
+      { scale: (0.85 + streakFlip.value * 0.15) * (1 + streakPulse.value * 0.08) },
     ],
+    opacity: 0.4 + streakFlip.value * 0.6, // hafif fade-in
   }));
   // NOTE: streak flip useEffect is declared LATER (after `streak` const)
   // — see ~line 290 below. JS hoisting doesn't help here because `streak`
@@ -410,6 +416,12 @@ export default function Today() {
               entering={FadeInDown.duration(420)}
               style={[styles.heroFrame, heroGlowStyle]}
             >
+              {/* Premium inner highlight — 1px üst kenarda ışık yansıması.
+                  Apple buton bevel'ı tarzı, tactile depth. */}
+              <View
+                style={styles.heroInnerHighlight}
+                pointerEvents="none"
+              />
               <View style={styles.heroBackdrop} pointerEvents="none">
                 {/* Parallax: bottom pink waveform scrolls -30px over 200px */}
                 <Animated.View
@@ -698,23 +710,41 @@ const styles = StyleSheet.create({
 
   // PLAN HERO — primary pink halo with dual-waveform backdrop.
   //
+  // 2026-05-23 premium pass:
+  // - borderWidth 2 → 1.5 (Apple HIG: hairline borders feel premium)
+  // - borderColor primary → softer primary mix (60% opacity equivalent)
+  // - shadowOffset 0,0 → 0,4 (subtle drop = "lifted" feel, Apple Music card)
+  // - shadowOpacity 0.55 → 0.45 (less aggressive)
+  // - shadowRadius 22 → 18 (tighter, focused glow)
+  //
   // The frame owns: backgroundColor, borderRadius, border, shadow (animated),
   // and overflow:hidden so the backdrop clips to the rounded corners.
   // The Pressable inside is transparent and owns padding + content layout.
   heroFrame: {
     borderRadius: tokens.radius.lg,
     backgroundColor: tokens.brand.primarySoft,
-    borderWidth: 2,
+    borderWidth: 1.5,
     borderColor: tokens.brand.primary,
     shadowColor: tokens.brand.primary,
-    shadowOffset: { width: 0, height: 0 },
-    // shadowOpacity + shadowRadius are animated; defaults match the
-    // mid-cycle so the first render before the loop kicks in still glows.
-    shadowOpacity: 0.55,
-    shadowRadius: 22,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.45,
+    shadowRadius: 18,
     elevation: 10,
     overflow: "hidden",
     position: "relative",
+  },
+  // Inner highlight — kart üst kenarında 1px semi-transparent beyaz hat.
+  // iOS button bevel hissi, kartın "yukarıdan ışık alıyor" izlenimi.
+  // Reklamı yok ama tactile premium fark yaratır (Linear / Notion'dan).
+  heroInnerHighlight: {
+    position: "absolute",
+    top: 0,
+    left: 1,
+    right: 1,
+    height: 1,
+    backgroundColor: "rgba(255, 255, 255, 0.18)",
+    borderTopLeftRadius: tokens.radius.lg,
+    borderTopRightRadius: tokens.radius.lg,
   },
   heroBackdrop: {
     ...StyleSheet.absoluteFillObject,
@@ -770,13 +800,15 @@ const styles = StyleSheet.create({
     borderColor: tokens.brand.tertiary,
     alignItems: "center",
     gap: 6,
-    // Cyan halo — same heroPulse driver, different tint. Reward feel
-    // continues even after the plan is done.
+    // Premium: cyan halo + lifted drop shadow + tighter radius.
+    // shadowOffset 0,4 ile "havada lebileyen" hissi.
     shadowColor: tokens.brand.tertiary,
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4,
-    shadowRadius: 16,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.35,
+    shadowRadius: 14,
     elevation: 8,
+    overflow: "hidden",
+    position: "relative",
   },
   planDoneEmoji: { fontSize: 36 },
   planDoneTitle: {
