@@ -1,0 +1,68 @@
+name: ASC Metadata Sync
+
+# 2026-05-23 — Manuel dispatch only. Auto-trigger asla — yanlışlıkla ASC'ye
+# yanlış metadata pushlamak hard-to-undo. Sen workflow_dispatch tıklayınca
+# çalışır, secrets'taki ASC API key'i kullanır.
+#
+# NE YAPAR:
+#   - apps/mobile/scripts/asc-sync.ts'i Node ile çağırır
+#   - Dry-run (default) veya --apply (input'la)
+#
+# NE YAPMAZ:
+#   - Submit for Review (script'te de yok, asla)
+#   - IAP create / pricing
+#   - Screenshot upload (henüz)
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "Apply changes? false=dry-run print only, true=push to ASC"
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Install workspace deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Write App Store Connect API key
+        run: |
+          API_KEY_PATH="$RUNNER_TEMP/AuthKey_${{ secrets.APP_STORE_CONNECT_KEY_ID }}.p8"
+          cat > "$API_KEY_PATH" <<'EOF'
+          ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+          EOF
+          echo "ASC_PRIVATE_KEY_PATH=$API_KEY_PATH" >> "$GITHUB_ENV"
+
+      - name: Run asc-sync (dry-run)
+        if: ${{ inputs.apply == false }}
+        working-directory: apps/mobile
+        env:
+          ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        run: pnpm exec tsx scripts/asc-sync.ts
+
+      - name: Run asc-sync (apply)
+        if: ${{ inputs.apply == true }}
+        working-directory: apps/mobile
+        env:
+          ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        run: pnpm exec tsx scripts/asc-sync.ts -- --apply
