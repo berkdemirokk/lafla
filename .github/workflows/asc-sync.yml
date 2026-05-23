@@ -57,6 +57,12 @@ jobs:
         env:
           ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          DEMO_ACCOUNT_EMAIL: ${{ secrets.DEMO_ACCOUNT_EMAIL }}
+          DEMO_ACCOUNT_PASSWORD: ${{ secrets.DEMO_ACCOUNT_PASSWORD }}
+          CONTACT_FIRST_NAME: ${{ secrets.CONTACT_FIRST_NAME }}
+          CONTACT_LAST_NAME: ${{ secrets.CONTACT_LAST_NAME }}
+          CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
+          CONTACT_PHONE: ${{ secrets.CONTACT_PHONE }}
         run: pnpm exec tsx scripts/asc-sync.ts
 
       - name: Run asc-sync (apply)
@@ -65,4 +71,10 @@ jobs:
         env:
           ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          DEMO_ACCOUNT_EMAIL: ${{ secrets.DEMO_ACCOUNT_EMAIL }}
+          DEMO_ACCOUNT_PASSWORD: ${{ secrets.DEMO_ACCOUNT_PASSWORD }}
+          CONTACT_FIRST_NAME: ${{ secrets.CONTACT_FIRST_NAME }}
+          CONTACT_LAST_NAME: ${{ secrets.CONTACT_LAST_NAME }}
+          CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
+          CONTACT_PHONE: ${{ secrets.CONTACT_PHONE }}
         run: pnpm exec tsx scripts/asc-sync.ts -- --apply

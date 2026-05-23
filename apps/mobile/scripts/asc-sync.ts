@@ -54,7 +54,7 @@ const METADATA = {
   bundleId: "com.lafla.app",
   // Apple "App Store Connect" version string (CFBundleShortVersionString).
   // app.json'daki version ile aynı olmalı.
-  appStoreVersion: "0.9.1",
+  appStoreVersion: "0.9.4",
 
   // tr-TR primary
   tr: {
@@ -428,6 +428,258 @@ async function patchVersionWhatsNew(
   }
 }
 
+// ─────────────────────────────────────────────────────────────────
+// App Store Review Detail — demo account + contact + reviewer notes
+// ─────────────────────────────────────────────────────────────────
+
+const REVIEW_NOTES = [
+  "Lafla is a Turkish-first English speaking-practice app. Demo credentials in the Demo Account fields work end-to-end (Speak+ entitlement granted via RevenueCat).",
+  "",
+  "Once signed in, you land on the Akış (feed) — a TikTok-style vertical swipe of full-screen scene cards. Each card belongs to one of seven modes: Flört (dating), İş (work), Bar, Havaalanı (airport), Günlük (daily), Sipariş (ordering), IELTS Speaking.",
+  "",
+  "Tap 'Konuş ▶' on any card → scenario flow (SETUP → DRILL → SCENE → VERDICT). Exercise types in mix: vocab_tile, translate, fill_blank, word_order, spot_mistake, pronounce_phrase, speech_shadowing, roleplay_chat, recap_quiz, listen_and_transcribe.",
+  "",
+  "Two iOS permissions (Microphone, Speech Recognition) are requested lazily — only when the user first taps a voice exercise. Denying either still leaves the rest of the app usable; we present a graceful 'go to Settings' prompt.",
+  "",
+  "Two In-App Purchases ship: lafla.premium.monthly (₺99/mo) and lafla.premium.yearly (₺999/yr) — both via RevenueCat. Restore Purchases is reachable from both the paywall and Settings.",
+  "",
+  "App Tracking Transparency (ATT) prompt is shown after onboarding completes (Apple HIG: prompt at first meaningful value moment, not on launch). AdMob initialization is sequenced after ATT response. PostHog analytics are gated by ATT — denied users get zero tracking.",
+  "",
+  "Side-rail practice modes for silent environments:",
+  "- Phoneme Drill (/phoneme-drill): targeted pronunciation practice for sounds Turkish ears confuse (th, æ, v/w)",
+  "- Listen & Transcribe (/listen-mode): hear a sentence, type what you heard",
+  "- Voice Journal (/voice-journal): up to 2-min audio entries stored LOCALLY only (no cloud sync)",
+  "",
+  "Account deletion: Settings → Hesabımı Sil → type 'SİL' → immediate deletion via Supabase edge function. Apple Sign-In refresh_token is revoked server-side (POST appleid.apple.com/auth/revoke) before auth.users deletion. No 30-day grace.",
+  "",
+  "No runtime LLM. All NPC dialogue and feedback is pre-authored TypeScript; runtime 'smart conversation' uses a deterministic mini-Markov for bridge phrases (lib/npc-bridge.ts), not an external API. Voice Journal audio never leaves the device.",
+  "",
+  "IELTS Band Estimator displays a clear in-app disclaimer that it is Lafla's internal scoring model, NOT an official IELTS score (not affiliated with British Council/IDP/Cambridge English Assessment).",
+  "",
+  "Questions during review: hello@lafla.app (Istanbul business hours, <4h response).",
+].join("\n");
+
+interface ReviewDetailAttrs {
+  contactFirstName?: string;
+  contactLastName?: string;
+  contactPhone?: string;
+  contactEmail?: string;
+  demoAccountName?: string;
+  demoAccountPassword?: string;
+  demoAccountRequired?: boolean;
+  notes?: string;
+}
+
+async function getReviewDetailId(
+  token: string,
+  versionId: string,
+): Promise<string | null> {
+  try {
+    const res = (await ascFetch(
+      token,
+      `/appStoreVersions/${versionId}/appStoreReviewDetail`,
+    )) as { data?: Resource };
+    return res.data?.id ?? null;
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    // 404 = doesn't exist yet
+    if (msg.includes("404") || msg.includes("Not Found")) return null;
+    throw err;
+  }
+}
+
+async function createReviewDetail(
+  token: string,
+  versionId: string,
+  attrs: ReviewDetailAttrs,
+  dryRun: boolean,
+): Promise<string> {
+  if (dryRun) {
+    console.log(
+      `  [dry-run] POST appStoreReviewDetail for version ${versionId} →`,
+      Object.keys(attrs),
+    );
+    return "dry-run-id";
+  }
+  const res = (await ascFetch(token, `/appStoreReviewDetails`, {
+    method: "POST",
+    body: JSON.stringify({
+      data: {
+        type: "appStoreReviewDetails",
+        attributes: attrs,
+        relationships: {
+          appStoreVersion: {
+            data: { type: "appStoreVersions", id: versionId },
+          },
+        },
+      },
+    }),
+  })) as { data: Resource };
+  console.log(`  ✅ CREATE appStoreReviewDetail ${res.data.id}`);
+  return res.data.id;
+}
+
+async function patchReviewDetail(
+  token: string,
+  reviewDetailId: string,
+  attrs: ReviewDetailAttrs,
+  dryRun: boolean,
+): Promise<void> {
+  if (dryRun) {
+    console.log(
+      `  [dry-run] PATCH appStoreReviewDetail ${reviewDetailId} →`,
+      Object.keys(attrs),
+    );
+    return;
+  }
+  await ascFetch(token, `/appStoreReviewDetails/${reviewDetailId}`, {
+    method: "PATCH",
+    body: JSON.stringify({
+      data: {
+        id: reviewDetailId,
+        type: "appStoreReviewDetails",
+        attributes: attrs,
+      },
+    }),
+  });
+  console.log(
+    `  ✅ PATCH appStoreReviewDetail ${reviewDetailId} → ${Object.keys(attrs).join(", ")}`,
+  );
+}
+
+async function syncReviewDetail(
+  token: string,
+  versionId: string,
+  dryRun: boolean,
+): Promise<void> {
+  const demoEmail =
+    process.env.DEMO_ACCOUNT_EMAIL ?? "apple_reviewer_2026_05@lafla.app";
+  const demoPassword = process.env.DEMO_ACCOUNT_PASSWORD;
+  const contactFirst = process.env.CONTACT_FIRST_NAME ?? "Berk";
+  const contactLast = process.env.CONTACT_LAST_NAME ?? "Demirok";
+  const contactEmail = process.env.CONTACT_EMAIL ?? "hello@lafla.app";
+  const contactPhone = process.env.CONTACT_PHONE;
+
+  const attrs: ReviewDetailAttrs = {
+    contactFirstName: contactFirst,
+    contactLastName: contactLast,
+    contactEmail,
+    demoAccountName: demoEmail,
+    demoAccountRequired: true,
+    notes: REVIEW_NOTES,
+  };
+
+  if (contactPhone) attrs.contactPhone = contactPhone;
+  if (demoPassword) attrs.demoAccountPassword = demoPassword;
+
+  console.log(`\n[review-detail] Sync App Store Review Information`);
+  if (!demoPassword) {
+    console.log(
+      "  ⚠️  DEMO_ACCOUNT_PASSWORD env yok — demoAccountPassword skipped (sen ASC web UI'da elden gir)",
+    );
+  }
+  if (!contactPhone) {
+    console.log(
+      "  ⚠️  CONTACT_PHONE env yok — contactPhone skipped (sen ASC web UI'da elden gir)",
+    );
+  }
+
+  const existingId = await getReviewDetailId(token, versionId);
+  if (existingId) {
+    await patchReviewDetail(token, existingId, attrs, dryRun);
+  } else {
+    await createReviewDetail(token, versionId, attrs, dryRun);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────
+// Build attach — find latest TestFlight build, attach to version
+// ─────────────────────────────────────────────────────────────────
+
+interface BuildIncluded {
+  type: string;
+  id: string;
+  attributes?: { version?: string };
+}
+
+async function findLatestBuildForVersion(
+  token: string,
+  appId: string,
+  appVersion: string,
+): Promise<string | null> {
+  // Latest 20 builds sorted by upload date desc, include preReleaseVersion
+  // (which has the CFBundleShortVersionString — e.g. "0.9.4")
+  const res = (await ascFetch(
+    token,
+    `/builds?filter[app]=${appId}&sort=-uploadedDate&limit=20&include=preReleaseVersion`,
+  )) as { data: Resource[]; included?: BuildIncluded[] };
+
+  for (const build of res.data) {
+    // Build's preReleaseVersion relationship → preReleaseVersion.attributes.version
+    const preRel = build.relationships?.preReleaseVersion as
+      | { data?: { id: string } }
+      | undefined;
+    const preReleaseId = preRel?.data?.id;
+    if (!preReleaseId) continue;
+    const preRes = res.included?.find(
+      (r) => r.type === "preReleaseVersions" && r.id === preReleaseId,
+    );
+    const buildAppVersion = String(preRes?.attributes?.version ?? "");
+    if (buildAppVersion === appVersion) {
+      const buildNumber = String(build.attributes?.version ?? "");
+      console.log(`  Found: build ${buildNumber} (app version ${buildAppVersion}) id=${build.id}`);
+      return build.id;
+    }
+  }
+  return null;
+}
+
+async function attachBuildToVersion(
+  token: string,
+  versionId: string,
+  buildId: string,
+  dryRun: boolean,
+): Promise<void> {
+  if (dryRun) {
+    console.log(
+      `  [dry-run] PATCH version ${versionId} relationships/build → ${buildId}`,
+    );
+    return;
+  }
+  await ascFetch(
+    token,
+    `/appStoreVersions/${versionId}/relationships/build`,
+    {
+      method: "PATCH",
+      body: JSON.stringify({
+        data: { type: "builds", id: buildId },
+      }),
+    },
+  );
+  console.log(`  ✅ Attached build ${buildId} to version ${versionId}`);
+}
+
+async function syncBuildAttach(
+  token: string,
+  appId: string,
+  versionId: string,
+  dryRun: boolean,
+): Promise<void> {
+  console.log(`\n[build-attach] Looking for build matching ${METADATA.appStoreVersion}…`);
+  const buildId = await findLatestBuildForVersion(
+    token,
+    appId,
+    METADATA.appStoreVersion,
+  );
+  if (!buildId) {
+    console.log(
+      `  ⚠️  No build found with version ${METADATA.appStoreVersion}. Skip — sen ASC web UI'dan Build ekle.`,
+    );
+    return;
+  }
+  await attachBuildToVersion(token, versionId, buildId, dryRun);
+}
+
 async function main(): Promise<void> {
   const apply = process.argv.includes("--apply");
   const dryRun = !apply;
@@ -503,6 +755,12 @@ async function main(): Promise<void> {
     }
   }
 
+  // ─── App Store Review Detail (demo account + contact + notes) ───
+  await syncReviewDetail(token, versionId, dryRun);
+
+  // ─── Build attach (latest TestFlight build matching app.json version) ───
+  await syncBuildAttach(token, appId, versionId, dryRun);
+
   console.log(
     `\n[asc-sync] ${dryRun ? "Dry-run complete. Add --apply to push." : "Done."}`,
   );
@@ -512,6 +770,7 @@ async function main(): Promise<void> {
   console.log("  • IAP product create + pricing — ASC web UI (financial)");
   console.log("  • Privacy Nutrition Label — Apple API'den settable değil");
   console.log("  • Age Rating questionnaire — aynı");
+  console.log("  • DSA Trader labels — sensitive PII, sen elden gir");
   console.log("  • Screenshot upload — bu script'in v2 hedefi");
   console.log("  • Submit for Review — irreversible, sen tıklarsın");
 }
