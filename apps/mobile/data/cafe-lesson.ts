@@ -600,6 +600,59 @@ export const cafeLesson_1_3: BundledLesson = {
         },
         {
           speaker: "npc",
+          message: "Want an extra shot in there? Just a dollar more.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|sure|yeah)(,)? (an |one )?extra shot( please)?",
+            "(yes|sure)(,)? (please|go ahead|why not)",
+            "(no thanks|i'?m good|not today|maybe next time)",
+            "(could|can) you make it a double( please)?",
+            "(no)(,)? (just|only) (the )?one shot( is fine)?",
+            "(actually )?yes,? (please|that sounds good)",
+            "extra shot,? please",
+          ],
+          hint_tr:
+            "Ekstra shot iste ya da reddet: 'Sure, an extra shot, please' veya 'No thanks, I'm good'. Türk öğrenci espresso'yu küçük sanır — bir shot zaten güçlü, ikincisi opsiyonel.",
+        },
+        {
+          speaker: "npc",
+          message: "Cool. Hot or iced? It's pretty warm out today.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(hot|iced)( please)?",
+            "i('ll|'d like)? (have |take )?(it )?(hot|iced)",
+            "(make it |just |let'?s do )?(hot|iced)",
+            "(hot|iced) sounds (good|great|perfect)",
+            "(definitely |yeah )?iced,? (please|thanks)",
+            "hot,? (please|thank you)",
+            "(let'?s go with|go with) (hot|iced)",
+          ],
+          hint_tr:
+            "Hava sıcaksa 'Iced, please'. Yoksa 'Hot, please'. 'Sounds good' eklersen çok doğal: 'Iced sounds good'.",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. What name should I put on the cup?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it'?s |i'?m |name'?s |my name is )?[a-z]+",
+            "(it'?s |just |under )?[a-z]+(,)? .{0,30}",
+            "[a-z]+ — [a-z](,? [a-z]){2,}",
+            "[a-z]+,? (thanks|thank you)",
+            "under [a-z]+( please)?",
+            "you can write [a-z]+",
+          ],
+          hint_tr:
+            "İsmini söyle. Türk ismiyse yavaşça hecele: 'Berk — B-E-R-K'. Baristalar Türkçe isimleri hep yanlış yazar; hecele kurtul.",
+        },
+        {
+          speaker: "npc",
           message: "Perfect, that'll be just a minute.",
         },
       ],

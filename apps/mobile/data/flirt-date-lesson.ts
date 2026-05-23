@@ -406,7 +406,64 @@ export const flirtDateLesson_4_2: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Italian sounds amazing. Friday at 7? I can meet you there.",
+            "Italian is perfect — any dietary stuff I should know? I'm trying to eat less meat lately.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(noted|got it|good to know)(,)? (i'?ll )?(keep that in mind|find a spot with options)",
+            "(no )?(allergies|restrictions)(,)? (just )?(let me know)?",
+            "(they|the place) (have|has) (great )?(veggie|vegetarian|plant-based) options",
+            "(i'?m |i am )?(mostly |kinda )?(vegetarian|pescatarian|flexitarian) too",
+            "(works for me|same)(,)? (i'?ll )?(eat anything|find somewhere)",
+            "(i love|i'?m into) (their|the) (pasta|risotto|veggie) (options)?",
+            "(let me know|tell me) (if you have|about) (anything|allergies)",
+          ],
+          hint_tr:
+            "Diyetine cevap: 'Noted — they have great veggie pasta' veya 'I'm pescatarian too, no worries'. Türk: 'vejetaryen' = vegetarian (kolay), ama 'esnek vejetaryen' = flexitarian (yeni kelime).",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sounds good. Should we meet at the place, or do you want to grab a drink first somewhere?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(let'?s |we can )?(meet|see each other) (at the place|there)",
+            "(drink |drinks )?first sounds (good|great|perfect)",
+            "(yeah|sure)(,)? (a quick )?(drink|cocktail) first( would be nice)?",
+            "(let'?s )?(grab|get) a drink (first|before|beforehand)",
+            "(meet at|see you at) (the place|the restaurant) (works|is good|is fine)",
+            "(i'?m |i am )?(easy|good either way)( whatever you prefer)?",
+            "(could )?(meet|come) (get|to) you (at|around)",
+          ],
+          hint_tr:
+            "Plan netleştir: 'Drinks first sounds great — that wine bar by the river?' veya 'Let's meet at the place, easier'. Türk: 'önce bir şey içelim' = 'drinks first' (kısa, modern).",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect. And what's something I should know about you before Friday?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?m |i am )?(notoriously |always )?(late|early|on time)( so |\\.|;)",
+            "(i talk with my hands|i laugh too loud|i love food too much)",
+            "(fair warning|heads up)(,)? (i|i'?ll) .{0,50}",
+            "(honestly)(,)? (i'?m |i can be )?.{0,40}",
+            "(spoiler)(,)? (i'?m |i'?ll )?.{0,40}",
+            "(probably )?(that i'?m|i'?m) .{0,50}",
+            "(nothing scary|nothing serious)(,)? (just )?(that )?.{0,40}",
+          ],
+          hint_tr:
+            "Sevimli detay paylaş: 'Fair warning — I talk with my hands when food is good' veya 'Spoiler: I will absolutely order dessert'. Self-aware mizah çekici, defansif değil.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay that's officially the cutest thing. Friday at seven — I can't wait.",
         },
       ],
     },

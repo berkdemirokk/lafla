@@ -152,6 +152,61 @@ export const airportLesson_44_1: BundledLesson = {
         },
         {
           speaker: "npc",
+          message:
+            "Your bag is one kilo over the limit. We can charge for the excess, or you can move some items to your carry-on. Which works?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(how much (is|would) the (charge|fee))",
+            "(i('ll| will) (move|shift|transfer) some (items|things))",
+            "(let me (move|shift) some)",
+            "(actually )?(i'?ll )?(just )?(pay|do) the (fee|charge)",
+            "(if it'?s not too much)(,)? (i'?ll just pay)",
+            "(can you give me a (sec|second|moment)) to rearrange",
+            "(no problem)(,)? (i'?ll )?(repack|sort it out)",
+          ],
+          hint_tr:
+            "Aşım ücreti veya tekrar düzenleme: 'How much is the fee?' veya 'Let me move some items to my carry-on'. Türk: 'overweight' = bagaj sınırını aşma; ekstra ücret = excess fee. Sayısal sınır 23 kg standart ekonomide.",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. Are you checking in any fragile items I should mark?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no |nothing |nope)( fragile)?",
+            "(just )?(a (laptop|camera|gift))( in my carry-on)?",
+            "(yes|yeah)(,)? (could you mark|please mark) (it|the bag) (fragile|as fragile)",
+            "(everything fragile is in my (carry-on|hand luggage))",
+            "(no breakables in the (checked|big) bag)",
+            "(could you put|please add) (a )?fragile (sticker|tag)",
+            "(there'?s a (gift|glass|frame))(,)? (just to be safe)?",
+          ],
+          hint_tr:
+            "Kırılır eşya bildirimi: 'Yes, could you mark it fragile? There's a gift inside' veya 'No, nothing fragile, all in carry-on'. Türk: 'kırılır' = fragile; valizinde varsa mutlaka söyle, etiketleterek sigortaya alıyorlar.",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. Would you like a paper boarding pass or just on your phone?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(just |on )?(my phone|mobile|the app)( is fine)?",
+            "(paper)(,)? please",
+            "(both )?(if (possible|you can))",
+            "(phone )?works for me",
+            "(i'?ll take )?(both|just paper|just digital)",
+            "(can i have a paper (one |copy ))?(as backup|too)",
+            "(paper )?(would be (great|helpful|nice))(,)? (just in case)?",
+          ],
+          hint_tr:
+            "Biniş kartı tercih: 'Paper, please — just in case' veya 'My phone is fine, thanks'. Türk: bazı havalimanlarında telefon çalışmazsa diye paper backup güvenli. 'Mobile boarding pass' = telefon biniş kartı.",
+        },
+        {
+          speaker: "npc",
           message: "All set. Gate B23, boarding at 10:40. Have a good flight!",
         },
       ],
@@ -382,6 +437,60 @@ export const airportLesson_44_2: BundledLesson = {
           ],
           hint_tr:
             "Hatırlatma: 'Okay — just a reminder, my knee might set it off.'",
+        },
+        {
+          speaker: "npc",
+          message: "The scanner picked up something around your waist. Mind stepping aside for a quick pat-down?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no problem|of course|sure thing)",
+            "(yeah|okay)(,)? (let'?s|go ahead)",
+            "(it'?s )?(probably )?(my belt buckle|the buckle|the metal in my belt)",
+            "(i (forgot|didn'?t take off) (my )?belt)",
+            "(should i (do anything|put my hands up))",
+            "(any way )?(we can avoid|to skip) the pat-?down",
+            "(it'?s )?(my )?(jeans button|metal piece in my pants)",
+          ],
+          hint_tr:
+            "Ek tarama kabul: 'No problem — probably my belt buckle' veya 'Sure, go ahead'. Türk: 'üst arama' = pat-down; ABD'de TSA görevlisi profesyonel ama sınırlı dokunma yapar. 'No touch!' kesinlikle deme.",
+        },
+        {
+          speaker: "npc",
+          message: "All good. Could you grab your tray? Looks like your laptop and phone are over there.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|sure|got it)(,)? (thanks)?",
+            "(thank you)(,)? (grabbing it now|on it)",
+            "(let me (grab|collect) (my stuff|everything))",
+            "(is (the )?(belt|tray) (long|busy)( today))?",
+            "(my (laptop|phone)( and the rest))",
+            "(thanks )(again|for the help)",
+            "(all (good|set|sorted))",
+          ],
+          hint_tr:
+            "Eşyaları topla: 'Yes, grabbing them now, thanks' veya 'Let me collect everything'. Türk: 'eşyalarımı alıyorum' = 'grabbing my stuff' (modern). 'Tray' = plastik tabak; tüm metal/elektronik bunun içinde.",
+        },
+        {
+          speaker: "npc",
+          message: "Your boarding pass — do you know your gate yet, or should I check the screen for you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,)? (gate )?(b23|b 23|.{1,5}) (i think)?",
+            "(no )?(could you (check|look))( for me)?",
+            "(thanks)(,)? (i'?ll check the (board|screen|monitor))",
+            "(i'?m (heading|going) to (gate )?.{1,5})",
+            "(i don'?t remember|honestly i forgot)",
+            "(let me check (my phone|the app))",
+            "(if you could )(please|that would help)",
+          ],
+          hint_tr:
+            "Kapı netleştir: 'Gate B23, I think — but I'll check the screen' veya 'Could you check? I forgot'. Türk: 'kapı' = gate (havaalanı için). 'Boarding gate' = biniş kapısı.",
         },
         {
           speaker: "npc",
@@ -630,6 +739,82 @@ export const airportLesson_44_3: BundledLesson = {
           ],
           hint_tr:
             "Onayla + son soru: 'Thanks — how long does it usually take?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Could you describe the bag — color, brand, anything distinctive? And what's typically inside, in case we need to identify it?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it'?s |it is )?(a )?(black|navy|grey|red|silver) (samsonite|samsonite|suitcase|hard-?shell)",
+            "(medium|large|cabin) (size|sized)( with wheels)?",
+            "(has a (yellow|red|colorful) (ribbon|tag|sticker))",
+            "(my (name|initials) on (a tag|the side))",
+            "(inside )?(mostly clothes|electronics|gifts|documents)",
+            "(my (laptop|camera|prescription medication) (is|are) in there)",
+            "(there'?s a (small|big) (label|sticker|crack) on (the front|side))",
+          ],
+          hint_tr:
+            "Tanıma detayı: 'It's a black Samsonite, medium, with a yellow ribbon on the handle' veya 'Mostly clothes, but my prescription is in the side pocket'. Türk: 'Samsonite' yaygın marka; 'yellow ribbon' kişisel işaret. Spesifiklik tanımayı hızlandırır.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it — noted. Is there anything fragile or valuable inside I should flag?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,)? (my )?(laptop|camera|tablet)( is in there)?",
+            "(prescription (medication|meds)|some medicine)",
+            "(a few (gifts|presents))",
+            "(no|nothing (super )?valuable|nothing fragile)",
+            "(just (clothes|toiletries|the usual))",
+            "(some (gold|silver|expensive) (jewelry|items))",
+            "(could you (mark|flag) it|please prioritize)",
+          ],
+          hint_tr:
+            "Değerli/kırılır bildirim: 'Yes — laptop and prescription meds, please prioritize' veya 'Nothing valuable, just clothes'. Türk: 'değerli eşya' valize asla koyma temel kural ama bazen kaçınılmaz; pharmacy varsa flag et.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Will do. Is this a layover for you, or your final destination? That affects how we route the delivery.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(final|this is my final destination|i'?m staying here)",
+            "(layover|connecting flight)(,)? (then|going on to) .{0,30}",
+            "(i'?m here for (the night|two days|a week))",
+            "(staying at (the )?(hilton|marriott|airbnb))(,)? (.{0,30})?",
+            "(my final stop|end of (the trip|my journey))",
+            "(i fly on(ward)? to .{0,20} (tomorrow|in two days))",
+            "(here for (work|vacation|family))",
+          ],
+          hint_tr:
+            "Rota netleştir: 'Final destination — staying at the Hilton for five days' veya 'Layover, I fly onward to Istanbul tomorrow'. Türk: 'aktarma' = layover/connecting; 'son durak' = final destination.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect. One last thing — would you prefer email or SMS updates as we track the bag?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(both|email and sms|either is fine)",
+            "(sms|text)(,)? (please|works better|i check it more)",
+            "(email)(,)? (please|works best)",
+            "(whatever'?s (faster|easier))",
+            "(could you do both)(,)? (just in case)?",
+            "(my phone (number|is) is .{0,20})",
+            "(sms (would be )?(great|preferred))",
+          ],
+          hint_tr:
+            "İletişim tercih: 'Both, please — just in case' veya 'SMS works better, I check it more'. Türk: 'mesaj' = text/SMS; 'mail' = email. ABD'de SMS standart, AB'de WhatsApp da kullanılır.",
         },
         {
           speaker: "npc",

@@ -125,6 +125,60 @@ export const complaintLesson_5_1: BundledLesson = {
         },
         {
           speaker: "npc",
+          message: "Of course. Would you like to wait, or should I bring you the menu again?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?ll|i will) (just |happily )?wait( please|thanks)?",
+            "(could|can) you bring (me |us )?the menu( again)?",
+            "(yes|sure)(,)? the menu( again)?( please)?",
+            "(no thanks|i'?ll wait)( for the same one)?",
+            "(i'?ll|i will) (have|take|order) something else",
+            "(could|can) i see the menu (again|once more)",
+            "(let'?s )?try (the )?(chicken|salmon|pasta) instead",
+          ],
+          hint_tr:
+            "Bekleyebilirsin: 'I'll just wait, thanks'. Veya menüyü tekrar iste: 'Could you bring the menu again?'. Türk öğrenci 'wait' yerine 'I expect' der — burada 'wait' fiili gerek.",
+        },
+        {
+          speaker: "npc",
+          message: "No problem. Can I bring you something — maybe bread or a drink while you wait?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|sure|yeah)(,)? (some |a little )?(bread|water|wine)( please)?",
+            "(could|can) i (have|get) (some |a |another )?(bread|water|wine)",
+            "(no thanks|i'?m good|that'?s ok)",
+            "(just )?(some |more )?water (would be great|please)",
+            "(another|a )?(glass of|drink) (wine|water)( please)?",
+            "(yes|sure)(,)? (some )?bread (would be lovely|sounds good)",
+            "(i'?m|i am) (good|fine|ok)(,)? (thanks|thank you)",
+          ],
+          hint_tr:
+            "Beklerken bir şey ister misin? 'Sure, some bread would be great' veya 'Just some water, thanks'. Reddet: 'I'm good, thanks'.",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. Also, your meal tonight is on us — I'll make sure of that.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh )?(thank you|thanks)(,)? (that'?s )?(very kind|so nice|generous)",
+            "(thank you |thanks )?(so much|very much)( for that)?",
+            "(that'?s )?(really )?(nice|kind|appreciated|sweet) of you",
+            "(no )?(you )?(don'?t have to|really)( do that)?",
+            "(wow,? )?(thank you|thanks)(,)? (i appreciate it|that'?s amazing)",
+            "(oh )?(no need|that'?s not necessary)(,)? but thank you",
+            "i appreciate (that|it)( a lot)?",
+          ],
+          hint_tr:
+            "Jest karşısında: 'Thank you, that's very kind' veya 'I appreciate it'. Reddet: 'You don't have to, but thank you'. Türk: 'helal olsun' direkt çevrilemez — 'I appreciate it' en yakın.",
+        },
+        {
+          speaker: "npc",
           message:
             "Of course. I'm so sorry about that — I'll get it sorted right away.",
         },

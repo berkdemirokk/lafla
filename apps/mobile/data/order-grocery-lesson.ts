@@ -141,6 +141,61 @@ export const orderGroceryLesson_46_1: BundledLesson = {
         },
         {
           speaker: "npc",
+          message:
+            "Sure. The pita bread is over by the bakery — would you like fresh or pre-packaged?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fresh|pre-packaged|packaged)( one)?( please)?",
+            "(i'?ll|i would|i'?d) (have|take|go with) (the |a )?(fresh|packaged) (one)?",
+            "(whichever|whatever) (is )?(more |freshest|fresher|better)",
+            "(actually|hmm)(,)? (the |i'?ll go with )?fresh( please)?",
+            "(packaged|pre-packaged) (lasts longer|works|is fine)",
+            "(what'?s |which is )?(more |the )?fresh(er)?",
+            "(fresh )?(if you have it|would be great)",
+          ],
+          hint_tr:
+            "Taze mi paketli mi? 'Fresh, please' veya 'Pre-packaged works'. Türk: 'taze ekmek' = 'fresh bread', süpermarkette bakery section'da bulunur.",
+        },
+        {
+          speaker: "npc",
+          message: "Got it. Anything else — maybe hummus or feta to go with that?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|sure|yeah)(,)? (some |a little )?(hummus|feta)( please)?",
+            "(could|can) you (also )?grab (me )?(some )?(hummus|feta)",
+            "(no thanks|i'?m good|just the pita)",
+            "(some |a bit of |a tub of )?hummus would be (great|nice|perfect)",
+            "(yeah|sure)(,)? (let'?s add|grab) (some )?(hummus|feta)",
+            "(actually )?(both )?(hummus and feta) please",
+            "(no )?(that'?s |i'?m )?all (set|good)( thanks)?",
+          ],
+          hint_tr:
+            "Yan ürün öner: 'Sure, some hummus, please' veya 'Just the pita, thanks'. Türk: 'humus' kelimesi aynı ama vurgu farklı: 'HUM-əs'.",
+        },
+        {
+          speaker: "npc",
+          message: "Perfect. Need a basket or are you all set with what you've got?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah)(,)? (a |one )?basket (would be|please|works)",
+            "(could|can) i (have|get|grab) a basket",
+            "(no thanks|i'?m good|i'?m all set)",
+            "(i'?ll|i will) (be |) (fine|okay) (without one)?",
+            "(i'?ve|i have) (already |got |one|enough)",
+            "(no)(,)? (i'?m )?(good|all set|fine)( thanks)?",
+            "(basket )?would be (great|helpful|nice)",
+          ],
+          hint_tr:
+            "Sepet ister misin? 'A basket, please' veya 'I'm all set, thanks'. Türk: market sepeti = basket, alışveriş arabası = cart (US) / trolley (UK).",
+        },
+        {
+          speaker: "npc",
           message: "Sounds good. Have a good one!",
         },
       ],

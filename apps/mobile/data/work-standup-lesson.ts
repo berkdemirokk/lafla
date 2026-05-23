@@ -397,6 +397,63 @@ export const workStandupLesson_33_2: BundledLesson = {
         {
           speaker: "npc",
           message:
+            "Sounds good. Any guess on when this might unblock — end of day, tomorrow?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(end of day|eod|by eod|by end of day)",
+            "(by )?tomorrow( morning| afternoon| eod)?",
+            "(give me|in) (a few hours|the next couple hours)",
+            "(realistically|honestly) (eod|tomorrow|by friday)",
+            "(should be )?(done|unblocked|sorted) (by |before )?(eod|tomorrow)",
+            "(hopefully|probably) (today|by tonight|by tomorrow)",
+            "(let me know after pair|after our pair i'?ll have a better estimate)",
+          ],
+          hint_tr:
+            "Tahmin ver: 'EOD if pair goes well, otherwise tomorrow morning'. 'EOD' = End Of Day standartı. Belirsizlikten kaçma — somut zaman ver, kötü ihtimal de söyle.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. Anything else risky on your plate this sprint I should know about?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|nothing|nothing else)( for now| right now)?",
+            "(just |only )?(the )?(auth|payment|webhook) ticket( still on my plate)?",
+            "(stripe|webhook|migration) (might )?(get|be) tricky",
+            "(also keeping an eye on|watching) .{0,40}",
+            "(everything else (looks|is) (fine|on track|good))",
+            "(might )?(need to|have to) (sync about|talk about) .{0,40}",
+            "(rest of the sprint |the rest )(is |looks |seems )?(fine|clear|smooth)",
+          ],
+          hint_tr:
+            "Riskleri önceden flag'le: 'Stripe migration might get tricky — keeping an eye on it' veya 'Everything else looks fine'. Türk öğrenci 'risk yok' direkt çeviri yapar — burada 'no risks' garip; 'on track' veya 'clear' kullan.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect. Drop a thread in #eng-help if you hit another wall before our sync.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(will do|got it|sounds good|got you)",
+            "(absolutely|for sure)(,)? (will do|on it)",
+            "(thanks again|appreciate (it|you))",
+            "(i'?ll post|drop a thread) (the moment|as soon as i hit)",
+            "(yep|yeah)(,)? (i'?ll flag it|i'?ll post|i'?ll keep you posted)",
+            "(no worries|noted|copy that)",
+            "(see you (in a bit|after standup|then))",
+          ],
+          hint_tr:
+            "Kısa onay: 'Will do — thanks again' veya 'Got it, see you after standup'. Türk: 'tamamdır' = 'got it / will do'. 'OK' tek başına yeterli ama soğuk; ekle.",
+        },
+        {
+          speaker: "npc",
+          message:
             "Cool, ping me when you're ready.",
         },
       ],

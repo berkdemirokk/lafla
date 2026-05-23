@@ -379,6 +379,63 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
         {
           speaker: "npc",
           message:
+            "Yeah, just an annual checkup for me too. Always a long wait though.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|i know)(,)? (the wait is always|it'?s always)( long| like this)?",
+            "(at least|good thing) (i (brought|have) my (book|phone|kindle))",
+            "(seems to be the (norm|case|usual))",
+            "(you'?d think they'?d (space|schedule) (appointments|things) better)",
+            "(i (always|usually) (bring|come prepared with) (something to (read|do)))",
+            "(better than|at least it'?s not) (the er|the emergency room)",
+            "(tell me about it|right)(,)? (the wait )?(is the worst|always like this)",
+          ],
+          hint_tr:
+            "Empati + paylaşılan deneyim: 'Yeah, the wait is always long — good thing I brought my book' veya 'Tell me about it'. Türk: 'eyvallah' = direkt çevirisi yok; 'tell me about it' tam karşılık.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Smart. Are you new to this practice, or have you been coming a while?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?ve been (coming|here|with them) for (\\d+ )?(years|months))",
+            "(this is my (first|second|third) time)",
+            "(actually )?(new (to|here)|just (switched|moved))",
+            "(been (with them|here) (a while|since .{0,20}))",
+            "(my (first|second|new) (visit|time|appointment))",
+            "(i (like|trust) (the )?(doctor|the staff|this place))",
+            "(came on a (recommendation|referral) from (a friend|my insurance))",
+          ],
+          hint_tr:
+            "Doctor/practice tarihçen: 'Been with them for three years, I trust the doctor' veya 'Actually new here — first visit'. Türk: 'eczacı' (pharmacist) ile karıştırma; doctor = doktor, dentist = diş hekimi.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Same here — found this one on a referral. Anyway, hopefully we're both out soon.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fingers crossed|here'?s hoping|hopefully)",
+            "(yeah|me too)(,)? (the day'?s (waiting|still ahead))",
+            "(hope (you|yours) (get|go) in soon)",
+            "(have a good (rest of your )?day)( regardless)?",
+            "(at least the (chairs|wait|room) (are|is) not too bad)",
+            "(might have to (cancel my afternoon|push my afternoon back))",
+            "(see you on the other side)",
+          ],
+          hint_tr:
+            "Sıcak kapanış: 'Fingers crossed — hope you get in soon, have a good day' veya 'See you on the other side'. Türk: 'kolay gelsin' = direkt çevirisi yok; 'good luck' + 'have a good day' karışımı en yakın.",
+        },
+        {
+          speaker: "npc",
+          message:
             "You too! Take care.",
         },
       ],

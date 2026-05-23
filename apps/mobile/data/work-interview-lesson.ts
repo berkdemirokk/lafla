@@ -378,6 +378,63 @@ export const workInterviewLesson_14_2: BundledLesson = {
         {
           speaker: "npc",
           message:
+            "How did you handle the team being panicked — what did you actually say or do first?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(first thing|first|the moment) (i did was|i said was)",
+            "(named the (problem|issue|symptoms))",
+            "(told everyone|said) ['\"]?(we'?ve|we have) (got|seen) this before['\"]?",
+            "(calmed (them|the room|the team) (down|first))",
+            "(slowed (them|the pace) down|made everyone breathe)",
+            "(took the (first|biggest) (action|step) (visibly|out loud))",
+            "(acknowledged (the )?(stakes|pressure|stress) (then )?moved to action)",
+          ],
+          hint_tr:
+            "Tone-setting öncelik: 'First thing — I named the problem out loud and said we'd seen something similar before. That calmed the room' veya 'I slowed the pace, took the first visible action'. Türk öğrenci 'kontrolü ele alma' = 'taking control' (saldırgan) vs 'taking the lead' (sağlıklı).",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Did anything go wrong during your coordination? Anything you'd do differently?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(in hindsight|honestly|looking back)(,)? .{0,60}",
+            "(one thing |the main thing )?(i'?d|i would) (do |change )?differently",
+            "(should have|could have) (escalated|paged|looped in) .{0,40}",
+            "(the )?(comms|communication) (cadence|frequency) (was |felt )?(too|a bit) (slow|fast|sparse)",
+            "(didn'?t loop|didn'?t bring) (product|leadership|the pm) (in early enough|fast enough)",
+            "(my mistake|the lesson) was .{0,50}",
+            "(more proactive |earlier )?(updates to|comms with) (stakeholders|leadership)",
+          ],
+          hint_tr:
+            "Özeleştiri net: 'In hindsight, I should've looped in product earlier — they heard it from customers first'. C1 ifade: 'in hindsight'. Türk: 'geriye dönüp baktığımda' = 'looking back / in hindsight'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "And how did the team feel about how you led it afterwards?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(team |they )?(felt |said |told me)?(it was|the comms were) (clear|reassuring|calm)",
+            "(in (our|the) (retro|post-?mortem))(,)? .{0,50}",
+            "(positive feedback|they said) .{0,50}",
+            "(my )?(manager|skip) (called it out|specifically mentioned)",
+            "(a few teammates |the team )(thanked me|said it helped)",
+            "(it became (the )?template|we now use that playbook) for (future incidents|prod fires)",
+            "(more importantly )?(no one (burned out|left|quit)) after",
+          ],
+          hint_tr:
+            "Sonuç + feedback: 'In our retro, the team said the comms cadence kept them calm — it became our playbook' veya 'My manager specifically called out the war room structure'. Türk: 'olumlu geri bildirim aldım' = 'got positive feedback' (kısa).",
+        },
+        {
+          speaker: "npc",
+          message:
             "What was the outcome and lesson?",
         },
       ],

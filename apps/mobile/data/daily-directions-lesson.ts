@@ -117,6 +117,63 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
         {
           speaker: "npc",
           message:
+            "Or you could grab the subway — it's two stops on the N or R from 49th street.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh )?(that'?s easier|good to know|the subway sounds (faster|good))",
+            "(n or r|the n line)(,)? (got it|thanks)",
+            "(which (entrance|station) is closest)",
+            "(is it safer to|i'?ll just) walk",
+            "(how much (does|is) (the subway|the fare))",
+            "(do i need a (metrocard|ticket)|how do i pay)",
+            "(walk sounds (fine|good)|i'?ll walk it)",
+          ],
+          hint_tr:
+            "Subway alternatif: 'Oh, that's easier — N or R, got it' veya 'Walk sounds fine, thanks'. Türk: 'metro' kelimesi NYC'de 'subway'; Londra'da 'tube' veya 'underground'. ABD'de 'metro' Washington DC dışında yaygın değil.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Yeah, the subway runs every few minutes. There's a station entrance just at the corner — see the green globe?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|yes|i see it)(,)? (got it|thanks)",
+            "(the green globe|the entrance)(,)? (yes|right there|i see)",
+            "(perfect|that works|that'?s helpful)",
+            "(thanks )?(so much|a lot)( for the (tip|help))?",
+            "(one more (question|thing))(,)? .{0,40}",
+            "(any (good )?(food|coffee) (spots|places)) (nearby|near (there|empire))",
+            "(should i walk or take the subway|honestly which is faster)",
+          ],
+          hint_tr:
+            "Onay + ek soru: 'Yes, I see it — perfect, thanks!' veya 'Any good coffee spots near Empire State?'. Türk öğrenci 'görüyorum' direkt çevirisi 'I'm seeing' yapay; doğal: 'I see it' (simple).",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Honestly the walk is nicer if the weather's holding — you'll go right past Bryant Park.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh )?(in that case|that settles it)(,)? (i'?ll walk)",
+            "(walk it is|i'?ll walk then)",
+            "(bryant park )?(sounds (lovely|nice|great))",
+            "(thanks again|appreciate it)(,)? (have a good (day|one))",
+            "(you'?ve been (super )?(helpful|kind))",
+            "(weather'?s perfect|the weather'?s holding)( so i'?ll walk)?",
+            "(walk it is)(,)? (thanks (so much|again))",
+          ],
+          hint_tr:
+            "Kapanış: 'Walk it is then — thanks so much, have a good day' veya 'Appreciate the help'. Türk: 'iyi günler' kapanış için 'have a good one' veya 'have a good day' (ABD); UK'de 'cheers' da olur.",
+        },
+        {
+          speaker: "npc",
+          message:
             "You can't miss it. Have a good one!",
         },
       ],

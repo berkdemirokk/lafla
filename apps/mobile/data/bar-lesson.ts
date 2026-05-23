@@ -121,6 +121,63 @@ export const barLesson_7_1: BundledLesson = {
         },
         {
           speaker: "npc",
+          message:
+            "Good choice. Pint or half-pint?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(a |one )?(pint|half-pint)( please)?",
+            "(i'?ll )?(have|take|do) (a |one )?(pint|half-pint)",
+            "(let'?s do|make it) (a |one )?(pint|half)",
+            "(a )?full pint( please)?",
+            "(half)(,)? (please)( for now)?",
+            "(pint sounds (good|great|perfect))",
+            "(go for the )?(pint|half)",
+          ],
+          hint_tr:
+            "Bira boyu: 'Pint, please' veya 'Half-pint, just for now'. Türk: 'pint' = yaklaşık 500ml (US) / 568ml (UK). 'Half' = küçük şişe boyu. Türkiye'de büyük/küçük diyoruz.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. Want to start a tab, or pay as you go?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(start a tab|open a tab)( please)?",
+            "(pay as i go|just pay now|i'?ll pay each round)",
+            "(let'?s do a tab|tab works)",
+            "(i'?ll )?(close it out|settle up) (later|at the end)",
+            "(can i (start|open) a tab with this card)",
+            "(tab )?(sounds good|works for me|please)",
+            "(actually )?(just pay )?(now)(,)? (one drink for now)",
+          ],
+          hint_tr:
+            "Hesap aç ya da kapa: 'Start a tab, please' (kart bırak, sonunda öde) veya 'Pay as I go' (her seferinde). Türk: 'hesap aç' = open a tab; barlarda standart, Türkiye'de yaygın değil.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Card, please — I'll keep it open. Anything else with the beer? Snacks?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(here'?s my card|here you go)",
+            "(yeah|sure)(,)? (some |a few )?(snacks|fries|wings|nuts|chips)",
+            "(could|can) i (get|see) (the )?(food )?menu",
+            "(no thanks|just the beer|i'?m good)",
+            "(what(\\'s| is) (the )?(snack|food) menu like)",
+            "(maybe )?(some (nuts|olives|fries|wings))",
+            "(just the drinks )?(for now)",
+          ],
+          hint_tr:
+            "Yan sipariş: 'Here you go — and could I see the food menu?' veya 'Just the beer for now, thanks'. Türk: 'meze' = appetizers; barlarda 'snacks' (chip, fıstık) yaygın, 'bar food' kategorisi (fries, wings).",
+        },
+        {
+          speaker: "npc",
           message: "Coming right up.",
         },
       ],

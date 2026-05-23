@@ -118,6 +118,60 @@ export const tippingLesson_6_1: BundledLesson = {
         },
         {
           speaker: "npc",
+          message: "Got it. Want to round the total up to an even number, or leave it as is?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(round it up|let'?s round it up)( to .{0,15})?",
+            "(could|can) you round it (up |off )?(to (fifty|sixty|a hundred))?",
+            "(leave it|leave it as is|no thanks|just leave it)",
+            "(round it|round up) to (the next |the )?(ten|dollar|fifty)",
+            "(let'?s )?(make it|call it) (fifty|sixty|a hundred)( even)?",
+            "(let'?s )?keep it (as is|the same)",
+            "round (it )?to fifty( please)?",
+          ],
+          hint_tr:
+            "Yuvarla: 'Round it up to fifty' veya bırak: 'Leave it as is'. Türk: 'üstü kalsın' kart varyasyonu için 'round it up' kullanılır.",
+        },
+        {
+          speaker: "npc",
+          message: "Sure thing. Also, would you like the receipt emailed or printed?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(printed|emailed|email|paper)( one)?( please)?",
+            "(could|can) you (email|print) (it|the receipt)( please)?",
+            "(just )?(emailed|printed)( please|thanks)?",
+            "(no receipt|no thanks|i'?m good)",
+            "(email|emailed) (please|to my phone)",
+            "(printed|paper) (one |copy )?(please|works)",
+            "(could|can) i (just )?get a paper (one|copy)",
+          ],
+          hint_tr:
+            "Fiş: 'Emailed, please' veya 'Printed, please'. ABD'de çoğu yerde her ikisi de seçenek. Türk: 'fiş' = receipt, 'fatura' = invoice (farklı).",
+        },
+        {
+          speaker: "npc",
+          message: "Done. Was everything okay with your experience tonight?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(everything was|it was) (great|amazing|perfect|lovely|wonderful)",
+            "(yes|yeah|absolutely)(,)? (great|amazing|loved it|very nice)",
+            "(thanks|thank you)(,)? (everything was good|we had a great time)",
+            "(food|service|night) was (great|excellent|amazing)",
+            "(we|i) (really )?enjoyed (it|everything|the meal)",
+            "(no complaints|all good|loved it)",
+            "(it was|tonight was) (lovely|fantastic|wonderful)",
+          ],
+          hint_tr:
+            "Pozitif kapanış: 'Everything was great, thanks' veya 'We loved it'. Negatif feedback için: 'It was okay, but the soup was cold'.",
+        },
+        {
+          speaker: "npc",
           message: "Perfect. All set, have a great night!",
         },
       ],

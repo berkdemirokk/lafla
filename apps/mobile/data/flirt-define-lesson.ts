@@ -117,6 +117,63 @@ export const flirtDefineLesson_6_1: BundledLesson = {
         {
           speaker: "npc",
           message:
+            "Okay. So what does exclusive look like for you — like, are we deleting the apps?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|absolutely)(,)? (let'?s )?(delete|nuke|kill) (the )?apps",
+            "(deleting|deleted|off) (mine|the apps) tonight",
+            "(yeah|sure)(,)? (i'?m |i am )?(already )?off them",
+            "(let'?s )?(both )?(delete|drop) them (together|now)",
+            "(i'?ll|i will) (delete|take down) mine if you do",
+            "(apps off|apps gone|off the apps)(,)? (sounds good|works for me)",
+            "(no )?(more|need for) (tinder|bumble|hinge|apps)",
+          ],
+          hint_tr:
+            "Plan netleştir: 'Yes — deleting them tonight, together?' Türk: 'apps' = uygulamalar (Tinder, Bumble vs). 'Delete tonight' = bu gece sil; sevimli ortak ritüel.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool. Anything you want me to know up front — like deal-breakers or stuff that's been on your mind?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|to be fair)(,)? (i need|i value|i care about) .{0,50}",
+            "(communication|honesty|space|texting back) (is |matters )?(important|a big one)",
+            "(my deal-?breaker|deal-?breakers) (is|are) .{0,50}",
+            "(i'?m |i am )(big on|particular about) .{0,40}",
+            "(nothing crazy|nothing huge)(,)? (just|but) .{0,40}",
+            "(time apart|space|me time) (still |sometimes )?(matters|is important)",
+            "(no )?(games|ghosting|drama) (please|for me)",
+          ],
+          hint_tr:
+            "Deal-breaker net: 'Honestly, communication is big for me — if something's off, just tell me' veya 'Nothing crazy, just no ghosting'. Türk: 'sınırım' = 'deal-breaker' (modern) veya 'red line' (resmi).",
+        },
+        {
+          speaker: "npc",
+          message:
+            "That all makes sense — same here. Should we tell our friends, or keep it quiet for now?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(let'?s |we can )?(tell|share with) (our )?(close )?friends",
+            "(keeping it|let'?s keep it) (quiet|low-key|to ourselves) (for now)?",
+            "(close friends )?(yes|sure)(,)? (the rest can wait)?",
+            "(no rush|no pressure)(,)? (in our own time)?",
+            "(soft launch )?(it )?(on |first |with )?(insta|instagram)?",
+            "(just )?(the people )?(closest|important) (to us|first)",
+            "(let'?s )?(wait|see) (a few weeks|how it goes)( first)?",
+          ],
+          hint_tr:
+            "Public/private karar: 'Close friends yes, but no Instagram for a while' veya 'Let's soft launch in a few weeks'. Türk: 'soft launch' = sosyal medyada yarı-açık paylaşma; modern dating jargonu.",
+        },
+        {
+          speaker: "npc",
+          message:
             "Same. Glad we're on the same page. So... officially exclusive?",
         },
       ],

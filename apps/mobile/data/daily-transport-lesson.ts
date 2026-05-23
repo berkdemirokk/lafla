@@ -117,6 +117,63 @@ export const dailyTransportLesson_17_1: BundledLesson = {
         {
           speaker: "npc",
           message:
+            "You visiting, or do you live around here?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(just )?(visiting|in town for) (a few days|the week|work|a conference)",
+            "(actually |i )?live (around here|nearby|in (.{0,20}))",
+            "(here for (work|a conference|family))",
+            "(moved here .{0,30}|just moved (to|here))",
+            "(originally from .{0,30}|i'?m from (.{0,30}))",
+            "(been here (a few (years|months)|since))",
+            "(visiting (family|friends|for a wedding))",
+          ],
+          hint_tr:
+            "Kısa hayat hikayesi: 'Just visiting for a conference, three days' veya 'Live around here actually, been here two years'. Türk: 'Türkiye'denim' = 'I'm from Türkiye' (en doğal); 'originally from' eklersen şu an yaşadığın yer farklı demek.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh nice. Anything cool planned while you're here?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(just )?(work mostly|mostly work|all work)",
+            "(meeting (some )?friends|catching up with .{0,20})",
+            "(might (try|hit|check out) (a few )?(restaurants|shows|museums))",
+            "(seeing (the )?(broadway|empire state|times square))",
+            "(probably (just|mostly) (food|walking around))",
+            "(nothing crazy|nothing too wild|low-key trip)",
+            "(any recommendations|got any tips for) (where i should go|good food|things to do)",
+          ],
+          hint_tr:
+            "Plan paylaş veya öneri iste: 'Mostly work, but might catch a Broadway show' veya 'Any tips for good food nearby?'. Türk öğrenci 'tavsiye' direkt 'advice' yapar ama burada 'tips' veya 'recommendations' daha yaygın.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "If you like Italian, there's a hidden gem on 46th — most tourists miss it.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh |oh that'?s )?(perfect|great|good to know)",
+            "(noted|adding it to my list|writing it down)",
+            "(what'?s (the |it )?(called|name))",
+            "(do you have a (favorite|specific) dish there)",
+            "(thanks )?(for the (rec|tip|recommendation))",
+            "(46th )?(noted|got it)",
+            "(i'?ll (check it out|swing by|try it tonight))",
+          ],
+          hint_tr:
+            "Öneri kabul: 'Perfect — what's it called?' veya 'Noted, thanks for the tip'. Türk öğrenci 'mükemmel' = 'perfect' direkt çevirir; 'good to know' veya 'noted' daha doğal.",
+        },
+        {
+          speaker: "npc",
+          message:
             "Sure thing — let me know when we're close to your stop.",
         },
       ],

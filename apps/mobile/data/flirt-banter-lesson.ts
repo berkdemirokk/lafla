@@ -399,6 +399,68 @@ export const flirtBanterLesson_2_2: BundledLesson = {
           hint_tr:
             "Devam: 'Music at 1.5x?? That's criminal — bigger red flag than mine.'",
         },
+        {
+          speaker: "npc",
+          message:
+            "Defending it though — I have to. I read books at 1.5x, too. What's so wrong?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(books )?(don'?t|don'?t have a) (speed|tempo|playback)",
+            "(books|reading) (isn'?t|aren'?t) on (a |a )?(speed )?(setting|control)",
+            "(okay )?(now you'?re|that'?s) (just |actually )?(unhinged|wild|insane|chaos)",
+            "(this is|you'?re) (getting|sounding) more sus",
+            "(you|that'?s) lost (me|it)( there)?",
+            "(i refuse|i can'?t)( accept|believe) (that|this)",
+            "(no one|nobody) reads at (1\\.5x|fast)",
+          ],
+          hint_tr:
+            "Karşı takılma: 'Books don't even have a playback speed — now you're just unhinged'. 'Unhinged' = çatlak (espri). Türk: 'manyak' direkt çeviri 'crazy' ama 'unhinged' modern + casual.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay rude. Fine — favorite slow thing to do, then? Prove me wrong about being chaotic.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|for me|i love) .{0,40}(coffee|reading|cooking|walking|breakfast|sunday)",
+            "(slow )?(saturday |sunday |weekend )?(morning|breakfast|coffee|walk)",
+            "(making )?coffee (slowly|in the morning|on weekends)",
+            "(i'?m |i am )?(all about|big on|into) (slow|long) (mornings|walks|dinners)",
+            "(probably|maybe) .{0,40}(reading|cooking|walking|coffee)",
+            "(no )?(rush|hurry) (on |when )?(weekend|sunday|morning)",
+            "(long )?(walks|baths|dinners)( without my phone)?",
+          ],
+          hint_tr:
+            "Slow ritual söyle: 'Honestly, long Sunday breakfasts — no phone, just coffee and reading'. Spesifiklik (Sunday, coffee, reading) çekici. Türk: 'yavaş kahvaltı' = 'slow breakfast' (long breakfast da olur).",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay that's actually really cute. I take it back — you're the balanced one here.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thank you|finally|see)(,)? (someone|you)( gets it| sees it)?",
+            "(took you|that took) (long enough|a minute)",
+            "(my work|the work) here is done",
+            "(noted|duly noted)(,)? (1\\.5x )?(stranger|chaos|gremlin)",
+            "(haha )?(i accept|i'?ll take it|i'?ll take that)",
+            "(adding|writing) (it|that) down (for the record|in stone)",
+            "(case )?closed",
+          ],
+          hint_tr:
+            "Zaferi kabul: 'Thank you, finally someone sees it' veya 'Took you long enough'. Türk: kazandığını sevimli göster, kibirli değil.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Haha alright, you win this round. Slow Sunday coffee with me sometime?",
+        },
       ],
     },
     {

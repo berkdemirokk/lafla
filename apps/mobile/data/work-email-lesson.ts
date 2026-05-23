@@ -378,6 +378,63 @@ export const workEmailLesson_11_2: BundledLesson = {
         {
           speaker: "npc",
           message:
+            "Found it. Looks like I need the latest spec — can you re-send or link it here?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sure|absolutely|of course)(,)? (here'?s|here is|sending) (the link|it)",
+            "(linking|attaching|sharing) (it |the latest )(here|now)",
+            "(just |i )?(re-?sent|sent again)( with the latest)?",
+            "(here'?s )?(the |latest )?(spec|doc|link)(:)? .{0,40}",
+            "(let me|i'?ll) (drop|share) (it|the link) (in (this|the) (thread|email))?",
+            "(here you go|attached|linked) (above|below|here)",
+            "(give me a sec)(,)? (sending now|just sharing)",
+          ],
+          hint_tr:
+            "Link/dosya gönder: 'Of course — linking the latest spec here' veya 'Just re-sent, latest version'. Türk: 'tekrar gönderdim' = 'just re-sent'. 'Spec' = teknik şartname (kısaca).",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. Anything urgent on your end I should prioritize first?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(this is |this'?s )(the )?(top|main|only) priority( for me)?",
+            "(blocking|blocks) (me|my work|the team)( on .{0,30})?",
+            "(unblocks|would unblock) (me|us|the launch)",
+            "(yes|honestly)(,)? (this would help|i need this) (by friday|asap)",
+            "(no )?(rush|pressure)(,)? (whenever you can)?",
+            "(if it'?s not too much)(,)? .{0,40}",
+            "(end of (week|day)) would (be )?(ideal|perfect|huge)",
+          ],
+          hint_tr:
+            "Aciliyet sinyali: 'This is blocking the launch — end of week would be huge' veya 'No rush, whenever you can'. Türk: 'acil' direkt 'urgent' ama email'de overused; 'blocking me' daha net.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it — I'll move it to the top. Anything else I should look at while I'm in there?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(actually )?(yes|yeah)(,)? (the )?.{0,40}( could use a look)?",
+            "(while you'?re there|since you'?re in there)(,)? .{0,50}",
+            "(no )?(that'?s it|that'?s all|nothing else)( thanks)?",
+            "(if you have time)(,)? (the )?.{0,40}",
+            "(just )?(this one|the one thing)(,)? (thanks)?",
+            "(also|one more thing)(,)? .{0,40}",
+            "(no )?(other than that|otherwise)(,)? (we'?re good|all good)",
+          ],
+          hint_tr:
+            "Ek istek veya kapat: 'While you're there, the Q3 numbers could use a look' veya 'No, that's it — thanks!'. Türk: 'değdin değdiğine' = 'while you're there'; modern iş İngilizcesi.",
+        },
+        {
+          speaker: "npc",
+          message:
             "Will send by Thursday. Thanks for the nudge!",
         },
       ],

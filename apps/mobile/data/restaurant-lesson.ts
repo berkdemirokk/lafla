@@ -404,6 +404,60 @@ export const restaurantLesson_2_2: BundledLesson = {
         },
         {
           speaker: "npc",
+          message: "Got it. Would you like to start with an appetizer? Our burrata is really popular.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|sure|yeah)(,)? (the )?burrata( please|sounds good)?",
+            "(yes|sure)(,)? (we'?ll|i'?ll) (have|try) (the )?burrata",
+            "(no thanks|i'?m good|we'?re good|maybe later)",
+            "(no)(,)? (just|only) (the |my )(main|salmon|steak)",
+            "(not now|skip the appetizer)( thanks)?",
+            "what (else )?(do you have|would you recommend)",
+            "(actually )?(yes|let'?s try) (the )?(burrata|bruschetta|salad)",
+          ],
+          hint_tr:
+            "Başlangıç ister misin? 'Sure, the burrata sounds good' veya 'No thanks, just the main'. Türk: pidemiz ekmek olarak gelir, burada appetizer ayrı menü kalemi.",
+        },
+        {
+          speaker: "npc",
+          message: "Perfect. And how would you like that cooked — for the salmon?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(medium|well done|rare|medium rare|medium well)",
+            "(however |whatever |whichever )?(the chef|you) recommend",
+            "(could you|can you) make it (medium|well done)",
+            "i('ll|d) (like|have|take) it (medium|well done|rare)",
+            "(just )?cook it (through|well)",
+            "(not too |not very |a little )?(rare|pink|done)",
+            "medium,? please",
+          ],
+          hint_tr:
+            "Pişirme: 'Medium, please' veya 'However the chef recommends'. Salmon için 'medium' güvenli; biftek soruşunda 'medium rare' klasik.",
+        },
+        {
+          speaker: "npc",
+          message: "Any allergies or dietary restrictions I should know about?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|none|nope)(,)? (none|nothing|i'?m good)?",
+            "(no )?allergies( at all)?",
+            "(i'?m |i am )?(allergic to|sensitive to) (nuts|gluten|dairy|shellfish)",
+            "(no )?(nuts|gluten|dairy|shellfish|peanut|seafood)",
+            "(i'?m|i am) (vegetarian|vegan|pescatarian)",
+            "(could you )?(skip|leave out|hold) the (cheese|onion|garlic)",
+            "no(,)? (thanks|none|nothing serious)",
+          ],
+          hint_tr:
+            "Alerji var mı? 'No allergies' yeter. Varsa 'I'm allergic to nuts'. Vejetaryen için: 'I'm vegetarian — could you leave out the bacon?'",
+        },
+        {
+          speaker: "npc",
           message: "Excellent. I'll get that right in for you.",
         },
       ],

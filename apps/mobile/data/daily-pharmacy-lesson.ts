@@ -118,6 +118,63 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
         {
           speaker: "npc",
           message:
+            "Good to know. Are you on any other medications right now?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|nothing|not (at the moment|right now))",
+            "(just )?(a (daily |))(vitamin|multivitamin|supplement)",
+            "(i'?m on (a |))?(blood pressure|asthma|antidepressant|allergy) (medication|med|pill)",
+            "(taking )?(birth control|antihistamines|aspirin)( daily| sometimes)?",
+            "(nothing prescription)(,)? (just over-the-counter)",
+            "(occasionally )?(advil|tylenol|aspirin)( for .{0,20})?",
+            "(no other meds|i'?m clean otherwise)",
+          ],
+          hint_tr:
+            "İlaç bilgisi paylaş: 'No, nothing else right now' veya 'Just a daily vitamin'. Türk: 'eczacı' = US 'pharmacist'; UK 'chemist'. ABD eczacısı daha çok danışmanlık yapar, ilacı genelde teknisyen verir.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Perfect. Tylenol is your safest bet — 500 milligrams every six hours, max four doses a day.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(got it|noted|understood)",
+            "(500 (milligrams|mg))(,)? (every )?(six|6) hours",
+            "(how long (before|until) i feel relief)",
+            "(when should i (stop|see a doctor)|if it gets worse)",
+            "(can i take it on an empty stomach)",
+            "(can i take it (with|alongside) (coffee|water|food))",
+            "(let me write that down|making a mental note)",
+          ],
+          hint_tr:
+            "Doz teyit + ek soru: 'Got it — 500mg every six. How long before relief?' veya 'When should I see a doctor?'. Türk: Türkiye'de 'eczacı' = mini-doktor, ABD'de pharmacist daha çok danışman. Bu yüzden ABD'de net sorular sor.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "If it's not better in three days, or if you get fever and stiff neck, see a doctor right away.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(got it|noted|will do|understood)",
+            "(three days|72 hours)( okay|got it)",
+            "(fever and stiff neck)( noted|got it)",
+            "(thanks (so much|a lot)( for the warning| for the heads up)?)",
+            "(really )?(appreciate (it|the (advice|guidance)))",
+            "(also )?(do you take|where do i (pay|check out))",
+            "(should i (call|stop by) (again|back) if it (lingers|keeps up))",
+          ],
+          hint_tr:
+            "Uyarı kabul + teşekkür: 'Got it — three days max. Thanks for the heads up!'. Türk: 'baş üstüne' = direkt çevirisi yok; 'will do' veya 'got it' karşılığı. Eczacının uyarılarını kabul etmek nezaket gereği.",
+        },
+        {
+          speaker: "npc",
+          message:
             "Advil can be hard on the stomach — take with food. Tylenol's gentler.",
         },
       ],

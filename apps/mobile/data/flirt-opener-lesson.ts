@@ -393,6 +393,63 @@ export const flirtOpenerLesson_1_2: BundledLesson = {
         {
           speaker: "npc",
           message:
+            "Nice. So if you had to pick — sushi or ramen for life?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sushi|ramen)( for sure| all day| every time| obviously)?",
+            "(definitely |hands down |honestly )?(sushi|ramen)",
+            "(that'?s|that is) (a |such a )?(hard|tough|cruel) (question|choice)",
+            "(can'?t|cannot) (choose|pick)(,)? (i love both|both)",
+            "(probably|i think|i'?d say) (sushi|ramen)",
+            "(gotta|got to) go with (sushi|ramen)",
+            "(both)(,)? (don'?t make me|please don'?t make me) (choose|pick)",
+          ],
+          hint_tr:
+            "Casual karar: 'Sushi, hands down' veya 'That's cruel — both'. Türk: 'zor soru' = 'tough question' (hard değil). Sevimli savunma: 'Don't make me choose'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay, respectable answer. What's the best food memory you've got, then?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(probably |honestly |for me )?.{0,50}(in|with|at|when) .{0,60}",
+            "(my mom|my grandma|my dad)('s|s)?.{0,40}(cook|made|food|dish)",
+            "(this one time|that time|when i was) .{0,60}",
+            "(i'?ll never forget|i remember) .{0,60}",
+            "(growing up|as a kid|back home) .{0,60}",
+            "(it'?s |it has to be )?.{0,30}(istanbul|antalya|turkey|grandma|hometown)",
+            "(honestly|hmm)(,)? (probably|maybe) .{0,50}",
+          ],
+          hint_tr:
+            "Hikaye anlat: 'Probably my grandma's manti when I was 8' veya 'That time in Tokyo eating ramen at 3 a.m.'. Türk: kişisel yemek anısı = 'food memory'. Spesifik detay (kim, nerede, ne zaman) çekici.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay that's actually charming. We should go grab sushi sometime — you in?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|absolutely)(,)? (i'?m in|let'?s do it|sounds great)",
+            "(i'?m |sounds |that'?s )?(definitely |totally )?(in|down|great|good)",
+            "(let'?s|why not)(,)? (this weekend|next week|when'?re you free)",
+            "(absolutely|for sure)(,)? (when|where|what works)",
+            "(yes please|count me in)( when'?re you thinking)?",
+            "(i'?d love to|that sounds great)( when works)?",
+            "(when'?re|when are) you free",
+          ],
+          hint_tr:
+            "Daveti kabul: 'I'm in — when works for you?' veya 'Absolutely, let's do it'. Sıcak ve net olmak şart; 'maybe' demek backpedal sinyali.",
+        },
+        {
+          speaker: "npc",
+          message:
             "Cool, we should go sometime. What's your usual order?",
         },
       ],

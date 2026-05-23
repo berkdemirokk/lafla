@@ -118,6 +118,63 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
         {
           speaker: "npc",
           message:
+            "We have a medium on the floor — same color. Want me to grab it for you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes please|sure|that would be great)",
+            "(if you (could|don'?t mind))(,)? (yes|that'?d be great)",
+            "(could|can) i (try it on|see it first)",
+            "(actually )?(could i see )?(a different color|both)( first)?",
+            "(no )?thanks(,)? (i'?ll keep looking|i'?ll think about it)",
+            "(yeah )?grab it (please|thanks)",
+            "(could you also bring|while you'?re at it) (a small|a large) too",
+          ],
+          hint_tr:
+            "Onay veya alternatif: 'Yes please — could I try it on?' veya 'While you're at it, a small too?'. Türk: 'denerim' = 'I'll try it on' (mağaza için sabit kalıp). 'Denemek' = try ama 'try on' = giysi denemek.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sure — the fitting rooms are over there. Anything else you're looking for?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(actually )?(yes|yeah)(,)? (i'?m (also )?looking for|do you have any) .{0,40}",
+            "(also )?(looking for) (a |some |any )?(jeans|pants|jacket|sneakers|shoes)",
+            "(any )?(sales|discounts) (going on|today)",
+            "(do you have a (loyalty|rewards) (card|program))",
+            "(no )?(that'?s it|just this|just the shirt)( for now| thanks)?",
+            "(while i'?m here)(,)? .{0,40}",
+            "(any (new arrivals|fall collection))",
+          ],
+          hint_tr:
+            "Ek alışveriş veya kapat: 'Yes, looking for jeans too, any in size 32?' veya 'No, just this for now, thanks'. Türk öğrenci 'indirim' = 'discount' direkt çevirir; 'sale' veya 'deals' daha doğal.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "All jeans are 20% off today, by the way. The denim wall is over there.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh )?(perfect|great|that'?s nice|good to know)",
+            "(noted|i'?ll (check it out|take a look))",
+            "(thanks for (mentioning|letting me know))",
+            "(does the discount (work with|stack with) any other (offers|coupons))",
+            "(i'?ll (definitely|probably) (browse|check) (the jeans|those))",
+            "(20 percent off )?(awesome|amazing|nice)",
+            "(do i need a code|is there a coupon)",
+          ],
+          hint_tr:
+            "Sale haberi: 'Oh perfect — does it stack with other offers?' veya 'Great, I'll check the denim wall'. Türk: 'kapışırım' = direkt çevirisi yok; 'I'll grab some' modern karşılık.",
+        },
+        {
+          speaker: "npc",
+          message:
             "Sorry, last one. The Soho store has it though!",
         },
       ],

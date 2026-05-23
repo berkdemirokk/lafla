@@ -79,6 +79,7 @@ import {
   incrementFreeTier,
 } from "../../lib/free-tier";
 import { recordSceneCompletion } from "../../lib/scene-history";
+import { recordVocabFromScene } from "../../lib/vocab-book";
 import type { SceneMode } from "../../data/scenes";
 import {
   bumpModeFluency,
@@ -461,6 +462,12 @@ export default function ScenarioScreen() {
       mode: scenario.mode as SceneMode,
       score: result.score,
     }).catch(() => {});
+
+    // 2026-05-21 — Vocab book record. Sahnenin vocab_tile'ları kişisel
+    // defter'e eklenir. Dedupe edilir (aynı sahne tekrar oynanırsa
+    // kelimeler çift yazılmaz). Retention için kullanıcı "bu hafta 24
+    // kelime öğrendim" hissini görsün.
+    recordVocabFromScene(scenario.id, scenario.mode as SceneMode).catch(() => {});
     hapticSuccess();
     setPhase("verdict");
   };

@@ -138,6 +138,63 @@ export const workNetworkingLesson_39_1: BundledLesson = {
         },
         {
           speaker: "npc",
+          message:
+            "I'm a senior engineer at Stripe — payments infra. We're hiring actually, if you're open.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(oh )?(nice|cool|interesting|stripe)(,)? (i'?ve|i have) (heard|known)( a lot| great things)?",
+            "(open to (chatting|hearing about it|new things))",
+            "(not actively looking|happy where i'?m at)(,)? (but )?(curious|always open)",
+            "(could |would )?(love to (hear|chat) (more|further))",
+            "(what'?s the team|tell me more about)( like)?",
+            "(any |what kind of )(roles|positions) (are you looking)",
+            "(payments infra |stripe )?sounds (interesting|exciting)",
+          ],
+          hint_tr:
+            "Türk: 'tanıdık üzerinden iş' kültürü güçlü ama burada cold pitch'e cevap veriyorsun. 'I'm not actively looking, but always open to chat' sağlıklı sınır. Türk öğrenci 'çok ilgileniyorum' = 'very interested' direkt çevirisi yapay; 'open to hearing more' doğal.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool — what's something that would make you genuinely consider a move?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|for me|the thing) (would be|i'?d need) .{0,50}",
+            "(scope|ownership|impact|the team|the mission|the problem)( has to be| matters most)",
+            "(working on (real|hard) (problems|infrastructure))",
+            "(remote (flexibility|setup)|good (manager|team|leadership))",
+            "(a clear (growth (path|story)|tech (stack|challenge)))",
+            "(autonomy|trust|ownership of (a |my )?(domain|area|stack))",
+            "(comp matters but )(culture|the team|growth) (matters more)?",
+          ],
+          hint_tr:
+            "Net olarak söyle: 'For me it'd be ownership of a real problem and a manager who trusts the team' veya 'A clear growth path matters more than comp'. Türk: 'maaş + ekip + büyüme' formülü; üçünü de ekle.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "That tracks. Want to swap LinkedIn — no pressure, just keep the door open?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|sure|absolutely)(,)? (let'?s do it|i'?d love that)",
+            "(definitely|for sure)(,)? (sending|sharing|adding) (you )?now",
+            "(let me grab your|here'?s my) (qr |linkedin |handle)",
+            "(easier to find me as|my linkedin is) .{0,30}",
+            "(connecting now|just sent (a |the )?request)",
+            "(yes please|sounds good)(,)? (no pressure)?",
+            "(adding you )?(now|on the spot)",
+          ],
+          hint_tr:
+            "LinkedIn değişimi: 'Sure — adding you now' veya 'Yeah, let me grab your QR'. Türk: 'bağlantı kuralım' = 'let's connect'; LinkedIn jargonu. Türk öğrenci 'kart' (card) der ama Batı konferanslarında kart kullanımı azaldı, QR code standart oldu.",
+        },
+        {
+          speaker: "npc",
           message: "Cool — we should grab coffee after this.",
         },
       ],

@@ -382,6 +382,63 @@ export const workMeetingLesson_10_2: BundledLesson = {
         {
           speaker: "npc",
           message:
+            "Interesting. But the simpler approach gets us to ship faster — doesn't that matter more right now?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(totally|absolutely|i agree) (on |with )?(speed|shipping fast)",
+            "(speed matters|shipping fast matters)(,)? (but|though|however)",
+            "(i hear you|fair)(,)? (but|though) .{0,50}",
+            "(the trade-?off|the worry|the risk) (is |here is )?.{0,50}",
+            "(short-term|short term) (win |gain )?(could|might) (cost us|hurt us)",
+            "(might )?(end up |create )?(tech debt|rework|more work) (later|down the line)",
+            "(in hindsight|long term)(,)? .{0,50}",
+          ],
+          hint_tr:
+            "Acknowledge + counter: 'Totally agree on speed, but the trade-off is tech debt later'. Türk: 'aceleyle koyup sonra tamir etmek' = 'short-term win, long-term cost'. C1 ifade: 'in hindsight'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Okay. What's your suggestion then — do we delay the launch, or scope it down?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(scope (it )?down|reduce scope|cut scope)",
+            "(launch |ship )?(a )?(smaller|leaner|trimmed) version",
+            "(could we |what if we )?(phase |stage |split )?it (into|in) (two|phases)",
+            "(launch (the )?core|ship (the )?mvp) (first|then iterate)",
+            "(delay (it |the launch ))?(a week |a few days )?(for the foundation)?",
+            "(let'?s )?(do )?(both|a hybrid|the middle ground)",
+            "(my suggestion|i'?d suggest)(,)? .{0,50}",
+          ],
+          hint_tr:
+            "Çözüm öner: 'Scope it down — launch core, iterate next sprint' veya 'Could we phase it?'. Türk: 'kapsamı daraltmak' = 'scope down'. 'Phase it' = aşamalandırmak.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I like that. Who would you loop in to validate the scope cut?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(probably |i'?d )?(loop in|tag in|pull in) (product|design|qa|the pm)",
+            "(let'?s |we should )?(get |grab )?(product|the pm|design) (in (the loop|on it))?",
+            "(sync (with|on)|check with) (product|the pm|qa)",
+            "(maya|sarah|the pm|product)( before |should )?(weigh in|validate)",
+            "(a quick )?(meeting|sync|chat) with (product|design|qa)",
+            "(after this |before eod )?(i can|i'?ll) ping (product|the pm)",
+            "(qa|product|design) (input|opinion) (would help|matters here)",
+          ],
+          hint_tr:
+            "Stakeholder belirle: 'I'd loop in product before we cut anything — they own the roadmap' veya 'A quick sync with QA, then product'. Türk: 'haberdar etmek' = 'loop in'. Modern iş İngilizcesi.",
+        },
+        {
+          speaker: "npc",
+          message:
             "Fair point. Let's spike both and compare.",
         },
       ],

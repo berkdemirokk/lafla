@@ -134,6 +134,68 @@ export const flirtSecondDateLesson_42_1: BundledLesson = {
           hint_tr:
             "Onayla + yer kararı: 'I'll text you the spot — Saturday at 7?'",
         },
+        {
+          speaker: "npc",
+          message:
+            "Perfect. Anything in particular you've been craving food-wise?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly )?(i'?ve been craving|i could go for) .{0,40}",
+            "(craving )?(italian|sushi|thai|mexican|burgers|ramen)",
+            "(thinking )?(italian|sushi|something cozy|something fun)",
+            "(open to anything|i'?m flexible|easy)( though)?",
+            "(let me )?(surprise you|pick something good)",
+            "(what about|how about) (italian|sushi|the new place)",
+            "(been wanting to try|there'?s this new) .{0,40}",
+          ],
+          hint_tr:
+            "Mutfak öner: 'I've been craving Italian — that little place we mentioned?' veya 'Honestly open to anything good'. Türk: 'canım çekiyor' = 'I'm craving' (modern).",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Italian sounds amazing. Want me to handle the reservation, or you got it?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i got it|i'?ll handle it|i'?ll book it|let me)( book it| reserve)?",
+            "(let me|i'?ll) (take care of|do) (it|that|the reservation)",
+            "(no worries|don'?t worry)(,)? (i'?ve got it|i got this)",
+            "(if you )?(don'?t mind|want to)(,)? (you can|please)( book it)?",
+            "(yeah )?(go ahead|please)(,)? (you book it|if you'?ve got it)",
+            "(i'?ll )?(send|share) the (reservation|details) (later|tonight)",
+            "(7 |seven |8 )(work|sounds good)( for the booking)?",
+          ],
+          hint_tr:
+            "Rezervasyon paylaş: 'I got it — booking for 7?' veya 'Go ahead, please'. Türk: 'rezervasyon' = reservation (kolay), ama 'masa ayırtmak' = 'book a table' (daha doğal konuşmada).",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool — also, real quick: any dietary stuff I should know about you for the menu?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no )?(allergies|restrictions)(,)? (you'?re |i'?m )?(good|safe)",
+            "(i'?m |i am )(allergic to|sensitive to) (nuts|gluten|dairy|shellfish)",
+            "(i'?m |i am )(vegetarian|vegan|pescatarian)",
+            "(no )?(nuts|gluten|dairy|shellfish|peanut|onion|garlic)( for me)?",
+            "(i eat |i can eat )?(everything|anything)( basically)?",
+            "(just )?(don'?t love|not a fan of) .{0,30}",
+            "(nothing |you'?re )(safe|good|all good)( on that)?",
+          ],
+          hint_tr:
+            "Diyet/alerji belirt: 'No allergies, you're safe' veya 'I'm vegetarian — they usually have great options'. Türk: 'alerjim yok' = 'no allergies'; özel diyet için 'I'm [vegetarian/vegan/pescatarian]'.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it — Saturday at seven, Italian, no allergies. I'm officially excited.",
+        },
       ],
     },
     {

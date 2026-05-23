@@ -48,6 +48,7 @@ import {
   getRecentDecay,
   type CefrLevel,
 } from "../lib/cefr-level";
+import { backfillCertificatesUpTo } from "../lib/certificate";
 import {
   getShieldCount,
   getMonthlyGrant,
@@ -173,6 +174,16 @@ export default function ProfileScreen() {
       setShieldCount(shields);
       setMonthlyGrant(grant);
       setRecentShieldSave(recent);
+      // 2026-05-21 — Mevcut kullanıcı için certificate backfill. CEFR
+      // seviyesine sahip ama hiç certificate yoksa A1'den o seviyeye kadar
+      // tüm cert'ler retroaktif verilir. Idempotent (daha önce verilenler
+      // skip). İlk profile open'da 1 kere yeterli.
+      if (lvl) {
+        const nameRaw = await AsyncStorage.getItem("lafla.displayName").catch(
+          () => null,
+        );
+        backfillCertificatesUpTo(lvl, nameRaw ?? undefined).catch(() => {});
+      }
       setRecentDecay(decay);
       const prog = progRaw ? parseFloat(progRaw) : 0;
       setCefrProgress(Number.isFinite(prog) && prog >= 0 && prog <= 1 ? prog : 0);
@@ -379,14 +390,25 @@ export default function ProfileScreen() {
             Pre-2026-05-20 the paywall existed as a registered route but had
             zero callers; this row closes that gap. Free-tier hard gating is
             a post-launch decision (cf. APP_REVIEW_NOTES.md). */}
-        {/* History — 2026-05-21. Local 200 kayıt ring buffer. Modes filter
-            + relative date. Tek sahne row'una basınca scenario re-open. */}
+        {/* History + Vocab book + Certificates — 2026-05-21. İlerlemeyi görünür kıl. */}
         <Text style={styles.sectionLabel}>İLERLEME</Text>
         <View style={styles.accountCard}>
           <AccountRow
             icon="📜"
             label="Geçmiş sahneler"
             onPress={() => router.push("/history" as never)}
+          />
+          <View style={styles.rowDivider} />
+          <AccountRow
+            icon="📖"
+            label="Kelime defterin"
+            onPress={() => router.push("/vocab-book" as never)}
+          />
+          <View style={styles.rowDivider} />
+          <AccountRow
+            icon="🏆"
+            label="Sertifikalarım"
+            onPress={() => router.push("/certificates" as never)}
           />
         </View>
 

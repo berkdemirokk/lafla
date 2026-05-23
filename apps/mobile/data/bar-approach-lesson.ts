@@ -117,7 +117,64 @@ export const barApproachLesson_24_1: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Yeah, very smoky but smooth. Bartender knows their stuff here.",
+            "Yeah, very smoky but smooth. Bartender knows their stuff here. You a regular?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|first time|never been here)( actually)?",
+            "(yeah|kind of|sort of)(,)? (come (every|once a) (week|month))",
+            "(been here a few times|a couple of times)",
+            "(my (friend|colleague) (recommended|brought me))",
+            "(stumbled in|wandered in)(,)? (heard good things)",
+            "(actually )?(hometown|new in town)(,)? (still exploring)",
+            "(it'?s on my list|been meaning to come)",
+          ],
+          hint_tr:
+            "Yer ilişkisi: 'No, first time — my friend recommended it' veya 'Kind of a regular, come once a month'. Türk öğrenci 'evet'/'hayır' kuru bırakır; bir cümle daha ekle (sebep, sıklık, kaynak).",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Nice. So what brings you out tonight? Just unwinding?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|just (unwinding|decompressing))(,)? (long week|tough week)?",
+            "(celebrating (something|a friend'?s birthday|the weekend))",
+            "(catching up with (a friend|some friends))",
+            "(meeting someone here|waiting for a friend)",
+            "(needed a (drink|break) after work)",
+            "(just (out|in town))(,)? (figured i'?d explore)",
+            "(no real plan)(,)? (just (here|out for a bit))",
+          ],
+          hint_tr:
+            "Tonight neden? 'Yeah, just unwinding — long week' veya 'Meeting a friend, waiting for them now'. Türk: 'Kafa dağıtmak için' = 'to unwind / to decompress' (modern).",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Same vibe — long week here too. Any plans this weekend, or just rolling with it?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(just rolling with it|no plans|playing it by ear)",
+            "(might (hit|check out) (a |the )?(market|park|brunch|exhibition))",
+            "(brunch (saturday|sunday)|some friends are coming over)",
+            "(catching up on (sleep|errands|reading))",
+            "(open to (suggestions|anything))",
+            "(might (try|check) (somewhere new|a new spot))",
+            "(low-key (weekend|plans)|low key)",
+          ],
+          hint_tr:
+            "Hafta sonu paylaş: 'Just rolling with it — maybe brunch Sunday' veya 'Open to suggestions, honestly'. Türk: 'kafama göre takılıyorum' = 'playing it by ear / rolling with it' (modern).",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Cool — I'm grabbing brunch at this place on Sunday if you ever want recs.",
         },
       ],
     },
@@ -324,6 +381,63 @@ export const barApproachLesson_24_2: BundledLesson = {
           ],
           hint_tr:
             "Bag kur: 'Of course! Same drink or something else? Cheers!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "So tell me — how do you actually pronounce your name properly? I want to get it right.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(it'?s |i'?m |my name is )?[a-z]+(,)? (like|pronounced like) .{0,30}",
+            "(it'?s )?[a-z]+ — [a-z](,? [a-z]){2,}",
+            "(it'?s pronounced|sounds like) .{0,30}",
+            "(close enough|that works|don'?t worry about it)",
+            "(let me (spell|break it down))(,)? .{0,30}",
+            "(the (silent|tricky) part is) .{0,20}",
+            "(rhymes with )?.{0,20}",
+          ],
+          hint_tr:
+            "İsmini öğret: 'It's Berk — rhymes with 'work'. The 'B' is hard' veya 'Sounds like 'bear-k', basically'. Türk: 'Berk' = İngilizce'de zor; rhyme veya phonetic spelling kullan. Türk isimleri Batı'da zorlu — heceleme + rhyme en hızlı.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Got it. So what do you do — work-wise, I mean? If that's not too boring a question.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i'?m |i am )?(a |an )?(software (engineer|developer)|designer|product manager|teacher|consultant)",
+            "(i work (in|at|for)) .{0,40}",
+            "(currently )?(building|leading|working on) .{0,40}",
+            "(boring (answer|stuff)|nothing exciting)(,)? (just )?.{0,40}",
+            "(in (tech|finance|marketing|healthcare))",
+            "(freelance )?(\\w+)( for a few years)?",
+            "(short answer)(,)? .{0,40}",
+          ],
+          hint_tr:
+            "Mesleğini paylaş: 'I'm a software engineer — building a language app right now' veya 'In tech, leading payments'. Türk: 'mühendis' = engineer; spesifik ekle (software / mechanical / electrical).",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Sounds cool. Have you been doing it long, or recent pivot?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(\\d+ years|a few years|been at it a while)",
+            "(actually )?(recent pivot|new(er)? to it)(,)? .{0,40}",
+            "(switched from .{0,30}|used to be (in|a) .{0,30})",
+            "(been doing it for (about |around )?\\d+ years)",
+            "(felt like the right (move|time|change))",
+            "(came from (a )?(different|other) (field|background))",
+            "(love it (so far|honestly|now))",
+          ],
+          hint_tr:
+            "Kariyer arkı: 'Five years in — started as a junior, now lead' veya 'Recent pivot from finance, love it'. Türk öğrenci 'X yıldır' = 'for X years' direkt çevirir; doğal 'I've been doing it for X years' (present perfect).",
         },
         {
           speaker: "npc",
