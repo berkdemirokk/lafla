@@ -411,7 +411,21 @@ async function patchVersionWhatsNew(
   dryRun: boolean,
 ): Promise<void> {
   // "What's New" appStoreVersionLocalizations'ın whatsNew attribute'unda.
-  await patchLocalization(token, locId, { whatsNew }, dryRun);
+  // Apple kuralı: ilk submission (1.0.0) için whatsNew edit edilemez — Apple
+  // o version için "new app" framing'i otomatik kullanır. Sonraki sürümlerde
+  // (v1.1+) edit'e açılır. Bu yüzden fail'i fatal yapma — warn + devam.
+  try {
+    await patchLocalization(token, locId, { whatsNew }, dryRun);
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    if (msg.includes("whatsNew") && msg.includes("cannot be edited")) {
+      console.log(
+        `  ⚠️  whatsNew skip: ${locId} — Apple ilk submission'da edit etmiyor (normal, v1.1+'dan itibaren çalışır)`,
+      );
+      return;
+    }
+    throw err; // başka error → propagate
+  }
 }
 
 async function main(): Promise<void> {
