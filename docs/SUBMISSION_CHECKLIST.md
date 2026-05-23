@@ -57,7 +57,7 @@ ASC'de https://appstoreconnect.apple.com → My Apps → Lafla.
   - Audio Data: Microphone, recorded → "Not linked to user", purpose: App Functionality (pronunciation evaluation)
   - Usage Data: Product Interaction → "Not linked to user" (post-ATT), purpose: Analytics
   - Diagnostics: Crash Data → "Not linked to user", purpose: App Functionality
-- [ ] **Tracking question:** "Does Lafla use data for tracking?" → **No** (PostHog ATT-gated, opt-in only)
+- [ ] **Tracking question:** "Does Lafla use data for tracking?" → **YES** ⚠️ AdMob personalized ads + PostHog'un ATT-conditional tracking capability'si "Yes" gerektirir. (NSPrivacyTracking: true app.json'da, tracking domains da declared.) "No" cevabı 5.1.2 mismatch reject sebebi.
 
 ### A.5 Version Information (1.0)
 

@@ -41,26 +41,20 @@ import { trackEvent } from "./analytics";
 
 const IS_DEV = __DEV__;
 
-// 2026-05-23 — Apple Review safety: TestFlight build'lerinde de TEST ads
-// kullan. Önceki sürüm sadece __DEV__'a bakıyordu — TestFlight build
-// __DEV__ === false döner, dolayısıyla gerçek production AdMob reklamları
-// görünür. Apple TestFlight reviewer'ı production-grade reklam görürse
-// 1.1.4/2.5.4 violation diye reject eder. Çözüm: TestFlight'ı da test
-// reklam'a düşür. Production App Store build'inde Constants.appOwnership
-// veya releaseChannel ile ayır.
+// 2026-05-23 (v0.9.3) — Audit fix: önceki kod `executionEnvironment !==
+// "storeClient"` ile TestFlight'ı da test ads'e düşürüyordu. AMA EAS-built
+// standalone iOS app TestFlight VE App Store her ikisinde "standalone"
+// döner — "storeClient" sadece Expo Go'da true. Sonuç: production App
+// Store build'i ÖMÜR BOYU test ad yayınlardı → revenue=0.
 //
-// expo-constants'da `expoConfig.extra.releaseChannel` veya
-// `Constants.executionEnvironment === 'standalone'` ile TestFlight ile
-// production App Store'u ayırmak normalde mümkün, AMA en sağlam yol:
-// `EXPO_PUBLIC_USE_TEST_ADS=true` env var ile manuel override + default
-// `__DEV__` lojiği. TestFlight build'ini bu env ile flag'la.
+// Apple Review gerçek ad'i tolere ediyor (maxAdContentRating: T zaten
+// 17+ uyumu sağlıyor). "TestFlight reviewer'ı reject eder" iddiası
+// hatalıydı (1.1.4 = UGC, 2.5.4 = background ads — ne biri uygulanabilir).
+//
+// Yeni logic: sadece dev + explicit env override. Production binary
+// (TestFlight + App Store) gerçek ads serve eder.
 const USE_TEST_ADS =
-  IS_DEV ||
-  process.env.EXPO_PUBLIC_USE_TEST_ADS === "true" ||
-  // TestFlight detection: bundleVersion ile app store build farkı tutmak
-  // sağlam yöntem olamadığı için, default'a TestFlight'ı dahil ediyoruz.
-  // Production-store-only switch ileride uygulanabilir.
-  Constants.executionEnvironment !== "storeClient";
+  IS_DEV || process.env.EXPO_PUBLIC_USE_TEST_ADS === "true";
 
 // AdMob unit IDs — production değerleri app.json extra'dan, test/dev'de
 // AdMob'un resmi TestIds. Production App Store dışındaki tüm ortamlarda

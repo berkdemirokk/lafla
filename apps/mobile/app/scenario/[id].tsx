@@ -590,19 +590,26 @@ export default function ScenarioScreen() {
               {setupIdx === 0 && (
                 <Pressable
                   onPress={() => {
-                    if (isPremiumState === false) {
+                    // 2026-05-23 (v0.9.3) — Audit fix: isPremiumState === null
+                    // window'da paid feature briefly accessible. Null durumda
+                    // güvenli default = "not premium" → paywall'a yönlendir.
+                    // RevenueCat init ~50-500ms sürüyor; o aralıkta tap'lar
+                    // accidental premium unlock'a yol açıyordu.
+                    if (isPremiumState !== true) {
                       router.push("/paywall?from=hard-mode" as never);
                     } else {
                       setHardMode((p) => !p);
                     }
                   }}
+                  disabled={isPremiumState === null}
                   style={({ pressed }) => [
                     styles.hardModeToggle,
                     hardMode && styles.hardModeToggleActive,
                     pressed && { opacity: 0.85 },
+                    isPremiumState === null && { opacity: 0.5 },
                   ]}
                   accessibilityRole="switch"
-                  accessibilityState={{ checked: hardMode }}
+                  accessibilityState={{ checked: hardMode, disabled: isPremiumState === null }}
                 >
                   <Text
                     style={[

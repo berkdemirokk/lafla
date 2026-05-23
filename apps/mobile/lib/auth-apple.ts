@@ -49,15 +49,35 @@ const SUPABASE_URL =
  * Best-effort: hata fırlatmaz, sadece resolved Boolean döner. Sign-in
  * flow'un kritik path'ini bloke etmez. Backend env (.p8 / Service ID)
  * yoksa 503 döner, biz "false" ile geri döneriz.
+ *
+ * 2026-05-23 (v0.9.3) — Audit fix: cold sign-in'de Supabase'in SecureStore
+ * session yazımı async; getSession() ilk çağrıda null dönebiliyor →
+ * exchange fail oluyordu → Apple refresh_token kaybedildi → revoke'da
+ * 5.1.1(v) ihlali. Çözüm: 3×200ms retry loop.
  */
 async function exchangeAppleAuthorizationCode(
   authorizationCode: string,
 ): Promise<boolean> {
   if (!SUPABASE_URL) return false;
+
+  // SecureStore yazımı async — session token tâ ki disk'e düşene kadar
+  // bekle. Her sleep 200ms × 3 deneme = max 600ms gecikme. Tipik 1.
+  // denemede dolu (sign-in çağrısı çok yakın zamanda resolve etti).
+  let token: string | undefined;
+  for (let i = 0; i < 3 && !token; i++) {
+    try {
+      const { data: sessionData } = await supabase.auth.getSession();
+      token = sessionData.session?.access_token;
+    } catch {
+      token = undefined;
+    }
+    if (!token && i < 2) {
+      await new Promise((resolve) => setTimeout(resolve, 200));
+    }
+  }
+  if (!token) return false;
+
   try {
-    const { data: sessionData } = await supabase.auth.getSession();
-    const token = sessionData.session?.access_token;
-    if (!token) return false;
     const res = await fetch(
       `${SUPABASE_URL.replace(/\/$/, "")}/functions/v1/apple-token-exchange`,
       {

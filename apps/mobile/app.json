@@ -2,7 +2,7 @@
   "expo": {
     "name": "Lafla",
     "slug": "lafla",
-    "version": "0.9.2",
+    "version": "0.9.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "lafla",
@@ -19,7 +19,7 @@
     "ios": {
       "bundleIdentifier": "com.lafla.app",
       "supportsTablet": false,
-      "buildNumber": "16",
+      "buildNumber": "17",
       "usesAppleSignIn": true,
       "infoPlist": {
         "CFBundleLocalizations": [
@@ -30,13 +30,19 @@
         "ITSAppUsesNonExemptEncryption": false,
         "NSMicrophoneUsageDescription": "Telaffuzunu değerlendirmek için mikrofona erişim gerekli.",
         "NSSpeechRecognitionUsageDescription": "Söylediğin İngilizce cümleleri anlamak için konuşma tanıma kullanılır.",
-        "NSUserTrackingUsageDescription": "Sana daha iyi pratik önerileri sunmak için anonim kullanım verileri toplanır.",
+        "NSUserTrackingUsageDescription": "Anonim kimlik ile pratik önerilerini iyileştirmek ve daha alakalı reklamlar göstermek için izin istiyoruz.",
         "NSPhotoLibraryUsageDescription": "İlerleme kartını galerine kaydedebilmen için izin gerekli."
       },
       "privacyManifests": {
         "NSPrivacyTracking": true,
         "NSPrivacyTrackingDomains": [
-          "eu.i.posthog.com"
+          "eu.i.posthog.com",
+          "googleadservices.com",
+          "googlesyndication.com",
+          "doubleclick.net",
+          "google-analytics.com",
+          "app-measurement.com",
+          "o447951.ingest.sentry.io"
         ],
         "NSPrivacyAccessedAPITypes": [
           {
