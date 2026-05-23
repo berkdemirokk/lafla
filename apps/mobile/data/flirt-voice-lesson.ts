@@ -1297,7 +1297,7 @@ export const flirtVoiceLesson_3_6: BundledLesson = {
 };
 
 // ============================================================
-// Lesson 3.7 — Voice Prompt Cevabı (Hinge tarzı)
+// Lesson 3.7 — Voice Prompt Cevabı (dating app tarzı)
 // ============================================================
 export const flirtVoiceLesson_3_7: BundledLesson = {
   id: "flirt.voice.3.7",
@@ -1305,7 +1305,7 @@ export const flirtVoiceLesson_3_7: BundledLesson = {
   index: 7,
   title: "Voice Prompt Cevabı",
   description:
-    "Hinge'de match'in voice prompt'una (audio bio) iltifat etmek — 'your voice is so calming', 'loved your voice prompt'.",
+    "dating app'de match'in voice prompt'una (audio bio) iltifat etmek — 'your voice is so calming', 'loved your voice prompt'.",
   estimated_minutes: 5,
   exercises: [
     {
@@ -1344,7 +1344,7 @@ export const flirtVoiceLesson_3_7: BundledLesson = {
       answer: "prompt",
       distractors: ["bio", "tape", "voicemail"],
       tr_hint:
-        "Hinge'in özelliği 'voice prompt' (audio bio) olarak bilinir. Spesifik bir an söylemek = dinlediğini gösterir.",
+        "dating app'in özelliği 'voice prompt' (audio bio) olarak bilinir. Spesifik bir an söylemek = dinlediğini gösterir.",
     },
     {
       id: "ex.fv3.7.4",
@@ -1378,7 +1378,7 @@ export const flirtVoiceLesson_3_7: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Hinge'de match'in voice prompt'una like attın — şimdi açılış mesajı yazıyorsun, prompt'una atıfta bulun.",
+        "dating app'de match'in voice prompt'una like attın — şimdi açılış mesajı yazıyorsun, prompt'una atıfta bulun.",
       npc_role: "Match",
       setting: "Opening line after liking their voice prompt",
       turns: [
@@ -1454,13 +1454,13 @@ export const flirtVoiceLesson_3_7: BundledLesson = {
           question: "Modern dating'de 'voice prompt' nedir?",
           options: [
             "Sesli arama bildirisi",
-            "Hinge/Bumble'da audio bio özelliği",
+            "dating app/dating app'da audio bio özelliği",
             "Voicemail",
             "Asistan komutu",
           ],
           correct_index: 1,
           tr_explanation:
-            "Hinge'in popüler özelliği — kullanıcı kısa sesli kayıtla profil sorusuna cevap verir. 'Audio bio' eşanlamlı.",
+            "dating app'in popüler özelliği — kullanıcı kısa sesli kayıtla profil sorusuna cevap verir. 'Audio bio' eşanlamlı.",
         },
         {
           question: "'Got me' idiom anlamı?",

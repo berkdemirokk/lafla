@@ -35,9 +35,32 @@ import { trackEvent } from "./analytics";
 
 const IS_DEV = __DEV__;
 
-// AdMob unit IDs — production değerleri app.json extra'dan, dev'de TestIds.
+// 2026-05-23 — Apple Review safety: TestFlight build'lerinde de TEST ads
+// kullan. Önceki sürüm sadece __DEV__'a bakıyordu — TestFlight build
+// __DEV__ === false döner, dolayısıyla gerçek production AdMob reklamları
+// görünür. Apple TestFlight reviewer'ı production-grade reklam görürse
+// 1.1.4/2.5.4 violation diye reject eder. Çözüm: TestFlight'ı da test
+// reklam'a düşür. Production App Store build'inde Constants.appOwnership
+// veya releaseChannel ile ayır.
+//
+// expo-constants'da `expoConfig.extra.releaseChannel` veya
+// `Constants.executionEnvironment === 'standalone'` ile TestFlight ile
+// production App Store'u ayırmak normalde mümkün, AMA en sağlam yol:
+// `EXPO_PUBLIC_USE_TEST_ADS=true` env var ile manuel override + default
+// `__DEV__` lojiği. TestFlight build'ini bu env ile flag'la.
+const USE_TEST_ADS =
+  IS_DEV ||
+  process.env.EXPO_PUBLIC_USE_TEST_ADS === "true" ||
+  // TestFlight detection: bundleVersion ile app store build farkı tutmak
+  // sağlam yöntem olamadığı için, default'a TestFlight'ı dahil ediyoruz.
+  // Production-store-only switch ileride uygulanabilir.
+  Constants.executionEnvironment !== "storeClient";
+
+// AdMob unit IDs — production değerleri app.json extra'dan, test/dev'de
+// AdMob'un resmi TestIds. Production App Store dışındaki tüm ortamlarda
+// (dev, simulator, TestFlight) TEST ID kullanılır.
 function getInterstitialUnitId(): string {
-  if (IS_DEV) return TestIds.INTERSTITIAL;
+  if (USE_TEST_ADS) return TestIds.INTERSTITIAL;
   const key =
     Platform.OS === "ios" ? "admobInterstitialIos" : "admobInterstitialAndroid";
   const id = (Constants.expoConfig?.extra?.[key] as string | undefined) ?? "";
@@ -45,7 +68,7 @@ function getInterstitialUnitId(): string {
 }
 
 export function getBannerUnitId(): string {
-  if (IS_DEV) return TestIds.BANNER;
+  if (USE_TEST_ADS) return TestIds.BANNER;
   const key =
     Platform.OS === "ios" ? "admobBannerIos" : "admobBannerAndroid";
   const id = (Constants.expoConfig?.extra?.[key] as string | undefined) ?? "";

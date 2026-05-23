@@ -13,6 +13,7 @@ import { ErrorBoundary } from "../components/ErrorBoundary";
 import { initAnalytics, trackEvent } from "../lib/analytics";
 import { initSentry } from "../lib/sentry";
 import { initAds } from "../lib/ads";
+import { requestAttOnce } from "../lib/att";
 import { tokens } from "../theme";
 
 // Initialize once at module load so the SDK is live before any render —
@@ -33,9 +34,18 @@ export default function RootLayout() {
         // ignore — analytics is non-critical
       }
     })();
-    // AdMob bootstrap — non-blocking. Premium kullanıcıda zaten ad
-    // render edilmez, ama SDK initialize lifecycle event'leri için open.
-    void initAds().catch(() => {});
+    // 2026-05-23 — Apple Review safety: AdMob başlatmadan ÖNCE ATT prompt
+    // gösterilmeli. ATTrackingManager.requestTrackingAuthorization initAds
+    // (mobileAds().initialize()) öncesinde çalışırsa Apple "Sequence
+    // correct" der. requestAttOnce idempotent — 2. açılışta no-op.
+    void (async () => {
+      try {
+        await requestAttOnce();
+      } catch {
+        // ATT failure non-critical; AdMob non-personalized'a düşer
+      }
+      void initAds().catch(() => {});
+    })();
   }, []);
 
   return (

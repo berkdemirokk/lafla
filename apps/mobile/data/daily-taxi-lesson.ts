@@ -1097,7 +1097,7 @@ export const dailyTaxiLesson_32_6: BundledLesson = {
   index: 6,
   title: "Rota Değiştir — Durağa Varmadan",
   description:
-    "Yol ortasında plan değişti: hızlı Walgreens molası, başka bir köşede in, varış noktası değiştir.",
+    "Yol ortasında plan değişti: hızlı pharmacy molası, başka bir köşede in, varış noktası değiştir.",
   estimated_minutes: 5,
   exercises: [
     {
@@ -1106,8 +1106,8 @@ export const dailyTaxiLesson_32_6: BundledLesson = {
       difficulty: 2,
       word_or_phrase: "Quick stop",
       tr_translation: "Hızlı (kısa) mola",
-      example: "Quick stop at Walgreens — five minutes tops.",
-      example_tr: "Walgreens'te hızlı mola — en fazla beş dakika.",
+      example: "Quick stop at pharmacy — five minutes tops.",
+      example_tr: "pharmacy'te hızlı mola — en fazla beş dakika.",
     },
     {
       id: "ex.dx32.6.2",
@@ -1130,10 +1130,10 @@ export const dailyTaxiLesson_32_6: BundledLesson = {
       type: "fill_blank",
       difficulty: 3,
       sentence_template: "Could we make a quick stop at ___ on the way?",
-      answer: "Walgreens",
+      answer: "pharmacy",
       distractors: ["walking", "always", "wall"],
       tr_hint:
-        "Walgreens = ABD'de büyük eczane/market zinciri. 'On the way' = yol üstünde.",
+        "pharmacy = ABD'de büyük eczane/market zinciri. 'On the way' = yol üstünde.",
     },
     {
       id: "ex.dx32.6.4",
@@ -1165,7 +1165,7 @@ export const dailyTaxiLesson_32_6: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Yarıdasın — yağmur başladı, şemsiye lazım. Walgreens molası iste + sonra varış noktasını değiştir.",
+        "Yarıdasın — yağmur başladı, şemsiye lazım. pharmacy molası iste + sonra varış noktasını değiştir.",
       npc_role: "Uber Driver",
       setting: "Mid-ride, rain starts",
       turns: [
@@ -1180,7 +1180,7 @@ export const dailyTaxiLesson_32_6: BundledLesson = {
             "(five minutes (tops|max)|won't be long|two minutes)",
           ],
           hint_tr:
-            "Kibar mola iste: 'Any chance of a quick stop at Walgreens? Need an umbrella — two minutes tops.'",
+            "Kibar mola iste: 'Any chance of a quick stop at pharmacy? Need an umbrella — two minutes tops.'",
         },
         {
           speaker: "npc",
@@ -1201,7 +1201,7 @@ export const dailyTaxiLesson_32_6: BundledLesson = {
         },
         {
           speaker: "npc",
-          message: "Sure thing. The corner after Walgreens, then.",
+          message: "Sure thing. The corner after pharmacy, then.",
         },
       ],
     },
@@ -1215,7 +1215,7 @@ export const dailyTaxiLesson_32_6: BundledLesson = {
           options: [
             "Stop now!",
             "Wait here!",
-            "Any chance of a quick stop at Walgreens? Two minutes tops.",
+            "Any chance of a quick stop at pharmacy? Two minutes tops.",
             "I want stop.",
           ],
           correct_index: 2,

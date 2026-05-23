@@ -1,4 +1,4 @@
-// Flort - Opener lessons (Tinder/Bumble acilis mesajlari)
+// Flort - Opener lessons (dating app/dating app acilis mesajlari)
 // Skill: flirt.opener (4 lessons)
 
 import type { BundledLesson } from "../lib/engine";
@@ -82,9 +82,9 @@ export const flirtOpenerLesson_1_1: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Tinder'da yeni match. Sen ilk mesajı atıyorsun — soru bazlı opener.",
+        "dating app'da yeni match. Sen ilk mesajı atıyorsun — soru bazlı opener.",
       npc_role: "Match",
-      setting: "First Tinder message",
+      setting: "First dating app message",
       turns: [
         {
           speaker: "user",
@@ -187,7 +187,7 @@ export const flirtOpenerLesson_1_1: BundledLesson = {
       difficulty: 2,
       questions: [
         {
-          question: "Tinder'da en güçlü açılış tipi?",
+          question: "dating app'da en güçlü açılış tipi?",
           options: [
             "Hey",
             "Hi nasılsın",
@@ -324,7 +324,7 @@ export const flirtOpenerLesson_1_2: BundledLesson = {
       answer: "bio",
       distractors: ["biography", "page", "info"],
       tr_hint:
-        "'Bio' = Tinder/Bumble profil tanıtım yazısı. 'Biography' resmi.",
+        "'Bio' = dating app/dating app profil tanıtım yazısı. 'Biography' resmi.",
     },
     {
       id: "ex.f1.2.4",
@@ -358,7 +358,7 @@ export const flirtOpenerLesson_1_2: BundledLesson = {
       scenario_description:
         "Match'in bio'sunda 'I'm obsessed with sushi' yazıyor. Bunu referans veriyorsun.",
       npc_role: "Match",
-      setting: "Tinder bio-based opener",
+      setting: "dating app bio-based opener",
       turns: [
         {
           speaker: "user",
@@ -460,7 +460,7 @@ export const flirtOpenerLesson_1_2: BundledLesson = {
       difficulty: 2,
       questions: [
         {
-          question: "Tinder'da bio referansı niye güçlü opener?",
+          question: "dating app'da bio referansı niye güçlü opener?",
           options: [
             "Kısa olduğu için",
             "'Profilini okudum' enerjisi verir — generic değil",
@@ -562,7 +562,7 @@ export const flirtOpenerLesson_1_3: BundledLesson = {
   index: 3,
   title: "Self-Aware Opener",
   description:
-    "Tinder'ın garipliğini kabul et + kendinle dalga geç. Karşıdakini rahatlatır.",
+    "dating app'ın garipliğini kabul et + kendinle dalga geç. Karşıdakini rahatlatır.",
   estimated_minutes: 5,
   exercises: [
     {
@@ -631,9 +631,9 @@ export const flirtOpenerLesson_1_3: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Tinder'da match. Kendinle dalga geçerek açılış yapıyorsun.",
+        "dating app'da match. Kendinle dalga geçerek açılış yapıyorsun.",
       npc_role: "Match",
-      setting: "Self-aware Tinder opener",
+      setting: "Self-aware dating app opener",
       turns: [
         {
           speaker: "user",
@@ -717,7 +717,7 @@ export const flirtOpenerLesson_1_3: BundledLesson = {
           question: "Self-aware opener'ın gücü?",
           options: [
             "Karşıdakinin moralini bozar",
-            "Tinder'ın garipliğini kabul = karşıdakini rahatlatır",
+            "dating app'ın garipliğini kabul = karşıdakini rahatlatır",
             "Az kelime kullanır",
             "Soruyu atlamana izin verir",
           ],
@@ -833,7 +833,7 @@ export const flirtOpenerLesson_1_4: BundledLesson = {
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
-      source: "Tinder'da seninle tanıştığım için minnettarım.",
+      source: "dating app'da seninle tanıştığım için minnettarım.",
       target: "I'm glad we matched.",
       accepted_variants: [
         "Glad we matched.",
@@ -1063,7 +1063,7 @@ export const flirtOpenerLesson_1_5: BundledLesson = {
         "Your dog's name is the only thing I need right now.",
       ],
       tr_hint:
-        "'I'll be honest' / 'Not gonna lie' = açıkçası (sosyal yumuşatma). 'Swiped' = kaydırdım (Tinder fiili).",
+        "'I'll be honest' / 'Not gonna lie' = açıkçası (sosyal yumuşatma). 'Swiped' = kaydırdım (dating app fiili).",
     },
     {
       id: "ex.f1.5.3",
@@ -1106,7 +1106,7 @@ export const flirtOpenerLesson_1_5: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Bumble'da match. Profilde golden retriever ile sahil fotosu var. Köpeğe referansla açılıyorsun.",
+        "dating app'da match. Profilde golden retriever ile sahil fotosu var. Köpeğe referansla açılıyorsun.",
       npc_role: "Match",
       setting: "Photo-based opener — dog photo",
       turns: [
@@ -1181,7 +1181,7 @@ export const flirtOpenerLesson_1_5: BundledLesson = {
           question: "'Swiped' fiili ne demek?",
           options: [
             "Sildim",
-            "Kaydırdım (Tinder/Bumble'da sağa/sola)",
+            "Kaydırdım (dating app/dating app'da sağa/sola)",
             "Çaldım",
             "Sürdüm",
           ],
@@ -1282,7 +1282,7 @@ export const flirtOpenerLesson_1_6: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Hinge'de match. İkiniz de profilde 'climbing' (kaya tırmanışı) yazıyor. Ortak ilgiyle açılıyorsun.",
+        "dating app'de match. İkiniz de profilde 'climbing' (kaya tırmanışı) yazıyor. Ortak ilgiyle açılıyorsun.",
       npc_role: "Match",
       setting: "Mutual interest opener — climbing",
       turns: [
@@ -1461,7 +1461,7 @@ export const flirtOpenerLesson_1_7: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Tinder'da match. Match'in bio'su tamamen boş. Sen yaratıcı tahmin oyunuyla açılıyorsun.",
+        "dating app'da match. Match'in bio'su tamamen boş. Sen yaratıcı tahmin oyunuyla açılıyorsun.",
       npc_role: "Match",
       setting: "Empty bio — creative guess opener",
       turns: [
@@ -1560,7 +1560,7 @@ export const flirtOpenerLesson_1_7: BundledLesson = {
 };
 
 // ============================================================
-// Lesson 1.8 — Voice Prompt Response (Hinge sesli prompt'a yazılı cevap)
+// Lesson 1.8 — Voice Prompt Response (dating app sesli prompt'a yazılı cevap)
 // ============================================================
 export const flirtOpenerLesson_1_8: BundledLesson = {
   id: "flirt.opener.1.8",
@@ -1568,7 +1568,7 @@ export const flirtOpenerLesson_1_8: BundledLesson = {
   index: 8,
   title: "Voice Prompt'a Cevap",
   description:
-    "Hinge'de sesli prompt var (audio bio). Sesini kaydetmek yerine yazıyla zekice cevap nasıl atılır — referans + soru.",
+    "dating app'de sesli prompt var (audio bio). Sesini kaydetmek yerine yazıyla zekice cevap nasıl atılır — referans + soru.",
   estimated_minutes: 5,
   exercises: [
     {
@@ -1595,7 +1595,7 @@ export const flirtOpenerLesson_1_8: BundledLesson = {
         "Need the name of that restaurant from your voice prompt.",
       ],
       tr_hint:
-        "'Voice prompt' = Hinge'in audio bio'su. 'You mentioned' = bahsettin (past, sesli olarak).",
+        "'Voice prompt' = dating app'in audio bio'su. 'You mentioned' = bahsettin (past, sesli olarak).",
     },
     {
       id: "ex.f1.8.3",
@@ -1642,9 +1642,9 @@ export const flirtOpenerLesson_1_8: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Hinge'de match. Match'in 'My simple pleasures' sesli prompt'ı var ve içinde 'Sunday espresso ritual' bahsetmiş. Sen yazıyla cevap yazıyorsun.",
+        "dating app'de match. Match'in 'My simple pleasures' sesli prompt'ı var ve içinde 'Sunday espresso ritual' bahsetmiş. Sen yazıyla cevap yazıyorsun.",
       npc_role: "Match",
-      setting: "Hinge voice prompt response",
+      setting: "dating app voice prompt response",
       turns: [
         {
           speaker: "user",
@@ -1680,7 +1680,7 @@ export const flirtOpenerLesson_1_8: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Okay, we can either marry over this or argue about brew methods. Hinge limit reached — wanna take this off-app?",
+            "Okay, we can either marry over this or argue about brew methods. dating app limit reached — wanna take this off-app?",
         },
       ],
     },
@@ -1690,7 +1690,7 @@ export const flirtOpenerLesson_1_8: BundledLesson = {
       difficulty: 2,
       questions: [
         {
-          question: "Hinge voice prompt'a yazılı cevabın gücü?",
+          question: "dating app voice prompt'a yazılı cevabın gücü?",
           options: [
             "Daha hızlı",
             "Dinlediğini kanıtlar + spesifik detay yakalama şansı",

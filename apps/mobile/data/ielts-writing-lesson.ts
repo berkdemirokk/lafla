@@ -1127,7 +1127,7 @@ export const ieltsWritingLesson_w2_2: BundledLesson = {
             "(for example|to illustrate),?",
             "(online (courses|learning|education)|remote (work|jobs)|access to information)",
           ],
-          hint_tr: "Body 2 (lehte görüş): 'On the other hand, proponents maintain that technology empowers users. Online courses on platforms like Coursera grant Turkish students access to MIT-level education from a bedroom in Bursa — opportunities unimaginable two decades ago.' Concrete example kritik.",
+          hint_tr: "Body 2 (lehte görüş): 'On the other hand, proponents maintain that technology empowers users. Online courses on platforms like online course platform grant Turkish students access to MIT-level education from a bedroom in Bursa — opportunities unimaginable two decades ago.' Concrete example kritik.",
         },
         { speaker: "npc", message: "Now your opinion paragraph — pick a side, but with NUANCE." },
         {

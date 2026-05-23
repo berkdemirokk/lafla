@@ -1,4 +1,4 @@
-// Intro — Tinder DM (force-first-scene tutorial).
+// Intro — dating app DM (force-first-scene tutorial).
 //
 // Bu sahne onboarding biter bitmez (CEFR pick sonrası) zorunlu olarak
 // trigger edilir. Amacı: kullanıcı home feed'e ulaşmadan önce 90 saniyede
@@ -25,7 +25,7 @@ export const introTinderLesson_0_1: BundledLesson = {
   id: "intro.tinder.0.1",
   skill_id: "intro.tinder",
   index: 1,
-  title: "İlk Tinder Mesajı",
+  title: "İlk dating app Mesajı",
   description:
     "Match yazdı. 'hey what's up :)' geldi. İlk 5 saniyede ne yazarsın?",
   estimated_minutes: 2,
@@ -42,7 +42,7 @@ export const introTinderLesson_0_1: BundledLesson = {
       example: "Hey, what's up?",
       example_tr: "Selam, naber?",
       tr_note:
-        "Tinder/Bumble'da en sık açılış. 'How are you' resmi kalır; 'what's up' günlük.",
+        "dating app/Bumble'da en sık açılış. 'How are you' resmi kalır; 'what's up' günlük.",
     },
 
     // ============================================================
@@ -61,7 +61,7 @@ export const introTinderLesson_0_1: BundledLesson = {
       ],
       correct_index: 1,
       tr_explanation:
-        "'I am fine' okul İngilizcesi — Tinder'da donuk kalır. 'How do you do' 1950'lerde kaldı. 'What about yourself' iş görüşmesi tonu. 'Just chilling. You?' Tinder'da gerçek 25 yaşındaki Amerikalı gibi konuşman.",
+        "'I am fine' okul İngilizcesi — dating app'da donuk kalır. 'How do you do' 1950'lerde kaldı. 'What about yourself' iş görüşmesi tonu. 'Just chilling. You?' dating app'da gerçek 25 yaşındaki Amerikalı gibi konuşman.",
     },
 
     // ============================================================
@@ -72,9 +72,9 @@ export const introTinderLesson_0_1: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 3,
       scenario_description:
-        "Tinder'da 2 gün önce match oldunuz. Az önce sen 'just chilling, you?' yazdın — şimdi devam et.",
-      npc_role: "Tinder match (Emma, 26)",
-      setting: "Tinder DM",
+        "dating app'da 2 gün önce match oldunuz. Az önce sen 'just chilling, you?' yazdın — şimdi devam et.",
+      npc_role: "dating app match (Emma, 26)",
+      setting: "dating app DM",
       turns: [
         {
           speaker: "npc",
@@ -108,7 +108,7 @@ export const introTinderLesson_0_1: BundledLesson = {
             "honestly( not)? (that )?bad",
           ],
           hint_tr:
-            "Tinder'da konuşma davete döndürülür. 'You should try it sometime' veya 'I can show you' — 2 mesajda buluşma teklifi açar. 'Yes it is hard' bitirir konuşmayı.",
+            "dating app'da konuşma davete döndürülür. 'You should try it sometime' veya 'I can show you' — 2 mesajda buluşma teklifi açar. 'Yes it is hard' bitirir konuşmayı.",
         },
         {
           speaker: "npc",

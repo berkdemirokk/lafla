@@ -82,7 +82,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
       scenario_description:
         "Açılış sorduktan sonra cevap geldi. Momentum'u sürdürüyorsun.",
       npc_role: "Match",
-      setting: "Mid-conversation Tinder chat",
+      setting: "Mid-conversation dating app chat",
       turns: [
         {
           speaker: "npc",
@@ -906,7 +906,7 @@ export const flirtBanterLesson_2_4: BundledLesson = {
       difficulty: 2,
       questions: [
         {
-          question: "Tinder'da paylaşımın AĞIR olduğu sınır?",
+          question: "dating app'da paylaşımın AĞIR olduğu sınır?",
           options: [
             "Hiçbir şey paylaşmamak",
             "Trauma dumping (ilk sohbette tüm yaraları açmak)",

@@ -12,7 +12,7 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
   index: 1,
   title: "Resetsiz Ilac Almak",
   description:
-    "CVS / Walgreens'te grip, bas agrisi, alerji icin OTC (over the counter) ilac sorma.",
+    "CVS / pharmacy'te grip, bas agrisi, alerji icin OTC (over the counter) ilac sorma.",
   estimated_minutes: 5,
   exercises: [
     {
@@ -768,7 +768,7 @@ export const dailyPharmacyLesson_19_5: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Walgreens'te eczaciya soguk alginligi icin OTC ariyorsun — yarin ucagin var.",
+        "pharmacy'te eczaciya soguk alginligi icin OTC ariyorsun — yarin ucagin var.",
       npc_role: "Pharmacist",
       setting: "Cold & flu aisle",
       turns: [

@@ -131,7 +131,7 @@ export const flirtDefineLesson_6_1: BundledLesson = {
             "(no )?(more|need for) (tinder|bumble|hinge|apps)",
           ],
           hint_tr:
-            "Plan netleştir: 'Yes — deleting them tonight, together?' Türk: 'apps' = uygulamalar (Tinder, Bumble vs). 'Delete tonight' = bu gece sil; sevimli ortak ritüel.",
+            "Plan netleştir: 'Yes — deleting them tonight, together?' Türk: 'apps' = uygulamalar (dating app, dating app vs). 'Delete tonight' = bu gece sil; sevimli ortak ritüel.",
         },
         {
           speaker: "npc",

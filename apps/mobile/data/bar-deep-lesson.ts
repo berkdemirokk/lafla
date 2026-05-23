@@ -2199,7 +2199,7 @@ export const barLesson_24_20: BundledLesson = {
   index: 20,
   title: "Dating App Bulusmasi — Ilk Tanima",
   description:
-    "Tinder/Bumble eslesmesi ile barda ilk kez gorusuyorsun.",
+    "dating app/dating app eslesmesi ile barda ilk kez gorusuyorsun.",
   estimated_minutes: 5,
   exercises: [
     {

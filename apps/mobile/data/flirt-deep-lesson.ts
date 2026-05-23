@@ -44,7 +44,7 @@ export const flirtDeep_1: BundledLesson = {
       difficulty: 4,
       scenario_description: "Bir hafta mesajlastiniz, simdi gercek randevu teklif edeceksin.",
       npc_role: "Match",
-      setting: "Tinder chat, switching to real plans",
+      setting: "dating app chat, switching to real plans",
       turns: [
         {
           speaker: "npc",
@@ -2134,7 +2134,7 @@ export const flirtDeep_21: BundledLesson = {
         },
         {
           speaker: "npc",
-          message: "Three, two, one — bye Tinder.",
+          message: "Three, two, one — bye dating app.",
         },
       ],
     },
@@ -4110,7 +4110,7 @@ export const flirtDeep_42: BundledLesson = {
   id: "flirt.deep.42",
   skill_id: "flirt.recovery",
   index: 42,
-  title: "Tinder'i Yeniden Indirdim — Tereddut",
+  title: "dating app'i Yeniden Indirdim — Tereddut",
   description: "App geri indirdin. Bir arkadasinla 'gercekten istiyor muyum' diye konus.",
   estimated_minutes: 5,
   exercises: [
@@ -4119,7 +4119,7 @@ export const flirtDeep_42: BundledLesson = {
       type: "vocab_tile",
       difficulty: 3,
       word_or_phrase: "the apps",
-      tr_translation: "Uygulamalar (Tinder/Bumble/Hinge — toplu sohbet)",
+      tr_translation: "Uygulamalar (dating app/dating app/dating app — toplu sohbet)",
       example: "Back on the apps — I forgot how exhausting they are.",
       example_tr: "Tekrar uygulamalardayim — ne kadar yorucu olduklarini unutmusum.",
     },
@@ -4127,7 +4127,7 @@ export const flirtDeep_42: BundledLesson = {
       id: "ex.fd42.2",
       type: "roleplay_chat",
       difficulty: 3,
-      scenario_description: "Arkadasinla WhatsApp. Tinder'i yeniden indirdin, ikilemi paylasiyorsun.",
+      scenario_description: "Arkadasinla WhatsApp. dating app'i yeniden indirdin, ikilemi paylasiyorsun.",
       npc_role: "Friend",
       setting: "WhatsApp conversation",
       turns: [
@@ -4141,7 +4141,7 @@ export const flirtDeep_42: BundledLesson = {
             "(everyone looks |the bios are )(the same)",
             "(send help |emotional support please )",
           ],
-          hint_tr: "Sen baslat: 'I caved — re-downloaded Tinder. Immediately regretting.'",
+          hint_tr: "Sen baslat: 'I caved — re-downloaded dating app. Immediately regretting.'",
         },
         {
           speaker: "npc",

@@ -1,6 +1,6 @@
 // Order - Grocery lessons
 // Skill: order.grocery (4 lessons)
-// US supermarket / grocery store English: Trader Joe's, Whole Foods, Kroger, Safeway, Target, Walmart, Costco, etc.
+// US supermarket / grocery store English: grocery store, grocery store, Kroger, Safeway, Target, Walmart, Costco, etc.
 
 import type { BundledLesson } from "../lib/engine";
 
@@ -82,9 +82,9 @@ export const orderGroceryLesson_46_1: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Trader Joe's'tasin. Tahin arıyorsun ama hangi reyonda olduğunu bilmiyorsun. Reyon arasında çalışan birine soracaksın.",
+        "grocery store'tasin. Tahin arıyorsun ama hangi reyonda olduğunu bilmiyorsun. Reyon arasında çalışan birine soracaksın.",
       npc_role: "Grocery store employee",
-      setting: "Trader Joe's aisle",
+      setting: "grocery store aisle",
       turns: [
         {
           speaker: "npc",
@@ -365,9 +365,9 @@ export const orderGroceryLesson_46_2: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Whole Foods deli counter'dasin. Sandwich için hindi göğsü ve İsviçre peyniri alacaksın — ince dilimlenmesini istiyorsun.",
+        "grocery store deli counter'dasin. Sandwich için hindi göğsü ve İsviçre peyniri alacaksın — ince dilimlenmesini istiyorsun.",
       npc_role: "Deli counter worker",
-      setting: "Whole Foods deli counter",
+      setting: "grocery store deli counter",
       turns: [
         {
           speaker: "npc",

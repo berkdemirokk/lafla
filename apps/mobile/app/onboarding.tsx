@@ -29,6 +29,7 @@
 import { useEffect, useReducer, useRef, useState } from "react";
 import {
   KeyboardAvoidingView,
+  Linking,
   Platform,
   Pressable,
   ScrollView,
@@ -700,6 +701,33 @@ function WelcomeStep({ onStart }: { onStart: () => void }) {
           onPress={onStart}
           accessibilityLabel="Onboarding'i başlat"
         />
+        {/* 2026-05-23 — Apple Review 5.1.1: hesap oluşturma akışında
+            privacy + terms linkleri zorunlu. Welcome ekranında "Başla"
+            altında küçük link satırı. */}
+        <View style={styles.privacyLinks}>
+          <Text style={styles.privacyPrefix}>Başlayarak şunları kabul edersin:</Text>
+          <View style={styles.privacyRow}>
+            <Pressable
+              onPress={() =>
+                Linking.openURL("https://berkdemirokk.github.io/lafla/terms.html")
+              }
+              hitSlop={6}
+              accessibilityRole="link"
+            >
+              <Text style={styles.privacyLink}>Kullanım Koşulları</Text>
+            </Pressable>
+            <Text style={styles.privacyDot}> · </Text>
+            <Pressable
+              onPress={() =>
+                Linking.openURL("https://berkdemirokk.github.io/lafla/privacy.html")
+              }
+              hitSlop={6}
+              accessibilityRole="link"
+            >
+              <Text style={styles.privacyLink}>Gizlilik Politikası</Text>
+            </Pressable>
+          </View>
+        </View>
       </View>
     </StepContainer>
   );
@@ -1023,6 +1051,33 @@ const styles = StyleSheet.create({
     backgroundColor: tokens.bg.app,
     borderTopWidth: 1,
     borderTopColor: tokens.border.light,
+  },
+  // 2026-05-23 — Privacy/Terms links (Apple 5.1.1)
+  privacyLinks: {
+    alignItems: "center",
+    marginTop: 14,
+    gap: 4,
+  },
+  privacyPrefix: {
+    fontSize: 11,
+    color: tokens.text.tertiary,
+    textAlign: "center",
+    letterSpacing: 0.2,
+  },
+  privacyRow: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  privacyLink: {
+    fontSize: 12,
+    color: tokens.brand.tertiary,
+    textDecorationLine: "underline",
+    fontWeight: tokens.weight.semibold,
+    letterSpacing: 0.2,
+  },
+  privacyDot: {
+    fontSize: 12,
+    color: tokens.text.tertiary,
   },
 
   // ---------- Welcome ----------

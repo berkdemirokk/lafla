@@ -3764,13 +3764,13 @@ export const dailyExpansionLesson_gymCancellation: BundledLesson = {
   ],
 };
 
-// Lesson 32 — Netflix iptal (A2)
+// Lesson 32 — streaming service iptal (A2)
 export const dailyExpansionLesson_netflixCancel: BundledLesson = {
   id: "daily.expand.32",
   skill_id: "daily.service",
   index: 32,
-  title: "Netflix abonelik iptal — destek",
-  description: "Netflix iptal için destek hattı. Sade, hızlı çözüm.",
+  title: "streaming service abonelik iptal — destek",
+  description: "streaming service iptal için destek hattı. Sade, hızlı çözüm.",
   estimated_minutes: 4,
   exercises: [
     {
@@ -3796,13 +3796,13 @@ export const dailyExpansionLesson_netflixCancel: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 2,
       scenario_description:
-        "Netflix destek chattesin (sesli rolplay). Aboneliği iptal et.",
-      npc_role: "Netflix support agent",
-      setting: "Netflix customer service chat",
+        "streaming service destek chattesin (sesli rolplay). Aboneliği iptal et.",
+      npc_role: "streaming service support agent",
+      setting: "streaming service customer service chat",
       turns: [
         {
           speaker: "npc",
-          message: "Hi! Netflix support. How can I help today?",
+          message: "Hi! streaming service support. How can I help today?",
         },
         {
           speaker: "user",

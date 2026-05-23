@@ -1,6 +1,6 @@
 // Story Arc lessons — multi-scene narrative continuity for 1-month retention.
 // 3 arcs (40 scenes total): Erasmus Berlin 30 gün (15), NYC 7 gün (12), IELTS 30 gün (13).
-// Recurring NPCs: Lena (Erasmus Tinder match), Mike (NYC bar friend), Coach Sarah (IELTS).
+// Recurring NPCs: Lena (Erasmus dating app match), Mike (NYC bar friend), Coach Sarah (IELTS).
 //
 // Format: each scene is a BundledLesson with vocab_tile + roleplay_chat.
 // IDs: story.{arc}.{day_or_seq} — story.erasmus.1, story.nyc.5, story.ielts.3.
@@ -9,7 +9,7 @@ import type { BundledLesson } from "../lib/engine";
 
 // ============================================================
 // ARC 1 — BERLIN ERASMUS, 30 GÜN (15 sahne)
-// Recurring NPC: Lena (Tinder match, ilk Erasmus party'sinde tanışılan)
+// Recurring NPC: Lena (dating app match, ilk Erasmus party'sinde tanışılan)
 // ============================================================
 
 // ----- Day 0 — JFK havaalanı immigration (Berlin) -----
@@ -416,7 +416,7 @@ export const erasmusDay4: BundledLesson = {
   id: "story.erasmus.4",
   skill_id: "story.erasmus",
   index: 4,
-  title: "Gün 4 — REWE'de yol sor: 'where can I find...'",
+  title: "Gün 4 — local supermarket'de yol sor: 'where can I find...'",
   description:
     "İlk haftalık market alışverişi. Türk yemekleri için malzeme — bulgur, mercimek bulamıyorsun.",
   estimated_minutes: 5,
@@ -435,9 +435,9 @@ export const erasmusDay4: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 2,
       scenario_description:
-        "REWE süpermarket. Bulgur ve kuru mercimek arıyorsun. Bir çalışan raf düzenliyor.",
+        "local supermarket süpermarket. Bulgur ve kuru mercimek arıyorsun. Bir çalışan raf düzenliyor.",
       npc_role: "Supermarket worker",
-      setting: "REWE supermarket, Berlin Kreuzberg",
+      setting: "local supermarket supermarket, Berlin Kreuzberg",
       turns: [
         {
           speaker: "npc",
@@ -551,7 +551,7 @@ export const erasmusDay7: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 3,
       scenario_description:
-        "ESN welcome party, Tresor yakını bir bar. Bir kız (Lena) sana gülümseyerek yaklaşıyor.",
+        "ESN welcome party, a club yakını bir bar. Bir kız (Lena) sana gülümseyerek yaklaşıyor.",
       npc_role: "Lena (Erasmus party'de tanıştığın kız, German)",
       setting: "ESN Erasmus welcome party, crowded bar, loud music",
       turns: [
@@ -625,7 +625,7 @@ export const erasmusDay7: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Berlin can be a lot at first. Hey, a bunch of us are heading to Tresor later — you should come.",
+            "Berlin can be a lot at first. Hey, a bunch of us are heading to a club later — you should come.",
         },
         {
           speaker: "user",
@@ -660,14 +660,14 @@ export const erasmusDay7: BundledLesson = {
   ],
 };
 
-// ----- Day 8 — Lena'dan Tinder DM -----
+// ----- Day 8 — Lena'dan dating app DM -----
 export const erasmusDay8: BundledLesson = {
   id: "story.erasmus.6",
   skill_id: "story.erasmus",
   index: 6,
-  title: "Gün 8 — Tinder DM: 'Saw you at Tresor last night'",
+  title: "Gün 8 — dating app DM: 'Saw you at a club last night'",
   description:
-    "Sabah Tinder bildirim — Lena. Match olmuşsunuz. İlk mesaj geldi. (Recurring NPC.)",
+    "Sabah dating app bildirim — Lena. Match olmuşsunuz. İlk mesaj geldi. (Recurring NPC.)",
   estimated_minutes: 5,
   exercises: [
     {
@@ -676,7 +676,7 @@ export const erasmusDay8: BundledLesson = {
       difficulty: 2,
       word_or_phrase: "Saw you last night",
       tr_translation: "Dün gece seni gördüm",
-      example: "Saw you at Tresor last night — small world!",
+      example: "Saw you at a club last night — small world!",
       example_tr: "Dün gece Tresor'da seni gördüm — küçük dünya!",
     },
     {
@@ -684,14 +684,14 @@ export const erasmusDay8: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 3,
       scenario_description:
-        "Tinder match. Lena (party'den hatırlıyorsun) ilk mesajı atmış. Cevap yazıyorsun.",
-      npc_role: "Lena (Tinder match, partyde tanıştığın)",
-      setting: "Tinder DM, sabah 10am, after Tresor night",
+        "dating app match. Lena (party'den hatırlıyorsun) ilk mesajı atmış. Cevap yazıyorsun.",
+      npc_role: "Lena (dating app match, partyde tanıştığın)",
+      setting: "dating app DM, sabah 10am, after a club night",
       turns: [
         {
           speaker: "npc",
           message:
-            "Wait — saw you at Tresor last night? Small world. How was your head this morning?",
+            "Wait — saw you at a club last night? Small world. How was your head this morning?",
         },
         {
           speaker: "user",
@@ -703,7 +703,7 @@ export const erasmusDay8: BundledLesson = {
             "(yours)( though)?\\?",
           ],
           hint_tr:
-            "Hangover banter: 'Rough!' veya 'My head's killing me'. Türk: 'I am tired' düz, 'I'm wrecked' (mahvolmuş) daha eğlenceli, Tinder DM için doğru ton.",
+            "Hangover banter: 'Rough!' veya 'My head's killing me'. Türk: 'I am tired' düz, 'I'm wrecked' (mahvolmuş) daha eğlenceli, dating app DM için doğru ton.",
         },
         {
           speaker: "npc",
@@ -919,7 +919,7 @@ export const erasmusDay14: BundledLesson = {
       difficulty: 3,
       scenario_description:
         "Lena'yla wine bar'dan beri konuşuyorsun. Şimdi yemek davet edeceksin. WhatsApp.",
-      npc_role: "Lena (Tinder match, 2. round date plan)",
+      npc_role: "Lena (dating app match, 2. round date plan)",
       setting: "WhatsApp DM, evening, post-wine-bar success",
       turns: [
         {
@@ -1135,7 +1135,7 @@ export const erasmusDay15: BundledLesson = {
             "(consider it (booked|done))",
           ],
           hint_tr:
-            "Söz verme oyunu: 'Pinky promise' (çocuksu/samimi). Türk: 'Yes' düz, 'I promise' veya 'Pinky promise' Tinder/genç ton.",
+            "Söz verme oyunu: 'Pinky promise' (çocuksu/samimi). Türk: 'Yes' düz, 'I promise' veya 'Pinky promise' dating app/genç ton.",
         },
       ],
     },
@@ -2983,7 +2983,7 @@ export const nycDay5Pharmacy: BundledLesson = {
   index: 10,
   title: "Gün 5 — Eczane: jet lag için bir şey",
   description:
-    "Walgreens, jet lag dördüncü gün hala vurmakta. Melatonin mi, başka şey mi?",
+    "pharmacy, jet lag dördüncü gün hala vurmakta. Melatonin mi, başka şey mi?",
   estimated_minutes: 5,
   exercises: [
     {
@@ -3000,9 +3000,9 @@ export const nycDay5Pharmacy: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 2,
       scenario_description:
-        "Walgreens eczacısı. Reçetesiz bir şey istiyorsun.",
+        "pharmacy eczacısı. Reçetesiz bir şey istiyorsun.",
       npc_role: "Pharmacist",
-      setting: "Walgreens pharmacy counter, evening",
+      setting: "pharmacy pharmacy counter, evening",
       turns: [
         {
           speaker: "npc",
