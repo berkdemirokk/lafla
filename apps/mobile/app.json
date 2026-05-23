@@ -2,7 +2,7 @@
   "expo": {
     "name": "Lafla",
     "slug": "lafla",
-    "version": "0.9.0",
+    "version": "0.9.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "lafla",
@@ -19,7 +19,7 @@
     "ios": {
       "bundleIdentifier": "com.lafla.app",
       "supportsTablet": false,
-      "buildNumber": "14",
+      "buildNumber": "15",
       "usesAppleSignIn": true,
       "infoPlist": {
         "CFBundleLocalizations": [
