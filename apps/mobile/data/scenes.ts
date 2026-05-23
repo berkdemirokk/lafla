@@ -1891,6 +1891,31 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
   { id: "scene-banter-bar-24-12", emoji: "🚫", title: "Kibarca reddet —\nflattered but,\nthanks for asking", description: "Sana yaklaşan birine 'hayır' de — sert olmadan, suçluluk hissetmeden.", durationMin: 6, mode: "bar", skillId: "bar.approach", cefrLevel: "B2", lessonId: "bar.approach.24.12", isNew: true, progressLabel: "4/6 yeni" },
   { id: "scene-banter-bar-24-13", emoji: "📞", title: "Numara al —\nno pressure,\nflexible exit", description: "Numara iste ama hayır cevabına hazırlıklı — kibar opt-out.", durationMin: 5, mode: "bar", skillId: "bar.approach", cefrLevel: "B1", lessonId: "bar.approach.24.13", isNew: true, progressLabel: "5/6 yeni" },
   { id: "scene-banter-bar-24-14", emoji: "🎱", title: "Bar oyunu —\npool/darts/trivia,\nkatılabilir miyim", description: "Yabancı bir grup pool/darts oynuyor — kibarca dahil ol.", durationMin: 5, mode: "bar", skillId: "bar.approach", cefrLevel: "B1", lessonId: "bar.approach.24.14", isNew: true, progressLabel: "6/6 yeni" },
+
+  // ─────────────────────────────────────────────────────────────
+  // IELTS Speaking — 2026-05-21 (7. mod). 15 lesson: P1×6, P2×5, P3×4
+  // Türk audience'ın #1 ödeme sebebi. Examiner persona, gerçek IELTS
+  // formatı, band-aware (P1=B1, P2=B2, P3=C1).
+  // ─────────────────────────────────────────────────────────────
+  // Part 1 — Interview (familiar topics)
+  { id: "scene-ielts-p1-1", emoji: "🎓", title: "P1 — Home &\nHometown", description: "Examiner: nerede yaşıyorsun, memleketinde ne seviyorsun?", durationMin: 5, mode: "ielts", skillId: "ielts.p1", cefrLevel: "B1", lessonId: "ielts.p1.1", isNew: true, progressLabel: "P1 · 1/6" },
+  { id: "scene-ielts-p1-2", emoji: "🎓", title: "P1 — Work &\nStudies", description: "Çalışıyor musun okuyor musun? Niye bu alanı seçtin?", durationMin: 5, mode: "ielts", skillId: "ielts.p1", cefrLevel: "B1", lessonId: "ielts.p1.2", isNew: true, progressLabel: "P1 · 2/6" },
+  { id: "scene-ielts-p1-3", emoji: "🎓", title: "P1 — Daily\nRoutine", description: "Tipik bir günün nasıl geçiyor? En verimli vaktin?", durationMin: 5, mode: "ielts", skillId: "ielts.p1", cefrLevel: "B1", lessonId: "ielts.p1.3", isNew: true, progressLabel: "P1 · 3/6" },
+  { id: "scene-ielts-p1-4", emoji: "🎓", title: "P1 — Hobbies &\nFree Time", description: "Boş vaktinde ne yaparsın? Ne zamandır bu işi yapıyorsun?", durationMin: 5, mode: "ielts", skillId: "ielts.p1", cefrLevel: "B1", lessonId: "ielts.p1.4", isNew: true, progressLabel: "P1 · 4/6" },
+  { id: "scene-ielts-p1-5", emoji: "🎓", title: "P1 — Food &\nCooking", description: "Ne tür yemek sevirsin? Yemek yapar mısın, ne sıklıkta?", durationMin: 5, mode: "ielts", skillId: "ielts.p1", cefrLevel: "B2", lessonId: "ielts.p1.5", isNew: true, progressLabel: "P1 · 5/6" },
+  { id: "scene-ielts-p1-6", emoji: "🎓", title: "P1 — Technology &\nSocial Media", description: "Telefonu ne sıklıkta kullanıyorsun? Teknoloji asosyalleştirir mi?", durationMin: 5, mode: "ielts", skillId: "ielts.p1", cefrLevel: "B2", lessonId: "ielts.p1.6", isNew: true, progressLabel: "P1 · 6/6" },
+  // Part 2 — Long Turn / Cue Card
+  { id: "scene-ielts-p2-1", emoji: "🎓", title: "P2 — Describe a\nperson who\ninfluenced you", description: "Cue card: 1 dk hazırlık, 1-2 dk monolog. Etkilenen kişi.", durationMin: 6, mode: "ielts", skillId: "ielts.p2", cefrLevel: "B2", lessonId: "ielts.p2.1", isNew: true, progressLabel: "P2 · 1/5" },
+  { id: "scene-ielts-p2-2", emoji: "🎓", title: "P2 — Memorable\njourney", description: "Cue card: unutamadığın bir yolculuk, detaylar + niye özel.", durationMin: 6, mode: "ielts", skillId: "ielts.p2", cefrLevel: "B2", lessonId: "ielts.p2.2", isNew: true, progressLabel: "P2 · 2/5" },
+  { id: "scene-ielts-p2-3", emoji: "🎓", title: "P2 — A skill\nyou'd like to\nlearn", description: "Cue card: öğrenmek istediğin yeni beceri, niye, nasıl.", durationMin: 6, mode: "ielts", skillId: "ielts.p2", cefrLevel: "B2", lessonId: "ielts.p2.3", isNew: true, progressLabel: "P2 · 3/5" },
+  { id: "scene-ielts-p2-4", emoji: "🎓", title: "P2 — Book/Movie\nthat changed\nyour mind", description: "Cue card: düşünce şeklini değiştiren kitap veya film.", durationMin: 6, mode: "ielts", skillId: "ielts.p2", cefrLevel: "B2", lessonId: "ielts.p2.4", isNew: true, progressLabel: "P2 · 4/5" },
+  { id: "scene-ielts-p2-5", emoji: "🎓", title: "P2 — Difficult\ndecision you\nmade", description: "Cue card: hayatında verdiğin zor karar, nasıl karar verdin.", durationMin: 6, mode: "ielts", skillId: "ielts.p2", cefrLevel: "C1", lessonId: "ielts.p2.5", isNew: true, progressLabel: "P2 · 5/5" },
+  // Part 3 — Discussion (abstract/opinionated)
+  { id: "scene-ielts-p3-1", emoji: "🎓", title: "P3 — Influences &\nRole Models", description: "Ünlüler gençleri etkiliyor mu? Aile vs toplum hangisi daha güçlü?", durationMin: 7, mode: "ielts", skillId: "ielts.p3", cefrLevel: "C1", lessonId: "ielts.p3.1", isNew: true, progressLabel: "P3 · 1/4" },
+  { id: "scene-ielts-p3-2", emoji: "🎓", title: "P3 — Modern\nTravel & Tourism", description: "Turizm iyiye mi gidiyor? Sınırlama olmalı mı?", durationMin: 7, mode: "ielts", skillId: "ielts.p3", cefrLevel: "C1", lessonId: "ielts.p3.2", isNew: true, progressLabel: "P3 · 2/4" },
+  { id: "scene-ielts-p3-3", emoji: "🎓", title: "P3 — Education\n& Future Skills", description: "Eğitim ücretsiz olmalı mı? 20 yıl sonra hangi beceriler önemli?", durationMin: 7, mode: "ielts", skillId: "ielts.p3", cefrLevel: "C1", lessonId: "ielts.p3.3", isNew: true, progressLabel: "P3 · 3/4" },
+  { id: "scene-ielts-p3-4", emoji: "🎓", title: "P3 — Books vs\nMovies — Screen\nEra", description: "İnsanlar daha az mı okuyor? Film kitabın özünü taşıyabilir mi?", durationMin: 7, mode: "ielts", skillId: "ielts.p3", cefrLevel: "C1", lessonId: "ielts.p3.4", isNew: true, progressLabel: "P3 · 4/4" },
+
   // banter.roast — son 4 ders
   // banter.whatdoyoudo — son 4 ders
   // banter.compliment — son 4 ders
