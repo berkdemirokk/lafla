@@ -10,7 +10,7 @@
 
 | Risk | Severity | Status | Action owner |
 |---|---|---|---|
-| Apple Sign-In token revocation | 🔴 BLOCKING | ❌ Eksik | **Kullanıcı + Kod (1-2 saat)** |
+| Apple Sign-In token revocation | 🔴 BLOCKING | ⚠️ Kod OK, manuel setup gerek | **Kullanıcı (~25 dk)** — [SETUP](APPLE_SIGNIN_SETUP.md) |
 | Demo account yok | 🔴 BLOCKING | ❌ Yapılmadı | Kullanıcı (5 dk) |
 | IAP products ASC'de yok | 🔴 BLOCKING | ❌ Yapılmadı | Kullanıcı (15 dk) |
 | Privacy Nutrition Label boş | 🔴 BLOCKING | ❌ Yapılmadı | Kullanıcı (5 dk) |

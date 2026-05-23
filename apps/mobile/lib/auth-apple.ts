@@ -31,7 +31,49 @@
 
 import { Platform } from "react-native";
 import * as SecureStore from "expo-secure-store";
+import Constants from "expo-constants";
 import { supabase } from "./supabase";
+
+// 2026-05-23 — Apple Sign-In token exchange edge function endpoint.
+// Backend supabase/functions/apple-token-exchange'i çağırır.
+const SUPABASE_URL =
+  (Constants.expoConfig?.extra?.supabaseUrl as string | undefined) ??
+  process.env.EXPO_PUBLIC_SUPABASE_URL ??
+  "";
+
+/**
+ * Backend'e Apple authorization code'u gönder → backend Apple ile token
+ * exchange yapar → refresh_token DB'ye yazılır. Account deletion'da
+ * revoke edilecek (Guideline 5.1.1(v)).
+ *
+ * Best-effort: hata fırlatmaz, sadece resolved Boolean döner. Sign-in
+ * flow'un kritik path'ini bloke etmez. Backend env (.p8 / Service ID)
+ * yoksa 503 döner, biz "false" ile geri döneriz.
+ */
+async function exchangeAppleAuthorizationCode(
+  authorizationCode: string,
+): Promise<boolean> {
+  if (!SUPABASE_URL) return false;
+  try {
+    const { data: sessionData } = await supabase.auth.getSession();
+    const token = sessionData.session?.access_token;
+    if (!token) return false;
+    const res = await fetch(
+      `${SUPABASE_URL.replace(/\/$/, "")}/functions/v1/apple-token-exchange`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ authorization_code: authorizationCode }),
+      },
+    );
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
 
 // Defensive require — module is optional until `expo install expo-apple-authentication`
 // is run. We do this at runtime so a missing native module never crashes JS.
@@ -170,6 +212,19 @@ export async function signInWithApple(): Promise<AppleAuthResult> {
 
   // Cache PII for repeat sign-ins (Apple won't resend it).
   await storeAppleCredentials({ appleUserId, email });
+
+  // 2026-05-23 — Guideline 5.1.1(v) compliance step 1/2.
+  // Apple authorizationCode'u backend'e gönder, refresh_token ile değiştir
+  // ve apple_credentials tablosunda sakla. Account deletion'da revoke
+  // edilecek. Best-effort — fail olursa sign-in başarıyla tamamlanmış sayılır
+  // (Apple revoke v2'de deneneecek).
+  const authorizationCode: string | undefined =
+    credential?.authorizationCode ?? undefined;
+  if (authorizationCode) {
+    void exchangeAppleAuthorizationCode(authorizationCode).catch(() => {
+      // Non-fatal — see docs/APPLE_SIGNIN_SETUP.md if backend env not set.
+    });
+  }
 
   // If the user shared their name on first sign-in, push it onto the profile
   // so onboarding can pre-fill `display_name`. Errors here are non-fatal —

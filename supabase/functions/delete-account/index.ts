@@ -16,6 +16,11 @@
 
 import { serve } from "https://deno.land/std@0.224.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import {
+  generateAppleClientSecret,
+  loadAppleConfig,
+  formUrlEncode,
+} from "../_shared/apple-jwt.ts";
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -135,28 +140,66 @@ serve(async (req) => {
     if (error) errors.push(`profiles: ${error.message}`);
   }
 
-  // ---- 3. Apple Sign-In token revocation (Guideline 5.1.1(v) — TODO v1.0.1) ----
+  // ---- 3. Apple Sign-In token revocation (Guideline 5.1.1(v)) ----
   //
-  // 2026-05-23 — APPLE REJECTION RISK: Guideline 5.1.1(v) "If your app offers
-  // Sign in with Apple, you'll need to use the Sign in with Apple REST API to
-  // revoke user tokens when deleting an account."
+  // Apple kuralı: app Sign in with Apple sunuyorsa, account deletion'da
+  // Apple'ın refresh_token'ını da REVOKE etmelidir. Aksi halde Apple
+  // "user deleted account but Apple-managed sign-in still works" durumunu
+  // 2024'ten beri reject ediyor.
   //
-  // ŞU AN EKSİK. v1.0.1'de eklenmeli — gerekli kaynaklar:
-  //   1. Apple Developer Console → Identifiers → Services IDs → yeni Service ID
-  //   2. Apple Developer Console → Keys → Sign in with Apple key (.p8)
-  //   3. Supabase secrets:
-  //      - APPLE_SIGNIN_KEY_ID
-  //      - APPLE_SIGNIN_SERVICE_ID (com.lafla.signinwithapple.service)
-  //      - APPLE_SIGNIN_PRIVATE_KEY (.p8 contents)
-  //   4. apple_credentials table: user_id → encrypted refresh_token (set on sign-in)
-  //   5. Burada: ES256 JWT yarat → POST appleid.apple.com/auth/revoke
+  // AKIŞ:
+  //   a. apple_credentials tablosunda user için refresh_token var mı bak
+  //   b. Apple Sign-In env'leri set mi (Service ID, Key ID, .p8) bak
+  //   c. İkisi de OK ise: ES256 JWT yarat → POST appleid.apple.com/auth/revoke
+  //   d. Sonuçtan bağımsız (Apple 200 dönmese bile) apple_credentials sil
   //
-  // MITIGATION (submission notes'a yaz): "Apple Sign-In token revocation
-  // will be implemented in v1.0.1. Current users may revoke manually via
-  // iOS Settings → Apple ID → Password & Security → Apps Using Apple ID → Lafla."
+  // Best-effort: revoke fail olursa errors[]'a yansır AMA account deletion'ı
+  // bloke ETMEZ. Apple'ın endpoint'i down olduğu için kullanıcı silinemese
+  // 5.1.1(v) ihlali daha kötü olur ("user can't delete"). Trade-off bilinçli.
   //
-  // Bu açıklama %100 kabul edilmiyor — gerçek implementation güvenli yol.
-  // Detay: docs/APPLE_REJECTION_RISK_AUDIT.md Section R1.
+  // ENV: docs/APPLE_SIGNIN_SETUP.md
+  const appleCfg = loadAppleConfig();
+  try {
+    const { data: cred } = await supabaseAdmin
+      .from("apple_credentials")
+      .select("refresh_token")
+      .eq("user_id", user.id)
+      .maybeSingle();
+
+    if (cred?.refresh_token && appleCfg) {
+      const clientSecret = await generateAppleClientSecret(appleCfg);
+      const revokeRes = await fetch("https://appleid.apple.com/auth/revoke", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formUrlEncode({
+          client_id: appleCfg.serviceId,
+          client_secret: clientSecret,
+          token: cred.refresh_token,
+          token_type_hint: "refresh_token",
+        }),
+      });
+      if (!revokeRes.ok) {
+        const txt = await revokeRes.text().catch(() => "<no body>");
+        errors.push(`apple_revoke ${revokeRes.status}: ${txt.slice(0, 200)}`);
+      }
+    } else if (cred?.refresh_token && !appleCfg) {
+      // Token mevcut ama config eksik — submission öncesi setup yapılmadıysa
+      // bu durum. Yine de auth.users'ı sil; Apple manuel revoke yolu açık
+      // (Settings → Apple ID → ...).
+      errors.push(
+        "apple_revoke skipped: APPLE_SIGNIN_* env not configured (see docs/APPLE_SIGNIN_SETUP.md)",
+      );
+    }
+
+    // Her durumda credential satırını sil (ON DELETE CASCADE de yapar ama
+    // belirgin olalım).
+    await supabaseAdmin
+      .from("apple_credentials")
+      .delete()
+      .eq("user_id", user.id);
+  } catch (e) {
+    errors.push(`apple_revoke_exception: ${(e as Error).message}`);
+  }
 
   // ---- 4. Auth user (irreversible) ----
   const { error: delErr } = await supabaseAdmin.auth.admin.deleteUser(user.id);
