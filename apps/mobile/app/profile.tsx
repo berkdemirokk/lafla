@@ -400,6 +400,12 @@ export default function ProfileScreen() {
           />
           <View style={styles.rowDivider} />
           <AccountRow
+            icon="📊"
+            label="Zayıflık Raporu · Speak+"
+            onPress={() => router.push("/weakness-report" as never)}
+          />
+          <View style={styles.rowDivider} />
+          <AccountRow
             icon="📜"
             label="Geçmiş sahneler"
             onPress={() => router.push("/history" as never)}

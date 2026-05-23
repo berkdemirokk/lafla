@@ -115,6 +115,8 @@ export default function PaywallScreen() {
   // detaylı analiz isteyince. Bu route'larda value-specific hero copy.
   const isFromIeltsBand = from === "ielts-band";
   const isFromVerdict = from === "verdict-feedback";
+  const isFromHardMode = from === "hard-mode";
+  const isFromWeakness = from === "weakness";
   const handleClose = () => {
     hapticImpact("light");
     if (isFromIntro) {
@@ -347,6 +349,22 @@ export default function PaywallScreen() {
               <Text style={styles.subtitle}>
                 Mock test merkezi ₺500. Speak+ aboneliği aylık ₺99 — sınırsız
                 tahmin + detaylı analiz + sınırsız sahne.
+              </Text>
+            </>
+          ) : isFromHardMode ? (
+            <>
+              <Text style={styles.title}>🔥 Hard Mode{"\n"}gerçek sınav zorluğu.</Text>
+              <Text style={styles.subtitle}>
+                No hint, ×0.85 puan çarpanı. C1/C2 hedefi için: pratiği zorlaştır,
+                sınavda rahatla. Speak+ ile aç.
+              </Text>
+            </>
+          ) : isFromWeakness ? (
+            <>
+              <Text style={styles.title}>Hangi hatayı tekrar{"\n"}tekrar yapıyorsun?</Text>
+              <Text style={styles.subtitle}>
+                Speak+ son 30 günde yakaladığın hataları sıralar. Top 5 zayıflık
+                + doğru karşılıkları + drill önerisi.
               </Text>
             </>
           ) : isFromVerdict ? (

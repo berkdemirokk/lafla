@@ -157,6 +157,20 @@ export default function ScenarioScreen() {
   const [nextInPlanScene, setNextInPlanScene] = useState<
     import("../../data/scenes").Scene | null
   >(null);
+  // 2026-05-21 — Hard mode toggle (Premium). Setup phase'de gözükür,
+  // sahne başlamadan kullanıcı seçer. Free user toggle'a basınca paywall'a.
+  const [hardMode, setHardMode] = useState(false);
+  const [isPremiumState, setIsPremiumState] = useState<boolean | null>(null);
+  useEffect(() => {
+    (async () => {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const iap = require("../../lib/iap") as {
+        isPremium: () => Promise<boolean>;
+      };
+      const p = await iap.isPremium().catch(() => false);
+      setIsPremiumState(p);
+    })();
+  }, []);
   // First-time scene overlay — shown once per scenario load, on initial entry
   // to the scene phase. Auto-dismisses after 1200ms or on tap.
   const [showSceneIntro, setShowSceneIntro] = useState(false);
@@ -507,13 +521,49 @@ export default function ScenarioScreen() {
             setup → drill → scene → verdict feels deliberate, not abrupt. */}
         <PhaseShell phaseKey={phase} style={styles.flex}>
           {phase === "setup" && (
-            <SetupView
-              key={`setup-${setupIdx}`}
-              phrase={scenario.setup[setupIdx]!}
-              stepIndex={setupIdx}
-              total={scenario.setup.length}
-              onNext={advanceSetup}
-            />
+            <View style={{ flex: 1 }}>
+              <SetupView
+                key={`setup-${setupIdx}`}
+                phrase={scenario.setup[setupIdx]!}
+                stepIndex={setupIdx}
+                total={scenario.setup.length}
+                onNext={advanceSetup}
+              />
+              {/* 2026-05-21 — Hard Mode toggle (Premium). Setup'ta gözükür
+                  ki kullanıcı sahneye girmeden seçim yapsın. Free user
+                  paywall'a yönlendirilir. */}
+              {setupIdx === 0 && (
+                <Pressable
+                  onPress={() => {
+                    if (isPremiumState === false) {
+                      router.push("/paywall?from=hard-mode" as never);
+                    } else {
+                      setHardMode((p) => !p);
+                    }
+                  }}
+                  style={({ pressed }) => [
+                    styles.hardModeToggle,
+                    hardMode && styles.hardModeToggleActive,
+                    pressed && { opacity: 0.85 },
+                  ]}
+                  accessibilityRole="switch"
+                  accessibilityState={{ checked: hardMode }}
+                >
+                  <Text
+                    style={[
+                      styles.hardModeToggleText,
+                      hardMode && styles.hardModeToggleTextActive,
+                    ]}
+                  >
+                    {isPremiumState === false
+                      ? "🔒 🔥 HARD MODE · Speak+ ile aç"
+                      : hardMode
+                        ? "🔥 HARD MODE açık — no hint, ×0.85 puan"
+                        : "🔥 Hard Mode dene · Premium"}
+                  </Text>
+                </Pressable>
+              )}
+            </View>
           )}
 
           {phase === "drill" && scenario.warmups[drillIdx] && (
@@ -548,6 +598,7 @@ export default function ScenarioScreen() {
                 userName={displayName}
                 sceneLevel={scenario.cefrLevel}
                 userLevel={userLevel ?? undefined}
+                hardMode={hardMode}
               />
             </View>
           )}
@@ -1624,6 +1675,34 @@ const styles = StyleSheet.create({
   },
   drillBody: {
     flex: 1,
+  },
+  // 2026-05-21 — Hard mode toggle (Premium). Setup phase alt kısmında pill.
+  hardModeToggle: {
+    alignSelf: "center",
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    borderRadius: tokens.radius.full,
+    borderWidth: 1.5,
+    borderColor: tokens.border.light,
+    backgroundColor: tokens.bg.surfaceContainer,
+    marginBottom: 12,
+  },
+  hardModeToggleActive: {
+    borderColor: tokens.semantic.error,
+    backgroundColor: tokens.semantic.errorContainer,
+    shadowColor: tokens.semantic.error,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.4,
+    shadowRadius: 10,
+  },
+  hardModeToggleText: {
+    fontSize: 12,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.secondary,
+    letterSpacing: 0.5,
+  },
+  hardModeToggleTextActive: {
+    color: tokens.semantic.error,
   },
   notFound: {
     flex: 1,

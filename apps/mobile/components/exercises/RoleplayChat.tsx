@@ -118,6 +118,17 @@ interface Props {
    */
   sceneLevel?: "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
   userLevel?: "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
+  /**
+   * 2026-05-21 — Hard Mode (Premium feature).
+   * true ise:
+   *   - TR hint asla gösterilmez (review davranışı gibi)
+   *   - Min user response length: 8 char (kısa cevap rejected)
+   *   - Score multiplier × 0.85 — daha yüksek band gerek
+   *   - "🔥 HARD MODE" badge gözükür
+   * Free kullanıcı zaten hard mode toggle'a basamaz (paywall'a gider),
+   * bu prop sadece premium'da true gelir.
+   */
+  hardMode?: boolean;
 }
 
 interface ChatMessage {
@@ -274,6 +285,7 @@ export function RoleplayChat({
   userName,
   sceneLevel,
   userLevel,
+  hardMode = false,
 }: Props) {
   // Delta: positive = user above scene (review mode), negative = below (stretch).
   // Both levels required for non-neutral adaptation; either missing → 0.
@@ -282,8 +294,15 @@ export function RoleplayChat({
     return CEFR_ORDER.indexOf(userLevel) - CEFR_ORDER.indexOf(sceneLevel);
   }, [sceneLevel, userLevel]);
   // Mode classification — keeps render branches readable.
-  const adaptMode: "stretch" | "matched" | "review" =
-    levelDelta < 0 ? "stretch" : levelDelta > 0 ? "review" : "matched";
+  // Hard mode override — Premium kullanıcı toggle'lamışsa adaptMode
+  // "review" gibi davranır (no hint) + ek score multiplier + min length.
+  const adaptMode: "stretch" | "matched" | "review" = hardMode
+    ? "review"
+    : levelDelta < 0
+      ? "stretch"
+      : levelDelta > 0
+        ? "review"
+        : "matched";
   // Resolve a stable seed. The caller usually passes the scenario id; if it
   // doesn't, fall back to (role + setting) so the name is still consistent
   // for that pairing (just not unique across scenarios sharing those values).
@@ -571,10 +590,22 @@ export function RoleplayChat({
   const submitUserTurn = () => {
     if (!awaitingUserInput || !input.trim() || !currentTurn) return;
 
-    const evalResult = evaluateRoleplayTurn(
+    // 2026-05-21 — Hard mode: min response length 8 char. Kısa cevap
+    // reject edilir, kullanıcıya "Hard mode'da daha uzun cevap" denir.
+    if (hardMode && input.trim().length < 8) {
+      // Visual silent reject — input temizlenmez, kullanıcı uzatabilir.
+      // (Toast/alert ekleyebiliriz ileride; şu an minimal davranış.)
+      return;
+    }
+
+    const rawEval = evaluateRoleplayTurn(
       currentTurn.acceptable_patterns ?? [],
       input,
     );
+    // Hard mode score multiplier × 0.85 — band yükseltmek daha zor.
+    const evalResult = hardMode
+      ? { ...rawEval, score: Math.round(rawEval.score * 0.85) }
+      : rawEval;
 
     // 2026-05-20 — switch-trigger #2: inline error detection.
     // Kullanıcının mesajını mistake-patterns ile tara. İlk hit'i (en yüksek
@@ -721,14 +752,21 @@ export function RoleplayChat({
                           hint hidden by default, build fluency reps)
               Matched (delta 0) renders nothing — the default UI is
               already calibrated to user level. */}
-          {adaptMode === "stretch" && (
+          {hardMode && (
+            <View style={styles.hardModeBadge}>
+              <Text style={styles.hardModeBadgeText}>
+                🔥 HARD MODE · NO HINT · ÇARPAN 0.85
+              </Text>
+            </View>
+          )}
+          {!hardMode && adaptMode === "stretch" && (
             <View style={styles.stretchBadge}>
               <Text style={styles.stretchBadgeText}>
                 +1 ZORLA · {sceneLevel}{userLevel ? ` (sen ${userLevel})` : ""}
               </Text>
             </View>
           )}
-          {adaptMode === "review" && (
+          {!hardMode && adaptMode === "review" && (
             <View style={styles.reviewBadge}>
               <Text style={styles.reviewBadgeText}>
                 KOLAY TEKRAR · {sceneLevel}{userLevel ? ` (sen ${userLevel})` : ""}
@@ -1124,6 +1162,29 @@ const styles = StyleSheet.create({
   },
   // CEFR adaptation badges — sit just above the input bar so the
   // user reads the level cue before they type. Compact single-line.
+  // Hard mode badge — Premium "🔥 HARD MODE" rozet, üst sıra, kırmızı
+  // glow. Diğer badge'lerin yerini alır (hard mode active ise onlar
+  // gözükmez).
+  hardModeBadge: {
+    alignSelf: "flex-start",
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.semantic.errorContainer,
+    borderWidth: 1.5,
+    borderColor: tokens.semantic.error,
+    marginBottom: 6,
+    shadowColor: tokens.semantic.error,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.5,
+    shadowRadius: 8,
+  },
+  hardModeBadgeText: {
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.semantic.error,
+    letterSpacing: 1.2,
+  },
   stretchBadge: {
     alignSelf: "flex-start",
     paddingHorizontal: 10,
