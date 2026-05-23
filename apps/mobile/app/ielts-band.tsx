@@ -63,6 +63,18 @@ export default function IeltsBandScreen() {
         <View style={styles.backBtn} />
       </View>
 
+      {/* 2026-05-23 — Apple guideline 5.2.5 (IELTS trademark) + 5.6 (misleading
+          claims) için disclaimer. IELTS markası British Council/IDP/Cambridge
+          mülkiyeti — "IELTS Band tahmini" sunduğumuzu gerçek IELTS skoru
+          olmadığını netleştirmemiz lazım. Bu chip ekranın her durumunda
+          görünür. */}
+      <View style={styles.disclaimerChip}>
+        <Text style={styles.disclaimerText}>
+          Bu tahmin Lafla'nın iç skorlama modelidir.{"\n"}
+          Resmi IELTS skoru değildir, sınav merkezine başvur.
+        </Text>
+      </View>
+
       <ScrollView contentContainerStyle={styles.content}>
         {!premium ? (
           <PaywallPreview onUpgrade={() => router.push("/paywall?from=ielts-band" as never)} />
@@ -247,6 +259,23 @@ function bandToColor(band: number): string {
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: tokens.bg.app },
+  disclaimerChip: {
+    marginHorizontal: 16,
+    marginBottom: 16,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    borderRadius: tokens.radius.base,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.border.light,
+  },
+  disclaimerText: {
+    fontSize: 12,
+    lineHeight: 17,
+    color: tokens.text.secondary,
+    textAlign: "center",
+    fontWeight: tokens.weight.semibold,
+  },
   header: {
     flexDirection: "row",
     alignItems: "center",

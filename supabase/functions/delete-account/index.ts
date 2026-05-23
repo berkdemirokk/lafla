@@ -135,7 +135,30 @@ serve(async (req) => {
     if (error) errors.push(`profiles: ${error.message}`);
   }
 
-  // ---- 3. Auth user (irreversible) ----
+  // ---- 3. Apple Sign-In token revocation (Guideline 5.1.1(v) — TODO v1.0.1) ----
+  //
+  // 2026-05-23 — APPLE REJECTION RISK: Guideline 5.1.1(v) "If your app offers
+  // Sign in with Apple, you'll need to use the Sign in with Apple REST API to
+  // revoke user tokens when deleting an account."
+  //
+  // ŞU AN EKSİK. v1.0.1'de eklenmeli — gerekli kaynaklar:
+  //   1. Apple Developer Console → Identifiers → Services IDs → yeni Service ID
+  //   2. Apple Developer Console → Keys → Sign in with Apple key (.p8)
+  //   3. Supabase secrets:
+  //      - APPLE_SIGNIN_KEY_ID
+  //      - APPLE_SIGNIN_SERVICE_ID (com.lafla.signinwithapple.service)
+  //      - APPLE_SIGNIN_PRIVATE_KEY (.p8 contents)
+  //   4. apple_credentials table: user_id → encrypted refresh_token (set on sign-in)
+  //   5. Burada: ES256 JWT yarat → POST appleid.apple.com/auth/revoke
+  //
+  // MITIGATION (submission notes'a yaz): "Apple Sign-In token revocation
+  // will be implemented in v1.0.1. Current users may revoke manually via
+  // iOS Settings → Apple ID → Password & Security → Apps Using Apple ID → Lafla."
+  //
+  // Bu açıklama %100 kabul edilmiyor — gerçek implementation güvenli yol.
+  // Detay: docs/APPLE_REJECTION_RISK_AUDIT.md Section R1.
+
+  // ---- 4. Auth user (irreversible) ----
   const { error: delErr } = await supabaseAdmin.auth.admin.deleteUser(user.id);
   if (delErr) {
     errors.push(`auth_delete: ${delErr.message}`);
