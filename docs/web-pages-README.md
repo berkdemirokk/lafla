@@ -46,4 +46,4 @@ These pages are linked from `apps/mobile/app/paywall.tsx` and `apps/mobile/app/s
 - [ ] `privacy.html` lists every third party currently in the app (Supabase, Apple IAP, RevenueCat, Sentry, PostHog).
 - [ ] `delete-account.html` does NOT require a login or app reinstall.
 - [ ] `terms.html` covers Apple IAP auto-renewal, cancellation via Apple Settings, and refund routing through `reportaproblem.apple.com`.
-- [ ] All `mailto:hello@lafla.app` links work in Safari mobile.
+- [ ] All `mailto:berkkdemirok@gmail.com` links work in Safari mobile.

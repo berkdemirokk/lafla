@@ -260,7 +260,7 @@ Tüm 935 sahneye erişim, sınırsız tekrar, derin telaffuz analizi, IELTS Band
 ⏰ İptal etmediğin sürece dönem sonunda otomatik yenilenir
 📜 Şartlar: lafla.app/terms · Gizlilik: lafla.app/privacy
 
-Destek: hello@lafla.app
+Destek: berkkdemirok@gmail.com
 ```
 
 ### Description (EN)
@@ -306,7 +306,7 @@ All 935 scenes unlocked, unlimited replays, deep pronunciation analysis, IELTS B
 ⏰ Renewal continues at the end of each period unless cancelled
 📜 Terms: lafla.app/terms · Privacy: lafla.app/privacy
 
-Support: hello@lafla.app
+Support: berkkdemirok@gmail.com
 ```
 
 ### What's New (TR)
@@ -323,7 +323,7 @@ Lafla — ilk sürüm. Konuş, çalış.
 💭 Voice Journal — kendi sesini kaydet, ilerlemeyi duy
 🌙 Neon Noir tema — premium, gece dostu
 
-Geri bildirim: hello@lafla.app
+Geri bildirim: berkkdemirok@gmail.com
 ```
 
 ### What's New (EN)
@@ -340,7 +340,7 @@ Lafla — first launch. Speak. Work.
 💭 Voice Journal — record yourself, hear your progress
 🌙 Neon Noir theme — premium, night-friendly
 
-Feedback: hello@lafla.app
+Feedback: berkkdemirok@gmail.com
 ```
 
 ### URLs
@@ -413,12 +413,12 @@ Account deletion: Settings → Hesabımı Sil → confirm by typing "SİL" → i
 
 No runtime LLM. All NPC dialogue and feedback is pre-authored TypeScript; runtime "smart conversation" uses a deterministic mini-Markov model for bridge phrases (lib/npc-bridge.ts), not an external API. Voice Journal audio never leaves the device.
 
-Full reviewer brief in the included APP_REVIEW_NOTES.md attached to this submission. Questions: hello@lafla.app (Istanbul business hours, <4h response).
+Full reviewer brief in the included APP_REVIEW_NOTES.md attached to this submission. Questions: berkkdemirok@gmail.com (Istanbul business hours, <4h response).
 ```
 
 ### Contact Info
 ```
-Email: hello@lafla.app
+Email: berkkdemirok@gmail.com
 ```
 
 ---

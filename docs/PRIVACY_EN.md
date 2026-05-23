@@ -4,7 +4,7 @@
 
 At Lafla ("the App", "we", "us", "our") we take your privacy seriously. This Privacy Policy explains how we collect, process, store, and protect your personal data when you use the Lafla iOS application. This policy complies with the EU General Data Protection Regulation (GDPR), the Turkish Personal Data Protection Law No. 6698 (KVKK), and Apple App Store privacy requirements.
 
-Data Controller: Lafla, hello@lafla.app
+Data Controller: Lafla, berkkdemirok@gmail.com
 
 ## 1. Data We Collect
 
@@ -89,13 +89,13 @@ Under GDPR Articles 15-22 and KVKK Article 11 you have the following rights:
 - **Right not to be subject to automated decision-making**
 - **Right to withdraw consent** at any time where processing is based on consent
 
-To exercise these rights, write to **hello@lafla.app**. We respond within 30 days.
+To exercise these rights, write to **berkkdemirok@gmail.com**. We respond within 30 days.
 
 EU residents may lodge a complaint with their national data protection authority. Turkish residents may file complaints with the Personal Data Protection Authority (KVKK).
 
 ## 8. Children's Privacy
 
-Lafla is **not intended for users under the age of 13**. We do not knowingly collect data from children under 13 (in compliance with COPPA). Users between 13 and 18 should use the app with parental consent. If we discover that a child under 13 has created an account, we will delete it immediately. Parents who believe their child has provided data may contact us at hello@lafla.app for prompt removal.
+Lafla is **not intended for users under the age of 13**. We do not knowingly collect data from children under 13 (in compliance with COPPA). Users between 13 and 18 should use the app with parental consent. If we discover that a child under 13 has created an account, we will delete it immediately. Parents who believe their child has provided data may contact us at berkkdemirok@gmail.com for prompt removal.
 
 ## 9. Security Measures
 
@@ -121,7 +121,7 @@ We may update this policy periodically. We will notify you of material changes t
 
 For any questions, requests, or complaints regarding privacy:
 
-**Email:** hello@lafla.app
+**Email:** berkkdemirok@gmail.com
 **Address:** [GÜNCELLE — Company address]
 
 In case of any conflict between the Turkish and English versions of this policy, the Turkish version shall prevail for users residing in Turkey.

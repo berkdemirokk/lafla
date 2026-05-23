@@ -24,7 +24,7 @@
 - **Used for tracking:** No
 - **Purposes:**
   - App Functionality (sign-in, password reset, account recovery)
-  - Customer Support (responding to `hello@lafla.app` requests)
+  - Customer Support (responding to `berkkdemirok@gmail.com` requests)
 
 > Required for Sign in with Apple / email auth via Supabase. Stored in `auth.users` table.
 
@@ -104,7 +104,7 @@
 - **Used for tracking:** No
 - **Purposes:** Customer Support
 
-> Email tickets sent to `hello@lafla.app`. Stored on email server with standard retention.
+> Email tickets sent to `berkkdemirok@gmail.com`. Stored on email server with standard retention.
 
 ### Photos or Videos
 

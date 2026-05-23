@@ -26,7 +26,7 @@ Daha derin pratik. Daha sağlam ölçüm.
 
 • Yeni 3D hisli arayüz: hero kartlarda derinlik, akıcı geçişler.
 
-Söyle gitsin. Geri bildirimleriniz için: hello@lafla.app
+Söyle gitsin. Geri bildirimleriniz için: berkkdemirok@gmail.com
 ```
 
 **Karakter sayısı:** ~870 (4000 limit altında, ~500 preview-safe değil ama bu büyük release; ilk 200 char "Daha derin pratik. Daha sağlam ölçüm. • 800+ sahne — 132 yeni hikaye yayı: Erasmus Amsterdam, Londra'da junior dev, NY tech konferansı, Tokyo solo seyahat...")
@@ -52,7 +52,7 @@ Deeper practice. Sharper measurement.
 
 • New 3D-feeling interface: hero cards with depth, smoother transitions.
 
-Just say it. Feedback: hello@lafla.app
+Just say it. Feedback: berkkdemirok@gmail.com
 ```
 
 ---

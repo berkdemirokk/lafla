@@ -190,7 +190,7 @@ export default function SettingsScreen() {
 
   const openMailtoFallback = () => {
     Linking.openURL(
-      "mailto:hello@lafla.app?subject=Hesap silme talebi&body=Otomatik silme başarısız oldu, hesabımın manuel olarak silinmesini talep ediyorum.",
+      "mailto:berkkdemirok@gmail.com?subject=Hesap silme talebi&body=Otomatik silme başarısız oldu, hesabımın manuel olarak silinmesini talep ediyorum.",
     ).catch(() => Alert.alert("Hata", "Mail uygulaması açılamadı."));
   };
 
@@ -280,7 +280,7 @@ export default function SettingsScreen() {
       }
     }
     Linking.openURL(
-      "mailto:hello@lafla.app?subject=Lafla geri bildirim",
+      "mailto:berkkdemirok@gmail.com?subject=Lafla geri bildirim",
     ).catch(() => Alert.alert("Hata", "Mail uygulaması açılamadı."));
   };
 
@@ -419,7 +419,7 @@ export default function SettingsScreen() {
             label="Bize yaz"
             onPress={() =>
               Linking.openURL(
-                "mailto:hello@lafla.app?subject=Lafla geri bildirim",
+                "mailto:berkkdemirok@gmail.com?subject=Lafla geri bildirim",
               ).catch(() =>
                 Alert.alert("Hata", "Mail uygulaması açılamadı."),
               )
@@ -541,7 +541,7 @@ export default function SettingsScreen() {
                     onPress={openMailtoFallback}
                   >
                     <Text style={styles.modalFallbackText}>
-                      Otomatik silme başarısız. Manuel destek için: hello@lafla.app
+                      Otomatik silme başarısız. Manuel destek için: berkkdemirok@gmail.com
                     </Text>
                   </Pressable>
                 )}

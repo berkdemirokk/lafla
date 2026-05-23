@@ -21,7 +21,7 @@
 - **Line breaks > paragraphs.** Mobile readers scan. One idea per line, blank line between sections.
 - **Turkish first.** EN is a translation, not the canonical version. If TR sounds off, fix TR — don't write EN-first and back-translate.
 - **No marketing fluff.** Lafla's voice is direct: "Söyle gitsin." Not "Embark on your English-speaking journey."
-- **Sign-off:** every release ends with `Geri bildirimleriniz için: hello@lafla.app` (TR) / `Feedback: hello@lafla.app` (EN).
+- **Sign-off:** every release ends with `Geri bildirimleriniz için: berkkdemirok@gmail.com` (TR) / `Feedback: berkkdemirok@gmail.com` (EN).
 
 **Structure to copy**
 1. One-line hook (what changed, in human terms).
@@ -37,7 +37,7 @@
 > Sahneler artık daha hızlı yükleniyor — özellikle Tinder ve Slack senaryolarında.
 > Mikrofon izni hatası düzeltildi (iOS 17.4+).
 >
-> Geri bildirimleriniz için: hello@lafla.app
+> Geri bildirimleriniz için: berkkdemirok@gmail.com
 
 ---
 
@@ -58,7 +58,7 @@ Türk-context'li İngilizce sahneleri — Tinder mesajı, Slack toplantısı, ba
 • Türkçe açıklamalı düzeltmeler — sadece Türklerin yaptığı hatalara özel
 • Sesli pratik, donmadan
 
-Söyle gitsin. Geri bildirimleriniz için: hello@lafla.app
+Söyle gitsin. Geri bildirimleriniz için: berkkdemirok@gmail.com
 ```
 
 *(≈360 karakter — limit altında, preview'da kesilmeyecek)*
@@ -70,7 +70,7 @@ Söyle gitsin. Geri bildirimleriniz için: hello@lafla.app
 
 Türk-context'li İngilizce sahneleri. 122 sahne, konuşma odaklı. Türkçe açıklamalı düzeltmeler — sadece Türklerin yaptığı hatalara özel.
 
-Söyle gitsin. Geri bildirimleriniz için: hello@lafla.app
+Söyle gitsin. Geri bildirimleriniz için: berkkdemirok@gmail.com
 ```
 
 ### EN (English — secondary)
@@ -84,7 +84,7 @@ English scenes built for Turkish speakers — Tinder DMs, Slack stand-ups, bar c
 • Turkish-language feedback on the mistakes only Turks make
 • Voice practice without the freeze
 
-Just say it. Feedback: hello@lafla.app
+Just say it. Feedback: berkkdemirok@gmail.com
 ```
 
 *(≈340 characters)*
@@ -96,7 +96,7 @@ Day one! Welcome to Lafla.
 
 English scenes built for Turkish speakers. 122 scenes, speaking-first. Turkish-language feedback on the mistakes only Turks make.
 
-Just say it. Feedback: hello@lafla.app
+Just say it. Feedback: berkkdemirok@gmail.com
 ```
 
 ---
@@ -116,7 +116,7 @@ Hızlı düzeltmeler:
 • [Küçük iyileştirme — örn. "Profil ekranı yenilendi"]
 • [Performans — örn. "Sahne yükleme %30 daha hızlı"]
 
-Geri bildirimleriniz için: hello@lafla.app
+Geri bildirimleriniz için: berkkdemirok@gmail.com
 ```
 
 ### EN
@@ -128,7 +128,7 @@ Quick fixes:
 • [Small improvement — e.g. "Profile screen refresh"]
 • [Performance — e.g. "Scene load 30% faster"]
 
-Feedback: hello@lafla.app
+Feedback: berkkdemirok@gmail.com
 ```
 
 ---
@@ -148,7 +148,7 @@ Lafla'ya ses ve hareket geldi.
 • [Animasyonlar — örn. "Sahne geçişleri akıcı"]
 • [Eklenen sahneler — örn. "20 yeni sahne (toplam 142)"]
 
-Söyle gitsin. Geri bildirimleriniz için: hello@lafla.app
+Söyle gitsin. Geri bildirimleriniz için: berkkdemirok@gmail.com
 ```
 
 ### EN
@@ -160,7 +160,7 @@ Sound and motion arrive on Lafla.
 • [Animations — e.g. "Smooth scene transitions"]
 • [New scenes — e.g. "20 new scenes (142 total)"]
 
-Just say it. Feedback: hello@lafla.app
+Just say it. Feedback: berkkdemirok@gmail.com
 ```
 
 ---
@@ -172,6 +172,6 @@ Just say it. Feedback: hello@lafla.app
 - [ ] Character count under 500 for both locales (preview-safe)
 - [ ] No "bug fixes and performance improvements" filler
 - [ ] No links, no version numbers in body, no emoji unless brand-approved
-- [ ] Sign-off email present: `hello@lafla.app`
+- [ ] Sign-off email present: `berkkdemirok@gmail.com`
 - [ ] Version + build number in `app.json` and `package.json` match what's being submitted
 - [ ] GitHub release notes drafted using `.github/release-notes-template.md`

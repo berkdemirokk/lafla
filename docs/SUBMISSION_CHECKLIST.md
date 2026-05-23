@@ -101,7 +101,7 @@ ASC'de https://appstoreconnect.apple.com → My Apps → Lafla.
   - Username: `apple_reviewer_2026@lafla.app` (bir test hesabı oluştur, premium grant et)
   - Password: (rotated each submission, random güçlü şifre)
   - Notes: `docs/APP_REVIEW_NOTES.md` Section 1
-- [ ] **Contact info:** `hello@lafla.app`
+- [ ] **Contact info:** `berkkdemirok@gmail.com`
 - [ ] **Notes paste:** `docs/APP_STORE_METADATA.md` Section 9 → "Notes (paste into the 'Notes' box)" copy/paste
 
 ### A.8 Build Selection
@@ -193,7 +193,7 @@ ASC'de https://appstoreconnect.apple.com → My Apps → Lafla.
 | Privacy URL | `https://berkdemirokk.github.io/lafla/privacy.html` |
 | Terms URL | `https://berkdemirokk.github.io/lafla/terms.html` |
 | Support URL | `https://berkdemirokk.github.io/lafla/` |
-| Support email | `hello@lafla.app` |
+| Support email | `berkkdemirok@gmail.com` |
 | Demo account location | ASC → App Review Information → Demo Account |
 | Apple Team ID | `44B88YK392` |
 | EAS Project ID | `a7b18723-d431-481b-92cd-18a4c1104171` |

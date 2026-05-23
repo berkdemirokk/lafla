@@ -85,7 +85,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
       "",
     ];
     const body = encodeURIComponent(bodyLines.join("\n"));
-    const url = `mailto:hello@lafla.app?subject=${subject}&body=${body}`;
+    const url = `mailto:berkkdemirok@gmail.com?subject=${subject}&body=${body}`;
     Linking.openURL(url).catch((e) => {
       // openURL can reject on simulators with no mail client configured
       if (__DEV__) console.warn("[ErrorBoundary] mailto failed", e);

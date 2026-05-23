@@ -4,7 +4,7 @@
 
 These Terms of Service ("Terms") constitute a legal agreement between you and Lafla ("we", "us", "our") governing your use of the Lafla iOS application ("the App"). By downloading, installing, or using the App, you agree to be bound by these Terms. If you do not agree, please do not use the App.
 
-Contact: hello@lafla.app
+Contact: berkkdemirok@gmail.com
 
 ## 1. Description of Service
 
@@ -26,7 +26,7 @@ If you create an account:
 
 - You are responsible for providing accurate, up-to-date information
 - You are responsible for the security of your account and all activity that occurs under it
-- You must promptly notify us at hello@lafla.app of any unauthorized use of your account
+- You must promptly notify us at berkkdemirok@gmail.com of any unauthorized use of your account
 - You may create only one account per person
 
 You may sign in with Apple Sign-In or email. Lafla reserves the right to terminate accounts involved in fraud or abuse.
@@ -106,6 +106,6 @@ EU consumers may also have access to the European Commission's Online Dispute Re
 
 ## 13. Contact
 
-Questions about these Terms? Write to **hello@lafla.app**.
+Questions about these Terms? Write to **berkkdemirok@gmail.com**.
 
 In case of any conflict between the Turkish and English versions of these Terms, the Turkish version shall prevail for users residing in Turkey.

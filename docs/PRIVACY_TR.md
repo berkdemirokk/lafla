@@ -4,7 +4,7 @@
 
 Lafla ("uygulama", "biz", "bizim") olarak gizliliğinize değer veriyoruz. Bu Gizlilik Politikası; Lafla iOS uygulamasını kullandığınızda kişisel verilerinizi nasıl topladığımızı, işlediğimizi, sakladığımızı ve koruduğumuzu açıklar. Politika, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) ve Avrupa Birliği Genel Veri Koruma Tüzüğü (GDPR) ile uyumludur.
 
-Veri sorumlusu: Lafla, hello@lafla.app
+Veri sorumlusu: Lafla, berkkdemirok@gmail.com
 
 ## 1. Topladığımız Veriler
 
@@ -86,7 +86,7 @@ KVKK Madde 11 ve GDPR Madde 15-22 kapsamında aşağıdaki haklara sahipsiniz:
 - **İtiraz hakkı:** Verilerinizin işlenmesine itiraz etme
 - **Otomatik karar verme:** Otomatik karar mekanizmalarına tabi olmama
 
-Bu haklarınızı kullanmak için **hello@lafla.app** adresine yazabilirsiniz. Taleplerinizi en geç 30 gün içinde yanıtlarız.
+Bu haklarınızı kullanmak için **berkkdemirok@gmail.com** adresine yazabilirsiniz. Taleplerinizi en geç 30 gün içinde yanıtlarız.
 
 KVKK kapsamındaki şikayetlerinizi Kişisel Verileri Koruma Kurumu'na (KVKK) iletebilirsiniz.
 
@@ -118,7 +118,7 @@ Bu politikayı zaman zaman güncelleyebiliriz. Önemli değişiklikler durumunda
 
 Gizlilikle ilgili her türlü soru, talep ve şikayet için:
 
-**E-posta:** hello@lafla.app
+**E-posta:** berkkdemirok@gmail.com
 **Adres:** [GÜNCELLE — Şirket adresi]
 
 Bu politikanın Türkçe ve İngilizce sürümleri arasında uyuşmazlık olması halinde Türkçe sürüm esas alınır.

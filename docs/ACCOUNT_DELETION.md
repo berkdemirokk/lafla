@@ -10,7 +10,7 @@ account creation **must offer in-app account deletion**:
 > suspend their account, but they must delete the account and personal data
 > upon request, even if there is an outstanding balance or active subscription.
 
-The previous Lafla flow only sent the user a `mailto:hello@lafla.app` link
+The previous Lafla flow only sent the user a `mailto:berkkdemirok@gmail.com` link
 and promised manual deletion within 7 days. That is a guaranteed reject
 under 5.1.1(v) because the delete is not initiated nor confirmed in-app.
 
@@ -51,7 +51,7 @@ This document describes the new in-app instant deletion path.
    the user stays on the typing step and sees:
    - The error message returned by the edge function (e.g.
      `storage_remove: ...`, `auth_delete: ...`).
-   - A fallback link: `hello@lafla.app` for manual cleanup. The fallback
+   - A fallback link: `berkkdemirok@gmail.com` for manual cleanup. The fallback
      is no longer the primary path — only a safety net.
 
 ---

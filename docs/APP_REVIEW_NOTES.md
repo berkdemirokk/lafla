@@ -8,7 +8,7 @@
 
 Lafla gates content behind authentication. Demo credentials are provided through **App Store Connect → App Review Information → Demo Account fields** (rotated each submission). They are NOT committed to this repository.
 
-If credentials in App Store Connect are stale or missing, contact `hello@lafla.app` and we will issue a fresh tester within one business day.
+If credentials in App Store Connect are stale or missing, contact `berkkdemirok@gmail.com` and we will issue a fresh tester within one business day.
 
 The demo account is pre-seeded with:
 - Onboarding completed (Turkish UI, 4-step flow: welcome → interests → name → cefr)
@@ -119,4 +119,4 @@ Version + build number are set by EAS Build at submission time; check the binary
 
 ## Contact
 
-For questions during review: **`hello@lafla.app`** (US business-hours response, <4h).
+For questions during review: **`berkkdemirok@gmail.com`** (US business-hours response, <4h).

@@ -104,7 +104,7 @@ const METADATA = {
       "⏰ İptal etmediğin sürece dönem sonunda otomatik yenilenir",
       "📜 Şartlar: lafla.app/terms · Gizlilik: lafla.app/privacy",
       "",
-      "Destek: hello@lafla.app",
+      "Destek: berkkdemirok@gmail.com",
     ].join("\n"),
     keywords:
       "ingilizce konuşma,ielts speaking,flört ingilizcesi,yds,toefl,mülakat,telaffuz,akıcı,fonem",
@@ -121,7 +121,7 @@ const METADATA = {
       "💭 Voice Journal — kendi sesini kaydet, ilerlemeyi duy",
       "🌙 Neon Noir tema — premium, gece dostu",
       "",
-      "Geri bildirim: hello@lafla.app",
+      "Geri bildirim: berkkdemirok@gmail.com",
     ].join("\n"),
   },
 
@@ -173,7 +173,7 @@ const METADATA = {
       "⏰ Renewal continues at the end of each period unless cancelled",
       "📜 Terms: lafla.app/terms · Privacy: lafla.app/privacy",
       "",
-      "Support: hello@lafla.app",
+      "Support: berkkdemirok@gmail.com",
     ].join("\n"),
     keywords:
       "speak english,esl turkish,fluency,pronunciation,phoneme,ielts,toefl,conversation,interview",
@@ -190,7 +190,7 @@ const METADATA = {
       "💭 Voice Journal — record yourself, hear your progress",
       "🌙 Neon Noir theme — premium, night-friendly",
       "",
-      "Feedback: hello@lafla.app",
+      "Feedback: berkkdemirok@gmail.com",
     ].join("\n"),
   },
 } as const;
@@ -456,7 +456,7 @@ const REVIEW_NOTES = [
   "",
   "IELTS Band Estimator displays a clear in-app disclaimer that it is Lafla's internal scoring model, NOT an official IELTS score (not affiliated with British Council/IDP/Cambridge English Assessment).",
   "",
-  "Questions during review: hello@lafla.app (Istanbul business hours, <4h response).",
+  "Questions during review: berkkdemirok@gmail.com (Istanbul business hours, <4h response).",
 ].join("\n");
 
 interface ReviewDetailAttrs {
@@ -559,7 +559,7 @@ async function syncReviewDetail(
   const demoPassword = process.env.DEMO_ACCOUNT_PASSWORD;
   const contactFirst = process.env.CONTACT_FIRST_NAME || "Berk";
   const contactLast = process.env.CONTACT_LAST_NAME || "Demirok";
-  const contactEmail = process.env.CONTACT_EMAIL || "hello@lafla.app";
+  const contactEmail = process.env.CONTACT_EMAIL || "berkkdemirok@gmail.com";
   const contactPhone = process.env.CONTACT_PHONE;
 
   console.log(`\n[review-detail] Sync App Store Review Information`);

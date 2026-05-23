@@ -131,7 +131,7 @@ Tüm 935 sahneye erişim, sınırsız tekrar, derin telaffuz analizi, IELTS Band
 ⏰ İptal etmediğin sürece dönem sonunda otomatik yenilenir
 📜 Şartlar: lafla.app/terms · Gizlilik: lafla.app/privacy
 
-Destek: hello@lafla.app
+Destek: berkkdemirok@gmail.com
 ```
 
 *(approx. 1,800 / 4,000 characters)*
@@ -184,7 +184,7 @@ All 935 scenes unlocked, unlimited replays, deep pronunciation analysis, IELTS B
 ⏰ Renewal continues at the end of each period unless cancelled
 📜 Terms: lafla.app/terms · Privacy: lafla.app/privacy
 
-Support: hello@lafla.app
+Support: berkkdemirok@gmail.com
 ```
 
 *(approx. 1,750 / 4,000 characters)*
@@ -265,7 +265,7 @@ Lafla — ilk sürüm. Konuş, çalış.
 💭 Voice Journal — kendi sesini kaydet, ilerlemeyi duy
 🌙 Neon Noir tema — premium, gece dostu
 
-Geri bildirim: hello@lafla.app
+Geri bildirim: berkkdemirok@gmail.com
 ```
 
 *(approx. 530 chars)*
@@ -285,7 +285,7 @@ Lafla — first launch. Speak. Work.
 💭 Voice Journal — record yourself, hear your progress
 🌙 Neon Noir theme — premium, night-friendly
 
-Feedback: hello@lafla.app
+Feedback: berkkdemirok@gmail.com
 ```
 
 *(approx. 530 chars)*
@@ -390,7 +390,7 @@ Demo username + password are entered into App Store Connect's dedicated **Demo A
 - Voice Journal: 2 sample audio entries (so the reviewer can verify mic permission flow without leaving the app)
 - Lafla Pro entitlement granted (review-side TestFlight unlock; on production builds reviewers should use a Sandbox Tester for the IAP path)
 
-If credentials are stale, contact **hello@lafla.app** — fresh tester provisioned within one business day.
+If credentials are stale, contact **berkkdemirok@gmail.com** — fresh tester provisioned within one business day.
 
 ### Contact Information
 
@@ -399,7 +399,7 @@ If credentials are stale, contact **hello@lafla.app** — fresh tester provision
 | First name | (App Store Connect account holder) |
 | Last name | (App Store Connect account holder) |
 | Phone | (App Store Connect account holder) |
-| Email | `hello@lafla.app` |
+| Email | `berkkdemirok@gmail.com` |
 
 ### Notes (paste into the "Notes" box)
 
@@ -422,7 +422,7 @@ Account deletion: Settings → Hesabımı Sil → confirm by typing "SİL" → i
 
 No runtime LLM. All NPC dialogue and feedback is pre-authored TypeScript; runtime "smart conversation" uses a deterministic mini-Markov model for bridge phrases (lib/npc-bridge.ts), not an external API. Voice Journal audio never leaves the device.
 
-Full reviewer brief in the included APP_REVIEW_NOTES.md attached to this submission. Questions: hello@lafla.app (Istanbul business hours, <4h response).
+Full reviewer brief in the included APP_REVIEW_NOTES.md attached to this submission. Questions: berkkdemirok@gmail.com (Istanbul business hours, <4h response).
 ```
 
 ---
@@ -478,7 +478,7 @@ Secondary hooks to pitch in the Featured submission form:
 
 - **Trigger first 100 review prompts at:** scene completion #5, after a 3-day streak hits, after a Lafla Pro trial day-1 success moment. **Never** on app launch.
 - **Goal:** 100 reviews in week 1, 4.5+ average. Below 4.2 average is a panic threshold.
-- **Reply policy:** Founder replies personally in TR for the first 90 days. Direct reply to every <4-star review with a real solution + invitation to `hello@lafla.app`.
+- **Reply policy:** Founder replies personally in TR for the first 90 days. Direct reply to every <4-star review with a real solution + invitation to `berkkdemirok@gmail.com`.
 
 ---
 

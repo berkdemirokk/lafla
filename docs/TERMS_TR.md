@@ -4,7 +4,7 @@
 
 Bu Kullanım Koşulları ("Koşullar"), Lafla iOS uygulamasının ("Uygulama") kullanımına ilişkin sizinle Lafla ("biz", "bizim") arasındaki yasal sözleşmeyi oluşturur. Uygulamayı indirerek, kurarak veya kullanarak bu Koşulları kabul etmiş sayılırsınız. Koşulları kabul etmiyorsanız Uygulamayı kullanmamanızı rica ederiz.
 
-İletişim: hello@lafla.app
+İletişim: berkkdemirok@gmail.com
 
 ## 1. Hizmet Tanımı
 
@@ -26,7 +26,7 @@ Hesap oluşturursanız:
 
 - Verdiğiniz bilgilerin doğru ve güncel olmasını sağlamakla yükümlüsünüz
 - Hesabınızın güvenliğinden ve hesabınız üzerinden yapılan tüm işlemlerden siz sorumlusunuz
-- Hesabınızın yetkisiz kullanımını fark ettiğinizde derhal hello@lafla.app adresine bildirmelisiniz
+- Hesabınızın yetkisiz kullanımını fark ettiğinizde derhal berkkdemirok@gmail.com adresine bildirmelisiniz
 - Tek bir kişi için tek bir hesap oluşturabilirsiniz
 
 Apple ile Giriş veya e-posta yöntemiyle kayıt olabilirsiniz. Lafla, dolandırıcılık veya istismar tespit ettiği hesapları sonlandırma hakkını saklı tutar.
@@ -103,4 +103,4 @@ Bu Koşullar **Türkiye Cumhuriyeti** kanunlarına tabidir. Bu Koşullardan doğ
 
 ## 13. İletişim
 
-Bu Koşullarla ilgili sorularınız için **hello@lafla.app** adresine yazabilirsiniz.
+Bu Koşullarla ilgili sorularınız için **berkkdemirok@gmail.com** adresine yazabilirsiniz.

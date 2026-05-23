@@ -70,7 +70,7 @@ When `hasError` flips true, the boundary renders a full-screen panel:
   children re-mount. Good for transient errors; deterministic bugs will
   immediately re-trigger the boundary.
 - Secondary CTA **"Hatayı bildir"** — opens the user's mail client to
-  `mailto:hello@lafla.app` with subject `Lafla crash report` and the error
+  `mailto:berkkdemirok@gmail.com` with subject `Lafla crash report` and the error
   message pre-filled in the body. The error has already been auto-sent to
   Sentry on `componentDidCatch`; this CTA is for user-supplied context.
 - In `__DEV__` only, a scrollable debug box shows `error.message` and the
