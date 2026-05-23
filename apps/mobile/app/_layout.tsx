@@ -75,6 +75,8 @@ export default function RootLayout() {
           <Stack.Screen name="diary" />
           <Stack.Screen name="voice-journal" />
           <Stack.Screen name="relationships" />
+          <Stack.Screen name="phoneme-drill" />
+          <Stack.Screen name="listen-mode" />
         </Stack>
       </ErrorBoundary>
     </SafeAreaProvider>

@@ -444,6 +444,19 @@ export default function ProfileScreen() {
             label="İlişkilerim"
             onPress={() => router.push("/relationships" as never)}
           />
+          {/* 2026-05-23 Faz 2 — yeni 2 mod, sessiz/passive alternatif. */}
+          <View style={styles.rowDivider} />
+          <AccountRow
+            icon="bolt"
+            label="Telaffuz pratiği"
+            onPress={() => router.push("/phoneme-drill" as never)}
+          />
+          <View style={styles.rowDivider} />
+          <AccountRow
+            icon="message"
+            label="Dinleme pratiği"
+            onPress={() => router.push("/listen-mode" as never)}
+          />
         </View>
 
         <Text style={styles.sectionLabel}>SPEAK+</Text>
