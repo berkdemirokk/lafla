@@ -16,7 +16,7 @@
 //   3. Bugün entry varsa → tamamlandı state + edit option
 //   4. Aşağıda timeline (yeni → eski) — geçmiş cümleler tarih ile
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -30,6 +30,15 @@ import {
 import { StatusBar } from "expo-status-bar";
 import { useFocusEffect, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
+import Animated, {
+  Easing,
+  useAnimatedStyle,
+  useSharedValue,
+  withDelay,
+  withSequence,
+  withTiming,
+} from "react-native-reanimated";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { tokens } from "../theme";
 import { Button } from "../components/Button";
@@ -37,10 +46,44 @@ import { hapticImpact, hapticSuccess } from "../lib/feedback";
 import { trackEvent } from "../lib/analytics";
 import {
   getAllEntries,
+  getEntryCountLastDays,
   getTodayEntry,
   setTodayEntry,
   type DiaryEntry,
 } from "../lib/daily-diary";
+
+// 2026-05-24 — Diary milestone celebration. Kullanıcı 3/7/30 gün üst üste
+// (last N gün count) entry yazdığında inline pill fade-in olur, 3 saniye
+// görünür, fade-out. Persist edilen "claimed" set sayesinde aynı milestone
+// tekrar gösterilmez.
+const K_DIARY_CLAIMED = "lafla.diary.milestones.claimed";
+const DIARY_MILESTONES: Array<{ days: number; copy: string }> = [
+  { days: 3, copy: "3 günlük seri ✨" },
+  { days: 7, copy: "1 hafta günlük ✨" },
+  { days: 30, copy: "1 ay günlük ✨" },
+  { days: 100, copy: "100 günlük seri ✨" },
+];
+
+async function getClaimedMilestones(): Promise<Set<number>> {
+  try {
+    const raw = await AsyncStorage.getItem(K_DIARY_CLAIMED);
+    if (!raw) return new Set();
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? new Set(parsed as number[]) : new Set();
+  } catch {
+    return new Set();
+  }
+}
+
+async function claimMilestone(days: number): Promise<void> {
+  try {
+    const set = await getClaimedMilestones();
+    set.add(days);
+    await AsyncStorage.setItem(K_DIARY_CLAIMED, JSON.stringify([...set]));
+  } catch {
+    // best effort
+  }
+}
 
 const MAX_CHARS = 200;
 
@@ -80,6 +123,30 @@ export default function DiaryScreen() {
   const [todayEntry, setTodayEntryState] = useState<DiaryEntry | null>(null);
   const [entries, setEntries] = useState<DiaryEntry[]>([]);
   const [saving, setSaving] = useState(false);
+  // 2026-05-24 — Celebration pill state. Hidden by default; save sonrası
+  // milestone hit'inde set edilir, 3 saniye sonra otomatik temizlenir.
+  const [celebrationCopy, setCelebrationCopy] = useState<string | null>(null);
+  const celebrationOpacity = useSharedValue(0);
+  const celebrationScale = useSharedValue(0.85);
+
+  useEffect(() => {
+    if (!celebrationCopy) return;
+    celebrationOpacity.value = withSequence(
+      withTiming(1, { duration: 360, easing: Easing.out(Easing.cubic) }),
+      withDelay(2400, withTiming(0, { duration: 420, easing: Easing.in(Easing.cubic) })),
+    );
+    celebrationScale.value = withSequence(
+      withTiming(1, { duration: 360, easing: Easing.out(Easing.cubic) }),
+      withDelay(2400, withTiming(0.92, { duration: 420, easing: Easing.in(Easing.cubic) })),
+    );
+    const t = setTimeout(() => setCelebrationCopy(null), 3000);
+    return () => clearTimeout(t);
+  }, [celebrationCopy, celebrationOpacity, celebrationScale]);
+
+  const celebrationStyle = useAnimatedStyle(() => ({
+    opacity: celebrationOpacity.value,
+    transform: [{ scale: celebrationScale.value }],
+  }));
 
   const load = useCallback(async () => {
     const [today, all] = await Promise.all([
@@ -104,13 +171,37 @@ export default function DiaryScreen() {
     if (!text) return;
     setSaving(true);
     try {
+      const wasUpdate = todayEntry !== null;
       await setTodayEntry(text);
       hapticSuccess();
       void trackEvent("diary_entry_saved", {
         chars: text.length,
-        was_update: todayEntry !== null,
+        was_update: wasUpdate,
       }).catch(() => {});
       await load();
+      // 2026-05-24 — Milestone celebration. Yalnız yeni entry'lerde tetiklenir
+      // (edit'te değil; aynı gün tekrar yazımda milestone'u re-trigger etmek
+      // istemiyoruz). 3/7/30/100 gün eşiklerinden henüz claim edilmemiş olanı
+      // hit'lerse pill göster + claim et.
+      if (!wasUpdate) {
+        try {
+          const claimed = await getClaimedMilestones();
+          for (const m of DIARY_MILESTONES) {
+            if (claimed.has(m.days)) continue;
+            const count = await getEntryCountLastDays(m.days);
+            if (count >= m.days) {
+              setCelebrationCopy(m.copy);
+              await claimMilestone(m.days);
+              void trackEvent("diary_milestone_celebrated", {
+                days: m.days,
+              }).catch(() => {});
+              break; // Bir milestone yeter; aynı save'de iki birden yakalanmasın.
+            }
+          }
+        } catch {
+          // celebration failure non-critical
+        }
+      }
     } finally {
       setSaving(false);
     }
@@ -134,6 +225,19 @@ export default function DiaryScreen() {
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
       <StatusBar style="light" />
+
+      {/* Milestone celebration pill — header altında floating overlay.
+          pointerEvents: none → kullanıcı altındaki içeriği tıklayabilsin. */}
+      {celebrationCopy ? (
+        <Animated.View
+          style={[diaryCelebrationStyles.wrap, celebrationStyle]}
+          pointerEvents="none"
+        >
+          <View style={diaryCelebrationStyles.pill}>
+            <Text style={diaryCelebrationStyles.text}>{celebrationCopy}</Text>
+          </View>
+        </Animated.View>
+      ) : null}
 
       {/* Header — top bar */}
       <View style={styles.header}>
@@ -459,5 +563,38 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 19,
     color: tokens.text.secondary,
+  },
+});
+
+// 2026-05-24 — Milestone celebration pill styles.
+// Top floating overlay, header altında, content üstünde. Pembe pembe glow
+// kullanmıyoruz — diary tonu daha sakin (Day One referansı). Cyan accent.
+const diaryCelebrationStyles = StyleSheet.create({
+  wrap: {
+    position: "absolute",
+    top: 70,
+    left: 0,
+    right: 0,
+    alignItems: "center",
+    zIndex: 100,
+  },
+  pill: {
+    paddingHorizontal: 18,
+    paddingVertical: 10,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
+    shadowColor: tokens.brand.tertiary,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.5,
+    shadowRadius: 14,
+    elevation: 8,
+  },
+  text: {
+    fontSize: 14,
+    color: tokens.brand.tertiary,
+    fontFamily: tokens.font.sansExtra,
+    letterSpacing: 0.4,
   },
 });
