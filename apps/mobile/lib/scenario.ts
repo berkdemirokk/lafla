@@ -73,9 +73,16 @@ function modeOf(skillId: string): string {
 
 /**
  * Extract a Scenario from a legacy BundledLesson.
- * - setup = first vocab_tile exercise(s) (up to 2)
+ * - setup = first vocab_tile exercise(s) (up to 6)
  * - scene = the roleplay_chat exercise
  * - warmups = everything else (translate, fill_blank, word_order, spot_mistake, recap_quiz)
+ *
+ * 2026-05-24 — Setup cap 2 → 6. Lesson author'lar her sahneye ~12 vocab_tile
+ * koyuyordu ama eski versiyon sadece ilk 2'sini setup'a alıyordu; kalan 10
+ * vocab DrillRenderer'da default-skip'e düşüyordu (silent score 100, kullanıcı
+ * görmüyordu). Kullanıcı şikayeti: "kelime öğretmeden roleplay'e giriyor".
+ * Şimdi 6 vocab öğretildikten sonra drill + scene'e geçilir. ~3-4 dk setup'a
+ * ekleme.
  */
 export function lessonToScenario(lesson: BundledLesson): Scenario | null {
   const exercises = lesson.exercises as AnyExercise[];
@@ -86,7 +93,7 @@ export function lessonToScenario(lesson: BundledLesson): Scenario | null {
   // A scenario MUST have a roleplay. Skip lessons without one.
   if (!roleplay) return null;
 
-  const setup: SetupPhrase[] = vocabTiles.slice(0, 2).map((v) => ({
+  const setup: SetupPhrase[] = vocabTiles.slice(0, 6).map((v) => ({
     en: v.word_or_phrase,
     tr: v.tr_translation,
     example: v.example,
