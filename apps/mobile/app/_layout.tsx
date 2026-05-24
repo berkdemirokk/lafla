@@ -14,6 +14,21 @@
 import { useEffect } from "react";
 import { Stack } from "expo-router";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import * as SplashScreen from "expo-splash-screen";
+import { Text as RNText, TextInput as RNTextInput } from "react-native";
+import {
+  useFonts,
+  SpaceGrotesk_500Medium,
+  SpaceGrotesk_600SemiBold,
+  SpaceGrotesk_700Bold,
+} from "@expo-google-fonts/space-grotesk";
+import {
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+} from "@expo-google-fonts/inter";
 import { ErrorBoundary } from "../components/ErrorBoundary";
 import { initAnalytics, trackEvent } from "../lib/analytics";
 import { initSentry } from "../lib/sentry";
@@ -21,11 +36,66 @@ import { initAds } from "../lib/ads";
 import { requestAttOnce } from "../lib/att";
 import { tokens } from "../theme";
 
+// 2026-05-24 — Font load gate.
+// Theme tokens (theme/index.ts) referans veriyor:
+//   font.display       → "SpaceGrotesk_700Bold"   (en ağır SG variant'ı —
+//                        Google Fonts'ta Space Grotesk Bold'da biter, Black/
+//                        ExtraBold yok. 76pt wordmark da bu weight'i kullanır.)
+//   font.displaySemi   → "SpaceGrotesk_600SemiBold"
+//   font.displayMedium → "SpaceGrotesk_500Medium"
+//   font.sans          → "Inter_500Medium"
+//   font.sansRegular   → "Inter_400Regular"
+//   font.sansSemi      → "Inter_600SemiBold"
+//   font.sansBold      → "Inter_700Bold"
+//   font.sansExtra     → "Inter_800ExtraBold"
+// useFonts'a verdiğimiz key'ler EXACT bu string'lerle eşleşmeli — yoksa
+// runtime'da System fallback'e düşer (sessizce).
+SplashScreen.preventAutoHideAsync().catch(() => {
+  /* no-op — preventAutoHideAsync may reject if hide already called (Fast Refresh) */
+});
+
+// 2026-05-24 — Dynamic Type clamp.
+// iOS XXL erişilebilirlik metin boyutu varsayılan olarak 1.7x büyütür; kartlar
+// + chip'ler + paywall fiyatları bu boyutta kırılıyordu. 1.4x cap ile çoğu
+// layout'u koruyup gözü zayıf kullanıcı için de okunabilir kalıyoruz. Uygulama
+// genelinde tek satır default — her Text/TextInput'u tek tek override etmek
+// yerine. Bireysel override (ör. hero başlığı) lokal prop ile yapılabilir.
+const TEXT_MAX_SCALE = 1.4;
+// RN Text/TextInput defaultProps API'si TypeScript'te declare edilmiyor ama
+// runtime'da çalışıyor. Bilinen pattern (React Native 0.79).
+type DefaultPropable = { defaultProps?: Record<string, unknown> };
+const _Text = RNText as unknown as DefaultPropable;
+_Text.defaultProps = { ..._Text.defaultProps, maxFontSizeMultiplier: TEXT_MAX_SCALE };
+const _TextInput = RNTextInput as unknown as DefaultPropable;
+_TextInput.defaultProps = {
+  ..._TextInput.defaultProps,
+  maxFontSizeMultiplier: TEXT_MAX_SCALE,
+};
+
 // Initialize once at module load so the SDK is live before any render —
 // crashes during the very first frame are still captured.
 initSentry();
 
 export default function RootLayout() {
+  const [fontsLoaded, fontError] = useFonts({
+    SpaceGrotesk_500Medium,
+    SpaceGrotesk_600SemiBold,
+    SpaceGrotesk_700Bold,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+  });
+
+  useEffect(() => {
+    if (fontsLoaded || fontError) {
+      // Font yüklenemediyse splash'i yine de kapat — system font ile devam.
+      // (App'in launch'ı font hatasıyla bloklanmasın.)
+      SplashScreen.hideAsync().catch(() => {});
+    }
+  }, [fontsLoaded, fontError]);
+
   useEffect(() => {
     // Defensive: also run on mount in case the module-level call was a no-op
     // due to a transient config issue. initSentry() is idempotent.
@@ -52,6 +122,12 @@ export default function RootLayout() {
       void initAds().catch(() => {});
     })();
   }, []);
+
+  // Splash kapanana kadar (ya font hazır ya da yüklenemedi) UI gösterme —
+  // yarım font tipografisi flash yapması önlenir.
+  if (!fontsLoaded && !fontError) {
+    return null;
+  }
 
   return (
     <SafeAreaProvider>

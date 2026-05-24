@@ -28,8 +28,6 @@
         ],
         "CFBundleDevelopmentRegion": "tr",
         "ITSAppUsesNonExemptEncryption": false,
-        "NSMicrophoneUsageDescription": "Telaffuzunu değerlendirmek için mikrofona erişim gerekli.",
-        "NSSpeechRecognitionUsageDescription": "Söylediğin İngilizce cümleleri anlamak için konuşma tanıma kullanılır.",
         "NSUserTrackingUsageDescription": "Anonim kimlik ile pratik önerilerini iyileştirmek ve daha alakalı reklamlar göstermek için izin istiyoruz.",
         "NSPhotoLibraryUsageDescription": "İlerleme kartını galerine kaydedebilmen için izin gerekli."
       },

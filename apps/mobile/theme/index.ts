@@ -123,22 +123,30 @@ export const tokens = {
     xl: 80,
   },
   font: {
-    // Neon Noir typography pairing:
-    //   - Space Grotesk for display + headlines (geometric, brand)
-    //   - Inter for body + UI (humanist, screen-friendly)
-    // NOTE: To activate custom fonts, install @expo/google-fonts/space-grotesk
-    // and @expo/google-fonts/inter, then load via expo-font in _layout.tsx.
-    // Until then, we fall back to system fonts so the theme still renders.
-    display: Platform.select({
-      ios: "Space Grotesk", // falls back to System if not loaded
-      android: "Space Grotesk",
-      default: "Space Grotesk",
-    }),
-    sans: Platform.select({
-      ios: "Inter", // falls back to System if not loaded
-      android: "Inter",
-      default: "Inter",
-    }),
+    // Neon Noir typography pairing — 2026-05-24'te canlandı.
+    //   - Space Grotesk: display + headlines (geometric, brand)
+    //   - Inter: body + UI (humanist, screen-friendly)
+    //
+    // Yüklemesi _layout.tsx'te @expo-google-fonts/* paketleriyle yapılır.
+    // useFonts'a verilen key'ler ile aşağıdaki string'ler EXACT eşleşmeli.
+    // fontFamily explicit verildiğinde RN/iOS fontWeight prop'unu yok sayar —
+    // o yüzden ağırlık-spesifik varyantlar ayrı export edildi.
+    //
+    // NOT: Google Fonts'ta Space Grotesk max 700 Bold'da biter — Black/
+    // ExtraBold variant'ı yok. displayBlack ve displayBold ikisi de 700 Bold'a
+    // alias; ileri seviye hiyerarşi için Inter ExtraBold (sansExtra) kullanılır.
+    display: "SpaceGrotesk_700Bold",
+    displaySemi: "SpaceGrotesk_600SemiBold",
+    displayMedium: "SpaceGrotesk_500Medium",
+    /** @deprecated SG Black yok — display (700 Bold) ile aynı. */
+    displayBlack: "SpaceGrotesk_700Bold",
+    /** @deprecated SG ExtraBold yok — display (700 Bold) ile aynı. */
+    displayBold: "SpaceGrotesk_700Bold",
+    sans: "Inter_500Medium",
+    sansRegular: "Inter_400Regular",
+    sansSemi: "Inter_600SemiBold",
+    sansBold: "Inter_700Bold",
+    sansExtra: "Inter_800ExtraBold",
     // System fallback for any place needing guaranteed availability
     system: Platform.select({
       ios: "System",
