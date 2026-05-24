@@ -139,22 +139,33 @@ const INITIAL: OnboardingState = {
   displayName: "",
 };
 
-// ---------- İlgi alanı (interest) chip'leri — 6 mod (2026-05-20 cut) ----------
+// ---------- İlgi alanı (interest) chip'leri ----------
 // id değerleri lib/interest-mapping.ts'deki InterestId ile eşleşir.
+// 2026-05-24 — IELTS görsel olarak diğerlerinden ayrıldı (yaşam tarzı vs sınav
+// hazırlığı). Data model + InterestId eşlemesi değişmedi; sadece render iki
+// gruba bölündü ve aralarına "SINAV HAZIRLIĞI" ayırıcısı geldi.
 interface InterestChoice {
   id: string;
   emoji: string;
   label: string;
 }
 
-const INTEREST_CHOICES: InterestChoice[] = [
+const LIFESTYLE_CHOICES: InterestChoice[] = [
   { id: "flirt",   emoji: "💕", label: "Flört" },
   { id: "work",    emoji: "💼", label: "İş" },
   { id: "bar",     emoji: "🍻", label: "Bar" },
   { id: "airport", emoji: "✈️", label: "Havaalanı" },
   { id: "daily",   emoji: "☕", label: "Günlük" },
   { id: "order",   emoji: "🍽️", label: "Sipariş" },
-  { id: "ielts",   emoji: "🎓", label: "IELTS" },
+];
+
+const EXAM_CHOICES: InterestChoice[] = [
+  { id: "ielts",   emoji: "🎓", label: "IELTS Speaking" },
+];
+
+const INTEREST_CHOICES: InterestChoice[] = [
+  ...LIFESTYLE_CHOICES,
+  ...EXAM_CHOICES,
 ];
 
 // ---------- CEFR seviye kartları (A1–C2, altı tane) ----------
@@ -641,8 +652,9 @@ const dotStyles = StyleSheet.create({
 
 function WelcomeStep({ onStart }: { onStart: () => void }) {
   // Wordmark için: gecikmeli scale-in + sürekli yumuşak nabız glow.
+  // 2026-05-24 — glow target opacity 0.85 → 0.45 (gaming-poster→premium-neon).
   const wordmarkScale = useSharedValue(0.9);
-  const glowOpacity = useSharedValue(0.4);
+  const glowOpacity = useSharedValue(0.2);
   const taglineOpacity = useSharedValue(0);
   const taglineTranslateY = useSharedValue(10);
 
@@ -653,7 +665,7 @@ function WelcomeStep({ onStart }: { onStart: () => void }) {
     );
     glowOpacity.value = withDelay(
       200,
-      withTiming(0.85, { duration: 800, easing: Easing.out(Easing.cubic) }),
+      withTiming(0.45, { duration: 800, easing: Easing.out(Easing.cubic) }),
     );
     taglineOpacity.value = withDelay(
       420,
@@ -688,10 +700,10 @@ function WelcomeStep({ onStart }: { onStart: () => void }) {
         </View>
         <Animated.View style={taglineStyle}>
           <Text style={styles.welcomeTagline}>
-            5 dakikada gerçek İngilizce.
+            Donma. Konuş.
           </Text>
           <Text style={styles.welcomeSubtagline}>
-            Sahne sahne pratik — ezber yok, gerçek hayat var.
+            5 dakikada gerçek pratik — sahne sahne, ezber yok.
           </Text>
         </Animated.View>
       </View>
@@ -762,7 +774,27 @@ function InterestsStep({
         </Text>
 
         <View style={styles.chipGrid}>
-          {INTEREST_CHOICES.map((choice) => (
+          {LIFESTYLE_CHOICES.map((choice) => (
+            <InterestChip
+              key={choice.id}
+              choice={choice}
+              selected={selected.includes(choice.id)}
+              onPress={() => onToggle(choice.id)}
+            />
+          ))}
+        </View>
+
+        {/* Görsel ayırıcı — yaşam tarzı vs sınav hazırlığı.
+            Aynı interests array'ine yazılıyor ama IELTS chip'i altta,
+            sınav prep olarak konumlandırılıyor. */}
+        <View style={styles.examDivider}>
+          <View style={styles.examDividerLine} />
+          <Text style={styles.examDividerLabel}>SINAV HAZIRLIĞI?</Text>
+          <View style={styles.examDividerLine} />
+        </View>
+
+        <View style={styles.chipGrid}>
+          {EXAM_CHOICES.map((choice) => (
             <InterestChip
               key={choice.id}
               choice={choice}
@@ -861,7 +893,7 @@ function NameStep({
           style={styles.input}
           value={value}
           onChangeText={onChange}
-          placeholder="Berk"
+          placeholder="Adın"
           placeholderTextColor={tokens.text.tertiary}
           autoCapitalize="words"
           autoCorrect={false}
@@ -1103,22 +1135,29 @@ const styles = StyleSheet.create({
     bottom: -28,
     backgroundColor: tokens.brand.primaryGlow,
     borderRadius: 9999,
+    // 2026-05-24 — glow azaltıldı (gaming-poster effect → premium neon).
+    // shadowOpacity 0.9 → 0.55, shadowRadius 48 → 32.
     shadowColor: tokens.brand.primary,
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.9,
-    shadowRadius: 48,
-    elevation: 12,
+    shadowOpacity: 0.55,
+    shadowRadius: 32,
+    elevation: 8,
   },
   wordmark: {
     fontSize: 76,
     fontWeight: tokens.weight.black,
     color: tokens.text.primary,
-    letterSpacing: -2.4,
+    // SpaceGrotesk Black 900 — 76pt'lik wordmark için en ağır weight.
+    // fontWeight prop'u kontrast amaçlı tutuldu ama fontFamily explicit
+    // verildiği için iOS onu yok sayar; gerçek weight font dosyasından gelir.
+    letterSpacing: -1.6,
     lineHeight: 82,
-    fontFamily: tokens.font.display,
+    fontFamily: tokens.font.displayBlack,
+    // 2026-05-24 — glow azaltıldı: textShadowRadius 24→14, primary intensity
+    // App Store reviewer "gaming poster" yerine "premium neon" hissi versin.
     textShadowColor: tokens.brand.primary,
     textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 24,
+    textShadowRadius: 14,
   },
   welcomeTagline: {
     fontSize: 24,
@@ -1144,6 +1183,27 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     gap: 10,
     marginTop: tokens.spacing.xs,
+  },
+
+  // 2026-05-24 — Yaşam tarzı / sınav prep ayırıcısı (onboarding interests step)
+  examDivider: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+    marginTop: tokens.spacing.md,
+    marginBottom: tokens.spacing.sm,
+    paddingHorizontal: 4,
+  },
+  examDividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: tokens.border.outlineVariant,
+  },
+  examDividerLabel: {
+    fontSize: 10,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.tertiary,
+    letterSpacing: 1.4,
   },
   chip: {
     flexDirection: "row",
