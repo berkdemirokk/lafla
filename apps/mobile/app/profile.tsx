@@ -591,11 +591,21 @@ export default function ProfileScreen() {
             onPress={() => router.push("/settings" as never)}
           />
           <View style={styles.rowDivider} />
+          {/* 2026-05-24 — "Hesabımı sil" doğrudan delete flow'u tetikler.
+              Eski versiyon /settings'e bouncuyordu, kullanıcı scroll-and-tap
+              arıyordu (settings içindeyse self-loop). Şimdi ?action=delete
+              query param ile Settings ekranı açılır açılmaz preview modal
+              gelir — tek dokunuş, niyetin gerçekleşmesi. */}
           <AccountRow
             icon="trash"
             label="Hesabımı sil"
             danger
-            onPress={() => router.push("/settings" as never)}
+            onPress={() =>
+              router.push({
+                pathname: "/settings",
+                params: { action: "delete" },
+              } as never)
+            }
           />
         </View>
 

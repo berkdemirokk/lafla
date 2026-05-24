@@ -8,7 +8,7 @@
 // wave — we MUST tolerate it not existing yet. See defensive require
 // pattern below. Same for expo-store-review (not in package.json).
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   View,
   Text,
@@ -23,7 +23,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Constants from "expo-constants";
@@ -84,6 +84,10 @@ const TERMS_URL = "https://berkdemirokk.github.io/lafla/terms.html";
 
 export default function SettingsScreen() {
   const router = useRouter();
+  // 2026-05-24 — Profile "Hesabımı sil" row'undan deep link.
+  // ?action=delete → mount'ta openDeleteFlow tetiklenir; kullanıcı profile'den
+  // beklediği UX'i Settings'e gelirken ALMIŞ olur, scroll-and-tap aramaz.
+  const params = useLocalSearchParams<{ action?: string }>();
   const [autoSpeak, setAutoSpeak] = useState(true);
   const [sfxOn, setSfxOn] = useState(true);
   // "Analytics olmadan kullan" — ON means opted OUT of analytics.
@@ -145,8 +149,7 @@ export default function SettingsScreen() {
 
   // 2026-05-24 — Daily reminder toggle handler. enable çağrısı iOS
   // permission prompt'unu tetikler; reddedilirse Alert ile bilgilendir +
-  // toggle false kalır. enable true ise saat varsayılan 19:00 — değiştirme
-  // UI'sı yok (v1 sade tutuldu; sonraki iterasyonda saat seçici eklenebilir).
+  // toggle false kalır. enable true ise mevcut reminderHour state'i kullanılır.
   const handleReminderToggle = async (v: boolean) => {
     hapticSelection();
     if (v) {
@@ -164,6 +167,19 @@ export default function SettingsScreen() {
     } else {
       await disableReminders();
       setReminderOn(false);
+    }
+  };
+
+  // 2026-05-24 — Reminder hour preset selector. Toggle ON iken görünür.
+  // 3 preset: Sabah 09:00, Öğle 13:00, Akşam 19:00. Custom saat (TimePicker)
+  // ileride v2; preset'ler kullanıcı çoğunluğunu kapsar.
+  const handleReminderHourChange = async (hour: number) => {
+    if (hour === reminderHour) return;
+    hapticSelection();
+    setReminderHour(hour);
+    if (reminderOn) {
+      // Schedule yeniden hour ile kur.
+      await enableDailyReminder(hour);
     }
   };
 
@@ -194,6 +210,21 @@ export default function SettingsScreen() {
       });
     }
   };
+
+  // 2026-05-24 — Deep link handler: Profile → /settings?action=delete
+  // openDeleteFlow'u mount'ta bir kere tetikler. Ref ile guard ediyoruz ki
+  // param değişiminde (URL'i tekrar invalidate edip rerouting) tekrar
+  // çağrılmasın. params'i de cleanup için drop ediyoruz.
+  const deleteFlowAutoTriggered = useRef(false);
+  useEffect(() => {
+    if (deleteFlowAutoTriggered.current) return;
+    if (params.action === "delete") {
+      deleteFlowAutoTriggered.current = true;
+      void openDeleteFlow();
+      // URL param'i sil (Native back stack temizliği için).
+      router.setParams({ action: undefined });
+    }
+  }, [params.action, router]);
 
   const cancelDeleteFlow = () => {
     setDeleteStep("idle");
@@ -382,8 +413,15 @@ export default function SettingsScreen() {
             description={`Her gün ${String(reminderHour).padStart(2, "0")}:00'da bir sahne önerisi`}
             value={reminderOn}
             onValueChange={handleReminderToggle}
-            isLast={!sfxAvailable}
+            isLast={!reminderOn && !sfxAvailable}
           />
+          {reminderOn && (
+            <ReminderHourPicker
+              activeHour={reminderHour}
+              onChange={handleReminderHourChange}
+              isLast={!sfxAvailable}
+            />
+          )}
           {sfxAvailable && (
             <Toggle
               icon="🎵"
@@ -699,6 +737,74 @@ function Toggle({
   );
 }
 
+// 2026-05-24 — Reminder hour preset picker. Toggle ON iken Toggle altında
+// görünür. 3 preset chip (Sabah/Öğle/Akşam). Custom saat picker v2
+// hedefiyle ertelendi — preset'ler kullanıcı çoğunluğunu kapsar ve UI
+// kompleksitesi minimum.
+const REMINDER_PRESETS: Array<{ label: string; hour: number; icon: string }> = [
+  { label: "Sabah", hour: 9, icon: "☀️" },
+  { label: "Öğle", hour: 13, icon: "☕" },
+  { label: "Akşam", hour: 19, icon: "🌙" },
+];
+
+function ReminderHourPicker({
+  activeHour,
+  onChange,
+  isLast,
+}: {
+  activeHour: number;
+  onChange: (h: number) => void;
+  isLast?: boolean;
+}) {
+  return (
+    <View
+      style={[
+        styles.row,
+        styles.reminderPickerRow,
+        isLast && styles.rowLast,
+      ]}
+    >
+      <View style={styles.reminderPickerGrid}>
+        {REMINDER_PRESETS.map((p) => {
+          const active = p.hour === activeHour;
+          return (
+            <Pressable
+              key={p.hour}
+              onPress={() => onChange(p.hour)}
+              style={({ pressed }) => [
+                styles.reminderChip,
+                active && styles.reminderChipActive,
+                pressed && { opacity: 0.8 },
+              ]}
+              accessibilityRole="button"
+              accessibilityLabel={`Hatırlatma saati: ${p.label} ${p.hour}:00`}
+              accessibilityState={{ selected: active }}
+            >
+              <Text style={styles.reminderChipIcon}>{p.icon}</Text>
+              <Text
+                style={[
+                  styles.reminderChipLabel,
+                  active && styles.reminderChipLabelActive,
+                ]}
+              >
+                {p.label}
+              </Text>
+              <Text
+                style={[
+                  styles.reminderChipHour,
+                  active && styles.reminderChipHourActive,
+                ]}
+              >
+                {String(p.hour).padStart(2, "0")}:00
+              </Text>
+            </Pressable>
+          );
+        })}
+      </View>
+    </View>
+  );
+}
+
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: tokens.bg.app },
   header: {
@@ -908,5 +1014,53 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingVertical: 24,
     gap: 16,
+  },
+
+  // 2026-05-24 — Reminder hour preset picker styles.
+  // Settings row pattern'ine uyumlu. 3 chip grid (Sabah/Öğle/Akşam).
+  // Aktif chip cyan filled, inaktif neutral border.
+  reminderPickerRow: {
+    paddingVertical: 12,
+  },
+  reminderPickerGrid: {
+    flex: 1,
+    flexDirection: "row",
+    gap: 8,
+  },
+  reminderChip: {
+    flex: 1,
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    borderRadius: tokens.radius.base,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.border.outlineVariant,
+    alignItems: "center",
+    gap: 2,
+  },
+  reminderChipActive: {
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderColor: tokens.brand.tertiary,
+  },
+  reminderChipIcon: {
+    fontSize: 18,
+  },
+  reminderChipLabel: {
+    fontSize: 12,
+    fontFamily: tokens.font.sansBold,
+    color: tokens.text.secondary,
+    letterSpacing: 0.2,
+  },
+  reminderChipLabelActive: {
+    color: tokens.brand.tertiary,
+  },
+  reminderChipHour: {
+    fontSize: 11,
+    color: tokens.text.tertiary,
+    fontFamily: tokens.font.sans,
+    letterSpacing: 0.3,
+  },
+  reminderChipHourActive: {
+    color: tokens.brand.tertiary,
   },
 });
