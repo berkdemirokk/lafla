@@ -77,6 +77,7 @@ import { Icon } from "../components/Icon";
 import { tokens } from "../theme";
 import { TabBar } from "../components/TabBar";
 import type { Scene, SceneMode } from "../data/scenes";
+import { SCENE_COUNT_DISPLAY } from "../lib/scene-counts";
 
 const K_DISPLAY_NAME = "lafla.displayName";
 
@@ -171,11 +172,13 @@ export default function Today() {
     );
     // Streak chip: heartbeat — quick up, quick down, long rest. Mimics
     // a real pulse so the 🔥 feels alive without being annoying.
+    // 2026-05-24 — yavaşlatıldı (1.6s → 3.5s cycle). Önceki tempo atriyal
+    // fibrilasyon hızındaydı; şimdi sakin nabız temposu.
     streakPulse.value = withRepeat(
       withSequence(
-        withTiming(1, { duration: 240, easing: Easing.out(Easing.quad) }),
-        withTiming(0, { duration: 280, easing: Easing.in(Easing.quad) }),
-        withDelay(1100, withTiming(0, { duration: 1 })),
+        withTiming(1, { duration: 280, easing: Easing.out(Easing.quad) }),
+        withTiming(0, { duration: 320, easing: Easing.in(Easing.quad) }),
+        withDelay(2900, withTiming(0, { duration: 1 })),
       ),
       -1,
       false,
@@ -197,17 +200,15 @@ export default function Today() {
     shadowRadius: 12 + heroPulse.value * 10, //       12   → 22
   }));
 
-  // ─── 3D enhancements (Faz 1A — Reanimated perspective) ──────────
-  // No new deps. Pure Reanimated transform tricks for premium feel.
-  //
-  // 1) heroTilt — press'te kart 3D perspective ile hafifçe yatık.
-  //    Apple Music card press tarzı, çocuksu DEĞİL.
-  // 2) scrollY — scroll handler için. Background waveform parallax driver.
-  // 3) streakFlip — mount sırasında 360° rotateY (1 kere), günün yeni
-  //    streak'i için "fresh new day" hissi.
-  const heroTilt = useSharedValue(0); // 0 = düz, 1 = tam press tilt
+  // ─── Press feedback (2026-05-24 — sade press scale, 3D tilt YOK) ──
+  // Önceki versiyon hero kartına ±4° rotateX/rotateY uyguluyordu. İlk açılışta
+  // tatlı görünüyordu ama 4. kullanımda "kart düşecek mi" hissi veriyordu.
+  // Apple Music kart eğmez. Sadece subtle scale press kalıyor.
+  // scrollY — background waveform parallax driver (korundu, faydalı).
+  // streakFlip — mount'ta streak chip'in spring-pop'u (1 kere, kalıyor).
+  const heroPress = useSharedValue(0); // 0 = idle, 1 = pressed
   const scrollY = useSharedValue(0);
-  const streakFlip = useSharedValue(0); // 0 = base, 1 = full 360° flip
+  const streakFlip = useSharedValue(0);
 
   const onScroll = useAnimatedScrollHandler({
     onScroll: (e) => {
@@ -215,24 +216,16 @@ export default function Today() {
     },
   });
 
-  // Press handlers — spring-based so press in/out feel natural.
   const onHeroPressIn = () => {
-    heroTilt.value = withSpring(1, { damping: 14, stiffness: 200 });
+    heroPress.value = withSpring(1, { damping: 14, stiffness: 200 });
   };
   const onHeroPressOut = () => {
-    heroTilt.value = withSpring(0, { damping: 16, stiffness: 240 });
+    heroPress.value = withSpring(0, { damping: 16, stiffness: 240 });
   };
 
-  // 3D press tilt — perspective 1000 gives a moderate parallax depth.
-  // rotateX/Y degrees are intentionally tiny (±4°) so the effect reads
-  // as "tactile depth", not "broken/rotating card".
-  const heroTilt3dStyle = useAnimatedStyle(() => ({
-    transform: [
-      { perspective: 1000 },
-      { rotateX: `${heroTilt.value * -4}deg` },
-      { rotateY: `${heroTilt.value * 2}deg` },
-      { scale: 1 - heroTilt.value * 0.02 },
-    ],
+  // Sade press scale — Apple Music kart press feel. Hiç rotateX/Y yok.
+  const heroPressStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: 1 - heroPress.value * 0.02 }],
   }));
 
   // Background waveform parallax — moves at ~30% scroll speed for depth.
@@ -257,7 +250,9 @@ export default function Today() {
     transform: [
       // streakFlip 0 → 1 boyunca scale 0.85 → 1 (spring pop)
       // Sonra heartbeat pulse normal çalışır.
-      { scale: (0.85 + streakFlip.value * 0.15) * (1 + streakPulse.value * 0.08) },
+      // 2026-05-24 — pulse intensity 0.08 → 0.04 (daha subtle, "atan kalp"
+      // değil "sakin nabız" hissi).
+      { scale: (0.85 + streakFlip.value * 0.15) * (1 + streakPulse.value * 0.04) },
     ],
     opacity: 0.4 + streakFlip.value * 0.6, // hafif fade-in
   }));
@@ -353,6 +348,25 @@ export default function Today() {
   const streak = state.profile?.current_streak ?? 0;
   const remainingInPlan = Math.max(0, state.planTotal - state.planCompleted);
 
+  // 2026-05-24 — Suggestion banner cap.
+  // Önceki davranış: surprise + daily + vocab hepsi aynı anda render olabiliyordu →
+  // worst case 7 dikey kart üst üste. Yeni: bu 3 türden en fazla 2'sini göster.
+  // Priority: vocab (deterministic TODO) > surprise (rare reward) > daily (rotating).
+  // Streak risk / erozyon zaten mutually exclusive, ayrı slot.
+  const suggestionPool: Array<"vocab" | "surprise" | "daily"> = [];
+  if (state.vocabDue > 0) suggestionPool.push("vocab");
+  if (state.surprise) suggestionPool.push("surprise");
+  if (state.daily) suggestionPool.push("daily");
+  const visibleSuggestions = new Set(suggestionPool.slice(0, 2));
+  const showVocabBanner = visibleSuggestions.has("vocab");
+  const showSurpriseBanner = visibleSuggestions.has("surprise");
+  const showDailyBanner = visibleSuggestions.has("daily");
+
+  // Empty state — plan yoksa ve done değilse (state hydrated ama plan boş).
+  // Yeni kullanıcı / plan generator hata verdi / hot-reload sonrası gibi durumlar.
+  const showEmptyState =
+    state.hydrated && !state.planFirstScene && !state.planIsComplete;
+
   // Streak chip flip — mount-time 360° rotateY. Triggered once when
   // streak > 0 first becomes true. Combined with existing heartbeat
   // pulse for layered animation. perspective ensures rotation reads as
@@ -383,8 +397,18 @@ export default function Today() {
           </Text>
         </View>
         {streak > 0 ? (
-          <Animated.View style={[styles.streakChip, streakStyle]}>
-            <Text style={styles.streakChipText}>🔥 {streak}</Text>
+          <Animated.View
+            style={[styles.streakChip, streakStyle]}
+            accessibilityRole="text"
+            accessibilityLabel={`${streak} günlük seri`}
+          >
+            <Text
+              style={styles.streakChipText}
+              accessibilityElementsHidden
+              importantForAccessibility="no"
+            >
+              🔥 {streak}
+            </Text>
           </Animated.View>
         ) : null}
       </View>
@@ -412,7 +436,7 @@ export default function Today() {
           // doesn't conflict with the halo's shadow animation (combining
           // perspective + animated shadowOpacity on a single view causes
           // iOS to flicker on first press).
-          <Animated.View style={heroTilt3dStyle}>
+          <Animated.View style={heroPressStyle}>
             <Animated.View
               entering={FadeInDown.duration(420)}
               style={[styles.heroFrame, heroGlowStyle]}
@@ -494,6 +518,30 @@ export default function Today() {
               Yarın yeni 5 sahne hazırlanır. Akış'tan ekstra sahne yapabilirsin.
             </Text>
           </Animated.View>
+        ) : showEmptyState ? (
+          // 2026-05-24 — Empty state. Plan hazır değil, "yeni başladın" hissi.
+          // Tek CTA: Akış'ı aç. Sertbir hata göstermeyiz; nazikçe yönlendiririz.
+          <Animated.View
+            entering={FadeInDown.duration(420)}
+            style={styles.emptyState}
+          >
+            <Text style={styles.emptyTitle}>Hadi başlayalım</Text>
+            <Text style={styles.emptySub}>
+              Henüz bir plan yok. Akış'tan ilk sahneni seç, gerisi
+              kendiliğinden gelir.
+            </Text>
+            <Pressable
+              onPress={() => router.push("/home" as never)}
+              style={({ pressed }) => [
+                styles.emptyCta,
+                pressed && styles.pressed,
+              ]}
+              accessibilityRole="button"
+              accessibilityLabel="Akış'ı aç"
+            >
+              <Text style={styles.emptyCtaText}>Akış'ı aç</Text>
+            </Pressable>
+          </Animated.View>
         ) : null}
 
         {/* Tek satır banner — priority queue (streak risk > erozyon) */}
@@ -527,8 +575,8 @@ export default function Today() {
           </Animated.View>
         ) : null}
 
-        {/* Sürpriz sahne (variable reward) */}
-        {state.surprise && (
+        {/* Sürpriz sahne (variable reward) — banner cap gating'i ile */}
+        {state.surprise && showSurpriseBanner && (
           <Animated.View entering={FadeInDown.delay(180).duration(360)}>
             <Pressable
               onPress={async () => {
@@ -554,8 +602,8 @@ export default function Today() {
           </Animated.View>
         )}
 
-        {/* Daily exclusive */}
-        {state.daily && (
+        {/* Daily exclusive — banner cap gating'i ile */}
+        {state.daily && showDailyBanner && (
           <Animated.View entering={FadeInDown.delay(240).duration(360)}>
             <Pressable
               onPress={() =>
@@ -585,8 +633,8 @@ export default function Today() {
           </Animated.View>
         )}
 
-        {/* Vocab review */}
-        {state.vocabDue > 0 && (
+        {/* Vocab review — banner cap gating'i ile (priority en yüksek) */}
+        {state.vocabDue > 0 && showVocabBanner && (
           <Animated.View entering={FadeInDown.delay(300).duration(360)}>
             <Pressable
               onPress={() => router.push("/review" as never)}
@@ -676,7 +724,7 @@ export default function Today() {
             <View style={styles.exploreText}>
               <Text style={styles.exploreTitle}>Akış'tan keşfet</Text>
               <Text style={styles.exploreSub}>
-                Plan dışı 800+ sahneyi kaydırarak gez.
+                Plan dışı {SCENE_COUNT_DISPLAY} sahneyi kaydırarak gez.
               </Text>
             </View>
             <Icon name="chevronRight" size={20} color={tokens.text.tertiary} />
@@ -719,18 +767,21 @@ const styles = StyleSheet.create({
     color: tokens.text.primary,
     letterSpacing: -0.6,
   },
+  // 2026-05-24 — Renk diet: streak chip pembe → cyan. Pembe artık sadece
+  // "şu anki tek aksiyon" (CTA) için ayrılıyor. Streak başarı/devamlılık
+  // göstergesi olduğu için cyan (success accent) daha doğru semantik.
   streakChip: {
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: tokens.radius.full,
-    backgroundColor: tokens.brand.primarySoft,
+    backgroundColor: tokens.brand.tertiarySoft,
     borderWidth: 1,
-    borderColor: tokens.brand.primary,
+    borderColor: tokens.brand.tertiary,
   },
   streakChipText: {
     fontSize: 13,
     fontWeight: tokens.weight.extrabold,
-    color: tokens.brand.primary,
+    color: tokens.brand.tertiary,
     letterSpacing: 0.3,
   },
 
@@ -999,21 +1050,22 @@ const styles = StyleSheet.create({
   },
 
   // Diary nudge — ciddi/yetişkin minimal banner. Day One app referansı.
-  // Bugün yazılmamışsa active (pembe accent), yazıldıysa pasif (cyan ✓).
+  // 2026-05-24 — Renk diet: aktif state'in pembe sol stripe'ı kaldırıldı.
+  // Pembe artık sadece Plan Hero için ayrılıyor (primary CTA tek odak). Diary
+  // nudge'da pembe sadece ikonda; kart kendisi neutral surface.
   diaryNudge: {
     paddingVertical: 12,
     paddingHorizontal: 16,
     borderRadius: tokens.radius.lg,
     backgroundColor: tokens.bg.surfaceContainer,
     borderWidth: 1,
-    borderColor: tokens.brand.primary,
-    borderLeftWidth: 3,
+    borderColor: tokens.border.outlineVariant,
     gap: 2,
   },
   diaryNudgeLabel: {
     fontSize: 10,
     fontWeight: tokens.weight.extrabold,
-    color: tokens.brand.primary,
+    color: tokens.text.tertiary,
     letterSpacing: 1.4,
   },
   diaryNudgeText: {
@@ -1073,5 +1125,48 @@ const styles = StyleSheet.create({
     fontSize: 28,
     color: tokens.text.tertiary,
     fontWeight: tokens.weight.bold,
+  },
+
+  // 2026-05-24 — Empty state (plan yok, done değil — yeni kullanıcı/hata).
+  emptyState: {
+    paddingVertical: 32,
+    paddingHorizontal: 22,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.brand.primarySoft,
+    alignItems: "center",
+    gap: 10,
+  },
+  emptyTitle: {
+    fontSize: 22,
+    color: tokens.text.primary,
+    fontFamily: tokens.font.display,
+    letterSpacing: -0.4,
+  },
+  emptySub: {
+    fontSize: 14,
+    color: tokens.text.secondary,
+    textAlign: "center",
+    lineHeight: 20,
+    fontFamily: tokens.font.sans,
+    marginBottom: 8,
+  },
+  emptyCta: {
+    paddingVertical: 14,
+    paddingHorizontal: 28,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.primary,
+    shadowColor: tokens.brand.primary,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 10,
+    elevation: 4,
+  },
+  emptyCtaText: {
+    fontSize: 15,
+    color: tokens.brand.onPrimary,
+    fontFamily: tokens.font.sansExtra,
+    letterSpacing: 0.3,
   },
 });
