@@ -170,24 +170,10 @@ export default function Today() {
       -1,
       true,
     );
-    // Streak chip: heartbeat — quick up, quick down, long rest. Mimics
-    // a real pulse so the 🔥 feels alive without being annoying.
-    // 2026-05-24 — yavaşlatıldı (1.6s → 3.5s cycle). Önceki tempo atriyal
-    // fibrilasyon hızındaydı; şimdi sakin nabız temposu.
-    streakPulse.value = withRepeat(
-      withSequence(
-        withTiming(1, { duration: 280, easing: Easing.out(Easing.quad) }),
-        withTiming(0, { duration: 320, easing: Easing.in(Easing.quad) }),
-        withDelay(2900, withTiming(0, { duration: 1 })),
-      ),
-      -1,
-      false,
-    );
     return () => {
       cancelAnimation(heroPulse);
-      cancelAnimation(streakPulse);
     };
-  }, [heroPulse, streakPulse]);
+  }, [heroPulse]);
 
   const heroGlowStyle = useAnimatedStyle(() => ({
     shadowOpacity: 0.32 + heroPulse.value * 0.42, // 0.32 → 0.74
@@ -347,6 +333,33 @@ export default function Today() {
 
   const streak = state.profile?.current_streak ?? 0;
   const remainingInPlan = Math.max(0, state.planTotal - state.planCompleted);
+
+  // 2026-05-24 — Streak heartbeat sadece streak > 0 iken çalışsın. Önceki
+  // versiyon mount'ta loop'u her zaman başlatıyordu; chip render edilmese
+  // bile shared value loop CPU/battery harcıyordu. Şimdi: streak değiştikçe
+  // loop start/stop.
+  useEffect(() => {
+    if (streak <= 0) {
+      cancelAnimation(streakPulse);
+      streakPulse.value = 0;
+      return;
+    }
+    // Streak chip: heartbeat — quick up, quick down, long rest. Mimics
+    // a real pulse so the chip feels alive without being annoying.
+    // Cycle ~3.5s (yavaşlatma sonrası): 280ms up + 320ms down + 2900ms rest.
+    streakPulse.value = withRepeat(
+      withSequence(
+        withTiming(1, { duration: 280, easing: Easing.out(Easing.quad) }),
+        withTiming(0, { duration: 320, easing: Easing.in(Easing.quad) }),
+        withDelay(2900, withTiming(0, { duration: 1 })),
+      ),
+      -1,
+      false,
+    );
+    return () => {
+      cancelAnimation(streakPulse);
+    };
+  }, [streak, streakPulse]);
 
   // 2026-05-24 — Suggestion banner cap.
   // Önceki davranış: surprise + daily + vocab hepsi aynı anda render olabiliyordu →

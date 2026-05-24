@@ -57,6 +57,7 @@ import { PronouncePhrase } from "../../components/exercises/PronouncePhrase";
 import { SpeechShadowing } from "../../components/exercises/SpeechShadowing";
 import { ListenAndTranscribe } from "../../components/exercises/ListenAndTranscribe";
 import { AchievementToast } from "../../components/AchievementToast";
+import { StreakMilestoneModal } from "../../components/StreakMilestoneModal";
 
 import { trackEvent } from "../../lib/analytics";
 import { getScenario, computeSceneFluency } from "../../lib/scenario";
@@ -270,6 +271,14 @@ export default function ScenarioScreen() {
   }, [scenario, isIntro, router]);
   const [unlockedToast, setUnlockedToast] = useState<AchievementDef | null>(null);
   const [unlockQueue, setUnlockQueue] = useState<AchievementDef[]>([]);
+  // 2026-05-24 — Streak milestone modal state. streak_7, streak_30, streak_100
+  // unlock'larında AchievementToast yerine full-screen kutlama. streak_3 ve
+  // diğer (lesson count, xp, perfect_scene, mode_master, first_signin) toast
+  // ile devam eder.
+  const [streakMilestone, setStreakMilestone] = useState<{
+    visible: boolean;
+    days: number;
+  }>({ visible: false, days: 0 });
   const savedRef = useRef(false);
 
   // Auto-speak the current setup phrase
@@ -326,7 +335,26 @@ export default function ScenarioScreen() {
         sceneResult.score,
         scenario.mode,
       ).catch(() => [] as AchievementDef[]);
-      if (earned.length > 0) setUnlockQueue(earned);
+      if (earned.length > 0) {
+        // 2026-05-24 — Streak milestone'ları toast queue'dan ayrıştır.
+        // streak_7/30/100 → full-screen modal (habit formation kritik anlar).
+        // Diğerleri (streak_3 dahil) → AchievementToast catch-all.
+        const STREAK_DAYS_BY_ID: Record<string, number> = {
+          streak_7: 7,
+          streak_30: 30,
+          streak_100: 100,
+        };
+        // En yüksek streak milestone'unu seç (varsa).
+        const streakHit = earned
+          .map((a) => STREAK_DAYS_BY_ID[a.id])
+          .filter((d): d is number => typeof d === "number")
+          .sort((a, b) => b - a)[0];
+        if (streakHit !== undefined) {
+          setStreakMilestone({ visible: true, days: streakHit });
+        }
+        const others = earned.filter((a) => !(a.id in STREAK_DAYS_BY_ID));
+        if (others.length > 0) setUnlockQueue(others);
+      }
 
       // Variable reward sayacı (Adım 4, 2026-05-20). Sahne tamamlanınca
       // counter++. Threshold'a ulaşırsa bir sonraki home açılışında
@@ -751,6 +779,15 @@ export default function ScenarioScreen() {
           </View>
         )}
       </KeyboardAvoidingView>
+
+      {/* Streak milestone full-screen modal — 7/30/100 günlerinde toast yerine
+          ekrana hâkim kutlama + paylaşım. Modal kapanınca toast queue normal
+          akar (öncesinde streak harici achievement varsa). */}
+      <StreakMilestoneModal
+        visible={streakMilestone.visible}
+        streakDays={streakMilestone.days}
+        onClose={() => setStreakMilestone({ visible: false, days: 0 })}
+      />
     </SafeAreaView>
   );
 }

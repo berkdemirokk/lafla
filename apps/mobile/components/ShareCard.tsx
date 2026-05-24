@@ -35,6 +35,7 @@ const MODE_EMOJI: Record<string, string> = {
   airport: "✈️",
   daily: "☕",
   order: "🍽️",
+  ielts: "🎓",
 };
 
 const MODE_LABEL: Record<string, string> = {
@@ -44,6 +45,7 @@ const MODE_LABEL: Record<string, string> = {
   airport: "Havaalanı",
   daily: "Günlük",
   order: "Sipariş",
+  ielts: "IELTS",
 };
 
 /**
@@ -61,14 +63,15 @@ export const ShareCard = forwardRef<View, ShareCardProps>(function ShareCard(
   const cefrDisplay = cefrLevel
     ? `${cefrLevel}+${cefrProgress.toFixed(2)}`
     : "—";
-  const name = userName?.trim() || "Berk";
+  // 2026-05-24 — fallback "Berk" → "Sen" (dev'in adı production'a sızıyordu).
+  const name = userName?.trim() || "Sen";
 
   return (
     <View ref={ref} style={[styles.card, style]} collapsable={false}>
       {/* Top — Lafla wordmark + tagline */}
       <View style={styles.topBar}>
         <Text style={styles.wordmark}>Lafla</Text>
-        <Text style={styles.tagline}>Konuş, çalış.</Text>
+        <Text style={styles.tagline}>Donma. Konuş.</Text>
       </View>
 
       {/* Hero — büyük skor + CEFR */}
