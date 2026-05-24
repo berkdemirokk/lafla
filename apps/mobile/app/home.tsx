@@ -55,6 +55,8 @@ const TOP_BAR_HEIGHT = 48;
 
 // Mode label haritası — top bar başlığında ve aria-label'larda kullanılır.
 // Order ve sceneMode değerleri data/scenes.ts SceneMode tipiyle birebir.
+// 2026-05-24 — emoji eklendi (onboarding chip'leriyle senkron); başlıkta
+// görsel ayırıcı olarak kullanılır.
 const MODE_LABELS: Record<SceneMode, string> = {
   flirt: "Flört",
   work: "İş",
@@ -63,6 +65,16 @@ const MODE_LABELS: Record<SceneMode, string> = {
   daily: "Günlük",
   order: "Sipariş",
   ielts: "IELTS",
+};
+
+const MODE_EMOJI: Record<SceneMode, string> = {
+  flirt: "💕",
+  work: "💼",
+  bar: "🍻",
+  airport: "✈️",
+  daily: "☕",
+  order: "🍽️",
+  ielts: "🎓",
 };
 
 function isSceneMode(value: unknown): value is SceneMode {
@@ -290,12 +302,15 @@ export default function Home() {
       <StatusBar style="light" />
 
       {/* Top bar — başlık + (varsa) filtrelenen mod chip'i + "tümü" reset.
-          Kullanıcı profilden "İş" tıkladıysa "Akış · İş ✕" şeklinde görür
-          ve ✕ tıklayarak filtreyi sıfırlayabilir (router.replace ile
-          query param drop edilir, normal feed döner). */}
+          2026-05-24 polish: mod aktifken emoji ile birlikte gösterilir
+          ("Akış · 💕 Flört"); filter clear chip cyan accent (eski jenerik
+          gri yerine — Neon Noir semantic). */}
       <View style={styles.topBar}>
-        <Text style={styles.title}>
-          Akış{modeOverride ? ` · ${MODE_LABELS[modeOverride]}` : ""}
+        <Text style={styles.title} numberOfLines={1}>
+          Akış
+          {modeOverride
+            ? ` · ${MODE_EMOJI[modeOverride]} ${MODE_LABELS[modeOverride]}`
+            : ""}
         </Text>
         {modeOverride && (
           <Pressable
@@ -387,25 +402,32 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   title: {
+    flex: 1,
     fontSize: 20,
     fontWeight: tokens.weight.black,
     color: tokens.text.primary,
     letterSpacing: -0.5,
+    fontFamily: tokens.font.display,
   },
   listContainer: {
     flex: 1,
   },
+  // 2026-05-24 — Mod filter clear chip: jenerik gri → cyan accent (Neon Noir
+  // semantic, "şu anki override durumu" göstergesi olarak çağrı yapar).
   clearFilter: {
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: tokens.radius.full,
-    backgroundColor: tokens.bg.surfaceContainer,
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
   },
   clearFilterText: {
     fontSize: 12,
-    fontWeight: tokens.weight.bold,
-    color: tokens.text.secondary,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.brand.tertiary,
     letterSpacing: 0.3,
+    fontFamily: tokens.font.sansBold,
   },
   emptyWrap: {
     flex: 1,
@@ -420,6 +442,7 @@ const styles = StyleSheet.create({
     color: tokens.text.primary,
     textAlign: "center",
     letterSpacing: -0.5,
+    fontFamily: tokens.font.display,
   },
   emptySub: {
     marginTop: 10,
