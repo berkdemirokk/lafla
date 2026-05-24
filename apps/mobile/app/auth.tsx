@@ -869,34 +869,39 @@ const styles = StyleSheet.create({
     letterSpacing: 0.1,
   },
 
-  // Apple block
+  // Apple block — 2026-05-24 polish.
+  // Divider sade kalsın diye altındaki ekstra marginBottom: 2 drop;
+  // gap: tokens.spacing.sm zaten dengeli boşluk veriyor. Divider çizgisi
+  // hairline (0.5 → 0.7 effective on retina); dividerText'in letterSpacing
+  // 2 → 2.4 (daha air). Apple hint italic + display font 11pt — premium
+  // sade okuma.
   appleBlock: {
     marginTop: tokens.spacing.md,
-    gap: tokens.spacing.sm,
+    gap: tokens.spacing.base,
   },
   divider: {
     flexDirection: "row",
     alignItems: "center",
     gap: 14,
-    marginBottom: 2,
   },
   dividerLine: {
     flex: 1,
     height: 1,
     backgroundColor: tokens.border.outlineVariant,
+    opacity: 0.8,
   },
   dividerText: {
     color: tokens.text.tertiary,
-    fontSize: 11,
-    fontWeight: tokens.weight.bold,
-    letterSpacing: 2,
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    letterSpacing: 2.4,
   },
   appleHint: {
     color: tokens.text.tertiary,
-    fontSize: 12,
-    fontWeight: tokens.weight.medium,
+    fontSize: 11,
+    fontStyle: "italic",
     textAlign: "center",
-    letterSpacing: 0.2,
+    letterSpacing: 0.3,
     marginTop: 2,
   },
 });
