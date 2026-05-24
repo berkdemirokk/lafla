@@ -16,31 +16,38 @@
 //   EXPO_PUBLIC_TTS_ENDPOINT   — opsiyonel TTS proxy URL
 //   SENTRY_AUTH_TOKEN          — sadece build/sourcemap upload; runtime'a değmez
 
-import type { ExpoConfig } from "expo/config";
-import appJson from "./app.json";
+import type { ConfigContext, ExpoConfig } from "expo/config";
 
-const base = appJson.expo as unknown as ExpoConfig;
-const baseExtra = (base.extra ?? {}) as Record<string, unknown>;
-
-export default (): ExpoConfig => ({
-  ...base,
-  extra: {
-    ...baseExtra,
-    sentryDsn:
-      process.env.EXPO_PUBLIC_SENTRY_DSN ??
-      (baseExtra.sentryDsn as string | undefined) ??
-      "",
-    posthogKey:
-      process.env.EXPO_PUBLIC_POSTHOG_KEY ??
-      (baseExtra.posthogKey as string | undefined) ??
-      "",
-    posthogHost:
-      process.env.EXPO_PUBLIC_POSTHOG_HOST ??
-      (baseExtra.posthogHost as string | undefined) ??
-      "https://eu.i.posthog.com",
-    ttsEndpoint:
-      process.env.EXPO_PUBLIC_TTS_ENDPOINT ??
-      (baseExtra.ttsEndpoint as string | undefined) ??
-      "",
-  },
-});
+// 2026-05-24 — `{ config }` parametresini kullan. Expo CLI app.json'u parse
+// edip default'larla merge edip `config` olarak verir. Önceki versiyon
+// app.json'u directly import ediyordu, Expo'nun default plugin/config
+// merge'ini bypass ediyordu → expo-doctor uyarı verdi + bazı native
+// config'ler eksik kalabilirdi. Şimdi `config` spread + sadece env-driven
+// extra alanlarını override.
+export default ({ config }: ConfigContext): ExpoConfig => {
+  const baseExtra = (config.extra ?? {}) as Record<string, unknown>;
+  return {
+    ...config,
+    name: config.name ?? "Lafla",
+    slug: config.slug ?? "lafla",
+    extra: {
+      ...baseExtra,
+      sentryDsn:
+        process.env.EXPO_PUBLIC_SENTRY_DSN ??
+        (baseExtra.sentryDsn as string | undefined) ??
+        "",
+      posthogKey:
+        process.env.EXPO_PUBLIC_POSTHOG_KEY ??
+        (baseExtra.posthogKey as string | undefined) ??
+        "",
+      posthogHost:
+        process.env.EXPO_PUBLIC_POSTHOG_HOST ??
+        (baseExtra.posthogHost as string | undefined) ??
+        "https://eu.i.posthog.com",
+      ttsEndpoint:
+        process.env.EXPO_PUBLIC_TTS_ENDPOINT ??
+        (baseExtra.ttsEndpoint as string | undefined) ??
+        "",
+    },
+  };
+};
