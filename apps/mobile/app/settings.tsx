@@ -820,6 +820,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: tokens.weight.extrabold,
     color: tokens.text.primary,
+    fontFamily: tokens.font.display,
+    letterSpacing: -0.3,
   },
   spacer: { width: 70 },
   content: {

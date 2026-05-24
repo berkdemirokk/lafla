@@ -155,6 +155,7 @@ const styles = StyleSheet.create({
     fontWeight: tokens.weight.black,
     color: tokens.text.primary,
     letterSpacing: -0.3,
+    fontFamily: tokens.font.display,
   },
 
   summaryBar: {
