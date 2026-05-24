@@ -1,10 +1,15 @@
-// Lafla — Push notification templates in Maya's voice.
+// Lafla — Push notification templates.
 //
 // Short-form copy designed for iOS/Android push delivery. Each title fits in
-// ~40 chars, body in ~100 chars. Tone matches lib/coach.ts — adult, warm,
-// concrete. Never "🔥 STREAK ALERT" or "Don't lose your owl!" — those are
-// pre-onboarded out at the data layer so no scheduler can accidentally ship
-// childish copy.
+// ~40 chars, body in ~100 chars. Tone: adult, warm, concrete. Never
+// "🔥 STREAK ALERT" or "Don't lose your owl!" — those are pre-onboarded out
+// at the data layer so no scheduler can accidentally ship childish copy.
+//
+// 2026-05-24 — Maya/coach persona kaldırıldı. Daha önce templates "Maya'nın
+// sesinde" yazılıyordu ({coach} değişkeniyle). Şimdi impersonal — ürün
+// kullanıcıya konuşur, hayali bir karakter değil. coach-checkin-* ID'leri
+// geriye uyumluluk için korundu (DB'de geçmiş kayıtlar bu ID'leri içeriyor
+// olabilir) ama copy ve değişkenler güncellendi.
 //
 // The category + cooldownHours pair lets the smart picker (lib/templates.ts)
 // throttle each template independently: e.g. lifecycle events fire at most
@@ -120,20 +125,22 @@ const NT_DRILL_DUE: NotificationTemplate = {
   variableSupport: ["name", "weakness"],
 };
 
+// 2026-05-24 — Maya/coach persona kaldırıldı. {coach} değişkeni silindi,
+// impersonal "Lafla" sesiyle yeniden yazıldı.
 const NT_COACH_CHECKIN_3D: NotificationTemplate = {
   id: "coach-checkin-3-day-absence",
-  title_tr: "{coach} soruyor",
-  body_tr: "Üç gündür buralarda yoktun, {name}. Geçen seferki konu yarım kalmıştı.",
+  title_tr: "3 gündür yoksun",
+  body_tr: "{name}, geçen sefer yarım kalan bir sahnen var. 5 dakikan var mı?",
   deepLink: "lafla://freechat",
   category: "lifecycle",
   cooldownHours: 72,
-  variableSupport: ["name", "coach"],
+  variableSupport: ["name"],
 };
 
 const NT_COACH_CHECKIN_7D: NotificationTemplate = {
   id: "coach-checkin-7-day-absence",
-  title_tr: "Hâlâ buradayım",
-  body_tr: "Bir haftadır görüşmedik, {name}. 5 dakika ayır, kaldığımız yerden devam edelim.",
+  title_tr: "Bir hafta oldu, {name}",
+  body_tr: "Akış'ta seni bekleyen sahneler var. 5 dakika ayır, kaldığın yerden devam.",
   deepLink: "lafla://freechat",
   category: "lifecycle",
   cooldownHours: 168,
