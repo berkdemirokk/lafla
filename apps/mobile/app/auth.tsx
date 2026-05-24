@@ -502,7 +502,7 @@ export default function Auth() {
   const subtitle =
     mode === "forgot"
       ? "Email'ini gir, sıfırlama linki yolluyoruz."
-      : "5 dakikada gerçek İngilizce. Konuş, çalış.";
+      : "5 dakikada gerçek İngilizce. Donma. Konuş.";
 
   return (
     <SafeAreaView style={styles.safe}>
@@ -769,12 +769,16 @@ const styles = StyleSheet.create({
     marginTop: tokens.spacing.md,
     marginBottom: tokens.spacing.md,
   },
+  // 2026-05-24 — Wordmark Space Grotesk display font'una alındı (önceden
+  // Inter sans'tı; brand wordmark için yanlış font). letterSpacing -2.4 →
+  // -1.4 — SG Bold'da -2.4 aşırı sıkıştırıyordu, karakterler birbirine
+  // bindiriyordu.
   wordmark: {
     fontSize: 64,
     fontWeight: tokens.weight.black,
     color: tokens.text.primary,
-    letterSpacing: -2.4,
-    fontFamily: tokens.font.sans,
+    letterSpacing: -1.4,
+    fontFamily: tokens.font.display,
     textAlign: "center",
   },
   accentLine: {
@@ -818,7 +822,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: tokens.weight.bold,
     color: tokens.text.primary,
-    fontFamily: tokens.font.sans,
+    fontFamily: tokens.font.display,
+    letterSpacing: -0.3,
   },
   inputs: {
     gap: tokens.spacing.sm,
