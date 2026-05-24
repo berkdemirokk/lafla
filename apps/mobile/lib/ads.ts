@@ -30,11 +30,14 @@ import mobileAds, {
   AdEventType,
   InterstitialAd,
   MaxAdContentRating,
+  RewardedAd,
+  RewardedAdEventType,
   TestIds,
   type RequestOptions,
 } from "react-native-google-mobile-ads";
 
 import { isPremium } from "./iap";
+import { grantRewardedPremium } from "./rewarded";
 import { trackEvent } from "./analytics";
 
 // ─── Config ────────────────────────────────────────────────────────────
@@ -73,6 +76,14 @@ export function getBannerUnitId(): string {
     Platform.OS === "ios" ? "admobBannerIos" : "admobBannerAndroid";
   const id = (Constants.expoConfig?.extra?.[key] as string | undefined) ?? "";
   return id || TestIds.BANNER;
+}
+
+function getRewardedUnitId(): string {
+  if (USE_TEST_ADS) return TestIds.REWARDED;
+  const key =
+    Platform.OS === "ios" ? "admobRewardedIos" : "admobRewardedAndroid";
+  const id = (Constants.expoConfig?.extra?.[key] as string | undefined) ?? "";
+  return id || TestIds.REWARDED;
 }
 
 // ─── Init (call once in app/_layout.tsx) ───────────────────────────────
@@ -182,4 +193,121 @@ async function showInterstitial(): Promise<void> {
 export function resetAdState(): void {
   _scenarioCount = 0;
   _currentInterstitial = null;
+}
+
+// ─── Rewarded video ────────────────────────────────────────────────────
+//
+// 2026-05-24 — Opt-in rewarded ad. Kullanıcı "Reklamı izle, bugün için Pro
+// aç" CTA'sına tıklar → 30 saniye reklam → reward callback'i → 24 saat
+// geçici premium. Free tier ARPU lift; aggressive interstitial yerine
+// gönüllü engagement.
+//
+// State: ad load + show tek bir promise zinciri; failure path (no fill,
+// dismiss, network error) reject döner — caller UI mesajı gösterir.
+
+export type RewardedResult =
+  | { ok: true; hoursGranted: number }
+  | { ok: false; reason: string; userClosed?: boolean };
+
+let _loadingRewarded = false;
+
+/**
+ * Rewarded video reklamı yükle ve göster. Successful reward callback'inde
+ * 24 saat premium grant atılır. UI tıkladıktan sonra "Hazırlanıyor..." ekrana
+ * koymalı; loadedPromise resolve olunca ad.show() çağrılır.
+ *
+ * NOT: showRewardedAd Promise<RewardedResult> döner; caller başarı durumunda
+ * UI'yi güncellesin (örn "Bugün Pro açıldı" ve banner gizleme).
+ */
+export async function showRewardedAd(): Promise<RewardedResult> {
+  if (_loadingRewarded) {
+    return { ok: false, reason: "Reklam zaten yükleniyor" };
+  }
+  // Premium kullanıcı için CTA gösterilmemeli ama defensive guard.
+  const premium = await isPremium().catch(() => false);
+  if (premium) {
+    return { ok: false, reason: "Zaten premium aktif" };
+  }
+  if (!_initialized) await initAds();
+
+  _loadingRewarded = true;
+  void trackEvent("rewarded_ad_load_initiated").catch(() => {});
+
+  try {
+    const opts: RequestOptions = {
+      requestNonPersonalizedAdsOnly: true,
+    };
+    const ad = RewardedAd.createForAdRequest(getRewardedUnitId(), opts);
+
+    let earnedReward = false;
+    let userClosed = false;
+
+    // Reward + lifecycle listener'ları (tek bir kapanış path'i).
+    const result = await new Promise<RewardedResult>((resolve) => {
+      const unsubLoaded = ad.addAdEventListener(
+        RewardedAdEventType.LOADED,
+        () => {
+          // Load successful → göster.
+          ad.show().catch((err) => {
+            cleanup();
+            resolve({
+              ok: false,
+              reason: err instanceof Error ? err.message : "show failed",
+            });
+          });
+        },
+      );
+      const unsubEarned = ad.addAdEventListener(
+        RewardedAdEventType.EARNED_REWARD,
+        () => {
+          earnedReward = true;
+          // CLOSED event'i bekle (kullanıcı reklamı bitirdikten sonra X'e basabilir).
+        },
+      );
+      const unsubClosed = ad.addAdEventListener(AdEventType.CLOSED, () => {
+        userClosed = true;
+        cleanup();
+        if (earnedReward) {
+          resolve({ ok: true, hoursGranted: 24 });
+        } else {
+          resolve({
+            ok: false,
+            reason: "Reklam tamamlanmadı",
+            userClosed: true,
+          });
+        }
+      });
+      const unsubError = ad.addAdEventListener(AdEventType.ERROR, (err) => {
+        cleanup();
+        resolve({
+          ok: false,
+          reason: err instanceof Error ? err.message : "ad error",
+        });
+      });
+
+      function cleanup() {
+        unsubLoaded();
+        unsubEarned();
+        unsubClosed();
+        unsubError();
+      }
+
+      ad.load();
+    });
+
+    if (result.ok) {
+      await grantRewardedPremium(result.hoursGranted);
+      void trackEvent("rewarded_ad_completed", {
+        hours: result.hoursGranted,
+      }).catch(() => {});
+    } else {
+      void trackEvent("rewarded_ad_failed", {
+        reason: result.reason,
+        user_closed: result.userClosed ?? false,
+      }).catch(() => {});
+    }
+    return result;
+  } finally {
+    _loadingRewarded = false;
+  }
 }

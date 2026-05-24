@@ -138,6 +138,8 @@
       "admobBannerAndroid": "",
       "admobInterstitialIos": "ca-app-pub-9898903071826160/8715710953",
       "admobInterstitialAndroid": "",
+      "admobRewardedIos": "",
+      "admobRewardedAndroid": "",
       "eas": {
         "projectId": "a7b18723-d431-481b-92cd-18a4c1104171"
       }

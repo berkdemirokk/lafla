@@ -28,6 +28,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Constants from "expo-constants";
 import { captureException } from "./sentry";
 import { isObject, parseSafe } from "./json-safe";
+import { isRewardedPremiumActive } from "./rewarded";
 
 // ------------------------------------------------------------
 // Types — stable contract with callers.
@@ -179,10 +180,19 @@ export async function isLiveBilling(): Promise<boolean> {
 
 /**
  * Returns true if the user has the premium entitlement.
+ *
+ * 2026-05-24 — Rewarded ad grant'i de OR'lanır. Kullanıcı "reklamı izle,
+ * bugün için Pro aç" ile geçici premium aldıysa AdBanner, paywall gate,
+ * premium feature'lar bu duruma otomatik saygı duyar. Rewarded path RC
+ * entitlement'ına dokunmaz — bağımsız asyncstorage flag.
+ *
  * Real SDK: Purchases.getCustomerInfo() → entitlements.premium.isActive.
  * Fallback: read lafla.premium.mock.
  */
 export async function isPremium(): Promise<boolean> {
+  // Rewarded grant her şeyden önce — kullanıcı "bugün Pro" açmışsa hemen ver.
+  if (await isRewardedPremiumActive().catch(() => false)) return true;
+
   const live = await initIfNeeded();
   if (!live) {
     // In production the mock store is intentionally unreachable — see

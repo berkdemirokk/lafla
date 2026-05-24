@@ -78,6 +78,13 @@ import { tokens } from "../theme";
 import { TabBar } from "../components/TabBar";
 import type { Scene, SceneMode } from "../data/scenes";
 import { SCENE_COUNT_DISPLAY } from "../lib/scene-counts";
+import { recordActive } from "../lib/notifications";
+import { isPremium } from "../lib/iap";
+import {
+  isRewardedPremiumActive,
+  getRewardedExpiresAt,
+} from "../lib/rewarded";
+import { showRewardedAd } from "../lib/ads";
 
 const K_DISPLAY_NAME = "lafla.displayName";
 
@@ -86,6 +93,20 @@ function greetingFor(hour: number): string {
   if (hour >= 12 && hour < 18) return "İyi günler";
   if (hour >= 18 && hour < 22) return "İyi akşamlar";
   return "İyi geceler";
+}
+
+// 2026-05-24 — Rewarded grant bitiş zamanına kalan süreyi kısa-format döner.
+// "23 sa 47 dk" / "5 sa" / "12 dk" / "2 dk altı" gibi human-readable.
+function formatTimeUntil(target: Date): string {
+  const diffMs = target.getTime() - Date.now();
+  if (diffMs <= 0) return "0 dk";
+  const totalMin = Math.floor(diffMs / 60000);
+  if (totalMin < 2) return "2 dk altı";
+  const hours = Math.floor(totalMin / 60);
+  const mins = totalMin % 60;
+  if (hours === 0) return `${mins} dk`;
+  if (mins === 0) return `${hours} sa`;
+  return `${hours} sa ${mins} dk`;
 }
 
 function sanitizeName(raw: string | null | undefined): string {
@@ -122,6 +143,13 @@ interface TodayState {
   // subtle bir banner gösterilir. Banner agresif değil — kullanıcı
   // istediği zaman atlar.
   diaryWrittenToday: boolean;
+  // 2026-05-24 — Rewarded ad state.
+  // isPremiumActive: RC veya rewarded grant. true → ad CTA gizli.
+  // rewardedActive + rewardedExpiresAt: aktif rewarded varsa "Bugün Pro açık"
+  // satırı + bitiş zamanı göster. Yoksa CTA "Reklamı izle, bugün için Pro aç".
+  isPremiumActive: boolean;
+  rewardedActive: boolean;
+  rewardedExpiresAt: Date | null;
 }
 
 const EMPTY: TodayState = {
@@ -145,6 +173,9 @@ const EMPTY: TodayState = {
   planIsComplete: false,
   planFirstScene: null,
   diaryWrittenToday: false,
+  isPremiumActive: false,
+  rewardedActive: false,
+  rewardedExpiresAt: null,
 };
 
 export default function Today() {
@@ -299,6 +330,13 @@ export default function Today() {
     const tutorialSeen = await hasSeenHomeTutorial().catch(() => true);
     // Diary today entry — defansif, hata olsa bile Today crash etmesin.
     const diaryToday = await getTodayEntry().catch(() => null);
+    // 2026-05-24 — Rewarded ad / premium status.
+    const [isPremiumActive, rewardedActive, rewardedExpiresAt] =
+      await Promise.all([
+        isPremium().catch(() => false),
+        isRewardedPremiumActive().catch(() => false),
+        getRewardedExpiresAt().catch(() => null),
+      ]);
 
     setState({
       profile,
@@ -321,13 +359,41 @@ export default function Today() {
       planIsComplete: planSummary.isComplete,
       planFirstScene,
       diaryWrittenToday: diaryToday !== null,
+      isPremiumActive,
+      rewardedActive,
+      rewardedExpiresAt,
     });
     setShowTutorial(!tutorialSeen);
   }, []);
 
+  // 2026-05-24 — Rewarded ad handler. CTA tap → showRewardedAd → reward
+  // callback'inde grant + Today reload. Failure path sessizce log'lanır.
+  const [rewardedLoading, setRewardedLoading] = useState(false);
+  const handleWatchRewardedAd = useCallback(async () => {
+    if (rewardedLoading) return;
+    setRewardedLoading(true);
+    try {
+      const result = await showRewardedAd();
+      if (result.ok) {
+        // Reload Today — banner gizlenir, "Bugün Pro açık" satırı görünür.
+        await load();
+      }
+      // Failure path: result.userClosed → kullanıcı X bastı, sessizce kapat.
+      // result.reason → diğer fail; bilinçli olarak Alert göstermiyoruz çünkü
+      // network fail / no fill / AdMob limit gibi durumlar kullanıcının suçu
+      // değil ve onları rahatsız etmemeli. Analytics zaten log'ladı.
+    } finally {
+      setRewardedLoading(false);
+    }
+  }, [load, rewardedLoading]);
+
   useFocusEffect(
     useCallback(() => {
       void load();
+      // 2026-05-24 — Today focus = "kullanıcı aktif" sinyali. notifications.ts
+      // dropoff zincirini (6h / 24h / 3d / 7d) yeniden zamanla. recordActive
+      // permission yoksa no-op döner; cancel + reschedule idempotent.
+      void recordActive().catch(() => {});
     }, [load]),
   );
 
@@ -743,6 +809,52 @@ export default function Today() {
             <Icon name="chevronRight" size={20} color={tokens.text.tertiary} />
           </Pressable>
         </Animated.View>
+
+        {/* Rewarded ad CTA — sadece free kullanıcı + aktif rewarded grant yok.
+            Aktif grant varsa "Bugün Pro açık ✓" satırı göster (CTA değil,
+            durum bildirimi). Premium (RC) kullanıcıya hiçbir şey gösterme. */}
+        {state.rewardedActive && state.rewardedExpiresAt ? (
+          <Animated.View entering={FadeInDown.delay(440).duration(360)}>
+            <View style={styles.rewardedActive}>
+              <Icon
+                name="checkmark"
+                size={16}
+                color={tokens.brand.tertiary}
+              />
+              <Text style={styles.rewardedActiveText}>
+                Bugün Pro açık · {formatTimeUntil(state.rewardedExpiresAt)}{" "}
+                kaldı
+              </Text>
+            </View>
+          </Animated.View>
+        ) : !state.isPremiumActive ? (
+          <Animated.View entering={FadeInDown.delay(440).duration(360)}>
+            <Pressable
+              onPress={() => void handleWatchRewardedAd()}
+              disabled={rewardedLoading}
+              style={({ pressed }) => [
+                styles.rewardedCta,
+                pressed && styles.pressed,
+                rewardedLoading && styles.rewardedCtaLoading,
+              ]}
+              accessibilityRole="button"
+              accessibilityLabel="Reklam izle, bugün için Pro aç"
+            >
+              <View style={styles.rewardedIconCircle}>
+                <Icon name="play" size={20} color={tokens.brand.tertiary} />
+              </View>
+              <View style={styles.rewardedText}>
+                <Text style={styles.rewardedTitle}>
+                  {rewardedLoading ? "Hazırlanıyor..." : "Reklamı izle, Pro aç"}
+                </Text>
+                <Text style={styles.rewardedSub}>
+                  30 sn reklam · 24 saat reklamsız + sınırsız sahne
+                </Text>
+              </View>
+              <Icon name="chevronRight" size={20} color={tokens.text.tertiary} />
+            </Pressable>
+          </Animated.View>
+        ) : null}
       </Animated.ScrollView>
 
       <AdBanner />
@@ -1138,6 +1250,65 @@ const styles = StyleSheet.create({
     fontSize: 28,
     color: tokens.text.tertiary,
     fontWeight: tokens.weight.bold,
+  },
+
+  // 2026-05-24 — Rewarded ad CTA + active indicator
+  rewardedCta: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiarySoft,
+    gap: 14,
+    marginTop: 8,
+  },
+  rewardedCtaLoading: {
+    opacity: 0.6,
+  },
+  rewardedIconCircle: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  rewardedText: { flex: 1, gap: 2 },
+  rewardedTitle: {
+    fontSize: 15,
+    color: tokens.text.primary,
+    fontFamily: tokens.font.display,
+    letterSpacing: -0.2,
+  },
+  rewardedSub: {
+    fontSize: 12,
+    color: tokens.text.tertiary,
+    fontFamily: tokens.font.sans,
+    lineHeight: 16,
+  },
+  rewardedActive: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
+    alignSelf: "center",
+    marginTop: 8,
+  },
+  rewardedActiveText: {
+    fontSize: 12,
+    color: tokens.brand.tertiary,
+    fontFamily: tokens.font.sansBold,
+    letterSpacing: 0.3,
   },
 
   // 2026-05-24 — Empty state (plan yok, done değil — yeni kullanıcı/hata).
