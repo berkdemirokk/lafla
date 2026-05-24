@@ -124,6 +124,26 @@ function greetingFor(hour: number): string {
   return "İyi geceler";
 }
 
+// 2026-05-24 — İnitials avatar helper. "Berk" → "B", "Ahmet Yılmaz" → "AY",
+// boş → "·" (visual placeholder). Max 2 karakter, uppercase, Türkçe-aware
+// (toLocaleUpperCase tr-TR).
+function getInitials(name: string): string {
+  const trimmed = name.trim();
+  if (!trimmed) return "·";
+  const parts = trimmed.split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "·";
+  if (parts.length === 1) {
+    const first = parts[0] ?? "";
+    return first.charAt(0).toLocaleUpperCase("tr-TR");
+  }
+  const first = parts[0] ?? "";
+  const last = parts[parts.length - 1] ?? "";
+  return (
+    first.charAt(0).toLocaleUpperCase("tr-TR") +
+    last.charAt(0).toLocaleUpperCase("tr-TR")
+  );
+}
+
 export default function ProfileScreen() {
   const router = useRouter();
   // Empty string means "no name set" so the greeting renders as plain
@@ -317,13 +337,25 @@ export default function ProfileScreen() {
           />
         }
       >
-        {/* Greeting — saat-aware Türkçe + Pro badge.
+        {/* Greeting — saat-aware Türkçe + initials avatar + Pro badge.
             2026-05-24 polish: önceki "Merhaba, {name}" → saat dilimine göre
             "Günaydın, {name}" / "İyi akşamlar, {name}" vb. Today screen
-            ile semantik senkron. Pro abone ise yanına minik "✦ Pro" chip;
-            rewarded gün ise "Bugün Pro" cyan chip — farklı semantik, farklı
-            görsel ton. */}
+            ile semantik senkron. Avatar — circular initials (premium feel,
+            iCloud profile bekleme yok). Pro abone ise yanına minik "✦ Pro"
+            chip; rewarded gün ise "Bugün Pro" cyan chip. */}
         <View style={styles.greetingRow}>
+          <View
+            style={[
+              styles.avatar,
+              proSubscriber && styles.avatarPro,
+            ]}
+            accessibilityRole="image"
+            accessibilityLabel={
+              displayName ? `${displayName} avatar` : "Avatar"
+            }
+          >
+            <Text style={styles.avatarText}>{getInitials(displayName)}</Text>
+          </View>
           <Text style={styles.greeting} numberOfLines={1}>
             {greetingFor(new Date().getHours())}
             {displayName ? `, ${displayName}` : ""}
@@ -759,14 +791,41 @@ const styles = StyleSheet.create({
     paddingTop: tokens.spacing.base,
     paddingBottom: 96,
   },
-  // 2026-05-24 — Greeting row: selamlama + Pro/Bugün Pro badge yan yana.
+  // 2026-05-24 — Greeting row: avatar + selamlama + Pro/Bugün Pro badge.
   // Flex 1 greeting + sağ tarafta optional badge. NumberOfLines:1 + ellipsize
   // ile uzun isimde overflow olmaz.
   greetingRow: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 10,
+    gap: 12,
     marginBottom: tokens.spacing.md,
+  },
+  // Initials avatar — 44px circle. Pro abonelerde pembe glow border;
+  // free'de neutral surface + soft tertiary border. Tek karakter ise
+  // büyük (24px), iki karakter ise küçük (18px) — overflow olmaz.
+  avatar: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: tokens.bg.surfaceContainerHigh,
+    borderWidth: 1.5,
+    borderColor: tokens.brand.tertiarySoft,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  avatarPro: {
+    borderColor: tokens.brand.primary,
+    shadowColor: tokens.brand.primary,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
+    elevation: 4,
+  },
+  avatarText: {
+    fontSize: 18,
+    color: tokens.text.primary,
+    fontFamily: tokens.font.display,
+    letterSpacing: 0.4,
   },
   greeting: {
     flex: 1,
