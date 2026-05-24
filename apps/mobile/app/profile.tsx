@@ -28,6 +28,7 @@ import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Constants from "expo-constants";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -42,6 +43,8 @@ import {
   getLocalProfile,
   type LocalProfile,
 } from "../lib/local-progress";
+import { isPremium } from "../lib/iap";
+import { isRewardedPremiumActive } from "../lib/rewarded";
 import { SAMPLE_SCENES, type SceneMode } from "../data/scenes";
 import {
   getCefrLevel,
@@ -73,7 +76,10 @@ type ModeRow = {
   label: string;
 };
 
-// 6 mod (2026-05-20 cut). Onboarding chip'leri ile aynı sıra ve emoji.
+// 7 mod (2026-05-21 IELTS re-added). Onboarding chip'leri ile aynı sıra ve emoji.
+// Lifestyle 6 + IELTS Speaking sınav. Onboarding'de görsel olarak ayrı grupta
+// ama profile'da modes arası uniform render — kullanıcı zaten interest'inden
+// IELTS seçmişse listede görür.
 const MODES: ReadonlyArray<ModeRow> = [
   { key: "flirt",   emoji: "💕", label: "Flört" },
   { key: "work",    emoji: "💼", label: "İş" },
@@ -109,6 +115,15 @@ function sanitizeName(raw: string | null | undefined): string {
   return cleaned.slice(0, 28) + "…";
 }
 
+// 2026-05-24 — Saat-aware selamlama. Today ile aynı semantik; greet copy
+// senkron kalsın diye iki dosyada da aynı bant aralıkları.
+function greetingFor(hour: number): string {
+  if (hour >= 6 && hour < 12) return "Günaydın";
+  if (hour >= 12 && hour < 18) return "İyi günler";
+  if (hour >= 18 && hour < 22) return "İyi akşamlar";
+  return "İyi geceler";
+}
+
 export default function ProfileScreen() {
   const router = useRouter();
   // Empty string means "no name set" so the greeting renders as plain
@@ -137,6 +152,11 @@ export default function ProfileScreen() {
   const [shieldCount, setShieldCount] = useState<number>(0);
   const [monthlyGrant, setMonthlyGrant] = useState<number>(0);
   const [recentShieldSave, setRecentShieldSave] = useState<string | null>(null);
+  // 2026-05-24 — Premium durum (RC entitlement veya rewarded grant).
+  // proSubscriber: RC ile gerçek Pro; rewardedActive: 24 saat geçici grant.
+  // Greeting'in yanına Pro badge gösteren bayrak.
+  const [proSubscriber, setProSubscriber] = useState<boolean>(false);
+  const [rewardedDay, setRewardedDay] = useState<boolean>(false);
 
   const loadAll = useCallback(async () => {
     // Display name lives in AsyncStorage under `lafla.displayName` per the
@@ -157,18 +177,38 @@ export default function ProfileScreen() {
     }
 
     try {
-      const [p, c, lvl, interests, shields, grant, recent, decay, progRaw] =
-        await Promise.all([
-          getLocalProfile(),
-          getCompletedLessonIds(),
-          getCefrLevel(),
-          getInterests(),
-          getShieldCount(),
-          getMonthlyGrant(),
-          recentShieldUseIso(),
-          getRecentDecay(),
-          AsyncStorage.getItem("lafla.cefr.progress").catch(() => null),
-        ]);
+      const [
+        p,
+        c,
+        lvl,
+        interests,
+        shields,
+        grant,
+        recent,
+        decay,
+        progRaw,
+        premiumStatus,
+        rewardedStatus,
+      ] = await Promise.all([
+        getLocalProfile(),
+        getCompletedLessonIds(),
+        getCefrLevel(),
+        getInterests(),
+        getShieldCount(),
+        getMonthlyGrant(),
+        recentShieldUseIso(),
+        getRecentDecay(),
+        AsyncStorage.getItem("lafla.cefr.progress").catch(() => null),
+        isPremium().catch(() => false),
+        isRewardedPremiumActive().catch(() => false),
+      ]);
+      // proSubscriber: gerçek RC entitlement. rewardedDay rewarded grant'i
+      // yansıtır; ikisi çakışırsa proSubscriber öncelikli (kalıcı status).
+      // isPremium() rewarded'i de OR'lar — bu yüzden rewarded only durumda
+      // (RC false + rewarded true) "Pro" değil "Bugün Pro" göstermek için
+      // ikisini ayrı tut.
+      setProSubscriber(premiumStatus && !rewardedStatus);
+      setRewardedDay(rewardedStatus);
       setLocal(p);
       setCompleted(c);
       setCefrLevelState(lvl);
@@ -277,12 +317,27 @@ export default function ProfileScreen() {
           />
         }
       >
-        {/* Greeting — "Merhaba, {name}" or just "Merhaba" if name unset.
-            Keeps the heading size/colour from the previous raw-displayName
-            rendering; only the content changes. */}
-        <Text style={styles.greeting} numberOfLines={1}>
-          {displayName ? `Merhaba, ${displayName}` : "Merhaba"}
-        </Text>
+        {/* Greeting — saat-aware Türkçe + Pro badge.
+            2026-05-24 polish: önceki "Merhaba, {name}" → saat dilimine göre
+            "Günaydın, {name}" / "İyi akşamlar, {name}" vb. Today screen
+            ile semantik senkron. Pro abone ise yanına minik "✦ Pro" chip;
+            rewarded gün ise "Bugün Pro" cyan chip — farklı semantik, farklı
+            görsel ton. */}
+        <View style={styles.greetingRow}>
+          <Text style={styles.greeting} numberOfLines={1}>
+            {greetingFor(new Date().getHours())}
+            {displayName ? `, ${displayName}` : ""}
+          </Text>
+          {proSubscriber ? (
+            <View style={styles.proBadge}>
+              <Text style={styles.proBadgeText}>✦ Pro</Text>
+            </View>
+          ) : rewardedDay ? (
+            <View style={styles.rewardedBadge}>
+              <Text style={styles.rewardedBadgeText}>Bugün Pro</Text>
+            </View>
+          ) : null}
+        </View>
 
         {/* Hero stat strip — 4 chips: streak, XP, completed, and the user's
             current CEFR level. Level chip renders "—" until onboarding hydrates
@@ -395,26 +450,13 @@ export default function ProfileScreen() {
           })}
         </View>
 
-        {/* Lafla Pro — sole paywall entry point. Submission-critical: Apple's
-            reviewer needs at least one navigation path to the IAP surface.
-            Pre-2026-05-20 the paywall existed as a registered route but had
-            zero callers; this row closes that gap. Free-tier hard gating is
-            a post-launch decision (cf. APP_REVIEW_NOTES.md). */}
-        {/* History + Vocab book + Certificates — 2026-05-21. İlerlemeyi görünür kıl. */}
+        {/* 2026-05-24 polish — İLERLEME tek dev card'tan 3 mantıklı section'a
+            bölündü: "İlerleme" (history/vocab/cert), "Günlüklerim" (diary/
+            voice/relationships), "Sessiz pratik" (phoneme-drill/listen-mode).
+            Pro-gated analizler (ielts-band, weakness-report) "Lafla Pro"
+            section'a taşındı — premium upsell daha net. */}
         <Text style={styles.sectionLabel}>İLERLEME</Text>
         <View style={styles.accountCard}>
-          <AccountRow
-            icon="band"
-            label="IELTS Band Tahminim · Lafla Pro"
-            onPress={() => router.push("/ielts-band" as never)}
-          />
-          <View style={styles.rowDivider} />
-          <AccountRow
-            icon="weakness"
-            label="Zayıflık Raporu · Lafla Pro"
-            onPress={() => router.push("/weakness-report" as never)}
-          />
-          <View style={styles.rowDivider} />
           <AccountRow
             icon="history"
             label="Geçmiş sahneler"
@@ -432,10 +474,10 @@ export default function ProfileScreen() {
             label="Sertifikalarım"
             onPress={() => router.push("/certificates" as never)}
           />
-          {/* 2026-05-23 — Engagement: text + ses günlük girişleri.
-              Brand-safe: confetti yok, achievement yok, sadece kişisel
-              kayıt aracı. Day One app referansı. */}
-          <View style={styles.rowDivider} />
+        </View>
+
+        <Text style={styles.sectionLabel}>GÜNLÜKLERİM</Text>
+        <View style={styles.accountCard}>
           <AccountRow
             icon="diary"
             label="Günlüğüm"
@@ -453,8 +495,10 @@ export default function ProfileScreen() {
             label="İlişkilerim"
             onPress={() => router.push("/relationships" as never)}
           />
-          {/* 2026-05-23 Faz 2 — yeni 2 mod, sessiz/passive alternatif. */}
-          <View style={styles.rowDivider} />
+        </View>
+
+        <Text style={styles.sectionLabel}>SESSİZ PRATİK</Text>
+        <View style={styles.accountCard}>
           <AccountRow
             icon="bolt"
             label="Telaffuz pratiği"
@@ -471,12 +515,22 @@ export default function ProfileScreen() {
         <Text style={styles.sectionLabel}>LAFLA PRO</Text>
         <View style={styles.accountCard}>
           <AccountRow
+            icon="band"
+            label="IELTS Band Tahminim"
+            onPress={() => router.push("/ielts-band" as never)}
+          />
+          <View style={styles.rowDivider} />
+          <AccountRow
+            icon="weakness"
+            label="Zayıflık Raporu"
+            onPress={() => router.push("/weakness-report" as never)}
+          />
+          <View style={styles.rowDivider} />
+          <AccountRow
             icon="premium"
-            label="Lafla Pro aboneliği"
+            label={proSubscriber ? "Lafla Pro aboneliği · Aktif" : "Lafla Pro aboneliği"}
             onPress={() => router.push("/paywall" as never)}
           />
-          {/* Referral — Adım 7 (2026-05-20). MVP: kod paylaşımı, manuel
-              bonus award (Supabase referral_code tablosu, admin cron). */}
           <View style={styles.rowDivider} />
           <AccountRow
             icon="referral"
@@ -527,7 +581,9 @@ export default function ProfileScreen() {
           </Pressable>
         )}
 
-        <Text style={styles.versionText}>Lafla v0.1.0 · Konuş, çalış.</Text>
+        <Text style={styles.versionText}>
+          Lafla v{Constants.expoConfig?.version ?? "0.0.0"} · Donma. Konuş.
+        </Text>
       </ScrollView>
       <TabBar active="profile" />
     </SafeAreaView>
@@ -703,12 +759,52 @@ const styles = StyleSheet.create({
     paddingTop: tokens.spacing.base,
     paddingBottom: 96,
   },
+  // 2026-05-24 — Greeting row: selamlama + Pro/Bugün Pro badge yan yana.
+  // Flex 1 greeting + sağ tarafta optional badge. NumberOfLines:1 + ellipsize
+  // ile uzun isimde overflow olmaz.
+  greetingRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    marginBottom: tokens.spacing.md,
+  },
   greeting: {
+    flex: 1,
     fontSize: 22,
     fontWeight: tokens.weight.bold,
     color: tokens.text.primary,
-    marginBottom: tokens.spacing.md,
     fontFamily: tokens.font.display,
+  },
+  proBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.primary,
+    shadowColor: tokens.brand.primary,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
+    elevation: 4,
+  },
+  proBadgeText: {
+    fontSize: 11,
+    color: tokens.brand.onPrimary,
+    fontFamily: tokens.font.sansExtra,
+    letterSpacing: 0.5,
+  },
+  rewardedBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
+  },
+  rewardedBadgeText: {
+    fontSize: 11,
+    color: tokens.brand.tertiary,
+    fontFamily: tokens.font.sansExtra,
+    letterSpacing: 0.5,
   },
 
   // Hero strip — 4 chips fit comfortably with reduced gap + slim horizontal
