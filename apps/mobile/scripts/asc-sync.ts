@@ -42,6 +42,14 @@ import { readFileSync } from "node:fs";
 import { createSign } from "node:crypto";
 import { resolve } from "node:path";
 
+// 2026-05-24 — Sahne sayısı tek kaynak: lib/scene-counts.ts → SAMPLE_SCENES.length.
+// Paywall, Today, ASC metadata: hepsi aynı sayıyı görür. Yeni sahne paketi
+// eklendiğinde manuel update yok.
+import {
+  MODE_COUNT_DISPLAY,
+  SCENE_COUNT_DISPLAY,
+} from "../lib/scene-counts";
+
 // ─────────────────────────────────────────────────────────────────
 // Metadata source — TEK KAYNAK docs/APP_STORE_METADATA.md ama
 // markdown parse etmek kırılgan. Bu dosyada inline tutuyoruz;
@@ -59,9 +67,9 @@ const METADATA = {
   // tr-TR primary
   tr: {
     name: "Lafla: İngilizce Konuşma",
-    subtitle: "Donma. Konuş. Türkçe ipuçlu.",
+    subtitle: "Donma. Konuş.",
     promotionalText:
-      "Lafla geldi. 7 mod, 935 sahne, IELTS Speaking, fonem drill, akıllı NPC konuşmaları. Türkçe ipuçlu hata feedback. Flörtten mülakata, donma. Konuş.",
+      `Lafla geldi. ${MODE_COUNT_DISPLAY} mod, ${SCENE_COUNT_DISPLAY} sahne, IELTS Speaking, fonem drill, akıllı NPC konuşmaları. Türkçeye özel hata feedback. Flörtten mülakata, donma. Konuş.`,
     description: [
       "Yabancıyla İngilizce konuşurken donmak yok. Lafla, Türkçe düşünen birine göre tasarlanmış konuşma pratiği uygulaması.",
       "",
@@ -69,8 +77,8 @@ const METADATA = {
       "",
       "✨ NE BULURSUN",
       "",
-      "🎯 7 mod, tek akış: Flört, İş, Bar, Havaalanı, Günlük, Sipariş, IELTS Speaking",
-      "🎬 935 gerçek sahne — A1 başlangıçtan C1 ileri seviyeye CEFR haritası",
+      `🎯 ${MODE_COUNT_DISPLAY} mod, tek akış: Flört, İş, Bar, Havaalanı, Günlük, Sipariş, IELTS Speaking`,
+      `🎬 ${SCENE_COUNT_DISPLAY} gerçek sahne — A1 başlangıçtan C1 ileri seviyeye CEFR haritası`,
       "🎙️ Phoneme Drill — Türk kulağı için zor sesleri (th, æ, v/w) targetli alıştırmalar",
       "🎧 Dinleme + yazım modu — sessiz ortamda da pratik yap",
       "🇹🇷 Türkçeye özel hata yakalama — article eksik, \"I am go\" hatası, \"make picture\" tuzakları",
@@ -81,7 +89,7 @@ const METADATA = {
       "",
       "🤔 BU UYGULAMA NEDİR?",
       "",
-      "Lafla, \"İngilizceyi bilmek\" ile \"İngilizce konuşmak\" arasındaki uçurumu kapatır. Sınav notun yüksek ama kafedeki Amerikalıyla 30 saniye sonra terliyorsun. Match'te mesaj geldi, 5 dakika düşünüyorsun. Lafla bu boşluğu kapatmak için var — 935 gerçek senaryo, hepsi ön-üretilmiş, hiçbiri AI hallüsinasyonu değil. Hiçbir cevabın internete gönderilmiyor.",
+      `Lafla, "İngilizceyi bilmek" ile "İngilizce konuşmak" arasındaki uçurumu kapatır. Sınav notun yüksek ama kafedeki Amerikalıyla 30 saniye sonra terliyorsun. Match'te mesaj geldi, 5 dakika düşünüyorsun. Lafla bu boşluğu kapatmak için var — ${SCENE_COUNT_DISPLAY} gerçek senaryo, hepsi ön-üretilmiş, hiçbiri AI hallüsinasyonu değil. Hiçbir cevabın internete gönderilmiyor.`,
       "",
       "🚀 NEDEN LAFLA?",
       "",
@@ -97,7 +105,7 @@ const METADATA = {
       "",
       "💎 LAFLA PRO ÜYELİK",
       "",
-      "Tüm 935 sahneye erişim, sınırsız tekrar, derin telaffuz analizi, IELTS Band tahmini, kişisel zayıflık raporu ve gelişmiş ilerleme paneli.",
+      `Tüm ${SCENE_COUNT_DISPLAY} sahneye erişim, sınırsız tekrar, derin telaffuz analizi, IELTS Band tahmini, kişisel zayıflık raporu ve gelişmiş ilerleme paneli.`,
       "",
       "📋 Fiyat: ₺99/ay veya ₺999/yıl (yıllık planda %16 tasarruf)",
       "🔄 Otomatik yenilenir; iPhone Ayarlar → Apple Kimliği → Abonelikler menüsünden istediğin zaman iptal edebilirsin",
@@ -109,10 +117,10 @@ const METADATA = {
     keywords:
       "ingilizce konuşma,ielts speaking,flört ingilizcesi,yds,toefl,mülakat,telaffuz,akıcı,fonem",
     whatsNew: [
-      "Lafla — ilk sürüm. Konuş, çalış.",
+      "Lafla — ilk sürüm. Donma. Konuş.",
       "",
-      "🎯 7 mod, tek akış: Flört, İş, Bar, Havaalanı, Günlük, Sipariş, IELTS",
-      "🎬 935 oynanabilir sahne — A1'den C1'e CEFR ile haritalı",
+      `🎯 ${MODE_COUNT_DISPLAY} mod, tek akış: Flört, İş, Bar, Havaalanı, Günlük, Sipariş, IELTS`,
+      `🎬 ${SCENE_COUNT_DISPLAY} oynanabilir sahne — A1'den C1'e CEFR ile haritalı`,
       "🎙️ Phoneme Drill — Türk kulağı için zor sesleri targetli alıştır",
       "🎧 Dinle + yaz modu — sessiz ortamda da pratik",
       "🇹🇷 Türkçeye özel hata geri bildirimi (article, doğrudan çeviri tuzakları)",
@@ -128,9 +136,9 @@ const METADATA = {
   // en-US secondary
   en: {
     name: "Lafla: English Speaking",
-    subtitle: "Stop freezing. Speak. Turkish hints.",
+    subtitle: "Stop freezing. Speak.",
     promotionalText:
-      "Lafla just launched. 7 modes, 935 scenarios, IELTS Speaking, phoneme drills, smart NPC conversations. Turkish-language error feedback. Stop freezing.",
+      `Lafla just launched. ${MODE_COUNT_DISPLAY} modes, ${SCENE_COUNT_DISPLAY} scenarios, IELTS Speaking, phoneme drills, smart NPC conversations. Turkish-language error feedback. Stop freezing.`,
     description: [
       "Stop freezing when you have to speak English. Lafla is built for Turkish speakers who can read English but lock up the moment a conversation starts.",
       "",
@@ -138,8 +146,8 @@ const METADATA = {
       "",
       "✨ WHAT YOU GET",
       "",
-      "🎯 7 modes, one feed: Dating, Work, Bar, Airport, Daily, Ordering, IELTS Speaking",
-      "🎬 935 real scenarios — CEFR-mapped from A1 to C1",
+      `🎯 ${MODE_COUNT_DISPLAY} modes, one feed: Dating, Work, Bar, Airport, Daily, Ordering, IELTS Speaking`,
+      `🎬 ${SCENE_COUNT_DISPLAY} real scenarios — CEFR-mapped from A1 to C1`,
       "🎙️ Phoneme Drill — targeted practice for sounds Turkish ears confuse (th, æ, v/w)",
       "🎧 Listen & Transcribe — practice in silent environments too",
       "🇹🇷 Turkish-tailored error feedback — dropped articles, \"I am go\" mistakes, \"make picture\" traps",
@@ -150,7 +158,7 @@ const METADATA = {
       "",
       "🤔 WHAT IS THIS?",
       "",
-      "Lafla closes the gap between \"knowing English\" and \"speaking English.\" You scored high on a translation test but you sweat 30 seconds into a conversation with an American. A Match wrote, you spent five minutes drafting one reply. Lafla is built for that gap — 935 real scenarios, all pre-authored, zero runtime AI hallucination. Nothing you type or say leaves your device.",
+      `Lafla closes the gap between "knowing English" and "speaking English." You scored high on a translation test but you sweat 30 seconds into a conversation with an American. A Match wrote, you spent five minutes drafting one reply. Lafla is built for that gap — ${SCENE_COUNT_DISPLAY} real scenarios, all pre-authored, zero runtime AI hallucination. Nothing you type or say leaves your device.`,
       "",
       "🚀 WHY LAFLA?",
       "",
@@ -166,7 +174,7 @@ const METADATA = {
       "",
       "💎 LAFLA PRO MEMBERSHIP",
       "",
-      "All 935 scenes unlocked, unlimited replays, deep pronunciation analysis, IELTS Band estimate, personal weakness report, advanced progress dashboard.",
+      `All ${SCENE_COUNT_DISPLAY} scenes unlocked, unlimited replays, deep pronunciation analysis, IELTS Band estimate, personal weakness report, advanced progress dashboard.`,
       "",
       "📋 Pricing: ₺99/month or ₺999/year (16% savings on annual)",
       "🔄 Auto-renews; cancel anytime in iPhone Settings → Apple ID → Subscriptions",
@@ -178,10 +186,10 @@ const METADATA = {
     keywords:
       "speak english,esl turkish,fluency,pronunciation,phoneme,ielts,toefl,conversation,interview",
     whatsNew: [
-      "Lafla — first launch. Speak. Work.",
+      "Lafla — first launch. Stop freezing. Speak.",
       "",
-      "🎯 7 modes, one feed: Dating, Work, Bar, Airport, Daily, Ordering, IELTS",
-      "🎬 935 scenarios playable at launch — CEFR-mapped A1 to C1",
+      `🎯 ${MODE_COUNT_DISPLAY} modes, one feed: Dating, Work, Bar, Airport, Daily, Ordering, IELTS`,
+      `🎬 ${SCENE_COUNT_DISPLAY} scenarios playable at launch — CEFR-mapped A1 to C1`,
       "🎙️ Phoneme Drill — targeted practice for sounds Turkish ears confuse",
       "🎧 Listen & Transcribe — practice in silent environments",
       "🇹🇷 Turkish-tailored error feedback (articles, direct-translation traps)",
