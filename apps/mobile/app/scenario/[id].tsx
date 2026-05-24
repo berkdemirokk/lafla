@@ -58,6 +58,10 @@ import { SpeechShadowing } from "../../components/exercises/SpeechShadowing";
 import { ListenAndTranscribe } from "../../components/exercises/ListenAndTranscribe";
 import { AchievementToast } from "../../components/AchievementToast";
 import { StreakMilestoneModal } from "../../components/StreakMilestoneModal";
+import {
+  recordSceneOpen,
+  recordSceneComplete,
+} from "../../lib/notifications";
 
 import { trackEvent } from "../../lib/analytics";
 import { getScenario, computeSceneFluency } from "../../lib/scenario";
@@ -250,6 +254,12 @@ export default function ScenarioScreen() {
       skill_id: scenario.skill_id,
       mode: scenario.mode,
     }).catch(() => {});
+    // 2026-05-24 — Sahne açılış sinyali. notifications.ts 6h "yarım kaldı"
+    // bildirimini bu başlığı kullanarak kuracak; sahne tamamlanmazsa 6 saat
+    // sonra "X sahnen yarım kaldı" push'u atar.
+    void recordSceneOpen(
+      scenario.title?.replace(/\n/g, " ") ?? "sahnen",
+    ).catch(() => {});
   }, [scenario]);
 
   // 2026-05-21 — Free-tier paywall gate.
@@ -312,6 +322,9 @@ export default function ScenarioScreen() {
       mode: scenario.mode,
       score: sceneResult.score,
     }).catch(() => {});
+    // 2026-05-24 — Sahne tamamlandı: 6h "yarım kaldı" bildirimini iptal et,
+    // dropoff zincirini (24h streak / 3d challenge / 7d gone) yeniden zamanla.
+    void recordSceneComplete().catch(() => {});
     (async () => {
       // Snapshot the pre-completion profile so we can identify streak/XP
       // milestones that *cross* during this lesson rather than ones that

@@ -38,6 +38,12 @@ import {
 } from "../lib/delete-account";
 import { hapticImpact, hapticSelection, hapticSuccess } from "../lib/feedback";
 import { restorePurchases } from "../lib/iap";
+import {
+  disableReminders,
+  enableDailyReminder,
+  getReminderHour,
+  isNotificationsEnabled,
+} from "../lib/notifications";
 import { redeemReferralCode, getRedeemedCode } from "../lib/referral";
 import { tokens } from "../theme";
 
@@ -83,6 +89,10 @@ export default function SettingsScreen() {
   // "Analytics olmadan kullan" — ON means opted OUT of analytics.
   // We store the inverse internally for clearer call-site semantics.
   const [analyticsOptOut, setAnalyticsOptOut] = useState(false);
+  // 2026-05-24 — Daily reminder toggle. enable çağrısı iOS permission
+  // prompt'unu tetikler; reddedilirse toggle silently false kalır.
+  const [reminderOn, setReminderOn] = useState(false);
+  const [reminderHour, setReminderHour] = useState(19);
 
   // Account-deletion flow state.
   const [deleteStep, setDeleteStep] = useState<
@@ -96,6 +106,17 @@ export default function SettingsScreen() {
     (async () => {
       const v = await AsyncStorage.getItem(K_AUTO_SPEAK).catch(() => null);
       if (v === "false") setAutoSpeak(false);
+      // Daily reminder state
+      try {
+        const [enabled, hour] = await Promise.all([
+          isNotificationsEnabled(),
+          getReminderHour(),
+        ]);
+        setReminderOn(enabled);
+        setReminderHour(hour);
+      } catch {
+        // ignore
+      }
       try {
         const enabled = await isAnalyticsEnabled();
         setAnalyticsOptOut(!enabled);
@@ -119,6 +140,30 @@ export default function SettingsScreen() {
       await setAnalyticsEnabled(!optOut);
     } catch {
       // ignore — opt-out remains in local state, persistence error is non-fatal
+    }
+  };
+
+  // 2026-05-24 — Daily reminder toggle handler. enable çağrısı iOS
+  // permission prompt'unu tetikler; reddedilirse Alert ile bilgilendir +
+  // toggle false kalır. enable true ise saat varsayılan 19:00 — değiştirme
+  // UI'sı yok (v1 sade tutuldu; sonraki iterasyonda saat seçici eklenebilir).
+  const handleReminderToggle = async (v: boolean) => {
+    hapticSelection();
+    if (v) {
+      const ok = await enableDailyReminder(reminderHour);
+      if (!ok) {
+        setReminderOn(false);
+        Alert.alert(
+          "Bildirim izni gerekli",
+          "iOS Ayarlar → Lafla → Bildirimler yolundan açabilirsin.",
+        );
+        return;
+      }
+      setReminderOn(true);
+      hapticSuccess();
+    } else {
+      await disableReminders();
+      setReminderOn(false);
     }
   };
 
@@ -330,6 +375,13 @@ export default function SettingsScreen() {
             description="Yeni kelimelerde sesli okuma"
             value={autoSpeak}
             onValueChange={setAutoSpeakValue}
+          />
+          <Toggle
+            icon="🔔"
+            label="Günlük hatırlatma"
+            description={`Her gün ${String(reminderHour).padStart(2, "0")}:00'da bir sahne önerisi`}
+            value={reminderOn}
+            onValueChange={handleReminderToggle}
             isLast={!sfxAvailable}
           />
           {sfxAvailable && (
