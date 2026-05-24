@@ -37,6 +37,8 @@ const ID_24H_STREAK = "lafla.24h.streak";
 const ID_3D_CHALLENGE = "lafla.3d.challenge";
 const ID_7D_GONE = "lafla.7d.gone";
 const ID_DAILY_REMINDER = "lafla.daily.reminder";
+// 2026-05-24 — Weekly progress report (Pazartesi 10:00, repeating).
+const ID_WEEKLY_SUMMARY = "lafla.weekly.summary";
 
 // ============================================================
 // MESAJ KOPYALARI — Türkçe, kişiselleştirilmiş
@@ -138,6 +140,15 @@ function msg7DGone(ctx: NotifContext): { title: string; body: string } {
     body: "Bir sahne dene, 90 saniye. Türkçe için açıklama eklenir — söz.",
   };
 }
+
+// 2026-05-24 — Haftalık özet, Pazartesi 10:00 (repeating).
+// expo-notifications CALENDAR trigger her hafta aynı content gönderir;
+// fresh stats için kullanıcı bildirime tıklayınca app'i açar ve
+// /profile veya /progress ekranı gerçek anlık `getWeeklyReport()` sonucunu
+// gösterir. Push copy'si bilinçli generic — schedule-time'a bağlı veri
+// embed etmiyoruz çünkü içerik haftalar arası freeze olur.
+const WEEKLY_SUMMARY_TITLE = "Haftalık raporun hazır";
+const WEEKLY_SUMMARY_BODY = "Bu hafta nasıl gitti? Profil'de detay var.";
 
 // Günlük 19:00 — opt-in hatırlatma.
 const DAILY_VARIANTS = [
@@ -356,9 +367,53 @@ export async function enableDailyReminder(
 
   // Yeni reminder kurulunca dropoff zinciri de aktif olsun.
   await rescheduleDropoffs().catch(() => {});
+  // Haftalık özet (Pazartesi 10:00) de daily ile birlikte aktive edilir —
+  // ayrı toggle yapmak overhead. Disable'da ikisi de kapanır.
+  await scheduleWeeklySummary().catch(() => {});
 
   void trackEvent("notifications_daily_enabled", { hour }).catch(() => {});
   return true;
+}
+
+/**
+ * Haftalık özet bildirimini kur (Pazartesi 10:00, repeating).
+ * enableDailyReminder içinden otomatik çağrılır; ayrıca recordActive()
+ * idempotent yeniden zamanlama için her aktif anında dokunabilir.
+ *
+ * Permission yoksa no-op. Mevcut schedule varsa cancel + reschedule.
+ */
+export async function scheduleWeeklySummary(): Promise<void> {
+  const enabled = await isNotificationsEnabled();
+  if (!enabled) return;
+
+  try {
+    await Notifications.cancelScheduledNotificationAsync(ID_WEEKLY_SUMMARY);
+  } catch {
+    // ignore — kayıt yoksa.
+  }
+
+  try {
+    await Notifications.scheduleNotificationAsync({
+      identifier: ID_WEEKLY_SUMMARY,
+      content: {
+        title: WEEKLY_SUMMARY_TITLE,
+        body: WEEKLY_SUMMARY_BODY,
+        sound: "default",
+        data: { deepLink: "lafla://progress" },
+      },
+      trigger: {
+        type: Notifications.SchedulableTriggerInputTypes.CALENDAR,
+        // weekday: iOS DateComponents → 1=Sunday, 2=Monday, ..., 7=Saturday
+        weekday: 2,
+        hour: 10,
+        minute: 0,
+        repeats: true,
+      },
+    });
+    void trackEvent("notifications_weekly_scheduled").catch(() => {});
+  } catch {
+    // Permission revoked mid-session veya schedule limit aşımı; sessiz fail.
+  }
 }
 
 export async function disableReminders(): Promise<void> {
