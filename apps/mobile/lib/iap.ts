@@ -341,10 +341,23 @@ export async function setUserId(userId: string | null): Promise<void> {
 /**
  * Fetch the current offering for display (prices, etc) without purchasing.
  * Returns null when SDK unavailable.
+ *
+ * 2026-05-24 — `trialDays` eklendi. App Store Connect'te ürün için
+ * "Introductory Offer: Free Trial" tanımlıysa RevenueCat product.introPrice
+ * dolu gelir; periodUnit (DAY/WEEK) + periodNumberOfUnits gün sayısına
+ * çevrilir. Trial yokken `undefined` döner, paywall pill'i gizler.
  */
 export async function getOffering(): Promise<{
-  monthly: { price: string; priceAmountMicros?: number } | null;
-  yearly: { price: string; priceAmountMicros?: number } | null;
+  monthly: {
+    price: string;
+    priceAmountMicros?: number;
+    trialDays?: number;
+  } | null;
+  yearly: {
+    price: string;
+    priceAmountMicros?: number;
+    trialDays?: number;
+  } | null;
 } | null> {
   const live = await initIfNeeded();
   if (!live) return null;
@@ -361,16 +374,40 @@ export async function getOffering(): Promise<{
         ? {
             price: monthly.priceString,
             priceAmountMicros: monthly.priceAmountMicros,
+            trialDays: extractTrialDays(monthly),
           }
         : null,
       yearly: yearly
         ? {
             price: yearly.priceString,
             priceAmountMicros: yearly.priceAmountMicros,
+            trialDays: extractTrialDays(yearly),
           }
         : null,
     };
   } catch {
     return null;
   }
+}
+
+/**
+ * RevenueCat product objesinden ücretsiz deneme gün sayısını çıkar.
+ * Yapı: `product.introPrice` veya `product.introductoryPrice` (SDK version)
+ * içinde `periodUnit` ("DAY" | "WEEK" | "MONTH" | "YEAR") + `periodNumberOfUnits`.
+ * Sadece bedava trial (price === 0 veya pricePerWeek === 0) sayılır.
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function extractTrialDays(product: any): number | undefined {
+  const intro = product?.introPrice ?? product?.introductoryPrice;
+  if (!intro) return undefined;
+  // Free trial check — fiyat 0 veya yok.
+  const price = intro.price ?? intro.priceAmountMicros;
+  if (price !== 0 && price !== "0" && price != null) return undefined;
+  const unit = String(intro.periodUnit ?? intro.unit ?? "").toUpperCase();
+  const n = Number(intro.periodNumberOfUnits ?? intro.numberOfUnits ?? 0);
+  if (!Number.isFinite(n) || n <= 0) return undefined;
+  const perUnitDays =
+    unit === "DAY" ? 1 : unit === "WEEK" ? 7 : unit === "MONTH" ? 30 : unit === "YEAR" ? 365 : 0;
+  if (perUnitDays === 0) return undefined;
+  return n * perUnitDays;
 }

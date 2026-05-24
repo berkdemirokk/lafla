@@ -70,11 +70,23 @@ import {
   type PackageId,
 } from "../lib/iap";
 import { Icon, type IconName } from "../components/Icon";
+import { PaywallSuccessModal } from "../components/PaywallSuccessModal";
 import { tokens } from "../theme";
+import {
+  MODE_COUNT,
+  MODE_COUNT_DISPLAY,
+  SCENE_COUNT_DISPLAY,
+} from "../lib/scene-counts";
 
 // Live price shape — both tiers carry priceAmountMicros so we can compute
 // the discount on the fly without trusting a hardcoded percentage.
-type LivePrice = { price: string; micros: number | null } | null;
+// 2026-05-24 — trialDays eklendi. ASC'de intro offer (free trial) tanımlıysa
+// RevenueCat doldurur; tanımlı değilse undefined → pill gizli kalır.
+type LivePrice = {
+  price: string;
+  micros: number | null;
+  trialDays?: number;
+} | null;
 type LivePrices = { monthly: LivePrice; yearly: LivePrice };
 
 // Fallback display prices when RevenueCat is unavailable (Expo Go, init
@@ -99,7 +111,7 @@ interface FeatureRow {
 const FEATURES: FeatureRow[] = [
   {
     icon: "target",
-    title: "7 mod, gerçek hayat",
+    title: `${MODE_COUNT} mod, gerçek hayat`,
     subtitle:
       "Flört · İş · Bar · Havaalanı · Günlük · Sipariş · IELTS — donduğun her an.",
   },
@@ -111,7 +123,7 @@ const FEATURES: FeatureRow[] = [
   {
     icon: "infinite",
     title: "Sınırsız sahne pratiği",
-    subtitle: "Günde 5 dakika, 800+ sahne arasından senin için seçilmiş.",
+    subtitle: `Günde 5 dakika, ${SCENE_COUNT_DISPLAY} sahne arasından senin için seçilmiş.`,
   },
   {
     icon: "trending",
@@ -155,6 +167,7 @@ export default function PaywallScreen() {
   // monthly via the toggle.
   const [selectedPackage, setSelectedPackage] = useState<PackageId>("yearly");
   const [loading, setLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [, setLive] = useState<boolean | null>(null);
   // Both tiers stored — toggle switches the displayed card without re-fetch.
   // micros is used to compute "X% indirim" without hardcoding the discount.
@@ -163,11 +176,12 @@ export default function PaywallScreen() {
     yearly: null,
   });
 
-  // Trial availability — gated to keep us honest until the App Store Connect
-  // product has an introductory offer configured. The offering object from
-  // RevenueCat doesn't expose intro period through our current getOffering()
-  // shape, so we treat trial as unavailable until that's surfaced.
-  const trialAvailable = false;
+  // Trial availability — RevenueCat offering'inden okunur. ASC'de intro
+  // offer tanımlandığında otomatik canlanır; yokken sessizce gizli kalır.
+  // Apple Guideline 3.1.1: trial reklamı sadece ASC'de gerçekten konfigüre
+  // edildiğinde gösterilebilir — bu logic onu garantiler.
+  // 2026-05-24 — Aktif seçili plana göre trialDays okunur (yıllık trial
+  // genelde yıllık plana bağlı, aylığa bağlı olabiliyor — ikisini de oku).
 
   // Entrance animation — hero fades + lifts on mount.
   const heroOpacity = useSharedValue(0);
@@ -195,12 +209,14 @@ export default function PaywallScreen() {
             ? {
                 price: offering.monthly.price,
                 micros: offering.monthly.priceAmountMicros ?? null,
+                trialDays: offering.monthly.trialDays,
               }
             : null,
           yearly: offering?.yearly
             ? {
                 price: offering.yearly.price,
                 micros: offering.yearly.priceAmountMicros ?? null,
+                trialDays: offering.yearly.trialDays,
               }
             : null,
         });
@@ -297,23 +313,9 @@ export default function PaywallScreen() {
       if (result.ok) {
         hapticSuccess();
         void trackEvent("purchase_success", { plan: selected }).catch(() => {});
-        Alert.alert(
-          "Lafla Pro aktif",
-          "Tüm premium özellikler artık senin.",
-          [
-            {
-              text: "Devam",
-              onPress: () => {
-                // intro akışından geliyorsa back stack boş — /home'a git
-                if (isFromIntro) {
-                  router.replace("/today" as never);
-                } else {
-                  router.back();
-                }
-              },
-            },
-          ],
-        );
+        // 2026-05-24 — Alert.alert yerine custom full-screen celebration modal.
+        // Modal CTA basıldığında navigation logic devreye girer (handleSuccessClose).
+        setShowSuccess(true);
         return;
       }
       if (result.cancelled) {
@@ -340,6 +342,18 @@ export default function PaywallScreen() {
       Alert.alert("Hata", msg);
     } finally {
       setLoading(false);
+    }
+  };
+
+  // Success modal kapanışı — intro akışındaysa /today'e push, değilse back.
+  // Modal'da kullanıcı "Hadi başla" basana kadar açık kalır; haptic ve
+  // navigation burada zincirleniyor.
+  const handleSuccessClose = () => {
+    setShowSuccess(false);
+    if (isFromIntro) {
+      router.replace("/today" as never);
+    } else {
+      router.back();
     }
   };
 
@@ -390,16 +404,28 @@ export default function PaywallScreen() {
   // What's actually displayed inside the card (changes with toggle).
   const isYearly = selectedPackage === "yearly";
   const cardPrice = isYearly ? yearlyPriceStr : monthlyPriceStr;
-  const cardPriceLocal = isYearly ? yearlyPerMonthDisplay : "Aylık abonelik";
+  // 2026-05-24 — aylık seçili altyazı sadelik: "Aylık abonelik" duplikasyonu
+  // yerine "Esnek, istediğin zaman dur" → kullanıcı esnekliği görür.
+  const cardPriceLocal = isYearly ? yearlyPerMonthDisplay : "Esnek, istediğin zaman dur";
   const cardEyebrow = isYearly ? "Yıllık abonelik" : "Aylık abonelik";
   const cardReassurance = isYearly
     ? "İstediğin zaman iptal et · iOS Ayarlar'dan tek dokunuş · Apple ID ile fatura"
     : "İstediğin zaman iptal et · iOS Ayarlar'dan tek dokunuş";
 
+  // Trial: aktif seçili plana göre, yoksa diğer plandan oku. Sadece >0 gün
+  // olduğunda göster.
+  const activeTrialDays = isYearly
+    ? livePrices.yearly?.trialDays ?? livePrices.monthly?.trialDays
+    : livePrices.monthly?.trialDays ?? livePrices.yearly?.trialDays;
+  const trialAvailable = activeTrialDays != null && activeTrialDays > 0;
+  const trialLabel = trialAvailable
+    ? `İlk ${activeTrialDays} gün ücretsiz`
+    : null;
+
   const ctaLabel = loading
     ? "..."
     : trialAvailable
-      ? "7 gün ücretsiz dene"
+      ? `${activeTrialDays} gün ücretsiz dene`
       : isYearly
         ? "Yıllık aboneliği başlat"
         : "Aylık aboneliği başlat";
@@ -467,10 +493,10 @@ export default function PaywallScreen() {
             </>
           ) : (
             <>
-              <Text style={styles.title}>Speak English. For real.</Text>
+              <Text style={styles.title}>Donma. Konuş.</Text>
               <Text style={styles.subtitle}>
-                5 dakikada gerçek pratik. Türkçe konuşan biri için, Türkçe
-                hatalarını çözen feedback.
+                5 dakikada gerçek pratik. Türkçe düşünen birine göre yazılmış
+                hata feedback'i — anında.
               </Text>
             </>
           )}
@@ -565,9 +591,9 @@ export default function PaywallScreen() {
           </View>
           <Text style={styles.planPriceLocal}>{cardPriceLocal}</Text>
 
-          {trialAvailable && (
+          {trialAvailable && trialLabel && (
             <View style={styles.trialPill}>
-              <Text style={styles.trialPillText}>İlk 7 gün ücretsiz</Text>
+              <Text style={styles.trialPillText}>{trialLabel}</Text>
             </View>
           )}
 
@@ -597,25 +623,25 @@ export default function PaywallScreen() {
         </Animated.View>
 
         {/* SOCIAL PROOF — product-metric stat (safest pre-launch option).
-            Counts updated 2026-05-23 after IELTS mode + content depth pass:
-            7 mod (flört/iş/bar/hava/günlük/sipariş/ielts), 800+ scenes once
-            the bar+story-arc content pass lands. Audit found 666 today, but
-            we round to 800 only after the agents merge their contributions. */}
+            2026-05-24 — sayılar lib/scene-counts.ts'ten geliyor. SAMPLE_SCENES
+            master array'in length'i değişince paywall + Today + ASC otomatik
+            senkron. "0 LLM bekleme" geliştirici-tarafı metriği → kullanıcı
+            için "3 sn altı geri bildirim" daha anlamlı (LLM kavramı bilinmiyor). */}
         <Animated.View style={[styles.proofCard, proofStyle]}>
           <View style={styles.proofRow}>
             <View style={styles.proofStat}>
-              <Text style={styles.proofNumber}>7</Text>
+              <Text style={styles.proofNumber}>{MODE_COUNT_DISPLAY}</Text>
               <Text style={styles.proofLabel}>mod</Text>
             </View>
             <View style={styles.proofDivider} />
             <View style={styles.proofStat}>
-              <Text style={styles.proofNumber}>650+</Text>
+              <Text style={styles.proofNumber}>{SCENE_COUNT_DISPLAY}</Text>
               <Text style={styles.proofLabel}>sahne</Text>
             </View>
             <View style={styles.proofDivider} />
             <View style={styles.proofStat}>
-              <Text style={styles.proofNumberAccent}>0</Text>
-              <Text style={styles.proofLabel}>LLM bekleme</Text>
+              <Text style={styles.proofNumberAccent}>3 sn</Text>
+              <Text style={styles.proofLabel}>geri bildirim</Text>
             </View>
           </View>
           <Text style={styles.proofCaption}>
@@ -694,6 +720,9 @@ export default function PaywallScreen() {
           </View>
         </View>
       </ScrollView>
+
+      {/* Custom celebration modal — Alert.alert yerine. */}
+      <PaywallSuccessModal visible={showSuccess} onClose={handleSuccessClose} />
     </SafeAreaView>
   );
 }
