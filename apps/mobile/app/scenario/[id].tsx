@@ -2117,12 +2117,16 @@ const verdictStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  // 2026-05-24 — verdict title Space Grotesk display'a alındı. Önceden
+  // fontFamily set edilmemişti (System render); en kritik dopamin
+  // moment'inin tipografisi sıradan kalıyordu.
   title: {
     fontSize: 26,
     fontWeight: tokens.weight.extrabold,
     color: tokens.text.primary,
     letterSpacing: -0.5,
     marginBottom: 6,
+    fontFamily: tokens.font.display,
   },
   msg: {
     fontSize: 15,
@@ -2131,6 +2135,7 @@ const verdictStyles = StyleSheet.create({
     marginBottom: tokens.spacing.lg,
     lineHeight: 22,
     paddingHorizontal: 16,
+    fontFamily: tokens.font.sans,
   },
   scoreCard: {
     flexDirection: "row",
@@ -2176,16 +2181,23 @@ const verdictStyles = StyleSheet.create({
     right: 0,
     textAlign: "center",
   },
+  // Score hero — verdict'in odak elemanı. Display font + glow text-shadow
+  // ile premium tactile depth. letterSpacing tightened for SG Bold.
   scoreNum: {
     fontSize: 64,
     fontWeight: tokens.weight.black,
     color: tokens.brand.primary,
-    letterSpacing: -2,
+    letterSpacing: -1.6,
+    fontFamily: tokens.font.display,
+    textShadowColor: tokens.brand.primary,
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 14,
   },
   scoreOf: {
     fontSize: 22,
     color: tokens.text.secondaryFixedDim,
     fontWeight: tokens.weight.bold,
+    fontFamily: tokens.font.display,
   },
   // CEFR delta card (switch-trigger #3, 2026-05-20).
   // Skor count-up'tan sonra 950ms gecikme ile beliren mini kart.
