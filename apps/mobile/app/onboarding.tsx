@@ -54,6 +54,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../components/Button";
 import { initAnalytics, trackEvent } from "../lib/analytics";
 import { requestAttOnce } from "../lib/att";
+import { FLAG_KEYS, getFeatureFlag } from "../lib/feature-flags";
 import { completeOnboarding } from "../lib/auth";
 import { setCefrLevel, type CefrLevel } from "../lib/cefr-level";
 import { finalizeOnboarding } from "../lib/onboarding-finalize";
@@ -230,6 +231,29 @@ export default function Onboarding() {
   const [state, dispatch] = useReducer(reducer, INITIAL);
   const [saving, setSaving] = useState(false);
   const [restored, setRestored] = useState(false);
+  // 2026-05-24 — A/B: preview step on/off. PostHog feature flag
+  // `onboarding_preview_enabled` (default true). B variant → handleWelcomeStart
+  // doğrudan interests'e atlar, preview skip edilir. Variant analytics'te
+  // her step_completed event'iyle birlikte gönderilir.
+  const [previewEnabled, setPreviewEnabled] = useState<boolean>(true);
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const enabled = await getFeatureFlag(FLAG_KEYS.ONBOARDING_PREVIEW, true);
+      if (!cancelled) {
+        setPreviewEnabled(enabled);
+        // Variant'i ilk gördüğümüz anda track — funnel analytics tarafında
+        // her kullanıcının hangi variant'ta olduğu net.
+        void trackEvent("onboarding_variant_assigned", {
+          flag: FLAG_KEYS.ONBOARDING_PREVIEW,
+          variant: enabled ? "A_preview" : "B_no_preview",
+        }).catch(() => {});
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   // Diskten son adımı geri yükle (kullanıcı uygulamayı yarıda kapattıysa).
   useEffect(() => {
@@ -265,10 +289,16 @@ export default function Onboarding() {
   // ---------- Welcome ----------
   const handleWelcomeStart = () => {
     hapticImpact("light");
-    void trackEvent("onboarding_step_completed", { step: "welcome" }).catch(
-      () => {},
-    );
-    dispatch({ type: "NEXT" });
+    void trackEvent("onboarding_step_completed", {
+      step: "welcome",
+      variant: previewEnabled ? "A_preview" : "B_no_preview",
+    }).catch(() => {});
+    if (previewEnabled) {
+      dispatch({ type: "NEXT" }); // → preview
+    } else {
+      // B variant: preview'i atlayıp doğrudan interests'e geç.
+      dispatch({ type: "GOTO", step: "interests" });
+    }
   };
 
   // ---------- Preview ----------
