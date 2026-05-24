@@ -74,10 +74,16 @@ import { tokens } from "../theme";
 // TİPLER & SABİTLER
 // ============================================================
 
-type OnboardingStep = "welcome" | "interests" | "name" | "cefr";
+// 2026-05-24 — "preview" adımı eklendi: welcome → preview → interests → name → cefr.
+// Önceki kullanıcı critique'i: "Lafla'nın ne yaptığını 4 setup ekranı sonra gör".
+// Şimdi 30 saniyelik static teaser (Match DM senaryosu + Türk hata + Lafla
+// correction reveal) ile value-first ilk izlenim. Lerna AI / Cal AI'ın
+// kullandığı kalıp.
+type OnboardingStep = "welcome" | "preview" | "interests" | "name" | "cefr";
 
 const STEP_ORDER: OnboardingStep[] = [
   "welcome",
+  "preview",
   "interests",
   "name",
   "cefr",
@@ -265,6 +271,24 @@ export default function Onboarding() {
     dispatch({ type: "NEXT" });
   };
 
+  // ---------- Preview ----------
+  // Teaser sahnesi tamamlandığında interests'e geç. Atlanırsa da interests'e
+  // geçer — preview interaktif değil, sadece "Lafla nasıl çalışır" reveal.
+  const handlePreviewContinue = () => {
+    hapticImpact("light");
+    void trackEvent("onboarding_step_completed", { step: "preview" }).catch(
+      () => {},
+    );
+    dispatch({ type: "NEXT" });
+  };
+  const handlePreviewSkip = () => {
+    hapticSelection();
+    void trackEvent("onboarding_step_skipped", { step: "preview" }).catch(
+      () => {},
+    );
+    dispatch({ type: "NEXT" });
+  };
+
   // ---------- Interests ----------
   const handleInterestsContinue = async () => {
     if (state.interests.length < MIN_INTERESTS) return;
@@ -411,6 +435,12 @@ export default function Onboarding() {
       >
         {state.step === "welcome" && (
           <WelcomeStep onStart={handleWelcomeStart} />
+        )}
+        {state.step === "preview" && (
+          <PreviewStep
+            onContinue={handlePreviewContinue}
+            onSkip={handlePreviewSkip}
+          />
         )}
         {state.step === "interests" && (
           <InterestsStep
@@ -744,6 +774,297 @@ function WelcomeStep({ onStart }: { onStart: () => void }) {
     </StepContainer>
   );
 }
+
+// ============================================================
+// ADIM 1.5 — PREVIEW (teaser, 2026-05-24)
+// Static senaryo: NPC mesajı → Türk hatası → Lafla correction reveal.
+// İnteraktif değil; sadece "Lafla nasıl hissettirir" değer önerisi.
+// ============================================================
+
+function PreviewStep({
+  onContinue,
+  onSkip,
+}: {
+  onContinue: () => void;
+  onSkip: () => void;
+}) {
+  const headerOpacity = useSharedValue(0);
+  const headerTranslate = useSharedValue(10);
+  const npcOpacity = useSharedValue(0);
+  const npcTranslate = useSharedValue(12);
+  const userOpacity = useSharedValue(0);
+  const userTranslate = useSharedValue(12);
+  const correctionOpacity = useSharedValue(0);
+  const correctionTranslate = useSharedValue(16);
+  const correctionGlow = useSharedValue(0);
+
+  useEffect(() => {
+    // Stagger sequence: header → NPC bubble → user bubble → correction.
+    // Toplam ~2.4s; kullanıcı "evet bu app farklı" izlenimini bu sürede alır.
+    headerOpacity.value = withTiming(1, {
+      duration: 360,
+      easing: Easing.out(Easing.cubic),
+    });
+    headerTranslate.value = withTiming(0, {
+      duration: 420,
+      easing: Easing.out(Easing.cubic),
+    });
+    npcOpacity.value = withDelay(
+      280,
+      withTiming(1, { duration: 360, easing: Easing.out(Easing.cubic) }),
+    );
+    npcTranslate.value = withDelay(
+      280,
+      withTiming(0, { duration: 360, easing: Easing.out(Easing.cubic) }),
+    );
+    userOpacity.value = withDelay(
+      800,
+      withTiming(1, { duration: 360, easing: Easing.out(Easing.cubic) }),
+    );
+    userTranslate.value = withDelay(
+      800,
+      withTiming(0, { duration: 360, easing: Easing.out(Easing.cubic) }),
+    );
+    correctionOpacity.value = withDelay(
+      1500,
+      withTiming(1, { duration: 420, easing: Easing.out(Easing.cubic) }),
+    );
+    correctionTranslate.value = withDelay(
+      1500,
+      withTiming(0, { duration: 420, easing: Easing.out(Easing.cubic) }),
+    );
+    // Correction card cyan glow nabız (1 kere mount'ta).
+    correctionGlow.value = withDelay(
+      1500,
+      withTiming(1, { duration: 600, easing: Easing.out(Easing.cubic) }),
+    );
+  }, [
+    headerOpacity,
+    headerTranslate,
+    npcOpacity,
+    npcTranslate,
+    userOpacity,
+    userTranslate,
+    correctionOpacity,
+    correctionTranslate,
+    correctionGlow,
+  ]);
+
+  const headerStyle = useAnimatedStyle(() => ({
+    opacity: headerOpacity.value,
+    transform: [{ translateY: headerTranslate.value }],
+  }));
+  const npcStyle = useAnimatedStyle(() => ({
+    opacity: npcOpacity.value,
+    transform: [{ translateY: npcTranslate.value }],
+  }));
+  const userStyle = useAnimatedStyle(() => ({
+    opacity: userOpacity.value,
+    transform: [{ translateY: userTranslate.value }],
+  }));
+  const correctionStyle = useAnimatedStyle(() => ({
+    opacity: correctionOpacity.value,
+    transform: [{ translateY: correctionTranslate.value }],
+    shadowOpacity: 0.15 + correctionGlow.value * 0.35,
+    shadowRadius: 8 + correctionGlow.value * 12,
+  }));
+
+  return (
+    <StepContainer>
+      <ScrollView contentContainerStyle={previewStyles.scroll}>
+        <Animated.View style={headerStyle}>
+          <Text style={previewStyles.header}>Lafla nasıl çalışır?</Text>
+          <Text style={previewStyles.subtitle}>
+            Donduğun an, Türkçeye özel hata düzeltme — anında, sade.
+          </Text>
+        </Animated.View>
+
+        <View style={previewStyles.chatWrap}>
+          {/* NPC bubble */}
+          <Animated.View style={[previewStyles.npcRow, npcStyle]}>
+            <Text style={previewStyles.npcLabel}>Match'ten mesaj</Text>
+            <View style={previewStyles.npcBubble}>
+              <Text style={previewStyles.npcText}>
+                Hey, you&apos;ve been a stranger lately. Wanna grab a drink this
+                weekend?
+              </Text>
+            </View>
+          </Animated.View>
+
+          {/* User mistake bubble (Türk klasik hatası) */}
+          <Animated.View style={[previewStyles.userRow, userStyle]}>
+            <View style={previewStyles.userBubble}>
+              <Text style={previewStyles.userText}>
+                Yes, I am go with you on Saturday
+              </Text>
+            </View>
+            <Text style={previewStyles.userLabel}>Donduğun an böyle yazıyorsun</Text>
+          </Animated.View>
+
+          {/* Correction card — Lafla'nın yaptığı iş */}
+          <Animated.View style={[previewStyles.correctionCard, correctionStyle]}>
+            <View style={previewStyles.correctionRow}>
+              <Text style={previewStyles.correctionXIcon}>✗</Text>
+              <Text style={previewStyles.correctionStrike}>I am go with you</Text>
+            </View>
+            <View style={previewStyles.correctionRow}>
+              <Text style={previewStyles.correctionCheckIcon}>✓</Text>
+              <Text style={previewStyles.correctionRight}>
+                I&apos;d love to go with you
+              </Text>
+            </View>
+            <Text style={previewStyles.correctionReason}>
+              Türkçe &quot;gideceğim&quot; → &quot;I am going&quot; değil.
+              Davet kabul için &quot;I&apos;d love to&quot; veya &quot;I&apos;ll&quot;.
+            </Text>
+          </Animated.View>
+        </View>
+
+        <Pressable
+          onPress={onSkip}
+          style={styles.linkRow}
+          hitSlop={12}
+          accessibilityRole="button"
+          accessibilityLabel="Bu adımı atla"
+        >
+          <Text style={styles.linkText}>Şimdilik atla →</Text>
+        </Pressable>
+      </ScrollView>
+      <View style={styles.footer}>
+        <AnimatedCta
+          label="Devam et"
+          onPress={onContinue}
+          accessibilityLabel="Devam et"
+        />
+      </View>
+    </StepContainer>
+  );
+}
+
+const previewStyles = StyleSheet.create({
+  scroll: {
+    paddingHorizontal: tokens.spacing.md,
+    paddingTop: 8,
+    paddingBottom: 140,
+  },
+  header: {
+    fontSize: 26,
+    color: tokens.text.primary,
+    fontFamily: tokens.font.display,
+    letterSpacing: -0.3,
+    marginBottom: 6,
+    lineHeight: 32,
+  },
+  subtitle: {
+    fontSize: 15,
+    color: tokens.text.secondary,
+    fontFamily: tokens.font.sans,
+    lineHeight: 21,
+    marginBottom: tokens.spacing.md,
+  },
+  chatWrap: {
+    gap: 14,
+    marginBottom: tokens.spacing.md,
+  },
+  npcRow: {
+    alignSelf: "flex-start",
+    maxWidth: "85%",
+    gap: 4,
+  },
+  npcLabel: {
+    fontSize: 10,
+    color: tokens.text.tertiary,
+    fontFamily: tokens.font.sansBold,
+    letterSpacing: 1.4,
+    marginLeft: 4,
+  },
+  npcBubble: {
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    borderRadius: 20,
+    borderBottomLeftRadius: 4,
+    backgroundColor: tokens.bg.surfaceContainerHigh,
+  },
+  npcText: {
+    fontSize: 15,
+    color: tokens.text.primary,
+    lineHeight: 20,
+    fontFamily: tokens.font.sans,
+  },
+  userRow: {
+    alignSelf: "flex-end",
+    maxWidth: "85%",
+    gap: 4,
+  },
+  userLabel: {
+    fontSize: 10,
+    color: tokens.text.tertiary,
+    fontFamily: tokens.font.sansBold,
+    letterSpacing: 1.4,
+    alignSelf: "flex-end",
+    marginRight: 4,
+  },
+  userBubble: {
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    borderRadius: 20,
+    borderBottomRightRadius: 4,
+    backgroundColor: tokens.brand.primary,
+  },
+  userText: {
+    fontSize: 15,
+    color: tokens.brand.onPrimary,
+    lineHeight: 20,
+    fontFamily: tokens.font.sans,
+  },
+  correctionCard: {
+    marginTop: tokens.spacing.xs,
+    paddingHorizontal: 14,
+    paddingVertical: 14,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderWidth: 1.5,
+    borderColor: tokens.brand.tertiary,
+    gap: 6,
+    shadowColor: tokens.brand.tertiary,
+    shadowOffset: { width: 0, height: 0 },
+  },
+  correctionRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+  correctionXIcon: {
+    fontSize: 14,
+    fontFamily: tokens.font.sansExtra,
+    color: tokens.semantic.error,
+    width: 16,
+  },
+  correctionCheckIcon: {
+    fontSize: 14,
+    fontFamily: tokens.font.sansExtra,
+    color: tokens.brand.tertiary,
+    width: 16,
+  },
+  correctionStrike: {
+    fontSize: 15,
+    color: tokens.text.secondary,
+    fontFamily: tokens.font.sansBold,
+    textDecorationLine: "line-through",
+  },
+  correctionRight: {
+    fontSize: 15,
+    color: tokens.text.primary,
+    fontFamily: tokens.font.sansBold,
+  },
+  correctionReason: {
+    fontSize: 13,
+    color: tokens.text.secondary,
+    fontFamily: tokens.font.sans,
+    lineHeight: 18,
+    marginTop: 4,
+  },
+});
 
 // ============================================================
 // ADIM 2 — INTERESTS (6 chip, çoklu seçim, min 2)
