@@ -19,6 +19,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
       id: "ex.fb2.1.1",
       type: "vocab_tile",
       difficulty: 2,
+      cefr_band: "B2",
       word_or_phrase: "That tracks",
       tr_translation: "Mantıklı, tutarlı (Gen-Z slang)",
       example: "Coffee snob and night owl? That tracks.",
@@ -260,6 +261,7 @@ export const flirtBanterLesson_2_1: BundledLesson = {
       id: "ex.fb2.1.11",
       type: "vocab_tile",
       difficulty: 3,
+      cefr_band: "B2",
       word_or_phrase: "This just got a lot more interesting",
       tr_translation: "Bu sohbet birden daha ilginç hale geldi",
       example:
@@ -425,6 +427,7 @@ export const flirtBanterLesson_2_2: BundledLesson = {
       id: "ex.fb2.2.1",
       type: "vocab_tile",
       difficulty: 2,
+      cefr_band: "B2",
       word_or_phrase: "calling me out",
       tr_translation: "Beni rezil ediyor",
       example: "Wow okay you're calling me out.",

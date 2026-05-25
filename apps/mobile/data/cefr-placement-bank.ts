@@ -1,4 +1,4 @@
-// CEFR Placement question bank (Adım: 2026-05-21).
+// CEFR Placement question bank (Adım: 2026-05-21, 2026-05-25 revize).
 //
 // Adaptive test havuzu — her CEFR seviyesi için 8 multiple-choice soru.
 // Sorular Türk öğrencisinin sıklıkla yanılgıya düştüğü noktalardan
@@ -12,13 +12,21 @@
 // Bu karışım, sadece grammar'da iyi olan kullanıcıların testi "oyun"
 // olarak geçmesini engeller.
 //
-// Adaptive algoritma:
+// Adaptive algoritma (Phase 5B — 2026-05-25):
 //   - B1 ile başla (median)
 //   - Doğru → bir üst seviyeye geç (B1 → B2 → C1)
 //   - Yanlış → bir alt seviyeye in (B1 → A2 → A1)
-//   - 6 soru sonra final = en yüksek "correct" seviye (veya A1 fallback)
+//   - 12 soru sonra final = SON 6 sorunun "dominant level"'ı
+//     (en çok cevaplanan seviye; tie durumunda DAHA YÜKSEK seviye seçilir).
+//   - Edge cases:
+//     * 12/12 doğru → adaptive C2'de tıkanır → dominant C2 → final C2
+//     * 12/12 yanlış → adaptive A1'de tıkanır → dominant A1 → final A1
+//   - "Dominant level" yaklaşımı önceki "mastery-based" sürümün yerine geçti:
+//     mastery-based kullanıcının C1'de bir doğru ile uçmasına izin veriyordu;
+//     dominant-of-last-6 adaptive engine'in oturduğu seviyeyi ölçer, gürültüye
+//     dayanıklı.
 //
-// 48 soru total — 6 soru görür kullanıcı, sıkça oynanan placement test
+// 48 soru total — 12 soru görür kullanıcı, sıkça oynanan placement test
 // olarak hızlı + bilgi sızdırmaz.
 
 import type { CefrLevel } from "../lib/cefr-level";
@@ -686,52 +694,114 @@ export function pickQuestionFromLevel(
 }
 
 /**
- * Adaptive flow (revised 2026-05-21 — bug fix).
+ * Pencere boyutu — son N cevabın "dominant level"'ı final için kullanılır.
  *
- * Önceki sürüm: "en yüksek doğru cevaplanan seviye" — kullanıcı şanslı
- * tek doğru ile uçuyordu, üst seviyelerde yanlış olsa bile.
+ * Neden 6? Tipik 12-soruluk akışta ilk 6 soru adaptive engine'in kullanıcı
+ * seviyesini ARAMASI (B1'den ±1 kaybolarak gerçek seviyeye yaklaşır), son
+ * 6 soru ise o seviyede OTURMASI. Final ölçümü "oturma" penceresinden alınır
+ * — arama gürültüsü filtrelenir.
+ */
+export const PLACEMENT_FINAL_WINDOW = 6;
+
+/**
+ * Adaptive flow (Phase 5B — 2026-05-25, branching difficulty + dominant-level).
  *
- * Yeni algoritma — mastery-based, yürüdüğümüz her seviyede yeterlik:
- *   1. Her CEFR seviyesinde correct/total oranını hesapla.
- *   2. C2'den A1'e doğru indir, ilk "MASTERED" olanı dön:
- *      - MASTERED = (total ≥ 2 AND correct/total ≥ 0.5) — istatistiksel
- *        olarak bu seviyede yetkin
- *      - VEYA 1/1 (tek shot doğru) — adaptive bu seviyeyi sundu, geçti
- *   3. Hiçbir seviye mastered değilse, en düşük "en az 1 doğru" → fallback
- *   4. Hiç doğru yoksa A1 floor.
+ * Önceki sürümler:
+ *   v1 (6 soru): "en yüksek doğru cevaplanan seviye" — kullanıcı şanslı tek
+ *   doğru ile uçuyordu, üst seviyede yanlış olsa bile.
+ *   v2 (10 soru): mastery-based (her seviyede correct/total ≥ 0.5) — daha
+ *   güvenli ama 1/1 tek-shot doğru exception'ı hâlâ yukarıya kaçırıyordu.
+ *
+ * Yeni algoritma — dominant-of-last-6:
+ *   1. Son PLACEMENT_FINAL_WINDOW (=6) cevabı al — yoksa hepsini al.
+ *   2. Her CEFR seviyesinde DOĞRU cevap sayısını topla.
+ *   3. Hiç doğru yoksa, son penceredeki sorulan seviyelerin DAĞILIM'ını al
+ *      (kullanıcı zorlanıyor — hangi seviyede oturmuş ona bak).
+ *   4. En çok doğruya sahip seviye = dominant. Tie durumunda DAHA YÜKSEK
+ *      seviye seçilir (CEFR_ORDER index'i büyük olan) — şüphe halinde
+ *      kullanıcıyı zorlayan tarafta tut, çünkü cefr-level.ts'in PROGRESS_HIGH
+ *      mekanizması yukarı doğru kolayca düzeltir, aşağı zor.
+ *
+ * Edge cases:
+ *   - 12/12 doğru → adaptive B1→C2'ye tırmanır, son 6 soru C2 (ya da C2'de
+ *     takılan B1+B2+C1 mix) → dominant C2.
+ *   - 12/12 yanlış → adaptive B1→A1'e iner, son 6 soru A1 → dominant A1.
+ *   - Salınımlı performans (B1↔A2 arası) → son 6'da ikisi de var, tie →
+ *     daha yüksek (B1) seçilir.
  */
 export function computeFinalLevel(
   history: { level: CefrLevel; correct: boolean }[],
 ): CefrLevel {
   if (history.length === 0) return "A1";
 
-  const perLevel = new Map<CefrLevel, { correct: number; total: number }>();
-  for (const h of history) {
-    const s = perLevel.get(h.level) ?? { correct: 0, total: 0 };
-    s.total += 1;
-    if (h.correct) s.correct += 1;
-    perLevel.set(h.level, s);
+  // Son N cevap (yoksa hepsi)
+  const window = history.slice(-PLACEMENT_FINAL_WINDOW);
+
+  // 1) Doğru cevaplara göre seviye sayımı — birincil sinyal
+  const correctCounts = new Map<CefrLevel, number>();
+  for (const h of window) {
+    if (h.correct) {
+      correctCounts.set(h.level, (correctCounts.get(h.level) ?? 0) + 1);
+    }
   }
 
-  // C2'den A1'e doğru — ilk MASTERED bulunca dön
-  for (let i = CEFR_ORDER.length - 1; i >= 0; i--) {
-    const level = CEFR_ORDER[i]!;
-    const s = perLevel.get(level);
-    if (!s) continue;
-    // Çoklu attempt: %50+ doğru
-    if (s.total >= 2 && s.correct / s.total >= 0.5) return level;
-    // Tek attempt + doğru: adaptive zoru sundu, kullanıcı geçti
-    if (s.total === 1 && s.correct === 1) return level;
+  const dominantFromCorrect = pickDominantLevel(correctCounts);
+  if (dominantFromCorrect) return dominantFromCorrect;
+
+  // 2) Pencerede hiç doğru yok — kullanıcı zorlanıyor.
+  //    Sorulan seviyelerin dağılımına göre dominant seviyeyi seç.
+  //    Adaptive engine yanlış cevapta seviyeyi düşürür, bu yüzden
+  //    yanlış-only pencere kullanıcının takıldığı yere yaklaşır.
+  const askedCounts = new Map<CefrLevel, number>();
+  for (const h of window) {
+    askedCounts.set(h.level, (askedCounts.get(h.level) ?? 0) + 1);
+  }
+  // Adaptive'in oturduğu seviye yanlış-only durumda en alttaki sorulan
+  // seviyedir — orada sürekli yanlış yapıyor demektir → kullanıcı orayı
+  // bilmiyor. EN DÜŞÜK sorulan seviyeyi al (daha alt yok zaten adaptive
+  // floor'a oturmuştur).
+  let lowestAsked: CefrLevel | null = null;
+  for (const level of CEFR_ORDER) {
+    if (askedCounts.has(level)) {
+      lowestAsked = level;
+      break;
+    }
+  }
+  if (lowestAsked) {
+    // Adaptive yanlış cevapta düşürdüğü için bu floor'un BİR ALTI'na bile
+    // hak ediyor olabilir. nextLevelDown ile bir düşür (A1'de no-op).
+    return nextLevelDown(lowestAsked);
   }
 
-  // Hiçbir seviye mastered değil — en düşük "doğru var" döndür (sympathetic)
-  for (let i = 0; i < CEFR_ORDER.length; i++) {
-    const s = perLevel.get(CEFR_ORDER[i]!);
-    if (s && s.correct >= 1) return CEFR_ORDER[i]!;
-  }
+  // Tamamen boş history fallback
   return "A1";
 }
 
-// 2026-05-21: 6 → 10 (kısa test güvensiz ölçüm yapıyordu, 10 soru
-// adaptive cycle'da 3-4 seviye visit + her seviyede 2-3 question yapar).
-export const PLACEMENT_QUESTION_COUNT = 10;
+/**
+ * Tie-breaking helper: en çok sayım'a sahip seviye(ler)i bul, tie ise
+ * DAHA YÜKSEK seviye'yi (CEFR_ORDER'da büyük index) döner. Hiç sayım yoksa
+ * null döner.
+ */
+function pickDominantLevel(
+  counts: Map<CefrLevel, number>,
+): CefrLevel | null {
+  if (counts.size === 0) return null;
+
+  let maxCount = 0;
+  for (const v of counts.values()) {
+    if (v > maxCount) maxCount = v;
+  }
+  if (maxCount === 0) return null;
+
+  // CEFR_ORDER'a göre yüksekten aşağı — ilk maxCount match'i dön (tie → higher)
+  for (let i = CEFR_ORDER.length - 1; i >= 0; i--) {
+    const level = CEFR_ORDER[i]!;
+    if ((counts.get(level) ?? 0) === maxCount) return level;
+  }
+  return null;
+}
+
+// 2026-05-25 (Phase 5B): 10 → 12 (branching difficulty + dominant-of-last-6
+// için window'un tam yarısını "arama" + diğer yarısını "oturma" olarak
+// ayırabilmek için 12 ideal — son 6 = ölçüm penceresi).
+export const PLACEMENT_QUESTION_COUNT = 12;

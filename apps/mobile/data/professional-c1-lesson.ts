@@ -21,6 +21,7 @@ export const professionalC1Lesson_1: BundledLesson = {
       id: "ex.pc1.1.1",
       type: "vocab_tile",
       difficulty: 4,
+      cefr_band: "B2",
       word_or_phrase: "For context",
       tr_translation: "Bağlam vermek gerekirse (sunuma çerçeve çekme açılışı)",
       example:
@@ -32,6 +33,7 @@ export const professionalC1Lesson_1: BundledLesson = {
       id: "ex.pc1.1.2",
       type: "vocab_tile",
       difficulty: 4,
+      cefr_band: "B2",
       word_or_phrase: "With respect, I'd push back on that",
       tr_translation: "Saygıyla, buna itirazım olur (kibarca karşı çıkma)",
       example:
@@ -260,6 +262,7 @@ export const professionalC1Lesson_1: BundledLesson = {
       id: "ex.pc1.1.12",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "I'd be doing you a disservice",
       tr_translation: "Sana iyilik etmemiş olurum (= 'açıkça söylemeliyim')",
       example:
@@ -374,6 +377,136 @@ export const professionalC1Lesson_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.pc1.1.13",
+      type: "vocab_tile",
+      difficulty: 1,
+      cefr_band: "A1",
+      word_or_phrase: "boss",
+      tr_translation: "Patron / yönetici",
+      example: "My boss is in a meeting.",
+      example_tr: "Patronum toplantıda.",
+    },
+    {
+      id: "ex.pc1.1.14",
+      type: "vocab_tile",
+      difficulty: 1,
+      cefr_band: "A1",
+      word_or_phrase: "office",
+      tr_translation: "Ofis",
+      example: "I'm at the office today.",
+      example_tr: "Bugün ofisteyim.",
+    },
+    {
+      id: "ex.pc1.1.15",
+      type: "vocab_tile",
+      difficulty: 2,
+      cefr_band: "A2",
+      word_or_phrase: "let me check",
+      tr_translation: "Bir bakayım",
+      example: "Let me check my notes.",
+      example_tr: "Notlarıma bir bakayım.",
+    },
+    {
+      id: "ex.pc1.1.16",
+      type: "vocab_tile",
+      difficulty: 2,
+      cefr_band: "A2",
+      word_or_phrase: "I'll send it",
+      tr_translation: "Göndereceğim",
+      example: "I'll send it after this call.",
+      example_tr: "Bu görüşmeden sonra göndereceğim.",
+    },
+    {
+      id: "ex.pc1.1.17",
+      type: "vocab_tile",
+      difficulty: 2,
+      cefr_band: "A2",
+      word_or_phrase: "I'm running late",
+      tr_translation: "Geç kalıyorum",
+      example: "Heads up — I'm running late by 5 min.",
+      example_tr: "Hızlı haber — 5 dakika geç kalıyorum.",
+    },
+    {
+      id: "ex.pc1.1.18",
+      type: "vocab_tile",
+      difficulty: 2,
+      cefr_band: "A2",
+      word_or_phrase: "no problem",
+      tr_translation: "Sorun değil",
+      example: "No problem — happy to help.",
+      example_tr: "Sorun değil — yardım etmekten memnuniyet duyarım.",
+    },
+    {
+      id: "ex.pc1.1.19",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B1",
+      word_or_phrase: "I'd like to follow up",
+      tr_translation: "Takip etmek istiyorum",
+      example: "I'd like to follow up on the action items.",
+      example_tr: "Aksiyon maddelerini takip etmek istiyorum.",
+    },
+    {
+      id: "ex.pc1.1.20",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B1",
+      word_or_phrase: "by end of day",
+      tr_translation: "Gün sonuna kadar",
+      example: "I'll have a draft by end of day.",
+      example_tr: "Gün sonuna kadar bir taslak hazırlayacağım.",
+    },
+    {
+      id: "ex.pc1.1.21",
+      type: "vocab_tile",
+      difficulty: 4,
+      cefr_band: "B2",
+      word_or_phrase: "given the timeline",
+      tr_translation: "Zaman çizelgesi göz önüne alındığında",
+      example: "Given the timeline, can we de-scope?",
+      example_tr: "Zaman çizelgesi göz önüne alındığında, kapsamı küçültebilir miyiz?",
+    },
+    {
+      id: "ex.pc1.1.22",
+      type: "vocab_tile",
+      difficulty: 4,
+      cefr_band: "B2",
+      word_or_phrase: "walk me through",
+      tr_translation: "Adım adım anlat",
+      example: "Walk me through your reasoning.",
+      example_tr: "Düşünceni adım adım anlat.",
+    },
+    {
+      id: "ex.pc1.1.23",
+      type: "vocab_tile",
+      difficulty: 4,
+      cefr_band: "B2",
+      word_or_phrase: "for what it's worth",
+      tr_translation: "Ne kadar değeri varsa / fikrim sorulursa",
+      example: "For what it's worth, I'd lean toward option B.",
+      example_tr: "Fikrim sorulursa, B seçeneğine meylediyorum.",
+    },
+    {
+      id: "ex.pc1.1.24",
+      type: "vocab_tile",
+      difficulty: 5,
+      cefr_band: "C1",
+      word_or_phrase: "to that end",
+      tr_translation: "Bu doğrultuda",
+      example: "To that end, I've prepared a one-pager.",
+      example_tr: "Bu doğrultuda, tek sayfalık bir özet hazırladım.",
+    },
+    {
+      id: "ex.pc1.1.25",
+      type: "vocab_tile",
+      difficulty: 6,
+      cefr_band: "C2",
+      word_or_phrase: "let's table that for now",
+      tr_translation: "Şimdilik askıya alalım",
+      example: "Let's table that for now and revisit next sprint.",
+      example_tr: "Şimdilik askıya alalım, gelecek sprint tekrar bakarız.",
+    },
   ],
 };
 
@@ -393,6 +526,7 @@ export const professionalC1Lesson_2: BundledLesson = {
       id: "ex.pc1.2.1",
       type: "vocab_tile",
       difficulty: 4,
+      cefr_band: "B2",
       word_or_phrase: "The headline is",
       tr_translation: "Manşet şu (en üst seviye özet açılışı)",
       example:
@@ -404,6 +538,7 @@ export const professionalC1Lesson_2: BundledLesson = {
       id: "ex.pc1.2.2",
       type: "vocab_tile",
       difficulty: 4,
+      cefr_band: "B2",
       word_or_phrase: "Elevate this to you",
       tr_translation: "Bunu sana taşıyorum (skip-level'a bilinçli yükseltme)",
       example:
@@ -608,6 +743,7 @@ export const professionalC1Lesson_2: BundledLesson = {
       id: "ex.pc1.2.11",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "for context",
       tr_translation: "Bağlam vermek gerekirse",
       example:
@@ -741,6 +877,7 @@ export const professionalC1Lesson_3: BundledLesson = {
       id: "ex.pc1.3.1",
       type: "vocab_tile",
       difficulty: 4,
+      cefr_band: "B2",
       word_or_phrase: "Here's what I want to leave you with",
       tr_translation: "Sizi şununla bırakmak istiyorum (kapanış sözü açılışı)",
       example:
@@ -752,6 +889,7 @@ export const professionalC1Lesson_3: BundledLesson = {
       id: "ex.pc1.3.2",
       type: "vocab_tile",
       difficulty: 4,
+      cefr_band: "B2",
       word_or_phrase: "I'll be honest with you",
       tr_translation: "Açık konuşacağım (yumuşatılmış doğrudanlık açılışı)",
       example:
@@ -944,6 +1082,7 @@ export const professionalC1Lesson_3: BundledLesson = {
       id: "ex.pc1.3.11",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "with respect",
       tr_translation: "Saygıyla / saygısızlık etmeden",
       example:
@@ -1077,6 +1216,7 @@ export const professionalC1Lesson_4: BundledLesson = {
       id: "ex.pc1.4.1",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "Here's what we know — and what we don't",
       tr_translation: "Bildiklerimiz ve bilmediklerimiz (kriz şeffaflığı açılışı)",
       example:
@@ -1088,6 +1228,7 @@ export const professionalC1Lesson_4: BundledLesson = {
       id: "ex.pc1.4.2",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "We take full ownership",
       tr_translation: "Tam sorumluluk alıyoruz (kriz iletişiminde mülkiyet dili)",
       example:
@@ -1313,6 +1454,7 @@ export const professionalC1Lesson_4: BundledLesson = {
       id: "ex.pc1.4.11",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "with respect",
       tr_translation: "Saygıyla (formal itiraz)",
       example:
@@ -1446,6 +1588,7 @@ export const professionalC1Lesson_5: BundledLesson = {
       id: "ex.pc1.5.1",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "What's actually behind that is",
       tr_translation: "Aslında bunun ardındaki şu (köprü cümle)",
       example:
@@ -1457,6 +1600,7 @@ export const professionalC1Lesson_5: BundledLesson = {
       id: "ex.pc1.5.2",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "Let me put that in context",
       tr_translation: "Bunu bağlama oturtayım (yumuşatma + çerçeve değiştirme)",
       example:
@@ -1682,6 +1826,7 @@ export const professionalC1Lesson_5: BundledLesson = {
       id: "ex.pc1.5.11",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "I'd push back on the framing",
       tr_translation: "Çerçeveye itiraz ederim",
       example:
@@ -1815,6 +1960,7 @@ export const professionalC1Lesson_6: BundledLesson = {
       id: "ex.pc1.6.1",
       type: "vocab_tile",
       difficulty: 4,
+      cefr_band: "B2",
       word_or_phrase: "I won't take more than 15 minutes",
       tr_translation: "15 dakikadan fazla vaktinizi almayacağım (disiplin sinyali)",
       example:
@@ -1826,6 +1972,7 @@ export const professionalC1Lesson_6: BundledLesson = {
       id: "ex.pc1.6.2",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "Where the business sits today",
       tr_translation: "Bugün işletmenin durduğu yer (traction özetinin başlığı)",
       example:
@@ -2058,6 +2205,7 @@ export const professionalC1Lesson_6: BundledLesson = {
       id: "ex.pc1.6.11",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "for context",
       tr_translation: "Bağlam vermek gerekirse",
       example:
@@ -2191,6 +2339,7 @@ export const professionalC1Lesson_7: BundledLesson = {
       id: "ex.pc1.7.1",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "I'd hate for this to fall apart over",
       tr_translation: "Bu işin şu yüzden bozulmasını istemezdim (yumuşatılmış çekilme sinyali)",
       example:
@@ -2202,6 +2351,7 @@ export const professionalC1Lesson_7: BundledLesson = {
       id: "ex.pc1.7.2",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "Help me understand the constraint",
       tr_translation: "Kısıtlamayı anlamama yardım et (BATNA keşif sorusu)",
       example:
@@ -2427,6 +2577,7 @@ export const professionalC1Lesson_7: BundledLesson = {
       id: "ex.pc1.7.11",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "I'd push back on",
       tr_translation: "Karşı çıkarım / itiraz ederim",
       example:
@@ -2560,6 +2711,7 @@ export const professionalC1Lesson_8: BundledLesson = {
       id: "ex.pc1.8.1",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "Let me try to land this",
       tr_translation: "Bunu yerleştirmeye çalışayım (yapısal kapanış kurma açılışı)",
       example:
@@ -2571,6 +2723,7 @@ export const professionalC1Lesson_8: BundledLesson = {
       id: "ex.pc1.8.2",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "What I'm hearing from each of you",
       tr_translation: "Her birinizden duyduğum şu (her tarafın pozisyonunu yüzeye çıkar)",
       example:
@@ -2785,6 +2938,7 @@ export const professionalC1Lesson_8: BundledLesson = {
       id: "ex.pc1.8.11",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "I'd be doing you a disservice",
       tr_translation: "Sana iyilik etmemiş olurum",
       example:
@@ -2918,6 +3072,7 @@ export const professionalC1Lesson_9: BundledLesson = {
       id: "ex.pc1.9.1",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "I'd be doing you a disservice if I didn't share this",
       tr_translation: "Bunu paylaşmasaydım size haksızlık etmiş olurdum (zor mesaj açılışı)",
       example:
@@ -2929,6 +3084,7 @@ export const professionalC1Lesson_9: BundledLesson = {
       id: "ex.pc1.9.2",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "This may not be easy to hear",
       tr_translation: "Bunu duymak kolay olmayabilir (zor mesaj uyarı kalıbı)",
       example:
@@ -3150,6 +3306,7 @@ export const professionalC1Lesson_9: BundledLesson = {
       id: "ex.pc1.9.11",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "with respect",
       tr_translation: "Saygıyla (formal yumuşatma)",
       example:
@@ -3283,6 +3440,7 @@ export const professionalC1Lesson_10: BundledLesson = {
       id: "ex.pc1.10.1",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "To the best of my recollection",
       tr_translation: "Hatırladığım kadarıyla (kayıt altında temkinli ifade)",
       example:
@@ -3294,6 +3452,7 @@ export const professionalC1Lesson_10: BundledLesson = {
       id: "ex.pc1.10.2",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "I'd want to review the documentation before answering",
       tr_translation: "Cevap vermeden önce belgeyi gözden geçirmek isterim (cevap erteleme)",
       example:
@@ -3517,6 +3676,7 @@ export const professionalC1Lesson_10: BundledLesson = {
       id: "ex.pc1.10.11",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "with respect",
       tr_translation: "Saygıyla / saygısızlık etmeden",
       example:
@@ -3650,6 +3810,7 @@ export const professionalC1Lesson_11: BundledLesson = {
       id: "ex.pc1.11.1",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "Q3 highlights include",
       tr_translation: "Q3'ün öne çıkanları şunlar (kurul açılışı, övünmeden manşet sunmak)",
       example:
@@ -3661,6 +3822,7 @@ export const professionalC1Lesson_11: BundledLesson = {
       id: "ex.pc1.11.2",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "On the headwinds front",
       tr_translation: "Aksi yönlü rüzgârlar tarafında (negatif kısma geçiş, kurul registeri)",
       example:
@@ -3672,6 +3834,7 @@ export const professionalC1Lesson_11: BundledLesson = {
       id: "ex.pc1.11.3",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "Our north star remains",
       tr_translation: "Kuzey yıldızımız (ana yön göstergesi) hâlâ şu (stratejik yönelim)",
       example:
@@ -3886,6 +4049,7 @@ export const professionalC1Lesson_11: BundledLesson = {
       id: "ex.pc1.11.12",
       type: "vocab_tile",
       difficulty: 6,
+      cefr_band: "C2",
       word_or_phrase: "Were it not for",
       tr_translation: "Olmasaydı (subjunctive, kurul registeri — 'if it were not for' formal versiyon)",
       example:
@@ -4019,6 +4183,7 @@ export const professionalC1Lesson_12: BundledLesson = {
       id: "ex.pc1.12.1",
       type: "vocab_tile",
       difficulty: 6,
+      cefr_band: "C2",
       word_or_phrase: "We're exploring strategic options",
       tr_translation: "Stratejik seçenekleri değerlendiriyoruz (M&A'in formal yumuşak açılışı)",
       example:
@@ -4030,6 +4195,7 @@ export const professionalC1Lesson_12: BundledLesson = {
       id: "ex.pc1.12.2",
       type: "vocab_tile",
       difficulty: 6,
+      cefr_band: "C2",
       word_or_phrase: "Without committing prematurely",
       tr_translation: "Erken taahhütte bulunmadan (niyeti sızdırmadan ilgi gösterme hedge'i)",
       example:
@@ -4041,6 +4207,7 @@ export const professionalC1Lesson_12: BundledLesson = {
       id: "ex.pc1.12.3",
       type: "vocab_tile",
       difficulty: 6,
+      cefr_band: "C2",
       word_or_phrase: "It would be premature to characterise this as",
       tr_translation: "Bunu … olarak nitelendirmek erken olur (etiketten kaçınma, esneklik koruma)",
       example:
@@ -4269,6 +4436,7 @@ export const professionalC1Lesson_12: BundledLesson = {
       id: "ex.pc1.12.12",
       type: "vocab_tile",
       difficulty: 6,
+      cefr_band: "C2",
       word_or_phrase: "tight perimeter",
       tr_translation: "Dar bilgi çemberi (kim bilecek, kim bilmeyecek)",
       example:
@@ -4402,6 +4570,7 @@ export const professionalC1Lesson_13: BundledLesson = {
       id: "ex.pc1.13.1",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "Difficult decisions ahead",
       tr_translation: "Önümüzde zor kararlar (kötü haberin açılış çerçevesi)",
       example:
@@ -4413,6 +4582,7 @@ export const professionalC1Lesson_13: BundledLesson = {
       id: "ex.pc1.13.2",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "We owe you transparency",
       tr_translation: "Size şeffaflık borçluyuz (sorumluluk + açıklığın açılışı)",
       example:
@@ -4424,6 +4594,7 @@ export const professionalC1Lesson_13: BundledLesson = {
       id: "ex.pc1.13.3",
       type: "vocab_tile",
       difficulty: 6,
+      cefr_band: "C2",
       word_or_phrase: "This is on me, not on you",
       tr_translation: "Bu benim üzerimde, sizin üzerinizde değil (sorumluluk üstlenme)",
       example:
@@ -4652,6 +4823,7 @@ export const professionalC1Lesson_13: BundledLesson = {
       id: "ex.pc1.13.12",
       type: "vocab_tile",
       difficulty: 6,
+      cefr_band: "C2",
       word_or_phrase: "the math wouldn't bend",
       tr_translation: "Matematik eğilmedi (= sayıları başka türlü çıkaramadım, idiyomatik)",
       example:
@@ -4785,6 +4957,7 @@ export const professionalC1Lesson_14: BundledLesson = {
       id: "ex.pc1.14.1",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "We take this seriously",
       tr_translation: "Bunu ciddiye alıyoruz (kriz açıklamasının formal sorumluluk açılışı)",
       example:
@@ -4796,6 +4969,7 @@ export const professionalC1Lesson_14: BundledLesson = {
       id: "ex.pc1.14.2",
       type: "vocab_tile",
       difficulty: 5,
+      cefr_band: "C1",
       word_or_phrase: "Effective immediately, we are",
       tr_translation: "Etkin biçimde derhal, şunu yapıyoruz (somut aksiyonun başlangıç kalıbı)",
       example:
@@ -4807,6 +4981,7 @@ export const professionalC1Lesson_14: BundledLesson = {
       id: "ex.pc1.14.3",
       type: "vocab_tile",
       difficulty: 6,
+      cefr_band: "C2",
       word_or_phrase: "Without prejudging the investigation",
       tr_translation: "Soruşturmayı önyargıyla yargılamadan (hukuki hedge, kabul tuzağından kaçınma)",
       example:
@@ -5043,6 +5218,7 @@ export const professionalC1Lesson_14: BundledLesson = {
       id: "ex.pc1.14.12",
       type: "vocab_tile",
       difficulty: 6,
+      cefr_band: "C2",
       word_or_phrase: "Where the findings warrant",
       tr_translation: "Bulgular gerektirdiğinde (koşullu hukuki taahhüt — pre-judgment yok ama taahhüt var)",
       example:
