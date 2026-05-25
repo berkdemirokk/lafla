@@ -118,6 +118,24 @@ export const flirtRecoveryLesson_8_1: BundledLesson = {
         {
           speaker: "npc",
           message:
+            "Was it the joke I made on Wednesday? I should've been clearer earlier.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|truly) no — (.+)",
+            "(that was on me|that one'?s on me)",
+            "(read into|put weight on) (it|the joke|the moment)",
+            "(don'?t (blame|stress|worry)) yourself",
+            "(your )?signals were (fine|chill|clear enough)",
+            "(my own (read|wires|brain))",
+          ],
+          hint_tr:
+            "Karşı tarafı rahatlatma: 'Honestly, no — that was on me. I read into a moment that wasn't there. Your signals were fine.'",
+        },
+        {
+          speaker: "npc",
+          message:
             "Always. You're great — let's hang as friends.",
         },
       ],
@@ -338,6 +356,8 @@ export const flirtRecoveryLesson_8_1: BundledLesson = {
   ],
 };
 
+// (Note: Lesson 8.1 is the opening lesson; vocab tile expansions begin at Lesson 8.2)
+
 // ============================================================
 // Lesson 8.2 — Drunk Text Damage Control
 // ============================================================
@@ -450,6 +470,24 @@ export const flirtRecoveryLesson_8_2: BundledLesson = {
           ],
           hint_tr:
             "Pivot: 'Thanks for being chill — let me make it up with coffee?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Did you mean any of it, though? Just curious.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|truthfully) (some of it|the (kind|nice) parts)",
+            "(sober me|regular me) (means|stands by) (the (kind|positive)|that i)",
+            "(skipping past|going to skip) the (drama|intensity|3am|big declarations)",
+            "(if (the dust|things) settle|when (i'?m|i am) clear-headed)",
+            "(let'?s (talk|see) in person|easier face to face)",
+            "(let me earn it sober|sober me wants to)",
+          ],
+          hint_tr:
+            "Olgun açıklık: 'Honestly some of it — sober me stands by the kind parts, skipping the 3am drama. Let me earn it in person.' Sahte değil, ölçülü.",
         },
         {
           speaker: "npc",
@@ -685,6 +723,56 @@ export const flirtRecoveryLesson_8_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.frec8.2.vt2",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Cringing this morning",
+      tr_translation: "Sabah utançtan kıvranıyorum",
+      example: "Cringing this morning — sorry about last night's texts.",
+      example_tr: "Sabah utançtan kıvranıyorum — dün geceki mesajlar için pardon.",
+    },
+    {
+      id: "ex.frec8.2.vt3",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Sober me apologizes",
+      tr_translation: "Ayık ben özür diler (self-aware)",
+      example: "Sober me apologizes for drunk me's life updates at 2am.",
+      example_tr: "Ayık ben, sarhoş ben'in gece 2'deki hayat güncellemeleri için özür diler.",
+    },
+    {
+      id: "ex.frec8.2.vt4",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Wipe from memory",
+      tr_translation: "Hafızandan sil (komik abartı)",
+      example: "Please wipe last night from memory — coffee on me.",
+      example_tr: "Lütfen dün geceyi hafızandan sil — kahve benden.",
+    },
+    {
+      id: "ex.frec8.2.vt5",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Make it up with coffee",
+      tr_translation: "Kahveyle telafi etmek",
+      example: "Let me make it up with coffee — somewhere chill?",
+      example_tr: "Sana kahveyle telafi edeyim — sakin bir yerde?",
+    },
+    {
+      id: "ex.frec8.2.vt6",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Cringe out loud",
+      tr_translation: "Sesli utanmak (espri)",
+      example: "Just cringed out loud reading those messages back.",
+      example_tr: "O mesajları yeniden okurken sesli utandım.",
+    },
   ],
 };
 
@@ -801,6 +889,24 @@ export const flirtRecoveryLesson_8_3: BundledLesson = {
           ],
           hint_tr:
             "Plan teklif et: 'Thanks for asking — want to grab coffee + catch up?'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Just to be clear — are you actually around now, or going to vanish again?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fair (question|to ask)|that'?s (a |) fair (one|question))",
+            "(actually around|here for real|back for good)",
+            "(the worst is (over|behind me)|things are settling)",
+            "(want to (show up|do this right)|trying to (be |) consistent)",
+            "(if life flares up again|if things shift)( i)? (will|promise to) (.+)",
+            "(no more vanishing|no more going dark)",
+          ],
+          hint_tr:
+            "Hesap verebilirlik + güven: 'Fair question — actually around now, the worst is over. If things shift again I'll tell you instead of going dark.'",
         },
         {
           speaker: "npc",
@@ -1035,6 +1141,56 @@ export const flirtRecoveryLesson_8_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.frec8.3.vt2",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Hey stranger",
+      tr_translation: "Hey yabancı (sıcak re-engagement)",
+      example: "Hey stranger — life got hectic, sorry for going dark.",
+      example_tr: "Hey yabancı — hayat yoğunlaştı, sessiz kaldığım için pardon.",
+    },
+    {
+      id: "ex.frec8.3.vt3",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Life got crazy on my end",
+      tr_translation: "Benim tarafta hayat çığırından çıktı",
+      example: "Life got crazy on my end — hope you're well.",
+      example_tr: "Benim tarafta hayat çığırından çıktı — umarım sen iyisindir.",
+    },
+    {
+      id: "ex.frec8.3.vt4",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Pick this back up",
+      tr_translation: "Bunu kaldığımız yerden devam edelim",
+      example: "Hope we can pick this back up — coffee soon?",
+      example_tr: "Umarım kaldığımız yerden devam edebiliriz — yakında kahve?",
+    },
+    {
+      id: "ex.frec8.3.vt5",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Going dark",
+      tr_translation: "Sessizliğe gömülmek",
+      example: "Sorry for going dark — not on purpose.",
+      example_tr: "Sessizliğe gömüldüğüm için pardon — kasıtlı değildi.",
+    },
+    {
+      id: "ex.frec8.3.vt6",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Back for real this time",
+      tr_translation: "Bu sefer gerçekten döndüm",
+      example: "Back for real this time — promise no more vanishing.",
+      example_tr: "Bu sefer gerçekten döndüm — söz veriyorum bir daha kaybolmak yok.",
+    },
   ],
 };
 
@@ -1149,6 +1305,23 @@ export const flirtRecoveryLesson_8_5: BundledLesson = {
           ],
           hint_tr:
             "Pivot: 'Thanks for being cool — sober me is much chiller. Coffee this weekend?'",
+        },
+        {
+          speaker: "npc",
+          message: "Real question though — was the 'I miss you' part wine or actually you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honest answer|honestly)[,—-]? (a bit of both|some truth, some volume)",
+            "(sober me|day me) (would'?ve said it|likes you|misses you too) (.+)?(just (way )?quieter|with less drama)",
+            "(wine (turned it|cranked it) up to (11|eleven))",
+            "(would rather (show|prove)|let me show) it in person",
+            "(no big declarations|skip the big speech)",
+            "(.+)?(but yes|but truthfully)(.+)?",
+          ],
+          hint_tr:
+            "Olgun + ölçülü dürüstlük: 'Honest answer — some truth, some volume. Sober me would still say I like you, just way quieter. Let me show it in person.'",
         },
         {
           speaker: "npc",
@@ -1344,6 +1517,56 @@ export const flirtRecoveryLesson_8_5: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.frec8.5.vt2",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Hard reset",
+      tr_translation: "Sıfırdan başlatmak (sosyal)",
+      example: "Can we hard reset over coffee? Sober version of me?",
+      example_tr: "Kahve eşliğinde sıfırdan başlatabilir miyiz? Ayık halim?",
+    },
+    {
+      id: "ex.frec8.5.vt3",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Sober me wouldn't have",
+      tr_translation: "Ayık ben yapmazdı",
+      example: "Sober me wouldn't have sent eleven texts at 2am.",
+      example_tr: "Ayık ben gece 2'de on bir mesaj atmazdı.",
+    },
+    {
+      id: "ex.frec8.5.vt4",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Some truth, some volume",
+      tr_translation: "Biraz gerçek, biraz ses (sarhoş itiraf değerlendirmesi)",
+      example: "Honest answer? Some truth, some volume — wine cranked it up.",
+      example_tr: "Dürüst cevap? Biraz gerçek, biraz ses — şarap sesi açtı.",
+    },
+    {
+      id: "ex.frec8.5.vt5",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Way more chill",
+      tr_translation: "Çok daha sakin",
+      example: "Sober me is way more chill — promise.",
+      example_tr: "Ayık ben çok daha sakin — söz.",
+    },
+    {
+      id: "ex.frec8.5.vt6",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Skip the big declarations",
+      tr_translation: "Büyük açıklamaları atlayalım",
+      example: "Let's skip the big declarations and start with coffee.",
+      example_tr: "Büyük açıklamaları atlayıp kahveyle başlayalım.",
+    },
   ],
 };
 
@@ -1459,6 +1682,23 @@ export const flirtRecoveryLesson_8_6: BundledLesson = {
           ],
           hint_tr:
             "Onerme: 'Getting there — thanks for asking. Open to a reset over coffee, no pressure?'",
+        },
+        {
+          speaker: "npc",
+          message: "Honestly — how do I know you won't disappear again?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(fair (question|to ask)|completely fair)",
+            "(can'?t (promise|guarantee))(.+)?(but|but i can)",
+            "(if things get hard again|if i hit another wall)(.+)?(i'?ll (tell you|say something|reach out))",
+            "(rather (say|tell you) i need space|will name it next time)",
+            "(slow this|take this) (low key|step by step|gently)",
+            "(want to earn|trying to earn|earning) (it|your trust)",
+          ],
+          hint_tr:
+            "Hesap verebilirlik + somut söz: 'Fair to ask — can't guarantee perfect, but if things get hard again I'll tell you instead of going dark. Want to earn the trust back slowly.'",
         },
         {
           speaker: "npc",
@@ -1654,6 +1894,56 @@ export const flirtRecoveryLesson_8_6: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.frec8.6.vt2",
+      type: "vocab_tile",
+      difficulty: 4,
+      cefr_band: "B2",
+      word_or_phrase: "Owe you an explanation",
+      tr_translation: "Sana bir açıklama borçluyum",
+      example: "Owe you an explanation — got pulled into a tough month.",
+      example_tr: "Sana bir açıklama borçluyum — zor bir aya yakalandım.",
+    },
+    {
+      id: "ex.frec8.6.vt3",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Got pulled under",
+      tr_translation: "Altına çekildim (zor dönem)",
+      example: "Got pulled under for a while — family stuff.",
+      example_tr: "Bir süre altına çekildim — aile meselesi.",
+    },
+    {
+      id: "ex.frec8.6.vt4",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Won't disappear again",
+      tr_translation: "Bir daha kaybolmayacağım",
+      example: "Won't disappear again — if life flares up I'll name it.",
+      example_tr: "Bir daha kaybolmayacağım — hayat ters giderse söylerim.",
+    },
+    {
+      id: "ex.frec8.6.vt5",
+      type: "vocab_tile",
+      difficulty: 4,
+      cefr_band: "B2",
+      word_or_phrase: "Earn the trust back",
+      tr_translation: "Güveni yeniden kazanmak",
+      example: "Want to earn the trust back — slowly, no pressure.",
+      example_tr: "Güveni yeniden kazanmak istiyorum — yavaş, baskısız.",
+    },
+    {
+      id: "ex.frec8.6.vt6",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Fully get if you're done",
+      tr_translation: "Bittiğin durumu anlarım",
+      example: "Fully get if you're done — no expectations.",
+      example_tr: "Bittiğin durumu anlarım — beklenti yok.",
+    },
   ],
 };
 
@@ -1768,6 +2058,23 @@ export const flirtRecoveryLesson_8_7: BundledLesson = {
           ],
           hint_tr:
             "Esprili topla: 'Busted — for the record it was good things. Let me try this again — coffee?'",
+        },
+        {
+          speaker: "npc",
+          message: "Was it actually nice? Or are you covering?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(actually nice|genuinely nice|all good things)",
+            "(not covering|swear (i'?m not|im not) covering)",
+            "(saying you (looked|sounded) (great|cool|funny))",
+            "(was the kind of thing|the kind of message)( you'?d screenshot|that flatters)",
+            "(would rather (tell|show) you in person|easier face to face)",
+            "(let it be|consider it) (a teaser|a preview)",
+          ],
+          hint_tr:
+            "Dürüst + sevimli: 'Actually nice, swear I'm not covering — was saying you looked great. Would rather tell you the rest in person.'",
         },
         {
           speaker: "npc",
@@ -1964,6 +2271,56 @@ export const flirtRecoveryLesson_8_7: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.frec8.7.vt2",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Wrong chat",
+      tr_translation: "Yanlış sohbet",
+      example: "Oh no — wrong chat! Pretend you didn't see that.",
+      example_tr: "Olamaz — yanlış sohbet! Görmemiş gibi yap.",
+    },
+    {
+      id: "ex.frec8.7.vt3",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "For the record",
+      tr_translation: "Kayıt için (savunma + espri)",
+      example: "For the record, it was nice things about you.",
+      example_tr: "Kayıt için, hakkındaki güzel şeylerdi.",
+    },
+    {
+      id: "ex.frec8.7.vt4",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Busted",
+      tr_translation: "Yakalandım (espri)",
+      example: "Okay busted — but it was a compliment, swear!",
+      example_tr: "Tamam yakalandım — ama iltifattı, yemin!",
+    },
+    {
+      id: "ex.frec8.7.vt5",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Crisis averted",
+      tr_translation: "Kriz savuşturuldu",
+      example: "Crisis averted — sticking to one chat from now on.",
+      example_tr: "Kriz savuşturuldu — bundan sonra tek sohbete sadık.",
+    },
+    {
+      id: "ex.frec8.7.vt6",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Redemption coffee",
+      tr_translation: "Telafi kahvesi (espri)",
+      example: "Let me earn it with redemption coffee?",
+      example_tr: "Telafi kahvesiyle kazanayım?",
+    },
   ],
 };
 
@@ -2078,6 +2435,23 @@ export const flirtRecoveryLesson_8_8: BundledLesson = {
           ],
           hint_tr:
             "Yumusat: 'Thumbs betrayed me — sticking to words. What I meant was, you looked great in that pic.'",
+        },
+        {
+          speaker: "npc",
+          message: "So if not a snake — what were you actually trying to say?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|real answer)[,—-]? (a heart|something (warm|sweet|nice))",
+            "(meant something like|going for)[,—-]? (.+)",
+            "(would rather (just )?say it|saying it in words)",
+            "(your (pic|photo|message) (made me smile|was the highlight))",
+            "(let'?s try this without emojis|words from here on)",
+            "(easier face to face|easier in person)",
+          ],
+          hint_tr:
+            "Sözle netleştir + sıcak: 'Honestly — was going for a heart. Your photo made me smile, easier said in words than emojis.'",
         },
         {
           speaker: "npc",
@@ -2272,6 +2646,56 @@ export const flirtRecoveryLesson_8_8: BundledLesson = {
             "'X landed weird' = X garip karşılandı/yorumlandı. Sosyal-aware ifade.",
         },
       ],
+    },
+    {
+      id: "ex.frec8.8.vt2",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Thumbs betrayed me",
+      tr_translation: "Parmaklarım ihanet etti (espri)",
+      example: "Thumbs betrayed me — sticking to words from now on.",
+      example_tr: "Parmaklarım ihanet etti — bundan sonra sadece kelime.",
+    },
+    {
+      id: "ex.frec8.8.vt3",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Wrong vibe",
+      tr_translation: "Yanlış hava",
+      example: "Wrong vibe with that emoji — not what I meant.",
+      example_tr: "O emoji yanlış hava — söylemek istediğim bu değildi.",
+    },
+    {
+      id: "ex.frec8.8.vt4",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "What I meant was",
+      tr_translation: "Söylemek istediğim şuydu",
+      example: "What I meant was — your laugh made my day.",
+      example_tr: "Söylemek istediğim şuydu — gülüşün günümü güzelleştirdi.",
+    },
+    {
+      id: "ex.frec8.8.vt5",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Words from here on",
+      tr_translation: "Bundan sonra sadece kelime (emoji yok)",
+      example: "Words from here on — emojis can't be trusted.",
+      example_tr: "Bundan sonra sadece kelime — emojilere güven olmaz.",
+    },
+    {
+      id: "ex.frec8.8.vt6",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Going for warm",
+      tr_translation: "Sıcaklığa yöneliyordum",
+      example: "Was going for warm — emoji read otherwise, sorry.",
+      example_tr: "Sıcaklığa yöneliyordum — emoji başka türlü okundu, pardon.",
     },
   ],
 };

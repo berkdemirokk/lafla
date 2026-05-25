@@ -118,6 +118,24 @@ export const flirtRejectionLesson_7_1: BundledLesson = {
         {
           speaker: "npc",
           message:
+            "Mind if I ask — was it something specific, or just a feeling?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|truthfully)(,)? (it'?s|its) (more (of a |about a |of an )?)?(feeling|vibe|sense)",
+            "(nothing (specific|you did|wrong))",
+            "(it'?s not (about|on) you|nothing about you)",
+            "(more about (where i am|me|my timing|my own stuff))",
+            "(just (a |the )(feeling|vibe|chemistry|connection)) (wasn'?t there|i couldn'?t force)",
+            "(appreciate (you|asking)|thanks for asking)",
+          ],
+          hint_tr:
+            "Empati + dürüst sebep (suçlamadan). 'Honestly, more of a feeling — nothing about you. Just chemistry wasn't quite there.'",
+        },
+        {
+          speaker: "npc",
+          message:
             "Same to you. Take care.",
         },
       ],
@@ -338,6 +356,8 @@ export const flirtRejectionLesson_7_1: BundledLesson = {
   ],
 };
 
+// (Note: Lesson 7.1 is the opening lesson; vocab tile expansions begin at Lesson 7.2)
+
 // ============================================================
 // Lesson 7.2 — Handling Rejection (Reddedilince)
 // ============================================================
@@ -447,6 +467,23 @@ export const flirtRejectionLesson_7_2: BundledLesson = {
           ],
           hint_tr:
             "Kapat: 'Genuinely great meeting you — take care.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Hey — if it helps, you really do come across as someone who has it together.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(that means|that'?s really) (a lot|kind|sweet)",
+            "(appreciate (the|that) kind(ness)?|appreciate you saying)",
+            "(takes the sting out|softens it|helps actually)",
+            "(takes one to know one|right back at you)",
+            "(thanks for|appreciate) (the (lift|kindness|message))",
+          ],
+          hint_tr:
+            "Sıcak kabul: 'That means a lot, honestly. Right back at you.' İltifatı kabul et, drama yapma.",
         },
         {
           speaker: "npc",
@@ -682,6 +719,56 @@ export const flirtRejectionLesson_7_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fr7.2.vt2",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Rather know than wonder",
+      tr_translation: "Merak etmektense bilmeyi tercih ederim",
+      example: "Honestly, rather know than wonder — thanks for telling me.",
+      example_tr: "Açıkçası merak etmektense bilmeyi tercih ederim — söylediğin için sağ ol.",
+    },
+    {
+      id: "ex.fr7.2.vt3",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Means a lot",
+      tr_translation: "Çok şey ifade ediyor",
+      example: "That means a lot — appreciate the kind words.",
+      example_tr: "Çok şey ifade ediyor — güzel sözlerin için sağ ol.",
+    },
+    {
+      id: "ex.fr7.2.vt4",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Class act",
+      tr_translation: "Klas insan (övgü)",
+      example: "You handled that like a class act — respect.",
+      example_tr: "Bunu klas bir insan gibi karşıladın — saygım var.",
+    },
+    {
+      id: "ex.fr7.2.vt5",
+      type: "vocab_tile",
+      difficulty: 2,
+      cefr_band: "B1",
+      word_or_phrase: "No hard feelings",
+      tr_translation: "Kırgınlık yok",
+      example: "No hard feelings on my end — take care.",
+      example_tr: "Benim tarafımda kırgınlık yok — kendine iyi bak.",
+    },
+    {
+      id: "ex.fr7.2.vt6",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Right back at you",
+      tr_translation: "Sana da aynısı geri (iltifat kabul)",
+      example: "Right back at you — you handled this beautifully.",
+      example_tr: "Sana da aynısı geri — bunu güzel idare ettin.",
+    },
   ],
 };
 
@@ -798,6 +885,24 @@ export const flirtRejectionLesson_7_3: BundledLesson = {
           ],
           hint_tr:
             "Olgun kapat: 'Thanks for being real — wish you the best.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I felt bad leaving you on read — didn't know how to say it.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|truly) (it'?s okay|don'?t worry about it|no need)",
+            "(harder than (it )?looks|easier said than done)",
+            "(appreciate you (saying|coming back|telling me))",
+            "(takes (guts|courage|strength) to)",
+            "(no need to (apologize|feel bad)|all good on my end)",
+            "(door'?s open (for friendship)|always open for a hi)",
+          ],
+          hint_tr:
+            "Empati + sağlıklı sınır: 'Honestly, it's okay — harder than it looks. Appreciate you coming back to say it. Door's open if life calms down.'",
         },
         {
           speaker: "npc",
@@ -1032,6 +1137,56 @@ export const flirtRejectionLesson_7_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fr7.3.vt2",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Mixed signals",
+      tr_translation: "Karışık sinyaller",
+      example: "Getting some mixed signals — want to talk about it?",
+      example_tr: "Biraz karışık sinyaller alıyorum — konuşmak ister misin?",
+    },
+    {
+      id: "ex.fr7.3.vt3",
+      type: "vocab_tile",
+      difficulty: 4,
+      cefr_band: "B2",
+      word_or_phrase: "Give you an out",
+      tr_translation: "Sana bir çıkış yolu sunuyorum",
+      example: "Just giving you an out — no pressure if you're not into it.",
+      example_tr: "Sadece sana bir çıkış yolu sunuyorum — ilgilenmiyorsan baskı yok.",
+    },
+    {
+      id: "ex.fr7.3.vt4",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Better to know",
+      tr_translation: "Bilmek daha iyi",
+      example: "Better to know now than wonder forever.",
+      example_tr: "Sonsuza dek merak etmektense şimdi bilmek daha iyi.",
+    },
+    {
+      id: "ex.fr7.3.vt5",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Door's open",
+      tr_translation: "Kapı açık (sağlıklı sınır)",
+      example: "Door's open if life calms down — no pressure.",
+      example_tr: "Hayat sakinleşirse kapı açık — baskı yok.",
+    },
+    {
+      id: "ex.fr7.3.vt6",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Reading the room",
+      tr_translation: "Ortamı okumak",
+      example: "Just reading the room — feels like a soft no, right?",
+      example_tr: "Sadece ortamı okuyorum — yumuşak bir hayır gibi, değil mi?",
+    },
   ],
 };
 
@@ -1146,6 +1301,24 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
           ],
           hint_tr:
             "Kapat: 'Thanks for being chill — wish you the best out there.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Honestly — if you ever became single, would you let me know?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|truthfully) (i wouldn'?t|i don'?t think)",
+            "(plan to stay|hope to stay) (with them|in this)",
+            "(not really fair|not the move) to (.+)",
+            "(want to be fully|fully) (here|present|invested)",
+            "(appreciate the (thought|interest)|that'?s kind)(,)? but",
+            "(wish you (well|the best) (out there|finding someone))",
+          ],
+          hint_tr:
+            "Sağlıklı sınır: 'Honestly, I plan to stay invested in this — not really the move to leave that door open. Wish you well out there.'",
         },
         {
           speaker: "npc",
@@ -1342,6 +1515,56 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fr7.5.vt2",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Flattered but",
+      tr_translation: "Gururum okşandı ama",
+      example: "Flattered but I'm seeing someone — thanks though.",
+      example_tr: "Gururum okşandı ama biriyle çıkıyorum — sağ ol yine de.",
+    },
+    {
+      id: "ex.fr7.5.vt3",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Giving it a real shot",
+      tr_translation: "Gerçek bir şans veriyorum",
+      example: "Want to give this one a real shot — appreciate the message though.",
+      example_tr: "Buna gerçek bir şans vermek istiyorum — yine de mesaj için sağ ol.",
+    },
+    {
+      id: "ex.fr7.5.vt4",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Fully present",
+      tr_translation: "Tamamen mevcut/odaklı",
+      example: "Trying to be fully present in this — not really open right now.",
+      example_tr: "Bu işte tamamen mevcut olmaya çalışıyorum — şu an açık değilim.",
+    },
+    {
+      id: "ex.fr7.5.vt5",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Wishing you well out there",
+      tr_translation: "Sana iyi şanslar dilerim (dating piyasası)",
+      example: "Wishing you well out there — you seem great.",
+      example_tr: "Sana iyi şanslar dilerim — harika birine benziyorsun.",
+    },
+    {
+      id: "ex.fr7.5.vt6",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Got serious with someone",
+      tr_translation: "Biriyle ciddileştim",
+      example: "Things got serious with someone — but thanks for the kindness.",
+      example_tr: "Biriyle ciddileşti durum — ama nezaket için sağ ol.",
+    },
   ],
 };
 
@@ -1455,6 +1678,24 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
           ],
           hint_tr:
             "Kapat: 'Thanks for understanding — wish you the best.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "If you ever change your mind, you know where to find me.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(appreciate (the |that) (offer|gesture|kindness))",
+            "(don'?t think i will|won'?t be changing my mind)(,)? but",
+            "(it'?s a kind thing|that'?s kind) (to say|to offer)",
+            "(wish you genuine|hope you find) (the right (fit|match|person))",
+            "(taking care of (myself|me)|focused on (myself|my own thing)) (right now|these days)",
+            "(thanks (again|for the kindness))",
+          ],
+          hint_tr:
+            "Sağlıklı sınır + sıcaklık: 'Appreciate the offer, but don't think I'll be changing my mind. Hope you find the right fit out there.'",
         },
         {
           speaker: "npc",
@@ -1650,6 +1891,56 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fr7.6.vt2",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Not the right fit",
+      tr_translation: "Doğru uyum değil",
+      example: "Honestly, not the right fit for me — appreciate the message.",
+      example_tr: "Açıkçası benim için doğru uyum değil — mesaj için sağ ol.",
+    },
+    {
+      id: "ex.fr7.6.vt3",
+      type: "vocab_tile",
+      difficulty: 4,
+      cefr_band: "B2",
+      word_or_phrase: "Respectfully decline",
+      tr_translation: "Saygıyla reddetmek",
+      example: "I'd respectfully decline — thank you for asking though.",
+      example_tr: "Saygıyla reddederim — yine de sorduğun için sağ ol.",
+    },
+    {
+      id: "ex.fr7.6.vt4",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "No specific reason",
+      tr_translation: "Belirli bir sebep yok",
+      example: "Honestly no specific reason — just not feeling it.",
+      example_tr: "Açıkçası belirli bir sebep yok — sadece hissetmiyorum.",
+    },
+    {
+      id: "ex.fr7.6.vt5",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Best of luck out there",
+      tr_translation: "Sana iyi şanslar (dating dünyasında)",
+      example: "Best of luck out there — you seem really kind.",
+      example_tr: "Sana iyi şanslar — gerçekten nazik birine benziyorsun.",
+    },
+    {
+      id: "ex.fr7.6.vt6",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Don't see it for me",
+      tr_translation: "Bana göre değil",
+      example: "Just don't see it for me — wish you the best though.",
+      example_tr: "Sadece bana göre değil — yine de iyi şanslar.",
+    },
   ],
 };
 
@@ -1764,6 +2055,24 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
           ],
           hint_tr:
             "Kapat: 'Genuinely nice chatting — take care!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "If you ever want to grab a friend-coffee, the offer's there.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(appreciate|thanks for) (the offer|that)",
+            "(probably best|i think it'?s best) (if we|to)( just)? (.+)",
+            "(give us both|give each other) (some space|a clean slate)",
+            "(want to give myself|need to step back)",
+            "(not in a place|not ready)( for that)? right now",
+            "(take care|wishing you well|truly)",
+          ],
+          hint_tr:
+            "Saygılı sınır: 'Appreciate that — probably best if we give each other a clean slate. Truly wishing you well.' Net + sıcak çıkış.",
         },
         {
           speaker: "npc",
@@ -1960,6 +2269,56 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fr7.7.vt2",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Nothing but good vibes",
+      tr_translation: "Sadece iyi enerjiler",
+      example: "Nothing but good vibes from me — take care!",
+      example_tr: "Benden sadece iyi enerjiler — kendine iyi bak!",
+    },
+    {
+      id: "ex.fr7.7.vt3",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Clean slate",
+      tr_translation: "Temiz sayfa (yeni başlangıç)",
+      example: "Let's give each other a clean slate — no awkwardness.",
+      example_tr: "Birbirimize temiz bir sayfa verelim — gariplik yok.",
+    },
+    {
+      id: "ex.fr7.7.vt4",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Likewise",
+      tr_translation: "Sana da aynısı (karşılıklı iyi dilek)",
+      example: "Take care — likewise, wishing you the best.",
+      example_tr: "Kendine iyi bak — sana da aynısı, en iyisini dilerim.",
+    },
+    {
+      id: "ex.fr7.7.vt5",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Glad we talked",
+      tr_translation: "Konuştuğumuza sevindim",
+      example: "Honestly glad we talked — better than wondering.",
+      example_tr: "Açıkçası konuştuğumuza sevindim — merak etmekten iyi.",
+    },
+    {
+      id: "ex.fr7.7.vt6",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "All the best",
+      tr_translation: "Sana en iyisini dilerim",
+      example: "All the best — sincerely.",
+      example_tr: "Sana en iyisini dilerim — samimiyetle.",
+    },
   ],
 };
 
@@ -2074,6 +2433,24 @@ export const flirtRejectionLesson_7_8: BundledLesson = {
           ],
           hint_tr:
             "Sinirini netlestir: 'My answer stands — please stop asking. Wish you well.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "You can't just decide based on a few messages. That's not fair.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(i (get|can) decide (based on|with) (whatever|what) i (need|want))",
+            "(no isn'?t up for|no isn'?t a) (debate|negotiation)",
+            "(don'?t owe (you )?(an explanation|a reason))",
+            "(my (decision|answer) is (mine|final))",
+            "(going to (block|step away)|ending this here)",
+            "(take care|wish you the best)",
+          ],
+          hint_tr:
+            "Kararlı + sakin sınır: 'My decision is mine — no isn't up for debate. Wishing you well, ending this here.' Tartışmaya GİRME.",
         },
         {
           speaker: "npc",
@@ -2269,6 +2646,56 @@ export const flirtRejectionLesson_7_8: BundledLesson = {
             "'Maybe' = umut verir. Net 'no' = ısrar durdurma. Yumuşatma = belirsizlik = sınırsızlık.",
         },
       ],
+    },
+    {
+      id: "ex.fr7.8.vt2",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "No is a complete sentence",
+      tr_translation: "Hayır tek başına tam bir cümledir",
+      example: "No is a complete sentence — I don't owe an explanation.",
+      example_tr: "Hayır tek başına tam bir cümledir — açıklama borcum yok.",
+    },
+    {
+      id: "ex.fr7.8.vt3",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Not up for debate",
+      tr_translation: "Tartışmaya kapalı",
+      example: "My answer is not up for debate.",
+      example_tr: "Cevabım tartışmaya kapalı.",
+    },
+    {
+      id: "ex.fr7.8.vt4",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Stepping away from this",
+      tr_translation: "Bundan uzaklaşıyorum",
+      example: "Stepping away from this conversation now.",
+      example_tr: "Bu sohbetten artık uzaklaşıyorum.",
+    },
+    {
+      id: "ex.fr7.8.vt5",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "My decision is mine",
+      tr_translation: "Kararım bana ait",
+      example: "My decision is mine — please respect that.",
+      example_tr: "Kararım bana ait — lütfen buna saygı göster.",
+    },
+    {
+      id: "ex.fr7.8.vt6",
+      type: "vocab_tile",
+      difficulty: 3,
+      cefr_band: "B2",
+      word_or_phrase: "Don't owe an explanation",
+      tr_translation: "Açıklama borcum yok",
+      example: "I don't owe an explanation — the answer is no.",
+      example_tr: "Açıklama borcum yok — cevap hayır.",
     },
   ],
 };
