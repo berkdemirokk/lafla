@@ -1,19 +1,20 @@
 // Lafla — Rewarded ad entitlement (geçici Pro grant).
 //
-// 2026-05-24 — Free tier'da kullanıcının "reklam izle, bugün için Pro aç"
-// CTA'sına gönüllü tıkladığı durumda 24 saatlik geçici premium grant edilir.
+// 2026-05-24 — Free tier'da kullanıcının "reklam izle, kısa süre Pro aç"
+// CTA'sına gönüllü tıkladığı durumda kısa süreli premium grant edilir.
 // Aggressive interstitial yerine opt-in rewarded ad = daha az kullanıcı acısı,
 // daha yüksek ARPU.
 //
+// 2026-05-25 — Süre 24 saat → 20 dakika. 24 saat'in kullanıcıya verdiği
+// "Pro abone gibi" hissi monetization funnel'ı bozuyordu. 20 dakika "bir
+// sahne paketi" süresi — istersen tekrar reklam izle, bir paket daha aç.
+//
 // Mimari:
-//   • AsyncStorage key `lafla.premium.rewarded` → { expiresAt: epoch_ms }
+//   • AsyncStorage key `lafla.premium.rewarded` → { expiresAt, grantedAt, minutes }
 //   • isRewardedPremiumActive() → expiresAt > now
-//   • grantRewardedPremium(hours) → expiresAt'i hours kadar artırır
+//   • grantRewardedPremium(minutes) → expiresAt'i minutes kadar artırır
 //   • lib/iap.ts isPremium() OR'lar bunu → AdBanner, paywall gate, premium
 //     feature'lar otomatik saygı duyar.
-//
-// Grant SADECE rewarded ad successful complete callback'inde çağrılır.
-// User dismiss / load failure / non-reward path'inde grant atılmaz.
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -26,28 +27,39 @@ interface RewardedState {
   expiresAt: number;
   /** Granted at — analytics ve debug için. */
   grantedAt: number;
-  /** İlgili grant'in saat süresi (24 default, ileride değişebilir). */
-  hours: number;
+  /** İlgili grant'in dakika süresi (default 20). */
+  minutes: number;
 }
 
 async function read(): Promise<RewardedState | null> {
   try {
     const raw = await AsyncStorage.getItem(K_REWARDED);
     if (!raw) return null;
-    const parsed = parseSafe<Partial<RewardedState>>(raw, {}, isObject, {
+    // 2026-05-25 — Backward compat: eski grant'lerde "hours" field'ı vardı.
+    // Şu an "minutes" kullanıyoruz. Eski grant okurken hours → minutes'a çevir.
+    const parsed = parseSafe<
+      Partial<RewardedState> & { hours?: number }
+    >(raw, {}, isObject, {
       source: "rewarded.read",
     });
     if (
       typeof parsed.expiresAt !== "number" ||
-      typeof parsed.grantedAt !== "number" ||
-      typeof parsed.hours !== "number"
+      typeof parsed.grantedAt !== "number"
     ) {
       return null;
     }
+    // Yeni shape varsa direkt al; yoksa eski hours'tan türet.
+    const minutes =
+      typeof parsed.minutes === "number"
+        ? parsed.minutes
+        : typeof parsed.hours === "number"
+          ? parsed.hours * 60
+          : 0;
+    if (minutes <= 0) return null;
     return {
       expiresAt: parsed.expiresAt,
       grantedAt: parsed.grantedAt,
-      hours: parsed.hours,
+      minutes,
     };
   } catch {
     return null;
@@ -85,16 +97,17 @@ export async function getRewardedExpiresAt(): Promise<Date | null> {
 }
 
 /**
- * Yeni bir rewarded premium grant'i kaydet. Mevcut grant varsa süre EKLENMEZ
- * (kullanıcı arka arkaya 5 reklam izleyip 5 gün Pro almasın); yeni grant
- * her zaman max(şimdi, mevcut expiresAt) + hours olarak hesaplanır AMA
- * yalnız son grant aktif değilse yenisi atanır. Daha basit: aktif grant
- * varken yeni grant atılmaz (caller "zaten aktif" check'i yapmalı).
+ * Yeni bir rewarded premium grant'i kaydet. Default 20 dakika (kısa bir
+ * "sahne paketi" süresi — kullanıcı sahne yaparken aktif kalır, bitince
+ * tekrar reklam izleyebilir).
+ *
+ * 2026-05-25 — Eski default 24 saat'ti, "Pro abone gibi" hissi monetization
+ * funnel'ını yiyordu. 20 dk daha doğru ölçek.
  */
-export async function grantRewardedPremium(hours = 24): Promise<void> {
+export async function grantRewardedPremium(minutes = 20): Promise<void> {
   const now = Date.now();
-  const expiresAt = now + hours * 3600 * 1000;
-  await write({ expiresAt, grantedAt: now, hours });
+  const expiresAt = now + minutes * 60 * 1000;
+  await write({ expiresAt, grantedAt: now, minutes });
 }
 
 /**

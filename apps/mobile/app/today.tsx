@@ -848,7 +848,7 @@ export default function Today() {
                   {rewardedLoading ? "Hazırlanıyor..." : "Reklamı izle, Pro aç"}
                 </Text>
                 <Text style={styles.rewardedSub}>
-                  30 sn reklam · 24 saat reklamsız + sınırsız sahne
+                  30 sn reklam · 20 dk reklamsız + sınırsız sahne
                 </Text>
               </View>
               <Icon name="chevronRight" size={20} color={tokens.text.tertiary} />

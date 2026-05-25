@@ -206,7 +206,7 @@ export function resetAdState(): void {
 // dismiss, network error) reject döner — caller UI mesajı gösterir.
 
 export type RewardedResult =
-  | { ok: true; hoursGranted: number }
+  | { ok: true; minutesGranted: number }
   | { ok: false; reason: string; userClosed?: boolean };
 
 let _loadingRewarded = false;
@@ -268,7 +268,8 @@ export async function showRewardedAd(): Promise<RewardedResult> {
         userClosed = true;
         cleanup();
         if (earnedReward) {
-          resolve({ ok: true, hoursGranted: 24 });
+          // 2026-05-25 — 24h → 20 dk. Bir sahne paketi süresi.
+          resolve({ ok: true, minutesGranted: 20 });
         } else {
           resolve({
             ok: false,
@@ -296,9 +297,9 @@ export async function showRewardedAd(): Promise<RewardedResult> {
     });
 
     if (result.ok) {
-      await grantRewardedPremium(result.hoursGranted);
+      await grantRewardedPremium(result.minutesGranted);
       void trackEvent("rewarded_ad_completed", {
-        hours: result.hoursGranted,
+        minutes: result.minutesGranted,
       }).catch(() => {});
     } else {
       void trackEvent("rewarded_ad_failed", {
