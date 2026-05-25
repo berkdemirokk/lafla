@@ -1,12 +1,19 @@
 // Lafla — Scenario engine. The pivot from "Duolingo lesson" to "real conversation."
 //
-// Each "scenario" has 3 phases:
-//   1. SETUP — show 2-3 key phrases the user needs (vocab teach + TTS)
-//   2. SCENE — roleplay chat (actual production via typing + auto-spoken NPC)
-//   3. VERDICT — fluency score for this scene + next-review schedule
+// 2026-05-24 — Content expansion (Phase 1, Agent B). Scenario yapısı genişledi:
+// vocab-only "tanıt-geç" setup'tan, ~10 dakikalık kademeli pratiğe. Phases:
 //
-// Optional 4th: WARM-UP — drill exercises (translate/fill_blank/etc) for users
-// who want extra practice. Hidden behind a "Daha çok pratik" button.
+//   1. SETUP-1: Vocab teaching (up to 12 vocab_tile)
+//   2. SETUP-2: Sentence Pattern + Dialogue Gap (setupExtra)
+//   3. DRILL: translate / fill_blank / word_order / spot_mistake / thinking_trap
+//   4. PRE-SCENE: Listen-Respond rehearsal (max 3 turn)
+//   5. SCENE: Roleplay chat
+//   6. RECALL: Verdict öncesi son recall_quiz (varsa 1 tane)
+//   7. VERDICT: Fluency score + next-review schedule
+//
+// Eski lesson dosyaları yeni egzersiz tiplerini içermeyebilir — bu durumda
+// setupExtra / preScene boş array, recallQuiz null olur ve UI bunları
+// gracefully skip eder.
 
 import { allLessons, type BundledLesson } from "../data/lessons";
 import { SAMPLE_SCENES, type CefrLevel } from "../data/scenes";
@@ -54,13 +61,31 @@ export interface Scenario {
    */
   cefrLevel?: CefrLevel;
   setup: SetupPhrase[];
+  /**
+   * Setup'ta vocab'tan sonra gösterilen sentence_pattern + dialogue_gap
+   * egzersizleri. Lesson author intent: kullanıcı vocab'ı tanıdıktan sonra
+   * bunları cümle yapısında / mini diyalogda görüyor. Eski lesson'larda boş.
+   */
+  setupExtra: BundledLesson["exercises"];
   scene: {
     description: string;
     npc_role: string;
     setting: string;
     turns: SceneTurn[];
   };
-  // Optional warm-up drills extracted from non-roleplay exercises
+  /**
+   * Roleplay sahnesinden ÖNCE çalıştırılan listen_respond rehearsal'ları
+   * (en fazla 3 tane). Kullanıcı NPC'yi dinler, 3 saniye düşünür, cevap verir.
+   * Voice-first warm-up. Eski lesson'larda boş.
+   */
+  preScene: BundledLesson["exercises"];
+  /**
+   * Verdict ÖNCESİ gösterilen son recall_quiz (varsa ilk tanesi, yoksa null).
+   * 5 hızlı flashcard ~1 dakika. Eski lesson'larda null.
+   */
+  recallQuiz: BundledLesson["exercises"][number] | null;
+  // Optional warm-up drills extracted from non-roleplay exercises.
+  // thinking_trap'i de içerir (drill phase'inde gösterilecek).
   warmups: BundledLesson["exercises"];
 }
 
@@ -72,37 +97,63 @@ function modeOf(skillId: string): string {
 }
 
 /**
- * Extract a Scenario from a legacy BundledLesson.
- * - setup = first vocab_tile exercise(s) (up to 6)
- * - scene = the roleplay_chat exercise
- * - warmups = everything else (translate, fill_blank, word_order, spot_mistake, recap_quiz)
+ * Extract a Scenario from a BundledLesson.
  *
- * 2026-05-24 — Setup cap 2 → 6. Lesson author'lar her sahneye ~12 vocab_tile
- * koyuyordu ama eski versiyon sadece ilk 2'sini setup'a alıyordu; kalan 10
- * vocab DrillRenderer'da default-skip'e düşüyordu (silent score 100, kullanıcı
- * görmüyordu). Kullanıcı şikayeti: "kelime öğretmeden roleplay'e giriyor".
- * Şimdi 6 vocab öğretildikten sonra drill + scene'e geçilir. ~3-4 dk setup'a
- * ekleme.
+ * Setup pipeline:
+ * - setup = ilk 12 vocab_tile (eski: 6 → 12, lesson author intent açılır)
+ * - setupExtra = tüm sentence_pattern + dialogue_gap (order preserved)
+ * - preScene = ilk 3 listen_respond
+ * - recallQuiz = ilk recall_quiz (yoksa null)
+ * - warmups = geri kalan her şey (translate, fill_blank, word_order,
+ *   spot_mistake, thinking_trap, vb.)
+ *
+ * 2026-05-24 — Setup cap 6 → 12 (content expansion). Eski lesson'lar yeni
+ * egzersiz tiplerini içermez; bu durumda setupExtra=[], preScene=[],
+ * recallQuiz=null olur ve UI bu fazları skip eder.
  */
 export function lessonToScenario(lesson: BundledLesson): Scenario | null {
   const exercises = lesson.exercises as AnyExercise[];
 
   const vocabTiles = exercises.filter((e) => e.type === "vocab_tile");
+  const sentencePatterns = exercises.filter(
+    (e) => e.type === "sentence_pattern",
+  );
+  const dialogueGaps = exercises.filter((e) => e.type === "dialogue_gap");
+  const listenResponds = exercises.filter((e) => e.type === "listen_respond");
+  const recallQuizzes = exercises.filter((e) => e.type === "recall_quiz");
   const roleplay = exercises.find((e) => e.type === "roleplay_chat");
 
   // A scenario MUST have a roleplay. Skip lessons without one.
   if (!roleplay) return null;
 
-  const setup: SetupPhrase[] = vocabTiles.slice(0, 6).map((v) => ({
+  const setup: SetupPhrase[] = vocabTiles.slice(0, 12).map((v) => ({
     en: v.word_or_phrase,
     tr: v.tr_translation,
     example: v.example,
     example_tr: v.example_tr,
   }));
 
-  const warmups = exercises.filter(
-    (e) => e.type !== "vocab_tile" && e.type !== "roleplay_chat",
-  );
+  // Setup-2: pattern + dialogue gap (order preserved from lesson file).
+  const setupExtra = [...sentencePatterns, ...dialogueGaps];
+
+  // Pre-scene rehearsal: en fazla 3 listen_respond.
+  const preScene = listenResponds.slice(0, 3);
+
+  // Verdict öncesi recall (varsa).
+  const recallQuiz = recallQuizzes[0] ?? null;
+
+  // Drill phase'te kullanılacak warmups. setup/setupExtra/preScene/recallQuiz/
+  // roleplay'de tüketilen tipleri çıkar; thinking_trap dahil kalan her şey
+  // drill'e düşer.
+  const consumedTypes = new Set([
+    "vocab_tile",
+    "roleplay_chat",
+    "sentence_pattern",
+    "dialogue_gap",
+    "listen_respond",
+    "recall_quiz",
+  ]);
+  const warmups = exercises.filter((e) => !consumedTypes.has(e.type));
 
   return {
     id: lesson.id,
@@ -113,6 +164,9 @@ export function lessonToScenario(lesson: BundledLesson): Scenario | null {
     estimated_minutes: lesson.estimated_minutes ?? 3,
     cefrLevel: _lessonLevelMap.get(lesson.id),
     setup,
+    setupExtra,
+    preScene,
+    recallQuiz,
     scene: {
       description: roleplay.scenario_description,
       npc_role: roleplay.npc_role,

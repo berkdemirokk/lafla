@@ -56,6 +56,12 @@ import { Translate } from "../../components/exercises/Translate";
 import { PronouncePhrase } from "../../components/exercises/PronouncePhrase";
 import { SpeechShadowing } from "../../components/exercises/SpeechShadowing";
 import { ListenAndTranscribe } from "../../components/exercises/ListenAndTranscribe";
+// 2026-05-24 — Content expansion exercise components (Agent A).
+import { SentencePattern } from "../../components/exercises/SentencePattern";
+import { DialogueGap } from "../../components/exercises/DialogueGap";
+import { ListenRespond } from "../../components/exercises/ListenRespond";
+import { ThinkingTrap } from "../../components/exercises/ThinkingTrap";
+import { RecallQuiz } from "../../components/exercises/RecallQuiz";
 import { AchievementToast } from "../../components/AchievementToast";
 import { StreakMilestoneModal } from "../../components/StreakMilestoneModal";
 import {
@@ -64,7 +70,11 @@ import {
 } from "../../lib/notifications";
 
 import { trackEvent } from "../../lib/analytics";
-import { getScenario, computeSceneFluency } from "../../lib/scenario";
+import {
+  getScenario,
+  computeSceneFluency,
+  type Scenario,
+} from "../../lib/scenario";
 import {
   recordCefrProgress,
   getCefrLevel,
@@ -108,7 +118,17 @@ import { tokens } from "../../theme";
 import type { AchievementDef } from "../../lib/achievements";
 import type { ExerciseResult } from "../../lib/engine";
 
-type Phase = "setup" | "drill" | "scene" | "verdict";
+// 2026-05-24 — Content expansion (Phase 1C, Agent C). 4 → 7 phase.
+// Yeni faz veri yoksa (eski lesson) getNextPhase() o fazı atlar; flow eskisi
+// gibi setup → drill → scene → verdict olarak akar.
+type Phase =
+  | "setup"
+  | "setup-extra"
+  | "drill"
+  | "pre-scene"
+  | "scene"
+  | "recall"
+  | "verdict";
 
 // Display name persisted by onboarding under `lafla.displayName`. Used by
 // the scene phase (NPC opener personalization) and the verdict screen
@@ -137,6 +157,63 @@ function findNextScenario(skillId: string, currentId: string): string | null {
   return inSkill[idx + 1]?.id ?? null;
 }
 
+// 2026-05-24 — Content expansion (Phase 1C, Agent C).
+// Phase skip helpers — yeni phase'lerin veri kontrolü tek noktada.
+// Eski lesson dosyaları setupExtra/preScene için boş array, recallQuiz için
+// null döndürür (lib/scenario.ts garantisi). Bu helper'lar o gracefully
+// degradation'ı sağlar: veri yoksa o phase atlanır, eski 4-fazlı akış korunur.
+function hasSetup(scenario: Scenario): boolean {
+  return (scenario.setup?.length ?? 0) > 0;
+}
+function hasSetupExtra(scenario: Scenario): boolean {
+  return (scenario.setupExtra?.length ?? 0) > 0;
+}
+function hasDrill(scenario: Scenario): boolean {
+  return (scenario.warmups?.length ?? 0) > 0;
+}
+function hasPreScene(scenario: Scenario): boolean {
+  return (scenario.preScene?.length ?? 0) > 0;
+}
+function hasRecall(scenario: Scenario): boolean {
+  return scenario.recallQuiz !== null && scenario.recallQuiz !== undefined;
+}
+
+/**
+ * Bir phase tamamlandığında bir sonraki phase'i hesaplar. Her phase'in veri
+ * array'i boş veya null ise o faz atlanır. Bu, eski lesson'ların (yeni
+ * egzersiz veri içermeyen) hiç değişmeden mevcut akışta çalışmasını sağlar.
+ *
+ * Akış: setup → setup-extra → drill → pre-scene → scene → recall → verdict
+ */
+function getNextPhase(
+  scenario: Scenario,
+  current: Phase,
+): Phase | "complete" {
+  switch (current) {
+    case "setup":
+      if (hasSetupExtra(scenario)) return "setup-extra";
+      if (hasDrill(scenario)) return "drill";
+      if (hasPreScene(scenario)) return "pre-scene";
+      return "scene";
+    case "setup-extra":
+      if (hasDrill(scenario)) return "drill";
+      if (hasPreScene(scenario)) return "pre-scene";
+      return "scene";
+    case "drill":
+      if (hasPreScene(scenario)) return "pre-scene";
+      return "scene";
+    case "pre-scene":
+      return "scene";
+    case "scene":
+      if (hasRecall(scenario)) return "recall";
+      return "verdict";
+    case "recall":
+      return "verdict";
+    case "verdict":
+      return "complete";
+  }
+}
+
 export default function ScenarioScreen() {
   const { id, intro } = useLocalSearchParams<{
     id: string;
@@ -151,7 +228,13 @@ export default function ScenarioScreen() {
 
   const [phase, setPhase] = useState<Phase>("setup");
   const [setupIdx, setSetupIdx] = useState(0);
+  // 2026-05-24 — Content expansion (Phase 1C, Agent C). Yeni faz indeksleri.
+  // setup-extra phase'inde scenario.setupExtra[setupExtraIdx] render edilir.
+  // pre-scene phase'inde scenario.preScene[preSceneIdx] render edilir.
+  // recall phase'inde scenario.recallQuiz (tek obje, idx yok) render edilir.
+  const [setupExtraIdx, setSetupExtraIdx] = useState(0);
   const [drillIdx, setDrillIdx] = useState(0);
+  const [preSceneIdx, setPreSceneIdx] = useState(0);
   const [sceneResult, setSceneResult] = useState<ExerciseResult | null>(null);
   const [roleplayMode, setRoleplayMode] = useState<RoleplayMode>("multi-choice");
   // Personalization: read once on mount, sanitized for inline injection.
@@ -475,8 +558,9 @@ export default function ScenarioScreen() {
   const onExitConfirmed = () => router.back();
   const handleExit = () => {
     // SETUP is safe to abandon outright — nothing persisted yet, no scene
-    // started. VERDICT is post-save, also safe. DRILL and SCENE always
-    // confirm because progress is in-flight and won't be retained.
+    // started. VERDICT is post-save, also safe. DRILL, SCENE, and the new
+    // expansion phases (setup-extra, pre-scene, recall) all confirm because
+    // progress is in-flight and won't be retained.
     if (phase === "setup" || phase === "verdict") {
       onExitConfirmed();
       return;
@@ -491,13 +575,43 @@ export default function ScenarioScreen() {
     );
   };
 
+  // 2026-05-24 — Phase advance helpers. Her phase'in son adımı tamamlandığında
+  // getNextPhase() ile bir sonraki phase'i sor (boş array veri olan phase'ler
+  // atlanır). "verdict" hariç hepsi setPhase ile geçer; verdict'e geçiş
+  // onSceneComplete'te tetiklenir (sceneResult set edilir).
+  const goToNextPhase = (from: Phase) => {
+    const next = getNextPhase(scenario, from);
+    if (next === "complete") return;
+    setPhase(next);
+  };
+
+  // 2026-05-25 — M-3 defensive guard. Bir lesson vocab_tile içermiyorsa
+  // (örn. sadece thinking_trap'lerden oluşan exotik bir test case) setup
+  // phase'i boş array'le açılır ve SetupView'da `setup[0]!` non-null
+  // assertion crash eder. Mount'ta phase === "setup" ama scenario.setup boş
+  // ise direkt bir sonraki phase'e atla. Tipik lesson'larda hiç tetiklenmez.
+  useEffect(() => {
+    if (!scenario) return;
+    if (phase === "setup" && !hasSetup(scenario)) {
+      const next = getNextPhase(scenario, "setup");
+      if (next !== "complete") setPhase(next);
+    }
+  }, [phase, scenario]);
+
   const advanceSetup = () => {
     hapticImpact("light");
     if (setupIdx + 1 < scenario.setup.length) {
       setSetupIdx(setupIdx + 1);
     } else {
-      // After setup: drill phase if warmups exist, otherwise direct to scene
-      setPhase(scenario.warmups.length > 0 ? "drill" : "scene");
+      goToNextPhase("setup");
+    }
+  };
+
+  const advanceSetupExtra = () => {
+    if (setupExtraIdx + 1 < (scenario.setupExtra?.length ?? 0)) {
+      setSetupExtraIdx(setupExtraIdx + 1);
+    } else {
+      goToNextPhase("setup-extra");
     }
   };
 
@@ -505,13 +619,29 @@ export default function ScenarioScreen() {
     if (drillIdx + 1 < scenario.warmups.length) {
       setDrillIdx(drillIdx + 1);
     } else {
-      setPhase("scene");
+      goToNextPhase("drill");
     }
+  };
+
+  const advancePreScene = () => {
+    if (preSceneIdx + 1 < (scenario.preScene?.length ?? 0)) {
+      setPreSceneIdx(preSceneIdx + 1);
+    } else {
+      goToNextPhase("pre-scene");
+    }
+  };
+
+  // Recall faz tek bir quiz objesi içerir. RecallQuiz onComplete döndüğünde
+  // direkt verdict'e (veya getNextPhase'in döndüğü yere) geçer. sceneResult
+  // değişmez — recall puanı verdict score'unu etkilemez (Phase 1 kararı).
+  const advanceRecall = () => {
+    goToNextPhase("recall");
   };
 
   const skipDrill = () => {
     hapticImpact("light");
-    setPhase("scene");
+    // Drill skip — pre-scene ya da direkt scene'e (veri yoksa atlanır).
+    goToNextPhase("drill");
   };
 
   const onSceneComplete = (result: ExerciseResult) => {
@@ -579,7 +709,9 @@ export default function ScenarioScreen() {
       // Defense-in-depth — relationships shouldn't ever break a scene.
     }
     hapticSuccess();
-    setPhase("verdict");
+    // 2026-05-24 — Recall phase varsa önce ona geç (sceneResult zaten set
+    // edildi, verdict'e geçişte aynı obje render edilir). Yoksa direkt verdict.
+    goToNextPhase("scene");
   };
 
   const nextScenario = findNextScenario(scenario.skill_id, scenario.id);
@@ -595,20 +727,37 @@ export default function ScenarioScreen() {
           <Pressable onPress={handleExit} style={styles.exitBtn}>
             <Text style={styles.exitText}>← Geri</Text>
           </Pressable>
+          {/* 2026-05-24 — 7-fazlı yeni akışı 4 dot'a kondense ettik
+              (kullanıcıya 7 dot karıştırır):
+                Dot 1 (Kurulum): setup + setup-extra
+                Dot 2 (Alıştırma): drill + pre-scene
+                Dot 3 (Sahne): scene
+                Dot 4 (Bitiş): recall + verdict */}
           <View style={styles.phaseDots}>
             <PhaseDot
-              active={phase === "setup"}
-              done={phase !== "setup"}
+              active={phase === "setup" || phase === "setup-extra"}
+              done={
+                phase === "drill" ||
+                phase === "pre-scene" ||
+                phase === "scene" ||
+                phase === "recall" ||
+                phase === "verdict"
+              }
             />
             <PhaseDot
-              active={phase === "drill"}
-              done={phase === "scene" || phase === "verdict"}
+              active={phase === "drill" || phase === "pre-scene"}
+              done={
+                phase === "scene" || phase === "recall" || phase === "verdict"
+              }
             />
             <PhaseDot
               active={phase === "scene"}
-              done={phase === "verdict"}
+              done={phase === "recall" || phase === "verdict"}
             />
-            <PhaseDot active={phase === "verdict"} done={false} />
+            <PhaseDot
+              active={phase === "recall" || phase === "verdict"}
+              done={false}
+            />
           </View>
           <View style={styles.spacer} />
         </View>
@@ -616,11 +765,11 @@ export default function ScenarioScreen() {
         {/* PhaseShell cross-fades between phase renders so the swap from
             setup → drill → scene → verdict feels deliberate, not abrupt. */}
         <PhaseShell phaseKey={phase} style={styles.flex}>
-          {phase === "setup" && (
+          {phase === "setup" && scenario.setup[setupIdx] && (
             <View style={{ flex: 1 }}>
               <SetupView
                 key={`setup-${setupIdx}`}
-                phrase={scenario.setup[setupIdx]!}
+                phrase={scenario.setup[setupIdx]}
                 stepIndex={setupIdx}
                 total={scenario.setup.length}
                 onNext={advanceSetup}
@@ -669,6 +818,31 @@ export default function ScenarioScreen() {
             </View>
           )}
 
+          {/* 2026-05-24 — Content expansion. setup-extra phase: sentence_pattern
+              + dialogue_gap egzersizleri vocab setup'tan sonra, drill öncesi.
+              Veri yoksa getNextPhase setup → drill geçer, bu blok hiç render
+              olmaz (eski lesson akışı korunur). */}
+          {phase === "setup-extra" &&
+            scenario.setupExtra &&
+            scenario.setupExtra[setupExtraIdx] && (
+              <View style={styles.drillWrap}>
+                <View style={styles.drillHeader}>
+                  <Text style={styles.drillLabel}>
+                    YAPI · {setupExtraIdx + 1}/{scenario.setupExtra.length}
+                  </Text>
+                  <Pressable onPress={() => goToNextPhase("setup-extra")} hitSlop={8}>
+                    <Text style={styles.drillSkip}>Atla</Text>
+                  </Pressable>
+                </View>
+                <View style={styles.drillBody}>
+                  <DrillRenderer
+                    exercise={scenario.setupExtra[setupExtraIdx]!}
+                    onComplete={advanceSetupExtra}
+                  />
+                </View>
+              </View>
+            )}
+
           {phase === "drill" && scenario.warmups[drillIdx] && (
             <View style={styles.drillWrap}>
               <View style={styles.drillHeader}>
@@ -687,6 +861,30 @@ export default function ScenarioScreen() {
               </View>
             </View>
           )}
+
+          {/* 2026-05-24 — pre-scene phase: listen_respond rehearsal (en fazla
+              3 tur). Voice-first NPC dinle + 3sn düşün + cevap. Sahne öncesi
+              ısınma. Veri yoksa drill → scene'e geçer. */}
+          {phase === "pre-scene" &&
+            scenario.preScene &&
+            scenario.preScene[preSceneIdx] && (
+              <View style={styles.drillWrap}>
+                <View style={styles.drillHeader}>
+                  <Text style={styles.drillLabel}>
+                    HAZIRLIK · {preSceneIdx + 1}/{scenario.preScene.length}
+                  </Text>
+                  <Pressable onPress={() => goToNextPhase("pre-scene")} hitSlop={8}>
+                    <Text style={styles.drillSkip}>Sahneye atla</Text>
+                  </Pressable>
+                </View>
+                <View style={styles.drillBody}>
+                  <DrillRenderer
+                    exercise={scenario.preScene[preSceneIdx]!}
+                    onComplete={advancePreScene}
+                  />
+                </View>
+              </View>
+            )}
 
           {phase === "scene" && (
             <View style={styles.sceneWrap}>
@@ -728,6 +926,28 @@ export default function ScenarioScreen() {
                 userLevel={userLevel ?? undefined}
                 hardMode={hardMode}
               />
+            </View>
+          )}
+
+          {/* 2026-05-24 — recall phase: sahnenin sonunda, verdict öncesi son
+              hızlı 5-soru flashcard. recallQuiz null ise (eski lesson veya
+              author atlamış) bu blok render olmaz, scene → verdict geçer.
+              DrillRenderer "recall_quiz" case'i RecallQuiz component'ini
+              çağırır; tek obje olduğu için idx state'i yok. */}
+          {phase === "recall" && scenario.recallQuiz && (
+            <View style={styles.drillWrap}>
+              <View style={styles.drillHeader}>
+                <Text style={styles.drillLabel}>HATIRLAMA</Text>
+                <Pressable onPress={advanceRecall} hitSlop={8}>
+                  <Text style={styles.drillSkip}>Atla</Text>
+                </Pressable>
+              </View>
+              <View style={styles.drillBody}>
+                <DrillRenderer
+                  exercise={scenario.recallQuiz}
+                  onComplete={advanceRecall}
+                />
+              </View>
             </View>
           )}
 
@@ -931,6 +1151,59 @@ function DrillRenderer({
           trHint={exercise.tr_hint}
           onComplete={onComplete}
         />
+      );
+    // 2026-05-24 — Content expansion (Phase 1C, Agent C). Yeni egzersiz tipleri.
+    // Plan dokümanı (CONTENT_EXPANSION_PLAN.md) schema:
+    //   sentence_pattern: { template, slots, tr_hint, example_filled }
+    //   dialogue_gap: { turns, missing_at, accepted_patterns, tr_hint }
+    //   listen_respond: { npc_line, accepted_patterns, think_seconds, tr_hint }
+    //   thinking_trap: { tr_thought, wrong_en, right_en, why_tr }
+    //   recall_quiz: { items: [{ q, options, correct, tr_explanation }] }
+    case "sentence_pattern":
+      return (
+        <SentencePattern
+          template={exercise.template}
+          slots={exercise.slots}
+          tr_hint={exercise.tr_hint}
+          example_filled={exercise.example_filled}
+          onComplete={onComplete}
+        />
+      );
+    case "dialogue_gap":
+      return (
+        <DialogueGap
+          turns={exercise.turns}
+          missing_at={exercise.missing_at}
+          accepted_patterns={exercise.accepted_patterns}
+          tr_hint={exercise.tr_hint}
+          ideal_answer={exercise.ideal_answer}
+          onComplete={onComplete}
+        />
+      );
+    case "listen_respond":
+      return (
+        <ListenRespond
+          npc_line={exercise.npc_line}
+          accepted_patterns={exercise.accepted_patterns}
+          think_seconds={exercise.think_seconds ?? 3}
+          tr_hint={exercise.tr_hint}
+          ideal_response={exercise.ideal_response}
+          onComplete={onComplete}
+        />
+      );
+    case "thinking_trap":
+      return (
+        <ThinkingTrap
+          tr_thought={exercise.tr_thought}
+          wrong_en={exercise.wrong_en}
+          right_en={exercise.right_en}
+          why_tr={exercise.why_tr}
+          onComplete={onComplete}
+        />
+      );
+    case "recall_quiz":
+      return (
+        <RecallQuiz items={exercise.items} onComplete={onComplete} />
       );
     default:
       // recap_quiz and others: auto-skip (covered by setup/scene)
