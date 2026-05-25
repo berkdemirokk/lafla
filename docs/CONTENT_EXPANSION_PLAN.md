@@ -120,3 +120,71 @@ Her agent commit attığında bu dosyayı güncelle:
 - ASC metadata refresh (yeni "10 dakikalık deep practice" copy)
 - Yıllık fiyat indirimi konuşması (₺999 → ₺699-799)
 - Soft launch
+
+---
+
+## HANDOFF — 2026-05-25 (yeni session bu noktadan devam)
+
+**Origin master:** `59abe58` (push'lu, TAG YOK = TestFlight YOK)
+
+**Tamamlanan ek fazlar (Phase 5 + Phase 6):**
+
+### Phase 5 (kullanılmadı tag, ama tüm değişiklikler master'da):
+- Vocab pool 12 → 25/lesson with cefr_band tagging
+- Placement test 6Q → 12Q branching (lib/cefr-placement-bank.ts, app/placement.tsx)
+- Adaptive setup filter (lib/cefr-level.ts bandFor + filterSetupByLevel)
+- Rewarded ad 24h → 20 dk (lib/rewarded.ts, lib/ads.ts, app/today.tsx)
+- Auth Supabase storage SecureStore → AsyncStorage (lib/supabase.ts)
+- Auth post-login routing fix (app/auth.tsx decidePostAuthRoute)
+- Swipe sensitivity tightening (components/SwipeSceneCard.tsx)
+
+### Phase 6 (gap fix, master'da):
+- 316 lesson coverage gap (~1,650 yeni egzersiz)
+- Final: 966/966 lesson, 0 gap. Her lesson tam 5 set (sentence_pattern,
+  dialogue_gap, listen_respond, thinking_trap, recall_quiz).
+- 4 paralel agent: flirt (9 file), daily (15 file), CEFR+personal (4 file),
+  custom (1 file).
+
+## NEXT SESSION'DA İLK ADIM
+
+1. Memory'i oku (lafla_project.md güncel).
+2. `git log --oneline -15` ile son durumu gör.
+3. `pnpm --filter @lafla/mobile run typecheck` ile temiz olduğunu doğrula.
+4. **Deep bug scan agent başlat** — Reality Checker. Prompt scope:
+   - Phase 5+6 schema conformance
+   - sentence_pattern template ↔ slots match (M-1 risk repeated?)
+   - filterSetupByLevel edge cases
+   - Placement test integrity
+   - Auth flow (decidePostAuthRoute + AsyncStorage migration)
+   - Rewarded ad 20min backward compat
+   - Swipe sensitivity user-friendly
+   - 7-phase routing for old + new lessons
+   - Build readiness (typecheck + expo-doctor + native modules)
+5. Critical bug yoksa → `git tag lafla-v0.9.11 && git push --tags` →
+   TestFlight CI tetiklenir (~30-45 dk).
+6. CRITICAL bug varsa → fix → typecheck → tag.
+
+## KULLANICI RAPORLU PROBLEMLER (master'da çözüldü, build bekliyor)
+
+1. "kullanıcı girişi yapılmıyor" → SecureStore 2KB cap + post-login routing.
+   Her ikisi master'da düzeltildi.
+2. "akıştan flörte giriyorum, 1 cümle çıkıyo, direkt roleplay" → coverage gap
+   (Phase 6 fix) + swipe sensitivity.
+3. "rewarded 24h yerine 20 dk" → düzeltildi.
+
+## PARKING LOT (yeni session'da yapılabilir)
+
+- Light theme switch — Sıcak Pembe palette (#FF1493 / #fafaf7 / #00B8B8)
+  user'ın Stitch mockup'ından onaylandı. theme/index.ts'e light variant +
+  useColorScheme switch.
+- ASC metadata refresh (yeni "10 dakikalık deep practice" copy).
+- Yıllık fiyat indirimi konuşması (₺999 → ₺699-799).
+- ASC: 7-day free trial intro offer (paywall pill otomatik canlanır).
+
+## KULLANICI PRENSİPLERİ (UYULSUN)
+
+- "ben demeden testflighta yollama" — TAG basmadan önce kullanıcıdan onay al.
+- Local commit + master push OK. Tag = TestFlight tetikler → kullanıcı izni şart.
+- pnpm kullan (NEVER npm).
+- Windows + bash, yardımcı bash komutları için.
+- TR locale primary (Türkiye-first); EN locale yok ASC'de henüz.
