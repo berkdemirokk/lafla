@@ -287,6 +287,126 @@ export const dailySalonLesson_31_1: BundledLesson = {
       tr_explanation:
         "'Cut hair' = emir + grammatik degil. Doğru: 'Could you do' + spesifik stil (low fade) + yer.",
     },
+    {
+      id: "ex.dsl31.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you ___ my hair ___, please?",
+      slots: [
+        { accepted: ["cut", "trim", "style", "shape"], distractors: ["fix", "do", "make"] },
+        { accepted: ["short on the sides", "just a little", "above the shoulders", "with a low fade"], distractors: ["fast", "good", "well"] },
+      ],
+      tr_hint:
+        "Kuaför kalıbı. 'Could you ___ my hair ___?' = nazik talep + spesifik. Türk öğrenci 'Cut my hair' der — emir tonu kaba. 'Could you' + 'please' = standart.",
+      example_filled: "Could you cut my hair short on the sides, please?",
+    },
+    {
+      id: "ex.dsl31.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi! What are we doing today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — how short do you want the top?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)(,)? (just a (trim|haircut)|a (regular )?haircut)",
+        "(could you (do|give me)) (a |an )?(low fade|trim|cut)",
+        "(i'?d like|i would like) (a |my hair) (short|trimmed)",
+        "(just (a )?little|a tiny bit)",
+      ],
+      tr_hint:
+        "Kuaföre — net istek. 'Just a trim' veya 'A low fade, please.' Türk öğrenci 'a little hair cut' der — yanlış kalıp. Net kelime kullan.",
+      ideal_answer: "Hi — just a trim, please. Short on the sides, leave the top a bit longer.",
+    },
+    {
+      id: "ex.dsl31.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How short would you like the top — an inch or two?",
+      accepted_patterns: [
+        "(about )?(an inch|two inches|two)( please)?",
+        "(let'?s do|i'?ll go with) (an inch|two inches|a bit shorter)",
+        "(whatever (looks|works) (best|good))",
+        "(just a little|a tiny bit)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kuaför uzunluk soruyor — net cevap. 'About an inch, please' veya 'Two inches'. Türk öğrenci 'I don't know' der — net cm/inch say.",
+      ideal_response: "About two inches, please.",
+    },
+    {
+      id: "ex.dsl31.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Saçımı kestirmek istiyorum.",
+      wrong_en: "I want cut my hair.",
+      right_en: "I'd like to get my hair cut / I'd like a haircut.",
+      why_tr:
+        "İki problem: (1) 'want cut' yanlış — 'want to cut' lazım. (2) Daha önemli: 'I cut my hair' = sen kendi kestin. Başkası kesiyor = 'get my hair cut' (causative) veya 'have a haircut'.",
+    },
+    {
+      id: "ex.dsl31.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Kuaföre kibar açılış?",
+          options: [
+            "Cut hair!",
+            "Hi — just a trim, please.",
+            "Make me beautiful.",
+            "I want hair short.",
+          ],
+          correct: 1,
+          tr_explanation: "'Just a trim' = klasik kalıp (= sadece düzeltme). Net + kibar.",
+        },
+        {
+          q: "'Low fade' ne demek?",
+          options: [
+            "Yavaş silme.",
+            "Alt yanlarda kısa, yukarı doğru uzayan saç stili.",
+            "Sönük renk.",
+            "Yıkanmış saç.",
+          ],
+          correct: 1,
+          tr_explanation: "'Fade' = degrade. 'Low/mid/high fade' = degrade'in yüksekliği.",
+        },
+        {
+          q: "'Get my hair cut' nasıl kullanılır?",
+          options: [
+            "Kendin kesersin.",
+            "Causative — başkası senin için keser.",
+            "Geçmiş zaman.",
+            "Soru kalıbı.",
+          ],
+          correct: 1,
+          tr_explanation: "'Get/have something done' = causative kalıp. Başkasına yaptırmak.",
+        },
+        {
+          q: "'An inch' ne kadar?",
+          options: [
+            "2.54 cm (~2.5 cm).",
+            "10 cm.",
+            "1 metre.",
+            "5 mm.",
+          ],
+          correct: 0,
+          tr_explanation: "1 inch ≈ 2.54 cm. Kuaförde 'an inch off' = 2.5 cm kısalt.",
+        },
+        {
+          q: "Bahşiş için Amerika'da standart?",
+          options: [
+            "Hiç bahşiş.",
+            "Hizmetin %15-20'si.",
+            "%50.",
+            "%5.",
+          ],
+          correct: 1,
+          tr_explanation: "ABD'de berber/kuaför %15-20 bahşiş standart. Hizmet fiyatına ek.",
+        },
+      ],
+    },
   ],
 };
 

@@ -264,6 +264,101 @@ export const workMeetingLesson_10_1: BundledLesson = {
       tr_explanation:
         "'In my think' yok — Turkce 'bence'i direkt cevirme. Dogrusu: 'In my view', 'In my opinion', 'My take is'. 'Approach' = yaklasim, profesyonel.",
     },
+    {
+      id: "ex.wm10.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ['align on scope', 'loop in design', 'park this for later', 'set an agenda'], distractors: ['aligning on scope', 'loop design in', 'park this later', 'set agenda'] },
+        { accepted: ['the deadline', "Friday's review", 'we ship', 'the all-hands'], distractors: ['deadline', 'Friday review', "we ship's", 'all-hands'] },
+      ],
+      tr_hint:
+        "Toplantı interrupt kalıbı. 'Quick question' = saygılı interrupt. 'Could we' polite modal.",
+      example_filled: "Quick question — could we align on scope before the deadline?",
+    },
+    {
+      id: "ex.wm10.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Okay, so what I'm hearing is we want to move forward with option B?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — let's note that as a decision and move on." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|that'?s right|exactly)( that'?s)?",
+        "(just to clarify|to confirm|to be (sure|clear))",
+        "(option b|that approach) (.+)",
+        "(action item|next step)",
+      ],
+      tr_hint:
+        "Facilitator özet yaptı — confirm + action item ekle. Türk hatası: sessiz kalma — confirm her zaman.",
+      ideal_answer: "Yes, that's right — and I'll take the action item to write up the rollout plan.",
+    },
+    {
+      id: "ex.wm10.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "We're running out of time — anything else before we wrap up?",
+      accepted_patterns: [
+        "(one quick|just one|one last) (thing|question|note)",
+        "(can we|could we) (loop back|circle back|park) (.+)",
+        "(action items?|next steps?|owners)",
+        "(nothing from me|i'?m good|all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Toplantı bitiyor — son şans. Türk hatası: sus. 'Nothing from me' bile aksiyon. Veya 1 öneri.",
+      ideal_response: "Just one quick thing — can we confirm action items before we wrap up?",
+    },
+    {
+      id: "ex.wm10.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıya gidiyorum.",
+      wrong_en: "I am go to meeting.",
+      right_en: "I'm going to the meeting / I'm heading to the meeting.",
+      why_tr:
+        "'Am go' = double verb hatası. 'Going' (gerund) olmalı. Article eksik: 'a meeting' veya 'the meeting'. Türk öğrenci 'going to meeting' der article unutarak. 'Heading to' alternatif daha doğal — yola çıkmak.",
+    },
+    {
+      id: "ex.wm10.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Toplantı interrupt için en kibar?",
+          options: ["Wait!", "Quick question — could we...", "Stop", "Hey!"],
+          correct: 1,
+          tr_explanation: "'Quick question' = saygılı interrupt sinyali. Diğerleri = kaba.",
+        },
+        {
+          q: "'Park this for later' deyimi?",
+          options: ["Otoparka koy", "Daha sonra dön (askıya al)", "Sil", "Çöz"],
+          correct: 1,
+          tr_explanation: "'Park' = konuyu askıya almak, sonra ele almak. Toplantı kapasitesi yönetimi.",
+        },
+        {
+          q: "'Toplantıya gidiyorum' İngilizcesi?",
+          options: ["I am go to meeting", "I'm going to the meeting", "I go meeting", "I making meeting"],
+          correct: 1,
+          tr_explanation: "Present continuous + article. 'Am go' = yanlış. 'The meeting' veya 'a meeting'.",
+        },
+        {
+          q: "'Loop in' ne demek?",
+          options: ["Döngüye girmek", "Birini konuya/maile dahil etmek", "Dışlamak", "Geri dönmek"],
+          correct: 1,
+          tr_explanation: "'Loop in design' = design ekibini bilgilendir/dahil et. CC etme veya toplantıya çağırma.",
+        },
+        {
+          q: "Toplantı bitişi kibar?",
+          options: ["Bye!", "Thanks everyone — see you next time", "OK done", "Finished"],
+          correct: 1,
+          tr_explanation: "'Thanks everyone' + forward-looking = profesyonel kapanış.",
+        },
+      ],
+    },
   ],
 };
 
@@ -534,6 +629,101 @@ export const workMeetingLesson_10_2: BundledLesson = {
       tr_explanation:
         "'Am not agree' yanlis — 'agree' fiil: 'I don't agree' veya 'I disagree'. Ayrıca direkt karsitlik yerine 'see it differently' yumusatici, profesyonel.",
     },
+    {
+      id: "ex.wm10.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ['align on scope', 'loop in design', 'park this for later', 'set an agenda'], distractors: ['aligning on scope', 'loop design in', 'park this later', 'set agenda'] },
+        { accepted: ['the deadline', "Friday's review", 'we ship', 'the all-hands'], distractors: ['deadline', 'Friday review', "we ship's", 'all-hands'] },
+      ],
+      tr_hint:
+        "Toplantı interrupt kalıbı. 'Quick question' = saygılı interrupt. 'Could we' polite modal.",
+      example_filled: "Quick question — could we align on scope before the deadline?",
+    },
+    {
+      id: "ex.wm10.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Okay, so what I'm hearing is we want to move forward with option B?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — let's note that as a decision and move on." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|that'?s right|exactly)( that'?s)?",
+        "(just to clarify|to confirm|to be (sure|clear))",
+        "(option b|that approach) (.+)",
+        "(action item|next step)",
+      ],
+      tr_hint:
+        "Facilitator özet yaptı — confirm + action item ekle. Türk hatası: sessiz kalma — confirm her zaman.",
+      ideal_answer: "Yes, that's right — and I'll take the action item to write up the rollout plan.",
+    },
+    {
+      id: "ex.wm10.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "We're running out of time — anything else before we wrap up?",
+      accepted_patterns: [
+        "(one quick|just one|one last) (thing|question|note)",
+        "(can we|could we) (loop back|circle back|park) (.+)",
+        "(action items?|next steps?|owners)",
+        "(nothing from me|i'?m good|all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Toplantı bitiyor — son şans. Türk hatası: sus. 'Nothing from me' bile aksiyon. Veya 1 öneri.",
+      ideal_response: "Just one quick thing — can we confirm action items before we wrap up?",
+    },
+    {
+      id: "ex.wm10.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıya gidiyorum.",
+      wrong_en: "I am go to meeting.",
+      right_en: "I'm going to the meeting / I'm heading to the meeting.",
+      why_tr:
+        "'Am go' = double verb hatası. 'Going' (gerund) olmalı. Article eksik: 'a meeting' veya 'the meeting'. Türk öğrenci 'going to meeting' der article unutarak. 'Heading to' alternatif daha doğal — yola çıkmak.",
+    },
+    {
+      id: "ex.wm10.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Toplantı interrupt için en kibar?",
+          options: ["Wait!", "Quick question — could we...", "Stop", "Hey!"],
+          correct: 1,
+          tr_explanation: "'Quick question' = saygılı interrupt sinyali. Diğerleri = kaba.",
+        },
+        {
+          q: "'Park this for later' deyimi?",
+          options: ["Otoparka koy", "Daha sonra dön (askıya al)", "Sil", "Çöz"],
+          correct: 1,
+          tr_explanation: "'Park' = konuyu askıya almak, sonra ele almak. Toplantı kapasitesi yönetimi.",
+        },
+        {
+          q: "'Toplantıya gidiyorum' İngilizcesi?",
+          options: ["I am go to meeting", "I'm going to the meeting", "I go meeting", "I making meeting"],
+          correct: 1,
+          tr_explanation: "Present continuous + article. 'Am go' = yanlış. 'The meeting' veya 'a meeting'.",
+        },
+        {
+          q: "'Loop in' ne demek?",
+          options: ["Döngüye girmek", "Birini konuya/maile dahil etmek", "Dışlamak", "Geri dönmek"],
+          correct: 1,
+          tr_explanation: "'Loop in design' = design ekibini bilgilendir/dahil et. CC etme veya toplantıya çağırma.",
+        },
+        {
+          q: "Toplantı bitişi kibar?",
+          options: ["Bye!", "Thanks everyone — see you next time", "OK done", "Finished"],
+          correct: 1,
+          tr_explanation: "'Thanks everyone' + forward-looking = profesyonel kapanış.",
+        },
+      ],
+    },
   ],
 };
 
@@ -742,6 +932,101 @@ export const workMeetingLesson_10_3: BundledLesson = {
       correct_sentence: "Mind saying that one more time? Want to make sure I caught it.",
       tr_explanation:
         "'Say one more time' kirik. 'Mind saying' soru formu kibar. 'Catch' = yakalamak (anlamak). Toplanti tonu profesyonel sicaklik.",
+    },
+    {
+      id: "ex.wm10.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ['align on scope', 'loop in design', 'park this for later', 'set an agenda'], distractors: ['aligning on scope', 'loop design in', 'park this later', 'set agenda'] },
+        { accepted: ['the deadline', "Friday's review", 'we ship', 'the all-hands'], distractors: ['deadline', 'Friday review', "we ship's", 'all-hands'] },
+      ],
+      tr_hint:
+        "Toplantı interrupt kalıbı. 'Quick question' = saygılı interrupt. 'Could we' polite modal.",
+      example_filled: "Quick question — could we align on scope before the deadline?",
+    },
+    {
+      id: "ex.wm10.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Okay, so what I'm hearing is we want to move forward with option B?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — let's note that as a decision and move on." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|that'?s right|exactly)( that'?s)?",
+        "(just to clarify|to confirm|to be (sure|clear))",
+        "(option b|that approach) (.+)",
+        "(action item|next step)",
+      ],
+      tr_hint:
+        "Facilitator özet yaptı — confirm + action item ekle. Türk hatası: sessiz kalma — confirm her zaman.",
+      ideal_answer: "Yes, that's right — and I'll take the action item to write up the rollout plan.",
+    },
+    {
+      id: "ex.wm10.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "We're running out of time — anything else before we wrap up?",
+      accepted_patterns: [
+        "(one quick|just one|one last) (thing|question|note)",
+        "(can we|could we) (loop back|circle back|park) (.+)",
+        "(action items?|next steps?|owners)",
+        "(nothing from me|i'?m good|all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Toplantı bitiyor — son şans. Türk hatası: sus. 'Nothing from me' bile aksiyon. Veya 1 öneri.",
+      ideal_response: "Just one quick thing — can we confirm action items before we wrap up?",
+    },
+    {
+      id: "ex.wm10.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıya gidiyorum.",
+      wrong_en: "I am go to meeting.",
+      right_en: "I'm going to the meeting / I'm heading to the meeting.",
+      why_tr:
+        "'Am go' = double verb hatası. 'Going' (gerund) olmalı. Article eksik: 'a meeting' veya 'the meeting'. Türk öğrenci 'going to meeting' der article unutarak. 'Heading to' alternatif daha doğal — yola çıkmak.",
+    },
+    {
+      id: "ex.wm10.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Toplantı interrupt için en kibar?",
+          options: ["Wait!", "Quick question — could we...", "Stop", "Hey!"],
+          correct: 1,
+          tr_explanation: "'Quick question' = saygılı interrupt sinyali. Diğerleri = kaba.",
+        },
+        {
+          q: "'Park this for later' deyimi?",
+          options: ["Otoparka koy", "Daha sonra dön (askıya al)", "Sil", "Çöz"],
+          correct: 1,
+          tr_explanation: "'Park' = konuyu askıya almak, sonra ele almak. Toplantı kapasitesi yönetimi.",
+        },
+        {
+          q: "'Toplantıya gidiyorum' İngilizcesi?",
+          options: ["I am go to meeting", "I'm going to the meeting", "I go meeting", "I making meeting"],
+          correct: 1,
+          tr_explanation: "Present continuous + article. 'Am go' = yanlış. 'The meeting' veya 'a meeting'.",
+        },
+        {
+          q: "'Loop in' ne demek?",
+          options: ["Döngüye girmek", "Birini konuya/maile dahil etmek", "Dışlamak", "Geri dönmek"],
+          correct: 1,
+          tr_explanation: "'Loop in design' = design ekibini bilgilendir/dahil et. CC etme veya toplantıya çağırma.",
+        },
+        {
+          q: "Toplantı bitişi kibar?",
+          options: ["Bye!", "Thanks everyone — see you next time", "OK done", "Finished"],
+          correct: 1,
+          tr_explanation: "'Thanks everyone' + forward-looking = profesyonel kapanış.",
+        },
+      ],
     },
   ],
 };
@@ -952,6 +1237,101 @@ export const workMeetingLesson_10_4: BundledLesson = {
       tr_explanation:
         "'Finish meeting now' emir gibi + saygisiz. 'Let's wrap up' birlikte toparlama. Kapanis dili paylasimci olmali.",
     },
+    {
+      id: "ex.wm10.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ['align on scope', 'loop in design', 'park this for later', 'set an agenda'], distractors: ['aligning on scope', 'loop design in', 'park this later', 'set agenda'] },
+        { accepted: ['the deadline', "Friday's review", 'we ship', 'the all-hands'], distractors: ['deadline', 'Friday review', "we ship's", 'all-hands'] },
+      ],
+      tr_hint:
+        "Toplantı interrupt kalıbı. 'Quick question' = saygılı interrupt. 'Could we' polite modal.",
+      example_filled: "Quick question — could we align on scope before the deadline?",
+    },
+    {
+      id: "ex.wm10.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Okay, so what I'm hearing is we want to move forward with option B?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — let's note that as a decision and move on." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|that'?s right|exactly)( that'?s)?",
+        "(just to clarify|to confirm|to be (sure|clear))",
+        "(option b|that approach) (.+)",
+        "(action item|next step)",
+      ],
+      tr_hint:
+        "Facilitator özet yaptı — confirm + action item ekle. Türk hatası: sessiz kalma — confirm her zaman.",
+      ideal_answer: "Yes, that's right — and I'll take the action item to write up the rollout plan.",
+    },
+    {
+      id: "ex.wm10.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "We're running out of time — anything else before we wrap up?",
+      accepted_patterns: [
+        "(one quick|just one|one last) (thing|question|note)",
+        "(can we|could we) (loop back|circle back|park) (.+)",
+        "(action items?|next steps?|owners)",
+        "(nothing from me|i'?m good|all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Toplantı bitiyor — son şans. Türk hatası: sus. 'Nothing from me' bile aksiyon. Veya 1 öneri.",
+      ideal_response: "Just one quick thing — can we confirm action items before we wrap up?",
+    },
+    {
+      id: "ex.wm10.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıya gidiyorum.",
+      wrong_en: "I am go to meeting.",
+      right_en: "I'm going to the meeting / I'm heading to the meeting.",
+      why_tr:
+        "'Am go' = double verb hatası. 'Going' (gerund) olmalı. Article eksik: 'a meeting' veya 'the meeting'. Türk öğrenci 'going to meeting' der article unutarak. 'Heading to' alternatif daha doğal — yola çıkmak.",
+    },
+    {
+      id: "ex.wm10.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Toplantı interrupt için en kibar?",
+          options: ["Wait!", "Quick question — could we...", "Stop", "Hey!"],
+          correct: 1,
+          tr_explanation: "'Quick question' = saygılı interrupt sinyali. Diğerleri = kaba.",
+        },
+        {
+          q: "'Park this for later' deyimi?",
+          options: ["Otoparka koy", "Daha sonra dön (askıya al)", "Sil", "Çöz"],
+          correct: 1,
+          tr_explanation: "'Park' = konuyu askıya almak, sonra ele almak. Toplantı kapasitesi yönetimi.",
+        },
+        {
+          q: "'Toplantıya gidiyorum' İngilizcesi?",
+          options: ["I am go to meeting", "I'm going to the meeting", "I go meeting", "I making meeting"],
+          correct: 1,
+          tr_explanation: "Present continuous + article. 'Am go' = yanlış. 'The meeting' veya 'a meeting'.",
+        },
+        {
+          q: "'Loop in' ne demek?",
+          options: ["Döngüye girmek", "Birini konuya/maile dahil etmek", "Dışlamak", "Geri dönmek"],
+          correct: 1,
+          tr_explanation: "'Loop in design' = design ekibini bilgilendir/dahil et. CC etme veya toplantıya çağırma.",
+        },
+        {
+          q: "Toplantı bitişi kibar?",
+          options: ["Bye!", "Thanks everyone — see you next time", "OK done", "Finished"],
+          correct: 1,
+          tr_explanation: "'Thanks everyone' + forward-looking = profesyonel kapanış.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1126,6 +1506,101 @@ export const workMeetingLesson_10_5: BundledLesson = {
       tr_articulation_hint:
         "'Sorry I'm' birlesir = sori-aym. 'Got pulled' = gat-puld, hizli. 'Into' = intu (zayif vurgu). Sakin ton, panik yok — sen kontroldesin.",
     },
+    {
+      id: "ex.wm10.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ['align on scope', 'loop in design', 'park this for later', 'set an agenda'], distractors: ['aligning on scope', 'loop design in', 'park this later', 'set agenda'] },
+        { accepted: ['the deadline', "Friday's review", 'we ship', 'the all-hands'], distractors: ['deadline', 'Friday review', "we ship's", 'all-hands'] },
+      ],
+      tr_hint:
+        "Toplantı interrupt kalıbı. 'Quick question' = saygılı interrupt. 'Could we' polite modal.",
+      example_filled: "Quick question — could we align on scope before the deadline?",
+    },
+    {
+      id: "ex.wm10.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Okay, so what I'm hearing is we want to move forward with option B?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — let's note that as a decision and move on." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|that'?s right|exactly)( that'?s)?",
+        "(just to clarify|to confirm|to be (sure|clear))",
+        "(option b|that approach) (.+)",
+        "(action item|next step)",
+      ],
+      tr_hint:
+        "Facilitator özet yaptı — confirm + action item ekle. Türk hatası: sessiz kalma — confirm her zaman.",
+      ideal_answer: "Yes, that's right — and I'll take the action item to write up the rollout plan.",
+    },
+    {
+      id: "ex.wm10.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "We're running out of time — anything else before we wrap up?",
+      accepted_patterns: [
+        "(one quick|just one|one last) (thing|question|note)",
+        "(can we|could we) (loop back|circle back|park) (.+)",
+        "(action items?|next steps?|owners)",
+        "(nothing from me|i'?m good|all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Toplantı bitiyor — son şans. Türk hatası: sus. 'Nothing from me' bile aksiyon. Veya 1 öneri.",
+      ideal_response: "Just one quick thing — can we confirm action items before we wrap up?",
+    },
+    {
+      id: "ex.wm10.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıya gidiyorum.",
+      wrong_en: "I am go to meeting.",
+      right_en: "I'm going to the meeting / I'm heading to the meeting.",
+      why_tr:
+        "'Am go' = double verb hatası. 'Going' (gerund) olmalı. Article eksik: 'a meeting' veya 'the meeting'. Türk öğrenci 'going to meeting' der article unutarak. 'Heading to' alternatif daha doğal — yola çıkmak.",
+    },
+    {
+      id: "ex.wm10.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Toplantı interrupt için en kibar?",
+          options: ["Wait!", "Quick question — could we...", "Stop", "Hey!"],
+          correct: 1,
+          tr_explanation: "'Quick question' = saygılı interrupt sinyali. Diğerleri = kaba.",
+        },
+        {
+          q: "'Park this for later' deyimi?",
+          options: ["Otoparka koy", "Daha sonra dön (askıya al)", "Sil", "Çöz"],
+          correct: 1,
+          tr_explanation: "'Park' = konuyu askıya almak, sonra ele almak. Toplantı kapasitesi yönetimi.",
+        },
+        {
+          q: "'Toplantıya gidiyorum' İngilizcesi?",
+          options: ["I am go to meeting", "I'm going to the meeting", "I go meeting", "I making meeting"],
+          correct: 1,
+          tr_explanation: "Present continuous + article. 'Am go' = yanlış. 'The meeting' veya 'a meeting'.",
+        },
+        {
+          q: "'Loop in' ne demek?",
+          options: ["Döngüye girmek", "Birini konuya/maile dahil etmek", "Dışlamak", "Geri dönmek"],
+          correct: 1,
+          tr_explanation: "'Loop in design' = design ekibini bilgilendir/dahil et. CC etme veya toplantıya çağırma.",
+        },
+        {
+          q: "Toplantı bitişi kibar?",
+          options: ["Bye!", "Thanks everyone — see you next time", "OK done", "Finished"],
+          correct: 1,
+          tr_explanation: "'Thanks everyone' + forward-looking = profesyonel kapanış.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1299,6 +1774,101 @@ export const workMeetingLesson_10_6: BundledLesson = {
       ipa: "/ˈsɔri tu dʒʌmp ɪn bʌt ˈbɪldɪŋ ɑn wʌt ˈsɛrə sɛd/",
       tr_articulation_hint:
         "'Sorry to jump in' hizli + yumusak, ozur degil acilis. 'Building on' = bil-din-on (birlesik). Vurgu 'Sarah' ismi ustunde — kredi vermek icin ses yukselt.",
+    },
+    {
+      id: "ex.wm10.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ['align on scope', 'loop in design', 'park this for later', 'set an agenda'], distractors: ['aligning on scope', 'loop design in', 'park this later', 'set agenda'] },
+        { accepted: ['the deadline', "Friday's review", 'we ship', 'the all-hands'], distractors: ['deadline', 'Friday review', "we ship's", 'all-hands'] },
+      ],
+      tr_hint:
+        "Toplantı interrupt kalıbı. 'Quick question' = saygılı interrupt. 'Could we' polite modal.",
+      example_filled: "Quick question — could we align on scope before the deadline?",
+    },
+    {
+      id: "ex.wm10.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Okay, so what I'm hearing is we want to move forward with option B?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — let's note that as a decision and move on." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|that'?s right|exactly)( that'?s)?",
+        "(just to clarify|to confirm|to be (sure|clear))",
+        "(option b|that approach) (.+)",
+        "(action item|next step)",
+      ],
+      tr_hint:
+        "Facilitator özet yaptı — confirm + action item ekle. Türk hatası: sessiz kalma — confirm her zaman.",
+      ideal_answer: "Yes, that's right — and I'll take the action item to write up the rollout plan.",
+    },
+    {
+      id: "ex.wm10.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "We're running out of time — anything else before we wrap up?",
+      accepted_patterns: [
+        "(one quick|just one|one last) (thing|question|note)",
+        "(can we|could we) (loop back|circle back|park) (.+)",
+        "(action items?|next steps?|owners)",
+        "(nothing from me|i'?m good|all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Toplantı bitiyor — son şans. Türk hatası: sus. 'Nothing from me' bile aksiyon. Veya 1 öneri.",
+      ideal_response: "Just one quick thing — can we confirm action items before we wrap up?",
+    },
+    {
+      id: "ex.wm10.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıya gidiyorum.",
+      wrong_en: "I am go to meeting.",
+      right_en: "I'm going to the meeting / I'm heading to the meeting.",
+      why_tr:
+        "'Am go' = double verb hatası. 'Going' (gerund) olmalı. Article eksik: 'a meeting' veya 'the meeting'. Türk öğrenci 'going to meeting' der article unutarak. 'Heading to' alternatif daha doğal — yola çıkmak.",
+    },
+    {
+      id: "ex.wm10.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Toplantı interrupt için en kibar?",
+          options: ["Wait!", "Quick question — could we...", "Stop", "Hey!"],
+          correct: 1,
+          tr_explanation: "'Quick question' = saygılı interrupt sinyali. Diğerleri = kaba.",
+        },
+        {
+          q: "'Park this for later' deyimi?",
+          options: ["Otoparka koy", "Daha sonra dön (askıya al)", "Sil", "Çöz"],
+          correct: 1,
+          tr_explanation: "'Park' = konuyu askıya almak, sonra ele almak. Toplantı kapasitesi yönetimi.",
+        },
+        {
+          q: "'Toplantıya gidiyorum' İngilizcesi?",
+          options: ["I am go to meeting", "I'm going to the meeting", "I go meeting", "I making meeting"],
+          correct: 1,
+          tr_explanation: "Present continuous + article. 'Am go' = yanlış. 'The meeting' veya 'a meeting'.",
+        },
+        {
+          q: "'Loop in' ne demek?",
+          options: ["Döngüye girmek", "Birini konuya/maile dahil etmek", "Dışlamak", "Geri dönmek"],
+          correct: 1,
+          tr_explanation: "'Loop in design' = design ekibini bilgilendir/dahil et. CC etme veya toplantıya çağırma.",
+        },
+        {
+          q: "Toplantı bitişi kibar?",
+          options: ["Bye!", "Thanks everyone — see you next time", "OK done", "Finished"],
+          correct: 1,
+          tr_explanation: "'Thanks everyone' + forward-looking = profesyonel kapanış.",
+        },
+      ],
     },
   ],
 };
@@ -1475,6 +2045,101 @@ export const workMeetingLesson_10_7: BundledLesson = {
       tr_articulation_hint:
         "'Want to' = wan-na (informal birlesim). 'Make sure' = meyk-sur, vurgu 'sure'da. 'Got that right' = gat-ðæt-rayt, kapanis kararli. Ozguven + dogrulamak istegi.",
     },
+    {
+      id: "ex.wm10.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ['align on scope', 'loop in design', 'park this for later', 'set an agenda'], distractors: ['aligning on scope', 'loop design in', 'park this later', 'set agenda'] },
+        { accepted: ['the deadline', "Friday's review", 'we ship', 'the all-hands'], distractors: ['deadline', 'Friday review', "we ship's", 'all-hands'] },
+      ],
+      tr_hint:
+        "Toplantı interrupt kalıbı. 'Quick question' = saygılı interrupt. 'Could we' polite modal.",
+      example_filled: "Quick question — could we align on scope before the deadline?",
+    },
+    {
+      id: "ex.wm10.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Okay, so what I'm hearing is we want to move forward with option B?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — let's note that as a decision and move on." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|that'?s right|exactly)( that'?s)?",
+        "(just to clarify|to confirm|to be (sure|clear))",
+        "(option b|that approach) (.+)",
+        "(action item|next step)",
+      ],
+      tr_hint:
+        "Facilitator özet yaptı — confirm + action item ekle. Türk hatası: sessiz kalma — confirm her zaman.",
+      ideal_answer: "Yes, that's right — and I'll take the action item to write up the rollout plan.",
+    },
+    {
+      id: "ex.wm10.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "We're running out of time — anything else before we wrap up?",
+      accepted_patterns: [
+        "(one quick|just one|one last) (thing|question|note)",
+        "(can we|could we) (loop back|circle back|park) (.+)",
+        "(action items?|next steps?|owners)",
+        "(nothing from me|i'?m good|all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Toplantı bitiyor — son şans. Türk hatası: sus. 'Nothing from me' bile aksiyon. Veya 1 öneri.",
+      ideal_response: "Just one quick thing — can we confirm action items before we wrap up?",
+    },
+    {
+      id: "ex.wm10.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıya gidiyorum.",
+      wrong_en: "I am go to meeting.",
+      right_en: "I'm going to the meeting / I'm heading to the meeting.",
+      why_tr:
+        "'Am go' = double verb hatası. 'Going' (gerund) olmalı. Article eksik: 'a meeting' veya 'the meeting'. Türk öğrenci 'going to meeting' der article unutarak. 'Heading to' alternatif daha doğal — yola çıkmak.",
+    },
+    {
+      id: "ex.wm10.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Toplantı interrupt için en kibar?",
+          options: ["Wait!", "Quick question — could we...", "Stop", "Hey!"],
+          correct: 1,
+          tr_explanation: "'Quick question' = saygılı interrupt sinyali. Diğerleri = kaba.",
+        },
+        {
+          q: "'Park this for later' deyimi?",
+          options: ["Otoparka koy", "Daha sonra dön (askıya al)", "Sil", "Çöz"],
+          correct: 1,
+          tr_explanation: "'Park' = konuyu askıya almak, sonra ele almak. Toplantı kapasitesi yönetimi.",
+        },
+        {
+          q: "'Toplantıya gidiyorum' İngilizcesi?",
+          options: ["I am go to meeting", "I'm going to the meeting", "I go meeting", "I making meeting"],
+          correct: 1,
+          tr_explanation: "Present continuous + article. 'Am go' = yanlış. 'The meeting' veya 'a meeting'.",
+        },
+        {
+          q: "'Loop in' ne demek?",
+          options: ["Döngüye girmek", "Birini konuya/maile dahil etmek", "Dışlamak", "Geri dönmek"],
+          correct: 1,
+          tr_explanation: "'Loop in design' = design ekibini bilgilendir/dahil et. CC etme veya toplantıya çağırma.",
+        },
+        {
+          q: "Toplantı bitişi kibar?",
+          options: ["Bye!", "Thanks everyone — see you next time", "OK done", "Finished"],
+          correct: 1,
+          tr_explanation: "'Thanks everyone' + forward-looking = profesyonel kapanış.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1648,6 +2313,101 @@ export const workMeetingLesson_10_8: BundledLesson = {
       ipa: "/aɪl ˈfɑloʊ ʌp ɑn ðæt baɪ ˈfraɪdeɪ/",
       tr_articulation_hint:
         "'I'll' = ayl (kisa). 'Follow up' = falo-ap, vurgu 'fal'da. 'By Friday' = bay-fray-dey, sonda kararli kapanis. Vaat tonu — net, geri durma yok.",
+    },
+    {
+      id: "ex.wm10.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ['align on scope', 'loop in design', 'park this for later', 'set an agenda'], distractors: ['aligning on scope', 'loop design in', 'park this later', 'set agenda'] },
+        { accepted: ['the deadline', "Friday's review", 'we ship', 'the all-hands'], distractors: ['deadline', 'Friday review', "we ship's", 'all-hands'] },
+      ],
+      tr_hint:
+        "Toplantı interrupt kalıbı. 'Quick question' = saygılı interrupt. 'Could we' polite modal.",
+      example_filled: "Quick question — could we align on scope before the deadline?",
+    },
+    {
+      id: "ex.wm10.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Okay, so what I'm hearing is we want to move forward with option B?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — let's note that as a decision and move on." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|that'?s right|exactly)( that'?s)?",
+        "(just to clarify|to confirm|to be (sure|clear))",
+        "(option b|that approach) (.+)",
+        "(action item|next step)",
+      ],
+      tr_hint:
+        "Facilitator özet yaptı — confirm + action item ekle. Türk hatası: sessiz kalma — confirm her zaman.",
+      ideal_answer: "Yes, that's right — and I'll take the action item to write up the rollout plan.",
+    },
+    {
+      id: "ex.wm10.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "We're running out of time — anything else before we wrap up?",
+      accepted_patterns: [
+        "(one quick|just one|one last) (thing|question|note)",
+        "(can we|could we) (loop back|circle back|park) (.+)",
+        "(action items?|next steps?|owners)",
+        "(nothing from me|i'?m good|all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Toplantı bitiyor — son şans. Türk hatası: sus. 'Nothing from me' bile aksiyon. Veya 1 öneri.",
+      ideal_response: "Just one quick thing — can we confirm action items before we wrap up?",
+    },
+    {
+      id: "ex.wm10.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıya gidiyorum.",
+      wrong_en: "I am go to meeting.",
+      right_en: "I'm going to the meeting / I'm heading to the meeting.",
+      why_tr:
+        "'Am go' = double verb hatası. 'Going' (gerund) olmalı. Article eksik: 'a meeting' veya 'the meeting'. Türk öğrenci 'going to meeting' der article unutarak. 'Heading to' alternatif daha doğal — yola çıkmak.",
+    },
+    {
+      id: "ex.wm10.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Toplantı interrupt için en kibar?",
+          options: ["Wait!", "Quick question — could we...", "Stop", "Hey!"],
+          correct: 1,
+          tr_explanation: "'Quick question' = saygılı interrupt sinyali. Diğerleri = kaba.",
+        },
+        {
+          q: "'Park this for later' deyimi?",
+          options: ["Otoparka koy", "Daha sonra dön (askıya al)", "Sil", "Çöz"],
+          correct: 1,
+          tr_explanation: "'Park' = konuyu askıya almak, sonra ele almak. Toplantı kapasitesi yönetimi.",
+        },
+        {
+          q: "'Toplantıya gidiyorum' İngilizcesi?",
+          options: ["I am go to meeting", "I'm going to the meeting", "I go meeting", "I making meeting"],
+          correct: 1,
+          tr_explanation: "Present continuous + article. 'Am go' = yanlış. 'The meeting' veya 'a meeting'.",
+        },
+        {
+          q: "'Loop in' ne demek?",
+          options: ["Döngüye girmek", "Birini konuya/maile dahil etmek", "Dışlamak", "Geri dönmek"],
+          correct: 1,
+          tr_explanation: "'Loop in design' = design ekibini bilgilendir/dahil et. CC etme veya toplantıya çağırma.",
+        },
+        {
+          q: "Toplantı bitişi kibar?",
+          options: ["Bye!", "Thanks everyone — see you next time", "OK done", "Finished"],
+          correct: 1,
+          tr_explanation: "'Thanks everyone' + forward-looking = profesyonel kapanış.",
+        },
+      ],
     },
   ],
 };

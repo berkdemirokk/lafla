@@ -278,6 +278,102 @@ export const professionalC1Lesson_1: BundledLesson = {
       tr_explanation:
         "'You don't understand' + 'you are wrong' = kurul registerinde kariyer bitirir. C-suite dili: 'push back on that read' (fikre itiraz), 'for context' (bağlam çerçevesi), 'misleading' (yumuşatılmış 'yanlış'). Şahsiyat değil, çerçeve.",
     },
+    {
+      id: "ex.pc1.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Notwithstanding ___, the team has ___ to ___.",
+      slots: [
+        { accepted: ['the timeline pressure', 'recent setbacks', 'the budget constraints', 'stakeholder pushback'], distractors: ['timeline pressures', 'recent setback', "budget constraint's", 'stakeholder pushbacks'] },
+        { accepted: ['managed', 'committed', 'agreed', 'moved'], distractors: ['managing', 'committing', 'agreeing', 'moving'] },
+        { accepted: ['deliver on scope', 'meet the deadline', 'stay on track', 'exceed targets'], distractors: ['delivered on scope', 'meeting the deadline', 'staying on track', 'exceeded targets'] },
+      ],
+      tr_hint:
+        "C1-level formal connector. 'Notwithstanding' = rağmen. Executive communication tier.",
+      example_filled: "Notwithstanding the timeline pressure, the team has managed to deliver on scope.",
+    },
+    {
+      id: "ex.pc1.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm not entirely convinced this is the right direction for Q4." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Appreciate the rigor — let's reconvene with the modeling." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i (hear|appreciate|take) your (concern|skepticism))",
+        "(that said|to that point|on that)",
+        "(the (data|modeling|signal) (suggests|points to|indicates))",
+        "(we could (.+)|one option would be)",
+      ],
+      tr_hint:
+        "Executive skepticism — formal acknowledgment + data redirect. Türk hatası: defansif olma — data-driven.",
+      ideal_answer: "I hear the concern — that said, the signal from the pilot suggests we're on the right track. Want to walk through the modeling?",
+    },
+    {
+      id: "ex.pc1.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How are you thinking about the org-wide implications of this initiative?",
+      accepted_patterns: [
+        "(at a high level|broadly speaking|fundamentally)",
+        "(this (positions us|sets us up|opens) (.+))",
+        "(downstream|second-order) (effects?|impacts?|consequences?)",
+        "(over the (next|coming) (quarters?|year))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "C-suite level — systems thinking + second-order effects. 'I don't know' = career-limiting.",
+      ideal_response: "At a high level, this positions us to unbundle the platform — downstream, it opens room for two new revenue lines.",
+    },
+    {
+      id: "ex.pc1.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu konuyu bilmiyorum.",
+      wrong_en: "I don't know this topic.",
+      right_en: "I don't have full context on that — let me look into it and circle back.",
+      why_tr:
+        "'I don't know' = senior conversation killer. Executive English'te direkt 'don't know' = competence soru işareti. Doğru: 'don't have full context' + 'look into it' + 'circle back' = momentum'u sürdürür, sorumluluk alır. Türk doğrudanlığı C-level conversation'da çok düz, derinlik göstermez.",
+    },
+    {
+      id: "ex.pc1.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Executive'e 'I don't know' demek?",
+          options: ["Standart", "Avoid — 'let me circle back' kullan", "İyi", "Profesyonel"],
+          correct: 1,
+          tr_explanation: "'Circle back' = momentum koruma. 'Don't know' düz cevap, executive context'inde competence sinyali zayıflar.",
+        },
+        {
+          q: "'Notwithstanding' anlamı?",
+          options: ["Without", "Rağmen / despite", "Sırasında", "Genellikle"],
+          correct: 1,
+          tr_explanation: "'Notwithstanding' = formal 'despite'. Executive writing/speaking tier.",
+        },
+        {
+          q: "C1 conversation'da systems thinking?",
+          options: ["Tek konu odaklı", "Downstream / second-order effects framing", "Sadece kısa vadeli", "Bireysel etki"],
+          correct: 1,
+          tr_explanation: "C1+ = sistemsel etki düşünme. 'Second-order effects' = senior reasoning sinyali.",
+        },
+        {
+          q: "Executive skepticism'e en güçlü cevap?",
+          options: ["Defensiveness", "Acknowledge + data redirect", "İnkar", "Konu değiştir"],
+          correct: 1,
+          tr_explanation: "'I hear the concern — the data suggests' = empati + evidence. Diplomatic + rigor.",
+        },
+        {
+          q: "'Positions us to' kalıbı?",
+          options: ["Konumlandırma", "Gelecek strateji için imkan açar", "Yer değiştirme", "Yan dönme"],
+          correct: 1,
+          tr_explanation: "'Positions us to' = stratejik framing. Mevcut karar gelecek opsiyon açar.",
+        },
+      ],
+    },
   ],
 };
 
@@ -530,6 +626,102 @@ export const professionalC1Lesson_2: BundledLesson = {
       tr_explanation:
         "'Please boss, my team is suffering' = duygusal yalvarış, skip-level reddeder. C-suite dili: 'push back on the framing' (yeniden çerçevele), 'for context' (somut maliyet), 'trade I'd want to flag' (dengeli bilgi). Karar verici ekonomik dilden ikna olur, duygusal değil.",
     },
+    {
+      id: "ex.pc1.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Notwithstanding ___, the team has ___ to ___.",
+      slots: [
+        { accepted: ['the timeline pressure', 'recent setbacks', 'the budget constraints', 'stakeholder pushback'], distractors: ['timeline pressures', 'recent setback', "budget constraint's", 'stakeholder pushbacks'] },
+        { accepted: ['managed', 'committed', 'agreed', 'moved'], distractors: ['managing', 'committing', 'agreeing', 'moving'] },
+        { accepted: ['deliver on scope', 'meet the deadline', 'stay on track', 'exceed targets'], distractors: ['delivered on scope', 'meeting the deadline', 'staying on track', 'exceeded targets'] },
+      ],
+      tr_hint:
+        "C1-level formal connector. 'Notwithstanding' = rağmen. Executive communication tier.",
+      example_filled: "Notwithstanding the timeline pressure, the team has managed to deliver on scope.",
+    },
+    {
+      id: "ex.pc1.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm not entirely convinced this is the right direction for Q4." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Appreciate the rigor — let's reconvene with the modeling." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i (hear|appreciate|take) your (concern|skepticism))",
+        "(that said|to that point|on that)",
+        "(the (data|modeling|signal) (suggests|points to|indicates))",
+        "(we could (.+)|one option would be)",
+      ],
+      tr_hint:
+        "Executive skepticism — formal acknowledgment + data redirect. Türk hatası: defansif olma — data-driven.",
+      ideal_answer: "I hear the concern — that said, the signal from the pilot suggests we're on the right track. Want to walk through the modeling?",
+    },
+    {
+      id: "ex.pc1.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How are you thinking about the org-wide implications of this initiative?",
+      accepted_patterns: [
+        "(at a high level|broadly speaking|fundamentally)",
+        "(this (positions us|sets us up|opens) (.+))",
+        "(downstream|second-order) (effects?|impacts?|consequences?)",
+        "(over the (next|coming) (quarters?|year))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "C-suite level — systems thinking + second-order effects. 'I don't know' = career-limiting.",
+      ideal_response: "At a high level, this positions us to unbundle the platform — downstream, it opens room for two new revenue lines.",
+    },
+    {
+      id: "ex.pc1.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu konuyu bilmiyorum.",
+      wrong_en: "I don't know this topic.",
+      right_en: "I don't have full context on that — let me look into it and circle back.",
+      why_tr:
+        "'I don't know' = senior conversation killer. Executive English'te direkt 'don't know' = competence soru işareti. Doğru: 'don't have full context' + 'look into it' + 'circle back' = momentum'u sürdürür, sorumluluk alır. Türk doğrudanlığı C-level conversation'da çok düz, derinlik göstermez.",
+    },
+    {
+      id: "ex.pc1.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Executive'e 'I don't know' demek?",
+          options: ["Standart", "Avoid — 'let me circle back' kullan", "İyi", "Profesyonel"],
+          correct: 1,
+          tr_explanation: "'Circle back' = momentum koruma. 'Don't know' düz cevap, executive context'inde competence sinyali zayıflar.",
+        },
+        {
+          q: "'Notwithstanding' anlamı?",
+          options: ["Without", "Rağmen / despite", "Sırasında", "Genellikle"],
+          correct: 1,
+          tr_explanation: "'Notwithstanding' = formal 'despite'. Executive writing/speaking tier.",
+        },
+        {
+          q: "C1 conversation'da systems thinking?",
+          options: ["Tek konu odaklı", "Downstream / second-order effects framing", "Sadece kısa vadeli", "Bireysel etki"],
+          correct: 1,
+          tr_explanation: "C1+ = sistemsel etki düşünme. 'Second-order effects' = senior reasoning sinyali.",
+        },
+        {
+          q: "Executive skepticism'e en güçlü cevap?",
+          options: ["Defensiveness", "Acknowledge + data redirect", "İnkar", "Konu değiştir"],
+          correct: 1,
+          tr_explanation: "'I hear the concern — the data suggests' = empati + evidence. Diplomatic + rigor.",
+        },
+        {
+          q: "'Positions us to' kalıbı?",
+          options: ["Konumlandırma", "Gelecek strateji için imkan açar", "Yer değiştirme", "Yan dönme"],
+          correct: 1,
+          tr_explanation: "'Positions us to' = stratejik framing. Mevcut karar gelecek opsiyon açar.",
+        },
+      ],
+    },
   ],
 };
 
@@ -769,6 +961,102 @@ export const professionalC1Lesson_3: BundledLesson = {
         "I want to spend the next ten minutes on what we got wrong — for context, I think the failures taught us more than the wins.",
       tr_explanation:
         "'Very happy to be here' + 'success stories' = jenerik, dikkat çekmez. C1 keynote açılış: spesifik (somut zaman 'next ten minutes'), karşı-sezgisel ('what we got wrong'), bağlam ('failures taught us more'). 'Tell about' yanlış — 'tell you about' veya 'talk about'.",
+    },
+    {
+      id: "ex.pc1.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Notwithstanding ___, the team has ___ to ___.",
+      slots: [
+        { accepted: ['the timeline pressure', 'recent setbacks', 'the budget constraints', 'stakeholder pushback'], distractors: ['timeline pressures', 'recent setback', "budget constraint's", 'stakeholder pushbacks'] },
+        { accepted: ['managed', 'committed', 'agreed', 'moved'], distractors: ['managing', 'committing', 'agreeing', 'moving'] },
+        { accepted: ['deliver on scope', 'meet the deadline', 'stay on track', 'exceed targets'], distractors: ['delivered on scope', 'meeting the deadline', 'staying on track', 'exceeded targets'] },
+      ],
+      tr_hint:
+        "C1-level formal connector. 'Notwithstanding' = rağmen. Executive communication tier.",
+      example_filled: "Notwithstanding the timeline pressure, the team has managed to deliver on scope.",
+    },
+    {
+      id: "ex.pc1.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm not entirely convinced this is the right direction for Q4." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Appreciate the rigor — let's reconvene with the modeling." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i (hear|appreciate|take) your (concern|skepticism))",
+        "(that said|to that point|on that)",
+        "(the (data|modeling|signal) (suggests|points to|indicates))",
+        "(we could (.+)|one option would be)",
+      ],
+      tr_hint:
+        "Executive skepticism — formal acknowledgment + data redirect. Türk hatası: defansif olma — data-driven.",
+      ideal_answer: "I hear the concern — that said, the signal from the pilot suggests we're on the right track. Want to walk through the modeling?",
+    },
+    {
+      id: "ex.pc1.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How are you thinking about the org-wide implications of this initiative?",
+      accepted_patterns: [
+        "(at a high level|broadly speaking|fundamentally)",
+        "(this (positions us|sets us up|opens) (.+))",
+        "(downstream|second-order) (effects?|impacts?|consequences?)",
+        "(over the (next|coming) (quarters?|year))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "C-suite level — systems thinking + second-order effects. 'I don't know' = career-limiting.",
+      ideal_response: "At a high level, this positions us to unbundle the platform — downstream, it opens room for two new revenue lines.",
+    },
+    {
+      id: "ex.pc1.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu konuyu bilmiyorum.",
+      wrong_en: "I don't know this topic.",
+      right_en: "I don't have full context on that — let me look into it and circle back.",
+      why_tr:
+        "'I don't know' = senior conversation killer. Executive English'te direkt 'don't know' = competence soru işareti. Doğru: 'don't have full context' + 'look into it' + 'circle back' = momentum'u sürdürür, sorumluluk alır. Türk doğrudanlığı C-level conversation'da çok düz, derinlik göstermez.",
+    },
+    {
+      id: "ex.pc1.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Executive'e 'I don't know' demek?",
+          options: ["Standart", "Avoid — 'let me circle back' kullan", "İyi", "Profesyonel"],
+          correct: 1,
+          tr_explanation: "'Circle back' = momentum koruma. 'Don't know' düz cevap, executive context'inde competence sinyali zayıflar.",
+        },
+        {
+          q: "'Notwithstanding' anlamı?",
+          options: ["Without", "Rağmen / despite", "Sırasında", "Genellikle"],
+          correct: 1,
+          tr_explanation: "'Notwithstanding' = formal 'despite'. Executive writing/speaking tier.",
+        },
+        {
+          q: "C1 conversation'da systems thinking?",
+          options: ["Tek konu odaklı", "Downstream / second-order effects framing", "Sadece kısa vadeli", "Bireysel etki"],
+          correct: 1,
+          tr_explanation: "C1+ = sistemsel etki düşünme. 'Second-order effects' = senior reasoning sinyali.",
+        },
+        {
+          q: "Executive skepticism'e en güçlü cevap?",
+          options: ["Defensiveness", "Acknowledge + data redirect", "İnkar", "Konu değiştir"],
+          correct: 1,
+          tr_explanation: "'I hear the concern — the data suggests' = empati + evidence. Diplomatic + rigor.",
+        },
+        {
+          q: "'Positions us to' kalıbı?",
+          options: ["Konumlandırma", "Gelecek strateji için imkan açar", "Yer değiştirme", "Yan dönme"],
+          correct: 1,
+          tr_explanation: "'Positions us to' = stratejik framing. Mevcut karar gelecek opsiyon açar.",
+        },
+      ],
     },
   ],
 };
@@ -1043,6 +1331,102 @@ export const professionalC1Lesson_4: BundledLesson = {
       tr_explanation:
         "'Mistakes were made' = pasif kaçış (Watergate klişesi). 'Inconvenience' = küçümseyici. C1 kriz iletişimi: aktif sorumluluk ('I own'), spesifik ('process gap'), aksiyon ('three things we're changing'). Üst yönetici hatayı sahiplenmek üzerinden güven kazanır.",
     },
+    {
+      id: "ex.pc1.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Notwithstanding ___, the team has ___ to ___.",
+      slots: [
+        { accepted: ['the timeline pressure', 'recent setbacks', 'the budget constraints', 'stakeholder pushback'], distractors: ['timeline pressures', 'recent setback', "budget constraint's", 'stakeholder pushbacks'] },
+        { accepted: ['managed', 'committed', 'agreed', 'moved'], distractors: ['managing', 'committing', 'agreeing', 'moving'] },
+        { accepted: ['deliver on scope', 'meet the deadline', 'stay on track', 'exceed targets'], distractors: ['delivered on scope', 'meeting the deadline', 'staying on track', 'exceeded targets'] },
+      ],
+      tr_hint:
+        "C1-level formal connector. 'Notwithstanding' = rağmen. Executive communication tier.",
+      example_filled: "Notwithstanding the timeline pressure, the team has managed to deliver on scope.",
+    },
+    {
+      id: "ex.pc1.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm not entirely convinced this is the right direction for Q4." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Appreciate the rigor — let's reconvene with the modeling." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i (hear|appreciate|take) your (concern|skepticism))",
+        "(that said|to that point|on that)",
+        "(the (data|modeling|signal) (suggests|points to|indicates))",
+        "(we could (.+)|one option would be)",
+      ],
+      tr_hint:
+        "Executive skepticism — formal acknowledgment + data redirect. Türk hatası: defansif olma — data-driven.",
+      ideal_answer: "I hear the concern — that said, the signal from the pilot suggests we're on the right track. Want to walk through the modeling?",
+    },
+    {
+      id: "ex.pc1.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How are you thinking about the org-wide implications of this initiative?",
+      accepted_patterns: [
+        "(at a high level|broadly speaking|fundamentally)",
+        "(this (positions us|sets us up|opens) (.+))",
+        "(downstream|second-order) (effects?|impacts?|consequences?)",
+        "(over the (next|coming) (quarters?|year))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "C-suite level — systems thinking + second-order effects. 'I don't know' = career-limiting.",
+      ideal_response: "At a high level, this positions us to unbundle the platform — downstream, it opens room for two new revenue lines.",
+    },
+    {
+      id: "ex.pc1.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu konuyu bilmiyorum.",
+      wrong_en: "I don't know this topic.",
+      right_en: "I don't have full context on that — let me look into it and circle back.",
+      why_tr:
+        "'I don't know' = senior conversation killer. Executive English'te direkt 'don't know' = competence soru işareti. Doğru: 'don't have full context' + 'look into it' + 'circle back' = momentum'u sürdürür, sorumluluk alır. Türk doğrudanlığı C-level conversation'da çok düz, derinlik göstermez.",
+    },
+    {
+      id: "ex.pc1.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Executive'e 'I don't know' demek?",
+          options: ["Standart", "Avoid — 'let me circle back' kullan", "İyi", "Profesyonel"],
+          correct: 1,
+          tr_explanation: "'Circle back' = momentum koruma. 'Don't know' düz cevap, executive context'inde competence sinyali zayıflar.",
+        },
+        {
+          q: "'Notwithstanding' anlamı?",
+          options: ["Without", "Rağmen / despite", "Sırasında", "Genellikle"],
+          correct: 1,
+          tr_explanation: "'Notwithstanding' = formal 'despite'. Executive writing/speaking tier.",
+        },
+        {
+          q: "C1 conversation'da systems thinking?",
+          options: ["Tek konu odaklı", "Downstream / second-order effects framing", "Sadece kısa vadeli", "Bireysel etki"],
+          correct: 1,
+          tr_explanation: "C1+ = sistemsel etki düşünme. 'Second-order effects' = senior reasoning sinyali.",
+        },
+        {
+          q: "Executive skepticism'e en güçlü cevap?",
+          options: ["Defensiveness", "Acknowledge + data redirect", "İnkar", "Konu değiştir"],
+          correct: 1,
+          tr_explanation: "'I hear the concern — the data suggests' = empati + evidence. Diplomatic + rigor.",
+        },
+        {
+          q: "'Positions us to' kalıbı?",
+          options: ["Konumlandırma", "Gelecek strateji için imkan açar", "Yer değiştirme", "Yan dönme"],
+          correct: 1,
+          tr_explanation: "'Positions us to' = stratejik framing. Mevcut karar gelecek opsiyon açar.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1315,6 +1699,102 @@ export const professionalC1Lesson_5: BundledLesson = {
         "I'd rather not speculate on that — what I can speak to is the strategy decision behind it. For context, here's where we landed and why.",
       tr_explanation:
         "'No comment' = suçluluk sinyali, basında zarar verir. 'This is not for media' = saldırgan. C1 bridge: yumuşak red ('rather not speculate'), kendi temana köprü ('what I can speak to'), bağlam ver ('for context'). Reddetmek değil, yönlendirmek.",
+    },
+    {
+      id: "ex.pc1.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Notwithstanding ___, the team has ___ to ___.",
+      slots: [
+        { accepted: ['the timeline pressure', 'recent setbacks', 'the budget constraints', 'stakeholder pushback'], distractors: ['timeline pressures', 'recent setback', "budget constraint's", 'stakeholder pushbacks'] },
+        { accepted: ['managed', 'committed', 'agreed', 'moved'], distractors: ['managing', 'committing', 'agreeing', 'moving'] },
+        { accepted: ['deliver on scope', 'meet the deadline', 'stay on track', 'exceed targets'], distractors: ['delivered on scope', 'meeting the deadline', 'staying on track', 'exceeded targets'] },
+      ],
+      tr_hint:
+        "C1-level formal connector. 'Notwithstanding' = rağmen. Executive communication tier.",
+      example_filled: "Notwithstanding the timeline pressure, the team has managed to deliver on scope.",
+    },
+    {
+      id: "ex.pc1.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm not entirely convinced this is the right direction for Q4." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Appreciate the rigor — let's reconvene with the modeling." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i (hear|appreciate|take) your (concern|skepticism))",
+        "(that said|to that point|on that)",
+        "(the (data|modeling|signal) (suggests|points to|indicates))",
+        "(we could (.+)|one option would be)",
+      ],
+      tr_hint:
+        "Executive skepticism — formal acknowledgment + data redirect. Türk hatası: defansif olma — data-driven.",
+      ideal_answer: "I hear the concern — that said, the signal from the pilot suggests we're on the right track. Want to walk through the modeling?",
+    },
+    {
+      id: "ex.pc1.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How are you thinking about the org-wide implications of this initiative?",
+      accepted_patterns: [
+        "(at a high level|broadly speaking|fundamentally)",
+        "(this (positions us|sets us up|opens) (.+))",
+        "(downstream|second-order) (effects?|impacts?|consequences?)",
+        "(over the (next|coming) (quarters?|year))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "C-suite level — systems thinking + second-order effects. 'I don't know' = career-limiting.",
+      ideal_response: "At a high level, this positions us to unbundle the platform — downstream, it opens room for two new revenue lines.",
+    },
+    {
+      id: "ex.pc1.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu konuyu bilmiyorum.",
+      wrong_en: "I don't know this topic.",
+      right_en: "I don't have full context on that — let me look into it and circle back.",
+      why_tr:
+        "'I don't know' = senior conversation killer. Executive English'te direkt 'don't know' = competence soru işareti. Doğru: 'don't have full context' + 'look into it' + 'circle back' = momentum'u sürdürür, sorumluluk alır. Türk doğrudanlığı C-level conversation'da çok düz, derinlik göstermez.",
+    },
+    {
+      id: "ex.pc1.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Executive'e 'I don't know' demek?",
+          options: ["Standart", "Avoid — 'let me circle back' kullan", "İyi", "Profesyonel"],
+          correct: 1,
+          tr_explanation: "'Circle back' = momentum koruma. 'Don't know' düz cevap, executive context'inde competence sinyali zayıflar.",
+        },
+        {
+          q: "'Notwithstanding' anlamı?",
+          options: ["Without", "Rağmen / despite", "Sırasında", "Genellikle"],
+          correct: 1,
+          tr_explanation: "'Notwithstanding' = formal 'despite'. Executive writing/speaking tier.",
+        },
+        {
+          q: "C1 conversation'da systems thinking?",
+          options: ["Tek konu odaklı", "Downstream / second-order effects framing", "Sadece kısa vadeli", "Bireysel etki"],
+          correct: 1,
+          tr_explanation: "C1+ = sistemsel etki düşünme. 'Second-order effects' = senior reasoning sinyali.",
+        },
+        {
+          q: "Executive skepticism'e en güçlü cevap?",
+          options: ["Defensiveness", "Acknowledge + data redirect", "İnkar", "Konu değiştir"],
+          correct: 1,
+          tr_explanation: "'I hear the concern — the data suggests' = empati + evidence. Diplomatic + rigor.",
+        },
+        {
+          q: "'Positions us to' kalıbı?",
+          options: ["Konumlandırma", "Gelecek strateji için imkan açar", "Yer değiştirme", "Yan dönme"],
+          correct: 1,
+          tr_explanation: "'Positions us to' = stratejik framing. Mevcut karar gelecek opsiyon açar.",
+        },
+      ],
     },
   ],
 };
@@ -1596,6 +2076,102 @@ export const professionalC1Lesson_6: BundledLesson = {
       tr_explanation:
         "'Revolutionary, no competition, billion dollar' = pitch klişesi, VC reddi. C1 pitch: dengeli ('working and hard'), bağlam ('we're early but'), itiraz cesareti ('push back on anyone who'). Tedavi etmemiş optimizm değil, dengeli güven.",
     },
+    {
+      id: "ex.pc1.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Notwithstanding ___, the team has ___ to ___.",
+      slots: [
+        { accepted: ['the timeline pressure', 'recent setbacks', 'the budget constraints', 'stakeholder pushback'], distractors: ['timeline pressures', 'recent setback', "budget constraint's", 'stakeholder pushbacks'] },
+        { accepted: ['managed', 'committed', 'agreed', 'moved'], distractors: ['managing', 'committing', 'agreeing', 'moving'] },
+        { accepted: ['deliver on scope', 'meet the deadline', 'stay on track', 'exceed targets'], distractors: ['delivered on scope', 'meeting the deadline', 'staying on track', 'exceeded targets'] },
+      ],
+      tr_hint:
+        "C1-level formal connector. 'Notwithstanding' = rağmen. Executive communication tier.",
+      example_filled: "Notwithstanding the timeline pressure, the team has managed to deliver on scope.",
+    },
+    {
+      id: "ex.pc1.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm not entirely convinced this is the right direction for Q4." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Appreciate the rigor — let's reconvene with the modeling." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i (hear|appreciate|take) your (concern|skepticism))",
+        "(that said|to that point|on that)",
+        "(the (data|modeling|signal) (suggests|points to|indicates))",
+        "(we could (.+)|one option would be)",
+      ],
+      tr_hint:
+        "Executive skepticism — formal acknowledgment + data redirect. Türk hatası: defansif olma — data-driven.",
+      ideal_answer: "I hear the concern — that said, the signal from the pilot suggests we're on the right track. Want to walk through the modeling?",
+    },
+    {
+      id: "ex.pc1.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How are you thinking about the org-wide implications of this initiative?",
+      accepted_patterns: [
+        "(at a high level|broadly speaking|fundamentally)",
+        "(this (positions us|sets us up|opens) (.+))",
+        "(downstream|second-order) (effects?|impacts?|consequences?)",
+        "(over the (next|coming) (quarters?|year))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "C-suite level — systems thinking + second-order effects. 'I don't know' = career-limiting.",
+      ideal_response: "At a high level, this positions us to unbundle the platform — downstream, it opens room for two new revenue lines.",
+    },
+    {
+      id: "ex.pc1.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu konuyu bilmiyorum.",
+      wrong_en: "I don't know this topic.",
+      right_en: "I don't have full context on that — let me look into it and circle back.",
+      why_tr:
+        "'I don't know' = senior conversation killer. Executive English'te direkt 'don't know' = competence soru işareti. Doğru: 'don't have full context' + 'look into it' + 'circle back' = momentum'u sürdürür, sorumluluk alır. Türk doğrudanlığı C-level conversation'da çok düz, derinlik göstermez.",
+    },
+    {
+      id: "ex.pc1.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Executive'e 'I don't know' demek?",
+          options: ["Standart", "Avoid — 'let me circle back' kullan", "İyi", "Profesyonel"],
+          correct: 1,
+          tr_explanation: "'Circle back' = momentum koruma. 'Don't know' düz cevap, executive context'inde competence sinyali zayıflar.",
+        },
+        {
+          q: "'Notwithstanding' anlamı?",
+          options: ["Without", "Rağmen / despite", "Sırasında", "Genellikle"],
+          correct: 1,
+          tr_explanation: "'Notwithstanding' = formal 'despite'. Executive writing/speaking tier.",
+        },
+        {
+          q: "C1 conversation'da systems thinking?",
+          options: ["Tek konu odaklı", "Downstream / second-order effects framing", "Sadece kısa vadeli", "Bireysel etki"],
+          correct: 1,
+          tr_explanation: "C1+ = sistemsel etki düşünme. 'Second-order effects' = senior reasoning sinyali.",
+        },
+        {
+          q: "Executive skepticism'e en güçlü cevap?",
+          options: ["Defensiveness", "Acknowledge + data redirect", "İnkar", "Konu değiştir"],
+          correct: 1,
+          tr_explanation: "'I hear the concern — the data suggests' = empati + evidence. Diplomatic + rigor.",
+        },
+        {
+          q: "'Positions us to' kalıbı?",
+          options: ["Konumlandırma", "Gelecek strateji için imkan açar", "Yer değiştirme", "Yan dönme"],
+          correct: 1,
+          tr_explanation: "'Positions us to' = stratejik framing. Mevcut karar gelecek opsiyon açar.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1869,6 +2445,102 @@ export const professionalC1Lesson_7: BundledLesson = {
       tr_explanation:
         "'Please sign quickly before my CEO changes his mind' = zayıflık sinyali, müzakerede pozisyon kaybı. C1 müzakere: pozisyon koru ('at the edge of what I have authority'), karşılığı iste ('need movement on'), sınırı netle ('to make this work'). Aciliyet kendi tarafından değil, somut yapıdan gelir.",
     },
+    {
+      id: "ex.pc1.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Notwithstanding ___, the team has ___ to ___.",
+      slots: [
+        { accepted: ['the timeline pressure', 'recent setbacks', 'the budget constraints', 'stakeholder pushback'], distractors: ['timeline pressures', 'recent setback', "budget constraint's", 'stakeholder pushbacks'] },
+        { accepted: ['managed', 'committed', 'agreed', 'moved'], distractors: ['managing', 'committing', 'agreeing', 'moving'] },
+        { accepted: ['deliver on scope', 'meet the deadline', 'stay on track', 'exceed targets'], distractors: ['delivered on scope', 'meeting the deadline', 'staying on track', 'exceeded targets'] },
+      ],
+      tr_hint:
+        "C1-level formal connector. 'Notwithstanding' = rağmen. Executive communication tier.",
+      example_filled: "Notwithstanding the timeline pressure, the team has managed to deliver on scope.",
+    },
+    {
+      id: "ex.pc1.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm not entirely convinced this is the right direction for Q4." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Appreciate the rigor — let's reconvene with the modeling." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i (hear|appreciate|take) your (concern|skepticism))",
+        "(that said|to that point|on that)",
+        "(the (data|modeling|signal) (suggests|points to|indicates))",
+        "(we could (.+)|one option would be)",
+      ],
+      tr_hint:
+        "Executive skepticism — formal acknowledgment + data redirect. Türk hatası: defansif olma — data-driven.",
+      ideal_answer: "I hear the concern — that said, the signal from the pilot suggests we're on the right track. Want to walk through the modeling?",
+    },
+    {
+      id: "ex.pc1.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How are you thinking about the org-wide implications of this initiative?",
+      accepted_patterns: [
+        "(at a high level|broadly speaking|fundamentally)",
+        "(this (positions us|sets us up|opens) (.+))",
+        "(downstream|second-order) (effects?|impacts?|consequences?)",
+        "(over the (next|coming) (quarters?|year))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "C-suite level — systems thinking + second-order effects. 'I don't know' = career-limiting.",
+      ideal_response: "At a high level, this positions us to unbundle the platform — downstream, it opens room for two new revenue lines.",
+    },
+    {
+      id: "ex.pc1.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu konuyu bilmiyorum.",
+      wrong_en: "I don't know this topic.",
+      right_en: "I don't have full context on that — let me look into it and circle back.",
+      why_tr:
+        "'I don't know' = senior conversation killer. Executive English'te direkt 'don't know' = competence soru işareti. Doğru: 'don't have full context' + 'look into it' + 'circle back' = momentum'u sürdürür, sorumluluk alır. Türk doğrudanlığı C-level conversation'da çok düz, derinlik göstermez.",
+    },
+    {
+      id: "ex.pc1.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Executive'e 'I don't know' demek?",
+          options: ["Standart", "Avoid — 'let me circle back' kullan", "İyi", "Profesyonel"],
+          correct: 1,
+          tr_explanation: "'Circle back' = momentum koruma. 'Don't know' düz cevap, executive context'inde competence sinyali zayıflar.",
+        },
+        {
+          q: "'Notwithstanding' anlamı?",
+          options: ["Without", "Rağmen / despite", "Sırasında", "Genellikle"],
+          correct: 1,
+          tr_explanation: "'Notwithstanding' = formal 'despite'. Executive writing/speaking tier.",
+        },
+        {
+          q: "C1 conversation'da systems thinking?",
+          options: ["Tek konu odaklı", "Downstream / second-order effects framing", "Sadece kısa vadeli", "Bireysel etki"],
+          correct: 1,
+          tr_explanation: "C1+ = sistemsel etki düşünme. 'Second-order effects' = senior reasoning sinyali.",
+        },
+        {
+          q: "Executive skepticism'e en güçlü cevap?",
+          options: ["Defensiveness", "Acknowledge + data redirect", "İnkar", "Konu değiştir"],
+          correct: 1,
+          tr_explanation: "'I hear the concern — the data suggests' = empati + evidence. Diplomatic + rigor.",
+        },
+        {
+          q: "'Positions us to' kalıbı?",
+          options: ["Konumlandırma", "Gelecek strateji için imkan açar", "Yer değiştirme", "Yan dönme"],
+          correct: 1,
+          tr_explanation: "'Positions us to' = stratejik framing. Mevcut karar gelecek opsiyon açar.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2130,6 +2802,102 @@ export const professionalC1Lesson_8: BundledLesson = {
         "I'd push back on where we're landing — for context, this is the third time we've debated this, and I think we're conflating two different problems.",
       tr_explanation:
         "'You are all wrong, do what I said' = C-suite'te otorite kaybı, kibirli. Olgun yönetim: 'push back on where we're landing' (sonucu adlandır), 'third time we've debated' (örüntü), 'conflating two different problems' (analitik teşhis). İddiayı somutlukla taşı.",
+    },
+    {
+      id: "ex.pc1.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Notwithstanding ___, the team has ___ to ___.",
+      slots: [
+        { accepted: ['the timeline pressure', 'recent setbacks', 'the budget constraints', 'stakeholder pushback'], distractors: ['timeline pressures', 'recent setback', "budget constraint's", 'stakeholder pushbacks'] },
+        { accepted: ['managed', 'committed', 'agreed', 'moved'], distractors: ['managing', 'committing', 'agreeing', 'moving'] },
+        { accepted: ['deliver on scope', 'meet the deadline', 'stay on track', 'exceed targets'], distractors: ['delivered on scope', 'meeting the deadline', 'staying on track', 'exceeded targets'] },
+      ],
+      tr_hint:
+        "C1-level formal connector. 'Notwithstanding' = rağmen. Executive communication tier.",
+      example_filled: "Notwithstanding the timeline pressure, the team has managed to deliver on scope.",
+    },
+    {
+      id: "ex.pc1.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm not entirely convinced this is the right direction for Q4." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Appreciate the rigor — let's reconvene with the modeling." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i (hear|appreciate|take) your (concern|skepticism))",
+        "(that said|to that point|on that)",
+        "(the (data|modeling|signal) (suggests|points to|indicates))",
+        "(we could (.+)|one option would be)",
+      ],
+      tr_hint:
+        "Executive skepticism — formal acknowledgment + data redirect. Türk hatası: defansif olma — data-driven.",
+      ideal_answer: "I hear the concern — that said, the signal from the pilot suggests we're on the right track. Want to walk through the modeling?",
+    },
+    {
+      id: "ex.pc1.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How are you thinking about the org-wide implications of this initiative?",
+      accepted_patterns: [
+        "(at a high level|broadly speaking|fundamentally)",
+        "(this (positions us|sets us up|opens) (.+))",
+        "(downstream|second-order) (effects?|impacts?|consequences?)",
+        "(over the (next|coming) (quarters?|year))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "C-suite level — systems thinking + second-order effects. 'I don't know' = career-limiting.",
+      ideal_response: "At a high level, this positions us to unbundle the platform — downstream, it opens room for two new revenue lines.",
+    },
+    {
+      id: "ex.pc1.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu konuyu bilmiyorum.",
+      wrong_en: "I don't know this topic.",
+      right_en: "I don't have full context on that — let me look into it and circle back.",
+      why_tr:
+        "'I don't know' = senior conversation killer. Executive English'te direkt 'don't know' = competence soru işareti. Doğru: 'don't have full context' + 'look into it' + 'circle back' = momentum'u sürdürür, sorumluluk alır. Türk doğrudanlığı C-level conversation'da çok düz, derinlik göstermez.",
+    },
+    {
+      id: "ex.pc1.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Executive'e 'I don't know' demek?",
+          options: ["Standart", "Avoid — 'let me circle back' kullan", "İyi", "Profesyonel"],
+          correct: 1,
+          tr_explanation: "'Circle back' = momentum koruma. 'Don't know' düz cevap, executive context'inde competence sinyali zayıflar.",
+        },
+        {
+          q: "'Notwithstanding' anlamı?",
+          options: ["Without", "Rağmen / despite", "Sırasında", "Genellikle"],
+          correct: 1,
+          tr_explanation: "'Notwithstanding' = formal 'despite'. Executive writing/speaking tier.",
+        },
+        {
+          q: "C1 conversation'da systems thinking?",
+          options: ["Tek konu odaklı", "Downstream / second-order effects framing", "Sadece kısa vadeli", "Bireysel etki"],
+          correct: 1,
+          tr_explanation: "C1+ = sistemsel etki düşünme. 'Second-order effects' = senior reasoning sinyali.",
+        },
+        {
+          q: "Executive skepticism'e en güçlü cevap?",
+          options: ["Defensiveness", "Acknowledge + data redirect", "İnkar", "Konu değiştir"],
+          correct: 1,
+          tr_explanation: "'I hear the concern — the data suggests' = empati + evidence. Diplomatic + rigor.",
+        },
+        {
+          q: "'Positions us to' kalıbı?",
+          options: ["Konumlandırma", "Gelecek strateji için imkan açar", "Yer değiştirme", "Yan dönme"],
+          correct: 1,
+          tr_explanation: "'Positions us to' = stratejik framing. Mevcut karar gelecek opsiyon açar.",
+        },
+      ],
     },
   ],
 };
@@ -2399,6 +3167,102 @@ export const professionalC1Lesson_9: BundledLesson = {
         "I want to flag something that's been on my mind. For context, I've been carrying a concern about role-fit for two quarters now, and I'd be doing you a disservice if I sat on it any longer.",
       tr_explanation:
         "'You are not a good fit, performance not enough' = doğrudan ama formla ham. C1 sert geri bildirim: 'flag something on my mind' (nazik açılış), 'for context, two quarters' (örüntü), 'doing you a disservice if I sat on it' (öz-eleştiri). Kibarlık dürüstlüğü güçlendirir.",
+    },
+    {
+      id: "ex.pc1.9.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Notwithstanding ___, the team has ___ to ___.",
+      slots: [
+        { accepted: ['the timeline pressure', 'recent setbacks', 'the budget constraints', 'stakeholder pushback'], distractors: ['timeline pressures', 'recent setback', "budget constraint's", 'stakeholder pushbacks'] },
+        { accepted: ['managed', 'committed', 'agreed', 'moved'], distractors: ['managing', 'committing', 'agreeing', 'moving'] },
+        { accepted: ['deliver on scope', 'meet the deadline', 'stay on track', 'exceed targets'], distractors: ['delivered on scope', 'meeting the deadline', 'staying on track', 'exceeded targets'] },
+      ],
+      tr_hint:
+        "C1-level formal connector. 'Notwithstanding' = rağmen. Executive communication tier.",
+      example_filled: "Notwithstanding the timeline pressure, the team has managed to deliver on scope.",
+    },
+    {
+      id: "ex.pc1.9.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm not entirely convinced this is the right direction for Q4." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Appreciate the rigor — let's reconvene with the modeling." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i (hear|appreciate|take) your (concern|skepticism))",
+        "(that said|to that point|on that)",
+        "(the (data|modeling|signal) (suggests|points to|indicates))",
+        "(we could (.+)|one option would be)",
+      ],
+      tr_hint:
+        "Executive skepticism — formal acknowledgment + data redirect. Türk hatası: defansif olma — data-driven.",
+      ideal_answer: "I hear the concern — that said, the signal from the pilot suggests we're on the right track. Want to walk through the modeling?",
+    },
+    {
+      id: "ex.pc1.9.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How are you thinking about the org-wide implications of this initiative?",
+      accepted_patterns: [
+        "(at a high level|broadly speaking|fundamentally)",
+        "(this (positions us|sets us up|opens) (.+))",
+        "(downstream|second-order) (effects?|impacts?|consequences?)",
+        "(over the (next|coming) (quarters?|year))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "C-suite level — systems thinking + second-order effects. 'I don't know' = career-limiting.",
+      ideal_response: "At a high level, this positions us to unbundle the platform — downstream, it opens room for two new revenue lines.",
+    },
+    {
+      id: "ex.pc1.9.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu konuyu bilmiyorum.",
+      wrong_en: "I don't know this topic.",
+      right_en: "I don't have full context on that — let me look into it and circle back.",
+      why_tr:
+        "'I don't know' = senior conversation killer. Executive English'te direkt 'don't know' = competence soru işareti. Doğru: 'don't have full context' + 'look into it' + 'circle back' = momentum'u sürdürür, sorumluluk alır. Türk doğrudanlığı C-level conversation'da çok düz, derinlik göstermez.",
+    },
+    {
+      id: "ex.pc1.9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Executive'e 'I don't know' demek?",
+          options: ["Standart", "Avoid — 'let me circle back' kullan", "İyi", "Profesyonel"],
+          correct: 1,
+          tr_explanation: "'Circle back' = momentum koruma. 'Don't know' düz cevap, executive context'inde competence sinyali zayıflar.",
+        },
+        {
+          q: "'Notwithstanding' anlamı?",
+          options: ["Without", "Rağmen / despite", "Sırasında", "Genellikle"],
+          correct: 1,
+          tr_explanation: "'Notwithstanding' = formal 'despite'. Executive writing/speaking tier.",
+        },
+        {
+          q: "C1 conversation'da systems thinking?",
+          options: ["Tek konu odaklı", "Downstream / second-order effects framing", "Sadece kısa vadeli", "Bireysel etki"],
+          correct: 1,
+          tr_explanation: "C1+ = sistemsel etki düşünme. 'Second-order effects' = senior reasoning sinyali.",
+        },
+        {
+          q: "Executive skepticism'e en güçlü cevap?",
+          options: ["Defensiveness", "Acknowledge + data redirect", "İnkar", "Konu değiştir"],
+          correct: 1,
+          tr_explanation: "'I hear the concern — the data suggests' = empati + evidence. Diplomatic + rigor.",
+        },
+        {
+          q: "'Positions us to' kalıbı?",
+          options: ["Konumlandırma", "Gelecek strateji için imkan açar", "Yer değiştirme", "Yan dönme"],
+          correct: 1,
+          tr_explanation: "'Positions us to' = stratejik framing. Mevcut karar gelecek opsiyon açar.",
+        },
+      ],
     },
   ],
 };
@@ -2670,6 +3534,102 @@ export const professionalC1Lesson_10: BundledLesson = {
         "I have a recollection of that meeting, but I'd want to be careful not to characterise others' statements from memory. With respect, could I review my notes before going on the record?",
       tr_explanation:
         "'I remember everything, terrible, colleague said wrong things' = HR/legal'de büyük risk; hafıza güvenilmez, başkasının niyeti yorumlanamaz. C1 hukuki dil: 'recollection of that meeting' (sınırlı iddia), 'careful not to characterise' (epistemik sınır), 'review my notes before going on the record' (kayıt için zaman iste). Söylenen her şey kaydedilir.",
+    },
+    {
+      id: "ex.pc1.10.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Notwithstanding ___, the team has ___ to ___.",
+      slots: [
+        { accepted: ['the timeline pressure', 'recent setbacks', 'the budget constraints', 'stakeholder pushback'], distractors: ['timeline pressures', 'recent setback', "budget constraint's", 'stakeholder pushbacks'] },
+        { accepted: ['managed', 'committed', 'agreed', 'moved'], distractors: ['managing', 'committing', 'agreeing', 'moving'] },
+        { accepted: ['deliver on scope', 'meet the deadline', 'stay on track', 'exceed targets'], distractors: ['delivered on scope', 'meeting the deadline', 'staying on track', 'exceeded targets'] },
+      ],
+      tr_hint:
+        "C1-level formal connector. 'Notwithstanding' = rağmen. Executive communication tier.",
+      example_filled: "Notwithstanding the timeline pressure, the team has managed to deliver on scope.",
+    },
+    {
+      id: "ex.pc1.10.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm not entirely convinced this is the right direction for Q4." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Appreciate the rigor — let's reconvene with the modeling." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i (hear|appreciate|take) your (concern|skepticism))",
+        "(that said|to that point|on that)",
+        "(the (data|modeling|signal) (suggests|points to|indicates))",
+        "(we could (.+)|one option would be)",
+      ],
+      tr_hint:
+        "Executive skepticism — formal acknowledgment + data redirect. Türk hatası: defansif olma — data-driven.",
+      ideal_answer: "I hear the concern — that said, the signal from the pilot suggests we're on the right track. Want to walk through the modeling?",
+    },
+    {
+      id: "ex.pc1.10.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How are you thinking about the org-wide implications of this initiative?",
+      accepted_patterns: [
+        "(at a high level|broadly speaking|fundamentally)",
+        "(this (positions us|sets us up|opens) (.+))",
+        "(downstream|second-order) (effects?|impacts?|consequences?)",
+        "(over the (next|coming) (quarters?|year))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "C-suite level — systems thinking + second-order effects. 'I don't know' = career-limiting.",
+      ideal_response: "At a high level, this positions us to unbundle the platform — downstream, it opens room for two new revenue lines.",
+    },
+    {
+      id: "ex.pc1.10.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu konuyu bilmiyorum.",
+      wrong_en: "I don't know this topic.",
+      right_en: "I don't have full context on that — let me look into it and circle back.",
+      why_tr:
+        "'I don't know' = senior conversation killer. Executive English'te direkt 'don't know' = competence soru işareti. Doğru: 'don't have full context' + 'look into it' + 'circle back' = momentum'u sürdürür, sorumluluk alır. Türk doğrudanlığı C-level conversation'da çok düz, derinlik göstermez.",
+    },
+    {
+      id: "ex.pc1.10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Executive'e 'I don't know' demek?",
+          options: ["Standart", "Avoid — 'let me circle back' kullan", "İyi", "Profesyonel"],
+          correct: 1,
+          tr_explanation: "'Circle back' = momentum koruma. 'Don't know' düz cevap, executive context'inde competence sinyali zayıflar.",
+        },
+        {
+          q: "'Notwithstanding' anlamı?",
+          options: ["Without", "Rağmen / despite", "Sırasında", "Genellikle"],
+          correct: 1,
+          tr_explanation: "'Notwithstanding' = formal 'despite'. Executive writing/speaking tier.",
+        },
+        {
+          q: "C1 conversation'da systems thinking?",
+          options: ["Tek konu odaklı", "Downstream / second-order effects framing", "Sadece kısa vadeli", "Bireysel etki"],
+          correct: 1,
+          tr_explanation: "C1+ = sistemsel etki düşünme. 'Second-order effects' = senior reasoning sinyali.",
+        },
+        {
+          q: "Executive skepticism'e en güçlü cevap?",
+          options: ["Defensiveness", "Acknowledge + data redirect", "İnkar", "Konu değiştir"],
+          correct: 1,
+          tr_explanation: "'I hear the concern — the data suggests' = empati + evidence. Diplomatic + rigor.",
+        },
+        {
+          q: "'Positions us to' kalıbı?",
+          options: ["Konumlandırma", "Gelecek strateji için imkan açar", "Yer değiştirme", "Yan dönme"],
+          correct: 1,
+          tr_explanation: "'Positions us to' = stratejik framing. Mevcut karar gelecek opsiyon açar.",
+        },
+      ],
     },
   ],
 };
@@ -2943,6 +3903,102 @@ export const professionalC1Lesson_11: BundledLesson = {
         "Were it not for the FX drag, operating margin would have cleared the high end of our band. The underlying run-rate is intact, and our north star is unchanged.",
       tr_explanation:
         "'It is what it is / try harder' = pasif, savunmacı, yöneticinin değil ekibin dili. C1 kurul: 'were it not for' (subjunctive ile alttaki gücü göster), 'cleared the high end' (somut), 'underlying run-rate is intact' (mazeret değil okuma), 'north star unchanged' (yön kaybı yok).",
+    },
+    {
+      id: "ex.pc1.11.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Notwithstanding ___, the team has ___ to ___.",
+      slots: [
+        { accepted: ['the timeline pressure', 'recent setbacks', 'the budget constraints', 'stakeholder pushback'], distractors: ['timeline pressures', 'recent setback', "budget constraint's", 'stakeholder pushbacks'] },
+        { accepted: ['managed', 'committed', 'agreed', 'moved'], distractors: ['managing', 'committing', 'agreeing', 'moving'] },
+        { accepted: ['deliver on scope', 'meet the deadline', 'stay on track', 'exceed targets'], distractors: ['delivered on scope', 'meeting the deadline', 'staying on track', 'exceeded targets'] },
+      ],
+      tr_hint:
+        "C1-level formal connector. 'Notwithstanding' = rağmen. Executive communication tier.",
+      example_filled: "Notwithstanding the timeline pressure, the team has managed to deliver on scope.",
+    },
+    {
+      id: "ex.pc1.11.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm not entirely convinced this is the right direction for Q4." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Appreciate the rigor — let's reconvene with the modeling." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i (hear|appreciate|take) your (concern|skepticism))",
+        "(that said|to that point|on that)",
+        "(the (data|modeling|signal) (suggests|points to|indicates))",
+        "(we could (.+)|one option would be)",
+      ],
+      tr_hint:
+        "Executive skepticism — formal acknowledgment + data redirect. Türk hatası: defansif olma — data-driven.",
+      ideal_answer: "I hear the concern — that said, the signal from the pilot suggests we're on the right track. Want to walk through the modeling?",
+    },
+    {
+      id: "ex.pc1.11.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How are you thinking about the org-wide implications of this initiative?",
+      accepted_patterns: [
+        "(at a high level|broadly speaking|fundamentally)",
+        "(this (positions us|sets us up|opens) (.+))",
+        "(downstream|second-order) (effects?|impacts?|consequences?)",
+        "(over the (next|coming) (quarters?|year))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "C-suite level — systems thinking + second-order effects. 'I don't know' = career-limiting.",
+      ideal_response: "At a high level, this positions us to unbundle the platform — downstream, it opens room for two new revenue lines.",
+    },
+    {
+      id: "ex.pc1.11.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu konuyu bilmiyorum.",
+      wrong_en: "I don't know this topic.",
+      right_en: "I don't have full context on that — let me look into it and circle back.",
+      why_tr:
+        "'I don't know' = senior conversation killer. Executive English'te direkt 'don't know' = competence soru işareti. Doğru: 'don't have full context' + 'look into it' + 'circle back' = momentum'u sürdürür, sorumluluk alır. Türk doğrudanlığı C-level conversation'da çok düz, derinlik göstermez.",
+    },
+    {
+      id: "ex.pc1.11.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Executive'e 'I don't know' demek?",
+          options: ["Standart", "Avoid — 'let me circle back' kullan", "İyi", "Profesyonel"],
+          correct: 1,
+          tr_explanation: "'Circle back' = momentum koruma. 'Don't know' düz cevap, executive context'inde competence sinyali zayıflar.",
+        },
+        {
+          q: "'Notwithstanding' anlamı?",
+          options: ["Without", "Rağmen / despite", "Sırasında", "Genellikle"],
+          correct: 1,
+          tr_explanation: "'Notwithstanding' = formal 'despite'. Executive writing/speaking tier.",
+        },
+        {
+          q: "C1 conversation'da systems thinking?",
+          options: ["Tek konu odaklı", "Downstream / second-order effects framing", "Sadece kısa vadeli", "Bireysel etki"],
+          correct: 1,
+          tr_explanation: "C1+ = sistemsel etki düşünme. 'Second-order effects' = senior reasoning sinyali.",
+        },
+        {
+          q: "Executive skepticism'e en güçlü cevap?",
+          options: ["Defensiveness", "Acknowledge + data redirect", "İnkar", "Konu değiştir"],
+          correct: 1,
+          tr_explanation: "'I hear the concern — the data suggests' = empati + evidence. Diplomatic + rigor.",
+        },
+        {
+          q: "'Positions us to' kalıbı?",
+          options: ["Konumlandırma", "Gelecek strateji için imkan açar", "Yer değiştirme", "Yan dönme"],
+          correct: 1,
+          tr_explanation: "'Positions us to' = stratejik framing. Mevcut karar gelecek opsiyon açar.",
+        },
+      ],
     },
   ],
 };
@@ -3231,6 +4287,102 @@ export const professionalC1Lesson_12: BundledLesson = {
       tr_explanation:
         "'Send me numbers tomorrow, decide in a week if we buy' = hem timing'i hem yapıyı hem de niyet kontrolünü kaybeder; karşı taraf 'aceleyle ihtiyacın var' okur ve pozisyonu sıkılaştırır. C1 M&A: NDA → two-way diligence → tight perimeter → off-ramp. Yapı = pazarlık gücü.",
     },
+    {
+      id: "ex.pc1.12.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Notwithstanding ___, the team has ___ to ___.",
+      slots: [
+        { accepted: ['the timeline pressure', 'recent setbacks', 'the budget constraints', 'stakeholder pushback'], distractors: ['timeline pressures', 'recent setback', "budget constraint's", 'stakeholder pushbacks'] },
+        { accepted: ['managed', 'committed', 'agreed', 'moved'], distractors: ['managing', 'committing', 'agreeing', 'moving'] },
+        { accepted: ['deliver on scope', 'meet the deadline', 'stay on track', 'exceed targets'], distractors: ['delivered on scope', 'meeting the deadline', 'staying on track', 'exceeded targets'] },
+      ],
+      tr_hint:
+        "C1-level formal connector. 'Notwithstanding' = rağmen. Executive communication tier.",
+      example_filled: "Notwithstanding the timeline pressure, the team has managed to deliver on scope.",
+    },
+    {
+      id: "ex.pc1.12.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm not entirely convinced this is the right direction for Q4." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Appreciate the rigor — let's reconvene with the modeling." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i (hear|appreciate|take) your (concern|skepticism))",
+        "(that said|to that point|on that)",
+        "(the (data|modeling|signal) (suggests|points to|indicates))",
+        "(we could (.+)|one option would be)",
+      ],
+      tr_hint:
+        "Executive skepticism — formal acknowledgment + data redirect. Türk hatası: defansif olma — data-driven.",
+      ideal_answer: "I hear the concern — that said, the signal from the pilot suggests we're on the right track. Want to walk through the modeling?",
+    },
+    {
+      id: "ex.pc1.12.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How are you thinking about the org-wide implications of this initiative?",
+      accepted_patterns: [
+        "(at a high level|broadly speaking|fundamentally)",
+        "(this (positions us|sets us up|opens) (.+))",
+        "(downstream|second-order) (effects?|impacts?|consequences?)",
+        "(over the (next|coming) (quarters?|year))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "C-suite level — systems thinking + second-order effects. 'I don't know' = career-limiting.",
+      ideal_response: "At a high level, this positions us to unbundle the platform — downstream, it opens room for two new revenue lines.",
+    },
+    {
+      id: "ex.pc1.12.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu konuyu bilmiyorum.",
+      wrong_en: "I don't know this topic.",
+      right_en: "I don't have full context on that — let me look into it and circle back.",
+      why_tr:
+        "'I don't know' = senior conversation killer. Executive English'te direkt 'don't know' = competence soru işareti. Doğru: 'don't have full context' + 'look into it' + 'circle back' = momentum'u sürdürür, sorumluluk alır. Türk doğrudanlığı C-level conversation'da çok düz, derinlik göstermez.",
+    },
+    {
+      id: "ex.pc1.12.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Executive'e 'I don't know' demek?",
+          options: ["Standart", "Avoid — 'let me circle back' kullan", "İyi", "Profesyonel"],
+          correct: 1,
+          tr_explanation: "'Circle back' = momentum koruma. 'Don't know' düz cevap, executive context'inde competence sinyali zayıflar.",
+        },
+        {
+          q: "'Notwithstanding' anlamı?",
+          options: ["Without", "Rağmen / despite", "Sırasında", "Genellikle"],
+          correct: 1,
+          tr_explanation: "'Notwithstanding' = formal 'despite'. Executive writing/speaking tier.",
+        },
+        {
+          q: "C1 conversation'da systems thinking?",
+          options: ["Tek konu odaklı", "Downstream / second-order effects framing", "Sadece kısa vadeli", "Bireysel etki"],
+          correct: 1,
+          tr_explanation: "C1+ = sistemsel etki düşünme. 'Second-order effects' = senior reasoning sinyali.",
+        },
+        {
+          q: "Executive skepticism'e en güçlü cevap?",
+          options: ["Defensiveness", "Acknowledge + data redirect", "İnkar", "Konu değiştir"],
+          correct: 1,
+          tr_explanation: "'I hear the concern — the data suggests' = empati + evidence. Diplomatic + rigor.",
+        },
+        {
+          q: "'Positions us to' kalıbı?",
+          options: ["Konumlandırma", "Gelecek strateji için imkan açar", "Yer değiştirme", "Yan dönme"],
+          correct: 1,
+          tr_explanation: "'Positions us to' = stratejik framing. Mevcut karar gelecek opsiyon açar.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3517,6 +4669,102 @@ export const professionalC1Lesson_13: BundledLesson = {
         "There are difficult decisions ahead, and roughly 12% of our team will be affected. This is on me, not on you. It would be premature to ask for your trust today — what I can offer is transparency, six months of severance, and my door open at any hour.",
       tr_explanation:
         "'Circumstances beyond our control / trust me / together' = sorumluluk dağıtma + güven dilenme + sahte ortaklık. C1 empatik layoff: somut rakam ('12%'), sorumluluk ('on me'), güven hedge'i ('premature to ask'), somut adım ('severance, door open'). Empati = açıklık, dolayım değil.",
+    },
+    {
+      id: "ex.pc1.13.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Notwithstanding ___, the team has ___ to ___.",
+      slots: [
+        { accepted: ['the timeline pressure', 'recent setbacks', 'the budget constraints', 'stakeholder pushback'], distractors: ['timeline pressures', 'recent setback', "budget constraint's", 'stakeholder pushbacks'] },
+        { accepted: ['managed', 'committed', 'agreed', 'moved'], distractors: ['managing', 'committing', 'agreeing', 'moving'] },
+        { accepted: ['deliver on scope', 'meet the deadline', 'stay on track', 'exceed targets'], distractors: ['delivered on scope', 'meeting the deadline', 'staying on track', 'exceeded targets'] },
+      ],
+      tr_hint:
+        "C1-level formal connector. 'Notwithstanding' = rağmen. Executive communication tier.",
+      example_filled: "Notwithstanding the timeline pressure, the team has managed to deliver on scope.",
+    },
+    {
+      id: "ex.pc1.13.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm not entirely convinced this is the right direction for Q4." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Appreciate the rigor — let's reconvene with the modeling." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i (hear|appreciate|take) your (concern|skepticism))",
+        "(that said|to that point|on that)",
+        "(the (data|modeling|signal) (suggests|points to|indicates))",
+        "(we could (.+)|one option would be)",
+      ],
+      tr_hint:
+        "Executive skepticism — formal acknowledgment + data redirect. Türk hatası: defansif olma — data-driven.",
+      ideal_answer: "I hear the concern — that said, the signal from the pilot suggests we're on the right track. Want to walk through the modeling?",
+    },
+    {
+      id: "ex.pc1.13.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How are you thinking about the org-wide implications of this initiative?",
+      accepted_patterns: [
+        "(at a high level|broadly speaking|fundamentally)",
+        "(this (positions us|sets us up|opens) (.+))",
+        "(downstream|second-order) (effects?|impacts?|consequences?)",
+        "(over the (next|coming) (quarters?|year))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "C-suite level — systems thinking + second-order effects. 'I don't know' = career-limiting.",
+      ideal_response: "At a high level, this positions us to unbundle the platform — downstream, it opens room for two new revenue lines.",
+    },
+    {
+      id: "ex.pc1.13.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu konuyu bilmiyorum.",
+      wrong_en: "I don't know this topic.",
+      right_en: "I don't have full context on that — let me look into it and circle back.",
+      why_tr:
+        "'I don't know' = senior conversation killer. Executive English'te direkt 'don't know' = competence soru işareti. Doğru: 'don't have full context' + 'look into it' + 'circle back' = momentum'u sürdürür, sorumluluk alır. Türk doğrudanlığı C-level conversation'da çok düz, derinlik göstermez.",
+    },
+    {
+      id: "ex.pc1.13.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Executive'e 'I don't know' demek?",
+          options: ["Standart", "Avoid — 'let me circle back' kullan", "İyi", "Profesyonel"],
+          correct: 1,
+          tr_explanation: "'Circle back' = momentum koruma. 'Don't know' düz cevap, executive context'inde competence sinyali zayıflar.",
+        },
+        {
+          q: "'Notwithstanding' anlamı?",
+          options: ["Without", "Rağmen / despite", "Sırasında", "Genellikle"],
+          correct: 1,
+          tr_explanation: "'Notwithstanding' = formal 'despite'. Executive writing/speaking tier.",
+        },
+        {
+          q: "C1 conversation'da systems thinking?",
+          options: ["Tek konu odaklı", "Downstream / second-order effects framing", "Sadece kısa vadeli", "Bireysel etki"],
+          correct: 1,
+          tr_explanation: "C1+ = sistemsel etki düşünme. 'Second-order effects' = senior reasoning sinyali.",
+        },
+        {
+          q: "Executive skepticism'e en güçlü cevap?",
+          options: ["Defensiveness", "Acknowledge + data redirect", "İnkar", "Konu değiştir"],
+          correct: 1,
+          tr_explanation: "'I hear the concern — the data suggests' = empati + evidence. Diplomatic + rigor.",
+        },
+        {
+          q: "'Positions us to' kalıbı?",
+          options: ["Konumlandırma", "Gelecek strateji için imkan açar", "Yer değiştirme", "Yan dönme"],
+          correct: 1,
+          tr_explanation: "'Positions us to' = stratejik framing. Mevcut karar gelecek opsiyon açar.",
+        },
+      ],
     },
   ],
 };
@@ -3812,6 +5060,102 @@ export const professionalC1Lesson_14: BundledLesson = {
         "We take this seriously. Effective immediately, the program is suspended and an independent external review is underway. Without prejudging the investigation, accountability for what happens on my watch sits with me, and where findings warrant, consequences will follow at every level.",
       tr_explanation:
         "'100% false / will sue / culture is the best / always done the right thing' = klasik crisis comms felaketleri: erken inkâr (bulgu çıkarsa yıkım), tehdit (Streisand effect), abartılı övgü (bir karşı örnek manşeti yıkar). C1 kriz dili: ciddiyet + derhal aksiyon + hukuki hedge + somut sorumluluk + koşullu sonuç taahhüdü.",
+    },
+    {
+      id: "ex.pc1.14.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Notwithstanding ___, the team has ___ to ___.",
+      slots: [
+        { accepted: ['the timeline pressure', 'recent setbacks', 'the budget constraints', 'stakeholder pushback'], distractors: ['timeline pressures', 'recent setback', "budget constraint's", 'stakeholder pushbacks'] },
+        { accepted: ['managed', 'committed', 'agreed', 'moved'], distractors: ['managing', 'committing', 'agreeing', 'moving'] },
+        { accepted: ['deliver on scope', 'meet the deadline', 'stay on track', 'exceed targets'], distractors: ['delivered on scope', 'meeting the deadline', 'staying on track', 'exceeded targets'] },
+      ],
+      tr_hint:
+        "C1-level formal connector. 'Notwithstanding' = rağmen. Executive communication tier.",
+      example_filled: "Notwithstanding the timeline pressure, the team has managed to deliver on scope.",
+    },
+    {
+      id: "ex.pc1.14.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm not entirely convinced this is the right direction for Q4." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Appreciate the rigor — let's reconvene with the modeling." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i (hear|appreciate|take) your (concern|skepticism))",
+        "(that said|to that point|on that)",
+        "(the (data|modeling|signal) (suggests|points to|indicates))",
+        "(we could (.+)|one option would be)",
+      ],
+      tr_hint:
+        "Executive skepticism — formal acknowledgment + data redirect. Türk hatası: defansif olma — data-driven.",
+      ideal_answer: "I hear the concern — that said, the signal from the pilot suggests we're on the right track. Want to walk through the modeling?",
+    },
+    {
+      id: "ex.pc1.14.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How are you thinking about the org-wide implications of this initiative?",
+      accepted_patterns: [
+        "(at a high level|broadly speaking|fundamentally)",
+        "(this (positions us|sets us up|opens) (.+))",
+        "(downstream|second-order) (effects?|impacts?|consequences?)",
+        "(over the (next|coming) (quarters?|year))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "C-suite level — systems thinking + second-order effects. 'I don't know' = career-limiting.",
+      ideal_response: "At a high level, this positions us to unbundle the platform — downstream, it opens room for two new revenue lines.",
+    },
+    {
+      id: "ex.pc1.14.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu konuyu bilmiyorum.",
+      wrong_en: "I don't know this topic.",
+      right_en: "I don't have full context on that — let me look into it and circle back.",
+      why_tr:
+        "'I don't know' = senior conversation killer. Executive English'te direkt 'don't know' = competence soru işareti. Doğru: 'don't have full context' + 'look into it' + 'circle back' = momentum'u sürdürür, sorumluluk alır. Türk doğrudanlığı C-level conversation'da çok düz, derinlik göstermez.",
+    },
+    {
+      id: "ex.pc1.14.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Executive'e 'I don't know' demek?",
+          options: ["Standart", "Avoid — 'let me circle back' kullan", "İyi", "Profesyonel"],
+          correct: 1,
+          tr_explanation: "'Circle back' = momentum koruma. 'Don't know' düz cevap, executive context'inde competence sinyali zayıflar.",
+        },
+        {
+          q: "'Notwithstanding' anlamı?",
+          options: ["Without", "Rağmen / despite", "Sırasında", "Genellikle"],
+          correct: 1,
+          tr_explanation: "'Notwithstanding' = formal 'despite'. Executive writing/speaking tier.",
+        },
+        {
+          q: "C1 conversation'da systems thinking?",
+          options: ["Tek konu odaklı", "Downstream / second-order effects framing", "Sadece kısa vadeli", "Bireysel etki"],
+          correct: 1,
+          tr_explanation: "C1+ = sistemsel etki düşünme. 'Second-order effects' = senior reasoning sinyali.",
+        },
+        {
+          q: "Executive skepticism'e en güçlü cevap?",
+          options: ["Defensiveness", "Acknowledge + data redirect", "İnkar", "Konu değiştir"],
+          correct: 1,
+          tr_explanation: "'I hear the concern — the data suggests' = empati + evidence. Diplomatic + rigor.",
+        },
+        {
+          q: "'Positions us to' kalıbı?",
+          options: ["Konumlandırma", "Gelecek strateji için imkan açar", "Yer değiştirme", "Yan dönme"],
+          correct: 1,
+          tr_explanation: "'Positions us to' = stratejik framing. Mevcut karar gelecek opsiyon açar.",
+        },
+      ],
     },
   ],
 };

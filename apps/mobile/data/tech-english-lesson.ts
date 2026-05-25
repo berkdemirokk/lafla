@@ -120,6 +120,102 @@ export const techEnglishLesson_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.wt.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ the ___ before the ___.",
+      slots: [
+        { accepted: ['refactor', 'ship', 'review', 'test'], distractors: ['refactoring', 'shipping', 'reviewing', 'testing'] },
+        { accepted: ['service', 'API', 'module', 'endpoint'], distractors: ['the service', 'the API', 'the module', 'the endpoint'] },
+        { accepted: ['launch', 'deploy', 'release', 'merge'], distractors: ['launching', 'deploying', 'releasing', 'merging'] },
+      ],
+      tr_hint:
+        "Engineering action plan. Modal + action verb + scope. 'Refactor before ship' = ordering.",
+      example_filled: "I'd like to refactor the service before the launch.",
+    },
+    {
+      id: "ex.wt.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "The build is failing on main — any idea what broke?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — let me know when the fix is in." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me|i'?ll) (check|take a look|pull up the logs)",
+        "(it looks like|seems like|i'?m seeing)",
+        "(.+) (regression|breaking change|conflict)",
+        "(i'?ll (push|deploy|merge) (a fix|the patch))",
+      ],
+      tr_hint:
+        "Build failure — defensive olma, debug ownership al. 'I don't know' kötü — 'let me check'.",
+      ideal_answer: "Let me check — looks like a regression in the auth module, I'll push a fix shortly.",
+    },
+    {
+      id: "ex.wt.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How long would it take to spin up a new environment for testing?",
+      accepted_patterns: [
+        "(probably|roughly|i'?d say)",
+        "(an hour|a couple hours|by end of day)",
+        "(depending on|if we need (.+))",
+        "(should be quick|fairly straightforward|automation handles it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Effort estimate — net + range. 'Maybe' = belirsiz. 'Probably 2 hours' = aksiyon alabilir cevap.",
+      ideal_response: "Probably an hour — the automation handles most of it, fairly straightforward.",
+    },
+    {
+      id: "ex.wt.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu bug'ı kapadım.",
+      wrong_en: "I closed this bug.",
+      right_en: "I fixed this bug / I shipped the fix for this bug.",
+      why_tr:
+        "'Closed' = ticket'i closed status'a aldım, çözmedim sinyali olabilir. 'Fixed' = aksiyon + sonuç. Türk öğrenci 'closed/opened' Turkish 'açtım/kapadım' direkt çevirir — tech English'te 'fix', 'ship', 'merge', 'land' daha güçlü action verbs. Engineering writing impact-first.",
+    },
+    {
+      id: "ex.wt.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bug'ı kapadım' en güçlü?",
+          options: ["I closed this bug", "I fixed this bug and shipped the fix", "Bug was closed", "I done bug"],
+          correct: 1,
+          tr_explanation: "'Fixed + shipped' = aksiyon + sonuç. 'Closed' minimal sinyali.",
+        },
+        {
+          q: "'Spin up' deyimi?",
+          options: ["Döndürmek", "Hızlıca kurmak/başlatmak (env, service)", "Karıştırmak", "Çıkmak"],
+          correct: 1,
+          tr_explanation: "'Spin up' = quickly start/provision. Engineering jargon — env, container, service.",
+        },
+        {
+          q: "Build failure tepkisi?",
+          options: ["Defensive 'It works on my machine'", "Let me check / pulling logs", "I don't know", "Sus"],
+          correct: 1,
+          tr_explanation: "'Let me check' = ownership. 'Works on my machine' = anti-pattern meme.",
+        },
+        {
+          q: "'Regression' anlamı?",
+          options: ["Geri gitme", "Önceden çalışan bir özelliğin bozulması", "İptal", "Düşüş"],
+          correct: 1,
+          tr_explanation: "'Regression' = working feature breaks. Tech English standardı.",
+        },
+        {
+          q: "Effort estimate verirken en kötü?",
+          options: ["Range vermek (1-2 hours)", "Vague 'maybe'", "Spesifik tarih", "If statement (depends on X)"],
+          correct: 1,
+          tr_explanation: "Vague 'maybe' = aksiyon alınamaz. Range veya spesifik daha iyi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -231,6 +327,102 @@ export const techEnglishLesson_2: BundledLesson = {
         {
           speaker: "npc",
           message: "Will do, thanks for the careful review!",
+        },
+      ],
+    },
+    {
+      id: "ex.wt.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ the ___ before the ___.",
+      slots: [
+        { accepted: ['refactor', 'ship', 'review', 'test'], distractors: ['refactoring', 'shipping', 'reviewing', 'testing'] },
+        { accepted: ['service', 'API', 'module', 'endpoint'], distractors: ['the service', 'the API', 'the module', 'the endpoint'] },
+        { accepted: ['launch', 'deploy', 'release', 'merge'], distractors: ['launching', 'deploying', 'releasing', 'merging'] },
+      ],
+      tr_hint:
+        "Engineering action plan. Modal + action verb + scope. 'Refactor before ship' = ordering.",
+      example_filled: "I'd like to refactor the service before the launch.",
+    },
+    {
+      id: "ex.wt.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "The build is failing on main — any idea what broke?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — let me know when the fix is in." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me|i'?ll) (check|take a look|pull up the logs)",
+        "(it looks like|seems like|i'?m seeing)",
+        "(.+) (regression|breaking change|conflict)",
+        "(i'?ll (push|deploy|merge) (a fix|the patch))",
+      ],
+      tr_hint:
+        "Build failure — defensive olma, debug ownership al. 'I don't know' kötü — 'let me check'.",
+      ideal_answer: "Let me check — looks like a regression in the auth module, I'll push a fix shortly.",
+    },
+    {
+      id: "ex.wt.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How long would it take to spin up a new environment for testing?",
+      accepted_patterns: [
+        "(probably|roughly|i'?d say)",
+        "(an hour|a couple hours|by end of day)",
+        "(depending on|if we need (.+))",
+        "(should be quick|fairly straightforward|automation handles it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Effort estimate — net + range. 'Maybe' = belirsiz. 'Probably 2 hours' = aksiyon alabilir cevap.",
+      ideal_response: "Probably an hour — the automation handles most of it, fairly straightforward.",
+    },
+    {
+      id: "ex.wt.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu bug'ı kapadım.",
+      wrong_en: "I closed this bug.",
+      right_en: "I fixed this bug / I shipped the fix for this bug.",
+      why_tr:
+        "'Closed' = ticket'i closed status'a aldım, çözmedim sinyali olabilir. 'Fixed' = aksiyon + sonuç. Türk öğrenci 'closed/opened' Turkish 'açtım/kapadım' direkt çevirir — tech English'te 'fix', 'ship', 'merge', 'land' daha güçlü action verbs. Engineering writing impact-first.",
+    },
+    {
+      id: "ex.wt.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bug'ı kapadım' en güçlü?",
+          options: ["I closed this bug", "I fixed this bug and shipped the fix", "Bug was closed", "I done bug"],
+          correct: 1,
+          tr_explanation: "'Fixed + shipped' = aksiyon + sonuç. 'Closed' minimal sinyali.",
+        },
+        {
+          q: "'Spin up' deyimi?",
+          options: ["Döndürmek", "Hızlıca kurmak/başlatmak (env, service)", "Karıştırmak", "Çıkmak"],
+          correct: 1,
+          tr_explanation: "'Spin up' = quickly start/provision. Engineering jargon — env, container, service.",
+        },
+        {
+          q: "Build failure tepkisi?",
+          options: ["Defensive 'It works on my machine'", "Let me check / pulling logs", "I don't know", "Sus"],
+          correct: 1,
+          tr_explanation: "'Let me check' = ownership. 'Works on my machine' = anti-pattern meme.",
+        },
+        {
+          q: "'Regression' anlamı?",
+          options: ["Geri gitme", "Önceden çalışan bir özelliğin bozulması", "İptal", "Düşüş"],
+          correct: 1,
+          tr_explanation: "'Regression' = working feature breaks. Tech English standardı.",
+        },
+        {
+          q: "Effort estimate verirken en kötü?",
+          options: ["Range vermek (1-2 hours)", "Vague 'maybe'", "Spesifik tarih", "If statement (depends on X)"],
+          correct: 1,
+          tr_explanation: "Vague 'maybe' = aksiyon alınamaz. Range veya spesifik daha iyi.",
         },
       ],
     },
@@ -353,6 +545,102 @@ export const techEnglishLesson_3: BundledLesson = {
         {
           speaker: "npc",
           message: "No problem — that's what review is for.",
+        },
+      ],
+    },
+    {
+      id: "ex.wt.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ the ___ before the ___.",
+      slots: [
+        { accepted: ['refactor', 'ship', 'review', 'test'], distractors: ['refactoring', 'shipping', 'reviewing', 'testing'] },
+        { accepted: ['service', 'API', 'module', 'endpoint'], distractors: ['the service', 'the API', 'the module', 'the endpoint'] },
+        { accepted: ['launch', 'deploy', 'release', 'merge'], distractors: ['launching', 'deploying', 'releasing', 'merging'] },
+      ],
+      tr_hint:
+        "Engineering action plan. Modal + action verb + scope. 'Refactor before ship' = ordering.",
+      example_filled: "I'd like to refactor the service before the launch.",
+    },
+    {
+      id: "ex.wt.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "The build is failing on main — any idea what broke?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — let me know when the fix is in." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me|i'?ll) (check|take a look|pull up the logs)",
+        "(it looks like|seems like|i'?m seeing)",
+        "(.+) (regression|breaking change|conflict)",
+        "(i'?ll (push|deploy|merge) (a fix|the patch))",
+      ],
+      tr_hint:
+        "Build failure — defensive olma, debug ownership al. 'I don't know' kötü — 'let me check'.",
+      ideal_answer: "Let me check — looks like a regression in the auth module, I'll push a fix shortly.",
+    },
+    {
+      id: "ex.wt.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How long would it take to spin up a new environment for testing?",
+      accepted_patterns: [
+        "(probably|roughly|i'?d say)",
+        "(an hour|a couple hours|by end of day)",
+        "(depending on|if we need (.+))",
+        "(should be quick|fairly straightforward|automation handles it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Effort estimate — net + range. 'Maybe' = belirsiz. 'Probably 2 hours' = aksiyon alabilir cevap.",
+      ideal_response: "Probably an hour — the automation handles most of it, fairly straightforward.",
+    },
+    {
+      id: "ex.wt.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu bug'ı kapadım.",
+      wrong_en: "I closed this bug.",
+      right_en: "I fixed this bug / I shipped the fix for this bug.",
+      why_tr:
+        "'Closed' = ticket'i closed status'a aldım, çözmedim sinyali olabilir. 'Fixed' = aksiyon + sonuç. Türk öğrenci 'closed/opened' Turkish 'açtım/kapadım' direkt çevirir — tech English'te 'fix', 'ship', 'merge', 'land' daha güçlü action verbs. Engineering writing impact-first.",
+    },
+    {
+      id: "ex.wt.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bug'ı kapadım' en güçlü?",
+          options: ["I closed this bug", "I fixed this bug and shipped the fix", "Bug was closed", "I done bug"],
+          correct: 1,
+          tr_explanation: "'Fixed + shipped' = aksiyon + sonuç. 'Closed' minimal sinyali.",
+        },
+        {
+          q: "'Spin up' deyimi?",
+          options: ["Döndürmek", "Hızlıca kurmak/başlatmak (env, service)", "Karıştırmak", "Çıkmak"],
+          correct: 1,
+          tr_explanation: "'Spin up' = quickly start/provision. Engineering jargon — env, container, service.",
+        },
+        {
+          q: "Build failure tepkisi?",
+          options: ["Defensive 'It works on my machine'", "Let me check / pulling logs", "I don't know", "Sus"],
+          correct: 1,
+          tr_explanation: "'Let me check' = ownership. 'Works on my machine' = anti-pattern meme.",
+        },
+        {
+          q: "'Regression' anlamı?",
+          options: ["Geri gitme", "Önceden çalışan bir özelliğin bozulması", "İptal", "Düşüş"],
+          correct: 1,
+          tr_explanation: "'Regression' = working feature breaks. Tech English standardı.",
+        },
+        {
+          q: "Effort estimate verirken en kötü?",
+          options: ["Range vermek (1-2 hours)", "Vague 'maybe'", "Spesifik tarih", "If statement (depends on X)"],
+          correct: 1,
+          tr_explanation: "Vague 'maybe' = aksiyon alınamaz. Range veya spesifik daha iyi.",
         },
       ],
     },
@@ -497,6 +785,102 @@ export const techEnglishLesson_4: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.wt.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ the ___ before the ___.",
+      slots: [
+        { accepted: ['refactor', 'ship', 'review', 'test'], distractors: ['refactoring', 'shipping', 'reviewing', 'testing'] },
+        { accepted: ['service', 'API', 'module', 'endpoint'], distractors: ['the service', 'the API', 'the module', 'the endpoint'] },
+        { accepted: ['launch', 'deploy', 'release', 'merge'], distractors: ['launching', 'deploying', 'releasing', 'merging'] },
+      ],
+      tr_hint:
+        "Engineering action plan. Modal + action verb + scope. 'Refactor before ship' = ordering.",
+      example_filled: "I'd like to refactor the service before the launch.",
+    },
+    {
+      id: "ex.wt.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "The build is failing on main — any idea what broke?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — let me know when the fix is in." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me|i'?ll) (check|take a look|pull up the logs)",
+        "(it looks like|seems like|i'?m seeing)",
+        "(.+) (regression|breaking change|conflict)",
+        "(i'?ll (push|deploy|merge) (a fix|the patch))",
+      ],
+      tr_hint:
+        "Build failure — defensive olma, debug ownership al. 'I don't know' kötü — 'let me check'.",
+      ideal_answer: "Let me check — looks like a regression in the auth module, I'll push a fix shortly.",
+    },
+    {
+      id: "ex.wt.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How long would it take to spin up a new environment for testing?",
+      accepted_patterns: [
+        "(probably|roughly|i'?d say)",
+        "(an hour|a couple hours|by end of day)",
+        "(depending on|if we need (.+))",
+        "(should be quick|fairly straightforward|automation handles it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Effort estimate — net + range. 'Maybe' = belirsiz. 'Probably 2 hours' = aksiyon alabilir cevap.",
+      ideal_response: "Probably an hour — the automation handles most of it, fairly straightforward.",
+    },
+    {
+      id: "ex.wt.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu bug'ı kapadım.",
+      wrong_en: "I closed this bug.",
+      right_en: "I fixed this bug / I shipped the fix for this bug.",
+      why_tr:
+        "'Closed' = ticket'i closed status'a aldım, çözmedim sinyali olabilir. 'Fixed' = aksiyon + sonuç. Türk öğrenci 'closed/opened' Turkish 'açtım/kapadım' direkt çevirir — tech English'te 'fix', 'ship', 'merge', 'land' daha güçlü action verbs. Engineering writing impact-first.",
+    },
+    {
+      id: "ex.wt.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bug'ı kapadım' en güçlü?",
+          options: ["I closed this bug", "I fixed this bug and shipped the fix", "Bug was closed", "I done bug"],
+          correct: 1,
+          tr_explanation: "'Fixed + shipped' = aksiyon + sonuç. 'Closed' minimal sinyali.",
+        },
+        {
+          q: "'Spin up' deyimi?",
+          options: ["Döndürmek", "Hızlıca kurmak/başlatmak (env, service)", "Karıştırmak", "Çıkmak"],
+          correct: 1,
+          tr_explanation: "'Spin up' = quickly start/provision. Engineering jargon — env, container, service.",
+        },
+        {
+          q: "Build failure tepkisi?",
+          options: ["Defensive 'It works on my machine'", "Let me check / pulling logs", "I don't know", "Sus"],
+          correct: 1,
+          tr_explanation: "'Let me check' = ownership. 'Works on my machine' = anti-pattern meme.",
+        },
+        {
+          q: "'Regression' anlamı?",
+          options: ["Geri gitme", "Önceden çalışan bir özelliğin bozulması", "İptal", "Düşüş"],
+          correct: 1,
+          tr_explanation: "'Regression' = working feature breaks. Tech English standardı.",
+        },
+        {
+          q: "Effort estimate verirken en kötü?",
+          options: ["Range vermek (1-2 hours)", "Vague 'maybe'", "Spesifik tarih", "If statement (depends on X)"],
+          correct: 1,
+          tr_explanation: "Vague 'maybe' = aksiyon alınamaz. Range veya spesifik daha iyi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -616,6 +1000,102 @@ export const techEnglishLesson_5: BundledLesson = {
           speaker: "npc",
           message:
             "Sounds good. Thanks. Next person?",
+        },
+      ],
+    },
+    {
+      id: "ex.wt.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ the ___ before the ___.",
+      slots: [
+        { accepted: ['refactor', 'ship', 'review', 'test'], distractors: ['refactoring', 'shipping', 'reviewing', 'testing'] },
+        { accepted: ['service', 'API', 'module', 'endpoint'], distractors: ['the service', 'the API', 'the module', 'the endpoint'] },
+        { accepted: ['launch', 'deploy', 'release', 'merge'], distractors: ['launching', 'deploying', 'releasing', 'merging'] },
+      ],
+      tr_hint:
+        "Engineering action plan. Modal + action verb + scope. 'Refactor before ship' = ordering.",
+      example_filled: "I'd like to refactor the service before the launch.",
+    },
+    {
+      id: "ex.wt.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "The build is failing on main — any idea what broke?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — let me know when the fix is in." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me|i'?ll) (check|take a look|pull up the logs)",
+        "(it looks like|seems like|i'?m seeing)",
+        "(.+) (regression|breaking change|conflict)",
+        "(i'?ll (push|deploy|merge) (a fix|the patch))",
+      ],
+      tr_hint:
+        "Build failure — defensive olma, debug ownership al. 'I don't know' kötü — 'let me check'.",
+      ideal_answer: "Let me check — looks like a regression in the auth module, I'll push a fix shortly.",
+    },
+    {
+      id: "ex.wt.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How long would it take to spin up a new environment for testing?",
+      accepted_patterns: [
+        "(probably|roughly|i'?d say)",
+        "(an hour|a couple hours|by end of day)",
+        "(depending on|if we need (.+))",
+        "(should be quick|fairly straightforward|automation handles it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Effort estimate — net + range. 'Maybe' = belirsiz. 'Probably 2 hours' = aksiyon alabilir cevap.",
+      ideal_response: "Probably an hour — the automation handles most of it, fairly straightforward.",
+    },
+    {
+      id: "ex.wt.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu bug'ı kapadım.",
+      wrong_en: "I closed this bug.",
+      right_en: "I fixed this bug / I shipped the fix for this bug.",
+      why_tr:
+        "'Closed' = ticket'i closed status'a aldım, çözmedim sinyali olabilir. 'Fixed' = aksiyon + sonuç. Türk öğrenci 'closed/opened' Turkish 'açtım/kapadım' direkt çevirir — tech English'te 'fix', 'ship', 'merge', 'land' daha güçlü action verbs. Engineering writing impact-first.",
+    },
+    {
+      id: "ex.wt.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bug'ı kapadım' en güçlü?",
+          options: ["I closed this bug", "I fixed this bug and shipped the fix", "Bug was closed", "I done bug"],
+          correct: 1,
+          tr_explanation: "'Fixed + shipped' = aksiyon + sonuç. 'Closed' minimal sinyali.",
+        },
+        {
+          q: "'Spin up' deyimi?",
+          options: ["Döndürmek", "Hızlıca kurmak/başlatmak (env, service)", "Karıştırmak", "Çıkmak"],
+          correct: 1,
+          tr_explanation: "'Spin up' = quickly start/provision. Engineering jargon — env, container, service.",
+        },
+        {
+          q: "Build failure tepkisi?",
+          options: ["Defensive 'It works on my machine'", "Let me check / pulling logs", "I don't know", "Sus"],
+          correct: 1,
+          tr_explanation: "'Let me check' = ownership. 'Works on my machine' = anti-pattern meme.",
+        },
+        {
+          q: "'Regression' anlamı?",
+          options: ["Geri gitme", "Önceden çalışan bir özelliğin bozulması", "İptal", "Düşüş"],
+          correct: 1,
+          tr_explanation: "'Regression' = working feature breaks. Tech English standardı.",
+        },
+        {
+          q: "Effort estimate verirken en kötü?",
+          options: ["Range vermek (1-2 hours)", "Vague 'maybe'", "Spesifik tarih", "If statement (depends on X)"],
+          correct: 1,
+          tr_explanation: "Vague 'maybe' = aksiyon alınamaz. Range veya spesifik daha iyi.",
         },
       ],
     },
@@ -757,6 +1237,102 @@ export const techEnglishLesson_6: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.wt.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ the ___ before the ___.",
+      slots: [
+        { accepted: ['refactor', 'ship', 'review', 'test'], distractors: ['refactoring', 'shipping', 'reviewing', 'testing'] },
+        { accepted: ['service', 'API', 'module', 'endpoint'], distractors: ['the service', 'the API', 'the module', 'the endpoint'] },
+        { accepted: ['launch', 'deploy', 'release', 'merge'], distractors: ['launching', 'deploying', 'releasing', 'merging'] },
+      ],
+      tr_hint:
+        "Engineering action plan. Modal + action verb + scope. 'Refactor before ship' = ordering.",
+      example_filled: "I'd like to refactor the service before the launch.",
+    },
+    {
+      id: "ex.wt.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "The build is failing on main — any idea what broke?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — let me know when the fix is in." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me|i'?ll) (check|take a look|pull up the logs)",
+        "(it looks like|seems like|i'?m seeing)",
+        "(.+) (regression|breaking change|conflict)",
+        "(i'?ll (push|deploy|merge) (a fix|the patch))",
+      ],
+      tr_hint:
+        "Build failure — defensive olma, debug ownership al. 'I don't know' kötü — 'let me check'.",
+      ideal_answer: "Let me check — looks like a regression in the auth module, I'll push a fix shortly.",
+    },
+    {
+      id: "ex.wt.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How long would it take to spin up a new environment for testing?",
+      accepted_patterns: [
+        "(probably|roughly|i'?d say)",
+        "(an hour|a couple hours|by end of day)",
+        "(depending on|if we need (.+))",
+        "(should be quick|fairly straightforward|automation handles it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Effort estimate — net + range. 'Maybe' = belirsiz. 'Probably 2 hours' = aksiyon alabilir cevap.",
+      ideal_response: "Probably an hour — the automation handles most of it, fairly straightforward.",
+    },
+    {
+      id: "ex.wt.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu bug'ı kapadım.",
+      wrong_en: "I closed this bug.",
+      right_en: "I fixed this bug / I shipped the fix for this bug.",
+      why_tr:
+        "'Closed' = ticket'i closed status'a aldım, çözmedim sinyali olabilir. 'Fixed' = aksiyon + sonuç. Türk öğrenci 'closed/opened' Turkish 'açtım/kapadım' direkt çevirir — tech English'te 'fix', 'ship', 'merge', 'land' daha güçlü action verbs. Engineering writing impact-first.",
+    },
+    {
+      id: "ex.wt.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bug'ı kapadım' en güçlü?",
+          options: ["I closed this bug", "I fixed this bug and shipped the fix", "Bug was closed", "I done bug"],
+          correct: 1,
+          tr_explanation: "'Fixed + shipped' = aksiyon + sonuç. 'Closed' minimal sinyali.",
+        },
+        {
+          q: "'Spin up' deyimi?",
+          options: ["Döndürmek", "Hızlıca kurmak/başlatmak (env, service)", "Karıştırmak", "Çıkmak"],
+          correct: 1,
+          tr_explanation: "'Spin up' = quickly start/provision. Engineering jargon — env, container, service.",
+        },
+        {
+          q: "Build failure tepkisi?",
+          options: ["Defensive 'It works on my machine'", "Let me check / pulling logs", "I don't know", "Sus"],
+          correct: 1,
+          tr_explanation: "'Let me check' = ownership. 'Works on my machine' = anti-pattern meme.",
+        },
+        {
+          q: "'Regression' anlamı?",
+          options: ["Geri gitme", "Önceden çalışan bir özelliğin bozulması", "İptal", "Düşüş"],
+          correct: 1,
+          tr_explanation: "'Regression' = working feature breaks. Tech English standardı.",
+        },
+        {
+          q: "Effort estimate verirken en kötü?",
+          options: ["Range vermek (1-2 hours)", "Vague 'maybe'", "Spesifik tarih", "If statement (depends on X)"],
+          correct: 1,
+          tr_explanation: "Vague 'maybe' = aksiyon alınamaz. Range veya spesifik daha iyi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -894,6 +1470,102 @@ export const techEnglishLesson_7: BundledLesson = {
           speaker: "npc",
           message:
             "Thanks. Good post-mortem — learning, not blaming.",
+        },
+      ],
+    },
+    {
+      id: "ex.wt.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ the ___ before the ___.",
+      slots: [
+        { accepted: ['refactor', 'ship', 'review', 'test'], distractors: ['refactoring', 'shipping', 'reviewing', 'testing'] },
+        { accepted: ['service', 'API', 'module', 'endpoint'], distractors: ['the service', 'the API', 'the module', 'the endpoint'] },
+        { accepted: ['launch', 'deploy', 'release', 'merge'], distractors: ['launching', 'deploying', 'releasing', 'merging'] },
+      ],
+      tr_hint:
+        "Engineering action plan. Modal + action verb + scope. 'Refactor before ship' = ordering.",
+      example_filled: "I'd like to refactor the service before the launch.",
+    },
+    {
+      id: "ex.wt.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "The build is failing on main — any idea what broke?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — let me know when the fix is in." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me|i'?ll) (check|take a look|pull up the logs)",
+        "(it looks like|seems like|i'?m seeing)",
+        "(.+) (regression|breaking change|conflict)",
+        "(i'?ll (push|deploy|merge) (a fix|the patch))",
+      ],
+      tr_hint:
+        "Build failure — defensive olma, debug ownership al. 'I don't know' kötü — 'let me check'.",
+      ideal_answer: "Let me check — looks like a regression in the auth module, I'll push a fix shortly.",
+    },
+    {
+      id: "ex.wt.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How long would it take to spin up a new environment for testing?",
+      accepted_patterns: [
+        "(probably|roughly|i'?d say)",
+        "(an hour|a couple hours|by end of day)",
+        "(depending on|if we need (.+))",
+        "(should be quick|fairly straightforward|automation handles it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Effort estimate — net + range. 'Maybe' = belirsiz. 'Probably 2 hours' = aksiyon alabilir cevap.",
+      ideal_response: "Probably an hour — the automation handles most of it, fairly straightforward.",
+    },
+    {
+      id: "ex.wt.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu bug'ı kapadım.",
+      wrong_en: "I closed this bug.",
+      right_en: "I fixed this bug / I shipped the fix for this bug.",
+      why_tr:
+        "'Closed' = ticket'i closed status'a aldım, çözmedim sinyali olabilir. 'Fixed' = aksiyon + sonuç. Türk öğrenci 'closed/opened' Turkish 'açtım/kapadım' direkt çevirir — tech English'te 'fix', 'ship', 'merge', 'land' daha güçlü action verbs. Engineering writing impact-first.",
+    },
+    {
+      id: "ex.wt.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bug'ı kapadım' en güçlü?",
+          options: ["I closed this bug", "I fixed this bug and shipped the fix", "Bug was closed", "I done bug"],
+          correct: 1,
+          tr_explanation: "'Fixed + shipped' = aksiyon + sonuç. 'Closed' minimal sinyali.",
+        },
+        {
+          q: "'Spin up' deyimi?",
+          options: ["Döndürmek", "Hızlıca kurmak/başlatmak (env, service)", "Karıştırmak", "Çıkmak"],
+          correct: 1,
+          tr_explanation: "'Spin up' = quickly start/provision. Engineering jargon — env, container, service.",
+        },
+        {
+          q: "Build failure tepkisi?",
+          options: ["Defensive 'It works on my machine'", "Let me check / pulling logs", "I don't know", "Sus"],
+          correct: 1,
+          tr_explanation: "'Let me check' = ownership. 'Works on my machine' = anti-pattern meme.",
+        },
+        {
+          q: "'Regression' anlamı?",
+          options: ["Geri gitme", "Önceden çalışan bir özelliğin bozulması", "İptal", "Düşüş"],
+          correct: 1,
+          tr_explanation: "'Regression' = working feature breaks. Tech English standardı.",
+        },
+        {
+          q: "Effort estimate verirken en kötü?",
+          options: ["Range vermek (1-2 hours)", "Vague 'maybe'", "Spesifik tarih", "If statement (depends on X)"],
+          correct: 1,
+          tr_explanation: "Vague 'maybe' = aksiyon alınamaz. Range veya spesifik daha iyi.",
         },
       ],
     },
@@ -1040,6 +1712,102 @@ export const techEnglishLesson_8: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.wt.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ the ___ before the ___.",
+      slots: [
+        { accepted: ['refactor', 'ship', 'review', 'test'], distractors: ['refactoring', 'shipping', 'reviewing', 'testing'] },
+        { accepted: ['service', 'API', 'module', 'endpoint'], distractors: ['the service', 'the API', 'the module', 'the endpoint'] },
+        { accepted: ['launch', 'deploy', 'release', 'merge'], distractors: ['launching', 'deploying', 'releasing', 'merging'] },
+      ],
+      tr_hint:
+        "Engineering action plan. Modal + action verb + scope. 'Refactor before ship' = ordering.",
+      example_filled: "I'd like to refactor the service before the launch.",
+    },
+    {
+      id: "ex.wt.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "The build is failing on main — any idea what broke?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — let me know when the fix is in." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me|i'?ll) (check|take a look|pull up the logs)",
+        "(it looks like|seems like|i'?m seeing)",
+        "(.+) (regression|breaking change|conflict)",
+        "(i'?ll (push|deploy|merge) (a fix|the patch))",
+      ],
+      tr_hint:
+        "Build failure — defensive olma, debug ownership al. 'I don't know' kötü — 'let me check'.",
+      ideal_answer: "Let me check — looks like a regression in the auth module, I'll push a fix shortly.",
+    },
+    {
+      id: "ex.wt.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How long would it take to spin up a new environment for testing?",
+      accepted_patterns: [
+        "(probably|roughly|i'?d say)",
+        "(an hour|a couple hours|by end of day)",
+        "(depending on|if we need (.+))",
+        "(should be quick|fairly straightforward|automation handles it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Effort estimate — net + range. 'Maybe' = belirsiz. 'Probably 2 hours' = aksiyon alabilir cevap.",
+      ideal_response: "Probably an hour — the automation handles most of it, fairly straightforward.",
+    },
+    {
+      id: "ex.wt.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu bug'ı kapadım.",
+      wrong_en: "I closed this bug.",
+      right_en: "I fixed this bug / I shipped the fix for this bug.",
+      why_tr:
+        "'Closed' = ticket'i closed status'a aldım, çözmedim sinyali olabilir. 'Fixed' = aksiyon + sonuç. Türk öğrenci 'closed/opened' Turkish 'açtım/kapadım' direkt çevirir — tech English'te 'fix', 'ship', 'merge', 'land' daha güçlü action verbs. Engineering writing impact-first.",
+    },
+    {
+      id: "ex.wt.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bug'ı kapadım' en güçlü?",
+          options: ["I closed this bug", "I fixed this bug and shipped the fix", "Bug was closed", "I done bug"],
+          correct: 1,
+          tr_explanation: "'Fixed + shipped' = aksiyon + sonuç. 'Closed' minimal sinyali.",
+        },
+        {
+          q: "'Spin up' deyimi?",
+          options: ["Döndürmek", "Hızlıca kurmak/başlatmak (env, service)", "Karıştırmak", "Çıkmak"],
+          correct: 1,
+          tr_explanation: "'Spin up' = quickly start/provision. Engineering jargon — env, container, service.",
+        },
+        {
+          q: "Build failure tepkisi?",
+          options: ["Defensive 'It works on my machine'", "Let me check / pulling logs", "I don't know", "Sus"],
+          correct: 1,
+          tr_explanation: "'Let me check' = ownership. 'Works on my machine' = anti-pattern meme.",
+        },
+        {
+          q: "'Regression' anlamı?",
+          options: ["Geri gitme", "Önceden çalışan bir özelliğin bozulması", "İptal", "Düşüş"],
+          correct: 1,
+          tr_explanation: "'Regression' = working feature breaks. Tech English standardı.",
+        },
+        {
+          q: "Effort estimate verirken en kötü?",
+          options: ["Range vermek (1-2 hours)", "Vague 'maybe'", "Spesifik tarih", "If statement (depends on X)"],
+          correct: 1,
+          tr_explanation: "Vague 'maybe' = aksiyon alınamaz. Range veya spesifik daha iyi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1181,6 +1949,102 @@ export const techEnglishLesson_9: BundledLesson = {
           speaker: "npc",
           message:
             "Solid thinking. Let's move to the next question.",
+        },
+      ],
+    },
+    {
+      id: "ex.wt.9.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ the ___ before the ___.",
+      slots: [
+        { accepted: ['refactor', 'ship', 'review', 'test'], distractors: ['refactoring', 'shipping', 'reviewing', 'testing'] },
+        { accepted: ['service', 'API', 'module', 'endpoint'], distractors: ['the service', 'the API', 'the module', 'the endpoint'] },
+        { accepted: ['launch', 'deploy', 'release', 'merge'], distractors: ['launching', 'deploying', 'releasing', 'merging'] },
+      ],
+      tr_hint:
+        "Engineering action plan. Modal + action verb + scope. 'Refactor before ship' = ordering.",
+      example_filled: "I'd like to refactor the service before the launch.",
+    },
+    {
+      id: "ex.wt.9.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "The build is failing on main — any idea what broke?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — let me know when the fix is in." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me|i'?ll) (check|take a look|pull up the logs)",
+        "(it looks like|seems like|i'?m seeing)",
+        "(.+) (regression|breaking change|conflict)",
+        "(i'?ll (push|deploy|merge) (a fix|the patch))",
+      ],
+      tr_hint:
+        "Build failure — defensive olma, debug ownership al. 'I don't know' kötü — 'let me check'.",
+      ideal_answer: "Let me check — looks like a regression in the auth module, I'll push a fix shortly.",
+    },
+    {
+      id: "ex.wt.9.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How long would it take to spin up a new environment for testing?",
+      accepted_patterns: [
+        "(probably|roughly|i'?d say)",
+        "(an hour|a couple hours|by end of day)",
+        "(depending on|if we need (.+))",
+        "(should be quick|fairly straightforward|automation handles it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Effort estimate — net + range. 'Maybe' = belirsiz. 'Probably 2 hours' = aksiyon alabilir cevap.",
+      ideal_response: "Probably an hour — the automation handles most of it, fairly straightforward.",
+    },
+    {
+      id: "ex.wt.9.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu bug'ı kapadım.",
+      wrong_en: "I closed this bug.",
+      right_en: "I fixed this bug / I shipped the fix for this bug.",
+      why_tr:
+        "'Closed' = ticket'i closed status'a aldım, çözmedim sinyali olabilir. 'Fixed' = aksiyon + sonuç. Türk öğrenci 'closed/opened' Turkish 'açtım/kapadım' direkt çevirir — tech English'te 'fix', 'ship', 'merge', 'land' daha güçlü action verbs. Engineering writing impact-first.",
+    },
+    {
+      id: "ex.wt.9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bug'ı kapadım' en güçlü?",
+          options: ["I closed this bug", "I fixed this bug and shipped the fix", "Bug was closed", "I done bug"],
+          correct: 1,
+          tr_explanation: "'Fixed + shipped' = aksiyon + sonuç. 'Closed' minimal sinyali.",
+        },
+        {
+          q: "'Spin up' deyimi?",
+          options: ["Döndürmek", "Hızlıca kurmak/başlatmak (env, service)", "Karıştırmak", "Çıkmak"],
+          correct: 1,
+          tr_explanation: "'Spin up' = quickly start/provision. Engineering jargon — env, container, service.",
+        },
+        {
+          q: "Build failure tepkisi?",
+          options: ["Defensive 'It works on my machine'", "Let me check / pulling logs", "I don't know", "Sus"],
+          correct: 1,
+          tr_explanation: "'Let me check' = ownership. 'Works on my machine' = anti-pattern meme.",
+        },
+        {
+          q: "'Regression' anlamı?",
+          options: ["Geri gitme", "Önceden çalışan bir özelliğin bozulması", "İptal", "Düşüş"],
+          correct: 1,
+          tr_explanation: "'Regression' = working feature breaks. Tech English standardı.",
+        },
+        {
+          q: "Effort estimate verirken en kötü?",
+          options: ["Range vermek (1-2 hours)", "Vague 'maybe'", "Spesifik tarih", "If statement (depends on X)"],
+          correct: 1,
+          tr_explanation: "Vague 'maybe' = aksiyon alınamaz. Range veya spesifik daha iyi.",
         },
       ],
     },
@@ -1335,6 +2199,102 @@ export const techEnglishLesson_10: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.wt.10.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ the ___ before the ___.",
+      slots: [
+        { accepted: ['refactor', 'ship', 'review', 'test'], distractors: ['refactoring', 'shipping', 'reviewing', 'testing'] },
+        { accepted: ['service', 'API', 'module', 'endpoint'], distractors: ['the service', 'the API', 'the module', 'the endpoint'] },
+        { accepted: ['launch', 'deploy', 'release', 'merge'], distractors: ['launching', 'deploying', 'releasing', 'merging'] },
+      ],
+      tr_hint:
+        "Engineering action plan. Modal + action verb + scope. 'Refactor before ship' = ordering.",
+      example_filled: "I'd like to refactor the service before the launch.",
+    },
+    {
+      id: "ex.wt.10.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "The build is failing on main — any idea what broke?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — let me know when the fix is in." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me|i'?ll) (check|take a look|pull up the logs)",
+        "(it looks like|seems like|i'?m seeing)",
+        "(.+) (regression|breaking change|conflict)",
+        "(i'?ll (push|deploy|merge) (a fix|the patch))",
+      ],
+      tr_hint:
+        "Build failure — defensive olma, debug ownership al. 'I don't know' kötü — 'let me check'.",
+      ideal_answer: "Let me check — looks like a regression in the auth module, I'll push a fix shortly.",
+    },
+    {
+      id: "ex.wt.10.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How long would it take to spin up a new environment for testing?",
+      accepted_patterns: [
+        "(probably|roughly|i'?d say)",
+        "(an hour|a couple hours|by end of day)",
+        "(depending on|if we need (.+))",
+        "(should be quick|fairly straightforward|automation handles it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Effort estimate — net + range. 'Maybe' = belirsiz. 'Probably 2 hours' = aksiyon alabilir cevap.",
+      ideal_response: "Probably an hour — the automation handles most of it, fairly straightforward.",
+    },
+    {
+      id: "ex.wt.10.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu bug'ı kapadım.",
+      wrong_en: "I closed this bug.",
+      right_en: "I fixed this bug / I shipped the fix for this bug.",
+      why_tr:
+        "'Closed' = ticket'i closed status'a aldım, çözmedim sinyali olabilir. 'Fixed' = aksiyon + sonuç. Türk öğrenci 'closed/opened' Turkish 'açtım/kapadım' direkt çevirir — tech English'te 'fix', 'ship', 'merge', 'land' daha güçlü action verbs. Engineering writing impact-first.",
+    },
+    {
+      id: "ex.wt.10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bug'ı kapadım' en güçlü?",
+          options: ["I closed this bug", "I fixed this bug and shipped the fix", "Bug was closed", "I done bug"],
+          correct: 1,
+          tr_explanation: "'Fixed + shipped' = aksiyon + sonuç. 'Closed' minimal sinyali.",
+        },
+        {
+          q: "'Spin up' deyimi?",
+          options: ["Döndürmek", "Hızlıca kurmak/başlatmak (env, service)", "Karıştırmak", "Çıkmak"],
+          correct: 1,
+          tr_explanation: "'Spin up' = quickly start/provision. Engineering jargon — env, container, service.",
+        },
+        {
+          q: "Build failure tepkisi?",
+          options: ["Defensive 'It works on my machine'", "Let me check / pulling logs", "I don't know", "Sus"],
+          correct: 1,
+          tr_explanation: "'Let me check' = ownership. 'Works on my machine' = anti-pattern meme.",
+        },
+        {
+          q: "'Regression' anlamı?",
+          options: ["Geri gitme", "Önceden çalışan bir özelliğin bozulması", "İptal", "Düşüş"],
+          correct: 1,
+          tr_explanation: "'Regression' = working feature breaks. Tech English standardı.",
+        },
+        {
+          q: "Effort estimate verirken en kötü?",
+          options: ["Range vermek (1-2 hours)", "Vague 'maybe'", "Spesifik tarih", "If statement (depends on X)"],
+          correct: 1,
+          tr_explanation: "Vague 'maybe' = aksiyon alınamaz. Range veya spesifik daha iyi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1485,6 +2445,102 @@ export const techEnglishLesson_11: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.wt.11.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ the ___ before the ___.",
+      slots: [
+        { accepted: ['refactor', 'ship', 'review', 'test'], distractors: ['refactoring', 'shipping', 'reviewing', 'testing'] },
+        { accepted: ['service', 'API', 'module', 'endpoint'], distractors: ['the service', 'the API', 'the module', 'the endpoint'] },
+        { accepted: ['launch', 'deploy', 'release', 'merge'], distractors: ['launching', 'deploying', 'releasing', 'merging'] },
+      ],
+      tr_hint:
+        "Engineering action plan. Modal + action verb + scope. 'Refactor before ship' = ordering.",
+      example_filled: "I'd like to refactor the service before the launch.",
+    },
+    {
+      id: "ex.wt.11.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "The build is failing on main — any idea what broke?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — let me know when the fix is in." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me|i'?ll) (check|take a look|pull up the logs)",
+        "(it looks like|seems like|i'?m seeing)",
+        "(.+) (regression|breaking change|conflict)",
+        "(i'?ll (push|deploy|merge) (a fix|the patch))",
+      ],
+      tr_hint:
+        "Build failure — defensive olma, debug ownership al. 'I don't know' kötü — 'let me check'.",
+      ideal_answer: "Let me check — looks like a regression in the auth module, I'll push a fix shortly.",
+    },
+    {
+      id: "ex.wt.11.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How long would it take to spin up a new environment for testing?",
+      accepted_patterns: [
+        "(probably|roughly|i'?d say)",
+        "(an hour|a couple hours|by end of day)",
+        "(depending on|if we need (.+))",
+        "(should be quick|fairly straightforward|automation handles it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Effort estimate — net + range. 'Maybe' = belirsiz. 'Probably 2 hours' = aksiyon alabilir cevap.",
+      ideal_response: "Probably an hour — the automation handles most of it, fairly straightforward.",
+    },
+    {
+      id: "ex.wt.11.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu bug'ı kapadım.",
+      wrong_en: "I closed this bug.",
+      right_en: "I fixed this bug / I shipped the fix for this bug.",
+      why_tr:
+        "'Closed' = ticket'i closed status'a aldım, çözmedim sinyali olabilir. 'Fixed' = aksiyon + sonuç. Türk öğrenci 'closed/opened' Turkish 'açtım/kapadım' direkt çevirir — tech English'te 'fix', 'ship', 'merge', 'land' daha güçlü action verbs. Engineering writing impact-first.",
+    },
+    {
+      id: "ex.wt.11.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bug'ı kapadım' en güçlü?",
+          options: ["I closed this bug", "I fixed this bug and shipped the fix", "Bug was closed", "I done bug"],
+          correct: 1,
+          tr_explanation: "'Fixed + shipped' = aksiyon + sonuç. 'Closed' minimal sinyali.",
+        },
+        {
+          q: "'Spin up' deyimi?",
+          options: ["Döndürmek", "Hızlıca kurmak/başlatmak (env, service)", "Karıştırmak", "Çıkmak"],
+          correct: 1,
+          tr_explanation: "'Spin up' = quickly start/provision. Engineering jargon — env, container, service.",
+        },
+        {
+          q: "Build failure tepkisi?",
+          options: ["Defensive 'It works on my machine'", "Let me check / pulling logs", "I don't know", "Sus"],
+          correct: 1,
+          tr_explanation: "'Let me check' = ownership. 'Works on my machine' = anti-pattern meme.",
+        },
+        {
+          q: "'Regression' anlamı?",
+          options: ["Geri gitme", "Önceden çalışan bir özelliğin bozulması", "İptal", "Düşüş"],
+          correct: 1,
+          tr_explanation: "'Regression' = working feature breaks. Tech English standardı.",
+        },
+        {
+          q: "Effort estimate verirken en kötü?",
+          options: ["Range vermek (1-2 hours)", "Vague 'maybe'", "Spesifik tarih", "If statement (depends on X)"],
+          correct: 1,
+          tr_explanation: "Vague 'maybe' = aksiyon alınamaz. Range veya spesifik daha iyi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1620,6 +2676,102 @@ export const techEnglishLesson_12: BundledLesson = {
           ],
           hint_tr:
             "Kapanış: 'Thanks, that means a lot — excited to contribute more.'",
+        },
+      ],
+    },
+    {
+      id: "ex.wt.12.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ the ___ before the ___.",
+      slots: [
+        { accepted: ['refactor', 'ship', 'review', 'test'], distractors: ['refactoring', 'shipping', 'reviewing', 'testing'] },
+        { accepted: ['service', 'API', 'module', 'endpoint'], distractors: ['the service', 'the API', 'the module', 'the endpoint'] },
+        { accepted: ['launch', 'deploy', 'release', 'merge'], distractors: ['launching', 'deploying', 'releasing', 'merging'] },
+      ],
+      tr_hint:
+        "Engineering action plan. Modal + action verb + scope. 'Refactor before ship' = ordering.",
+      example_filled: "I'd like to refactor the service before the launch.",
+    },
+    {
+      id: "ex.wt.12.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "The build is failing on main — any idea what broke?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — let me know when the fix is in." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me|i'?ll) (check|take a look|pull up the logs)",
+        "(it looks like|seems like|i'?m seeing)",
+        "(.+) (regression|breaking change|conflict)",
+        "(i'?ll (push|deploy|merge) (a fix|the patch))",
+      ],
+      tr_hint:
+        "Build failure — defensive olma, debug ownership al. 'I don't know' kötü — 'let me check'.",
+      ideal_answer: "Let me check — looks like a regression in the auth module, I'll push a fix shortly.",
+    },
+    {
+      id: "ex.wt.12.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How long would it take to spin up a new environment for testing?",
+      accepted_patterns: [
+        "(probably|roughly|i'?d say)",
+        "(an hour|a couple hours|by end of day)",
+        "(depending on|if we need (.+))",
+        "(should be quick|fairly straightforward|automation handles it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Effort estimate — net + range. 'Maybe' = belirsiz. 'Probably 2 hours' = aksiyon alabilir cevap.",
+      ideal_response: "Probably an hour — the automation handles most of it, fairly straightforward.",
+    },
+    {
+      id: "ex.wt.12.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu bug'ı kapadım.",
+      wrong_en: "I closed this bug.",
+      right_en: "I fixed this bug / I shipped the fix for this bug.",
+      why_tr:
+        "'Closed' = ticket'i closed status'a aldım, çözmedim sinyali olabilir. 'Fixed' = aksiyon + sonuç. Türk öğrenci 'closed/opened' Turkish 'açtım/kapadım' direkt çevirir — tech English'te 'fix', 'ship', 'merge', 'land' daha güçlü action verbs. Engineering writing impact-first.",
+    },
+    {
+      id: "ex.wt.12.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bug'ı kapadım' en güçlü?",
+          options: ["I closed this bug", "I fixed this bug and shipped the fix", "Bug was closed", "I done bug"],
+          correct: 1,
+          tr_explanation: "'Fixed + shipped' = aksiyon + sonuç. 'Closed' minimal sinyali.",
+        },
+        {
+          q: "'Spin up' deyimi?",
+          options: ["Döndürmek", "Hızlıca kurmak/başlatmak (env, service)", "Karıştırmak", "Çıkmak"],
+          correct: 1,
+          tr_explanation: "'Spin up' = quickly start/provision. Engineering jargon — env, container, service.",
+        },
+        {
+          q: "Build failure tepkisi?",
+          options: ["Defensive 'It works on my machine'", "Let me check / pulling logs", "I don't know", "Sus"],
+          correct: 1,
+          tr_explanation: "'Let me check' = ownership. 'Works on my machine' = anti-pattern meme.",
+        },
+        {
+          q: "'Regression' anlamı?",
+          options: ["Geri gitme", "Önceden çalışan bir özelliğin bozulması", "İptal", "Düşüş"],
+          correct: 1,
+          tr_explanation: "'Regression' = working feature breaks. Tech English standardı.",
+        },
+        {
+          q: "Effort estimate verirken en kötü?",
+          options: ["Range vermek (1-2 hours)", "Vague 'maybe'", "Spesifik tarih", "If statement (depends on X)"],
+          correct: 1,
+          tr_explanation: "Vague 'maybe' = aksiyon alınamaz. Range veya spesifik daha iyi.",
         },
       ],
     },
@@ -1776,6 +2928,102 @@ export const techEnglishLesson_13: BundledLesson = {
           ],
           hint_tr:
             "Kapanış: 'Thanks for the sharp questions — see you at the booth.'",
+        },
+      ],
+    },
+    {
+      id: "ex.wt.13.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ the ___ before the ___.",
+      slots: [
+        { accepted: ['refactor', 'ship', 'review', 'test'], distractors: ['refactoring', 'shipping', 'reviewing', 'testing'] },
+        { accepted: ['service', 'API', 'module', 'endpoint'], distractors: ['the service', 'the API', 'the module', 'the endpoint'] },
+        { accepted: ['launch', 'deploy', 'release', 'merge'], distractors: ['launching', 'deploying', 'releasing', 'merging'] },
+      ],
+      tr_hint:
+        "Engineering action plan. Modal + action verb + scope. 'Refactor before ship' = ordering.",
+      example_filled: "I'd like to refactor the service before the launch.",
+    },
+    {
+      id: "ex.wt.13.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "The build is failing on main — any idea what broke?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — let me know when the fix is in." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me|i'?ll) (check|take a look|pull up the logs)",
+        "(it looks like|seems like|i'?m seeing)",
+        "(.+) (regression|breaking change|conflict)",
+        "(i'?ll (push|deploy|merge) (a fix|the patch))",
+      ],
+      tr_hint:
+        "Build failure — defensive olma, debug ownership al. 'I don't know' kötü — 'let me check'.",
+      ideal_answer: "Let me check — looks like a regression in the auth module, I'll push a fix shortly.",
+    },
+    {
+      id: "ex.wt.13.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How long would it take to spin up a new environment for testing?",
+      accepted_patterns: [
+        "(probably|roughly|i'?d say)",
+        "(an hour|a couple hours|by end of day)",
+        "(depending on|if we need (.+))",
+        "(should be quick|fairly straightforward|automation handles it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Effort estimate — net + range. 'Maybe' = belirsiz. 'Probably 2 hours' = aksiyon alabilir cevap.",
+      ideal_response: "Probably an hour — the automation handles most of it, fairly straightforward.",
+    },
+    {
+      id: "ex.wt.13.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu bug'ı kapadım.",
+      wrong_en: "I closed this bug.",
+      right_en: "I fixed this bug / I shipped the fix for this bug.",
+      why_tr:
+        "'Closed' = ticket'i closed status'a aldım, çözmedim sinyali olabilir. 'Fixed' = aksiyon + sonuç. Türk öğrenci 'closed/opened' Turkish 'açtım/kapadım' direkt çevirir — tech English'te 'fix', 'ship', 'merge', 'land' daha güçlü action verbs. Engineering writing impact-first.",
+    },
+    {
+      id: "ex.wt.13.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bug'ı kapadım' en güçlü?",
+          options: ["I closed this bug", "I fixed this bug and shipped the fix", "Bug was closed", "I done bug"],
+          correct: 1,
+          tr_explanation: "'Fixed + shipped' = aksiyon + sonuç. 'Closed' minimal sinyali.",
+        },
+        {
+          q: "'Spin up' deyimi?",
+          options: ["Döndürmek", "Hızlıca kurmak/başlatmak (env, service)", "Karıştırmak", "Çıkmak"],
+          correct: 1,
+          tr_explanation: "'Spin up' = quickly start/provision. Engineering jargon — env, container, service.",
+        },
+        {
+          q: "Build failure tepkisi?",
+          options: ["Defensive 'It works on my machine'", "Let me check / pulling logs", "I don't know", "Sus"],
+          correct: 1,
+          tr_explanation: "'Let me check' = ownership. 'Works on my machine' = anti-pattern meme.",
+        },
+        {
+          q: "'Regression' anlamı?",
+          options: ["Geri gitme", "Önceden çalışan bir özelliğin bozulması", "İptal", "Düşüş"],
+          correct: 1,
+          tr_explanation: "'Regression' = working feature breaks. Tech English standardı.",
+        },
+        {
+          q: "Effort estimate verirken en kötü?",
+          options: ["Range vermek (1-2 hours)", "Vague 'maybe'", "Spesifik tarih", "If statement (depends on X)"],
+          correct: 1,
+          tr_explanation: "Vague 'maybe' = aksiyon alınamaz. Range veya spesifik daha iyi.",
         },
       ],
     },
@@ -1941,6 +3189,102 @@ export const techEnglishLesson_14: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.wt.14.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ the ___ before the ___.",
+      slots: [
+        { accepted: ['refactor', 'ship', 'review', 'test'], distractors: ['refactoring', 'shipping', 'reviewing', 'testing'] },
+        { accepted: ['service', 'API', 'module', 'endpoint'], distractors: ['the service', 'the API', 'the module', 'the endpoint'] },
+        { accepted: ['launch', 'deploy', 'release', 'merge'], distractors: ['launching', 'deploying', 'releasing', 'merging'] },
+      ],
+      tr_hint:
+        "Engineering action plan. Modal + action verb + scope. 'Refactor before ship' = ordering.",
+      example_filled: "I'd like to refactor the service before the launch.",
+    },
+    {
+      id: "ex.wt.14.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "The build is failing on main — any idea what broke?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — let me know when the fix is in." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me|i'?ll) (check|take a look|pull up the logs)",
+        "(it looks like|seems like|i'?m seeing)",
+        "(.+) (regression|breaking change|conflict)",
+        "(i'?ll (push|deploy|merge) (a fix|the patch))",
+      ],
+      tr_hint:
+        "Build failure — defensive olma, debug ownership al. 'I don't know' kötü — 'let me check'.",
+      ideal_answer: "Let me check — looks like a regression in the auth module, I'll push a fix shortly.",
+    },
+    {
+      id: "ex.wt.14.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How long would it take to spin up a new environment for testing?",
+      accepted_patterns: [
+        "(probably|roughly|i'?d say)",
+        "(an hour|a couple hours|by end of day)",
+        "(depending on|if we need (.+))",
+        "(should be quick|fairly straightforward|automation handles it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Effort estimate — net + range. 'Maybe' = belirsiz. 'Probably 2 hours' = aksiyon alabilir cevap.",
+      ideal_response: "Probably an hour — the automation handles most of it, fairly straightforward.",
+    },
+    {
+      id: "ex.wt.14.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu bug'ı kapadım.",
+      wrong_en: "I closed this bug.",
+      right_en: "I fixed this bug / I shipped the fix for this bug.",
+      why_tr:
+        "'Closed' = ticket'i closed status'a aldım, çözmedim sinyali olabilir. 'Fixed' = aksiyon + sonuç. Türk öğrenci 'closed/opened' Turkish 'açtım/kapadım' direkt çevirir — tech English'te 'fix', 'ship', 'merge', 'land' daha güçlü action verbs. Engineering writing impact-first.",
+    },
+    {
+      id: "ex.wt.14.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bug'ı kapadım' en güçlü?",
+          options: ["I closed this bug", "I fixed this bug and shipped the fix", "Bug was closed", "I done bug"],
+          correct: 1,
+          tr_explanation: "'Fixed + shipped' = aksiyon + sonuç. 'Closed' minimal sinyali.",
+        },
+        {
+          q: "'Spin up' deyimi?",
+          options: ["Döndürmek", "Hızlıca kurmak/başlatmak (env, service)", "Karıştırmak", "Çıkmak"],
+          correct: 1,
+          tr_explanation: "'Spin up' = quickly start/provision. Engineering jargon — env, container, service.",
+        },
+        {
+          q: "Build failure tepkisi?",
+          options: ["Defensive 'It works on my machine'", "Let me check / pulling logs", "I don't know", "Sus"],
+          correct: 1,
+          tr_explanation: "'Let me check' = ownership. 'Works on my machine' = anti-pattern meme.",
+        },
+        {
+          q: "'Regression' anlamı?",
+          options: ["Geri gitme", "Önceden çalışan bir özelliğin bozulması", "İptal", "Düşüş"],
+          correct: 1,
+          tr_explanation: "'Regression' = working feature breaks. Tech English standardı.",
+        },
+        {
+          q: "Effort estimate verirken en kötü?",
+          options: ["Range vermek (1-2 hours)", "Vague 'maybe'", "Spesifik tarih", "If statement (depends on X)"],
+          correct: 1,
+          tr_explanation: "Vague 'maybe' = aksiyon alınamaz. Range veya spesifik daha iyi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2077,6 +3421,102 @@ export const techEnglishLesson_15: BundledLesson = {
           ],
           hint_tr:
             "Kapanış: 'Cheers — catch you tomorrow.' Async ekipte yazili kapanış kisa.",
+        },
+      ],
+    },
+    {
+      id: "ex.wt.15.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ the ___ before the ___.",
+      slots: [
+        { accepted: ['refactor', 'ship', 'review', 'test'], distractors: ['refactoring', 'shipping', 'reviewing', 'testing'] },
+        { accepted: ['service', 'API', 'module', 'endpoint'], distractors: ['the service', 'the API', 'the module', 'the endpoint'] },
+        { accepted: ['launch', 'deploy', 'release', 'merge'], distractors: ['launching', 'deploying', 'releasing', 'merging'] },
+      ],
+      tr_hint:
+        "Engineering action plan. Modal + action verb + scope. 'Refactor before ship' = ordering.",
+      example_filled: "I'd like to refactor the service before the launch.",
+    },
+    {
+      id: "ex.wt.15.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "The build is failing on main — any idea what broke?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — let me know when the fix is in." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me|i'?ll) (check|take a look|pull up the logs)",
+        "(it looks like|seems like|i'?m seeing)",
+        "(.+) (regression|breaking change|conflict)",
+        "(i'?ll (push|deploy|merge) (a fix|the patch))",
+      ],
+      tr_hint:
+        "Build failure — defensive olma, debug ownership al. 'I don't know' kötü — 'let me check'.",
+      ideal_answer: "Let me check — looks like a regression in the auth module, I'll push a fix shortly.",
+    },
+    {
+      id: "ex.wt.15.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How long would it take to spin up a new environment for testing?",
+      accepted_patterns: [
+        "(probably|roughly|i'?d say)",
+        "(an hour|a couple hours|by end of day)",
+        "(depending on|if we need (.+))",
+        "(should be quick|fairly straightforward|automation handles it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Effort estimate — net + range. 'Maybe' = belirsiz. 'Probably 2 hours' = aksiyon alabilir cevap.",
+      ideal_response: "Probably an hour — the automation handles most of it, fairly straightforward.",
+    },
+    {
+      id: "ex.wt.15.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu bug'ı kapadım.",
+      wrong_en: "I closed this bug.",
+      right_en: "I fixed this bug / I shipped the fix for this bug.",
+      why_tr:
+        "'Closed' = ticket'i closed status'a aldım, çözmedim sinyali olabilir. 'Fixed' = aksiyon + sonuç. Türk öğrenci 'closed/opened' Turkish 'açtım/kapadım' direkt çevirir — tech English'te 'fix', 'ship', 'merge', 'land' daha güçlü action verbs. Engineering writing impact-first.",
+    },
+    {
+      id: "ex.wt.15.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bug'ı kapadım' en güçlü?",
+          options: ["I closed this bug", "I fixed this bug and shipped the fix", "Bug was closed", "I done bug"],
+          correct: 1,
+          tr_explanation: "'Fixed + shipped' = aksiyon + sonuç. 'Closed' minimal sinyali.",
+        },
+        {
+          q: "'Spin up' deyimi?",
+          options: ["Döndürmek", "Hızlıca kurmak/başlatmak (env, service)", "Karıştırmak", "Çıkmak"],
+          correct: 1,
+          tr_explanation: "'Spin up' = quickly start/provision. Engineering jargon — env, container, service.",
+        },
+        {
+          q: "Build failure tepkisi?",
+          options: ["Defensive 'It works on my machine'", "Let me check / pulling logs", "I don't know", "Sus"],
+          correct: 1,
+          tr_explanation: "'Let me check' = ownership. 'Works on my machine' = anti-pattern meme.",
+        },
+        {
+          q: "'Regression' anlamı?",
+          options: ["Geri gitme", "Önceden çalışan bir özelliğin bozulması", "İptal", "Düşüş"],
+          correct: 1,
+          tr_explanation: "'Regression' = working feature breaks. Tech English standardı.",
+        },
+        {
+          q: "Effort estimate verirken en kötü?",
+          options: ["Range vermek (1-2 hours)", "Vague 'maybe'", "Spesifik tarih", "If statement (depends on X)"],
+          correct: 1,
+          tr_explanation: "Vague 'maybe' = aksiyon alınamaz. Range veya spesifik daha iyi.",
         },
       ],
     },

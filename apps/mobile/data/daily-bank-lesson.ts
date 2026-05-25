@@ -286,6 +286,126 @@ export const dailyBankLesson_30_1: BundledLesson = {
       tr_explanation:
         "'Get money from my account in cash' direkt çeviri ve uzun. Bankacılıkta sabit kalıp: 'withdraw cash' (= nakit çek). 'I'd like' kibar.",
     },
+    {
+      id: "ex.db30.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ ___ from my account, please.",
+      slots: [
+        { accepted: ["withdraw", "take out", "transfer"], distractors: ["take", "get", "pull"] },
+        { accepted: ["two hundred dollars", "some cash", "$200"], distractors: ["money", "cash money", "bill"] },
+      ],
+      tr_hint:
+        "'I'd like to ___ ___' = bankacılıkta standart kibar kalıp. Slot 1 fiil ('withdraw'), slot 2 tutar/nesne. Türk öğrenci 'I want take money' yapıyor — yanlış.",
+      example_filled: "I'd like to withdraw two hundred dollars from my account, please.",
+    },
+    {
+      id: "ex.db30.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Good morning! How can I help you today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I'm sorry to hear that. Can I see your ID?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|good morning)(,)? (the )?atm (ate|swallowed|kept) my card",
+        "my card (got )?stuck in the atm",
+        "(could you|can you) help (me )?(get|retrieve) (it|my card)",
+        "(i'd like|i'?m here) to (report|withdraw)",
+      ],
+      tr_hint:
+        "Memur 'How can I help?' demis — net problem söyle. Selamlama + spesifik problem. 'Hi, the ATM ate my card' tipi direkt giriş.",
+      ideal_answer: "Hi, the ATM ate my card — could you help me get it back?",
+    },
+    {
+      id: "ex.db30.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you like the bills — twenties, fifties, or a mix?",
+      accepted_patterns: [
+        "(twenties|fifties|a mix|mixed)( please)?",
+        "(could|can) i (have|get) (it )?in (twenties|fifties|small bills)",
+        "(mostly |a mix of )?(twenties|fifties)",
+        "(small bills|smaller bills)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Banka memuru banknot seçimi soruyor — kısa pratik cevap. 'A mix, please' veya 'Mostly twenties, thanks'. Türk öğrenci uzun açıklar — gerek yok.",
+      ideal_response: "A mix, please — mostly twenties.",
+    },
+    {
+      id: "ex.db30.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Param yok, biraz çekmek istiyorum.",
+      wrong_en: "I have no money, I want to take some.",
+      right_en: "I'd like to withdraw some cash, please.",
+      why_tr:
+        "Türk öğrenci 'param yok' kalıbını direkt çevirir — 'I have no money' rica eden değil acındıran ton. Bankacılıkta sebep söylemezsin, 'I'd like to withdraw' standart formal kalıp. 'Take money' yerine 'withdraw'.",
+    },
+    {
+      id: "ex.db30.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Withdraw' ne demek bankacılıkta?",
+          options: [
+            "Para yatırmak",
+            "Para çekmek (hesaptan)",
+            "Hesap kapatmak",
+            "Kart bloke etmek",
+          ],
+          correct: 1,
+          tr_explanation: "'Withdraw' = hesaptan para çek (ATM veya gişeden). 'Deposit' = para yatır.",
+        },
+        {
+          q: "ATM kart yuttu — kibar ilk cümle?",
+          options: [
+            "Machine eat my card!",
+            "Hi, the ATM ate my card — could you help?",
+            "Give me my card back.",
+            "Card stuck!",
+          ],
+          correct: 1,
+          tr_explanation: "'Ate / swallowed' = yuttu (pasif). 'Could you help' = yardım rica. Kibar + net.",
+        },
+        {
+          q: "'Could I have it in twenties?' ne demek?",
+          options: [
+            "Yirmi tane verir misin?",
+            "20 dolarlık banknotlar halinde verir misin?",
+            "Yirmi yaş için verir misin?",
+            "Yirmi dakika sonra?",
+          ],
+          correct: 1,
+          tr_explanation: "'In twenties' = 20'lik banknotlar halinde. ATM/gişe için pratik kalıp.",
+        },
+        {
+          q: "PIN tam olarak ne kısaltması?",
+          options: [
+            "Personal Identification Number",
+            "Public Internet Number",
+            "Private Item Number",
+            "Personal Info Note",
+          ],
+          correct: 0,
+          tr_explanation: "PIN = Personal Identification Number. Şifre olarak kullanılır.",
+        },
+        {
+          q: "'Account balance' ne demek?",
+          options: [
+            "Hesap dengesi (psikolojik)",
+            "Hesap bakiyesi — paranın güncel tutarı",
+            "Hesap özeti",
+            "Hesap numarası",
+          ],
+          correct: 1,
+          tr_explanation: "'Balance' = hesaptaki para miktarı. 'Could you check my balance?' yaygın kalıp.",
+        },
+      ],
+    },
   ],
 };
 

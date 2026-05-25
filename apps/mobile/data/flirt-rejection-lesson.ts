@@ -210,6 +210,129 @@ export const flirtRejectionLesson_7_1: BundledLesson = {
       tr_explanation:
         "'You are nice but I am not interested in you' = doğrudan Türkçe çevirisi — soğuk + reddetme odaklı. Doğru: pozitif duygu + 'not feeling the spark' (duygu odaklı) + iyi dilek.",
     },
+    {
+      id: "ex.fr7.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "Really ___ meeting you — just not ___ the ___ spark.",
+      slots: [
+        { accepted: ["enjoyed", "liked", "appreciated"] },
+        { accepted: ["feeling", "sensing", "getting"] },
+        { accepted: ["romantic", "right", "real"] },
+      ],
+      tr_hint:
+        "Saygılı reddetme formülü: pozitif duygu + dürüstlük + spesifik. 'I'm not interested' = soğuk + kişisel. 'Not feeling the spark' = duygu-odaklı, suçlamayan. Türk öğrenci direkt 'I don't like you' = saldırgan.",
+      example_filled: "Really enjoyed meeting you — just not feeling the romantic spark.",
+    },
+    {
+      id: "ex.fr7.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "user", text: "Hey, wanted to be honest — not feeling that romantic spark. You're great though." },
+        { speaker: "npc", text: "I appreciate you saying it directly. Thanks for being upfront." },
+        { speaker: "user" },
+      ],
+      missing_at: 2,
+      accepted_patterns: [
+        "(thank you|thanks) (for (understanding|being chill|getting it))",
+        "(wish you|hope you find) (the best|something great|the right person)",
+        "(you'?re|you are) (genuinely|really) (great|cool|good)",
+        "(no hard feelings|hope no hard feelings)",
+        "(take care|all the best)",
+      ],
+      tr_hint:
+        "NPC olgun karşıladı — sen de saygıyla kapat. 'Thanks for being chill. Wish you the best.' kapanış formülü. Türk öğrenci 'Hope I can find you again' = ek bağlanma sinyali, kötü.",
+      ideal_answer: "Thanks for being chill about it. You're genuinely great — wish you the best.",
+    },
+    {
+      id: "ex.fr7.1.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Hey — so where do you think this is going? I'd love to hear what you're thinking.",
+      accepted_patterns: [
+        "(honestly|i'?m gonna be honest)(,)? (i'?m not |i don'?t)(feel|sense|see)",
+        "(really |honestly )(enjoyed|liked) (meeting|getting to know)",
+        "(but|however)(,)? (not |i'?m not )(feeling|getting) (the spark|a romantic)",
+        "(wanted to|need to) (be (honest|upfront|fair))",
+        "(it'?s not|it isn'?t) (about you|anything about you)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "NPC seninle gelecek konuşmak istiyor — sen reddedeceksin. ZORLU AN. Pozitif başla, dürüst ol, drama yapma. 'Honestly, I enjoyed meeting you but I'm not feeling a romantic spark.' Türk: 'Sorry I can't' = pasif, eksik açıklama.",
+      ideal_response: "Honestly, I really enjoyed meeting you — but I'm not feeling that romantic spark. Wanted to be upfront.",
+    },
+    {
+      id: "ex.fr7.1.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Sen iyi birisin ama benim için uygun değilsin.",
+      wrong_en: "You are good person but you are not suitable for me.",
+      right_en: "You're great — just not feeling that romantic spark for me.",
+      why_tr:
+        "Türk öğrencinin klasik direct-translation hatası. 'Good person' = okul kitabı + soğuk + değerlendirici. 'Not suitable for me' = robot + iş ilanı tonu. Modern dating: 'You're great' (warm) + 'not feeling the spark' (duygu-odaklı, suçlamayan, kişisel değil). Native: spark/connection/vibe gibi duygu kelimeleri = kişiyi savunma pozisyonuna sokmaz.",
+    },
+    {
+      id: "ex.fr7.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Not feeling the spark' nasıl çevirilir?",
+          options: [
+            "Kıvılcımı hissetmemek (romantik bağ yok)",
+            "Elektriği hissetmemek",
+            "Heyecanı hissetmemek",
+            "Hepsi geçerli",
+          ],
+          correct: 3,
+          tr_explanation: "'Spark' = romantik kıvılcım. Reddetme dilinde 'kişiyle ilgili sorun yok' anlamı taşır.",
+        },
+        {
+          q: "Saygılı reddetmenin 3 ayağı?",
+          options: [
+            "Acı + bahane + para",
+            "Pozitif övgü + dürüstlük + saygılı kapanış",
+            "Suçlama + kaçış + ghost",
+            "Sessizlik + uzaklaşma",
+          ],
+          correct: 1,
+          tr_explanation: "Pozitif (saygı) + dürüst (net hayır) + saygılı kapanış (iyi dilek) = sağlıklı ret.",
+        },
+        {
+          q: "'Wish you the best' kalıbı ne işe yarar?",
+          options: [
+            "En iyisini dilemek (sahte)",
+            "Saygılı kapanış + duygusal kapı kapama",
+            "İltifat",
+            "Yalın selamlama",
+          ],
+          correct: 1,
+          tr_explanation: "'Wish you the best' = saygılı kapanış. Olgun + samimi son. Türk 'goodbye' soğuk kalır.",
+        },
+        {
+          q: "'Ghosting' niye kötü çözüm?",
+          options: [
+            "Çok zor",
+            "Saygısızlık + cevapsız bırakır + olgun değil",
+            "Çok yorucu",
+            "Onaylanmaz",
+          ],
+          correct: 1,
+          tr_explanation: "Tek satırlık dürüst ret = ghostlamaktan daima daha saygılı.",
+        },
+        {
+          q: "Türk hatası: 'You are good person but not suitable for me' yerine?",
+          options: [
+            "You are nice but not for me",
+            "You're great — just not feeling the spark",
+            "I don't like you",
+            "Sorry, no",
+          ],
+          correct: 1,
+          tr_explanation: "'Suitable' = iş ilanı dili. Modern dating: duygu-odaklı 'spark/connection' = doğal + saygılı.",
+        },
+      ],
+    },
   ],
 };
 

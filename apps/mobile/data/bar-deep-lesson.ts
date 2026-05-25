@@ -121,6 +121,128 @@ export const barLesson_7_14: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.7.14.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.14.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.14.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.14.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.14.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -223,6 +345,128 @@ export const barLesson_7_15: BundledLesson = {
         {
           speaker: "npc",
           message: "Smoky scotch coming up. Coming right out.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.15.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.15.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.15.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.15.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.15.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
         },
       ],
     },
@@ -338,6 +582,128 @@ export const barLesson_7_16: BundledLesson = {
         {
           speaker: "npc",
           message: "Coming right up. Garnish on the way.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.16.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.16.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.16.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.16.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.16.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
         },
       ],
     },
@@ -463,6 +829,128 @@ export const barLesson_7_17: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.7.17.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.17.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.17.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.17.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.17.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -569,6 +1057,128 @@ export const barLesson_7_18: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.7.18.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.18.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.18.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.18.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.18.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -672,6 +1282,128 @@ export const barLesson_7_19: BundledLesson = {
         {
           speaker: "npc",
           message: "Coming up.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.19.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.19.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.19.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.19.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.19.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
         },
       ],
     },
@@ -790,6 +1522,128 @@ export const barLesson_7_20: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.7.20.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.20.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.20.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.20.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.20.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -896,6 +1750,128 @@ export const barLesson_7_21: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.7.21.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.21.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.21.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.21.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.21.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -997,6 +1973,128 @@ export const barLesson_7_22: BundledLesson = {
         {
           speaker: "npc",
           message: "Appreciate it — enjoy your drink.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.22.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.22.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.22.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.22.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.22.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
         },
       ],
     },
@@ -1107,6 +2205,128 @@ export const barLesson_7_23: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.7.23.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.23.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.23.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.23.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.23.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1208,6 +2428,128 @@ export const barLesson_7_24: BundledLesson = {
         {
           speaker: "npc",
           message: "Coming right up — congrats!",
+        },
+      ],
+    },
+    {
+      id: "ex.7.24.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.24.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.24.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.24.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.24.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
         },
       ],
     },
@@ -1316,6 +2658,128 @@ export const barLesson_7_25: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.7.25.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.25.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.25.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.25.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.25.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1418,6 +2882,128 @@ export const barLesson_7_26: BundledLesson = {
         {
           speaker: "npc",
           message: "Coming right up — pretzels are on me.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.26.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.26.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.26.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.26.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.26.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
         },
       ],
     },
@@ -1524,6 +3110,128 @@ export const barLesson_7_27: BundledLesson = {
         {
           speaker: "npc",
           message: "Sounds fun — enjoy. Cheers!",
+        },
+      ],
+    },
+    {
+      id: "ex.7.27.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.27.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.27.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.27.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.27.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
         },
       ],
     },
@@ -1643,6 +3351,128 @@ export const barLesson_7_28: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.7.28.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.28.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.28.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.28.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.28.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1755,6 +3585,128 @@ export const barLesson_24_15: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.24.15.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.15.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.15.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.15.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.15.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1860,6 +3812,128 @@ export const barLesson_24_16: BundledLesson = {
           speaker: "npc",
           message:
             "Well, welcome. Next round's on me — gotta show some hospitality.",
+        },
+      ],
+    },
+    {
+      id: "ex.24.16.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.16.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.16.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.16.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.16.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
         },
       ],
     },
@@ -1971,6 +4045,128 @@ export const barLesson_24_17: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.24.17.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.17.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.17.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.17.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.17.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2076,6 +4272,128 @@ export const barLesson_24_18: BundledLesson = {
           speaker: "npc",
           message:
             "Coming up. Round one starts in five minutes.",
+        },
+      ],
+    },
+    {
+      id: "ex.24.18.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.18.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.18.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.18.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.18.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
         },
       ],
     },
@@ -2187,6 +4505,128 @@ export const barLesson_24_19: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.24.19.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.19.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.19.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.19.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.19.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2292,6 +4732,128 @@ export const barLesson_24_20: BundledLesson = {
           speaker: "npc",
           message:
             "Deal — be right back. So glad we finally met.",
+        },
+      ],
+    },
+    {
+      id: "ex.24.20.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.20.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.20.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.20.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.20.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
         },
       ],
     },
@@ -2412,6 +4974,128 @@ export const barLesson_24_21: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.24.21.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.21.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.21.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.21.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.21.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2517,6 +5201,128 @@ export const barLesson_24_22: BundledLesson = {
           speaker: "npc",
           message:
             "Well, I appreciate it. Cheers.",
+        },
+      ],
+    },
+    {
+      id: "ex.24.22.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.22.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.22.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.22.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.22.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
         },
       ],
     },
@@ -2628,6 +5434,128 @@ export const barLesson_24_23: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.24.23.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.23.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.23.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.23.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.23.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2736,6 +5664,128 @@ export const barLesson_24_24: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.24.24.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.24.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.24.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.24.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.24.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2841,6 +5891,128 @@ export const barLesson_24_25: BundledLesson = {
           speaker: "npc",
           message:
             "Good luck, see you on stage.",
+        },
+      ],
+    },
+    {
+      id: "ex.24.25.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.25.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.25.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.25.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.25.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
         },
       ],
     },
@@ -2978,6 +6150,128 @@ export const barLesson_24_26: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.24.26.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.26.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.26.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.26.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.26.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3083,6 +6377,128 @@ export const barLesson_24_27: BundledLesson = {
           speaker: "npc",
           message:
             "Cool — whenever you're ready, just say.",
+        },
+      ],
+    },
+    {
+      id: "ex.24.27.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.27.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.27.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.27.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.27.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
         },
       ],
     },
@@ -3194,6 +6610,128 @@ export const barLesson_24_28: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.24.28.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.28.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.28.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.28.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.28.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3299,6 +6837,128 @@ export const barLesson_24_29: BundledLesson = {
           speaker: "npc",
           message:
             "It was great hanging tonight. Glad we met.",
+        },
+      ],
+    },
+    {
+      id: "ex.24.29.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.29.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.29.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.29.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.29.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
         },
       ],
     },
@@ -3416,6 +7076,128 @@ export const barLesson_7_29: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.7.29.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.29.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.29.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.29.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.29.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3528,6 +7310,128 @@ export const barLesson_7_30: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.7.30.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.30.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.30.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.30.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.30.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3621,6 +7525,128 @@ export const barLesson_7_31: BundledLesson = {
         {
           speaker: "npc",
           message: "Cheers.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.31.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.31.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.31.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.31.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.31.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
         },
       ],
     },
@@ -3733,6 +7759,128 @@ export const barLesson_7_32: BundledLesson = {
         {
           speaker: "npc",
           message: "Enjoy your stay.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.32.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.32.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.32.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.32.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.32.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
         },
       ],
     },
@@ -3860,6 +8008,128 @@ export const barLesson_7_33: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.7.33.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.33.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.33.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.33.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.33.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3969,6 +8239,128 @@ export const barLesson_7_34: BundledLesson = {
         {
           speaker: "npc",
           message: "Coming right up.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.34.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.34.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.34.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.34.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.34.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
         },
       ],
     },
@@ -4097,6 +8489,128 @@ export const barLesson_7_35: BundledLesson = {
           ],
           hint_tr:
             "Karar: 'We'll take the bottle'.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.35.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.35.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.35.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.35.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.35.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
         },
       ],
     },
@@ -4229,6 +8743,128 @@ export const barLesson_7_36: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.7.36.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.36.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.36.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.36.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.36.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -4358,6 +8994,128 @@ export const barLesson_7_37: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.7.37.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.37.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.37.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.37.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.37.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -4472,6 +9230,128 @@ export const barLesson_7_38: BundledLesson = {
           speaker: "npc",
           message:
             "Oh, you don't have to — but thank you, really.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.38.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.38.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.38.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.38.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.38.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
         },
       ],
     },
@@ -4604,6 +9484,128 @@ export const barLesson_7_39: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.7.39.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.39.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.39.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.39.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.39.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -4730,6 +9732,128 @@ export const barLesson_7_40: BundledLesson = {
           ],
           hint_tr:
             "B1 tesekkur: 'Thanks for walking me through it'.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.40.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.40.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.40.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.40.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.40.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
         },
       ],
     },
@@ -4871,6 +9995,128 @@ export const barLesson_7_41: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.7.41.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.41.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.41.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.41.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.41.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -5006,6 +10252,128 @@ export const barLesson_7_42: BundledLesson = {
           ],
           hint_tr:
             "B2: 'My preconceptions were off — let's build the cocktail'.",
+        },
+      ],
+    },
+    {
+      id: "ex.7.42.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.42.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.42.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.42.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.42.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
         },
       ],
     },
@@ -5156,6 +10524,128 @@ export const barLesson_7_43: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.7.43.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["house red", "IPA", "Negroni", "signature"] },
+      ],
+      tr_hint:
+        "Bar siparis kalibi. Slot 1 = olcu (pint/glass/bottle/shot), slot 2 = icki. 'Could I get a' = kibar standard. Turk: 'Give me' kaba; 'Could I get a glass of the house red' = profesyonel.",
+      example_filled: "Could I get a glass of the house red, please?",
+    },
+    {
+      id: "ex.7.43.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — coming right up." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the |an )?(beer|ipa|wine|whiskey|cocktail|pint)",
+        "(i'?ll have|i'?d like) (a |the |an )?(beer|ipa|wine|cocktail)",
+        "(what'?s|what is) on (tap|draft|the menu)",
+        "(a |an |one )(beer|wine|pint|ipa)( please)?",
+        "(could|can) (i|we) (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender acildi. Spesifik siparis ver. Turk: 'I want beer' kaba; 'Could I get a pint of the IPA?' = profesyonel.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.43.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass|cocktail)",
+        "(what'?s|what is) (good|on tap|on draft|the special)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water|club soda)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor. 3 saniye dusun, spesifik soyle. 'I'll have a pint of the IPA' veya 'Surprise me'. Turk: tam cumle gerekmez — 'a beer please' bile yeterli.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.43.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Bir bira ve hesap, lutfen.",
+      wrong_en: "Waiter! One beer and the bill, please.",
+      right_en: "Hey — could I get a beer? And the tab when you have a sec.",
+      why_tr:
+        "Turk ogrenci 'garson' → 'waiter' cevirir; barda bartender olur. 'Hesap' → 'bill' restoranda, barda 'tab' / 'check'. 'Waiter' cagirmak kaba; bartender'i goz temasiyla cagir. 'Could I get' = kibar standart.",
+    },
+    {
+      id: "ex.7.43.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardak kapagi",
+            "Acik hesap (kart birakirsin, sonunda topluca odenir)",
+            "Bira cesidi",
+            "Bar masasi",
+          ],
+          correct: 1,
+          tr_explanation: "'Tab' = barda biriken hesap (acik hesap). ABD/UK bar standardi.",
+        },
+        {
+          q: "'I'll have' niye 'I want'tan daha doğal?",
+          options: [
+            "Daha resmi",
+            "Sosyal nezaket + standart siparis kalibi",
+            "Gramatik dogru",
+            "Daha kisa",
+          ],
+          correct: 1,
+          tr_explanation: "'I'll have' = standart siparis. 'I want' = okul cocugu havasi. Bar/restoranda 'I'll have' veya 'Could I get' kullanilir.",
+        },
+        {
+          q: "'On tap' ne demek?",
+          options: [
+            "Sisede",
+            "Ficidan (draft)",
+            "Soguk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation: "'On tap' = ficidan akan bira. 'On draft' aynı. 'What's on tap?' = ficidan ne var?",
+        },
+        {
+          q: "Bar'da 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation: "Bar konteksti: icki veren = bartender; masa servisi = server. 'Waiter' = restoran terimi.",
+        },
+        {
+          q: "Hesabi kapatmak icin doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End account",
+          ],
+          correct: 2,
+          tr_explanation: "'Close me out' = bar idiom'u (hesabi kapat). 'Settle up' eşanlamlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -5292,6 +10782,128 @@ export const barLesson_24_30: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.24.30.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.30.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.30.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.30.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.30.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -5418,6 +11030,128 @@ export const barLesson_24_31: BundledLesson = {
           ],
           hint_tr:
             "B1: 'Fingers crossed for a good match'.",
+        },
+      ],
+    },
+    {
+      id: "ex.24.31.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.31.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.31.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.31.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.31.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
         },
       ],
     },
@@ -5550,6 +11284,128 @@ export const barLesson_24_32: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.24.32.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.32.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.32.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.32.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.32.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -5676,6 +11532,128 @@ export const barLesson_24_33: BundledLesson = {
           ],
           hint_tr:
             "B1: 'I'll let them know — thanks Marcus!'",
+        },
+      ],
+    },
+    {
+      id: "ex.24.33.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.33.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.33.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.33.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.33.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
         },
       ],
     },
@@ -5808,6 +11786,128 @@ export const barLesson_24_34: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.24.34.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.34.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.34.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.34.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.34.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -5934,6 +12034,128 @@ export const barLesson_24_35: BundledLesson = {
           ],
           hint_tr:
             "B1: 'I'll set an alarm — thanks for the heads-up'.",
+        },
+      ],
+    },
+    {
+      id: "ex.24.35.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.35.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.35.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.35.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.35.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
         },
       ],
     },
@@ -6075,6 +12297,128 @@ export const barLesson_24_36: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.24.36.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.36.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.36.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.36.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.36.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -6213,6 +12557,128 @@ export const barLesson_24_37: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.24.37.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.37.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.37.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.37.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.37.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -6342,6 +12808,128 @@ export const barLesson_24_38: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.24.38.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.38.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.38.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.38.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.38.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -6468,6 +13056,128 @@ export const barLesson_24_39: BundledLesson = {
           ],
           hint_tr:
             "B2: 'I'll hold you to that' = sözünü tutarim diye bekliyorum.",
+        },
+      ],
+    },
+    {
+      id: "ex.24.39.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.39.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.39.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.39.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.39.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
         },
       ],
     },
@@ -6609,6 +13319,128 @@ export const barLesson_24_40: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.24.40.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.40.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.40.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.40.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.40.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -6744,6 +13576,128 @@ export const barLesson_24_41: BundledLesson = {
           ],
           hint_tr:
             "B2: 'Genuinely — best of luck with the company'.",
+        },
+      ],
+    },
+    {
+      id: "ex.24.41.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.41.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.41.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.41.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.41.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
         },
       ],
     },
@@ -6894,6 +13848,128 @@ export const barLesson_24_42: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.24.42.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.42.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.42.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.42.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.42.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -7041,6 +14117,128 @@ export const barLesson_24_43: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.24.43.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.43.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.43.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.43.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.43.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -7185,6 +14383,128 @@ export const barLesson_24_44: BundledLesson = {
           ],
           hint_tr:
             "C1: 'Here's to the craft — long may it endure'.",
+        },
+      ],
+    },
+    {
+      id: "ex.24.44.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? You guys ___ pretty fun.",
+      slots: [
+        { accepted: ["join", "jump in", "pull up a chair", "say hi"] },
+        { accepted: ["seem", "look", "sound", "feel"] },
+      ],
+      tr_hint:
+        "Gruba/yabanciya katilma kalibi. Slot 1 = aksiyon (join = klasik), slot 2 = gozlem (seem/look). 'Mind if I' = sakıncası varmı? Turk: 'Can I be here?' kaba; 'Mind if I jump in?' = saygili.",
+      example_filled: "Mind if I jump in? You guys seem pretty fun.",
+    },
+    {
+      id: "ex.24.44.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, pull up a chair." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha, cool — we were just talking about that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (what'?s|what are) (you (talking|chatting) about|the conversation)",
+        "(thanks|cheers)[,. ]+ (so |how is )(the night|the vibe)",
+        "(thanks|appreciate it)[,. ]+ (i'?m|been) (visiting|new (here|in town))",
+        "(thanks|cool)[,. ]+ (it'?s |its )(crazy|packed|wild) (in here|tonight)",
+        "(thanks)[,. ]+ (you guys regulars|first time here too)",
+      ],
+      tr_hint:
+        "Yer aldin, sohbeti ac. Sosyal gozlem ekle. Turk: Sadece 'Thanks' kuru — 'Thanks, it's crazy in here' = baglam acici.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You guys regulars?",
+    },
+    {
+      id: "ex.24.44.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just needed|wanted) (a drink|to unwind|to get out)",
+        "(my friend|someone) recommended (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to relax)",
+        "(rough day|long day|needed to decompress|just exploring)",
+        "(uhh|actually) (just visiting|in town for|here for) (a few days|work)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap + baglam. 'Rough day, needed a drink' veya 'Just visiting from Istanbul'. Turk: 'No reason' yetersiz; sebep ver.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.24.44.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam guzelim, sizinle tanisabilir miyim?",
+      wrong_en: "Hello beautiful, can I meet you?",
+      right_en: "Hey — mind if I jump in? You guys seem like you're having a blast.",
+      why_tr:
+        "Turk ogrenci 'guzelim' → 'beautiful' kelime kelime; ABD/UK barda yabancıya 'beautiful' = creepy/objektifleştirici. 'Tanismak' → 'meet you' resmi. Modern: spesifik gozlem ('having a blast' = eğleniyor) + saygili katilim sorusu ('mind if I jump in?'). Gender-respectful + 2026 normleri.",
+    },
+    {
+      id: "ex.24.44.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I jump in?' tam karsiligi?",
+          options: [
+            "Atlamak istiyorum",
+            "Konusmaya katilabilir miyim? (saygili)",
+            "Bana izin ver",
+            "Yardim et",
+          ],
+          correct: 1,
+          tr_explanation: "'Jump in' = (sohbete) katilmak. 'Mind if I' = sakincasi varmi? Modern bar sosyal kalibi.",
+        },
+        {
+          q: "Yabanciya 'beautiful' demek niye sorun?",
+          options: [
+            "Cok resmi",
+            "Objektiflestirici hissedebilir + gender-disrespectful (modern normlar)",
+            "Yanlis kelime",
+            "Mecazi",
+          ],
+          correct: 1,
+          tr_explanation: "Modern bar etiketi: tanimadigin birine fiziksel sifat (beautiful) = creepy. Davranis/eylem uzerinden ilgi göster.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yasiyor",
+            "Cok eğleniyor",
+            "Hizli kosuyor",
+            "Bagiriyor",
+          ],
+          correct: 1,
+          tr_explanation: "'Have a blast' = cok eğlenmek. 'We're having a blast' = cok eğleniyoruz.",
+        },
+        {
+          q: "'No pressure' bar sosyalde niye iyi?",
+          options: [
+            "Resmi kalip",
+            "Karsiya 'hayir de istersen sorun yok' mesaji verir — saygıli",
+            "Anlamsiz",
+            "Sigorta",
+          ],
+          correct: 1,
+          tr_explanation: "'No pressure' = baski yok. Sosyal teklif sunarken kapi acik birakir = modern saygili kalip.",
+        },
+        {
+          q: "Bar'da sohbet aciliği icin en doğal yaklasim?",
+          options: [
+            "Doğrudan komplimentle basla",
+            "Spesifik gozlem + ucu acik soru",
+            "Hemen telefon iste",
+            "Cok kisisel soru",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik gozlem ('that looks good') + ucu acik soru = saygili + sohbeti acici. Modern bar standardi.",
         },
       ],
     },

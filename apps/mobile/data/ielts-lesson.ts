@@ -124,6 +124,126 @@ export const ieltsLesson_p1_1: BundledLesson = {
         { speaker: "npc", message: "Thank you. Let's move on to a different topic." },
       ],
     },
+    {
+      id: "ex.ielts.p1.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "What I find particularly ___ about my hometown is ___.",
+      slots: [
+        { accepted: ["appealing", "interesting", "striking", "memorable", "compelling", "fascinating"] },
+        { accepted: ["the food culture", "how friendly people are", "the pace of life", "its history", "the coastal scenery"] },
+      ],
+      tr_hint:
+        "Band 7+ kalıp: 'What I find particularly ___ about X is Y'. Türk öğrenci 'I like very much' der — yetersiz. Bu yapı opinion + spesifik = examiner'ın aradığı sophistication.",
+      example_filled: "What I find particularly appealing about my hometown is the pace of life.",
+    },
+    {
+      id: "ex.ielts.p1.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Can you tell me a bit about where you live?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I see. And how long have you been living there?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "i (live|'?m living|currently live) in (istanbul|ankara|izmir|.+),? (which|where)",
+        "(i'?d describe it as|i would describe my hometown as)",
+        "(it'?s|it is) a (coastal|bustling|quiet|vibrant|historic) (city|town)",
+        "(currently |at the moment )?i'?m based in",
+      ],
+      tr_hint:
+        "Part 1 opener: kısa ama deskriptif. 'I live in Istanbul, which is a bustling coastal city in Turkey.' Türk öğrenci sadece 'I live in Istanbul' der — sıfat/açıklama ekle. 'Based in' = profesyonel ton.",
+      ideal_answer: "I currently live in Istanbul, which I'd describe as a bustling coastal city with a rich history.",
+    },
+    {
+      id: "ex.ielts.p1.1.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "What do you like most about the area where you live?",
+      accepted_patterns: [
+        "(what i (like|love|enjoy) most|the thing i (appreciate|enjoy) most) is",
+        "(probably|i would say|i'?d have to say) (the |its )?(food|atmosphere|people|location)",
+        "(one of the best things|what stands out) (is|about)",
+        "(personally|honestly)(,)? .{0,40}",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Band 6-7 yapı: 'What I like most is ___' + spesifik örnek. Türk öğrenci 'It is good' der — düz. 'I'd have to say the food — there's something for every taste, from street vendors to fine dining' = band 7.",
+      ideal_response: "What I like most is probably the food scene — there's an incredible variety from street vendors to fine dining.",
+    },
+    {
+      id: "ex.ielts.p1.1.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Memleketim çok çok güzel.",
+      wrong_en: "My hometown is very very beautiful.",
+      right_en: "My hometown is remarkably scenic — it has a charm that's hard to put into words.",
+      why_tr:
+        "Türk öğrenci 'çok çok güzel' = 'very very good/beautiful' direkt çevirir. IELTS band 6+'da bu yapı puan kırar. 'Very very' = informal repetition. Yerine: 'remarkably', 'exceptionally', 'particularly' + sıfat çeşitliliği. Range of vocabulary band 7+'nın belkemiği.",
+    },
+    {
+      id: "ex.ielts.p1.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Part 1'de 'My hometown is very very beautiful' yerine band 7+ alternatif?",
+          options: [
+            "My hometown is so beautiful",
+            "My hometown is really really nice",
+            "I'd describe my hometown as remarkably scenic",
+            "Hometown beautiful very",
+          ],
+          correct: 2,
+          tr_explanation: "'I'd describe ___ as remarkably scenic' = lexical range + hedging. 'Very very' tekrar = informal, puan kırar.",
+        },
+        {
+          q: "'It largely depends on' kalıbının amacı?",
+          options: [
+            "Karar veremediğini söylemek",
+            "Hedging — nüanslı görüş bildirmek",
+            "Konuyu değiştirmek",
+            "Cevap vermekten kaçınmak",
+          ],
+          correct: 1,
+          tr_explanation: "Hedging language = band 7+ özelliği. Mutlak değil, koşullu cevap verme.",
+        },
+        {
+          q: "Part 1'de en uygun linker grubu?",
+          options: [
+            "And, but, so, because",
+            "However, moreover, furthermore, in addition",
+            "First of all, secondly, thirdly",
+            "Like, you know, basically",
+          ],
+          correct: 1,
+          tr_explanation: "'And/but/so' Band 5; 'however/moreover/furthermore' Band 7+ discourse markers.",
+        },
+        {
+          q: "Examiner 'How has your hometown changed?' sorduğunda doğru tense?",
+          options: [
+            "Past simple (changed)",
+            "Present perfect (has changed)",
+            "Present continuous (is changing)",
+            "Future (will change)",
+          ],
+          correct: 1,
+          tr_explanation: "Geçmişten bugüne devam eden değişim → present perfect. Türk öğrenci sıkça past simple kullanır = yanlış register.",
+        },
+        {
+          q: "Part 1 cevap uzunluğu band 7 için ideal?",
+          options: [
+            "Tek kelime",
+            "Bir cümle",
+            "3-5 cümle, yapılandırılmış",
+            "1-2 dakika monolog",
+          ],
+          correct: 2,
+          tr_explanation: "Part 1 = 3-5 cümle. Tek cümle yetersiz, monolog Part 2'ye ait. Yapı: cevap + sebep + örnek.",
+        },
+      ],
+    },
   ],
 };
 
@@ -227,6 +347,126 @@ export const ieltsLesson_p1_2: BundledLesson = {
         { speaker: "npc", message: "Thank you. Let's move on." },
       ],
     },
+    {
+      id: "ex.ielts.p1.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "I'd argue that ___ because ___.",
+      slots: [
+        { accepted: ["soft skills matter more than ever", "this field offers genuine growth", "adaptability is essential", "lifelong learning is non-negotiable"] },
+        { accepted: ["the workplace is changing rapidly", "automation is reshaping everything", "human connection still matters", "career paths are no longer linear"] },
+      ],
+      tr_hint:
+        "'I'd argue that ___ because ___' = stance + justification. Band 7+ formula. Türk öğrenci 'I think yes because' der — düz. 'I'd argue' = tartışmacı kişilik, examiner sever.",
+      example_filled: "I'd argue that soft skills matter more than ever because the workplace is changing rapidly.",
+    },
+    {
+      id: "ex.ielts.p1.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "What do you do for a living?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Interesting. And what drew you to that field originally?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "i (work|'?m working) as (a |an )?(software engineer|teacher|designer|consultant|.+)",
+        "(currently|at the moment|right now)(,)? i'?m (employed|working) (as|at|in)",
+        "(my role is|i'?m a) (.+) (at|in|with) (a |an )?",
+        "(by profession,? |professionally,? )?i'?m (a |an )?",
+      ],
+      tr_hint:
+        "Part 1 work soru: 'I work as a software engineer at a fintech startup' (sıfat + sektör). Türk öğrenci 'I am engineer' der — article eksik. 'I'm an engineer' veya 'I work as an engineer'.",
+      ideal_answer: "I currently work as a software engineer at a fintech company in Istanbul.",
+    },
+    {
+      id: "ex.ielts.p1.2.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "What's the most rewarding aspect of your work or studies?",
+      accepted_patterns: [
+        "(the most rewarding (aspect|part|thing)|what i find (most )?rewarding) is",
+        "(personally|for me)(,)? (it'?s|the most fulfilling)",
+        "(i'?d have to say|i would say|honestly)",
+        "(seeing|watching|helping|building|creating) .{0,40}",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Band 6-7 yapı: 'The most rewarding aspect is ___ + somut örnek'. Türk öğrenci 'It is good' der. 'What I find most rewarding is seeing my code actually solve real problems for users' = band 7 sophistication.",
+      ideal_response: "What I find most rewarding is seeing my code actually solve real problems for users.",
+    },
+    {
+      id: "ex.ielts.p1.2.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "İyi soru. Bence evet.",
+      wrong_en: "Good question. I think yes.",
+      right_en: "That's an interesting question. I would say yes, particularly because ___.",
+      why_tr:
+        "Türk öğrenci 'iyi soru' = 'good question' direkt çevirir + 'I think yes' = okul İngilizcesi. IELTS examiner için: 'That's an interesting question' = professional filler, 'I would say yes' veya 'I'd argue that ___' = hedged opinion. 'I think yes' Band 5 = direkt yes/no, sophistication yok.",
+    },
+    {
+      id: "ex.ielts.p1.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I think yes' yerine band 7+ ifade?",
+          options: [
+            "I think so yes",
+            "Yes I think",
+            "I would say yes / I'd argue that",
+            "Yes for sure I think",
+          ],
+          correct: 2,
+          tr_explanation: "'I would say yes' / 'I'd argue that' = hedged + tartışmacı. 'I think yes' = direkt + zayıf.",
+        },
+        {
+          q: "Part 1 work konusunda en doğal opener?",
+          options: [
+            "I am engineer",
+            "My job is engineer",
+            "I work as a software engineer",
+            "Engineer I am",
+          ],
+          correct: 2,
+          tr_explanation: "'I work as a + meslek' = doğal. Article ('a/an') şart — meslek isimleri sayılabilir.",
+        },
+        {
+          q: "'Iyi soru' filler için band 7+ alternatif?",
+          options: [
+            "Good question",
+            "That's an interesting question",
+            "Nice question",
+            "Good one",
+          ],
+          correct: 1,
+          tr_explanation: "'That's an interesting question' = professional thinking time. 'Good question' = çok informal.",
+        },
+        {
+          q: "'Geriye bakınca farkına vardım' için band 7+ kalıp?",
+          options: [
+            "I look back I realize",
+            "Looking back, I've come to realize",
+            "Back I see",
+            "When I look back I see",
+          ],
+          correct: 1,
+          tr_explanation: "'Looking back, I've come to realize' = C1 reflective. Türk öğrenci 'I realized' (past) der — present perfect 'have come to' süreç vurgular.",
+        },
+        {
+          q: "'And' yerine band 7+ linker?",
+          options: [
+            "And also",
+            "And then",
+            "Moreover / Furthermore / In addition",
+            "And too",
+          ],
+          correct: 2,
+          tr_explanation: "Discourse markers band 7+'nın belkemiği. 'Moreover/Furthermore/In addition' = formal additive linkers.",
+        },
+      ],
+    },
   ],
 };
 
@@ -300,6 +540,126 @@ export const ieltsLesson_p1_3: BundledLesson = {
           hint_tr: "Görüş bildirme: 'Yes, routines give me structure — without them I feel scattered'.",
         },
         { speaker: "npc", message: "Thank you." },
+      ],
+    },
+    {
+      id: "ex.ielts.p1.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "On a typical day, I tend to ___ before ___.",
+      slots: [
+        { accepted: ["get up early", "go for a quick walk", "check my emails", "have a coffee", "exercise briefly"] },
+        { accepted: ["heading to work", "starting my day properly", "anything else", "the day gets hectic", "settling in"] },
+      ],
+      tr_hint:
+        "Band 6-7 yapı: 'On a typical day, I tend to ___ before ___'. 'Tend to' = habitual softener, band 7+ özelliği. Türk öğrenci 'Always I wake up' der — yer/sözcük sırası hatası + ton sertliği.",
+      example_filled: "On a typical day, I tend to get up early before heading to work.",
+    },
+    {
+      id: "ex.ielts.p1.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What time do you usually wake up?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Right. And what's the first thing you do once you're up?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "i (usually|normally|generally) (wake up|get up) (around|at) \\d",
+        "(typically|on weekdays|during the week)",
+        "(my alarm goes off|i set my alarm)",
+        "(somewhere around|roughly) \\d",
+      ],
+      tr_hint:
+        "Saat + softener: 'I usually wake up around seven, give or take.' Türk öğrenci 'I wake up 7' der — preposition ('at') eksik. 'Around/about/roughly' = doğal hedging.",
+      ideal_answer: "I usually wake up around seven on weekdays, though weekends are a bit more flexible.",
+    },
+    {
+      id: "ex.ielts.p1.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Do you think it's important to follow a routine, or do you prefer flexibility?",
+      accepted_patterns: [
+        "(i'?d (have to )?say|personally|honestly) (routines|flexibility|both)",
+        "(in my (opinion|view)|from my perspective)",
+        "(a bit of both|it depends on)",
+        "(structure (matters|helps)|flexibility allows)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hedged opinion: 'Personally, I'd say a bit of both — structure during the week, flexibility on weekends'. Band 7+ özelliği = mutlak değil, nüanslı.",
+      ideal_response: "Personally, I'd say a bit of both — structure during the week helps me stay productive, but I appreciate flexibility on weekends.",
+    },
+    {
+      id: "ex.ielts.p1.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Her gün ben kalkıyorum 7'de.",
+      wrong_en: "Every day I am waking up at 7.",
+      right_en: "On a typical day, I usually wake up around seven.",
+      why_tr:
+        "Türk öğrenci 3 ana hata yapıyor: (1) 'Every day' yerine 'On a typical day' (IELTS register), (2) 'I am waking up' (continuous) yerine 'I wake up' (simple — habitual eylem), (3) '7'de' = 'at 7' (preposition). Tense consistency band 7+'da kritik.",
+    },
+    {
+      id: "ex.ielts.p1.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Her gün' için Part 1'de doğal kalıp?",
+          options: [
+            "Every day",
+            "Each day",
+            "On a typical day / On weekdays",
+            "All days",
+          ],
+          correct: 2,
+          tr_explanation: "'On a typical day' = IELTS register. 'Every day' grammatik doğru ama daha çocuksu, 'on weekdays' daha rafine.",
+        },
+        {
+          q: "Habitual eylem için doğru tense?",
+          options: [
+            "Present continuous (I am waking up)",
+            "Present simple (I wake up)",
+            "Past simple (I woke up)",
+            "Present perfect (I have woken up)",
+          ],
+          correct: 1,
+          tr_explanation: "Routine = present simple. Türk öğrenci sıkça present continuous kullanır = yanlış aspect.",
+        },
+        {
+          q: "'7'de kalkarım' için doğru preposition?",
+          options: [
+            "I wake up in 7",
+            "I wake up on 7",
+            "I wake up at 7",
+            "I wake up 7",
+          ],
+          correct: 2,
+          tr_explanation: "Saat = 'at'. Gün = 'on'. Ay/yıl = 'in'. Türk öğrenci Türkçeden 'de' geliyor sanır.",
+        },
+        {
+          q: "'Tend to' kalıbının amacı?",
+          options: [
+            "Mecburiyet (have to)",
+            "Eğilim/yumuşatma (habitual softener)",
+            "Geçmiş zaman",
+            "Gelecek zaman",
+          ],
+          correct: 1,
+          tr_explanation: "'Tend to' = habit + hedging. 'I always do' yerine 'I tend to do' = band 7+ rafine.",
+        },
+        {
+          q: "Routine sorusunda band 7+ nüanslı cevap?",
+          options: [
+            "Yes",
+            "Routine is good",
+            "A bit of both — structure during the week, flexibility on weekends",
+            "I don't know",
+          ],
+          correct: 2,
+          tr_explanation: "Nüanslı cevap = band 7+ özelliği. Mutlak yes/no değil, koşullu + örnek.",
+        },
       ],
     },
   ],
@@ -377,6 +737,127 @@ export const ieltsLesson_p1_4: BundledLesson = {
         { speaker: "npc", message: "Thanks. Now I'd like to ask about something else." },
       ],
     },
+    {
+      id: "ex.ielts.p1.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "I've been ___ for ___, and it's something I genuinely ___.",
+      slots: [
+        { accepted: ["playing chess", "into photography", "practicing yoga", "learning the guitar", "doing pottery"] },
+        { accepted: ["about three years", "as long as I can remember", "the past few months", "almost a decade", "ages now"] },
+        { accepted: ["enjoy", "find rewarding", "look forward to", "feel passionate about", "love"] },
+      ],
+      tr_hint:
+        "Present perfect continuous + duration + opinion = band 7 formula. 'I've been doing X for Y, and it's something I genuinely enjoy.' Türk öğrenci 'I do it 3 years' der — tense yanlış + duration yanlış.",
+      example_filled: "I've been playing chess for about three years, and it's something I genuinely enjoy.",
+    },
+    {
+      id: "ex.ielts.p1.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "What do you typically do in your spare time?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sounds enjoyable. How did you get into that?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(in my (spare|free) time|when i have (some )?time)(,)? i (tend to|usually|like to)",
+        "(one of my (main )?(hobbies|interests) is|i'?m really into)",
+        "(i (enjoy|love|like) (playing|reading|cooking|hiking))",
+        "(lately|these days|recently)(,)? i'?ve been",
+      ],
+      tr_hint:
+        "Hobi opener: 'In my spare time, I tend to read or go hiking — anything that gets me away from screens.' Türk öğrenci 'I like sport' der — generic. Spesifik aktivite + neden = band 7.",
+      ideal_answer: "In my spare time, I tend to read or go hiking — anything that lets me unwind from screens.",
+    },
+    {
+      id: "ex.ielts.p1.4.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Why do you enjoy this hobby so much?",
+      accepted_patterns: [
+        "(what i (love|enjoy|find rewarding) (about|most) is)",
+        "(it (helps|allows) me (to )?(unwind|switch off|focus|relax))",
+        "(personally|honestly|for me)(,)? (it'?s (the )?(challenge|creativity|sense of))",
+        "(there'?s something (about|deeply) (.+) (that|which))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Band 6-7 yapı: 'What I love about it is ___' + somut sebep. 'It is fun' band 5 = düz. 'What I find genuinely rewarding is how it forces me to slow down and focus' = band 7 reflection.",
+      ideal_response: "What I find genuinely rewarding is how it forces me to slow down and focus — it's almost meditative.",
+    },
+    {
+      id: "ex.ielts.p1.4.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Boş zamanda ben film izlemeyi seviyorum.",
+      wrong_en: "In free time, I am liking to watch films.",
+      right_en: "In my spare time, I enjoy watching films — particularly documentaries.",
+      why_tr:
+        "Türk öğrenci 3 hata: (1) 'In free time' yerine 'In my spare time' (possessive 'my' şart), (2) 'I am liking' (stative verb, continuous YANLIŞ) → 'I enjoy/I like', (3) 'to watch' yerine gerund 'watching' ('enjoy' fiili gerund ister). Band 6+ collocations: 'enjoy watching', 'enjoy reading', 'enjoy doing'.",
+    },
+    {
+      id: "ex.ielts.p1.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I enjoy ___ films' boşluğa doğru gelecek?",
+          options: [
+            "to watch",
+            "watch",
+            "watching",
+            "watched",
+          ],
+          correct: 2,
+          tr_explanation: "'Enjoy' fiili gerund (V-ing) ister: enjoy watching, enjoy reading, enjoy doing.",
+        },
+        {
+          q: "'3 yıldır chess oynuyorum' için doğru yapı?",
+          options: [
+            "I play chess for 3 years",
+            "I am playing chess for 3 years",
+            "I've been playing chess for 3 years",
+            "I played chess 3 years",
+          ],
+          correct: 2,
+          tr_explanation: "Present perfect continuous = halen devam eden + süre. Türk öğrenci sıkça present simple kullanır.",
+        },
+        {
+          q: "'Boş zamanım' için doğru ifade?",
+          options: [
+            "Free time",
+            "Empty time",
+            "My spare time / My free time",
+            "Time to free",
+          ],
+          correct: 2,
+          tr_explanation: "Possessive 'my' şart. 'In free time' yerine 'In my spare time' veya 'In my free time'.",
+        },
+        {
+          q: "'I am liking it' yapısının sorunu?",
+          options: [
+            "Tense yanlış",
+            "'Like' stative verb — continuous'a girmez",
+            "Spelling hatası",
+            "Hiçbir sorun yok",
+          ],
+          correct: 1,
+          tr_explanation: "Stative verbs (like, love, hate, want) genelde continuous'a girmez. 'I like it' veya 'I enjoy it' = doğru.",
+        },
+        {
+          q: "'It is fun' yerine band 7 alternatif?",
+          options: [
+            "It is very fun",
+            "It is so fun",
+            "What I find genuinely rewarding about it is ___",
+            "Fun it is",
+          ],
+          correct: 2,
+          tr_explanation: "Band 7 = somut + yapılandırılmış. 'It is fun' tek başına yetersiz.",
+        },
+      ],
+    },
   ],
 };
 
@@ -452,6 +933,126 @@ export const ieltsLesson_p1_5: BundledLesson = {
         { speaker: "npc", message: "Thank you. That's the end of part one." },
       ],
     },
+    {
+      id: "ex.ielts.p1.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "I'm particularly fond of ___, mainly because ___.",
+      slots: [
+        { accepted: ["Mediterranean cuisine", "home-cooked meals", "Turkish street food", "Asian dishes", "anything with bold flavours"] },
+        { accepted: ["it uses fresh ingredients", "it reminds me of childhood", "the flavours are complex", "it's both healthy and satisfying", "there's huge variety"] },
+      ],
+      tr_hint:
+        "Band 7+ kalıp: 'I'm particularly fond of ___, mainly because ___'. 'Particularly fond' > 'I love' (range of vocabulary). Türk öğrenci 'I like food' der — generic. Spesifik + sebep = band 7.",
+      example_filled: "I'm particularly fond of Mediterranean cuisine, mainly because it uses fresh ingredients.",
+    },
+    {
+      id: "ex.ielts.p1.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "What kind of food do you tend to eat?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I see. And do you cook these dishes yourself or eat out?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i (tend to|usually|generally) (eat|go for|stick to))",
+        "(i'?m (a big |particularly )?(fan|fond) of)",
+        "(mostly|primarily|generally) (turkish|mediterranean|asian|italian)",
+        "(my (diet|food preferences) (consists of|revolves around))",
+      ],
+      tr_hint:
+        "Food preference yapı: 'I tend to eat a lot of Mediterranean — fresh produce, olive oil, that sort of thing.' Türk öğrenci 'I eat all food' der — generic. Spesifik mutfak + örnek = band 6-7.",
+      ideal_answer: "I tend to gravitate towards Mediterranean cuisine — fresh produce, olive oil, that kind of thing.",
+    },
+    {
+      id: "ex.ielts.p1.5.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Has your relationship with food changed over the years?",
+      accepted_patterns: [
+        "(yes|absolutely|to be honest)(,)? (quite a bit|significantly)",
+        "(when i was (younger|a (kid|child))) i (used to)",
+        "(these days|nowadays|now) i (tend to|try to|am more)",
+        "(looking back|in hindsight)(,)? (i (realize|appreciate))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Band 7 reflective: 'Looking back, I used to eat whatever was easy, but these days I'm much more mindful about ingredients.' Past habit + present + reflection. 'Used to' kritik.",
+      ideal_response: "Quite a bit, actually — when I was younger I used to eat whatever was convenient, but these days I'm much more mindful about ingredients.",
+    },
+    {
+      id: "ex.ielts.p1.5.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Türk yemeği çok lezzetli ve sağlıklı.",
+      wrong_en: "Turkish food is very tasty and healthy.",
+      right_en: "Turkish cuisine is remarkable — both wholesome and incredibly flavourful.",
+      why_tr:
+        "Türk öğrenci 'food' kelimesini overuse eder. IELTS band 7+ için: 'food' → 'cuisine' (formal register), 'tasty' → 'flavourful/savoury' (range of vocabulary), 'very tasty' → 'remarkably flavourful' (intensifier variety), 'and' → '— both ___ and ___' (em-dash + parallel structure). Türk: 'lezzetli' = sadece 'tasty' değil, 'flavourful/savoury/delectable'.",
+    },
+    {
+      id: "ex.ielts.p1.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Türk yemeği' için band 7+ kelime?",
+          options: [
+            "Turkish food",
+            "Turkish meal",
+            "Turkish cuisine",
+            "Turkey food",
+          ],
+          correct: 2,
+          tr_explanation: "'Cuisine' = formal/akademik register. 'Food' overuse'u band'i düşürür. 'Turkish cuisine' = uncountable, article yok.",
+        },
+        {
+          q: "'Çok lezzetli' yerine band 7+ alternatif?",
+          options: [
+            "Very tasty",
+            "So tasty",
+            "Remarkably flavourful / incredibly savoury",
+            "Tasty very",
+          ],
+          correct: 2,
+          tr_explanation: "Range of vocabulary = 'flavourful', 'savoury', 'delectable'. 'Very tasty' band 5-6.",
+        },
+        {
+          q: "'Eskiden fast food yerdim, şimdi pişiriyorum' için doğru yapı?",
+          options: [
+            "Before I ate fast food, now I cook",
+            "I used to eat fast food, but these days I cook",
+            "I am eating fast food before, now cook",
+            "Fast food I ate, cooking I",
+          ],
+          correct: 1,
+          tr_explanation: "'Used to + V1' = geçmiş alışkanlık (artık yapılmıyor). 'These days' = günümüz kontrastı.",
+        },
+        {
+          q: "'Geriye bakınca' Part 1'de uygun mu?",
+          options: [
+            "Hayır — sadece Part 2/3",
+            "Evet — 'Looking back, ___' = band 7+ reflection",
+            "Hayır — informal",
+            "Bilmiyorum",
+          ],
+          correct: 1,
+          tr_explanation: "'Looking back / In hindsight' = band 7+ reflective marker, Part 1'de de uygundur (özellikle değişim soruları).",
+        },
+        {
+          q: "Food preference için band 7 cevap yapısı?",
+          options: [
+            "I like food",
+            "Food is good",
+            "I tend to gravitate towards X — fresh produce, that kind of thing",
+            "All food I eat",
+          ],
+          correct: 2,
+          tr_explanation: "Yapı: hedged opener + spesifik + örnek + 'that kind of thing' (open-ended). Band 7+ akıcılık.",
+        },
+      ],
+    },
   ],
 };
 
@@ -525,6 +1126,126 @@ export const ieltsLesson_p1_6: BundledLesson = {
           hint_tr: "Tahmin: 'I think AI will be much more integrated into daily life — even in mundane things like cooking'.",
         },
         { speaker: "npc", message: "Thank you. Now let's move on to part two." },
+      ],
+    },
+    {
+      id: "ex.ielts.p1.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "I find myself ___ way too often — probably ___.",
+      slots: [
+        { accepted: ["scrolling through Instagram", "checking my phone", "watching short videos", "refreshing my feed", "doom-scrolling Twitter"] },
+        { accepted: ["a few hours a day", "more than I should", "out of habit rather than need", "to fill dead time", "subconsciously"] },
+      ],
+      tr_hint:
+        "Self-aware admission yapı: 'I find myself ___ way too often — probably ___'. Band 7 honesty + reflection. Türk öğrenci 'I use phone much' der — düz. Bu yapı doğrulanabilir + reflective.",
+      example_filled: "I find myself scrolling through Instagram way too often — probably more than I should.",
+    },
+    {
+      id: "ex.ielts.p1.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "How much time do you spend on your phone each day?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "And do you think that's affecting your life in any way?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(honestly|to be honest|if i'?m being honest)(,)? (way too much|more than i'?d like)",
+        "(probably|roughly|i'?d estimate) \\d+",
+        "(more than i should|than i'?d care to admit)",
+        "(somewhere between|on average)",
+      ],
+      tr_hint:
+        "Honest admission: 'Honestly, way too much — probably six or seven hours a day, if I'm being real.' Türk öğrenci 'I use a lot' der — vague. Spesifik saat + honesty = band 7.",
+      ideal_answer: "Honestly, way too much — probably six or seven hours a day, if I'm being completely honest.",
+    },
+    {
+      id: "ex.ielts.p1.6.lr1",
+      type: "listen_respond",
+      difficulty: 5,
+      npc_line: "Do you think technology has made us more or less social?",
+      accepted_patterns: [
+        "(it'?s a double-edged sword|in some ways yes,? in others no)",
+        "(on (one|the other) hand|conversely)",
+        "(from my perspective|in my view|i'?d argue)",
+        "(it largely depends on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Band 7+ nuanced opinion: 'It's a double-edged sword — on one hand we stay connected globally, but on the other we've lost some depth in face-to-face interaction.' Türk öğrenci 'Yes' veya 'No' direkt der.",
+      ideal_response: "It's a double-edged sword, really — on one hand technology keeps us globally connected, but on the other we've lost some depth in face-to-face interaction.",
+    },
+    {
+      id: "ex.ielts.p1.6.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Telefonumu çok çok kullanıyorum.",
+      wrong_en: "I am using my phone very very much.",
+      right_en: "I rely on my phone more than I'd care to admit — probably excessively, to be honest.",
+      why_tr:
+        "Türk öğrenci 3 hata: (1) 'Very very much' = ilkokul İngilizcesi, band 5 = band 6 ayrımı; (2) 'I am using' (continuous) — habitual değil, geniş bir alışkanlık → 'I use' veya 'I rely on'; (3) Honesty marker yok → 'more than I'd care to admit' = band 7+ self-aware admission. 'Excessively' = 'çok çok' yerine tek kelime, band 7 vocabulary.",
+    },
+    {
+      id: "ex.ielts.p1.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Çok çok' yerine Part 1'de uygun ifade?",
+          options: [
+            "Very very",
+            "So so",
+            "Excessively / remarkably / considerably",
+            "Much much",
+          ],
+          correct: 2,
+          tr_explanation: "'Very very' = informal repetition, IELTS'te band düşürür. Tek kelimelik intensifier (excessively, remarkably) = band 7+.",
+        },
+        {
+          q: "'It's a double-edged sword' ne için kullanılır?",
+          options: [
+            "Tek yönlü görüş",
+            "Avantaj-dezavantaj olan konularda nüanslı görüş",
+            "Karar vermek",
+            "Konuyu değiştirmek",
+          ],
+          correct: 1,
+          tr_explanation: "'Double-edged sword' = iki yanı keskin kılıç. Avantaj + dezavantaj olan konular için band 7+ idiom.",
+        },
+        {
+          q: "Part 1 tech sorusunda doğru tense?",
+          options: [
+            "I am using phone every day",
+            "I use my phone every day",
+            "I used my phone",
+            "I have used my phone",
+          ],
+          correct: 1,
+          tr_explanation: "Habitual eylem = present simple. Possessive 'my' şart ('phone' sahipli).",
+        },
+        {
+          q: "Honest admission için uygun marker?",
+          options: [
+            "Honestly / to be honest / if I'm being real",
+            "Maybe",
+            "I don't know",
+            "Yes",
+          ],
+          correct: 0,
+          tr_explanation: "Honesty markers = band 7+ authentic voice. Examiner honestly + spesifik cevabı puanlar.",
+        },
+        {
+          q: "Part 1 future question için doğru kalıp?",
+          options: [
+            "Will be more",
+            "I think technology will become more integrated",
+            "Technology more",
+            "Future technology",
+          ],
+          correct: 1,
+          tr_explanation: "Future prediction + complete clause + opinion marker = band 7+ structure.",
+        },
       ],
     },
   ],
@@ -639,6 +1360,127 @@ export const ieltsLesson_p2_1: BundledLesson = {
         { speaker: "npc", message: "Thank you. Let's continue to part three." },
       ],
     },
+    {
+      id: "ex.ielts.p2.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 5,
+      template: "What I find particularly ___ about ___ is the way they ___.",
+      slots: [
+        { accepted: ["compelling", "remarkable", "inspiring", "memorable", "moving"] },
+        { accepted: ["my grandmother", "my mentor", "this person", "her", "him"] },
+        { accepted: ["carried themselves through hardship", "treated everyone with the same respect", "approached every challenge", "listened before speaking", "lived their values without needing to lecture"] },
+      ],
+      tr_hint:
+        "Part 2 cue card sophisticated opener: 'What I find particularly compelling about my grandmother is the way she carried herself through hardship.' Türk öğrenci 'She is good person' der — band 5. Bu yapı = band 7+ admiration framing.",
+      example_filled: "What I find particularly compelling about my grandmother is the way she carried herself through hardship.",
+    },
+    {
+      id: "ex.ielts.p2.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 5,
+      turns: [
+        { speaker: "npc", text: "Now, I'd like you to talk about a person who has influenced you. Could you start by telling me who this person is?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thank you. And how long have you known them?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(the person i'?d like to (talk about|describe) (is|would be))",
+        "(i'?d like to talk about (my|a))",
+        "(without (a |any )?doubt|hands down)(,)? (this would be|it'?s)",
+        "(if i had to (choose|pick) (one (person|individual)))",
+      ],
+      tr_hint:
+        "Part 2 cue card structure: 'The person I'd like to talk about would be my grandmother.' Türk öğrenci direkt 'My grandmother' der — opener eksik. Cue card'da yapılandırılmış giriş şart.",
+      ideal_answer: "The person I'd like to talk about would be my grandmother — without a doubt, the most influential figure in my life.",
+    },
+    {
+      id: "ex.ielts.p2.1.lr1",
+      type: "listen_respond",
+      difficulty: 5,
+      npc_line: "And in what specific ways did this person shape who you are today?",
+      accepted_patterns: [
+        "(in many ways|in countless ways|more ways than i can count)",
+        "(she|he|they) (taught me|showed me|instilled in me)",
+        "(looking back|in hindsight)(,)? (i (realize|appreciate|see))",
+        "(what (stands out|stuck with me) (most )?is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Band 7+ reflective answer: 'In countless ways, really — she instilled in me a deep respect for patience, something I only fully appreciated looking back.' Türk öğrenci 'She is good' der.",
+      ideal_response: "In countless ways, really — she instilled in me a deep respect for patience and quiet strength, something I only fully appreciated looking back.",
+    },
+    {
+      id: "ex.ielts.p2.1.tt1",
+      type: "thinking_trap",
+      difficulty: 5,
+      tr_thought: "Sana etkilenen kişimden bahsedeceğim.",
+      wrong_en: "I will tell about person I influenced.",
+      right_en: "I'd like to talk about someone who has had a profound influence on me.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'I will tell' = informal cue card opener → 'I'd like to talk about' (band 7+ formal opener); (2) 'tell about' = preposition hatası → 'talk about' (talk + about, tell + somebody about); (3) 'person I influenced' = aktif/pasif çevirme hatası → 'who has influenced me' (pasif: ben etkilendim); (4) 'a profound influence' = band 7+ collocation, 'big influence' band 5.",
+    },
+    {
+      id: "ex.ielts.p2.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Part 2 cue card için doğru opener?",
+          options: [
+            "I will tell about a person",
+            "I'd like to talk about someone who",
+            "The person is",
+            "OK so person",
+          ],
+          correct: 1,
+          tr_explanation: "'I'd like to talk about' = formal cue card opener. 'I will tell' informal + preposition hatası.",
+        },
+        {
+          q: "'Beni etkileyen kişi' için doğru ifade?",
+          options: [
+            "Person I influenced",
+            "A person who influenced me",
+            "Someone who has had a profound influence on me",
+            "Influence person",
+          ],
+          correct: 2,
+          tr_explanation: "Present perfect ('has had') + 'profound influence' = band 7+ collocation. Aktif/pasif yön doğru.",
+        },
+        {
+          q: "'In hindsight' ne anlama gelir?",
+          options: [
+            "Aslında",
+            "Geriye bakınca / şimdi anladığımda",
+            "Aynı zamanda",
+            "Genel olarak",
+          ],
+          correct: 1,
+          tr_explanation: "'In hindsight' = C1 reflective marker. 'Looking back' eşanlamlı.",
+        },
+        {
+          q: "Part 2'de cevap uzunluğu ne kadar olmalı?",
+          options: [
+            "Bir cümle",
+            "3-4 cümle",
+            "1-2 dakika monolog (8-12 cümle)",
+            "30 saniye",
+          ],
+          correct: 2,
+          tr_explanation: "Part 2 = long turn, 1-2 dakika. Türk öğrenci sıkça Part 1 gibi kısa keser = puan kırar.",
+        },
+        {
+          q: "'Instilled in me a respect for ___' yapısı ne demek?",
+          options: [
+            "Bana saygıyı zorla öğretti",
+            "Bana ___ için bir saygıyı aşıladı",
+            "Bana saygıyı sevdirdi",
+            "Beni saygılı yaptı",
+          ],
+          correct: 1,
+          tr_explanation: "'Instill in someone' = aşılamak (formal). Band 7+ collocation: 'instilled values / instilled respect'.",
+        },
+      ],
+    },
   ],
 };
 
@@ -706,6 +1548,126 @@ export const ieltsLesson_p2_2: BundledLesson = {
           hint_tr: "Kararlılık ifadesi: 'In a heartbeat — but I'd want to go in a different season this time'.",
         },
         { speaker: "npc", message: "Thank you." },
+      ],
+    },
+    {
+      id: "ex.ielts.p2.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 5,
+      template: "Looking back on it, ___ was undoubtedly ___.",
+      slots: [
+        { accepted: ["that trip", "the whole experience", "the journey", "those few days", "that particular moment"] },
+        { accepted: ["a turning point in my life", "one of the most formative experiences I've had", "an eye-opening adventure", "something I'll never forget", "more meaningful than I realised at the time"] },
+      ],
+      tr_hint:
+        "Part 2 reflection yapısı: 'Looking back on it, that trip was undoubtedly a turning point in my life.' Türk öğrenci 'It was good' der — düz. 'Undoubtedly' + 'turning point' = band 7+ register.",
+      example_filled: "Looking back on it, that trip was undoubtedly a turning point in my life.",
+    },
+    {
+      id: "ex.ielts.p2.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 5,
+      turns: [
+        { speaker: "npc", text: "Now, describe a memorable journey you've taken. Where did you go and who were you with?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sounds wonderful. What made it so memorable?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(the (trip|journey) (that (immediately )?comes to mind|i'?d like to describe) (was|is))",
+        "(a few years ago|back in \\d+|the summer of)",
+        "(i (travelled|went) (to .+) with my (family|partner|friends))",
+        "(it was (during|in) (.+) when)",
+      ],
+      tr_hint:
+        "Cue card narrative opener: 'The trip that immediately comes to mind was when I travelled to Cappadocia with my family back in 2022.' Türk öğrenci 'I went to' der direkt — yapılandırılmış giriş eksik.",
+      ideal_answer: "The journey that immediately comes to mind would be the trip I took to Cappadocia with my family a few years back.",
+    },
+    {
+      id: "ex.ielts.p2.2.lr1",
+      type: "listen_respond",
+      difficulty: 5,
+      npc_line: "Was there a particular moment during this journey that stays with you?",
+      accepted_patterns: [
+        "(one moment that (really )?(stays with me|stands out|sticks in my memory))",
+        "(i (vividly|clearly) remember|to this day i remember)",
+        "(there was one (point|moment) when)",
+        "(what (struck|stuck with) me (most )?was)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Vivid memory: 'One moment that really stays with me was watching the hot air balloons rise at dawn — there was something almost surreal about it.' 'Vividly remember' band 7+ collocation.",
+      ideal_response: "One moment that really stays with me was watching the hot air balloons rise at dawn — there was something almost surreal about the whole scene.",
+    },
+    {
+      id: "ex.ielts.p2.2.tt1",
+      type: "thinking_trap",
+      difficulty: 5,
+      tr_thought: "Geçen yıl Bodrum'a gittim, çok eğlendim.",
+      wrong_en: "Last year I went Bodrum, I had very fun.",
+      right_en: "Last summer, I travelled to Bodrum — it was an incredibly enjoyable experience.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'Went Bodrum' = preposition eksik → 'went TO Bodrum' (go + to + place); (2) 'Last year' yerine spesifik 'Last summer' (band 7+ specificity); (3) 'I had very fun' = countable/uncountable hatası → 'fun' uncountable, 'had a lot of fun' veya tamamen yenile: 'incredibly enjoyable experience'; (4) Tense + linker eksik → 'I travelled to' + em-dash + value statement.",
+    },
+    {
+      id: "ex.ielts.p2.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Cappadocia'ya gittim' için doğru yapı?",
+          options: [
+            "I went Cappadocia",
+            "I went to Cappadocia",
+            "I went in Cappadocia",
+            "Cappadocia I went",
+          ],
+          correct: 1,
+          tr_explanation: "'Go + to + yer' zorunlu. Türk öğrenci sıkça 'to' düşürür (Türkçede yer eki var).",
+        },
+        {
+          q: "'Çok eğlendim' için band 7+ alternatif?",
+          options: [
+            "I had very fun",
+            "I had so fun",
+            "It was an incredibly enjoyable experience",
+            "Fun I had",
+          ],
+          correct: 2,
+          tr_explanation: "'Fun' uncountable. 'Had fun' OK, 'had very fun' YANLIŞ. Band 7: 'enjoyable experience' / 'thoroughly enjoyed myself'.",
+        },
+        {
+          q: "'Geçen yaz Bodrum'a gittim' band 7+ ne olur?",
+          options: [
+            "Last summer I went Bodrum",
+            "Last summer, I travelled to Bodrum",
+            "Last year Bodrum I go",
+            "I am going Bodrum last year",
+          ],
+          correct: 1,
+          tr_explanation: "Specific time ('Last summer') + 'travelled' (= 'went' band 7+ alternative) + 'to'.",
+        },
+        {
+          q: "'Vividly remember' ne demek?",
+          options: [
+            "Belki hatırlarım",
+            "Canlı/net biçimde hatırlıyorum",
+            "Unuttum",
+            "Hatırlamak istiyorum",
+          ],
+          correct: 1,
+          tr_explanation: "'Vivid' = canlı. 'Vividly remember' band 7+ memory collocation.",
+        },
+        {
+          q: "Cue card için doğru opener stratejisi?",
+          options: [
+            "Direkt cevaba dal",
+            "Yapılandırılmış giriş: 'The journey that comes to mind would be ___'",
+            "Türkçe başla",
+            "'OK so let me think'",
+          ],
+          correct: 1,
+          tr_explanation: "Yapılandırılmış cue card opener = examiner için yapı sinyali, band 7+ özelliği.",
+        },
       ],
     },
   ],
@@ -777,6 +1739,126 @@ export const ieltsLesson_p2_3: BundledLesson = {
         { speaker: "npc", message: "Thank you." },
       ],
     },
+    {
+      id: "ex.ielts.p2.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 5,
+      template: "If I had the time and discipline, I'd love to ___, mainly because ___.",
+      slots: [
+        { accepted: ["learn a new language", "pick up the guitar", "master public speaking", "take up coding", "learn pottery"] },
+        { accepted: ["it would open up new perspectives", "I've always been drawn to it", "it would push me out of my comfort zone", "the satisfaction of creating something with my hands appeals to me", "it'd open doors professionally"] },
+      ],
+      tr_hint:
+        "2nd conditional aspirational yapı: 'If I had the time and discipline, I'd love to ___, mainly because ___.' Türk öğrenci 'If I have time' (1st) der → unrealised hayal için 'If I had' (2nd) doğru.",
+      example_filled: "If I had the time and discipline, I'd love to learn a new language, mainly because it would open up new perspectives.",
+    },
+    {
+      id: "ex.ielts.p2.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 5,
+      turns: [
+        { speaker: "npc", text: "Describe a skill you would like to learn. What is it and why does it appeal to you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Interesting choice. What's been stopping you from starting?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(the (skill|one skill) (i'?d love to|i'?ve always wanted to) (learn|pick up|master))",
+        "(if i had (the time|more time)),? i'?d (love|want) to",
+        "(i'?ve been (drawn to|fascinated by|curious about))",
+        "(at the top of my list (would be|is))",
+      ],
+      tr_hint:
+        "Aspirational opener: 'At the top of my list would be learning a new language — Italian, ideally.' Türk öğrenci 'I want to learn' der direkt. Bu kalıp = aspiration + spesifiklik + nüans.",
+      ideal_answer: "At the top of my list would be learning Italian — I've always been drawn to the language and the culture behind it.",
+    },
+    {
+      id: "ex.ielts.p2.3.lr1",
+      type: "listen_respond",
+      difficulty: 5,
+      npc_line: "If you mastered this skill, how do you think your life would change?",
+      accepted_patterns: [
+        "(it would|that would) (genuinely|significantly|fundamentally) (change|transform)",
+        "(open up (new|countless) (doors|opportunities|possibilities))",
+        "(allow me to|enable me to|give me the chance to)",
+        "(in many ways|in countless ways)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hypothetical reflection: 'It would genuinely transform my life — opening up countless doors professionally and personally.' 2nd conditional (would + V1) + 'transform' band 7+ verb.",
+      ideal_response: "It would genuinely transform my life, I think — opening up countless doors professionally and giving me a deeper connection to the culture.",
+    },
+    {
+      id: "ex.ielts.p2.3.tt1",
+      type: "thinking_trap",
+      difficulty: 5,
+      tr_thought: "İtalyanca öğrenmek istiyorum çünkü çok faydalı.",
+      wrong_en: "I want to learn Italian because it is very useful.",
+      right_en: "I'd love to take up Italian — partly for the cultural depth, partly because it'd open doors professionally.",
+      why_tr:
+        "Türk öğrenci 3 hata: (1) 'I want to learn' = düz, band 5 — band 7+ alternatif: 'I'd love to take up' (= başlamak), 'I'd be keen to learn'; (2) 'because it is very useful' = generic justification → spesifik: 'cultural depth + professional doors' (parallel structure); (3) Tek tek sebep yerine 'partly... partly...' = band 7+ nuanced reasoning. Aspiration yapısı için 2nd conditional ('I'd love') tercih edilir.",
+    },
+    {
+      id: "ex.ielts.p2.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Yeni bir beceri öğrenmeye başlamak' için band 7+ phrase?",
+          options: [
+            "Start to learn",
+            "Begin learning",
+            "Take up / pick up a skill",
+            "Open learning",
+          ],
+          correct: 2,
+          tr_explanation: "'Take up / pick up' = phrasal verb, band 7+ collocation. 'Start to' düz, formal değil.",
+        },
+        {
+          q: "Aspirational (gerçekleşmemiş hayal) için doğru conditional?",
+          options: [
+            "If I have time, I will learn",
+            "If I had time, I'd love to learn",
+            "If I will have time, I'd learn",
+            "If I have time, I'd learn",
+          ],
+          correct: 1,
+          tr_explanation: "2nd conditional ('If I had + V1, I'd + V1') = unrealised hypothetical. Türk öğrenci sıkça 1st conditional kullanır.",
+        },
+        {
+          q: "'Yeni kapılar açar' için doğru ifade?",
+          options: [
+            "Open new doors",
+            "It would open up new doors",
+            "New doors open",
+            "Doors open new",
+          ],
+          correct: 1,
+          tr_explanation: "'It would open up new doors' = 2nd conditional + phrasal verb 'open up'. Türk öğrenci sıkça 'open' der — 'open up' band 7+ emphatic.",
+        },
+        {
+          q: "'Çünkü çok faydalı' yerine band 7+ justification?",
+          options: [
+            "Because it's useful",
+            "Because very useful",
+            "Partly for X, partly because Y",
+            "Useful because",
+          ],
+          correct: 2,
+          tr_explanation: "'Partly... partly...' = nuanced reasoning, band 7+ parallel structure. Tek sebep değil, çok katmanlı.",
+        },
+        {
+          q: "Part 2 cue card aspirational için doğru tense?",
+          options: [
+            "Present simple (I want)",
+            "Conditional (I'd love / would)",
+            "Past simple (I wanted)",
+            "Future simple (I will)",
+          ],
+          correct: 1,
+          tr_explanation: "Hayal/aspiration = conditional. 'I'd love to' + 'It would' = band 7+ hypothetical voice.",
+        },
+      ],
+    },
   ],
 };
 
@@ -846,6 +1928,127 @@ export const ieltsLesson_p2_4: BundledLesson = {
         { speaker: "npc", message: "Thank you." },
       ],
     },
+    {
+      id: "ex.ielts.p2.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 5,
+      template: "Before reading ___, I used to believe ___, but it ___.",
+      slots: [
+        { accepted: ["that book", "Sapiens", "this novel", "that particular memoir", "the book"] },
+        { accepted: ["that success was about achievement", "in a fairly fixed worldview", "money equalled happiness", "history was just dates and battles", "individuality mattered above all"] },
+        { accepted: ["completely shifted my perspective", "challenged everything I thought I knew", "opened my eyes to a different reality", "made me see things in a new light", "fundamentally changed how I view the world"] },
+      ],
+      tr_hint:
+        "Cue card transformation narrative: 'Before reading X, I used to believe Y, but it changed Z.' 'Used to' + past habit + 'completely shifted' = band 7+ reflective arc.",
+      example_filled: "Before reading Sapiens, I used to believe that history was just dates and battles, but it completely shifted my perspective.",
+    },
+    {
+      id: "ex.ielts.p2.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 5,
+      turns: [
+        { speaker: "npc", text: "Describe a book or film that changed the way you think. What is it and why did it have such an impact?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Fascinating. Can you give me a specific idea from it that resonated with you?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(the (book|film) (that (immediately )?comes to mind|i'?d like to talk about) (would be|is))",
+        "(one (book|film) that genuinely (changed|shifted))",
+        "(without (a |any )?doubt|hands down),? (it'?s|it would be)",
+        "(if i had to (pick|choose) one)",
+      ],
+      tr_hint:
+        "Cue card book/film opener: 'The book that comes to mind would be Sapiens by Yuval Noah Harari — it genuinely shifted how I see human history.' Türk öğrenci 'I like ___ book' der — düz.",
+      ideal_answer: "The book that immediately comes to mind would be Sapiens by Yuval Noah Harari — it genuinely shifted how I see human history.",
+    },
+    {
+      id: "ex.ielts.p2.4.lr1",
+      type: "listen_respond",
+      difficulty: 5,
+      npc_line: "Would you say it's a book or film you'd recommend to everyone?",
+      accepted_patterns: [
+        "(absolutely|definitely|without (a |any )?doubt)",
+        "(i'?d recommend it to (anyone|everyone) (who|interested in))",
+        "(though|that said|admittedly) (it might not (resonate|appeal))",
+        "(it'?s not for everyone|some might find it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Nuanced recommendation: 'Absolutely — though admittedly, it might not resonate with everyone. It's particularly powerful for anyone going through a transition.' Band 7+: positive + qualifier.",
+      ideal_response: "Absolutely — though admittedly, it might not resonate with everyone. It's particularly powerful for anyone curious about big-picture human history.",
+    },
+    {
+      id: "ex.ielts.p2.4.tt1",
+      type: "thinking_trap",
+      difficulty: 5,
+      tr_thought: "Bu kitap çok iyi, herkese tavsiye ederim.",
+      wrong_en: "This book is so good, I recommend it everyone.",
+      right_en: "I'd wholeheartedly recommend this book — though it may not resonate with everyone.",
+      why_tr:
+        "Türk öğrenci 3 hata: (1) 'I recommend it everyone' = preposition eksik → 'recommend it TO everyone'; (2) 'So good' = informal intensifier, band 5 → 'wholeheartedly recommend' (band 7+ adverb); (3) Categorical claim ('herkese') yerine hedged ('though it may not resonate with everyone') = band 7+ nuance. Hedging language IELTS sophistication göstergesi.",
+    },
+    {
+      id: "ex.ielts.p2.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Onu sana tavsiye ederim' için doğru preposition?",
+          options: [
+            "I recommend you it",
+            "I recommend it you",
+            "I recommend it to you",
+            "I recommend you to it",
+          ],
+          correct: 2,
+          tr_explanation: "'Recommend something TO somebody'. Türk öğrenci sıkça 'to' düşürür.",
+        },
+        {
+          q: "'Bakış açımı değiştirdi' için band 7+ ifade?",
+          options: [
+            "Changed my view",
+            "Shifted my perspective / changed my worldview",
+            "Made me think different",
+            "Different I think now",
+          ],
+          correct: 1,
+          tr_explanation: "'Shifted my perspective' = band 7+ collocation. 'Changed my mind' tek karar için, 'shifted my perspective' kapsamlı.",
+        },
+        {
+          q: "'Eskiden ___ inanırdım' için doğru yapı?",
+          options: [
+            "Before I believed",
+            "I was believing",
+            "I used to believe",
+            "I had believed",
+          ],
+          correct: 2,
+          tr_explanation: "'Used to + V1' = artık olmayan geçmiş alışkanlık/inanç.",
+        },
+        {
+          q: "Hedged recommendation için doğru kalıp?",
+          options: [
+            "I recommend it everyone",
+            "Recommend yes",
+            "I'd recommend it, though it may not resonate with everyone",
+            "Yes recommend",
+          ],
+          correct: 2,
+          tr_explanation: "Hedging ('though it may not resonate') = band 7+ sophistication. Categorical değil, koşullu.",
+        },
+        {
+          q: "'Wholeheartedly recommend' Türkçesi?",
+          options: [
+            "Yarım yamalak tavsiye etmek",
+            "Tüm kalbimle tavsiye etmek",
+            "Yarı kalpten tavsiye etmek",
+            "Şikayet etmek",
+          ],
+          correct: 1,
+          tr_explanation: "'Wholeheartedly' = tüm kalpten/içtenlikle. Band 7+ intensifier adverb.",
+        },
+      ],
+    },
   ],
 };
 
@@ -913,6 +2116,127 @@ export const ieltsLesson_p2_5: BundledLesson = {
           hint_tr: "Hipotetik tavsiye: 'My main piece of advice would be — don't rush it, but don't drag it out either'.",
         },
         { speaker: "npc", message: "Thank you. Let's move on to part three." },
+      ],
+    },
+    {
+      id: "ex.ielts.p2.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 6,
+      template: "On one hand ___, on the other hand ___ — eventually, ___.",
+      slots: [
+        { accepted: ["staying meant security and routine", "I had financial stability where I was", "the safe path was tempting", "I had years invested in that role", "my comfort zone felt protective"] },
+        { accepted: ["leaving meant uncertainty but growth", "pursuing my dream meant starting from scratch", "the unknown promised something more", "I sensed I was outgrowing the role", "my gut kept telling me to leap"] },
+        { accepted: ["I chose to take the leap", "after weeks of deliberation I went with my gut", "I decided to bet on myself", "I followed my instinct", "I committed to the harder path"] },
+      ],
+      tr_hint:
+        "Part 2 C1 dilemma narrative: 'On one hand ___, on the other hand ___ — eventually ___.' Türk öğrenci 'I think this, but also that' der — düz. Bu yapı = academic-but-natural deliberation.",
+      example_filled: "On one hand, staying meant security and routine; on the other hand, leaving meant uncertainty but growth — eventually, I chose to take the leap.",
+    },
+    {
+      id: "ex.ielts.p2.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 6,
+      turns: [
+        { speaker: "npc", text: "Describe a difficult decision you had to make. What was the decision and what made it challenging?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I can see why that would be tough. How long did you spend thinking it through?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(a (difficult|tough|tricky) decision (that comes to mind|i had to make) (was|would be))",
+        "(a few years (ago|back)|some time ago),? i (was faced with|found myself stuck with)",
+        "(i was torn between)",
+        "(perhaps (the |one of the )?hardest (choice|decision) i'?ve had to make)",
+      ],
+      tr_hint:
+        "Cue card decision opener: 'A difficult decision that comes to mind was whether to leave my stable job for a startup opportunity.' Türk öğrenci 'I made decision' der — düz. Yapılandırılmış giriş + 'torn between' band 7+.",
+      ideal_answer: "Perhaps one of the hardest decisions I've had to make was whether to leave my stable corporate job for a startup opportunity abroad.",
+    },
+    {
+      id: "ex.ielts.p2.5.lr1",
+      type: "listen_respond",
+      difficulty: 6,
+      npc_line: "Looking back, do you think you made the right call?",
+      accepted_patterns: [
+        "(with the benefit of hindsight|in hindsight|looking back)",
+        "(i'?d (say|argue) (yes|so)|i (genuinely|honestly) believe (i did|i made))",
+        "(i sometimes (wonder|second-guess)|there are (moments|days) when)",
+        "(it'?s hard to say (definitively|for certain))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Reflective C1 closure: 'With the benefit of hindsight, I'd say I made the right call — though there are moments when I second-guess myself.' 'With the benefit of hindsight' C1 sophistication.",
+      ideal_response: "With the benefit of hindsight, I'd say I made the right call — though there are still moments when I second-guess the decision.",
+    },
+    {
+      id: "ex.ielts.p2.5.tt1",
+      type: "thinking_trap",
+      difficulty: 6,
+      tr_thought: "İki seçenek arasında kararsız kaldım, sonra karar verdim.",
+      wrong_en: "I was confused between two options, then I made decision.",
+      right_en: "I was torn between two paths — eventually, I committed to the harder one.",
+      why_tr:
+        "Türk öğrenci 3 hata: (1) 'Confused between' = collocation hatası → 'torn between' (band 7+ dilemma collocation); (2) 'Two options' = neutral → 'two paths' (metafor, band 7+); (3) 'Made decision' = article + verb düz → 'committed to' (band 7+ deliberate verb). Decision narrative için 'eventually + committed to' = C1 transition.",
+    },
+    {
+      id: "ex.ielts.p2.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'İki seçenek arasında kararsız' için band 7+ kalıp?",
+          options: [
+            "Confused between two options",
+            "I was torn between two options/paths",
+            "Two options I couldn't decide",
+            "Decision between two",
+          ],
+          correct: 1,
+          tr_explanation: "'Torn between' = band 7+ dilemma idiom. 'Confused between' collocation hatası.",
+        },
+        {
+          q: "'Sonradan baktığımda doğru karardı' için C1 ifade?",
+          options: [
+            "Later I think right decision",
+            "With the benefit of hindsight, I'd say I made the right call",
+            "After I think right",
+            "Now I see correct",
+          ],
+          correct: 1,
+          tr_explanation: "'With the benefit of hindsight' = C1 reflective marker. 'Made the right call' = band 7+ collocation.",
+        },
+        {
+          q: "'Karar verdim' yerine band 7+ verb?",
+          options: [
+            "I made decision",
+            "I decided",
+            "I committed to / I went with",
+            "I choose",
+          ],
+          correct: 2,
+          tr_explanation: "'Committed to' = deliberate action; 'went with' = informal commitment. Band 7+ lexical variety.",
+        },
+        {
+          q: "'On one hand ___, on the other hand ___' yapısı ne için?",
+          options: [
+            "Liste yapmak",
+            "Avantaj/dezavantaj balanced view",
+            "Karşıt fikir reddetmek",
+            "Soru sormak",
+          ],
+          correct: 1,
+          tr_explanation: "'On one hand / on the other hand' = balanced argumentation, band 7+ discourse marker.",
+        },
+        {
+          q: "Cue card sonunda C1 closure örneği?",
+          options: [
+            "OK that's it",
+            "I finish now",
+            "With the benefit of hindsight, I'd say I made the right call",
+            "Decision was made",
+          ],
+          correct: 2,
+          tr_explanation: "Reflective + hedged conclusion = band 7+ Part 2 wrap-up.",
+        },
       ],
     },
   ],
@@ -1046,6 +2370,127 @@ export const ieltsLesson_p3_1: BundledLesson = {
         { speaker: "npc", message: "Thank you. That brings us to the end." },
       ],
     },
+    {
+      id: "ex.ielts.p3.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 6,
+      template: "I would argue that ___ because ___, particularly ___.",
+      slots: [
+        { accepted: ["family plays a more lasting role than society", "the influence of role models has fundamentally shifted", "subconscious influence outweighs deliberate teaching", "social media has democratised who young people look up to", "negative role models can be just as instructive"] },
+        { accepted: ["early childhood shapes our framework", "authenticity tends to leave a deeper mark than performance", "what we absorb passively often outweighs what we'?re taught", "the line between influencer and authority has blurred", "we learn what NOT to do from cautionary examples"] },
+        { accepted: ["in formative years", "among adolescents", "in our current digital landscape", "when one is impressionable", "in shaping long-term values"] },
+      ],
+      tr_hint:
+        "Part 3 C1 argument structure: 'I would argue that ___ because ___, particularly ___.' Stance + justification + qualification. Türk öğrenci 'I think yes' der — band 5. Bu yapı band 7+ argumentation.",
+      example_filled: "I would argue that family plays a more lasting role than society because early childhood shapes our framework, particularly in formative years.",
+    },
+    {
+      id: "ex.ielts.p3.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 6,
+      turns: [
+        { speaker: "npc", text: "Do you think social media has changed the nature of role models for young people?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's a nuanced view. Do you see this trend continuing?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(without (a |any )?(doubt|question)|fundamentally|profoundly)(,)? (yes|it has)",
+        "(the (line|distinction) between (.+) (has blurred|is harder to (draw|see)))",
+        "(role models (used to be|once were) (limited to|drawn from|reserved for))",
+        "(in (our )?current (digital )?landscape|in this day and age)",
+      ],
+      tr_hint:
+        "Part 3 abstract discussion opener: 'Fundamentally yes — the distinction between influencer and authentic role model has blurred in our current digital landscape.' Türk öğrenci 'Yes social media changed' der — düz.",
+      ideal_answer: "Profoundly so, yes — the distinction between an influencer and a traditional role model has blurred in our current digital landscape.",
+    },
+    {
+      id: "ex.ielts.p3.1.lr1",
+      type: "listen_respond",
+      difficulty: 6,
+      npc_line: "Do you think negative role models can teach valuable lessons?",
+      accepted_patterns: [
+        "(paradoxically|counterintuitively|interestingly enough)(,)? yes",
+        "(seeing what not to do|learning by counter-example|cautionary tales)",
+        "(can be (just as|every bit as) (instructive|valuable|formative))",
+        "(though (the cost|the risk) is (high|considerable))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "C1 paradox + qualification: 'Paradoxically, yes — seeing what not to do can be just as instructive, though the cost of learning that way is often high.' Sophistication: paradoxical opening + balanced.",
+      ideal_response: "Paradoxically, yes — seeing what not to do can be every bit as instructive, though the cost of learning that way is often considerable.",
+    },
+    {
+      id: "ex.ielts.p3.1.tt1",
+      type: "thinking_trap",
+      difficulty: 6,
+      tr_thought: "Bence aile etkisi daha büyük ve toplum daha küçük.",
+      wrong_en: "In my opinion family influence is more big and society is more small.",
+      right_en: "I'd argue that family exerts a far more profound influence than broader society, particularly in formative years.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'In my opinion' = band 5-6 opener → 'I'd argue that' (band 7+ stance); (2) 'More big' / 'more small' = comparative formation hatası → 'more profound' veya 'larger/smaller' (irregular); (3) 'Society is more small' = nüans yok → 'broader society' (band 7+ adjective); (4) 'Influence' kullanım: noun olarak 'exerts an influence' (band 7+ collocation), 'has influence' band 6.",
+    },
+    {
+      id: "ex.ielts.p3.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bence' yerine Part 3'te band 7+ opener?",
+          options: [
+            "In my opinion",
+            "I think",
+            "I'd argue that / From my perspective",
+            "For me",
+          ],
+          correct: 2,
+          tr_explanation: "'I'd argue that' = stance + tartışmacı, band 7+ Part 3. 'In my opinion' band 6, çok genel.",
+        },
+        {
+          q: "'More big' yapısının sorunu?",
+          options: [
+            "Hiçbir sorun yok",
+            "'Big' tek heceli, comparative 'bigger', 'more' kullanılmaz",
+            "Spelling hatası",
+            "'Big' yanlış kelime",
+          ],
+          correct: 1,
+          tr_explanation: "Tek/iki heceli sıfat → -er (bigger, smaller). Üç+ heceli → more + adjective.",
+        },
+        {
+          q: "'Paradoxically, yes' ne için kullanılır?",
+          options: [
+            "Çelişkili görüş bildirmek",
+            "Beklenmedik ama doğru sonuç sunmak",
+            "Cevap vermemek",
+            "Konuyu değiştirmek",
+          ],
+          correct: 1,
+          tr_explanation: "'Paradoxically' = beklenenin tersine ama doğru. C1 reasoning, examiner sever.",
+        },
+        {
+          q: "'Çok güçlü etki' için band 7+ collocation?",
+          options: [
+            "Very big influence",
+            "More big influence",
+            "Profound influence / exerts a strong influence",
+            "Influence very",
+          ],
+          correct: 2,
+          tr_explanation: "'Profound/strong/lasting influence' + 'exerts' = band 7+ noun-verb collocation.",
+        },
+        {
+          q: "Part 3 hedged opinion için doğru kalıp?",
+          options: [
+            "Yes",
+            "No",
+            "To some extent yes — particularly when ___",
+            "Maybe yes maybe no",
+          ],
+          correct: 2,
+          tr_explanation: "Hedged + qualified opinion = band 7+. Mutlak değil, koşullu + örnek.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1119,6 +2564,126 @@ export const ieltsLesson_p3_2: BundledLesson = {
           hint_tr: "Nüanslı: 'It's a useful complement — but it can't replace the chance encounters that make travel transformative'.",
         },
         { speaker: "npc", message: "Thank you." },
+      ],
+    },
+    {
+      id: "ex.ielts.p3.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 6,
+      template: "There's a strong argument that ___, particularly when one considers ___.",
+      slots: [
+        { accepted: ["mass tourism is eroding the very places it celebrates", "tourist caps are increasingly necessary", "online reviews have homogenised travel", "virtual tourism can never replace the real thing", "authentic travel is becoming a luxury"] },
+        { accepted: ["the strain on local infrastructure", "the cost to host communities", "how social media has reshaped tourist behaviour", "the environmental footprint of mass travel", "how heritage sites are being commodified"] },
+      ],
+      tr_hint:
+        "Part 3 academic argument: 'There's a strong argument that ___, particularly when one considers ___.' Türk öğrenci 'I think yes' der — düz. Bu yapı = formal argumentation, examiner sever.",
+      example_filled: "There's a strong argument that mass tourism is eroding the very places it celebrates, particularly when one considers the strain on local infrastructure.",
+    },
+    {
+      id: "ex.ielts.p3.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 6,
+      turns: [
+        { speaker: "npc", text: "Do you think tourism has more positive or negative effects in the modern era?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I see — a balanced view. Can you elaborate on the negative side?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(it'?s (genuinely )?a mixed (bag|picture)|both sides have merit)",
+        "(on (one|the one) hand|on (the other|one) hand)",
+        "(while|whereas) (tourism (boosts|benefits))",
+        "(at the same time|simultaneously),? (it (also )?(strains|burdens))",
+      ],
+      tr_hint:
+        "Part 3 balanced view: 'It's genuinely a mixed bag — while tourism boosts local economies, at the same time it strains infrastructure and erodes cultural authenticity.' Türk öğrenci tek yön der.",
+      ideal_answer: "It's genuinely a mixed bag — while tourism injects vital revenue into local economies, it simultaneously strains infrastructure and risks eroding cultural authenticity.",
+    },
+    {
+      id: "ex.ielts.p3.2.lr1",
+      type: "listen_respond",
+      difficulty: 6,
+      npc_line: "Should governments impose stricter limits on tourist numbers?",
+      accepted_patterns: [
+        "(in (certain|particular|specific) cases|conditionally),? yes",
+        "(places like (venice|barcelona|santorini|machu picchu))",
+        "(without (such measures|intervention),? (the (site|city|destination)) (continues to|risks))",
+        "(it largely depends on)(,)? (the (carrying capacity|fragility))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "C1 conditional + example: 'In particular cases, yes — places like Venice are clear examples where without intervention, the very fabric of the city continues to degrade.' Spesifik örnek + conditional.",
+      ideal_response: "In particular cases, yes — places like Venice or Machu Picchu are clear examples where, without intervention, the very fabric of the destination continues to degrade.",
+    },
+    {
+      id: "ex.ielts.p3.2.tt1",
+      type: "thinking_trap",
+      difficulty: 6,
+      tr_thought: "Turizm bazı yerlere zarar veriyor ve insanlar fazla geliyor.",
+      wrong_en: "Tourism damage some places and persons come too much.",
+      right_en: "Mass tourism has begun to erode certain destinations, with visitor numbers exceeding sustainable thresholds.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'Damage' verb 3rd person 's' eksik → 'damages' (tek terim) veya present perfect 'has damaged'; (2) 'Persons' = formal-legal-only register → 'people' veya 'visitors' (Part 3 için 'visitors' = topical word); (3) 'Come too much' = collocation hatası → 'exceeding sustainable thresholds' (band 7+ academic); (4) 'Tourism' yerine 'mass tourism' (specificity), 'some places' yerine 'certain destinations'. Range of vocabulary band 7+.",
+    },
+    {
+      id: "ex.ielts.p3.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'İnsanlar' Part 3 turizm konusunda en uygun?",
+          options: [
+            "Persons",
+            "Peoples",
+            "People / visitors / tourists",
+            "Human",
+          ],
+          correct: 2,
+          tr_explanation: "'Persons' formal-legal register, IELTS'te yanlış. 'People' default, 'visitors/tourists' topical-specific.",
+        },
+        {
+          q: "'Mass tourism' ne demek?",
+          options: [
+            "Toplu turizm / kitle turizmi",
+            "Kütle turizmi",
+            "Çok seyahat",
+            "Büyük turizm",
+          ],
+          correct: 0,
+          tr_explanation: "'Mass tourism' = kitle turizmi (büyük gruplar). Band 7+ IELTS topical vocabulary.",
+        },
+        {
+          q: "'Aşındırıyor / kademeli zarar veriyor' için band 7+?",
+          options: [
+            "Damage",
+            "Hurt",
+            "Erode",
+            "Break",
+          ],
+          correct: 2,
+          tr_explanation: "'Erode' = aşındırmak (yavaş). 'Erodes culture / erodes infrastructure' band 7+ academic collocation.",
+        },
+        {
+          q: "Spesifik örnekle argümanı destekleme nasıl yapılır?",
+          options: [
+            "Argümanı tekrar et",
+            "Places like Venice or Machu Picchu are clear examples where ___",
+            "Örnek vermek gereksiz",
+            "Türkiye'den örnek ver",
+          ],
+          correct: 1,
+          tr_explanation: "'Places like X are clear examples where ___' = argument + example structure, band 7+.",
+        },
+        {
+          q: "Balanced view marker örneği?",
+          options: [
+            "Yes only",
+            "No only",
+            "While X, simultaneously Y / It's a mixed bag — on one hand...",
+            "Maybe",
+          ],
+          correct: 2,
+          tr_explanation: "'It's a mixed bag' + 'while/simultaneously' = balanced argumentation, band 7+.",
+        },
       ],
     },
   ],
@@ -1196,6 +2761,126 @@ export const ieltsLesson_p3_3: BundledLesson = {
         { speaker: "npc", message: "Thank you." },
       ],
     },
+    {
+      id: "ex.ielts.p3.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 6,
+      template: "It's a double-edged sword — ___, but ___.",
+      slots: [
+        { accepted: ["free education promotes social mobility", "automation will handle the technical", "online learning democratises access", "credentials still matter in some fields", "formal education provides structure"] },
+        { accepted: ["funding it without compromising quality remains the catch", "what's left for humans is the irreplaceable emotional element", "structure and peer learning are harder to replicate online", "the gap between theory and practice is widening", "the curriculum often lags behind industry needs"] },
+      ],
+      tr_hint:
+        "Part 3 dialectical: 'It's a double-edged sword — ___, but ___.' Türk öğrenci tek görüş der. Bu yapı = nuanced trade-off awareness, band 7+ examiner sever.",
+      example_filled: "It's a double-edged sword — free education promotes social mobility, but funding it without compromising quality remains the catch.",
+    },
+    {
+      id: "ex.ielts.p3.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 6,
+      turns: [
+        { speaker: "npc", text: "Do you think higher education should be free for everyone?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "An interesting position. How would you address the funding issue?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(ideally yes|in principle yes|i'?d argue (in favour of|yes))",
+        "(it'?s the (bedrock|cornerstone|foundation) of (social mobility|equal opportunity))",
+        "(however|that said|though) (the (catch|issue|challenge) (is|being))",
+        "(funding|financing) (it|such a system) (without (compromising|sacrificing))",
+      ],
+      tr_hint:
+        "Principle + qualifier: 'Ideally yes — it's the bedrock of social mobility. That said, the catch is funding it without compromising quality.' Türk öğrenci direkt 'yes' der.",
+      ideal_answer: "In principle yes — it's the cornerstone of social mobility. That said, the real challenge is funding such a system without compromising academic quality.",
+    },
+    {
+      id: "ex.ielts.p3.3.lr1",
+      type: "listen_respond",
+      difficulty: 6,
+      npc_line: "What skills do you think will be most valuable in twenty years' time?",
+      accepted_patterns: [
+        "(adaptability|critical thinking|emotional intelligence|ai literacy)",
+        "(as automation (handles|takes over) (the (technical|routine)))",
+        "(what (remains|is left) (for humans|that machines cannot) (is|replicate))",
+        "(the (human element|interpersonal dimension|soft skills))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Future skills C1: 'Adaptability and emotional intelligence will become indispensable — as automation handles the technical, what remains for humans is the irreplaceable human element.' Band 7+ future projection.",
+      ideal_response: "Adaptability and emotional intelligence, I'd argue — as automation handles the technical, what remains for humans is the irreplaceable interpersonal dimension.",
+    },
+    {
+      id: "ex.ielts.p3.3.tt1",
+      type: "thinking_trap",
+      difficulty: 6,
+      tr_thought: "Üniversite ücretsiz olmalı çünkü herkese fayda sağlar ve ülke gelişir.",
+      wrong_en: "University should free because help everybody and country develops.",
+      right_en: "Higher education ought to be free, in principle, as it serves as the bedrock of social mobility and accelerates national development.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'University should free' = 'be' eksik → 'should BE free'; (2) 'Should' yerine 'ought to be' (band 7+ modal nuance); (3) 'Because help everybody' = subject eksik + collocation düz → 'as it serves as the bedrock of social mobility' (band 7+ formal causation); (4) 'Country develops' = simple → 'accelerates national development' (band 7+ noun-verb collocation). 'University' yerine 'higher education' (Part 3 register).",
+    },
+    {
+      id: "ex.ielts.p3.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Üniversite' Part 3 academic discussion için en uygun terim?",
+          options: [
+            "University",
+            "School",
+            "Higher education / tertiary education",
+            "College only",
+          ],
+          correct: 2,
+          tr_explanation: "'Higher education' Part 3 topical/academic register. 'University' OK ama 'higher education' kapsamlı.",
+        },
+        {
+          q: "'Should free' yapısının sorunu?",
+          options: [
+            "Spelling hatası",
+            "'Be' eksik — 'should be free'",
+            "Hiçbir sorun yok",
+            "'Should' yanlış",
+          ],
+          correct: 1,
+          tr_explanation: "Pasif/sıfat yapısında 'be' şart: 'should be free / should be implemented / should be reconsidered'.",
+        },
+        {
+          q: "'Çünkü ___ sağlar' için band 7+ formal causation?",
+          options: [
+            "Because help",
+            "Because of",
+            "As it serves as / given that",
+            "For",
+          ],
+          correct: 2,
+          tr_explanation: "'As it serves as / given that' = formal causal markers, band 7+ Part 3.",
+        },
+        {
+          q: "'İki yanı keskin kılıç' idiom?",
+          options: [
+            "Two sided sword",
+            "A double-edged sword",
+            "Dual sword",
+            "Sword of two edges",
+          ],
+          correct: 1,
+          tr_explanation: "'A double-edged sword' = sabit idiom. Trade-off konularında band 7+ marker.",
+        },
+        {
+          q: "'Soft skills' ne demek?",
+          options: [
+            "Yumuşak beceriler / kişilerarası beceriler",
+            "Kolay beceriler",
+            "Basit yetenekler",
+            "Sevimli yetkinlikler",
+          ],
+          correct: 0,
+          tr_explanation: "'Soft skills' = communication, empathy, adaptability vb. Band 7+ Part 3 future-of-work vocabulary.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1269,6 +2954,126 @@ export const ieltsLesson_p3_4: BundledLesson = {
           hint_tr: "Modern fenomen: 'Undoubtedly — we've lost the shared anticipation of weekly episodes. Stories now compete for binge-able attention'.",
         },
         { speaker: "npc", message: "Thank you. That brings the test to a close." },
+      ],
+    },
+    {
+      id: "ex.ielts.p3.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 6,
+      template: "What I find particularly interesting is how ___ has fundamentally ___.",
+      slots: [
+        { accepted: ["streaming", "short-form content", "smartphone access", "the digital age", "social media"] },
+        { accepted: ["reshaped our attention spans", "transformed how we engage with stories", "blurred the line between reading and skimming", "altered our relationship with deep reading", "changed the pace at which we consume narratives"] },
+      ],
+      tr_hint:
+        "Part 3 reflective sophistication: 'What I find particularly interesting is how ___ has fundamentally ___.' Türk öğrenci 'It is interesting that' der — düz. Bu yapı = academic-but-natural reflection.",
+      example_filled: "What I find particularly interesting is how streaming has fundamentally reshaped our attention spans.",
+    },
+    {
+      id: "ex.ielts.p3.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 6,
+      turns: [
+        { speaker: "npc", text: "Do you think people are reading less because of digital screens?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "An interesting reframing. Do you think this is a permanent shift?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(it comes down to|i'?d argue (the issue is|that it'?s) (about|a matter of))",
+        "(less of (a |an )?(decline|reduction) (in reading|overall)|more of a shift)",
+        "(long-form|deep|sustained) (reading|attention) (has declined|is on the wane)",
+        "(we'?re reading (more text than ever|differently))",
+      ],
+      tr_hint:
+        "Reframe technique: 'It comes down to format, really — we're reading more text than ever, but in shorter bursts. Deep, sustained reading is what's declining.' Türk öğrenci direkt 'yes' der.",
+      ideal_answer: "I'd argue it comes down to format — we're reading more text than ever, but in shorter bursts. Deep, sustained reading is what's genuinely declining.",
+    },
+    {
+      id: "ex.ielts.p3.4.lr1",
+      type: "listen_respond",
+      difficulty: 6,
+      npc_line: "Can a film ever truly capture the essence of a book?",
+      accepted_patterns: [
+        "(rarely|on rare occasions|in select cases)",
+        "(films (are constrained by|have to (compress|sacrifice))|adaptation (inherently )?involves)",
+        "(internal monologue|introspection|the prose itself)",
+        "(visual medium|the screen demands)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Limited capture C1: 'Rarely, in my view — films are a fundamentally visual medium, so the internal monologue that prose offers is almost always sacrificed.' 'In my view' + spesifik sebep + 'sacrificed' band 7+.",
+      ideal_response: "Rarely, in my view — films are a fundamentally visual medium, so the internal monologue that prose offers is almost always sacrificed in adaptation.",
+    },
+    {
+      id: "ex.ielts.p3.4.tt1",
+      type: "thinking_trap",
+      difficulty: 6,
+      tr_thought: "İnsanlar artık kitap okumuyor çünkü sosyal medya çok var.",
+      wrong_en: "People not reading book anymore because social media is much.",
+      right_en: "Deep reading has arguably declined as social media commands an ever-larger share of our attention.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'People not reading' = negation auxiliary eksik → 'People aren't reading' veya pasif 'reading has declined' (band 7+); (2) 'Book anymore' = article + plural eksik → 'books anymore' veya tamamen yenile: 'Deep reading'; (3) 'Social media is much' = collocation hatası → 'commands an ever-larger share of our attention' (band 7+ academic); (4) 'Çünkü' direkt 'because' yerine 'as' (formal causal); (5) 'Arguably' hedge ekle → Part 3 nüans.",
+    },
+    {
+      id: "ex.ielts.p3.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'İnsanlar artık okumuyor' band 7+ academic yapı?",
+          options: [
+            "People don't read",
+            "People aren't reading",
+            "Deep reading has arguably declined",
+            "Reading is no",
+          ],
+          correct: 2,
+          tr_explanation: "Pasif + 'arguably' + spesifiklik ('deep reading') = band 7+ Part 3 academic register.",
+        },
+        {
+          q: "'Sosyal medya dikkati çalıyor' için band 7+ collocation?",
+          options: [
+            "Social media takes attention",
+            "Social media steals attention",
+            "Social media commands a larger share of our attention",
+            "Social media is attention",
+          ],
+          correct: 2,
+          tr_explanation: "'Commands a share of attention' = band 7+ academic collocation. 'Takes/steals' düz.",
+        },
+        {
+          q: "'It comes down to ___' yapısının amacı?",
+          options: [
+            "Argümanı kapatmak",
+            "Konuyu özetlemek/asıl sorunu işaretlemek",
+            "Anlamsızlaştırmak",
+            "Soru sormak",
+          ],
+          correct: 1,
+          tr_explanation: "'It comes down to' = asıl meseleyi belirleme. Reframe + sophistication, band 7+ marker.",
+        },
+        {
+          q: "'Rarely' = Türkçesi?",
+          options: [
+            "Sıklıkla",
+            "Nadiren / az",
+            "Hiç",
+            "Genelde",
+          ],
+          correct: 1,
+          tr_explanation: "'Rarely' = nadiren. 'Films can rarely capture' = band 7+ formal frequency adverb.",
+        },
+        {
+          q: "Part 3 reflective opener 'What I find particularly interesting is how ___' ne yapar?",
+          options: [
+            "Soru sorar",
+            "Reflective stance + observation ile başlar",
+            "Konuyu reddeder",
+            "Konuyu değiştirir",
+          ],
+          correct: 1,
+          tr_explanation: "Personal observation + academic register = band 7+ Part 3 opener. Examiner intelligence + reflection görür.",
+        },
       ],
     },
   ],

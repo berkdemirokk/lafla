@@ -258,6 +258,101 @@ export const workCoffeechatLesson_13_1: BundledLesson = {
       tr_explanation:
         "'Make a coffee chat' Türkçe kalıbı; doğrusu 'have a coffee chat'. 'Since long time' yanlış — süre için 'for a long time'. İstek süregelen ise present perfect continuous ('I've been wanting').",
     },
+    {
+      id: "ex.wcc13.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd love to ___ about your ___ if you have time.",
+      slots: [
+        { accepted: ['learn more', 'pick your brain', 'hear your thoughts', 'chat'], distractors: ['learning more', 'pick your brains', 'hearing your thoughts', 'chats'] },
+        { accepted: ['career path', 'role', 'experience', 'team'], distractors: ['careers path', "role's", 'experiences', 'teams'] },
+      ],
+      tr_hint:
+        "Coffee chat invitation. 'I'd love to' = daha kibar 'I want'. 'Pick your brain' = beynini sömürmek (deyim, görüş almak).",
+      example_filled: "I'd love to learn more about your career path if you have time.",
+    },
+    {
+      id: "ex.wcc13.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "So what got you interested in switching to product?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Yeah, that's a common path — engineers often see the product side first." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(honestly|i think|for me) (it was|it started)",
+        "(i'?ve been|i was) (working|building) (on|in)",
+        "(curious about|interested in) (the|how)",
+        "(seeing|noticing) (how|that)",
+      ],
+      tr_hint:
+        "Career story sorusu. Kişisel ama profesyonel. Türk hatası: 'Because I want money' = çok düz. Story arc ver.",
+      ideal_answer: "Honestly, I've been building features and got curious about the 'why' behind them — the product side.",
+    },
+    {
+      id: "ex.wcc13.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's the biggest lesson you've learned in your current role?",
+      accepted_patterns: [
+        "(honestly|i think|probably) (the|that)",
+        "(biggest|hardest|main) (lesson|thing) (was|has been) (.+)",
+        "(i learned|i realized|it taught me) (that |to )?",
+        "(communication|prioritization|saying no|asking for help)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior'a ders sorulduğunda 'I learned everything' çok genel. 1 spesifik soft skill seç + örnek.",
+      ideal_response: "Honestly, the biggest lesson was learning to say no — protecting focus is harder than it sounds.",
+    },
+    {
+      id: "ex.wcc13.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana kahve içmek istiyorum.",
+      wrong_en: "I want to drink coffee with you.",
+      right_en: "I'd love to grab coffee sometime — would next week work?",
+      why_tr:
+        "'Drink coffee' = sözlük çevirisi. İş İngilizcesinde 'grab coffee' deyim — kahve buluşması. 'I want' agresif; 'I'd love to' = soft. 'Sometime' belirsizlik bırakır, sonra 'would next week work?' net soruyla bağlanır.",
+    },
+    {
+      id: "ex.wcc13.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Pick your brain' deyimi ne demek?",
+          options: ["Beynini incelemek", "Bilgi/deneyim almak için sohbet", "Test sormak", "Kafa karıştırmak"],
+          correct: 1,
+          tr_explanation: "'Pick your brain' = senior'dan bilgi alma. Coffee chat'in özü.",
+        },
+        {
+          q: "'Grab coffee' ne demek?",
+          options: ["Kahveyi tutmak", "Kahve buluşması yapmak", "Kahve almak", "Kahve hediyesi"],
+          correct: 1,
+          tr_explanation: "'Grab coffee' = kahve içmek için buluşmak (deyim). Coffee chat = networking pratiği.",
+        },
+        {
+          q: "Coffee chat'te uygunsuz konu?",
+          options: ["Career path", "Maaş tam rakamı sorma", "Team culture", "Karşı taraf'ın hikayesi"],
+          correct: 1,
+          tr_explanation: "Direkt maaş = uygunsuz. 'What's the comp range like?' belki, ama spesifik rakam = sınır aşımı.",
+        },
+        {
+          q: "'Would next week work?' kalıbının amacı?",
+          options: ["Karar dayatmak", "Esnek + spesifik öneri", "Soru sormamak", "İptal"],
+          correct: 1,
+          tr_explanation: "Spesifik öneri = kolay yanıtlama. 'Sometime' belirsiz, 'next week' aksiyon.",
+        },
+        {
+          q: "Coffee chat sonu kibar kapanış?",
+          options: ["Goodbye!", "Thanks so much — this was really helpful", "OK bye", "See ya"],
+          correct: 1,
+          tr_explanation: "'Thanks so much' + spesifik geri bildirim = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
+    },
   ],
 };
 
@@ -461,6 +556,101 @@ export const workCoffeechatLesson_13_2: BundledLesson = {
       correct_sentence: "I've been working in tech for 5 years, and I make mistakes sometimes.",
       tr_explanation:
         "'Since 5 years' yanlış — süre için 'for 5 years'. 'I do mistakes' Türkçe kalıbı; doğrusu 'I make mistakes'. Süregelen aksiyon için 'I've been working'.",
+    },
+    {
+      id: "ex.wcc13.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd love to ___ about your ___ if you have time.",
+      slots: [
+        { accepted: ['learn more', 'pick your brain', 'hear your thoughts', 'chat'], distractors: ['learning more', 'pick your brains', 'hearing your thoughts', 'chats'] },
+        { accepted: ['career path', 'role', 'experience', 'team'], distractors: ['careers path', "role's", 'experiences', 'teams'] },
+      ],
+      tr_hint:
+        "Coffee chat invitation. 'I'd love to' = daha kibar 'I want'. 'Pick your brain' = beynini sömürmek (deyim, görüş almak).",
+      example_filled: "I'd love to learn more about your career path if you have time.",
+    },
+    {
+      id: "ex.wcc13.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "So what got you interested in switching to product?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Yeah, that's a common path — engineers often see the product side first." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(honestly|i think|for me) (it was|it started)",
+        "(i'?ve been|i was) (working|building) (on|in)",
+        "(curious about|interested in) (the|how)",
+        "(seeing|noticing) (how|that)",
+      ],
+      tr_hint:
+        "Career story sorusu. Kişisel ama profesyonel. Türk hatası: 'Because I want money' = çok düz. Story arc ver.",
+      ideal_answer: "Honestly, I've been building features and got curious about the 'why' behind them — the product side.",
+    },
+    {
+      id: "ex.wcc13.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's the biggest lesson you've learned in your current role?",
+      accepted_patterns: [
+        "(honestly|i think|probably) (the|that)",
+        "(biggest|hardest|main) (lesson|thing) (was|has been) (.+)",
+        "(i learned|i realized|it taught me) (that |to )?",
+        "(communication|prioritization|saying no|asking for help)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior'a ders sorulduğunda 'I learned everything' çok genel. 1 spesifik soft skill seç + örnek.",
+      ideal_response: "Honestly, the biggest lesson was learning to say no — protecting focus is harder than it sounds.",
+    },
+    {
+      id: "ex.wcc13.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana kahve içmek istiyorum.",
+      wrong_en: "I want to drink coffee with you.",
+      right_en: "I'd love to grab coffee sometime — would next week work?",
+      why_tr:
+        "'Drink coffee' = sözlük çevirisi. İş İngilizcesinde 'grab coffee' deyim — kahve buluşması. 'I want' agresif; 'I'd love to' = soft. 'Sometime' belirsizlik bırakır, sonra 'would next week work?' net soruyla bağlanır.",
+    },
+    {
+      id: "ex.wcc13.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Pick your brain' deyimi ne demek?",
+          options: ["Beynini incelemek", "Bilgi/deneyim almak için sohbet", "Test sormak", "Kafa karıştırmak"],
+          correct: 1,
+          tr_explanation: "'Pick your brain' = senior'dan bilgi alma. Coffee chat'in özü.",
+        },
+        {
+          q: "'Grab coffee' ne demek?",
+          options: ["Kahveyi tutmak", "Kahve buluşması yapmak", "Kahve almak", "Kahve hediyesi"],
+          correct: 1,
+          tr_explanation: "'Grab coffee' = kahve içmek için buluşmak (deyim). Coffee chat = networking pratiği.",
+        },
+        {
+          q: "Coffee chat'te uygunsuz konu?",
+          options: ["Career path", "Maaş tam rakamı sorma", "Team culture", "Karşı taraf'ın hikayesi"],
+          correct: 1,
+          tr_explanation: "Direkt maaş = uygunsuz. 'What's the comp range like?' belki, ama spesifik rakam = sınır aşımı.",
+        },
+        {
+          q: "'Would next week work?' kalıbının amacı?",
+          options: ["Karar dayatmak", "Esnek + spesifik öneri", "Soru sormamak", "İptal"],
+          correct: 1,
+          tr_explanation: "Spesifik öneri = kolay yanıtlama. 'Sometime' belirsiz, 'next week' aksiyon.",
+        },
+        {
+          q: "Coffee chat sonu kibar kapanış?",
+          options: ["Goodbye!", "Thanks so much — this was really helpful", "OK bye", "See ya"],
+          correct: 1,
+          tr_explanation: "'Thanks so much' + spesifik geri bildirim = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
     },
   ],
 };
@@ -670,6 +860,101 @@ export const workCoffeechatLesson_13_3: BundledLesson = {
       tr_explanation:
         "'Since this morning' = tarih, doğru ama o zaman 'I am' yerine 'I've been' lazım (süregelen his). 'Made the chat' Türkçe; doğrusu 'had the chat'. 'Very thankful' yerine 'really grateful' daha doğal.",
     },
+    {
+      id: "ex.wcc13.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd love to ___ about your ___ if you have time.",
+      slots: [
+        { accepted: ['learn more', 'pick your brain', 'hear your thoughts', 'chat'], distractors: ['learning more', 'pick your brains', 'hearing your thoughts', 'chats'] },
+        { accepted: ['career path', 'role', 'experience', 'team'], distractors: ['careers path', "role's", 'experiences', 'teams'] },
+      ],
+      tr_hint:
+        "Coffee chat invitation. 'I'd love to' = daha kibar 'I want'. 'Pick your brain' = beynini sömürmek (deyim, görüş almak).",
+      example_filled: "I'd love to learn more about your career path if you have time.",
+    },
+    {
+      id: "ex.wcc13.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "So what got you interested in switching to product?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Yeah, that's a common path — engineers often see the product side first." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(honestly|i think|for me) (it was|it started)",
+        "(i'?ve been|i was) (working|building) (on|in)",
+        "(curious about|interested in) (the|how)",
+        "(seeing|noticing) (how|that)",
+      ],
+      tr_hint:
+        "Career story sorusu. Kişisel ama profesyonel. Türk hatası: 'Because I want money' = çok düz. Story arc ver.",
+      ideal_answer: "Honestly, I've been building features and got curious about the 'why' behind them — the product side.",
+    },
+    {
+      id: "ex.wcc13.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's the biggest lesson you've learned in your current role?",
+      accepted_patterns: [
+        "(honestly|i think|probably) (the|that)",
+        "(biggest|hardest|main) (lesson|thing) (was|has been) (.+)",
+        "(i learned|i realized|it taught me) (that |to )?",
+        "(communication|prioritization|saying no|asking for help)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior'a ders sorulduğunda 'I learned everything' çok genel. 1 spesifik soft skill seç + örnek.",
+      ideal_response: "Honestly, the biggest lesson was learning to say no — protecting focus is harder than it sounds.",
+    },
+    {
+      id: "ex.wcc13.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana kahve içmek istiyorum.",
+      wrong_en: "I want to drink coffee with you.",
+      right_en: "I'd love to grab coffee sometime — would next week work?",
+      why_tr:
+        "'Drink coffee' = sözlük çevirisi. İş İngilizcesinde 'grab coffee' deyim — kahve buluşması. 'I want' agresif; 'I'd love to' = soft. 'Sometime' belirsizlik bırakır, sonra 'would next week work?' net soruyla bağlanır.",
+    },
+    {
+      id: "ex.wcc13.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Pick your brain' deyimi ne demek?",
+          options: ["Beynini incelemek", "Bilgi/deneyim almak için sohbet", "Test sormak", "Kafa karıştırmak"],
+          correct: 1,
+          tr_explanation: "'Pick your brain' = senior'dan bilgi alma. Coffee chat'in özü.",
+        },
+        {
+          q: "'Grab coffee' ne demek?",
+          options: ["Kahveyi tutmak", "Kahve buluşması yapmak", "Kahve almak", "Kahve hediyesi"],
+          correct: 1,
+          tr_explanation: "'Grab coffee' = kahve içmek için buluşmak (deyim). Coffee chat = networking pratiği.",
+        },
+        {
+          q: "Coffee chat'te uygunsuz konu?",
+          options: ["Career path", "Maaş tam rakamı sorma", "Team culture", "Karşı taraf'ın hikayesi"],
+          correct: 1,
+          tr_explanation: "Direkt maaş = uygunsuz. 'What's the comp range like?' belki, ama spesifik rakam = sınır aşımı.",
+        },
+        {
+          q: "'Would next week work?' kalıbının amacı?",
+          options: ["Karar dayatmak", "Esnek + spesifik öneri", "Soru sormamak", "İptal"],
+          correct: 1,
+          tr_explanation: "Spesifik öneri = kolay yanıtlama. 'Sometime' belirsiz, 'next week' aksiyon.",
+        },
+        {
+          q: "Coffee chat sonu kibar kapanış?",
+          options: ["Goodbye!", "Thanks so much — this was really helpful", "OK bye", "See ya"],
+          correct: 1,
+          tr_explanation: "'Thanks so much' + spesifik geri bildirim = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
+    },
   ],
 };
 
@@ -844,6 +1129,101 @@ export const workCoffeechatLesson_13_5: BundledLesson = {
       tr_translation: "20 dakika Zoom'da musait olur musun? Olmazsa baski yok.",
       ipa: "/wʊd ju biː ˈəʊpən tə ˈtwɛnti mɪn ˈəʊvə zuːm | nəʊ ˈprɛʃə ɪf nɒt/",
     },
+    {
+      id: "ex.wcc13.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd love to ___ about your ___ if you have time.",
+      slots: [
+        { accepted: ['learn more', 'pick your brain', 'hear your thoughts', 'chat'], distractors: ['learning more', 'pick your brains', 'hearing your thoughts', 'chats'] },
+        { accepted: ['career path', 'role', 'experience', 'team'], distractors: ['careers path', "role's", 'experiences', 'teams'] },
+      ],
+      tr_hint:
+        "Coffee chat invitation. 'I'd love to' = daha kibar 'I want'. 'Pick your brain' = beynini sömürmek (deyim, görüş almak).",
+      example_filled: "I'd love to learn more about your career path if you have time.",
+    },
+    {
+      id: "ex.wcc13.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "So what got you interested in switching to product?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Yeah, that's a common path — engineers often see the product side first." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(honestly|i think|for me) (it was|it started)",
+        "(i'?ve been|i was) (working|building) (on|in)",
+        "(curious about|interested in) (the|how)",
+        "(seeing|noticing) (how|that)",
+      ],
+      tr_hint:
+        "Career story sorusu. Kişisel ama profesyonel. Türk hatası: 'Because I want money' = çok düz. Story arc ver.",
+      ideal_answer: "Honestly, I've been building features and got curious about the 'why' behind them — the product side.",
+    },
+    {
+      id: "ex.wcc13.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's the biggest lesson you've learned in your current role?",
+      accepted_patterns: [
+        "(honestly|i think|probably) (the|that)",
+        "(biggest|hardest|main) (lesson|thing) (was|has been) (.+)",
+        "(i learned|i realized|it taught me) (that |to )?",
+        "(communication|prioritization|saying no|asking for help)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior'a ders sorulduğunda 'I learned everything' çok genel. 1 spesifik soft skill seç + örnek.",
+      ideal_response: "Honestly, the biggest lesson was learning to say no — protecting focus is harder than it sounds.",
+    },
+    {
+      id: "ex.wcc13.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana kahve içmek istiyorum.",
+      wrong_en: "I want to drink coffee with you.",
+      right_en: "I'd love to grab coffee sometime — would next week work?",
+      why_tr:
+        "'Drink coffee' = sözlük çevirisi. İş İngilizcesinde 'grab coffee' deyim — kahve buluşması. 'I want' agresif; 'I'd love to' = soft. 'Sometime' belirsizlik bırakır, sonra 'would next week work?' net soruyla bağlanır.",
+    },
+    {
+      id: "ex.wcc13.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Pick your brain' deyimi ne demek?",
+          options: ["Beynini incelemek", "Bilgi/deneyim almak için sohbet", "Test sormak", "Kafa karıştırmak"],
+          correct: 1,
+          tr_explanation: "'Pick your brain' = senior'dan bilgi alma. Coffee chat'in özü.",
+        },
+        {
+          q: "'Grab coffee' ne demek?",
+          options: ["Kahveyi tutmak", "Kahve buluşması yapmak", "Kahve almak", "Kahve hediyesi"],
+          correct: 1,
+          tr_explanation: "'Grab coffee' = kahve içmek için buluşmak (deyim). Coffee chat = networking pratiği.",
+        },
+        {
+          q: "Coffee chat'te uygunsuz konu?",
+          options: ["Career path", "Maaş tam rakamı sorma", "Team culture", "Karşı taraf'ın hikayesi"],
+          correct: 1,
+          tr_explanation: "Direkt maaş = uygunsuz. 'What's the comp range like?' belki, ama spesifik rakam = sınır aşımı.",
+        },
+        {
+          q: "'Would next week work?' kalıbının amacı?",
+          options: ["Karar dayatmak", "Esnek + spesifik öneri", "Soru sormamak", "İptal"],
+          correct: 1,
+          tr_explanation: "Spesifik öneri = kolay yanıtlama. 'Sometime' belirsiz, 'next week' aksiyon.",
+        },
+        {
+          q: "Coffee chat sonu kibar kapanış?",
+          options: ["Goodbye!", "Thanks so much — this was really helpful", "OK bye", "See ya"],
+          correct: 1,
+          tr_explanation: "'Thanks so much' + spesifik geri bildirim = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1016,6 +1396,101 @@ export const workCoffeechatLesson_13_6: BundledLesson = {
       phrase: "Quick about me: I'm a backend engineer working on payments.",
       tr_translation: "Kisaca: odeme sistemleri uzerinde calisan bir backend muhendisiyim.",
       ipa: "/kwɪk əˈbaʊt miː | aɪm ə ˈbæk.ɛnd ˌɛn.dʒɪˈnɪə ˈwɜː.kɪŋ ɒn ˈpeɪ.mənts/",
+    },
+    {
+      id: "ex.wcc13.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd love to ___ about your ___ if you have time.",
+      slots: [
+        { accepted: ['learn more', 'pick your brain', 'hear your thoughts', 'chat'], distractors: ['learning more', 'pick your brains', 'hearing your thoughts', 'chats'] },
+        { accepted: ['career path', 'role', 'experience', 'team'], distractors: ['careers path', "role's", 'experiences', 'teams'] },
+      ],
+      tr_hint:
+        "Coffee chat invitation. 'I'd love to' = daha kibar 'I want'. 'Pick your brain' = beynini sömürmek (deyim, görüş almak).",
+      example_filled: "I'd love to learn more about your career path if you have time.",
+    },
+    {
+      id: "ex.wcc13.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "So what got you interested in switching to product?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Yeah, that's a common path — engineers often see the product side first." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(honestly|i think|for me) (it was|it started)",
+        "(i'?ve been|i was) (working|building) (on|in)",
+        "(curious about|interested in) (the|how)",
+        "(seeing|noticing) (how|that)",
+      ],
+      tr_hint:
+        "Career story sorusu. Kişisel ama profesyonel. Türk hatası: 'Because I want money' = çok düz. Story arc ver.",
+      ideal_answer: "Honestly, I've been building features and got curious about the 'why' behind them — the product side.",
+    },
+    {
+      id: "ex.wcc13.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's the biggest lesson you've learned in your current role?",
+      accepted_patterns: [
+        "(honestly|i think|probably) (the|that)",
+        "(biggest|hardest|main) (lesson|thing) (was|has been) (.+)",
+        "(i learned|i realized|it taught me) (that |to )?",
+        "(communication|prioritization|saying no|asking for help)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior'a ders sorulduğunda 'I learned everything' çok genel. 1 spesifik soft skill seç + örnek.",
+      ideal_response: "Honestly, the biggest lesson was learning to say no — protecting focus is harder than it sounds.",
+    },
+    {
+      id: "ex.wcc13.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana kahve içmek istiyorum.",
+      wrong_en: "I want to drink coffee with you.",
+      right_en: "I'd love to grab coffee sometime — would next week work?",
+      why_tr:
+        "'Drink coffee' = sözlük çevirisi. İş İngilizcesinde 'grab coffee' deyim — kahve buluşması. 'I want' agresif; 'I'd love to' = soft. 'Sometime' belirsizlik bırakır, sonra 'would next week work?' net soruyla bağlanır.",
+    },
+    {
+      id: "ex.wcc13.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Pick your brain' deyimi ne demek?",
+          options: ["Beynini incelemek", "Bilgi/deneyim almak için sohbet", "Test sormak", "Kafa karıştırmak"],
+          correct: 1,
+          tr_explanation: "'Pick your brain' = senior'dan bilgi alma. Coffee chat'in özü.",
+        },
+        {
+          q: "'Grab coffee' ne demek?",
+          options: ["Kahveyi tutmak", "Kahve buluşması yapmak", "Kahve almak", "Kahve hediyesi"],
+          correct: 1,
+          tr_explanation: "'Grab coffee' = kahve içmek için buluşmak (deyim). Coffee chat = networking pratiği.",
+        },
+        {
+          q: "Coffee chat'te uygunsuz konu?",
+          options: ["Career path", "Maaş tam rakamı sorma", "Team culture", "Karşı taraf'ın hikayesi"],
+          correct: 1,
+          tr_explanation: "Direkt maaş = uygunsuz. 'What's the comp range like?' belki, ama spesifik rakam = sınır aşımı.",
+        },
+        {
+          q: "'Would next week work?' kalıbının amacı?",
+          options: ["Karar dayatmak", "Esnek + spesifik öneri", "Soru sormamak", "İptal"],
+          correct: 1,
+          tr_explanation: "Spesifik öneri = kolay yanıtlama. 'Sometime' belirsiz, 'next week' aksiyon.",
+        },
+        {
+          q: "Coffee chat sonu kibar kapanış?",
+          options: ["Goodbye!", "Thanks so much — this was really helpful", "OK bye", "See ya"],
+          correct: 1,
+          tr_explanation: "'Thanks so much' + spesifik geri bildirim = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
     },
   ],
 };
@@ -1200,6 +1675,101 @@ export const workCoffeechatLesson_13_7: BundledLesson = {
       tr_translation: "Benim yerimde olsan ne yapardin?",
       ipa: "/wɒt wʊd ju duː ɪn maɪ ʃuːz/",
     },
+    {
+      id: "ex.wcc13.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd love to ___ about your ___ if you have time.",
+      slots: [
+        { accepted: ['learn more', 'pick your brain', 'hear your thoughts', 'chat'], distractors: ['learning more', 'pick your brains', 'hearing your thoughts', 'chats'] },
+        { accepted: ['career path', 'role', 'experience', 'team'], distractors: ['careers path', "role's", 'experiences', 'teams'] },
+      ],
+      tr_hint:
+        "Coffee chat invitation. 'I'd love to' = daha kibar 'I want'. 'Pick your brain' = beynini sömürmek (deyim, görüş almak).",
+      example_filled: "I'd love to learn more about your career path if you have time.",
+    },
+    {
+      id: "ex.wcc13.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "So what got you interested in switching to product?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Yeah, that's a common path — engineers often see the product side first." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(honestly|i think|for me) (it was|it started)",
+        "(i'?ve been|i was) (working|building) (on|in)",
+        "(curious about|interested in) (the|how)",
+        "(seeing|noticing) (how|that)",
+      ],
+      tr_hint:
+        "Career story sorusu. Kişisel ama profesyonel. Türk hatası: 'Because I want money' = çok düz. Story arc ver.",
+      ideal_answer: "Honestly, I've been building features and got curious about the 'why' behind them — the product side.",
+    },
+    {
+      id: "ex.wcc13.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's the biggest lesson you've learned in your current role?",
+      accepted_patterns: [
+        "(honestly|i think|probably) (the|that)",
+        "(biggest|hardest|main) (lesson|thing) (was|has been) (.+)",
+        "(i learned|i realized|it taught me) (that |to )?",
+        "(communication|prioritization|saying no|asking for help)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior'a ders sorulduğunda 'I learned everything' çok genel. 1 spesifik soft skill seç + örnek.",
+      ideal_response: "Honestly, the biggest lesson was learning to say no — protecting focus is harder than it sounds.",
+    },
+    {
+      id: "ex.wcc13.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana kahve içmek istiyorum.",
+      wrong_en: "I want to drink coffee with you.",
+      right_en: "I'd love to grab coffee sometime — would next week work?",
+      why_tr:
+        "'Drink coffee' = sözlük çevirisi. İş İngilizcesinde 'grab coffee' deyim — kahve buluşması. 'I want' agresif; 'I'd love to' = soft. 'Sometime' belirsizlik bırakır, sonra 'would next week work?' net soruyla bağlanır.",
+    },
+    {
+      id: "ex.wcc13.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Pick your brain' deyimi ne demek?",
+          options: ["Beynini incelemek", "Bilgi/deneyim almak için sohbet", "Test sormak", "Kafa karıştırmak"],
+          correct: 1,
+          tr_explanation: "'Pick your brain' = senior'dan bilgi alma. Coffee chat'in özü.",
+        },
+        {
+          q: "'Grab coffee' ne demek?",
+          options: ["Kahveyi tutmak", "Kahve buluşması yapmak", "Kahve almak", "Kahve hediyesi"],
+          correct: 1,
+          tr_explanation: "'Grab coffee' = kahve içmek için buluşmak (deyim). Coffee chat = networking pratiği.",
+        },
+        {
+          q: "Coffee chat'te uygunsuz konu?",
+          options: ["Career path", "Maaş tam rakamı sorma", "Team culture", "Karşı taraf'ın hikayesi"],
+          correct: 1,
+          tr_explanation: "Direkt maaş = uygunsuz. 'What's the comp range like?' belki, ama spesifik rakam = sınır aşımı.",
+        },
+        {
+          q: "'Would next week work?' kalıbının amacı?",
+          options: ["Karar dayatmak", "Esnek + spesifik öneri", "Soru sormamak", "İptal"],
+          correct: 1,
+          tr_explanation: "Spesifik öneri = kolay yanıtlama. 'Sometime' belirsiz, 'next week' aksiyon.",
+        },
+        {
+          q: "Coffee chat sonu kibar kapanış?",
+          options: ["Goodbye!", "Thanks so much — this was really helpful", "OK bye", "See ya"],
+          correct: 1,
+          tr_explanation: "'Thanks so much' + spesifik geri bildirim = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1379,6 +1949,101 @@ export const workCoffeechatLesson_13_8: BundledLesson = {
       phrase: "Mind if I follow up if more questions come up?",
       tr_translation: "Daha fazla sorum olursa tekrar yazmamda sakinca var mi?",
       ipa: "/maɪnd ɪf aɪ ˈfɒləʊ ʌp ɪf mɔː ˈkwɛstʃənz kʌm ʌp/",
+    },
+    {
+      id: "ex.wcc13.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd love to ___ about your ___ if you have time.",
+      slots: [
+        { accepted: ['learn more', 'pick your brain', 'hear your thoughts', 'chat'], distractors: ['learning more', 'pick your brains', 'hearing your thoughts', 'chats'] },
+        { accepted: ['career path', 'role', 'experience', 'team'], distractors: ['careers path', "role's", 'experiences', 'teams'] },
+      ],
+      tr_hint:
+        "Coffee chat invitation. 'I'd love to' = daha kibar 'I want'. 'Pick your brain' = beynini sömürmek (deyim, görüş almak).",
+      example_filled: "I'd love to learn more about your career path if you have time.",
+    },
+    {
+      id: "ex.wcc13.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "So what got you interested in switching to product?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Yeah, that's a common path — engineers often see the product side first." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(honestly|i think|for me) (it was|it started)",
+        "(i'?ve been|i was) (working|building) (on|in)",
+        "(curious about|interested in) (the|how)",
+        "(seeing|noticing) (how|that)",
+      ],
+      tr_hint:
+        "Career story sorusu. Kişisel ama profesyonel. Türk hatası: 'Because I want money' = çok düz. Story arc ver.",
+      ideal_answer: "Honestly, I've been building features and got curious about the 'why' behind them — the product side.",
+    },
+    {
+      id: "ex.wcc13.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's the biggest lesson you've learned in your current role?",
+      accepted_patterns: [
+        "(honestly|i think|probably) (the|that)",
+        "(biggest|hardest|main) (lesson|thing) (was|has been) (.+)",
+        "(i learned|i realized|it taught me) (that |to )?",
+        "(communication|prioritization|saying no|asking for help)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior'a ders sorulduğunda 'I learned everything' çok genel. 1 spesifik soft skill seç + örnek.",
+      ideal_response: "Honestly, the biggest lesson was learning to say no — protecting focus is harder than it sounds.",
+    },
+    {
+      id: "ex.wcc13.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana kahve içmek istiyorum.",
+      wrong_en: "I want to drink coffee with you.",
+      right_en: "I'd love to grab coffee sometime — would next week work?",
+      why_tr:
+        "'Drink coffee' = sözlük çevirisi. İş İngilizcesinde 'grab coffee' deyim — kahve buluşması. 'I want' agresif; 'I'd love to' = soft. 'Sometime' belirsizlik bırakır, sonra 'would next week work?' net soruyla bağlanır.",
+    },
+    {
+      id: "ex.wcc13.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Pick your brain' deyimi ne demek?",
+          options: ["Beynini incelemek", "Bilgi/deneyim almak için sohbet", "Test sormak", "Kafa karıştırmak"],
+          correct: 1,
+          tr_explanation: "'Pick your brain' = senior'dan bilgi alma. Coffee chat'in özü.",
+        },
+        {
+          q: "'Grab coffee' ne demek?",
+          options: ["Kahveyi tutmak", "Kahve buluşması yapmak", "Kahve almak", "Kahve hediyesi"],
+          correct: 1,
+          tr_explanation: "'Grab coffee' = kahve içmek için buluşmak (deyim). Coffee chat = networking pratiği.",
+        },
+        {
+          q: "Coffee chat'te uygunsuz konu?",
+          options: ["Career path", "Maaş tam rakamı sorma", "Team culture", "Karşı taraf'ın hikayesi"],
+          correct: 1,
+          tr_explanation: "Direkt maaş = uygunsuz. 'What's the comp range like?' belki, ama spesifik rakam = sınır aşımı.",
+        },
+        {
+          q: "'Would next week work?' kalıbının amacı?",
+          options: ["Karar dayatmak", "Esnek + spesifik öneri", "Soru sormamak", "İptal"],
+          correct: 1,
+          tr_explanation: "Spesifik öneri = kolay yanıtlama. 'Sometime' belirsiz, 'next week' aksiyon.",
+        },
+        {
+          q: "Coffee chat sonu kibar kapanış?",
+          options: ["Goodbye!", "Thanks so much — this was really helpful", "OK bye", "See ya"],
+          correct: 1,
+          tr_explanation: "'Thanks so much' + spesifik geri bildirim = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
     },
   ],
 };

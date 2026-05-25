@@ -205,6 +205,101 @@ export const workCodereviewLesson_15_1: BundledLesson = {
       tr_explanation:
         "'Since 2 hours' yanlış — süre için 'for' kullanılır ('since' tarih ister). 'Make a meeting' Türkçe kalıbı; doğrusu 'have a meeting'. Ayrıca süregelen aksiyon için present perfect continuous ('I've been').",
     },
+    {
+      id: "ex.wcr15.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you ___ this PR before ___?",
+      slots: [
+        { accepted: ['take a look at', 'review', 'give feedback on', 'check'], distractors: ['take a look on', 'reviewing', 'give feedback for', 'checks'] },
+        { accepted: ['end of day', 'tomorrow morning', 'the standup', 'Friday'], distractors: ['end of days', "tomorrow's morning", 'the standups', 'Fridays'] },
+      ],
+      tr_hint:
+        "PR review isteme kalıbı. 'Could you' = polite modal. Türk hatası: 'Look on' yerine 'look at'.",
+      example_filled: "Could you take a look at this PR before end of day?",
+    },
+    {
+      id: "ex.wcr15.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, I left a few comments on your PR — mostly nits." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure, let me know if anything's unclear." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|thank you|appreciate)( for)? (the (review|comments|feedback))",
+        "(i'?ll|i will) (take a look|address|go through) (them|those|it)",
+        "(let me|i'?ll) (push|update|fix) (an? )?(update|change) (soon|shortly|today)",
+        "(makes sense|got it|that'?s fair)",
+      ],
+      tr_hint:
+        "Reviewer 'nit' bıraktı — kibar teşekkür + aksiyon planı. Türk hatası: 'I will fix immediately' aşırı agresif.",
+      ideal_answer: "Thanks for the review — I'll address them and push an update shortly.",
+    },
+    {
+      id: "ex.wcr15.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Quick question — are these new comments blockers or just nits?",
+      accepted_patterns: [
+        "(mostly|just|honestly) (nits|suggestions|optional)",
+        "(none of them|nothing) (are |is )?blockers?",
+        "(one|a couple) (is|are) (a )?blockers? — (the rest|others)",
+        "(i'?ll group|let me group) (them|the comments)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Reviewer ayrım istiyor. 'Nit' vs 'blocker' farkını net açıkla. Türk hatası: 'No problem' belirsiz cevap.",
+      ideal_response: "Mostly nits — just one is a blocker, the rest are optional suggestions.",
+    },
+    {
+      id: "ex.wcr15.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu PR'ı yaptım, bakar mısın?",
+      wrong_en: "I did this PR, can you look?",
+      right_en: "I opened a PR — could you take a look when you have a sec?",
+      why_tr:
+        "'Did this PR' = Türkçe kalıbı. PR 'open/raise/submit' edilir, 'do' edilmez. 'Look' tek başına yetersiz — 'take a look' deyim. 'Can you' yerine 'could you' = daha kibar.",
+    },
+    {
+      id: "ex.wcr15.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'nit' code review'da ne demek?",
+          options: ["Blocker / kritik hata", "Küçük öneri (zorunlu değil)", "Onay", "Reject"],
+          correct: 1,
+          tr_explanation: "'nit' = nitpick kısaltması. Kozmetik / opsiyonel feedback — merge'i bloklamaz.",
+        },
+        {
+          q: "'LGTM' açılımı nedir?",
+          options: ["Let's Get To Meet", "Looks Good To Me", "Last Good Test Maybe", "Lift Gear To Max"],
+          correct: 1,
+          tr_explanation: "'LGTM' = Looks Good To Me. PR onayı için standart kısaltma.",
+        },
+        {
+          q: "'I did this PR' yerine doğru kalıp?",
+          options: ["I made this PR", "I opened this PR", "I done this PR", "I performed this PR"],
+          correct: 1,
+          tr_explanation: "PR 'open' edilir. 'Made/did/performed' = Türkçe kalıp etkisi.",
+        },
+        {
+          q: "Reviewer 'mostly nits' dediğinde ne demek?",
+          options: ["Çoğu kritik", "Çoğu opsiyonel öneri", "Hiçbir yorum yok", "PR red"],
+          correct: 1,
+          tr_explanation: "'Mostly nits' = çoğunluk küçük öneri, merge engellenmemiş.",
+        },
+        {
+          q: "Kibar şekilde 'tekrar bakar mısın?' nasıl söylenir?",
+          options: ["Look again please", "Could you take another look when you have a sec?", "Re-look", "Watch again"],
+          correct: 1,
+          tr_explanation: "'Could you take another look' = modal-heavy, profesyonel. 'When you have a sec' = aciliyet baskısı yok.",
+        },
+      ],
+    },
   ],
 };
 
@@ -409,6 +504,101 @@ export const workCodereviewLesson_15_2: BundledLesson = {
       correct_sentence: "I've been working on this PR since yesterday — I'll have a meeting with the reviewer.",
       tr_explanation:
         "'Since yesterday' tarih olduğu için doğru ama 'I am working' yerine present perfect continuous ('I've been working') gerek. 'Do a meeting' Türkçe kalıbı; doğrusu 'have a meeting'. Belirli reviewer için 'the' lazım.",
+    },
+    {
+      id: "ex.wcr15.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you ___ this PR before ___?",
+      slots: [
+        { accepted: ['take a look at', 'review', 'give feedback on', 'check'], distractors: ['take a look on', 'reviewing', 'give feedback for', 'checks'] },
+        { accepted: ['end of day', 'tomorrow morning', 'the standup', 'Friday'], distractors: ['end of days', "tomorrow's morning", 'the standups', 'Fridays'] },
+      ],
+      tr_hint:
+        "PR review isteme kalıbı. 'Could you' = polite modal. Türk hatası: 'Look on' yerine 'look at'.",
+      example_filled: "Could you take a look at this PR before end of day?",
+    },
+    {
+      id: "ex.wcr15.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, I left a few comments on your PR — mostly nits." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure, let me know if anything's unclear." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|thank you|appreciate)( for)? (the (review|comments|feedback))",
+        "(i'?ll|i will) (take a look|address|go through) (them|those|it)",
+        "(let me|i'?ll) (push|update|fix) (an? )?(update|change) (soon|shortly|today)",
+        "(makes sense|got it|that'?s fair)",
+      ],
+      tr_hint:
+        "Reviewer 'nit' bıraktı — kibar teşekkür + aksiyon planı. Türk hatası: 'I will fix immediately' aşırı agresif.",
+      ideal_answer: "Thanks for the review — I'll address them and push an update shortly.",
+    },
+    {
+      id: "ex.wcr15.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Quick question — are these new comments blockers or just nits?",
+      accepted_patterns: [
+        "(mostly|just|honestly) (nits|suggestions|optional)",
+        "(none of them|nothing) (are |is )?blockers?",
+        "(one|a couple) (is|are) (a )?blockers? — (the rest|others)",
+        "(i'?ll group|let me group) (them|the comments)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Reviewer ayrım istiyor. 'Nit' vs 'blocker' farkını net açıkla. Türk hatası: 'No problem' belirsiz cevap.",
+      ideal_response: "Mostly nits — just one is a blocker, the rest are optional suggestions.",
+    },
+    {
+      id: "ex.wcr15.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu PR'ı yaptım, bakar mısın?",
+      wrong_en: "I did this PR, can you look?",
+      right_en: "I opened a PR — could you take a look when you have a sec?",
+      why_tr:
+        "'Did this PR' = Türkçe kalıbı. PR 'open/raise/submit' edilir, 'do' edilmez. 'Look' tek başına yetersiz — 'take a look' deyim. 'Can you' yerine 'could you' = daha kibar.",
+    },
+    {
+      id: "ex.wcr15.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'nit' code review'da ne demek?",
+          options: ["Blocker / kritik hata", "Küçük öneri (zorunlu değil)", "Onay", "Reject"],
+          correct: 1,
+          tr_explanation: "'nit' = nitpick kısaltması. Kozmetik / opsiyonel feedback — merge'i bloklamaz.",
+        },
+        {
+          q: "'LGTM' açılımı nedir?",
+          options: ["Let's Get To Meet", "Looks Good To Me", "Last Good Test Maybe", "Lift Gear To Max"],
+          correct: 1,
+          tr_explanation: "'LGTM' = Looks Good To Me. PR onayı için standart kısaltma.",
+        },
+        {
+          q: "'I did this PR' yerine doğru kalıp?",
+          options: ["I made this PR", "I opened this PR", "I done this PR", "I performed this PR"],
+          correct: 1,
+          tr_explanation: "PR 'open' edilir. 'Made/did/performed' = Türkçe kalıp etkisi.",
+        },
+        {
+          q: "Reviewer 'mostly nits' dediğinde ne demek?",
+          options: ["Çoğu kritik", "Çoğu opsiyonel öneri", "Hiçbir yorum yok", "PR red"],
+          correct: 1,
+          tr_explanation: "'Mostly nits' = çoğunluk küçük öneri, merge engellenmemiş.",
+        },
+        {
+          q: "Kibar şekilde 'tekrar bakar mısın?' nasıl söylenir?",
+          options: ["Look again please", "Could you take another look when you have a sec?", "Re-look", "Watch again"],
+          correct: 1,
+          tr_explanation: "'Could you take another look' = modal-heavy, profesyonel. 'When you have a sec' = aciliyet baskısı yok.",
+        },
+      ],
     },
   ],
 };
@@ -616,6 +806,101 @@ export const workCodereviewLesson_15_3: BundledLesson = {
       tr_explanation:
         "'Waiting your review' yanlış — 'waiting FOR your review' lazım. 'Since 3 days' yanlış — süre için 'for'. 'Make it' = Türkçe 'yap'; doğrusu 'take a look'. Süregelen iş için present perfect continuous.",
     },
+    {
+      id: "ex.wcr15.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you ___ this PR before ___?",
+      slots: [
+        { accepted: ['take a look at', 'review', 'give feedback on', 'check'], distractors: ['take a look on', 'reviewing', 'give feedback for', 'checks'] },
+        { accepted: ['end of day', 'tomorrow morning', 'the standup', 'Friday'], distractors: ['end of days', "tomorrow's morning", 'the standups', 'Fridays'] },
+      ],
+      tr_hint:
+        "PR review isteme kalıbı. 'Could you' = polite modal. Türk hatası: 'Look on' yerine 'look at'.",
+      example_filled: "Could you take a look at this PR before end of day?",
+    },
+    {
+      id: "ex.wcr15.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, I left a few comments on your PR — mostly nits." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure, let me know if anything's unclear." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|thank you|appreciate)( for)? (the (review|comments|feedback))",
+        "(i'?ll|i will) (take a look|address|go through) (them|those|it)",
+        "(let me|i'?ll) (push|update|fix) (an? )?(update|change) (soon|shortly|today)",
+        "(makes sense|got it|that'?s fair)",
+      ],
+      tr_hint:
+        "Reviewer 'nit' bıraktı — kibar teşekkür + aksiyon planı. Türk hatası: 'I will fix immediately' aşırı agresif.",
+      ideal_answer: "Thanks for the review — I'll address them and push an update shortly.",
+    },
+    {
+      id: "ex.wcr15.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Quick question — are these new comments blockers or just nits?",
+      accepted_patterns: [
+        "(mostly|just|honestly) (nits|suggestions|optional)",
+        "(none of them|nothing) (are |is )?blockers?",
+        "(one|a couple) (is|are) (a )?blockers? — (the rest|others)",
+        "(i'?ll group|let me group) (them|the comments)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Reviewer ayrım istiyor. 'Nit' vs 'blocker' farkını net açıkla. Türk hatası: 'No problem' belirsiz cevap.",
+      ideal_response: "Mostly nits — just one is a blocker, the rest are optional suggestions.",
+    },
+    {
+      id: "ex.wcr15.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu PR'ı yaptım, bakar mısın?",
+      wrong_en: "I did this PR, can you look?",
+      right_en: "I opened a PR — could you take a look when you have a sec?",
+      why_tr:
+        "'Did this PR' = Türkçe kalıbı. PR 'open/raise/submit' edilir, 'do' edilmez. 'Look' tek başına yetersiz — 'take a look' deyim. 'Can you' yerine 'could you' = daha kibar.",
+    },
+    {
+      id: "ex.wcr15.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'nit' code review'da ne demek?",
+          options: ["Blocker / kritik hata", "Küçük öneri (zorunlu değil)", "Onay", "Reject"],
+          correct: 1,
+          tr_explanation: "'nit' = nitpick kısaltması. Kozmetik / opsiyonel feedback — merge'i bloklamaz.",
+        },
+        {
+          q: "'LGTM' açılımı nedir?",
+          options: ["Let's Get To Meet", "Looks Good To Me", "Last Good Test Maybe", "Lift Gear To Max"],
+          correct: 1,
+          tr_explanation: "'LGTM' = Looks Good To Me. PR onayı için standart kısaltma.",
+        },
+        {
+          q: "'I did this PR' yerine doğru kalıp?",
+          options: ["I made this PR", "I opened this PR", "I done this PR", "I performed this PR"],
+          correct: 1,
+          tr_explanation: "PR 'open' edilir. 'Made/did/performed' = Türkçe kalıp etkisi.",
+        },
+        {
+          q: "Reviewer 'mostly nits' dediğinde ne demek?",
+          options: ["Çoğu kritik", "Çoğu opsiyonel öneri", "Hiçbir yorum yok", "PR red"],
+          correct: 1,
+          tr_explanation: "'Mostly nits' = çoğunluk küçük öneri, merge engellenmemiş.",
+        },
+        {
+          q: "Kibar şekilde 'tekrar bakar mısın?' nasıl söylenir?",
+          options: ["Look again please", "Could you take another look when you have a sec?", "Re-look", "Watch again"],
+          correct: 1,
+          tr_explanation: "'Could you take another look' = modal-heavy, profesyonel. 'When you have a sec' = aciliyet baskısı yok.",
+        },
+      ],
+    },
   ],
 };
 
@@ -799,6 +1084,101 @@ export const workCodereviewLesson_15_5: BundledLesson = {
       tr_translation: "Engelleyici: bunu merge etmeden önce bir düzeltme lazım.",
       ipa: "/ˈblɒkər niːdz ə fɪks bɪˈfɔːr wiː kæn mɜːdʒ ðɪs/",
     },
+    {
+      id: "ex.wcr15.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you ___ this PR before ___?",
+      slots: [
+        { accepted: ['take a look at', 'review', 'give feedback on', 'check'], distractors: ['take a look on', 'reviewing', 'give feedback for', 'checks'] },
+        { accepted: ['end of day', 'tomorrow morning', 'the standup', 'Friday'], distractors: ['end of days', "tomorrow's morning", 'the standups', 'Fridays'] },
+      ],
+      tr_hint:
+        "PR review isteme kalıbı. 'Could you' = polite modal. Türk hatası: 'Look on' yerine 'look at'.",
+      example_filled: "Could you take a look at this PR before end of day?",
+    },
+    {
+      id: "ex.wcr15.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, I left a few comments on your PR — mostly nits." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure, let me know if anything's unclear." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|thank you|appreciate)( for)? (the (review|comments|feedback))",
+        "(i'?ll|i will) (take a look|address|go through) (them|those|it)",
+        "(let me|i'?ll) (push|update|fix) (an? )?(update|change) (soon|shortly|today)",
+        "(makes sense|got it|that'?s fair)",
+      ],
+      tr_hint:
+        "Reviewer 'nit' bıraktı — kibar teşekkür + aksiyon planı. Türk hatası: 'I will fix immediately' aşırı agresif.",
+      ideal_answer: "Thanks for the review — I'll address them and push an update shortly.",
+    },
+    {
+      id: "ex.wcr15.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Quick question — are these new comments blockers or just nits?",
+      accepted_patterns: [
+        "(mostly|just|honestly) (nits|suggestions|optional)",
+        "(none of them|nothing) (are |is )?blockers?",
+        "(one|a couple) (is|are) (a )?blockers? — (the rest|others)",
+        "(i'?ll group|let me group) (them|the comments)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Reviewer ayrım istiyor. 'Nit' vs 'blocker' farkını net açıkla. Türk hatası: 'No problem' belirsiz cevap.",
+      ideal_response: "Mostly nits — just one is a blocker, the rest are optional suggestions.",
+    },
+    {
+      id: "ex.wcr15.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu PR'ı yaptım, bakar mısın?",
+      wrong_en: "I did this PR, can you look?",
+      right_en: "I opened a PR — could you take a look when you have a sec?",
+      why_tr:
+        "'Did this PR' = Türkçe kalıbı. PR 'open/raise/submit' edilir, 'do' edilmez. 'Look' tek başına yetersiz — 'take a look' deyim. 'Can you' yerine 'could you' = daha kibar.",
+    },
+    {
+      id: "ex.wcr15.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'nit' code review'da ne demek?",
+          options: ["Blocker / kritik hata", "Küçük öneri (zorunlu değil)", "Onay", "Reject"],
+          correct: 1,
+          tr_explanation: "'nit' = nitpick kısaltması. Kozmetik / opsiyonel feedback — merge'i bloklamaz.",
+        },
+        {
+          q: "'LGTM' açılımı nedir?",
+          options: ["Let's Get To Meet", "Looks Good To Me", "Last Good Test Maybe", "Lift Gear To Max"],
+          correct: 1,
+          tr_explanation: "'LGTM' = Looks Good To Me. PR onayı için standart kısaltma.",
+        },
+        {
+          q: "'I did this PR' yerine doğru kalıp?",
+          options: ["I made this PR", "I opened this PR", "I done this PR", "I performed this PR"],
+          correct: 1,
+          tr_explanation: "PR 'open' edilir. 'Made/did/performed' = Türkçe kalıp etkisi.",
+        },
+        {
+          q: "Reviewer 'mostly nits' dediğinde ne demek?",
+          options: ["Çoğu kritik", "Çoğu opsiyonel öneri", "Hiçbir yorum yok", "PR red"],
+          correct: 1,
+          tr_explanation: "'Mostly nits' = çoğunluk küçük öneri, merge engellenmemiş.",
+        },
+        {
+          q: "Kibar şekilde 'tekrar bakar mısın?' nasıl söylenir?",
+          options: ["Look again please", "Could you take another look when you have a sec?", "Re-look", "Watch again"],
+          correct: 1,
+          tr_explanation: "'Could you take another look' = modal-heavy, profesyonel. 'When you have a sec' = aciliyet baskısı yok.",
+        },
+      ],
+    },
   ],
 };
 
@@ -971,6 +1351,101 @@ export const workCodereviewLesson_15_6: BundledLesson = {
       tr_translation: "Bu daha temiz olabilir — çıkarmaya ne dersin?",
       ipa: "/ðɪs kʊd biː ˈkliːnər ˈwʌt duː juː θɪŋk əˈbaʊt ɪkˈstræktɪŋ/",
     },
+    {
+      id: "ex.wcr15.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you ___ this PR before ___?",
+      slots: [
+        { accepted: ['take a look at', 'review', 'give feedback on', 'check'], distractors: ['take a look on', 'reviewing', 'give feedback for', 'checks'] },
+        { accepted: ['end of day', 'tomorrow morning', 'the standup', 'Friday'], distractors: ['end of days', "tomorrow's morning", 'the standups', 'Fridays'] },
+      ],
+      tr_hint:
+        "PR review isteme kalıbı. 'Could you' = polite modal. Türk hatası: 'Look on' yerine 'look at'.",
+      example_filled: "Could you take a look at this PR before end of day?",
+    },
+    {
+      id: "ex.wcr15.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, I left a few comments on your PR — mostly nits." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure, let me know if anything's unclear." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|thank you|appreciate)( for)? (the (review|comments|feedback))",
+        "(i'?ll|i will) (take a look|address|go through) (them|those|it)",
+        "(let me|i'?ll) (push|update|fix) (an? )?(update|change) (soon|shortly|today)",
+        "(makes sense|got it|that'?s fair)",
+      ],
+      tr_hint:
+        "Reviewer 'nit' bıraktı — kibar teşekkür + aksiyon planı. Türk hatası: 'I will fix immediately' aşırı agresif.",
+      ideal_answer: "Thanks for the review — I'll address them and push an update shortly.",
+    },
+    {
+      id: "ex.wcr15.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Quick question — are these new comments blockers or just nits?",
+      accepted_patterns: [
+        "(mostly|just|honestly) (nits|suggestions|optional)",
+        "(none of them|nothing) (are |is )?blockers?",
+        "(one|a couple) (is|are) (a )?blockers? — (the rest|others)",
+        "(i'?ll group|let me group) (them|the comments)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Reviewer ayrım istiyor. 'Nit' vs 'blocker' farkını net açıkla. Türk hatası: 'No problem' belirsiz cevap.",
+      ideal_response: "Mostly nits — just one is a blocker, the rest are optional suggestions.",
+    },
+    {
+      id: "ex.wcr15.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu PR'ı yaptım, bakar mısın?",
+      wrong_en: "I did this PR, can you look?",
+      right_en: "I opened a PR — could you take a look when you have a sec?",
+      why_tr:
+        "'Did this PR' = Türkçe kalıbı. PR 'open/raise/submit' edilir, 'do' edilmez. 'Look' tek başına yetersiz — 'take a look' deyim. 'Can you' yerine 'could you' = daha kibar.",
+    },
+    {
+      id: "ex.wcr15.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'nit' code review'da ne demek?",
+          options: ["Blocker / kritik hata", "Küçük öneri (zorunlu değil)", "Onay", "Reject"],
+          correct: 1,
+          tr_explanation: "'nit' = nitpick kısaltması. Kozmetik / opsiyonel feedback — merge'i bloklamaz.",
+        },
+        {
+          q: "'LGTM' açılımı nedir?",
+          options: ["Let's Get To Meet", "Looks Good To Me", "Last Good Test Maybe", "Lift Gear To Max"],
+          correct: 1,
+          tr_explanation: "'LGTM' = Looks Good To Me. PR onayı için standart kısaltma.",
+        },
+        {
+          q: "'I did this PR' yerine doğru kalıp?",
+          options: ["I made this PR", "I opened this PR", "I done this PR", "I performed this PR"],
+          correct: 1,
+          tr_explanation: "PR 'open' edilir. 'Made/did/performed' = Türkçe kalıp etkisi.",
+        },
+        {
+          q: "Reviewer 'mostly nits' dediğinde ne demek?",
+          options: ["Çoğu kritik", "Çoğu opsiyonel öneri", "Hiçbir yorum yok", "PR red"],
+          correct: 1,
+          tr_explanation: "'Mostly nits' = çoğunluk küçük öneri, merge engellenmemiş.",
+        },
+        {
+          q: "Kibar şekilde 'tekrar bakar mısın?' nasıl söylenir?",
+          options: ["Look again please", "Could you take another look when you have a sec?", "Re-look", "Watch again"],
+          correct: 1,
+          tr_explanation: "'Could you take another look' = modal-heavy, profesyonel. 'When you have a sec' = aciliyet baskısı yok.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1142,6 +1617,101 @@ export const workCodereviewLesson_15_7: BundledLesson = {
       phrase: "LGTM with a few thoughts — feel free to address later.",
       tr_translation: "Bana göre iyi — birkaç düşünce var, sonra ele alabilirsin.",
       ipa: "/ɛl dʒiː tiː ɛm wɪð ə fjuː θɔːts fiːl friː tuː əˈdrɛs ˈleɪtər/",
+    },
+    {
+      id: "ex.wcr15.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you ___ this PR before ___?",
+      slots: [
+        { accepted: ['take a look at', 'review', 'give feedback on', 'check'], distractors: ['take a look on', 'reviewing', 'give feedback for', 'checks'] },
+        { accepted: ['end of day', 'tomorrow morning', 'the standup', 'Friday'], distractors: ['end of days', "tomorrow's morning", 'the standups', 'Fridays'] },
+      ],
+      tr_hint:
+        "PR review isteme kalıbı. 'Could you' = polite modal. Türk hatası: 'Look on' yerine 'look at'.",
+      example_filled: "Could you take a look at this PR before end of day?",
+    },
+    {
+      id: "ex.wcr15.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, I left a few comments on your PR — mostly nits." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure, let me know if anything's unclear." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|thank you|appreciate)( for)? (the (review|comments|feedback))",
+        "(i'?ll|i will) (take a look|address|go through) (them|those|it)",
+        "(let me|i'?ll) (push|update|fix) (an? )?(update|change) (soon|shortly|today)",
+        "(makes sense|got it|that'?s fair)",
+      ],
+      tr_hint:
+        "Reviewer 'nit' bıraktı — kibar teşekkür + aksiyon planı. Türk hatası: 'I will fix immediately' aşırı agresif.",
+      ideal_answer: "Thanks for the review — I'll address them and push an update shortly.",
+    },
+    {
+      id: "ex.wcr15.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Quick question — are these new comments blockers or just nits?",
+      accepted_patterns: [
+        "(mostly|just|honestly) (nits|suggestions|optional)",
+        "(none of them|nothing) (are |is )?blockers?",
+        "(one|a couple) (is|are) (a )?blockers? — (the rest|others)",
+        "(i'?ll group|let me group) (them|the comments)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Reviewer ayrım istiyor. 'Nit' vs 'blocker' farkını net açıkla. Türk hatası: 'No problem' belirsiz cevap.",
+      ideal_response: "Mostly nits — just one is a blocker, the rest are optional suggestions.",
+    },
+    {
+      id: "ex.wcr15.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu PR'ı yaptım, bakar mısın?",
+      wrong_en: "I did this PR, can you look?",
+      right_en: "I opened a PR — could you take a look when you have a sec?",
+      why_tr:
+        "'Did this PR' = Türkçe kalıbı. PR 'open/raise/submit' edilir, 'do' edilmez. 'Look' tek başına yetersiz — 'take a look' deyim. 'Can you' yerine 'could you' = daha kibar.",
+    },
+    {
+      id: "ex.wcr15.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'nit' code review'da ne demek?",
+          options: ["Blocker / kritik hata", "Küçük öneri (zorunlu değil)", "Onay", "Reject"],
+          correct: 1,
+          tr_explanation: "'nit' = nitpick kısaltması. Kozmetik / opsiyonel feedback — merge'i bloklamaz.",
+        },
+        {
+          q: "'LGTM' açılımı nedir?",
+          options: ["Let's Get To Meet", "Looks Good To Me", "Last Good Test Maybe", "Lift Gear To Max"],
+          correct: 1,
+          tr_explanation: "'LGTM' = Looks Good To Me. PR onayı için standart kısaltma.",
+        },
+        {
+          q: "'I did this PR' yerine doğru kalıp?",
+          options: ["I made this PR", "I opened this PR", "I done this PR", "I performed this PR"],
+          correct: 1,
+          tr_explanation: "PR 'open' edilir. 'Made/did/performed' = Türkçe kalıp etkisi.",
+        },
+        {
+          q: "Reviewer 'mostly nits' dediğinde ne demek?",
+          options: ["Çoğu kritik", "Çoğu opsiyonel öneri", "Hiçbir yorum yok", "PR red"],
+          correct: 1,
+          tr_explanation: "'Mostly nits' = çoğunluk küçük öneri, merge engellenmemiş.",
+        },
+        {
+          q: "Kibar şekilde 'tekrar bakar mısın?' nasıl söylenir?",
+          options: ["Look again please", "Could you take another look when you have a sec?", "Re-look", "Watch again"],
+          correct: 1,
+          tr_explanation: "'Could you take another look' = modal-heavy, profesyonel. 'When you have a sec' = aciliyet baskısı yok.",
+        },
+      ],
     },
   ],
 };
@@ -1328,6 +1898,101 @@ export const workCodereviewLesson_15_8: BundledLesson = {
       phrase: "Good catch — fixed. Pushing back on the other one though.",
       tr_translation: "İyi yakalama — düzelttim. Diğerine karşı çıkıyorum ama.",
       ipa: "/ɡʊd kætʃ fɪkst ˈpʊʃɪŋ bæk ɒn ðiː ˈʌðər wʌn ðoʊ/",
+    },
+    {
+      id: "ex.wcr15.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you ___ this PR before ___?",
+      slots: [
+        { accepted: ['take a look at', 'review', 'give feedback on', 'check'], distractors: ['take a look on', 'reviewing', 'give feedback for', 'checks'] },
+        { accepted: ['end of day', 'tomorrow morning', 'the standup', 'Friday'], distractors: ['end of days', "tomorrow's morning", 'the standups', 'Fridays'] },
+      ],
+      tr_hint:
+        "PR review isteme kalıbı. 'Could you' = polite modal. Türk hatası: 'Look on' yerine 'look at'.",
+      example_filled: "Could you take a look at this PR before end of day?",
+    },
+    {
+      id: "ex.wcr15.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, I left a few comments on your PR — mostly nits." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure, let me know if anything's unclear." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|thank you|appreciate)( for)? (the (review|comments|feedback))",
+        "(i'?ll|i will) (take a look|address|go through) (them|those|it)",
+        "(let me|i'?ll) (push|update|fix) (an? )?(update|change) (soon|shortly|today)",
+        "(makes sense|got it|that'?s fair)",
+      ],
+      tr_hint:
+        "Reviewer 'nit' bıraktı — kibar teşekkür + aksiyon planı. Türk hatası: 'I will fix immediately' aşırı agresif.",
+      ideal_answer: "Thanks for the review — I'll address them and push an update shortly.",
+    },
+    {
+      id: "ex.wcr15.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Quick question — are these new comments blockers or just nits?",
+      accepted_patterns: [
+        "(mostly|just|honestly) (nits|suggestions|optional)",
+        "(none of them|nothing) (are |is )?blockers?",
+        "(one|a couple) (is|are) (a )?blockers? — (the rest|others)",
+        "(i'?ll group|let me group) (them|the comments)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Reviewer ayrım istiyor. 'Nit' vs 'blocker' farkını net açıkla. Türk hatası: 'No problem' belirsiz cevap.",
+      ideal_response: "Mostly nits — just one is a blocker, the rest are optional suggestions.",
+    },
+    {
+      id: "ex.wcr15.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu PR'ı yaptım, bakar mısın?",
+      wrong_en: "I did this PR, can you look?",
+      right_en: "I opened a PR — could you take a look when you have a sec?",
+      why_tr:
+        "'Did this PR' = Türkçe kalıbı. PR 'open/raise/submit' edilir, 'do' edilmez. 'Look' tek başına yetersiz — 'take a look' deyim. 'Can you' yerine 'could you' = daha kibar.",
+    },
+    {
+      id: "ex.wcr15.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'nit' code review'da ne demek?",
+          options: ["Blocker / kritik hata", "Küçük öneri (zorunlu değil)", "Onay", "Reject"],
+          correct: 1,
+          tr_explanation: "'nit' = nitpick kısaltması. Kozmetik / opsiyonel feedback — merge'i bloklamaz.",
+        },
+        {
+          q: "'LGTM' açılımı nedir?",
+          options: ["Let's Get To Meet", "Looks Good To Me", "Last Good Test Maybe", "Lift Gear To Max"],
+          correct: 1,
+          tr_explanation: "'LGTM' = Looks Good To Me. PR onayı için standart kısaltma.",
+        },
+        {
+          q: "'I did this PR' yerine doğru kalıp?",
+          options: ["I made this PR", "I opened this PR", "I done this PR", "I performed this PR"],
+          correct: 1,
+          tr_explanation: "PR 'open' edilir. 'Made/did/performed' = Türkçe kalıp etkisi.",
+        },
+        {
+          q: "Reviewer 'mostly nits' dediğinde ne demek?",
+          options: ["Çoğu kritik", "Çoğu opsiyonel öneri", "Hiçbir yorum yok", "PR red"],
+          correct: 1,
+          tr_explanation: "'Mostly nits' = çoğunluk küçük öneri, merge engellenmemiş.",
+        },
+        {
+          q: "Kibar şekilde 'tekrar bakar mısın?' nasıl söylenir?",
+          options: ["Look again please", "Could you take another look when you have a sec?", "Re-look", "Watch again"],
+          correct: 1,
+          tr_explanation: "'Could you take another look' = modal-heavy, profesyonel. 'When you have a sec' = aciliyet baskısı yok.",
+        },
+      ],
     },
   ],
 };

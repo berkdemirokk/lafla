@@ -268,6 +268,133 @@ export const barApproachLesson_24_1: BundledLesson = {
       tr_explanation:
         "Bar casual ortam — 'sir' + 'inquire' + 'beverage' çok formal, robot gibi. Doğru: 'Hey' + 'what're you drinking' = doğal sokak dili.",
     },
+    {
+      id: "ex.bb24.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "That looks ___ — what are you ___?",
+      slots: [
+        { accepted: ["good", "interesting", "cool", "amazing"] },
+        { accepted: ["drinking", "having", "ordering", "trying"] },
+      ],
+      tr_hint:
+        "Bar açılış kalıbı. Gözlem + soru. Slot 1 = sıfat (gözleme dayalı), slot 2 = fiil (drinking/having). Türk: 'What is your drink?' formel; 'That looks good — what are you drinking?' = doğal + samimi.",
+      example_filled: "That looks good — what are you drinking?",
+    },
+    {
+      id: "ex.bb24.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Yeah — it's an old fashioned. You into whiskey?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool! I'll order one more if you wanna try a sip." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yeah|yes|kind of|sometimes)[,. ]+ (i love|i like|i'?m into)",
+        "(love whiskey|big fan)[,. ]+ (especially|particularly) (bourbon|rye)",
+        "(not really|not a huge|honestly not)[,. ]+ (i'?m more (a|of a))",
+        "(yeah|i'?ve been (getting into|exploring))",
+        "(actually|honestly) i (just|barely) (started|tried) (drinking it|whiskey)",
+      ],
+      tr_hint:
+        "Sohbet açıldı. Kişisel + dürüst cevap ver. 'I'm into ___' = ___'yı seviyorum. Türk: 'Yes I drink whiskey' yetersiz; 'Yeah, especially bourbon' = sohbeti ileri taşır.",
+      ideal_answer: "Yeah, I love whiskey — especially bourbon.",
+    },
+    {
+      id: "ex.bb24.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "You been here before? It's my first time.",
+      accepted_patterns: [
+        "(yeah|yes)[,. ]+ (a few times|couple of times|once or twice)",
+        "(no|first time too|same here|me too)",
+        "(yeah)[,. ]+ (it'?s pretty good|i like the vibe|good cocktails)",
+        "(not really|no)[,. ]+ (just discovered it|just heard about it)",
+        "(uhh|same)[,. ]+ (what brought you in|what made you (come|stop in))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar açılış. Cevap ver + sohbeti aç. 'Same here' (ben de ilk sefer) + 'I like the vibe so far'. Türk: 'Yes' kuru; observation + soru ekle = sohbet ilerler.",
+      ideal_response: "Same here — I like the vibe so far. What brought you in?",
+    },
+    {
+      id: "ex.bb24.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam güzelim, ne içiyorsun?",
+      wrong_en: "Hello beautiful, what are you drinking?",
+      right_en: "Hey — that looks good. What are you drinking?",
+      why_tr:
+        "Türk öğrenci 'selam güzelim' → 'hello beautiful' direkt çevirir; ABD/UK bar'da 'beautiful/sweetie/hon' yabancıya = creepy/objektifleştirici. Modern: SPESIFIK gözlem ('that looks good' = içkilerini farkettim) + ucu açık soru. Sıfatlar yerine konuya odaklan. Gender-respectful + 2026 normalleri.",
+    },
+    {
+      id: "ex.bb24.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Modern bar açılışı için en güçlü yaklaşım?",
+          options: [
+            "Doğrudan komplimentle başla",
+            "Spesifik bir gözlemle açılıp ucu açık bir soru sor",
+            "İçki ısmarla, sonra konuş",
+            "Telefon numarası iste",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Spesifik gözlem ('that looks good — what is it?') = ilgi gösterir + karşı tarafı konuşturur. Komliment ile başlamak yüzeysel hisseder.",
+        },
+        {
+          q: "'You into whiskey?' tam karşılığı?",
+          options: [
+            "Whiskey'e içeride misin?",
+            "Whiskey sever misin / whiskey ilgini çeker mi?",
+            "Whiskey arasındasın?",
+            "Whiskey yapar mısın?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Into X' = X'i seviyor/ilgisi var. Modern samimi sorma kalıbı. 'Are you into rock?' = rock sever misin?",
+        },
+        {
+          q: "Yabancıya 'beautiful' demek niye sorun?",
+          options: [
+            "Çok resmi",
+            "Objektifleştirici hissedebilir + gender-disrespectful (özellikle 2026 normlarında)",
+            "Yanlış kelime",
+            "Mecazsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Modern dating + bar etiketi: tanımadığın birine fiziksel sıfat (beautiful, gorgeous) = creepy/forward. Davranış/eylem üzerinden ilgi göster (ne içtiği, kitap okuduğu vs).",
+        },
+        {
+          q: "'It's kinda loud' niye bar'da iyi bir sohbet açılışı?",
+          options: [
+            "Şikayet etmek",
+            "Ortak gözlem — ortak deneyimi paylaşmak (iceberg açar)",
+            "Dikkat çekmek için",
+            "Mekan eleştirisi",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Ortak deneyim paylaşmak = sosyal ortaklık. 'Kinda loud, isn't it?' = ortak fikir paylaşımı, evet/hayır cevap fırsatı.",
+        },
+        {
+          q: "'Hey — what're you drinking?' nasıl bir ton kurar?",
+          options: [
+            "Resmi + saygılı",
+            "Casual + meraklı (samimi yaklaşım)",
+            "Komik + sarkastik",
+            "Üstün + buyurgan",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Hey' = casual açılış. 'What're' = 'what are' kasılı (informel). Bar samimi ortam — bu ton standart.",
+        },
+      ],
+    },
   ],
 };
 
@@ -536,6 +663,133 @@ export const barApproachLesson_24_2: BundledLesson = {
       tr_explanation:
         "'Purchase a beverage' + 'madam' = aşırı resmi, 1950 oteli gibi. Casual barda: 'grab you another' + 'on me' = doğal arkadaşça teklif.",
     },
+    {
+      id: "ex.bb24.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Can I ___ you another? It's ___.",
+      slots: [
+        { accepted: ["grab", "get", "buy", "order"] },
+        { accepted: ["on me", "my round", "my treat", "on the house if you want"] },
+      ],
+      tr_hint:
+        "İçki ısmarlama. Slot 1 = aksiyon (grab = samimi, get = nötr), slot 2 = ödeme (on me = benden). Türk: 'I buy drink for you' kaba; 'Can I grab you another? It's on me' = saygılı + sınırlı (sadece içki, başka şey değil).",
+      example_filled: "Can I grab you another? It's on me.",
+    },
+    {
+      id: "ex.bb24.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey — what's that you're drinking?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Wanna join us? We're at that booth in the back." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(an? )?(old fashioned|negroni|gin and tonic|whiskey)[,. ]+ (you should try|highly recommend)",
+        "(it'?s a |an )?(old fashioned)[,. ]+ (love this place|great cocktails)",
+        "(uhh|just) (a |an )?(beer|ipa|lager)[,. ]+ (nothing fancy|simple tonight)",
+        "(let me see|kind of) (try this|just trying)",
+        "(this )?(is amazing|hits the spot)",
+      ],
+      tr_hint:
+        "İçkini tanıt + sohbet aç. Karşı taraf 'gel masamıza' diyebilir. Türk: 'Beer' tek başına kuru — 'It's an Old Fashioned — you should try it' = sohbeti büyütür.",
+      ideal_answer: "An Old Fashioned — you should try it.",
+    },
+    {
+      id: "ex.bb24.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Want me to get you another? You almost out.",
+      accepted_patterns: [
+        "(no thanks|i'?m good|i'?ve got it)",
+        "(actually )?(yeah|sure|i'?ll take you up)",
+        "(thanks|appreciate it)[,. ]+ (but i'?m good|i'?ll grab one in a sec)",
+        "(let me get this one|actually let me buy this round)",
+        "(uhh|i mean) (only if you'?re sure|just water|something light)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Birisi sana ısmarlama teklif etti. Kabul, ret veya karşılığında ısmarla. Türk: 'No' kuru; 'Actually, let me get this one' = sosyal nezaket reciprocity.",
+      ideal_response: "Appreciate it — actually, let me get this round.",
+    },
+    {
+      id: "ex.bb24.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana içki ısmarlamak istiyorum, müsaade eder misin?",
+      wrong_en: "I want to buy drink for you, do you allow?",
+      right_en: "Can I grab you another? No expectations — just thought I'd offer.",
+      why_tr:
+        "Türk öğrenci 'müsaade eder misin' → 'do you allow' (eski kalıp + komik) ve eksik artikel 'buy drink'. Doğal: 'Can I grab you another?' (samimi öneri) + 'no expectations' (baskı yok). 'No expectations — just thought I'd offer' = modern saygılı yaklaşım: kabul ederse hoş, etmezse sorun değil.",
+    },
+    {
+      id: "ex.bb24.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Can I grab you another?' niye iyi bir teklif kalıbı?",
+          options: [
+            "Çok kibar",
+            "Samimi + spesifik (boş bardağı gördüm) + low-key (baskı yok)",
+            "Çok resmi",
+            "Komik",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Grab' = hızlı al (samimi). 'Another' = boş bardak gördüm. Spesifik = creepy değil. Saygılı bar teklifi standardı.",
+        },
+        {
+          q: "'On me' tam karşılığı?",
+          options: [
+            "Üstüme",
+            "Benden / hesabı ben ödüyorum",
+            "Sıram",
+            "Üstüm",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On me' = benden olsun. 'Drinks on me' = içkiler benden. Türkçe: 'benim üstüme' karşılığı. İdiom.",
+        },
+        {
+          q: "Birisi sana ısmarladığında sosyal nezaket nedir?",
+          options: [
+            "Hep kabul et",
+            "Bir sonraki turu sen ısmarla (reciprocity)",
+            "Hep reddet",
+            "Para öner",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Bar nezaketi: birisi ısmarlarsa, bir sonraki turu sen ısmarla. 'Let me get the next one' = nezaket. Sıralı tur kültürü.",
+        },
+        {
+          q: "'No expectations' niye akıllı ek?",
+          options: [
+            "Çok sözcük",
+            "Karşı tarafa 'hayır de istersen sorun değil' mesajı verir — baskı azaltır",
+            "Resmi onay",
+            "Hukuki dil",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'No expectations' = baskı yok / sonuç beklemem. Yabancıya içki ısmarlarken bu eklemek = sosyal güvenli + saygılı.",
+        },
+        {
+          q: "Bar'da içki teklif ederken neyi YAPMAMALI?",
+          options: [
+            "Samimi davranmak",
+            "Spesifik olmak (boş bardağa atıf)",
+            "Israr etmek + 'sadece bir tane' dayatması yapmak",
+            "Düşük baskı",
+          ],
+          correct: 2,
+          tr_explanation:
+            "Israr = kötü. 'Just one!' / 'Come on!' = creepy. Modern bar etiketi: bir kez teklif et, kabul yoksa konuyu kapat.",
+        },
+      ],
+    },
   ],
 };
 
@@ -747,6 +1001,133 @@ export const barApproachLesson_24_3: BundledLesson = {
       tr_explanation:
         "'May I be permitted' = kraliyet etiketi, awkward. Doğal: 'Hey' + 'mind if I jump in' = casual + saygılı + 4 kelime.",
     },
+    {
+      id: "ex.bb24.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Hey, mind if I ___? You guys ___ pretty deep over here.",
+      slots: [
+        { accepted: ["jump in", "join in", "chime in", "throw in two cents"] },
+        { accepted: ["are talking", "are getting", "look", "sound"] },
+      ],
+      tr_hint:
+        "Grup sohbetine katılma. Slot 1 = aksiyon (jump in = atla, casual), slot 2 = gözlem (talking/getting deep). Türk: 'Can I talk too?' kaba; 'Mind if I jump in?' = saygılı yumuşatma.",
+      example_filled: "Hey, mind if I jump in? You guys are getting pretty deep over here.",
+    },
+    {
+      id: "ex.bb24.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey — yeah, sure. We were just arguing about pizza toppings." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Hahaha — okay finally, someone who gets it." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(oh )?(i have to|gotta|need to) (jump in|pick a side)",
+        "(no way|absolutely not|hard pass) on (pineapple|anchovies)",
+        "(team |hardcore )(pepperoni|mushroom|margherita)",
+        "(let me guess|i bet) (pineapple|pineapple debate)",
+        "(uhh|hmm)[,. ]+ (controversial take|hot take incoming)",
+      ],
+      tr_hint:
+        "Banter teması var. Eğlenceli + güçlü pozisyon al. Türk: 'I don't know' kaçamak; bar banter'da spesifik fikir + mizah = girer.",
+      ideal_answer: "Oh, I gotta jump in — hard pass on pineapple. Team pepperoni all the way.",
+    },
+    {
+      id: "ex.bb24.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Wait — are you from around here, or just passing through?",
+      accepted_patterns: [
+        "(no|nope)[,. ]+ (i'?m (from|visiting from)|just (visiting|in town))",
+        "(actually |kind of )(visiting|in town for)",
+        "(yeah|yes)[,. ]+ (lived here for|been here for)",
+        "(just (got here|arrived|moved))[,. ]+ (from|for)",
+        "(uhh)[,. ]+ (depends|kind of) — (visiting|temporary)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu: 'Buralısın mı, geçici mi?' Cevap + bağlam ver. Türk: 'I'm Turkish' yetersiz; 'Just visiting from Istanbul' = bilgi + konuşma açar.",
+      ideal_response: "Just visiting from Istanbul, actually — first time here.",
+    },
+    {
+      id: "ex.bb24.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Konuşmanıza katılabilir miyim, çok ilginç görünüyor.",
+      wrong_en: "Can I join your conversation? It looks very interesting.",
+      right_en: "Mind if I jump in? You guys sound like you're having the best argument.",
+      why_tr:
+        "Türk öğrenci 'konuşma' → 'conversation' (resmi) ve 'çok ilginç' → 'very interesting' (yetersiz iltifat). Doğal: 'jump in' (samimi katılma idiom'u), 'argument' (banter teması göstergesi). 'Mind if I' = sakıncası varmı = saygılı. Spesifik özellik (best argument) ile genel 'interesting' yerine.",
+    },
+    {
+      id: "ex.bb24.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Jump in' bar/grup bağlamında ne demek?",
+          options: [
+            "Atlamak (fiziksel)",
+            "Konuşmaya katılmak (samimi)",
+            "Suya atlamak",
+            "Hızlı düşmek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Jump in' = (konuşmaya/aktiviteye) atılmak. 'Mind if I jump in?' = katılabilir miyim? Modern samimi katılma kalıbı.",
+        },
+        {
+          q: "'You guys go way back' niye bağ kurar?",
+          options: [
+            "Rastgele gözlem",
+            "İki kişinin uzun zamandır birbirini tanıdığını fark etmek = grup tarihine ilgi",
+            "Eleştiri",
+            "Şüphe",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Go way back' = uzun zamandır birbirini tanımak. Bunu fark etmek = grup dinamiğine saygı + sohbet açar.",
+        },
+        {
+          q: "'Hot take' = ?",
+          options: [
+            "Sıcak görüş",
+            "Tartışmalı / cesur fikir (sosyal)",
+            "Hızlı yorum",
+            "Sıcak çekim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Hot take' = popüler olmayan ama cesur fikir. 'Controversial take' eşanlamlı. Sosyal medya + bar banter standart.",
+        },
+        {
+          q: "Banter'a girerken neden 'pepperoni team' tarzı pozisyon almak iyi?",
+          options: [
+            "Kaba",
+            "Eğlenceli + spesifik = sohbete oksijen verir, kaçamak değil",
+            "Yapay",
+            "Sıkıcı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Banter = eğlenceli fikir çatışması. Net pozisyon (mizahi) almak = sohbeti besler. 'I don't have opinion' = banter ölür.",
+        },
+        {
+          q: "'That's wild' ne anlama gelir?",
+          options: [
+            "Vahşi",
+            "Vay be / çılgın bir şey (casual şaşkınlık)",
+            "Yabani",
+            "Karmaşık",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'That's wild' = inanılmaz / şaşırtıcı. 'Crazy' eşanlamlı. Modern samimi şaşkınlık ifadesi. 'Wild' burada 'çılgın' değil 'beklenmedik'.",
+        },
+      ],
+    },
   ],
 };
 
@@ -919,6 +1300,133 @@ export const barApproachLesson_24_5: BundledLesson = {
       ipa: "heɪ ðɪs siːt ˈteɪkən pleɪs ɪz pækt təˈnaɪt",
       tr_hint:
         "'This seat' = 'ðɪs-siːt' bağlı. 'Taken' = 'teɪ-kən', sonda yumuşak. 'Packed' = 'pækt' kısa + sert. Rahat, gevsek ton.",
+    },
+    {
+      id: "ex.bb24.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Hey, is this seat ___? ___ is packed tonight.",
+      slots: [
+        { accepted: ["taken", "saved", "open", "free"] },
+        { accepted: ["place", "spot", "bar", "joint"] },
+      ],
+      tr_hint:
+        "Yabancı yanında yer almak. Slot 1 = sandalye durumu (taken/saved), slot 2 = mekan adı (place/joint = US slang). Türk: 'Can I sit?' kuru; 'Is this seat taken? Place is packed' = ortak gözlemle sohbet açar.",
+      example_filled: "Hey, is this seat taken? Place is packed tonight.",
+    },
+    {
+      id: "ex.bb24.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Nope, all yours." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks! Yeah, my friend just bailed on me." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)[,. ]+ (it'?s |its )(crazy|packed|wild|insane) (in here|tonight)",
+        "(thanks)[,. ]+ (place is|joint is) (hopping|busy|crowded)",
+        "(thanks|cheers)[,. ]+ (waiting on (someone|a friend)|saving anyone)",
+        "(thanks)[,. ]+ (lucky to find a seat|just got here)",
+        "(thanks)[,. ]+ (you here alone|with friends)",
+      ],
+      tr_hint:
+        "Yer aldın, sohbeti aç. 'Thanks' yetersiz; ortam gözlemi ekle. Türk: Türkçe'de doğrudan minnet yeterli; İngilizce sosyal: küçük gözlem = doğal flow.",
+      ideal_answer: "Thanks — it's crazy in here tonight. You waiting on someone?",
+    },
+    {
+      id: "ex.bb24.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What brings you in tonight?",
+      accepted_patterns: [
+        "(uhh|honestly)[,. ]+ (just wanted a drink|wanted to get out)",
+        "(my friend recommended|heard about) (this place|here)",
+        "(came in for|stopped in for) (a drink|happy hour|to unwind)",
+        "(rough day|long day|needed to decompress)",
+        "(uhh|just exploring|just trying) (new places|the neighborhood)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik bar sorusu. Cevap ver + bağlam. 'Rough day, needed a drink' (dürüst) veya 'My friend recommended this place' (positive). Türk: 'No reason' yetersiz — sebep ver = sohbet başlar.",
+      ideal_response: "Honestly, just needed to unwind — my friend recommended this place.",
+    },
+    {
+      id: "ex.bb24.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam, yanında oturabilir miyim?",
+      wrong_en: "Hello, can I sit next to you?",
+      right_en: "Hey, is this seat taken? Place is packed tonight.",
+      why_tr:
+        "Türk öğrenci 'yanında' → 'next to you' kelime kelime; bar'da yanına oturmayı sormak biraz forward/garip. Doğal: 'is this seat taken?' (yer sorusu, kişi değil — daha doğal + saygılı). 'Place is packed' = ortam gözlemi, sohbet açıcı. Yere değil sahibe odaklanmak = creepy.",
+    },
+    {
+      id: "ex.bb24.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Is this seat taken?' niye 'Can I sit next to you?'dan daha iyi?",
+          options: [
+            "Daha kısa",
+            "Yere odaklanır (kişiye değil) = doğal + saygılı",
+            "Daha resmi",
+            "Daha cesur",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Is this seat taken?' = sandalye sorusu. 'Can I sit next to you?' = kişi sorusu (biraz forward). Yer odaklı = doğal bar nezaket.",
+        },
+        {
+          q: "'Place is packed' = ?",
+          options: [
+            "Yer paketlendi",
+            "Mekan çok kalabalık (insan dolu)",
+            "Yerleşme yapıldı",
+            "Eşyalar topluyor",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Packed' = tıkış tıkış. 'The place is packed' = mekan dolu/kalabalık. Bar açılış sohbeti standart.",
+        },
+        {
+          q: "'What brings you in tonight?' tam karşılığı?",
+          options: [
+            "Bu gece seni ne içeri getiriyor?",
+            "Neden buraya geldin / bu gece niye dışarıdasın?",
+            "Bu geceyle alakası ne?",
+            "Akşam programın ne?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'What brings you in?' = niye buraya geldin? Bar/restoran/etkinlik standart sohbet açıcısı. Mantıksız değil, samimi merak.",
+        },
+        {
+          q: "'Bailed on me' tam karşılığı?",
+          options: [
+            "Beni kefaletle kurtardı",
+            "Son anda iptal etti / sözünden caydı",
+            "Beni desteklemedi",
+            "Bana zarar verdi",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Bail on someone' = son anda iptal etmek. 'My friend bailed on me' = arkadaşım gelmedi. Modern slang.",
+        },
+        {
+          q: "Yabancı yanında oturuyorsun, ne yapmamalı?",
+          options: [
+            "Selam ver",
+            "Ortam gözlemi yap",
+            "Hemen kişisel soru (yaş, ilişki durumu, evli misin)",
+            "Bartender'ı çağırırken yardım et",
+          ],
+          correct: 2,
+          tr_explanation:
+            "Bar açılışında kişisel soru = creepy. Hava, mekan, içecek, müzik = güvenli konular. Yavaş yavaş ilerleyen sohbet doğru.",
+        },
+      ],
     },
   ],
 };
@@ -1094,6 +1602,133 @@ export const barApproachLesson_24_6: BundledLesson = {
       tr_hint:
         "'Mind if I' = 'maɪnd-ɪ-faɪ' bağlı. 'You guys' = 'jə-ɡaɪz', 'you' kısalır. Soru tonu sonda yukarı.",
     },
+    {
+      id: "ex.bb24.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I ___? What were you ___ talking about?",
+      slots: [
+        { accepted: ["join", "join in", "pull up a chair", "say hi"] },
+        { accepted: ["guys", "all", "folks", "two"] },
+      ],
+      tr_hint:
+        "Gruba katılma kalıbı. Slot 1 = aksiyon (join = klasik), slot 2 = grup tanımı (guys/folks). 'Pull up a chair' = sandalye çek (samimi). Türk: 'Can I be here?' kaba; 'Mind if I join?' = saygılı katılım.",
+      example_filled: "Mind if I join? What were you guys talking about?",
+    },
+    {
+      id: "ex.bb24.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Oh hey! Yeah, pull up a chair — we were just trashing this new show." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Right?? Like why does everyone love it??" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(oh nice|haha|same)[,. ]+ (which show|what show)",
+        "(oh i love|i hate) (trashing|talking about|critiquing)",
+        "(let me guess|i bet) (it'?s the new (netflix|hbo)|that one show)",
+        "(oh i)[,. ]+ (have so much to say|got opinions)",
+        "(haha|nice)[,. ]+ (i'?m a (hater|critic) too)",
+      ],
+      tr_hint:
+        "Grup açıldı, banter konusuna gir. 'Trashing' = yermek (eğlenceli sosyal). Türk: Banter'a kaçınma yerine atıl — fikir + mizah.",
+      ideal_answer: "Oh nice — which show? I bet I have opinions.",
+    },
+    {
+      id: "ex.bb24.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How do you know Sarah?",
+      accepted_patterns: [
+        "(we |i )?(work together|met at work|same office)",
+        "(through (a |another )?friend|mutual friend)",
+        "(uhh|we'?ve been) (friends for years|tight for ages|known each other forever)",
+        "(actually )?(just met (tonight|here)|new to the group)",
+        "(college|university|school|grad school) (friend|together)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik grup sorusu: bağ nasıl? Net cevap ver. Türk: 'My friend' yetersiz; 'We work together' = bağlam + sohbet açıcı.",
+      ideal_response: "We work together — same team, actually.",
+    },
+    {
+      id: "ex.bb24.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sizinle tanışabilir miyim, çok eğlenceli görünüyorsunuz.",
+      wrong_en: "Can I meet you? You look very fun.",
+      right_en: "Mind if I join? You guys seem like you're having a blast.",
+      why_tr:
+        "Türk öğrenci 'sizinle tanışmak' → 'meet you' çevirir; tanışma yerine sohbete katılma kalıbı doğru. 'You look very fun' = forward/garip; 'you guys seem like you're having a blast' (eğlence gözlemi) = pasif gözlem, baskı yok. 'Having a blast' = çok eğleniyor. 'Mind if I join?' = saygılı izin sorma.",
+    },
+    {
+      id: "ex.bb24.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I join?' niye 'Can I sit here?'dan daha iyi?",
+          options: [
+            "Daha kısa",
+            "Sandalye değil sohbete katılma odağı = grup nezaketi",
+            "Daha resmi",
+            "Daha cesur",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Grup nezaketi: oturmak değil, sohbete katılmak istiyorsun. 'Mind if I join?' = bu nüansı yansıtır.",
+        },
+        {
+          q: "'Pull up a chair' = ?",
+          options: [
+            "Sandalyeyi kaldır",
+            "Sandalyeyi çek + otur (samimi davet)",
+            "Sandalyeyi at",
+            "Sandalye sat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Pull up a chair' = sandalye çek + bize katıl. Samimi davet idiom'u. 'Pull up a seat' eşanlamlı.",
+        },
+        {
+          q: "Bir gruba katılırken niye 'no pressure' eklemek iyi?",
+          options: [
+            "Gereksiz",
+            "Grubun rahatsız olmama hakkına saygı — kibar kapı bırakır",
+            "Çok kelime",
+            "Resmi",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'No pressure' = grup özelse rahatsız olabilirler. Bu eklemek = saygılı opt-out hakkı verir. Modern sosyal etiket.",
+        },
+        {
+          q: "'Trashing a show' ne demek?",
+          options: [
+            "Diziyi çöpe atmak",
+            "Bir dizi/film hakkında olumsuz konuşmak (eğlenceli)",
+            "Yıkmak",
+            "Üzülmek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Trash' (verb) = yermek/eleştirmek. 'Trashing the show' = diziyi kötülemek (eğlenceli sosyal). Türk: 'Yermek' karşılığı, ama mizah tonunda.",
+        },
+        {
+          q: "'Having a blast' = ?",
+          options: [
+            "Patlama yaşıyor",
+            "Çok eğleniyor",
+            "Hızlı koşuyor",
+            "Kaybediyor",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Have a blast' = çok eğlenmek. 'We're having a blast' = çok eğleniyoruz. 'Blast' burada 'patlama' değil 'müthiş zaman'.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1267,6 +1902,133 @@ export const barApproachLesson_24_7: BundledLesson = {
       tr_hint:
         "'Cool chatting' = 'kuːl-tʃæ-tɪŋ' bağlı. 'Catch you' = 'kætʃ-jə', hızlı. 'In a bit' = sonda alçak, sıcak.",
     },
+    {
+      id: "ex.bb24.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Cool ___ — I'm gonna ___ around.",
+      slots: [
+        { accepted: ["chatting", "talking", "vibing", "meeting you"] },
+        { accepted: ["wander", "circulate", "mingle", "make my way"] },
+      ],
+      tr_hint:
+        "Sohbeti bitirme. Slot 1 = ne hoştu (chatting/meeting you), slot 2 = ayrılma sebebi (wander = dolaş, mingle = karış). Türk: 'I go now' kaba; 'Cool chatting — I'm gonna mingle around' = saygılı + plan veren çıkış.",
+      example_filled: "Cool chatting — I'm gonna mingle around.",
+    },
+    {
+      id: "ex.bb24.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Yeah of course — go enjoy yourself! Catch you later." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Likewise! Take care." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|cheers|appreciate it)[,. ]+ (great|good|nice) (meeting|talking|chatting) (you|with you)",
+        "(it was|this was) (great|nice) (meeting|talking to) you",
+        "(thanks|cheers)[,. ]+ (catch you (later|around)|see you (later|around))",
+        "(have a good night|have fun|enjoy the rest)",
+        "(thanks)[,. ]+ (you too|same to you|likewise)",
+      ],
+      tr_hint:
+        "Sohbet sonu sıcak veda. 'Great meeting you' (memnun oldum) + 'have a good night'. Türk: 'Goodbye' kuru; sıcak sıfat + dilek = doğal.",
+      ideal_answer: "Thanks — great meeting you! Have a good night.",
+    },
+    {
+      id: "ex.bb24.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "You heading out, or sticking around?",
+      accepted_patterns: [
+        "(yeah|kind of)[,. ]+ (heading out|calling it|done for the night)",
+        "(actually )?(sticking around|hanging|still here)",
+        "(uhh|maybe) (one more|grabbing one more drink) (then heading out)",
+        "(heading out|leaving) (soon|in a bit)",
+        "(probably )?(call it (in a bit|soon)|out (in 20|soon))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sohbet bitiriciye karar: kalıyor musun gidiyor musun? 'Heading out soon' veya 'sticking around for a bit'. Türk: Net cevap = saygılı, belirsizlik bırakma.",
+      ideal_response: "Heading out soon — got an early morning.",
+    },
+    {
+      id: "ex.bb24.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Tamam, ben gidiyorum şimdi, hoşça kalın.",
+      wrong_en: "Okay, I go now, goodbye.",
+      right_en: "Cool chatting — I'm gonna head out. Have a good one!",
+      why_tr:
+        "Türk öğrenci 'gidiyorum şimdi' → 'I go now' (bozuk zaman + kaba). 'Goodbye' = İngilizce'de aşırı resmi/dramatic (cenaze gibi). Doğal: 'Cool chatting' (geriye dönük teşekkür) + 'I'm gonna head out' (samimi ayrılma) + 'Have a good one!' (sıcak dilek). 'Goodbye' yerine 'see you' / 'take care' / 'have a good one' modern.",
+    },
+    {
+      id: "ex.bb24.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Cool chatting' niye iyi bir sohbet bitirici?",
+          options: [
+            "Çok yumuşak",
+            "Geriye dönük takdir + samimi ton = saygılı çıkış",
+            "Çok kelime",
+            "Resmi",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Cool chatting' = sohbet hoştu. Sosyal nezaket — sohbet için minnet + ayrılma sinyali bir arada.",
+        },
+        {
+          q: "'Heading out' = ?",
+          options: [
+            "Başı dışarı çıkmak",
+            "Dışarı doğru yola koyulmak / ayrılmak",
+            "Başında baş örtüsü olmak",
+            "Yön bulmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Head out' = ayrılmak (yerden). 'I'm heading out' = ayrılıyorum. 'I'm leaving' resmi alternatif.",
+        },
+        {
+          q: "'Mingle around' bar bağlamında ne demek?",
+          options: [
+            "Eşya karıştırmak",
+            "Farklı insanlarla konuşmak için dolaşmak (sosyal kontekstte)",
+            "Karışmak",
+            "Bilemek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Mingle' = sosyalleşmek (etkinlik/parti'de). 'Mingle around' = dolaş + insanlarla tanış. Sohbet bitirip ayrılma sebebi.",
+        },
+        {
+          q: "'Have a good one' tam karşılığı?",
+          options: [
+            "İyi bir tane al",
+            "İyi (gün/gece) geçir — sıcak veda",
+            "Bir tane iyi yap",
+            "İyi şanslar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Have a good one' = 'have a good day/night' kısaltması. Modern + samimi. Çok yaygın casual veda.",
+        },
+        {
+          q: "Bar'da sohbet bitirirken niye 'I'm bored' demek kötü?",
+          options: [
+            "Doğru ifade",
+            "Karşı tarafa kişisel hakaret hissi verir — yerine nötr sebep ver ('grabbing a drink')",
+            "Resmi",
+            "Komik",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm bored' = direkt eleştiri. 'I'm gonna grab another drink' / 'gotta find my friends' = nötr/saygılı sebep. Sosyal yağcılık.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1439,6 +2201,133 @@ export const barApproachLesson_24_8: BundledLesson = {
       ipa: "ðɪs wɒz fʌn ˈwɒnə swɒp ˈɪnstəz",
       tr_hint:
         "'This was' = 'ðɪs-wəz' bağlı. 'Wanna' = 'want to'nun kısası, 'wɒ-nə'. 'Instas' = 'ɪn-stəz', sonda yumuşak. Hafif, gülen ton.",
+    },
+    {
+      id: "ex.bb24.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "This was ___ — wanna ___ Instas?",
+      slots: [
+        { accepted: ["fun", "really nice", "great", "cool"] },
+        { accepted: ["swap", "trade", "exchange", "share"] },
+      ],
+      tr_hint:
+        "Sosyal hesap paylaşma kalıbı. Slot 1 = geriye dönük takdir (fun/great), slot 2 = paylaşma fiili. 'Instas' = Instagram kısası. Modern: numara yerine Insta. Türk: 'Give me your Instagram' kaba; 'Wanna swap Instas?' = saygılı + low-key.",
+      example_filled: "This was fun — wanna swap Instas?",
+    },
+    {
+      id: "ex.bb24.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Yeah, totally — let me grab my phone." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, just added you — text me sometime!" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me|i'?ll) (find you|search you)[,. ]+ (i'?m at|my handle is)",
+        "(here'?s|here is) (mine|my insta|my handle)",
+        "(my handle is|i'?m at) (@?\\w+)",
+        "(cool|sweet|perfect)[,. ]+ (i'?ll|let me) (drop a follow|follow you)",
+        "(sweet)[,. ]+ (just |i'?ll) (text|message) you",
+      ],
+      tr_hint:
+        "Karşı taraf telefonunu aldı. Insta handle paylaş + takip et. Türk: '@username' standart. Modern: 'I'll drop a follow' = takip ediyorum demek.",
+      ideal_answer: "Sweet — let me drop a follow. My handle is @burakist.",
+    },
+    {
+      id: "ex.bb24.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Actually, I'm not super into giving out my number — but I'm on Insta.",
+      accepted_patterns: [
+        "(yeah|totally|of course|no worries)[,. ]+ (insta works|same|that works)",
+        "(no problem|all good|totally fair)[,. ]+ (insta is fine|let'?s do insta)",
+        "(no worries)[,. ]+ (what'?s your handle|let me find you)",
+        "(absolutely|of course|same here)[,. ]+ (my handle is|i'?m at)",
+        "(insta is perfect|same vibe|that works)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Karşı taraf numara değil Insta tercih ediyor — saygılı sınır koydu. Onayla + adapte ol. Türk: 'Why?' sorgulamak = creepy; 'No worries, Insta works' = saygı.",
+      ideal_response: "No worries, Insta works — what's your handle?",
+    },
+    {
+      id: "ex.bb24.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Numaranı bana verebilir misin lütfen?",
+      wrong_en: "Can you give me your number please?",
+      right_en: "This was fun — wanna swap numbers? Or Insta, whatever works.",
+      why_tr:
+        "Türk öğrenci 'numaranı ver' → 'give me your number' (transactional + tek yönlü). 'Please' kelimesi süslü ama yapı kaba kalır. Doğal: 'wanna swap numbers?' (karşılıklı = saygılı) + 'Insta, whatever works' (alternatif sun = baskı yok). Modern dating + sosyal kontekst.",
+    },
+    {
+      id: "ex.bb24.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna swap Instas?' niye modern + saygılı?",
+          options: [
+            "Kuru",
+            "Insta = numara'dan daha az invasif (sosyal hesap, daha az kişisel)",
+            "Aynı",
+            "Daha cesur",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Modern dating + sosyal: Insta = orta seviye intimacy. Numara = direkt iletişim. İlk tanışmada Insta = daha güvenli + reciprocal.",
+        },
+        {
+          q: "'Drop a follow' = ?",
+          options: [
+            "Takipçi düşür",
+            "Takip et (samimi)",
+            "Takipten çık",
+            "Takip duraklat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Drop a follow' = takip et. 'Drop' = atmak (slang: bırakmak). Modern Insta dili. 'Follow you' resmi alternatif.",
+        },
+        {
+          q: "'Handle' sosyal medya bağlamında ne?",
+          options: [
+            "Kulp",
+            "Kullanıcı adı (@username)",
+            "İdare etmek",
+            "Tutmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Handle' = sosyal medya kullanıcı adı. 'My handle is @burakist' = kullanıcı adım. Twitter + Instagram + TikTok standart.",
+        },
+        {
+          q: "Karşı taraf 'I'm not into giving my number' derse ne yapmamalı?",
+          options: [
+            "Israr et / sebep sor",
+            "Saygılı alternatif kabul et (Insta, vs)",
+            "Sinirlen",
+            "Aniden ayrıl",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Sınır koyma = sosyal hak. Israra geçmek = creepy. 'No worries, Insta works' = saygı + adapte ol. Modern dating etiketinin temel kuralı.",
+        },
+        {
+          q: "Bir gece tanışmada en doğal hesap paylaşma sebebi?",
+          options: [
+            "Hiç sebep söyleme",
+            "'This was fun' (sohbeti hatırlat) — paylaşma için doğal bağ",
+            "'I like you'",
+            "Yarın için plan yap",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'This was fun — wanna swap Instas?' = sohbete atıf + paylaşma. 'I like you' (forward) yerine sohbeti tanı = saygılı + doğal.",
+        },
+      ],
     },
   ],
 };

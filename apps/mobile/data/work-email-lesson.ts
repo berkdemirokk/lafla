@@ -263,6 +263,101 @@ export const workEmailLesson_11_1: BundledLesson = {
       tr_explanation:
         "'Dear Mr Sarah' yanlis (Sarah kadin ismi, ayrica modern is emaili formal degil). 'Immediately' baskici. Modern is dili: 'Hi + isim' + kibar istek.",
     },
+    {
+      id: "ex.we11.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I wanted to follow up on ___ and ask about ___.",
+      slots: [
+        { accepted: ['our conversation', "yesterday's meeting", 'my last email', 'the proposal'], distractors: ['our conversations', 'yesterdays meetings', 'my last emails', 'the proposals'] },
+        { accepted: ['next steps', 'the timeline', 'your feedback', 'any updates'], distractors: ["next step's", 'the timelines', 'your feedbacks', 'any update'] },
+      ],
+      tr_hint:
+        "Email follow-up kalıbı. 'Wanted to' = past tense soft, daha kibar. 'Follow up on X and ask about Y' = net + saygılı.",
+      example_filled: "I wanted to follow up on our conversation and ask about next steps.",
+    },
+    {
+      id: "ex.we11.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — apologies for the slow response, things have been hectic." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course, I'll send the deck over by end of week." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no (worries|problem)|totally understand)",
+        "(thanks for|appreciate) (getting back|the update)",
+        "(just to confirm|to clarify|circling back)",
+        "(could you|when you have a chance)",
+      ],
+      tr_hint:
+        "Karşı taraf geç döndü + özür diledi. Türk hatası: 'You are late' = saldırı. 'No worries' yumuşat + soru ile devam.",
+      ideal_answer: "No worries — thanks for getting back. Could you also share the timeline when you have a chance?",
+    },
+    {
+      id: "ex.we11.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hi, I just had a quick question about the invoice we sent last week.",
+      accepted_patterns: [
+        "(hi|hey|hello)( there)?,?( thanks)?",
+        "(let me|i'?ll) (check|look into|pull up)",
+        "(could you|can you) (give me|share|forward) (the (details|reference|email))",
+        "(i'?ll get back to you|i'?ll follow up) (shortly|by (end of|tomorrow))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Müşteri/manager email konusu sordu — 'I check' dur, 'check edeyim' yerine 'let me check' kullan.",
+      ideal_response: "Hi — let me check on that and get back to you by end of day.",
+    },
+    {
+      id: "ex.we11.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana mail attım, baktın mı?",
+      wrong_en: "I threw a mail to you, did you look?",
+      right_en: "I sent you an email — did you have a chance to look at it?",
+      why_tr:
+        "'Threw a mail' = Türkçe 'mail attım' direkt çeviri. Email 'send' edilir, 'throw' edilmez. 'Did you look' yetersiz — 'have a chance to look at it' = baskı yapmadan sorma. Türk öğrenci özellikle 'mail attım' kalıbından kurtulmalı.",
+    },
+    {
+      id: "ex.we11.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mail attım' İngilizcesi?",
+          options: ["I threw a mail", "I sent an email", "I made a mail", "I emailed it"],
+          correct: 1,
+          tr_explanation: "'Send an email' standart. 'Throw/make a mail' = Türkçe kalıp etkisi.",
+        },
+        {
+          q: "'Circling back' ne demek?",
+          options: ["Etrafında dolaşmak", "Konuya geri dönmek (follow-up)", "Dönmek", "İptal"],
+          correct: 1,
+          tr_explanation: "'Circling back' = daha önceki konuya geri dönmek. Email follow-up standart.",
+        },
+        {
+          q: "'Apologies for the delay' yerine fazlasıyla kibar?",
+          options: ["Sorry I'm late", "I'm so deeply sorry", "Apologies for the slow response", "Late, sorry"],
+          correct: 2,
+          tr_explanation: "'Apologies for the slow response' = profesyonel, yapısı net. Aşırı 'deeply sorry' = drama.",
+        },
+        {
+          q: "Email kapanış en güvenli?",
+          options: ["Bye", "Best regards / Thanks", "See ya", "Goodbye!!!"],
+          correct: 1,
+          tr_explanation: "'Best' veya 'Thanks' = neutral profesyonel. 'Bye/See ya' = casual.",
+        },
+        {
+          q: "'I wanted to follow up' niye 'I want to follow up'tan iyi?",
+          options: ["Aynı şey", "Past tense daha kibar/yumuşak", "Yanlış gramer", "Future"],
+          correct: 1,
+          tr_explanation: "Past tense ('wanted to') = soft. Şu an isteğini biraz uzaklaştırır — politeness marker.",
+        },
+      ],
+    },
   ],
 };
 
@@ -528,6 +623,101 @@ export const workEmailLesson_11_2: BundledLesson = {
       tr_explanation:
         "'Waiting your answer' yanlis: 'wait FOR'. 'Since 3 days' yanlis: 'for 3 days'. Suclayici ton agir — yumusak takip standardi: 'Following up... when you can'.",
     },
+    {
+      id: "ex.we11.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I wanted to follow up on ___ and ask about ___.",
+      slots: [
+        { accepted: ['our conversation', "yesterday's meeting", 'my last email', 'the proposal'], distractors: ['our conversations', 'yesterdays meetings', 'my last emails', 'the proposals'] },
+        { accepted: ['next steps', 'the timeline', 'your feedback', 'any updates'], distractors: ["next step's", 'the timelines', 'your feedbacks', 'any update'] },
+      ],
+      tr_hint:
+        "Email follow-up kalıbı. 'Wanted to' = past tense soft, daha kibar. 'Follow up on X and ask about Y' = net + saygılı.",
+      example_filled: "I wanted to follow up on our conversation and ask about next steps.",
+    },
+    {
+      id: "ex.we11.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — apologies for the slow response, things have been hectic." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course, I'll send the deck over by end of week." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no (worries|problem)|totally understand)",
+        "(thanks for|appreciate) (getting back|the update)",
+        "(just to confirm|to clarify|circling back)",
+        "(could you|when you have a chance)",
+      ],
+      tr_hint:
+        "Karşı taraf geç döndü + özür diledi. Türk hatası: 'You are late' = saldırı. 'No worries' yumuşat + soru ile devam.",
+      ideal_answer: "No worries — thanks for getting back. Could you also share the timeline when you have a chance?",
+    },
+    {
+      id: "ex.we11.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hi, I just had a quick question about the invoice we sent last week.",
+      accepted_patterns: [
+        "(hi|hey|hello)( there)?,?( thanks)?",
+        "(let me|i'?ll) (check|look into|pull up)",
+        "(could you|can you) (give me|share|forward) (the (details|reference|email))",
+        "(i'?ll get back to you|i'?ll follow up) (shortly|by (end of|tomorrow))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Müşteri/manager email konusu sordu — 'I check' dur, 'check edeyim' yerine 'let me check' kullan.",
+      ideal_response: "Hi — let me check on that and get back to you by end of day.",
+    },
+    {
+      id: "ex.we11.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana mail attım, baktın mı?",
+      wrong_en: "I threw a mail to you, did you look?",
+      right_en: "I sent you an email — did you have a chance to look at it?",
+      why_tr:
+        "'Threw a mail' = Türkçe 'mail attım' direkt çeviri. Email 'send' edilir, 'throw' edilmez. 'Did you look' yetersiz — 'have a chance to look at it' = baskı yapmadan sorma. Türk öğrenci özellikle 'mail attım' kalıbından kurtulmalı.",
+    },
+    {
+      id: "ex.we11.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mail attım' İngilizcesi?",
+          options: ["I threw a mail", "I sent an email", "I made a mail", "I emailed it"],
+          correct: 1,
+          tr_explanation: "'Send an email' standart. 'Throw/make a mail' = Türkçe kalıp etkisi.",
+        },
+        {
+          q: "'Circling back' ne demek?",
+          options: ["Etrafında dolaşmak", "Konuya geri dönmek (follow-up)", "Dönmek", "İptal"],
+          correct: 1,
+          tr_explanation: "'Circling back' = daha önceki konuya geri dönmek. Email follow-up standart.",
+        },
+        {
+          q: "'Apologies for the delay' yerine fazlasıyla kibar?",
+          options: ["Sorry I'm late", "I'm so deeply sorry", "Apologies for the slow response", "Late, sorry"],
+          correct: 2,
+          tr_explanation: "'Apologies for the slow response' = profesyonel, yapısı net. Aşırı 'deeply sorry' = drama.",
+        },
+        {
+          q: "Email kapanış en güvenli?",
+          options: ["Bye", "Best regards / Thanks", "See ya", "Goodbye!!!"],
+          correct: 1,
+          tr_explanation: "'Best' veya 'Thanks' = neutral profesyonel. 'Bye/See ya' = casual.",
+        },
+        {
+          q: "'I wanted to follow up' niye 'I want to follow up'tan iyi?",
+          options: ["Aynı şey", "Past tense daha kibar/yumuşak", "Yanlış gramer", "Future"],
+          correct: 1,
+          tr_explanation: "Past tense ('wanted to') = soft. Şu an isteğini biraz uzaklaştırır — politeness marker.",
+        },
+      ],
+    },
   ],
 };
 
@@ -744,6 +934,101 @@ export const workEmailLesson_11_3: BundledLesson = {
       tr_explanation:
         "Cok kez ozur dile = panik + zayif. Profesyonel ozur: tek sahiplenme + somut plan. 'I promise' fazlaca duygusal — aksiyon kanitlamak yeterli.",
     },
+    {
+      id: "ex.we11.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I wanted to follow up on ___ and ask about ___.",
+      slots: [
+        { accepted: ['our conversation', "yesterday's meeting", 'my last email', 'the proposal'], distractors: ['our conversations', 'yesterdays meetings', 'my last emails', 'the proposals'] },
+        { accepted: ['next steps', 'the timeline', 'your feedback', 'any updates'], distractors: ["next step's", 'the timelines', 'your feedbacks', 'any update'] },
+      ],
+      tr_hint:
+        "Email follow-up kalıbı. 'Wanted to' = past tense soft, daha kibar. 'Follow up on X and ask about Y' = net + saygılı.",
+      example_filled: "I wanted to follow up on our conversation and ask about next steps.",
+    },
+    {
+      id: "ex.we11.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — apologies for the slow response, things have been hectic." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course, I'll send the deck over by end of week." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no (worries|problem)|totally understand)",
+        "(thanks for|appreciate) (getting back|the update)",
+        "(just to confirm|to clarify|circling back)",
+        "(could you|when you have a chance)",
+      ],
+      tr_hint:
+        "Karşı taraf geç döndü + özür diledi. Türk hatası: 'You are late' = saldırı. 'No worries' yumuşat + soru ile devam.",
+      ideal_answer: "No worries — thanks for getting back. Could you also share the timeline when you have a chance?",
+    },
+    {
+      id: "ex.we11.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hi, I just had a quick question about the invoice we sent last week.",
+      accepted_patterns: [
+        "(hi|hey|hello)( there)?,?( thanks)?",
+        "(let me|i'?ll) (check|look into|pull up)",
+        "(could you|can you) (give me|share|forward) (the (details|reference|email))",
+        "(i'?ll get back to you|i'?ll follow up) (shortly|by (end of|tomorrow))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Müşteri/manager email konusu sordu — 'I check' dur, 'check edeyim' yerine 'let me check' kullan.",
+      ideal_response: "Hi — let me check on that and get back to you by end of day.",
+    },
+    {
+      id: "ex.we11.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana mail attım, baktın mı?",
+      wrong_en: "I threw a mail to you, did you look?",
+      right_en: "I sent you an email — did you have a chance to look at it?",
+      why_tr:
+        "'Threw a mail' = Türkçe 'mail attım' direkt çeviri. Email 'send' edilir, 'throw' edilmez. 'Did you look' yetersiz — 'have a chance to look at it' = baskı yapmadan sorma. Türk öğrenci özellikle 'mail attım' kalıbından kurtulmalı.",
+    },
+    {
+      id: "ex.we11.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mail attım' İngilizcesi?",
+          options: ["I threw a mail", "I sent an email", "I made a mail", "I emailed it"],
+          correct: 1,
+          tr_explanation: "'Send an email' standart. 'Throw/make a mail' = Türkçe kalıp etkisi.",
+        },
+        {
+          q: "'Circling back' ne demek?",
+          options: ["Etrafında dolaşmak", "Konuya geri dönmek (follow-up)", "Dönmek", "İptal"],
+          correct: 1,
+          tr_explanation: "'Circling back' = daha önceki konuya geri dönmek. Email follow-up standart.",
+        },
+        {
+          q: "'Apologies for the delay' yerine fazlasıyla kibar?",
+          options: ["Sorry I'm late", "I'm so deeply sorry", "Apologies for the slow response", "Late, sorry"],
+          correct: 2,
+          tr_explanation: "'Apologies for the slow response' = profesyonel, yapısı net. Aşırı 'deeply sorry' = drama.",
+        },
+        {
+          q: "Email kapanış en güvenli?",
+          options: ["Bye", "Best regards / Thanks", "See ya", "Goodbye!!!"],
+          correct: 1,
+          tr_explanation: "'Best' veya 'Thanks' = neutral profesyonel. 'Bye/See ya' = casual.",
+        },
+        {
+          q: "'I wanted to follow up' niye 'I want to follow up'tan iyi?",
+          options: ["Aynı şey", "Past tense daha kibar/yumuşak", "Yanlış gramer", "Future"],
+          correct: 1,
+          tr_explanation: "Past tense ('wanted to') = soft. Şu an isteğini biraz uzaklaştırır — politeness marker.",
+        },
+      ],
+    },
   ],
 };
 
@@ -954,6 +1239,101 @@ export const workEmailLesson_11_4: BundledLesson = {
       tr_explanation:
         "'Bye bye see you' email kapanisi olarak cocuksu + dagiltik. Standart: tek bir kapanis ifadesi + signoff + isim.",
     },
+    {
+      id: "ex.we11.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I wanted to follow up on ___ and ask about ___.",
+      slots: [
+        { accepted: ['our conversation', "yesterday's meeting", 'my last email', 'the proposal'], distractors: ['our conversations', 'yesterdays meetings', 'my last emails', 'the proposals'] },
+        { accepted: ['next steps', 'the timeline', 'your feedback', 'any updates'], distractors: ["next step's", 'the timelines', 'your feedbacks', 'any update'] },
+      ],
+      tr_hint:
+        "Email follow-up kalıbı. 'Wanted to' = past tense soft, daha kibar. 'Follow up on X and ask about Y' = net + saygılı.",
+      example_filled: "I wanted to follow up on our conversation and ask about next steps.",
+    },
+    {
+      id: "ex.we11.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — apologies for the slow response, things have been hectic." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course, I'll send the deck over by end of week." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no (worries|problem)|totally understand)",
+        "(thanks for|appreciate) (getting back|the update)",
+        "(just to confirm|to clarify|circling back)",
+        "(could you|when you have a chance)",
+      ],
+      tr_hint:
+        "Karşı taraf geç döndü + özür diledi. Türk hatası: 'You are late' = saldırı. 'No worries' yumuşat + soru ile devam.",
+      ideal_answer: "No worries — thanks for getting back. Could you also share the timeline when you have a chance?",
+    },
+    {
+      id: "ex.we11.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hi, I just had a quick question about the invoice we sent last week.",
+      accepted_patterns: [
+        "(hi|hey|hello)( there)?,?( thanks)?",
+        "(let me|i'?ll) (check|look into|pull up)",
+        "(could you|can you) (give me|share|forward) (the (details|reference|email))",
+        "(i'?ll get back to you|i'?ll follow up) (shortly|by (end of|tomorrow))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Müşteri/manager email konusu sordu — 'I check' dur, 'check edeyim' yerine 'let me check' kullan.",
+      ideal_response: "Hi — let me check on that and get back to you by end of day.",
+    },
+    {
+      id: "ex.we11.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana mail attım, baktın mı?",
+      wrong_en: "I threw a mail to you, did you look?",
+      right_en: "I sent you an email — did you have a chance to look at it?",
+      why_tr:
+        "'Threw a mail' = Türkçe 'mail attım' direkt çeviri. Email 'send' edilir, 'throw' edilmez. 'Did you look' yetersiz — 'have a chance to look at it' = baskı yapmadan sorma. Türk öğrenci özellikle 'mail attım' kalıbından kurtulmalı.",
+    },
+    {
+      id: "ex.we11.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mail attım' İngilizcesi?",
+          options: ["I threw a mail", "I sent an email", "I made a mail", "I emailed it"],
+          correct: 1,
+          tr_explanation: "'Send an email' standart. 'Throw/make a mail' = Türkçe kalıp etkisi.",
+        },
+        {
+          q: "'Circling back' ne demek?",
+          options: ["Etrafında dolaşmak", "Konuya geri dönmek (follow-up)", "Dönmek", "İptal"],
+          correct: 1,
+          tr_explanation: "'Circling back' = daha önceki konuya geri dönmek. Email follow-up standart.",
+        },
+        {
+          q: "'Apologies for the delay' yerine fazlasıyla kibar?",
+          options: ["Sorry I'm late", "I'm so deeply sorry", "Apologies for the slow response", "Late, sorry"],
+          correct: 2,
+          tr_explanation: "'Apologies for the slow response' = profesyonel, yapısı net. Aşırı 'deeply sorry' = drama.",
+        },
+        {
+          q: "Email kapanış en güvenli?",
+          options: ["Bye", "Best regards / Thanks", "See ya", "Goodbye!!!"],
+          correct: 1,
+          tr_explanation: "'Best' veya 'Thanks' = neutral profesyonel. 'Bye/See ya' = casual.",
+        },
+        {
+          q: "'I wanted to follow up' niye 'I want to follow up'tan iyi?",
+          options: ["Aynı şey", "Past tense daha kibar/yumuşak", "Yanlış gramer", "Future"],
+          correct: 1,
+          tr_explanation: "Past tense ('wanted to') = soft. Şu an isteğini biraz uzaklaştırır — politeness marker.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1125,6 +1505,101 @@ export const workEmailLesson_11_5: BundledLesson = {
       tr_articulation_hint:
         "'Reaching out' birlesik = ri-ching-aut. 'Because' = bi-kaz, kisa. Sicak + kendine guvenli ton — utangaci sesle 'rahatsiz ediyorum' yapma. Dolaysiz acilis.",
     },
+    {
+      id: "ex.we11.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I wanted to follow up on ___ and ask about ___.",
+      slots: [
+        { accepted: ['our conversation', "yesterday's meeting", 'my last email', 'the proposal'], distractors: ['our conversations', 'yesterdays meetings', 'my last emails', 'the proposals'] },
+        { accepted: ['next steps', 'the timeline', 'your feedback', 'any updates'], distractors: ["next step's", 'the timelines', 'your feedbacks', 'any update'] },
+      ],
+      tr_hint:
+        "Email follow-up kalıbı. 'Wanted to' = past tense soft, daha kibar. 'Follow up on X and ask about Y' = net + saygılı.",
+      example_filled: "I wanted to follow up on our conversation and ask about next steps.",
+    },
+    {
+      id: "ex.we11.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — apologies for the slow response, things have been hectic." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course, I'll send the deck over by end of week." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no (worries|problem)|totally understand)",
+        "(thanks for|appreciate) (getting back|the update)",
+        "(just to confirm|to clarify|circling back)",
+        "(could you|when you have a chance)",
+      ],
+      tr_hint:
+        "Karşı taraf geç döndü + özür diledi. Türk hatası: 'You are late' = saldırı. 'No worries' yumuşat + soru ile devam.",
+      ideal_answer: "No worries — thanks for getting back. Could you also share the timeline when you have a chance?",
+    },
+    {
+      id: "ex.we11.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hi, I just had a quick question about the invoice we sent last week.",
+      accepted_patterns: [
+        "(hi|hey|hello)( there)?,?( thanks)?",
+        "(let me|i'?ll) (check|look into|pull up)",
+        "(could you|can you) (give me|share|forward) (the (details|reference|email))",
+        "(i'?ll get back to you|i'?ll follow up) (shortly|by (end of|tomorrow))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Müşteri/manager email konusu sordu — 'I check' dur, 'check edeyim' yerine 'let me check' kullan.",
+      ideal_response: "Hi — let me check on that and get back to you by end of day.",
+    },
+    {
+      id: "ex.we11.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana mail attım, baktın mı?",
+      wrong_en: "I threw a mail to you, did you look?",
+      right_en: "I sent you an email — did you have a chance to look at it?",
+      why_tr:
+        "'Threw a mail' = Türkçe 'mail attım' direkt çeviri. Email 'send' edilir, 'throw' edilmez. 'Did you look' yetersiz — 'have a chance to look at it' = baskı yapmadan sorma. Türk öğrenci özellikle 'mail attım' kalıbından kurtulmalı.",
+    },
+    {
+      id: "ex.we11.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mail attım' İngilizcesi?",
+          options: ["I threw a mail", "I sent an email", "I made a mail", "I emailed it"],
+          correct: 1,
+          tr_explanation: "'Send an email' standart. 'Throw/make a mail' = Türkçe kalıp etkisi.",
+        },
+        {
+          q: "'Circling back' ne demek?",
+          options: ["Etrafında dolaşmak", "Konuya geri dönmek (follow-up)", "Dönmek", "İptal"],
+          correct: 1,
+          tr_explanation: "'Circling back' = daha önceki konuya geri dönmek. Email follow-up standart.",
+        },
+        {
+          q: "'Apologies for the delay' yerine fazlasıyla kibar?",
+          options: ["Sorry I'm late", "I'm so deeply sorry", "Apologies for the slow response", "Late, sorry"],
+          correct: 2,
+          tr_explanation: "'Apologies for the slow response' = profesyonel, yapısı net. Aşırı 'deeply sorry' = drama.",
+        },
+        {
+          q: "Email kapanış en güvenli?",
+          options: ["Bye", "Best regards / Thanks", "See ya", "Goodbye!!!"],
+          correct: 1,
+          tr_explanation: "'Best' veya 'Thanks' = neutral profesyonel. 'Bye/See ya' = casual.",
+        },
+        {
+          q: "'I wanted to follow up' niye 'I want to follow up'tan iyi?",
+          options: ["Aynı şey", "Past tense daha kibar/yumuşak", "Yanlış gramer", "Future"],
+          correct: 1,
+          tr_explanation: "Past tense ('wanted to') = soft. Şu an isteğini biraz uzaklaştırır — politeness marker.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1291,6 +1766,101 @@ export const workEmailLesson_11_6: BundledLesson = {
       ipa: "/noʊ ˈprɛʃər ɪf naʊz nɑt ðə raɪt taɪm/",
       tr_articulation_hint:
         "'No pressure' = no-presher, sicak ton. 'Now's not' birlesik = nauz-nat. Rahat + samimi ton — utangaclik degil, oz guven. 'Sana baski yok' diyorsun.",
+    },
+    {
+      id: "ex.we11.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I wanted to follow up on ___ and ask about ___.",
+      slots: [
+        { accepted: ['our conversation', "yesterday's meeting", 'my last email', 'the proposal'], distractors: ['our conversations', 'yesterdays meetings', 'my last emails', 'the proposals'] },
+        { accepted: ['next steps', 'the timeline', 'your feedback', 'any updates'], distractors: ["next step's", 'the timelines', 'your feedbacks', 'any update'] },
+      ],
+      tr_hint:
+        "Email follow-up kalıbı. 'Wanted to' = past tense soft, daha kibar. 'Follow up on X and ask about Y' = net + saygılı.",
+      example_filled: "I wanted to follow up on our conversation and ask about next steps.",
+    },
+    {
+      id: "ex.we11.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — apologies for the slow response, things have been hectic." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course, I'll send the deck over by end of week." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no (worries|problem)|totally understand)",
+        "(thanks for|appreciate) (getting back|the update)",
+        "(just to confirm|to clarify|circling back)",
+        "(could you|when you have a chance)",
+      ],
+      tr_hint:
+        "Karşı taraf geç döndü + özür diledi. Türk hatası: 'You are late' = saldırı. 'No worries' yumuşat + soru ile devam.",
+      ideal_answer: "No worries — thanks for getting back. Could you also share the timeline when you have a chance?",
+    },
+    {
+      id: "ex.we11.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hi, I just had a quick question about the invoice we sent last week.",
+      accepted_patterns: [
+        "(hi|hey|hello)( there)?,?( thanks)?",
+        "(let me|i'?ll) (check|look into|pull up)",
+        "(could you|can you) (give me|share|forward) (the (details|reference|email))",
+        "(i'?ll get back to you|i'?ll follow up) (shortly|by (end of|tomorrow))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Müşteri/manager email konusu sordu — 'I check' dur, 'check edeyim' yerine 'let me check' kullan.",
+      ideal_response: "Hi — let me check on that and get back to you by end of day.",
+    },
+    {
+      id: "ex.we11.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana mail attım, baktın mı?",
+      wrong_en: "I threw a mail to you, did you look?",
+      right_en: "I sent you an email — did you have a chance to look at it?",
+      why_tr:
+        "'Threw a mail' = Türkçe 'mail attım' direkt çeviri. Email 'send' edilir, 'throw' edilmez. 'Did you look' yetersiz — 'have a chance to look at it' = baskı yapmadan sorma. Türk öğrenci özellikle 'mail attım' kalıbından kurtulmalı.",
+    },
+    {
+      id: "ex.we11.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mail attım' İngilizcesi?",
+          options: ["I threw a mail", "I sent an email", "I made a mail", "I emailed it"],
+          correct: 1,
+          tr_explanation: "'Send an email' standart. 'Throw/make a mail' = Türkçe kalıp etkisi.",
+        },
+        {
+          q: "'Circling back' ne demek?",
+          options: ["Etrafında dolaşmak", "Konuya geri dönmek (follow-up)", "Dönmek", "İptal"],
+          correct: 1,
+          tr_explanation: "'Circling back' = daha önceki konuya geri dönmek. Email follow-up standart.",
+        },
+        {
+          q: "'Apologies for the delay' yerine fazlasıyla kibar?",
+          options: ["Sorry I'm late", "I'm so deeply sorry", "Apologies for the slow response", "Late, sorry"],
+          correct: 2,
+          tr_explanation: "'Apologies for the slow response' = profesyonel, yapısı net. Aşırı 'deeply sorry' = drama.",
+        },
+        {
+          q: "Email kapanış en güvenli?",
+          options: ["Bye", "Best regards / Thanks", "See ya", "Goodbye!!!"],
+          correct: 1,
+          tr_explanation: "'Best' veya 'Thanks' = neutral profesyonel. 'Bye/See ya' = casual.",
+        },
+        {
+          q: "'I wanted to follow up' niye 'I want to follow up'tan iyi?",
+          options: ["Aynı şey", "Past tense daha kibar/yumuşak", "Yanlış gramer", "Future"],
+          correct: 1,
+          tr_explanation: "Past tense ('wanted to') = soft. Şu an isteğini biraz uzaklaştırır — politeness marker.",
+        },
+      ],
     },
   ],
 };
@@ -1461,6 +2031,101 @@ export const workEmailLesson_11_7: BundledLesson = {
       ipa: "/aɪm ˌoʊ oʊ ˈoʊ frʌm ˈmʌndeɪ tu ˈfraɪdeɪ/",
       tr_articulation_hint:
         "'OOO' = harf harf 'oh-oh-oh' (uc kez). Hizli telaffuz: hafif yukselen ton. Ya da 'out of office' tam soyle. 'From X to Y' yapisinda tarihler vurgulu.",
+    },
+    {
+      id: "ex.we11.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I wanted to follow up on ___ and ask about ___.",
+      slots: [
+        { accepted: ['our conversation', "yesterday's meeting", 'my last email', 'the proposal'], distractors: ['our conversations', 'yesterdays meetings', 'my last emails', 'the proposals'] },
+        { accepted: ['next steps', 'the timeline', 'your feedback', 'any updates'], distractors: ["next step's", 'the timelines', 'your feedbacks', 'any update'] },
+      ],
+      tr_hint:
+        "Email follow-up kalıbı. 'Wanted to' = past tense soft, daha kibar. 'Follow up on X and ask about Y' = net + saygılı.",
+      example_filled: "I wanted to follow up on our conversation and ask about next steps.",
+    },
+    {
+      id: "ex.we11.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — apologies for the slow response, things have been hectic." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course, I'll send the deck over by end of week." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no (worries|problem)|totally understand)",
+        "(thanks for|appreciate) (getting back|the update)",
+        "(just to confirm|to clarify|circling back)",
+        "(could you|when you have a chance)",
+      ],
+      tr_hint:
+        "Karşı taraf geç döndü + özür diledi. Türk hatası: 'You are late' = saldırı. 'No worries' yumuşat + soru ile devam.",
+      ideal_answer: "No worries — thanks for getting back. Could you also share the timeline when you have a chance?",
+    },
+    {
+      id: "ex.we11.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hi, I just had a quick question about the invoice we sent last week.",
+      accepted_patterns: [
+        "(hi|hey|hello)( there)?,?( thanks)?",
+        "(let me|i'?ll) (check|look into|pull up)",
+        "(could you|can you) (give me|share|forward) (the (details|reference|email))",
+        "(i'?ll get back to you|i'?ll follow up) (shortly|by (end of|tomorrow))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Müşteri/manager email konusu sordu — 'I check' dur, 'check edeyim' yerine 'let me check' kullan.",
+      ideal_response: "Hi — let me check on that and get back to you by end of day.",
+    },
+    {
+      id: "ex.we11.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana mail attım, baktın mı?",
+      wrong_en: "I threw a mail to you, did you look?",
+      right_en: "I sent you an email — did you have a chance to look at it?",
+      why_tr:
+        "'Threw a mail' = Türkçe 'mail attım' direkt çeviri. Email 'send' edilir, 'throw' edilmez. 'Did you look' yetersiz — 'have a chance to look at it' = baskı yapmadan sorma. Türk öğrenci özellikle 'mail attım' kalıbından kurtulmalı.",
+    },
+    {
+      id: "ex.we11.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mail attım' İngilizcesi?",
+          options: ["I threw a mail", "I sent an email", "I made a mail", "I emailed it"],
+          correct: 1,
+          tr_explanation: "'Send an email' standart. 'Throw/make a mail' = Türkçe kalıp etkisi.",
+        },
+        {
+          q: "'Circling back' ne demek?",
+          options: ["Etrafında dolaşmak", "Konuya geri dönmek (follow-up)", "Dönmek", "İptal"],
+          correct: 1,
+          tr_explanation: "'Circling back' = daha önceki konuya geri dönmek. Email follow-up standart.",
+        },
+        {
+          q: "'Apologies for the delay' yerine fazlasıyla kibar?",
+          options: ["Sorry I'm late", "I'm so deeply sorry", "Apologies for the slow response", "Late, sorry"],
+          correct: 2,
+          tr_explanation: "'Apologies for the slow response' = profesyonel, yapısı net. Aşırı 'deeply sorry' = drama.",
+        },
+        {
+          q: "Email kapanış en güvenli?",
+          options: ["Bye", "Best regards / Thanks", "See ya", "Goodbye!!!"],
+          correct: 1,
+          tr_explanation: "'Best' veya 'Thanks' = neutral profesyonel. 'Bye/See ya' = casual.",
+        },
+        {
+          q: "'I wanted to follow up' niye 'I want to follow up'tan iyi?",
+          options: ["Aynı şey", "Past tense daha kibar/yumuşak", "Yanlış gramer", "Future"],
+          correct: 1,
+          tr_explanation: "Past tense ('wanted to') = soft. Şu an isteğini biraz uzaklaştırır — politeness marker.",
+        },
+      ],
     },
   ],
 };
@@ -1635,6 +2300,101 @@ export const workEmailLesson_11_8: BundledLesson = {
       ipa: "/aɪd hæv tu pæs ɑn ðɪs wʌn/",
       tr_articulation_hint:
         "'I'd have to' birlesik = ayd-haf-tu, hizli. 'Pass on' iki kelimeli vurgu — pas geciyorum. Uzgunluk degil, kararli + kibar ton. 'Hayir ama saygiliyim' diyorsun.",
+    },
+    {
+      id: "ex.we11.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I wanted to follow up on ___ and ask about ___.",
+      slots: [
+        { accepted: ['our conversation', "yesterday's meeting", 'my last email', 'the proposal'], distractors: ['our conversations', 'yesterdays meetings', 'my last emails', 'the proposals'] },
+        { accepted: ['next steps', 'the timeline', 'your feedback', 'any updates'], distractors: ["next step's", 'the timelines', 'your feedbacks', 'any update'] },
+      ],
+      tr_hint:
+        "Email follow-up kalıbı. 'Wanted to' = past tense soft, daha kibar. 'Follow up on X and ask about Y' = net + saygılı.",
+      example_filled: "I wanted to follow up on our conversation and ask about next steps.",
+    },
+    {
+      id: "ex.we11.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — apologies for the slow response, things have been hectic." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course, I'll send the deck over by end of week." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no (worries|problem)|totally understand)",
+        "(thanks for|appreciate) (getting back|the update)",
+        "(just to confirm|to clarify|circling back)",
+        "(could you|when you have a chance)",
+      ],
+      tr_hint:
+        "Karşı taraf geç döndü + özür diledi. Türk hatası: 'You are late' = saldırı. 'No worries' yumuşat + soru ile devam.",
+      ideal_answer: "No worries — thanks for getting back. Could you also share the timeline when you have a chance?",
+    },
+    {
+      id: "ex.we11.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hi, I just had a quick question about the invoice we sent last week.",
+      accepted_patterns: [
+        "(hi|hey|hello)( there)?,?( thanks)?",
+        "(let me|i'?ll) (check|look into|pull up)",
+        "(could you|can you) (give me|share|forward) (the (details|reference|email))",
+        "(i'?ll get back to you|i'?ll follow up) (shortly|by (end of|tomorrow))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Müşteri/manager email konusu sordu — 'I check' dur, 'check edeyim' yerine 'let me check' kullan.",
+      ideal_response: "Hi — let me check on that and get back to you by end of day.",
+    },
+    {
+      id: "ex.we11.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana mail attım, baktın mı?",
+      wrong_en: "I threw a mail to you, did you look?",
+      right_en: "I sent you an email — did you have a chance to look at it?",
+      why_tr:
+        "'Threw a mail' = Türkçe 'mail attım' direkt çeviri. Email 'send' edilir, 'throw' edilmez. 'Did you look' yetersiz — 'have a chance to look at it' = baskı yapmadan sorma. Türk öğrenci özellikle 'mail attım' kalıbından kurtulmalı.",
+    },
+    {
+      id: "ex.we11.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mail attım' İngilizcesi?",
+          options: ["I threw a mail", "I sent an email", "I made a mail", "I emailed it"],
+          correct: 1,
+          tr_explanation: "'Send an email' standart. 'Throw/make a mail' = Türkçe kalıp etkisi.",
+        },
+        {
+          q: "'Circling back' ne demek?",
+          options: ["Etrafında dolaşmak", "Konuya geri dönmek (follow-up)", "Dönmek", "İptal"],
+          correct: 1,
+          tr_explanation: "'Circling back' = daha önceki konuya geri dönmek. Email follow-up standart.",
+        },
+        {
+          q: "'Apologies for the delay' yerine fazlasıyla kibar?",
+          options: ["Sorry I'm late", "I'm so deeply sorry", "Apologies for the slow response", "Late, sorry"],
+          correct: 2,
+          tr_explanation: "'Apologies for the slow response' = profesyonel, yapısı net. Aşırı 'deeply sorry' = drama.",
+        },
+        {
+          q: "Email kapanış en güvenli?",
+          options: ["Bye", "Best regards / Thanks", "See ya", "Goodbye!!!"],
+          correct: 1,
+          tr_explanation: "'Best' veya 'Thanks' = neutral profesyonel. 'Bye/See ya' = casual.",
+        },
+        {
+          q: "'I wanted to follow up' niye 'I want to follow up'tan iyi?",
+          options: ["Aynı şey", "Past tense daha kibar/yumuşak", "Yanlış gramer", "Future"],
+          correct: 1,
+          tr_explanation: "Past tense ('wanted to') = soft. Şu an isteğini biraz uzaklaştırır — politeness marker.",
+        },
+      ],
     },
   ],
 };

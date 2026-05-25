@@ -156,6 +156,134 @@ export const erasmusAmsterdam01: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcerasmusamst1.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arcerasmusamst1.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arcerasmusamst1.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arcerasmusamst1.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arcerasmusamst1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -290,6 +418,131 @@ export const erasmusAmsterdam02: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcerasmusamst2.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm checking in — I have a reservation under ___.",
+      slots: [
+        { accepted: ["my name", "Yilmaz", "Demir", "Kaya", "Aydin"] },
+      ],
+      tr_hint:
+        "Otel/yurt check-in açılışı. 'Under [isim]' = [isim] adına. Türk: 'My name is' yerine 'Under my name' daha kısa profesyonel.",
+      example_filled: "I'm checking in — I have a reservation under Yilmaz.",
+    },
+    {
+      id: "ex.arcerasmusamst2.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Welcome — your name, please?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Found it. Could I see your passport?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(it'?s |under )?[a-z]+",
+        "(i'?m|im) [a-z]+",
+        "(my name (is|'?s)) [a-z]+",
+        "(checking in (as|under)) [a-z]+",
+      ],
+      tr_hint:
+        "İsim ver: 'It's Yilmaz' veya 'Under Yilmaz'. Türk: tam cümle 'My name is...' uzun, kısa form yeterli.",
+      ideal_answer: "It's Yilmaz — checking in for tonight.",
+    },
+    {
+      id: "ex.arcerasmusamst2.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Could you sign here, and is there anything else you need?",
+      accepted_patterns: [
+        "(sure|of course|happy to)",
+        "(could (i|you)|can (i|you)) (have|get) (the )?(wifi (password|info))",
+        "(what time is (breakfast|checkout))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "İmza + soru fırsatı. 'Sure — could I get the WiFi?' Türk: 'OK' eksik, kibar imza + fonksiyonel soru.",
+      ideal_response: "Sure — could I get the WiFi password as well?",
+    },
+    {
+      id: "ex.arcerasmusamst2.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anahtarımı verir misin?",
+      wrong_en: "Can you give me my key?",
+      right_en: "Could I get my key, please?",
+      why_tr:
+        "Türk literal 'give me' = emir tonu. 'Could I get' = aynı anlam, tamamen kibar. Otel/yurt çalışanı 'give me' duyarsa kaba algılayabilir.",
+    },
+    {
+      id: "ex.arcerasmusamst2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Check-in açılış kalıbı?",
+          options: [
+            "I want check-in",
+            "I'm checking in — reservation under [name]",
+            "Check-in I make",
+            "Reservation me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm checking in' (şimdiki durum) + 'under [name]' (rezervasyon kim adına). Türk: tam cümle profesyonel.",
+        },
+        {
+          q: "'Key card' nedir?",
+          options: [
+            "Anahtar kart",
+            "Kart anahtar",
+            "Kapı kartı",
+            "Şifre kartı",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Key card' = modern otel/yurt elektronik anahtar.",
+        },
+        {
+          q: "'Quiet hours' ne demek?",
+          options: [
+            "Sessiz saatler (gürültü yasak)",
+            "Boş saatler",
+            "Mola saatleri",
+            "Yavaş saatler",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Quiet hours 10pm-7am' = gece 10-sabah 7 sessizlik kuralı.",
+        },
+        {
+          q: "Kaybedilen anahtar ücreti soracaksın:",
+          options: [
+            "Lose key cost?",
+            "What if I lose the key card — how much is the replacement?",
+            "Key gone, how price?",
+            "Replacement money?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Tam soru: 'What if + senaryo + how much'. Türk: parçalı eksik, tam cümle profesyonel.",
+        },
+        {
+          q: "İmza isteyen görevliye kibar cevap?",
+          options: [
+            "OK",
+            "Sure / Of course",
+            "I sign",
+            "Yes sign here",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sure' veya 'Of course' = günlük + kibar onay. Türk: 'OK' düz, 'Sure' samimi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -424,6 +677,132 @@ export const erasmusAmsterdam03: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcerasmusamst3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I had a question about ___ — could you ___?",
+      slots: [
+        { accepted: ["the assignment", "the deadline", "the syllabus", "the readings", "the project"] },
+        { accepted: ["clarify", "explain", "walk me through it", "give an example", "elaborate"] },
+      ],
+      tr_hint:
+        "Profesör/asistana resmi soru kalıbı. 'I had a question about X — could you clarify?' Türk: 'I don't understand' kapalı, 'I had a question' resmi yumuşatma.",
+      example_filled: "I had a question about the assignment — could you walk me through it?",
+    },
+    {
+      id: "ex.arcerasmusamst3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Come in. You wanted to talk about the assignment?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — fire away." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (i had|i have) (a |some |a few )?question",
+        "(thanks |thank you )?for (taking|making) (the )?time",
+        "(about the (mid|midterm)|on the project brief)",
+        "(i wanted to (clarify|check)|i was hoping to clarify)",
+      ],
+      tr_hint:
+        "Profesör ofis saati. 'Yes, I had a question about the assignment.' Türk: 'I have problem' eksik, resmi açılış kibar.",
+      ideal_answer: "Yes, I had a couple of questions — thanks for taking the time.",
+    },
+    {
+      id: "ex.arcerasmusamst3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's the part that's giving you trouble?",
+      accepted_patterns: [
+        "(the (scope|brief|prompt) is (a bit )?(unclear|vague))",
+        "(i wasn'?t sure (whether|if))",
+        "(could you (clarify|explain) (the (focus|approach|format)))",
+        "(specifically )?(the (word count|deadline|sources))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik sorun belirt: 'The brief is a bit unclear about X.' Türk: 'I don't understand' yetersiz, hangi kısmın net belirt.",
+      ideal_response: "Honestly, the brief is a bit unclear about the scope — could you clarify what counts as evidence?",
+    },
+    {
+      id: "ex.arcerasmusamst3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Anlayamadım, bana bir daha açıklar mısın?",
+      wrong_en: "I cannot understand, can you explain me again?",
+      right_en: "Sorry, I'm not quite following — could you walk me through that again?",
+      why_tr:
+        "Türk: 'I cannot understand' = tamamen anlamadım (sert). 'I'm not quite following' = takıldım (yumuşak). 'Explain me' yanlış — 'explain to me' veya 'walk me through' doğru.",
+    },
+    {
+      id: "ex.arcerasmusamst3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Profesörle kibar soru açılışı?",
+          options: [
+            "I don't understand",
+            "I had a question about ___",
+            "Tell me about",
+            "Explain me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I had a question' = soru için yumuşak, profesyonel açılış. Türk: 'I don't understand' kapalı/savunmaya geçer.",
+        },
+        {
+          q: "'Office hours' nedir?",
+          options: [
+            "Çalışma saatleri",
+            "Profesörün öğrenci kabul saati",
+            "Sınıf saati",
+            "Mola saati",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Office hours' = öğretim üyesinin öğrenci ile birebir görüşme saati.",
+        },
+        {
+          q: "'Could you clarify ___?' formal mı casual mı?",
+          options: [
+            "Casual",
+            "Formal (akademik için ideal)",
+            "Slang",
+            "Kaba",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you clarify' = nezaket + akademik. 'Can you say again' casual.",
+        },
+        {
+          q: "'Walk me through' deyimi anlamı?",
+          options: [
+            "Yürütmek",
+            "Adım adım açıkla",
+            "Beni yönlendir",
+            "Beraber yürü",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Walk me through' = adım adım anlat (idiom). 'Walk' fiziksel değil.",
+        },
+        {
+          q: "Türk öğrenci 'açıkla' deyince yaygın hata?",
+          options: [
+            "'Explain me' demek (yanlış — 'explain to me' doğru)",
+            "'Tell me'",
+            "'Show me'",
+            "'Give me'",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Explain' geçişli değil — 'explain TO me' veya 'explain it' doğru. 'Explain me' Türkçeden çeviri hata.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -558,6 +937,134 @@ export const erasmusAmsterdam04: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcerasmusamst4.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arcerasmusamst4.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arcerasmusamst4.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arcerasmusamst4.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arcerasmusamst4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -692,6 +1199,132 @@ export const erasmusAmsterdam05: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcerasmusamst5.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could I get a ___ with ___, please?",
+      slots: [
+        { accepted: ["flat white", "cappuccino", "latte", "americano", "cortado"] },
+        { accepted: ["oat milk", "almond milk", "extra shot", "no sugar", "less foam"] },
+      ],
+      tr_hint:
+        "Kahve özel sipariş kalıbı: 'Could I get + içecek + with + özel'. Türk: 'I want' düz, 'Could I get' kibar.",
+      example_filled: "Could I get a flat white with oat milk, please?",
+    },
+    {
+      id: "ex.arcerasmusamst5.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Morning! The usual?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Coming up — anything to eat?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (you got it|please|same as always)",
+        "(actually )?(let me )?(switch (it )?up|try something different)",
+        "(make it )?(a double|a large)(,)? please",
+        "(yes)(,)? (and|with) (a croissant|something to eat)",
+      ],
+      tr_hint:
+        "Barista sürekli müşteri tanıdı. 'You got it!' = aynen! Türk: 'Yes same' düz, 'You got it' samimi onay.",
+      ideal_answer: "Yes, you got it — flat white, please.",
+    },
+    {
+      id: "ex.arcerasmusamst5.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "We're out of oat milk — almond or whole instead?",
+      accepted_patterns: [
+        "(almond|whole|either) (works|is fine)",
+        "(let me )?(go with|do|take) (almond|whole)",
+        "(any (other (alternatives|options)|soy))",
+        "(actually )?(just (black|with whole)|forget the milk)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Stok yok. 'Almond works' veya 'Just black, then.' Türk: 'OK almond' eksik, 'Almond works' net kabul.",
+      ideal_response: "Almond works, thanks.",
+    },
+    {
+      id: "ex.arcerasmusamst5.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Sütsüz olabilir mi?",
+      wrong_en: "Can it be without milk?",
+      right_en: "Could I get it black, please?",
+      why_tr:
+        "Türk literal çeviri: 'without milk' anlaşılır ama doğal değil. 'Black' = sütsüz/sade (kahve için terim). 'Could I get it black?' kibar + doğru terim.",
+    },
+    {
+      id: "ex.arcerasmusamst5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'The usual?' baristanın sorduğu nedir?",
+          options: [
+            "Olağan mı?",
+            "Her zamanki (sipariş) mi?",
+            "Normal mi?",
+            "Standart mı?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The usual' = her zamanki sipariş (sürekli müşteriye sorulur).",
+        },
+        {
+          q: "Sütsüz kahve nasıl söylenir?",
+          options: [
+            "Without milk",
+            "No milk",
+            "Black",
+            "Empty",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'Black' = kahve için sütsüz/sade terim. 'Without milk' anlaşılır ama 'black' native.",
+        },
+        {
+          q: "'For here or to go?' anlamı?",
+          options: [
+            "Burada mı, paket mi?",
+            "Burada mı, dışarıda mı?",
+            "Otur mu, kalk mı?",
+            "Buradan mı, oradan mı?",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For here' = burada içeceğim. 'To go' = paket alıp gideceğim.",
+        },
+        {
+          q: "'Extra shot' ne demek?",
+          options: [
+            "Ekstra fotoğraf",
+            "İkinci espresso (kahveye)",
+            "Büyük boy",
+            "Hızlı içim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Extra shot' = ekstra espresso dozu (latte/cappuccino'ya eklenir).",
+        },
+        {
+          q: "Tezgah ödemesinde kibar kalıp?",
+          options: [
+            "I will pay with card",
+            "Card, please / Contactless",
+            "Card I take",
+            "Take my card",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Card, please' veya 'Contactless' — kısa, doğal. Türk: tam cümle gereksiz.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -809,6 +1442,134 @@ export const erasmusAmsterdam06: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcerasmusamst6.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arcerasmusamst6.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arcerasmusamst6.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arcerasmusamst6.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arcerasmusamst6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -943,6 +1704,134 @@ export const erasmusAmsterdam07: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcerasmusamst7.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arcerasmusamst7.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arcerasmusamst7.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arcerasmusamst7.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arcerasmusamst7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1077,6 +1966,134 @@ export const erasmusAmsterdam08: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcerasmusamst8.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arcerasmusamst8.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arcerasmusamst8.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arcerasmusamst8.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arcerasmusamst8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1194,6 +2211,134 @@ export const erasmusAmsterdam09: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcerasmusamst9.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arcerasmusamst9.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arcerasmusamst9.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arcerasmusamst9.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arcerasmusamst9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1345,6 +2490,134 @@ export const erasmusAmsterdam10: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcerasmusamst10.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arcerasmusamst10.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arcerasmusamst10.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arcerasmusamst10.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arcerasmusamst10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1483,6 +2756,134 @@ export const juniorDevLondon01: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcjuniordevlo1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcjuniordevlo1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcjuniordevlo1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcjuniordevlo1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcjuniordevlo1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1600,6 +3001,134 @@ export const juniorDevLondon02: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcjuniordevlo2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcjuniordevlo2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcjuniordevlo2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcjuniordevlo2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcjuniordevlo2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1717,6 +3246,134 @@ export const juniorDevLondon03: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcjuniordevlo3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcjuniordevlo3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcjuniordevlo3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcjuniordevlo3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcjuniordevlo3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1834,6 +3491,134 @@ export const juniorDevLondon04: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcjuniordevlo4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcjuniordevlo4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcjuniordevlo4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcjuniordevlo4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcjuniordevlo4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1951,6 +3736,134 @@ export const juniorDevLondon05: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcjuniordevlo5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcjuniordevlo5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcjuniordevlo5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcjuniordevlo5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcjuniordevlo5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -2068,6 +3981,134 @@ export const juniorDevLondon06: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcjuniordevlo6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcjuniordevlo6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcjuniordevlo6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcjuniordevlo6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcjuniordevlo6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -2202,6 +4243,135 @@ export const juniorDevLondon07: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcjuniordevlo7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arcjuniordevlo7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arcjuniordevlo7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arcjuniordevlo7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arcjuniordevlo7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -2319,6 +4489,134 @@ export const juniorDevLondon08: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcjuniordevlo8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcjuniordevlo8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcjuniordevlo8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcjuniordevlo8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcjuniordevlo8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -2436,6 +4734,134 @@ export const juniorDevLondon09: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcjuniordevlo9.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcjuniordevlo9.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcjuniordevlo9.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcjuniordevlo9.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcjuniordevlo9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -2553,6 +4979,134 @@ export const juniorDevLondon10: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcjuniordevlo10.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcjuniordevlo10.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcjuniordevlo10.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcjuniordevlo10.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcjuniordevlo10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -2673,6 +5227,134 @@ export const nyTechConf01: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcnytechconf1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I really enjoyed your ___ — quick question about ___?",
+      slots: [
+        { accepted: ["talk", "panel", "session", "keynote", "demo"] },
+        { accepted: ["the architecture", "your scaling story", "the team setup", "the trade-offs", "what's next"] },
+      ],
+      tr_hint:
+        "Konferans networking açılışı. 'Compliment + question' kalıbı. Türk: 'I have a question' düz, övgü + soru samimi.",
+      example_filled: "I really enjoyed your talk — quick question about the scaling story?",
+    },
+    {
+      id: "ex.arcnytechconf1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Thanks! What did you want to know?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good question — that took us about six months to figure out." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was curious (about|how))",
+        "(how did you (handle|approach|decide on))",
+        "(what was the (deciding|hardest) (factor|part))",
+        "(when you mentioned ([a-z ]+) — (what does that mean|how does that work))",
+        "(at my (company|team|shop) we'?re (looking at|considering))",
+      ],
+      tr_hint:
+        "Spesifik soru. 'How did you approach the migration?' Türk: 'I want to know about everything' eksik, dar soru profesyonel.",
+      ideal_answer: "I was curious how you handled the migration phase — at my team we're looking at something similar.",
+    },
+    {
+      id: "ex.arcnytechconf1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Are you working on anything similar at your company?",
+      accepted_patterns: [
+        "(yeah|kind of|sort of)(,)? (we'?re (just )?(starting|exploring))",
+        "(my (team|squad)) (is (currently|in the middle of))",
+        "(we (took a different approach|went the other way))",
+        "(here'?s my (contact|linkedin)|let'?s (stay in touch|exchange))",
+        "(could i (pick your brain|ping you))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Networking — kendi durum + bağlantı kur. 'Yeah, my team is doing X — could I ping you on LinkedIn?' Türk: 'No, nothing' soğuk, durum + follow-up.",
+      ideal_response: "Yeah — we're just starting. Could I ping you on LinkedIn to keep the conversation going?",
+    },
+    {
+      id: "ex.arcnytechconf1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Konuşmanı çok beğendim, çok başarılısın.",
+      wrong_en: "I liked your talk very much, you are very successful.",
+      right_en: "Really enjoyed your talk — especially the part about migration trade-offs.",
+      why_tr:
+        "Türk: 'you are very successful' = aşırı + creepy ton verir. Native: spesifik kısma övgü = daha güçlü + samimi. 'Successful' kişisel yargı, konfor bozar.",
+    },
+    {
+      id: "ex.arcnytechconf1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Konferans networking açılışı:",
+          options: [
+            "Hello, I am here",
+            "Compliment + spesifik soru (Enjoyed your talk — question about X?)",
+            "Tell me about you",
+            "I want to know",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Konuşmacının kendi enerjisinden başla. Övgü + soru = doğal köprü.",
+        },
+        {
+          q: "'Pick your brain' deyimi?",
+          options: [
+            "Beynini seç",
+            "Fikrini sormak/danışmak (samimi)",
+            "Aklını oku",
+            "Beyni topla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Can I pick your brain?' = fikrini sorabilir miyim? Networking samimi kalıbı.",
+        },
+        {
+          q: "'Stay in touch' ne demek?",
+          options: [
+            "Dokunarak kal",
+            "İrtibatı koru (devam edelim)",
+            "Yakın dur",
+            "Stresli ol",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Let's stay in touch' = irtibatı kopartmayalım. Konferans veda + LinkedIn ekleme kalıbı.",
+        },
+        {
+          q: "'Trade-off' anlamı?",
+          options: [
+            "Takas",
+            "Bedel/değiş tokuş (X kazanmak için Y kaybetmek)",
+            "Pazarlık",
+            "Ticari fırsat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Trade-off' = avantaj/dezavantaj dengesi (mimari kararlarda yaygın).",
+        },
+        {
+          q: "Övgü için spesifik vs genel:",
+          options: [
+            "Genel ('Great talk!')",
+            "Spesifik ('That migration part was great — especially how you...')",
+            "Genel iyi",
+            "Aynı şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Spesifik övgü = dikkat ettiğin sinyali. 'Great talk' jenerik, spesifik kısım = derinlik.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -2802,6 +5484,134 @@ export const nyTechConf02: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcnytechconf2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcnytechconf2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcnytechconf2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcnytechconf2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcnytechconf2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -2918,6 +5728,134 @@ export const nyTechConf03: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcnytechconf3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I really enjoyed your ___ — quick question about ___?",
+      slots: [
+        { accepted: ["talk", "panel", "session", "keynote", "demo"] },
+        { accepted: ["the architecture", "your scaling story", "the team setup", "the trade-offs", "what's next"] },
+      ],
+      tr_hint:
+        "Konferans networking açılışı. 'Compliment + question' kalıbı. Türk: 'I have a question' düz, övgü + soru samimi.",
+      example_filled: "I really enjoyed your talk — quick question about the scaling story?",
+    },
+    {
+      id: "ex.arcnytechconf3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Thanks! What did you want to know?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good question — that took us about six months to figure out." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was curious (about|how))",
+        "(how did you (handle|approach|decide on))",
+        "(what was the (deciding|hardest) (factor|part))",
+        "(when you mentioned ([a-z ]+) — (what does that mean|how does that work))",
+        "(at my (company|team|shop) we'?re (looking at|considering))",
+      ],
+      tr_hint:
+        "Spesifik soru. 'How did you approach the migration?' Türk: 'I want to know about everything' eksik, dar soru profesyonel.",
+      ideal_answer: "I was curious how you handled the migration phase — at my team we're looking at something similar.",
+    },
+    {
+      id: "ex.arcnytechconf3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Are you working on anything similar at your company?",
+      accepted_patterns: [
+        "(yeah|kind of|sort of)(,)? (we'?re (just )?(starting|exploring))",
+        "(my (team|squad)) (is (currently|in the middle of))",
+        "(we (took a different approach|went the other way))",
+        "(here'?s my (contact|linkedin)|let'?s (stay in touch|exchange))",
+        "(could i (pick your brain|ping you))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Networking — kendi durum + bağlantı kur. 'Yeah, my team is doing X — could I ping you on LinkedIn?' Türk: 'No, nothing' soğuk, durum + follow-up.",
+      ideal_response: "Yeah — we're just starting. Could I ping you on LinkedIn to keep the conversation going?",
+    },
+    {
+      id: "ex.arcnytechconf3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Konuşmanı çok beğendim, çok başarılısın.",
+      wrong_en: "I liked your talk very much, you are very successful.",
+      right_en: "Really enjoyed your talk — especially the part about migration trade-offs.",
+      why_tr:
+        "Türk: 'you are very successful' = aşırı + creepy ton verir. Native: spesifik kısma övgü = daha güçlü + samimi. 'Successful' kişisel yargı, konfor bozar.",
+    },
+    {
+      id: "ex.arcnytechconf3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Konferans networking açılışı:",
+          options: [
+            "Hello, I am here",
+            "Compliment + spesifik soru (Enjoyed your talk — question about X?)",
+            "Tell me about you",
+            "I want to know",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Konuşmacının kendi enerjisinden başla. Övgü + soru = doğal köprü.",
+        },
+        {
+          q: "'Pick your brain' deyimi?",
+          options: [
+            "Beynini seç",
+            "Fikrini sormak/danışmak (samimi)",
+            "Aklını oku",
+            "Beyni topla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Can I pick your brain?' = fikrini sorabilir miyim? Networking samimi kalıbı.",
+        },
+        {
+          q: "'Stay in touch' ne demek?",
+          options: [
+            "Dokunarak kal",
+            "İrtibatı koru (devam edelim)",
+            "Yakın dur",
+            "Stresli ol",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Let's stay in touch' = irtibatı kopartmayalım. Konferans veda + LinkedIn ekleme kalıbı.",
+        },
+        {
+          q: "'Trade-off' anlamı?",
+          options: [
+            "Takas",
+            "Bedel/değiş tokuş (X kazanmak için Y kaybetmek)",
+            "Pazarlık",
+            "Ticari fırsat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Trade-off' = avantaj/dezavantaj dengesi (mimari kararlarda yaygın).",
+        },
+        {
+          q: "Övgü için spesifik vs genel:",
+          options: [
+            "Genel ('Great talk!')",
+            "Spesifik ('That migration part was great — especially how you...')",
+            "Genel iyi",
+            "Aynı şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Spesifik övgü = dikkat ettiğin sinyali. 'Great talk' jenerik, spesifik kısım = derinlik.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -3052,6 +5990,134 @@ export const nyTechConf04: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcnytechconf4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I really enjoyed your ___ — quick question about ___?",
+      slots: [
+        { accepted: ["talk", "panel", "session", "keynote", "demo"] },
+        { accepted: ["the architecture", "your scaling story", "the team setup", "the trade-offs", "what's next"] },
+      ],
+      tr_hint:
+        "Konferans networking açılışı. 'Compliment + question' kalıbı. Türk: 'I have a question' düz, övgü + soru samimi.",
+      example_filled: "I really enjoyed your talk — quick question about the scaling story?",
+    },
+    {
+      id: "ex.arcnytechconf4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Thanks! What did you want to know?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good question — that took us about six months to figure out." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was curious (about|how))",
+        "(how did you (handle|approach|decide on))",
+        "(what was the (deciding|hardest) (factor|part))",
+        "(when you mentioned ([a-z ]+) — (what does that mean|how does that work))",
+        "(at my (company|team|shop) we'?re (looking at|considering))",
+      ],
+      tr_hint:
+        "Spesifik soru. 'How did you approach the migration?' Türk: 'I want to know about everything' eksik, dar soru profesyonel.",
+      ideal_answer: "I was curious how you handled the migration phase — at my team we're looking at something similar.",
+    },
+    {
+      id: "ex.arcnytechconf4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Are you working on anything similar at your company?",
+      accepted_patterns: [
+        "(yeah|kind of|sort of)(,)? (we'?re (just )?(starting|exploring))",
+        "(my (team|squad)) (is (currently|in the middle of))",
+        "(we (took a different approach|went the other way))",
+        "(here'?s my (contact|linkedin)|let'?s (stay in touch|exchange))",
+        "(could i (pick your brain|ping you))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Networking — kendi durum + bağlantı kur. 'Yeah, my team is doing X — could I ping you on LinkedIn?' Türk: 'No, nothing' soğuk, durum + follow-up.",
+      ideal_response: "Yeah — we're just starting. Could I ping you on LinkedIn to keep the conversation going?",
+    },
+    {
+      id: "ex.arcnytechconf4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Konuşmanı çok beğendim, çok başarılısın.",
+      wrong_en: "I liked your talk very much, you are very successful.",
+      right_en: "Really enjoyed your talk — especially the part about migration trade-offs.",
+      why_tr:
+        "Türk: 'you are very successful' = aşırı + creepy ton verir. Native: spesifik kısma övgü = daha güçlü + samimi. 'Successful' kişisel yargı, konfor bozar.",
+    },
+    {
+      id: "ex.arcnytechconf4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Konferans networking açılışı:",
+          options: [
+            "Hello, I am here",
+            "Compliment + spesifik soru (Enjoyed your talk — question about X?)",
+            "Tell me about you",
+            "I want to know",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Konuşmacının kendi enerjisinden başla. Övgü + soru = doğal köprü.",
+        },
+        {
+          q: "'Pick your brain' deyimi?",
+          options: [
+            "Beynini seç",
+            "Fikrini sormak/danışmak (samimi)",
+            "Aklını oku",
+            "Beyni topla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Can I pick your brain?' = fikrini sorabilir miyim? Networking samimi kalıbı.",
+        },
+        {
+          q: "'Stay in touch' ne demek?",
+          options: [
+            "Dokunarak kal",
+            "İrtibatı koru (devam edelim)",
+            "Yakın dur",
+            "Stresli ol",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Let's stay in touch' = irtibatı kopartmayalım. Konferans veda + LinkedIn ekleme kalıbı.",
+        },
+        {
+          q: "'Trade-off' anlamı?",
+          options: [
+            "Takas",
+            "Bedel/değiş tokuş (X kazanmak için Y kaybetmek)",
+            "Pazarlık",
+            "Ticari fırsat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Trade-off' = avantaj/dezavantaj dengesi (mimari kararlarda yaygın).",
+        },
+        {
+          q: "Övgü için spesifik vs genel:",
+          options: [
+            "Genel ('Great talk!')",
+            "Spesifik ('That migration part was great — especially how you...')",
+            "Genel iyi",
+            "Aynı şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Spesifik övgü = dikkat ettiğin sinyali. 'Great talk' jenerik, spesifik kısım = derinlik.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -3164,6 +6230,134 @@ export const nyTechConf05: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcnytechconf5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I really enjoyed your ___ — quick question about ___?",
+      slots: [
+        { accepted: ["talk", "panel", "session", "keynote", "demo"] },
+        { accepted: ["the architecture", "your scaling story", "the team setup", "the trade-offs", "what's next"] },
+      ],
+      tr_hint:
+        "Konferans networking açılışı. 'Compliment + question' kalıbı. Türk: 'I have a question' düz, övgü + soru samimi.",
+      example_filled: "I really enjoyed your talk — quick question about the scaling story?",
+    },
+    {
+      id: "ex.arcnytechconf5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Thanks! What did you want to know?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good question — that took us about six months to figure out." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was curious (about|how))",
+        "(how did you (handle|approach|decide on))",
+        "(what was the (deciding|hardest) (factor|part))",
+        "(when you mentioned ([a-z ]+) — (what does that mean|how does that work))",
+        "(at my (company|team|shop) we'?re (looking at|considering))",
+      ],
+      tr_hint:
+        "Spesifik soru. 'How did you approach the migration?' Türk: 'I want to know about everything' eksik, dar soru profesyonel.",
+      ideal_answer: "I was curious how you handled the migration phase — at my team we're looking at something similar.",
+    },
+    {
+      id: "ex.arcnytechconf5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Are you working on anything similar at your company?",
+      accepted_patterns: [
+        "(yeah|kind of|sort of)(,)? (we'?re (just )?(starting|exploring))",
+        "(my (team|squad)) (is (currently|in the middle of))",
+        "(we (took a different approach|went the other way))",
+        "(here'?s my (contact|linkedin)|let'?s (stay in touch|exchange))",
+        "(could i (pick your brain|ping you))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Networking — kendi durum + bağlantı kur. 'Yeah, my team is doing X — could I ping you on LinkedIn?' Türk: 'No, nothing' soğuk, durum + follow-up.",
+      ideal_response: "Yeah — we're just starting. Could I ping you on LinkedIn to keep the conversation going?",
+    },
+    {
+      id: "ex.arcnytechconf5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Konuşmanı çok beğendim, çok başarılısın.",
+      wrong_en: "I liked your talk very much, you are very successful.",
+      right_en: "Really enjoyed your talk — especially the part about migration trade-offs.",
+      why_tr:
+        "Türk: 'you are very successful' = aşırı + creepy ton verir. Native: spesifik kısma övgü = daha güçlü + samimi. 'Successful' kişisel yargı, konfor bozar.",
+    },
+    {
+      id: "ex.arcnytechconf5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Konferans networking açılışı:",
+          options: [
+            "Hello, I am here",
+            "Compliment + spesifik soru (Enjoyed your talk — question about X?)",
+            "Tell me about you",
+            "I want to know",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Konuşmacının kendi enerjisinden başla. Övgü + soru = doğal köprü.",
+        },
+        {
+          q: "'Pick your brain' deyimi?",
+          options: [
+            "Beynini seç",
+            "Fikrini sormak/danışmak (samimi)",
+            "Aklını oku",
+            "Beyni topla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Can I pick your brain?' = fikrini sorabilir miyim? Networking samimi kalıbı.",
+        },
+        {
+          q: "'Stay in touch' ne demek?",
+          options: [
+            "Dokunarak kal",
+            "İrtibatı koru (devam edelim)",
+            "Yakın dur",
+            "Stresli ol",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Let's stay in touch' = irtibatı kopartmayalım. Konferans veda + LinkedIn ekleme kalıbı.",
+        },
+        {
+          q: "'Trade-off' anlamı?",
+          options: [
+            "Takas",
+            "Bedel/değiş tokuş (X kazanmak için Y kaybetmek)",
+            "Pazarlık",
+            "Ticari fırsat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Trade-off' = avantaj/dezavantaj dengesi (mimari kararlarda yaygın).",
+        },
+        {
+          q: "Övgü için spesifik vs genel:",
+          options: [
+            "Genel ('Great talk!')",
+            "Spesifik ('That migration part was great — especially how you...')",
+            "Genel iyi",
+            "Aynı şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Spesifik övgü = dikkat ettiğin sinyali. 'Great talk' jenerik, spesifik kısım = derinlik.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -3298,6 +6492,132 @@ export const nyTechConf06: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcnytechconf6.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could I get a ___ with ___, please?",
+      slots: [
+        { accepted: ["flat white", "cappuccino", "latte", "americano", "cortado"] },
+        { accepted: ["oat milk", "almond milk", "extra shot", "no sugar", "less foam"] },
+      ],
+      tr_hint:
+        "Kahve özel sipariş kalıbı: 'Could I get + içecek + with + özel'. Türk: 'I want' düz, 'Could I get' kibar.",
+      example_filled: "Could I get a flat white with oat milk, please?",
+    },
+    {
+      id: "ex.arcnytechconf6.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Morning! The usual?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Coming up — anything to eat?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (you got it|please|same as always)",
+        "(actually )?(let me )?(switch (it )?up|try something different)",
+        "(make it )?(a double|a large)(,)? please",
+        "(yes)(,)? (and|with) (a croissant|something to eat)",
+      ],
+      tr_hint:
+        "Barista sürekli müşteri tanıdı. 'You got it!' = aynen! Türk: 'Yes same' düz, 'You got it' samimi onay.",
+      ideal_answer: "Yes, you got it — flat white, please.",
+    },
+    {
+      id: "ex.arcnytechconf6.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "We're out of oat milk — almond or whole instead?",
+      accepted_patterns: [
+        "(almond|whole|either) (works|is fine)",
+        "(let me )?(go with|do|take) (almond|whole)",
+        "(any (other (alternatives|options)|soy))",
+        "(actually )?(just (black|with whole)|forget the milk)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Stok yok. 'Almond works' veya 'Just black, then.' Türk: 'OK almond' eksik, 'Almond works' net kabul.",
+      ideal_response: "Almond works, thanks.",
+    },
+    {
+      id: "ex.arcnytechconf6.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Sütsüz olabilir mi?",
+      wrong_en: "Can it be without milk?",
+      right_en: "Could I get it black, please?",
+      why_tr:
+        "Türk literal çeviri: 'without milk' anlaşılır ama doğal değil. 'Black' = sütsüz/sade (kahve için terim). 'Could I get it black?' kibar + doğru terim.",
+    },
+    {
+      id: "ex.arcnytechconf6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'The usual?' baristanın sorduğu nedir?",
+          options: [
+            "Olağan mı?",
+            "Her zamanki (sipariş) mi?",
+            "Normal mi?",
+            "Standart mı?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The usual' = her zamanki sipariş (sürekli müşteriye sorulur).",
+        },
+        {
+          q: "Sütsüz kahve nasıl söylenir?",
+          options: [
+            "Without milk",
+            "No milk",
+            "Black",
+            "Empty",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'Black' = kahve için sütsüz/sade terim. 'Without milk' anlaşılır ama 'black' native.",
+        },
+        {
+          q: "'For here or to go?' anlamı?",
+          options: [
+            "Burada mı, paket mi?",
+            "Burada mı, dışarıda mı?",
+            "Otur mu, kalk mı?",
+            "Buradan mı, oradan mı?",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For here' = burada içeceğim. 'To go' = paket alıp gideceğim.",
+        },
+        {
+          q: "'Extra shot' ne demek?",
+          options: [
+            "Ekstra fotoğraf",
+            "İkinci espresso (kahveye)",
+            "Büyük boy",
+            "Hızlı içim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Extra shot' = ekstra espresso dozu (latte/cappuccino'ya eklenir).",
+        },
+        {
+          q: "Tezgah ödemesinde kibar kalıp?",
+          options: [
+            "I will pay with card",
+            "Card, please / Contactless",
+            "Card I take",
+            "Take my card",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Card, please' veya 'Contactless' — kısa, doğal. Türk: tam cümle gereksiz.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -3414,6 +6734,134 @@ export const nyTechConf07: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcnytechconf7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I really enjoyed your ___ — quick question about ___?",
+      slots: [
+        { accepted: ["talk", "panel", "session", "keynote", "demo"] },
+        { accepted: ["the architecture", "your scaling story", "the team setup", "the trade-offs", "what's next"] },
+      ],
+      tr_hint:
+        "Konferans networking açılışı. 'Compliment + question' kalıbı. Türk: 'I have a question' düz, övgü + soru samimi.",
+      example_filled: "I really enjoyed your talk — quick question about the scaling story?",
+    },
+    {
+      id: "ex.arcnytechconf7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Thanks! What did you want to know?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good question — that took us about six months to figure out." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was curious (about|how))",
+        "(how did you (handle|approach|decide on))",
+        "(what was the (deciding|hardest) (factor|part))",
+        "(when you mentioned ([a-z ]+) — (what does that mean|how does that work))",
+        "(at my (company|team|shop) we'?re (looking at|considering))",
+      ],
+      tr_hint:
+        "Spesifik soru. 'How did you approach the migration?' Türk: 'I want to know about everything' eksik, dar soru profesyonel.",
+      ideal_answer: "I was curious how you handled the migration phase — at my team we're looking at something similar.",
+    },
+    {
+      id: "ex.arcnytechconf7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Are you working on anything similar at your company?",
+      accepted_patterns: [
+        "(yeah|kind of|sort of)(,)? (we'?re (just )?(starting|exploring))",
+        "(my (team|squad)) (is (currently|in the middle of))",
+        "(we (took a different approach|went the other way))",
+        "(here'?s my (contact|linkedin)|let'?s (stay in touch|exchange))",
+        "(could i (pick your brain|ping you))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Networking — kendi durum + bağlantı kur. 'Yeah, my team is doing X — could I ping you on LinkedIn?' Türk: 'No, nothing' soğuk, durum + follow-up.",
+      ideal_response: "Yeah — we're just starting. Could I ping you on LinkedIn to keep the conversation going?",
+    },
+    {
+      id: "ex.arcnytechconf7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Konuşmanı çok beğendim, çok başarılısın.",
+      wrong_en: "I liked your talk very much, you are very successful.",
+      right_en: "Really enjoyed your talk — especially the part about migration trade-offs.",
+      why_tr:
+        "Türk: 'you are very successful' = aşırı + creepy ton verir. Native: spesifik kısma övgü = daha güçlü + samimi. 'Successful' kişisel yargı, konfor bozar.",
+    },
+    {
+      id: "ex.arcnytechconf7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Konferans networking açılışı:",
+          options: [
+            "Hello, I am here",
+            "Compliment + spesifik soru (Enjoyed your talk — question about X?)",
+            "Tell me about you",
+            "I want to know",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Konuşmacının kendi enerjisinden başla. Övgü + soru = doğal köprü.",
+        },
+        {
+          q: "'Pick your brain' deyimi?",
+          options: [
+            "Beynini seç",
+            "Fikrini sormak/danışmak (samimi)",
+            "Aklını oku",
+            "Beyni topla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Can I pick your brain?' = fikrini sorabilir miyim? Networking samimi kalıbı.",
+        },
+        {
+          q: "'Stay in touch' ne demek?",
+          options: [
+            "Dokunarak kal",
+            "İrtibatı koru (devam edelim)",
+            "Yakın dur",
+            "Stresli ol",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Let's stay in touch' = irtibatı kopartmayalım. Konferans veda + LinkedIn ekleme kalıbı.",
+        },
+        {
+          q: "'Trade-off' anlamı?",
+          options: [
+            "Takas",
+            "Bedel/değiş tokuş (X kazanmak için Y kaybetmek)",
+            "Pazarlık",
+            "Ticari fırsat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Trade-off' = avantaj/dezavantaj dengesi (mimari kararlarda yaygın).",
+        },
+        {
+          q: "Övgü için spesifik vs genel:",
+          options: [
+            "Genel ('Great talk!')",
+            "Spesifik ('That migration part was great — especially how you...')",
+            "Genel iyi",
+            "Aynı şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Spesifik övgü = dikkat ettiğin sinyali. 'Great talk' jenerik, spesifik kısım = derinlik.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -3548,6 +6996,134 @@ export const nyTechConf08: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcnytechconf8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I really enjoyed your ___ — quick question about ___?",
+      slots: [
+        { accepted: ["talk", "panel", "session", "keynote", "demo"] },
+        { accepted: ["the architecture", "your scaling story", "the team setup", "the trade-offs", "what's next"] },
+      ],
+      tr_hint:
+        "Konferans networking açılışı. 'Compliment + question' kalıbı. Türk: 'I have a question' düz, övgü + soru samimi.",
+      example_filled: "I really enjoyed your talk — quick question about the scaling story?",
+    },
+    {
+      id: "ex.arcnytechconf8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Thanks! What did you want to know?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good question — that took us about six months to figure out." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was curious (about|how))",
+        "(how did you (handle|approach|decide on))",
+        "(what was the (deciding|hardest) (factor|part))",
+        "(when you mentioned ([a-z ]+) — (what does that mean|how does that work))",
+        "(at my (company|team|shop) we'?re (looking at|considering))",
+      ],
+      tr_hint:
+        "Spesifik soru. 'How did you approach the migration?' Türk: 'I want to know about everything' eksik, dar soru profesyonel.",
+      ideal_answer: "I was curious how you handled the migration phase — at my team we're looking at something similar.",
+    },
+    {
+      id: "ex.arcnytechconf8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Are you working on anything similar at your company?",
+      accepted_patterns: [
+        "(yeah|kind of|sort of)(,)? (we'?re (just )?(starting|exploring))",
+        "(my (team|squad)) (is (currently|in the middle of))",
+        "(we (took a different approach|went the other way))",
+        "(here'?s my (contact|linkedin)|let'?s (stay in touch|exchange))",
+        "(could i (pick your brain|ping you))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Networking — kendi durum + bağlantı kur. 'Yeah, my team is doing X — could I ping you on LinkedIn?' Türk: 'No, nothing' soğuk, durum + follow-up.",
+      ideal_response: "Yeah — we're just starting. Could I ping you on LinkedIn to keep the conversation going?",
+    },
+    {
+      id: "ex.arcnytechconf8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Konuşmanı çok beğendim, çok başarılısın.",
+      wrong_en: "I liked your talk very much, you are very successful.",
+      right_en: "Really enjoyed your talk — especially the part about migration trade-offs.",
+      why_tr:
+        "Türk: 'you are very successful' = aşırı + creepy ton verir. Native: spesifik kısma övgü = daha güçlü + samimi. 'Successful' kişisel yargı, konfor bozar.",
+    },
+    {
+      id: "ex.arcnytechconf8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Konferans networking açılışı:",
+          options: [
+            "Hello, I am here",
+            "Compliment + spesifik soru (Enjoyed your talk — question about X?)",
+            "Tell me about you",
+            "I want to know",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Konuşmacının kendi enerjisinden başla. Övgü + soru = doğal köprü.",
+        },
+        {
+          q: "'Pick your brain' deyimi?",
+          options: [
+            "Beynini seç",
+            "Fikrini sormak/danışmak (samimi)",
+            "Aklını oku",
+            "Beyni topla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Can I pick your brain?' = fikrini sorabilir miyim? Networking samimi kalıbı.",
+        },
+        {
+          q: "'Stay in touch' ne demek?",
+          options: [
+            "Dokunarak kal",
+            "İrtibatı koru (devam edelim)",
+            "Yakın dur",
+            "Stresli ol",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Let's stay in touch' = irtibatı kopartmayalım. Konferans veda + LinkedIn ekleme kalıbı.",
+        },
+        {
+          q: "'Trade-off' anlamı?",
+          options: [
+            "Takas",
+            "Bedel/değiş tokuş (X kazanmak için Y kaybetmek)",
+            "Pazarlık",
+            "Ticari fırsat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Trade-off' = avantaj/dezavantaj dengesi (mimari kararlarda yaygın).",
+        },
+        {
+          q: "Övgü için spesifik vs genel:",
+          options: [
+            "Genel ('Great talk!')",
+            "Spesifik ('That migration part was great — especially how you...')",
+            "Genel iyi",
+            "Aynı şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Spesifik övgü = dikkat ettiğin sinyali. 'Great talk' jenerik, spesifik kısım = derinlik.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -3687,6 +7263,134 @@ export const customerSupport01: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arccustomersup1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arccustomersup1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arccustomersup1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arccustomersup1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arccustomersup1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -3804,6 +7508,135 @@ export const customerSupport02: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arccustomersup2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm reaching out about ___ — it ___ ___.",
+      slots: [
+        { accepted: ["my order", "the billing", "an issue", "ticket #1234", "the subscription"] },
+        { accepted: ["hasn't arrived", "is showing the wrong", "stopped working", "double-charged me", "won't let me"] },
+        { accepted: ["since Tuesday", "after the update", "with no warning", "and I need it by Friday"] },
+      ],
+      tr_hint:
+        "Customer support net açıklama. 'About + konu + sorun + zaman/etki.' Türk: 'Problem var' eksik, yapısal cümle teşhis hızlı.",
+      example_filled: "I'm reaching out about my order — it hasn't arrived since Tuesday.",
+    },
+    {
+      id: "ex.arccustomersup2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm sorry to hear that — could you describe the issue in detail?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. Let me check your account." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(so|basically)(,)? (i (placed|made) (the )?order on)",
+        "(the (tracking|status) says) (.+) (but (.+))",
+        "(i (tried|already tried)) ([a-z ]+) (and that didn'?t (work|help))",
+        "(my order (number|id) is)",
+        "(here'?s what (happened|i'?m seeing))",
+      ],
+      tr_hint:
+        "Detaylı şikâyet açıklama. 'So I placed the order on Monday — tracking says delivered but it never arrived.' Türk: 'Problem' eksik, kronolojik anlatım net.",
+      ideal_answer: "So I placed the order Monday — tracking says delivered, but nothing arrived. Order number is 4521.",
+    },
+    {
+      id: "ex.arccustomersup2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I can offer you a 20% credit or a replacement — which works better?",
+      accepted_patterns: [
+        "(honestly )?(i'?d (rather|prefer) (a |the )?(replacement|refund|credit))",
+        "(if (a refund|cash back) is an option)",
+        "(the (replacement|item)) (would (work|be ideal))",
+        "(can you (also|please) (expedite|escalate))",
+        "(i (think|feel)) (a (full refund|refund) is fairer)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tazminat seçimi. 'I'd rather a full refund — can you escalate?' Türk: 'OK whatever' eksik, kararlı seçim talep.",
+      ideal_response: "Honestly, I'd rather a replacement — but can you also expedite the shipping this time?",
+    },
+    {
+      id: "ex.arccustomersup2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çok kötü bir hizmet, paramı geri istiyorum!",
+      wrong_en: "Very bad service, I want my money back!",
+      right_en: "I'm pretty frustrated with this — I'd like a full refund and to understand what went wrong.",
+      why_tr:
+        "Türk: 'Very bad' + 'I want' = duygusal + saldırgan. Native: 'frustrated' (duygu belirt + sakin) + 'understand what went wrong' (öğretici + yapıcı). Aynı sonuç, daha hızlı çözülür.",
+    },
+    {
+      id: "ex.arccustomersup2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Customer support açılış:",
+          options: [
+            "Hello problem",
+            "I'm reaching out about ___",
+            "Problem with me",
+            "Help me now",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm reaching out about X' = profesyonel destek açılışı (email + telefon ortak).",
+        },
+        {
+          q: "'Escalate' fiil anlamı?",
+          options: [
+            "Asansörle çıkmak",
+            "Üst seviyeye taşımak (yöneticiye)",
+            "Artırmak",
+            "Hızlandırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you escalate this?' = bunu üst birime/yöneticiye iletir misiniz?",
+        },
+        {
+          q: "'Expedite' ne demek?",
+          options: [
+            "Sefer",
+            "Hızlandırmak (öncelik ver)",
+            "Yayınla",
+            "Gönder",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Expedite shipping' = kargoyu hızlandır. Müşteri destek kalıbı.",
+        },
+        {
+          q: "Şikâyette duygu belirtmek:",
+          options: [
+            "Anti-profesyonel",
+            "Profesyonel ('I'm frustrated' net + sakin)",
+            "Kaba",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm frustrated' = ihtiyaç bildiriyor, sınırı koruyor. 'Very bad service' duygusal saldırı.",
+        },
+        {
+          q: "'Refund' nedir?",
+          options: [
+            "Ekstra hediye",
+            "Para iadesi",
+            "Yeni gönderim",
+            "İndirim kuponu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Refund' = para iadesi. 'Credit' = mağaza kredisi (sonra kullanılır), 'replacement' = yenisi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -3921,6 +7754,135 @@ export const customerSupport03: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arccustomersup3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm reaching out about ___ — it ___ ___.",
+      slots: [
+        { accepted: ["my order", "the billing", "an issue", "ticket #1234", "the subscription"] },
+        { accepted: ["hasn't arrived", "is showing the wrong", "stopped working", "double-charged me", "won't let me"] },
+        { accepted: ["since Tuesday", "after the update", "with no warning", "and I need it by Friday"] },
+      ],
+      tr_hint:
+        "Customer support net açıklama. 'About + konu + sorun + zaman/etki.' Türk: 'Problem var' eksik, yapısal cümle teşhis hızlı.",
+      example_filled: "I'm reaching out about my order — it hasn't arrived since Tuesday.",
+    },
+    {
+      id: "ex.arccustomersup3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm sorry to hear that — could you describe the issue in detail?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. Let me check your account." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(so|basically)(,)? (i (placed|made) (the )?order on)",
+        "(the (tracking|status) says) (.+) (but (.+))",
+        "(i (tried|already tried)) ([a-z ]+) (and that didn'?t (work|help))",
+        "(my order (number|id) is)",
+        "(here'?s what (happened|i'?m seeing))",
+      ],
+      tr_hint:
+        "Detaylı şikâyet açıklama. 'So I placed the order on Monday — tracking says delivered but it never arrived.' Türk: 'Problem' eksik, kronolojik anlatım net.",
+      ideal_answer: "So I placed the order Monday — tracking says delivered, but nothing arrived. Order number is 4521.",
+    },
+    {
+      id: "ex.arccustomersup3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I can offer you a 20% credit or a replacement — which works better?",
+      accepted_patterns: [
+        "(honestly )?(i'?d (rather|prefer) (a |the )?(replacement|refund|credit))",
+        "(if (a refund|cash back) is an option)",
+        "(the (replacement|item)) (would (work|be ideal))",
+        "(can you (also|please) (expedite|escalate))",
+        "(i (think|feel)) (a (full refund|refund) is fairer)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tazminat seçimi. 'I'd rather a full refund — can you escalate?' Türk: 'OK whatever' eksik, kararlı seçim talep.",
+      ideal_response: "Honestly, I'd rather a replacement — but can you also expedite the shipping this time?",
+    },
+    {
+      id: "ex.arccustomersup3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çok kötü bir hizmet, paramı geri istiyorum!",
+      wrong_en: "Very bad service, I want my money back!",
+      right_en: "I'm pretty frustrated with this — I'd like a full refund and to understand what went wrong.",
+      why_tr:
+        "Türk: 'Very bad' + 'I want' = duygusal + saldırgan. Native: 'frustrated' (duygu belirt + sakin) + 'understand what went wrong' (öğretici + yapıcı). Aynı sonuç, daha hızlı çözülür.",
+    },
+    {
+      id: "ex.arccustomersup3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Customer support açılış:",
+          options: [
+            "Hello problem",
+            "I'm reaching out about ___",
+            "Problem with me",
+            "Help me now",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm reaching out about X' = profesyonel destek açılışı (email + telefon ortak).",
+        },
+        {
+          q: "'Escalate' fiil anlamı?",
+          options: [
+            "Asansörle çıkmak",
+            "Üst seviyeye taşımak (yöneticiye)",
+            "Artırmak",
+            "Hızlandırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you escalate this?' = bunu üst birime/yöneticiye iletir misiniz?",
+        },
+        {
+          q: "'Expedite' ne demek?",
+          options: [
+            "Sefer",
+            "Hızlandırmak (öncelik ver)",
+            "Yayınla",
+            "Gönder",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Expedite shipping' = kargoyu hızlandır. Müşteri destek kalıbı.",
+        },
+        {
+          q: "Şikâyette duygu belirtmek:",
+          options: [
+            "Anti-profesyonel",
+            "Profesyonel ('I'm frustrated' net + sakin)",
+            "Kaba",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm frustrated' = ihtiyaç bildiriyor, sınırı koruyor. 'Very bad service' duygusal saldırı.",
+        },
+        {
+          q: "'Refund' nedir?",
+          options: [
+            "Ekstra hediye",
+            "Para iadesi",
+            "Yeni gönderim",
+            "İndirim kuponu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Refund' = para iadesi. 'Credit' = mağaza kredisi (sonra kullanılır), 'replacement' = yenisi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -4050,6 +8012,135 @@ export const customerSupport04: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arccustomersup4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm reaching out about ___ — it ___ ___.",
+      slots: [
+        { accepted: ["my order", "the billing", "an issue", "ticket #1234", "the subscription"] },
+        { accepted: ["hasn't arrived", "is showing the wrong", "stopped working", "double-charged me", "won't let me"] },
+        { accepted: ["since Tuesday", "after the update", "with no warning", "and I need it by Friday"] },
+      ],
+      tr_hint:
+        "Customer support net açıklama. 'About + konu + sorun + zaman/etki.' Türk: 'Problem var' eksik, yapısal cümle teşhis hızlı.",
+      example_filled: "I'm reaching out about my order — it hasn't arrived since Tuesday.",
+    },
+    {
+      id: "ex.arccustomersup4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm sorry to hear that — could you describe the issue in detail?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. Let me check your account." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(so|basically)(,)? (i (placed|made) (the )?order on)",
+        "(the (tracking|status) says) (.+) (but (.+))",
+        "(i (tried|already tried)) ([a-z ]+) (and that didn'?t (work|help))",
+        "(my order (number|id) is)",
+        "(here'?s what (happened|i'?m seeing))",
+      ],
+      tr_hint:
+        "Detaylı şikâyet açıklama. 'So I placed the order on Monday — tracking says delivered but it never arrived.' Türk: 'Problem' eksik, kronolojik anlatım net.",
+      ideal_answer: "So I placed the order Monday — tracking says delivered, but nothing arrived. Order number is 4521.",
+    },
+    {
+      id: "ex.arccustomersup4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I can offer you a 20% credit or a replacement — which works better?",
+      accepted_patterns: [
+        "(honestly )?(i'?d (rather|prefer) (a |the )?(replacement|refund|credit))",
+        "(if (a refund|cash back) is an option)",
+        "(the (replacement|item)) (would (work|be ideal))",
+        "(can you (also|please) (expedite|escalate))",
+        "(i (think|feel)) (a (full refund|refund) is fairer)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tazminat seçimi. 'I'd rather a full refund — can you escalate?' Türk: 'OK whatever' eksik, kararlı seçim talep.",
+      ideal_response: "Honestly, I'd rather a replacement — but can you also expedite the shipping this time?",
+    },
+    {
+      id: "ex.arccustomersup4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çok kötü bir hizmet, paramı geri istiyorum!",
+      wrong_en: "Very bad service, I want my money back!",
+      right_en: "I'm pretty frustrated with this — I'd like a full refund and to understand what went wrong.",
+      why_tr:
+        "Türk: 'Very bad' + 'I want' = duygusal + saldırgan. Native: 'frustrated' (duygu belirt + sakin) + 'understand what went wrong' (öğretici + yapıcı). Aynı sonuç, daha hızlı çözülür.",
+    },
+    {
+      id: "ex.arccustomersup4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Customer support açılış:",
+          options: [
+            "Hello problem",
+            "I'm reaching out about ___",
+            "Problem with me",
+            "Help me now",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm reaching out about X' = profesyonel destek açılışı (email + telefon ortak).",
+        },
+        {
+          q: "'Escalate' fiil anlamı?",
+          options: [
+            "Asansörle çıkmak",
+            "Üst seviyeye taşımak (yöneticiye)",
+            "Artırmak",
+            "Hızlandırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you escalate this?' = bunu üst birime/yöneticiye iletir misiniz?",
+        },
+        {
+          q: "'Expedite' ne demek?",
+          options: [
+            "Sefer",
+            "Hızlandırmak (öncelik ver)",
+            "Yayınla",
+            "Gönder",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Expedite shipping' = kargoyu hızlandır. Müşteri destek kalıbı.",
+        },
+        {
+          q: "Şikâyette duygu belirtmek:",
+          options: [
+            "Anti-profesyonel",
+            "Profesyonel ('I'm frustrated' net + sakin)",
+            "Kaba",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm frustrated' = ihtiyaç bildiriyor, sınırı koruyor. 'Very bad service' duygusal saldırı.",
+        },
+        {
+          q: "'Refund' nedir?",
+          options: [
+            "Ekstra hediye",
+            "Para iadesi",
+            "Yeni gönderim",
+            "İndirim kuponu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Refund' = para iadesi. 'Credit' = mağaza kredisi (sonra kullanılır), 'replacement' = yenisi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -4184,6 +8275,135 @@ export const customerSupport05: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arccustomersup5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm reaching out about ___ — it ___ ___.",
+      slots: [
+        { accepted: ["my order", "the billing", "an issue", "ticket #1234", "the subscription"] },
+        { accepted: ["hasn't arrived", "is showing the wrong", "stopped working", "double-charged me", "won't let me"] },
+        { accepted: ["since Tuesday", "after the update", "with no warning", "and I need it by Friday"] },
+      ],
+      tr_hint:
+        "Customer support net açıklama. 'About + konu + sorun + zaman/etki.' Türk: 'Problem var' eksik, yapısal cümle teşhis hızlı.",
+      example_filled: "I'm reaching out about my order — it hasn't arrived since Tuesday.",
+    },
+    {
+      id: "ex.arccustomersup5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm sorry to hear that — could you describe the issue in detail?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. Let me check your account." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(so|basically)(,)? (i (placed|made) (the )?order on)",
+        "(the (tracking|status) says) (.+) (but (.+))",
+        "(i (tried|already tried)) ([a-z ]+) (and that didn'?t (work|help))",
+        "(my order (number|id) is)",
+        "(here'?s what (happened|i'?m seeing))",
+      ],
+      tr_hint:
+        "Detaylı şikâyet açıklama. 'So I placed the order on Monday — tracking says delivered but it never arrived.' Türk: 'Problem' eksik, kronolojik anlatım net.",
+      ideal_answer: "So I placed the order Monday — tracking says delivered, but nothing arrived. Order number is 4521.",
+    },
+    {
+      id: "ex.arccustomersup5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I can offer you a 20% credit or a replacement — which works better?",
+      accepted_patterns: [
+        "(honestly )?(i'?d (rather|prefer) (a |the )?(replacement|refund|credit))",
+        "(if (a refund|cash back) is an option)",
+        "(the (replacement|item)) (would (work|be ideal))",
+        "(can you (also|please) (expedite|escalate))",
+        "(i (think|feel)) (a (full refund|refund) is fairer)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tazminat seçimi. 'I'd rather a full refund — can you escalate?' Türk: 'OK whatever' eksik, kararlı seçim talep.",
+      ideal_response: "Honestly, I'd rather a replacement — but can you also expedite the shipping this time?",
+    },
+    {
+      id: "ex.arccustomersup5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çok kötü bir hizmet, paramı geri istiyorum!",
+      wrong_en: "Very bad service, I want my money back!",
+      right_en: "I'm pretty frustrated with this — I'd like a full refund and to understand what went wrong.",
+      why_tr:
+        "Türk: 'Very bad' + 'I want' = duygusal + saldırgan. Native: 'frustrated' (duygu belirt + sakin) + 'understand what went wrong' (öğretici + yapıcı). Aynı sonuç, daha hızlı çözülür.",
+    },
+    {
+      id: "ex.arccustomersup5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Customer support açılış:",
+          options: [
+            "Hello problem",
+            "I'm reaching out about ___",
+            "Problem with me",
+            "Help me now",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm reaching out about X' = profesyonel destek açılışı (email + telefon ortak).",
+        },
+        {
+          q: "'Escalate' fiil anlamı?",
+          options: [
+            "Asansörle çıkmak",
+            "Üst seviyeye taşımak (yöneticiye)",
+            "Artırmak",
+            "Hızlandırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you escalate this?' = bunu üst birime/yöneticiye iletir misiniz?",
+        },
+        {
+          q: "'Expedite' ne demek?",
+          options: [
+            "Sefer",
+            "Hızlandırmak (öncelik ver)",
+            "Yayınla",
+            "Gönder",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Expedite shipping' = kargoyu hızlandır. Müşteri destek kalıbı.",
+        },
+        {
+          q: "Şikâyette duygu belirtmek:",
+          options: [
+            "Anti-profesyonel",
+            "Profesyonel ('I'm frustrated' net + sakin)",
+            "Kaba",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm frustrated' = ihtiyaç bildiriyor, sınırı koruyor. 'Very bad service' duygusal saldırı.",
+        },
+        {
+          q: "'Refund' nedir?",
+          options: [
+            "Ekstra hediye",
+            "Para iadesi",
+            "Yeni gönderim",
+            "İndirim kuponu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Refund' = para iadesi. 'Credit' = mağaza kredisi (sonra kullanılır), 'replacement' = yenisi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -4318,6 +8538,135 @@ export const customerSupport06: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arccustomersup6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm reaching out about ___ — it ___ ___.",
+      slots: [
+        { accepted: ["my order", "the billing", "an issue", "ticket #1234", "the subscription"] },
+        { accepted: ["hasn't arrived", "is showing the wrong", "stopped working", "double-charged me", "won't let me"] },
+        { accepted: ["since Tuesday", "after the update", "with no warning", "and I need it by Friday"] },
+      ],
+      tr_hint:
+        "Customer support net açıklama. 'About + konu + sorun + zaman/etki.' Türk: 'Problem var' eksik, yapısal cümle teşhis hızlı.",
+      example_filled: "I'm reaching out about my order — it hasn't arrived since Tuesday.",
+    },
+    {
+      id: "ex.arccustomersup6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm sorry to hear that — could you describe the issue in detail?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. Let me check your account." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(so|basically)(,)? (i (placed|made) (the )?order on)",
+        "(the (tracking|status) says) (.+) (but (.+))",
+        "(i (tried|already tried)) ([a-z ]+) (and that didn'?t (work|help))",
+        "(my order (number|id) is)",
+        "(here'?s what (happened|i'?m seeing))",
+      ],
+      tr_hint:
+        "Detaylı şikâyet açıklama. 'So I placed the order on Monday — tracking says delivered but it never arrived.' Türk: 'Problem' eksik, kronolojik anlatım net.",
+      ideal_answer: "So I placed the order Monday — tracking says delivered, but nothing arrived. Order number is 4521.",
+    },
+    {
+      id: "ex.arccustomersup6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I can offer you a 20% credit or a replacement — which works better?",
+      accepted_patterns: [
+        "(honestly )?(i'?d (rather|prefer) (a |the )?(replacement|refund|credit))",
+        "(if (a refund|cash back) is an option)",
+        "(the (replacement|item)) (would (work|be ideal))",
+        "(can you (also|please) (expedite|escalate))",
+        "(i (think|feel)) (a (full refund|refund) is fairer)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tazminat seçimi. 'I'd rather a full refund — can you escalate?' Türk: 'OK whatever' eksik, kararlı seçim talep.",
+      ideal_response: "Honestly, I'd rather a replacement — but can you also expedite the shipping this time?",
+    },
+    {
+      id: "ex.arccustomersup6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çok kötü bir hizmet, paramı geri istiyorum!",
+      wrong_en: "Very bad service, I want my money back!",
+      right_en: "I'm pretty frustrated with this — I'd like a full refund and to understand what went wrong.",
+      why_tr:
+        "Türk: 'Very bad' + 'I want' = duygusal + saldırgan. Native: 'frustrated' (duygu belirt + sakin) + 'understand what went wrong' (öğretici + yapıcı). Aynı sonuç, daha hızlı çözülür.",
+    },
+    {
+      id: "ex.arccustomersup6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Customer support açılış:",
+          options: [
+            "Hello problem",
+            "I'm reaching out about ___",
+            "Problem with me",
+            "Help me now",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm reaching out about X' = profesyonel destek açılışı (email + telefon ortak).",
+        },
+        {
+          q: "'Escalate' fiil anlamı?",
+          options: [
+            "Asansörle çıkmak",
+            "Üst seviyeye taşımak (yöneticiye)",
+            "Artırmak",
+            "Hızlandırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you escalate this?' = bunu üst birime/yöneticiye iletir misiniz?",
+        },
+        {
+          q: "'Expedite' ne demek?",
+          options: [
+            "Sefer",
+            "Hızlandırmak (öncelik ver)",
+            "Yayınla",
+            "Gönder",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Expedite shipping' = kargoyu hızlandır. Müşteri destek kalıbı.",
+        },
+        {
+          q: "Şikâyette duygu belirtmek:",
+          options: [
+            "Anti-profesyonel",
+            "Profesyonel ('I'm frustrated' net + sakin)",
+            "Kaba",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm frustrated' = ihtiyaç bildiriyor, sınırı koruyor. 'Very bad service' duygusal saldırı.",
+        },
+        {
+          q: "'Refund' nedir?",
+          options: [
+            "Ekstra hediye",
+            "Para iadesi",
+            "Yeni gönderim",
+            "İndirim kuponu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Refund' = para iadesi. 'Credit' = mağaza kredisi (sonra kullanılır), 'replacement' = yenisi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -4435,6 +8784,135 @@ export const customerSupport07: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arccustomersup7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm reaching out about ___ — it ___ ___.",
+      slots: [
+        { accepted: ["my order", "the billing", "an issue", "ticket #1234", "the subscription"] },
+        { accepted: ["hasn't arrived", "is showing the wrong", "stopped working", "double-charged me", "won't let me"] },
+        { accepted: ["since Tuesday", "after the update", "with no warning", "and I need it by Friday"] },
+      ],
+      tr_hint:
+        "Customer support net açıklama. 'About + konu + sorun + zaman/etki.' Türk: 'Problem var' eksik, yapısal cümle teşhis hızlı.",
+      example_filled: "I'm reaching out about my order — it hasn't arrived since Tuesday.",
+    },
+    {
+      id: "ex.arccustomersup7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm sorry to hear that — could you describe the issue in detail?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. Let me check your account." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(so|basically)(,)? (i (placed|made) (the )?order on)",
+        "(the (tracking|status) says) (.+) (but (.+))",
+        "(i (tried|already tried)) ([a-z ]+) (and that didn'?t (work|help))",
+        "(my order (number|id) is)",
+        "(here'?s what (happened|i'?m seeing))",
+      ],
+      tr_hint:
+        "Detaylı şikâyet açıklama. 'So I placed the order on Monday — tracking says delivered but it never arrived.' Türk: 'Problem' eksik, kronolojik anlatım net.",
+      ideal_answer: "So I placed the order Monday — tracking says delivered, but nothing arrived. Order number is 4521.",
+    },
+    {
+      id: "ex.arccustomersup7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I can offer you a 20% credit or a replacement — which works better?",
+      accepted_patterns: [
+        "(honestly )?(i'?d (rather|prefer) (a |the )?(replacement|refund|credit))",
+        "(if (a refund|cash back) is an option)",
+        "(the (replacement|item)) (would (work|be ideal))",
+        "(can you (also|please) (expedite|escalate))",
+        "(i (think|feel)) (a (full refund|refund) is fairer)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tazminat seçimi. 'I'd rather a full refund — can you escalate?' Türk: 'OK whatever' eksik, kararlı seçim talep.",
+      ideal_response: "Honestly, I'd rather a replacement — but can you also expedite the shipping this time?",
+    },
+    {
+      id: "ex.arccustomersup7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çok kötü bir hizmet, paramı geri istiyorum!",
+      wrong_en: "Very bad service, I want my money back!",
+      right_en: "I'm pretty frustrated with this — I'd like a full refund and to understand what went wrong.",
+      why_tr:
+        "Türk: 'Very bad' + 'I want' = duygusal + saldırgan. Native: 'frustrated' (duygu belirt + sakin) + 'understand what went wrong' (öğretici + yapıcı). Aynı sonuç, daha hızlı çözülür.",
+    },
+    {
+      id: "ex.arccustomersup7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Customer support açılış:",
+          options: [
+            "Hello problem",
+            "I'm reaching out about ___",
+            "Problem with me",
+            "Help me now",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm reaching out about X' = profesyonel destek açılışı (email + telefon ortak).",
+        },
+        {
+          q: "'Escalate' fiil anlamı?",
+          options: [
+            "Asansörle çıkmak",
+            "Üst seviyeye taşımak (yöneticiye)",
+            "Artırmak",
+            "Hızlandırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you escalate this?' = bunu üst birime/yöneticiye iletir misiniz?",
+        },
+        {
+          q: "'Expedite' ne demek?",
+          options: [
+            "Sefer",
+            "Hızlandırmak (öncelik ver)",
+            "Yayınla",
+            "Gönder",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Expedite shipping' = kargoyu hızlandır. Müşteri destek kalıbı.",
+        },
+        {
+          q: "Şikâyette duygu belirtmek:",
+          options: [
+            "Anti-profesyonel",
+            "Profesyonel ('I'm frustrated' net + sakin)",
+            "Kaba",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm frustrated' = ihtiyaç bildiriyor, sınırı koruyor. 'Very bad service' duygusal saldırı.",
+        },
+        {
+          q: "'Refund' nedir?",
+          options: [
+            "Ekstra hediye",
+            "Para iadesi",
+            "Yeni gönderim",
+            "İndirim kuponu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Refund' = para iadesi. 'Credit' = mağaza kredisi (sonra kullanılır), 'replacement' = yenisi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -4552,6 +9030,135 @@ export const customerSupport08: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arccustomersup8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm reaching out about ___ — it ___ ___.",
+      slots: [
+        { accepted: ["my order", "the billing", "an issue", "ticket #1234", "the subscription"] },
+        { accepted: ["hasn't arrived", "is showing the wrong", "stopped working", "double-charged me", "won't let me"] },
+        { accepted: ["since Tuesday", "after the update", "with no warning", "and I need it by Friday"] },
+      ],
+      tr_hint:
+        "Customer support net açıklama. 'About + konu + sorun + zaman/etki.' Türk: 'Problem var' eksik, yapısal cümle teşhis hızlı.",
+      example_filled: "I'm reaching out about my order — it hasn't arrived since Tuesday.",
+    },
+    {
+      id: "ex.arccustomersup8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm sorry to hear that — could you describe the issue in detail?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. Let me check your account." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(so|basically)(,)? (i (placed|made) (the )?order on)",
+        "(the (tracking|status) says) (.+) (but (.+))",
+        "(i (tried|already tried)) ([a-z ]+) (and that didn'?t (work|help))",
+        "(my order (number|id) is)",
+        "(here'?s what (happened|i'?m seeing))",
+      ],
+      tr_hint:
+        "Detaylı şikâyet açıklama. 'So I placed the order on Monday — tracking says delivered but it never arrived.' Türk: 'Problem' eksik, kronolojik anlatım net.",
+      ideal_answer: "So I placed the order Monday — tracking says delivered, but nothing arrived. Order number is 4521.",
+    },
+    {
+      id: "ex.arccustomersup8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I can offer you a 20% credit or a replacement — which works better?",
+      accepted_patterns: [
+        "(honestly )?(i'?d (rather|prefer) (a |the )?(replacement|refund|credit))",
+        "(if (a refund|cash back) is an option)",
+        "(the (replacement|item)) (would (work|be ideal))",
+        "(can you (also|please) (expedite|escalate))",
+        "(i (think|feel)) (a (full refund|refund) is fairer)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tazminat seçimi. 'I'd rather a full refund — can you escalate?' Türk: 'OK whatever' eksik, kararlı seçim talep.",
+      ideal_response: "Honestly, I'd rather a replacement — but can you also expedite the shipping this time?",
+    },
+    {
+      id: "ex.arccustomersup8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çok kötü bir hizmet, paramı geri istiyorum!",
+      wrong_en: "Very bad service, I want my money back!",
+      right_en: "I'm pretty frustrated with this — I'd like a full refund and to understand what went wrong.",
+      why_tr:
+        "Türk: 'Very bad' + 'I want' = duygusal + saldırgan. Native: 'frustrated' (duygu belirt + sakin) + 'understand what went wrong' (öğretici + yapıcı). Aynı sonuç, daha hızlı çözülür.",
+    },
+    {
+      id: "ex.arccustomersup8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Customer support açılış:",
+          options: [
+            "Hello problem",
+            "I'm reaching out about ___",
+            "Problem with me",
+            "Help me now",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm reaching out about X' = profesyonel destek açılışı (email + telefon ortak).",
+        },
+        {
+          q: "'Escalate' fiil anlamı?",
+          options: [
+            "Asansörle çıkmak",
+            "Üst seviyeye taşımak (yöneticiye)",
+            "Artırmak",
+            "Hızlandırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you escalate this?' = bunu üst birime/yöneticiye iletir misiniz?",
+        },
+        {
+          q: "'Expedite' ne demek?",
+          options: [
+            "Sefer",
+            "Hızlandırmak (öncelik ver)",
+            "Yayınla",
+            "Gönder",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Expedite shipping' = kargoyu hızlandır. Müşteri destek kalıbı.",
+        },
+        {
+          q: "Şikâyette duygu belirtmek:",
+          options: [
+            "Anti-profesyonel",
+            "Profesyonel ('I'm frustrated' net + sakin)",
+            "Kaba",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm frustrated' = ihtiyaç bildiriyor, sınırı koruyor. 'Very bad service' duygusal saldırı.",
+        },
+        {
+          q: "'Refund' nedir?",
+          options: [
+            "Ekstra hediye",
+            "Para iadesi",
+            "Yeni gönderim",
+            "İndirim kuponu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Refund' = para iadesi. 'Credit' = mağaza kredisi (sonra kullanılır), 'replacement' = yenisi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -4668,6 +9275,132 @@ export const usImmigration01: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcusimmigrati1.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm here for ___ — I'll be staying ___.",
+      slots: [
+        { accepted: ["studies", "Erasmus", "exchange", "work", "tourism", "a conference"] },
+        { accepted: ["one semester", "four months", "two weeks", "until February", "a few days"] },
+      ],
+      tr_hint:
+        "Havaalanı temel kalıbı: amaç + süre. Türk: 'I came for' yerine 'I'm here for' (mevcut durum).",
+      example_filled: "I'm here for Erasmus — I'll be staying one semester.",
+    },
+    {
+      id: "ex.arcusimmigrati1.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Purpose of your visit?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "And how long will you stay?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m|im) here for (studies|tourism|work|erasmus)",
+        "(i'?m|im) (a |an )?(exchange|erasmus) student",
+        "(visiting|on vacation|on a business trip)",
+        "(study|studying) (at|in) [a-z]+",
+      ],
+      tr_hint:
+        "Memur 'amaç ne?' soruyor. 'I'm here for studies' veya 'Tourism' yeterli. Türk: 'I came for' yerine 'I'm here for'.",
+      ideal_answer: "I'm here for studies — exchange semester.",
+    },
+    {
+      id: "ex.arcusimmigrati1.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Do you have any food or liquids over 100ml in your carry-on?",
+      accepted_patterns: [
+        "(no|nope)(,)? (nothing|just (water|snacks))",
+        "(only|just) (a water bottle|some snacks)",
+        "(i think |maybe )?(there'?s |i have )(a yogurt|hand cream)",
+        "(let me check|hold on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Güvenlik soruşturması. 'No, nothing' veya 'Just a water bottle' yeterli. Türk: 'I have' yerine 'There's' (daha doğal nesne için).",
+      ideal_response: "No, nothing — just an empty water bottle.",
+    },
+    {
+      id: "ex.arcusimmigrati1.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Geldim Türkiye'den, kalacağım üç ay.",
+      wrong_en: "I come from Turkey, I will stay three months.",
+      right_en: "I'm here from Turkey, staying for three months.",
+      why_tr:
+        "Türk öğrenci 'geldim' için 'I come' kullanır — yanlış zaman. 'I'm here' (şu an durumu) + 'staying' (continuous form) daha doğal. Memur seni durumun içinde görüyor, geçmiş eylem değil.",
+    },
+    {
+      id: "ex.arcusimmigrati1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Purpose of your visit?' nasıl cevaplanır?",
+          options: [
+            "Because I want",
+            "I'm here for [studies/tourism/work]",
+            "My visit is for",
+            "Visit purpose: study",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kısa + doğal: 'I'm here for studies/tourism'. Türk: 'My purpose is' resmi kitap dili.",
+        },
+        {
+          q: "'How long will you stay?' yanıtı?",
+          options: [
+            "For three months / Until February",
+            "I will stay for",
+            "Three months I stay",
+            "Stay three months",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For + süre' veya 'Until + tarih'. Türk: tam cümle gereksiz, kısa cevap yeterli.",
+        },
+        {
+          q: "'Carry-on' ne demek?",
+          options: [
+            "Kabin bagajı",
+            "Bagaj kayışı",
+            "Tartılan bagaj",
+            "El koltuğu",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Carry-on' = kabin bagajı (yanına aldığın). 'Checked bag' = bagaj banta verilen.",
+        },
+        {
+          q: "Türk öğrencinin sık yaptığı hata?",
+          options: [
+            "Kısa cevap vermek",
+            "Sözcükleri Türkçe sırasıyla çevirmek (I come from)",
+            "İngilizce kullanmak",
+            "Pasaport göstermek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I come from' geniş zaman = halen oradan geliyorum (sürekli). 'I'm here from' = şu an buradayım.",
+        },
+        {
+          q: "Belge isteyen memura ne denir?",
+          options: [
+            "Take it",
+            "Here you go",
+            "Get this",
+            "I give to you",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Here you go' = işte (uzatırken). 'Take it' = al (emir, kaba). Türk: 'Take' yerine 'Here you go'.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -4779,6 +9512,132 @@ export const usImmigration02: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcusimmigrati2.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm here for ___ — I'll be staying ___.",
+      slots: [
+        { accepted: ["studies", "Erasmus", "exchange", "work", "tourism", "a conference"] },
+        { accepted: ["one semester", "four months", "two weeks", "until February", "a few days"] },
+      ],
+      tr_hint:
+        "Havaalanı temel kalıbı: amaç + süre. Türk: 'I came for' yerine 'I'm here for' (mevcut durum).",
+      example_filled: "I'm here for Erasmus — I'll be staying one semester.",
+    },
+    {
+      id: "ex.arcusimmigrati2.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Purpose of your visit?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "And how long will you stay?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m|im) here for (studies|tourism|work|erasmus)",
+        "(i'?m|im) (a |an )?(exchange|erasmus) student",
+        "(visiting|on vacation|on a business trip)",
+        "(study|studying) (at|in) [a-z]+",
+      ],
+      tr_hint:
+        "Memur 'amaç ne?' soruyor. 'I'm here for studies' veya 'Tourism' yeterli. Türk: 'I came for' yerine 'I'm here for'.",
+      ideal_answer: "I'm here for studies — exchange semester.",
+    },
+    {
+      id: "ex.arcusimmigrati2.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Do you have any food or liquids over 100ml in your carry-on?",
+      accepted_patterns: [
+        "(no|nope)(,)? (nothing|just (water|snacks))",
+        "(only|just) (a water bottle|some snacks)",
+        "(i think |maybe )?(there'?s |i have )(a yogurt|hand cream)",
+        "(let me check|hold on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Güvenlik soruşturması. 'No, nothing' veya 'Just a water bottle' yeterli. Türk: 'I have' yerine 'There's' (daha doğal nesne için).",
+      ideal_response: "No, nothing — just an empty water bottle.",
+    },
+    {
+      id: "ex.arcusimmigrati2.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Geldim Türkiye'den, kalacağım üç ay.",
+      wrong_en: "I come from Turkey, I will stay three months.",
+      right_en: "I'm here from Turkey, staying for three months.",
+      why_tr:
+        "Türk öğrenci 'geldim' için 'I come' kullanır — yanlış zaman. 'I'm here' (şu an durumu) + 'staying' (continuous form) daha doğal. Memur seni durumun içinde görüyor, geçmiş eylem değil.",
+    },
+    {
+      id: "ex.arcusimmigrati2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Purpose of your visit?' nasıl cevaplanır?",
+          options: [
+            "Because I want",
+            "I'm here for [studies/tourism/work]",
+            "My visit is for",
+            "Visit purpose: study",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kısa + doğal: 'I'm here for studies/tourism'. Türk: 'My purpose is' resmi kitap dili.",
+        },
+        {
+          q: "'How long will you stay?' yanıtı?",
+          options: [
+            "For three months / Until February",
+            "I will stay for",
+            "Three months I stay",
+            "Stay three months",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For + süre' veya 'Until + tarih'. Türk: tam cümle gereksiz, kısa cevap yeterli.",
+        },
+        {
+          q: "'Carry-on' ne demek?",
+          options: [
+            "Kabin bagajı",
+            "Bagaj kayışı",
+            "Tartılan bagaj",
+            "El koltuğu",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Carry-on' = kabin bagajı (yanına aldığın). 'Checked bag' = bagaj banta verilen.",
+        },
+        {
+          q: "Türk öğrencinin sık yaptığı hata?",
+          options: [
+            "Kısa cevap vermek",
+            "Sözcükleri Türkçe sırasıyla çevirmek (I come from)",
+            "İngilizce kullanmak",
+            "Pasaport göstermek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I come from' geniş zaman = halen oradan geliyorum (sürekli). 'I'm here from' = şu an buradayım.",
+        },
+        {
+          q: "Belge isteyen memura ne denir?",
+          options: [
+            "Take it",
+            "Here you go",
+            "Get this",
+            "I give to you",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Here you go' = işte (uzatırken). 'Take it' = al (emir, kaba). Türk: 'Take' yerine 'Here you go'.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -4873,6 +9732,132 @@ export const usImmigration03: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcusimmigrati3.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm here for ___ — I'll be staying ___.",
+      slots: [
+        { accepted: ["studies", "Erasmus", "exchange", "work", "tourism", "a conference"] },
+        { accepted: ["one semester", "four months", "two weeks", "until February", "a few days"] },
+      ],
+      tr_hint:
+        "Havaalanı temel kalıbı: amaç + süre. Türk: 'I came for' yerine 'I'm here for' (mevcut durum).",
+      example_filled: "I'm here for Erasmus — I'll be staying one semester.",
+    },
+    {
+      id: "ex.arcusimmigrati3.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Purpose of your visit?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "And how long will you stay?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m|im) here for (studies|tourism|work|erasmus)",
+        "(i'?m|im) (a |an )?(exchange|erasmus) student",
+        "(visiting|on vacation|on a business trip)",
+        "(study|studying) (at|in) [a-z]+",
+      ],
+      tr_hint:
+        "Memur 'amaç ne?' soruyor. 'I'm here for studies' veya 'Tourism' yeterli. Türk: 'I came for' yerine 'I'm here for'.",
+      ideal_answer: "I'm here for studies — exchange semester.",
+    },
+    {
+      id: "ex.arcusimmigrati3.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Do you have any food or liquids over 100ml in your carry-on?",
+      accepted_patterns: [
+        "(no|nope)(,)? (nothing|just (water|snacks))",
+        "(only|just) (a water bottle|some snacks)",
+        "(i think |maybe )?(there'?s |i have )(a yogurt|hand cream)",
+        "(let me check|hold on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Güvenlik soruşturması. 'No, nothing' veya 'Just a water bottle' yeterli. Türk: 'I have' yerine 'There's' (daha doğal nesne için).",
+      ideal_response: "No, nothing — just an empty water bottle.",
+    },
+    {
+      id: "ex.arcusimmigrati3.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Geldim Türkiye'den, kalacağım üç ay.",
+      wrong_en: "I come from Turkey, I will stay three months.",
+      right_en: "I'm here from Turkey, staying for three months.",
+      why_tr:
+        "Türk öğrenci 'geldim' için 'I come' kullanır — yanlış zaman. 'I'm here' (şu an durumu) + 'staying' (continuous form) daha doğal. Memur seni durumun içinde görüyor, geçmiş eylem değil.",
+    },
+    {
+      id: "ex.arcusimmigrati3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Purpose of your visit?' nasıl cevaplanır?",
+          options: [
+            "Because I want",
+            "I'm here for [studies/tourism/work]",
+            "My visit is for",
+            "Visit purpose: study",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kısa + doğal: 'I'm here for studies/tourism'. Türk: 'My purpose is' resmi kitap dili.",
+        },
+        {
+          q: "'How long will you stay?' yanıtı?",
+          options: [
+            "For three months / Until February",
+            "I will stay for",
+            "Three months I stay",
+            "Stay three months",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For + süre' veya 'Until + tarih'. Türk: tam cümle gereksiz, kısa cevap yeterli.",
+        },
+        {
+          q: "'Carry-on' ne demek?",
+          options: [
+            "Kabin bagajı",
+            "Bagaj kayışı",
+            "Tartılan bagaj",
+            "El koltuğu",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Carry-on' = kabin bagajı (yanına aldığın). 'Checked bag' = bagaj banta verilen.",
+        },
+        {
+          q: "Türk öğrencinin sık yaptığı hata?",
+          options: [
+            "Kısa cevap vermek",
+            "Sözcükleri Türkçe sırasıyla çevirmek (I come from)",
+            "İngilizce kullanmak",
+            "Pasaport göstermek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I come from' geniş zaman = halen oradan geliyorum (sürekli). 'I'm here from' = şu an buradayım.",
+        },
+        {
+          q: "Belge isteyen memura ne denir?",
+          options: [
+            "Take it",
+            "Here you go",
+            "Get this",
+            "I give to you",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Here you go' = işte (uzatırken). 'Take it' = al (emir, kaba). Türk: 'Take' yerine 'Here you go'.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -4984,6 +9969,132 @@ export const usImmigration04: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcusimmigrati4.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm here for ___ — I'll be staying ___.",
+      slots: [
+        { accepted: ["studies", "Erasmus", "exchange", "work", "tourism", "a conference"] },
+        { accepted: ["one semester", "four months", "two weeks", "until February", "a few days"] },
+      ],
+      tr_hint:
+        "Havaalanı temel kalıbı: amaç + süre. Türk: 'I came for' yerine 'I'm here for' (mevcut durum).",
+      example_filled: "I'm here for Erasmus — I'll be staying one semester.",
+    },
+    {
+      id: "ex.arcusimmigrati4.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Purpose of your visit?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "And how long will you stay?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m|im) here for (studies|tourism|work|erasmus)",
+        "(i'?m|im) (a |an )?(exchange|erasmus) student",
+        "(visiting|on vacation|on a business trip)",
+        "(study|studying) (at|in) [a-z]+",
+      ],
+      tr_hint:
+        "Memur 'amaç ne?' soruyor. 'I'm here for studies' veya 'Tourism' yeterli. Türk: 'I came for' yerine 'I'm here for'.",
+      ideal_answer: "I'm here for studies — exchange semester.",
+    },
+    {
+      id: "ex.arcusimmigrati4.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Do you have any food or liquids over 100ml in your carry-on?",
+      accepted_patterns: [
+        "(no|nope)(,)? (nothing|just (water|snacks))",
+        "(only|just) (a water bottle|some snacks)",
+        "(i think |maybe )?(there'?s |i have )(a yogurt|hand cream)",
+        "(let me check|hold on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Güvenlik soruşturması. 'No, nothing' veya 'Just a water bottle' yeterli. Türk: 'I have' yerine 'There's' (daha doğal nesne için).",
+      ideal_response: "No, nothing — just an empty water bottle.",
+    },
+    {
+      id: "ex.arcusimmigrati4.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Geldim Türkiye'den, kalacağım üç ay.",
+      wrong_en: "I come from Turkey, I will stay three months.",
+      right_en: "I'm here from Turkey, staying for three months.",
+      why_tr:
+        "Türk öğrenci 'geldim' için 'I come' kullanır — yanlış zaman. 'I'm here' (şu an durumu) + 'staying' (continuous form) daha doğal. Memur seni durumun içinde görüyor, geçmiş eylem değil.",
+    },
+    {
+      id: "ex.arcusimmigrati4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Purpose of your visit?' nasıl cevaplanır?",
+          options: [
+            "Because I want",
+            "I'm here for [studies/tourism/work]",
+            "My visit is for",
+            "Visit purpose: study",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kısa + doğal: 'I'm here for studies/tourism'. Türk: 'My purpose is' resmi kitap dili.",
+        },
+        {
+          q: "'How long will you stay?' yanıtı?",
+          options: [
+            "For three months / Until February",
+            "I will stay for",
+            "Three months I stay",
+            "Stay three months",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For + süre' veya 'Until + tarih'. Türk: tam cümle gereksiz, kısa cevap yeterli.",
+        },
+        {
+          q: "'Carry-on' ne demek?",
+          options: [
+            "Kabin bagajı",
+            "Bagaj kayışı",
+            "Tartılan bagaj",
+            "El koltuğu",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Carry-on' = kabin bagajı (yanına aldığın). 'Checked bag' = bagaj banta verilen.",
+        },
+        {
+          q: "Türk öğrencinin sık yaptığı hata?",
+          options: [
+            "Kısa cevap vermek",
+            "Sözcükleri Türkçe sırasıyla çevirmek (I come from)",
+            "İngilizce kullanmak",
+            "Pasaport göstermek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I come from' geniş zaman = halen oradan geliyorum (sürekli). 'I'm here from' = şu an buradayım.",
+        },
+        {
+          q: "Belge isteyen memura ne denir?",
+          options: [
+            "Take it",
+            "Here you go",
+            "Get this",
+            "I give to you",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Here you go' = işte (uzatırken). 'Take it' = al (emir, kaba). Türk: 'Take' yerine 'Here you go'.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -5095,6 +10206,132 @@ export const usImmigration05: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcusimmigrati5.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm here for ___ — I'll be staying ___.",
+      slots: [
+        { accepted: ["studies", "Erasmus", "exchange", "work", "tourism", "a conference"] },
+        { accepted: ["one semester", "four months", "two weeks", "until February", "a few days"] },
+      ],
+      tr_hint:
+        "Havaalanı temel kalıbı: amaç + süre. Türk: 'I came for' yerine 'I'm here for' (mevcut durum).",
+      example_filled: "I'm here for Erasmus — I'll be staying one semester.",
+    },
+    {
+      id: "ex.arcusimmigrati5.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Purpose of your visit?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "And how long will you stay?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m|im) here for (studies|tourism|work|erasmus)",
+        "(i'?m|im) (a |an )?(exchange|erasmus) student",
+        "(visiting|on vacation|on a business trip)",
+        "(study|studying) (at|in) [a-z]+",
+      ],
+      tr_hint:
+        "Memur 'amaç ne?' soruyor. 'I'm here for studies' veya 'Tourism' yeterli. Türk: 'I came for' yerine 'I'm here for'.",
+      ideal_answer: "I'm here for studies — exchange semester.",
+    },
+    {
+      id: "ex.arcusimmigrati5.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Do you have any food or liquids over 100ml in your carry-on?",
+      accepted_patterns: [
+        "(no|nope)(,)? (nothing|just (water|snacks))",
+        "(only|just) (a water bottle|some snacks)",
+        "(i think |maybe )?(there'?s |i have )(a yogurt|hand cream)",
+        "(let me check|hold on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Güvenlik soruşturması. 'No, nothing' veya 'Just a water bottle' yeterli. Türk: 'I have' yerine 'There's' (daha doğal nesne için).",
+      ideal_response: "No, nothing — just an empty water bottle.",
+    },
+    {
+      id: "ex.arcusimmigrati5.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Geldim Türkiye'den, kalacağım üç ay.",
+      wrong_en: "I come from Turkey, I will stay three months.",
+      right_en: "I'm here from Turkey, staying for three months.",
+      why_tr:
+        "Türk öğrenci 'geldim' için 'I come' kullanır — yanlış zaman. 'I'm here' (şu an durumu) + 'staying' (continuous form) daha doğal. Memur seni durumun içinde görüyor, geçmiş eylem değil.",
+    },
+    {
+      id: "ex.arcusimmigrati5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Purpose of your visit?' nasıl cevaplanır?",
+          options: [
+            "Because I want",
+            "I'm here for [studies/tourism/work]",
+            "My visit is for",
+            "Visit purpose: study",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kısa + doğal: 'I'm here for studies/tourism'. Türk: 'My purpose is' resmi kitap dili.",
+        },
+        {
+          q: "'How long will you stay?' yanıtı?",
+          options: [
+            "For three months / Until February",
+            "I will stay for",
+            "Three months I stay",
+            "Stay three months",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For + süre' veya 'Until + tarih'. Türk: tam cümle gereksiz, kısa cevap yeterli.",
+        },
+        {
+          q: "'Carry-on' ne demek?",
+          options: [
+            "Kabin bagajı",
+            "Bagaj kayışı",
+            "Tartılan bagaj",
+            "El koltuğu",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Carry-on' = kabin bagajı (yanına aldığın). 'Checked bag' = bagaj banta verilen.",
+        },
+        {
+          q: "Türk öğrencinin sık yaptığı hata?",
+          options: [
+            "Kısa cevap vermek",
+            "Sözcükleri Türkçe sırasıyla çevirmek (I come from)",
+            "İngilizce kullanmak",
+            "Pasaport göstermek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I come from' geniş zaman = halen oradan geliyorum (sürekli). 'I'm here from' = şu an buradayım.",
+        },
+        {
+          q: "Belge isteyen memura ne denir?",
+          options: [
+            "Take it",
+            "Here you go",
+            "Get this",
+            "I give to you",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Here you go' = işte (uzatırken). 'Take it' = al (emir, kaba). Türk: 'Take' yerine 'Here you go'.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -5190,6 +10427,132 @@ export const usImmigration06: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcusimmigrati6.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm here for ___ — I'll be staying ___.",
+      slots: [
+        { accepted: ["studies", "Erasmus", "exchange", "work", "tourism", "a conference"] },
+        { accepted: ["one semester", "four months", "two weeks", "until February", "a few days"] },
+      ],
+      tr_hint:
+        "Havaalanı temel kalıbı: amaç + süre. Türk: 'I came for' yerine 'I'm here for' (mevcut durum).",
+      example_filled: "I'm here for Erasmus — I'll be staying one semester.",
+    },
+    {
+      id: "ex.arcusimmigrati6.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Purpose of your visit?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "And how long will you stay?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m|im) here for (studies|tourism|work|erasmus)",
+        "(i'?m|im) (a |an )?(exchange|erasmus) student",
+        "(visiting|on vacation|on a business trip)",
+        "(study|studying) (at|in) [a-z]+",
+      ],
+      tr_hint:
+        "Memur 'amaç ne?' soruyor. 'I'm here for studies' veya 'Tourism' yeterli. Türk: 'I came for' yerine 'I'm here for'.",
+      ideal_answer: "I'm here for studies — exchange semester.",
+    },
+    {
+      id: "ex.arcusimmigrati6.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Do you have any food or liquids over 100ml in your carry-on?",
+      accepted_patterns: [
+        "(no|nope)(,)? (nothing|just (water|snacks))",
+        "(only|just) (a water bottle|some snacks)",
+        "(i think |maybe )?(there'?s |i have )(a yogurt|hand cream)",
+        "(let me check|hold on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Güvenlik soruşturması. 'No, nothing' veya 'Just a water bottle' yeterli. Türk: 'I have' yerine 'There's' (daha doğal nesne için).",
+      ideal_response: "No, nothing — just an empty water bottle.",
+    },
+    {
+      id: "ex.arcusimmigrati6.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Geldim Türkiye'den, kalacağım üç ay.",
+      wrong_en: "I come from Turkey, I will stay three months.",
+      right_en: "I'm here from Turkey, staying for three months.",
+      why_tr:
+        "Türk öğrenci 'geldim' için 'I come' kullanır — yanlış zaman. 'I'm here' (şu an durumu) + 'staying' (continuous form) daha doğal. Memur seni durumun içinde görüyor, geçmiş eylem değil.",
+    },
+    {
+      id: "ex.arcusimmigrati6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Purpose of your visit?' nasıl cevaplanır?",
+          options: [
+            "Because I want",
+            "I'm here for [studies/tourism/work]",
+            "My visit is for",
+            "Visit purpose: study",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kısa + doğal: 'I'm here for studies/tourism'. Türk: 'My purpose is' resmi kitap dili.",
+        },
+        {
+          q: "'How long will you stay?' yanıtı?",
+          options: [
+            "For three months / Until February",
+            "I will stay for",
+            "Three months I stay",
+            "Stay three months",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For + süre' veya 'Until + tarih'. Türk: tam cümle gereksiz, kısa cevap yeterli.",
+        },
+        {
+          q: "'Carry-on' ne demek?",
+          options: [
+            "Kabin bagajı",
+            "Bagaj kayışı",
+            "Tartılan bagaj",
+            "El koltuğu",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Carry-on' = kabin bagajı (yanına aldığın). 'Checked bag' = bagaj banta verilen.",
+        },
+        {
+          q: "Türk öğrencinin sık yaptığı hata?",
+          options: [
+            "Kısa cevap vermek",
+            "Sözcükleri Türkçe sırasıyla çevirmek (I come from)",
+            "İngilizce kullanmak",
+            "Pasaport göstermek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I come from' geniş zaman = halen oradan geliyorum (sürekli). 'I'm here from' = şu an buradayım.",
+        },
+        {
+          q: "Belge isteyen memura ne denir?",
+          options: [
+            "Take it",
+            "Here you go",
+            "Get this",
+            "I give to you",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Here you go' = işte (uzatırken). 'Take it' = al (emir, kaba). Türk: 'Take' yerine 'Here you go'.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -5300,6 +10663,132 @@ export const usImmigration07: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcusimmigrati7.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm here for ___ — I'll be staying ___.",
+      slots: [
+        { accepted: ["studies", "Erasmus", "exchange", "work", "tourism", "a conference"] },
+        { accepted: ["one semester", "four months", "two weeks", "until February", "a few days"] },
+      ],
+      tr_hint:
+        "Havaalanı temel kalıbı: amaç + süre. Türk: 'I came for' yerine 'I'm here for' (mevcut durum).",
+      example_filled: "I'm here for Erasmus — I'll be staying one semester.",
+    },
+    {
+      id: "ex.arcusimmigrati7.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Purpose of your visit?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "And how long will you stay?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m|im) here for (studies|tourism|work|erasmus)",
+        "(i'?m|im) (a |an )?(exchange|erasmus) student",
+        "(visiting|on vacation|on a business trip)",
+        "(study|studying) (at|in) [a-z]+",
+      ],
+      tr_hint:
+        "Memur 'amaç ne?' soruyor. 'I'm here for studies' veya 'Tourism' yeterli. Türk: 'I came for' yerine 'I'm here for'.",
+      ideal_answer: "I'm here for studies — exchange semester.",
+    },
+    {
+      id: "ex.arcusimmigrati7.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Do you have any food or liquids over 100ml in your carry-on?",
+      accepted_patterns: [
+        "(no|nope)(,)? (nothing|just (water|snacks))",
+        "(only|just) (a water bottle|some snacks)",
+        "(i think |maybe )?(there'?s |i have )(a yogurt|hand cream)",
+        "(let me check|hold on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Güvenlik soruşturması. 'No, nothing' veya 'Just a water bottle' yeterli. Türk: 'I have' yerine 'There's' (daha doğal nesne için).",
+      ideal_response: "No, nothing — just an empty water bottle.",
+    },
+    {
+      id: "ex.arcusimmigrati7.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Geldim Türkiye'den, kalacağım üç ay.",
+      wrong_en: "I come from Turkey, I will stay three months.",
+      right_en: "I'm here from Turkey, staying for three months.",
+      why_tr:
+        "Türk öğrenci 'geldim' için 'I come' kullanır — yanlış zaman. 'I'm here' (şu an durumu) + 'staying' (continuous form) daha doğal. Memur seni durumun içinde görüyor, geçmiş eylem değil.",
+    },
+    {
+      id: "ex.arcusimmigrati7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Purpose of your visit?' nasıl cevaplanır?",
+          options: [
+            "Because I want",
+            "I'm here for [studies/tourism/work]",
+            "My visit is for",
+            "Visit purpose: study",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kısa + doğal: 'I'm here for studies/tourism'. Türk: 'My purpose is' resmi kitap dili.",
+        },
+        {
+          q: "'How long will you stay?' yanıtı?",
+          options: [
+            "For three months / Until February",
+            "I will stay for",
+            "Three months I stay",
+            "Stay three months",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For + süre' veya 'Until + tarih'. Türk: tam cümle gereksiz, kısa cevap yeterli.",
+        },
+        {
+          q: "'Carry-on' ne demek?",
+          options: [
+            "Kabin bagajı",
+            "Bagaj kayışı",
+            "Tartılan bagaj",
+            "El koltuğu",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Carry-on' = kabin bagajı (yanına aldığın). 'Checked bag' = bagaj banta verilen.",
+        },
+        {
+          q: "Türk öğrencinin sık yaptığı hata?",
+          options: [
+            "Kısa cevap vermek",
+            "Sözcükleri Türkçe sırasıyla çevirmek (I come from)",
+            "İngilizce kullanmak",
+            "Pasaport göstermek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I come from' geniş zaman = halen oradan geliyorum (sürekli). 'I'm here from' = şu an buradayım.",
+        },
+        {
+          q: "Belge isteyen memura ne denir?",
+          options: [
+            "Take it",
+            "Here you go",
+            "Get this",
+            "I give to you",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Here you go' = işte (uzatırken). 'Take it' = al (emir, kaba). Türk: 'Take' yerine 'Here you go'.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -5411,6 +10900,132 @@ export const usImmigration08: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcusimmigrati8.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm here for ___ — I'll be staying ___.",
+      slots: [
+        { accepted: ["studies", "Erasmus", "exchange", "work", "tourism", "a conference"] },
+        { accepted: ["one semester", "four months", "two weeks", "until February", "a few days"] },
+      ],
+      tr_hint:
+        "Havaalanı temel kalıbı: amaç + süre. Türk: 'I came for' yerine 'I'm here for' (mevcut durum).",
+      example_filled: "I'm here for Erasmus — I'll be staying one semester.",
+    },
+    {
+      id: "ex.arcusimmigrati8.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Purpose of your visit?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "And how long will you stay?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m|im) here for (studies|tourism|work|erasmus)",
+        "(i'?m|im) (a |an )?(exchange|erasmus) student",
+        "(visiting|on vacation|on a business trip)",
+        "(study|studying) (at|in) [a-z]+",
+      ],
+      tr_hint:
+        "Memur 'amaç ne?' soruyor. 'I'm here for studies' veya 'Tourism' yeterli. Türk: 'I came for' yerine 'I'm here for'.",
+      ideal_answer: "I'm here for studies — exchange semester.",
+    },
+    {
+      id: "ex.arcusimmigrati8.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Do you have any food or liquids over 100ml in your carry-on?",
+      accepted_patterns: [
+        "(no|nope)(,)? (nothing|just (water|snacks))",
+        "(only|just) (a water bottle|some snacks)",
+        "(i think |maybe )?(there'?s |i have )(a yogurt|hand cream)",
+        "(let me check|hold on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Güvenlik soruşturması. 'No, nothing' veya 'Just a water bottle' yeterli. Türk: 'I have' yerine 'There's' (daha doğal nesne için).",
+      ideal_response: "No, nothing — just an empty water bottle.",
+    },
+    {
+      id: "ex.arcusimmigrati8.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Geldim Türkiye'den, kalacağım üç ay.",
+      wrong_en: "I come from Turkey, I will stay three months.",
+      right_en: "I'm here from Turkey, staying for three months.",
+      why_tr:
+        "Türk öğrenci 'geldim' için 'I come' kullanır — yanlış zaman. 'I'm here' (şu an durumu) + 'staying' (continuous form) daha doğal. Memur seni durumun içinde görüyor, geçmiş eylem değil.",
+    },
+    {
+      id: "ex.arcusimmigrati8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Purpose of your visit?' nasıl cevaplanır?",
+          options: [
+            "Because I want",
+            "I'm here for [studies/tourism/work]",
+            "My visit is for",
+            "Visit purpose: study",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kısa + doğal: 'I'm here for studies/tourism'. Türk: 'My purpose is' resmi kitap dili.",
+        },
+        {
+          q: "'How long will you stay?' yanıtı?",
+          options: [
+            "For three months / Until February",
+            "I will stay for",
+            "Three months I stay",
+            "Stay three months",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For + süre' veya 'Until + tarih'. Türk: tam cümle gereksiz, kısa cevap yeterli.",
+        },
+        {
+          q: "'Carry-on' ne demek?",
+          options: [
+            "Kabin bagajı",
+            "Bagaj kayışı",
+            "Tartılan bagaj",
+            "El koltuğu",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Carry-on' = kabin bagajı (yanına aldığın). 'Checked bag' = bagaj banta verilen.",
+        },
+        {
+          q: "Türk öğrencinin sık yaptığı hata?",
+          options: [
+            "Kısa cevap vermek",
+            "Sözcükleri Türkçe sırasıyla çevirmek (I come from)",
+            "İngilizce kullanmak",
+            "Pasaport göstermek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I come from' geniş zaman = halen oradan geliyorum (sürekli). 'I'm here from' = şu an buradayım.",
+        },
+        {
+          q: "Belge isteyen memura ne denir?",
+          options: [
+            "Take it",
+            "Here you go",
+            "Get this",
+            "I give to you",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Here you go' = işte (uzatırken). 'Take it' = al (emir, kaba). Türk: 'Take' yerine 'Here you go'.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -5510,6 +11125,135 @@ export const doctorVisit01: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcdoctorvisit1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I've been having ___ for ___ — it gets worse when ___.",
+      slots: [
+        { accepted: ["headaches", "a sore throat", "stomach pain", "back pain", "a cough"] },
+        { accepted: ["three days", "a week", "a few days now", "since Monday", "about ten days"] },
+        { accepted: ["I bend over", "I eat dairy", "I lie down", "I'm stressed", "it's late at night"] },
+      ],
+      tr_hint:
+        "Doktor şikâyet kalıbı: 'Semptom + süre + tetikleyici.' Türk: 'I have pain' eksik, üç parçalı detay tanı hızlı.",
+      example_filled: "I've been having stomach pain for three days — it gets worse when I eat dairy.",
+    },
+    {
+      id: "ex.arcdoctorvisit1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What brings you in today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I see. Let me take a quick look." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?ve been (having|getting)) ([a-z ]+) (for|since)",
+        "(my (throat|stomach|back|head) (is|has been)) ([a-z ]+)",
+        "(it started (about |around )?[a-z ]+ ago)",
+        "(it (hurts|aches) when i)",
+        "(i'?m here for|i wanted to check (about|on))",
+      ],
+      tr_hint:
+        "Şikâyet aç: 'I've been having sore throat for three days — it hurts when I swallow.' Türk: 'I am sick' eksik, present perfect + süre.",
+      ideal_answer: "I've been having a sore throat for three days — hurts more when I swallow.",
+    },
+    {
+      id: "ex.arcdoctorvisit1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Have you taken anything for it?",
+      accepted_patterns: [
+        "(i tried |i'?ve been taking) (paracetamol|ibuprofen|ibuprofen|tylenol)",
+        "(some (over(-| )the(-| )counter|pharmacy) (stuff|meds))",
+        "(no )?(i wanted to (check|see (you|a doctor) first))",
+        "(nothing (yet|so far))",
+        "(does (.+) help with this)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tedavi belirt. 'I tried paracetamol but no luck.' Türk: 'I take medicine' eksik, isim + sonuç (no luck/some relief) ekle.",
+      ideal_response: "I tried paracetamol — helped a little, but the pain came back.",
+    },
+    {
+      id: "ex.arcdoctorvisit1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Üç gündür hastayım.",
+      wrong_en: "I am sick three days.",
+      right_en: "I've been feeling sick for three days.",
+      why_tr:
+        "Türk: 'I am sick three days' = zaman hatası (preposition yok). 'I've been + V-ing + for + süre' = halen devam eden durum (present perfect continuous). Doktor için kritik kalıp.",
+    },
+    {
+      id: "ex.arcdoctorvisit1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Semptom süresi için doğru zaman:",
+          options: [
+            "Simple present (I have)",
+            "Present perfect continuous (I've been having)",
+            "Past simple (I had)",
+            "Future (I will have)",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Halen devam eden semptom = 'I've been having ___ for X days'. Türk: 'I have' eksik kalır.",
+        },
+        {
+          q: "'Over-the-counter' ne demek?",
+          options: [
+            "Tezgah üstü",
+            "Reçetesiz (ilaç)",
+            "Üzerinde sayan",
+            "Ek ücret",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'OTC drugs' = reçetesiz satılan ilaçlar (paracetamol, ibuprofen vb.).",
+        },
+        {
+          q: "'Prescribe' fiili anlamı?",
+          options: [
+            "Tarif et",
+            "Reçete yaz",
+            "Önle",
+            "Kaydet",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The doctor prescribed antibiotics' = doktor antibiyotik reçete yazdı.",
+        },
+        {
+          q: "Ağrı şiddeti soracaksın:",
+          options: [
+            "How big pain",
+            "On a scale of 1 to 10, how bad is the pain?",
+            "Pain how much",
+            "Hurt level",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On a scale of 1 to 10' = doktor standart ağrı sorusu.",
+        },
+        {
+          q: "'Allergic to' kullanımı?",
+          options: [
+            "I have allergy",
+            "I'm allergic to penicillin",
+            "My allergy is",
+            "Allergic me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm allergic to + isim' = alerjim var. Doktor + ilaç güvenliği kritik kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -5636,6 +11380,135 @@ export const doctorVisit02: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcdoctorvisit2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I've been having ___ for ___ — it gets worse when ___.",
+      slots: [
+        { accepted: ["headaches", "a sore throat", "stomach pain", "back pain", "a cough"] },
+        { accepted: ["three days", "a week", "a few days now", "since Monday", "about ten days"] },
+        { accepted: ["I bend over", "I eat dairy", "I lie down", "I'm stressed", "it's late at night"] },
+      ],
+      tr_hint:
+        "Doktor şikâyet kalıbı: 'Semptom + süre + tetikleyici.' Türk: 'I have pain' eksik, üç parçalı detay tanı hızlı.",
+      example_filled: "I've been having stomach pain for three days — it gets worse when I eat dairy.",
+    },
+    {
+      id: "ex.arcdoctorvisit2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What brings you in today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I see. Let me take a quick look." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?ve been (having|getting)) ([a-z ]+) (for|since)",
+        "(my (throat|stomach|back|head) (is|has been)) ([a-z ]+)",
+        "(it started (about |around )?[a-z ]+ ago)",
+        "(it (hurts|aches) when i)",
+        "(i'?m here for|i wanted to check (about|on))",
+      ],
+      tr_hint:
+        "Şikâyet aç: 'I've been having sore throat for three days — it hurts when I swallow.' Türk: 'I am sick' eksik, present perfect + süre.",
+      ideal_answer: "I've been having a sore throat for three days — hurts more when I swallow.",
+    },
+    {
+      id: "ex.arcdoctorvisit2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Have you taken anything for it?",
+      accepted_patterns: [
+        "(i tried |i'?ve been taking) (paracetamol|ibuprofen|ibuprofen|tylenol)",
+        "(some (over(-| )the(-| )counter|pharmacy) (stuff|meds))",
+        "(no )?(i wanted to (check|see (you|a doctor) first))",
+        "(nothing (yet|so far))",
+        "(does (.+) help with this)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tedavi belirt. 'I tried paracetamol but no luck.' Türk: 'I take medicine' eksik, isim + sonuç (no luck/some relief) ekle.",
+      ideal_response: "I tried paracetamol — helped a little, but the pain came back.",
+    },
+    {
+      id: "ex.arcdoctorvisit2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Üç gündür hastayım.",
+      wrong_en: "I am sick three days.",
+      right_en: "I've been feeling sick for three days.",
+      why_tr:
+        "Türk: 'I am sick three days' = zaman hatası (preposition yok). 'I've been + V-ing + for + süre' = halen devam eden durum (present perfect continuous). Doktor için kritik kalıp.",
+    },
+    {
+      id: "ex.arcdoctorvisit2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Semptom süresi için doğru zaman:",
+          options: [
+            "Simple present (I have)",
+            "Present perfect continuous (I've been having)",
+            "Past simple (I had)",
+            "Future (I will have)",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Halen devam eden semptom = 'I've been having ___ for X days'. Türk: 'I have' eksik kalır.",
+        },
+        {
+          q: "'Over-the-counter' ne demek?",
+          options: [
+            "Tezgah üstü",
+            "Reçetesiz (ilaç)",
+            "Üzerinde sayan",
+            "Ek ücret",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'OTC drugs' = reçetesiz satılan ilaçlar (paracetamol, ibuprofen vb.).",
+        },
+        {
+          q: "'Prescribe' fiili anlamı?",
+          options: [
+            "Tarif et",
+            "Reçete yaz",
+            "Önle",
+            "Kaydet",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The doctor prescribed antibiotics' = doktor antibiyotik reçete yazdı.",
+        },
+        {
+          q: "Ağrı şiddeti soracaksın:",
+          options: [
+            "How big pain",
+            "On a scale of 1 to 10, how bad is the pain?",
+            "Pain how much",
+            "Hurt level",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On a scale of 1 to 10' = doktor standart ağrı sorusu.",
+        },
+        {
+          q: "'Allergic to' kullanımı?",
+          options: [
+            "I have allergy",
+            "I'm allergic to penicillin",
+            "My allergy is",
+            "Allergic me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm allergic to + isim' = alerjim var. Doktor + ilaç güvenliği kritik kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -5731,6 +11604,135 @@ export const doctorVisit03: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcdoctorvisit3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I've been having ___ for ___ — it gets worse when ___.",
+      slots: [
+        { accepted: ["headaches", "a sore throat", "stomach pain", "back pain", "a cough"] },
+        { accepted: ["three days", "a week", "a few days now", "since Monday", "about ten days"] },
+        { accepted: ["I bend over", "I eat dairy", "I lie down", "I'm stressed", "it's late at night"] },
+      ],
+      tr_hint:
+        "Doktor şikâyet kalıbı: 'Semptom + süre + tetikleyici.' Türk: 'I have pain' eksik, üç parçalı detay tanı hızlı.",
+      example_filled: "I've been having stomach pain for three days — it gets worse when I eat dairy.",
+    },
+    {
+      id: "ex.arcdoctorvisit3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What brings you in today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I see. Let me take a quick look." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?ve been (having|getting)) ([a-z ]+) (for|since)",
+        "(my (throat|stomach|back|head) (is|has been)) ([a-z ]+)",
+        "(it started (about |around )?[a-z ]+ ago)",
+        "(it (hurts|aches) when i)",
+        "(i'?m here for|i wanted to check (about|on))",
+      ],
+      tr_hint:
+        "Şikâyet aç: 'I've been having sore throat for three days — it hurts when I swallow.' Türk: 'I am sick' eksik, present perfect + süre.",
+      ideal_answer: "I've been having a sore throat for three days — hurts more when I swallow.",
+    },
+    {
+      id: "ex.arcdoctorvisit3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Have you taken anything for it?",
+      accepted_patterns: [
+        "(i tried |i'?ve been taking) (paracetamol|ibuprofen|ibuprofen|tylenol)",
+        "(some (over(-| )the(-| )counter|pharmacy) (stuff|meds))",
+        "(no )?(i wanted to (check|see (you|a doctor) first))",
+        "(nothing (yet|so far))",
+        "(does (.+) help with this)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tedavi belirt. 'I tried paracetamol but no luck.' Türk: 'I take medicine' eksik, isim + sonuç (no luck/some relief) ekle.",
+      ideal_response: "I tried paracetamol — helped a little, but the pain came back.",
+    },
+    {
+      id: "ex.arcdoctorvisit3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Üç gündür hastayım.",
+      wrong_en: "I am sick three days.",
+      right_en: "I've been feeling sick for three days.",
+      why_tr:
+        "Türk: 'I am sick three days' = zaman hatası (preposition yok). 'I've been + V-ing + for + süre' = halen devam eden durum (present perfect continuous). Doktor için kritik kalıp.",
+    },
+    {
+      id: "ex.arcdoctorvisit3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Semptom süresi için doğru zaman:",
+          options: [
+            "Simple present (I have)",
+            "Present perfect continuous (I've been having)",
+            "Past simple (I had)",
+            "Future (I will have)",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Halen devam eden semptom = 'I've been having ___ for X days'. Türk: 'I have' eksik kalır.",
+        },
+        {
+          q: "'Over-the-counter' ne demek?",
+          options: [
+            "Tezgah üstü",
+            "Reçetesiz (ilaç)",
+            "Üzerinde sayan",
+            "Ek ücret",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'OTC drugs' = reçetesiz satılan ilaçlar (paracetamol, ibuprofen vb.).",
+        },
+        {
+          q: "'Prescribe' fiili anlamı?",
+          options: [
+            "Tarif et",
+            "Reçete yaz",
+            "Önle",
+            "Kaydet",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The doctor prescribed antibiotics' = doktor antibiyotik reçete yazdı.",
+        },
+        {
+          q: "Ağrı şiddeti soracaksın:",
+          options: [
+            "How big pain",
+            "On a scale of 1 to 10, how bad is the pain?",
+            "Pain how much",
+            "Hurt level",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On a scale of 1 to 10' = doktor standart ağrı sorusu.",
+        },
+        {
+          q: "'Allergic to' kullanımı?",
+          options: [
+            "I have allergy",
+            "I'm allergic to penicillin",
+            "My allergy is",
+            "Allergic me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm allergic to + isim' = alerjim var. Doktor + ilaç güvenliği kritik kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -5841,6 +11843,135 @@ export const doctorVisit04: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcdoctorvisit4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I've been having ___ for ___ — it gets worse when ___.",
+      slots: [
+        { accepted: ["headaches", "a sore throat", "stomach pain", "back pain", "a cough"] },
+        { accepted: ["three days", "a week", "a few days now", "since Monday", "about ten days"] },
+        { accepted: ["I bend over", "I eat dairy", "I lie down", "I'm stressed", "it's late at night"] },
+      ],
+      tr_hint:
+        "Doktor şikâyet kalıbı: 'Semptom + süre + tetikleyici.' Türk: 'I have pain' eksik, üç parçalı detay tanı hızlı.",
+      example_filled: "I've been having stomach pain for three days — it gets worse when I eat dairy.",
+    },
+    {
+      id: "ex.arcdoctorvisit4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What brings you in today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I see. Let me take a quick look." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?ve been (having|getting)) ([a-z ]+) (for|since)",
+        "(my (throat|stomach|back|head) (is|has been)) ([a-z ]+)",
+        "(it started (about |around )?[a-z ]+ ago)",
+        "(it (hurts|aches) when i)",
+        "(i'?m here for|i wanted to check (about|on))",
+      ],
+      tr_hint:
+        "Şikâyet aç: 'I've been having sore throat for three days — it hurts when I swallow.' Türk: 'I am sick' eksik, present perfect + süre.",
+      ideal_answer: "I've been having a sore throat for three days — hurts more when I swallow.",
+    },
+    {
+      id: "ex.arcdoctorvisit4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Have you taken anything for it?",
+      accepted_patterns: [
+        "(i tried |i'?ve been taking) (paracetamol|ibuprofen|ibuprofen|tylenol)",
+        "(some (over(-| )the(-| )counter|pharmacy) (stuff|meds))",
+        "(no )?(i wanted to (check|see (you|a doctor) first))",
+        "(nothing (yet|so far))",
+        "(does (.+) help with this)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tedavi belirt. 'I tried paracetamol but no luck.' Türk: 'I take medicine' eksik, isim + sonuç (no luck/some relief) ekle.",
+      ideal_response: "I tried paracetamol — helped a little, but the pain came back.",
+    },
+    {
+      id: "ex.arcdoctorvisit4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Üç gündür hastayım.",
+      wrong_en: "I am sick three days.",
+      right_en: "I've been feeling sick for three days.",
+      why_tr:
+        "Türk: 'I am sick three days' = zaman hatası (preposition yok). 'I've been + V-ing + for + süre' = halen devam eden durum (present perfect continuous). Doktor için kritik kalıp.",
+    },
+    {
+      id: "ex.arcdoctorvisit4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Semptom süresi için doğru zaman:",
+          options: [
+            "Simple present (I have)",
+            "Present perfect continuous (I've been having)",
+            "Past simple (I had)",
+            "Future (I will have)",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Halen devam eden semptom = 'I've been having ___ for X days'. Türk: 'I have' eksik kalır.",
+        },
+        {
+          q: "'Over-the-counter' ne demek?",
+          options: [
+            "Tezgah üstü",
+            "Reçetesiz (ilaç)",
+            "Üzerinde sayan",
+            "Ek ücret",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'OTC drugs' = reçetesiz satılan ilaçlar (paracetamol, ibuprofen vb.).",
+        },
+        {
+          q: "'Prescribe' fiili anlamı?",
+          options: [
+            "Tarif et",
+            "Reçete yaz",
+            "Önle",
+            "Kaydet",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The doctor prescribed antibiotics' = doktor antibiyotik reçete yazdı.",
+        },
+        {
+          q: "Ağrı şiddeti soracaksın:",
+          options: [
+            "How big pain",
+            "On a scale of 1 to 10, how bad is the pain?",
+            "Pain how much",
+            "Hurt level",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On a scale of 1 to 10' = doktor standart ağrı sorusu.",
+        },
+        {
+          q: "'Allergic to' kullanımı?",
+          options: [
+            "I have allergy",
+            "I'm allergic to penicillin",
+            "My allergy is",
+            "Allergic me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm allergic to + isim' = alerjim var. Doktor + ilaç güvenliği kritik kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -5936,6 +12067,135 @@ export const doctorVisit05: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcdoctorvisit5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I've been having ___ for ___ — it gets worse when ___.",
+      slots: [
+        { accepted: ["headaches", "a sore throat", "stomach pain", "back pain", "a cough"] },
+        { accepted: ["three days", "a week", "a few days now", "since Monday", "about ten days"] },
+        { accepted: ["I bend over", "I eat dairy", "I lie down", "I'm stressed", "it's late at night"] },
+      ],
+      tr_hint:
+        "Doktor şikâyet kalıbı: 'Semptom + süre + tetikleyici.' Türk: 'I have pain' eksik, üç parçalı detay tanı hızlı.",
+      example_filled: "I've been having stomach pain for three days — it gets worse when I eat dairy.",
+    },
+    {
+      id: "ex.arcdoctorvisit5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What brings you in today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I see. Let me take a quick look." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?ve been (having|getting)) ([a-z ]+) (for|since)",
+        "(my (throat|stomach|back|head) (is|has been)) ([a-z ]+)",
+        "(it started (about |around )?[a-z ]+ ago)",
+        "(it (hurts|aches) when i)",
+        "(i'?m here for|i wanted to check (about|on))",
+      ],
+      tr_hint:
+        "Şikâyet aç: 'I've been having sore throat for three days — it hurts when I swallow.' Türk: 'I am sick' eksik, present perfect + süre.",
+      ideal_answer: "I've been having a sore throat for three days — hurts more when I swallow.",
+    },
+    {
+      id: "ex.arcdoctorvisit5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Have you taken anything for it?",
+      accepted_patterns: [
+        "(i tried |i'?ve been taking) (paracetamol|ibuprofen|ibuprofen|tylenol)",
+        "(some (over(-| )the(-| )counter|pharmacy) (stuff|meds))",
+        "(no )?(i wanted to (check|see (you|a doctor) first))",
+        "(nothing (yet|so far))",
+        "(does (.+) help with this)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tedavi belirt. 'I tried paracetamol but no luck.' Türk: 'I take medicine' eksik, isim + sonuç (no luck/some relief) ekle.",
+      ideal_response: "I tried paracetamol — helped a little, but the pain came back.",
+    },
+    {
+      id: "ex.arcdoctorvisit5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Üç gündür hastayım.",
+      wrong_en: "I am sick three days.",
+      right_en: "I've been feeling sick for three days.",
+      why_tr:
+        "Türk: 'I am sick three days' = zaman hatası (preposition yok). 'I've been + V-ing + for + süre' = halen devam eden durum (present perfect continuous). Doktor için kritik kalıp.",
+    },
+    {
+      id: "ex.arcdoctorvisit5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Semptom süresi için doğru zaman:",
+          options: [
+            "Simple present (I have)",
+            "Present perfect continuous (I've been having)",
+            "Past simple (I had)",
+            "Future (I will have)",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Halen devam eden semptom = 'I've been having ___ for X days'. Türk: 'I have' eksik kalır.",
+        },
+        {
+          q: "'Over-the-counter' ne demek?",
+          options: [
+            "Tezgah üstü",
+            "Reçetesiz (ilaç)",
+            "Üzerinde sayan",
+            "Ek ücret",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'OTC drugs' = reçetesiz satılan ilaçlar (paracetamol, ibuprofen vb.).",
+        },
+        {
+          q: "'Prescribe' fiili anlamı?",
+          options: [
+            "Tarif et",
+            "Reçete yaz",
+            "Önle",
+            "Kaydet",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The doctor prescribed antibiotics' = doktor antibiyotik reçete yazdı.",
+        },
+        {
+          q: "Ağrı şiddeti soracaksın:",
+          options: [
+            "How big pain",
+            "On a scale of 1 to 10, how bad is the pain?",
+            "Pain how much",
+            "Hurt level",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On a scale of 1 to 10' = doktor standart ağrı sorusu.",
+        },
+        {
+          q: "'Allergic to' kullanımı?",
+          options: [
+            "I have allergy",
+            "I'm allergic to penicillin",
+            "My allergy is",
+            "Allergic me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm allergic to + isim' = alerjim var. Doktor + ilaç güvenliği kritik kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -6045,6 +12305,135 @@ export const doctorVisit06: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcdoctorvisit6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I've been having ___ for ___ — it gets worse when ___.",
+      slots: [
+        { accepted: ["headaches", "a sore throat", "stomach pain", "back pain", "a cough"] },
+        { accepted: ["three days", "a week", "a few days now", "since Monday", "about ten days"] },
+        { accepted: ["I bend over", "I eat dairy", "I lie down", "I'm stressed", "it's late at night"] },
+      ],
+      tr_hint:
+        "Doktor şikâyet kalıbı: 'Semptom + süre + tetikleyici.' Türk: 'I have pain' eksik, üç parçalı detay tanı hızlı.",
+      example_filled: "I've been having stomach pain for three days — it gets worse when I eat dairy.",
+    },
+    {
+      id: "ex.arcdoctorvisit6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What brings you in today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I see. Let me take a quick look." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?ve been (having|getting)) ([a-z ]+) (for|since)",
+        "(my (throat|stomach|back|head) (is|has been)) ([a-z ]+)",
+        "(it started (about |around )?[a-z ]+ ago)",
+        "(it (hurts|aches) when i)",
+        "(i'?m here for|i wanted to check (about|on))",
+      ],
+      tr_hint:
+        "Şikâyet aç: 'I've been having sore throat for three days — it hurts when I swallow.' Türk: 'I am sick' eksik, present perfect + süre.",
+      ideal_answer: "I've been having a sore throat for three days — hurts more when I swallow.",
+    },
+    {
+      id: "ex.arcdoctorvisit6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Have you taken anything for it?",
+      accepted_patterns: [
+        "(i tried |i'?ve been taking) (paracetamol|ibuprofen|ibuprofen|tylenol)",
+        "(some (over(-| )the(-| )counter|pharmacy) (stuff|meds))",
+        "(no )?(i wanted to (check|see (you|a doctor) first))",
+        "(nothing (yet|so far))",
+        "(does (.+) help with this)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tedavi belirt. 'I tried paracetamol but no luck.' Türk: 'I take medicine' eksik, isim + sonuç (no luck/some relief) ekle.",
+      ideal_response: "I tried paracetamol — helped a little, but the pain came back.",
+    },
+    {
+      id: "ex.arcdoctorvisit6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Üç gündür hastayım.",
+      wrong_en: "I am sick three days.",
+      right_en: "I've been feeling sick for three days.",
+      why_tr:
+        "Türk: 'I am sick three days' = zaman hatası (preposition yok). 'I've been + V-ing + for + süre' = halen devam eden durum (present perfect continuous). Doktor için kritik kalıp.",
+    },
+    {
+      id: "ex.arcdoctorvisit6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Semptom süresi için doğru zaman:",
+          options: [
+            "Simple present (I have)",
+            "Present perfect continuous (I've been having)",
+            "Past simple (I had)",
+            "Future (I will have)",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Halen devam eden semptom = 'I've been having ___ for X days'. Türk: 'I have' eksik kalır.",
+        },
+        {
+          q: "'Over-the-counter' ne demek?",
+          options: [
+            "Tezgah üstü",
+            "Reçetesiz (ilaç)",
+            "Üzerinde sayan",
+            "Ek ücret",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'OTC drugs' = reçetesiz satılan ilaçlar (paracetamol, ibuprofen vb.).",
+        },
+        {
+          q: "'Prescribe' fiili anlamı?",
+          options: [
+            "Tarif et",
+            "Reçete yaz",
+            "Önle",
+            "Kaydet",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The doctor prescribed antibiotics' = doktor antibiyotik reçete yazdı.",
+        },
+        {
+          q: "Ağrı şiddeti soracaksın:",
+          options: [
+            "How big pain",
+            "On a scale of 1 to 10, how bad is the pain?",
+            "Pain how much",
+            "Hurt level",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On a scale of 1 to 10' = doktor standart ağrı sorusu.",
+        },
+        {
+          q: "'Allergic to' kullanımı?",
+          options: [
+            "I have allergy",
+            "I'm allergic to penicillin",
+            "My allergy is",
+            "Allergic me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm allergic to + isim' = alerjim var. Doktor + ilaç güvenliği kritik kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -6156,6 +12545,135 @@ export const doctorVisit07: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcdoctorvisit7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I've been having ___ for ___ — it gets worse when ___.",
+      slots: [
+        { accepted: ["headaches", "a sore throat", "stomach pain", "back pain", "a cough"] },
+        { accepted: ["three days", "a week", "a few days now", "since Monday", "about ten days"] },
+        { accepted: ["I bend over", "I eat dairy", "I lie down", "I'm stressed", "it's late at night"] },
+      ],
+      tr_hint:
+        "Doktor şikâyet kalıbı: 'Semptom + süre + tetikleyici.' Türk: 'I have pain' eksik, üç parçalı detay tanı hızlı.",
+      example_filled: "I've been having stomach pain for three days — it gets worse when I eat dairy.",
+    },
+    {
+      id: "ex.arcdoctorvisit7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What brings you in today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I see. Let me take a quick look." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?ve been (having|getting)) ([a-z ]+) (for|since)",
+        "(my (throat|stomach|back|head) (is|has been)) ([a-z ]+)",
+        "(it started (about |around )?[a-z ]+ ago)",
+        "(it (hurts|aches) when i)",
+        "(i'?m here for|i wanted to check (about|on))",
+      ],
+      tr_hint:
+        "Şikâyet aç: 'I've been having sore throat for three days — it hurts when I swallow.' Türk: 'I am sick' eksik, present perfect + süre.",
+      ideal_answer: "I've been having a sore throat for three days — hurts more when I swallow.",
+    },
+    {
+      id: "ex.arcdoctorvisit7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Have you taken anything for it?",
+      accepted_patterns: [
+        "(i tried |i'?ve been taking) (paracetamol|ibuprofen|ibuprofen|tylenol)",
+        "(some (over(-| )the(-| )counter|pharmacy) (stuff|meds))",
+        "(no )?(i wanted to (check|see (you|a doctor) first))",
+        "(nothing (yet|so far))",
+        "(does (.+) help with this)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tedavi belirt. 'I tried paracetamol but no luck.' Türk: 'I take medicine' eksik, isim + sonuç (no luck/some relief) ekle.",
+      ideal_response: "I tried paracetamol — helped a little, but the pain came back.",
+    },
+    {
+      id: "ex.arcdoctorvisit7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Üç gündür hastayım.",
+      wrong_en: "I am sick three days.",
+      right_en: "I've been feeling sick for three days.",
+      why_tr:
+        "Türk: 'I am sick three days' = zaman hatası (preposition yok). 'I've been + V-ing + for + süre' = halen devam eden durum (present perfect continuous). Doktor için kritik kalıp.",
+    },
+    {
+      id: "ex.arcdoctorvisit7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Semptom süresi için doğru zaman:",
+          options: [
+            "Simple present (I have)",
+            "Present perfect continuous (I've been having)",
+            "Past simple (I had)",
+            "Future (I will have)",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Halen devam eden semptom = 'I've been having ___ for X days'. Türk: 'I have' eksik kalır.",
+        },
+        {
+          q: "'Over-the-counter' ne demek?",
+          options: [
+            "Tezgah üstü",
+            "Reçetesiz (ilaç)",
+            "Üzerinde sayan",
+            "Ek ücret",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'OTC drugs' = reçetesiz satılan ilaçlar (paracetamol, ibuprofen vb.).",
+        },
+        {
+          q: "'Prescribe' fiili anlamı?",
+          options: [
+            "Tarif et",
+            "Reçete yaz",
+            "Önle",
+            "Kaydet",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The doctor prescribed antibiotics' = doktor antibiyotik reçete yazdı.",
+        },
+        {
+          q: "Ağrı şiddeti soracaksın:",
+          options: [
+            "How big pain",
+            "On a scale of 1 to 10, how bad is the pain?",
+            "Pain how much",
+            "Hurt level",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On a scale of 1 to 10' = doktor standart ağrı sorusu.",
+        },
+        {
+          q: "'Allergic to' kullanımı?",
+          options: [
+            "I have allergy",
+            "I'm allergic to penicillin",
+            "My allergy is",
+            "Allergic me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm allergic to + isim' = alerjim var. Doktor + ilaç güvenliği kritik kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -6267,6 +12785,135 @@ export const doctorVisit08: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcdoctorvisit8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I've been having ___ for ___ — it gets worse when ___.",
+      slots: [
+        { accepted: ["headaches", "a sore throat", "stomach pain", "back pain", "a cough"] },
+        { accepted: ["three days", "a week", "a few days now", "since Monday", "about ten days"] },
+        { accepted: ["I bend over", "I eat dairy", "I lie down", "I'm stressed", "it's late at night"] },
+      ],
+      tr_hint:
+        "Doktor şikâyet kalıbı: 'Semptom + süre + tetikleyici.' Türk: 'I have pain' eksik, üç parçalı detay tanı hızlı.",
+      example_filled: "I've been having stomach pain for three days — it gets worse when I eat dairy.",
+    },
+    {
+      id: "ex.arcdoctorvisit8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What brings you in today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I see. Let me take a quick look." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?ve been (having|getting)) ([a-z ]+) (for|since)",
+        "(my (throat|stomach|back|head) (is|has been)) ([a-z ]+)",
+        "(it started (about |around )?[a-z ]+ ago)",
+        "(it (hurts|aches) when i)",
+        "(i'?m here for|i wanted to check (about|on))",
+      ],
+      tr_hint:
+        "Şikâyet aç: 'I've been having sore throat for three days — it hurts when I swallow.' Türk: 'I am sick' eksik, present perfect + süre.",
+      ideal_answer: "I've been having a sore throat for three days — hurts more when I swallow.",
+    },
+    {
+      id: "ex.arcdoctorvisit8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Have you taken anything for it?",
+      accepted_patterns: [
+        "(i tried |i'?ve been taking) (paracetamol|ibuprofen|ibuprofen|tylenol)",
+        "(some (over(-| )the(-| )counter|pharmacy) (stuff|meds))",
+        "(no )?(i wanted to (check|see (you|a doctor) first))",
+        "(nothing (yet|so far))",
+        "(does (.+) help with this)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tedavi belirt. 'I tried paracetamol but no luck.' Türk: 'I take medicine' eksik, isim + sonuç (no luck/some relief) ekle.",
+      ideal_response: "I tried paracetamol — helped a little, but the pain came back.",
+    },
+    {
+      id: "ex.arcdoctorvisit8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Üç gündür hastayım.",
+      wrong_en: "I am sick three days.",
+      right_en: "I've been feeling sick for three days.",
+      why_tr:
+        "Türk: 'I am sick three days' = zaman hatası (preposition yok). 'I've been + V-ing + for + süre' = halen devam eden durum (present perfect continuous). Doktor için kritik kalıp.",
+    },
+    {
+      id: "ex.arcdoctorvisit8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Semptom süresi için doğru zaman:",
+          options: [
+            "Simple present (I have)",
+            "Present perfect continuous (I've been having)",
+            "Past simple (I had)",
+            "Future (I will have)",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Halen devam eden semptom = 'I've been having ___ for X days'. Türk: 'I have' eksik kalır.",
+        },
+        {
+          q: "'Over-the-counter' ne demek?",
+          options: [
+            "Tezgah üstü",
+            "Reçetesiz (ilaç)",
+            "Üzerinde sayan",
+            "Ek ücret",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'OTC drugs' = reçetesiz satılan ilaçlar (paracetamol, ibuprofen vb.).",
+        },
+        {
+          q: "'Prescribe' fiili anlamı?",
+          options: [
+            "Tarif et",
+            "Reçete yaz",
+            "Önle",
+            "Kaydet",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The doctor prescribed antibiotics' = doktor antibiyotik reçete yazdı.",
+        },
+        {
+          q: "Ağrı şiddeti soracaksın:",
+          options: [
+            "How big pain",
+            "On a scale of 1 to 10, how bad is the pain?",
+            "Pain how much",
+            "Hurt level",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On a scale of 1 to 10' = doktor standart ağrı sorusu.",
+        },
+        {
+          q: "'Allergic to' kullanımı?",
+          options: [
+            "I have allergy",
+            "I'm allergic to penicillin",
+            "My allergy is",
+            "Allergic me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm allergic to + isim' = alerjim var. Doktor + ilaç güvenliği kritik kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -6383,6 +13030,135 @@ export const apartmentHunt01: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcapartmenthu1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm looking for ___ — ideally ___ and ___.",
+      slots: [
+        { accepted: ["a one-bedroom", "a studio", "a shared flat", "something close to work"] },
+        { accepted: ["under 1200 euros", "with a balcony", "in Kreuzberg", "with good light", "pet-friendly"] },
+        { accepted: ["furnished", "near the U-Bahn", "for the next year", "move-in ready", "with laundry"] },
+      ],
+      tr_hint:
+        "Daire arama kalıbı: 'I'm looking for + tip — ideally + 2 öncelik.' Türk: 'I want apartment' düz, ihtiyaç + tercih net.",
+      example_filled: "I'm looking for a one-bedroom — ideally under 1200 euros and near the U-Bahn.",
+    },
+    {
+      id: "ex.arcapartmenthu1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Tell me what you're after." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. I have a couple of places that could work." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m (looking for|after|hoping to find))",
+        "(ideally|preferably) (under [0-9]+|in [a-z]+|with )",
+        "(budget(-| )wise|my budget is)",
+        "(it (needs to be|has to be) (close to|within walking))",
+        "(i (work from home|need a desk|have a cat|have a dog))",
+      ],
+      tr_hint:
+        "Arama brief: 'I'm looking for a one-bedroom, ideally under 1200, in Kreuzberg.' Türk: 'I want' düz, üç parametre profesyonel.",
+      ideal_answer: "I'm looking for a one-bedroom — under 1200 ideally, and near a U-Bahn line.",
+    },
+    {
+      id: "ex.arcapartmenthu1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "This one is 1400, but it just got renovated. Could you stretch the budget?",
+      accepted_patterns: [
+        "(honestly |to be honest )?(that'?s (a bit )?above my (budget|limit))",
+        "(could we (look at|see) something closer to)",
+        "(is there (room|flexibility) on the (price|rent))",
+        "(any (utilities|included|extras))",
+        "(if (it includes|the kitchen)) (.+) (i could (push|stretch))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bütçe aşan teklif — pazarlık. 'That's a stretch — any flexibility?' Türk: 'No too much' kaba, kibar pazarlık kalıbı.",
+      ideal_response: "That's a bit of a stretch — is there any flexibility on the rent, or are utilities included?",
+    },
+    {
+      id: "ex.arcapartmenthu1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu ev pahalı, daha ucuz olur mu?",
+      wrong_en: "This house is expensive, can it be cheaper?",
+      right_en: "That's a bit above my budget — is there any flexibility on the rent?",
+      why_tr:
+        "Türk: 'expensive, can it be cheaper' = kabaca pazarlık. Native: 'above my budget' (sınır beyan et) + 'any flexibility' (kibar pazarlık aç) = profesyonel + samimi.",
+    },
+    {
+      id: "ex.arcapartmenthu1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'One-bedroom' ne demek?",
+          options: [
+            "Tek yatak",
+            "1+1 daire (bir yatak odası + salon)",
+            "Tek oda",
+            "Bir kişilik",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'One-bedroom apartment' = 1+1 daire (1 yatak odası + 1 salon).",
+        },
+        {
+          q: "'Utilities' nedir?",
+          options: [
+            "Kullanışlı şeyler",
+            "Faturalar (elektrik, su, ısınma)",
+            "Mobilyalar",
+            "Servisler",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Utilities' = kira dışı fatura (elektrik, su, gaz, internet). 'Utilities included' = faturalar kira dahil.",
+        },
+        {
+          q: "'Move-in ready' anlamı?",
+          options: [
+            "Eve taşınmaya hazır (kullanılır halde)",
+            "Hareket et hazır",
+            "Tamiri tamamlanmış",
+            "Yeni yapılmış",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Move-in ready' = hemen taşınılabilir (mobilyalı veya temiz).",
+        },
+        {
+          q: "Bütçe sınırı söyleme:",
+          options: [
+            "I have no money",
+            "That's a bit above my budget",
+            "Too expensive",
+            "I don't pay",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Above my budget' = profesyonel + saygılı sınır beyan. 'Too expensive' duygusal/kaba.",
+        },
+        {
+          q: "'Lease' ne demek?",
+          options: [
+            "Liz (isim)",
+            "Kira sözleşmesi (uzun dönem)",
+            "Lisans",
+            "Sıra",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sign a lease' = kira kontratı imzala (genelde 1+ yıl).",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -6478,6 +13254,135 @@ export const apartmentHunt02: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcapartmenthu2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm looking for ___ — ideally ___ and ___.",
+      slots: [
+        { accepted: ["a one-bedroom", "a studio", "a shared flat", "something close to work"] },
+        { accepted: ["under 1200 euros", "with a balcony", "in Kreuzberg", "with good light", "pet-friendly"] },
+        { accepted: ["furnished", "near the U-Bahn", "for the next year", "move-in ready", "with laundry"] },
+      ],
+      tr_hint:
+        "Daire arama kalıbı: 'I'm looking for + tip — ideally + 2 öncelik.' Türk: 'I want apartment' düz, ihtiyaç + tercih net.",
+      example_filled: "I'm looking for a one-bedroom — ideally under 1200 euros and near the U-Bahn.",
+    },
+    {
+      id: "ex.arcapartmenthu2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Tell me what you're after." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. I have a couple of places that could work." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m (looking for|after|hoping to find))",
+        "(ideally|preferably) (under [0-9]+|in [a-z]+|with )",
+        "(budget(-| )wise|my budget is)",
+        "(it (needs to be|has to be) (close to|within walking))",
+        "(i (work from home|need a desk|have a cat|have a dog))",
+      ],
+      tr_hint:
+        "Arama brief: 'I'm looking for a one-bedroom, ideally under 1200, in Kreuzberg.' Türk: 'I want' düz, üç parametre profesyonel.",
+      ideal_answer: "I'm looking for a one-bedroom — under 1200 ideally, and near a U-Bahn line.",
+    },
+    {
+      id: "ex.arcapartmenthu2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "This one is 1400, but it just got renovated. Could you stretch the budget?",
+      accepted_patterns: [
+        "(honestly |to be honest )?(that'?s (a bit )?above my (budget|limit))",
+        "(could we (look at|see) something closer to)",
+        "(is there (room|flexibility) on the (price|rent))",
+        "(any (utilities|included|extras))",
+        "(if (it includes|the kitchen)) (.+) (i could (push|stretch))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bütçe aşan teklif — pazarlık. 'That's a stretch — any flexibility?' Türk: 'No too much' kaba, kibar pazarlık kalıbı.",
+      ideal_response: "That's a bit of a stretch — is there any flexibility on the rent, or are utilities included?",
+    },
+    {
+      id: "ex.arcapartmenthu2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu ev pahalı, daha ucuz olur mu?",
+      wrong_en: "This house is expensive, can it be cheaper?",
+      right_en: "That's a bit above my budget — is there any flexibility on the rent?",
+      why_tr:
+        "Türk: 'expensive, can it be cheaper' = kabaca pazarlık. Native: 'above my budget' (sınır beyan et) + 'any flexibility' (kibar pazarlık aç) = profesyonel + samimi.",
+    },
+    {
+      id: "ex.arcapartmenthu2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'One-bedroom' ne demek?",
+          options: [
+            "Tek yatak",
+            "1+1 daire (bir yatak odası + salon)",
+            "Tek oda",
+            "Bir kişilik",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'One-bedroom apartment' = 1+1 daire (1 yatak odası + 1 salon).",
+        },
+        {
+          q: "'Utilities' nedir?",
+          options: [
+            "Kullanışlı şeyler",
+            "Faturalar (elektrik, su, ısınma)",
+            "Mobilyalar",
+            "Servisler",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Utilities' = kira dışı fatura (elektrik, su, gaz, internet). 'Utilities included' = faturalar kira dahil.",
+        },
+        {
+          q: "'Move-in ready' anlamı?",
+          options: [
+            "Eve taşınmaya hazır (kullanılır halde)",
+            "Hareket et hazır",
+            "Tamiri tamamlanmış",
+            "Yeni yapılmış",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Move-in ready' = hemen taşınılabilir (mobilyalı veya temiz).",
+        },
+        {
+          q: "Bütçe sınırı söyleme:",
+          options: [
+            "I have no money",
+            "That's a bit above my budget",
+            "Too expensive",
+            "I don't pay",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Above my budget' = profesyonel + saygılı sınır beyan. 'Too expensive' duygusal/kaba.",
+        },
+        {
+          q: "'Lease' ne demek?",
+          options: [
+            "Liz (isim)",
+            "Kira sözleşmesi (uzun dönem)",
+            "Lisans",
+            "Sıra",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sign a lease' = kira kontratı imzala (genelde 1+ yıl).",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -6605,6 +13510,134 @@ export const apartmentHunt03: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcapartmenthu3.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "Based on ___, I was hoping we could discuss ___.",
+      slots: [
+        { accepted: ["my performance this quarter", "the scope of the role", "market benchmarks", "my contributions"] },
+        { accepted: ["a salary adjustment", "a raise", "the comp package", "next-level promotion", "title change"] },
+      ],
+      tr_hint:
+        "Kariyer/maaş görüşmesi resmi açılış. 'Based on X, I was hoping we could discuss Y.' Türk: 'I want raise' direkt, profesyonel kalıp yumuşatma.",
+      example_filled: "Based on my performance this quarter, I was hoping we could discuss a salary adjustment.",
+    },
+    {
+      id: "ex.arcapartmenthu3.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Thanks for coming in. So — what would you like to talk about?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay, let's dig into that. What number did you have in mind?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks for (the time|making time))",
+        "(i wanted to (revisit|discuss|circle back on)) (my (compensation|salary|comp))",
+        "(based on (my work|the scope|the market))",
+        "(i'?ve been (taking on|delivering)) ([a-z ]+) (and i think)",
+        "(my responsibilities have (grown|expanded))",
+      ],
+      tr_hint:
+        "Maaş görüşmesi açılış. 'Thanks for the time — I wanted to revisit my compensation given the scope growth.' Türk: 'I want money' direkt, kalıp profesyonel.",
+      ideal_answer: "Thanks for the time — I wanted to revisit my comp given how the scope has grown.",
+    },
+    {
+      id: "ex.arcapartmenthu3.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Budgets are tight this cycle — what would make this worth it for you if we can't move on the number?",
+      accepted_patterns: [
+        "(i (understand|appreciate) (that|the constraint))",
+        "(could we (explore|talk about)) (a (signing bonus|equity (refresh|grant)|title (bump|change)))",
+        "(i'?d be open to)",
+        "(if (the )?number isn'?t flexible)",
+        "(what (would|could) (we|i) (revisit|look at) in ([0-9]+ months|q[1-4]))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Maaş yok = alternatif iste. 'Could we explore a signing bonus / equity / title change?' Türk: 'OK no money' eksik, ek seçenek aç.",
+      ideal_response: "I understand — could we look at a title change or an equity refresh? And maybe revisit the number in 6 months.",
+    },
+    {
+      id: "ex.arcapartmenthu3.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Daha fazla maaş istiyorum çünkü çok çalışıyorum.",
+      wrong_en: "I want more salary because I work a lot.",
+      right_en: "Based on the impact I've delivered, I'm asking for a compensation adjustment in line with market.",
+      why_tr:
+        "Türk: 'I want more' = çocuksu + savunmaya açık. Profesyonel ask = 'impact' (sonuç) + 'in line with market' (kıyaslama). 'Work a lot' = çaba (önemsiz), 'delivered impact' = değer.",
+    },
+    {
+      id: "ex.arcapartmenthu3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Maaş ask profesyonel açılış?",
+          options: [
+            "I want raise",
+            "Based on my performance, I'd like to discuss compensation",
+            "More money please",
+            "Salary up",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Based on + neden, I'd like to discuss + konu' = profesyonel maaş açılışı.",
+        },
+        {
+          q: "'Comp' kısaltması?",
+          options: [
+            "Company",
+            "Compensation (toplam ücret paketi)",
+            "Computer",
+            "Comparison",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Comp' = compensation (maaş + bonus + equity). Tech sektörü standardı.",
+        },
+        {
+          q: "'Signing bonus' nedir?",
+          options: [
+            "İmza ücreti",
+            "İşe başlama bonusu (tek seferlik)",
+            "Sözleşme primi",
+            "Yıllık prim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Signing bonus' = yeni iş kabul edince verilen tek seferlik bonus.",
+        },
+        {
+          q: "'In line with market' anlamı?",
+          options: [
+            "Marketten sırada",
+            "Piyasaya uygun (referans)",
+            "Sırada bekleyen",
+            "Pazar açık",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'In line with market rates' = piyasa standartları ile uyumlu. Maaş ask için temel argüman.",
+        },
+        {
+          q: "Bütçe yok = ne ek pazarlık edebilirsin?",
+          options: [
+            "Hiçbir şey",
+            "Equity refresh / title change / signing bonus / earlier review",
+            "Sadece bekle",
+            "Şikayet et",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Cash yok = equity, title, bonus, erken review (6 ay) — yan kazanç sepeti aç.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -6715,6 +13748,135 @@ export const apartmentHunt04: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcapartmenthu4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm looking for ___ — ideally ___ and ___.",
+      slots: [
+        { accepted: ["a one-bedroom", "a studio", "a shared flat", "something close to work"] },
+        { accepted: ["under 1200 euros", "with a balcony", "in Kreuzberg", "with good light", "pet-friendly"] },
+        { accepted: ["furnished", "near the U-Bahn", "for the next year", "move-in ready", "with laundry"] },
+      ],
+      tr_hint:
+        "Daire arama kalıbı: 'I'm looking for + tip — ideally + 2 öncelik.' Türk: 'I want apartment' düz, ihtiyaç + tercih net.",
+      example_filled: "I'm looking for a one-bedroom — ideally under 1200 euros and near the U-Bahn.",
+    },
+    {
+      id: "ex.arcapartmenthu4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Tell me what you're after." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. I have a couple of places that could work." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m (looking for|after|hoping to find))",
+        "(ideally|preferably) (under [0-9]+|in [a-z]+|with )",
+        "(budget(-| )wise|my budget is)",
+        "(it (needs to be|has to be) (close to|within walking))",
+        "(i (work from home|need a desk|have a cat|have a dog))",
+      ],
+      tr_hint:
+        "Arama brief: 'I'm looking for a one-bedroom, ideally under 1200, in Kreuzberg.' Türk: 'I want' düz, üç parametre profesyonel.",
+      ideal_answer: "I'm looking for a one-bedroom — under 1200 ideally, and near a U-Bahn line.",
+    },
+    {
+      id: "ex.arcapartmenthu4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "This one is 1400, but it just got renovated. Could you stretch the budget?",
+      accepted_patterns: [
+        "(honestly |to be honest )?(that'?s (a bit )?above my (budget|limit))",
+        "(could we (look at|see) something closer to)",
+        "(is there (room|flexibility) on the (price|rent))",
+        "(any (utilities|included|extras))",
+        "(if (it includes|the kitchen)) (.+) (i could (push|stretch))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bütçe aşan teklif — pazarlık. 'That's a stretch — any flexibility?' Türk: 'No too much' kaba, kibar pazarlık kalıbı.",
+      ideal_response: "That's a bit of a stretch — is there any flexibility on the rent, or are utilities included?",
+    },
+    {
+      id: "ex.arcapartmenthu4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu ev pahalı, daha ucuz olur mu?",
+      wrong_en: "This house is expensive, can it be cheaper?",
+      right_en: "That's a bit above my budget — is there any flexibility on the rent?",
+      why_tr:
+        "Türk: 'expensive, can it be cheaper' = kabaca pazarlık. Native: 'above my budget' (sınır beyan et) + 'any flexibility' (kibar pazarlık aç) = profesyonel + samimi.",
+    },
+    {
+      id: "ex.arcapartmenthu4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'One-bedroom' ne demek?",
+          options: [
+            "Tek yatak",
+            "1+1 daire (bir yatak odası + salon)",
+            "Tek oda",
+            "Bir kişilik",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'One-bedroom apartment' = 1+1 daire (1 yatak odası + 1 salon).",
+        },
+        {
+          q: "'Utilities' nedir?",
+          options: [
+            "Kullanışlı şeyler",
+            "Faturalar (elektrik, su, ısınma)",
+            "Mobilyalar",
+            "Servisler",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Utilities' = kira dışı fatura (elektrik, su, gaz, internet). 'Utilities included' = faturalar kira dahil.",
+        },
+        {
+          q: "'Move-in ready' anlamı?",
+          options: [
+            "Eve taşınmaya hazır (kullanılır halde)",
+            "Hareket et hazır",
+            "Tamiri tamamlanmış",
+            "Yeni yapılmış",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Move-in ready' = hemen taşınılabilir (mobilyalı veya temiz).",
+        },
+        {
+          q: "Bütçe sınırı söyleme:",
+          options: [
+            "I have no money",
+            "That's a bit above my budget",
+            "Too expensive",
+            "I don't pay",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Above my budget' = profesyonel + saygılı sınır beyan. 'Too expensive' duygusal/kaba.",
+        },
+        {
+          q: "'Lease' ne demek?",
+          options: [
+            "Liz (isim)",
+            "Kira sözleşmesi (uzun dönem)",
+            "Lisans",
+            "Sıra",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sign a lease' = kira kontratı imzala (genelde 1+ yıl).",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -6826,6 +13988,135 @@ export const apartmentHunt05: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcapartmenthu5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm looking for ___ — ideally ___ and ___.",
+      slots: [
+        { accepted: ["a one-bedroom", "a studio", "a shared flat", "something close to work"] },
+        { accepted: ["under 1200 euros", "with a balcony", "in Kreuzberg", "with good light", "pet-friendly"] },
+        { accepted: ["furnished", "near the U-Bahn", "for the next year", "move-in ready", "with laundry"] },
+      ],
+      tr_hint:
+        "Daire arama kalıbı: 'I'm looking for + tip — ideally + 2 öncelik.' Türk: 'I want apartment' düz, ihtiyaç + tercih net.",
+      example_filled: "I'm looking for a one-bedroom — ideally under 1200 euros and near the U-Bahn.",
+    },
+    {
+      id: "ex.arcapartmenthu5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Tell me what you're after." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. I have a couple of places that could work." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m (looking for|after|hoping to find))",
+        "(ideally|preferably) (under [0-9]+|in [a-z]+|with )",
+        "(budget(-| )wise|my budget is)",
+        "(it (needs to be|has to be) (close to|within walking))",
+        "(i (work from home|need a desk|have a cat|have a dog))",
+      ],
+      tr_hint:
+        "Arama brief: 'I'm looking for a one-bedroom, ideally under 1200, in Kreuzberg.' Türk: 'I want' düz, üç parametre profesyonel.",
+      ideal_answer: "I'm looking for a one-bedroom — under 1200 ideally, and near a U-Bahn line.",
+    },
+    {
+      id: "ex.arcapartmenthu5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "This one is 1400, but it just got renovated. Could you stretch the budget?",
+      accepted_patterns: [
+        "(honestly |to be honest )?(that'?s (a bit )?above my (budget|limit))",
+        "(could we (look at|see) something closer to)",
+        "(is there (room|flexibility) on the (price|rent))",
+        "(any (utilities|included|extras))",
+        "(if (it includes|the kitchen)) (.+) (i could (push|stretch))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bütçe aşan teklif — pazarlık. 'That's a stretch — any flexibility?' Türk: 'No too much' kaba, kibar pazarlık kalıbı.",
+      ideal_response: "That's a bit of a stretch — is there any flexibility on the rent, or are utilities included?",
+    },
+    {
+      id: "ex.arcapartmenthu5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu ev pahalı, daha ucuz olur mu?",
+      wrong_en: "This house is expensive, can it be cheaper?",
+      right_en: "That's a bit above my budget — is there any flexibility on the rent?",
+      why_tr:
+        "Türk: 'expensive, can it be cheaper' = kabaca pazarlık. Native: 'above my budget' (sınır beyan et) + 'any flexibility' (kibar pazarlık aç) = profesyonel + samimi.",
+    },
+    {
+      id: "ex.arcapartmenthu5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'One-bedroom' ne demek?",
+          options: [
+            "Tek yatak",
+            "1+1 daire (bir yatak odası + salon)",
+            "Tek oda",
+            "Bir kişilik",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'One-bedroom apartment' = 1+1 daire (1 yatak odası + 1 salon).",
+        },
+        {
+          q: "'Utilities' nedir?",
+          options: [
+            "Kullanışlı şeyler",
+            "Faturalar (elektrik, su, ısınma)",
+            "Mobilyalar",
+            "Servisler",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Utilities' = kira dışı fatura (elektrik, su, gaz, internet). 'Utilities included' = faturalar kira dahil.",
+        },
+        {
+          q: "'Move-in ready' anlamı?",
+          options: [
+            "Eve taşınmaya hazır (kullanılır halde)",
+            "Hareket et hazır",
+            "Tamiri tamamlanmış",
+            "Yeni yapılmış",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Move-in ready' = hemen taşınılabilir (mobilyalı veya temiz).",
+        },
+        {
+          q: "Bütçe sınırı söyleme:",
+          options: [
+            "I have no money",
+            "That's a bit above my budget",
+            "Too expensive",
+            "I don't pay",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Above my budget' = profesyonel + saygılı sınır beyan. 'Too expensive' duygusal/kaba.",
+        },
+        {
+          q: "'Lease' ne demek?",
+          options: [
+            "Liz (isim)",
+            "Kira sözleşmesi (uzun dönem)",
+            "Lisans",
+            "Sıra",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sign a lease' = kira kontratı imzala (genelde 1+ yıl).",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -6921,6 +14212,135 @@ export const apartmentHunt06: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcapartmenthu6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm looking for ___ — ideally ___ and ___.",
+      slots: [
+        { accepted: ["a one-bedroom", "a studio", "a shared flat", "something close to work"] },
+        { accepted: ["under 1200 euros", "with a balcony", "in Kreuzberg", "with good light", "pet-friendly"] },
+        { accepted: ["furnished", "near the U-Bahn", "for the next year", "move-in ready", "with laundry"] },
+      ],
+      tr_hint:
+        "Daire arama kalıbı: 'I'm looking for + tip — ideally + 2 öncelik.' Türk: 'I want apartment' düz, ihtiyaç + tercih net.",
+      example_filled: "I'm looking for a one-bedroom — ideally under 1200 euros and near the U-Bahn.",
+    },
+    {
+      id: "ex.arcapartmenthu6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Tell me what you're after." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. I have a couple of places that could work." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m (looking for|after|hoping to find))",
+        "(ideally|preferably) (under [0-9]+|in [a-z]+|with )",
+        "(budget(-| )wise|my budget is)",
+        "(it (needs to be|has to be) (close to|within walking))",
+        "(i (work from home|need a desk|have a cat|have a dog))",
+      ],
+      tr_hint:
+        "Arama brief: 'I'm looking for a one-bedroom, ideally under 1200, in Kreuzberg.' Türk: 'I want' düz, üç parametre profesyonel.",
+      ideal_answer: "I'm looking for a one-bedroom — under 1200 ideally, and near a U-Bahn line.",
+    },
+    {
+      id: "ex.arcapartmenthu6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "This one is 1400, but it just got renovated. Could you stretch the budget?",
+      accepted_patterns: [
+        "(honestly |to be honest )?(that'?s (a bit )?above my (budget|limit))",
+        "(could we (look at|see) something closer to)",
+        "(is there (room|flexibility) on the (price|rent))",
+        "(any (utilities|included|extras))",
+        "(if (it includes|the kitchen)) (.+) (i could (push|stretch))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bütçe aşan teklif — pazarlık. 'That's a stretch — any flexibility?' Türk: 'No too much' kaba, kibar pazarlık kalıbı.",
+      ideal_response: "That's a bit of a stretch — is there any flexibility on the rent, or are utilities included?",
+    },
+    {
+      id: "ex.arcapartmenthu6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu ev pahalı, daha ucuz olur mu?",
+      wrong_en: "This house is expensive, can it be cheaper?",
+      right_en: "That's a bit above my budget — is there any flexibility on the rent?",
+      why_tr:
+        "Türk: 'expensive, can it be cheaper' = kabaca pazarlık. Native: 'above my budget' (sınır beyan et) + 'any flexibility' (kibar pazarlık aç) = profesyonel + samimi.",
+    },
+    {
+      id: "ex.arcapartmenthu6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'One-bedroom' ne demek?",
+          options: [
+            "Tek yatak",
+            "1+1 daire (bir yatak odası + salon)",
+            "Tek oda",
+            "Bir kişilik",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'One-bedroom apartment' = 1+1 daire (1 yatak odası + 1 salon).",
+        },
+        {
+          q: "'Utilities' nedir?",
+          options: [
+            "Kullanışlı şeyler",
+            "Faturalar (elektrik, su, ısınma)",
+            "Mobilyalar",
+            "Servisler",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Utilities' = kira dışı fatura (elektrik, su, gaz, internet). 'Utilities included' = faturalar kira dahil.",
+        },
+        {
+          q: "'Move-in ready' anlamı?",
+          options: [
+            "Eve taşınmaya hazır (kullanılır halde)",
+            "Hareket et hazır",
+            "Tamiri tamamlanmış",
+            "Yeni yapılmış",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Move-in ready' = hemen taşınılabilir (mobilyalı veya temiz).",
+        },
+        {
+          q: "Bütçe sınırı söyleme:",
+          options: [
+            "I have no money",
+            "That's a bit above my budget",
+            "Too expensive",
+            "I don't pay",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Above my budget' = profesyonel + saygılı sınır beyan. 'Too expensive' duygusal/kaba.",
+        },
+        {
+          q: "'Lease' ne demek?",
+          options: [
+            "Liz (isim)",
+            "Kira sözleşmesi (uzun dönem)",
+            "Lisans",
+            "Sıra",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sign a lease' = kira kontratı imzala (genelde 1+ yıl).",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -7016,6 +14436,135 @@ export const apartmentHunt07: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcapartmenthu7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm looking for ___ — ideally ___ and ___.",
+      slots: [
+        { accepted: ["a one-bedroom", "a studio", "a shared flat", "something close to work"] },
+        { accepted: ["under 1200 euros", "with a balcony", "in Kreuzberg", "with good light", "pet-friendly"] },
+        { accepted: ["furnished", "near the U-Bahn", "for the next year", "move-in ready", "with laundry"] },
+      ],
+      tr_hint:
+        "Daire arama kalıbı: 'I'm looking for + tip — ideally + 2 öncelik.' Türk: 'I want apartment' düz, ihtiyaç + tercih net.",
+      example_filled: "I'm looking for a one-bedroom — ideally under 1200 euros and near the U-Bahn.",
+    },
+    {
+      id: "ex.arcapartmenthu7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Tell me what you're after." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. I have a couple of places that could work." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m (looking for|after|hoping to find))",
+        "(ideally|preferably) (under [0-9]+|in [a-z]+|with )",
+        "(budget(-| )wise|my budget is)",
+        "(it (needs to be|has to be) (close to|within walking))",
+        "(i (work from home|need a desk|have a cat|have a dog))",
+      ],
+      tr_hint:
+        "Arama brief: 'I'm looking for a one-bedroom, ideally under 1200, in Kreuzberg.' Türk: 'I want' düz, üç parametre profesyonel.",
+      ideal_answer: "I'm looking for a one-bedroom — under 1200 ideally, and near a U-Bahn line.",
+    },
+    {
+      id: "ex.arcapartmenthu7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "This one is 1400, but it just got renovated. Could you stretch the budget?",
+      accepted_patterns: [
+        "(honestly |to be honest )?(that'?s (a bit )?above my (budget|limit))",
+        "(could we (look at|see) something closer to)",
+        "(is there (room|flexibility) on the (price|rent))",
+        "(any (utilities|included|extras))",
+        "(if (it includes|the kitchen)) (.+) (i could (push|stretch))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bütçe aşan teklif — pazarlık. 'That's a stretch — any flexibility?' Türk: 'No too much' kaba, kibar pazarlık kalıbı.",
+      ideal_response: "That's a bit of a stretch — is there any flexibility on the rent, or are utilities included?",
+    },
+    {
+      id: "ex.arcapartmenthu7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu ev pahalı, daha ucuz olur mu?",
+      wrong_en: "This house is expensive, can it be cheaper?",
+      right_en: "That's a bit above my budget — is there any flexibility on the rent?",
+      why_tr:
+        "Türk: 'expensive, can it be cheaper' = kabaca pazarlık. Native: 'above my budget' (sınır beyan et) + 'any flexibility' (kibar pazarlık aç) = profesyonel + samimi.",
+    },
+    {
+      id: "ex.arcapartmenthu7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'One-bedroom' ne demek?",
+          options: [
+            "Tek yatak",
+            "1+1 daire (bir yatak odası + salon)",
+            "Tek oda",
+            "Bir kişilik",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'One-bedroom apartment' = 1+1 daire (1 yatak odası + 1 salon).",
+        },
+        {
+          q: "'Utilities' nedir?",
+          options: [
+            "Kullanışlı şeyler",
+            "Faturalar (elektrik, su, ısınma)",
+            "Mobilyalar",
+            "Servisler",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Utilities' = kira dışı fatura (elektrik, su, gaz, internet). 'Utilities included' = faturalar kira dahil.",
+        },
+        {
+          q: "'Move-in ready' anlamı?",
+          options: [
+            "Eve taşınmaya hazır (kullanılır halde)",
+            "Hareket et hazır",
+            "Tamiri tamamlanmış",
+            "Yeni yapılmış",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Move-in ready' = hemen taşınılabilir (mobilyalı veya temiz).",
+        },
+        {
+          q: "Bütçe sınırı söyleme:",
+          options: [
+            "I have no money",
+            "That's a bit above my budget",
+            "Too expensive",
+            "I don't pay",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Above my budget' = profesyonel + saygılı sınır beyan. 'Too expensive' duygusal/kaba.",
+        },
+        {
+          q: "'Lease' ne demek?",
+          options: [
+            "Liz (isim)",
+            "Kira sözleşmesi (uzun dönem)",
+            "Lisans",
+            "Sıra",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sign a lease' = kira kontratı imzala (genelde 1+ yıl).",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -7127,6 +14676,135 @@ export const apartmentHunt08: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcapartmenthu8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm looking for ___ — ideally ___ and ___.",
+      slots: [
+        { accepted: ["a one-bedroom", "a studio", "a shared flat", "something close to work"] },
+        { accepted: ["under 1200 euros", "with a balcony", "in Kreuzberg", "with good light", "pet-friendly"] },
+        { accepted: ["furnished", "near the U-Bahn", "for the next year", "move-in ready", "with laundry"] },
+      ],
+      tr_hint:
+        "Daire arama kalıbı: 'I'm looking for + tip — ideally + 2 öncelik.' Türk: 'I want apartment' düz, ihtiyaç + tercih net.",
+      example_filled: "I'm looking for a one-bedroom — ideally under 1200 euros and near the U-Bahn.",
+    },
+    {
+      id: "ex.arcapartmenthu8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Tell me what you're after." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. I have a couple of places that could work." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m (looking for|after|hoping to find))",
+        "(ideally|preferably) (under [0-9]+|in [a-z]+|with )",
+        "(budget(-| )wise|my budget is)",
+        "(it (needs to be|has to be) (close to|within walking))",
+        "(i (work from home|need a desk|have a cat|have a dog))",
+      ],
+      tr_hint:
+        "Arama brief: 'I'm looking for a one-bedroom, ideally under 1200, in Kreuzberg.' Türk: 'I want' düz, üç parametre profesyonel.",
+      ideal_answer: "I'm looking for a one-bedroom — under 1200 ideally, and near a U-Bahn line.",
+    },
+    {
+      id: "ex.arcapartmenthu8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "This one is 1400, but it just got renovated. Could you stretch the budget?",
+      accepted_patterns: [
+        "(honestly |to be honest )?(that'?s (a bit )?above my (budget|limit))",
+        "(could we (look at|see) something closer to)",
+        "(is there (room|flexibility) on the (price|rent))",
+        "(any (utilities|included|extras))",
+        "(if (it includes|the kitchen)) (.+) (i could (push|stretch))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bütçe aşan teklif — pazarlık. 'That's a stretch — any flexibility?' Türk: 'No too much' kaba, kibar pazarlık kalıbı.",
+      ideal_response: "That's a bit of a stretch — is there any flexibility on the rent, or are utilities included?",
+    },
+    {
+      id: "ex.arcapartmenthu8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu ev pahalı, daha ucuz olur mu?",
+      wrong_en: "This house is expensive, can it be cheaper?",
+      right_en: "That's a bit above my budget — is there any flexibility on the rent?",
+      why_tr:
+        "Türk: 'expensive, can it be cheaper' = kabaca pazarlık. Native: 'above my budget' (sınır beyan et) + 'any flexibility' (kibar pazarlık aç) = profesyonel + samimi.",
+    },
+    {
+      id: "ex.arcapartmenthu8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'One-bedroom' ne demek?",
+          options: [
+            "Tek yatak",
+            "1+1 daire (bir yatak odası + salon)",
+            "Tek oda",
+            "Bir kişilik",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'One-bedroom apartment' = 1+1 daire (1 yatak odası + 1 salon).",
+        },
+        {
+          q: "'Utilities' nedir?",
+          options: [
+            "Kullanışlı şeyler",
+            "Faturalar (elektrik, su, ısınma)",
+            "Mobilyalar",
+            "Servisler",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Utilities' = kira dışı fatura (elektrik, su, gaz, internet). 'Utilities included' = faturalar kira dahil.",
+        },
+        {
+          q: "'Move-in ready' anlamı?",
+          options: [
+            "Eve taşınmaya hazır (kullanılır halde)",
+            "Hareket et hazır",
+            "Tamiri tamamlanmış",
+            "Yeni yapılmış",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Move-in ready' = hemen taşınılabilir (mobilyalı veya temiz).",
+        },
+        {
+          q: "Bütçe sınırı söyleme:",
+          options: [
+            "I have no money",
+            "That's a bit above my budget",
+            "Too expensive",
+            "I don't pay",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Above my budget' = profesyonel + saygılı sınır beyan. 'Too expensive' duygusal/kaba.",
+        },
+        {
+          q: "'Lease' ne demek?",
+          options: [
+            "Liz (isim)",
+            "Kira sözleşmesi (uzun dönem)",
+            "Lisans",
+            "Sıra",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sign a lease' = kira kontratı imzala (genelde 1+ yıl).",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -7223,6 +14901,135 @@ export const onlineDating01: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arconlinedatin1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arconlinedatin1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arconlinedatin1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arconlinedatin1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arconlinedatin1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -7329,6 +15136,132 @@ export const onlineDating02: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arconlinedatin2.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could I get a ___ with ___, please?",
+      slots: [
+        { accepted: ["flat white", "cappuccino", "latte", "americano", "cortado"] },
+        { accepted: ["oat milk", "almond milk", "extra shot", "no sugar", "less foam"] },
+      ],
+      tr_hint:
+        "Kahve özel sipariş kalıbı: 'Could I get + içecek + with + özel'. Türk: 'I want' düz, 'Could I get' kibar.",
+      example_filled: "Could I get a flat white with oat milk, please?",
+    },
+    {
+      id: "ex.arconlinedatin2.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Morning! The usual?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Coming up — anything to eat?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (you got it|please|same as always)",
+        "(actually )?(let me )?(switch (it )?up|try something different)",
+        "(make it )?(a double|a large)(,)? please",
+        "(yes)(,)? (and|with) (a croissant|something to eat)",
+      ],
+      tr_hint:
+        "Barista sürekli müşteri tanıdı. 'You got it!' = aynen! Türk: 'Yes same' düz, 'You got it' samimi onay.",
+      ideal_answer: "Yes, you got it — flat white, please.",
+    },
+    {
+      id: "ex.arconlinedatin2.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "We're out of oat milk — almond or whole instead?",
+      accepted_patterns: [
+        "(almond|whole|either) (works|is fine)",
+        "(let me )?(go with|do|take) (almond|whole)",
+        "(any (other (alternatives|options)|soy))",
+        "(actually )?(just (black|with whole)|forget the milk)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Stok yok. 'Almond works' veya 'Just black, then.' Türk: 'OK almond' eksik, 'Almond works' net kabul.",
+      ideal_response: "Almond works, thanks.",
+    },
+    {
+      id: "ex.arconlinedatin2.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Sütsüz olabilir mi?",
+      wrong_en: "Can it be without milk?",
+      right_en: "Could I get it black, please?",
+      why_tr:
+        "Türk literal çeviri: 'without milk' anlaşılır ama doğal değil. 'Black' = sütsüz/sade (kahve için terim). 'Could I get it black?' kibar + doğru terim.",
+    },
+    {
+      id: "ex.arconlinedatin2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'The usual?' baristanın sorduğu nedir?",
+          options: [
+            "Olağan mı?",
+            "Her zamanki (sipariş) mi?",
+            "Normal mi?",
+            "Standart mı?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The usual' = her zamanki sipariş (sürekli müşteriye sorulur).",
+        },
+        {
+          q: "Sütsüz kahve nasıl söylenir?",
+          options: [
+            "Without milk",
+            "No milk",
+            "Black",
+            "Empty",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'Black' = kahve için sütsüz/sade terim. 'Without milk' anlaşılır ama 'black' native.",
+        },
+        {
+          q: "'For here or to go?' anlamı?",
+          options: [
+            "Burada mı, paket mi?",
+            "Burada mı, dışarıda mı?",
+            "Otur mu, kalk mı?",
+            "Buradan mı, oradan mı?",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For here' = burada içeceğim. 'To go' = paket alıp gideceğim.",
+        },
+        {
+          q: "'Extra shot' ne demek?",
+          options: [
+            "Ekstra fotoğraf",
+            "İkinci espresso (kahveye)",
+            "Büyük boy",
+            "Hızlı içim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Extra shot' = ekstra espresso dozu (latte/cappuccino'ya eklenir).",
+        },
+        {
+          q: "Tezgah ödemesinde kibar kalıp?",
+          options: [
+            "I will pay with card",
+            "Card, please / Contactless",
+            "Card I take",
+            "Take my card",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Card, please' veya 'Contactless' — kısa, doğal. Türk: tam cümle gereksiz.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -7439,6 +15372,135 @@ export const onlineDating03: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arconlinedatin3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arconlinedatin3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arconlinedatin3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arconlinedatin3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arconlinedatin3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -7534,6 +15596,135 @@ export const onlineDating04: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arconlinedatin4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arconlinedatin4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arconlinedatin4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arconlinedatin4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arconlinedatin4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -7629,6 +15820,135 @@ export const onlineDating05: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arconlinedatin5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arconlinedatin5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arconlinedatin5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arconlinedatin5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arconlinedatin5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -7724,6 +16044,135 @@ export const onlineDating06: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arconlinedatin6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arconlinedatin6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arconlinedatin6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arconlinedatin6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arconlinedatin6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -7819,6 +16268,135 @@ export const onlineDating07: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arconlinedatin7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arconlinedatin7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arconlinedatin7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arconlinedatin7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arconlinedatin7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -7914,6 +16492,135 @@ export const onlineDating08: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arconlinedatin8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arconlinedatin8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arconlinedatin8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arconlinedatin8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arconlinedatin8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -8025,6 +16732,135 @@ export const onlineDating09: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arconlinedatin9.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arconlinedatin9.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arconlinedatin9.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arconlinedatin9.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arconlinedatin9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -8136,6 +16972,135 @@ export const onlineDating10: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arconlinedatin10.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arconlinedatin10.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arconlinedatin10.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arconlinedatin10.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arconlinedatin10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -8252,6 +17217,134 @@ export const workConflict01: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcworkconflic1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcworkconflic1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcworkconflic1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcworkconflic1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcworkconflic1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -8347,6 +17440,134 @@ export const workConflict02: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcworkconflic2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcworkconflic2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcworkconflic2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcworkconflic2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcworkconflic2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -8442,6 +17663,134 @@ export const workConflict03: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcworkconflic3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcworkconflic3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcworkconflic3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcworkconflic3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcworkconflic3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -8537,6 +17886,134 @@ export const workConflict04: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcworkconflic4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcworkconflic4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcworkconflic4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcworkconflic4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcworkconflic4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -8632,6 +18109,134 @@ export const workConflict05: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcworkconflic5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcworkconflic5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcworkconflic5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcworkconflic5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcworkconflic5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -8727,6 +18332,134 @@ export const workConflict06: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcworkconflic6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcworkconflic6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcworkconflic6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcworkconflic6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcworkconflic6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -8822,6 +18555,134 @@ export const workConflict07: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcworkconflic7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcworkconflic7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcworkconflic7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcworkconflic7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcworkconflic7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -8917,6 +18778,134 @@ export const workConflict08: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcworkconflic8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.arcworkconflic8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.arcworkconflic8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.arcworkconflic8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.arcworkconflic8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -9033,6 +19022,134 @@ export const salaryNeg01: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsalaryneg1.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "Based on ___, I was hoping we could discuss ___.",
+      slots: [
+        { accepted: ["my performance this quarter", "the scope of the role", "market benchmarks", "my contributions"] },
+        { accepted: ["a salary adjustment", "a raise", "the comp package", "next-level promotion", "title change"] },
+      ],
+      tr_hint:
+        "Kariyer/maaş görüşmesi resmi açılış. 'Based on X, I was hoping we could discuss Y.' Türk: 'I want raise' direkt, profesyonel kalıp yumuşatma.",
+      example_filled: "Based on my performance this quarter, I was hoping we could discuss a salary adjustment.",
+    },
+    {
+      id: "ex.arcsalaryneg1.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Thanks for coming in. So — what would you like to talk about?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay, let's dig into that. What number did you have in mind?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks for (the time|making time))",
+        "(i wanted to (revisit|discuss|circle back on)) (my (compensation|salary|comp))",
+        "(based on (my work|the scope|the market))",
+        "(i'?ve been (taking on|delivering)) ([a-z ]+) (and i think)",
+        "(my responsibilities have (grown|expanded))",
+      ],
+      tr_hint:
+        "Maaş görüşmesi açılış. 'Thanks for the time — I wanted to revisit my compensation given the scope growth.' Türk: 'I want money' direkt, kalıp profesyonel.",
+      ideal_answer: "Thanks for the time — I wanted to revisit my comp given how the scope has grown.",
+    },
+    {
+      id: "ex.arcsalaryneg1.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Budgets are tight this cycle — what would make this worth it for you if we can't move on the number?",
+      accepted_patterns: [
+        "(i (understand|appreciate) (that|the constraint))",
+        "(could we (explore|talk about)) (a (signing bonus|equity (refresh|grant)|title (bump|change)))",
+        "(i'?d be open to)",
+        "(if (the )?number isn'?t flexible)",
+        "(what (would|could) (we|i) (revisit|look at) in ([0-9]+ months|q[1-4]))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Maaş yok = alternatif iste. 'Could we explore a signing bonus / equity / title change?' Türk: 'OK no money' eksik, ek seçenek aç.",
+      ideal_response: "I understand — could we look at a title change or an equity refresh? And maybe revisit the number in 6 months.",
+    },
+    {
+      id: "ex.arcsalaryneg1.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Daha fazla maaş istiyorum çünkü çok çalışıyorum.",
+      wrong_en: "I want more salary because I work a lot.",
+      right_en: "Based on the impact I've delivered, I'm asking for a compensation adjustment in line with market.",
+      why_tr:
+        "Türk: 'I want more' = çocuksu + savunmaya açık. Profesyonel ask = 'impact' (sonuç) + 'in line with market' (kıyaslama). 'Work a lot' = çaba (önemsiz), 'delivered impact' = değer.",
+    },
+    {
+      id: "ex.arcsalaryneg1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Maaş ask profesyonel açılış?",
+          options: [
+            "I want raise",
+            "Based on my performance, I'd like to discuss compensation",
+            "More money please",
+            "Salary up",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Based on + neden, I'd like to discuss + konu' = profesyonel maaş açılışı.",
+        },
+        {
+          q: "'Comp' kısaltması?",
+          options: [
+            "Company",
+            "Compensation (toplam ücret paketi)",
+            "Computer",
+            "Comparison",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Comp' = compensation (maaş + bonus + equity). Tech sektörü standardı.",
+        },
+        {
+          q: "'Signing bonus' nedir?",
+          options: [
+            "İmza ücreti",
+            "İşe başlama bonusu (tek seferlik)",
+            "Sözleşme primi",
+            "Yıllık prim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Signing bonus' = yeni iş kabul edince verilen tek seferlik bonus.",
+        },
+        {
+          q: "'In line with market' anlamı?",
+          options: [
+            "Marketten sırada",
+            "Piyasaya uygun (referans)",
+            "Sırada bekleyen",
+            "Pazar açık",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'In line with market rates' = piyasa standartları ile uyumlu. Maaş ask için temel argüman.",
+        },
+        {
+          q: "Bütçe yok = ne ek pazarlık edebilirsin?",
+          options: [
+            "Hiçbir şey",
+            "Equity refresh / title change / signing bonus / earlier review",
+            "Sadece bekle",
+            "Şikayet et",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Cash yok = equity, title, bonus, erken review (6 ay) — yan kazanç sepeti aç.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -9144,6 +19261,134 @@ export const salaryNeg02: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsalaryneg2.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "Based on ___, I was hoping we could discuss ___.",
+      slots: [
+        { accepted: ["my performance this quarter", "the scope of the role", "market benchmarks", "my contributions"] },
+        { accepted: ["a salary adjustment", "a raise", "the comp package", "next-level promotion", "title change"] },
+      ],
+      tr_hint:
+        "Kariyer/maaş görüşmesi resmi açılış. 'Based on X, I was hoping we could discuss Y.' Türk: 'I want raise' direkt, profesyonel kalıp yumuşatma.",
+      example_filled: "Based on my performance this quarter, I was hoping we could discuss a salary adjustment.",
+    },
+    {
+      id: "ex.arcsalaryneg2.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Thanks for coming in. So — what would you like to talk about?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay, let's dig into that. What number did you have in mind?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks for (the time|making time))",
+        "(i wanted to (revisit|discuss|circle back on)) (my (compensation|salary|comp))",
+        "(based on (my work|the scope|the market))",
+        "(i'?ve been (taking on|delivering)) ([a-z ]+) (and i think)",
+        "(my responsibilities have (grown|expanded))",
+      ],
+      tr_hint:
+        "Maaş görüşmesi açılış. 'Thanks for the time — I wanted to revisit my compensation given the scope growth.' Türk: 'I want money' direkt, kalıp profesyonel.",
+      ideal_answer: "Thanks for the time — I wanted to revisit my comp given how the scope has grown.",
+    },
+    {
+      id: "ex.arcsalaryneg2.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Budgets are tight this cycle — what would make this worth it for you if we can't move on the number?",
+      accepted_patterns: [
+        "(i (understand|appreciate) (that|the constraint))",
+        "(could we (explore|talk about)) (a (signing bonus|equity (refresh|grant)|title (bump|change)))",
+        "(i'?d be open to)",
+        "(if (the )?number isn'?t flexible)",
+        "(what (would|could) (we|i) (revisit|look at) in ([0-9]+ months|q[1-4]))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Maaş yok = alternatif iste. 'Could we explore a signing bonus / equity / title change?' Türk: 'OK no money' eksik, ek seçenek aç.",
+      ideal_response: "I understand — could we look at a title change or an equity refresh? And maybe revisit the number in 6 months.",
+    },
+    {
+      id: "ex.arcsalaryneg2.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Daha fazla maaş istiyorum çünkü çok çalışıyorum.",
+      wrong_en: "I want more salary because I work a lot.",
+      right_en: "Based on the impact I've delivered, I'm asking for a compensation adjustment in line with market.",
+      why_tr:
+        "Türk: 'I want more' = çocuksu + savunmaya açık. Profesyonel ask = 'impact' (sonuç) + 'in line with market' (kıyaslama). 'Work a lot' = çaba (önemsiz), 'delivered impact' = değer.",
+    },
+    {
+      id: "ex.arcsalaryneg2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Maaş ask profesyonel açılış?",
+          options: [
+            "I want raise",
+            "Based on my performance, I'd like to discuss compensation",
+            "More money please",
+            "Salary up",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Based on + neden, I'd like to discuss + konu' = profesyonel maaş açılışı.",
+        },
+        {
+          q: "'Comp' kısaltması?",
+          options: [
+            "Company",
+            "Compensation (toplam ücret paketi)",
+            "Computer",
+            "Comparison",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Comp' = compensation (maaş + bonus + equity). Tech sektörü standardı.",
+        },
+        {
+          q: "'Signing bonus' nedir?",
+          options: [
+            "İmza ücreti",
+            "İşe başlama bonusu (tek seferlik)",
+            "Sözleşme primi",
+            "Yıllık prim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Signing bonus' = yeni iş kabul edince verilen tek seferlik bonus.",
+        },
+        {
+          q: "'In line with market' anlamı?",
+          options: [
+            "Marketten sırada",
+            "Piyasaya uygun (referans)",
+            "Sırada bekleyen",
+            "Pazar açık",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'In line with market rates' = piyasa standartları ile uyumlu. Maaş ask için temel argüman.",
+        },
+        {
+          q: "Bütçe yok = ne ek pazarlık edebilirsin?",
+          options: [
+            "Hiçbir şey",
+            "Equity refresh / title change / signing bonus / earlier review",
+            "Sadece bekle",
+            "Şikayet et",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Cash yok = equity, title, bonus, erken review (6 ay) — yan kazanç sepeti aç.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -9239,6 +19484,134 @@ export const salaryNeg03: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsalaryneg3.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "Based on ___, I was hoping we could discuss ___.",
+      slots: [
+        { accepted: ["my performance this quarter", "the scope of the role", "market benchmarks", "my contributions"] },
+        { accepted: ["a salary adjustment", "a raise", "the comp package", "next-level promotion", "title change"] },
+      ],
+      tr_hint:
+        "Kariyer/maaş görüşmesi resmi açılış. 'Based on X, I was hoping we could discuss Y.' Türk: 'I want raise' direkt, profesyonel kalıp yumuşatma.",
+      example_filled: "Based on my performance this quarter, I was hoping we could discuss a salary adjustment.",
+    },
+    {
+      id: "ex.arcsalaryneg3.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Thanks for coming in. So — what would you like to talk about?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay, let's dig into that. What number did you have in mind?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks for (the time|making time))",
+        "(i wanted to (revisit|discuss|circle back on)) (my (compensation|salary|comp))",
+        "(based on (my work|the scope|the market))",
+        "(i'?ve been (taking on|delivering)) ([a-z ]+) (and i think)",
+        "(my responsibilities have (grown|expanded))",
+      ],
+      tr_hint:
+        "Maaş görüşmesi açılış. 'Thanks for the time — I wanted to revisit my compensation given the scope growth.' Türk: 'I want money' direkt, kalıp profesyonel.",
+      ideal_answer: "Thanks for the time — I wanted to revisit my comp given how the scope has grown.",
+    },
+    {
+      id: "ex.arcsalaryneg3.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Budgets are tight this cycle — what would make this worth it for you if we can't move on the number?",
+      accepted_patterns: [
+        "(i (understand|appreciate) (that|the constraint))",
+        "(could we (explore|talk about)) (a (signing bonus|equity (refresh|grant)|title (bump|change)))",
+        "(i'?d be open to)",
+        "(if (the )?number isn'?t flexible)",
+        "(what (would|could) (we|i) (revisit|look at) in ([0-9]+ months|q[1-4]))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Maaş yok = alternatif iste. 'Could we explore a signing bonus / equity / title change?' Türk: 'OK no money' eksik, ek seçenek aç.",
+      ideal_response: "I understand — could we look at a title change or an equity refresh? And maybe revisit the number in 6 months.",
+    },
+    {
+      id: "ex.arcsalaryneg3.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Daha fazla maaş istiyorum çünkü çok çalışıyorum.",
+      wrong_en: "I want more salary because I work a lot.",
+      right_en: "Based on the impact I've delivered, I'm asking for a compensation adjustment in line with market.",
+      why_tr:
+        "Türk: 'I want more' = çocuksu + savunmaya açık. Profesyonel ask = 'impact' (sonuç) + 'in line with market' (kıyaslama). 'Work a lot' = çaba (önemsiz), 'delivered impact' = değer.",
+    },
+    {
+      id: "ex.arcsalaryneg3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Maaş ask profesyonel açılış?",
+          options: [
+            "I want raise",
+            "Based on my performance, I'd like to discuss compensation",
+            "More money please",
+            "Salary up",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Based on + neden, I'd like to discuss + konu' = profesyonel maaş açılışı.",
+        },
+        {
+          q: "'Comp' kısaltması?",
+          options: [
+            "Company",
+            "Compensation (toplam ücret paketi)",
+            "Computer",
+            "Comparison",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Comp' = compensation (maaş + bonus + equity). Tech sektörü standardı.",
+        },
+        {
+          q: "'Signing bonus' nedir?",
+          options: [
+            "İmza ücreti",
+            "İşe başlama bonusu (tek seferlik)",
+            "Sözleşme primi",
+            "Yıllık prim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Signing bonus' = yeni iş kabul edince verilen tek seferlik bonus.",
+        },
+        {
+          q: "'In line with market' anlamı?",
+          options: [
+            "Marketten sırada",
+            "Piyasaya uygun (referans)",
+            "Sırada bekleyen",
+            "Pazar açık",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'In line with market rates' = piyasa standartları ile uyumlu. Maaş ask için temel argüman.",
+        },
+        {
+          q: "Bütçe yok = ne ek pazarlık edebilirsin?",
+          options: [
+            "Hiçbir şey",
+            "Equity refresh / title change / signing bonus / earlier review",
+            "Sadece bekle",
+            "Şikayet et",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Cash yok = equity, title, bonus, erken review (6 ay) — yan kazanç sepeti aç.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -9334,6 +19707,134 @@ export const salaryNeg04: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsalaryneg4.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "Based on ___, I was hoping we could discuss ___.",
+      slots: [
+        { accepted: ["my performance this quarter", "the scope of the role", "market benchmarks", "my contributions"] },
+        { accepted: ["a salary adjustment", "a raise", "the comp package", "next-level promotion", "title change"] },
+      ],
+      tr_hint:
+        "Kariyer/maaş görüşmesi resmi açılış. 'Based on X, I was hoping we could discuss Y.' Türk: 'I want raise' direkt, profesyonel kalıp yumuşatma.",
+      example_filled: "Based on my performance this quarter, I was hoping we could discuss a salary adjustment.",
+    },
+    {
+      id: "ex.arcsalaryneg4.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Thanks for coming in. So — what would you like to talk about?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay, let's dig into that. What number did you have in mind?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks for (the time|making time))",
+        "(i wanted to (revisit|discuss|circle back on)) (my (compensation|salary|comp))",
+        "(based on (my work|the scope|the market))",
+        "(i'?ve been (taking on|delivering)) ([a-z ]+) (and i think)",
+        "(my responsibilities have (grown|expanded))",
+      ],
+      tr_hint:
+        "Maaş görüşmesi açılış. 'Thanks for the time — I wanted to revisit my compensation given the scope growth.' Türk: 'I want money' direkt, kalıp profesyonel.",
+      ideal_answer: "Thanks for the time — I wanted to revisit my comp given how the scope has grown.",
+    },
+    {
+      id: "ex.arcsalaryneg4.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Budgets are tight this cycle — what would make this worth it for you if we can't move on the number?",
+      accepted_patterns: [
+        "(i (understand|appreciate) (that|the constraint))",
+        "(could we (explore|talk about)) (a (signing bonus|equity (refresh|grant)|title (bump|change)))",
+        "(i'?d be open to)",
+        "(if (the )?number isn'?t flexible)",
+        "(what (would|could) (we|i) (revisit|look at) in ([0-9]+ months|q[1-4]))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Maaş yok = alternatif iste. 'Could we explore a signing bonus / equity / title change?' Türk: 'OK no money' eksik, ek seçenek aç.",
+      ideal_response: "I understand — could we look at a title change or an equity refresh? And maybe revisit the number in 6 months.",
+    },
+    {
+      id: "ex.arcsalaryneg4.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Daha fazla maaş istiyorum çünkü çok çalışıyorum.",
+      wrong_en: "I want more salary because I work a lot.",
+      right_en: "Based on the impact I've delivered, I'm asking for a compensation adjustment in line with market.",
+      why_tr:
+        "Türk: 'I want more' = çocuksu + savunmaya açık. Profesyonel ask = 'impact' (sonuç) + 'in line with market' (kıyaslama). 'Work a lot' = çaba (önemsiz), 'delivered impact' = değer.",
+    },
+    {
+      id: "ex.arcsalaryneg4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Maaş ask profesyonel açılış?",
+          options: [
+            "I want raise",
+            "Based on my performance, I'd like to discuss compensation",
+            "More money please",
+            "Salary up",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Based on + neden, I'd like to discuss + konu' = profesyonel maaş açılışı.",
+        },
+        {
+          q: "'Comp' kısaltması?",
+          options: [
+            "Company",
+            "Compensation (toplam ücret paketi)",
+            "Computer",
+            "Comparison",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Comp' = compensation (maaş + bonus + equity). Tech sektörü standardı.",
+        },
+        {
+          q: "'Signing bonus' nedir?",
+          options: [
+            "İmza ücreti",
+            "İşe başlama bonusu (tek seferlik)",
+            "Sözleşme primi",
+            "Yıllık prim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Signing bonus' = yeni iş kabul edince verilen tek seferlik bonus.",
+        },
+        {
+          q: "'In line with market' anlamı?",
+          options: [
+            "Marketten sırada",
+            "Piyasaya uygun (referans)",
+            "Sırada bekleyen",
+            "Pazar açık",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'In line with market rates' = piyasa standartları ile uyumlu. Maaş ask için temel argüman.",
+        },
+        {
+          q: "Bütçe yok = ne ek pazarlık edebilirsin?",
+          options: [
+            "Hiçbir şey",
+            "Equity refresh / title change / signing bonus / earlier review",
+            "Sadece bekle",
+            "Şikayet et",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Cash yok = equity, title, bonus, erken review (6 ay) — yan kazanç sepeti aç.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -9429,6 +19930,134 @@ export const salaryNeg05: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsalaryneg5.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "Based on ___, I was hoping we could discuss ___.",
+      slots: [
+        { accepted: ["my performance this quarter", "the scope of the role", "market benchmarks", "my contributions"] },
+        { accepted: ["a salary adjustment", "a raise", "the comp package", "next-level promotion", "title change"] },
+      ],
+      tr_hint:
+        "Kariyer/maaş görüşmesi resmi açılış. 'Based on X, I was hoping we could discuss Y.' Türk: 'I want raise' direkt, profesyonel kalıp yumuşatma.",
+      example_filled: "Based on my performance this quarter, I was hoping we could discuss a salary adjustment.",
+    },
+    {
+      id: "ex.arcsalaryneg5.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Thanks for coming in. So — what would you like to talk about?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay, let's dig into that. What number did you have in mind?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks for (the time|making time))",
+        "(i wanted to (revisit|discuss|circle back on)) (my (compensation|salary|comp))",
+        "(based on (my work|the scope|the market))",
+        "(i'?ve been (taking on|delivering)) ([a-z ]+) (and i think)",
+        "(my responsibilities have (grown|expanded))",
+      ],
+      tr_hint:
+        "Maaş görüşmesi açılış. 'Thanks for the time — I wanted to revisit my compensation given the scope growth.' Türk: 'I want money' direkt, kalıp profesyonel.",
+      ideal_answer: "Thanks for the time — I wanted to revisit my comp given how the scope has grown.",
+    },
+    {
+      id: "ex.arcsalaryneg5.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Budgets are tight this cycle — what would make this worth it for you if we can't move on the number?",
+      accepted_patterns: [
+        "(i (understand|appreciate) (that|the constraint))",
+        "(could we (explore|talk about)) (a (signing bonus|equity (refresh|grant)|title (bump|change)))",
+        "(i'?d be open to)",
+        "(if (the )?number isn'?t flexible)",
+        "(what (would|could) (we|i) (revisit|look at) in ([0-9]+ months|q[1-4]))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Maaş yok = alternatif iste. 'Could we explore a signing bonus / equity / title change?' Türk: 'OK no money' eksik, ek seçenek aç.",
+      ideal_response: "I understand — could we look at a title change or an equity refresh? And maybe revisit the number in 6 months.",
+    },
+    {
+      id: "ex.arcsalaryneg5.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Daha fazla maaş istiyorum çünkü çok çalışıyorum.",
+      wrong_en: "I want more salary because I work a lot.",
+      right_en: "Based on the impact I've delivered, I'm asking for a compensation adjustment in line with market.",
+      why_tr:
+        "Türk: 'I want more' = çocuksu + savunmaya açık. Profesyonel ask = 'impact' (sonuç) + 'in line with market' (kıyaslama). 'Work a lot' = çaba (önemsiz), 'delivered impact' = değer.",
+    },
+    {
+      id: "ex.arcsalaryneg5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Maaş ask profesyonel açılış?",
+          options: [
+            "I want raise",
+            "Based on my performance, I'd like to discuss compensation",
+            "More money please",
+            "Salary up",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Based on + neden, I'd like to discuss + konu' = profesyonel maaş açılışı.",
+        },
+        {
+          q: "'Comp' kısaltması?",
+          options: [
+            "Company",
+            "Compensation (toplam ücret paketi)",
+            "Computer",
+            "Comparison",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Comp' = compensation (maaş + bonus + equity). Tech sektörü standardı.",
+        },
+        {
+          q: "'Signing bonus' nedir?",
+          options: [
+            "İmza ücreti",
+            "İşe başlama bonusu (tek seferlik)",
+            "Sözleşme primi",
+            "Yıllık prim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Signing bonus' = yeni iş kabul edince verilen tek seferlik bonus.",
+        },
+        {
+          q: "'In line with market' anlamı?",
+          options: [
+            "Marketten sırada",
+            "Piyasaya uygun (referans)",
+            "Sırada bekleyen",
+            "Pazar açık",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'In line with market rates' = piyasa standartları ile uyumlu. Maaş ask için temel argüman.",
+        },
+        {
+          q: "Bütçe yok = ne ek pazarlık edebilirsin?",
+          options: [
+            "Hiçbir şey",
+            "Equity refresh / title change / signing bonus / earlier review",
+            "Sadece bekle",
+            "Şikayet et",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Cash yok = equity, title, bonus, erken review (6 ay) — yan kazanç sepeti aç.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -9524,6 +20153,134 @@ export const salaryNeg06: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsalaryneg6.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "Based on ___, I was hoping we could discuss ___.",
+      slots: [
+        { accepted: ["my performance this quarter", "the scope of the role", "market benchmarks", "my contributions"] },
+        { accepted: ["a salary adjustment", "a raise", "the comp package", "next-level promotion", "title change"] },
+      ],
+      tr_hint:
+        "Kariyer/maaş görüşmesi resmi açılış. 'Based on X, I was hoping we could discuss Y.' Türk: 'I want raise' direkt, profesyonel kalıp yumuşatma.",
+      example_filled: "Based on my performance this quarter, I was hoping we could discuss a salary adjustment.",
+    },
+    {
+      id: "ex.arcsalaryneg6.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Thanks for coming in. So — what would you like to talk about?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay, let's dig into that. What number did you have in mind?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks for (the time|making time))",
+        "(i wanted to (revisit|discuss|circle back on)) (my (compensation|salary|comp))",
+        "(based on (my work|the scope|the market))",
+        "(i'?ve been (taking on|delivering)) ([a-z ]+) (and i think)",
+        "(my responsibilities have (grown|expanded))",
+      ],
+      tr_hint:
+        "Maaş görüşmesi açılış. 'Thanks for the time — I wanted to revisit my compensation given the scope growth.' Türk: 'I want money' direkt, kalıp profesyonel.",
+      ideal_answer: "Thanks for the time — I wanted to revisit my comp given how the scope has grown.",
+    },
+    {
+      id: "ex.arcsalaryneg6.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Budgets are tight this cycle — what would make this worth it for you if we can't move on the number?",
+      accepted_patterns: [
+        "(i (understand|appreciate) (that|the constraint))",
+        "(could we (explore|talk about)) (a (signing bonus|equity (refresh|grant)|title (bump|change)))",
+        "(i'?d be open to)",
+        "(if (the )?number isn'?t flexible)",
+        "(what (would|could) (we|i) (revisit|look at) in ([0-9]+ months|q[1-4]))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Maaş yok = alternatif iste. 'Could we explore a signing bonus / equity / title change?' Türk: 'OK no money' eksik, ek seçenek aç.",
+      ideal_response: "I understand — could we look at a title change or an equity refresh? And maybe revisit the number in 6 months.",
+    },
+    {
+      id: "ex.arcsalaryneg6.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Daha fazla maaş istiyorum çünkü çok çalışıyorum.",
+      wrong_en: "I want more salary because I work a lot.",
+      right_en: "Based on the impact I've delivered, I'm asking for a compensation adjustment in line with market.",
+      why_tr:
+        "Türk: 'I want more' = çocuksu + savunmaya açık. Profesyonel ask = 'impact' (sonuç) + 'in line with market' (kıyaslama). 'Work a lot' = çaba (önemsiz), 'delivered impact' = değer.",
+    },
+    {
+      id: "ex.arcsalaryneg6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Maaş ask profesyonel açılış?",
+          options: [
+            "I want raise",
+            "Based on my performance, I'd like to discuss compensation",
+            "More money please",
+            "Salary up",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Based on + neden, I'd like to discuss + konu' = profesyonel maaş açılışı.",
+        },
+        {
+          q: "'Comp' kısaltması?",
+          options: [
+            "Company",
+            "Compensation (toplam ücret paketi)",
+            "Computer",
+            "Comparison",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Comp' = compensation (maaş + bonus + equity). Tech sektörü standardı.",
+        },
+        {
+          q: "'Signing bonus' nedir?",
+          options: [
+            "İmza ücreti",
+            "İşe başlama bonusu (tek seferlik)",
+            "Sözleşme primi",
+            "Yıllık prim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Signing bonus' = yeni iş kabul edince verilen tek seferlik bonus.",
+        },
+        {
+          q: "'In line with market' anlamı?",
+          options: [
+            "Marketten sırada",
+            "Piyasaya uygun (referans)",
+            "Sırada bekleyen",
+            "Pazar açık",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'In line with market rates' = piyasa standartları ile uyumlu. Maaş ask için temel argüman.",
+        },
+        {
+          q: "Bütçe yok = ne ek pazarlık edebilirsin?",
+          options: [
+            "Hiçbir şey",
+            "Equity refresh / title change / signing bonus / earlier review",
+            "Sadece bekle",
+            "Şikayet et",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Cash yok = equity, title, bonus, erken review (6 ay) — yan kazanç sepeti aç.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -9635,6 +20392,134 @@ export const salaryNeg07: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsalaryneg7.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "Based on ___, I was hoping we could discuss ___.",
+      slots: [
+        { accepted: ["my performance this quarter", "the scope of the role", "market benchmarks", "my contributions"] },
+        { accepted: ["a salary adjustment", "a raise", "the comp package", "next-level promotion", "title change"] },
+      ],
+      tr_hint:
+        "Kariyer/maaş görüşmesi resmi açılış. 'Based on X, I was hoping we could discuss Y.' Türk: 'I want raise' direkt, profesyonel kalıp yumuşatma.",
+      example_filled: "Based on my performance this quarter, I was hoping we could discuss a salary adjustment.",
+    },
+    {
+      id: "ex.arcsalaryneg7.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Thanks for coming in. So — what would you like to talk about?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay, let's dig into that. What number did you have in mind?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks for (the time|making time))",
+        "(i wanted to (revisit|discuss|circle back on)) (my (compensation|salary|comp))",
+        "(based on (my work|the scope|the market))",
+        "(i'?ve been (taking on|delivering)) ([a-z ]+) (and i think)",
+        "(my responsibilities have (grown|expanded))",
+      ],
+      tr_hint:
+        "Maaş görüşmesi açılış. 'Thanks for the time — I wanted to revisit my compensation given the scope growth.' Türk: 'I want money' direkt, kalıp profesyonel.",
+      ideal_answer: "Thanks for the time — I wanted to revisit my comp given how the scope has grown.",
+    },
+    {
+      id: "ex.arcsalaryneg7.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Budgets are tight this cycle — what would make this worth it for you if we can't move on the number?",
+      accepted_patterns: [
+        "(i (understand|appreciate) (that|the constraint))",
+        "(could we (explore|talk about)) (a (signing bonus|equity (refresh|grant)|title (bump|change)))",
+        "(i'?d be open to)",
+        "(if (the )?number isn'?t flexible)",
+        "(what (would|could) (we|i) (revisit|look at) in ([0-9]+ months|q[1-4]))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Maaş yok = alternatif iste. 'Could we explore a signing bonus / equity / title change?' Türk: 'OK no money' eksik, ek seçenek aç.",
+      ideal_response: "I understand — could we look at a title change or an equity refresh? And maybe revisit the number in 6 months.",
+    },
+    {
+      id: "ex.arcsalaryneg7.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Daha fazla maaş istiyorum çünkü çok çalışıyorum.",
+      wrong_en: "I want more salary because I work a lot.",
+      right_en: "Based on the impact I've delivered, I'm asking for a compensation adjustment in line with market.",
+      why_tr:
+        "Türk: 'I want more' = çocuksu + savunmaya açık. Profesyonel ask = 'impact' (sonuç) + 'in line with market' (kıyaslama). 'Work a lot' = çaba (önemsiz), 'delivered impact' = değer.",
+    },
+    {
+      id: "ex.arcsalaryneg7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Maaş ask profesyonel açılış?",
+          options: [
+            "I want raise",
+            "Based on my performance, I'd like to discuss compensation",
+            "More money please",
+            "Salary up",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Based on + neden, I'd like to discuss + konu' = profesyonel maaş açılışı.",
+        },
+        {
+          q: "'Comp' kısaltması?",
+          options: [
+            "Company",
+            "Compensation (toplam ücret paketi)",
+            "Computer",
+            "Comparison",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Comp' = compensation (maaş + bonus + equity). Tech sektörü standardı.",
+        },
+        {
+          q: "'Signing bonus' nedir?",
+          options: [
+            "İmza ücreti",
+            "İşe başlama bonusu (tek seferlik)",
+            "Sözleşme primi",
+            "Yıllık prim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Signing bonus' = yeni iş kabul edince verilen tek seferlik bonus.",
+        },
+        {
+          q: "'In line with market' anlamı?",
+          options: [
+            "Marketten sırada",
+            "Piyasaya uygun (referans)",
+            "Sırada bekleyen",
+            "Pazar açık",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'In line with market rates' = piyasa standartları ile uyumlu. Maaş ask için temel argüman.",
+        },
+        {
+          q: "Bütçe yok = ne ek pazarlık edebilirsin?",
+          options: [
+            "Hiçbir şey",
+            "Equity refresh / title change / signing bonus / earlier review",
+            "Sadece bekle",
+            "Şikayet et",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Cash yok = equity, title, bonus, erken review (6 ay) — yan kazanç sepeti aç.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -9724,6 +20609,134 @@ export const salaryNeg08: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsalaryneg8.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "Based on ___, I was hoping we could discuss ___.",
+      slots: [
+        { accepted: ["my performance this quarter", "the scope of the role", "market benchmarks", "my contributions"] },
+        { accepted: ["a salary adjustment", "a raise", "the comp package", "next-level promotion", "title change"] },
+      ],
+      tr_hint:
+        "Kariyer/maaş görüşmesi resmi açılış. 'Based on X, I was hoping we could discuss Y.' Türk: 'I want raise' direkt, profesyonel kalıp yumuşatma.",
+      example_filled: "Based on my performance this quarter, I was hoping we could discuss a salary adjustment.",
+    },
+    {
+      id: "ex.arcsalaryneg8.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Thanks for coming in. So — what would you like to talk about?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay, let's dig into that. What number did you have in mind?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks for (the time|making time))",
+        "(i wanted to (revisit|discuss|circle back on)) (my (compensation|salary|comp))",
+        "(based on (my work|the scope|the market))",
+        "(i'?ve been (taking on|delivering)) ([a-z ]+) (and i think)",
+        "(my responsibilities have (grown|expanded))",
+      ],
+      tr_hint:
+        "Maaş görüşmesi açılış. 'Thanks for the time — I wanted to revisit my compensation given the scope growth.' Türk: 'I want money' direkt, kalıp profesyonel.",
+      ideal_answer: "Thanks for the time — I wanted to revisit my comp given how the scope has grown.",
+    },
+    {
+      id: "ex.arcsalaryneg8.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Budgets are tight this cycle — what would make this worth it for you if we can't move on the number?",
+      accepted_patterns: [
+        "(i (understand|appreciate) (that|the constraint))",
+        "(could we (explore|talk about)) (a (signing bonus|equity (refresh|grant)|title (bump|change)))",
+        "(i'?d be open to)",
+        "(if (the )?number isn'?t flexible)",
+        "(what (would|could) (we|i) (revisit|look at) in ([0-9]+ months|q[1-4]))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Maaş yok = alternatif iste. 'Could we explore a signing bonus / equity / title change?' Türk: 'OK no money' eksik, ek seçenek aç.",
+      ideal_response: "I understand — could we look at a title change or an equity refresh? And maybe revisit the number in 6 months.",
+    },
+    {
+      id: "ex.arcsalaryneg8.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Daha fazla maaş istiyorum çünkü çok çalışıyorum.",
+      wrong_en: "I want more salary because I work a lot.",
+      right_en: "Based on the impact I've delivered, I'm asking for a compensation adjustment in line with market.",
+      why_tr:
+        "Türk: 'I want more' = çocuksu + savunmaya açık. Profesyonel ask = 'impact' (sonuç) + 'in line with market' (kıyaslama). 'Work a lot' = çaba (önemsiz), 'delivered impact' = değer.",
+    },
+    {
+      id: "ex.arcsalaryneg8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Maaş ask profesyonel açılış?",
+          options: [
+            "I want raise",
+            "Based on my performance, I'd like to discuss compensation",
+            "More money please",
+            "Salary up",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Based on + neden, I'd like to discuss + konu' = profesyonel maaş açılışı.",
+        },
+        {
+          q: "'Comp' kısaltması?",
+          options: [
+            "Company",
+            "Compensation (toplam ücret paketi)",
+            "Computer",
+            "Comparison",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Comp' = compensation (maaş + bonus + equity). Tech sektörü standardı.",
+        },
+        {
+          q: "'Signing bonus' nedir?",
+          options: [
+            "İmza ücreti",
+            "İşe başlama bonusu (tek seferlik)",
+            "Sözleşme primi",
+            "Yıllık prim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Signing bonus' = yeni iş kabul edince verilen tek seferlik bonus.",
+        },
+        {
+          q: "'In line with market' anlamı?",
+          options: [
+            "Marketten sırada",
+            "Piyasaya uygun (referans)",
+            "Sırada bekleyen",
+            "Pazar açık",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'In line with market rates' = piyasa standartları ile uyumlu. Maaş ask için temel argüman.",
+        },
+        {
+          q: "Bütçe yok = ne ek pazarlık edebilirsin?",
+          options: [
+            "Hiçbir şey",
+            "Equity refresh / title change / signing bonus / earlier review",
+            "Sadece bekle",
+            "Şikayet et",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Cash yok = equity, title, bonus, erken review (6 ay) — yan kazanç sepeti aç.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -9839,6 +20852,134 @@ export const freelance01: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcfreelance1.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arcfreelance1.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arcfreelance1.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arcfreelance1.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arcfreelance1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -9934,6 +21075,134 @@ export const freelance02: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcfreelance2.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arcfreelance2.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arcfreelance2.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arcfreelance2.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arcfreelance2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -10029,6 +21298,134 @@ export const freelance03: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcfreelance3.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arcfreelance3.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arcfreelance3.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arcfreelance3.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arcfreelance3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -10119,6 +21516,134 @@ export const freelance04: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcfreelance4.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arcfreelance4.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arcfreelance4.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arcfreelance4.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arcfreelance4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -10214,6 +21739,134 @@ export const freelance05: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcfreelance5.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arcfreelance5.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arcfreelance5.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arcfreelance5.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arcfreelance5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -10308,6 +21961,134 @@ export const freelance06: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcfreelance6.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arcfreelance6.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arcfreelance6.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arcfreelance6.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arcfreelance6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -10403,6 +22184,134 @@ export const freelance07: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcfreelance7.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arcfreelance7.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arcfreelance7.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arcfreelance7.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arcfreelance7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -10497,6 +22406,135 @@ export const freelance08: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcfreelance8.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "I think we should ___ before ___ — I want to be honest about ___.",
+      slots: [
+        { accepted: ["talk", "be clear", "name what we are", "have the conversation"] },
+        { accepted: ["this gets too serious", "either of us gets hurt", "things drift further", "I leave"] },
+        { accepted: ["what I want", "where I see this going", "the timeline", "what I can offer"] },
+      ],
+      tr_hint:
+        "DTR (define the relationship) kalıbı. Üç parçalı serious cümle. Türk: 'Let's talk' düz, üç parçalı kalıp duygusal netlik verir.",
+      example_filled: "I think we should talk before this gets too serious — I want to be honest about what I want.",
+    },
+    {
+      id: "ex.arcfreelance8.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Hey — so, what are we, exactly?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Same here. I just needed to hear it out loud." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(honestly|to be honest)(,)? (i think we'?re|i feel like (we'?re|this is))",
+        "(i (don'?t want|am not looking) to (label|put a label on))",
+        "(for me )?(this is more than (just )?(casual|hooking up))",
+        "(i wanted to (have|bring up) this (conversation|talk))",
+        "(i (care|like|am into) you (too|a lot))",
+      ],
+      tr_hint:
+        "DTR'ye dürüst cevap. 'Honestly, this feels like more than casual for me.' Türk: 'I love you' erken, 'I'm into you' veya 'this feels real' güvenli ara.",
+      ideal_answer: "Honestly, for me this is more than casual — I've been wanting to bring it up too.",
+    },
+    {
+      id: "ex.arcfreelance8.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "What does 'exclusive' actually mean for you?",
+      accepted_patterns: [
+        "(for me|in my head)(,)? (it means|exclusive is)",
+        "(not (seeing|talking to|sleeping with)) (anyone else)",
+        "(it'?s less about (the label|titles) and more about)",
+        "(i'?m not (the type|interested) in (playing|juggling))",
+        "(what does it mean for you)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tanım iste + ver. 'For me, it means not seeing anyone else — what about you?' Türk: 'I don't know' kaçınma, kişisel tanım ver.",
+      ideal_response: "For me, it means we're not seeing anyone else — but what does it mean to you?",
+    },
+    {
+      id: "ex.arcfreelance8.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Ben de seni seviyorum.",
+      wrong_en: "I love you too.",
+      right_en: "I'm really into you — and I think this is going somewhere.",
+      why_tr:
+        "Türk: 'sevmek' geniş = beğenmek, hoşlanmak. İngilizce 'love' = ciddi taahhüt. 3 hafta sonra 'I love you' erken — 'I'm into you' veya 'I really like you' güvenli ara.",
+    },
+    {
+      id: "ex.arcfreelance8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'DTR' (kısaltma) ne demek?",
+          options: [
+            "Don't take risks",
+            "Define the relationship (ilişkiyi tanımla)",
+            "Date till ready",
+            "Drink the rest",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'DTR conversation' = ilişkinin nereye gittiği konuşması (yaygın modern dating terimi).",
+        },
+        {
+          q: "'I'm into you' anlamı?",
+          options: [
+            "Sana giriyorum",
+            "Senden hoşlanıyorum (ilgi)",
+            "İçerideyim",
+            "Seninle birlikteyim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm into you' = senden hoşlanıyorum (samimi ama 'love' kadar ağır değil).",
+        },
+        {
+          q: "'Exclusive' (ilişki bağlamında) ne demek?",
+          options: [
+            "Sadece bizimle (özel)",
+            "Tek (başka kimseyle görüşmüyor)",
+            "Pahalı",
+            "Dışlanmış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Are we exclusive?' = sadece birbirimizi mi görüyoruz? Open vs exclusive kararı.",
+        },
+        {
+          q: "Türk 'sevmek' kelimesi İngilizce'ye:",
+          options: [
+            "Her zaman love",
+            "Bağlama göre: like / love / be into / care about",
+            "Sadece like",
+            "Romantic only",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Türkçe 'sevmek' geniş — 'love' İngilizce'de spesifik (ciddi). 'I like you', 'I care about you', 'I'm into you' ara basamaklar.",
+        },
+        {
+          q: "DTR'de doğal açılış?",
+          options: [
+            "What are we?",
+            "I want to be clear about where I see this going",
+            "Hepsi (her ikisi de doğal)",
+            "Define our relation",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'What are we?' günlük casual, 'I want to be clear...' resmi-ciddi. İkisi de native, içeriğe göre seç.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -10592,6 +22630,134 @@ export const freelance09: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcfreelance9.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arcfreelance9.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arcfreelance9.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arcfreelance9.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arcfreelance9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -10687,6 +22853,134 @@ export const freelance10: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcfreelance10.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arcfreelance10.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arcfreelance10.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arcfreelance10.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arcfreelance10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -10782,6 +23076,134 @@ export const soloJapan01: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsolojapan1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Excuse me, do you ___? I'm trying to ___.",
+      slots: [
+        { accepted: ["speak English", "have a map", "know the way to", "have a charger", "accept cards"] },
+        { accepted: ["find the JR station", "get to Shibuya", "withdraw cash", "buy a ticket", "reach my hotel"] },
+      ],
+      tr_hint:
+        "Japonya'da kibar yardım isteme. 'Excuse me, do you X? I'm trying to Y.' Türk: 'I need' direkt, 'Excuse me + do you' Japon kültürü için ideal.",
+      example_filled: "Excuse me, do you speak English? I'm trying to find the JR station.",
+    },
+    {
+      id: "ex.arcsolojapan1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "A little. How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Take the JR Yamanote line — two stops." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thank you (so much|very much))",
+        "(i'?m trying to (get to|find)) ([a-z ]+)",
+        "(could you (point me|show me) (to|on the map))",
+        "(how long does it take|which line is fastest)",
+        "(is it (walking distance|close enough to walk))",
+      ],
+      tr_hint:
+        "Spesifik yardım iste. 'Thank you — I'm trying to get to Shibuya. Which line is fastest?' Türk: 'Where is X' eksik, hedef + soru tam.",
+      ideal_answer: "Thank you so much — I'm trying to get to Shibuya. Which line is fastest?",
+    },
+    {
+      id: "ex.arcsolojapan1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Is this your first time in Japan? Where else are you visiting?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (it'?s my first (time|trip))",
+        "(i'?m (planning|hoping) to (visit|see))",
+        "(after tokyo|next)(,)? (kyoto|osaka|nara|hokkaido)",
+        "(any (recommendations|tips|must-sees))",
+        "(i'?ve heard (so much|amazing things) about)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yerel ile small talk. 'Yes first time — Kyoto next. Any recommendations?' Türk: 'Yes' yetersiz, plan + yardım davet.",
+      ideal_response: "Yes, first time — Kyoto next. Any must-sees you'd recommend?",
+    },
+    {
+      id: "ex.arcsolojapan1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce biliyor musunuz?",
+      wrong_en: "Do you know English?",
+      right_en: "Excuse me — do you speak English by any chance?",
+      why_tr:
+        "Türk literal 'know English' = anlaşılır ama 'speak English' native. 'By any chance' = belirsiz nezaket (Japon kültürüne ideal). 'Excuse me' baş = açılış kalıbı.",
+    },
+    {
+      id: "ex.arcsolojapan1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Japonya'da yardım isterken açılış:",
+          options: [
+            "Hey question",
+            "Excuse me — do you speak English?",
+            "I need help",
+            "Help me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Excuse me' = saygılı dikkat çekme. Japon kültürü için kritik.",
+        },
+        {
+          q: "'By any chance' anlamı?",
+          options: [
+            "Şans varsa",
+            "Belki/acaba (nezaket yumuşatma)",
+            "Tesadüfen",
+            "Olabilir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Do you speak English by any chance?' = İngilizce biliyor musunuz acaba? (kibar belirsizlik).",
+        },
+        {
+          q: "'JR line' nedir?",
+          options: [
+            "Jet rezerv",
+            "Japan Railways hattı",
+            "JR firma adı (jenerik)",
+            "Tek hat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "JR = Japan Railways. Tokyo Yamanote loop hattı en yaygın.",
+        },
+        {
+          q: "'Must-see' deyimi?",
+          options: [
+            "Görmeli",
+            "Mutlaka görülmesi gereken yer",
+            "Görme zorunluluğu",
+            "Görmemek olmaz",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must-sees in Kyoto' = Kyoto'da mutlaka görülecek yerler.",
+        },
+        {
+          q: "Yerel öneri isteme:",
+          options: [
+            "Tell me good place",
+            "Any recommendations? / Any tips?",
+            "Where good?",
+            "Show me best",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Any recommendations?' = açık uçlu yerel davet. Türk: 'Show me' emir tonu.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -10892,6 +23314,132 @@ export const soloJapan02: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsolojapan2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd love to ___, but I'm ___ tonight.",
+      slots: [
+        { accepted: ["join", "stay longer", "grab another", "come with you", "hang out"] },
+        { accepted: ["heading home", "meeting friends", "exhausted", "calling it early", "on early shift tomorrow"] },
+      ],
+      tr_hint:
+        "Bar/club nazik ret kalıbı: 'I'd love to + sebep'. Türk: 'I cannot' düz, 'I'd love to but...' kibar.",
+      example_filled: "I'd love to stay longer, but I'm heading home — early shift tomorrow.",
+    },
+    {
+      id: "ex.arcsolojapan2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Are you here alone? Wanna join our table?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool — what are you drinking?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|why not)(,)? (i'?d love to|sounds (good|fun))",
+        "(actually )?(my friends are|i'?m waiting for|i'?m with)",
+        "(thanks (for asking|for the invite))(,)? (i (will|might) join)",
+        "(let me (grab|get) (my drink|something))",
+      ],
+      tr_hint:
+        "Davet kabul/red. Kabul: 'Sure, sounds good'. Şartlı: 'My friends are coming, but I can join for a bit.' Türk: 'OK' düz, 'Sounds good' samimi.",
+      ideal_answer: "Sure, sounds good — let me grab my drink.",
+    },
+    {
+      id: "ex.arcsolojapan2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you here tonight?",
+      accepted_patterns: [
+        "(a friend of mine|my friend) (recommended|told me)",
+        "(just (exploring|trying somewhere new)|first time here)",
+        "(my (roommate|coworker)|some friends) (dragged|brought) me",
+        "(honestly )?(needed a drink|long week)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bar small talk başlangıcı. 'A friend recommended' veya 'Long week, needed a drink.' Türk: 'I am here because' uzun, kısa neden ver.",
+      ideal_response: "Honestly, just a long week — a coworker dragged me out.",
+    },
+    {
+      id: "ex.arcsolojapan2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Hayır içmek istemiyorum, teşekkür ederim.",
+      wrong_en: "No, I don't want drink, thank you.",
+      right_en: "I'm good — maybe later, thanks.",
+      why_tr:
+        "Türk: 'I don't want' direkt = kaba ton verir. 'I'm good' yumuşatır — 'şu an istemiyorum' anlamı. 'Maybe later' kapıyı açık bırakır, anti-sosyal görünmezsin.",
+    },
+    {
+      id: "ex.arcsolojapan2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Bar'da içki teklif edildi, kibarca reddet:",
+          options: [
+            "I don't want.",
+            "I'm good, maybe later.",
+            "No drink for me.",
+            "Refuse, thank you.",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm good' = şimdilik iyiyim, ihtiyacım yok. Türk: 'No' düz, 'I'm good' yumuşak.",
+        },
+        {
+          q: "'What are you drinking?' yanıtı?",
+          options: [
+            "I drink beer",
+            "A beer / Just water / Vodka tonic",
+            "Drink is beer",
+            "I am with beer",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Bar'da içki adı tek başına yeterli. 'A beer' veya 'Just water'. Türk: tam cümle gereksiz.",
+        },
+        {
+          q: "'My round' ne demek?",
+          options: [
+            "Benim turum (içki ben ısmarlıyorum)",
+            "Etrafım benim",
+            "Yuvarlak ben",
+            "Sıram",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'It's my round' = bu içkileri ben ısmarlıyorum. Bar kültürü kalıbı.",
+        },
+        {
+          q: "'Wanna join us?' ne anlama?",
+          options: [
+            "Bize katılır mısın?",
+            "Birleş bizimle",
+            "Bizimle kalır mısın?",
+            "Bize gel",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna join us?' = bize katılır mısın (sıcak davet).",
+        },
+        {
+          q: "Bar ortamında Türk hatası en yaygın?",
+          options: [
+            "Aşırı resmi cümle ('I would like to drink')",
+            "Kısa cevap vermek",
+            "İngilizce kullanmak",
+            "Adın söylemek",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Bar = günlük. 'I would like a beer' resmi restoran tonu. Bar'da 'A beer, please' yeterli.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -10979,6 +23527,134 @@ export const soloJapan03: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsolojapan3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Excuse me, do you ___? I'm trying to ___.",
+      slots: [
+        { accepted: ["speak English", "have a map", "know the way to", "have a charger", "accept cards"] },
+        { accepted: ["find the JR station", "get to Shibuya", "withdraw cash", "buy a ticket", "reach my hotel"] },
+      ],
+      tr_hint:
+        "Japonya'da kibar yardım isteme. 'Excuse me, do you X? I'm trying to Y.' Türk: 'I need' direkt, 'Excuse me + do you' Japon kültürü için ideal.",
+      example_filled: "Excuse me, do you speak English? I'm trying to find the JR station.",
+    },
+    {
+      id: "ex.arcsolojapan3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "A little. How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Take the JR Yamanote line — two stops." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thank you (so much|very much))",
+        "(i'?m trying to (get to|find)) ([a-z ]+)",
+        "(could you (point me|show me) (to|on the map))",
+        "(how long does it take|which line is fastest)",
+        "(is it (walking distance|close enough to walk))",
+      ],
+      tr_hint:
+        "Spesifik yardım iste. 'Thank you — I'm trying to get to Shibuya. Which line is fastest?' Türk: 'Where is X' eksik, hedef + soru tam.",
+      ideal_answer: "Thank you so much — I'm trying to get to Shibuya. Which line is fastest?",
+    },
+    {
+      id: "ex.arcsolojapan3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Is this your first time in Japan? Where else are you visiting?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (it'?s my first (time|trip))",
+        "(i'?m (planning|hoping) to (visit|see))",
+        "(after tokyo|next)(,)? (kyoto|osaka|nara|hokkaido)",
+        "(any (recommendations|tips|must-sees))",
+        "(i'?ve heard (so much|amazing things) about)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yerel ile small talk. 'Yes first time — Kyoto next. Any recommendations?' Türk: 'Yes' yetersiz, plan + yardım davet.",
+      ideal_response: "Yes, first time — Kyoto next. Any must-sees you'd recommend?",
+    },
+    {
+      id: "ex.arcsolojapan3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce biliyor musunuz?",
+      wrong_en: "Do you know English?",
+      right_en: "Excuse me — do you speak English by any chance?",
+      why_tr:
+        "Türk literal 'know English' = anlaşılır ama 'speak English' native. 'By any chance' = belirsiz nezaket (Japon kültürüne ideal). 'Excuse me' baş = açılış kalıbı.",
+    },
+    {
+      id: "ex.arcsolojapan3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Japonya'da yardım isterken açılış:",
+          options: [
+            "Hey question",
+            "Excuse me — do you speak English?",
+            "I need help",
+            "Help me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Excuse me' = saygılı dikkat çekme. Japon kültürü için kritik.",
+        },
+        {
+          q: "'By any chance' anlamı?",
+          options: [
+            "Şans varsa",
+            "Belki/acaba (nezaket yumuşatma)",
+            "Tesadüfen",
+            "Olabilir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Do you speak English by any chance?' = İngilizce biliyor musunuz acaba? (kibar belirsizlik).",
+        },
+        {
+          q: "'JR line' nedir?",
+          options: [
+            "Jet rezerv",
+            "Japan Railways hattı",
+            "JR firma adı (jenerik)",
+            "Tek hat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "JR = Japan Railways. Tokyo Yamanote loop hattı en yaygın.",
+        },
+        {
+          q: "'Must-see' deyimi?",
+          options: [
+            "Görmeli",
+            "Mutlaka görülmesi gereken yer",
+            "Görme zorunluluğu",
+            "Görmemek olmaz",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must-sees in Kyoto' = Kyoto'da mutlaka görülecek yerler.",
+        },
+        {
+          q: "Yerel öneri isteme:",
+          options: [
+            "Tell me good place",
+            "Any recommendations? / Any tips?",
+            "Where good?",
+            "Show me best",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Any recommendations?' = açık uçlu yerel davet. Türk: 'Show me' emir tonu.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -11090,6 +23766,132 @@ export const soloJapan04: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsolojapan4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd love to ___, but I'm ___ tonight.",
+      slots: [
+        { accepted: ["join", "stay longer", "grab another", "come with you", "hang out"] },
+        { accepted: ["heading home", "meeting friends", "exhausted", "calling it early", "on early shift tomorrow"] },
+      ],
+      tr_hint:
+        "Bar/club nazik ret kalıbı: 'I'd love to + sebep'. Türk: 'I cannot' düz, 'I'd love to but...' kibar.",
+      example_filled: "I'd love to stay longer, but I'm heading home — early shift tomorrow.",
+    },
+    {
+      id: "ex.arcsolojapan4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Are you here alone? Wanna join our table?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool — what are you drinking?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|why not)(,)? (i'?d love to|sounds (good|fun))",
+        "(actually )?(my friends are|i'?m waiting for|i'?m with)",
+        "(thanks (for asking|for the invite))(,)? (i (will|might) join)",
+        "(let me (grab|get) (my drink|something))",
+      ],
+      tr_hint:
+        "Davet kabul/red. Kabul: 'Sure, sounds good'. Şartlı: 'My friends are coming, but I can join for a bit.' Türk: 'OK' düz, 'Sounds good' samimi.",
+      ideal_answer: "Sure, sounds good — let me grab my drink.",
+    },
+    {
+      id: "ex.arcsolojapan4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you here tonight?",
+      accepted_patterns: [
+        "(a friend of mine|my friend) (recommended|told me)",
+        "(just (exploring|trying somewhere new)|first time here)",
+        "(my (roommate|coworker)|some friends) (dragged|brought) me",
+        "(honestly )?(needed a drink|long week)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bar small talk başlangıcı. 'A friend recommended' veya 'Long week, needed a drink.' Türk: 'I am here because' uzun, kısa neden ver.",
+      ideal_response: "Honestly, just a long week — a coworker dragged me out.",
+    },
+    {
+      id: "ex.arcsolojapan4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Hayır içmek istemiyorum, teşekkür ederim.",
+      wrong_en: "No, I don't want drink, thank you.",
+      right_en: "I'm good — maybe later, thanks.",
+      why_tr:
+        "Türk: 'I don't want' direkt = kaba ton verir. 'I'm good' yumuşatır — 'şu an istemiyorum' anlamı. 'Maybe later' kapıyı açık bırakır, anti-sosyal görünmezsin.",
+    },
+    {
+      id: "ex.arcsolojapan4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Bar'da içki teklif edildi, kibarca reddet:",
+          options: [
+            "I don't want.",
+            "I'm good, maybe later.",
+            "No drink for me.",
+            "Refuse, thank you.",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm good' = şimdilik iyiyim, ihtiyacım yok. Türk: 'No' düz, 'I'm good' yumuşak.",
+        },
+        {
+          q: "'What are you drinking?' yanıtı?",
+          options: [
+            "I drink beer",
+            "A beer / Just water / Vodka tonic",
+            "Drink is beer",
+            "I am with beer",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Bar'da içki adı tek başına yeterli. 'A beer' veya 'Just water'. Türk: tam cümle gereksiz.",
+        },
+        {
+          q: "'My round' ne demek?",
+          options: [
+            "Benim turum (içki ben ısmarlıyorum)",
+            "Etrafım benim",
+            "Yuvarlak ben",
+            "Sıram",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'It's my round' = bu içkileri ben ısmarlıyorum. Bar kültürü kalıbı.",
+        },
+        {
+          q: "'Wanna join us?' ne anlama?",
+          options: [
+            "Bize katılır mısın?",
+            "Birleş bizimle",
+            "Bizimle kalır mısın?",
+            "Bize gel",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna join us?' = bize katılır mısın (sıcak davet).",
+        },
+        {
+          q: "Bar ortamında Türk hatası en yaygın?",
+          options: [
+            "Aşırı resmi cümle ('I would like to drink')",
+            "Kısa cevap vermek",
+            "İngilizce kullanmak",
+            "Adın söylemek",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Bar = günlük. 'I would like a beer' resmi restoran tonu. Bar'da 'A beer, please' yeterli.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -11185,6 +23987,135 @@ export const soloJapan05: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsolojapan5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I've been having ___ for ___ — it gets worse when ___.",
+      slots: [
+        { accepted: ["headaches", "a sore throat", "stomach pain", "back pain", "a cough"] },
+        { accepted: ["three days", "a week", "a few days now", "since Monday", "about ten days"] },
+        { accepted: ["I bend over", "I eat dairy", "I lie down", "I'm stressed", "it's late at night"] },
+      ],
+      tr_hint:
+        "Doktor şikâyet kalıbı: 'Semptom + süre + tetikleyici.' Türk: 'I have pain' eksik, üç parçalı detay tanı hızlı.",
+      example_filled: "I've been having stomach pain for three days — it gets worse when I eat dairy.",
+    },
+    {
+      id: "ex.arcsolojapan5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What brings you in today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I see. Let me take a quick look." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?ve been (having|getting)) ([a-z ]+) (for|since)",
+        "(my (throat|stomach|back|head) (is|has been)) ([a-z ]+)",
+        "(it started (about |around )?[a-z ]+ ago)",
+        "(it (hurts|aches) when i)",
+        "(i'?m here for|i wanted to check (about|on))",
+      ],
+      tr_hint:
+        "Şikâyet aç: 'I've been having sore throat for three days — it hurts when I swallow.' Türk: 'I am sick' eksik, present perfect + süre.",
+      ideal_answer: "I've been having a sore throat for three days — hurts more when I swallow.",
+    },
+    {
+      id: "ex.arcsolojapan5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Have you taken anything for it?",
+      accepted_patterns: [
+        "(i tried |i'?ve been taking) (paracetamol|ibuprofen|ibuprofen|tylenol)",
+        "(some (over(-| )the(-| )counter|pharmacy) (stuff|meds))",
+        "(no )?(i wanted to (check|see (you|a doctor) first))",
+        "(nothing (yet|so far))",
+        "(does (.+) help with this)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tedavi belirt. 'I tried paracetamol but no luck.' Türk: 'I take medicine' eksik, isim + sonuç (no luck/some relief) ekle.",
+      ideal_response: "I tried paracetamol — helped a little, but the pain came back.",
+    },
+    {
+      id: "ex.arcsolojapan5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Üç gündür hastayım.",
+      wrong_en: "I am sick three days.",
+      right_en: "I've been feeling sick for three days.",
+      why_tr:
+        "Türk: 'I am sick three days' = zaman hatası (preposition yok). 'I've been + V-ing + for + süre' = halen devam eden durum (present perfect continuous). Doktor için kritik kalıp.",
+    },
+    {
+      id: "ex.arcsolojapan5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Semptom süresi için doğru zaman:",
+          options: [
+            "Simple present (I have)",
+            "Present perfect continuous (I've been having)",
+            "Past simple (I had)",
+            "Future (I will have)",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Halen devam eden semptom = 'I've been having ___ for X days'. Türk: 'I have' eksik kalır.",
+        },
+        {
+          q: "'Over-the-counter' ne demek?",
+          options: [
+            "Tezgah üstü",
+            "Reçetesiz (ilaç)",
+            "Üzerinde sayan",
+            "Ek ücret",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'OTC drugs' = reçetesiz satılan ilaçlar (paracetamol, ibuprofen vb.).",
+        },
+        {
+          q: "'Prescribe' fiili anlamı?",
+          options: [
+            "Tarif et",
+            "Reçete yaz",
+            "Önle",
+            "Kaydet",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The doctor prescribed antibiotics' = doktor antibiyotik reçete yazdı.",
+        },
+        {
+          q: "Ağrı şiddeti soracaksın:",
+          options: [
+            "How big pain",
+            "On a scale of 1 to 10, how bad is the pain?",
+            "Pain how much",
+            "Hurt level",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On a scale of 1 to 10' = doktor standart ağrı sorusu.",
+        },
+        {
+          q: "'Allergic to' kullanımı?",
+          options: [
+            "I have allergy",
+            "I'm allergic to penicillin",
+            "My allergy is",
+            "Allergic me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm allergic to + isim' = alerjim var. Doktor + ilaç güvenliği kritik kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -11280,6 +24211,134 @@ export const soloJapan06: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsolojapan6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Excuse me, do you ___? I'm trying to ___.",
+      slots: [
+        { accepted: ["speak English", "have a map", "know the way to", "have a charger", "accept cards"] },
+        { accepted: ["find the JR station", "get to Shibuya", "withdraw cash", "buy a ticket", "reach my hotel"] },
+      ],
+      tr_hint:
+        "Japonya'da kibar yardım isteme. 'Excuse me, do you X? I'm trying to Y.' Türk: 'I need' direkt, 'Excuse me + do you' Japon kültürü için ideal.",
+      example_filled: "Excuse me, do you speak English? I'm trying to find the JR station.",
+    },
+    {
+      id: "ex.arcsolojapan6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "A little. How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Take the JR Yamanote line — two stops." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thank you (so much|very much))",
+        "(i'?m trying to (get to|find)) ([a-z ]+)",
+        "(could you (point me|show me) (to|on the map))",
+        "(how long does it take|which line is fastest)",
+        "(is it (walking distance|close enough to walk))",
+      ],
+      tr_hint:
+        "Spesifik yardım iste. 'Thank you — I'm trying to get to Shibuya. Which line is fastest?' Türk: 'Where is X' eksik, hedef + soru tam.",
+      ideal_answer: "Thank you so much — I'm trying to get to Shibuya. Which line is fastest?",
+    },
+    {
+      id: "ex.arcsolojapan6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Is this your first time in Japan? Where else are you visiting?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (it'?s my first (time|trip))",
+        "(i'?m (planning|hoping) to (visit|see))",
+        "(after tokyo|next)(,)? (kyoto|osaka|nara|hokkaido)",
+        "(any (recommendations|tips|must-sees))",
+        "(i'?ve heard (so much|amazing things) about)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yerel ile small talk. 'Yes first time — Kyoto next. Any recommendations?' Türk: 'Yes' yetersiz, plan + yardım davet.",
+      ideal_response: "Yes, first time — Kyoto next. Any must-sees you'd recommend?",
+    },
+    {
+      id: "ex.arcsolojapan6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce biliyor musunuz?",
+      wrong_en: "Do you know English?",
+      right_en: "Excuse me — do you speak English by any chance?",
+      why_tr:
+        "Türk literal 'know English' = anlaşılır ama 'speak English' native. 'By any chance' = belirsiz nezaket (Japon kültürüne ideal). 'Excuse me' baş = açılış kalıbı.",
+    },
+    {
+      id: "ex.arcsolojapan6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Japonya'da yardım isterken açılış:",
+          options: [
+            "Hey question",
+            "Excuse me — do you speak English?",
+            "I need help",
+            "Help me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Excuse me' = saygılı dikkat çekme. Japon kültürü için kritik.",
+        },
+        {
+          q: "'By any chance' anlamı?",
+          options: [
+            "Şans varsa",
+            "Belki/acaba (nezaket yumuşatma)",
+            "Tesadüfen",
+            "Olabilir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Do you speak English by any chance?' = İngilizce biliyor musunuz acaba? (kibar belirsizlik).",
+        },
+        {
+          q: "'JR line' nedir?",
+          options: [
+            "Jet rezerv",
+            "Japan Railways hattı",
+            "JR firma adı (jenerik)",
+            "Tek hat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "JR = Japan Railways. Tokyo Yamanote loop hattı en yaygın.",
+        },
+        {
+          q: "'Must-see' deyimi?",
+          options: [
+            "Görmeli",
+            "Mutlaka görülmesi gereken yer",
+            "Görme zorunluluğu",
+            "Görmemek olmaz",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must-sees in Kyoto' = Kyoto'da mutlaka görülecek yerler.",
+        },
+        {
+          q: "Yerel öneri isteme:",
+          options: [
+            "Tell me good place",
+            "Any recommendations? / Any tips?",
+            "Where good?",
+            "Show me best",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Any recommendations?' = açık uçlu yerel davet. Türk: 'Show me' emir tonu.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -11387,6 +24446,134 @@ export const soloJapan07: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsolojapan7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Excuse me, do you ___? I'm trying to ___.",
+      slots: [
+        { accepted: ["speak English", "have a map", "know the way to", "have a charger", "accept cards"] },
+        { accepted: ["find the JR station", "get to Shibuya", "withdraw cash", "buy a ticket", "reach my hotel"] },
+      ],
+      tr_hint:
+        "Japonya'da kibar yardım isteme. 'Excuse me, do you X? I'm trying to Y.' Türk: 'I need' direkt, 'Excuse me + do you' Japon kültürü için ideal.",
+      example_filled: "Excuse me, do you speak English? I'm trying to find the JR station.",
+    },
+    {
+      id: "ex.arcsolojapan7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "A little. How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Take the JR Yamanote line — two stops." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thank you (so much|very much))",
+        "(i'?m trying to (get to|find)) ([a-z ]+)",
+        "(could you (point me|show me) (to|on the map))",
+        "(how long does it take|which line is fastest)",
+        "(is it (walking distance|close enough to walk))",
+      ],
+      tr_hint:
+        "Spesifik yardım iste. 'Thank you — I'm trying to get to Shibuya. Which line is fastest?' Türk: 'Where is X' eksik, hedef + soru tam.",
+      ideal_answer: "Thank you so much — I'm trying to get to Shibuya. Which line is fastest?",
+    },
+    {
+      id: "ex.arcsolojapan7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Is this your first time in Japan? Where else are you visiting?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (it'?s my first (time|trip))",
+        "(i'?m (planning|hoping) to (visit|see))",
+        "(after tokyo|next)(,)? (kyoto|osaka|nara|hokkaido)",
+        "(any (recommendations|tips|must-sees))",
+        "(i'?ve heard (so much|amazing things) about)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yerel ile small talk. 'Yes first time — Kyoto next. Any recommendations?' Türk: 'Yes' yetersiz, plan + yardım davet.",
+      ideal_response: "Yes, first time — Kyoto next. Any must-sees you'd recommend?",
+    },
+    {
+      id: "ex.arcsolojapan7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce biliyor musunuz?",
+      wrong_en: "Do you know English?",
+      right_en: "Excuse me — do you speak English by any chance?",
+      why_tr:
+        "Türk literal 'know English' = anlaşılır ama 'speak English' native. 'By any chance' = belirsiz nezaket (Japon kültürüne ideal). 'Excuse me' baş = açılış kalıbı.",
+    },
+    {
+      id: "ex.arcsolojapan7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Japonya'da yardım isterken açılış:",
+          options: [
+            "Hey question",
+            "Excuse me — do you speak English?",
+            "I need help",
+            "Help me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Excuse me' = saygılı dikkat çekme. Japon kültürü için kritik.",
+        },
+        {
+          q: "'By any chance' anlamı?",
+          options: [
+            "Şans varsa",
+            "Belki/acaba (nezaket yumuşatma)",
+            "Tesadüfen",
+            "Olabilir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Do you speak English by any chance?' = İngilizce biliyor musunuz acaba? (kibar belirsizlik).",
+        },
+        {
+          q: "'JR line' nedir?",
+          options: [
+            "Jet rezerv",
+            "Japan Railways hattı",
+            "JR firma adı (jenerik)",
+            "Tek hat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "JR = Japan Railways. Tokyo Yamanote loop hattı en yaygın.",
+        },
+        {
+          q: "'Must-see' deyimi?",
+          options: [
+            "Görmeli",
+            "Mutlaka görülmesi gereken yer",
+            "Görme zorunluluğu",
+            "Görmemek olmaz",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must-sees in Kyoto' = Kyoto'da mutlaka görülecek yerler.",
+        },
+        {
+          q: "Yerel öneri isteme:",
+          options: [
+            "Tell me good place",
+            "Any recommendations? / Any tips?",
+            "Where good?",
+            "Show me best",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Any recommendations?' = açık uçlu yerel davet. Türk: 'Show me' emir tonu.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -11482,6 +24669,134 @@ export const soloJapan08: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsolojapan8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Excuse me, do you ___? I'm trying to ___.",
+      slots: [
+        { accepted: ["speak English", "have a map", "know the way to", "have a charger", "accept cards"] },
+        { accepted: ["find the JR station", "get to Shibuya", "withdraw cash", "buy a ticket", "reach my hotel"] },
+      ],
+      tr_hint:
+        "Japonya'da kibar yardım isteme. 'Excuse me, do you X? I'm trying to Y.' Türk: 'I need' direkt, 'Excuse me + do you' Japon kültürü için ideal.",
+      example_filled: "Excuse me, do you speak English? I'm trying to find the JR station.",
+    },
+    {
+      id: "ex.arcsolojapan8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "A little. How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Take the JR Yamanote line — two stops." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thank you (so much|very much))",
+        "(i'?m trying to (get to|find)) ([a-z ]+)",
+        "(could you (point me|show me) (to|on the map))",
+        "(how long does it take|which line is fastest)",
+        "(is it (walking distance|close enough to walk))",
+      ],
+      tr_hint:
+        "Spesifik yardım iste. 'Thank you — I'm trying to get to Shibuya. Which line is fastest?' Türk: 'Where is X' eksik, hedef + soru tam.",
+      ideal_answer: "Thank you so much — I'm trying to get to Shibuya. Which line is fastest?",
+    },
+    {
+      id: "ex.arcsolojapan8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Is this your first time in Japan? Where else are you visiting?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (it'?s my first (time|trip))",
+        "(i'?m (planning|hoping) to (visit|see))",
+        "(after tokyo|next)(,)? (kyoto|osaka|nara|hokkaido)",
+        "(any (recommendations|tips|must-sees))",
+        "(i'?ve heard (so much|amazing things) about)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yerel ile small talk. 'Yes first time — Kyoto next. Any recommendations?' Türk: 'Yes' yetersiz, plan + yardım davet.",
+      ideal_response: "Yes, first time — Kyoto next. Any must-sees you'd recommend?",
+    },
+    {
+      id: "ex.arcsolojapan8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce biliyor musunuz?",
+      wrong_en: "Do you know English?",
+      right_en: "Excuse me — do you speak English by any chance?",
+      why_tr:
+        "Türk literal 'know English' = anlaşılır ama 'speak English' native. 'By any chance' = belirsiz nezaket (Japon kültürüne ideal). 'Excuse me' baş = açılış kalıbı.",
+    },
+    {
+      id: "ex.arcsolojapan8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Japonya'da yardım isterken açılış:",
+          options: [
+            "Hey question",
+            "Excuse me — do you speak English?",
+            "I need help",
+            "Help me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Excuse me' = saygılı dikkat çekme. Japon kültürü için kritik.",
+        },
+        {
+          q: "'By any chance' anlamı?",
+          options: [
+            "Şans varsa",
+            "Belki/acaba (nezaket yumuşatma)",
+            "Tesadüfen",
+            "Olabilir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Do you speak English by any chance?' = İngilizce biliyor musunuz acaba? (kibar belirsizlik).",
+        },
+        {
+          q: "'JR line' nedir?",
+          options: [
+            "Jet rezerv",
+            "Japan Railways hattı",
+            "JR firma adı (jenerik)",
+            "Tek hat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "JR = Japan Railways. Tokyo Yamanote loop hattı en yaygın.",
+        },
+        {
+          q: "'Must-see' deyimi?",
+          options: [
+            "Görmeli",
+            "Mutlaka görülmesi gereken yer",
+            "Görme zorunluluğu",
+            "Görmemek olmaz",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must-sees in Kyoto' = Kyoto'da mutlaka görülecek yerler.",
+        },
+        {
+          q: "Yerel öneri isteme:",
+          options: [
+            "Tell me good place",
+            "Any recommendations? / Any tips?",
+            "Where good?",
+            "Show me best",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Any recommendations?' = açık uçlu yerel davet. Türk: 'Show me' emir tonu.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -11577,6 +24892,134 @@ export const soloJapan09: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsolojapan9.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Excuse me, do you ___? I'm trying to ___.",
+      slots: [
+        { accepted: ["speak English", "have a map", "know the way to", "have a charger", "accept cards"] },
+        { accepted: ["find the JR station", "get to Shibuya", "withdraw cash", "buy a ticket", "reach my hotel"] },
+      ],
+      tr_hint:
+        "Japonya'da kibar yardım isteme. 'Excuse me, do you X? I'm trying to Y.' Türk: 'I need' direkt, 'Excuse me + do you' Japon kültürü için ideal.",
+      example_filled: "Excuse me, do you speak English? I'm trying to find the JR station.",
+    },
+    {
+      id: "ex.arcsolojapan9.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "A little. How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Take the JR Yamanote line — two stops." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thank you (so much|very much))",
+        "(i'?m trying to (get to|find)) ([a-z ]+)",
+        "(could you (point me|show me) (to|on the map))",
+        "(how long does it take|which line is fastest)",
+        "(is it (walking distance|close enough to walk))",
+      ],
+      tr_hint:
+        "Spesifik yardım iste. 'Thank you — I'm trying to get to Shibuya. Which line is fastest?' Türk: 'Where is X' eksik, hedef + soru tam.",
+      ideal_answer: "Thank you so much — I'm trying to get to Shibuya. Which line is fastest?",
+    },
+    {
+      id: "ex.arcsolojapan9.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Is this your first time in Japan? Where else are you visiting?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (it'?s my first (time|trip))",
+        "(i'?m (planning|hoping) to (visit|see))",
+        "(after tokyo|next)(,)? (kyoto|osaka|nara|hokkaido)",
+        "(any (recommendations|tips|must-sees))",
+        "(i'?ve heard (so much|amazing things) about)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yerel ile small talk. 'Yes first time — Kyoto next. Any recommendations?' Türk: 'Yes' yetersiz, plan + yardım davet.",
+      ideal_response: "Yes, first time — Kyoto next. Any must-sees you'd recommend?",
+    },
+    {
+      id: "ex.arcsolojapan9.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce biliyor musunuz?",
+      wrong_en: "Do you know English?",
+      right_en: "Excuse me — do you speak English by any chance?",
+      why_tr:
+        "Türk literal 'know English' = anlaşılır ama 'speak English' native. 'By any chance' = belirsiz nezaket (Japon kültürüne ideal). 'Excuse me' baş = açılış kalıbı.",
+    },
+    {
+      id: "ex.arcsolojapan9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Japonya'da yardım isterken açılış:",
+          options: [
+            "Hey question",
+            "Excuse me — do you speak English?",
+            "I need help",
+            "Help me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Excuse me' = saygılı dikkat çekme. Japon kültürü için kritik.",
+        },
+        {
+          q: "'By any chance' anlamı?",
+          options: [
+            "Şans varsa",
+            "Belki/acaba (nezaket yumuşatma)",
+            "Tesadüfen",
+            "Olabilir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Do you speak English by any chance?' = İngilizce biliyor musunuz acaba? (kibar belirsizlik).",
+        },
+        {
+          q: "'JR line' nedir?",
+          options: [
+            "Jet rezerv",
+            "Japan Railways hattı",
+            "JR firma adı (jenerik)",
+            "Tek hat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "JR = Japan Railways. Tokyo Yamanote loop hattı en yaygın.",
+        },
+        {
+          q: "'Must-see' deyimi?",
+          options: [
+            "Görmeli",
+            "Mutlaka görülmesi gereken yer",
+            "Görme zorunluluğu",
+            "Görmemek olmaz",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must-sees in Kyoto' = Kyoto'da mutlaka görülecek yerler.",
+        },
+        {
+          q: "Yerel öneri isteme:",
+          options: [
+            "Tell me good place",
+            "Any recommendations? / Any tips?",
+            "Where good?",
+            "Show me best",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Any recommendations?' = açık uçlu yerel davet. Türk: 'Show me' emir tonu.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -11672,6 +25115,134 @@ export const soloJapan10: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcsolojapan10.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Excuse me, do you ___? I'm trying to ___.",
+      slots: [
+        { accepted: ["speak English", "have a map", "know the way to", "have a charger", "accept cards"] },
+        { accepted: ["find the JR station", "get to Shibuya", "withdraw cash", "buy a ticket", "reach my hotel"] },
+      ],
+      tr_hint:
+        "Japonya'da kibar yardım isteme. 'Excuse me, do you X? I'm trying to Y.' Türk: 'I need' direkt, 'Excuse me + do you' Japon kültürü için ideal.",
+      example_filled: "Excuse me, do you speak English? I'm trying to find the JR station.",
+    },
+    {
+      id: "ex.arcsolojapan10.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "A little. How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Take the JR Yamanote line — two stops." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thank you (so much|very much))",
+        "(i'?m trying to (get to|find)) ([a-z ]+)",
+        "(could you (point me|show me) (to|on the map))",
+        "(how long does it take|which line is fastest)",
+        "(is it (walking distance|close enough to walk))",
+      ],
+      tr_hint:
+        "Spesifik yardım iste. 'Thank you — I'm trying to get to Shibuya. Which line is fastest?' Türk: 'Where is X' eksik, hedef + soru tam.",
+      ideal_answer: "Thank you so much — I'm trying to get to Shibuya. Which line is fastest?",
+    },
+    {
+      id: "ex.arcsolojapan10.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Is this your first time in Japan? Where else are you visiting?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (it'?s my first (time|trip))",
+        "(i'?m (planning|hoping) to (visit|see))",
+        "(after tokyo|next)(,)? (kyoto|osaka|nara|hokkaido)",
+        "(any (recommendations|tips|must-sees))",
+        "(i'?ve heard (so much|amazing things) about)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yerel ile small talk. 'Yes first time — Kyoto next. Any recommendations?' Türk: 'Yes' yetersiz, plan + yardım davet.",
+      ideal_response: "Yes, first time — Kyoto next. Any must-sees you'd recommend?",
+    },
+    {
+      id: "ex.arcsolojapan10.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce biliyor musunuz?",
+      wrong_en: "Do you know English?",
+      right_en: "Excuse me — do you speak English by any chance?",
+      why_tr:
+        "Türk literal 'know English' = anlaşılır ama 'speak English' native. 'By any chance' = belirsiz nezaket (Japon kültürüne ideal). 'Excuse me' baş = açılış kalıbı.",
+    },
+    {
+      id: "ex.arcsolojapan10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Japonya'da yardım isterken açılış:",
+          options: [
+            "Hey question",
+            "Excuse me — do you speak English?",
+            "I need help",
+            "Help me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Excuse me' = saygılı dikkat çekme. Japon kültürü için kritik.",
+        },
+        {
+          q: "'By any chance' anlamı?",
+          options: [
+            "Şans varsa",
+            "Belki/acaba (nezaket yumuşatma)",
+            "Tesadüfen",
+            "Olabilir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Do you speak English by any chance?' = İngilizce biliyor musunuz acaba? (kibar belirsizlik).",
+        },
+        {
+          q: "'JR line' nedir?",
+          options: [
+            "Jet rezerv",
+            "Japan Railways hattı",
+            "JR firma adı (jenerik)",
+            "Tek hat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "JR = Japan Railways. Tokyo Yamanote loop hattı en yaygın.",
+        },
+        {
+          q: "'Must-see' deyimi?",
+          options: [
+            "Görmeli",
+            "Mutlaka görülmesi gereken yer",
+            "Görme zorunluluğu",
+            "Görmemek olmaz",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must-sees in Kyoto' = Kyoto'da mutlaka görülecek yerler.",
+        },
+        {
+          q: "Yerel öneri isteme:",
+          options: [
+            "Tell me good place",
+            "Any recommendations? / Any tips?",
+            "Where good?",
+            "Show me best",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Any recommendations?' = açık uçlu yerel davet. Türk: 'Show me' emir tonu.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -11788,6 +25359,135 @@ export const techSupport01: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arctechsupport1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm reaching out about ___ — it ___ ___.",
+      slots: [
+        { accepted: ["my order", "the billing", "an issue", "ticket #1234", "the subscription"] },
+        { accepted: ["hasn't arrived", "is showing the wrong", "stopped working", "double-charged me", "won't let me"] },
+        { accepted: ["since Tuesday", "after the update", "with no warning", "and I need it by Friday"] },
+      ],
+      tr_hint:
+        "Customer support net açıklama. 'About + konu + sorun + zaman/etki.' Türk: 'Problem var' eksik, yapısal cümle teşhis hızlı.",
+      example_filled: "I'm reaching out about my order — it hasn't arrived since Tuesday.",
+    },
+    {
+      id: "ex.arctechsupport1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm sorry to hear that — could you describe the issue in detail?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. Let me check your account." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(so|basically)(,)? (i (placed|made) (the )?order on)",
+        "(the (tracking|status) says) (.+) (but (.+))",
+        "(i (tried|already tried)) ([a-z ]+) (and that didn'?t (work|help))",
+        "(my order (number|id) is)",
+        "(here'?s what (happened|i'?m seeing))",
+      ],
+      tr_hint:
+        "Detaylı şikâyet açıklama. 'So I placed the order on Monday — tracking says delivered but it never arrived.' Türk: 'Problem' eksik, kronolojik anlatım net.",
+      ideal_answer: "So I placed the order Monday — tracking says delivered, but nothing arrived. Order number is 4521.",
+    },
+    {
+      id: "ex.arctechsupport1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I can offer you a 20% credit or a replacement — which works better?",
+      accepted_patterns: [
+        "(honestly )?(i'?d (rather|prefer) (a |the )?(replacement|refund|credit))",
+        "(if (a refund|cash back) is an option)",
+        "(the (replacement|item)) (would (work|be ideal))",
+        "(can you (also|please) (expedite|escalate))",
+        "(i (think|feel)) (a (full refund|refund) is fairer)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tazminat seçimi. 'I'd rather a full refund — can you escalate?' Türk: 'OK whatever' eksik, kararlı seçim talep.",
+      ideal_response: "Honestly, I'd rather a replacement — but can you also expedite the shipping this time?",
+    },
+    {
+      id: "ex.arctechsupport1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çok kötü bir hizmet, paramı geri istiyorum!",
+      wrong_en: "Very bad service, I want my money back!",
+      right_en: "I'm pretty frustrated with this — I'd like a full refund and to understand what went wrong.",
+      why_tr:
+        "Türk: 'Very bad' + 'I want' = duygusal + saldırgan. Native: 'frustrated' (duygu belirt + sakin) + 'understand what went wrong' (öğretici + yapıcı). Aynı sonuç, daha hızlı çözülür.",
+    },
+    {
+      id: "ex.arctechsupport1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Customer support açılış:",
+          options: [
+            "Hello problem",
+            "I'm reaching out about ___",
+            "Problem with me",
+            "Help me now",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm reaching out about X' = profesyonel destek açılışı (email + telefon ortak).",
+        },
+        {
+          q: "'Escalate' fiil anlamı?",
+          options: [
+            "Asansörle çıkmak",
+            "Üst seviyeye taşımak (yöneticiye)",
+            "Artırmak",
+            "Hızlandırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you escalate this?' = bunu üst birime/yöneticiye iletir misiniz?",
+        },
+        {
+          q: "'Expedite' ne demek?",
+          options: [
+            "Sefer",
+            "Hızlandırmak (öncelik ver)",
+            "Yayınla",
+            "Gönder",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Expedite shipping' = kargoyu hızlandır. Müşteri destek kalıbı.",
+        },
+        {
+          q: "Şikâyette duygu belirtmek:",
+          options: [
+            "Anti-profesyonel",
+            "Profesyonel ('I'm frustrated' net + sakin)",
+            "Kaba",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm frustrated' = ihtiyaç bildiriyor, sınırı koruyor. 'Very bad service' duygusal saldırı.",
+        },
+        {
+          q: "'Refund' nedir?",
+          options: [
+            "Ekstra hediye",
+            "Para iadesi",
+            "Yeni gönderim",
+            "İndirim kuponu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Refund' = para iadesi. 'Credit' = mağaza kredisi (sonra kullanılır), 'replacement' = yenisi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -11882,6 +25582,135 @@ export const techSupport02: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arctechsupport2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm reaching out about ___ — it ___ ___.",
+      slots: [
+        { accepted: ["my order", "the billing", "an issue", "ticket #1234", "the subscription"] },
+        { accepted: ["hasn't arrived", "is showing the wrong", "stopped working", "double-charged me", "won't let me"] },
+        { accepted: ["since Tuesday", "after the update", "with no warning", "and I need it by Friday"] },
+      ],
+      tr_hint:
+        "Customer support net açıklama. 'About + konu + sorun + zaman/etki.' Türk: 'Problem var' eksik, yapısal cümle teşhis hızlı.",
+      example_filled: "I'm reaching out about my order — it hasn't arrived since Tuesday.",
+    },
+    {
+      id: "ex.arctechsupport2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm sorry to hear that — could you describe the issue in detail?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. Let me check your account." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(so|basically)(,)? (i (placed|made) (the )?order on)",
+        "(the (tracking|status) says) (.+) (but (.+))",
+        "(i (tried|already tried)) ([a-z ]+) (and that didn'?t (work|help))",
+        "(my order (number|id) is)",
+        "(here'?s what (happened|i'?m seeing))",
+      ],
+      tr_hint:
+        "Detaylı şikâyet açıklama. 'So I placed the order on Monday — tracking says delivered but it never arrived.' Türk: 'Problem' eksik, kronolojik anlatım net.",
+      ideal_answer: "So I placed the order Monday — tracking says delivered, but nothing arrived. Order number is 4521.",
+    },
+    {
+      id: "ex.arctechsupport2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I can offer you a 20% credit or a replacement — which works better?",
+      accepted_patterns: [
+        "(honestly )?(i'?d (rather|prefer) (a |the )?(replacement|refund|credit))",
+        "(if (a refund|cash back) is an option)",
+        "(the (replacement|item)) (would (work|be ideal))",
+        "(can you (also|please) (expedite|escalate))",
+        "(i (think|feel)) (a (full refund|refund) is fairer)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tazminat seçimi. 'I'd rather a full refund — can you escalate?' Türk: 'OK whatever' eksik, kararlı seçim talep.",
+      ideal_response: "Honestly, I'd rather a replacement — but can you also expedite the shipping this time?",
+    },
+    {
+      id: "ex.arctechsupport2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çok kötü bir hizmet, paramı geri istiyorum!",
+      wrong_en: "Very bad service, I want my money back!",
+      right_en: "I'm pretty frustrated with this — I'd like a full refund and to understand what went wrong.",
+      why_tr:
+        "Türk: 'Very bad' + 'I want' = duygusal + saldırgan. Native: 'frustrated' (duygu belirt + sakin) + 'understand what went wrong' (öğretici + yapıcı). Aynı sonuç, daha hızlı çözülür.",
+    },
+    {
+      id: "ex.arctechsupport2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Customer support açılış:",
+          options: [
+            "Hello problem",
+            "I'm reaching out about ___",
+            "Problem with me",
+            "Help me now",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm reaching out about X' = profesyonel destek açılışı (email + telefon ortak).",
+        },
+        {
+          q: "'Escalate' fiil anlamı?",
+          options: [
+            "Asansörle çıkmak",
+            "Üst seviyeye taşımak (yöneticiye)",
+            "Artırmak",
+            "Hızlandırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you escalate this?' = bunu üst birime/yöneticiye iletir misiniz?",
+        },
+        {
+          q: "'Expedite' ne demek?",
+          options: [
+            "Sefer",
+            "Hızlandırmak (öncelik ver)",
+            "Yayınla",
+            "Gönder",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Expedite shipping' = kargoyu hızlandır. Müşteri destek kalıbı.",
+        },
+        {
+          q: "Şikâyette duygu belirtmek:",
+          options: [
+            "Anti-profesyonel",
+            "Profesyonel ('I'm frustrated' net + sakin)",
+            "Kaba",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm frustrated' = ihtiyaç bildiriyor, sınırı koruyor. 'Very bad service' duygusal saldırı.",
+        },
+        {
+          q: "'Refund' nedir?",
+          options: [
+            "Ekstra hediye",
+            "Para iadesi",
+            "Yeni gönderim",
+            "İndirim kuponu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Refund' = para iadesi. 'Credit' = mağaza kredisi (sonra kullanılır), 'replacement' = yenisi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -11977,6 +25806,135 @@ export const techSupport03: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arctechsupport3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm reaching out about ___ — it ___ ___.",
+      slots: [
+        { accepted: ["my order", "the billing", "an issue", "ticket #1234", "the subscription"] },
+        { accepted: ["hasn't arrived", "is showing the wrong", "stopped working", "double-charged me", "won't let me"] },
+        { accepted: ["since Tuesday", "after the update", "with no warning", "and I need it by Friday"] },
+      ],
+      tr_hint:
+        "Customer support net açıklama. 'About + konu + sorun + zaman/etki.' Türk: 'Problem var' eksik, yapısal cümle teşhis hızlı.",
+      example_filled: "I'm reaching out about my order — it hasn't arrived since Tuesday.",
+    },
+    {
+      id: "ex.arctechsupport3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm sorry to hear that — could you describe the issue in detail?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. Let me check your account." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(so|basically)(,)? (i (placed|made) (the )?order on)",
+        "(the (tracking|status) says) (.+) (but (.+))",
+        "(i (tried|already tried)) ([a-z ]+) (and that didn'?t (work|help))",
+        "(my order (number|id) is)",
+        "(here'?s what (happened|i'?m seeing))",
+      ],
+      tr_hint:
+        "Detaylı şikâyet açıklama. 'So I placed the order on Monday — tracking says delivered but it never arrived.' Türk: 'Problem' eksik, kronolojik anlatım net.",
+      ideal_answer: "So I placed the order Monday — tracking says delivered, but nothing arrived. Order number is 4521.",
+    },
+    {
+      id: "ex.arctechsupport3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I can offer you a 20% credit or a replacement — which works better?",
+      accepted_patterns: [
+        "(honestly )?(i'?d (rather|prefer) (a |the )?(replacement|refund|credit))",
+        "(if (a refund|cash back) is an option)",
+        "(the (replacement|item)) (would (work|be ideal))",
+        "(can you (also|please) (expedite|escalate))",
+        "(i (think|feel)) (a (full refund|refund) is fairer)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tazminat seçimi. 'I'd rather a full refund — can you escalate?' Türk: 'OK whatever' eksik, kararlı seçim talep.",
+      ideal_response: "Honestly, I'd rather a replacement — but can you also expedite the shipping this time?",
+    },
+    {
+      id: "ex.arctechsupport3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çok kötü bir hizmet, paramı geri istiyorum!",
+      wrong_en: "Very bad service, I want my money back!",
+      right_en: "I'm pretty frustrated with this — I'd like a full refund and to understand what went wrong.",
+      why_tr:
+        "Türk: 'Very bad' + 'I want' = duygusal + saldırgan. Native: 'frustrated' (duygu belirt + sakin) + 'understand what went wrong' (öğretici + yapıcı). Aynı sonuç, daha hızlı çözülür.",
+    },
+    {
+      id: "ex.arctechsupport3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Customer support açılış:",
+          options: [
+            "Hello problem",
+            "I'm reaching out about ___",
+            "Problem with me",
+            "Help me now",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm reaching out about X' = profesyonel destek açılışı (email + telefon ortak).",
+        },
+        {
+          q: "'Escalate' fiil anlamı?",
+          options: [
+            "Asansörle çıkmak",
+            "Üst seviyeye taşımak (yöneticiye)",
+            "Artırmak",
+            "Hızlandırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you escalate this?' = bunu üst birime/yöneticiye iletir misiniz?",
+        },
+        {
+          q: "'Expedite' ne demek?",
+          options: [
+            "Sefer",
+            "Hızlandırmak (öncelik ver)",
+            "Yayınla",
+            "Gönder",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Expedite shipping' = kargoyu hızlandır. Müşteri destek kalıbı.",
+        },
+        {
+          q: "Şikâyette duygu belirtmek:",
+          options: [
+            "Anti-profesyonel",
+            "Profesyonel ('I'm frustrated' net + sakin)",
+            "Kaba",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm frustrated' = ihtiyaç bildiriyor, sınırı koruyor. 'Very bad service' duygusal saldırı.",
+        },
+        {
+          q: "'Refund' nedir?",
+          options: [
+            "Ekstra hediye",
+            "Para iadesi",
+            "Yeni gönderim",
+            "İndirim kuponu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Refund' = para iadesi. 'Credit' = mağaza kredisi (sonra kullanılır), 'replacement' = yenisi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -12087,6 +26045,135 @@ export const techSupport04: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arctechsupport4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm reaching out about ___ — it ___ ___.",
+      slots: [
+        { accepted: ["my order", "the billing", "an issue", "ticket #1234", "the subscription"] },
+        { accepted: ["hasn't arrived", "is showing the wrong", "stopped working", "double-charged me", "won't let me"] },
+        { accepted: ["since Tuesday", "after the update", "with no warning", "and I need it by Friday"] },
+      ],
+      tr_hint:
+        "Customer support net açıklama. 'About + konu + sorun + zaman/etki.' Türk: 'Problem var' eksik, yapısal cümle teşhis hızlı.",
+      example_filled: "I'm reaching out about my order — it hasn't arrived since Tuesday.",
+    },
+    {
+      id: "ex.arctechsupport4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm sorry to hear that — could you describe the issue in detail?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. Let me check your account." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(so|basically)(,)? (i (placed|made) (the )?order on)",
+        "(the (tracking|status) says) (.+) (but (.+))",
+        "(i (tried|already tried)) ([a-z ]+) (and that didn'?t (work|help))",
+        "(my order (number|id) is)",
+        "(here'?s what (happened|i'?m seeing))",
+      ],
+      tr_hint:
+        "Detaylı şikâyet açıklama. 'So I placed the order on Monday — tracking says delivered but it never arrived.' Türk: 'Problem' eksik, kronolojik anlatım net.",
+      ideal_answer: "So I placed the order Monday — tracking says delivered, but nothing arrived. Order number is 4521.",
+    },
+    {
+      id: "ex.arctechsupport4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I can offer you a 20% credit or a replacement — which works better?",
+      accepted_patterns: [
+        "(honestly )?(i'?d (rather|prefer) (a |the )?(replacement|refund|credit))",
+        "(if (a refund|cash back) is an option)",
+        "(the (replacement|item)) (would (work|be ideal))",
+        "(can you (also|please) (expedite|escalate))",
+        "(i (think|feel)) (a (full refund|refund) is fairer)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tazminat seçimi. 'I'd rather a full refund — can you escalate?' Türk: 'OK whatever' eksik, kararlı seçim talep.",
+      ideal_response: "Honestly, I'd rather a replacement — but can you also expedite the shipping this time?",
+    },
+    {
+      id: "ex.arctechsupport4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çok kötü bir hizmet, paramı geri istiyorum!",
+      wrong_en: "Very bad service, I want my money back!",
+      right_en: "I'm pretty frustrated with this — I'd like a full refund and to understand what went wrong.",
+      why_tr:
+        "Türk: 'Very bad' + 'I want' = duygusal + saldırgan. Native: 'frustrated' (duygu belirt + sakin) + 'understand what went wrong' (öğretici + yapıcı). Aynı sonuç, daha hızlı çözülür.",
+    },
+    {
+      id: "ex.arctechsupport4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Customer support açılış:",
+          options: [
+            "Hello problem",
+            "I'm reaching out about ___",
+            "Problem with me",
+            "Help me now",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm reaching out about X' = profesyonel destek açılışı (email + telefon ortak).",
+        },
+        {
+          q: "'Escalate' fiil anlamı?",
+          options: [
+            "Asansörle çıkmak",
+            "Üst seviyeye taşımak (yöneticiye)",
+            "Artırmak",
+            "Hızlandırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you escalate this?' = bunu üst birime/yöneticiye iletir misiniz?",
+        },
+        {
+          q: "'Expedite' ne demek?",
+          options: [
+            "Sefer",
+            "Hızlandırmak (öncelik ver)",
+            "Yayınla",
+            "Gönder",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Expedite shipping' = kargoyu hızlandır. Müşteri destek kalıbı.",
+        },
+        {
+          q: "Şikâyette duygu belirtmek:",
+          options: [
+            "Anti-profesyonel",
+            "Profesyonel ('I'm frustrated' net + sakin)",
+            "Kaba",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm frustrated' = ihtiyaç bildiriyor, sınırı koruyor. 'Very bad service' duygusal saldırı.",
+        },
+        {
+          q: "'Refund' nedir?",
+          options: [
+            "Ekstra hediye",
+            "Para iadesi",
+            "Yeni gönderim",
+            "İndirim kuponu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Refund' = para iadesi. 'Credit' = mağaza kredisi (sonra kullanılır), 'replacement' = yenisi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -12180,6 +26267,135 @@ export const techSupport05: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arctechsupport5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm reaching out about ___ — it ___ ___.",
+      slots: [
+        { accepted: ["my order", "the billing", "an issue", "ticket #1234", "the subscription"] },
+        { accepted: ["hasn't arrived", "is showing the wrong", "stopped working", "double-charged me", "won't let me"] },
+        { accepted: ["since Tuesday", "after the update", "with no warning", "and I need it by Friday"] },
+      ],
+      tr_hint:
+        "Customer support net açıklama. 'About + konu + sorun + zaman/etki.' Türk: 'Problem var' eksik, yapısal cümle teşhis hızlı.",
+      example_filled: "I'm reaching out about my order — it hasn't arrived since Tuesday.",
+    },
+    {
+      id: "ex.arctechsupport5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm sorry to hear that — could you describe the issue in detail?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. Let me check your account." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(so|basically)(,)? (i (placed|made) (the )?order on)",
+        "(the (tracking|status) says) (.+) (but (.+))",
+        "(i (tried|already tried)) ([a-z ]+) (and that didn'?t (work|help))",
+        "(my order (number|id) is)",
+        "(here'?s what (happened|i'?m seeing))",
+      ],
+      tr_hint:
+        "Detaylı şikâyet açıklama. 'So I placed the order on Monday — tracking says delivered but it never arrived.' Türk: 'Problem' eksik, kronolojik anlatım net.",
+      ideal_answer: "So I placed the order Monday — tracking says delivered, but nothing arrived. Order number is 4521.",
+    },
+    {
+      id: "ex.arctechsupport5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I can offer you a 20% credit or a replacement — which works better?",
+      accepted_patterns: [
+        "(honestly )?(i'?d (rather|prefer) (a |the )?(replacement|refund|credit))",
+        "(if (a refund|cash back) is an option)",
+        "(the (replacement|item)) (would (work|be ideal))",
+        "(can you (also|please) (expedite|escalate))",
+        "(i (think|feel)) (a (full refund|refund) is fairer)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tazminat seçimi. 'I'd rather a full refund — can you escalate?' Türk: 'OK whatever' eksik, kararlı seçim talep.",
+      ideal_response: "Honestly, I'd rather a replacement — but can you also expedite the shipping this time?",
+    },
+    {
+      id: "ex.arctechsupport5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çok kötü bir hizmet, paramı geri istiyorum!",
+      wrong_en: "Very bad service, I want my money back!",
+      right_en: "I'm pretty frustrated with this — I'd like a full refund and to understand what went wrong.",
+      why_tr:
+        "Türk: 'Very bad' + 'I want' = duygusal + saldırgan. Native: 'frustrated' (duygu belirt + sakin) + 'understand what went wrong' (öğretici + yapıcı). Aynı sonuç, daha hızlı çözülür.",
+    },
+    {
+      id: "ex.arctechsupport5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Customer support açılış:",
+          options: [
+            "Hello problem",
+            "I'm reaching out about ___",
+            "Problem with me",
+            "Help me now",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm reaching out about X' = profesyonel destek açılışı (email + telefon ortak).",
+        },
+        {
+          q: "'Escalate' fiil anlamı?",
+          options: [
+            "Asansörle çıkmak",
+            "Üst seviyeye taşımak (yöneticiye)",
+            "Artırmak",
+            "Hızlandırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you escalate this?' = bunu üst birime/yöneticiye iletir misiniz?",
+        },
+        {
+          q: "'Expedite' ne demek?",
+          options: [
+            "Sefer",
+            "Hızlandırmak (öncelik ver)",
+            "Yayınla",
+            "Gönder",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Expedite shipping' = kargoyu hızlandır. Müşteri destek kalıbı.",
+        },
+        {
+          q: "Şikâyette duygu belirtmek:",
+          options: [
+            "Anti-profesyonel",
+            "Profesyonel ('I'm frustrated' net + sakin)",
+            "Kaba",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm frustrated' = ihtiyaç bildiriyor, sınırı koruyor. 'Very bad service' duygusal saldırı.",
+        },
+        {
+          q: "'Refund' nedir?",
+          options: [
+            "Ekstra hediye",
+            "Para iadesi",
+            "Yeni gönderim",
+            "İndirim kuponu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Refund' = para iadesi. 'Credit' = mağaza kredisi (sonra kullanılır), 'replacement' = yenisi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -12274,6 +26490,135 @@ export const techSupport06: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arctechsupport6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm reaching out about ___ — it ___ ___.",
+      slots: [
+        { accepted: ["my order", "the billing", "an issue", "ticket #1234", "the subscription"] },
+        { accepted: ["hasn't arrived", "is showing the wrong", "stopped working", "double-charged me", "won't let me"] },
+        { accepted: ["since Tuesday", "after the update", "with no warning", "and I need it by Friday"] },
+      ],
+      tr_hint:
+        "Customer support net açıklama. 'About + konu + sorun + zaman/etki.' Türk: 'Problem var' eksik, yapısal cümle teşhis hızlı.",
+      example_filled: "I'm reaching out about my order — it hasn't arrived since Tuesday.",
+    },
+    {
+      id: "ex.arctechsupport6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm sorry to hear that — could you describe the issue in detail?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. Let me check your account." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(so|basically)(,)? (i (placed|made) (the )?order on)",
+        "(the (tracking|status) says) (.+) (but (.+))",
+        "(i (tried|already tried)) ([a-z ]+) (and that didn'?t (work|help))",
+        "(my order (number|id) is)",
+        "(here'?s what (happened|i'?m seeing))",
+      ],
+      tr_hint:
+        "Detaylı şikâyet açıklama. 'So I placed the order on Monday — tracking says delivered but it never arrived.' Türk: 'Problem' eksik, kronolojik anlatım net.",
+      ideal_answer: "So I placed the order Monday — tracking says delivered, but nothing arrived. Order number is 4521.",
+    },
+    {
+      id: "ex.arctechsupport6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I can offer you a 20% credit or a replacement — which works better?",
+      accepted_patterns: [
+        "(honestly )?(i'?d (rather|prefer) (a |the )?(replacement|refund|credit))",
+        "(if (a refund|cash back) is an option)",
+        "(the (replacement|item)) (would (work|be ideal))",
+        "(can you (also|please) (expedite|escalate))",
+        "(i (think|feel)) (a (full refund|refund) is fairer)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tazminat seçimi. 'I'd rather a full refund — can you escalate?' Türk: 'OK whatever' eksik, kararlı seçim talep.",
+      ideal_response: "Honestly, I'd rather a replacement — but can you also expedite the shipping this time?",
+    },
+    {
+      id: "ex.arctechsupport6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çok kötü bir hizmet, paramı geri istiyorum!",
+      wrong_en: "Very bad service, I want my money back!",
+      right_en: "I'm pretty frustrated with this — I'd like a full refund and to understand what went wrong.",
+      why_tr:
+        "Türk: 'Very bad' + 'I want' = duygusal + saldırgan. Native: 'frustrated' (duygu belirt + sakin) + 'understand what went wrong' (öğretici + yapıcı). Aynı sonuç, daha hızlı çözülür.",
+    },
+    {
+      id: "ex.arctechsupport6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Customer support açılış:",
+          options: [
+            "Hello problem",
+            "I'm reaching out about ___",
+            "Problem with me",
+            "Help me now",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm reaching out about X' = profesyonel destek açılışı (email + telefon ortak).",
+        },
+        {
+          q: "'Escalate' fiil anlamı?",
+          options: [
+            "Asansörle çıkmak",
+            "Üst seviyeye taşımak (yöneticiye)",
+            "Artırmak",
+            "Hızlandırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you escalate this?' = bunu üst birime/yöneticiye iletir misiniz?",
+        },
+        {
+          q: "'Expedite' ne demek?",
+          options: [
+            "Sefer",
+            "Hızlandırmak (öncelik ver)",
+            "Yayınla",
+            "Gönder",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Expedite shipping' = kargoyu hızlandır. Müşteri destek kalıbı.",
+        },
+        {
+          q: "Şikâyette duygu belirtmek:",
+          options: [
+            "Anti-profesyonel",
+            "Profesyonel ('I'm frustrated' net + sakin)",
+            "Kaba",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm frustrated' = ihtiyaç bildiriyor, sınırı koruyor. 'Very bad service' duygusal saldırı.",
+        },
+        {
+          q: "'Refund' nedir?",
+          options: [
+            "Ekstra hediye",
+            "Para iadesi",
+            "Yeni gönderim",
+            "İndirim kuponu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Refund' = para iadesi. 'Credit' = mağaza kredisi (sonra kullanılır), 'replacement' = yenisi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -12369,6 +26714,135 @@ export const techSupport07: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arctechsupport7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm reaching out about ___ — it ___ ___.",
+      slots: [
+        { accepted: ["my order", "the billing", "an issue", "ticket #1234", "the subscription"] },
+        { accepted: ["hasn't arrived", "is showing the wrong", "stopped working", "double-charged me", "won't let me"] },
+        { accepted: ["since Tuesday", "after the update", "with no warning", "and I need it by Friday"] },
+      ],
+      tr_hint:
+        "Customer support net açıklama. 'About + konu + sorun + zaman/etki.' Türk: 'Problem var' eksik, yapısal cümle teşhis hızlı.",
+      example_filled: "I'm reaching out about my order — it hasn't arrived since Tuesday.",
+    },
+    {
+      id: "ex.arctechsupport7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm sorry to hear that — could you describe the issue in detail?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. Let me check your account." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(so|basically)(,)? (i (placed|made) (the )?order on)",
+        "(the (tracking|status) says) (.+) (but (.+))",
+        "(i (tried|already tried)) ([a-z ]+) (and that didn'?t (work|help))",
+        "(my order (number|id) is)",
+        "(here'?s what (happened|i'?m seeing))",
+      ],
+      tr_hint:
+        "Detaylı şikâyet açıklama. 'So I placed the order on Monday — tracking says delivered but it never arrived.' Türk: 'Problem' eksik, kronolojik anlatım net.",
+      ideal_answer: "So I placed the order Monday — tracking says delivered, but nothing arrived. Order number is 4521.",
+    },
+    {
+      id: "ex.arctechsupport7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I can offer you a 20% credit or a replacement — which works better?",
+      accepted_patterns: [
+        "(honestly )?(i'?d (rather|prefer) (a |the )?(replacement|refund|credit))",
+        "(if (a refund|cash back) is an option)",
+        "(the (replacement|item)) (would (work|be ideal))",
+        "(can you (also|please) (expedite|escalate))",
+        "(i (think|feel)) (a (full refund|refund) is fairer)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tazminat seçimi. 'I'd rather a full refund — can you escalate?' Türk: 'OK whatever' eksik, kararlı seçim talep.",
+      ideal_response: "Honestly, I'd rather a replacement — but can you also expedite the shipping this time?",
+    },
+    {
+      id: "ex.arctechsupport7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çok kötü bir hizmet, paramı geri istiyorum!",
+      wrong_en: "Very bad service, I want my money back!",
+      right_en: "I'm pretty frustrated with this — I'd like a full refund and to understand what went wrong.",
+      why_tr:
+        "Türk: 'Very bad' + 'I want' = duygusal + saldırgan. Native: 'frustrated' (duygu belirt + sakin) + 'understand what went wrong' (öğretici + yapıcı). Aynı sonuç, daha hızlı çözülür.",
+    },
+    {
+      id: "ex.arctechsupport7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Customer support açılış:",
+          options: [
+            "Hello problem",
+            "I'm reaching out about ___",
+            "Problem with me",
+            "Help me now",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm reaching out about X' = profesyonel destek açılışı (email + telefon ortak).",
+        },
+        {
+          q: "'Escalate' fiil anlamı?",
+          options: [
+            "Asansörle çıkmak",
+            "Üst seviyeye taşımak (yöneticiye)",
+            "Artırmak",
+            "Hızlandırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you escalate this?' = bunu üst birime/yöneticiye iletir misiniz?",
+        },
+        {
+          q: "'Expedite' ne demek?",
+          options: [
+            "Sefer",
+            "Hızlandırmak (öncelik ver)",
+            "Yayınla",
+            "Gönder",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Expedite shipping' = kargoyu hızlandır. Müşteri destek kalıbı.",
+        },
+        {
+          q: "Şikâyette duygu belirtmek:",
+          options: [
+            "Anti-profesyonel",
+            "Profesyonel ('I'm frustrated' net + sakin)",
+            "Kaba",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm frustrated' = ihtiyaç bildiriyor, sınırı koruyor. 'Very bad service' duygusal saldırı.",
+        },
+        {
+          q: "'Refund' nedir?",
+          options: [
+            "Ekstra hediye",
+            "Para iadesi",
+            "Yeni gönderim",
+            "İndirim kuponu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Refund' = para iadesi. 'Credit' = mağaza kredisi (sonra kullanılır), 'replacement' = yenisi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -12464,6 +26938,135 @@ export const techSupport08: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arctechsupport8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm reaching out about ___ — it ___ ___.",
+      slots: [
+        { accepted: ["my order", "the billing", "an issue", "ticket #1234", "the subscription"] },
+        { accepted: ["hasn't arrived", "is showing the wrong", "stopped working", "double-charged me", "won't let me"] },
+        { accepted: ["since Tuesday", "after the update", "with no warning", "and I need it by Friday"] },
+      ],
+      tr_hint:
+        "Customer support net açıklama. 'About + konu + sorun + zaman/etki.' Türk: 'Problem var' eksik, yapısal cümle teşhis hızlı.",
+      example_filled: "I'm reaching out about my order — it hasn't arrived since Tuesday.",
+    },
+    {
+      id: "ex.arctechsupport8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm sorry to hear that — could you describe the issue in detail?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. Let me check your account." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(so|basically)(,)? (i (placed|made) (the )?order on)",
+        "(the (tracking|status) says) (.+) (but (.+))",
+        "(i (tried|already tried)) ([a-z ]+) (and that didn'?t (work|help))",
+        "(my order (number|id) is)",
+        "(here'?s what (happened|i'?m seeing))",
+      ],
+      tr_hint:
+        "Detaylı şikâyet açıklama. 'So I placed the order on Monday — tracking says delivered but it never arrived.' Türk: 'Problem' eksik, kronolojik anlatım net.",
+      ideal_answer: "So I placed the order Monday — tracking says delivered, but nothing arrived. Order number is 4521.",
+    },
+    {
+      id: "ex.arctechsupport8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I can offer you a 20% credit or a replacement — which works better?",
+      accepted_patterns: [
+        "(honestly )?(i'?d (rather|prefer) (a |the )?(replacement|refund|credit))",
+        "(if (a refund|cash back) is an option)",
+        "(the (replacement|item)) (would (work|be ideal))",
+        "(can you (also|please) (expedite|escalate))",
+        "(i (think|feel)) (a (full refund|refund) is fairer)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tazminat seçimi. 'I'd rather a full refund — can you escalate?' Türk: 'OK whatever' eksik, kararlı seçim talep.",
+      ideal_response: "Honestly, I'd rather a replacement — but can you also expedite the shipping this time?",
+    },
+    {
+      id: "ex.arctechsupport8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çok kötü bir hizmet, paramı geri istiyorum!",
+      wrong_en: "Very bad service, I want my money back!",
+      right_en: "I'm pretty frustrated with this — I'd like a full refund and to understand what went wrong.",
+      why_tr:
+        "Türk: 'Very bad' + 'I want' = duygusal + saldırgan. Native: 'frustrated' (duygu belirt + sakin) + 'understand what went wrong' (öğretici + yapıcı). Aynı sonuç, daha hızlı çözülür.",
+    },
+    {
+      id: "ex.arctechsupport8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Customer support açılış:",
+          options: [
+            "Hello problem",
+            "I'm reaching out about ___",
+            "Problem with me",
+            "Help me now",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm reaching out about X' = profesyonel destek açılışı (email + telefon ortak).",
+        },
+        {
+          q: "'Escalate' fiil anlamı?",
+          options: [
+            "Asansörle çıkmak",
+            "Üst seviyeye taşımak (yöneticiye)",
+            "Artırmak",
+            "Hızlandırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you escalate this?' = bunu üst birime/yöneticiye iletir misiniz?",
+        },
+        {
+          q: "'Expedite' ne demek?",
+          options: [
+            "Sefer",
+            "Hızlandırmak (öncelik ver)",
+            "Yayınla",
+            "Gönder",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Expedite shipping' = kargoyu hızlandır. Müşteri destek kalıbı.",
+        },
+        {
+          q: "Şikâyette duygu belirtmek:",
+          options: [
+            "Anti-profesyonel",
+            "Profesyonel ('I'm frustrated' net + sakin)",
+            "Kaba",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm frustrated' = ihtiyaç bildiriyor, sınırı koruyor. 'Very bad service' duygusal saldırı.",
+        },
+        {
+          q: "'Refund' nedir?",
+          options: [
+            "Ekstra hediye",
+            "Para iadesi",
+            "Yeni gönderim",
+            "İndirim kuponu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Refund' = para iadesi. 'Credit' = mağaza kredisi (sonra kullanılır), 'replacement' = yenisi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -12578,6 +27181,135 @@ export const uniAdmission01: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcuniadmissio1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arcuniadmissio1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arcuniadmissio1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arcuniadmissio1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arcuniadmissio1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -12685,6 +27417,135 @@ export const uniAdmission02: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcuniadmissio2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arcuniadmissio2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arcuniadmissio2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arcuniadmissio2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arcuniadmissio2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -12778,6 +27639,135 @@ export const uniAdmission03: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcuniadmissio3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arcuniadmissio3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arcuniadmissio3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arcuniadmissio3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arcuniadmissio3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -12872,6 +27862,135 @@ export const uniAdmission04: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcuniadmissio4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arcuniadmissio4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arcuniadmissio4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arcuniadmissio4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arcuniadmissio4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -12966,6 +28085,135 @@ export const uniAdmission05: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcuniadmissio5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arcuniadmissio5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arcuniadmissio5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arcuniadmissio5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arcuniadmissio5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -13061,6 +28309,135 @@ export const uniAdmission06: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcuniadmissio6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arcuniadmissio6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arcuniadmissio6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arcuniadmissio6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arcuniadmissio6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -13155,6 +28532,135 @@ export const uniAdmission07: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcuniadmissio7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arcuniadmissio7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arcuniadmissio7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arcuniadmissio7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arcuniadmissio7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -13250,6 +28756,135 @@ export const uniAdmission08: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arcuniadmissio8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.arcuniadmissio8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.arcuniadmissio8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.arcuniadmissio8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.arcuniadmissio8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -13344,6 +28979,134 @@ export const longHaul01: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arclonghaul1.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arclonghaul1.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arclonghaul1.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arclonghaul1.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arclonghaul1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -13451,6 +29214,134 @@ export const longHaul02: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arclonghaul2.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arclonghaul2.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arclonghaul2.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arclonghaul2.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arclonghaul2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -13529,6 +29420,134 @@ export const longHaul03: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arclonghaul3.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arclonghaul3.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arclonghaul3.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arclonghaul3.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arclonghaul3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -13624,6 +29643,134 @@ export const longHaul04: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arclonghaul4.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arclonghaul4.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arclonghaul4.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arclonghaul4.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arclonghaul4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -13715,6 +29862,134 @@ export const longHaul05: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arclonghaul5.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arclonghaul5.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arclonghaul5.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arclonghaul5.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arclonghaul5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -13803,6 +30078,134 @@ export const longHaul06: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arclonghaul6.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arclonghaul6.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arclonghaul6.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arclonghaul6.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arclonghaul6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -13898,6 +30301,134 @@ export const longHaul07: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arclonghaul7.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arclonghaul7.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arclonghaul7.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arclonghaul7.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arclonghaul7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -13988,6 +30519,134 @@ export const longHaul08: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arclonghaul8.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.arclonghaul8.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.arclonghaul8.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.arclonghaul8.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.arclonghaul8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -14082,6 +30741,132 @@ export const longHaul09: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arclonghaul9.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm here for ___ — I'll be staying ___.",
+      slots: [
+        { accepted: ["studies", "Erasmus", "exchange", "work", "tourism", "a conference"] },
+        { accepted: ["one semester", "four months", "two weeks", "until February", "a few days"] },
+      ],
+      tr_hint:
+        "Havaalanı temel kalıbı: amaç + süre. Türk: 'I came for' yerine 'I'm here for' (mevcut durum).",
+      example_filled: "I'm here for Erasmus — I'll be staying one semester.",
+    },
+    {
+      id: "ex.arclonghaul9.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Purpose of your visit?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "And how long will you stay?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m|im) here for (studies|tourism|work|erasmus)",
+        "(i'?m|im) (a |an )?(exchange|erasmus) student",
+        "(visiting|on vacation|on a business trip)",
+        "(study|studying) (at|in) [a-z]+",
+      ],
+      tr_hint:
+        "Memur 'amaç ne?' soruyor. 'I'm here for studies' veya 'Tourism' yeterli. Türk: 'I came for' yerine 'I'm here for'.",
+      ideal_answer: "I'm here for studies — exchange semester.",
+    },
+    {
+      id: "ex.arclonghaul9.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Do you have any food or liquids over 100ml in your carry-on?",
+      accepted_patterns: [
+        "(no|nope)(,)? (nothing|just (water|snacks))",
+        "(only|just) (a water bottle|some snacks)",
+        "(i think |maybe )?(there'?s |i have )(a yogurt|hand cream)",
+        "(let me check|hold on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Güvenlik soruşturması. 'No, nothing' veya 'Just a water bottle' yeterli. Türk: 'I have' yerine 'There's' (daha doğal nesne için).",
+      ideal_response: "No, nothing — just an empty water bottle.",
+    },
+    {
+      id: "ex.arclonghaul9.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Geldim Türkiye'den, kalacağım üç ay.",
+      wrong_en: "I come from Turkey, I will stay three months.",
+      right_en: "I'm here from Turkey, staying for three months.",
+      why_tr:
+        "Türk öğrenci 'geldim' için 'I come' kullanır — yanlış zaman. 'I'm here' (şu an durumu) + 'staying' (continuous form) daha doğal. Memur seni durumun içinde görüyor, geçmiş eylem değil.",
+    },
+    {
+      id: "ex.arclonghaul9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Purpose of your visit?' nasıl cevaplanır?",
+          options: [
+            "Because I want",
+            "I'm here for [studies/tourism/work]",
+            "My visit is for",
+            "Visit purpose: study",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kısa + doğal: 'I'm here for studies/tourism'. Türk: 'My purpose is' resmi kitap dili.",
+        },
+        {
+          q: "'How long will you stay?' yanıtı?",
+          options: [
+            "For three months / Until February",
+            "I will stay for",
+            "Three months I stay",
+            "Stay three months",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For + süre' veya 'Until + tarih'. Türk: tam cümle gereksiz, kısa cevap yeterli.",
+        },
+        {
+          q: "'Carry-on' ne demek?",
+          options: [
+            "Kabin bagajı",
+            "Bagaj kayışı",
+            "Tartılan bagaj",
+            "El koltuğu",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Carry-on' = kabin bagajı (yanına aldığın). 'Checked bag' = bagaj banta verilen.",
+        },
+        {
+          q: "Türk öğrencinin sık yaptığı hata?",
+          options: [
+            "Kısa cevap vermek",
+            "Sözcükleri Türkçe sırasıyla çevirmek (I come from)",
+            "İngilizce kullanmak",
+            "Pasaport göstermek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I come from' geniş zaman = halen oradan geliyorum (sürekli). 'I'm here from' = şu an buradayım.",
+        },
+        {
+          q: "Belge isteyen memura ne denir?",
+          options: [
+            "Take it",
+            "Here you go",
+            "Get this",
+            "I give to you",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Here you go' = işte (uzatırken). 'Take it' = al (emir, kaba). Türk: 'Take' yerine 'Here you go'.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -14193,6 +30978,132 @@ export const longHaul10: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.arclonghaul10.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm here for ___ — I'll be staying ___.",
+      slots: [
+        { accepted: ["studies", "Erasmus", "exchange", "work", "tourism", "a conference"] },
+        { accepted: ["one semester", "four months", "two weeks", "until February", "a few days"] },
+      ],
+      tr_hint:
+        "Havaalanı temel kalıbı: amaç + süre. Türk: 'I came for' yerine 'I'm here for' (mevcut durum).",
+      example_filled: "I'm here for Erasmus — I'll be staying one semester.",
+    },
+    {
+      id: "ex.arclonghaul10.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Purpose of your visit?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "And how long will you stay?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m|im) here for (studies|tourism|work|erasmus)",
+        "(i'?m|im) (a |an )?(exchange|erasmus) student",
+        "(visiting|on vacation|on a business trip)",
+        "(study|studying) (at|in) [a-z]+",
+      ],
+      tr_hint:
+        "Memur 'amaç ne?' soruyor. 'I'm here for studies' veya 'Tourism' yeterli. Türk: 'I came for' yerine 'I'm here for'.",
+      ideal_answer: "I'm here for studies — exchange semester.",
+    },
+    {
+      id: "ex.arclonghaul10.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Do you have any food or liquids over 100ml in your carry-on?",
+      accepted_patterns: [
+        "(no|nope)(,)? (nothing|just (water|snacks))",
+        "(only|just) (a water bottle|some snacks)",
+        "(i think |maybe )?(there'?s |i have )(a yogurt|hand cream)",
+        "(let me check|hold on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Güvenlik soruşturması. 'No, nothing' veya 'Just a water bottle' yeterli. Türk: 'I have' yerine 'There's' (daha doğal nesne için).",
+      ideal_response: "No, nothing — just an empty water bottle.",
+    },
+    {
+      id: "ex.arclonghaul10.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Geldim Türkiye'den, kalacağım üç ay.",
+      wrong_en: "I come from Turkey, I will stay three months.",
+      right_en: "I'm here from Turkey, staying for three months.",
+      why_tr:
+        "Türk öğrenci 'geldim' için 'I come' kullanır — yanlış zaman. 'I'm here' (şu an durumu) + 'staying' (continuous form) daha doğal. Memur seni durumun içinde görüyor, geçmiş eylem değil.",
+    },
+    {
+      id: "ex.arclonghaul10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Purpose of your visit?' nasıl cevaplanır?",
+          options: [
+            "Because I want",
+            "I'm here for [studies/tourism/work]",
+            "My visit is for",
+            "Visit purpose: study",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kısa + doğal: 'I'm here for studies/tourism'. Türk: 'My purpose is' resmi kitap dili.",
+        },
+        {
+          q: "'How long will you stay?' yanıtı?",
+          options: [
+            "For three months / Until February",
+            "I will stay for",
+            "Three months I stay",
+            "Stay three months",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For + süre' veya 'Until + tarih'. Türk: tam cümle gereksiz, kısa cevap yeterli.",
+        },
+        {
+          q: "'Carry-on' ne demek?",
+          options: [
+            "Kabin bagajı",
+            "Bagaj kayışı",
+            "Tartılan bagaj",
+            "El koltuğu",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Carry-on' = kabin bagajı (yanına aldığın). 'Checked bag' = bagaj banta verilen.",
+        },
+        {
+          q: "Türk öğrencinin sık yaptığı hata?",
+          options: [
+            "Kısa cevap vermek",
+            "Sözcükleri Türkçe sırasıyla çevirmek (I come from)",
+            "İngilizce kullanmak",
+            "Pasaport göstermek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I come from' geniş zaman = halen oradan geliyorum (sürekli). 'I'm here from' = şu an buradayım.",
+        },
+        {
+          q: "Belge isteyen memura ne denir?",
+          options: [
+            "Take it",
+            "Here you go",
+            "Get this",
+            "I give to you",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Here you go' = işte (uzatırken). 'Take it' = al (emir, kaba). Türk: 'Take' yerine 'Here you go'.",
+        },
+      ],
+    },
+
   ],
 };
 

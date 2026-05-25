@@ -259,6 +259,101 @@ export const workInterviewLesson_14_1: BundledLesson = {
       tr_explanation:
         "'Since 5 years' yanlış — süre için 'for'. 'I made projects' Türkçe kalıbı; doğrusu 'I shipped projects' (work register). 'As engineer' yerine 'as an engineer' — sayılabilir isim için 'an' gerek. Süregelen iş için 'I've been working'.",
     },
+    {
+      id: "ex.wi14.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd say my biggest ___ is ___.",
+      slots: [
+        { accepted: ['strength', 'achievement', 'challenge', 'lesson'], distractors: ['strengths', 'achievements', 'challenges', 'lessons'] },
+        { accepted: ['staying calm under pressure', 'shipping the migration solo', 'managing scope creep', 'learning to say no'], distractors: ['stayed calm under pressure', 'shipped migration solo', 'manage scope creep', 'learned to say no'] },
+      ],
+      tr_hint:
+        "Interview cevap kalıbı. 'I'd say' = soft opener. Sonrası: spesifik örnek + impact.",
+      example_filled: "I'd say my biggest strength is staying calm under pressure.",
+    },
+    {
+      id: "ex.wi14.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Tell me about a time you had to deal with a difficult stakeholder." },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's a great example — how did you measure the impact?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|let me think|a good (example|one) that comes to mind)",
+        "(last year|at my (previous|current) role|on the (.+) team)",
+        "(the situation was|the context was)",
+        "(i (took|owned|drove)|my approach was)",
+      ],
+      tr_hint:
+        "STAR format (Situation, Task, Action, Result). Türk hatası: 'I am hardworking' generic — story ver.",
+      ideal_answer: "A good one that comes to mind — last quarter our PM kept changing scope, so I owned a weekly sync to lock priorities.",
+    },
+    {
+      id: "ex.wi14.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Where do you see yourself in five years?",
+      accepted_patterns: [
+        "(honestly|to be honest|i think)",
+        "(growing into|moving toward|stepping into) (a (.+) role|something like)",
+        "(deepening|expanding) (my (.+))",
+        "(staying close to|combining) (the (.+) side|both)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik soru. 'I want to be CEO' = yanlış. Görece spesifik growth path + şu anki rolle bağ.",
+      ideal_response: "Honestly, growing into a senior IC role, deepening my product instincts while staying close to the code.",
+    },
+    {
+      id: "ex.wi14.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Master yaptım.",
+      wrong_en: "I did my master.",
+      right_en: "I got my master's / I have a master's degree.",
+      why_tr:
+        "'Did my master' = Türkçe 'master yaptım' direkt çeviri. İngilizcede 'get/earn/have a master's degree' kalıbı. 'Master' tek başına yetmez — 'master's' (apostrof+s). Halen okuyorsan: 'I'm doing my master's' (present continuous). Türk öğrenci özellikle bu hatayı sık yapar.",
+    },
+    {
+      id: "ex.wi14.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Master yaptım' İngilizcesi?",
+          options: ["I did my master", "I got my master's degree", "I made master", "I performed master"],
+          correct: 1,
+          tr_explanation: "'Master's degree' (apostrof) standart. 'Did' yerine 'got/earned/have'.",
+        },
+        {
+          q: "'Tell me about yourself' için optimum süre?",
+          options: ["1 dakika altı", "2-3 dakika", "10 dakika", "30 saniye"],
+          correct: 1,
+          tr_explanation: "2-3 dakika = present/past/future yapısı için yeterli. Daha uzun = sıkıcı.",
+        },
+        {
+          q: "STAR formatı?",
+          options: ["Star Track Action Result", "Situation Task Action Result", "Steps To Achieve Results", "Story Truth Action Real"],
+          correct: 1,
+          tr_explanation: "Situation → Task → Action → Result. Behavioral interview cevap standardı.",
+        },
+        {
+          q: "'Why are you leaving your current job?' iyi cevap?",
+          options: ["Çok kötü manager'ım", "Şu an çok mutluyum ama yeni challenge arıyorum", "Para az", "Sıkıldım"],
+          correct: 1,
+          tr_explanation: "Forward-looking + positive framing. Mevcut işi/manager'ı kötülemek = red flag.",
+        },
+        {
+          q: "'I'd say my biggest strength' niye 'My biggest strength is'tan iyi?",
+          options: ["Aynı", "Conversational, daha doğal", "Yanlış gramer", "Çok formel"],
+          correct: 1,
+          tr_explanation: "'I'd say' = sohbet tonu. Cevabı conversation gibi açar, robotik değil.",
+        },
+      ],
+    },
   ],
 };
 
@@ -522,6 +617,101 @@ export const workInterviewLesson_14_2: BundledLesson = {
       tr_explanation:
         "'Since 2 hours' yanlış — süre için 'for'. 'I made a war room' Türkçe; doğrusu 'I opened a war room' (iş kalıbı). 'We solve' yanlış zaman; geçmiş hikayede 'we solved'. Süregelen problem için past perfect continuous.",
     },
+    {
+      id: "ex.wi14.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd say my biggest ___ is ___.",
+      slots: [
+        { accepted: ['strength', 'achievement', 'challenge', 'lesson'], distractors: ['strengths', 'achievements', 'challenges', 'lessons'] },
+        { accepted: ['staying calm under pressure', 'shipping the migration solo', 'managing scope creep', 'learning to say no'], distractors: ['stayed calm under pressure', 'shipped migration solo', 'manage scope creep', 'learned to say no'] },
+      ],
+      tr_hint:
+        "Interview cevap kalıbı. 'I'd say' = soft opener. Sonrası: spesifik örnek + impact.",
+      example_filled: "I'd say my biggest strength is staying calm under pressure.",
+    },
+    {
+      id: "ex.wi14.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Tell me about a time you had to deal with a difficult stakeholder." },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's a great example — how did you measure the impact?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|let me think|a good (example|one) that comes to mind)",
+        "(last year|at my (previous|current) role|on the (.+) team)",
+        "(the situation was|the context was)",
+        "(i (took|owned|drove)|my approach was)",
+      ],
+      tr_hint:
+        "STAR format (Situation, Task, Action, Result). Türk hatası: 'I am hardworking' generic — story ver.",
+      ideal_answer: "A good one that comes to mind — last quarter our PM kept changing scope, so I owned a weekly sync to lock priorities.",
+    },
+    {
+      id: "ex.wi14.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Where do you see yourself in five years?",
+      accepted_patterns: [
+        "(honestly|to be honest|i think)",
+        "(growing into|moving toward|stepping into) (a (.+) role|something like)",
+        "(deepening|expanding) (my (.+))",
+        "(staying close to|combining) (the (.+) side|both)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik soru. 'I want to be CEO' = yanlış. Görece spesifik growth path + şu anki rolle bağ.",
+      ideal_response: "Honestly, growing into a senior IC role, deepening my product instincts while staying close to the code.",
+    },
+    {
+      id: "ex.wi14.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Master yaptım.",
+      wrong_en: "I did my master.",
+      right_en: "I got my master's / I have a master's degree.",
+      why_tr:
+        "'Did my master' = Türkçe 'master yaptım' direkt çeviri. İngilizcede 'get/earn/have a master's degree' kalıbı. 'Master' tek başına yetmez — 'master's' (apostrof+s). Halen okuyorsan: 'I'm doing my master's' (present continuous). Türk öğrenci özellikle bu hatayı sık yapar.",
+    },
+    {
+      id: "ex.wi14.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Master yaptım' İngilizcesi?",
+          options: ["I did my master", "I got my master's degree", "I made master", "I performed master"],
+          correct: 1,
+          tr_explanation: "'Master's degree' (apostrof) standart. 'Did' yerine 'got/earned/have'.",
+        },
+        {
+          q: "'Tell me about yourself' için optimum süre?",
+          options: ["1 dakika altı", "2-3 dakika", "10 dakika", "30 saniye"],
+          correct: 1,
+          tr_explanation: "2-3 dakika = present/past/future yapısı için yeterli. Daha uzun = sıkıcı.",
+        },
+        {
+          q: "STAR formatı?",
+          options: ["Star Track Action Result", "Situation Task Action Result", "Steps To Achieve Results", "Story Truth Action Real"],
+          correct: 1,
+          tr_explanation: "Situation → Task → Action → Result. Behavioral interview cevap standardı.",
+        },
+        {
+          q: "'Why are you leaving your current job?' iyi cevap?",
+          options: ["Çok kötü manager'ım", "Şu an çok mutluyum ama yeni challenge arıyorum", "Para az", "Sıkıldım"],
+          correct: 1,
+          tr_explanation: "Forward-looking + positive framing. Mevcut işi/manager'ı kötülemek = red flag.",
+        },
+        {
+          q: "'I'd say my biggest strength' niye 'My biggest strength is'tan iyi?",
+          options: ["Aynı", "Conversational, daha doğal", "Yanlış gramer", "Çok formel"],
+          correct: 1,
+          tr_explanation: "'I'd say' = sohbet tonu. Cevabı conversation gibi açar, robotik değil.",
+        },
+      ],
+    },
   ],
 };
 
@@ -725,6 +915,101 @@ export const workInterviewLesson_14_3: BundledLesson = {
       correct_sentence: "You've been looking for an engineer for 6 months — why has it been open for so long?",
       tr_explanation:
         "'Since 6 months' yanlış — süre için 'for'. 'Engineer' tek başına yanlış — 'an engineer' lazım (a/an). 'Why is open' yanlış zaman — açık olma durumu süregelen, 'why has it been open' lazım. 'Since long time' yanlış — 'for so long'.",
+    },
+    {
+      id: "ex.wi14.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd say my biggest ___ is ___.",
+      slots: [
+        { accepted: ['strength', 'achievement', 'challenge', 'lesson'], distractors: ['strengths', 'achievements', 'challenges', 'lessons'] },
+        { accepted: ['staying calm under pressure', 'shipping the migration solo', 'managing scope creep', 'learning to say no'], distractors: ['stayed calm under pressure', 'shipped migration solo', 'manage scope creep', 'learned to say no'] },
+      ],
+      tr_hint:
+        "Interview cevap kalıbı. 'I'd say' = soft opener. Sonrası: spesifik örnek + impact.",
+      example_filled: "I'd say my biggest strength is staying calm under pressure.",
+    },
+    {
+      id: "ex.wi14.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Tell me about a time you had to deal with a difficult stakeholder." },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's a great example — how did you measure the impact?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|let me think|a good (example|one) that comes to mind)",
+        "(last year|at my (previous|current) role|on the (.+) team)",
+        "(the situation was|the context was)",
+        "(i (took|owned|drove)|my approach was)",
+      ],
+      tr_hint:
+        "STAR format (Situation, Task, Action, Result). Türk hatası: 'I am hardworking' generic — story ver.",
+      ideal_answer: "A good one that comes to mind — last quarter our PM kept changing scope, so I owned a weekly sync to lock priorities.",
+    },
+    {
+      id: "ex.wi14.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Where do you see yourself in five years?",
+      accepted_patterns: [
+        "(honestly|to be honest|i think)",
+        "(growing into|moving toward|stepping into) (a (.+) role|something like)",
+        "(deepening|expanding) (my (.+))",
+        "(staying close to|combining) (the (.+) side|both)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik soru. 'I want to be CEO' = yanlış. Görece spesifik growth path + şu anki rolle bağ.",
+      ideal_response: "Honestly, growing into a senior IC role, deepening my product instincts while staying close to the code.",
+    },
+    {
+      id: "ex.wi14.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Master yaptım.",
+      wrong_en: "I did my master.",
+      right_en: "I got my master's / I have a master's degree.",
+      why_tr:
+        "'Did my master' = Türkçe 'master yaptım' direkt çeviri. İngilizcede 'get/earn/have a master's degree' kalıbı. 'Master' tek başına yetmez — 'master's' (apostrof+s). Halen okuyorsan: 'I'm doing my master's' (present continuous). Türk öğrenci özellikle bu hatayı sık yapar.",
+    },
+    {
+      id: "ex.wi14.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Master yaptım' İngilizcesi?",
+          options: ["I did my master", "I got my master's degree", "I made master", "I performed master"],
+          correct: 1,
+          tr_explanation: "'Master's degree' (apostrof) standart. 'Did' yerine 'got/earned/have'.",
+        },
+        {
+          q: "'Tell me about yourself' için optimum süre?",
+          options: ["1 dakika altı", "2-3 dakika", "10 dakika", "30 saniye"],
+          correct: 1,
+          tr_explanation: "2-3 dakika = present/past/future yapısı için yeterli. Daha uzun = sıkıcı.",
+        },
+        {
+          q: "STAR formatı?",
+          options: ["Star Track Action Result", "Situation Task Action Result", "Steps To Achieve Results", "Story Truth Action Real"],
+          correct: 1,
+          tr_explanation: "Situation → Task → Action → Result. Behavioral interview cevap standardı.",
+        },
+        {
+          q: "'Why are you leaving your current job?' iyi cevap?",
+          options: ["Çok kötü manager'ım", "Şu an çok mutluyum ama yeni challenge arıyorum", "Para az", "Sıkıldım"],
+          correct: 1,
+          tr_explanation: "Forward-looking + positive framing. Mevcut işi/manager'ı kötülemek = red flag.",
+        },
+        {
+          q: "'I'd say my biggest strength' niye 'My biggest strength is'tan iyi?",
+          options: ["Aynı", "Conversational, daha doğal", "Yanlış gramer", "Çok formel"],
+          correct: 1,
+          tr_explanation: "'I'd say' = sohbet tonu. Cevabı conversation gibi açar, robotik değil.",
+        },
+      ],
     },
   ],
 };
@@ -932,6 +1217,101 @@ export const workInterviewLesson_14_4: BundledLesson = {
       tr_explanation:
         "'Thinking on' yanlış — 'thinking about'. 'Since 2 days' yanlış — süre için 'for'. 'I want make' yanlış — 'I want to make' (mastar). 'Make decision' yerine 'make a decision' (sayılabilir). Süregelen düşünme için present perfect continuous.",
     },
+    {
+      id: "ex.wi14.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd say my biggest ___ is ___.",
+      slots: [
+        { accepted: ['strength', 'achievement', 'challenge', 'lesson'], distractors: ['strengths', 'achievements', 'challenges', 'lessons'] },
+        { accepted: ['staying calm under pressure', 'shipping the migration solo', 'managing scope creep', 'learning to say no'], distractors: ['stayed calm under pressure', 'shipped migration solo', 'manage scope creep', 'learned to say no'] },
+      ],
+      tr_hint:
+        "Interview cevap kalıbı. 'I'd say' = soft opener. Sonrası: spesifik örnek + impact.",
+      example_filled: "I'd say my biggest strength is staying calm under pressure.",
+    },
+    {
+      id: "ex.wi14.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Tell me about a time you had to deal with a difficult stakeholder." },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's a great example — how did you measure the impact?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|let me think|a good (example|one) that comes to mind)",
+        "(last year|at my (previous|current) role|on the (.+) team)",
+        "(the situation was|the context was)",
+        "(i (took|owned|drove)|my approach was)",
+      ],
+      tr_hint:
+        "STAR format (Situation, Task, Action, Result). Türk hatası: 'I am hardworking' generic — story ver.",
+      ideal_answer: "A good one that comes to mind — last quarter our PM kept changing scope, so I owned a weekly sync to lock priorities.",
+    },
+    {
+      id: "ex.wi14.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Where do you see yourself in five years?",
+      accepted_patterns: [
+        "(honestly|to be honest|i think)",
+        "(growing into|moving toward|stepping into) (a (.+) role|something like)",
+        "(deepening|expanding) (my (.+))",
+        "(staying close to|combining) (the (.+) side|both)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik soru. 'I want to be CEO' = yanlış. Görece spesifik growth path + şu anki rolle bağ.",
+      ideal_response: "Honestly, growing into a senior IC role, deepening my product instincts while staying close to the code.",
+    },
+    {
+      id: "ex.wi14.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Master yaptım.",
+      wrong_en: "I did my master.",
+      right_en: "I got my master's / I have a master's degree.",
+      why_tr:
+        "'Did my master' = Türkçe 'master yaptım' direkt çeviri. İngilizcede 'get/earn/have a master's degree' kalıbı. 'Master' tek başına yetmez — 'master's' (apostrof+s). Halen okuyorsan: 'I'm doing my master's' (present continuous). Türk öğrenci özellikle bu hatayı sık yapar.",
+    },
+    {
+      id: "ex.wi14.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Master yaptım' İngilizcesi?",
+          options: ["I did my master", "I got my master's degree", "I made master", "I performed master"],
+          correct: 1,
+          tr_explanation: "'Master's degree' (apostrof) standart. 'Did' yerine 'got/earned/have'.",
+        },
+        {
+          q: "'Tell me about yourself' için optimum süre?",
+          options: ["1 dakika altı", "2-3 dakika", "10 dakika", "30 saniye"],
+          correct: 1,
+          tr_explanation: "2-3 dakika = present/past/future yapısı için yeterli. Daha uzun = sıkıcı.",
+        },
+        {
+          q: "STAR formatı?",
+          options: ["Star Track Action Result", "Situation Task Action Result", "Steps To Achieve Results", "Story Truth Action Real"],
+          correct: 1,
+          tr_explanation: "Situation → Task → Action → Result. Behavioral interview cevap standardı.",
+        },
+        {
+          q: "'Why are you leaving your current job?' iyi cevap?",
+          options: ["Çok kötü manager'ım", "Şu an çok mutluyum ama yeni challenge arıyorum", "Para az", "Sıkıldım"],
+          correct: 1,
+          tr_explanation: "Forward-looking + positive framing. Mevcut işi/manager'ı kötülemek = red flag.",
+        },
+        {
+          q: "'I'd say my biggest strength' niye 'My biggest strength is'tan iyi?",
+          options: ["Aynı", "Conversational, daha doğal", "Yanlış gramer", "Çok formel"],
+          correct: 1,
+          tr_explanation: "'I'd say' = sohbet tonu. Cevabı conversation gibi açar, robotik değil.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1119,6 +1499,101 @@ export const workInterviewLesson_14_5: BundledLesson = {
       tr_translation: "Baskı altında zor bir karar vermen gereken bir anı bana adım adım anlat.",
       ipa: "/wɔːk miː θruː ə taɪm juː hæd tuː meɪk ə tʌf kɔːl ˈʌndə ˈprɛʃə/",
     },
+    {
+      id: "ex.wi14.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd say my biggest ___ is ___.",
+      slots: [
+        { accepted: ['strength', 'achievement', 'challenge', 'lesson'], distractors: ['strengths', 'achievements', 'challenges', 'lessons'] },
+        { accepted: ['staying calm under pressure', 'shipping the migration solo', 'managing scope creep', 'learning to say no'], distractors: ['stayed calm under pressure', 'shipped migration solo', 'manage scope creep', 'learned to say no'] },
+      ],
+      tr_hint:
+        "Interview cevap kalıbı. 'I'd say' = soft opener. Sonrası: spesifik örnek + impact.",
+      example_filled: "I'd say my biggest strength is staying calm under pressure.",
+    },
+    {
+      id: "ex.wi14.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Tell me about a time you had to deal with a difficult stakeholder." },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's a great example — how did you measure the impact?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|let me think|a good (example|one) that comes to mind)",
+        "(last year|at my (previous|current) role|on the (.+) team)",
+        "(the situation was|the context was)",
+        "(i (took|owned|drove)|my approach was)",
+      ],
+      tr_hint:
+        "STAR format (Situation, Task, Action, Result). Türk hatası: 'I am hardworking' generic — story ver.",
+      ideal_answer: "A good one that comes to mind — last quarter our PM kept changing scope, so I owned a weekly sync to lock priorities.",
+    },
+    {
+      id: "ex.wi14.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Where do you see yourself in five years?",
+      accepted_patterns: [
+        "(honestly|to be honest|i think)",
+        "(growing into|moving toward|stepping into) (a (.+) role|something like)",
+        "(deepening|expanding) (my (.+))",
+        "(staying close to|combining) (the (.+) side|both)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik soru. 'I want to be CEO' = yanlış. Görece spesifik growth path + şu anki rolle bağ.",
+      ideal_response: "Honestly, growing into a senior IC role, deepening my product instincts while staying close to the code.",
+    },
+    {
+      id: "ex.wi14.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Master yaptım.",
+      wrong_en: "I did my master.",
+      right_en: "I got my master's / I have a master's degree.",
+      why_tr:
+        "'Did my master' = Türkçe 'master yaptım' direkt çeviri. İngilizcede 'get/earn/have a master's degree' kalıbı. 'Master' tek başına yetmez — 'master's' (apostrof+s). Halen okuyorsan: 'I'm doing my master's' (present continuous). Türk öğrenci özellikle bu hatayı sık yapar.",
+    },
+    {
+      id: "ex.wi14.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Master yaptım' İngilizcesi?",
+          options: ["I did my master", "I got my master's degree", "I made master", "I performed master"],
+          correct: 1,
+          tr_explanation: "'Master's degree' (apostrof) standart. 'Did' yerine 'got/earned/have'.",
+        },
+        {
+          q: "'Tell me about yourself' için optimum süre?",
+          options: ["1 dakika altı", "2-3 dakika", "10 dakika", "30 saniye"],
+          correct: 1,
+          tr_explanation: "2-3 dakika = present/past/future yapısı için yeterli. Daha uzun = sıkıcı.",
+        },
+        {
+          q: "STAR formatı?",
+          options: ["Star Track Action Result", "Situation Task Action Result", "Steps To Achieve Results", "Story Truth Action Real"],
+          correct: 1,
+          tr_explanation: "Situation → Task → Action → Result. Behavioral interview cevap standardı.",
+        },
+        {
+          q: "'Why are you leaving your current job?' iyi cevap?",
+          options: ["Çok kötü manager'ım", "Şu an çok mutluyum ama yeni challenge arıyorum", "Para az", "Sıkıldım"],
+          correct: 1,
+          tr_explanation: "Forward-looking + positive framing. Mevcut işi/manager'ı kötülemek = red flag.",
+        },
+        {
+          q: "'I'd say my biggest strength' niye 'My biggest strength is'tan iyi?",
+          options: ["Aynı", "Conversational, daha doğal", "Yanlış gramer", "Çok formel"],
+          correct: 1,
+          tr_explanation: "'I'd say' = sohbet tonu. Cevabı conversation gibi açar, robotik değil.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1304,6 +1779,101 @@ export const workInterviewLesson_14_6: BundledLesson = {
       phrase: "My target range is one-seventy to one-ninety base, flexible on the full package.",
       tr_translation: "Hedef bandım 170-190 base, toplam pakete göre esnek.",
       ipa: "/maɪ ˈtɑːɡɪt reɪndʒ ɪz wʌn ˈsɛvənti tuː wʌn ˈnaɪnti beɪs ˈflɛksɪbəl ɒn ðə fʊl ˈpækɪdʒ/",
+    },
+    {
+      id: "ex.wi14.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd say my biggest ___ is ___.",
+      slots: [
+        { accepted: ['strength', 'achievement', 'challenge', 'lesson'], distractors: ['strengths', 'achievements', 'challenges', 'lessons'] },
+        { accepted: ['staying calm under pressure', 'shipping the migration solo', 'managing scope creep', 'learning to say no'], distractors: ['stayed calm under pressure', 'shipped migration solo', 'manage scope creep', 'learned to say no'] },
+      ],
+      tr_hint:
+        "Interview cevap kalıbı. 'I'd say' = soft opener. Sonrası: spesifik örnek + impact.",
+      example_filled: "I'd say my biggest strength is staying calm under pressure.",
+    },
+    {
+      id: "ex.wi14.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Tell me about a time you had to deal with a difficult stakeholder." },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's a great example — how did you measure the impact?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|let me think|a good (example|one) that comes to mind)",
+        "(last year|at my (previous|current) role|on the (.+) team)",
+        "(the situation was|the context was)",
+        "(i (took|owned|drove)|my approach was)",
+      ],
+      tr_hint:
+        "STAR format (Situation, Task, Action, Result). Türk hatası: 'I am hardworking' generic — story ver.",
+      ideal_answer: "A good one that comes to mind — last quarter our PM kept changing scope, so I owned a weekly sync to lock priorities.",
+    },
+    {
+      id: "ex.wi14.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Where do you see yourself in five years?",
+      accepted_patterns: [
+        "(honestly|to be honest|i think)",
+        "(growing into|moving toward|stepping into) (a (.+) role|something like)",
+        "(deepening|expanding) (my (.+))",
+        "(staying close to|combining) (the (.+) side|both)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik soru. 'I want to be CEO' = yanlış. Görece spesifik growth path + şu anki rolle bağ.",
+      ideal_response: "Honestly, growing into a senior IC role, deepening my product instincts while staying close to the code.",
+    },
+    {
+      id: "ex.wi14.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Master yaptım.",
+      wrong_en: "I did my master.",
+      right_en: "I got my master's / I have a master's degree.",
+      why_tr:
+        "'Did my master' = Türkçe 'master yaptım' direkt çeviri. İngilizcede 'get/earn/have a master's degree' kalıbı. 'Master' tek başına yetmez — 'master's' (apostrof+s). Halen okuyorsan: 'I'm doing my master's' (present continuous). Türk öğrenci özellikle bu hatayı sık yapar.",
+    },
+    {
+      id: "ex.wi14.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Master yaptım' İngilizcesi?",
+          options: ["I did my master", "I got my master's degree", "I made master", "I performed master"],
+          correct: 1,
+          tr_explanation: "'Master's degree' (apostrof) standart. 'Did' yerine 'got/earned/have'.",
+        },
+        {
+          q: "'Tell me about yourself' için optimum süre?",
+          options: ["1 dakika altı", "2-3 dakika", "10 dakika", "30 saniye"],
+          correct: 1,
+          tr_explanation: "2-3 dakika = present/past/future yapısı için yeterli. Daha uzun = sıkıcı.",
+        },
+        {
+          q: "STAR formatı?",
+          options: ["Star Track Action Result", "Situation Task Action Result", "Steps To Achieve Results", "Story Truth Action Real"],
+          correct: 1,
+          tr_explanation: "Situation → Task → Action → Result. Behavioral interview cevap standardı.",
+        },
+        {
+          q: "'Why are you leaving your current job?' iyi cevap?",
+          options: ["Çok kötü manager'ım", "Şu an çok mutluyum ama yeni challenge arıyorum", "Para az", "Sıkıldım"],
+          correct: 1,
+          tr_explanation: "Forward-looking + positive framing. Mevcut işi/manager'ı kötülemek = red flag.",
+        },
+        {
+          q: "'I'd say my biggest strength' niye 'My biggest strength is'tan iyi?",
+          options: ["Aynı", "Conversational, daha doğal", "Yanlış gramer", "Çok formel"],
+          correct: 1,
+          tr_explanation: "'I'd say' = sohbet tonu. Cevabı conversation gibi açar, robotik değil.",
+        },
+      ],
     },
   ],
 };
@@ -1491,6 +2061,101 @@ export const workInterviewLesson_14_7: BundledLesson = {
       tr_translation: "Yayınlamadan önce aşırı cilalardım — 'göndermek için yeterince iyi' üzerinde çalışıyorum.",
       ipa: "/aɪ juːst tuː ˌəʊvə ˈpɒlɪʃ bɪˈfɔː ˈʃɪpɪŋ aɪv biːn ˈwɜːkɪŋ ɒn ɡʊd ɪˈnʌf tuː ʃɪp/",
     },
+    {
+      id: "ex.wi14.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd say my biggest ___ is ___.",
+      slots: [
+        { accepted: ['strength', 'achievement', 'challenge', 'lesson'], distractors: ['strengths', 'achievements', 'challenges', 'lessons'] },
+        { accepted: ['staying calm under pressure', 'shipping the migration solo', 'managing scope creep', 'learning to say no'], distractors: ['stayed calm under pressure', 'shipped migration solo', 'manage scope creep', 'learned to say no'] },
+      ],
+      tr_hint:
+        "Interview cevap kalıbı. 'I'd say' = soft opener. Sonrası: spesifik örnek + impact.",
+      example_filled: "I'd say my biggest strength is staying calm under pressure.",
+    },
+    {
+      id: "ex.wi14.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Tell me about a time you had to deal with a difficult stakeholder." },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's a great example — how did you measure the impact?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|let me think|a good (example|one) that comes to mind)",
+        "(last year|at my (previous|current) role|on the (.+) team)",
+        "(the situation was|the context was)",
+        "(i (took|owned|drove)|my approach was)",
+      ],
+      tr_hint:
+        "STAR format (Situation, Task, Action, Result). Türk hatası: 'I am hardworking' generic — story ver.",
+      ideal_answer: "A good one that comes to mind — last quarter our PM kept changing scope, so I owned a weekly sync to lock priorities.",
+    },
+    {
+      id: "ex.wi14.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Where do you see yourself in five years?",
+      accepted_patterns: [
+        "(honestly|to be honest|i think)",
+        "(growing into|moving toward|stepping into) (a (.+) role|something like)",
+        "(deepening|expanding) (my (.+))",
+        "(staying close to|combining) (the (.+) side|both)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik soru. 'I want to be CEO' = yanlış. Görece spesifik growth path + şu anki rolle bağ.",
+      ideal_response: "Honestly, growing into a senior IC role, deepening my product instincts while staying close to the code.",
+    },
+    {
+      id: "ex.wi14.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Master yaptım.",
+      wrong_en: "I did my master.",
+      right_en: "I got my master's / I have a master's degree.",
+      why_tr:
+        "'Did my master' = Türkçe 'master yaptım' direkt çeviri. İngilizcede 'get/earn/have a master's degree' kalıbı. 'Master' tek başına yetmez — 'master's' (apostrof+s). Halen okuyorsan: 'I'm doing my master's' (present continuous). Türk öğrenci özellikle bu hatayı sık yapar.",
+    },
+    {
+      id: "ex.wi14.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Master yaptım' İngilizcesi?",
+          options: ["I did my master", "I got my master's degree", "I made master", "I performed master"],
+          correct: 1,
+          tr_explanation: "'Master's degree' (apostrof) standart. 'Did' yerine 'got/earned/have'.",
+        },
+        {
+          q: "'Tell me about yourself' için optimum süre?",
+          options: ["1 dakika altı", "2-3 dakika", "10 dakika", "30 saniye"],
+          correct: 1,
+          tr_explanation: "2-3 dakika = present/past/future yapısı için yeterli. Daha uzun = sıkıcı.",
+        },
+        {
+          q: "STAR formatı?",
+          options: ["Star Track Action Result", "Situation Task Action Result", "Steps To Achieve Results", "Story Truth Action Real"],
+          correct: 1,
+          tr_explanation: "Situation → Task → Action → Result. Behavioral interview cevap standardı.",
+        },
+        {
+          q: "'Why are you leaving your current job?' iyi cevap?",
+          options: ["Çok kötü manager'ım", "Şu an çok mutluyum ama yeni challenge arıyorum", "Para az", "Sıkıldım"],
+          correct: 1,
+          tr_explanation: "Forward-looking + positive framing. Mevcut işi/manager'ı kötülemek = red flag.",
+        },
+        {
+          q: "'I'd say my biggest strength' niye 'My biggest strength is'tan iyi?",
+          options: ["Aynı", "Conversational, daha doğal", "Yanlış gramer", "Çok formel"],
+          correct: 1,
+          tr_explanation: "'I'd say' = sohbet tonu. Cevabı conversation gibi açar, robotik değil.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1675,6 +2340,101 @@ export const workInterviewLesson_14_8: BundledLesson = {
       phrase: "What does success look like in this role, and what's the team's biggest challenge right now?",
       tr_translation: "Bu rolde başarı nasıl görünür ve takımın şu anki en büyük zorluğu ne?",
       ipa: "/wɒt dʌz səkˈsɛs lʊk laɪk ɪn ðɪs rəʊl ənd wɒts ðə tiːmz ˈbɪɡɪst ˈtʃælɪndʒ raɪt naʊ/",
+    },
+    {
+      id: "ex.wi14.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd say my biggest ___ is ___.",
+      slots: [
+        { accepted: ['strength', 'achievement', 'challenge', 'lesson'], distractors: ['strengths', 'achievements', 'challenges', 'lessons'] },
+        { accepted: ['staying calm under pressure', 'shipping the migration solo', 'managing scope creep', 'learning to say no'], distractors: ['stayed calm under pressure', 'shipped migration solo', 'manage scope creep', 'learned to say no'] },
+      ],
+      tr_hint:
+        "Interview cevap kalıbı. 'I'd say' = soft opener. Sonrası: spesifik örnek + impact.",
+      example_filled: "I'd say my biggest strength is staying calm under pressure.",
+    },
+    {
+      id: "ex.wi14.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Tell me about a time you had to deal with a difficult stakeholder." },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's a great example — how did you measure the impact?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|let me think|a good (example|one) that comes to mind)",
+        "(last year|at my (previous|current) role|on the (.+) team)",
+        "(the situation was|the context was)",
+        "(i (took|owned|drove)|my approach was)",
+      ],
+      tr_hint:
+        "STAR format (Situation, Task, Action, Result). Türk hatası: 'I am hardworking' generic — story ver.",
+      ideal_answer: "A good one that comes to mind — last quarter our PM kept changing scope, so I owned a weekly sync to lock priorities.",
+    },
+    {
+      id: "ex.wi14.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Where do you see yourself in five years?",
+      accepted_patterns: [
+        "(honestly|to be honest|i think)",
+        "(growing into|moving toward|stepping into) (a (.+) role|something like)",
+        "(deepening|expanding) (my (.+))",
+        "(staying close to|combining) (the (.+) side|both)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klasik soru. 'I want to be CEO' = yanlış. Görece spesifik growth path + şu anki rolle bağ.",
+      ideal_response: "Honestly, growing into a senior IC role, deepening my product instincts while staying close to the code.",
+    },
+    {
+      id: "ex.wi14.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Master yaptım.",
+      wrong_en: "I did my master.",
+      right_en: "I got my master's / I have a master's degree.",
+      why_tr:
+        "'Did my master' = Türkçe 'master yaptım' direkt çeviri. İngilizcede 'get/earn/have a master's degree' kalıbı. 'Master' tek başına yetmez — 'master's' (apostrof+s). Halen okuyorsan: 'I'm doing my master's' (present continuous). Türk öğrenci özellikle bu hatayı sık yapar.",
+    },
+    {
+      id: "ex.wi14.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Master yaptım' İngilizcesi?",
+          options: ["I did my master", "I got my master's degree", "I made master", "I performed master"],
+          correct: 1,
+          tr_explanation: "'Master's degree' (apostrof) standart. 'Did' yerine 'got/earned/have'.",
+        },
+        {
+          q: "'Tell me about yourself' için optimum süre?",
+          options: ["1 dakika altı", "2-3 dakika", "10 dakika", "30 saniye"],
+          correct: 1,
+          tr_explanation: "2-3 dakika = present/past/future yapısı için yeterli. Daha uzun = sıkıcı.",
+        },
+        {
+          q: "STAR formatı?",
+          options: ["Star Track Action Result", "Situation Task Action Result", "Steps To Achieve Results", "Story Truth Action Real"],
+          correct: 1,
+          tr_explanation: "Situation → Task → Action → Result. Behavioral interview cevap standardı.",
+        },
+        {
+          q: "'Why are you leaving your current job?' iyi cevap?",
+          options: ["Çok kötü manager'ım", "Şu an çok mutluyum ama yeni challenge arıyorum", "Para az", "Sıkıldım"],
+          correct: 1,
+          tr_explanation: "Forward-looking + positive framing. Mevcut işi/manager'ı kötülemek = red flag.",
+        },
+        {
+          q: "'I'd say my biggest strength' niye 'My biggest strength is'tan iyi?",
+          options: ["Aynı", "Conversational, daha doğal", "Yanlış gramer", "Çok formel"],
+          correct: 1,
+          tr_explanation: "'I'd say' = sohbet tonu. Cevabı conversation gibi açar, robotik değil.",
+        },
+      ],
     },
   ],
 };

@@ -268,6 +268,126 @@ export const dailyShoppingLesson_18_1: BundledLesson = {
       tr_explanation:
         "Belirsiz + 'give' emir. Doğru: 'Do you have' + alternatifler + esneklik (either would work).",
     },
+    {
+      id: "ex.ds18.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Do you have this in ___ ___?",
+      slots: [
+        { accepted: ["a smaller", "a larger", "a different", "another"], distractors: ["the", "this", "more"] },
+        { accepted: ["size", "color", "style"], distractors: ["one", "thing", "shape"] },
+      ],
+      tr_hint:
+        "Mağazada beden/renk sor. 'Do you have this in ___' = standart kalıp. Türk öğrenci 'Where is small?' der — yanlış.",
+      example_filled: "Do you have this in a smaller size?",
+    },
+    {
+      id: "ex.ds18.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — let me know if you need help finding anything." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — let me check the back for that size." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|thanks)(,)? (actually)(,)? (do you have)",
+        "(do you have (this|these|it)) in (a |an )?",
+        "(could you (check|see) if|i'?m looking for)",
+        "(is (this|it) (in stock|available))",
+      ],
+      tr_hint:
+        "Tezgahtara — kibar talep. 'Hi, do you have this in a smaller size?' Türk öğrenci direkt 'Where small?' der — yanlış gramer + kaba.",
+      ideal_answer: "Hi, thanks — actually, do you have this in a smaller size?",
+    },
+    {
+      id: "ex.ds18.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "We're out of medium, but I can check the other store. Would you like me to?",
+      accepted_patterns: [
+        "(yes|yeah|sure)(,)? (please|that would be (great|amazing))",
+        "(if it'?s not (too much|a hassle))",
+        "(could you (also )?check|how long would (it|that) take)",
+        "(no thanks|that'?s okay|no worries)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Mağaza yardım teklif etti — kibar kabul. 'Yes, please — that would be great!' Türk öğrenci sadece 'OK' der — eksik nezaket.",
+      ideal_response: "Yes, please — that would be great. Thank you!",
+    },
+    {
+      id: "ex.ds18.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Ne kadar?",
+      wrong_en: "What is its price?",
+      right_en: "How much is it? / How much does this cost?",
+      why_tr:
+        "Türk öğrenci 'Fiyatı ne kadar?'ı 'What is its price?' diye çevirir — grammatik doğru ama kullanılmaz. Doğal: 'How much is it?' veya 'How much does it cost?' Sokak dili.",
+    },
+    {
+      id: "ex.ds18.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Mağazada beden sor — kibar?",
+          options: [
+            "Give me small.",
+            "Do you have this in a smaller size?",
+            "Where small?",
+            "Small please.",
+          ],
+          correct: 1,
+          tr_explanation: "'Do you have this in ___' = standart kalıp. + 'smaller size' kibar.",
+        },
+        {
+          q: "'In stock' ne demek?",
+          options: [
+            "Stokta mevcut.",
+            "Stoklu.",
+            "Boş.",
+            "İndirimli.",
+          ],
+          correct: 0,
+          tr_explanation: "'In stock' = depoda var. 'Out of stock' = bitti.",
+        },
+        {
+          q: "Fiyat sormak için en doğal?",
+          options: [
+            "What is its price?",
+            "How much is it?",
+            "Cost?",
+            "Tell me price.",
+          ],
+          correct: 1,
+          tr_explanation: "'How much is it?' = sokak standart. 'What is its price' kitap kalıbı.",
+        },
+        {
+          q: "'Either color would work' ne demek?",
+          options: [
+            "İki renk de bana uyar (esnekim).",
+            "Bir renk uymaz.",
+            "İki renk de yanlış.",
+            "Hiç renk uymaz.",
+          ],
+          correct: 0,
+          tr_explanation: "'Either would work' = ikisi de olur (esneklik gösterir). Tezgahtara yardımcı.",
+        },
+        {
+          q: "İade isterken kibar açılış?",
+          options: [
+            "Take this back.",
+            "Hi — I'd like to return this, if possible.",
+            "Refund please.",
+            "Money back!",
+          ],
+          correct: 1,
+          tr_explanation: "'I'd like to return this' = standart iade kalıbı. 'If possible' kibar yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 

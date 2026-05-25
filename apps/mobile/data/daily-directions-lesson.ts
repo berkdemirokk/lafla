@@ -269,6 +269,126 @@ export const dailyDirectionsLesson_16_1: BundledLesson = {
       tr_explanation:
         "'Say me' yanlış — 'tell' kullanılır ('say' nesneye direkt değil). 'How to go' kalıbı zayıf; 'how to get to' standart yön sorma. 'Please' yerine 'Could you' kibar.",
     },
+    {
+      id: "ex.dd16.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you ___ me to ___?",
+      slots: [
+        { accepted: ["take", "direct", "point", "lead"], distractors: ["bring", "go", "show"] },
+        { accepted: ["Central Park", "the nearest subway", "Times Square", "Grand Central"], distractors: ["a park", "here", "this"] },
+      ],
+      tr_hint:
+        "'Could you ___ me to ___?' = yön sorma standardı. Türk öğrenci 'How can I go?' yapar — yerel 'point/take me to' daha doğal.",
+      example_filled: "Could you point me to Central Park?",
+    },
+    {
+      id: "ex.dd16.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — it's two blocks down, on your right." },
+        { speaker: "user", text: "Thanks — is it walkable?" },
+      ],
+      missing_at: 0,
+      accepted_patterns: [
+        "(excuse me|sorry|pardon)(,)? (do you know|could you tell me) (where|how to)",
+        "(excuse me|sorry)(,)? (where (is|are)|how do i get to)",
+        "(sorry to bother you)( —)? (do you know|where is)",
+        "(by any chance)(,)? (do you know|where is)",
+      ],
+      tr_hint:
+        "Yabanciya yol sor: 'Excuse me' + 'do you know' veya 'could you tell me' + yer. Türk öğrenci direkt 'where X?' der — kaba.",
+      ideal_answer: "Excuse me — do you know where the nearest subway is?",
+    },
+    {
+      id: "ex.dd16.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "It's about ten minutes on foot — keep going straight, then turn left at the second light.",
+      accepted_patterns: [
+        "(thank you|thanks|appreciate it)(,)? (so much)?",
+        "(got it|okay|alright)(,)? (thank you|thanks)",
+        "(just to confirm|let me confirm)",
+        "(straight then left|left at the second)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yabanci yön verdi — kısa teşekkür + onay. 'Got it, thanks!' veya 'Just to confirm — straight then left?' Türk öğrenci sessiz kalır — onay = nezaket.",
+      ideal_response: "Got it — thank you so much!",
+    },
+    {
+      id: "ex.dd16.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Eve gidiyorum şu an.",
+      wrong_en: "I am go to home now.",
+      right_en: "I'm going home now.",
+      why_tr:
+        "Türk öğrenci 'home' kelimesine 'to' eder — yanlış. 'Home' zaten yer zarfı, 'to' almaz: 'go home', 'come home'. Ayrıca 'I am go' yanlış — 'I am going' (present continuous).",
+    },
+    {
+      id: "ex.dd16.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Yabanciya yol sorma — en kibar açılış?",
+          options: [
+            "Where Times Square?",
+            "Excuse me, do you know where Times Square is?",
+            "Tell me Times Square.",
+            "Times Square please.",
+          ],
+          correct: 1,
+          tr_explanation: "'Excuse me' + 'do you know' = nazik soru. Direkt 'where?' kaba.",
+        },
+        {
+          q: "'On foot' ne demek?",
+          options: [
+            "Ayakla (yürüyerek)",
+            "Bir adım at",
+            "Hızlı git",
+            "Ayağında",
+          ],
+          correct: 0,
+          tr_explanation: "'On foot' = yürüyerek. 'Ten minutes on foot' = on dakika yürüme mesafesi.",
+        },
+        {
+          q: "'Could you point me to the subway?' ne demek?",
+          options: [
+            "Beni metroya götür",
+            "Metro nerede gösterir misin?",
+            "Metroya parmak göster",
+            "Bana metro al",
+          ],
+          correct: 1,
+          tr_explanation: "'Point me to' = işaret et / yönlendir. Yön sorma kibarı.",
+        },
+        {
+          q: "'I'm going home' — neden 'to home' değil?",
+          options: [
+            "'Home' zaten yer zarfı — 'to' almaz.",
+            "Yanlış gramer.",
+            "Sadece Amerikan stili.",
+            "Resmi olmaz.",
+          ],
+          correct: 0,
+          tr_explanation: "'Home', 'here', 'there' — bunlar zaten yer zarfı, 'to' almaz.",
+        },
+        {
+          q: "Yön aldıktan sonra ne söylenir?",
+          options: [
+            "Tamam.",
+            "Got it — thank you so much!",
+            "Sessiz kal.",
+            "Gidiyorum.",
+          ],
+          correct: 1,
+          tr_explanation: "'Got it' = anladım. + teşekkür = standart nezaket. Sessizlik = kaba.",
+        },
+      ],
+    },
   ],
 };
 

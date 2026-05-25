@@ -260,6 +260,138 @@ export const tippingLesson_6_1: BundledLesson = {
       tr_explanation:
         "ABD'de %0 bahşiş garsonun maaşını yok eder — kaba. Vasat servise bile %10-15 minimum. Yumuşatıcı 'wasn't great' yerine sertlik.",
     },
+    {
+      id: "ex.6.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'll leave ___ — service was ___.",
+      slots: [
+        {
+          accepted: ["twenty percent", "fifteen percent", "twenty-five percent", "thirty percent"],
+          distractors: ["fifty percent", "much percent", "ten thousand"],
+        },
+        {
+          accepted: ["great", "excellent", "outstanding", "really good"],
+          distractors: ["bad", "no", "expensive"],
+        },
+      ],
+      tr_hint:
+        "Bahşiş kararı kalıbı: 'I'll leave [yüzde] — service was [değerlendirme].' Türk öğrenci 'tip yüzde 10' der — 'leave [%]' yerleşik. Servis kalitesi yüzdeyi belirler.",
+      example_filled: "I'll leave twenty percent — service was great.",
+    },
+    {
+      id: "ex.6.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Just enter your tip on the screen and tap to pay.",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Perfect, $14 tip — all set. Thanks so much!",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me )?(leave|add) (twenty|fifteen|eighteen) percent",
+        "(twenty|fifteen|eighteen) (percent )?(works|please)",
+        "(let me )?(round it up to|leave) (\\$\\d+|\\d+ dollars)",
+        "(actually )?(twenty|fifteen) (percent|works)",
+      ],
+      tr_hint:
+        "Kart machine'i bahşiş soruyor. Net karar: 'Twenty percent works.' veya 'Let me round it up to $80.' Türk öğrenci hesap yapamaz — yüzde 20 standart.",
+      ideal_answer: "Twenty percent — sounds good.",
+    },
+    {
+      id: "ex.6.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Just touch a tip option — 18, 20, or 22 percent are common.",
+      accepted_patterns: [
+        "(let'?s do |i'?ll do |let me leave) (twenty|18|20|22)",
+        "(twenty|18|20|22) (percent )?works",
+        "(actually )?(twenty|18|20|22) (sounds good|please)",
+        "(let me )?round it up to (\\$\\d+|\\d+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kasiyer bahşiş seçeneği sunuyor. 3 sn — servis iyiydiyse %20. 'Twenty percent works.' Türk öğrenci tereddüt eder — hızlı seçim.",
+      ideal_response: "Let me do twenty percent — service was great.",
+    },
+    {
+      id: "ex.6.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Servis kötüydü, bahşiş yok.",
+      wrong_en: "Service bad, no tip.",
+      right_en: "Service wasn't great, so I'll just leave ten percent.",
+      why_tr:
+        "Türk %0 bahşiş = ABD'de kavgalık. Garsonun maaşı bahşişten gelir (federal min $2.13/saat). Vasat servise bile %10-15. Sadece çok kötü/agresif servise %5.",
+    },
+    {
+      id: "ex.6.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "ABD restoranında standart bahşiş yüzdesi?",
+          options: ["5-10%", "15-20% (servis iyi olduğunda)", "30%+", "Yok"],
+          correct: 1,
+          tr_explanation:
+            "ABD'de %15-20 standart (iyi servis). Mükemmel servise %20-25. Vasat servise %10-15 minimum. %0 = kaba.",
+        },
+        {
+          q: "Garsonların maaş yapısı?",
+          options: [
+            "Sabit maaş",
+            "Federal min $2.13/saat + bahşiş (toplam $20+/saat hedef)",
+            "Sadece bahşiş",
+            "Komisyon",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD garsonları federal $2.13/saat (subminimum wage). Bahşişle topla $20+ olur. Türk öğrenci bilmez — bahşiş zorunlu.",
+        },
+        {
+          q: "'Round up' bahşişte?",
+          options: [
+            "Yuvarla",
+            "Toplam tutarı yuvarlama (örn $84 → $100)",
+            "Üst tarafa",
+            "Tur at",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Round up' = toplamı yuvarla (basit bahşiş). $42.50 + $7.50 = $50. Mental matematik kolay.",
+        },
+        {
+          q: "Türkiye %10 refleksi ABD'de?",
+          options: [
+            "Yeterli",
+            "Yetersiz, minimum %15 bekleniyor",
+            "Çok",
+            "Yasak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Türkiye %10 'kibar' kabul edilir. ABD'de %10 = vasat-altı servis sinyali. Standart %15-20.",
+        },
+        {
+          q: "EN doğal bahşiş bırakma?",
+          options: [
+            "I tip 10",
+            "Twenty percent — service was great",
+            "Money give",
+            "Pay extra",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'[Yüzde] percent — service was [değerlendirme]' = standart. Yüzde + kısa açıklama. Türk: 'tip' kullanır — 'leave' veya 'add' yerleşik.",
+        },
+      ],
+    },
   ],
 };
 
@@ -469,6 +601,142 @@ export const tippingLesson_6_2: BundledLesson = {
       tr_explanation:
         "ABD oranı (%20) UK/EU'da fazla — garsonlar zaten maaş alıyor. 'Pretty standard' = ortalama; bahşiş kültürü ülkelere göre değişir.",
     },
+    {
+      id: "ex.6.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "___ should be fine here — that's ___ in ___.",
+      slots: [
+        {
+          accepted: ["Ten percent", "Fifteen percent", "Five percent"],
+          distractors: ["Twenty thousand", "All money", "Big tip"],
+        },
+        {
+          accepted: ["pretty standard", "the norm", "what people do"],
+          distractors: ["very much", "fast standard", "any"],
+        },
+        {
+          accepted: ["the UK", "France", "Italy", "Spain", "Europe"],
+          distractors: ["world", "Turkey", "America"],
+        },
+      ],
+      tr_hint:
+        "Kültürel bahşiş bağlamı kalıbı: '[Yüzde] should be fine here — that's [normal] in [yer].' Yere göre yüzde farklı. Türk öğrenci ABD oranını her yerde uygular — yanlış.",
+      example_filled: "Ten percent should be fine here — that's pretty standard in the UK.",
+    },
+    {
+      id: "ex.6.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Just so you know, service charge is already included.",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Yes, twelve and a half percent is on the bill. You don't need to add anything else.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(oh )?(thanks|good to know|appreciate the heads up)",
+        "(so )?(i don'?t need to|i shouldn'?t) add (a tip|anything)\\?",
+        "(is that |what'?s the )?(percentage|amount)\\?",
+        "(perfect|great)(,)? (thanks for|appreciate) (mentioning|letting me know)",
+      ],
+      tr_hint:
+        "Garson 'servis dahildir' diye uyardı (UK/EU yaygın). Net soru: 'Thanks — so I don't need to add anything?' Türk öğrenci yine bahşiş bırakır — uyarıyı dinle.",
+      ideal_answer: "Oh, thanks for letting me know — so I don't need to add anything?",
+    },
+    {
+      id: "ex.6.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "In the UK, ten percent is plenty if it's a nice meal.",
+      accepted_patterns: [
+        "(thanks|good to know|appreciate the tip)",
+        "(so )?(ten|10) percent (should|will) (be fine|cover it)",
+        "(let me )?(round it up|do ten percent)( then)?",
+        "(perfect|great)(,)? (let me|i'?ll) (leave|do) (\\d+|ten) percent",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yerel arkadaş bahşiş tavsiyesi verdi. 3 sn — kabul et. 'Thanks — ten percent works then.' Türk öğrenci 'I always 20' der — yerel kültüre uy.",
+      ideal_response: "Thanks — ten percent it is, then.",
+    },
+    {
+      id: "ex.6.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "ABD'de yüzde 20 veriyordum, burası da aynı.",
+      wrong_en: "I always tip 20% like America.",
+      right_en: "Tipping varies — 10% is standard in the UK, 20% in the US.",
+      why_tr:
+        "Türk öğrenci ABD oranını ezberleyince her yere uygular. Yanlış: UK/EU'da %10 yeterli (garson maaş alır), ABD'de %20 (bahşişten yaşar). Yere göre değişir.",
+    },
+    {
+      id: "ex.6.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "UK'da standart restoran bahşiş?",
+          options: ["20%", "10%", "5%", "0%"],
+          correct: 1,
+          tr_explanation:
+            "UK'da %10 standart (servis iyi). 'Service charge' (%12.5) zaten dahil olabilir — fişe bak.",
+        },
+        {
+          q: "Avrupa'da (Fransa, İtalya) bahşiş?",
+          options: [
+            "Aynı ABD (%20)",
+            "Genelde yuvarlama veya %5-10",
+            "Hiç yok",
+            "Sadece yabancı turist",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Fransa/İtalya'da 'service compris' (servis dahil) yaygın. Ekstra: yuvarlama veya %5-10. ABD oranı (%20) gereksiz + fazla.",
+        },
+        {
+          q: "'Service charge included' ne anlatır?",
+          options: [
+            "Servis yasak",
+            "Servis bedeli hesaba eklenmiş",
+            "Servis yok",
+            "Servis ücretsiz",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Service charge included' = servis bedeli hesaba eklendi (genelde %10-15). Ekstra bahşiş gerekmez.",
+        },
+        {
+          q: "Türk öğrenci için tipping kuralı?",
+          options: [
+            "Hep ABD oranı uygula",
+            "Ülke kültürüne göre adapte ol",
+            "Hiç verme",
+            "Cep telefonuyla hesapla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Her ülke farklı. ABD %20, UK %10, EU yuvarlama, Japonya bahşiş yok. Önceden araştır.",
+        },
+        {
+          q: "'Pretty standard' yapısı?",
+          options: [
+            "Güzel standart",
+            "Oldukça standart / normal",
+            "Yeni standart",
+            "Eski standart",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Pretty standard' = oldukça normal. 'Pretty' yumuşatma (very değil). Türk öğrenci 'pretty' = güzel düşünür — burada 'oldukça'.",
+        },
+      ],
+    },
   ],
 };
 
@@ -650,6 +918,147 @@ export const tippingLesson_6_3: BundledLesson = {
       tr_hint:
         "'I'll add' bağlanır → 'aɪ-læd'. 'To the' hızlı geçer → 'tə-ðə'. 'Change' = 'tʃeɪndʒ', 'ch' sesi keskin.",
     },
+    {
+      id: "ex.6.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'll ___ ___ percent ___.",
+      slots: [
+        {
+          accepted: ["add", "leave", "tip"],
+          distractors: ["give big", "make", "send"],
+        },
+        {
+          accepted: ["twenty", "fifteen", "eighteen", "twenty-five"],
+          distractors: ["any", "small", "much"],
+        },
+        {
+          accepted: ["on the card", "in cash", "to the bill"],
+          distractors: ["everywhere", "to anyone", "on table"],
+        },
+      ],
+      tr_hint:
+        "Bahşiş yöntemi kalıbı: 'I'll [fiil] [yüzde] percent [yöntem].' Türk öğrenci 'tip 20%' der — fiil önemli ('add' kart, 'leave' nakit). Yöntemi belirt.",
+      example_filled: "I'll add twenty percent on the card.",
+    },
+    {
+      id: "ex.6.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "All set — card or cash for the tip?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Got it — twenty percent on the card. Thanks again!",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me )?(add|leave) (twenty|fifteen|18) percent (on|to) (the )?card",
+        "(i'?ll )?(leave|tip) (twenty|fifteen|18) percent (in )?(cash|on the card)",
+        "(card|cash) (please)?(,)? (twenty|fifteen|18) percent",
+        "(let me )?(round it up to|leave) (\\$\\d+|\\d+)",
+      ],
+      tr_hint:
+        "Garson 'kart mı nakit mi bahşiş?' soruyor. Net karar: 'Twenty percent on the card.' Türk öğrenci tereddüt eder — hızlı + net.",
+      ideal_answer: "Twenty percent on the card, please.",
+    },
+    {
+      id: "ex.6.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "If you tip in cash, the server keeps 100% of it. Card tips sometimes get split.",
+      accepted_patterns: [
+        "(oh )?(good to know|thanks for the tip|i didn'?t know)",
+        "(let me )?(leave|do) (cash|the tip in cash)( then)?",
+        "(actually )?(cash works|let me get cash)",
+        "(card is fine|i'?ll do card)( anyway)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yerli arkadaş kart vs nakit anlatıyor (garson nakit tipinin %100'ünü alır). 3 sn — bilgi değerli. 'Cash then, thanks.' Türk öğrenci 'Whatever' der — bilgiye saygı.",
+      ideal_response: "Good to know — let me leave cash, then.",
+    },
+    {
+      id: "ex.6.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Üstü kalsın.",
+      wrong_en: "Top stay.",
+      right_en: "Keep the change.",
+      why_tr:
+        "Türk 'üstü kalsın' = 'top stay' diye direkt çevirir — fonksiyonsuz çeviri. Doğru: 'Keep the change' (para üstü senin). Nakit ödeme bahşişi.",
+    },
+    {
+      id: "ex.6.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Keep the change' ne anlatır?",
+          options: [
+            "Değişiklik tut",
+            "Para üstünü kendine bırak (bahşiş)",
+            "Değişme",
+            "Para sayma",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Keep the change' = nakit verince üstü garsona/kuryeye bahşiş. Türk 'üstü kalsın' karşılığı — direkt çevrilmez.",
+        },
+        {
+          q: "Kart vs nakit bahşiş farkı (ABD)?",
+          options: [
+            "Aynı",
+            "Nakit = garson %100 alır, kart = bölünebilir/tax içerir",
+            "Kart daha hızlı",
+            "Nakit yasak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD'de nakit bahşiş = garson direkt %100 alır. Kart bahşişi = bordro işlemi (vergi, takım paylaşımı). Nakit garson tercihi.",
+        },
+        {
+          q: "'I'll add 20% on the card' yapısı?",
+          options: [
+            "Karta 20% ekleyeceğim (bahşiş kart ile)",
+            "20% indirim",
+            "20% taksit",
+            "20% komisyon",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Add [yüzde] on the card' = bahşişi kart ile ekle. 'Add to the total' = toplama ekle. Yerleşik bahşiş kalıbı.",
+        },
+        {
+          q: "Garsonun bahşişine kart vs nakit nasıl etki eder?",
+          options: [
+            "Hiç etkilemez",
+            "Nakit bahşiş garson için maksimum verim",
+            "Kart her zaman daha iyi",
+            "İkisi de yasak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kart bahşişi: işveren vergi keser + bazen takım payına gider (busboy, host). Nakit = garson direkt cebine.",
+        },
+        {
+          q: "Bahşiş için EN kibar tablet/kart machine prompt?",
+          options: [
+            "Tip not required",
+            "Choose tip: 18% / 20% / 22% / custom",
+            "Pay tip now",
+            "Mandatory gratuity",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kart machine'i 'Choose tip' = seçenek sunar (18/20/22%). Custom = kendi yüzdeyi gir. Modern ABD restoranlarda yaygın.",
+        },
+      ],
+    },
   ],
 };
 
@@ -826,6 +1235,142 @@ export const tippingLesson_6_4: BundledLesson = {
       ipa: "kʊd juː meɪk ɪt ˈtwɛnti ænd kiːp ðə tʃeɪndʒ",
       tr_hint:
         "'Make it' bağlanır → 'meɪ-kɪt'. 'And' hızlı geçer → 'ən' veya 'n'. 'Change' = 'tʃeɪndʒ', sondaki 'dʒ' yumuşak.",
+    },
+    {
+      id: "ex.6.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you ___ ___ and keep the ___?",
+      slots: [
+        {
+          accepted: ["make it", "round it to", "make it an even"],
+          distractors: ["fast bring", "send", "give me"],
+        },
+        {
+          accepted: ["twenty", "fifty", "thirty", "twenty-five"],
+          distractors: ["one", "much", "fast"],
+        },
+        {
+          accepted: ["change", "rest", "difference"],
+          distractors: ["money many", "stuff", "more"],
+        },
+      ],
+      tr_hint:
+        "Taksi/Uber bahşiş kalıbı: 'Could you make it [yuvarlanan tutar] and keep the [üst]?' Türk öğrenci hesap yapar — yuvarla, garson rahat.",
+      example_filled: "Could you make it twenty and keep the change?",
+    },
+    {
+      id: "ex.6.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "$17.50 even.",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Twenty — perfect, thanks for the ride!",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could you )?make it (twenty|\\$20)( and keep the change)?",
+        "(let me )?round it (up )?to (twenty|\\$20)",
+        "(here'?s )?(twenty|\\$20)(,)? (keep the change|all yours)",
+        "(make it )?(\\$20|twenty)( please)?",
+      ],
+      tr_hint:
+        "Taksi sürücüsü tutar söyledi. Yuvarla + bahşiş: 'Make it twenty, keep the change.' Türk öğrenci tam tutar verir — yuvarlama bahşiş kültürü.",
+      ideal_answer: "Make it twenty — keep the change.",
+    },
+    {
+      id: "ex.6.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "That'll be $42 even — how would you like to pay?",
+      accepted_patterns: [
+        "(here'?s )?(fifty|\\$50)(,)? (keep the change|all yours)",
+        "(let me )?(make it )(\\$45|forty[- ]five|fifty)",
+        "(card )?(plus )?(twenty|fifteen) percent tip( please)?",
+        "(\\$50|fifty)(,)? (keep it|thanks)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Taksi 42$ söyledi. 3 sn — bahşiş hesabı (~$8 = %20). 'Here's $50, keep the change.' Türk öğrenci tam verir — yuvarlama tipping.",
+      ideal_response: "Here's $50 — keep the change.",
+    },
+    {
+      id: "ex.6.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "17 dolar mı? Tam veriyorum.",
+      wrong_en: "17 dollar exact give.",
+      right_en: "Make it twenty — keep the change.",
+      why_tr:
+        "Türk öğrenci taksi/Uber'de tam tutar verir — ABD'de bahşiş zorunlu (sürücü maaşı düşük). Yuvarla ($17.50 → $20) doğal + nazik.",
+    },
+    {
+      id: "ex.6.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "ABD taksi/Uber bahşiş yüzdesi?",
+          options: ["%0", "%15-20", "%30+", "Yasak"],
+          correct: 1,
+          tr_explanation:
+            "ABD taksi/Uber bahşiş %15-20. Uber app içinden seçim sunar. Taksi yuvarlama + bahşiş = pratik.",
+        },
+        {
+          q: "'Make it [tutar]' yapısı?",
+          options: [
+            "Yap onu [tutar]",
+            "Yuvarla [tutar] yap (üstü senin)",
+            "[Tutar] tutar",
+            "Yaratan",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Make it [yuvarlanan]' = tutarı yuvarlanan yap (üstü bahşiş). Türk 'pay [tutar]' der — 'make it' daha sosyal.",
+        },
+        {
+          q: "Uber app içinde bahşiş?",
+          options: [
+            "Yok",
+            "Var, yolculuk sonrası tip seçeneği (15%/20%/25%/custom)",
+            "Sadece sürücü",
+            "Önceden ödendi",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Uber/Lyft app yolculuk sonrası tip seçeneği sunar. Türk öğrenci atlar — şoför maaşı bekliyor.",
+        },
+        {
+          q: "'Round it up' yapısı?",
+          options: [
+            "Yuvarlama yap (sonraki dolar)",
+            "Üst yapım",
+            "Yukarı bak",
+            "Hızlandır",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Round up' = yuvarlama (yukarı). $17.50 → $20 round up. Bahşiş hesabı kolaylığı.",
+        },
+        {
+          q: "'Keep the change' nezaket olarak?",
+          options: [
+            "Kaba",
+            "Standart bahşiş yöntemi",
+            "Üst seviye",
+            "Resmi",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Keep the change' = sosyal nazik bahşiş. Sürücü/garson memnun. Türk 'üstü kalsın' = doğrudan karşılığı.",
+        },
+      ],
     },
   ],
 };
@@ -1005,6 +1550,142 @@ export const tippingLesson_6_5: BundledLesson = {
       ipa: "aɪl liːv faɪv ˈdɒlərz ɒn ðə ˈpɪloʊ fɔːr ˈhaʊsˌkiːpɪŋ",
       tr_hint:
         "'Housekeeping' vurgu ilk hece: 'HOUSE-kee-ping'. 'Pillow' = 'PIL-oh', 'l' yumuşak. 'Dollars' içinde 'r' US'de net.",
+    },
+    {
+      id: "ex.6.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'll leave ___ on the ___ for ___.",
+      slots: [
+        {
+          accepted: ["five dollars", "a couple bucks", "ten dollars"],
+          distractors: ["money some", "any tip", "much"],
+        },
+        {
+          accepted: ["pillow", "bedside table", "desk"],
+          distractors: ["table fast", "room", "TV"],
+        },
+        {
+          accepted: ["housekeeping", "the cleaner", "the maid"],
+          distractors: ["bag person", "boss", "concierge"],
+        },
+      ],
+      tr_hint:
+        "Otel bahşiş kalıbı: 'I'll leave [tutar] on the [konum] for [kişi].' Türk öğrenci 'I give' der — 'leave' (bırak) yerleşik otel bahşiş.",
+      example_filled: "I'll leave five dollars on the pillow for housekeeping.",
+    },
+    {
+      id: "ex.6.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "All set with your bags, sir — let me show you to your room.",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Oh, thank you so much! Have a great stay.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|thank you)(,)? (here'?s) (a |something) for (you|your trouble)",
+        "(let me )?(slip you|hand you|give you) (a couple bucks|five|ten dollars)",
+        "(here)( you go)?(,)? (\\$\\d+|five|ten)( bucks)?",
+        "(thanks for|appreciate) (the help|the bags)(,)? (here you go)?",
+      ],
+      tr_hint:
+        "Bellhop çantalarını taşıdı. Bahşiş: 'Thanks, here's $5 for you.' Türk öğrenci tereddüt eder — bellhop $1-2/çanta bekler.",
+      ideal_answer: "Thanks — here's $10 for the bags.",
+    },
+    {
+      id: "ex.6.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Here's your room — anything else I can help you with?",
+      accepted_patterns: [
+        "(no thanks|all set|i'?m good)(,)? (here)( you go)?(,)? (\\$\\d+|five|ten)",
+        "(thanks|thank you)(,)? (here'?s) (something|a tip)",
+        "(actually )?(here'?s) (\\$\\d+|five|ten)( bucks)?( for the help)?",
+        "(no )?(thanks|thank you)( for the help)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bellhop yardım sonrası soruyor. 3 sn — bahşiş ver: 'Thanks, here's $10 for you.' Türk öğrenci 'no thanks' der + tip vermez — bellhop bekler.",
+      ideal_response: "Thanks — here's $10 for your help.",
+    },
+    {
+      id: "ex.6.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Temizlikçiye bahşiş bırakmak gerek mi?",
+      wrong_en: "Cleaning lady tip need?",
+      right_en: "I'll leave a few dollars for housekeeping.",
+      why_tr:
+        "Türk 'temizlikçi' = 'cleaning lady' der — eski/cinsiyet belirten. Doğru: 'housekeeping' (genel). $2-5/gece bahşiş ABD otel standardı, Türk öğrenci atlar.",
+    },
+    {
+      id: "ex.6.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Bellhop bahşiş (ABD)?",
+          options: ["%20 hesap", "$1-2 per bag (çanta başına)", "Yok", "Sadece güzel otelde"],
+          correct: 1,
+          tr_explanation:
+            "Bellhop = $1-2 per bag. 5 çanta = $5-10. Türk öğrenci atlar — bellhop bekler.",
+        },
+        {
+          q: "Housekeeping bahşiş?",
+          options: [
+            "Yok",
+            "$2-5 per gece (yatak üstünde 'thank you' note ile)",
+            "$50 per kalış",
+            "Sadece pahalı otel",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Housekeeping = $2-5 per gece. Yatak üstüne not + para. Türk öğrenci genelde atlar — temizlikçi düşük ücretle çalışır.",
+        },
+        {
+          q: "Concierge ne yapar?",
+          options: [
+            "Temizlik",
+            "Otel rehber/asistan (restoran rezervasyon, tur, vb.)",
+            "Güvenlik",
+            "Resepsiyon",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Concierge = misafir asistanı. Restoran rezervasyon, tur, bilet. Yardım yapınca $5-20 bahşiş (büyüklüğüne göre).",
+        },
+        {
+          q: "'I'll leave [X] on the pillow' yapısı?",
+          options: [
+            "Yastığa [X] bırakacağım (housekeeping bahşişi)",
+            "Yastık üstüne yatacağım",
+            "Yastığa yazacağım",
+            "Yastığı sileceğim",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Leave [tutar] on the pillow' = yastığa para bırak (housekeeping için, görünür yer). Sosyal kabul edilmiş ABD oteli geleneği.",
+        },
+        {
+          q: "Türkiye'deki otel bahşiş kültürü ABD'de?",
+          options: [
+            "Aynı",
+            "Türkiye: nadiren. ABD: bellhop+housekeeping+concierge için standart",
+            "Daha az",
+            "Yasak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Türkiye'de otelde bahşiş nadir. ABD'de bellhop, housekeeping, concierge, valet (vale) hepsi bahşiş bekler.",
+        },
+      ],
     },
   ],
 };
@@ -1186,6 +1867,147 @@ export const tippingLesson_6_6: BundledLesson = {
       ipa: "ˈsɜːrvɪs ɪz ɔːlˈrɛdi ɪnˈkluːdɪd noʊ ˈɛkstrə tɪp ɪz ɪkˈspɛktɪd",
       tr_hint:
         "'Already' vurgu ikinci hece: 'ɔːl-RE-di'. 'Included' vurgu orta hece: 'in-CLU-did'. 'Expected' vurgu orta hece: 'ek-SPEC-ted'.",
+    },
+    {
+      id: "ex.6.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Service is ___ — no ___ ___.",
+      slots: [
+        {
+          accepted: ["already included", "compris", "factored in"],
+          distractors: ["bad", "very fast", "missing"],
+        },
+        {
+          accepted: ["extra tip", "additional gratuity", "more tip"],
+          distractors: ["money fast", "stuff", "tip much"],
+        },
+        {
+          accepted: ["is expected", "needed", "required"],
+          distractors: ["please", "good", "fast"],
+        },
+      ],
+      tr_hint:
+        "Servis dahil bağlamı (UK/EU/Japonya): 'Service is [dahil] — no [ekstra] [beklenir].' Türk öğrenci ABD'den geldiyse ezbere bahşiş eklr — fiş kontrol şart.",
+      example_filled: "Service is already included — no extra tip is expected.",
+    },
+    {
+      id: "ex.6.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Just so you know, here in Tokyo, tipping isn't really a thing.",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Yeah, it can even be considered rude — staff feel like they're being looked down on.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(oh )?(really|seriously|wow|good to know)",
+        "(so )?(no tip|i don'?t need to tip)\\??",
+        "(thanks for|appreciate) (the heads up|telling me|the warning)",
+        "(that'?s |really )?different from (the US|America)",
+      ],
+      tr_hint:
+        "Yerel arkadaş Japonya'da bahşiş kültürü olmadığını anlatıyor. 3 sn — sürprize tepki. 'Oh really? Good to know.' Türk öğrenci yine bahşiş bırakır — yerel kültüre saygı.",
+      ideal_answer: "Oh really? Good to know — thanks for the heads up.",
+    },
+    {
+      id: "ex.6.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "At our startup café, the menu prices include service. No tipping needed.",
+      accepted_patterns: [
+        "(oh )?(great|good to know|nice|thanks)",
+        "(so )?(no tip|i don'?t need to add)\\?",
+        "(thanks for|appreciate) (mentioning|telling me)",
+        "(that'?s )?(refreshing|different|nice)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Modern startup café 'no tipping' modeli (bazı progresif yerlerde). 3 sn — tepki ver. 'Good to know — thanks!' Türk öğrenci 'really?' der — kabul + saygı.",
+      ideal_response: "Good to know — thanks for letting me know.",
+    },
+    {
+      id: "ex.6.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Japonya'da bahşiş bırakırım, biraz para fazla olmaz.",
+      wrong_en: "Tip in Japan, extra money no problem.",
+      right_en: "Tipping is actually considered rude in Japan.",
+      why_tr:
+        "Türk öğrenci 'fazla para verme yardım' düşünür. Japonya'da bahşiş = kaba (servis fiyatın içinde, ekstra = 'sen düşük seviyedesin' hissi). Kültür araştır.",
+    },
+    {
+      id: "ex.6.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Japonya bahşiş kültürü?",
+          options: [
+            "%20 standart",
+            "Yok / kaba kabul edilir",
+            "%10",
+            "%5",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Japonya'da bahşiş yok + kaba sayılır. Servis maaşa dahil. Bahşiş verirsen 'patronlar sana yeterli ödemiyor' anlamı çıkar.",
+        },
+        {
+          q: "ABD'de 'no tipping' restoran trendi?",
+          options: [
+            "Yok",
+            "Bazı progresif yerlerde var (fiyat içinde servis)",
+            "Yasal",
+            "Herkes",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD'de 'no tipping' modeli yaygınlaşıyor (Danny Meyer pioneer). Fiyatlar yüksek ama bahşiş yok. Etik + tutarlı.",
+        },
+        {
+          q: "Avrupa'da 'service compris' yapısı?",
+          options: [
+            "Fransızca bahşiş kuralı",
+            "Servis dahil (fişe yazılı, ekstra gerekmez)",
+            "Compris şehri",
+            "Bahşiş yasak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Service compris' (Fransızca) = servis dahil. Fişe yazılı. Türk öğrenci ABD refleksini uygular — yanlış.",
+        },
+        {
+          q: "'Heads up' deyimi?",
+          options: [
+            "Yukarı kafa",
+            "Önceden uyarı / bilgi notu",
+            "Hızlı bak",
+            "Asansör",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Heads up' = önceden uyarı (informal). 'Thanks for the heads up' = uyarı için teşekkür.",
+        },
+        {
+          q: "Türk öğrencinin EN önemli tipping kuralı?",
+          options: [
+            "Hep ABD oranı",
+            "Ülke kültürünü önceden araştır (Japonya yok, ABD %20, UK %10)",
+            "Hiç verme",
+            "Her şey için %50",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Her ülke farklı. ABD %20, UK %10, Avrupa yuvarlama, Japonya yok. Ezbere uygulama hatalı — adapte ol.",
+        },
+      ],
     },
   ],
 };

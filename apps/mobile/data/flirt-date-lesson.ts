@@ -288,6 +288,129 @@ export const flirtDateLesson_4_1: BundledLesson = {
       tr_explanation:
         "'We must' + 'at the place' = komut + belirsiz yer = bask + bilgisizlik. Doğru: 'Free for' (esnek) + spesifik zaman + alternatif sunma. Modern dating: secim sunan teklif > komut.",
     },
+    {
+      id: "ex.fd4.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Free for ___ ___ around ___? No pressure if not.",
+      slots: [
+        { accepted: ["coffee", "a drink", "a walk", "dinner"] },
+        { accepted: ["Thursday", "Friday", "tomorrow", "this weekend"] },
+        { accepted: ["7", "seven", "8", "5"] },
+      ],
+      tr_hint:
+        "Modern randevu teklifi formülü: aktivite + gün + saat + çıkış kapısı. 'No pressure if not' = saygı, hayır diyebilmesi rahat. Türk öğrenci 'Are you free?' diye sorar — native 'Free for X?' daha kısa ve casual.",
+      example_filled: "Free for coffee Thursday around 7? No pressure if not.",
+    },
+    {
+      id: "ex.fd4.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "We've been texting forever — should we just meet up?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thursday at 7 works perfectly. Got a spot in mind?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(honestly )?(was hoping|i was hoping) you'?d (say|ask)",
+        "(yes |definitely |for sure )?(let'?s|let us) (do|grab|get)",
+        "(want to|wanna) (grab|get) (coffee|a drink)",
+        "(thursday|friday|saturday|sunday|tomorrow) (works|sounds good)",
+        "(free|down) (for|to) (coffee|drinks|walk) (around|at) \\d",
+      ],
+      tr_hint:
+        "NPC ipucu verdi — 'meet up?' diye sordu. Sen heyecanla kabul + spesifik öner. 'Was hoping you'd say that — Thursday around 7 work?' gibi tam paket.",
+      ideal_answer: "Honestly was hoping you'd say that — free for coffee Thursday around 7?",
+    },
+    {
+      id: "ex.fd4.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Okay we've established we both love bad reality TV — when are we doing this in person?",
+      accepted_patterns: [
+        "(how about|maybe|free) (thursday|friday|saturday|tomorrow|this weekend)",
+        "(want to|wanna|down to) (grab|get) (coffee|drinks|dinner)",
+        "(let'?s|let us) (do|make) (this|it) (thursday|friday|happen)",
+        "(any day|all week|weekend) (works|good for me)",
+        "(let me|i'?ll) check (my schedule|the calendar)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "NPC çağrı yaptı — 'when?' diye sordu. SENİN aksiyon zamanın. Konuyla bağlantı kur ('bad reality TV mention'), spesifik tarih + saat öner. 'Friday around 7 — we can argue about Real Housewives in person'.",
+      ideal_response: "How about Friday around 7? We can argue about Real Housewives in person.",
+    },
+    {
+      id: "ex.fd4.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Yarın saat 8'de buluşalım, var mısın?",
+      wrong_en: "Tomorrow at 8 we meet, are you?",
+      right_en: "Free for a drink tomorrow around 8? No pressure if it doesn't work.",
+      why_tr:
+        "Türk öğrenci direkt çevirir: 'Tomorrow at 8 we meet' = imperative + grammatik bozuk. 'Are you?' yapısal olarak yanlış. Native: 'Free for X around Y?' = soru formatı + esneklik. 'No pressure' = saygılı çıkış kapısı (Türkçe'de bu kavram yok). Modern dating: komut tonu = unmatch.",
+    },
+    {
+      id: "ex.fd4.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Grab coffee' nasıl çevirilir?",
+          options: [
+            "Kahve kapmak",
+            "Bir ara kahve içmek (casual)",
+            "Kahve almak",
+            "Hızlıca kahve",
+          ],
+          correct: 1,
+          tr_explanation: "'Grab' fiili dating'de = casual buluşma. 'Get coffee' de aynı anlamda.",
+        },
+        {
+          q: "İlk randevu için niye coffee güvenli?",
+          options: [
+            "Ucuz olduğu için",
+            "1 saat max + düşük baskı + iyi giderse uzatılır",
+            "Restoran çok karmaşık",
+            "Sevmediği için çıkamaz",
+          ],
+          correct: 1,
+          tr_explanation: "Coffee = düşük yatırım. Kötü giderse 1 saatte biter, iyi giderse 'walk?' uzatma.",
+        },
+        {
+          q: "'No pressure if not' deyiminin işlevi?",
+          options: [
+            "Pasif agresif",
+            "Saygılı çıkış kapısı — hayır demek kolay olsun",
+            "Romantik değil",
+            "Yasak ifade",
+          ],
+          correct: 1,
+          tr_explanation: "Bu paradox: hayır demek kolay olunca evet diyenler artar. Saygı + güven sinyali.",
+        },
+        {
+          q: "'Was hoping you'd ask' nasıl çevirilir?",
+          options: [
+            "Sormanı umuyordum",
+            "Soracağını biliyordum",
+            "Sormanı bekliyordum",
+            "Soruyu ümit ediyordum",
+          ],
+          correct: 0,
+          tr_explanation: "'Was hoping you'd ask' = sıcak kabul cevabı. 'Soracağını umuyordum' = evet işareti.",
+        },
+        {
+          q: "Türk hatası: 'We must meet tomorrow' yerine?",
+          options: [
+            "We have to meet tomorrow",
+            "We should meet tomorrow",
+            "Free for coffee tomorrow?",
+            "Tomorrow we meet",
+          ],
+          correct: 2,
+          tr_explanation: "'Must' = baskı/emir. Modern dating: 'Free for X?' (soru) + esnek alternatif.",
+        },
+      ],
+    },
   ],
 };
 

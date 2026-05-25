@@ -264,6 +264,125 @@ export const dailyTaxiLesson_32_1: BundledLesson = {
       tr_explanation:
         "Emir + tehlikeli. Doğru: 'Could you take me to' + sebep (short on time) + 'safely can' (güvenli sınırda).",
     },
+    {
+      id: "ex.dx32.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you take me to ___, please?",
+      slots: [
+        { accepted: ["JFK Airport", "Grand Central", "the train station", "this address"], distractors: ["here", "there", "back"] },
+      ],
+      tr_hint:
+        "Taksi standartı: 'Could you take me to ___?' Türk öğrenci 'Airport go!' der — emir + kaba. 'Could you' = nazik.",
+      example_filled: "Could you take me to JFK Airport, please?",
+    },
+    {
+      id: "ex.dx32.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Where to?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — any preference on the route?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(jfk|laguardia|grand central|the airport|train station|.+ avenue|.+ street)",
+        "(could you take me to|i'?m going to|please take me to)",
+        "(\\d+ \\w+ (street|avenue|st|ave))",
+        "(this address|to this place)",
+      ],
+      tr_hint:
+        "Taksici 'Where to?' = direkt sor. Net adres + 'please'. 'JFK, please' yeter. Türk öğrenci uzun açıklar — kısa yet.",
+      ideal_answer: "JFK Airport, please — Terminal 4.",
+    },
+    {
+      id: "ex.dx32.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "There's a lot of traffic on the highway — should I take the local roads?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (whatever (is faster|works))",
+        "(your call|you decide)(,)? (i trust you|whatever'?s faster)",
+        "(local roads|local) (please|sounds good)",
+        "(how long (would|will) it take)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Taksici rota soruyor — kısa karar. 'Whatever's faster' veya 'Your call' (sana güveniyorum). Türk öğrenci karar veremez — net cevap güzel.",
+      ideal_response: "Your call — whatever's faster!",
+    },
+    {
+      id: "ex.dx32.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buradan in beni.",
+      wrong_en: "Get me out from here.",
+      right_en: "Could you drop me off here?",
+      why_tr:
+        "İki sorun: (1) 'Get me out' agresif (= beni kurtar). (2) 'From here' yanlış edat — 'off here' (drop off = bırak). 'Drop me off' = taksiden bırak (kalıp).",
+    },
+    {
+      id: "ex.dx32.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Taksiye binerken net açılış?",
+          options: [
+            "Airport!",
+            "Could you take me to JFK Airport, please?",
+            "Go fast.",
+            "I am tired.",
+          ],
+          correct: 1,
+          tr_explanation: "'Could you take me to' + yer + 'please' = kibar standart.",
+        },
+        {
+          q: "'Drop me off here' ne demek?",
+          options: [
+            "Beni düşür.",
+            "Beni burada bırak (taksiden in).",
+            "Bana yol göster.",
+            "Beni al.",
+          ],
+          correct: 1,
+          tr_explanation: "'Drop off' = yolcuyu bırakmak. 'Pick up' = almak (zıt).",
+        },
+        {
+          q: "'Keep the change' ne demek?",
+          options: [
+            "Değişikliği koru.",
+            "Üstü kalsın (bahşiş).",
+            "Para verme.",
+            "Para iste.",
+          ],
+          correct: 1,
+          tr_explanation: "'Change' = para üstü. 'Keep' = al. Bahşiş kalıbı.",
+        },
+        {
+          q: "'I'm short on time' ne demek?",
+          options: [
+            "Kısa boylu.",
+            "Zamanım az / acelem var.",
+            "Zaman kısa.",
+            "Yeterli zaman.",
+          ],
+          correct: 1,
+          tr_explanation: "'Short on X' = X'im az. 'Short on cash' = nakitim az.",
+        },
+        {
+          q: "'How much is the fare?' ne sorar?",
+          options: [
+            "Yol ne kadar?",
+            "Taksi ücreti ne kadar?",
+            "Yolcu ne kadar?",
+            "Ne kadar gidecek?",
+          ],
+          correct: 1,
+          tr_explanation: "'Fare' = ulaşım ücreti (taksi, otobüs, metro). 'How much is the fare?' = ücret ne?",
+        },
+      ],
+    },
   ],
 };
 

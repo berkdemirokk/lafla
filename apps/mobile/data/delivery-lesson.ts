@@ -214,6 +214,147 @@ export const deliveryLesson_8_1: BundledLesson = {
       tr_explanation:
         "'Send food now hot!' agresif komut. 'Don't put cold' kırık yapı. Doğrusu: 'Please make sure it arrives hot' — kibar + sonuç odaklı.",
     },
+    {
+      id: "ex.8.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Please ___ the ___ in a ___, thanks!",
+      slots: [
+        {
+          accepted: ["pack", "put", "wrap", "separate"],
+          distractors: ["push", "fold", "send"],
+        },
+        {
+          accepted: ["sauce", "drinks", "fries", "soup"],
+          distractors: ["food extra", "more thing", "package"],
+        },
+        {
+          accepted: ["separate bag", "different container", "side bag"],
+          distractors: ["alone box", "another place", "extra paper"],
+        },
+      ],
+      tr_hint:
+        "Delivery talimat kalıbı: 'Please [fiil] the [öğe] in a [paketleme], thanks!' Türk öğrenci 'I want sauce alone' der — yapı zayıf. Modern delivery kelime hazinesi.",
+      example_filled: "Please pack the sauce in a separate bag, thanks!",
+    },
+    {
+      id: "ex.8.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Any special instructions for the kitchen?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Got it — no onions and extra sauce on the side. Confirmed!",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no |hold the )?(onions|pickles|cheese|sauce|tomato)",
+        "(extra |on the )?(side|separate bag|sauce)",
+        "(well[- ]done|medium[- ]rare|medium)( please)?",
+        "(no |without )(spicy|hot sauce|salt|cilantro)",
+      ],
+      tr_hint:
+        "Delivery uygulama özel talimat soruyor. Net liste: 'No onions, extra sauce on the side.' Türk öğrenci 'I no want onion' der — 'no onions' tek başına yeterli.",
+      ideal_answer: "No onions, please. And extra sauce on the side.",
+    },
+    {
+      id: "ex.8.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hi, this is your driver — I'm picking up your order. Any allergies I should know about?",
+      accepted_patterns: [
+        "(no thanks|no allergies|i'?m good)",
+        "(yes|yeah)(,)? (i'?m allergic to|i can'?t have) (.+)",
+        "(could you )?(make sure|double[- ]check) (there'?s no|it doesn'?t have) (.+)",
+        "(thanks|thank you)( for asking| for checking)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kurye alerji soruyor. 3 sn — alerjin varsa söyle, yoksa 'No allergies, thanks.' Türk öğrenci 'no need' der — 'No allergies' net.",
+      ideal_response: "No allergies — thanks for checking!",
+    },
+    {
+      id: "ex.8.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sosu ayrı pakette gönderin.",
+      wrong_en: "Send sauce in different package.",
+      right_en: "Please pack the sauce on the side, thanks!",
+      why_tr:
+        "Türk 'ayrı pakette' = 'in different package' diye direkt çevirir — yapısal zayıf. Doğru: 'on the side' (yan tarafta, ayrıca) yerleşik delivery kalıbı. 'In a separate bag' alternatif.",
+    },
+    {
+      id: "ex.8.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'On the side' deyimi ne demek?",
+          options: [
+            "Tarafta",
+            "Ayrıca / yanında (ana yemekten ayrı)",
+            "Tarafa",
+            "Tarafsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On the side' = ayrıca (ana yemekten ayrı kapta). 'Sauce on the side' = sos yan tarafta. Delivery için pratik.",
+        },
+        {
+          q: "'No onions' yapısı?",
+          options: [
+            "Soğansız",
+            "Soğan yok (siparişten çıkarma)",
+            "Soğan değil",
+            "Soğan ekleme",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'No [öğe]' = [öğe] olmasın (sipariş modifikasyonu). Türk öğrenci 'without onion' der — 'no onion' daha yaygın.",
+        },
+        {
+          q: "'Hold the cheese' ne demek?",
+          options: [
+            "Peyniri tut",
+            "Peynir koyma (siparişten çıkar)",
+            "Peynir bekle",
+            "Peynir sabit kal",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Hold the [öğe]' = [öğe] eklemeyin. 'Hold' = beklet/durdur (delivery slang). 'Hold the cheese' = peynirsiz.",
+        },
+        {
+          q: "Burger pişirme isteği. EN doğal?",
+          options: [
+            "Cook good please",
+            "Well-done, please",
+            "Make full cooked",
+            "Heat much",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Well-done' = tam pişmiş. 'Medium-rare' = orta-az, 'medium' = orta, 'well-done' = tam. Sabit derece kelimeleri.",
+        },
+        {
+          q: "Delivery uygulamasında talimat alanına EN doğal?",
+          options: [
+            "Fast send!",
+            "Please pack utensils, thanks!",
+            "Want food now",
+            "Hot pls",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Please pack utensils, thanks!' = kibar + spesifik. 'Utensils' = çatal-kaşık-bıçak (delivery setting). 'Thanks!' yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -442,6 +583,143 @@ export const deliveryLesson_8_2: BundledLesson = {
       tr_explanation:
         "Sıralama bozuk + komut tonu. Doğrusu: 'apartment [number]' + 'on the [Xth] floor'. 'Buzz when you arrive' net yönerge.",
     },
+    {
+      id: "ex.8.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Please ___ at ___, thanks!",
+      slots: [
+        {
+          accepted: ["leave it", "drop it", "ring the bell"],
+          distractors: ["put quick", "give now", "throw"],
+        },
+        {
+          accepted: ["the door", "the lobby", "apartment 4B", "the front desk"],
+          distractors: ["door place", "high floor", "stairs"],
+        },
+      ],
+      tr_hint:
+        "Delivery talimat: 'Please [eylem] at [konum], thanks!' Türk öğrenci 'put door front' der — yapı yetersiz. 'At the door' yerleşik konum bildirimi.",
+      example_filled: "Please leave it at the door, thanks!",
+    },
+    {
+      id: "ex.8.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Hi! I'm at the door — should I knock or do you have a buzzer?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Got it, leaving it at the door now. Have a good one!",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(please )?(just )?leave it at the door( thanks)?",
+        "(knock please|no knock|just drop it)",
+        "(thanks|thank you)(,)? (leave it|drop it)( at the door)?( please)?",
+        "(buzz me|ring the bell|just leave it)",
+      ],
+      tr_hint:
+        "Kurye kapıda. Net talimat: 'Just leave it at the door, thanks!' Türk öğrenci 'open door' der — kurye kapıyı açmaz, sadece bırakır.",
+      ideal_answer: "Just leave it at the door, thanks!",
+    },
+    {
+      id: "ex.8.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hey, this is your driver — I'm 2 minutes away. Any special pickup notes?",
+      accepted_patterns: [
+        "(please )?leave it (at the door|outside)( thanks)?",
+        "(ring the bell|knock|buzz me|text me when you arrive)",
+        "(no contact|contactless)( please)?",
+        "(thanks|thank you)( for the heads up| for letting me know)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kurye 2 dk uzakta. 3 sn — talimat ver. 'Leave at door' veya 'Text me when you arrive'. Türk öğrenci 'I open door' der — kurye temaslı veya temassız, karar ver.",
+      ideal_response: "Just leave it at the door — text me when you arrive, thanks!",
+    },
+    {
+      id: "ex.8.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Kapıyı çalmadan kapı önüne bırakın.",
+      wrong_en: "Don't knock door, put front.",
+      right_en: "Please leave it at the door — no need to knock.",
+      why_tr:
+        "Türk 'kapıyı çalmadan' = 'don't knock' diye direkt çevirir — yapı kırık. Doğru: 'no need to knock' (yumuşatma) veya 'just leave it'. Modern delivery talimat.",
+    },
+    {
+      id: "ex.8.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Leave it at the door' ne demek?",
+          options: [
+            "Kapıya bırak (içeri girme)",
+            "Kapıda bekle",
+            "Kapıyı aç",
+            "Kapıya as",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Leave [öğe] at [konum]' = bırak ve git. Temassız delivery standardı. Türkiye'de kuryeye verme alışkanlığından farklı.",
+        },
+        {
+          q: "'Buzzer' nedir?",
+          options: [
+            "Çağrı düğmesi (apartman girişinde)",
+            "Saatte alarm",
+            "Hızlandırıcı",
+            "Mesaj sesi",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Buzzer' = apartman girişindeki çağrı düğmesi. Kurye 'buzz me' der = düğmeye bas, kapı açılır. UK 'intercom'.",
+        },
+        {
+          q: "'Contactless delivery' ne anlatır?",
+          options: [
+            "Telefonsuz teslimat",
+            "Temassız teslimat (kapıya bırakma)",
+            "Adressiz teslimat",
+            "Bedava teslimat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Contactless' = temassız (COVID sonrası standart). Kurye kapıya bırakır, çekilir, sen alırsın.",
+        },
+        {
+          q: "'4th floor, apartment 4B' = ?",
+          options: [
+            "4. apartman 4B kapısı",
+            "4. kat, 4B daire",
+            "4 floor B apartment",
+            "4 oda 4B",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'[Sıralı sayı] floor' = kat. 'Apartment [number+harf]' = daire. ABD daireler 4A, 4B (kat + sıra). Türkiye'deki '4/B' karşılığı.",
+        },
+        {
+          q: "'Text me when you arrive' yapısı?",
+          options: [
+            "Gelirken mesaj at",
+            "Geldiğinde mesaj at",
+            "Mesaj göndereceğim",
+            "Sen yazdığında",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Text me when you arrive' = vardığında mesaj at. 'When' + present (clause) = gelecek bağlamlı şart. Modern delivery iletişim.",
+        },
+      ],
+    },
   ],
 };
 
@@ -619,6 +897,143 @@ export const deliveryLesson_8_5: BundledLesson = {
       ipa: "noʊ ˈʌn.jənz pliːz ænd liːv ɪt æt ðə dɔːr",
       tr_hint:
         "'Onions' = 'ʌn-yənz' ('o' okunmaz, 'ı' gibi). 'Leave it' bağlanır → 'liːv-ɪt'.",
+    },
+    {
+      id: "ex.8.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "No ___, please. Extra ___ on the side.",
+      slots: [
+        {
+          accepted: ["onions", "pickles", "mayo", "cilantro"],
+          distractors: ["bread please", "salt no", "spicy"],
+        },
+        {
+          accepted: ["sauce", "ketchup", "dressing", "ranch"],
+          distractors: ["food more", "extra many", "side more"],
+        },
+      ],
+      tr_hint:
+        "Uber Eats özel not kalıbı: 'No [çıkar], please. Extra [ekle] on the side.' Çıkar + ekle iki ayrı talimat. Türk öğrenci 'I no want' der — kısa 'no [öğe]' yeterli.",
+      example_filled: "No onions, please. Extra sauce on the side.",
+    },
+    {
+      id: "ex.8.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Your order's confirmed. Anything to add in the notes?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Added to the kitchen notes — no onions, extra sauce. Got it!",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no |hold the )?(onions|pickles|mayo|cheese)",
+        "(extra )(sauce|cheese|fries|ketchup)( on the side)?",
+        "(well[- ]done|medium[- ]rare|crispy)( please)?",
+        "(could you )?(make sure|double[- ]check) (.+)",
+      ],
+      tr_hint:
+        "Uygulama not soruyor. Net liste: 'No onions, extra sauce on the side.' Türk öğrenci her şeyi tek tek tekrar eder — virgül ile kısalt.",
+      ideal_answer: "No onions, extra sauce on the side, please.",
+    },
+    {
+      id: "ex.8.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hey, your driver here — quick question, your burger says no cheese, but the receipt has cheese. Which is it?",
+      accepted_patterns: [
+        "(no cheese|hold the cheese)( please)?",
+        "(actually|yeah)(,)? no cheese( please)?",
+        "(receipt is wrong|app note is right)",
+        "(let me check|hold on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kurye karışıklık soruyor. 3 sn — kararını netleştir. 'No cheese, please — the app note is right.' Net + spesifik. Türk öğrenci karışıklık yapar — sakin yanıtla.",
+      ideal_response: "No cheese, please — the app note is right.",
+    },
+    {
+      id: "ex.8.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Salata ayrı kapta gönderin.",
+      wrong_en: "Send salad in different cup.",
+      right_en: "Please pack the salad in a separate container.",
+      why_tr:
+        "Türk 'ayrı kapta' = 'in different cup' diye direkt çevirir. 'Container' = kap (delivery sözlüğü). 'Cup' = bardak (içecek için). Doğru kelime seçimi delivery'de önemli.",
+    },
+    {
+      id: "ex.8.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Extra' kelimesi delivery bağlamında?",
+          options: [
+            "Pahalı",
+            "Ek / fazladan",
+            "Az",
+            "Hızlı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Extra' = ek / fazladan. 'Extra sauce' = ek sos, 'extra cheese' = ek peynir. Delivery'de yaygın modifikasyon.",
+        },
+        {
+          q: "'Hold the mayo' ne demek?",
+          options: [
+            "Mayonezi tut",
+            "Mayonez koyma",
+            "Mayonez bekle",
+            "Mayonez yarım",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Hold [öğe]' = [öğe] eklemeyin. Delivery slang. 'Hold the mayo' = mayonezsiz.",
+        },
+        {
+          q: "'On the side' yapısı delivery'de?",
+          options: [
+            "Tarafta",
+            "Ayrı kapta / yanında",
+            "Sonradan",
+            "Üstünde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On the side' = ayrı kapta. 'Sauce on the side' = ana yemeğe karışmasın, kendi kabında. Delivery'de pratik.",
+        },
+        {
+          q: "Soslu yemek seyahatte ezilmesin diye?",
+          options: [
+            "Pack carefully",
+            "Sauce on the side, please",
+            "Quick send",
+            "Heat much",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sauce on the side' = sos yan tarafta = burger yumuşaması engellenir. Modern delivery için pratik talimat.",
+        },
+        {
+          q: "Delivery uygulamasında EN doğal özel not?",
+          options: [
+            "I want food fast",
+            "Please pack utensils and napkins, thanks!",
+            "Send hot more",
+            "Drop quick",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Please pack utensils and napkins, thanks!' = kibar + spesifik. 'Utensils' (çatal-bıçak) ve 'napkins' (peçete) delivery sözlüğü.",
+        },
+      ],
     },
   ],
 };
@@ -807,6 +1222,143 @@ export const deliveryLesson_8_6: BundledLesson = {
       ipa: "kʊd aɪ ɡɛt ə ˈriː.fʌnd fɔːr ðə ˈmɪs.ɪŋ ˈaɪ.təm",
       tr_hint:
         "'Refund' = vurgu 'RI' hecesinde (ˈriː.fʌnd). 'Item' = 'aɪ-təm' ('i' uzun). Destek chat'inde altın kalıp.",
+    },
+    {
+      id: "ex.8.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "My order is missing ___ — could I get ___?",
+      slots: [
+        {
+          accepted: ["the fries", "a drink", "the side salad", "the sauce"],
+          distractors: ["food big", "main thing", "very much"],
+        },
+        {
+          accepted: ["a refund", "credit", "the item", "a replacement"],
+          distractors: ["money fast", "back now", "anything"],
+        },
+      ],
+      tr_hint:
+        "Eksik öğe + refund kalıbı: 'My order is missing [öğe] — could I get [çözüm]?' Net + spesifik. Türk öğrenci 'I want money back' der — 'a refund' yerleşik kelime.",
+      example_filled: "My order is missing the fries — could I get a refund?",
+    },
+    {
+      id: "ex.8.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Hi, I see you reported an issue with your order. How can I help?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "I'm sorry about that — I've issued a refund for the missing item. You'll see it in 3-5 business days.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(my order is missing|i didn'?t (get|receive)) (the )?(fries|drink|salad)",
+        "(could|can) i (get|have) (a |the )?refund( for the missing item)?",
+        "(the |my )?(fries|drink|side|sauce) (was|were) (missing|not in the bag)",
+        "(i'?m missing|order is short) (.+)",
+      ],
+      tr_hint:
+        "Destek chat sahnesi. Net problem: 'My order is missing the fries — could I get a refund?' Türk öğrenci uzatır — kısa + spesifik.",
+      ideal_answer: "My order is missing the fries — could I get a refund?",
+    },
+    {
+      id: "ex.8.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I see — we can credit you back for the missing fries. Sound good?",
+      accepted_patterns: [
+        "(yes|sure|sounds good)( thanks)?",
+        "(that works|works for me)( thanks)?",
+        "(could|can) (you|i) (refund|credit) (it )?to my (card|account)",
+        "(thanks|thank you) (for the )?(refund|help|credit)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Destek refund teklif etti. 3 sn — kabul et. 'Sounds good, thanks.' veya 'Could you credit my card?' Türk öğrenci sertleşir — sıcak teşekkür yeterli.",
+      ideal_response: "Sounds good — thanks for the quick help.",
+    },
+    {
+      id: "ex.8.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Paramı geri istiyorum!",
+      wrong_en: "I want my money back!",
+      right_en: "Could I get a refund for the missing item?",
+      why_tr:
+        "Türk 'paramı geri istiyorum!' = 'I want my money back!' direkt çevirir — agresif. Doğru: 'Could I get a refund?' = kibar + standart. 'Refund' = iade (resmi kelime), 'money back' günlük + sert.",
+    },
+    {
+      id: "ex.8.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Refund' ne demek?",
+          options: [
+            "İndirim",
+            "Para iadesi",
+            "Hediye",
+            "Bedava ürün",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Refund' = ödediğin parayı geri alma. 'Credit' = hesabına geri yatırma (gelecek sipariş için).",
+        },
+        {
+          q: "'Missing item' ne anlatır?",
+          options: [
+            "Bozulmuş öğe",
+            "Eksik öğe (sipariş çıkmadı)",
+            "Eski öğe",
+            "Pahalı öğe",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Missing' = eksik. 'Missing item' = sipariş listesinde olan ama çantada olmayan öğe. Delivery'de yaygın problem.",
+        },
+        {
+          q: "'I see' destek konuşmasında ne anlatır?",
+          options: [
+            "Görüyorum (göz)",
+            "Anladım (empati)",
+            "Şimdi",
+            "Tamam",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I see' = anladım, durum açık. Destek temsilcileri sık kullanır. Türk öğrenci direkt 'I understand' der — 'I see' daha doğal.",
+        },
+        {
+          q: "'Credit your account' yapısı?",
+          options: [
+            "Hesabını kredi yap",
+            "Hesabına bakiye yatır (gelecek sipariş için)",
+            "Kredi kartı çıkar",
+            "Hesabını kapat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Credit your account' = hesabına bakiye ekle. Refund alternatifi — para gelmez ama gelecek siparişe kullanılır.",
+        },
+        {
+          q: "'3-5 business days' ne demek?",
+          options: [
+            "3-5 takvim günü",
+            "3-5 iş günü (hafta sonu sayılmaz)",
+            "3-5 hafta",
+            "3-5 ay",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Business days' = iş günü (Pazartesi-Cuma). Hafta sonu + tatiller dahil değil. Refund süresi için standart.",
+        },
+      ],
     },
   ],
 };
@@ -1010,6 +1562,143 @@ export const deliveryLesson_8_7: BundledLesson = {
       tr_hint:
         "'Isn't' = 'ˈɪz-ənt' (iki hece). 'Ordered' = 'ˈɔː-dərd' (ed sessiz 'd' gibi). Şikayetin altın kalıbı.",
     },
+    {
+      id: "ex.8.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "This isn't ___ — I ordered ___.",
+      slots: [
+        {
+          accepted: ["what I ordered", "mine", "the right item"],
+          distractors: ["me", "good", "what"],
+        },
+        {
+          accepted: ["a burger", "the pasta", "chicken", "fish"],
+          distractors: ["food this", "menu thing", "yellow item"],
+        },
+      ],
+      tr_hint:
+        "Yanlış sipariş kalıbı: 'This isn't [problem] — I ordered [doğrusu].' Net spesifik düzeltme. Türk öğrenci 'wrong food!' der — yapı kaba.",
+      example_filled: "This isn't what I ordered — I ordered a burger.",
+    },
+    {
+      id: "ex.8.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Hey there, I see you got someone else's order. Want a refund or a replacement?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Sure, processing the replacement now. New ETA is 30 minutes.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) a replacement( please)?",
+        "(replacement|the right order)( please)?",
+        "(a |full )?refund( please)?",
+        "(could|can) you (send|deliver) the (right|correct) (one|order)",
+      ],
+      tr_hint:
+        "Destek refund veya replacement teklif etti. Hızlı karar: 'Replacement, please' (yeniden gönder) veya 'Refund, please' (paray geri). Türk öğrenci uzatır — kısa.",
+      ideal_answer: "Replacement, please — I'd like the burger I ordered.",
+    },
+    {
+      id: "ex.8.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I'm so sorry for the mix-up. We can either refund you or send the right order. Which do you prefer?",
+      accepted_patterns: [
+        "(refund|replacement)( please)?",
+        "(could|can) you (send|deliver) the right (one|order)",
+        "(actually )?(a refund|the replacement)( works for me)?",
+        "(no worries|that'?s ok)(,)? (refund|replacement) (please|works)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Destek seçim sunuyor. 3 sn — hangisi senin için pratik? Aç + bekleyebilirsen: 'Replacement'. Yorgun + başka yerden ısmarlamak istersen: 'Refund'.",
+      ideal_response: "Replacement, please — I'd like the correct order.",
+    },
+    {
+      id: "ex.8.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Yanlış sipariş geldi!",
+      wrong_en: "Wrong order came!",
+      right_en: "This isn't what I ordered.",
+      why_tr:
+        "Türk 'yanlış sipariş geldi!' = 'wrong order came!' diye direkt çevirir — yapı bozuk + sert. Doğru: 'This isn't what I ordered' = sakin + spesifik. 'Came' (geldi) yerine 'isn't' (değil) odakla.",
+    },
+    {
+      id: "ex.8.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Replacement' ne demek?",
+          options: [
+            "Yedek parça",
+            "Yerine koyma (yeni doğru sipariş)",
+            "Tekrarlama",
+            "Değişim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Replacement' = yerine koyma. Yanlış sipariş geldi, doğrusu gönderilir. Refund alternatifi.",
+        },
+        {
+          q: "'Mix-up' ne anlama gelir?",
+          options: [
+            "Karıştırıcı",
+            "Karışıklık (yanlış anlama)",
+            "Karma içecek",
+            "Hızlı işlem",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Mix-up' = karışıklık. 'I see there was a mix-up' = sipariş karışmış (yanlış kişiye, yanlış öğe).",
+        },
+        {
+          q: "Yanlış sipariş geldi. EN doğru tepki?",
+          options: [
+            "Şikayet et + para iadesi öyle",
+            "Kibarca destekle iletişim + replacement veya refund",
+            "Yemeği yedirip sonra şikayet",
+            "Ödemeyi durdurmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Modern delivery: destekle hızlı iletişim. App içinden veya chat. Replacement veya refund hızlı çözüm.",
+        },
+        {
+          q: "'What I ordered' yapısı?",
+          options: [
+            "Ne sipariş ettim",
+            "Sipariş ettiğim (relatif clause)",
+            "Sipariş veriyorum",
+            "Siparişi gör",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'What I ordered' = sipariş ettiğim (relatif clause). 'This isn't what I ordered' = bu, sipariş ettiğim değil. Past simple geçmiş eylem.",
+        },
+        {
+          q: "Replacement teklif edildi. EN kibar kabul?",
+          options: [
+            "Yes give me",
+            "Sounds great, thank you",
+            "OK fast send",
+            "Coffee free?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sounds great, thank you' = sıcak kabul + teşekkür. Türk öğrenci 'yes' tek başına der — kibar ekleme ile pekiştir.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1211,6 +1900,143 @@ export const deliveryLesson_8_8: BundledLesson = {
       ipa: "juːz ðə saɪd ɡeɪt aɪl miːt juː æt ðə ˈlɒb.i",
       tr_hint:
         "'Lobby' = 'LOB-i' (vurgu ilk hecede). 'Side gate' iki ayrı kelime — bağlanmaz. Kurye yönlendirmenin altın kalıbı.",
+    },
+    {
+      id: "ex.8.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Use ___ — I'll meet you at ___.",
+      slots: [
+        {
+          accepted: ["the side gate", "the back door", "the side entrance"],
+          distractors: ["any door", "main fast", "near"],
+        },
+        {
+          accepted: ["the lobby", "the entrance", "the gate", "the front"],
+          distractors: ["upstairs place", "next building", "high floor"],
+        },
+      ],
+      tr_hint:
+        "Kurye yönlendirme kalıbı: 'Use [giriş] — I'll meet you at [konum].' Türk öğrenci 'come this way' der — spesifik konum daha pratik.",
+      example_filled: "Use the side gate — I'll meet you at the lobby.",
+    },
+    {
+      id: "ex.8.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Hey, I'm at the building but the main door is locked. How do I get in?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Got it, heading to the side gate now — be there in a minute.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(use|go to|try) the (side|back) (gate|door|entrance)",
+        "(i'?ll )?meet you (at|in) the (lobby|entrance|front)",
+        "(buzz me|ring the bell)( and i'?ll let you in)?",
+        "(go around to|head to) the (side|back)",
+      ],
+      tr_hint:
+        "Kurye apartman önünde, kapı kilitli. Net yönerge: 'Use the side gate — I'll meet you at the lobby.' Türk öğrenci panikler — sakin + adım adım.",
+      ideal_answer: "Use the side gate — I'll meet you at the lobby in a minute.",
+    },
+    {
+      id: "ex.8.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I can't find the building entrance — it just says office space.",
+      accepted_patterns: [
+        "(the entrance is|it'?s) (around the corner|on the side)",
+        "(go around to|use) the (back|side) (entrance|gate)",
+        "(i'?ll )?come down (and meet you|to let you in)",
+        "(buzz me|ring the bell)( from outside)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kurye kaybolmuş, giriş bulamıyor. 3 sn — net yönlendir. 'It's around the corner — use the side gate.' Türk öğrenci 'left right' der — landmark kullan.",
+      ideal_response: "It's around the corner — use the side gate. I'll come let you in.",
+    },
+    {
+      id: "ex.8.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Kapıya gel.",
+      wrong_en: "Come door.",
+      right_en: "Meet me at the front entrance.",
+      why_tr:
+        "Türk 'kapıya gel' = 'come door' diye direkt çevirir — fiilsiz + komut. Doğru: 'Meet me at [konum]' = sosyal + net. 'Front entrance' = ön giriş (spesifik kelime). Kurye için iletişimi belirgin yap.",
+    },
+    {
+      id: "ex.8.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Lobby' ne demek?",
+          options: [
+            "Asansör",
+            "Apartman/otel giriş holü",
+            "Kapı",
+            "Merdiven",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Lobby' = giriş holü (apartman, otel, ofis binası). Türk öğrenci 'foyer' duymuş olabilir — 'lobby' ABD'de yaygın.",
+        },
+        {
+          q: "'Side gate' yapısı?",
+          options: [
+            "Yan kapı",
+            "Yan bahçe kapısı / yan giriş",
+            "Tek kanatlı",
+            "Yandaki yer",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Gate' = bahçe/site kapısı (genelde demir). 'Side gate' = yan giriş. Türk öğrenci 'door' der — gate dış-açık alan girişi için.",
+        },
+        {
+          q: "Kurye kaybolduğunda EN doğal yardım?",
+          options: [
+            "Just come!",
+            "Use the side entrance — I'll meet you at the lobby.",
+            "Look more!",
+            "Fast find",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Spesifik konum + buluşma noktası. 'Use [giriş] — I'll meet at [konum].' Türk öğrenci yön söyler ama landmark vermez.",
+        },
+        {
+          q: "'Meet you at the lobby' yapısı?",
+          options: [
+            "Seni lobide tanışacağım",
+            "Seninle lobide buluşacağım",
+            "Lobiye geleceğim",
+            "Lobide bekliyorum",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Meet [someone] at [place]' = [konumda] biriyle buluş. Future intent — 'I'll meet you' standart kalıp.",
+        },
+        {
+          q: "Apartman kapısı kilitli, kurye dışarıda. EN pratik?",
+          options: [
+            "Sokakta kalsın",
+            "Aşağı in + kapıyı aç + buluş",
+            "Polis çağır",
+            "Yemek soğusun",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Modern ABD apartman: 'I'll come down and let you in' (aşağı inerim, içeri alırım) yaygın. Buzzer yoksa veya bozuksa.",
+        },
+      ],
     },
   ],
 };

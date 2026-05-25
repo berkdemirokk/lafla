@@ -212,6 +212,128 @@ export const dailyHotelLesson_20_1: BundledLesson = {
       tr_explanation:
         "'One reservation' yanlış — 'a reservation' standart. 'At name' yanlış edat; doğru kalıp 'under the name' (= adına). 'For two nights' doğru.",
     },
+    {
+      id: "ex.dh20.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I have a reservation ___ ___ ___ ___.",
+      slots: [
+        { accepted: ["under", "in"], distractors: ["at", "on", "with"] },
+        { accepted: ["the name", "my name"], distractors: ["a name", "name", "this"] },
+        { accepted: ["Yilmaz", "Ozkan", "Kaya"], distractors: ["me", "myself", "person"] },
+        { accepted: ["for two nights", "for three nights", "for one week"], distractors: ["two night", "tonight only", "always"] },
+      ],
+      tr_hint:
+        "Otel check-in kalıbı: 'under the name X for N nights'. Türk öğrenci 'at name' der — yanlış edat. 'Under' = adına kayıtlı.",
+      example_filled: "I have a reservation under the name Yilmaz for two nights.",
+    },
+    {
+      id: "ex.dh20.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Welcome to Marriott. Checking in?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Let me find your reservation. Could I see your ID?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|good evening)(,)? (yes|yeah|that'?s right)",
+        "(i have|i'?ve got) a reservation under (the )?name",
+        "(checking in)(,)? (yes|please)",
+        "(yes)(,)? (it'?s )?under [a-z]+",
+      ],
+      tr_hint:
+        "Otel resepsiyonu — net + kibar. Selamlama + onay + isim. 'Hi, yes — reservation under Yilmaz.' Türk öğrenci sadece 'yes' der — eksik.",
+      ideal_answer: "Hi, yes — I have a reservation under the name Yilmaz.",
+    },
+    {
+      id: "ex.dh20.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Would you like a room with a city view or a quieter room facing the courtyard?",
+      accepted_patterns: [
+        "(city view|courtyard|quieter)(,)? please",
+        "(i'?d prefer|i'?d like) (the )?(city view|courtyard|quieter)",
+        "(actually)(,)? (whatever (is )?(higher|quieter|cheaper))",
+        "(no preference|either is fine)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Resepsiyonist seçim soruyor — net tercih. 'City view, please' veya 'I'd prefer the quieter one'. Türk öğrenci 'whatever you have' der — bilgi atlamış.",
+      ideal_response: "City view, please — I love a good skyline.",
+    },
+    {
+      id: "ex.dh20.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Otelde kalıyorum 3 gün.",
+      wrong_en: "I am staying in hotel for 3 day.",
+      right_en: "I'm staying at the hotel for three nights.",
+      why_tr:
+        "Üç Türk hatası: (1) 'in hotel' eksik artikel — 'at the hotel'. (2) 'day' tekil — 'three nights' (otel için 'nights' standart). (3) Otel 'in' değil 'at' alır (specific location).",
+    },
+    {
+      id: "ex.dh20.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Check-in açılış cümle?",
+          options: [
+            "I want room.",
+            "Hi, I have a reservation under the name Yilmaz.",
+            "Give me key.",
+            "Hello, I am Yilmaz.",
+          ],
+          correct: 1,
+          tr_explanation: "'Under the name' = adıma kayıtlı. Standart otel kalıbı.",
+        },
+        {
+          q: "Otel için 'nights' mi 'days' mi?",
+          options: [
+            "Days standart.",
+            "Nights — 'two nights' (iki gece kalış).",
+            "İkisi de aynı.",
+            "Sadece yıllar.",
+          ],
+          correct: 1,
+          tr_explanation: "Otelde konaklama 'nights' ile sayılır. 'Three-night stay'.",
+        },
+        {
+          q: "'Room with a view' ne demek?",
+          options: [
+            "Görüş açılı oda",
+            "Manzaralı oda",
+            "Geniş oda",
+            "Pencereli oda",
+          ],
+          correct: 1,
+          tr_explanation: "'View' = manzara. 'Room with a view' = manzaralı oda.",
+        },
+        {
+          q: "'At the hotel' mi 'in the hotel' mi?",
+          options: [
+            "'In' standart.",
+            "'At' — specific location/building için.",
+            "İkisi aynı.",
+            "'On' doğru.",
+          ],
+          correct: 1,
+          tr_explanation: "'At' = belirli yer (bina, kavşak). 'In' = içeride/şehir/ülke.",
+        },
+        {
+          q: "Manzaralı oda iste — kibar cümle?",
+          options: [
+            "Give me window room.",
+            "Could I have a room with a city view, please?",
+            "I want view.",
+            "Where is window?",
+          ],
+          correct: 1,
+          tr_explanation: "'Could I have' = kibar talep. 'A room with X view' standart kalıp.",
+        },
+      ],
+    },
   ],
 };
 

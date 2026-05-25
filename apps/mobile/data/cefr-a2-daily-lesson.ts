@@ -168,6 +168,125 @@ export const cefrA2DailyLesson_supermarket: BundledLesson = {
       phrase: "Could I have a paper bag, please?",
       tr_hint: "'Could' = 'kud'. 'Paper' = 'peyper'. Yumuşak, net söyle.",
     },
+    {
+      id: "ex.a2.sm.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Excuse me, where is ___?",
+      slots: [
+        { accepted: ["the bread", "the milk", "the cheese", "the cashier"], distractors: ["bread", "milk place", "cheese here"] },
+      ],
+      tr_hint:
+        "Markette reyon sorma kalıbı. 'Where is ___?' Türk öğrenci 'Where bread?' der — eksik 'is the'.",
+      example_filled: "Excuse me, where is the bread?",
+    },
+    {
+      id: "ex.a2.sm.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Hi, can I help you find something?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — aisle 5, on the right." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (where (is|are)) (the )?",
+        "(excuse me)(,)? (i'?m looking for)",
+        "(could you (tell me|help me find)) (the )?",
+        "(where (can i find|do i find)) (the )?",
+      ],
+      tr_hint:
+        "Market personeli yardım teklif etti — net soru. 'Where is the bread?' Türk öğrenci 'Bread?' der — eksik.",
+      ideal_answer: "Yes, where is the bread, please?",
+    },
+    {
+      id: "ex.a2.sm.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "That'll be twelve dollars. Cash or card?",
+      accepted_patterns: [
+        "(card|cash)( please)?",
+        "(credit card|debit)",
+        "(can i use|do you take) (apple pay|tap to pay)",
+        "(here you go)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kasiyer ödeme şekli soruyor — net seçim. 'Card, please' veya 'Cash, please'. Tek kelime + 'please' yeter.",
+      ideal_response: "Card, please.",
+    },
+    {
+      id: "ex.a2.sm.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Ne kadar bu?",
+      wrong_en: "How many price?",
+      right_en: "How much is it? / How much does this cost?",
+      why_tr:
+        "İki sorun: (1) 'How many' sayılabilen için ('How many apples?'). Para sayılabilse de fiyat sorma için 'How much' kullanılır. (2) 'Many price' yanlış kalıp.",
+    },
+    {
+      id: "ex.a2.sm.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Markette reyon sor — kibar?",
+          options: [
+            "Bread where?",
+            "Excuse me, where is the bread?",
+            "Bread!",
+            "I need bread.",
+          ],
+          correct: 1,
+          tr_explanation: "'Excuse me' + 'where is' = nazik soru. A2 standart.",
+        },
+        {
+          q: "'How much' vs 'How many' farkı?",
+          options: [
+            "İkisi aynı.",
+            "How much = sayılamayan (para, su); How many = sayılabilen (elma).",
+            "İkincisi yanlış.",
+            "İlki yanlış.",
+          ],
+          correct: 1,
+          tr_explanation: "Fiyat = 'how much'. Sayı = 'how many'.",
+        },
+        {
+          q: "'Aisle' ne demek?",
+          options: [
+            "Reyon (markette).",
+            "Çıkış.",
+            "Kasa.",
+            "Sepet.",
+          ],
+          correct: 0,
+          tr_explanation: "'Aisle' = market reyonu/koridoru. 'Aisle 5' = 5. reyon.",
+        },
+        {
+          q: "'Cash or card?' nasıl yanıtlanır?",
+          options: [
+            "Yes.",
+            "Card, please. / Cash, please.",
+            "Money.",
+            "What?",
+          ],
+          correct: 1,
+          tr_explanation: "Net seçim + 'please'. Tek kelime yeter.",
+        },
+        {
+          q: "Poşet için kibar talep?",
+          options: [
+            "Bag!",
+            "Could I have a bag, please?",
+            "Give bag.",
+            "I want bag.",
+          ],
+          correct: 1,
+          tr_explanation: "'Could I have' = kibar talep. 'Paper bag' veya 'plastic bag'.",
+        },
+      ],
+    },
   ],
 };
 

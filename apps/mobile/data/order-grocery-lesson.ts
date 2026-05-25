@@ -283,6 +283,138 @@ export const orderGroceryLesson_46_1: BundledLesson = {
       tr_explanation:
         "'Where is exist' Turkce 'var mi?' yapisinin direkt cevirisi — Ingilizce'de 'exist' bu baglamda kullanilmaz. 'Where can I find [X]?' standart sorudur.",
     },
+    {
+      id: "ex.og46.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Excuse me, where can I find ___ — is it in ___?",
+      slots: [
+        {
+          accepted: ["the rice", "the bread", "olive oil", "tahini"],
+          distractors: ["food", "thing", "stuff"],
+        },
+        {
+          accepted: ["aisle 5", "the produce section", "the international aisle", "the bakery"],
+          distractors: ["fast place", "big area", "near"],
+        },
+      ],
+      tr_hint:
+        "Yön sorma kalıbı: 'Excuse me, where can I find [öğe] — is it in [konum]?' Türk öğrenci 'where is X' der — yapı yetersiz. Modern: 'where can I find' + tahmin.",
+      example_filled: "Excuse me, where can I find the rice — is it in aisle 5?",
+    },
+    {
+      id: "ex.og46.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Hi! Need help finding something?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Tahini? That's in the international aisle, aisle 8 on the left.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (where can i find|do you (have|carry)) (.+)",
+        "(could|can) you (tell me where|point me to) (.+)( is)?",
+        "(i'?m looking for) (.+)",
+        "(do you have|do you carry) (.+)\\?",
+      ],
+      tr_hint:
+        "Görevli yardım soruyor. Net soru: 'Yes, where can I find tahini?' veya 'I'm looking for tahini.' Türk öğrenci 'tahini have?' der — tam cümle.",
+      ideal_answer: "Yes — where can I find tahini?",
+    },
+    {
+      id: "ex.og46.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Did you find everything you were looking for?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (thanks|thank you|i did)",
+        "(actually )?(could you help me find|i can'?t find|i'?m looking for) (.+)",
+        "(no|not yet)(,)? (where can i find|do you have) (.+)",
+        "(yes|yeah)(,)? (all set|i'?m good)( thanks)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kasiyer 'aradığın her şeyi buldun mu?' diye soruyor. 3 sn — buldun mu? 'Yes, thanks!' veya 'Actually, where's the tahini?' Türk öğrenci kafa sallar — net cevap.",
+      ideal_response: "Yes, thanks! Found everything.",
+    },
+    {
+      id: "ex.og46.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Pirinç hangi reyonda?",
+      wrong_en: "Rice which department?",
+      right_en: "Where can I find the rice?",
+      why_tr:
+        "Türk 'hangi reyonda' = 'which department' diye direkt çevirir — 'department' resmi/iş bağlamlı. Doğru: 'Where can I find [X]?' = standart market sorusu. 'Aisle' = reyon (özellikle market).",
+    },
+    {
+      id: "ex.og46.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Aisle' ne demek?",
+          options: ["Reyon (market)", "Kapı", "Görevli", "Kart"],
+          correct: 0,
+          tr_explanation:
+            "'Aisle' = reyon (market koridoru). 'Aisle 5' = 5. reyon. Türk 'department' der — 'aisle' market için yerleşik.",
+        },
+        {
+          q: "'Where can I find X?' yapısı?",
+          options: [
+            "X nerede?",
+            "X'i nerede bulabilirim? (kibar)",
+            "X bulunuyor",
+            "X var mı?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Where can I find [X]?' = X'i nerede bulabilirim (kibar + standart). 'Where is X?' kısa ama biraz sert.",
+        },
+        {
+          q: "'Produce section' nedir?",
+          options: [
+            "Üretim alanı",
+            "Sebze-meyve reyonu",
+            "Ofis",
+            "Pano",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Produce' = sebze-meyve (taze ürün). 'Produce section' = sebze-meyve reyonu. Türk öğrenci 'fruit veg' der — 'produce' yerleşik.",
+        },
+        {
+          q: "'International aisle' ne içerir?",
+          options: [
+            "Yabancılar reyonu",
+            "Etnik/international yiyecek (Türk, Asya, Latin)",
+            "Lüks ürün",
+            "Yurtdışı satış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'International aisle' = ABD market'inde etnik yiyecek (tahini, Türk kahvesi, sushi rice, salsa). Aradığın özel ürünler genelde buradadır.",
+        },
+        {
+          q: "'Do you carry [X]?' yapısı?",
+          options: [
+            "X taşıyor musun?",
+            "X satıyor musunuz? (mağaza envanteri)",
+            "X bulduğun mu?",
+            "X için",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Do you carry [X]?' = mağaza satıyor mu? Türk 'have' kullanır — 'carry' market/mağaza envanter sorusu için doğal.",
+        },
+      ],
+    },
   ],
 };
 
@@ -525,6 +657,131 @@ export const orderGroceryLesson_46_2: BundledLesson = {
         "Could I get about two pounds of fish, deboned please?",
       tr_explanation:
         "ABD marketlerinde kg yok — pound. 'No bones in' kirik gramer, 'deboned' tek kelime is gorur. 'I want' yerine 'Could I get' kibar.",
+    },
+    {
+      id: "ex.og46.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get ___ pounds of ___, ___?",
+      slots: [
+        {
+          accepted: ["two", "three", "about two", "about half"],
+          distractors: ["very many", "kilos", "more"],
+        },
+        {
+          accepted: ["chicken", "ground beef", "salmon", "shrimp"],
+          distractors: ["meat any", "fish thing", "thing"],
+        },
+        {
+          accepted: ["thinly sliced", "deboned", "skinless"],
+          distractors: ["good cut", "cut nice", "any way"],
+        },
+      ],
+      tr_hint:
+        "Reyon kasap kalıbı: 'Could I get [miktar] pounds of [öğe], [hazırlık]?' ABD'de pound (lb) standart. Türk öğrenci kg der — pound öğren.",
+      example_filled: "Could I get two pounds of chicken, thinly sliced?",
+    },
+    {
+      id: "ex.og46.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "What can I get you?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Two pounds of chicken breast, thinly sliced — coming right up.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (two|three|one|about) (pound|pounds) of (chicken|beef|salmon)",
+        "(i'?ll have|i'?d like) (.+) pounds of (.+)( sliced| ground)?",
+        "(.+) pounds of (.+)( please)?",
+      ],
+      tr_hint:
+        "Kasap ne istersin sordu. Net + spesifik: 'Two pounds of chicken breast, thinly sliced, please.' Türk öğrenci 'kilo' der — 'pounds' kullan.",
+      ideal_answer: "Could I get two pounds of chicken breast, thinly sliced?",
+    },
+    {
+      id: "ex.og46.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you like that cut?",
+      accepted_patterns: [
+        "(thinly |thin )?(sliced|cut)( please)?",
+        "(in cubes|in chunks|chopped)( please)?",
+        "(boneless|skinless|ground|deboned)( please)?",
+        "(however|whichever) (you|works) (think|prefer)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kasap hazırlık şekli soruyor. 3 sn — pratik karar. 'Thinly sliced' (ince dilim) veya 'in cubes' (küp küp). Yemek tarzına göre.",
+      ideal_response: "Thinly sliced, please.",
+    },
+    {
+      id: "ex.og46.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "1 kilo tavuk göğsü.",
+      wrong_en: "1 kilo chicken breast.",
+      right_en: "About two pounds of chicken breast.",
+      why_tr:
+        "Türk 'kilo' der — ABD'de pound (lb) standart. 1 kg ≈ 2.2 pound, kasapta 'two pounds' söyle. 'About' = yaklaşık (kasap esnek olur).",
+    },
+    {
+      id: "ex.og46.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "ABD'de et ölçü birimi?",
+          options: ["Kilogram", "Pound (lb)", "Gram", "Ton"],
+          correct: 1,
+          tr_explanation:
+            "ABD'de pound (lb) standart. 1 lb ≈ 0.45 kg, 2 lb ≈ 1 kg. Kasapta 'pounds' söyle.",
+        },
+        {
+          q: "'Thinly sliced' ne demek?",
+          options: ["Kalın doğranmış", "İnce dilimlenmiş", "Küp doğranmış", "Kıyma"],
+          correct: 1,
+          tr_explanation:
+            "'Thinly sliced' = ince dilimli (deli meat gibi). 'Diced' = küp doğranmış. 'Ground' = kıyma. 'Cubed' = kuşbaşı.",
+        },
+        {
+          q: "'Boneless' ne anlatır?",
+          options: [
+            "Kemikli",
+            "Kemiksiz",
+            "Yumuşak",
+            "Az pişmiş",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Boneless' = kemiksiz. 'Skinless' = derisiz. 'Deboned' = kemiği çıkarılmış (fiil hali).",
+        },
+        {
+          q: "'Ground beef' ne demek?",
+          options: ["Yer eti", "Kıyma (sığır)", "Pişmiş et", "Donmuş et"],
+          correct: 1,
+          tr_explanation:
+            "'Ground beef' = kıyma sığır eti. 'Ground turkey' = kıyma hindi. 'Ground' = öğütülmüş (eti).",
+        },
+        {
+          q: "Balık reyonunda 'fresh' ve 'frozen' farkı?",
+          options: [
+            "Fresh = donmuş, frozen = taze",
+            "Fresh = taze, frozen = donmuş",
+            "İkisi de aynı",
+            "Sadece fiyat farkı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fresh' = taze (buz üzerinde). 'Frozen' = donmuş (dondurucu reyonu). ABD balıkları çoğunlukla 'previously frozen'.",
+        },
+      ],
     },
   ],
 };
@@ -774,6 +1031,147 @@ export const orderGroceryLesson_46_3: BundledLesson = {
       tr_explanation:
         "Genel kavramlarda 'the' kullanilmaz — 'with cash' veya 'in cash' standart. 'I'll' kasilma sozlu Ingilizce'de daha dogal.",
     },
+    {
+      id: "ex.og46.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get ___, and ___ in ___?",
+      slots: [
+        {
+          accepted: ["a receipt", "a bag", "some napkins"],
+          distractors: ["my money fast", "menu", "stuff"],
+        },
+        {
+          accepted: ["pack the eggs", "double-bag", "wrap the bread"],
+          distractors: ["fast send", "all give", "go"],
+        },
+        {
+          accepted: ["a separate bag", "their own bag", "paper"],
+          distractors: ["one cup", "any box", "anywhere"],
+        },
+      ],
+      tr_hint:
+        "Kasiyer talimat kalıbı: 'Could I get [istek], and [paketleme talebi] in [yöntem]?' Birden fazla istek tek cümlede. Türk öğrenci her birini ayrı söyler — birleştir.",
+      example_filled: "Could I get a bag, and pack the eggs in a separate bag?",
+    },
+    {
+      id: "ex.og46.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Paper or plastic?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Paper bag, got it. That'll be $42.50.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(paper|plastic|reusable)( please)?",
+        "(could|can) i (get|have) (a |the )?(paper|plastic) bag",
+        "(i have my own|i brought my own)( bag)?",
+        "(actually )?(paper )?please",
+      ],
+      tr_hint:
+        "Kasiyer 'kağıt mı plastik mi?' diye soruyor. Tek kelime yeterli: 'Paper, please.' Türk öğrenci 'how much?' der — alakasız. Soruyu cevapla.",
+      ideal_answer: "Paper, please.",
+    },
+    {
+      id: "ex.og46.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Would you like to round up for charity? It's a dollar.",
+      accepted_patterns: [
+        "(yes|sure|yeah)( please)?",
+        "(no thanks|not today|i'?m good)",
+        "(actually )?(yeah|sure)(,)? (sounds good|why not)",
+        "(maybe )?next time(,)? (thanks|thank you)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kasiyer bağış soruyor (yuvarla + $1 fazlası). 3 sn — değer mi? 'Yes, please' veya 'No thanks.' Türk öğrenci tereddüt eder — kısa cevap.",
+      ideal_response: "Sure, why not — sounds good.",
+    },
+    {
+      id: "ex.og46.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Kartla ödeyeceğim.",
+      wrong_en: "I will pay the card.",
+      right_en: "I'll pay with card.",
+      why_tr:
+        "Türk öğrenci 'kartla' = 'pay the card' diye direkt çevirir — yanlış edat. Doğru: 'pay with [yöntem]' veya 'pay by [yöntem]'. 'I'll' = 'I will' kısalt — daha doğal.",
+    },
+    {
+      id: "ex.og46.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "ABD market kasada 'paper or plastic' sorusu?",
+          options: [
+            "Para mı kart mı",
+            "Kağıt mı plastik mi torba",
+            "Kasa mı self-checkout mu",
+            "Tek mi çift kasa",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Paper or plastic?' = kağıt mı plastik mi torba? ABD'de bazı eyaletlerde plastik yasak — kağıt veya reusable.",
+        },
+        {
+          q: "'Self-checkout' nedir?",
+          options: [
+            "Kendi geliş",
+            "Kendi kasada barkod okutma",
+            "Eve gönderme",
+            "Kasaya çağırma",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Self-checkout' = kendin barkod oku + öde. ABD market'lerinde yaygın. Türk öğrenci yabancı bulur — pratiktir.",
+        },
+        {
+          q: "'I'll pay with card' yapısı?",
+          options: [
+            "Kart ile öderim",
+            "Kartı öderim",
+            "Karttan öderim",
+            "Karta öderim",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Pay with [yöntem]' = [yöntem] ile öde. Sabit prepozisyon. Türk öğrenci 'pay the card' der — yanlış. 'With' kullan.",
+        },
+        {
+          q: "'Round up' bağış bağlamında?",
+          options: [
+            "Yuvarlak yap",
+            "Yuvarla ($X yerine $X+1, fark bağışlanır)",
+            "Tur at",
+            "Tekrarla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Round up' = yuvarla. $42.50 → $43, $0.50 hayır için. ABD market kasalarda yaygın.",
+        },
+        {
+          q: "'Reusable bag' ne demek?",
+          options: [
+            "Tek kullanımlık",
+            "Yeniden kullanılabilir bez/dayanıklı torba",
+            "Plastik",
+            "Kağıt",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Reusable' = yeniden kullanılabilir. Kendi getirdiğin bez torba. Environment-friendly seçim.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1008,6 +1406,143 @@ export const orderGroceryLesson_46_4: BundledLesson = {
       tr_explanation:
         "'Not working good' yanlis — sifat degil zarf gerekli: 'well' veya 'properly'. Ayrica spesifik problem belirt: 'isn't scanning'.",
     },
+    {
+      id: "ex.og46.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "The machine ___ — could you ___?",
+      slots: [
+        {
+          accepted: [
+            "isn't scanning",
+            "won't accept my card",
+            "froze",
+            "is asking for help",
+          ],
+          distractors: ["bad", "not working good", "no scan"],
+        },
+        {
+          accepted: ["help me out", "take a look", "reset it"],
+          distractors: ["fix fast", "make work", "help me"],
+        },
+      ],
+      tr_hint:
+        "Self-checkout problem kalıbı: 'The machine [problem] — could you [çözüm]?' Spesifik problem + kibar çözüm. Türk öğrenci 'bad machine!' der — sakin + spesifik.",
+      example_filled: "The machine isn't scanning — could you help me out?",
+    },
+    {
+      id: "ex.og46.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Need any help over there?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Of course, let me reset it for you — happens all the time.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (the machine|this) (isn'?t|won'?t) (scan|accept|work)",
+        "(could|can) you (help me|take a look|reset it)\\?",
+        "(this )?(item|barcode) (won'?t scan|isn'?t scanning)",
+        "(it'?s )?(stuck|frozen|asking for help)",
+      ],
+      tr_hint:
+        "Görevli yardım sordu. Net problem + çözüm talebi: 'Yes, the machine isn't scanning this item — could you help?' Türk öğrenci kaba olur — sakin.",
+      ideal_answer: "Yes — the machine isn't scanning this. Could you help?",
+    },
+    {
+      id: "ex.og46.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What seems to be the problem?",
+      accepted_patterns: [
+        "(this )?(item|barcode) (won'?t scan|isn'?t scanning)",
+        "(the machine|it) (froze|isn'?t taking my card|asked for help)",
+        "(could|can) you (override|reset) (this|it)",
+        "(i think|it looks like) it (needs an override|is stuck)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Görevli problem soruyor. 3 sn — spesifik anlat. 'This item won't scan' veya 'The machine froze.' Türk öğrenci 'bad' der — spesifik kelime kullan.",
+      ideal_response: "This item won't scan — I think it needs an override.",
+    },
+    {
+      id: "ex.og46.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Makine çalışmıyor!",
+      wrong_en: "Machine not working!",
+      right_en: "The machine isn't scanning properly.",
+      why_tr:
+        "Türk 'çalışmıyor!' = 'not working!' diye direkt çevirir — fiilsiz + sert. Doğru: 'The machine isn't [spesifik]'. Spesifik fiil ('scanning', 'accepting card') problem tanımı daha iyi.",
+    },
+    {
+      id: "ex.og46.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Self-checkout' problemi için EN doğru ilk adım?",
+          options: [
+            "Bağır",
+            "Görevliyi sakin çağır (ışık yanar)",
+            "Kalkıp git",
+            "Mağaza yöneticisi",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Self-checkout problem = ışık yanar, görevli gelir. Türk öğrenci panikler — sakin + sabırlı.",
+        },
+        {
+          q: "'Override' kasa bağlamında?",
+          options: [
+            "Üstüne sür",
+            "Yetkili müdahale (görevli onayı)",
+            "Geçersiz kıl",
+            "Fiyat indir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Override' = görevli onayı (yaşa kanıtı, fiyat hatası, vb.). Bazı ürünler (alkol) görevli onayı gerektirir.",
+        },
+        {
+          q: "'Barcode' ne demek?",
+          options: ["Barbar kodu", "Barkod (ürün kodu)", "Çubuk", "Etiket"],
+          correct: 1,
+          tr_explanation:
+            "'Barcode' = barkod (çizgili ürün kodu). 'Barcode won't scan' = barkod okunmuyor.",
+        },
+        {
+          q: "'Not working well' yerine?",
+          options: [
+            "Not working good (yanlış)",
+            "Not working properly veya not working well",
+            "Bad work",
+            "Working not",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Fiil sonrası zarf: 'properly' veya 'well'. 'Good' sıfat — yanlış kullanım. Türk öğrenci sık yapar.",
+        },
+        {
+          q: "'Help me out' deyimi?",
+          options: [
+            "Bana yardım et (gündelik)",
+            "Beni dışarı çıkar",
+            "Yardımdan vazgeç",
+            "Birini bul",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Help [someone] out' = birine gündelik yardım. 'Help me' tek başına da geçer, 'help me out' daha sosyal/casual.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1202,6 +1737,143 @@ export const orderGroceryLesson_46_5: BundledLesson = {
       ipa: "/wɛr wʊd aɪ faɪnd ðə təˈhiːni/",
       tr_articulation_hint:
         "'Where would I' birleşir: 'wer-wud-ay'. 'Tahini' = 'tə-HEE-ni' — vurgu ortada, Türkçedeki gibi 'ta-hi-ni' değil. Soru tonu sonda hafif yükseliyor.",
+    },
+    {
+      id: "ex.og46.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Where would I find ___ — is it ___?",
+      slots: [
+        {
+          accepted: ["tahini", "Greek yogurt", "feta cheese", "halloumi"],
+          distractors: ["any food", "Turkish stuff", "expensive thing"],
+        },
+        {
+          accepted: [
+            "in the international aisle",
+            "with the dairy",
+            "near the cheese",
+            "by the produce",
+          ],
+          distractors: ["near somewhere", "far", "at end"],
+        },
+      ],
+      tr_hint:
+        "Etnik ürün arama kalıbı: 'Where would I find [öğe] — is it [tahmin]?' Tahmin de eklersen görevli daha hızlı yardım eder. Türk öğrenci sadece soru sorar — tahmin ekle.",
+      example_filled: "Where would I find tahini — is it in the international aisle?",
+    },
+    {
+      id: "ex.og46.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Need help finding something?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Halloumi? That's in the cheese section, near the feta — aisle 10.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (i'?m looking for|where can i find) (.+)",
+        "(do you (have|carry)|got any) (.+)\\?",
+        "(could you )?(point me to|help me find) (.+)",
+        "(any |is there a )?(international|ethnic) aisle\\?",
+      ],
+      tr_hint:
+        "Görevli yardım soruyor. Net etnik ürün: 'Yes, where can I find halloumi?' Türk öğrenci 'halloumi var mı?' der — 'do you carry halloumi?' modern.",
+      ideal_answer: "Yes — where can I find halloumi?",
+    },
+    {
+      id: "ex.og46.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Are you looking for anything specific in the international aisle?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (i'?m looking for|do you have) (tahini|halloumi|baklava|olives)",
+        "(could you|do you carry|got any) (.+)",
+        "(actually )?(some|any) (turkish|mediterranean) (stuff|things|food)",
+        "(no|nothing specific)(,)? just (browsing|looking)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Görevli spesifik öneri soruyor. 3 sn — net cevap. 'Yes, looking for tahini' veya 'Just browsing.' Türk öğrenci genel söyler — spesifik etnik ürün isim ver.",
+      ideal_response: "Yes — do you carry tahini or Turkish coffee?",
+    },
+    {
+      id: "ex.og46.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Türk yemekleri var mı?",
+      wrong_en: "Have Turkish foods?",
+      right_en: "Do you carry any Turkish products?",
+      why_tr:
+        "Türk 'var mı?' = 'have?' diye direkt çevirir — yapı bozuk + kaba. Doğru: 'Do you carry [ürün]?' (mağaza satıyor mu?) veya 'Do you have any [ürün]?'. 'Products' = ürünler.",
+    },
+    {
+      id: "ex.og46.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "ABD market'inde Türk ürünleri genelde hangi reyonda?",
+          options: [
+            "Bakery",
+            "International / ethnic / Mediterranean aisle",
+            "Frozen",
+            "Bakery",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Türk/Akdeniz ürünleri 'international aisle' veya 'Mediterranean section'da. Trader Joe's, Whole Foods, Costco gibi market'lerde standart.",
+        },
+        {
+          q: "'Tahini' telaffuzu?",
+          options: ["TA-hi-ni", "tə-HEE-ni", "tahı-ni", "ta-HİNİ"],
+          correct: 1,
+          tr_explanation:
+            "'Tahini' = 'tə-HEE-ni' (vurgu ortada). Türk öğrenci Türkçe 'tahini' der — anlaşılır ama 'HEE' uzun.",
+        },
+        {
+          q: "Halloumi nedir?",
+          options: [
+            "Türk peyniri (kıbrıs kökenli, ızgaralanabilir)",
+            "Tatlı",
+            "Yoğurt",
+            "Süt",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Halloumi' = Kıbrıs/Türk ızgara peyniri. ABD'de yaygınlaşıyor — international aisle veya specialty cheese.",
+        },
+        {
+          q: "'Do you carry [X]?' yapısı?",
+          options: [
+            "X taşıyor musun?",
+            "X satıyor musunuz? (mağaza envanteri)",
+            "X bulunur mu?",
+            "X için mi geldin?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Do you carry?' = mağaza ürünü satıyor mu? Türk öğrenci 'have' kullanır — 'carry' market/mağaza standart.",
+        },
+        {
+          q: "Spesifik etnik ürün için EN doğal soru?",
+          options: [
+            "Where is tahini?",
+            "Do you carry tahini? It's a sesame paste.",
+            "Tahini find!",
+            "Need sesame",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Do you carry [X]? It's [açıklama].' = ürün bilinmiyorsa açıklama ekle. Görevli kolayca anlar.",
+        },
+      ],
     },
   ],
 };
@@ -1413,6 +2085,132 @@ export const orderGroceryLesson_46_6: BundledLesson = {
       tr_articulation_hint:
         "'Pound' = 'paund' — diftong 'au'. 'Turkey' = 'TUR-ki' — vurgu başta. 'Sliced' içinde 'd' yutulur → 'slayst'. 'Thin' için dilini diş arasına koy (θ sesi) — sokak İngilizcesinde 't' gibi çıkar ama doğrusu peltek.",
     },
+    {
+      id: "ex.og46.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "A ___ of ___, ___ please.",
+      slots: [
+        {
+          accepted: ["pound", "half pound", "quarter pound"],
+          distractors: ["kilo", "many", "big"],
+        },
+        {
+          accepted: ["turkey", "ham", "salami", "cheese"],
+          distractors: ["meat", "food", "stuff"],
+        },
+        {
+          accepted: ["sliced thin", "sliced thick", "sliced medium", "shredded"],
+          distractors: ["good cut", "fast cut", "any cut"],
+        },
+      ],
+      tr_hint:
+        "Deli reyon tartım kalıbı: 'A [miktar] of [ürün], [hazırlık] please.' ABD'de pound + dilim/kıyma standart. Türk öğrenci kg der — 'pound' kullan.",
+      example_filled: "A pound of turkey, sliced thin please.",
+    },
+    {
+      id: "ex.og46.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "What can I slice for you?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Half pound of turkey, sliced thin — coming right up.",
+        },
+        { speaker: "npc", text: "How does this look — want it any thicker?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(a |half a |a quarter )?(pound|half pound) of (turkey|ham|salami|cheese)",
+        "(could|can) i (get|have) (.+) pound of (.+)( sliced)?",
+        "(.+) of (turkey|ham|cheese)(,)? (thin|thick|medium)( please)?",
+      ],
+      tr_hint:
+        "Deli reyon görevlisi soru sordu. Net ölçü + hazırlık: 'A half pound of turkey, sliced thin.' Türk öğrenci 'kilo' der — pound (lb) kullan.",
+      ideal_answer: "A half pound of turkey, sliced thin please.",
+    },
+    {
+      id: "ex.og46.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How thin would you like it sliced?",
+      accepted_patterns: [
+        "(thin|thinly)( sliced)?( please)?",
+        "(medium|standard|deli) (thickness|thin)( please)?",
+        "(however|whichever) you (think|prefer)",
+        "(very |paper )?thin( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Deli görevlisi kalınlık soruyor. 3 sn — sandviç için 'thin', çorba için 'thick'. 'Thin, please' yeterli. Türk öğrenci 'normal' der — 'medium' kullan.",
+      ideal_response: "Thin, please — for sandwiches.",
+    },
+    {
+      id: "ex.og46.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Yarım kilo hindi.",
+      wrong_en: "Half kilo turkey.",
+      right_en: "A half pound of turkey.",
+      why_tr:
+        "Türk 'yarım kilo' = 'half kilo' diye direkt çevirir. ABD'de pound (lb) standart. Half pound = ~225g, quarter pound = ~115g. Hindi tartılır pound olarak.",
+    },
+    {
+      id: "ex.og46.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Deli counter' nedir?",
+          options: [
+            "Hızlı kasa",
+            "Şarküteri reyonu (dilimli et, peynir)",
+            "Tatlı reyonu",
+            "Sebze reyonu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Deli counter' = şarküteri reyonu. Dilimli et, peynir, hazır salatalar. Türk 'kasap' düşünür — deli daha çok shar/şarkün.",
+        },
+        {
+          q: "'Half pound' ne kadar?",
+          options: ["1/4 kg", "1 kg", "1/2 kg", "2 kg"],
+          correct: 0,
+          tr_explanation:
+            "Half pound = 0.5 lb = 225g ≈ 1/4 kg. Quarter pound = ~115g. Tam pound = ~454g.",
+        },
+        {
+          q: "'Sliced thin' ne demek?",
+          options: [
+            "Az dilim",
+            "İnce dilimlenmiş",
+            "Çok dilim",
+            "Kalın dilim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sliced thin' = ince dilimli. Sandviç deli meat için standart. 'Sliced thick' = kalın dilim (kahvaltı için).",
+        },
+        {
+          q: "Deli'de 'shredded' ne demek?",
+          options: ["Doğranmış", "Rendelenmiş / didiklenmiş", "Kıyma", "Bütün"],
+          correct: 1,
+          tr_explanation:
+            "'Shredded' = rendelenmiş veya didiklenmiş (peynir, hindi). Pizza/salata için kullanılır. Türk 'rendelenmiş' der — 'shredded' karşılık.",
+        },
+        {
+          q: "'Quarter pound' yapısı?",
+          options: ["Çeyrek pound (~115g)", "4 pound", "Yarım pound", "Bir pound"],
+          correct: 0,
+          tr_explanation:
+            "'Quarter pound' = çeyrek pound = 1/4 lb = ~115g. McDonald's 'Quarter Pounder' burger = çeyrek pound dana eti.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1608,6 +2406,147 @@ export const orderGroceryLesson_46_7: BundledLesson = {
       ipa: "/kʊd ju hɛlp wɪð ðɪs/",
       tr_articulation_hint:
         "'Could you' birleşir → 'kudju'. 'With this' içindeki iki th sesi: 'with' içindeki th sesli (ð), 'this' içindekisi de sesli — dilini dişler arasına koy. 'Help' içinde 'l' yumuşak — 'hep' gibi söylenir hızlı konuşmada.",
+    },
+    {
+      id: "ex.og46.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you ___ — ___ ___?",
+      slots: [
+        {
+          accepted: ["help me out", "take a look", "give me a hand"],
+          distractors: ["fast", "work this", "make this"],
+        },
+        {
+          accepted: ["this item", "the barcode", "the machine"],
+          distractors: ["that thing", "here stuff", "all"],
+        },
+        {
+          accepted: ["won't scan", "is stuck", "needs an override"],
+          distractors: ["bad", "no work", "fast no"],
+        },
+      ],
+      tr_hint:
+        "Yardım kalıbı: 'Could you [yardım] — [konu] [sorun]?' Spesifik + kibar. Türk öğrenci 'help!' der — tam cümle daha doğal.",
+      example_filled: "Could you help me out — this item won't scan?",
+    },
+    {
+      id: "ex.og46.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "I see your light is flashing — what's going on?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Got it — it just needs an override. Let me scan my badge real quick.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(this )?(item|barcode) (won'?t scan|isn'?t scanning)",
+        "(the machine|it) (froze|is stuck|asked for help)",
+        "(could you|can you) (override|reset) (this|it)",
+        "(it )?(needs an override|asked for an override)",
+      ],
+      tr_hint:
+        "Görevli geldi, ne olduğunu sordu. Net problem: 'This barcode won't scan — it needs an override.' Türk öğrenci 'I don't know' der — spesifik söyle.",
+      ideal_answer: "This barcode won't scan — I think it needs an override.",
+    },
+    {
+      id: "ex.og46.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Let me see your ID quickly — for the alcohol.",
+      accepted_patterns: [
+        "(sure|of course|yeah)( here you go)?",
+        "(here you go|here'?s my id)( thanks)?",
+        "(let me find it|hold on)( one sec)?",
+        "(yes|sure) (driver'?s license|id)( works)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Görevli yaş kanıtı istiyor (alkol). 3 sn — kibarca uzat. 'Sure, here you go.' Türk öğrenci alınır — yaş kontrolü ABD'de standart, kimliği uzat.",
+      ideal_response: "Sure — here you go.",
+    },
+    {
+      id: "ex.og46.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bana yardım eder misiniz?",
+      wrong_en: "You help me?",
+      right_en: "Could you help me out?",
+      why_tr:
+        "Türk 'yardım eder misiniz?' = 'you help me?' diye direkt çevirir — fiilsiz + yapı kırık. Doğru: 'Could you help me out?' = kibar talep. 'Could you' yumuşatma + 'help out' (gündelik) doğal.",
+    },
+    {
+      id: "ex.og46.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Self-checkout'ta 'override' ne zaman lazım?",
+          options: [
+            "Her zaman",
+            "Alkol (yaş kontrolü), ağır ürün, fiyat hatası",
+            "Asla",
+            "Sadece ilk sefer",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Override' = görevli onayı. Alkol/sigara için yaş kontrolü, ağır ürün (örn. ekmek, sebze), fiyat hatası için gerekir.",
+        },
+        {
+          q: "'My light is flashing' yapısı?",
+          options: [
+            "Işığım yanıyor",
+            "Yanıp sönüyor (problem ışığı)",
+            "Tekrar yanıyor",
+            "Hızlı yanıyor",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Flashing light' = yanıp sönen ışık (problem sinyali). Self-checkout'ta ışık yanıp söner = görevli çağrısı.",
+        },
+        {
+          q: "'Could you help me out?' tonu?",
+          options: [
+            "Resmi",
+            "Gündelik kibar talep",
+            "Sert",
+            "Şikayet",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you help me out?' = gündelik kibar. 'Help out' (gündelik) vs 'help' (resmi). ABD'de yaygın.",
+        },
+        {
+          q: "ABD market'inde yaş kontrolü?",
+          options: [
+            "Yok",
+            "Var, alkol 21+ ve sigara için ID gerekir",
+            "Sadece akşamları",
+            "Sadece ilk satışta",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD'de alkol için 21 yaş şart, sigara için 21. ID istemek standart — alınma. Görevli onayı zorunlu.",
+        },
+        {
+          q: "'Give me a hand' deyimi?",
+          options: [
+            "Elini ver",
+            "Yardım et (gündelik)",
+            "Tokala",
+            "Elini ver",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Give [someone] a hand' = yardım et (gündelik). 'Could you give me a hand?' = bana yardım eder misin? Türk öğrenci 'hand' anlar — deyim öğren.",
+        },
+      ],
     },
   ],
 };
@@ -1820,6 +2759,151 @@ export const orderGroceryLesson_46_8: BundledLesson = {
       ipa: "/ðɪs ˈkuːpɑːnz stɪl ˈvælɪd/",
       tr_articulation_hint:
         "'Coupon' = 'KOO-pon' (US) — Türkçe 'kupon' gibi değil, ilk hece uzun. 'Coupon's' = 'coupon is' kasılması, 's' ekle. 'Valid' = 'VÆ-lid' — ilk hecede 'æ' (kedi 'a'sı). Sakin ve emin tonu — şikayet değil bilgilendirme.",
+    },
+    {
+      id: "ex.og46.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I think ___ — the ___ ___.",
+      slots: [
+        {
+          accepted: ["this rang up wrong", "there's a price discrepancy", "this should be on sale"],
+          distractors: ["bad price", "wrong totally", "expensive"],
+        },
+        {
+          accepted: ["coupon", "tag", "sign"],
+          distractors: ["thing", "stuff", "place"],
+        },
+        {
+          accepted: [
+            "is still valid",
+            "shows a different price",
+            "says $5 off",
+          ],
+          distractors: ["price more", "wrong show", "expired soon"],
+        },
+      ],
+      tr_hint:
+        "Fiyat itirazı kalıbı: 'I think [problem] — the [referans] [delil].' Sakin + delil göster. Türk öğrenci 'price wrong!' der — sakin + spesifik.",
+      example_filled: "I think this rang up wrong — the tag shows a different price.",
+    },
+    {
+      id: "ex.og46.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Your total is $87.50.",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Let me check — yes, you're right, this should be $5 off. My apologies, let me adjust that.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(actually|sorry)(,)? (i think|i believe) (this|the) (price|coupon) (.+)",
+        "(could|can) you (double[- ]check|verify) (the |this )(price|total)\\?",
+        "(this |the )(coupon|discount|sale tag) (should apply|isn'?t showing)",
+        "(i think|i believe) (there'?s|something'?s) (a discrepancy|wrong) with (.+)",
+      ],
+      tr_hint:
+        "Kasiyer toplam söyledi ama fiyat yanlış. Sakin sorgulama: 'Sorry, I think the coupon should apply.' Türk öğrenci 'wrong price!' der — sakin + delil göster.",
+      ideal_answer: "Sorry — I think the coupon should still apply. The sign said $5 off.",
+    },
+    {
+      id: "ex.og46.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hmm, the coupon expired yesterday — sorry about that.",
+      accepted_patterns: [
+        "(oh )?(ok|okay|got it|i see)(,)? (no worries|thanks)",
+        "(actually )?(could you|can you) (double[- ]check|verify) (the date|expiration)",
+        "(the sign|tag) said (\\d+|five|ten) (dollars |percent )?off",
+        "(no |that'?s )?(problem|worries)(,)? (i'?ll skip it|nevermind)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kasiyer kupon süresi dolmuş diyor. 3 sn — kabul et veya itiraz et. 'No worries, thanks' veya 'Could you double-check the date?' Türk öğrenci 'why!' der — sakin tepki.",
+      ideal_response: "No worries — I'll skip it then. Thanks for checking.",
+    },
+    {
+      id: "ex.og46.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Fiyat yanlış!",
+      wrong_en: "Price wrong!",
+      right_en: "I think this rang up wrong.",
+      why_tr:
+        "Türk 'fiyat yanlış!' = 'price wrong!' diye direkt çevirir — fiilsiz + sert. Doğru: 'I think this rang up wrong' = sakin + spesifik. 'Rang up' = kasada okutuldu (past tense of 'ring up').",
+    },
+    {
+      id: "ex.og46.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Rang up' kasa bağlamında?",
+          options: [
+            "Zili çal",
+            "Kasada okuttu (past of ring up)",
+            "Tur at",
+            "Yukarı sür",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Ring up' = kasada okut (barkod). 'This rang up wrong' = kasada yanlış fiyat çıktı. ABD market slang.",
+        },
+        {
+          q: "'Coupon' ABD'de yaygın mı?",
+          options: [
+            "Hayır",
+            "Çok yaygın, indirim kuponları (mağaza app, gazete, mail)",
+            "Sadece yaşlılar kullanır",
+            "Sadece online",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD'de kupon kültürü güçlü. Mağaza app'ı, gazete, mail. 'Couponer' (kupon avcısı) hobicilik. Türkiye'den farklı.",
+        },
+        {
+          q: "'Price discrepancy' ne demek?",
+          options: [
+            "Fiyat değişimi",
+            "Fiyat uyumsuzluğu / farklılık",
+            "Pahalı fiyat",
+            "Ucuz fiyat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Discrepancy' = uyumsuzluk / fark. 'Price discrepancy' = etiket vs kasa fiyatı farkı. Resmi şikayet kelimesi.",
+        },
+        {
+          q: "'On sale' yapısı?",
+          options: [
+            "Satışta",
+            "İndirimli",
+            "Satıldı",
+            "Satılık",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On sale' = indirimli. 'For sale' = satılık (mülk, araba). Türk öğrenci karıştırır — 'on sale' indirim, 'for sale' satılık.",
+        },
+        {
+          q: "Fiyat farkı sakin itiraz için EN doğal?",
+          options: [
+            "Price wrong!",
+            "I think this rang up wrong — the tag shows $X.",
+            "Money give!",
+            "Bad price",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I think this rang up wrong — the tag shows $X' = sakin + delil. Kasiyer hızla kontrol eder. Türk: sakin + spesifik.",
+        },
+      ],
     },
   ],
 };

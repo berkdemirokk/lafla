@@ -145,6 +145,129 @@ export const flirtDeep_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "How about ___ — ___, easier to escape if it's weird?",
+      slots: [
+        { accepted: ["coffee", "a quick drink", "a walk", "something low-key"] },
+        { accepted: ["low-key", "less pressure", "more chill", "no commitment"] },
+      ],
+      tr_hint:
+        "İlk randevu öneri formülü: dusuk bahis aktivite + neden dusuk bahis. Türk öğrenci 'Let's meet' diye direkt önerir — native casual: 'How about X — less pressure'. Self-deprecating mizah ('escape if weird') = rahatlık sinyali.",
+      example_filled: "How about coffee — low-key, easier to escape if it's weird, haha.",
+    },
+    {
+      id: "ex.fd1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Coffee works for me. Saturday afternoon, like 3-ish?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Locked in. Don't bail on me, Turkey." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(saturday |3.?ish )?(works|sounds good|i'?m in)",
+        "(let'?s |let'?s lock it in|locking it in)",
+        "(3 |saturday )(it is|works for me)",
+        "(perfect — see you )(saturday|then)",
+        "(deal|done|consider it scheduled)",
+        "(adding it to my calendar|in the calendar)",
+      ],
+      tr_hint:
+        "Randevu kesinleşiyor — net onay ver. 'Maybe' veya 'I think so' = geri vites sinyali. Modern dating: kesin + heyecanlı. 'Saturday at 3 — locked in!' veya 'Adding it to my calendar'.",
+      ideal_answer: "Saturday at 3 — locking it in. See you there.",
+    },
+    {
+      id: "ex.fd1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Okay so we've been texting forever — at this point we should probably just meet, right?",
+      accepted_patterns: [
+        "(yeah |honestly )?(was about to|i was gonna) (suggest|ask|say)",
+        "(reading my mind|exactly what i was thinking)",
+        "(okay |alright )?(let'?s do it|i'?m in|down for that)",
+        "(yes |definitely )(let'?s|we should)",
+        "(how about|what about) (coffee|a drink) (this|next) (week|weekend)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "NPC çağrı yaptı — 'meet?' diye sordu. 3 saniye düşün, sonra GEÇ KALMA. Heyecan + somut öneri = ideal. 'Honestly, was about to suggest the same. Coffee Saturday?' gibi proaktif.",
+      ideal_response: "Honestly, was about to suggest the same thing — coffee Saturday around 3?",
+    },
+    {
+      id: "ex.fd1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bir hafta sonu kahve içmeye gidelim mi?",
+      wrong_en: "Should we go to drink coffee on one weekend?",
+      right_en: "Want to grab coffee this weekend? Low-key, no pressure.",
+      why_tr:
+        "Türk öğrenci kelime-kelime çevirir: 'Should we go' = robot. 'To drink coffee' = kitabi (native 'grab coffee'). 'On one weekend' = grammatik bozuk (native 'this weekend' veya 'sometime'). 'Want to + verb' = casual modern. 'Grab' fiili = düşük bahis dating davetinin standart kelimesi.",
+    },
+    {
+      id: "ex.fd1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Low-key' deyimi ne anlama gelir?",
+          options: [
+            "Düşük tuşa basmak",
+            "Sade, abartısız, rahat",
+            "Müzik düşük tonda",
+            "Düşük seviye",
+          ],
+          correct: 1,
+          tr_explanation: "'Low-key' = sade, gösterişsiz. Gen-Z dating dilinde sık kullanılır: 'low-key date' = düşük bahis randevu.",
+        },
+        {
+          q: "'Grab a drink' nasıl çevirilir?",
+          options: [
+            "Bir içki kapmak",
+            "İçkiyi hızlı içmek",
+            "Bir şeyler içmeye gitmek (kahve veya alkol — esnek)",
+            "Bir bardak kapmak",
+          ],
+          correct: 2,
+          tr_explanation: "'Grab a drink' = kahve, çay, alkol — esnek. Dating'de düşük bahis davet kelimesi.",
+        },
+        {
+          q: "İlk randevu için güvenli format?",
+          options: [
+            "Akşam yemeği (uzun + formal)",
+            "Sinema (konuşamazsın)",
+            "Kahve / içecek (1 saat, kaçış kolay)",
+            "Ev daveti (riski yüksek)",
+          ],
+          correct: 2,
+          tr_explanation: "Coffee = düşük bahis. Kötü giderse 1 saatte biter, iyi giderse 'walk?' uzatma.",
+        },
+        {
+          q: "'Reading my mind' nasıl çevirilir?",
+          options: [
+            "Aklımı okuyorsun",
+            "Düşüncelerimi anlıyorsun",
+            "Aynı şeyi düşünüyorduk",
+            "Hepsi doğru",
+          ],
+          correct: 3,
+          tr_explanation: "'Reading my mind' = aynı şeyi düşünüyorduk. Casual + sıcak onay.",
+        },
+        {
+          q: "Türk hatası: 'Should we go to drink coffee?' yerine?",
+          options: [
+            "Should we drink coffee?",
+            "Want to grab coffee?",
+            "We must go for coffee",
+            "Going we to coffee?",
+          ],
+          correct: 1,
+          tr_explanation: "'Want to grab coffee?' = modern + casual. 'Should we go to drink coffee' = okul kitabı + robotic.",
+        },
+      ],
+    },
   ],
 };
 

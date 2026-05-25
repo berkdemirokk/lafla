@@ -223,6 +223,101 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
       tr_explanation:
         "'I want talk' yapı bozuk — 'I want to talk' veya daha yumusak 'Could we set up'. 'You have time tomorrow' direkt baski — randevu icin 'this week' + agenda teklifi profesyonel.",
     },
+    {
+      id: "ex.wpa38.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to discuss ___ given ___.",
+      slots: [
+        { accepted: ['a promotion to senior', 'a raise', 'my next step', 'compensation'], distractors: ['promotion senior', 'raise the', 'next step', 'the compensation'] },
+        { accepted: ['my recent impact', "the scope I've taken on", 'current market rates', 'my anniversary'], distractors: ['my recent impacts', "the scopes I've taken", "current's market rates", 'my anniversaries'] },
+      ],
+      tr_hint:
+        "Promotion ask formula. 'I'd like to discuss' = soft ask. 'Given' = data point bağı. 'I want raise' = kaba.",
+      example_filled: "I'd like to discuss a promotion to senior given my recent impact.",
+    },
+    {
+      id: "ex.wpa38.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a minute? I wanted to talk about my growth." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me think on it and get back to you by end of week." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(of course|sure|absolutely)",
+        "(thanks for bringing|appreciate you (raising|sharing)) (this|it) (up)?",
+        "(let'?s|i'?d like to|let me) (think|review|loop in)",
+        "(get back to you|come back|circle back) (by|in|on)",
+      ],
+      tr_hint:
+        "Manager promotion talk istedi — empati + somut adım. Türk hatası: hemen 'yes/no' verme.",
+      ideal_answer: "Of course — thanks for bringing this up. Let me review the levels rubric and get back to you by Friday.",
+    },
+    {
+      id: "ex.wpa38.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Why do you think you deserve a promotion?",
+      accepted_patterns: [
+        "(honestly|i think|i'?d point to)",
+        "(over the (last|past) (six months|year|quarter))",
+        "(i (led|owned|drove|shipped)) (.+)",
+        "(impact|results|outcomes) (was|were|included)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Manager 'why deserve' sordu — data + impact ile cevap, 'I work hard' = kötü. Spesifik proje + measurable result.",
+      ideal_response: "Honestly, over the last six months I led the migration project — cut latency 40% and onboarded two new engineers.",
+    },
+    {
+      id: "ex.wpa38.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Zam istiyorum.",
+      wrong_en: "I want raise.",
+      right_en: "I'd like to discuss a raise / I'd like to talk about compensation.",
+      why_tr:
+        "'I want raise' = direkt isteme + article eksik. İş İngilizcesinde 'I'd like to discuss' = soft conversation opener. 'A raise' (article). Ayrıca 'discuss' = konuyu açıyorum, sonucu dayatmıyorum. Türk doğrudanlığı promotion conversation'da agresif.",
+    },
+    {
+      id: "ex.wpa38.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Promotion' ve 'raise' farkı?",
+          options: ["Aynı şey", "Promotion = level/title yükselişi, raise = sadece maaş artışı", "Sadece title", "Sadece bonus"],
+          correct: 1,
+          tr_explanation: "Promotion = position upgrade. Raise = compensation only. Genelde promotion + raise birlikte ama her zaman değil.",
+        },
+        {
+          q: "'I want raise' yerine doğru kalıp?",
+          options: ["Give me money", "I'd like to discuss a raise", "Increase my salary", "Pay me more"],
+          correct: 1,
+          tr_explanation: "'I'd like to discuss' = conversation opener, soft. Diğerleri agresif.",
+        },
+        {
+          q: "Promotion conversation'a ne ile başlamalı?",
+          options: ["I deserve it", "Data + impact + specific ask", "I quit if no", "Para az"],
+          correct: 1,
+          tr_explanation: "Concrete impact + ask. 'I deserve' duygusal, 'quit' threat = kötü.",
+        },
+        {
+          q: "'Given my impact' kalıbı?",
+          options: ["Etkim verildi", "Etkim göz önüne alındığında (justification)", "Etkimi ver", "Etkisi verili"],
+          correct: 1,
+          tr_explanation: "'Given' = considering. Argümanı data point'e bağlar.",
+        },
+        {
+          q: "Manager 'let me think' dedi — ne yapmalı?",
+          options: ["Israr et", "Spesifik follow-up tarihi öner", "Çık", "Mail bombardımanı"],
+          correct: 1,
+          tr_explanation: "'When can we revisit?' = momentum. Israrcılık ve ayrılık = ekstrem.",
+        },
+      ],
+    },
   ],
 };
 
@@ -444,6 +539,101 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
         "I drove the auth redesign, mentored two juniors, and shipped the API migration — operating at senior scope.",
       tr_explanation:
         "'Helped' = pasif + olculemez. 'I am very dedicated worker' = oz-etiketleme, kanit yok. Doğru: 'Drove/led/owned' + spesifik sonuc + 'operating at X scope'. Aksiyon fiili + olcum sahiplik gosterir.",
+    },
+    {
+      id: "ex.wpa38.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to discuss ___ given ___.",
+      slots: [
+        { accepted: ['a promotion to senior', 'a raise', 'my next step', 'compensation'], distractors: ['promotion senior', 'raise the', 'next step', 'the compensation'] },
+        { accepted: ['my recent impact', "the scope I've taken on", 'current market rates', 'my anniversary'], distractors: ['my recent impacts', "the scopes I've taken", "current's market rates", 'my anniversaries'] },
+      ],
+      tr_hint:
+        "Promotion ask formula. 'I'd like to discuss' = soft ask. 'Given' = data point bağı. 'I want raise' = kaba.",
+      example_filled: "I'd like to discuss a promotion to senior given my recent impact.",
+    },
+    {
+      id: "ex.wpa38.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a minute? I wanted to talk about my growth." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me think on it and get back to you by end of week." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(of course|sure|absolutely)",
+        "(thanks for bringing|appreciate you (raising|sharing)) (this|it) (up)?",
+        "(let'?s|i'?d like to|let me) (think|review|loop in)",
+        "(get back to you|come back|circle back) (by|in|on)",
+      ],
+      tr_hint:
+        "Manager promotion talk istedi — empati + somut adım. Türk hatası: hemen 'yes/no' verme.",
+      ideal_answer: "Of course — thanks for bringing this up. Let me review the levels rubric and get back to you by Friday.",
+    },
+    {
+      id: "ex.wpa38.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Why do you think you deserve a promotion?",
+      accepted_patterns: [
+        "(honestly|i think|i'?d point to)",
+        "(over the (last|past) (six months|year|quarter))",
+        "(i (led|owned|drove|shipped)) (.+)",
+        "(impact|results|outcomes) (was|were|included)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Manager 'why deserve' sordu — data + impact ile cevap, 'I work hard' = kötü. Spesifik proje + measurable result.",
+      ideal_response: "Honestly, over the last six months I led the migration project — cut latency 40% and onboarded two new engineers.",
+    },
+    {
+      id: "ex.wpa38.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Zam istiyorum.",
+      wrong_en: "I want raise.",
+      right_en: "I'd like to discuss a raise / I'd like to talk about compensation.",
+      why_tr:
+        "'I want raise' = direkt isteme + article eksik. İş İngilizcesinde 'I'd like to discuss' = soft conversation opener. 'A raise' (article). Ayrıca 'discuss' = konuyu açıyorum, sonucu dayatmıyorum. Türk doğrudanlığı promotion conversation'da agresif.",
+    },
+    {
+      id: "ex.wpa38.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Promotion' ve 'raise' farkı?",
+          options: ["Aynı şey", "Promotion = level/title yükselişi, raise = sadece maaş artışı", "Sadece title", "Sadece bonus"],
+          correct: 1,
+          tr_explanation: "Promotion = position upgrade. Raise = compensation only. Genelde promotion + raise birlikte ama her zaman değil.",
+        },
+        {
+          q: "'I want raise' yerine doğru kalıp?",
+          options: ["Give me money", "I'd like to discuss a raise", "Increase my salary", "Pay me more"],
+          correct: 1,
+          tr_explanation: "'I'd like to discuss' = conversation opener, soft. Diğerleri agresif.",
+        },
+        {
+          q: "Promotion conversation'a ne ile başlamalı?",
+          options: ["I deserve it", "Data + impact + specific ask", "I quit if no", "Para az"],
+          correct: 1,
+          tr_explanation: "Concrete impact + ask. 'I deserve' duygusal, 'quit' threat = kötü.",
+        },
+        {
+          q: "'Given my impact' kalıbı?",
+          options: ["Etkim verildi", "Etkim göz önüne alındığında (justification)", "Etkimi ver", "Etkisi verili"],
+          correct: 1,
+          tr_explanation: "'Given' = considering. Argümanı data point'e bağlar.",
+        },
+        {
+          q: "Manager 'let me think' dedi — ne yapmalı?",
+          options: ["Israr et", "Spesifik follow-up tarihi öner", "Çık", "Mail bombardımanı"],
+          correct: 1,
+          tr_explanation: "'When can we revisit?' = momentum. Israrcılık ve ayrılık = ekstrem.",
+        },
+      ],
     },
   ],
 };
@@ -667,6 +857,101 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
         "Appreciate the offer — based on market data, senior sits at 175 to 195. Is there room to land closer to the upper end?",
       tr_explanation:
         "'Too low' + 'expected more money' = duygusal + kisisel. Doğru: 'Appreciate the offer' (saygi) + market data (objektif) + 'is there room?' (kapi aralik tutar). HR oynamak ister, kavga etmek istemez.",
+    },
+    {
+      id: "ex.wpa38.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to discuss ___ given ___.",
+      slots: [
+        { accepted: ['a promotion to senior', 'a raise', 'my next step', 'compensation'], distractors: ['promotion senior', 'raise the', 'next step', 'the compensation'] },
+        { accepted: ['my recent impact', "the scope I've taken on", 'current market rates', 'my anniversary'], distractors: ['my recent impacts', "the scopes I've taken", "current's market rates", 'my anniversaries'] },
+      ],
+      tr_hint:
+        "Promotion ask formula. 'I'd like to discuss' = soft ask. 'Given' = data point bağı. 'I want raise' = kaba.",
+      example_filled: "I'd like to discuss a promotion to senior given my recent impact.",
+    },
+    {
+      id: "ex.wpa38.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a minute? I wanted to talk about my growth." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me think on it and get back to you by end of week." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(of course|sure|absolutely)",
+        "(thanks for bringing|appreciate you (raising|sharing)) (this|it) (up)?",
+        "(let'?s|i'?d like to|let me) (think|review|loop in)",
+        "(get back to you|come back|circle back) (by|in|on)",
+      ],
+      tr_hint:
+        "Manager promotion talk istedi — empati + somut adım. Türk hatası: hemen 'yes/no' verme.",
+      ideal_answer: "Of course — thanks for bringing this up. Let me review the levels rubric and get back to you by Friday.",
+    },
+    {
+      id: "ex.wpa38.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Why do you think you deserve a promotion?",
+      accepted_patterns: [
+        "(honestly|i think|i'?d point to)",
+        "(over the (last|past) (six months|year|quarter))",
+        "(i (led|owned|drove|shipped)) (.+)",
+        "(impact|results|outcomes) (was|were|included)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Manager 'why deserve' sordu — data + impact ile cevap, 'I work hard' = kötü. Spesifik proje + measurable result.",
+      ideal_response: "Honestly, over the last six months I led the migration project — cut latency 40% and onboarded two new engineers.",
+    },
+    {
+      id: "ex.wpa38.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Zam istiyorum.",
+      wrong_en: "I want raise.",
+      right_en: "I'd like to discuss a raise / I'd like to talk about compensation.",
+      why_tr:
+        "'I want raise' = direkt isteme + article eksik. İş İngilizcesinde 'I'd like to discuss' = soft conversation opener. 'A raise' (article). Ayrıca 'discuss' = konuyu açıyorum, sonucu dayatmıyorum. Türk doğrudanlığı promotion conversation'da agresif.",
+    },
+    {
+      id: "ex.wpa38.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Promotion' ve 'raise' farkı?",
+          options: ["Aynı şey", "Promotion = level/title yükselişi, raise = sadece maaş artışı", "Sadece title", "Sadece bonus"],
+          correct: 1,
+          tr_explanation: "Promotion = position upgrade. Raise = compensation only. Genelde promotion + raise birlikte ama her zaman değil.",
+        },
+        {
+          q: "'I want raise' yerine doğru kalıp?",
+          options: ["Give me money", "I'd like to discuss a raise", "Increase my salary", "Pay me more"],
+          correct: 1,
+          tr_explanation: "'I'd like to discuss' = conversation opener, soft. Diğerleri agresif.",
+        },
+        {
+          q: "Promotion conversation'a ne ile başlamalı?",
+          options: ["I deserve it", "Data + impact + specific ask", "I quit if no", "Para az"],
+          correct: 1,
+          tr_explanation: "Concrete impact + ask. 'I deserve' duygusal, 'quit' threat = kötü.",
+        },
+        {
+          q: "'Given my impact' kalıbı?",
+          options: ["Etkim verildi", "Etkim göz önüne alındığında (justification)", "Etkimi ver", "Etkisi verili"],
+          correct: 1,
+          tr_explanation: "'Given' = considering. Argümanı data point'e bağlar.",
+        },
+        {
+          q: "Manager 'let me think' dedi — ne yapmalı?",
+          options: ["Israr et", "Spesifik follow-up tarihi öner", "Çık", "Mail bombardımanı"],
+          correct: 1,
+          tr_explanation: "'When can we revisit?' = momentum. Israrcılık ve ayrılık = ekstrem.",
+        },
+      ],
     },
   ],
 };
@@ -893,6 +1178,101 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
       tr_explanation:
         "'I will wait' = pasif. 'Not fair' = duygusal. Doğru: kriter sor + zaman cizgisi belirle + yazili sahiplen. Olgun professional 'no'-yu calisma planına cevirir.",
     },
+    {
+      id: "ex.wpa38.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to discuss ___ given ___.",
+      slots: [
+        { accepted: ['a promotion to senior', 'a raise', 'my next step', 'compensation'], distractors: ['promotion senior', 'raise the', 'next step', 'the compensation'] },
+        { accepted: ['my recent impact', "the scope I've taken on", 'current market rates', 'my anniversary'], distractors: ['my recent impacts', "the scopes I've taken", "current's market rates", 'my anniversaries'] },
+      ],
+      tr_hint:
+        "Promotion ask formula. 'I'd like to discuss' = soft ask. 'Given' = data point bağı. 'I want raise' = kaba.",
+      example_filled: "I'd like to discuss a promotion to senior given my recent impact.",
+    },
+    {
+      id: "ex.wpa38.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a minute? I wanted to talk about my growth." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me think on it and get back to you by end of week." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(of course|sure|absolutely)",
+        "(thanks for bringing|appreciate you (raising|sharing)) (this|it) (up)?",
+        "(let'?s|i'?d like to|let me) (think|review|loop in)",
+        "(get back to you|come back|circle back) (by|in|on)",
+      ],
+      tr_hint:
+        "Manager promotion talk istedi — empati + somut adım. Türk hatası: hemen 'yes/no' verme.",
+      ideal_answer: "Of course — thanks for bringing this up. Let me review the levels rubric and get back to you by Friday.",
+    },
+    {
+      id: "ex.wpa38.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Why do you think you deserve a promotion?",
+      accepted_patterns: [
+        "(honestly|i think|i'?d point to)",
+        "(over the (last|past) (six months|year|quarter))",
+        "(i (led|owned|drove|shipped)) (.+)",
+        "(impact|results|outcomes) (was|were|included)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Manager 'why deserve' sordu — data + impact ile cevap, 'I work hard' = kötü. Spesifik proje + measurable result.",
+      ideal_response: "Honestly, over the last six months I led the migration project — cut latency 40% and onboarded two new engineers.",
+    },
+    {
+      id: "ex.wpa38.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Zam istiyorum.",
+      wrong_en: "I want raise.",
+      right_en: "I'd like to discuss a raise / I'd like to talk about compensation.",
+      why_tr:
+        "'I want raise' = direkt isteme + article eksik. İş İngilizcesinde 'I'd like to discuss' = soft conversation opener. 'A raise' (article). Ayrıca 'discuss' = konuyu açıyorum, sonucu dayatmıyorum. Türk doğrudanlığı promotion conversation'da agresif.",
+    },
+    {
+      id: "ex.wpa38.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Promotion' ve 'raise' farkı?",
+          options: ["Aynı şey", "Promotion = level/title yükselişi, raise = sadece maaş artışı", "Sadece title", "Sadece bonus"],
+          correct: 1,
+          tr_explanation: "Promotion = position upgrade. Raise = compensation only. Genelde promotion + raise birlikte ama her zaman değil.",
+        },
+        {
+          q: "'I want raise' yerine doğru kalıp?",
+          options: ["Give me money", "I'd like to discuss a raise", "Increase my salary", "Pay me more"],
+          correct: 1,
+          tr_explanation: "'I'd like to discuss' = conversation opener, soft. Diğerleri agresif.",
+        },
+        {
+          q: "Promotion conversation'a ne ile başlamalı?",
+          options: ["I deserve it", "Data + impact + specific ask", "I quit if no", "Para az"],
+          correct: 1,
+          tr_explanation: "Concrete impact + ask. 'I deserve' duygusal, 'quit' threat = kötü.",
+        },
+        {
+          q: "'Given my impact' kalıbı?",
+          options: ["Etkim verildi", "Etkim göz önüne alındığında (justification)", "Etkimi ver", "Etkisi verili"],
+          correct: 1,
+          tr_explanation: "'Given' = considering. Argümanı data point'e bağlar.",
+        },
+        {
+          q: "Manager 'let me think' dedi — ne yapmalı?",
+          options: ["Israr et", "Spesifik follow-up tarihi öner", "Çık", "Mail bombardımanı"],
+          correct: 1,
+          tr_explanation: "'When can we revisit?' = momentum. Israrcılık ve ayrılık = ekstrem.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1073,6 +1453,101 @@ export const workPromotionAskLesson_38_5: BundledLesson = {
       tr_hint:
         "'Wanted to put' bagli akis — 'wonna-pud'. 'Radar' icinde 'r' yumusak Amerikan. 'Talk growth' direkt baglanir, 'th' net.",
     },
+    {
+      id: "ex.wpa38.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to discuss ___ given ___.",
+      slots: [
+        { accepted: ['a promotion to senior', 'a raise', 'my next step', 'compensation'], distractors: ['promotion senior', 'raise the', 'next step', 'the compensation'] },
+        { accepted: ['my recent impact', "the scope I've taken on", 'current market rates', 'my anniversary'], distractors: ['my recent impacts', "the scopes I've taken", "current's market rates", 'my anniversaries'] },
+      ],
+      tr_hint:
+        "Promotion ask formula. 'I'd like to discuss' = soft ask. 'Given' = data point bağı. 'I want raise' = kaba.",
+      example_filled: "I'd like to discuss a promotion to senior given my recent impact.",
+    },
+    {
+      id: "ex.wpa38.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a minute? I wanted to talk about my growth." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me think on it and get back to you by end of week." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(of course|sure|absolutely)",
+        "(thanks for bringing|appreciate you (raising|sharing)) (this|it) (up)?",
+        "(let'?s|i'?d like to|let me) (think|review|loop in)",
+        "(get back to you|come back|circle back) (by|in|on)",
+      ],
+      tr_hint:
+        "Manager promotion talk istedi — empati + somut adım. Türk hatası: hemen 'yes/no' verme.",
+      ideal_answer: "Of course — thanks for bringing this up. Let me review the levels rubric and get back to you by Friday.",
+    },
+    {
+      id: "ex.wpa38.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Why do you think you deserve a promotion?",
+      accepted_patterns: [
+        "(honestly|i think|i'?d point to)",
+        "(over the (last|past) (six months|year|quarter))",
+        "(i (led|owned|drove|shipped)) (.+)",
+        "(impact|results|outcomes) (was|were|included)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Manager 'why deserve' sordu — data + impact ile cevap, 'I work hard' = kötü. Spesifik proje + measurable result.",
+      ideal_response: "Honestly, over the last six months I led the migration project — cut latency 40% and onboarded two new engineers.",
+    },
+    {
+      id: "ex.wpa38.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Zam istiyorum.",
+      wrong_en: "I want raise.",
+      right_en: "I'd like to discuss a raise / I'd like to talk about compensation.",
+      why_tr:
+        "'I want raise' = direkt isteme + article eksik. İş İngilizcesinde 'I'd like to discuss' = soft conversation opener. 'A raise' (article). Ayrıca 'discuss' = konuyu açıyorum, sonucu dayatmıyorum. Türk doğrudanlığı promotion conversation'da agresif.",
+    },
+    {
+      id: "ex.wpa38.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Promotion' ve 'raise' farkı?",
+          options: ["Aynı şey", "Promotion = level/title yükselişi, raise = sadece maaş artışı", "Sadece title", "Sadece bonus"],
+          correct: 1,
+          tr_explanation: "Promotion = position upgrade. Raise = compensation only. Genelde promotion + raise birlikte ama her zaman değil.",
+        },
+        {
+          q: "'I want raise' yerine doğru kalıp?",
+          options: ["Give me money", "I'd like to discuss a raise", "Increase my salary", "Pay me more"],
+          correct: 1,
+          tr_explanation: "'I'd like to discuss' = conversation opener, soft. Diğerleri agresif.",
+        },
+        {
+          q: "Promotion conversation'a ne ile başlamalı?",
+          options: ["I deserve it", "Data + impact + specific ask", "I quit if no", "Para az"],
+          correct: 1,
+          tr_explanation: "Concrete impact + ask. 'I deserve' duygusal, 'quit' threat = kötü.",
+        },
+        {
+          q: "'Given my impact' kalıbı?",
+          options: ["Etkim verildi", "Etkim göz önüne alındığında (justification)", "Etkimi ver", "Etkisi verili"],
+          correct: 1,
+          tr_explanation: "'Given' = considering. Argümanı data point'e bağlar.",
+        },
+        {
+          q: "Manager 'let me think' dedi — ne yapmalı?",
+          options: ["Israr et", "Spesifik follow-up tarihi öner", "Çık", "Mail bombardımanı"],
+          correct: 1,
+          tr_explanation: "'When can we revisit?' = momentum. Israrcılık ve ayrılık = ekstrem.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1249,6 +1724,101 @@ export const workPromotionAskLesson_38_6: BundledLesson = {
       ipa: "/lɑːst ˈkwɔːtər aɪ ʃɪpt ðə riːˈdɪzaɪn — ðæt drəʊv ə ˈtwɛnti tuː pəˈsɛnt lɪft ɪn kənˈvɜːʒən/",
       tr_hint:
         "Vaka cumlesi — kararli + olculu. 'Shipped' kisa stop. '22%' = 'twenty-two percent' net. 'Drove a lift' baglanir.",
+    },
+    {
+      id: "ex.wpa38.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to discuss ___ given ___.",
+      slots: [
+        { accepted: ['a promotion to senior', 'a raise', 'my next step', 'compensation'], distractors: ['promotion senior', 'raise the', 'next step', 'the compensation'] },
+        { accepted: ['my recent impact', "the scope I've taken on", 'current market rates', 'my anniversary'], distractors: ['my recent impacts', "the scopes I've taken", "current's market rates", 'my anniversaries'] },
+      ],
+      tr_hint:
+        "Promotion ask formula. 'I'd like to discuss' = soft ask. 'Given' = data point bağı. 'I want raise' = kaba.",
+      example_filled: "I'd like to discuss a promotion to senior given my recent impact.",
+    },
+    {
+      id: "ex.wpa38.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a minute? I wanted to talk about my growth." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me think on it and get back to you by end of week." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(of course|sure|absolutely)",
+        "(thanks for bringing|appreciate you (raising|sharing)) (this|it) (up)?",
+        "(let'?s|i'?d like to|let me) (think|review|loop in)",
+        "(get back to you|come back|circle back) (by|in|on)",
+      ],
+      tr_hint:
+        "Manager promotion talk istedi — empati + somut adım. Türk hatası: hemen 'yes/no' verme.",
+      ideal_answer: "Of course — thanks for bringing this up. Let me review the levels rubric and get back to you by Friday.",
+    },
+    {
+      id: "ex.wpa38.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Why do you think you deserve a promotion?",
+      accepted_patterns: [
+        "(honestly|i think|i'?d point to)",
+        "(over the (last|past) (six months|year|quarter))",
+        "(i (led|owned|drove|shipped)) (.+)",
+        "(impact|results|outcomes) (was|were|included)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Manager 'why deserve' sordu — data + impact ile cevap, 'I work hard' = kötü. Spesifik proje + measurable result.",
+      ideal_response: "Honestly, over the last six months I led the migration project — cut latency 40% and onboarded two new engineers.",
+    },
+    {
+      id: "ex.wpa38.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Zam istiyorum.",
+      wrong_en: "I want raise.",
+      right_en: "I'd like to discuss a raise / I'd like to talk about compensation.",
+      why_tr:
+        "'I want raise' = direkt isteme + article eksik. İş İngilizcesinde 'I'd like to discuss' = soft conversation opener. 'A raise' (article). Ayrıca 'discuss' = konuyu açıyorum, sonucu dayatmıyorum. Türk doğrudanlığı promotion conversation'da agresif.",
+    },
+    {
+      id: "ex.wpa38.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Promotion' ve 'raise' farkı?",
+          options: ["Aynı şey", "Promotion = level/title yükselişi, raise = sadece maaş artışı", "Sadece title", "Sadece bonus"],
+          correct: 1,
+          tr_explanation: "Promotion = position upgrade. Raise = compensation only. Genelde promotion + raise birlikte ama her zaman değil.",
+        },
+        {
+          q: "'I want raise' yerine doğru kalıp?",
+          options: ["Give me money", "I'd like to discuss a raise", "Increase my salary", "Pay me more"],
+          correct: 1,
+          tr_explanation: "'I'd like to discuss' = conversation opener, soft. Diğerleri agresif.",
+        },
+        {
+          q: "Promotion conversation'a ne ile başlamalı?",
+          options: ["I deserve it", "Data + impact + specific ask", "I quit if no", "Para az"],
+          correct: 1,
+          tr_explanation: "Concrete impact + ask. 'I deserve' duygusal, 'quit' threat = kötü.",
+        },
+        {
+          q: "'Given my impact' kalıbı?",
+          options: ["Etkim verildi", "Etkim göz önüne alındığında (justification)", "Etkimi ver", "Etkisi verili"],
+          correct: 1,
+          tr_explanation: "'Given' = considering. Argümanı data point'e bağlar.",
+        },
+        {
+          q: "Manager 'let me think' dedi — ne yapmalı?",
+          options: ["Israr et", "Spesifik follow-up tarihi öner", "Çık", "Mail bombardımanı"],
+          correct: 1,
+          tr_explanation: "'When can we revisit?' = momentum. Israrcılık ve ayrılık = ekstrem.",
+        },
+      ],
     },
   ],
 };
@@ -1433,6 +2003,101 @@ export const workPromotionAskLesson_38_7: BundledLesson = {
       tr_hint:
         "Anchor cumlesi — kararli, tereddutsuz. '185' = 'one-eighty-five' tek nefes. 'Based on' yumusak, virgul sonra durak yok. Soru tonu kesinlikle yok.",
     },
+    {
+      id: "ex.wpa38.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to discuss ___ given ___.",
+      slots: [
+        { accepted: ['a promotion to senior', 'a raise', 'my next step', 'compensation'], distractors: ['promotion senior', 'raise the', 'next step', 'the compensation'] },
+        { accepted: ['my recent impact', "the scope I've taken on", 'current market rates', 'my anniversary'], distractors: ['my recent impacts', "the scopes I've taken", "current's market rates", 'my anniversaries'] },
+      ],
+      tr_hint:
+        "Promotion ask formula. 'I'd like to discuss' = soft ask. 'Given' = data point bağı. 'I want raise' = kaba.",
+      example_filled: "I'd like to discuss a promotion to senior given my recent impact.",
+    },
+    {
+      id: "ex.wpa38.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a minute? I wanted to talk about my growth." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me think on it and get back to you by end of week." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(of course|sure|absolutely)",
+        "(thanks for bringing|appreciate you (raising|sharing)) (this|it) (up)?",
+        "(let'?s|i'?d like to|let me) (think|review|loop in)",
+        "(get back to you|come back|circle back) (by|in|on)",
+      ],
+      tr_hint:
+        "Manager promotion talk istedi — empati + somut adım. Türk hatası: hemen 'yes/no' verme.",
+      ideal_answer: "Of course — thanks for bringing this up. Let me review the levels rubric and get back to you by Friday.",
+    },
+    {
+      id: "ex.wpa38.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Why do you think you deserve a promotion?",
+      accepted_patterns: [
+        "(honestly|i think|i'?d point to)",
+        "(over the (last|past) (six months|year|quarter))",
+        "(i (led|owned|drove|shipped)) (.+)",
+        "(impact|results|outcomes) (was|were|included)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Manager 'why deserve' sordu — data + impact ile cevap, 'I work hard' = kötü. Spesifik proje + measurable result.",
+      ideal_response: "Honestly, over the last six months I led the migration project — cut latency 40% and onboarded two new engineers.",
+    },
+    {
+      id: "ex.wpa38.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Zam istiyorum.",
+      wrong_en: "I want raise.",
+      right_en: "I'd like to discuss a raise / I'd like to talk about compensation.",
+      why_tr:
+        "'I want raise' = direkt isteme + article eksik. İş İngilizcesinde 'I'd like to discuss' = soft conversation opener. 'A raise' (article). Ayrıca 'discuss' = konuyu açıyorum, sonucu dayatmıyorum. Türk doğrudanlığı promotion conversation'da agresif.",
+    },
+    {
+      id: "ex.wpa38.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Promotion' ve 'raise' farkı?",
+          options: ["Aynı şey", "Promotion = level/title yükselişi, raise = sadece maaş artışı", "Sadece title", "Sadece bonus"],
+          correct: 1,
+          tr_explanation: "Promotion = position upgrade. Raise = compensation only. Genelde promotion + raise birlikte ama her zaman değil.",
+        },
+        {
+          q: "'I want raise' yerine doğru kalıp?",
+          options: ["Give me money", "I'd like to discuss a raise", "Increase my salary", "Pay me more"],
+          correct: 1,
+          tr_explanation: "'I'd like to discuss' = conversation opener, soft. Diğerleri agresif.",
+        },
+        {
+          q: "Promotion conversation'a ne ile başlamalı?",
+          options: ["I deserve it", "Data + impact + specific ask", "I quit if no", "Para az"],
+          correct: 1,
+          tr_explanation: "Concrete impact + ask. 'I deserve' duygusal, 'quit' threat = kötü.",
+        },
+        {
+          q: "'Given my impact' kalıbı?",
+          options: ["Etkim verildi", "Etkim göz önüne alındığında (justification)", "Etkimi ver", "Etkisi verili"],
+          correct: 1,
+          tr_explanation: "'Given' = considering. Argümanı data point'e bağlar.",
+        },
+        {
+          q: "Manager 'let me think' dedi — ne yapmalı?",
+          options: ["Israr et", "Spesifik follow-up tarihi öner", "Çık", "Mail bombardımanı"],
+          correct: 1,
+          tr_explanation: "'When can we revisit?' = momentum. Israrcılık ve ayrılık = ekstrem.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1614,6 +2279,101 @@ export const workPromotionAskLesson_38_8: BundledLesson = {
       ipa: "/aɪ əˈpriːʃieɪt ðæt — kʊd wi ɡɛt ˈkləʊsər tə wʌn ˈeɪti faɪv/",
       tr_hint:
         "Counter-offer kalibi — sicak ton, talep degil davet. 'Appreciate' icinde 'priːʃ' kayma sesi. 'Closer to' bagli akis. '185' net.",
+    },
+    {
+      id: "ex.wpa38.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to discuss ___ given ___.",
+      slots: [
+        { accepted: ['a promotion to senior', 'a raise', 'my next step', 'compensation'], distractors: ['promotion senior', 'raise the', 'next step', 'the compensation'] },
+        { accepted: ['my recent impact', "the scope I've taken on", 'current market rates', 'my anniversary'], distractors: ['my recent impacts', "the scopes I've taken", "current's market rates", 'my anniversaries'] },
+      ],
+      tr_hint:
+        "Promotion ask formula. 'I'd like to discuss' = soft ask. 'Given' = data point bağı. 'I want raise' = kaba.",
+      example_filled: "I'd like to discuss a promotion to senior given my recent impact.",
+    },
+    {
+      id: "ex.wpa38.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a minute? I wanted to talk about my growth." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me think on it and get back to you by end of week." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(of course|sure|absolutely)",
+        "(thanks for bringing|appreciate you (raising|sharing)) (this|it) (up)?",
+        "(let'?s|i'?d like to|let me) (think|review|loop in)",
+        "(get back to you|come back|circle back) (by|in|on)",
+      ],
+      tr_hint:
+        "Manager promotion talk istedi — empati + somut adım. Türk hatası: hemen 'yes/no' verme.",
+      ideal_answer: "Of course — thanks for bringing this up. Let me review the levels rubric and get back to you by Friday.",
+    },
+    {
+      id: "ex.wpa38.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Why do you think you deserve a promotion?",
+      accepted_patterns: [
+        "(honestly|i think|i'?d point to)",
+        "(over the (last|past) (six months|year|quarter))",
+        "(i (led|owned|drove|shipped)) (.+)",
+        "(impact|results|outcomes) (was|were|included)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Manager 'why deserve' sordu — data + impact ile cevap, 'I work hard' = kötü. Spesifik proje + measurable result.",
+      ideal_response: "Honestly, over the last six months I led the migration project — cut latency 40% and onboarded two new engineers.",
+    },
+    {
+      id: "ex.wpa38.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Zam istiyorum.",
+      wrong_en: "I want raise.",
+      right_en: "I'd like to discuss a raise / I'd like to talk about compensation.",
+      why_tr:
+        "'I want raise' = direkt isteme + article eksik. İş İngilizcesinde 'I'd like to discuss' = soft conversation opener. 'A raise' (article). Ayrıca 'discuss' = konuyu açıyorum, sonucu dayatmıyorum. Türk doğrudanlığı promotion conversation'da agresif.",
+    },
+    {
+      id: "ex.wpa38.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Promotion' ve 'raise' farkı?",
+          options: ["Aynı şey", "Promotion = level/title yükselişi, raise = sadece maaş artışı", "Sadece title", "Sadece bonus"],
+          correct: 1,
+          tr_explanation: "Promotion = position upgrade. Raise = compensation only. Genelde promotion + raise birlikte ama her zaman değil.",
+        },
+        {
+          q: "'I want raise' yerine doğru kalıp?",
+          options: ["Give me money", "I'd like to discuss a raise", "Increase my salary", "Pay me more"],
+          correct: 1,
+          tr_explanation: "'I'd like to discuss' = conversation opener, soft. Diğerleri agresif.",
+        },
+        {
+          q: "Promotion conversation'a ne ile başlamalı?",
+          options: ["I deserve it", "Data + impact + specific ask", "I quit if no", "Para az"],
+          correct: 1,
+          tr_explanation: "Concrete impact + ask. 'I deserve' duygusal, 'quit' threat = kötü.",
+        },
+        {
+          q: "'Given my impact' kalıbı?",
+          options: ["Etkim verildi", "Etkim göz önüne alındığında (justification)", "Etkimi ver", "Etkisi verili"],
+          correct: 1,
+          tr_explanation: "'Given' = considering. Argümanı data point'e bağlar.",
+        },
+        {
+          q: "Manager 'let me think' dedi — ne yapmalı?",
+          options: ["Israr et", "Spesifik follow-up tarihi öner", "Çık", "Mail bombardımanı"],
+          correct: 1,
+          tr_explanation: "'When can we revisit?' = momentum. Israrcılık ve ayrılık = ekstrem.",
+        },
+      ],
     },
   ],
 };

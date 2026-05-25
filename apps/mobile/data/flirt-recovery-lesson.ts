@@ -210,6 +210,129 @@ export const flirtRecoveryLesson_8_1: BundledLesson = {
       tr_explanation:
         "'Sorry I made big mistake. Forget all I said.' = dramatik + ağır. Doğru: 'misread the vibe' (sahiplen) + 'my bad' (casual) + 'let's rewind' (hafif çıkış).",
     },
+    {
+      id: "ex.frec8.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "Looks like I ___ that one — ___, no ___ needed.",
+      slots: [
+        { accepted: ["misread", "got wrong", "read wrong"] },
+        { accepted: ["my bad", "apologies", "sorry"] },
+        { accepted: ["awkwardness", "weirdness", "drama"] },
+      ],
+      tr_hint:
+        "Yanlış sinyal sonrası toparlama formülü: sahiplen + hafiflet + ortamı rahatlat. Türk öğrenci 'You shouldn't have...' diye suçlar — bu işleri kötüleştirir. Native: hatayı sahiplen + casual + drama yapma.",
+      example_filled: "Looks like I misread that one — my bad, no awkwardness needed.",
+    },
+    {
+      id: "ex.frec8.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "user", text: "I think I misread that — my bad, no weirdness intended." },
+        { speaker: "npc", text: "No worries at all — totally chill. Was thinking of you more as a friend." },
+        { speaker: "user" },
+      ],
+      missing_at: 2,
+      accepted_patterns: [
+        "(thanks|appreciate) (you (being|so) cool|the honesty|the heads up)",
+        "(friend|friendship|hanging out) (works|sounds good|is great)",
+        "(all good|no harm done|no worries)",
+        "(let'?s |we can )(still hang out|still grab coffee)",
+        "(thanks for|appreciate) (not making (it|me|things) (weird|awkward))",
+      ],
+      tr_hint:
+        "NPC yumuşak ret verdi + 'friend' dedi. Kabul + olgunluk göster. 'Friend works, thanks for not making it weird' = olgun + kapı açık. Türk öğrenci 'I am hurt' deme — bu drama tetikler.",
+      ideal_answer: "Friend works — thanks for being cool about it. No drama from me.",
+    },
+    {
+      id: "ex.frec8.1.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Hey, that last message was a bit much for me — just trying to keep things casual right now.",
+      accepted_patterns: [
+        "(oh )?(totally|completely) (got it|understandable|fair)",
+        "(my bad|sorry|apologies)(,)? (i )?(misread|read the vibe wrong)",
+        "(no problem|no worries|all good)(,)? (let'?s )?(reset|rewind|keep it casual)",
+        "(thanks for|appreciate) (telling me|the honesty|saying it)",
+        "(i'?m good with|cool with) (casual|that|wherever we'?re at)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "NPC sınır koyu — 'too much, keep it casual'. 3 saniye düşün, sonra: SAHİPLEN + REZIL DURUMU NÖTRALIZE ET. 'Got it, my bad — let's keep it chill' = olgun. 'Why are you saying this?' DEME.",
+      ideal_response: "Totally got it — my bad for reading it wrong. Let's keep it casual, no pressure from my end.",
+    },
+    {
+      id: "ex.frec8.1.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Beni neden umuda düşürdün? Yanlış sinyal verdin.",
+      wrong_en: "Why you gave me hope? You sent wrong signals.",
+      right_en: "Hey — looks like I misread the vibe. My bad, no hard feelings.",
+      why_tr:
+        "Türk öğrencinin reactivity tuzağı. 'Why you gave me hope' = grammatik bozuk + suçlayıcı = işleri kötüleştirir, partner kaçar. 'Wrong signals' = karşı tarafı suçluyor = defansif olmasına neden olur. Modern dating'de: kendi yorumunu sahiplen + 'my bad' + hafiflet. Bu olgunluk = saygı kazandırır, kapıyı açık tutar.",
+    },
+    {
+      id: "ex.frec8.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'My bad' deyimi ne anlama gelir?",
+          options: [
+            "Benim kötülüğüm",
+            "Pardon / benim hatam (casual)",
+            "Berbatım",
+            "Hatalıyım",
+          ],
+          correct: 1,
+          tr_explanation: "'My bad' = casual özür kalıbı. Uzun 'I'm so sorry'dan daha rahat, daha samimi.",
+        },
+        {
+          q: "'Reading the room' nasıl çevirilir?",
+          options: [
+            "Oda okumak",
+            "Ortamı okumak / havayı sezmek",
+            "Oda dinlemek",
+            "Çevreyi izlemek",
+          ],
+          correct: 1,
+          tr_explanation: "'Read the room' = sosyal sezgi. 'Misread the room' = ortamı yanlış okumak.",
+        },
+        {
+          q: "Yanlış sinyal sonrası EN önemli adım?",
+          options: [
+            "Karşı tarafı suçla",
+            "Hatayı sahiplen + hafiflet + drama yapma",
+            "Ghost yap",
+            "Israr et",
+          ],
+          correct: 1,
+          tr_explanation: "Sahiplenmek = olgunluk. Hafifletmek = ortamı rahatlat. İkisi birden = güç.",
+        },
+        {
+          q: "'Misread the vibe' yerine kullanılabilen alternatif?",
+          options: [
+            "Read the vibe wrong",
+            "Got the signals crossed",
+            "Misread the room",
+            "Hepsi geçerli",
+          ],
+          correct: 3,
+          tr_explanation: "Üç deyim de aynı anlam. Recovery sırasında varyasyon = doğal.",
+        },
+        {
+          q: "Türk hatası: 'Why you gave me hope?' yerine?",
+          options: [
+            "Why did you give me hope?",
+            "My bad, looks like I misread it",
+            "You sent wrong signals",
+            "I'm hurt because of you",
+          ],
+          correct: 1,
+          tr_explanation: "Suçlama = unmatch. Kendi yorumunu sahiplen + casual recovery = olgun.",
+        },
+      ],
+    },
   ],
 };
 

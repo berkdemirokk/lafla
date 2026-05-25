@@ -219,6 +219,101 @@ export const careerAdvancedB2Lesson_1: BundledLesson = {
       tr_explanation:
         "'Insult' = iliski bozucu, profesyonel pazarligda agir kelime. 'Current salary' yerine 'current comp' (total comp ima eder). 'Too low' degil, 'targeting closer to X based on data'. Veri + range = leverage; duygu = leverage kaybi.",
     },
+    {
+      id: "ex.cb2-1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Given ___, I'd recommend ___.",
+      slots: [
+        { accepted: ['the current scope', 'the timeline pressure', 'team capacity', 'the market shift'], distractors: ['the current scopes', "timeline's pressure", "team's capacity", 'market shifts'] },
+        { accepted: ['we phase the rollout', 'we hire one more engineer', 'we cut the C tier', 'we delay launch'], distractors: ['we phasing the rollout', 'we hire engineer one more', 'we cut C tier', 'we delaying launch'] },
+      ],
+      tr_hint:
+        "Senior recommendation kalıbı. 'Given X, I'd recommend Y' = data-driven proposal. Strategic communication.",
+      example_filled: "Given the current scope, I'd recommend we phase the rollout.",
+    },
+    {
+      id: "ex.cb2-1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's your take on the architecture proposal?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Strong points — let's bring this to the broader team." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(strong|solid|interesting) (on (.+)|points around)",
+        "(my main (concern|push) (is|would be)|i'?d push back on)",
+        "(have we (considered|thought about|talked through))",
+        "(i'?d (suggest|propose|recommend))",
+      ],
+      tr_hint:
+        "Senior architecture review — kabul + soft challenge + recommendation. Türk hatası: 'It's bad' = direct.",
+      ideal_answer: "Strong on the data layer — my main push would be around the failure modes. Have we talked through cascading errors?",
+    },
+    {
+      id: "ex.cb2-1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you handle a senior engineer who keeps missing deadlines?",
+      accepted_patterns: [
+        "(first|i'?d start by|honestly)",
+        "(1-on-1|conversation|sitdown) (to (understand|hear|get context))",
+        "(could be (.+)|might be|there'?s usually)",
+        "(plan|action|next step)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior question — empati-first, context understanding, sonra action plan. 'Fire them' = junior cevap.",
+      ideal_response: "First, I'd have a 1-on-1 to understand context — could be blockers, scope, or burnout — then build an action plan together.",
+    },
+    {
+      id: "ex.cb2-1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence senin hatan.",
+      wrong_en: "It's your fault.",
+      right_en: "Looking back, I think there was a miscommunication on our side.",
+      why_tr:
+        "'Your fault' = blame attribution. Senior level: process-focused, system-focused. 'Looking back' + 'miscommunication on our side' = collective ownership + reflection. Türk doğrudanlığı senior conversation'da kariyer sınırlayıcı. Senior English = systems-thinking, blame'siz framing.",
+    },
+    {
+      id: "ex.cb2-1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Senior conversation'da blame language?",
+          options: ["İyi", "Avoid — system/process framing tercih", "Standart", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Senior = systems thinking. 'Process' veya 'communication' framing, kişi suçlama yerine.",
+        },
+        {
+          q: "'I'd recommend' yerine senior alternatif?",
+          options: ["Do it", "Given X, my recommendation is Y", "Maybe", "Belki"],
+          correct: 1,
+          tr_explanation: "'Given X, my recommendation is Y' = justification + spesifik proposal. Senior framing.",
+        },
+        {
+          q: "'Strong points' tonunda?",
+          options: ["Generic praise", "Spesifik kabul + soft challenge için ön ek", "Aşırı kibar", "Saldırı"],
+          correct: 1,
+          tr_explanation: "'Strong on X' = spesifik onay. Sonra 'my push' ile reframe. Diplomatik feedback.",
+        },
+        {
+          q: "Senior level question — junior cevap işareti?",
+          options: ["1-on-1 önerisi", "Empati-first", "'Fire them' / direkt aksiyon", "Context understanding"],
+          correct: 2,
+          tr_explanation: "Junior = solve fast. Senior = understand first, then act. People-first framing.",
+        },
+        {
+          q: "'Have we talked through X?' tonunda?",
+          options: ["Saldırı", "Curiosity-driven challenge", "Belirsiz", "Resmi"],
+          correct: 1,
+          tr_explanation: "Soru formu = challenge as inquiry. Direkt 'You missed X' yerine yumuşak.",
+        },
+      ],
+    },
   ],
 };
 
@@ -434,6 +529,101 @@ export const careerAdvancedB2Lesson_2: BundledLesson = {
       correct_sentence: "Thanks for the feedback. I'd see Q2 a bit differently — I drove that alignment. Help me understand what you observed?",
       tr_explanation:
         "'I disagree + you don't know' = defansif, iliski bozar. Profesyonel: 'Thanks for the feedback' (acik kapi) + 'I'd see it differently' (yumusak pushback) + 'help me understand' (veri iste). Manager pozisyonu degisebilir.",
+    },
+    {
+      id: "ex.cb2-2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Given ___, I'd recommend ___.",
+      slots: [
+        { accepted: ['the current scope', 'the timeline pressure', 'team capacity', 'the market shift'], distractors: ['the current scopes', "timeline's pressure", "team's capacity", 'market shifts'] },
+        { accepted: ['we phase the rollout', 'we hire one more engineer', 'we cut the C tier', 'we delay launch'], distractors: ['we phasing the rollout', 'we hire engineer one more', 'we cut C tier', 'we delaying launch'] },
+      ],
+      tr_hint:
+        "Senior recommendation kalıbı. 'Given X, I'd recommend Y' = data-driven proposal. Strategic communication.",
+      example_filled: "Given the current scope, I'd recommend we phase the rollout.",
+    },
+    {
+      id: "ex.cb2-2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's your take on the architecture proposal?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Strong points — let's bring this to the broader team." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(strong|solid|interesting) (on (.+)|points around)",
+        "(my main (concern|push) (is|would be)|i'?d push back on)",
+        "(have we (considered|thought about|talked through))",
+        "(i'?d (suggest|propose|recommend))",
+      ],
+      tr_hint:
+        "Senior architecture review — kabul + soft challenge + recommendation. Türk hatası: 'It's bad' = direct.",
+      ideal_answer: "Strong on the data layer — my main push would be around the failure modes. Have we talked through cascading errors?",
+    },
+    {
+      id: "ex.cb2-2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you handle a senior engineer who keeps missing deadlines?",
+      accepted_patterns: [
+        "(first|i'?d start by|honestly)",
+        "(1-on-1|conversation|sitdown) (to (understand|hear|get context))",
+        "(could be (.+)|might be|there'?s usually)",
+        "(plan|action|next step)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior question — empati-first, context understanding, sonra action plan. 'Fire them' = junior cevap.",
+      ideal_response: "First, I'd have a 1-on-1 to understand context — could be blockers, scope, or burnout — then build an action plan together.",
+    },
+    {
+      id: "ex.cb2-2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence senin hatan.",
+      wrong_en: "It's your fault.",
+      right_en: "Looking back, I think there was a miscommunication on our side.",
+      why_tr:
+        "'Your fault' = blame attribution. Senior level: process-focused, system-focused. 'Looking back' + 'miscommunication on our side' = collective ownership + reflection. Türk doğrudanlığı senior conversation'da kariyer sınırlayıcı. Senior English = systems-thinking, blame'siz framing.",
+    },
+    {
+      id: "ex.cb2-2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Senior conversation'da blame language?",
+          options: ["İyi", "Avoid — system/process framing tercih", "Standart", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Senior = systems thinking. 'Process' veya 'communication' framing, kişi suçlama yerine.",
+        },
+        {
+          q: "'I'd recommend' yerine senior alternatif?",
+          options: ["Do it", "Given X, my recommendation is Y", "Maybe", "Belki"],
+          correct: 1,
+          tr_explanation: "'Given X, my recommendation is Y' = justification + spesifik proposal. Senior framing.",
+        },
+        {
+          q: "'Strong points' tonunda?",
+          options: ["Generic praise", "Spesifik kabul + soft challenge için ön ek", "Aşırı kibar", "Saldırı"],
+          correct: 1,
+          tr_explanation: "'Strong on X' = spesifik onay. Sonra 'my push' ile reframe. Diplomatik feedback.",
+        },
+        {
+          q: "Senior level question — junior cevap işareti?",
+          options: ["1-on-1 önerisi", "Empati-first", "'Fire them' / direkt aksiyon", "Context understanding"],
+          correct: 2,
+          tr_explanation: "Junior = solve fast. Senior = understand first, then act. People-first framing.",
+        },
+        {
+          q: "'Have we talked through X?' tonunda?",
+          options: ["Saldırı", "Curiosity-driven challenge", "Belirsiz", "Resmi"],
+          correct: 1,
+          tr_explanation: "Soru formu = challenge as inquiry. Direkt 'You missed X' yerine yumuşak.",
+        },
+      ],
     },
   ],
 };
@@ -659,6 +849,101 @@ export const careerAdvancedB2Lesson_3: BundledLesson = {
       correct_sentence: "One area to grow: looping stakeholders in earlier — in the launch review, the design team felt blindsided.",
       tr_explanation:
         "'You are very bad' = saldiri, SBI cercevesi yok. 'Team is complaining' = aktarici suclama. Profesyonel: spesifik durum (launch review) + somut davranis (loop in earlier) + etki (design felt blindsided). Karakter degil, davranis hedef.",
+    },
+    {
+      id: "ex.cb2-3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Given ___, I'd recommend ___.",
+      slots: [
+        { accepted: ['the current scope', 'the timeline pressure', 'team capacity', 'the market shift'], distractors: ['the current scopes', "timeline's pressure", "team's capacity", 'market shifts'] },
+        { accepted: ['we phase the rollout', 'we hire one more engineer', 'we cut the C tier', 'we delay launch'], distractors: ['we phasing the rollout', 'we hire engineer one more', 'we cut C tier', 'we delaying launch'] },
+      ],
+      tr_hint:
+        "Senior recommendation kalıbı. 'Given X, I'd recommend Y' = data-driven proposal. Strategic communication.",
+      example_filled: "Given the current scope, I'd recommend we phase the rollout.",
+    },
+    {
+      id: "ex.cb2-3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's your take on the architecture proposal?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Strong points — let's bring this to the broader team." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(strong|solid|interesting) (on (.+)|points around)",
+        "(my main (concern|push) (is|would be)|i'?d push back on)",
+        "(have we (considered|thought about|talked through))",
+        "(i'?d (suggest|propose|recommend))",
+      ],
+      tr_hint:
+        "Senior architecture review — kabul + soft challenge + recommendation. Türk hatası: 'It's bad' = direct.",
+      ideal_answer: "Strong on the data layer — my main push would be around the failure modes. Have we talked through cascading errors?",
+    },
+    {
+      id: "ex.cb2-3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you handle a senior engineer who keeps missing deadlines?",
+      accepted_patterns: [
+        "(first|i'?d start by|honestly)",
+        "(1-on-1|conversation|sitdown) (to (understand|hear|get context))",
+        "(could be (.+)|might be|there'?s usually)",
+        "(plan|action|next step)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior question — empati-first, context understanding, sonra action plan. 'Fire them' = junior cevap.",
+      ideal_response: "First, I'd have a 1-on-1 to understand context — could be blockers, scope, or burnout — then build an action plan together.",
+    },
+    {
+      id: "ex.cb2-3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence senin hatan.",
+      wrong_en: "It's your fault.",
+      right_en: "Looking back, I think there was a miscommunication on our side.",
+      why_tr:
+        "'Your fault' = blame attribution. Senior level: process-focused, system-focused. 'Looking back' + 'miscommunication on our side' = collective ownership + reflection. Türk doğrudanlığı senior conversation'da kariyer sınırlayıcı. Senior English = systems-thinking, blame'siz framing.",
+    },
+    {
+      id: "ex.cb2-3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Senior conversation'da blame language?",
+          options: ["İyi", "Avoid — system/process framing tercih", "Standart", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Senior = systems thinking. 'Process' veya 'communication' framing, kişi suçlama yerine.",
+        },
+        {
+          q: "'I'd recommend' yerine senior alternatif?",
+          options: ["Do it", "Given X, my recommendation is Y", "Maybe", "Belki"],
+          correct: 1,
+          tr_explanation: "'Given X, my recommendation is Y' = justification + spesifik proposal. Senior framing.",
+        },
+        {
+          q: "'Strong points' tonunda?",
+          options: ["Generic praise", "Spesifik kabul + soft challenge için ön ek", "Aşırı kibar", "Saldırı"],
+          correct: 1,
+          tr_explanation: "'Strong on X' = spesifik onay. Sonra 'my push' ile reframe. Diplomatik feedback.",
+        },
+        {
+          q: "Senior level question — junior cevap işareti?",
+          options: ["1-on-1 önerisi", "Empati-first", "'Fire them' / direkt aksiyon", "Context understanding"],
+          correct: 2,
+          tr_explanation: "Junior = solve fast. Senior = understand first, then act. People-first framing.",
+        },
+        {
+          q: "'Have we talked through X?' tonunda?",
+          options: ["Saldırı", "Curiosity-driven challenge", "Belirsiz", "Resmi"],
+          correct: 1,
+          tr_explanation: "Soru formu = challenge as inquiry. Direkt 'You missed X' yerine yumuşak.",
+        },
+      ],
     },
   ],
 };
@@ -889,6 +1174,101 @@ export const careerAdvancedB2Lesson_4: BundledLesson = {
       tr_explanation:
         "'No, this is wrong + I will not do it' = insubordination algilanir. Profesyonelce: 'I see this differently' (yumusak) + 'I'm worried about X' (spesifik kaygi) + 'Could I share' (izin iste). Manager dinleyebilir.",
     },
+    {
+      id: "ex.cb2-4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Given ___, I'd recommend ___.",
+      slots: [
+        { accepted: ['the current scope', 'the timeline pressure', 'team capacity', 'the market shift'], distractors: ['the current scopes', "timeline's pressure", "team's capacity", 'market shifts'] },
+        { accepted: ['we phase the rollout', 'we hire one more engineer', 'we cut the C tier', 'we delay launch'], distractors: ['we phasing the rollout', 'we hire engineer one more', 'we cut C tier', 'we delaying launch'] },
+      ],
+      tr_hint:
+        "Senior recommendation kalıbı. 'Given X, I'd recommend Y' = data-driven proposal. Strategic communication.",
+      example_filled: "Given the current scope, I'd recommend we phase the rollout.",
+    },
+    {
+      id: "ex.cb2-4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's your take on the architecture proposal?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Strong points — let's bring this to the broader team." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(strong|solid|interesting) (on (.+)|points around)",
+        "(my main (concern|push) (is|would be)|i'?d push back on)",
+        "(have we (considered|thought about|talked through))",
+        "(i'?d (suggest|propose|recommend))",
+      ],
+      tr_hint:
+        "Senior architecture review — kabul + soft challenge + recommendation. Türk hatası: 'It's bad' = direct.",
+      ideal_answer: "Strong on the data layer — my main push would be around the failure modes. Have we talked through cascading errors?",
+    },
+    {
+      id: "ex.cb2-4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you handle a senior engineer who keeps missing deadlines?",
+      accepted_patterns: [
+        "(first|i'?d start by|honestly)",
+        "(1-on-1|conversation|sitdown) (to (understand|hear|get context))",
+        "(could be (.+)|might be|there'?s usually)",
+        "(plan|action|next step)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior question — empati-first, context understanding, sonra action plan. 'Fire them' = junior cevap.",
+      ideal_response: "First, I'd have a 1-on-1 to understand context — could be blockers, scope, or burnout — then build an action plan together.",
+    },
+    {
+      id: "ex.cb2-4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence senin hatan.",
+      wrong_en: "It's your fault.",
+      right_en: "Looking back, I think there was a miscommunication on our side.",
+      why_tr:
+        "'Your fault' = blame attribution. Senior level: process-focused, system-focused. 'Looking back' + 'miscommunication on our side' = collective ownership + reflection. Türk doğrudanlığı senior conversation'da kariyer sınırlayıcı. Senior English = systems-thinking, blame'siz framing.",
+    },
+    {
+      id: "ex.cb2-4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Senior conversation'da blame language?",
+          options: ["İyi", "Avoid — system/process framing tercih", "Standart", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Senior = systems thinking. 'Process' veya 'communication' framing, kişi suçlama yerine.",
+        },
+        {
+          q: "'I'd recommend' yerine senior alternatif?",
+          options: ["Do it", "Given X, my recommendation is Y", "Maybe", "Belki"],
+          correct: 1,
+          tr_explanation: "'Given X, my recommendation is Y' = justification + spesifik proposal. Senior framing.",
+        },
+        {
+          q: "'Strong points' tonunda?",
+          options: ["Generic praise", "Spesifik kabul + soft challenge için ön ek", "Aşırı kibar", "Saldırı"],
+          correct: 1,
+          tr_explanation: "'Strong on X' = spesifik onay. Sonra 'my push' ile reframe. Diplomatik feedback.",
+        },
+        {
+          q: "Senior level question — junior cevap işareti?",
+          options: ["1-on-1 önerisi", "Empati-first", "'Fire them' / direkt aksiyon", "Context understanding"],
+          correct: 2,
+          tr_explanation: "Junior = solve fast. Senior = understand first, then act. People-first framing.",
+        },
+        {
+          q: "'Have we talked through X?' tonunda?",
+          options: ["Saldırı", "Curiosity-driven challenge", "Belirsiz", "Resmi"],
+          correct: 1,
+          tr_explanation: "Soru formu = challenge as inquiry. Direkt 'You missed X' yerine yumuşak.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1105,6 +1485,101 @@ export const careerAdvancedB2Lesson_5: BundledLesson = {
       correct_sentence: "I want to put my name forward for senior this cycle — I've owned three workstreams and shipped Q2 alignment end-to-end.",
       tr_explanation:
         "'Hard work + long time' = etki yok, scope yok, tenure-based talep = zayif. Modern terfi: somut sahiplenilen islerin + olculmus impact + 'put my name forward' standart kalibi. 'Raise' farkli konu — terfi ile karistirma.",
+    },
+    {
+      id: "ex.cb2-5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Given ___, I'd recommend ___.",
+      slots: [
+        { accepted: ['the current scope', 'the timeline pressure', 'team capacity', 'the market shift'], distractors: ['the current scopes', "timeline's pressure", "team's capacity", 'market shifts'] },
+        { accepted: ['we phase the rollout', 'we hire one more engineer', 'we cut the C tier', 'we delay launch'], distractors: ['we phasing the rollout', 'we hire engineer one more', 'we cut C tier', 'we delaying launch'] },
+      ],
+      tr_hint:
+        "Senior recommendation kalıbı. 'Given X, I'd recommend Y' = data-driven proposal. Strategic communication.",
+      example_filled: "Given the current scope, I'd recommend we phase the rollout.",
+    },
+    {
+      id: "ex.cb2-5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's your take on the architecture proposal?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Strong points — let's bring this to the broader team." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(strong|solid|interesting) (on (.+)|points around)",
+        "(my main (concern|push) (is|would be)|i'?d push back on)",
+        "(have we (considered|thought about|talked through))",
+        "(i'?d (suggest|propose|recommend))",
+      ],
+      tr_hint:
+        "Senior architecture review — kabul + soft challenge + recommendation. Türk hatası: 'It's bad' = direct.",
+      ideal_answer: "Strong on the data layer — my main push would be around the failure modes. Have we talked through cascading errors?",
+    },
+    {
+      id: "ex.cb2-5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you handle a senior engineer who keeps missing deadlines?",
+      accepted_patterns: [
+        "(first|i'?d start by|honestly)",
+        "(1-on-1|conversation|sitdown) (to (understand|hear|get context))",
+        "(could be (.+)|might be|there'?s usually)",
+        "(plan|action|next step)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior question — empati-first, context understanding, sonra action plan. 'Fire them' = junior cevap.",
+      ideal_response: "First, I'd have a 1-on-1 to understand context — could be blockers, scope, or burnout — then build an action plan together.",
+    },
+    {
+      id: "ex.cb2-5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence senin hatan.",
+      wrong_en: "It's your fault.",
+      right_en: "Looking back, I think there was a miscommunication on our side.",
+      why_tr:
+        "'Your fault' = blame attribution. Senior level: process-focused, system-focused. 'Looking back' + 'miscommunication on our side' = collective ownership + reflection. Türk doğrudanlığı senior conversation'da kariyer sınırlayıcı. Senior English = systems-thinking, blame'siz framing.",
+    },
+    {
+      id: "ex.cb2-5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Senior conversation'da blame language?",
+          options: ["İyi", "Avoid — system/process framing tercih", "Standart", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Senior = systems thinking. 'Process' veya 'communication' framing, kişi suçlama yerine.",
+        },
+        {
+          q: "'I'd recommend' yerine senior alternatif?",
+          options: ["Do it", "Given X, my recommendation is Y", "Maybe", "Belki"],
+          correct: 1,
+          tr_explanation: "'Given X, my recommendation is Y' = justification + spesifik proposal. Senior framing.",
+        },
+        {
+          q: "'Strong points' tonunda?",
+          options: ["Generic praise", "Spesifik kabul + soft challenge için ön ek", "Aşırı kibar", "Saldırı"],
+          correct: 1,
+          tr_explanation: "'Strong on X' = spesifik onay. Sonra 'my push' ile reframe. Diplomatik feedback.",
+        },
+        {
+          q: "Senior level question — junior cevap işareti?",
+          options: ["1-on-1 önerisi", "Empati-first", "'Fire them' / direkt aksiyon", "Context understanding"],
+          correct: 2,
+          tr_explanation: "Junior = solve fast. Senior = understand first, then act. People-first framing.",
+        },
+        {
+          q: "'Have we talked through X?' tonunda?",
+          options: ["Saldırı", "Curiosity-driven challenge", "Belirsiz", "Resmi"],
+          correct: 1,
+          tr_explanation: "Soru formu = challenge as inquiry. Direkt 'You missed X' yerine yumuşak.",
+        },
+      ],
     },
   ],
 };
@@ -1337,6 +1812,101 @@ export const careerAdvancedB2Lesson_6: BundledLesson = {
       tr_explanation:
         "Mediator (sen) tarafsiz olmali. 'You're both wrong + do what I say' = otoriter, gerilimi artirir. Profesyonel: 'help me understand' (acik soru) + 'separate people from problem' (cerceve) + 'path forward' (cozum odakli).",
     },
+    {
+      id: "ex.cb2-6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Given ___, I'd recommend ___.",
+      slots: [
+        { accepted: ['the current scope', 'the timeline pressure', 'team capacity', 'the market shift'], distractors: ['the current scopes', "timeline's pressure", "team's capacity", 'market shifts'] },
+        { accepted: ['we phase the rollout', 'we hire one more engineer', 'we cut the C tier', 'we delay launch'], distractors: ['we phasing the rollout', 'we hire engineer one more', 'we cut C tier', 'we delaying launch'] },
+      ],
+      tr_hint:
+        "Senior recommendation kalıbı. 'Given X, I'd recommend Y' = data-driven proposal. Strategic communication.",
+      example_filled: "Given the current scope, I'd recommend we phase the rollout.",
+    },
+    {
+      id: "ex.cb2-6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's your take on the architecture proposal?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Strong points — let's bring this to the broader team." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(strong|solid|interesting) (on (.+)|points around)",
+        "(my main (concern|push) (is|would be)|i'?d push back on)",
+        "(have we (considered|thought about|talked through))",
+        "(i'?d (suggest|propose|recommend))",
+      ],
+      tr_hint:
+        "Senior architecture review — kabul + soft challenge + recommendation. Türk hatası: 'It's bad' = direct.",
+      ideal_answer: "Strong on the data layer — my main push would be around the failure modes. Have we talked through cascading errors?",
+    },
+    {
+      id: "ex.cb2-6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you handle a senior engineer who keeps missing deadlines?",
+      accepted_patterns: [
+        "(first|i'?d start by|honestly)",
+        "(1-on-1|conversation|sitdown) (to (understand|hear|get context))",
+        "(could be (.+)|might be|there'?s usually)",
+        "(plan|action|next step)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior question — empati-first, context understanding, sonra action plan. 'Fire them' = junior cevap.",
+      ideal_response: "First, I'd have a 1-on-1 to understand context — could be blockers, scope, or burnout — then build an action plan together.",
+    },
+    {
+      id: "ex.cb2-6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence senin hatan.",
+      wrong_en: "It's your fault.",
+      right_en: "Looking back, I think there was a miscommunication on our side.",
+      why_tr:
+        "'Your fault' = blame attribution. Senior level: process-focused, system-focused. 'Looking back' + 'miscommunication on our side' = collective ownership + reflection. Türk doğrudanlığı senior conversation'da kariyer sınırlayıcı. Senior English = systems-thinking, blame'siz framing.",
+    },
+    {
+      id: "ex.cb2-6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Senior conversation'da blame language?",
+          options: ["İyi", "Avoid — system/process framing tercih", "Standart", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Senior = systems thinking. 'Process' veya 'communication' framing, kişi suçlama yerine.",
+        },
+        {
+          q: "'I'd recommend' yerine senior alternatif?",
+          options: ["Do it", "Given X, my recommendation is Y", "Maybe", "Belki"],
+          correct: 1,
+          tr_explanation: "'Given X, my recommendation is Y' = justification + spesifik proposal. Senior framing.",
+        },
+        {
+          q: "'Strong points' tonunda?",
+          options: ["Generic praise", "Spesifik kabul + soft challenge için ön ek", "Aşırı kibar", "Saldırı"],
+          correct: 1,
+          tr_explanation: "'Strong on X' = spesifik onay. Sonra 'my push' ile reframe. Diplomatik feedback.",
+        },
+        {
+          q: "Senior level question — junior cevap işareti?",
+          options: ["1-on-1 önerisi", "Empati-first", "'Fire them' / direkt aksiyon", "Context understanding"],
+          correct: 2,
+          tr_explanation: "Junior = solve fast. Senior = understand first, then act. People-first framing.",
+        },
+        {
+          q: "'Have we talked through X?' tonunda?",
+          options: ["Saldırı", "Curiosity-driven challenge", "Belirsiz", "Resmi"],
+          correct: 1,
+          tr_explanation: "Soru formu = challenge as inquiry. Direkt 'You missed X' yerine yumuşak.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1568,6 +2138,101 @@ export const careerAdvancedB2Lesson_7: BundledLesson = {
       tr_explanation:
         "'Impossible + not finish + team angry' = panik, cozum onerisi yok. Profesyonelce: 'flag a risk' + somut veri ('tracking two weeks behind') + 'discuss trade-offs' (cozum odakli). Manager seninle calisabilir.",
     },
+    {
+      id: "ex.cb2-7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Given ___, I'd recommend ___.",
+      slots: [
+        { accepted: ['the current scope', 'the timeline pressure', 'team capacity', 'the market shift'], distractors: ['the current scopes', "timeline's pressure", "team's capacity", 'market shifts'] },
+        { accepted: ['we phase the rollout', 'we hire one more engineer', 'we cut the C tier', 'we delay launch'], distractors: ['we phasing the rollout', 'we hire engineer one more', 'we cut C tier', 'we delaying launch'] },
+      ],
+      tr_hint:
+        "Senior recommendation kalıbı. 'Given X, I'd recommend Y' = data-driven proposal. Strategic communication.",
+      example_filled: "Given the current scope, I'd recommend we phase the rollout.",
+    },
+    {
+      id: "ex.cb2-7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's your take on the architecture proposal?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Strong points — let's bring this to the broader team." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(strong|solid|interesting) (on (.+)|points around)",
+        "(my main (concern|push) (is|would be)|i'?d push back on)",
+        "(have we (considered|thought about|talked through))",
+        "(i'?d (suggest|propose|recommend))",
+      ],
+      tr_hint:
+        "Senior architecture review — kabul + soft challenge + recommendation. Türk hatası: 'It's bad' = direct.",
+      ideal_answer: "Strong on the data layer — my main push would be around the failure modes. Have we talked through cascading errors?",
+    },
+    {
+      id: "ex.cb2-7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you handle a senior engineer who keeps missing deadlines?",
+      accepted_patterns: [
+        "(first|i'?d start by|honestly)",
+        "(1-on-1|conversation|sitdown) (to (understand|hear|get context))",
+        "(could be (.+)|might be|there'?s usually)",
+        "(plan|action|next step)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior question — empati-first, context understanding, sonra action plan. 'Fire them' = junior cevap.",
+      ideal_response: "First, I'd have a 1-on-1 to understand context — could be blockers, scope, or burnout — then build an action plan together.",
+    },
+    {
+      id: "ex.cb2-7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence senin hatan.",
+      wrong_en: "It's your fault.",
+      right_en: "Looking back, I think there was a miscommunication on our side.",
+      why_tr:
+        "'Your fault' = blame attribution. Senior level: process-focused, system-focused. 'Looking back' + 'miscommunication on our side' = collective ownership + reflection. Türk doğrudanlığı senior conversation'da kariyer sınırlayıcı. Senior English = systems-thinking, blame'siz framing.",
+    },
+    {
+      id: "ex.cb2-7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Senior conversation'da blame language?",
+          options: ["İyi", "Avoid — system/process framing tercih", "Standart", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Senior = systems thinking. 'Process' veya 'communication' framing, kişi suçlama yerine.",
+        },
+        {
+          q: "'I'd recommend' yerine senior alternatif?",
+          options: ["Do it", "Given X, my recommendation is Y", "Maybe", "Belki"],
+          correct: 1,
+          tr_explanation: "'Given X, my recommendation is Y' = justification + spesifik proposal. Senior framing.",
+        },
+        {
+          q: "'Strong points' tonunda?",
+          options: ["Generic praise", "Spesifik kabul + soft challenge için ön ek", "Aşırı kibar", "Saldırı"],
+          correct: 1,
+          tr_explanation: "'Strong on X' = spesifik onay. Sonra 'my push' ile reframe. Diplomatik feedback.",
+        },
+        {
+          q: "Senior level question — junior cevap işareti?",
+          options: ["1-on-1 önerisi", "Empati-first", "'Fire them' / direkt aksiyon", "Context understanding"],
+          correct: 2,
+          tr_explanation: "Junior = solve fast. Senior = understand first, then act. People-first framing.",
+        },
+        {
+          q: "'Have we talked through X?' tonunda?",
+          options: ["Saldırı", "Curiosity-driven challenge", "Belirsiz", "Resmi"],
+          correct: 1,
+          tr_explanation: "Soru formu = challenge as inquiry. Direkt 'You missed X' yerine yumuşak.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1794,6 +2459,101 @@ export const careerAdvancedB2Lesson_8: BundledLesson = {
       correct_sentence: "You own this — here's the outcome we need and the budget. Weekly sync on Mondays; ping me anytime you're blocked.",
       tr_explanation:
         "'Every day update + I will check' = mikro-management, sahiplenme yok. Modern delegasyon: sonuc tanimi + kisitlar + duzenli sync ritmi + acik kapi (ping anytime). Kisi sahiplenir.",
+    },
+    {
+      id: "ex.cb2-8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Given ___, I'd recommend ___.",
+      slots: [
+        { accepted: ['the current scope', 'the timeline pressure', 'team capacity', 'the market shift'], distractors: ['the current scopes', "timeline's pressure", "team's capacity", 'market shifts'] },
+        { accepted: ['we phase the rollout', 'we hire one more engineer', 'we cut the C tier', 'we delay launch'], distractors: ['we phasing the rollout', 'we hire engineer one more', 'we cut C tier', 'we delaying launch'] },
+      ],
+      tr_hint:
+        "Senior recommendation kalıbı. 'Given X, I'd recommend Y' = data-driven proposal. Strategic communication.",
+      example_filled: "Given the current scope, I'd recommend we phase the rollout.",
+    },
+    {
+      id: "ex.cb2-8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's your take on the architecture proposal?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Strong points — let's bring this to the broader team." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(strong|solid|interesting) (on (.+)|points around)",
+        "(my main (concern|push) (is|would be)|i'?d push back on)",
+        "(have we (considered|thought about|talked through))",
+        "(i'?d (suggest|propose|recommend))",
+      ],
+      tr_hint:
+        "Senior architecture review — kabul + soft challenge + recommendation. Türk hatası: 'It's bad' = direct.",
+      ideal_answer: "Strong on the data layer — my main push would be around the failure modes. Have we talked through cascading errors?",
+    },
+    {
+      id: "ex.cb2-8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you handle a senior engineer who keeps missing deadlines?",
+      accepted_patterns: [
+        "(first|i'?d start by|honestly)",
+        "(1-on-1|conversation|sitdown) (to (understand|hear|get context))",
+        "(could be (.+)|might be|there'?s usually)",
+        "(plan|action|next step)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior question — empati-first, context understanding, sonra action plan. 'Fire them' = junior cevap.",
+      ideal_response: "First, I'd have a 1-on-1 to understand context — could be blockers, scope, or burnout — then build an action plan together.",
+    },
+    {
+      id: "ex.cb2-8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence senin hatan.",
+      wrong_en: "It's your fault.",
+      right_en: "Looking back, I think there was a miscommunication on our side.",
+      why_tr:
+        "'Your fault' = blame attribution. Senior level: process-focused, system-focused. 'Looking back' + 'miscommunication on our side' = collective ownership + reflection. Türk doğrudanlığı senior conversation'da kariyer sınırlayıcı. Senior English = systems-thinking, blame'siz framing.",
+    },
+    {
+      id: "ex.cb2-8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Senior conversation'da blame language?",
+          options: ["İyi", "Avoid — system/process framing tercih", "Standart", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Senior = systems thinking. 'Process' veya 'communication' framing, kişi suçlama yerine.",
+        },
+        {
+          q: "'I'd recommend' yerine senior alternatif?",
+          options: ["Do it", "Given X, my recommendation is Y", "Maybe", "Belki"],
+          correct: 1,
+          tr_explanation: "'Given X, my recommendation is Y' = justification + spesifik proposal. Senior framing.",
+        },
+        {
+          q: "'Strong points' tonunda?",
+          options: ["Generic praise", "Spesifik kabul + soft challenge için ön ek", "Aşırı kibar", "Saldırı"],
+          correct: 1,
+          tr_explanation: "'Strong on X' = spesifik onay. Sonra 'my push' ile reframe. Diplomatik feedback.",
+        },
+        {
+          q: "Senior level question — junior cevap işareti?",
+          options: ["1-on-1 önerisi", "Empati-first", "'Fire them' / direkt aksiyon", "Context understanding"],
+          correct: 2,
+          tr_explanation: "Junior = solve fast. Senior = understand first, then act. People-first framing.",
+        },
+        {
+          q: "'Have we talked through X?' tonunda?",
+          options: ["Saldırı", "Curiosity-driven challenge", "Belirsiz", "Resmi"],
+          correct: 1,
+          tr_explanation: "Soru formu = challenge as inquiry. Direkt 'You missed X' yerine yumuşak.",
+        },
+      ],
     },
   ],
 };
@@ -2027,6 +2787,101 @@ export const careerAdvancedB2Lesson_9: BundledLesson = {
       tr_explanation:
         "'I quit + not come tomorrow' = koprule yikma, profesyonel iliski biter. Standart: 'tell you in person' (saygi) + 'decided to move on' (karar net) + 'last day' (yasal sure) + 'clean handover' (sorumluluk). Referans icin altin.",
     },
+    {
+      id: "ex.cb2-9.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Given ___, I'd recommend ___.",
+      slots: [
+        { accepted: ['the current scope', 'the timeline pressure', 'team capacity', 'the market shift'], distractors: ['the current scopes', "timeline's pressure", "team's capacity", 'market shifts'] },
+        { accepted: ['we phase the rollout', 'we hire one more engineer', 'we cut the C tier', 'we delay launch'], distractors: ['we phasing the rollout', 'we hire engineer one more', 'we cut C tier', 'we delaying launch'] },
+      ],
+      tr_hint:
+        "Senior recommendation kalıbı. 'Given X, I'd recommend Y' = data-driven proposal. Strategic communication.",
+      example_filled: "Given the current scope, I'd recommend we phase the rollout.",
+    },
+    {
+      id: "ex.cb2-9.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's your take on the architecture proposal?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Strong points — let's bring this to the broader team." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(strong|solid|interesting) (on (.+)|points around)",
+        "(my main (concern|push) (is|would be)|i'?d push back on)",
+        "(have we (considered|thought about|talked through))",
+        "(i'?d (suggest|propose|recommend))",
+      ],
+      tr_hint:
+        "Senior architecture review — kabul + soft challenge + recommendation. Türk hatası: 'It's bad' = direct.",
+      ideal_answer: "Strong on the data layer — my main push would be around the failure modes. Have we talked through cascading errors?",
+    },
+    {
+      id: "ex.cb2-9.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you handle a senior engineer who keeps missing deadlines?",
+      accepted_patterns: [
+        "(first|i'?d start by|honestly)",
+        "(1-on-1|conversation|sitdown) (to (understand|hear|get context))",
+        "(could be (.+)|might be|there'?s usually)",
+        "(plan|action|next step)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior question — empati-first, context understanding, sonra action plan. 'Fire them' = junior cevap.",
+      ideal_response: "First, I'd have a 1-on-1 to understand context — could be blockers, scope, or burnout — then build an action plan together.",
+    },
+    {
+      id: "ex.cb2-9.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence senin hatan.",
+      wrong_en: "It's your fault.",
+      right_en: "Looking back, I think there was a miscommunication on our side.",
+      why_tr:
+        "'Your fault' = blame attribution. Senior level: process-focused, system-focused. 'Looking back' + 'miscommunication on our side' = collective ownership + reflection. Türk doğrudanlığı senior conversation'da kariyer sınırlayıcı. Senior English = systems-thinking, blame'siz framing.",
+    },
+    {
+      id: "ex.cb2-9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Senior conversation'da blame language?",
+          options: ["İyi", "Avoid — system/process framing tercih", "Standart", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Senior = systems thinking. 'Process' veya 'communication' framing, kişi suçlama yerine.",
+        },
+        {
+          q: "'I'd recommend' yerine senior alternatif?",
+          options: ["Do it", "Given X, my recommendation is Y", "Maybe", "Belki"],
+          correct: 1,
+          tr_explanation: "'Given X, my recommendation is Y' = justification + spesifik proposal. Senior framing.",
+        },
+        {
+          q: "'Strong points' tonunda?",
+          options: ["Generic praise", "Spesifik kabul + soft challenge için ön ek", "Aşırı kibar", "Saldırı"],
+          correct: 1,
+          tr_explanation: "'Strong on X' = spesifik onay. Sonra 'my push' ile reframe. Diplomatik feedback.",
+        },
+        {
+          q: "Senior level question — junior cevap işareti?",
+          options: ["1-on-1 önerisi", "Empati-first", "'Fire them' / direkt aksiyon", "Context understanding"],
+          correct: 2,
+          tr_explanation: "Junior = solve fast. Senior = understand first, then act. People-first framing.",
+        },
+        {
+          q: "'Have we talked through X?' tonunda?",
+          options: ["Saldırı", "Curiosity-driven challenge", "Belirsiz", "Resmi"],
+          correct: 1,
+          tr_explanation: "Soru formu = challenge as inquiry. Direkt 'You missed X' yerine yumuşak.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2259,6 +3114,101 @@ export const careerAdvancedB2Lesson_10: BundledLesson = {
       correct_sentence: "I'm flattered by the counter, but counter-offers don't address what made me start looking — my decision is final.",
       tr_explanation:
         "'20% give and I stay' = parayla satin alinabilir izlenimi, leverage kaybeder. Counter-offer kabul edenlerin %80'i 6 ay icinde yine ayrilir (data). Profesyonel: 'flattered' (saygi) + 'final' (netlik) + sebep maas degil.",
+    },
+    {
+      id: "ex.cb2-10.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Given ___, I'd recommend ___.",
+      slots: [
+        { accepted: ['the current scope', 'the timeline pressure', 'team capacity', 'the market shift'], distractors: ['the current scopes', "timeline's pressure", "team's capacity", 'market shifts'] },
+        { accepted: ['we phase the rollout', 'we hire one more engineer', 'we cut the C tier', 'we delay launch'], distractors: ['we phasing the rollout', 'we hire engineer one more', 'we cut C tier', 'we delaying launch'] },
+      ],
+      tr_hint:
+        "Senior recommendation kalıbı. 'Given X, I'd recommend Y' = data-driven proposal. Strategic communication.",
+      example_filled: "Given the current scope, I'd recommend we phase the rollout.",
+    },
+    {
+      id: "ex.cb2-10.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's your take on the architecture proposal?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Strong points — let's bring this to the broader team." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(strong|solid|interesting) (on (.+)|points around)",
+        "(my main (concern|push) (is|would be)|i'?d push back on)",
+        "(have we (considered|thought about|talked through))",
+        "(i'?d (suggest|propose|recommend))",
+      ],
+      tr_hint:
+        "Senior architecture review — kabul + soft challenge + recommendation. Türk hatası: 'It's bad' = direct.",
+      ideal_answer: "Strong on the data layer — my main push would be around the failure modes. Have we talked through cascading errors?",
+    },
+    {
+      id: "ex.cb2-10.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you handle a senior engineer who keeps missing deadlines?",
+      accepted_patterns: [
+        "(first|i'?d start by|honestly)",
+        "(1-on-1|conversation|sitdown) (to (understand|hear|get context))",
+        "(could be (.+)|might be|there'?s usually)",
+        "(plan|action|next step)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior question — empati-first, context understanding, sonra action plan. 'Fire them' = junior cevap.",
+      ideal_response: "First, I'd have a 1-on-1 to understand context — could be blockers, scope, or burnout — then build an action plan together.",
+    },
+    {
+      id: "ex.cb2-10.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence senin hatan.",
+      wrong_en: "It's your fault.",
+      right_en: "Looking back, I think there was a miscommunication on our side.",
+      why_tr:
+        "'Your fault' = blame attribution. Senior level: process-focused, system-focused. 'Looking back' + 'miscommunication on our side' = collective ownership + reflection. Türk doğrudanlığı senior conversation'da kariyer sınırlayıcı. Senior English = systems-thinking, blame'siz framing.",
+    },
+    {
+      id: "ex.cb2-10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Senior conversation'da blame language?",
+          options: ["İyi", "Avoid — system/process framing tercih", "Standart", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Senior = systems thinking. 'Process' veya 'communication' framing, kişi suçlama yerine.",
+        },
+        {
+          q: "'I'd recommend' yerine senior alternatif?",
+          options: ["Do it", "Given X, my recommendation is Y", "Maybe", "Belki"],
+          correct: 1,
+          tr_explanation: "'Given X, my recommendation is Y' = justification + spesifik proposal. Senior framing.",
+        },
+        {
+          q: "'Strong points' tonunda?",
+          options: ["Generic praise", "Spesifik kabul + soft challenge için ön ek", "Aşırı kibar", "Saldırı"],
+          correct: 1,
+          tr_explanation: "'Strong on X' = spesifik onay. Sonra 'my push' ile reframe. Diplomatik feedback.",
+        },
+        {
+          q: "Senior level question — junior cevap işareti?",
+          options: ["1-on-1 önerisi", "Empati-first", "'Fire them' / direkt aksiyon", "Context understanding"],
+          correct: 2,
+          tr_explanation: "Junior = solve fast. Senior = understand first, then act. People-first framing.",
+        },
+        {
+          q: "'Have we talked through X?' tonunda?",
+          options: ["Saldırı", "Curiosity-driven challenge", "Belirsiz", "Resmi"],
+          correct: 1,
+          tr_explanation: "Soru formu = challenge as inquiry. Direkt 'You missed X' yerine yumuşak.",
+        },
+      ],
     },
   ],
 };
@@ -2498,6 +3448,101 @@ export const careerAdvancedB2Lesson_11: BundledLesson = {
         "Spearheaded a portfolio of four cross-functional initiatives, driving 40% activation lift through stakeholder alignment.",
       tr_explanation:
         "'Responsible for many things, helping team' = pasif, soyut, ATS gormez. Dogru: STRONG VERB (spearheaded) + SAYI (4 girisim) + SIFATLI (cross-functional) + IMPACT (%40) + MEKANIZMA (stakeholder alignment). Her kelime is yapiyor.",
+    },
+    {
+      id: "ex.cb2-11.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Given ___, I'd recommend ___.",
+      slots: [
+        { accepted: ['the current scope', 'the timeline pressure', 'team capacity', 'the market shift'], distractors: ['the current scopes', "timeline's pressure", "team's capacity", 'market shifts'] },
+        { accepted: ['we phase the rollout', 'we hire one more engineer', 'we cut the C tier', 'we delay launch'], distractors: ['we phasing the rollout', 'we hire engineer one more', 'we cut C tier', 'we delaying launch'] },
+      ],
+      tr_hint:
+        "Senior recommendation kalıbı. 'Given X, I'd recommend Y' = data-driven proposal. Strategic communication.",
+      example_filled: "Given the current scope, I'd recommend we phase the rollout.",
+    },
+    {
+      id: "ex.cb2-11.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's your take on the architecture proposal?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Strong points — let's bring this to the broader team." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(strong|solid|interesting) (on (.+)|points around)",
+        "(my main (concern|push) (is|would be)|i'?d push back on)",
+        "(have we (considered|thought about|talked through))",
+        "(i'?d (suggest|propose|recommend))",
+      ],
+      tr_hint:
+        "Senior architecture review — kabul + soft challenge + recommendation. Türk hatası: 'It's bad' = direct.",
+      ideal_answer: "Strong on the data layer — my main push would be around the failure modes. Have we talked through cascading errors?",
+    },
+    {
+      id: "ex.cb2-11.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you handle a senior engineer who keeps missing deadlines?",
+      accepted_patterns: [
+        "(first|i'?d start by|honestly)",
+        "(1-on-1|conversation|sitdown) (to (understand|hear|get context))",
+        "(could be (.+)|might be|there'?s usually)",
+        "(plan|action|next step)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior question — empati-first, context understanding, sonra action plan. 'Fire them' = junior cevap.",
+      ideal_response: "First, I'd have a 1-on-1 to understand context — could be blockers, scope, or burnout — then build an action plan together.",
+    },
+    {
+      id: "ex.cb2-11.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence senin hatan.",
+      wrong_en: "It's your fault.",
+      right_en: "Looking back, I think there was a miscommunication on our side.",
+      why_tr:
+        "'Your fault' = blame attribution. Senior level: process-focused, system-focused. 'Looking back' + 'miscommunication on our side' = collective ownership + reflection. Türk doğrudanlığı senior conversation'da kariyer sınırlayıcı. Senior English = systems-thinking, blame'siz framing.",
+    },
+    {
+      id: "ex.cb2-11.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Senior conversation'da blame language?",
+          options: ["İyi", "Avoid — system/process framing tercih", "Standart", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Senior = systems thinking. 'Process' veya 'communication' framing, kişi suçlama yerine.",
+        },
+        {
+          q: "'I'd recommend' yerine senior alternatif?",
+          options: ["Do it", "Given X, my recommendation is Y", "Maybe", "Belki"],
+          correct: 1,
+          tr_explanation: "'Given X, my recommendation is Y' = justification + spesifik proposal. Senior framing.",
+        },
+        {
+          q: "'Strong points' tonunda?",
+          options: ["Generic praise", "Spesifik kabul + soft challenge için ön ek", "Aşırı kibar", "Saldırı"],
+          correct: 1,
+          tr_explanation: "'Strong on X' = spesifik onay. Sonra 'my push' ile reframe. Diplomatik feedback.",
+        },
+        {
+          q: "Senior level question — junior cevap işareti?",
+          options: ["1-on-1 önerisi", "Empati-first", "'Fire them' / direkt aksiyon", "Context understanding"],
+          correct: 2,
+          tr_explanation: "Junior = solve fast. Senior = understand first, then act. People-first framing.",
+        },
+        {
+          q: "'Have we talked through X?' tonunda?",
+          options: ["Saldırı", "Curiosity-driven challenge", "Belirsiz", "Resmi"],
+          correct: 1,
+          tr_explanation: "Soru formu = challenge as inquiry. Direkt 'You missed X' yerine yumuşak.",
+        },
+      ],
     },
   ],
 };
@@ -2741,6 +3786,101 @@ export const careerAdvancedB2Lesson_12: BundledLesson = {
       tr_explanation:
         "'If I will get + first month' = hem gramer hatasi (will iki yerde) hem strateji hatasi (acele degisiklik). Dogru: SECOND CONDITIONAL ('if I were to') + 90 gun cercevesi + 'no big moves' = director olgunlugu. Acele = junior sinyali.",
     },
+    {
+      id: "ex.cb2-12.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Given ___, I'd recommend ___.",
+      slots: [
+        { accepted: ['the current scope', 'the timeline pressure', 'team capacity', 'the market shift'], distractors: ['the current scopes', "timeline's pressure", "team's capacity", 'market shifts'] },
+        { accepted: ['we phase the rollout', 'we hire one more engineer', 'we cut the C tier', 'we delay launch'], distractors: ['we phasing the rollout', 'we hire engineer one more', 'we cut C tier', 'we delaying launch'] },
+      ],
+      tr_hint:
+        "Senior recommendation kalıbı. 'Given X, I'd recommend Y' = data-driven proposal. Strategic communication.",
+      example_filled: "Given the current scope, I'd recommend we phase the rollout.",
+    },
+    {
+      id: "ex.cb2-12.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's your take on the architecture proposal?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Strong points — let's bring this to the broader team." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(strong|solid|interesting) (on (.+)|points around)",
+        "(my main (concern|push) (is|would be)|i'?d push back on)",
+        "(have we (considered|thought about|talked through))",
+        "(i'?d (suggest|propose|recommend))",
+      ],
+      tr_hint:
+        "Senior architecture review — kabul + soft challenge + recommendation. Türk hatası: 'It's bad' = direct.",
+      ideal_answer: "Strong on the data layer — my main push would be around the failure modes. Have we talked through cascading errors?",
+    },
+    {
+      id: "ex.cb2-12.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you handle a senior engineer who keeps missing deadlines?",
+      accepted_patterns: [
+        "(first|i'?d start by|honestly)",
+        "(1-on-1|conversation|sitdown) (to (understand|hear|get context))",
+        "(could be (.+)|might be|there'?s usually)",
+        "(plan|action|next step)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior question — empati-first, context understanding, sonra action plan. 'Fire them' = junior cevap.",
+      ideal_response: "First, I'd have a 1-on-1 to understand context — could be blockers, scope, or burnout — then build an action plan together.",
+    },
+    {
+      id: "ex.cb2-12.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence senin hatan.",
+      wrong_en: "It's your fault.",
+      right_en: "Looking back, I think there was a miscommunication on our side.",
+      why_tr:
+        "'Your fault' = blame attribution. Senior level: process-focused, system-focused. 'Looking back' + 'miscommunication on our side' = collective ownership + reflection. Türk doğrudanlığı senior conversation'da kariyer sınırlayıcı. Senior English = systems-thinking, blame'siz framing.",
+    },
+    {
+      id: "ex.cb2-12.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Senior conversation'da blame language?",
+          options: ["İyi", "Avoid — system/process framing tercih", "Standart", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Senior = systems thinking. 'Process' veya 'communication' framing, kişi suçlama yerine.",
+        },
+        {
+          q: "'I'd recommend' yerine senior alternatif?",
+          options: ["Do it", "Given X, my recommendation is Y", "Maybe", "Belki"],
+          correct: 1,
+          tr_explanation: "'Given X, my recommendation is Y' = justification + spesifik proposal. Senior framing.",
+        },
+        {
+          q: "'Strong points' tonunda?",
+          options: ["Generic praise", "Spesifik kabul + soft challenge için ön ek", "Aşırı kibar", "Saldırı"],
+          correct: 1,
+          tr_explanation: "'Strong on X' = spesifik onay. Sonra 'my push' ile reframe. Diplomatik feedback.",
+        },
+        {
+          q: "Senior level question — junior cevap işareti?",
+          options: ["1-on-1 önerisi", "Empati-first", "'Fire them' / direkt aksiyon", "Context understanding"],
+          correct: 2,
+          tr_explanation: "Junior = solve fast. Senior = understand first, then act. People-first framing.",
+        },
+        {
+          q: "'Have we talked through X?' tonunda?",
+          options: ["Saldırı", "Curiosity-driven challenge", "Belirsiz", "Resmi"],
+          correct: 1,
+          tr_explanation: "Soru formu = challenge as inquiry. Direkt 'You missed X' yerine yumuşak.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2982,6 +4122,101 @@ export const careerAdvancedB2Lesson_13: BundledLesson = {
       tr_explanation:
         "'Just give bigger salary, equity uncertain' = uzun donem dusunmeyen yaklasim. Senior pazarlik: BASE BANDED (sabit) = lots of pushback yok. EQUITY GROWS = refresh + grant size + acceleration. 'Where the long-term comp lives' = senior cerceve.",
     },
+    {
+      id: "ex.cb2-13.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Given ___, I'd recommend ___.",
+      slots: [
+        { accepted: ['the current scope', 'the timeline pressure', 'team capacity', 'the market shift'], distractors: ['the current scopes', "timeline's pressure", "team's capacity", 'market shifts'] },
+        { accepted: ['we phase the rollout', 'we hire one more engineer', 'we cut the C tier', 'we delay launch'], distractors: ['we phasing the rollout', 'we hire engineer one more', 'we cut C tier', 'we delaying launch'] },
+      ],
+      tr_hint:
+        "Senior recommendation kalıbı. 'Given X, I'd recommend Y' = data-driven proposal. Strategic communication.",
+      example_filled: "Given the current scope, I'd recommend we phase the rollout.",
+    },
+    {
+      id: "ex.cb2-13.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's your take on the architecture proposal?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Strong points — let's bring this to the broader team." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(strong|solid|interesting) (on (.+)|points around)",
+        "(my main (concern|push) (is|would be)|i'?d push back on)",
+        "(have we (considered|thought about|talked through))",
+        "(i'?d (suggest|propose|recommend))",
+      ],
+      tr_hint:
+        "Senior architecture review — kabul + soft challenge + recommendation. Türk hatası: 'It's bad' = direct.",
+      ideal_answer: "Strong on the data layer — my main push would be around the failure modes. Have we talked through cascading errors?",
+    },
+    {
+      id: "ex.cb2-13.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you handle a senior engineer who keeps missing deadlines?",
+      accepted_patterns: [
+        "(first|i'?d start by|honestly)",
+        "(1-on-1|conversation|sitdown) (to (understand|hear|get context))",
+        "(could be (.+)|might be|there'?s usually)",
+        "(plan|action|next step)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior question — empati-first, context understanding, sonra action plan. 'Fire them' = junior cevap.",
+      ideal_response: "First, I'd have a 1-on-1 to understand context — could be blockers, scope, or burnout — then build an action plan together.",
+    },
+    {
+      id: "ex.cb2-13.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence senin hatan.",
+      wrong_en: "It's your fault.",
+      right_en: "Looking back, I think there was a miscommunication on our side.",
+      why_tr:
+        "'Your fault' = blame attribution. Senior level: process-focused, system-focused. 'Looking back' + 'miscommunication on our side' = collective ownership + reflection. Türk doğrudanlığı senior conversation'da kariyer sınırlayıcı. Senior English = systems-thinking, blame'siz framing.",
+    },
+    {
+      id: "ex.cb2-13.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Senior conversation'da blame language?",
+          options: ["İyi", "Avoid — system/process framing tercih", "Standart", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Senior = systems thinking. 'Process' veya 'communication' framing, kişi suçlama yerine.",
+        },
+        {
+          q: "'I'd recommend' yerine senior alternatif?",
+          options: ["Do it", "Given X, my recommendation is Y", "Maybe", "Belki"],
+          correct: 1,
+          tr_explanation: "'Given X, my recommendation is Y' = justification + spesifik proposal. Senior framing.",
+        },
+        {
+          q: "'Strong points' tonunda?",
+          options: ["Generic praise", "Spesifik kabul + soft challenge için ön ek", "Aşırı kibar", "Saldırı"],
+          correct: 1,
+          tr_explanation: "'Strong on X' = spesifik onay. Sonra 'my push' ile reframe. Diplomatik feedback.",
+        },
+        {
+          q: "Senior level question — junior cevap işareti?",
+          options: ["1-on-1 önerisi", "Empati-first", "'Fire them' / direkt aksiyon", "Context understanding"],
+          correct: 2,
+          tr_explanation: "Junior = solve fast. Senior = understand first, then act. People-first framing.",
+        },
+        {
+          q: "'Have we talked through X?' tonunda?",
+          options: ["Saldırı", "Curiosity-driven challenge", "Belirsiz", "Resmi"],
+          correct: 1,
+          tr_explanation: "Soru formu = challenge as inquiry. Direkt 'You missed X' yerine yumuşak.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3220,6 +4455,101 @@ export const careerAdvancedB2Lesson_14: BundledLesson = {
         "One area where she could level up further: publishing more strategic write-ups cross-team — her insights would land with wider stakeholder groups.",
       tr_explanation:
         "'Quiet person, talk more' = kisilik etiketi + cinsiyet/kultur bias riski. Calibration committee bunu reddeder. Dogru: BEHAVIOR ('publishing write-ups') + KANAL (cross-team) + IMPACT ('insights would land'). Davranis somut, kisilik soyut.",
+    },
+    {
+      id: "ex.cb2-14.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Given ___, I'd recommend ___.",
+      slots: [
+        { accepted: ['the current scope', 'the timeline pressure', 'team capacity', 'the market shift'], distractors: ['the current scopes', "timeline's pressure", "team's capacity", 'market shifts'] },
+        { accepted: ['we phase the rollout', 'we hire one more engineer', 'we cut the C tier', 'we delay launch'], distractors: ['we phasing the rollout', 'we hire engineer one more', 'we cut C tier', 'we delaying launch'] },
+      ],
+      tr_hint:
+        "Senior recommendation kalıbı. 'Given X, I'd recommend Y' = data-driven proposal. Strategic communication.",
+      example_filled: "Given the current scope, I'd recommend we phase the rollout.",
+    },
+    {
+      id: "ex.cb2-14.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's your take on the architecture proposal?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Strong points — let's bring this to the broader team." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(strong|solid|interesting) (on (.+)|points around)",
+        "(my main (concern|push) (is|would be)|i'?d push back on)",
+        "(have we (considered|thought about|talked through))",
+        "(i'?d (suggest|propose|recommend))",
+      ],
+      tr_hint:
+        "Senior architecture review — kabul + soft challenge + recommendation. Türk hatası: 'It's bad' = direct.",
+      ideal_answer: "Strong on the data layer — my main push would be around the failure modes. Have we talked through cascading errors?",
+    },
+    {
+      id: "ex.cb2-14.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you handle a senior engineer who keeps missing deadlines?",
+      accepted_patterns: [
+        "(first|i'?d start by|honestly)",
+        "(1-on-1|conversation|sitdown) (to (understand|hear|get context))",
+        "(could be (.+)|might be|there'?s usually)",
+        "(plan|action|next step)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior question — empati-first, context understanding, sonra action plan. 'Fire them' = junior cevap.",
+      ideal_response: "First, I'd have a 1-on-1 to understand context — could be blockers, scope, or burnout — then build an action plan together.",
+    },
+    {
+      id: "ex.cb2-14.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence senin hatan.",
+      wrong_en: "It's your fault.",
+      right_en: "Looking back, I think there was a miscommunication on our side.",
+      why_tr:
+        "'Your fault' = blame attribution. Senior level: process-focused, system-focused. 'Looking back' + 'miscommunication on our side' = collective ownership + reflection. Türk doğrudanlığı senior conversation'da kariyer sınırlayıcı. Senior English = systems-thinking, blame'siz framing.",
+    },
+    {
+      id: "ex.cb2-14.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Senior conversation'da blame language?",
+          options: ["İyi", "Avoid — system/process framing tercih", "Standart", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Senior = systems thinking. 'Process' veya 'communication' framing, kişi suçlama yerine.",
+        },
+        {
+          q: "'I'd recommend' yerine senior alternatif?",
+          options: ["Do it", "Given X, my recommendation is Y", "Maybe", "Belki"],
+          correct: 1,
+          tr_explanation: "'Given X, my recommendation is Y' = justification + spesifik proposal. Senior framing.",
+        },
+        {
+          q: "'Strong points' tonunda?",
+          options: ["Generic praise", "Spesifik kabul + soft challenge için ön ek", "Aşırı kibar", "Saldırı"],
+          correct: 1,
+          tr_explanation: "'Strong on X' = spesifik onay. Sonra 'my push' ile reframe. Diplomatik feedback.",
+        },
+        {
+          q: "Senior level question — junior cevap işareti?",
+          options: ["1-on-1 önerisi", "Empati-first", "'Fire them' / direkt aksiyon", "Context understanding"],
+          correct: 2,
+          tr_explanation: "Junior = solve fast. Senior = understand first, then act. People-first framing.",
+        },
+        {
+          q: "'Have we talked through X?' tonunda?",
+          options: ["Saldırı", "Curiosity-driven challenge", "Belirsiz", "Resmi"],
+          correct: 1,
+          tr_explanation: "Soru formu = challenge as inquiry. Direkt 'You missed X' yerine yumuşak.",
+        },
+      ],
     },
   ],
 };

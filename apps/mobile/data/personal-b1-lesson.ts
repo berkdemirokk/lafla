@@ -221,6 +221,127 @@ export const personalB1Lesson_1: BundledLesson = {
       tr_explanation:
         "'Send me your number' baskı; 'we can speak phone' Türkçe çeviri (doğru: 'talk on the phone'). 'Beautiful' fiziksel iltifat çok erken. Yetişkin yaklaşım: sohbete değer ver + ortak adım öner ('moving this off the app').",
     },
+    {
+      id: "ex.pb1.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Saw you ___ in your bio — what ___ you ___?",
+      slots: [
+        { accepted: ["mentioned hiking", "love yoga", "teach piano", "travel a lot"], distractors: ["are good", "look nice", "wrote stuff"] },
+        { accepted: ["got", "drew", "led"], distractors: ["made", "took", "was"] },
+        { accepted: ["into that", "to it", "started"], distractors: ["doing it", "to that thing", "go there"] },
+      ],
+      tr_hint:
+        "Bio referans + soru — modern dating app açılışı. 'What got you into X?' = ortak alana giriş. Türk öğrenci 'You are nice' der — boş + kaba.",
+      example_filled: "Saw you mentioned hiking in your bio — what got you into that?",
+    },
+    {
+      id: "ex.pb1.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Haha that's so random — I started during the pandemic actually. You?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Same here! Have you tried the bigger ones up north?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(same here|me too|honestly same)",
+        "(i (started|got into it)) (last year|during|after)",
+        "(we (actually )?have that in common)",
+        "(funny enough|coincidentally)",
+      ],
+      tr_hint:
+        "Eşleşme paylaştı — ortak noktayı vurgula. 'Same here — I started last year' veya 'We have that in common.' Türk öğrenci 'OK' der — momentum öldü.",
+      ideal_answer: "Same here — I got into it last year. We actually have that in common!",
+    },
+    {
+      id: "ex.pb1.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I usually keep things light early on — what are you looking for on here?",
+      accepted_patterns: [
+        "(honestly|to be honest)(,)? (something (real|genuine|serious))",
+        "(open to (seeing where things go|something serious))",
+        "(i'?m (looking|here) for (a connection|something genuine))",
+        "(how about you|what about you)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Eşleşme niyet sordu — net + samimi. 'Honestly, something genuine' veya 'Open to seeing where it goes. You?' Türk öğrenci sıkışır — açık ol.",
+      ideal_response: "Honestly, something real — open to seeing where it goes. How about you?",
+    },
+    {
+      id: "ex.pb1.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çok güzelsin, numaranı verir misin?",
+      wrong_en: "You are very beautiful, give me your number.",
+      right_en: "I've enjoyed chatting — would you be up for grabbing a coffee sometime?",
+      why_tr:
+        "Türk öğrenci ilk mesajda 'beautiful' + number direkt ister — yoğun + creepy. Modern yaklaşım: sohbete değer ver + ortak adım öner. 'Grabbing a coffee' = hafif, baskısız.",
+    },
+    {
+      id: "ex.pb1.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Dating app'ta ilk mesaj — en güçlü açılış?",
+          options: [
+            "Hi beautiful.",
+            "Saw you mentioned hiking — what got you into that?",
+            "Send me number.",
+            "You like me?",
+          ],
+          correct: 1,
+          tr_explanation: "Bio referans + soru = ilgi gösterir, momentum başlatır.",
+        },
+        {
+          q: "'We have that in common' ne demek?",
+          options: [
+            "Ortaklığımız var.",
+            "Bu konuda ortak noktamız var.",
+            "Genel olarak iyiyiz.",
+            "Benziyoruz.",
+          ],
+          correct: 1,
+          tr_explanation: "'Have X in common' = ortak nokta. Bağ kurma kalıbı.",
+        },
+        {
+          q: "'What got you into X?' nasıl çevirilir?",
+          options: [
+            "X'in nesi var?",
+            "X'e nasıl başladın / yöneldin?",
+            "X içeriden mi?",
+            "X şart mı?",
+          ],
+          correct: 1,
+          tr_explanation: "'Got into' = (alana, hobby) yöneldim. 'What got you into yoga?' = nasıl başladın?",
+        },
+        {
+          q: "Numara isteme — en doğal modern?",
+          options: [
+            "Give me your number.",
+            "Would you be up for moving this off the app?",
+            "Phone please.",
+            "Where you live?",
+          ],
+          correct: 1,
+          tr_explanation: "'Moving this off the app' = app'ten çıkıp WhatsApp/telefona geçmek. Modern + kibar.",
+        },
+        {
+          q: "'I keep things light early on' ne demek?",
+          options: [
+            "Hafif şeyler yaparım.",
+            "Başlangıçta her şeyi rahat/derinleştirmeden tutarım.",
+            "Karanlıkta otururum.",
+            "Az konuşurum.",
+          ],
+          correct: 1,
+          tr_explanation: "'Keep things light' = derinleştirmeden, rahat sohbet. Dating tek tonun değil = sağlıklı.",
+        },
+      ],
+    },
   ],
 };
 

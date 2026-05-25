@@ -226,6 +226,101 @@ export const workFeedbackGivingLesson_37_1: BundledLesson = {
       tr_explanation:
         "'You are interrupting' = anlık; süregelen kalıp için 'you've been interrupting'. 'Since long time' yanlış — süre için 'for a while'. 'I want make feedback' yanlış — 'I want to give feedback' (mastar + 'give' work register).",
     },
+    {
+      id: "ex.wfg37.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "One thing I'd suggest is ___ — especially when ___.",
+      slots: [
+        { accepted: ['being more concise', 'sharing context earlier', 'asking for help sooner', 'documenting decisions'], distractors: ['being concise more', 'share context earlier', 'ask for help sooner', 'documents decisions'] },
+        { accepted: ['writing to leadership', 'the work is blocked', 'the team is new', 'the scope changes'], distractors: ['writing leadership', 'the work blocked', 'the team new', 'the scope change'] },
+      ],
+      tr_hint:
+        "Constructive feedback kalıbı. 'One thing I'd suggest' = soft + spesifik. Direkt 'You should' yerine 'I'd suggest'.",
+      example_filled: "One thing I'd suggest is being more concise — especially when writing to leadership.",
+    },
+    {
+      id: "ex.wfg37.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'd love your honest feedback — what could I do better?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — that's really helpful, thanks." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(one thing|something) (i'?d suggest|that could help|to consider)",
+        "(when you|whenever you) (.+), try (.+)",
+        "(overall|in general|honestly) (you'?re|your)",
+        "(small thing|nit|optional)",
+      ],
+      tr_hint:
+        "Karşı taraf feedback istedi. Türk hatası: 'You are bad at X' direkt. Kalıp: positive frame + spesifik öneri.",
+      ideal_answer: "Overall you're doing great — one small thing: try sharing more context up front in slack messages.",
+    },
+    {
+      id: "ex.wfg37.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Be honest — was my presentation any good?",
+      accepted_patterns: [
+        "(honestly|yeah|to be honest) (it was|i thought)",
+        "(strong|solid|clear) (on|in) (.+)",
+        "(one thing|small thing) (to (improve|tighten|polish)) (could be|is)",
+        "(the (intro|conclusion|middle)) (was|felt)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik feedback iste — 'It was good' generic = işe yaramaz. 1 güçlü yön + 1 gelişim alanı.",
+      ideal_response: "Honestly it was solid — strong storyline, one thing to tighten could be the intro.",
+    },
+    {
+      id: "ex.wfg37.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sunumun kötüydü.",
+      wrong_en: "Your presentation was bad.",
+      right_en: "Your presentation had some strong moments — one thing I'd suggest is tightening the intro.",
+      why_tr:
+        "'Was bad' = direkt yargı. İş ortamında feedback = improvement-focused. 'Had some strong moments' + spesifik öneri = constructive. Türk doğrudanlığı US iş kültüründe destructive algılanır. Sandwich (positive → improve → positive) formula.",
+    },
+    {
+      id: "ex.wfg37.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Constructive feedback en güçlü formula?",
+          options: ["Sadece olumsuz söyle", "Sandwich (good + improve + good)", "Yargılama yapma", "Sadece olumlu söyle"],
+          correct: 1,
+          tr_explanation: "Sandwich method = positive frame + improvement + closing positive. Standard pratik.",
+        },
+        {
+          q: "'You should' yerine yumuşak alternatif?",
+          options: ["You must", "I'd suggest / one thing to consider", "Do it", "You are forced"],
+          correct: 1,
+          tr_explanation: "'I'd suggest' = öneri tonu. 'You should' biraz emir gibi.",
+        },
+        {
+          q: "'It was bad' yerine constructive?",
+          options: ["It was awful", "There's room to tighten", "Worst ever", "It sucked"],
+          correct: 1,
+          tr_explanation: "'Room to tighten' = improvement framing. 'Bad' = label, action önermez.",
+        },
+        {
+          q: "Feedback verirken ne YAPILMAZ?",
+          options: ["Spesifik örnek vermek", "Karakter saldırısı yapmak (you are X)", "Aksiyon önermek", "Soru sormak"],
+          correct: 1,
+          tr_explanation: "'You are lazy/bad' = karakter saldırısı. Feedback davranışa odaklanır, kişiliğe değil.",
+        },
+        {
+          q: "'One thing I'd suggest' tonunda ne?",
+          options: ["Saldırgan", "Soft, opsiyonel öneri", "Emir", "Resmi şikayet"],
+          correct: 1,
+          tr_explanation: "'I'd' = would conditional = soft. 'One thing' = aşırı bombardıman değil. Native feedback formula.",
+        },
+      ],
+    },
   ],
 };
 
@@ -453,6 +548,101 @@ export const workFeedbackGivingLesson_37_2: BundledLesson = {
       tr_explanation:
         "'Your quality is bad' = etiket + yargı (SBI'ye aykırı); 'has slipped' = davranış. 'Since 2 sprints' yanlış — süre için 'over the last 2 sprints'. 'I want make' yanlış — 'I want to have' (mastar). 'Make talk' Türkçe; 'have a talk' doğru.",
     },
+    {
+      id: "ex.wfg37.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "One thing I'd suggest is ___ — especially when ___.",
+      slots: [
+        { accepted: ['being more concise', 'sharing context earlier', 'asking for help sooner', 'documenting decisions'], distractors: ['being concise more', 'share context earlier', 'ask for help sooner', 'documents decisions'] },
+        { accepted: ['writing to leadership', 'the work is blocked', 'the team is new', 'the scope changes'], distractors: ['writing leadership', 'the work blocked', 'the team new', 'the scope change'] },
+      ],
+      tr_hint:
+        "Constructive feedback kalıbı. 'One thing I'd suggest' = soft + spesifik. Direkt 'You should' yerine 'I'd suggest'.",
+      example_filled: "One thing I'd suggest is being more concise — especially when writing to leadership.",
+    },
+    {
+      id: "ex.wfg37.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'd love your honest feedback — what could I do better?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — that's really helpful, thanks." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(one thing|something) (i'?d suggest|that could help|to consider)",
+        "(when you|whenever you) (.+), try (.+)",
+        "(overall|in general|honestly) (you'?re|your)",
+        "(small thing|nit|optional)",
+      ],
+      tr_hint:
+        "Karşı taraf feedback istedi. Türk hatası: 'You are bad at X' direkt. Kalıp: positive frame + spesifik öneri.",
+      ideal_answer: "Overall you're doing great — one small thing: try sharing more context up front in slack messages.",
+    },
+    {
+      id: "ex.wfg37.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Be honest — was my presentation any good?",
+      accepted_patterns: [
+        "(honestly|yeah|to be honest) (it was|i thought)",
+        "(strong|solid|clear) (on|in) (.+)",
+        "(one thing|small thing) (to (improve|tighten|polish)) (could be|is)",
+        "(the (intro|conclusion|middle)) (was|felt)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik feedback iste — 'It was good' generic = işe yaramaz. 1 güçlü yön + 1 gelişim alanı.",
+      ideal_response: "Honestly it was solid — strong storyline, one thing to tighten could be the intro.",
+    },
+    {
+      id: "ex.wfg37.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sunumun kötüydü.",
+      wrong_en: "Your presentation was bad.",
+      right_en: "Your presentation had some strong moments — one thing I'd suggest is tightening the intro.",
+      why_tr:
+        "'Was bad' = direkt yargı. İş ortamında feedback = improvement-focused. 'Had some strong moments' + spesifik öneri = constructive. Türk doğrudanlığı US iş kültüründe destructive algılanır. Sandwich (positive → improve → positive) formula.",
+    },
+    {
+      id: "ex.wfg37.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Constructive feedback en güçlü formula?",
+          options: ["Sadece olumsuz söyle", "Sandwich (good + improve + good)", "Yargılama yapma", "Sadece olumlu söyle"],
+          correct: 1,
+          tr_explanation: "Sandwich method = positive frame + improvement + closing positive. Standard pratik.",
+        },
+        {
+          q: "'You should' yerine yumuşak alternatif?",
+          options: ["You must", "I'd suggest / one thing to consider", "Do it", "You are forced"],
+          correct: 1,
+          tr_explanation: "'I'd suggest' = öneri tonu. 'You should' biraz emir gibi.",
+        },
+        {
+          q: "'It was bad' yerine constructive?",
+          options: ["It was awful", "There's room to tighten", "Worst ever", "It sucked"],
+          correct: 1,
+          tr_explanation: "'Room to tighten' = improvement framing. 'Bad' = label, action önermez.",
+        },
+        {
+          q: "Feedback verirken ne YAPILMAZ?",
+          options: ["Spesifik örnek vermek", "Karakter saldırısı yapmak (you are X)", "Aksiyon önermek", "Soru sormak"],
+          correct: 1,
+          tr_explanation: "'You are lazy/bad' = karakter saldırısı. Feedback davranışa odaklanır, kişiliğe değil.",
+        },
+        {
+          q: "'One thing I'd suggest' tonunda ne?",
+          options: ["Saldırgan", "Soft, opsiyonel öneri", "Emir", "Resmi şikayet"],
+          correct: 1,
+          tr_explanation: "'I'd' = would conditional = soft. 'One thing' = aşırı bombardıman değil. Native feedback formula.",
+        },
+      ],
+    },
   ],
 };
 
@@ -662,6 +852,101 @@ export const workFeedbackGivingLesson_37_3: BundledLesson = {
       correct_sentence: "Maya has been great at her work for 2 years — I'll give her public praise.",
       tr_explanation:
         "'Maya is good' yanlış zaman — süregelen için 'has been great'. 'Good in her work' Türkçe; 'great at her work' doğru. 'Since 2 years' yanlış — süre için 'for'. 'Make a praise' Türkçe; doğrusu 'give public praise'.",
+    },
+    {
+      id: "ex.wfg37.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "One thing I'd suggest is ___ — especially when ___.",
+      slots: [
+        { accepted: ['being more concise', 'sharing context earlier', 'asking for help sooner', 'documenting decisions'], distractors: ['being concise more', 'share context earlier', 'ask for help sooner', 'documents decisions'] },
+        { accepted: ['writing to leadership', 'the work is blocked', 'the team is new', 'the scope changes'], distractors: ['writing leadership', 'the work blocked', 'the team new', 'the scope change'] },
+      ],
+      tr_hint:
+        "Constructive feedback kalıbı. 'One thing I'd suggest' = soft + spesifik. Direkt 'You should' yerine 'I'd suggest'.",
+      example_filled: "One thing I'd suggest is being more concise — especially when writing to leadership.",
+    },
+    {
+      id: "ex.wfg37.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'd love your honest feedback — what could I do better?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — that's really helpful, thanks." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(one thing|something) (i'?d suggest|that could help|to consider)",
+        "(when you|whenever you) (.+), try (.+)",
+        "(overall|in general|honestly) (you'?re|your)",
+        "(small thing|nit|optional)",
+      ],
+      tr_hint:
+        "Karşı taraf feedback istedi. Türk hatası: 'You are bad at X' direkt. Kalıp: positive frame + spesifik öneri.",
+      ideal_answer: "Overall you're doing great — one small thing: try sharing more context up front in slack messages.",
+    },
+    {
+      id: "ex.wfg37.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Be honest — was my presentation any good?",
+      accepted_patterns: [
+        "(honestly|yeah|to be honest) (it was|i thought)",
+        "(strong|solid|clear) (on|in) (.+)",
+        "(one thing|small thing) (to (improve|tighten|polish)) (could be|is)",
+        "(the (intro|conclusion|middle)) (was|felt)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik feedback iste — 'It was good' generic = işe yaramaz. 1 güçlü yön + 1 gelişim alanı.",
+      ideal_response: "Honestly it was solid — strong storyline, one thing to tighten could be the intro.",
+    },
+    {
+      id: "ex.wfg37.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sunumun kötüydü.",
+      wrong_en: "Your presentation was bad.",
+      right_en: "Your presentation had some strong moments — one thing I'd suggest is tightening the intro.",
+      why_tr:
+        "'Was bad' = direkt yargı. İş ortamında feedback = improvement-focused. 'Had some strong moments' + spesifik öneri = constructive. Türk doğrudanlığı US iş kültüründe destructive algılanır. Sandwich (positive → improve → positive) formula.",
+    },
+    {
+      id: "ex.wfg37.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Constructive feedback en güçlü formula?",
+          options: ["Sadece olumsuz söyle", "Sandwich (good + improve + good)", "Yargılama yapma", "Sadece olumlu söyle"],
+          correct: 1,
+          tr_explanation: "Sandwich method = positive frame + improvement + closing positive. Standard pratik.",
+        },
+        {
+          q: "'You should' yerine yumuşak alternatif?",
+          options: ["You must", "I'd suggest / one thing to consider", "Do it", "You are forced"],
+          correct: 1,
+          tr_explanation: "'I'd suggest' = öneri tonu. 'You should' biraz emir gibi.",
+        },
+        {
+          q: "'It was bad' yerine constructive?",
+          options: ["It was awful", "There's room to tighten", "Worst ever", "It sucked"],
+          correct: 1,
+          tr_explanation: "'Room to tighten' = improvement framing. 'Bad' = label, action önermez.",
+        },
+        {
+          q: "Feedback verirken ne YAPILMAZ?",
+          options: ["Spesifik örnek vermek", "Karakter saldırısı yapmak (you are X)", "Aksiyon önermek", "Soru sormak"],
+          correct: 1,
+          tr_explanation: "'You are lazy/bad' = karakter saldırısı. Feedback davranışa odaklanır, kişiliğe değil.",
+        },
+        {
+          q: "'One thing I'd suggest' tonunda ne?",
+          options: ["Saldırgan", "Soft, opsiyonel öneri", "Emir", "Resmi şikayet"],
+          correct: 1,
+          tr_explanation: "'I'd' = would conditional = soft. 'One thing' = aşırı bombardıman değil. Native feedback formula.",
+        },
+      ],
     },
   ],
 };
@@ -897,6 +1182,101 @@ export const workFeedbackGivingLesson_37_4: BundledLesson = {
       tr_explanation:
         "'We talk' yanlış zaman; süregelen için 'we've been talking'. 'Since the last month' yanlış — süre için 'for the last month'. 'We make plan' yerine 'let's make a plan' (öneri + sayılabilir).",
     },
+    {
+      id: "ex.wfg37.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "One thing I'd suggest is ___ — especially when ___.",
+      slots: [
+        { accepted: ['being more concise', 'sharing context earlier', 'asking for help sooner', 'documenting decisions'], distractors: ['being concise more', 'share context earlier', 'ask for help sooner', 'documents decisions'] },
+        { accepted: ['writing to leadership', 'the work is blocked', 'the team is new', 'the scope changes'], distractors: ['writing leadership', 'the work blocked', 'the team new', 'the scope change'] },
+      ],
+      tr_hint:
+        "Constructive feedback kalıbı. 'One thing I'd suggest' = soft + spesifik. Direkt 'You should' yerine 'I'd suggest'.",
+      example_filled: "One thing I'd suggest is being more concise — especially when writing to leadership.",
+    },
+    {
+      id: "ex.wfg37.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'd love your honest feedback — what could I do better?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — that's really helpful, thanks." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(one thing|something) (i'?d suggest|that could help|to consider)",
+        "(when you|whenever you) (.+), try (.+)",
+        "(overall|in general|honestly) (you'?re|your)",
+        "(small thing|nit|optional)",
+      ],
+      tr_hint:
+        "Karşı taraf feedback istedi. Türk hatası: 'You are bad at X' direkt. Kalıp: positive frame + spesifik öneri.",
+      ideal_answer: "Overall you're doing great — one small thing: try sharing more context up front in slack messages.",
+    },
+    {
+      id: "ex.wfg37.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Be honest — was my presentation any good?",
+      accepted_patterns: [
+        "(honestly|yeah|to be honest) (it was|i thought)",
+        "(strong|solid|clear) (on|in) (.+)",
+        "(one thing|small thing) (to (improve|tighten|polish)) (could be|is)",
+        "(the (intro|conclusion|middle)) (was|felt)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik feedback iste — 'It was good' generic = işe yaramaz. 1 güçlü yön + 1 gelişim alanı.",
+      ideal_response: "Honestly it was solid — strong storyline, one thing to tighten could be the intro.",
+    },
+    {
+      id: "ex.wfg37.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sunumun kötüydü.",
+      wrong_en: "Your presentation was bad.",
+      right_en: "Your presentation had some strong moments — one thing I'd suggest is tightening the intro.",
+      why_tr:
+        "'Was bad' = direkt yargı. İş ortamında feedback = improvement-focused. 'Had some strong moments' + spesifik öneri = constructive. Türk doğrudanlığı US iş kültüründe destructive algılanır. Sandwich (positive → improve → positive) formula.",
+    },
+    {
+      id: "ex.wfg37.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Constructive feedback en güçlü formula?",
+          options: ["Sadece olumsuz söyle", "Sandwich (good + improve + good)", "Yargılama yapma", "Sadece olumlu söyle"],
+          correct: 1,
+          tr_explanation: "Sandwich method = positive frame + improvement + closing positive. Standard pratik.",
+        },
+        {
+          q: "'You should' yerine yumuşak alternatif?",
+          options: ["You must", "I'd suggest / one thing to consider", "Do it", "You are forced"],
+          correct: 1,
+          tr_explanation: "'I'd suggest' = öneri tonu. 'You should' biraz emir gibi.",
+        },
+        {
+          q: "'It was bad' yerine constructive?",
+          options: ["It was awful", "There's room to tighten", "Worst ever", "It sucked"],
+          correct: 1,
+          tr_explanation: "'Room to tighten' = improvement framing. 'Bad' = label, action önermez.",
+        },
+        {
+          q: "Feedback verirken ne YAPILMAZ?",
+          options: ["Spesifik örnek vermek", "Karakter saldırısı yapmak (you are X)", "Aksiyon önermek", "Soru sormak"],
+          correct: 1,
+          tr_explanation: "'You are lazy/bad' = karakter saldırısı. Feedback davranışa odaklanır, kişiliğe değil.",
+        },
+        {
+          q: "'One thing I'd suggest' tonunda ne?",
+          options: ["Saldırgan", "Soft, opsiyonel öneri", "Emir", "Resmi şikayet"],
+          correct: 1,
+          tr_explanation: "'I'd' = would conditional = soft. 'One thing' = aşırı bombardıman değil. Native feedback formula.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1086,6 +1466,101 @@ export const workFeedbackGivingLesson_37_5: BundledLesson = {
       phrase: "Your revenue slide really moved the needle with the CFO.",
       tr_translation: "Revenue slide'in CFO'da gerçekten fark yarattı.",
       ipa: "/jʊər ˈrɛvənjuː slaɪd ˈrɪəli muːvd ðə ˈniːdl wɪð ðə siː ɛf əʊ/",
+    },
+    {
+      id: "ex.wfg37.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "One thing I'd suggest is ___ — especially when ___.",
+      slots: [
+        { accepted: ['being more concise', 'sharing context earlier', 'asking for help sooner', 'documenting decisions'], distractors: ['being concise more', 'share context earlier', 'ask for help sooner', 'documents decisions'] },
+        { accepted: ['writing to leadership', 'the work is blocked', 'the team is new', 'the scope changes'], distractors: ['writing leadership', 'the work blocked', 'the team new', 'the scope change'] },
+      ],
+      tr_hint:
+        "Constructive feedback kalıbı. 'One thing I'd suggest' = soft + spesifik. Direkt 'You should' yerine 'I'd suggest'.",
+      example_filled: "One thing I'd suggest is being more concise — especially when writing to leadership.",
+    },
+    {
+      id: "ex.wfg37.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'd love your honest feedback — what could I do better?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — that's really helpful, thanks." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(one thing|something) (i'?d suggest|that could help|to consider)",
+        "(when you|whenever you) (.+), try (.+)",
+        "(overall|in general|honestly) (you'?re|your)",
+        "(small thing|nit|optional)",
+      ],
+      tr_hint:
+        "Karşı taraf feedback istedi. Türk hatası: 'You are bad at X' direkt. Kalıp: positive frame + spesifik öneri.",
+      ideal_answer: "Overall you're doing great — one small thing: try sharing more context up front in slack messages.",
+    },
+    {
+      id: "ex.wfg37.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Be honest — was my presentation any good?",
+      accepted_patterns: [
+        "(honestly|yeah|to be honest) (it was|i thought)",
+        "(strong|solid|clear) (on|in) (.+)",
+        "(one thing|small thing) (to (improve|tighten|polish)) (could be|is)",
+        "(the (intro|conclusion|middle)) (was|felt)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik feedback iste — 'It was good' generic = işe yaramaz. 1 güçlü yön + 1 gelişim alanı.",
+      ideal_response: "Honestly it was solid — strong storyline, one thing to tighten could be the intro.",
+    },
+    {
+      id: "ex.wfg37.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sunumun kötüydü.",
+      wrong_en: "Your presentation was bad.",
+      right_en: "Your presentation had some strong moments — one thing I'd suggest is tightening the intro.",
+      why_tr:
+        "'Was bad' = direkt yargı. İş ortamında feedback = improvement-focused. 'Had some strong moments' + spesifik öneri = constructive. Türk doğrudanlığı US iş kültüründe destructive algılanır. Sandwich (positive → improve → positive) formula.",
+    },
+    {
+      id: "ex.wfg37.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Constructive feedback en güçlü formula?",
+          options: ["Sadece olumsuz söyle", "Sandwich (good + improve + good)", "Yargılama yapma", "Sadece olumlu söyle"],
+          correct: 1,
+          tr_explanation: "Sandwich method = positive frame + improvement + closing positive. Standard pratik.",
+        },
+        {
+          q: "'You should' yerine yumuşak alternatif?",
+          options: ["You must", "I'd suggest / one thing to consider", "Do it", "You are forced"],
+          correct: 1,
+          tr_explanation: "'I'd suggest' = öneri tonu. 'You should' biraz emir gibi.",
+        },
+        {
+          q: "'It was bad' yerine constructive?",
+          options: ["It was awful", "There's room to tighten", "Worst ever", "It sucked"],
+          correct: 1,
+          tr_explanation: "'Room to tighten' = improvement framing. 'Bad' = label, action önermez.",
+        },
+        {
+          q: "Feedback verirken ne YAPILMAZ?",
+          options: ["Spesifik örnek vermek", "Karakter saldırısı yapmak (you are X)", "Aksiyon önermek", "Soru sormak"],
+          correct: 1,
+          tr_explanation: "'You are lazy/bad' = karakter saldırısı. Feedback davranışa odaklanır, kişiliğe değil.",
+        },
+        {
+          q: "'One thing I'd suggest' tonunda ne?",
+          options: ["Saldırgan", "Soft, opsiyonel öneri", "Emir", "Resmi şikayet"],
+          correct: 1,
+          tr_explanation: "'I'd' = would conditional = soft. 'One thing' = aşırı bombardıman değil. Native feedback formula.",
+        },
+      ],
     },
   ],
 };
@@ -1294,6 +1769,101 @@ export const workFeedbackGivingLesson_37_6: BundledLesson = {
       phrase: "Crack that and these docs become your signature work.",
       tr_translation: "Bunu çözersen, bu docler senin imza işlerin olur.",
       ipa: "/kræk ðæt ənd ðiːz dɒks bɪˈkʌm jʊər ˈsɪɡnətʃər wɜːk/",
+    },
+    {
+      id: "ex.wfg37.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "One thing I'd suggest is ___ — especially when ___.",
+      slots: [
+        { accepted: ['being more concise', 'sharing context earlier', 'asking for help sooner', 'documenting decisions'], distractors: ['being concise more', 'share context earlier', 'ask for help sooner', 'documents decisions'] },
+        { accepted: ['writing to leadership', 'the work is blocked', 'the team is new', 'the scope changes'], distractors: ['writing leadership', 'the work blocked', 'the team new', 'the scope change'] },
+      ],
+      tr_hint:
+        "Constructive feedback kalıbı. 'One thing I'd suggest' = soft + spesifik. Direkt 'You should' yerine 'I'd suggest'.",
+      example_filled: "One thing I'd suggest is being more concise — especially when writing to leadership.",
+    },
+    {
+      id: "ex.wfg37.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'd love your honest feedback — what could I do better?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — that's really helpful, thanks." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(one thing|something) (i'?d suggest|that could help|to consider)",
+        "(when you|whenever you) (.+), try (.+)",
+        "(overall|in general|honestly) (you'?re|your)",
+        "(small thing|nit|optional)",
+      ],
+      tr_hint:
+        "Karşı taraf feedback istedi. Türk hatası: 'You are bad at X' direkt. Kalıp: positive frame + spesifik öneri.",
+      ideal_answer: "Overall you're doing great — one small thing: try sharing more context up front in slack messages.",
+    },
+    {
+      id: "ex.wfg37.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Be honest — was my presentation any good?",
+      accepted_patterns: [
+        "(honestly|yeah|to be honest) (it was|i thought)",
+        "(strong|solid|clear) (on|in) (.+)",
+        "(one thing|small thing) (to (improve|tighten|polish)) (could be|is)",
+        "(the (intro|conclusion|middle)) (was|felt)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik feedback iste — 'It was good' generic = işe yaramaz. 1 güçlü yön + 1 gelişim alanı.",
+      ideal_response: "Honestly it was solid — strong storyline, one thing to tighten could be the intro.",
+    },
+    {
+      id: "ex.wfg37.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sunumun kötüydü.",
+      wrong_en: "Your presentation was bad.",
+      right_en: "Your presentation had some strong moments — one thing I'd suggest is tightening the intro.",
+      why_tr:
+        "'Was bad' = direkt yargı. İş ortamında feedback = improvement-focused. 'Had some strong moments' + spesifik öneri = constructive. Türk doğrudanlığı US iş kültüründe destructive algılanır. Sandwich (positive → improve → positive) formula.",
+    },
+    {
+      id: "ex.wfg37.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Constructive feedback en güçlü formula?",
+          options: ["Sadece olumsuz söyle", "Sandwich (good + improve + good)", "Yargılama yapma", "Sadece olumlu söyle"],
+          correct: 1,
+          tr_explanation: "Sandwich method = positive frame + improvement + closing positive. Standard pratik.",
+        },
+        {
+          q: "'You should' yerine yumuşak alternatif?",
+          options: ["You must", "I'd suggest / one thing to consider", "Do it", "You are forced"],
+          correct: 1,
+          tr_explanation: "'I'd suggest' = öneri tonu. 'You should' biraz emir gibi.",
+        },
+        {
+          q: "'It was bad' yerine constructive?",
+          options: ["It was awful", "There's room to tighten", "Worst ever", "It sucked"],
+          correct: 1,
+          tr_explanation: "'Room to tighten' = improvement framing. 'Bad' = label, action önermez.",
+        },
+        {
+          q: "Feedback verirken ne YAPILMAZ?",
+          options: ["Spesifik örnek vermek", "Karakter saldırısı yapmak (you are X)", "Aksiyon önermek", "Soru sormak"],
+          correct: 1,
+          tr_explanation: "'You are lazy/bad' = karakter saldırısı. Feedback davranışa odaklanır, kişiliğe değil.",
+        },
+        {
+          q: "'One thing I'd suggest' tonunda ne?",
+          options: ["Saldırgan", "Soft, opsiyonel öneri", "Emir", "Resmi şikayet"],
+          correct: 1,
+          tr_explanation: "'I'd' = would conditional = soft. 'One thing' = aşırı bombardıman değil. Native feedback formula.",
+        },
+      ],
     },
   ],
 };
@@ -1505,6 +2075,101 @@ export const workFeedbackGivingLesson_37_7: BundledLesson = {
       tr_translation: "Bir şey flag etmek istiyorum — şu anda gözlemlediğim şey şu.",
       ipa: "/aɪ wɒnt tuː flæɡ ˈsʌmθɪŋ hɪərz wɒt aɪm ˈnəʊtɪsɪŋ/",
     },
+    {
+      id: "ex.wfg37.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "One thing I'd suggest is ___ — especially when ___.",
+      slots: [
+        { accepted: ['being more concise', 'sharing context earlier', 'asking for help sooner', 'documenting decisions'], distractors: ['being concise more', 'share context earlier', 'ask for help sooner', 'documents decisions'] },
+        { accepted: ['writing to leadership', 'the work is blocked', 'the team is new', 'the scope changes'], distractors: ['writing leadership', 'the work blocked', 'the team new', 'the scope change'] },
+      ],
+      tr_hint:
+        "Constructive feedback kalıbı. 'One thing I'd suggest' = soft + spesifik. Direkt 'You should' yerine 'I'd suggest'.",
+      example_filled: "One thing I'd suggest is being more concise — especially when writing to leadership.",
+    },
+    {
+      id: "ex.wfg37.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'd love your honest feedback — what could I do better?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — that's really helpful, thanks." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(one thing|something) (i'?d suggest|that could help|to consider)",
+        "(when you|whenever you) (.+), try (.+)",
+        "(overall|in general|honestly) (you'?re|your)",
+        "(small thing|nit|optional)",
+      ],
+      tr_hint:
+        "Karşı taraf feedback istedi. Türk hatası: 'You are bad at X' direkt. Kalıp: positive frame + spesifik öneri.",
+      ideal_answer: "Overall you're doing great — one small thing: try sharing more context up front in slack messages.",
+    },
+    {
+      id: "ex.wfg37.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Be honest — was my presentation any good?",
+      accepted_patterns: [
+        "(honestly|yeah|to be honest) (it was|i thought)",
+        "(strong|solid|clear) (on|in) (.+)",
+        "(one thing|small thing) (to (improve|tighten|polish)) (could be|is)",
+        "(the (intro|conclusion|middle)) (was|felt)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik feedback iste — 'It was good' generic = işe yaramaz. 1 güçlü yön + 1 gelişim alanı.",
+      ideal_response: "Honestly it was solid — strong storyline, one thing to tighten could be the intro.",
+    },
+    {
+      id: "ex.wfg37.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sunumun kötüydü.",
+      wrong_en: "Your presentation was bad.",
+      right_en: "Your presentation had some strong moments — one thing I'd suggest is tightening the intro.",
+      why_tr:
+        "'Was bad' = direkt yargı. İş ortamında feedback = improvement-focused. 'Had some strong moments' + spesifik öneri = constructive. Türk doğrudanlığı US iş kültüründe destructive algılanır. Sandwich (positive → improve → positive) formula.",
+    },
+    {
+      id: "ex.wfg37.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Constructive feedback en güçlü formula?",
+          options: ["Sadece olumsuz söyle", "Sandwich (good + improve + good)", "Yargılama yapma", "Sadece olumlu söyle"],
+          correct: 1,
+          tr_explanation: "Sandwich method = positive frame + improvement + closing positive. Standard pratik.",
+        },
+        {
+          q: "'You should' yerine yumuşak alternatif?",
+          options: ["You must", "I'd suggest / one thing to consider", "Do it", "You are forced"],
+          correct: 1,
+          tr_explanation: "'I'd suggest' = öneri tonu. 'You should' biraz emir gibi.",
+        },
+        {
+          q: "'It was bad' yerine constructive?",
+          options: ["It was awful", "There's room to tighten", "Worst ever", "It sucked"],
+          correct: 1,
+          tr_explanation: "'Room to tighten' = improvement framing. 'Bad' = label, action önermez.",
+        },
+        {
+          q: "Feedback verirken ne YAPILMAZ?",
+          options: ["Spesifik örnek vermek", "Karakter saldırısı yapmak (you are X)", "Aksiyon önermek", "Soru sormak"],
+          correct: 1,
+          tr_explanation: "'You are lazy/bad' = karakter saldırısı. Feedback davranışa odaklanır, kişiliğe değil.",
+        },
+        {
+          q: "'One thing I'd suggest' tonunda ne?",
+          options: ["Saldırgan", "Soft, opsiyonel öneri", "Emir", "Resmi şikayet"],
+          correct: 1,
+          tr_explanation: "'I'd' = would conditional = soft. 'One thing' = aşırı bombardıman değil. Native feedback formula.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1697,6 +2362,101 @@ export const workFeedbackGivingLesson_37_8: BundledLesson = {
       phrase: "Have you considered pulling the retry into a hook for reuse?",
       tr_translation: "Tekrar kullanmak için retry'i hook'a çekmeyi düşündün mü?",
       ipa: "/həv ju kənˈsɪdəd ˈpʊlɪŋ ðə ˈriːtraɪ ˈɪntuː ə hʊk fə riːˈjuːs/",
+    },
+    {
+      id: "ex.wfg37.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "One thing I'd suggest is ___ — especially when ___.",
+      slots: [
+        { accepted: ['being more concise', 'sharing context earlier', 'asking for help sooner', 'documenting decisions'], distractors: ['being concise more', 'share context earlier', 'ask for help sooner', 'documents decisions'] },
+        { accepted: ['writing to leadership', 'the work is blocked', 'the team is new', 'the scope changes'], distractors: ['writing leadership', 'the work blocked', 'the team new', 'the scope change'] },
+      ],
+      tr_hint:
+        "Constructive feedback kalıbı. 'One thing I'd suggest' = soft + spesifik. Direkt 'You should' yerine 'I'd suggest'.",
+      example_filled: "One thing I'd suggest is being more concise — especially when writing to leadership.",
+    },
+    {
+      id: "ex.wfg37.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'd love your honest feedback — what could I do better?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — that's really helpful, thanks." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(one thing|something) (i'?d suggest|that could help|to consider)",
+        "(when you|whenever you) (.+), try (.+)",
+        "(overall|in general|honestly) (you'?re|your)",
+        "(small thing|nit|optional)",
+      ],
+      tr_hint:
+        "Karşı taraf feedback istedi. Türk hatası: 'You are bad at X' direkt. Kalıp: positive frame + spesifik öneri.",
+      ideal_answer: "Overall you're doing great — one small thing: try sharing more context up front in slack messages.",
+    },
+    {
+      id: "ex.wfg37.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Be honest — was my presentation any good?",
+      accepted_patterns: [
+        "(honestly|yeah|to be honest) (it was|i thought)",
+        "(strong|solid|clear) (on|in) (.+)",
+        "(one thing|small thing) (to (improve|tighten|polish)) (could be|is)",
+        "(the (intro|conclusion|middle)) (was|felt)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik feedback iste — 'It was good' generic = işe yaramaz. 1 güçlü yön + 1 gelişim alanı.",
+      ideal_response: "Honestly it was solid — strong storyline, one thing to tighten could be the intro.",
+    },
+    {
+      id: "ex.wfg37.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sunumun kötüydü.",
+      wrong_en: "Your presentation was bad.",
+      right_en: "Your presentation had some strong moments — one thing I'd suggest is tightening the intro.",
+      why_tr:
+        "'Was bad' = direkt yargı. İş ortamında feedback = improvement-focused. 'Had some strong moments' + spesifik öneri = constructive. Türk doğrudanlığı US iş kültüründe destructive algılanır. Sandwich (positive → improve → positive) formula.",
+    },
+    {
+      id: "ex.wfg37.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Constructive feedback en güçlü formula?",
+          options: ["Sadece olumsuz söyle", "Sandwich (good + improve + good)", "Yargılama yapma", "Sadece olumlu söyle"],
+          correct: 1,
+          tr_explanation: "Sandwich method = positive frame + improvement + closing positive. Standard pratik.",
+        },
+        {
+          q: "'You should' yerine yumuşak alternatif?",
+          options: ["You must", "I'd suggest / one thing to consider", "Do it", "You are forced"],
+          correct: 1,
+          tr_explanation: "'I'd suggest' = öneri tonu. 'You should' biraz emir gibi.",
+        },
+        {
+          q: "'It was bad' yerine constructive?",
+          options: ["It was awful", "There's room to tighten", "Worst ever", "It sucked"],
+          correct: 1,
+          tr_explanation: "'Room to tighten' = improvement framing. 'Bad' = label, action önermez.",
+        },
+        {
+          q: "Feedback verirken ne YAPILMAZ?",
+          options: ["Spesifik örnek vermek", "Karakter saldırısı yapmak (you are X)", "Aksiyon önermek", "Soru sormak"],
+          correct: 1,
+          tr_explanation: "'You are lazy/bad' = karakter saldırısı. Feedback davranışa odaklanır, kişiliğe değil.",
+        },
+        {
+          q: "'One thing I'd suggest' tonunda ne?",
+          options: ["Saldırgan", "Soft, opsiyonel öneri", "Emir", "Resmi şikayet"],
+          correct: 1,
+          tr_explanation: "'I'd' = would conditional = soft. 'One thing' = aşırı bombardıman değil. Native feedback formula.",
+        },
+      ],
     },
   ],
 };

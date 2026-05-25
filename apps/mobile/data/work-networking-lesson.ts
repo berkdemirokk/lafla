@@ -282,6 +282,101 @@ export const workNetworkingLesson_39_1: BundledLesson = {
       tr_explanation:
         "'I am at this conference' yanlış zaman — süregelen için 'I've been'. 'Since 2 days' yanlış — süre için 'for'. 'I make' yanlış zaman — bitmiş ama yakın geçmiş için 'I've made'.",
     },
+    {
+      id: "ex.wn39.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I came across your ___ and wanted to ___.",
+      slots: [
+        { accepted: ['LinkedIn post', 'talk at the conference', 'article', 'Twitter thread'], distractors: ["LinkedIn's post", 'talk in conference', 'articles', "Twitter's thread"] },
+        { accepted: ['reach out', 'say thanks', 'ask a quick question', 'connect'], distractors: ['reach for out', 'say the thanks', 'ask quick question', 'connect with'] },
+      ],
+      tr_hint:
+        "Cold outreach kalıbı. 'I came across' = nazikçe rastlamak. Spesifik referans = spam değil sinyali.",
+      example_filled: "I came across your LinkedIn post and wanted to reach out.",
+    },
+    {
+      id: "ex.wn39.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey — really enjoyed your talk at the meetup last week!" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Likewise! Would love to stay in touch." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate (it|that))( so much)?",
+        "(glad|happy) (it|the talk) (resonated|landed|was useful)",
+        "(would love to|happy to) (chat|connect|grab (coffee|a chat))",
+        "(feel free to|don'?t hesitate)",
+      ],
+      tr_hint:
+        "Birisi tanıtım yaptı — kabul + reciprocate. Türk hatası: 'You are welcome' (yanlış zaman) — 'thanks for saying' uygun.",
+      ideal_answer: "Thanks so much — glad it resonated! Would love to grab coffee sometime if you're up for it.",
+    },
+    {
+      id: "ex.wn39.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What kind of role are you looking for next?",
+      accepted_patterns: [
+        "(honestly|i think|i'?d say)",
+        "(something (along the lines of|like)|(senior|lead|staff) (engineer|pm|designer))",
+        "(in the (.+) space|focused on (.+))",
+        "(open to|considering) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Networking conversation — spesifik ol ama dar değil. 'Any job' kötü. Domain + level + nice-to-have.",
+      ideal_response: "Honestly, something like a senior engineering role in the AI infra space — open to early-stage.",
+    },
+    {
+      id: "ex.wn39.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Seninle network kurmak istiyorum.",
+      wrong_en: "I want to network with you.",
+      right_en: "I'd love to stay in touch / Would love to connect.",
+      why_tr:
+        "'Network with you' = aşırı transactional. İş İngilizcesinde 'stay in touch' / 'connect' = ilişki bazlı. 'Network' fiil olarak agresif algılanır. Türk öğrenci ders kitabı kelimesini direkt kullanır — natural alternatifler var.",
+    },
+    {
+      id: "ex.wn39.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Came across' deyimi?",
+          options: ["Karşıdan geçtim", "Rastladım, denk geldim", "Geldim", "Topladım"],
+          correct: 1,
+          tr_explanation: "'Came across' = rastlamak, denk gelmek. Kibar outreach açılışı.",
+        },
+        {
+          q: "'Stay in touch' anlamı?",
+          options: ["Dokunmaya devam", "İletişimde kalmak", "Yakında dur", "Sosyalleşmek"],
+          correct: 1,
+          tr_explanation: "'Stay in touch' = bağlantıyı sürdürmek. Profesyonel ilişki sloganı.",
+        },
+        {
+          q: "Cold outreach'te en güçlü açılış?",
+          options: ["Hi, I need help", "I came across X and wanted to reach out", "Hire me", "Buy my product"],
+          correct: 1,
+          tr_explanation: "Spesifik referans = personalized. Generic = spam.",
+        },
+        {
+          q: "'Would love to grab coffee' tonunda ne?",
+          options: ["Aşırı resmi", "Casual + warm invitation", "Saldırgan", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'Would love' = warm. 'Grab coffee' = casual buluşma.",
+        },
+        {
+          q: "Networking sonrası follow-up?",
+          options: ["Hiç yazma", "1-2 gün içinde kısa thank-you + bağlantı önerisi", "1 ay sonra", "Sadece para isteme"],
+          correct: 1,
+          tr_explanation: "Hızlı + spesifik follow-up = momentum. İlişki kurmanın temeli.",
+        },
+      ],
+    },
   ],
 };
 
@@ -512,6 +607,101 @@ export const workNetworkingLesson_39_2: BundledLesson = {
       tr_explanation:
         "'Since 5 years' yanlış — süre için 'for'. 'I am working' süregelen için 'I've been working'. 'I do payments' Türkçe; doğrusu 'I work on payments' (work register).",
     },
+    {
+      id: "ex.wn39.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I came across your ___ and wanted to ___.",
+      slots: [
+        { accepted: ['LinkedIn post', 'talk at the conference', 'article', 'Twitter thread'], distractors: ["LinkedIn's post", 'talk in conference', 'articles', "Twitter's thread"] },
+        { accepted: ['reach out', 'say thanks', 'ask a quick question', 'connect'], distractors: ['reach for out', 'say the thanks', 'ask quick question', 'connect with'] },
+      ],
+      tr_hint:
+        "Cold outreach kalıbı. 'I came across' = nazikçe rastlamak. Spesifik referans = spam değil sinyali.",
+      example_filled: "I came across your LinkedIn post and wanted to reach out.",
+    },
+    {
+      id: "ex.wn39.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey — really enjoyed your talk at the meetup last week!" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Likewise! Would love to stay in touch." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate (it|that))( so much)?",
+        "(glad|happy) (it|the talk) (resonated|landed|was useful)",
+        "(would love to|happy to) (chat|connect|grab (coffee|a chat))",
+        "(feel free to|don'?t hesitate)",
+      ],
+      tr_hint:
+        "Birisi tanıtım yaptı — kabul + reciprocate. Türk hatası: 'You are welcome' (yanlış zaman) — 'thanks for saying' uygun.",
+      ideal_answer: "Thanks so much — glad it resonated! Would love to grab coffee sometime if you're up for it.",
+    },
+    {
+      id: "ex.wn39.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What kind of role are you looking for next?",
+      accepted_patterns: [
+        "(honestly|i think|i'?d say)",
+        "(something (along the lines of|like)|(senior|lead|staff) (engineer|pm|designer))",
+        "(in the (.+) space|focused on (.+))",
+        "(open to|considering) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Networking conversation — spesifik ol ama dar değil. 'Any job' kötü. Domain + level + nice-to-have.",
+      ideal_response: "Honestly, something like a senior engineering role in the AI infra space — open to early-stage.",
+    },
+    {
+      id: "ex.wn39.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Seninle network kurmak istiyorum.",
+      wrong_en: "I want to network with you.",
+      right_en: "I'd love to stay in touch / Would love to connect.",
+      why_tr:
+        "'Network with you' = aşırı transactional. İş İngilizcesinde 'stay in touch' / 'connect' = ilişki bazlı. 'Network' fiil olarak agresif algılanır. Türk öğrenci ders kitabı kelimesini direkt kullanır — natural alternatifler var.",
+    },
+    {
+      id: "ex.wn39.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Came across' deyimi?",
+          options: ["Karşıdan geçtim", "Rastladım, denk geldim", "Geldim", "Topladım"],
+          correct: 1,
+          tr_explanation: "'Came across' = rastlamak, denk gelmek. Kibar outreach açılışı.",
+        },
+        {
+          q: "'Stay in touch' anlamı?",
+          options: ["Dokunmaya devam", "İletişimde kalmak", "Yakında dur", "Sosyalleşmek"],
+          correct: 1,
+          tr_explanation: "'Stay in touch' = bağlantıyı sürdürmek. Profesyonel ilişki sloganı.",
+        },
+        {
+          q: "Cold outreach'te en güçlü açılış?",
+          options: ["Hi, I need help", "I came across X and wanted to reach out", "Hire me", "Buy my product"],
+          correct: 1,
+          tr_explanation: "Spesifik referans = personalized. Generic = spam.",
+        },
+        {
+          q: "'Would love to grab coffee' tonunda ne?",
+          options: ["Aşırı resmi", "Casual + warm invitation", "Saldırgan", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'Would love' = warm. 'Grab coffee' = casual buluşma.",
+        },
+        {
+          q: "Networking sonrası follow-up?",
+          options: ["Hiç yazma", "1-2 gün içinde kısa thank-you + bağlantı önerisi", "1 ay sonra", "Sadece para isteme"],
+          correct: 1,
+          tr_explanation: "Hızlı + spesifik follow-up = momentum. İlişki kurmanın temeli.",
+        },
+      ],
+    },
   ],
 };
 
@@ -738,6 +928,101 @@ export const workNetworkingLesson_39_3: BundledLesson = {
       tr_explanation:
         "'Friends on LinkedIn' yanlış — LinkedIn'de 'friend' yok, 'connected'. 'Since 1 year' yanlış — süre için 'for'. 'Give me your phone now' kaba; doğrusu 'could you share your number?' (kibar istek).",
     },
+    {
+      id: "ex.wn39.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I came across your ___ and wanted to ___.",
+      slots: [
+        { accepted: ['LinkedIn post', 'talk at the conference', 'article', 'Twitter thread'], distractors: ["LinkedIn's post", 'talk in conference', 'articles', "Twitter's thread"] },
+        { accepted: ['reach out', 'say thanks', 'ask a quick question', 'connect'], distractors: ['reach for out', 'say the thanks', 'ask quick question', 'connect with'] },
+      ],
+      tr_hint:
+        "Cold outreach kalıbı. 'I came across' = nazikçe rastlamak. Spesifik referans = spam değil sinyali.",
+      example_filled: "I came across your LinkedIn post and wanted to reach out.",
+    },
+    {
+      id: "ex.wn39.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey — really enjoyed your talk at the meetup last week!" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Likewise! Would love to stay in touch." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate (it|that))( so much)?",
+        "(glad|happy) (it|the talk) (resonated|landed|was useful)",
+        "(would love to|happy to) (chat|connect|grab (coffee|a chat))",
+        "(feel free to|don'?t hesitate)",
+      ],
+      tr_hint:
+        "Birisi tanıtım yaptı — kabul + reciprocate. Türk hatası: 'You are welcome' (yanlış zaman) — 'thanks for saying' uygun.",
+      ideal_answer: "Thanks so much — glad it resonated! Would love to grab coffee sometime if you're up for it.",
+    },
+    {
+      id: "ex.wn39.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What kind of role are you looking for next?",
+      accepted_patterns: [
+        "(honestly|i think|i'?d say)",
+        "(something (along the lines of|like)|(senior|lead|staff) (engineer|pm|designer))",
+        "(in the (.+) space|focused on (.+))",
+        "(open to|considering) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Networking conversation — spesifik ol ama dar değil. 'Any job' kötü. Domain + level + nice-to-have.",
+      ideal_response: "Honestly, something like a senior engineering role in the AI infra space — open to early-stage.",
+    },
+    {
+      id: "ex.wn39.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Seninle network kurmak istiyorum.",
+      wrong_en: "I want to network with you.",
+      right_en: "I'd love to stay in touch / Would love to connect.",
+      why_tr:
+        "'Network with you' = aşırı transactional. İş İngilizcesinde 'stay in touch' / 'connect' = ilişki bazlı. 'Network' fiil olarak agresif algılanır. Türk öğrenci ders kitabı kelimesini direkt kullanır — natural alternatifler var.",
+    },
+    {
+      id: "ex.wn39.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Came across' deyimi?",
+          options: ["Karşıdan geçtim", "Rastladım, denk geldim", "Geldim", "Topladım"],
+          correct: 1,
+          tr_explanation: "'Came across' = rastlamak, denk gelmek. Kibar outreach açılışı.",
+        },
+        {
+          q: "'Stay in touch' anlamı?",
+          options: ["Dokunmaya devam", "İletişimde kalmak", "Yakında dur", "Sosyalleşmek"],
+          correct: 1,
+          tr_explanation: "'Stay in touch' = bağlantıyı sürdürmek. Profesyonel ilişki sloganı.",
+        },
+        {
+          q: "Cold outreach'te en güçlü açılış?",
+          options: ["Hi, I need help", "I came across X and wanted to reach out", "Hire me", "Buy my product"],
+          correct: 1,
+          tr_explanation: "Spesifik referans = personalized. Generic = spam.",
+        },
+        {
+          q: "'Would love to grab coffee' tonunda ne?",
+          options: ["Aşırı resmi", "Casual + warm invitation", "Saldırgan", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'Would love' = warm. 'Grab coffee' = casual buluşma.",
+        },
+        {
+          q: "Networking sonrası follow-up?",
+          options: ["Hiç yazma", "1-2 gün içinde kısa thank-you + bağlantı önerisi", "1 ay sonra", "Sadece para isteme"],
+          correct: 1,
+          tr_explanation: "Hızlı + spesifik follow-up = momentum. İlişki kurmanın temeli.",
+        },
+      ],
+    },
   ],
 };
 
@@ -963,6 +1248,101 @@ export const workNetworkingLesson_39_4: BundledLesson = {
       tr_explanation:
         "'Waiting your answer' yanlış — 'waiting FOR your reply'. 'Since 1 week' yanlış — süre için 'for a week'. 'You make response' Türkçe + emir; doğrusu 'could you respond' (kibar). Süregelen bekleyiş için present perfect continuous.",
     },
+    {
+      id: "ex.wn39.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I came across your ___ and wanted to ___.",
+      slots: [
+        { accepted: ['LinkedIn post', 'talk at the conference', 'article', 'Twitter thread'], distractors: ["LinkedIn's post", 'talk in conference', 'articles', "Twitter's thread"] },
+        { accepted: ['reach out', 'say thanks', 'ask a quick question', 'connect'], distractors: ['reach for out', 'say the thanks', 'ask quick question', 'connect with'] },
+      ],
+      tr_hint:
+        "Cold outreach kalıbı. 'I came across' = nazikçe rastlamak. Spesifik referans = spam değil sinyali.",
+      example_filled: "I came across your LinkedIn post and wanted to reach out.",
+    },
+    {
+      id: "ex.wn39.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey — really enjoyed your talk at the meetup last week!" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Likewise! Would love to stay in touch." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate (it|that))( so much)?",
+        "(glad|happy) (it|the talk) (resonated|landed|was useful)",
+        "(would love to|happy to) (chat|connect|grab (coffee|a chat))",
+        "(feel free to|don'?t hesitate)",
+      ],
+      tr_hint:
+        "Birisi tanıtım yaptı — kabul + reciprocate. Türk hatası: 'You are welcome' (yanlış zaman) — 'thanks for saying' uygun.",
+      ideal_answer: "Thanks so much — glad it resonated! Would love to grab coffee sometime if you're up for it.",
+    },
+    {
+      id: "ex.wn39.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What kind of role are you looking for next?",
+      accepted_patterns: [
+        "(honestly|i think|i'?d say)",
+        "(something (along the lines of|like)|(senior|lead|staff) (engineer|pm|designer))",
+        "(in the (.+) space|focused on (.+))",
+        "(open to|considering) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Networking conversation — spesifik ol ama dar değil. 'Any job' kötü. Domain + level + nice-to-have.",
+      ideal_response: "Honestly, something like a senior engineering role in the AI infra space — open to early-stage.",
+    },
+    {
+      id: "ex.wn39.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Seninle network kurmak istiyorum.",
+      wrong_en: "I want to network with you.",
+      right_en: "I'd love to stay in touch / Would love to connect.",
+      why_tr:
+        "'Network with you' = aşırı transactional. İş İngilizcesinde 'stay in touch' / 'connect' = ilişki bazlı. 'Network' fiil olarak agresif algılanır. Türk öğrenci ders kitabı kelimesini direkt kullanır — natural alternatifler var.",
+    },
+    {
+      id: "ex.wn39.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Came across' deyimi?",
+          options: ["Karşıdan geçtim", "Rastladım, denk geldim", "Geldim", "Topladım"],
+          correct: 1,
+          tr_explanation: "'Came across' = rastlamak, denk gelmek. Kibar outreach açılışı.",
+        },
+        {
+          q: "'Stay in touch' anlamı?",
+          options: ["Dokunmaya devam", "İletişimde kalmak", "Yakında dur", "Sosyalleşmek"],
+          correct: 1,
+          tr_explanation: "'Stay in touch' = bağlantıyı sürdürmek. Profesyonel ilişki sloganı.",
+        },
+        {
+          q: "Cold outreach'te en güçlü açılış?",
+          options: ["Hi, I need help", "I came across X and wanted to reach out", "Hire me", "Buy my product"],
+          correct: 1,
+          tr_explanation: "Spesifik referans = personalized. Generic = spam.",
+        },
+        {
+          q: "'Would love to grab coffee' tonunda ne?",
+          options: ["Aşırı resmi", "Casual + warm invitation", "Saldırgan", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'Would love' = warm. 'Grab coffee' = casual buluşma.",
+        },
+        {
+          q: "Networking sonrası follow-up?",
+          options: ["Hiç yazma", "1-2 gün içinde kısa thank-you + bağlantı önerisi", "1 ay sonra", "Sadece para isteme"],
+          correct: 1,
+          tr_explanation: "Hızlı + spesifik follow-up = momentum. İlişki kurmanın temeli.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1151,6 +1531,101 @@ export const workNetworkingLesson_39_5: BundledLesson = {
       phrase: "So what brings you here? Any talks you've really enjoyed so far?",
       tr_translation: "Peki seni buraya getiren ne? Şimdiye kadar gerçekten beğendiğin konuşma var mı?",
       ipa: "/səʊ wɒt brɪŋz juː hɪər ˈɛni tɔːks juːv ˈrɪəli ɪnˈdʒɔɪd səʊ fɑː/",
+    },
+    {
+      id: "ex.wn39.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I came across your ___ and wanted to ___.",
+      slots: [
+        { accepted: ['LinkedIn post', 'talk at the conference', 'article', 'Twitter thread'], distractors: ["LinkedIn's post", 'talk in conference', 'articles', "Twitter's thread"] },
+        { accepted: ['reach out', 'say thanks', 'ask a quick question', 'connect'], distractors: ['reach for out', 'say the thanks', 'ask quick question', 'connect with'] },
+      ],
+      tr_hint:
+        "Cold outreach kalıbı. 'I came across' = nazikçe rastlamak. Spesifik referans = spam değil sinyali.",
+      example_filled: "I came across your LinkedIn post and wanted to reach out.",
+    },
+    {
+      id: "ex.wn39.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey — really enjoyed your talk at the meetup last week!" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Likewise! Would love to stay in touch." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate (it|that))( so much)?",
+        "(glad|happy) (it|the talk) (resonated|landed|was useful)",
+        "(would love to|happy to) (chat|connect|grab (coffee|a chat))",
+        "(feel free to|don'?t hesitate)",
+      ],
+      tr_hint:
+        "Birisi tanıtım yaptı — kabul + reciprocate. Türk hatası: 'You are welcome' (yanlış zaman) — 'thanks for saying' uygun.",
+      ideal_answer: "Thanks so much — glad it resonated! Would love to grab coffee sometime if you're up for it.",
+    },
+    {
+      id: "ex.wn39.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What kind of role are you looking for next?",
+      accepted_patterns: [
+        "(honestly|i think|i'?d say)",
+        "(something (along the lines of|like)|(senior|lead|staff) (engineer|pm|designer))",
+        "(in the (.+) space|focused on (.+))",
+        "(open to|considering) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Networking conversation — spesifik ol ama dar değil. 'Any job' kötü. Domain + level + nice-to-have.",
+      ideal_response: "Honestly, something like a senior engineering role in the AI infra space — open to early-stage.",
+    },
+    {
+      id: "ex.wn39.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Seninle network kurmak istiyorum.",
+      wrong_en: "I want to network with you.",
+      right_en: "I'd love to stay in touch / Would love to connect.",
+      why_tr:
+        "'Network with you' = aşırı transactional. İş İngilizcesinde 'stay in touch' / 'connect' = ilişki bazlı. 'Network' fiil olarak agresif algılanır. Türk öğrenci ders kitabı kelimesini direkt kullanır — natural alternatifler var.",
+    },
+    {
+      id: "ex.wn39.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Came across' deyimi?",
+          options: ["Karşıdan geçtim", "Rastladım, denk geldim", "Geldim", "Topladım"],
+          correct: 1,
+          tr_explanation: "'Came across' = rastlamak, denk gelmek. Kibar outreach açılışı.",
+        },
+        {
+          q: "'Stay in touch' anlamı?",
+          options: ["Dokunmaya devam", "İletişimde kalmak", "Yakında dur", "Sosyalleşmek"],
+          correct: 1,
+          tr_explanation: "'Stay in touch' = bağlantıyı sürdürmek. Profesyonel ilişki sloganı.",
+        },
+        {
+          q: "Cold outreach'te en güçlü açılış?",
+          options: ["Hi, I need help", "I came across X and wanted to reach out", "Hire me", "Buy my product"],
+          correct: 1,
+          tr_explanation: "Spesifik referans = personalized. Generic = spam.",
+        },
+        {
+          q: "'Would love to grab coffee' tonunda ne?",
+          options: ["Aşırı resmi", "Casual + warm invitation", "Saldırgan", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'Would love' = warm. 'Grab coffee' = casual buluşma.",
+        },
+        {
+          q: "Networking sonrası follow-up?",
+          options: ["Hiç yazma", "1-2 gün içinde kısa thank-you + bağlantı önerisi", "1 ay sonra", "Sadece para isteme"],
+          correct: 1,
+          tr_explanation: "Hızlı + spesifik follow-up = momentum. İlişki kurmanın temeli.",
+        },
+      ],
     },
   ],
 };
@@ -1349,6 +1824,101 @@ export const workNetworkingLesson_39_6: BundledLesson = {
       tr_translation: "Bir SaaS şirketinde ürün ekibini yönetiyorum — KOBİ'lerin muhasebelerini otomatize etmesine yardım ediyoruz.",
       ipa: "/aɪ liːd ˈprɒdʌkt ət ə sæs wiː hɛlp smɔːl ˈbɪznɪsɪz ˈɔːtəmeɪt ðeər əˈkaʊntɪŋ/",
     },
+    {
+      id: "ex.wn39.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I came across your ___ and wanted to ___.",
+      slots: [
+        { accepted: ['LinkedIn post', 'talk at the conference', 'article', 'Twitter thread'], distractors: ["LinkedIn's post", 'talk in conference', 'articles', "Twitter's thread"] },
+        { accepted: ['reach out', 'say thanks', 'ask a quick question', 'connect'], distractors: ['reach for out', 'say the thanks', 'ask quick question', 'connect with'] },
+      ],
+      tr_hint:
+        "Cold outreach kalıbı. 'I came across' = nazikçe rastlamak. Spesifik referans = spam değil sinyali.",
+      example_filled: "I came across your LinkedIn post and wanted to reach out.",
+    },
+    {
+      id: "ex.wn39.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey — really enjoyed your talk at the meetup last week!" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Likewise! Would love to stay in touch." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate (it|that))( so much)?",
+        "(glad|happy) (it|the talk) (resonated|landed|was useful)",
+        "(would love to|happy to) (chat|connect|grab (coffee|a chat))",
+        "(feel free to|don'?t hesitate)",
+      ],
+      tr_hint:
+        "Birisi tanıtım yaptı — kabul + reciprocate. Türk hatası: 'You are welcome' (yanlış zaman) — 'thanks for saying' uygun.",
+      ideal_answer: "Thanks so much — glad it resonated! Would love to grab coffee sometime if you're up for it.",
+    },
+    {
+      id: "ex.wn39.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What kind of role are you looking for next?",
+      accepted_patterns: [
+        "(honestly|i think|i'?d say)",
+        "(something (along the lines of|like)|(senior|lead|staff) (engineer|pm|designer))",
+        "(in the (.+) space|focused on (.+))",
+        "(open to|considering) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Networking conversation — spesifik ol ama dar değil. 'Any job' kötü. Domain + level + nice-to-have.",
+      ideal_response: "Honestly, something like a senior engineering role in the AI infra space — open to early-stage.",
+    },
+    {
+      id: "ex.wn39.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Seninle network kurmak istiyorum.",
+      wrong_en: "I want to network with you.",
+      right_en: "I'd love to stay in touch / Would love to connect.",
+      why_tr:
+        "'Network with you' = aşırı transactional. İş İngilizcesinde 'stay in touch' / 'connect' = ilişki bazlı. 'Network' fiil olarak agresif algılanır. Türk öğrenci ders kitabı kelimesini direkt kullanır — natural alternatifler var.",
+    },
+    {
+      id: "ex.wn39.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Came across' deyimi?",
+          options: ["Karşıdan geçtim", "Rastladım, denk geldim", "Geldim", "Topladım"],
+          correct: 1,
+          tr_explanation: "'Came across' = rastlamak, denk gelmek. Kibar outreach açılışı.",
+        },
+        {
+          q: "'Stay in touch' anlamı?",
+          options: ["Dokunmaya devam", "İletişimde kalmak", "Yakında dur", "Sosyalleşmek"],
+          correct: 1,
+          tr_explanation: "'Stay in touch' = bağlantıyı sürdürmek. Profesyonel ilişki sloganı.",
+        },
+        {
+          q: "Cold outreach'te en güçlü açılış?",
+          options: ["Hi, I need help", "I came across X and wanted to reach out", "Hire me", "Buy my product"],
+          correct: 1,
+          tr_explanation: "Spesifik referans = personalized. Generic = spam.",
+        },
+        {
+          q: "'Would love to grab coffee' tonunda ne?",
+          options: ["Aşırı resmi", "Casual + warm invitation", "Saldırgan", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'Would love' = warm. 'Grab coffee' = casual buluşma.",
+        },
+        {
+          q: "Networking sonrası follow-up?",
+          options: ["Hiç yazma", "1-2 gün içinde kısa thank-you + bağlantı önerisi", "1 ay sonra", "Sadece para isteme"],
+          correct: 1,
+          tr_explanation: "Hızlı + spesifik follow-up = momentum. İlişki kurmanın temeli.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1541,6 +2111,101 @@ export const workNetworkingLesson_39_7: BundledLesson = {
       tr_translation: "Sana ulaşmanın en iyi yolu nedir — LinkedIn mi email mi?",
       ipa: "/wɒts ðə bɛst weɪ tuː riːtʃ juː ˈlɪŋktɪn ɔːr ˈiːmeɪl/",
     },
+    {
+      id: "ex.wn39.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I came across your ___ and wanted to ___.",
+      slots: [
+        { accepted: ['LinkedIn post', 'talk at the conference', 'article', 'Twitter thread'], distractors: ["LinkedIn's post", 'talk in conference', 'articles', "Twitter's thread"] },
+        { accepted: ['reach out', 'say thanks', 'ask a quick question', 'connect'], distractors: ['reach for out', 'say the thanks', 'ask quick question', 'connect with'] },
+      ],
+      tr_hint:
+        "Cold outreach kalıbı. 'I came across' = nazikçe rastlamak. Spesifik referans = spam değil sinyali.",
+      example_filled: "I came across your LinkedIn post and wanted to reach out.",
+    },
+    {
+      id: "ex.wn39.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey — really enjoyed your talk at the meetup last week!" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Likewise! Would love to stay in touch." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate (it|that))( so much)?",
+        "(glad|happy) (it|the talk) (resonated|landed|was useful)",
+        "(would love to|happy to) (chat|connect|grab (coffee|a chat))",
+        "(feel free to|don'?t hesitate)",
+      ],
+      tr_hint:
+        "Birisi tanıtım yaptı — kabul + reciprocate. Türk hatası: 'You are welcome' (yanlış zaman) — 'thanks for saying' uygun.",
+      ideal_answer: "Thanks so much — glad it resonated! Would love to grab coffee sometime if you're up for it.",
+    },
+    {
+      id: "ex.wn39.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What kind of role are you looking for next?",
+      accepted_patterns: [
+        "(honestly|i think|i'?d say)",
+        "(something (along the lines of|like)|(senior|lead|staff) (engineer|pm|designer))",
+        "(in the (.+) space|focused on (.+))",
+        "(open to|considering) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Networking conversation — spesifik ol ama dar değil. 'Any job' kötü. Domain + level + nice-to-have.",
+      ideal_response: "Honestly, something like a senior engineering role in the AI infra space — open to early-stage.",
+    },
+    {
+      id: "ex.wn39.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Seninle network kurmak istiyorum.",
+      wrong_en: "I want to network with you.",
+      right_en: "I'd love to stay in touch / Would love to connect.",
+      why_tr:
+        "'Network with you' = aşırı transactional. İş İngilizcesinde 'stay in touch' / 'connect' = ilişki bazlı. 'Network' fiil olarak agresif algılanır. Türk öğrenci ders kitabı kelimesini direkt kullanır — natural alternatifler var.",
+    },
+    {
+      id: "ex.wn39.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Came across' deyimi?",
+          options: ["Karşıdan geçtim", "Rastladım, denk geldim", "Geldim", "Topladım"],
+          correct: 1,
+          tr_explanation: "'Came across' = rastlamak, denk gelmek. Kibar outreach açılışı.",
+        },
+        {
+          q: "'Stay in touch' anlamı?",
+          options: ["Dokunmaya devam", "İletişimde kalmak", "Yakında dur", "Sosyalleşmek"],
+          correct: 1,
+          tr_explanation: "'Stay in touch' = bağlantıyı sürdürmek. Profesyonel ilişki sloganı.",
+        },
+        {
+          q: "Cold outreach'te en güçlü açılış?",
+          options: ["Hi, I need help", "I came across X and wanted to reach out", "Hire me", "Buy my product"],
+          correct: 1,
+          tr_explanation: "Spesifik referans = personalized. Generic = spam.",
+        },
+        {
+          q: "'Would love to grab coffee' tonunda ne?",
+          options: ["Aşırı resmi", "Casual + warm invitation", "Saldırgan", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'Would love' = warm. 'Grab coffee' = casual buluşma.",
+        },
+        {
+          q: "Networking sonrası follow-up?",
+          options: ["Hiç yazma", "1-2 gün içinde kısa thank-you + bağlantı önerisi", "1 ay sonra", "Sadece para isteme"],
+          correct: 1,
+          tr_explanation: "Hızlı + spesifik follow-up = momentum. İlişki kurmanın temeli.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1732,6 +2397,101 @@ export const workNetworkingLesson_39_8: BundledLesson = {
       phrase: "Great chatting earlier — hope our paths cross again, DM is open anytime.",
       tr_translation: "Daha önce konuşmak güzeldi — yollarımızın tekrar kesişmesini umuyorum, DM her zaman açık.",
       ipa: "/ɡreɪt ˈtʃætɪŋ ˈɜːliə həʊp ˈaʊə pɑːθs krɒs əˈɡɛn diː ɛm ɪz ˈəʊpən ˈɛniˌtaɪm/",
+    },
+    {
+      id: "ex.wn39.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I came across your ___ and wanted to ___.",
+      slots: [
+        { accepted: ['LinkedIn post', 'talk at the conference', 'article', 'Twitter thread'], distractors: ["LinkedIn's post", 'talk in conference', 'articles', "Twitter's thread"] },
+        { accepted: ['reach out', 'say thanks', 'ask a quick question', 'connect'], distractors: ['reach for out', 'say the thanks', 'ask quick question', 'connect with'] },
+      ],
+      tr_hint:
+        "Cold outreach kalıbı. 'I came across' = nazikçe rastlamak. Spesifik referans = spam değil sinyali.",
+      example_filled: "I came across your LinkedIn post and wanted to reach out.",
+    },
+    {
+      id: "ex.wn39.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey — really enjoyed your talk at the meetup last week!" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Likewise! Would love to stay in touch." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate (it|that))( so much)?",
+        "(glad|happy) (it|the talk) (resonated|landed|was useful)",
+        "(would love to|happy to) (chat|connect|grab (coffee|a chat))",
+        "(feel free to|don'?t hesitate)",
+      ],
+      tr_hint:
+        "Birisi tanıtım yaptı — kabul + reciprocate. Türk hatası: 'You are welcome' (yanlış zaman) — 'thanks for saying' uygun.",
+      ideal_answer: "Thanks so much — glad it resonated! Would love to grab coffee sometime if you're up for it.",
+    },
+    {
+      id: "ex.wn39.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What kind of role are you looking for next?",
+      accepted_patterns: [
+        "(honestly|i think|i'?d say)",
+        "(something (along the lines of|like)|(senior|lead|staff) (engineer|pm|designer))",
+        "(in the (.+) space|focused on (.+))",
+        "(open to|considering) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Networking conversation — spesifik ol ama dar değil. 'Any job' kötü. Domain + level + nice-to-have.",
+      ideal_response: "Honestly, something like a senior engineering role in the AI infra space — open to early-stage.",
+    },
+    {
+      id: "ex.wn39.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Seninle network kurmak istiyorum.",
+      wrong_en: "I want to network with you.",
+      right_en: "I'd love to stay in touch / Would love to connect.",
+      why_tr:
+        "'Network with you' = aşırı transactional. İş İngilizcesinde 'stay in touch' / 'connect' = ilişki bazlı. 'Network' fiil olarak agresif algılanır. Türk öğrenci ders kitabı kelimesini direkt kullanır — natural alternatifler var.",
+    },
+    {
+      id: "ex.wn39.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Came across' deyimi?",
+          options: ["Karşıdan geçtim", "Rastladım, denk geldim", "Geldim", "Topladım"],
+          correct: 1,
+          tr_explanation: "'Came across' = rastlamak, denk gelmek. Kibar outreach açılışı.",
+        },
+        {
+          q: "'Stay in touch' anlamı?",
+          options: ["Dokunmaya devam", "İletişimde kalmak", "Yakında dur", "Sosyalleşmek"],
+          correct: 1,
+          tr_explanation: "'Stay in touch' = bağlantıyı sürdürmek. Profesyonel ilişki sloganı.",
+        },
+        {
+          q: "Cold outreach'te en güçlü açılış?",
+          options: ["Hi, I need help", "I came across X and wanted to reach out", "Hire me", "Buy my product"],
+          correct: 1,
+          tr_explanation: "Spesifik referans = personalized. Generic = spam.",
+        },
+        {
+          q: "'Would love to grab coffee' tonunda ne?",
+          options: ["Aşırı resmi", "Casual + warm invitation", "Saldırgan", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'Would love' = warm. 'Grab coffee' = casual buluşma.",
+        },
+        {
+          q: "Networking sonrası follow-up?",
+          options: ["Hiç yazma", "1-2 gün içinde kısa thank-you + bağlantı önerisi", "1 ay sonra", "Sadece para isteme"],
+          correct: 1,
+          tr_explanation: "Hızlı + spesifik follow-up = momentum. İlişki kurmanın temeli.",
+        },
+      ],
     },
   ],
 };

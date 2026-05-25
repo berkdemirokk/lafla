@@ -187,6 +187,101 @@ export const careerB1Lesson_1: BundledLesson = {
       tr_explanation:
         "Türk klasik hataları: (1) 'since 4 years' yanlış — süre için 'for'. (2) 'I am working' yerine 'I've been working' (present perfect continuous). (3) 'I want make' → 'to' eksik: 'I want to'. (4) 'make career' Türkçe kalıbı; doğrusu 'grow my career' veya 'build a career'.",
     },
+    {
+      id: "ex.cb1.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to learn more about ___ so I can ___.",
+      slots: [
+        { accepted: ['the team structure', 'your career path', 'the role expectations', 'the tech stack'], distractors: ['team structures', "career path's", 'role expectation', 'the tech stacks'] },
+        { accepted: ['plan my next step', 'prepare better', 'contribute faster', 'set goals'], distractors: ['plan next step', 'prepare more better', "contribute faster's", 'set the goals'] },
+      ],
+      tr_hint:
+        "Career conversation kalıbı. 'I'd like to' soft + 'so I can' purpose. Curiosity-driven question.",
+      example_filled: "I'd like to learn more about the team structure so I can plan my next step.",
+    },
+    {
+      id: "ex.cb1.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What kind of growth opportunities are you looking for?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's set up some shadowing for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d love to|i'?m hoping to|i'?d like to)",
+        "(grow|develop|build) (my skills|in|toward)",
+        "(more (exposure to|involvement in)|stretch projects)",
+        "(any (chance|opportunity) to|would it be possible to)",
+      ],
+      tr_hint:
+        "Manager growth sordu. 'Anything' = kötü. Spesifik alan + somut öneri.",
+      ideal_answer: "I'd love more exposure to cross-team projects — any chance to shadow a sprint planning?",
+    },
+    {
+      id: "ex.cb1.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's been the most useful skill you've picked up this year?",
+      accepted_patterns: [
+        "(honestly|i'?d say|probably)",
+        "(getting better at|learning to|how to)",
+        "(communication|prioritization|writing|presenting)",
+        "(.+) (changed (how|the way) i|made a (big )?difference)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Career conversation — soft skill seç + somut etki. 'Coding' generic — spesifik soft skill daha güçlü.",
+      ideal_response: "Honestly, learning to prioritize — it changed how I plan my week.",
+    },
+    {
+      id: "ex.cb1.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce öğreniyorum.",
+      wrong_en: "I am learning English.",
+      right_en: "I'm learning English / I'm working on my English.",
+      why_tr:
+        "Direkt çeviri doğru ama career conversation'da düz. 'I'm working on my English' = active improvement framing. İş contexinde 'learning' başlangıç seviyesi sinyali; 'working on' = aktif pratik. Türk öğrenci 'learning' kullanır sürekli, alternatifler daha mature.",
+    },
+    {
+      id: "ex.cb1.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Career growth conversation en güçlü açılış?",
+          options: ["Give me promotion", "I'd like to learn more about X so I can Y", "I want more money", "I am ready"],
+          correct: 1,
+          tr_explanation: "Curiosity + purpose = mature framing. Generic 'I want' = düz.",
+        },
+        {
+          q: "'Stretch project' ne demek?",
+          options: ["Esneme projesi", "Mevcut yetkinliğin sınırında, öğrenme odaklı proje", "Uzun proje", "Stresli proje"],
+          correct: 1,
+          tr_explanation: "'Stretch project' = comfort zone dışı, growth fırsatı. Career convo standardı.",
+        },
+        {
+          q: "'Shadowing' iş ortamında?",
+          options: ["Gölge etmek", "Birinin işini gözlemleyerek öğrenmek", "Takip etmek (creepy)", "Engellemek"],
+          correct: 1,
+          tr_explanation: "'Shadow' = senior'ı gözlemleyerek öğrenme. Standart growth metodu.",
+        },
+        {
+          q: "'I want money' yerine?",
+          options: ["Give me cash", "I'd like to discuss compensation alignment", "Pay more", "Money please"],
+          correct: 1,
+          tr_explanation: "'Compensation alignment' = mature conversation. Direkt 'money' = kaba.",
+        },
+        {
+          q: "Career conversation'da en kötü?",
+          options: ["Spesifik growth area", "Sadece şikayet, alternatif yok", "Soru sorma", "Curiosity"],
+          correct: 1,
+          tr_explanation: "Şikayet + alternatif yok = manager için yük. Çözüm odaklı conversation.",
+        },
+      ],
+    },
   ],
 };
 
@@ -365,6 +460,101 @@ export const careerB1Lesson_2: BundledLesson = {
       correct_sentence: "I'm drawn to your company because your work on developer tooling aligns with where I want to grow.",
       tr_explanation:
         "'I need a job + you pay good money' = leverage'ı düşürür, kişisel değil. Mülakatta para asla ana sebep olarak söylenmez. Spesifik kültür/ürün referansı + kendi büyüme yönünle bağlantı kur.",
+    },
+    {
+      id: "ex.cb1.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to learn more about ___ so I can ___.",
+      slots: [
+        { accepted: ['the team structure', 'your career path', 'the role expectations', 'the tech stack'], distractors: ['team structures', "career path's", 'role expectation', 'the tech stacks'] },
+        { accepted: ['plan my next step', 'prepare better', 'contribute faster', 'set goals'], distractors: ['plan next step', 'prepare more better', "contribute faster's", 'set the goals'] },
+      ],
+      tr_hint:
+        "Career conversation kalıbı. 'I'd like to' soft + 'so I can' purpose. Curiosity-driven question.",
+      example_filled: "I'd like to learn more about the team structure so I can plan my next step.",
+    },
+    {
+      id: "ex.cb1.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What kind of growth opportunities are you looking for?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's set up some shadowing for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d love to|i'?m hoping to|i'?d like to)",
+        "(grow|develop|build) (my skills|in|toward)",
+        "(more (exposure to|involvement in)|stretch projects)",
+        "(any (chance|opportunity) to|would it be possible to)",
+      ],
+      tr_hint:
+        "Manager growth sordu. 'Anything' = kötü. Spesifik alan + somut öneri.",
+      ideal_answer: "I'd love more exposure to cross-team projects — any chance to shadow a sprint planning?",
+    },
+    {
+      id: "ex.cb1.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's been the most useful skill you've picked up this year?",
+      accepted_patterns: [
+        "(honestly|i'?d say|probably)",
+        "(getting better at|learning to|how to)",
+        "(communication|prioritization|writing|presenting)",
+        "(.+) (changed (how|the way) i|made a (big )?difference)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Career conversation — soft skill seç + somut etki. 'Coding' generic — spesifik soft skill daha güçlü.",
+      ideal_response: "Honestly, learning to prioritize — it changed how I plan my week.",
+    },
+    {
+      id: "ex.cb1.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce öğreniyorum.",
+      wrong_en: "I am learning English.",
+      right_en: "I'm learning English / I'm working on my English.",
+      why_tr:
+        "Direkt çeviri doğru ama career conversation'da düz. 'I'm working on my English' = active improvement framing. İş contexinde 'learning' başlangıç seviyesi sinyali; 'working on' = aktif pratik. Türk öğrenci 'learning' kullanır sürekli, alternatifler daha mature.",
+    },
+    {
+      id: "ex.cb1.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Career growth conversation en güçlü açılış?",
+          options: ["Give me promotion", "I'd like to learn more about X so I can Y", "I want more money", "I am ready"],
+          correct: 1,
+          tr_explanation: "Curiosity + purpose = mature framing. Generic 'I want' = düz.",
+        },
+        {
+          q: "'Stretch project' ne demek?",
+          options: ["Esneme projesi", "Mevcut yetkinliğin sınırında, öğrenme odaklı proje", "Uzun proje", "Stresli proje"],
+          correct: 1,
+          tr_explanation: "'Stretch project' = comfort zone dışı, growth fırsatı. Career convo standardı.",
+        },
+        {
+          q: "'Shadowing' iş ortamında?",
+          options: ["Gölge etmek", "Birinin işini gözlemleyerek öğrenmek", "Takip etmek (creepy)", "Engellemek"],
+          correct: 1,
+          tr_explanation: "'Shadow' = senior'ı gözlemleyerek öğrenme. Standart growth metodu.",
+        },
+        {
+          q: "'I want money' yerine?",
+          options: ["Give me cash", "I'd like to discuss compensation alignment", "Pay more", "Money please"],
+          correct: 1,
+          tr_explanation: "'Compensation alignment' = mature conversation. Direkt 'money' = kaba.",
+        },
+        {
+          q: "Career conversation'da en kötü?",
+          options: ["Spesifik growth area", "Sadece şikayet, alternatif yok", "Soru sorma", "Curiosity"],
+          correct: 1,
+          tr_explanation: "Şikayet + alternatif yok = manager için yük. Çözüm odaklı conversation.",
+        },
+      ],
     },
   ],
 };
@@ -559,6 +749,101 @@ export const careerB1Lesson_3: BundledLesson = {
       correct_sentence: "At my last company, I built the frontend on my own, and the team grew from there.",
       tr_explanation:
         "Türk hataları: (1) 'in last company' → 'at my last company' (preposition + iyelik). (2) 'I was making' bitmiş tek seferlik olay için yanlış — 'I built'. (3) 'team was growing' belirsiz; 'the team grew from there' (simple past, net). Bitmiş hikaye = simple past.",
+    },
+    {
+      id: "ex.cb1.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to learn more about ___ so I can ___.",
+      slots: [
+        { accepted: ['the team structure', 'your career path', 'the role expectations', 'the tech stack'], distractors: ['team structures', "career path's", 'role expectation', 'the tech stacks'] },
+        { accepted: ['plan my next step', 'prepare better', 'contribute faster', 'set goals'], distractors: ['plan next step', 'prepare more better', "contribute faster's", 'set the goals'] },
+      ],
+      tr_hint:
+        "Career conversation kalıbı. 'I'd like to' soft + 'so I can' purpose. Curiosity-driven question.",
+      example_filled: "I'd like to learn more about the team structure so I can plan my next step.",
+    },
+    {
+      id: "ex.cb1.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What kind of growth opportunities are you looking for?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's set up some shadowing for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d love to|i'?m hoping to|i'?d like to)",
+        "(grow|develop|build) (my skills|in|toward)",
+        "(more (exposure to|involvement in)|stretch projects)",
+        "(any (chance|opportunity) to|would it be possible to)",
+      ],
+      tr_hint:
+        "Manager growth sordu. 'Anything' = kötü. Spesifik alan + somut öneri.",
+      ideal_answer: "I'd love more exposure to cross-team projects — any chance to shadow a sprint planning?",
+    },
+    {
+      id: "ex.cb1.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's been the most useful skill you've picked up this year?",
+      accepted_patterns: [
+        "(honestly|i'?d say|probably)",
+        "(getting better at|learning to|how to)",
+        "(communication|prioritization|writing|presenting)",
+        "(.+) (changed (how|the way) i|made a (big )?difference)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Career conversation — soft skill seç + somut etki. 'Coding' generic — spesifik soft skill daha güçlü.",
+      ideal_response: "Honestly, learning to prioritize — it changed how I plan my week.",
+    },
+    {
+      id: "ex.cb1.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce öğreniyorum.",
+      wrong_en: "I am learning English.",
+      right_en: "I'm learning English / I'm working on my English.",
+      why_tr:
+        "Direkt çeviri doğru ama career conversation'da düz. 'I'm working on my English' = active improvement framing. İş contexinde 'learning' başlangıç seviyesi sinyali; 'working on' = aktif pratik. Türk öğrenci 'learning' kullanır sürekli, alternatifler daha mature.",
+    },
+    {
+      id: "ex.cb1.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Career growth conversation en güçlü açılış?",
+          options: ["Give me promotion", "I'd like to learn more about X so I can Y", "I want more money", "I am ready"],
+          correct: 1,
+          tr_explanation: "Curiosity + purpose = mature framing. Generic 'I want' = düz.",
+        },
+        {
+          q: "'Stretch project' ne demek?",
+          options: ["Esneme projesi", "Mevcut yetkinliğin sınırında, öğrenme odaklı proje", "Uzun proje", "Stresli proje"],
+          correct: 1,
+          tr_explanation: "'Stretch project' = comfort zone dışı, growth fırsatı. Career convo standardı.",
+        },
+        {
+          q: "'Shadowing' iş ortamında?",
+          options: ["Gölge etmek", "Birinin işini gözlemleyerek öğrenmek", "Takip etmek (creepy)", "Engellemek"],
+          correct: 1,
+          tr_explanation: "'Shadow' = senior'ı gözlemleyerek öğrenme. Standart growth metodu.",
+        },
+        {
+          q: "'I want money' yerine?",
+          options: ["Give me cash", "I'd like to discuss compensation alignment", "Pay more", "Money please"],
+          correct: 1,
+          tr_explanation: "'Compensation alignment' = mature conversation. Direkt 'money' = kaba.",
+        },
+        {
+          q: "Career conversation'da en kötü?",
+          options: ["Spesifik growth area", "Sadece şikayet, alternatif yok", "Soru sorma", "Curiosity"],
+          correct: 1,
+          tr_explanation: "Şikayet + alternatif yok = manager için yük. Çözüm odaklı conversation.",
+        },
+      ],
     },
   ],
 };
@@ -757,6 +1042,101 @@ export const careerB1Lesson_4: BundledLesson = {
       tr_explanation:
         "İlk soru = leverage kaybı + ultimatum. Profesyonel: önce 'Could you share the range?' + 'I'm targeting around X with flexibility'. 'Cannot accept less' kapı kapatır — esneklik göster.",
     },
+    {
+      id: "ex.cb1.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to learn more about ___ so I can ___.",
+      slots: [
+        { accepted: ['the team structure', 'your career path', 'the role expectations', 'the tech stack'], distractors: ['team structures', "career path's", 'role expectation', 'the tech stacks'] },
+        { accepted: ['plan my next step', 'prepare better', 'contribute faster', 'set goals'], distractors: ['plan next step', 'prepare more better', "contribute faster's", 'set the goals'] },
+      ],
+      tr_hint:
+        "Career conversation kalıbı. 'I'd like to' soft + 'so I can' purpose. Curiosity-driven question.",
+      example_filled: "I'd like to learn more about the team structure so I can plan my next step.",
+    },
+    {
+      id: "ex.cb1.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What kind of growth opportunities are you looking for?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's set up some shadowing for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d love to|i'?m hoping to|i'?d like to)",
+        "(grow|develop|build) (my skills|in|toward)",
+        "(more (exposure to|involvement in)|stretch projects)",
+        "(any (chance|opportunity) to|would it be possible to)",
+      ],
+      tr_hint:
+        "Manager growth sordu. 'Anything' = kötü. Spesifik alan + somut öneri.",
+      ideal_answer: "I'd love more exposure to cross-team projects — any chance to shadow a sprint planning?",
+    },
+    {
+      id: "ex.cb1.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's been the most useful skill you've picked up this year?",
+      accepted_patterns: [
+        "(honestly|i'?d say|probably)",
+        "(getting better at|learning to|how to)",
+        "(communication|prioritization|writing|presenting)",
+        "(.+) (changed (how|the way) i|made a (big )?difference)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Career conversation — soft skill seç + somut etki. 'Coding' generic — spesifik soft skill daha güçlü.",
+      ideal_response: "Honestly, learning to prioritize — it changed how I plan my week.",
+    },
+    {
+      id: "ex.cb1.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce öğreniyorum.",
+      wrong_en: "I am learning English.",
+      right_en: "I'm learning English / I'm working on my English.",
+      why_tr:
+        "Direkt çeviri doğru ama career conversation'da düz. 'I'm working on my English' = active improvement framing. İş contexinde 'learning' başlangıç seviyesi sinyali; 'working on' = aktif pratik. Türk öğrenci 'learning' kullanır sürekli, alternatifler daha mature.",
+    },
+    {
+      id: "ex.cb1.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Career growth conversation en güçlü açılış?",
+          options: ["Give me promotion", "I'd like to learn more about X so I can Y", "I want more money", "I am ready"],
+          correct: 1,
+          tr_explanation: "Curiosity + purpose = mature framing. Generic 'I want' = düz.",
+        },
+        {
+          q: "'Stretch project' ne demek?",
+          options: ["Esneme projesi", "Mevcut yetkinliğin sınırında, öğrenme odaklı proje", "Uzun proje", "Stresli proje"],
+          correct: 1,
+          tr_explanation: "'Stretch project' = comfort zone dışı, growth fırsatı. Career convo standardı.",
+        },
+        {
+          q: "'Shadowing' iş ortamında?",
+          options: ["Gölge etmek", "Birinin işini gözlemleyerek öğrenmek", "Takip etmek (creepy)", "Engellemek"],
+          correct: 1,
+          tr_explanation: "'Shadow' = senior'ı gözlemleyerek öğrenme. Standart growth metodu.",
+        },
+        {
+          q: "'I want money' yerine?",
+          options: ["Give me cash", "I'd like to discuss compensation alignment", "Pay more", "Money please"],
+          correct: 1,
+          tr_explanation: "'Compensation alignment' = mature conversation. Direkt 'money' = kaba.",
+        },
+        {
+          q: "Career conversation'da en kötü?",
+          options: ["Spesifik growth area", "Sadece şikayet, alternatif yok", "Soru sorma", "Curiosity"],
+          correct: 1,
+          tr_explanation: "Şikayet + alternatif yok = manager için yük. Çözüm odaklı conversation.",
+        },
+      ],
+    },
   ],
 };
 
@@ -936,6 +1316,101 @@ export const careerB1Lesson_5: BundledLesson = {
       correct_sentence: "Something I've been working on is letting go of small details — I now time-box code reviews to thirty minutes.",
       tr_explanation:
         "'Too perfectionist + work hard always' = klişe + humble-brag (zayıflık değil gizli övgü). Mülakatçı bunu fark eder. Gerçek zayıflık + somut aksiyon iste: 'time-box reviews to 30 minutes'.",
+    },
+    {
+      id: "ex.cb1.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to learn more about ___ so I can ___.",
+      slots: [
+        { accepted: ['the team structure', 'your career path', 'the role expectations', 'the tech stack'], distractors: ['team structures', "career path's", 'role expectation', 'the tech stacks'] },
+        { accepted: ['plan my next step', 'prepare better', 'contribute faster', 'set goals'], distractors: ['plan next step', 'prepare more better', "contribute faster's", 'set the goals'] },
+      ],
+      tr_hint:
+        "Career conversation kalıbı. 'I'd like to' soft + 'so I can' purpose. Curiosity-driven question.",
+      example_filled: "I'd like to learn more about the team structure so I can plan my next step.",
+    },
+    {
+      id: "ex.cb1.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What kind of growth opportunities are you looking for?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's set up some shadowing for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d love to|i'?m hoping to|i'?d like to)",
+        "(grow|develop|build) (my skills|in|toward)",
+        "(more (exposure to|involvement in)|stretch projects)",
+        "(any (chance|opportunity) to|would it be possible to)",
+      ],
+      tr_hint:
+        "Manager growth sordu. 'Anything' = kötü. Spesifik alan + somut öneri.",
+      ideal_answer: "I'd love more exposure to cross-team projects — any chance to shadow a sprint planning?",
+    },
+    {
+      id: "ex.cb1.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's been the most useful skill you've picked up this year?",
+      accepted_patterns: [
+        "(honestly|i'?d say|probably)",
+        "(getting better at|learning to|how to)",
+        "(communication|prioritization|writing|presenting)",
+        "(.+) (changed (how|the way) i|made a (big )?difference)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Career conversation — soft skill seç + somut etki. 'Coding' generic — spesifik soft skill daha güçlü.",
+      ideal_response: "Honestly, learning to prioritize — it changed how I plan my week.",
+    },
+    {
+      id: "ex.cb1.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce öğreniyorum.",
+      wrong_en: "I am learning English.",
+      right_en: "I'm learning English / I'm working on my English.",
+      why_tr:
+        "Direkt çeviri doğru ama career conversation'da düz. 'I'm working on my English' = active improvement framing. İş contexinde 'learning' başlangıç seviyesi sinyali; 'working on' = aktif pratik. Türk öğrenci 'learning' kullanır sürekli, alternatifler daha mature.",
+    },
+    {
+      id: "ex.cb1.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Career growth conversation en güçlü açılış?",
+          options: ["Give me promotion", "I'd like to learn more about X so I can Y", "I want more money", "I am ready"],
+          correct: 1,
+          tr_explanation: "Curiosity + purpose = mature framing. Generic 'I want' = düz.",
+        },
+        {
+          q: "'Stretch project' ne demek?",
+          options: ["Esneme projesi", "Mevcut yetkinliğin sınırında, öğrenme odaklı proje", "Uzun proje", "Stresli proje"],
+          correct: 1,
+          tr_explanation: "'Stretch project' = comfort zone dışı, growth fırsatı. Career convo standardı.",
+        },
+        {
+          q: "'Shadowing' iş ortamında?",
+          options: ["Gölge etmek", "Birinin işini gözlemleyerek öğrenmek", "Takip etmek (creepy)", "Engellemek"],
+          correct: 1,
+          tr_explanation: "'Shadow' = senior'ı gözlemleyerek öğrenme. Standart growth metodu.",
+        },
+        {
+          q: "'I want money' yerine?",
+          options: ["Give me cash", "I'd like to discuss compensation alignment", "Pay more", "Money please"],
+          correct: 1,
+          tr_explanation: "'Compensation alignment' = mature conversation. Direkt 'money' = kaba.",
+        },
+        {
+          q: "Career conversation'da en kötü?",
+          options: ["Spesifik growth area", "Sadece şikayet, alternatif yok", "Soru sorma", "Curiosity"],
+          correct: 1,
+          tr_explanation: "Şikayet + alternatif yok = manager için yük. Çözüm odaklı conversation.",
+        },
+      ],
     },
   ],
 };
@@ -1118,6 +1593,101 @@ export const careerB1Lesson_6: BundledLesson = {
       tr_explanation:
         "Eski şirkete sövmek + 'salary is low' = kırmızı bayrak. 'Searching new job actively' Türk kalıbı; doğrusu 'looking for the next step'. Pozitif çerçeve + ileriye dönük sebep. Para asla ilk sebep değil.",
     },
+    {
+      id: "ex.cb1.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to learn more about ___ so I can ___.",
+      slots: [
+        { accepted: ['the team structure', 'your career path', 'the role expectations', 'the tech stack'], distractors: ['team structures', "career path's", 'role expectation', 'the tech stacks'] },
+        { accepted: ['plan my next step', 'prepare better', 'contribute faster', 'set goals'], distractors: ['plan next step', 'prepare more better', "contribute faster's", 'set the goals'] },
+      ],
+      tr_hint:
+        "Career conversation kalıbı. 'I'd like to' soft + 'so I can' purpose. Curiosity-driven question.",
+      example_filled: "I'd like to learn more about the team structure so I can plan my next step.",
+    },
+    {
+      id: "ex.cb1.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What kind of growth opportunities are you looking for?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's set up some shadowing for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d love to|i'?m hoping to|i'?d like to)",
+        "(grow|develop|build) (my skills|in|toward)",
+        "(more (exposure to|involvement in)|stretch projects)",
+        "(any (chance|opportunity) to|would it be possible to)",
+      ],
+      tr_hint:
+        "Manager growth sordu. 'Anything' = kötü. Spesifik alan + somut öneri.",
+      ideal_answer: "I'd love more exposure to cross-team projects — any chance to shadow a sprint planning?",
+    },
+    {
+      id: "ex.cb1.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's been the most useful skill you've picked up this year?",
+      accepted_patterns: [
+        "(honestly|i'?d say|probably)",
+        "(getting better at|learning to|how to)",
+        "(communication|prioritization|writing|presenting)",
+        "(.+) (changed (how|the way) i|made a (big )?difference)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Career conversation — soft skill seç + somut etki. 'Coding' generic — spesifik soft skill daha güçlü.",
+      ideal_response: "Honestly, learning to prioritize — it changed how I plan my week.",
+    },
+    {
+      id: "ex.cb1.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce öğreniyorum.",
+      wrong_en: "I am learning English.",
+      right_en: "I'm learning English / I'm working on my English.",
+      why_tr:
+        "Direkt çeviri doğru ama career conversation'da düz. 'I'm working on my English' = active improvement framing. İş contexinde 'learning' başlangıç seviyesi sinyali; 'working on' = aktif pratik. Türk öğrenci 'learning' kullanır sürekli, alternatifler daha mature.",
+    },
+    {
+      id: "ex.cb1.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Career growth conversation en güçlü açılış?",
+          options: ["Give me promotion", "I'd like to learn more about X so I can Y", "I want more money", "I am ready"],
+          correct: 1,
+          tr_explanation: "Curiosity + purpose = mature framing. Generic 'I want' = düz.",
+        },
+        {
+          q: "'Stretch project' ne demek?",
+          options: ["Esneme projesi", "Mevcut yetkinliğin sınırında, öğrenme odaklı proje", "Uzun proje", "Stresli proje"],
+          correct: 1,
+          tr_explanation: "'Stretch project' = comfort zone dışı, growth fırsatı. Career convo standardı.",
+        },
+        {
+          q: "'Shadowing' iş ortamında?",
+          options: ["Gölge etmek", "Birinin işini gözlemleyerek öğrenmek", "Takip etmek (creepy)", "Engellemek"],
+          correct: 1,
+          tr_explanation: "'Shadow' = senior'ı gözlemleyerek öğrenme. Standart growth metodu.",
+        },
+        {
+          q: "'I want money' yerine?",
+          options: ["Give me cash", "I'd like to discuss compensation alignment", "Pay more", "Money please"],
+          correct: 1,
+          tr_explanation: "'Compensation alignment' = mature conversation. Direkt 'money' = kaba.",
+        },
+        {
+          q: "Career conversation'da en kötü?",
+          options: ["Spesifik growth area", "Sadece şikayet, alternatif yok", "Soru sorma", "Curiosity"],
+          correct: 1,
+          tr_explanation: "Şikayet + alternatif yok = manager için yük. Çözüm odaklı conversation.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1298,6 +1868,101 @@ export const careerB1Lesson_7: BundledLesson = {
       tr_explanation:
         "Maaş + başlangıç tarihi = teklif sonrası soru, mülakat sonrası değil. Mülakat sonu = SEN değerlendiriyorsun: rol, ekip, kültür. 'Start to work' yerine 'start' (infinitive yeterli) — ama mülakat sonu yine yanlış yer.",
     },
+    {
+      id: "ex.cb1.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to learn more about ___ so I can ___.",
+      slots: [
+        { accepted: ['the team structure', 'your career path', 'the role expectations', 'the tech stack'], distractors: ['team structures', "career path's", 'role expectation', 'the tech stacks'] },
+        { accepted: ['plan my next step', 'prepare better', 'contribute faster', 'set goals'], distractors: ['plan next step', 'prepare more better', "contribute faster's", 'set the goals'] },
+      ],
+      tr_hint:
+        "Career conversation kalıbı. 'I'd like to' soft + 'so I can' purpose. Curiosity-driven question.",
+      example_filled: "I'd like to learn more about the team structure so I can plan my next step.",
+    },
+    {
+      id: "ex.cb1.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What kind of growth opportunities are you looking for?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's set up some shadowing for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d love to|i'?m hoping to|i'?d like to)",
+        "(grow|develop|build) (my skills|in|toward)",
+        "(more (exposure to|involvement in)|stretch projects)",
+        "(any (chance|opportunity) to|would it be possible to)",
+      ],
+      tr_hint:
+        "Manager growth sordu. 'Anything' = kötü. Spesifik alan + somut öneri.",
+      ideal_answer: "I'd love more exposure to cross-team projects — any chance to shadow a sprint planning?",
+    },
+    {
+      id: "ex.cb1.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's been the most useful skill you've picked up this year?",
+      accepted_patterns: [
+        "(honestly|i'?d say|probably)",
+        "(getting better at|learning to|how to)",
+        "(communication|prioritization|writing|presenting)",
+        "(.+) (changed (how|the way) i|made a (big )?difference)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Career conversation — soft skill seç + somut etki. 'Coding' generic — spesifik soft skill daha güçlü.",
+      ideal_response: "Honestly, learning to prioritize — it changed how I plan my week.",
+    },
+    {
+      id: "ex.cb1.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce öğreniyorum.",
+      wrong_en: "I am learning English.",
+      right_en: "I'm learning English / I'm working on my English.",
+      why_tr:
+        "Direkt çeviri doğru ama career conversation'da düz. 'I'm working on my English' = active improvement framing. İş contexinde 'learning' başlangıç seviyesi sinyali; 'working on' = aktif pratik. Türk öğrenci 'learning' kullanır sürekli, alternatifler daha mature.",
+    },
+    {
+      id: "ex.cb1.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Career growth conversation en güçlü açılış?",
+          options: ["Give me promotion", "I'd like to learn more about X so I can Y", "I want more money", "I am ready"],
+          correct: 1,
+          tr_explanation: "Curiosity + purpose = mature framing. Generic 'I want' = düz.",
+        },
+        {
+          q: "'Stretch project' ne demek?",
+          options: ["Esneme projesi", "Mevcut yetkinliğin sınırında, öğrenme odaklı proje", "Uzun proje", "Stresli proje"],
+          correct: 1,
+          tr_explanation: "'Stretch project' = comfort zone dışı, growth fırsatı. Career convo standardı.",
+        },
+        {
+          q: "'Shadowing' iş ortamında?",
+          options: ["Gölge etmek", "Birinin işini gözlemleyerek öğrenmek", "Takip etmek (creepy)", "Engellemek"],
+          correct: 1,
+          tr_explanation: "'Shadow' = senior'ı gözlemleyerek öğrenme. Standart growth metodu.",
+        },
+        {
+          q: "'I want money' yerine?",
+          options: ["Give me cash", "I'd like to discuss compensation alignment", "Pay more", "Money please"],
+          correct: 1,
+          tr_explanation: "'Compensation alignment' = mature conversation. Direkt 'money' = kaba.",
+        },
+        {
+          q: "Career conversation'da en kötü?",
+          options: ["Spesifik growth area", "Sadece şikayet, alternatif yok", "Soru sorma", "Curiosity"],
+          correct: 1,
+          tr_explanation: "Şikayet + alternatif yok = manager için yük. Çözüm odaklı conversation.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1475,6 +2140,101 @@ export const careerB1Lesson_8: BundledLesson = {
       correct_sentence: "Hi — just a quick follow-up. Wanted to check in on next steps when you have a moment.",
       tr_explanation:
         "'Sir' = aşırı formal, Türk klasiği — modern e-postada 'Hi [name]'. 'Get the job or not' agresif. 'Please answer fast' kaba ve baskı kurar. Doğru: 'quick follow-up' + 'when you have a moment' yumuşatıcı.",
+    },
+    {
+      id: "ex.cb1.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to learn more about ___ so I can ___.",
+      slots: [
+        { accepted: ['the team structure', 'your career path', 'the role expectations', 'the tech stack'], distractors: ['team structures', "career path's", 'role expectation', 'the tech stacks'] },
+        { accepted: ['plan my next step', 'prepare better', 'contribute faster', 'set goals'], distractors: ['plan next step', 'prepare more better', "contribute faster's", 'set the goals'] },
+      ],
+      tr_hint:
+        "Career conversation kalıbı. 'I'd like to' soft + 'so I can' purpose. Curiosity-driven question.",
+      example_filled: "I'd like to learn more about the team structure so I can plan my next step.",
+    },
+    {
+      id: "ex.cb1.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What kind of growth opportunities are you looking for?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's set up some shadowing for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d love to|i'?m hoping to|i'?d like to)",
+        "(grow|develop|build) (my skills|in|toward)",
+        "(more (exposure to|involvement in)|stretch projects)",
+        "(any (chance|opportunity) to|would it be possible to)",
+      ],
+      tr_hint:
+        "Manager growth sordu. 'Anything' = kötü. Spesifik alan + somut öneri.",
+      ideal_answer: "I'd love more exposure to cross-team projects — any chance to shadow a sprint planning?",
+    },
+    {
+      id: "ex.cb1.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's been the most useful skill you've picked up this year?",
+      accepted_patterns: [
+        "(honestly|i'?d say|probably)",
+        "(getting better at|learning to|how to)",
+        "(communication|prioritization|writing|presenting)",
+        "(.+) (changed (how|the way) i|made a (big )?difference)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Career conversation — soft skill seç + somut etki. 'Coding' generic — spesifik soft skill daha güçlü.",
+      ideal_response: "Honestly, learning to prioritize — it changed how I plan my week.",
+    },
+    {
+      id: "ex.cb1.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce öğreniyorum.",
+      wrong_en: "I am learning English.",
+      right_en: "I'm learning English / I'm working on my English.",
+      why_tr:
+        "Direkt çeviri doğru ama career conversation'da düz. 'I'm working on my English' = active improvement framing. İş contexinde 'learning' başlangıç seviyesi sinyali; 'working on' = aktif pratik. Türk öğrenci 'learning' kullanır sürekli, alternatifler daha mature.",
+    },
+    {
+      id: "ex.cb1.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Career growth conversation en güçlü açılış?",
+          options: ["Give me promotion", "I'd like to learn more about X so I can Y", "I want more money", "I am ready"],
+          correct: 1,
+          tr_explanation: "Curiosity + purpose = mature framing. Generic 'I want' = düz.",
+        },
+        {
+          q: "'Stretch project' ne demek?",
+          options: ["Esneme projesi", "Mevcut yetkinliğin sınırında, öğrenme odaklı proje", "Uzun proje", "Stresli proje"],
+          correct: 1,
+          tr_explanation: "'Stretch project' = comfort zone dışı, growth fırsatı. Career convo standardı.",
+        },
+        {
+          q: "'Shadowing' iş ortamında?",
+          options: ["Gölge etmek", "Birinin işini gözlemleyerek öğrenmek", "Takip etmek (creepy)", "Engellemek"],
+          correct: 1,
+          tr_explanation: "'Shadow' = senior'ı gözlemleyerek öğrenme. Standart growth metodu.",
+        },
+        {
+          q: "'I want money' yerine?",
+          options: ["Give me cash", "I'd like to discuss compensation alignment", "Pay more", "Money please"],
+          correct: 1,
+          tr_explanation: "'Compensation alignment' = mature conversation. Direkt 'money' = kaba.",
+        },
+        {
+          q: "Career conversation'da en kötü?",
+          options: ["Spesifik growth area", "Sadece şikayet, alternatif yok", "Soru sorma", "Curiosity"],
+          correct: 1,
+          tr_explanation: "Şikayet + alternatif yok = manager için yük. Çözüm odaklı conversation.",
+        },
+      ],
     },
   ],
 };
@@ -1674,6 +2434,101 @@ export const careerB1Lesson_9: BundledLesson = {
       tr_explanation:
         "'OK I accept + maaş artışı' = kabul ile pazarlığı karıştırıyor. Önce 'thrilled to accept' veya pazarlık AYRI tut. '20%' agresif kalır — 'slight adjustment' diplomatik. Kabul ettin mi, etmedin mi netleştir.",
     },
+    {
+      id: "ex.cb1.9.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to learn more about ___ so I can ___.",
+      slots: [
+        { accepted: ['the team structure', 'your career path', 'the role expectations', 'the tech stack'], distractors: ['team structures', "career path's", 'role expectation', 'the tech stacks'] },
+        { accepted: ['plan my next step', 'prepare better', 'contribute faster', 'set goals'], distractors: ['plan next step', 'prepare more better', "contribute faster's", 'set the goals'] },
+      ],
+      tr_hint:
+        "Career conversation kalıbı. 'I'd like to' soft + 'so I can' purpose. Curiosity-driven question.",
+      example_filled: "I'd like to learn more about the team structure so I can plan my next step.",
+    },
+    {
+      id: "ex.cb1.9.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What kind of growth opportunities are you looking for?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's set up some shadowing for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d love to|i'?m hoping to|i'?d like to)",
+        "(grow|develop|build) (my skills|in|toward)",
+        "(more (exposure to|involvement in)|stretch projects)",
+        "(any (chance|opportunity) to|would it be possible to)",
+      ],
+      tr_hint:
+        "Manager growth sordu. 'Anything' = kötü. Spesifik alan + somut öneri.",
+      ideal_answer: "I'd love more exposure to cross-team projects — any chance to shadow a sprint planning?",
+    },
+    {
+      id: "ex.cb1.9.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's been the most useful skill you've picked up this year?",
+      accepted_patterns: [
+        "(honestly|i'?d say|probably)",
+        "(getting better at|learning to|how to)",
+        "(communication|prioritization|writing|presenting)",
+        "(.+) (changed (how|the way) i|made a (big )?difference)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Career conversation — soft skill seç + somut etki. 'Coding' generic — spesifik soft skill daha güçlü.",
+      ideal_response: "Honestly, learning to prioritize — it changed how I plan my week.",
+    },
+    {
+      id: "ex.cb1.9.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce öğreniyorum.",
+      wrong_en: "I am learning English.",
+      right_en: "I'm learning English / I'm working on my English.",
+      why_tr:
+        "Direkt çeviri doğru ama career conversation'da düz. 'I'm working on my English' = active improvement framing. İş contexinde 'learning' başlangıç seviyesi sinyali; 'working on' = aktif pratik. Türk öğrenci 'learning' kullanır sürekli, alternatifler daha mature.",
+    },
+    {
+      id: "ex.cb1.9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Career growth conversation en güçlü açılış?",
+          options: ["Give me promotion", "I'd like to learn more about X so I can Y", "I want more money", "I am ready"],
+          correct: 1,
+          tr_explanation: "Curiosity + purpose = mature framing. Generic 'I want' = düz.",
+        },
+        {
+          q: "'Stretch project' ne demek?",
+          options: ["Esneme projesi", "Mevcut yetkinliğin sınırında, öğrenme odaklı proje", "Uzun proje", "Stresli proje"],
+          correct: 1,
+          tr_explanation: "'Stretch project' = comfort zone dışı, growth fırsatı. Career convo standardı.",
+        },
+        {
+          q: "'Shadowing' iş ortamında?",
+          options: ["Gölge etmek", "Birinin işini gözlemleyerek öğrenmek", "Takip etmek (creepy)", "Engellemek"],
+          correct: 1,
+          tr_explanation: "'Shadow' = senior'ı gözlemleyerek öğrenme. Standart growth metodu.",
+        },
+        {
+          q: "'I want money' yerine?",
+          options: ["Give me cash", "I'd like to discuss compensation alignment", "Pay more", "Money please"],
+          correct: 1,
+          tr_explanation: "'Compensation alignment' = mature conversation. Direkt 'money' = kaba.",
+        },
+        {
+          q: "Career conversation'da en kötü?",
+          options: ["Spesifik growth area", "Sadece şikayet, alternatif yok", "Soru sorma", "Curiosity"],
+          correct: 1,
+          tr_explanation: "Şikayet + alternatif yok = manager için yük. Çözüm odaklı conversation.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1861,6 +2716,101 @@ export const careerB1Lesson_10: BundledLesson = {
       correct_sentence: "Hi everyone, I'm Berk — I just joined the backend team this week. Based in Istanbul, last three years in fintech.",
       tr_explanation:
         "Türk CV alışkanlığı: yaş + medeni durum + çocuk = İş yerinde uygunsuz/illegal (West). İş tanıtımı = rol + lokasyon + kısa background. Kişisel detayları sosyal ortamda doğal şekilde paylaş.",
+    },
+    {
+      id: "ex.cb1.10.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to learn more about ___ so I can ___.",
+      slots: [
+        { accepted: ['the team structure', 'your career path', 'the role expectations', 'the tech stack'], distractors: ['team structures', "career path's", 'role expectation', 'the tech stacks'] },
+        { accepted: ['plan my next step', 'prepare better', 'contribute faster', 'set goals'], distractors: ['plan next step', 'prepare more better', "contribute faster's", 'set the goals'] },
+      ],
+      tr_hint:
+        "Career conversation kalıbı. 'I'd like to' soft + 'so I can' purpose. Curiosity-driven question.",
+      example_filled: "I'd like to learn more about the team structure so I can plan my next step.",
+    },
+    {
+      id: "ex.cb1.10.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What kind of growth opportunities are you looking for?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's set up some shadowing for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d love to|i'?m hoping to|i'?d like to)",
+        "(grow|develop|build) (my skills|in|toward)",
+        "(more (exposure to|involvement in)|stretch projects)",
+        "(any (chance|opportunity) to|would it be possible to)",
+      ],
+      tr_hint:
+        "Manager growth sordu. 'Anything' = kötü. Spesifik alan + somut öneri.",
+      ideal_answer: "I'd love more exposure to cross-team projects — any chance to shadow a sprint planning?",
+    },
+    {
+      id: "ex.cb1.10.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's been the most useful skill you've picked up this year?",
+      accepted_patterns: [
+        "(honestly|i'?d say|probably)",
+        "(getting better at|learning to|how to)",
+        "(communication|prioritization|writing|presenting)",
+        "(.+) (changed (how|the way) i|made a (big )?difference)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Career conversation — soft skill seç + somut etki. 'Coding' generic — spesifik soft skill daha güçlü.",
+      ideal_response: "Honestly, learning to prioritize — it changed how I plan my week.",
+    },
+    {
+      id: "ex.cb1.10.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce öğreniyorum.",
+      wrong_en: "I am learning English.",
+      right_en: "I'm learning English / I'm working on my English.",
+      why_tr:
+        "Direkt çeviri doğru ama career conversation'da düz. 'I'm working on my English' = active improvement framing. İş contexinde 'learning' başlangıç seviyesi sinyali; 'working on' = aktif pratik. Türk öğrenci 'learning' kullanır sürekli, alternatifler daha mature.",
+    },
+    {
+      id: "ex.cb1.10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Career growth conversation en güçlü açılış?",
+          options: ["Give me promotion", "I'd like to learn more about X so I can Y", "I want more money", "I am ready"],
+          correct: 1,
+          tr_explanation: "Curiosity + purpose = mature framing. Generic 'I want' = düz.",
+        },
+        {
+          q: "'Stretch project' ne demek?",
+          options: ["Esneme projesi", "Mevcut yetkinliğin sınırında, öğrenme odaklı proje", "Uzun proje", "Stresli proje"],
+          correct: 1,
+          tr_explanation: "'Stretch project' = comfort zone dışı, growth fırsatı. Career convo standardı.",
+        },
+        {
+          q: "'Shadowing' iş ortamında?",
+          options: ["Gölge etmek", "Birinin işini gözlemleyerek öğrenmek", "Takip etmek (creepy)", "Engellemek"],
+          correct: 1,
+          tr_explanation: "'Shadow' = senior'ı gözlemleyerek öğrenme. Standart growth metodu.",
+        },
+        {
+          q: "'I want money' yerine?",
+          options: ["Give me cash", "I'd like to discuss compensation alignment", "Pay more", "Money please"],
+          correct: 1,
+          tr_explanation: "'Compensation alignment' = mature conversation. Direkt 'money' = kaba.",
+        },
+        {
+          q: "Career conversation'da en kötü?",
+          options: ["Spesifik growth area", "Sadece şikayet, alternatif yok", "Soru sorma", "Curiosity"],
+          correct: 1,
+          tr_explanation: "Şikayet + alternatif yok = manager için yük. Çözüm odaklı conversation.",
+        },
+      ],
     },
   ],
 };
@@ -2060,6 +3010,101 @@ export const careerB1Lesson_11: BundledLesson = {
       tr_hint:
         "'Detail-oriented' = 'DEE-teyl OR-ee-en-tid'. Türk hatası: 'experience' = 'eks-PIR-yıns' (3 hece), 'eks-pe-ri-ans' DEĞİL. 'Professional' vurgu 'FESH'.",
     },
+    {
+      id: "ex.cb1.11.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to learn more about ___ so I can ___.",
+      slots: [
+        { accepted: ['the team structure', 'your career path', 'the role expectations', 'the tech stack'], distractors: ['team structures', "career path's", 'role expectation', 'the tech stacks'] },
+        { accepted: ['plan my next step', 'prepare better', 'contribute faster', 'set goals'], distractors: ['plan next step', 'prepare more better', "contribute faster's", 'set the goals'] },
+      ],
+      tr_hint:
+        "Career conversation kalıbı. 'I'd like to' soft + 'so I can' purpose. Curiosity-driven question.",
+      example_filled: "I'd like to learn more about the team structure so I can plan my next step.",
+    },
+    {
+      id: "ex.cb1.11.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What kind of growth opportunities are you looking for?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's set up some shadowing for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d love to|i'?m hoping to|i'?d like to)",
+        "(grow|develop|build) (my skills|in|toward)",
+        "(more (exposure to|involvement in)|stretch projects)",
+        "(any (chance|opportunity) to|would it be possible to)",
+      ],
+      tr_hint:
+        "Manager growth sordu. 'Anything' = kötü. Spesifik alan + somut öneri.",
+      ideal_answer: "I'd love more exposure to cross-team projects — any chance to shadow a sprint planning?",
+    },
+    {
+      id: "ex.cb1.11.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's been the most useful skill you've picked up this year?",
+      accepted_patterns: [
+        "(honestly|i'?d say|probably)",
+        "(getting better at|learning to|how to)",
+        "(communication|prioritization|writing|presenting)",
+        "(.+) (changed (how|the way) i|made a (big )?difference)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Career conversation — soft skill seç + somut etki. 'Coding' generic — spesifik soft skill daha güçlü.",
+      ideal_response: "Honestly, learning to prioritize — it changed how I plan my week.",
+    },
+    {
+      id: "ex.cb1.11.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce öğreniyorum.",
+      wrong_en: "I am learning English.",
+      right_en: "I'm learning English / I'm working on my English.",
+      why_tr:
+        "Direkt çeviri doğru ama career conversation'da düz. 'I'm working on my English' = active improvement framing. İş contexinde 'learning' başlangıç seviyesi sinyali; 'working on' = aktif pratik. Türk öğrenci 'learning' kullanır sürekli, alternatifler daha mature.",
+    },
+    {
+      id: "ex.cb1.11.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Career growth conversation en güçlü açılış?",
+          options: ["Give me promotion", "I'd like to learn more about X so I can Y", "I want more money", "I am ready"],
+          correct: 1,
+          tr_explanation: "Curiosity + purpose = mature framing. Generic 'I want' = düz.",
+        },
+        {
+          q: "'Stretch project' ne demek?",
+          options: ["Esneme projesi", "Mevcut yetkinliğin sınırında, öğrenme odaklı proje", "Uzun proje", "Stresli proje"],
+          correct: 1,
+          tr_explanation: "'Stretch project' = comfort zone dışı, growth fırsatı. Career convo standardı.",
+        },
+        {
+          q: "'Shadowing' iş ortamında?",
+          options: ["Gölge etmek", "Birinin işini gözlemleyerek öğrenmek", "Takip etmek (creepy)", "Engellemek"],
+          correct: 1,
+          tr_explanation: "'Shadow' = senior'ı gözlemleyerek öğrenme. Standart growth metodu.",
+        },
+        {
+          q: "'I want money' yerine?",
+          options: ["Give me cash", "I'd like to discuss compensation alignment", "Pay more", "Money please"],
+          correct: 1,
+          tr_explanation: "'Compensation alignment' = mature conversation. Direkt 'money' = kaba.",
+        },
+        {
+          q: "Career conversation'da en kötü?",
+          options: ["Spesifik growth area", "Sadece şikayet, alternatif yok", "Soru sorma", "Curiosity"],
+          correct: 1,
+          tr_explanation: "Şikayet + alternatif yok = manager için yük. Çözüm odaklı conversation.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2255,6 +3300,101 @@ export const careerB1Lesson_12: BundledLesson = {
       ipa: "/aɪ æm ˈraɪtɪŋ tə əˈplaɪ fə ðə ˈbækˌɛnd ˌɛndʒɪˈnɪər rəʊl/",
       tr_hint:
         "'I am writing' = 'ay-em RAY-ting'. 'To apply' bağlanır → 'tu-ı-PLAY'. 'Engineer' = 'en-cı-NIYR' (vurgu sonda). Resmi ama doğal ton.",
+    },
+    {
+      id: "ex.cb1.12.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to learn more about ___ so I can ___.",
+      slots: [
+        { accepted: ['the team structure', 'your career path', 'the role expectations', 'the tech stack'], distractors: ['team structures', "career path's", 'role expectation', 'the tech stacks'] },
+        { accepted: ['plan my next step', 'prepare better', 'contribute faster', 'set goals'], distractors: ['plan next step', 'prepare more better', "contribute faster's", 'set the goals'] },
+      ],
+      tr_hint:
+        "Career conversation kalıbı. 'I'd like to' soft + 'so I can' purpose. Curiosity-driven question.",
+      example_filled: "I'd like to learn more about the team structure so I can plan my next step.",
+    },
+    {
+      id: "ex.cb1.12.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What kind of growth opportunities are you looking for?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's set up some shadowing for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d love to|i'?m hoping to|i'?d like to)",
+        "(grow|develop|build) (my skills|in|toward)",
+        "(more (exposure to|involvement in)|stretch projects)",
+        "(any (chance|opportunity) to|would it be possible to)",
+      ],
+      tr_hint:
+        "Manager growth sordu. 'Anything' = kötü. Spesifik alan + somut öneri.",
+      ideal_answer: "I'd love more exposure to cross-team projects — any chance to shadow a sprint planning?",
+    },
+    {
+      id: "ex.cb1.12.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's been the most useful skill you've picked up this year?",
+      accepted_patterns: [
+        "(honestly|i'?d say|probably)",
+        "(getting better at|learning to|how to)",
+        "(communication|prioritization|writing|presenting)",
+        "(.+) (changed (how|the way) i|made a (big )?difference)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Career conversation — soft skill seç + somut etki. 'Coding' generic — spesifik soft skill daha güçlü.",
+      ideal_response: "Honestly, learning to prioritize — it changed how I plan my week.",
+    },
+    {
+      id: "ex.cb1.12.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce öğreniyorum.",
+      wrong_en: "I am learning English.",
+      right_en: "I'm learning English / I'm working on my English.",
+      why_tr:
+        "Direkt çeviri doğru ama career conversation'da düz. 'I'm working on my English' = active improvement framing. İş contexinde 'learning' başlangıç seviyesi sinyali; 'working on' = aktif pratik. Türk öğrenci 'learning' kullanır sürekli, alternatifler daha mature.",
+    },
+    {
+      id: "ex.cb1.12.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Career growth conversation en güçlü açılış?",
+          options: ["Give me promotion", "I'd like to learn more about X so I can Y", "I want more money", "I am ready"],
+          correct: 1,
+          tr_explanation: "Curiosity + purpose = mature framing. Generic 'I want' = düz.",
+        },
+        {
+          q: "'Stretch project' ne demek?",
+          options: ["Esneme projesi", "Mevcut yetkinliğin sınırında, öğrenme odaklı proje", "Uzun proje", "Stresli proje"],
+          correct: 1,
+          tr_explanation: "'Stretch project' = comfort zone dışı, growth fırsatı. Career convo standardı.",
+        },
+        {
+          q: "'Shadowing' iş ortamında?",
+          options: ["Gölge etmek", "Birinin işini gözlemleyerek öğrenmek", "Takip etmek (creepy)", "Engellemek"],
+          correct: 1,
+          tr_explanation: "'Shadow' = senior'ı gözlemleyerek öğrenme. Standart growth metodu.",
+        },
+        {
+          q: "'I want money' yerine?",
+          options: ["Give me cash", "I'd like to discuss compensation alignment", "Pay more", "Money please"],
+          correct: 1,
+          tr_explanation: "'Compensation alignment' = mature conversation. Direkt 'money' = kaba.",
+        },
+        {
+          q: "Career conversation'da en kötü?",
+          options: ["Spesifik growth area", "Sadece şikayet, alternatif yok", "Soru sorma", "Curiosity"],
+          correct: 1,
+          tr_explanation: "Şikayet + alternatif yok = manager için yük. Çözüm odaklı conversation.",
+        },
+      ],
     },
   ],
 };
@@ -2453,6 +3593,101 @@ export const careerB1Lesson_13: BundledLesson = {
       tr_hint:
         "'Tell me' bağlanır → 'tel-MII'. 'A bit about' = 'ı-bit-ı-BAUT'. 'Yourself' vurgu 'SELF'. Recruiter'ın klasik açılışı — tonu samimi.",
     },
+    {
+      id: "ex.cb1.13.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to learn more about ___ so I can ___.",
+      slots: [
+        { accepted: ['the team structure', 'your career path', 'the role expectations', 'the tech stack'], distractors: ['team structures', "career path's", 'role expectation', 'the tech stacks'] },
+        { accepted: ['plan my next step', 'prepare better', 'contribute faster', 'set goals'], distractors: ['plan next step', 'prepare more better', "contribute faster's", 'set the goals'] },
+      ],
+      tr_hint:
+        "Career conversation kalıbı. 'I'd like to' soft + 'so I can' purpose. Curiosity-driven question.",
+      example_filled: "I'd like to learn more about the team structure so I can plan my next step.",
+    },
+    {
+      id: "ex.cb1.13.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What kind of growth opportunities are you looking for?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's set up some shadowing for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d love to|i'?m hoping to|i'?d like to)",
+        "(grow|develop|build) (my skills|in|toward)",
+        "(more (exposure to|involvement in)|stretch projects)",
+        "(any (chance|opportunity) to|would it be possible to)",
+      ],
+      tr_hint:
+        "Manager growth sordu. 'Anything' = kötü. Spesifik alan + somut öneri.",
+      ideal_answer: "I'd love more exposure to cross-team projects — any chance to shadow a sprint planning?",
+    },
+    {
+      id: "ex.cb1.13.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's been the most useful skill you've picked up this year?",
+      accepted_patterns: [
+        "(honestly|i'?d say|probably)",
+        "(getting better at|learning to|how to)",
+        "(communication|prioritization|writing|presenting)",
+        "(.+) (changed (how|the way) i|made a (big )?difference)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Career conversation — soft skill seç + somut etki. 'Coding' generic — spesifik soft skill daha güçlü.",
+      ideal_response: "Honestly, learning to prioritize — it changed how I plan my week.",
+    },
+    {
+      id: "ex.cb1.13.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce öğreniyorum.",
+      wrong_en: "I am learning English.",
+      right_en: "I'm learning English / I'm working on my English.",
+      why_tr:
+        "Direkt çeviri doğru ama career conversation'da düz. 'I'm working on my English' = active improvement framing. İş contexinde 'learning' başlangıç seviyesi sinyali; 'working on' = aktif pratik. Türk öğrenci 'learning' kullanır sürekli, alternatifler daha mature.",
+    },
+    {
+      id: "ex.cb1.13.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Career growth conversation en güçlü açılış?",
+          options: ["Give me promotion", "I'd like to learn more about X so I can Y", "I want more money", "I am ready"],
+          correct: 1,
+          tr_explanation: "Curiosity + purpose = mature framing. Generic 'I want' = düz.",
+        },
+        {
+          q: "'Stretch project' ne demek?",
+          options: ["Esneme projesi", "Mevcut yetkinliğin sınırında, öğrenme odaklı proje", "Uzun proje", "Stresli proje"],
+          correct: 1,
+          tr_explanation: "'Stretch project' = comfort zone dışı, growth fırsatı. Career convo standardı.",
+        },
+        {
+          q: "'Shadowing' iş ortamında?",
+          options: ["Gölge etmek", "Birinin işini gözlemleyerek öğrenmek", "Takip etmek (creepy)", "Engellemek"],
+          correct: 1,
+          tr_explanation: "'Shadow' = senior'ı gözlemleyerek öğrenme. Standart growth metodu.",
+        },
+        {
+          q: "'I want money' yerine?",
+          options: ["Give me cash", "I'd like to discuss compensation alignment", "Pay more", "Money please"],
+          correct: 1,
+          tr_explanation: "'Compensation alignment' = mature conversation. Direkt 'money' = kaba.",
+        },
+        {
+          q: "Career conversation'da en kötü?",
+          options: ["Spesifik growth area", "Sadece şikayet, alternatif yok", "Soru sorma", "Curiosity"],
+          correct: 1,
+          tr_explanation: "Şikayet + alternatif yok = manager için yük. Çözüm odaklı conversation.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2647,6 +3882,101 @@ export const careerB1Lesson_14: BundledLesson = {
       ipa: "/aɪm θrɪld tə əkˈsɛpt ði ˈɒfə/",
       tr_hint:
         "'Thrilled' = 'TH-rıld' (Türkçe 't' DEĞİL, 'th' nefesli). 'To accept' = 'tu-ık-SEPT' (vurgu sonda). 'The offer' = 'ðiy-ofır'. Sıcak, samimi ton — robotik değil.",
+    },
+    {
+      id: "ex.cb1.14.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to learn more about ___ so I can ___.",
+      slots: [
+        { accepted: ['the team structure', 'your career path', 'the role expectations', 'the tech stack'], distractors: ['team structures', "career path's", 'role expectation', 'the tech stacks'] },
+        { accepted: ['plan my next step', 'prepare better', 'contribute faster', 'set goals'], distractors: ['plan next step', 'prepare more better', "contribute faster's", 'set the goals'] },
+      ],
+      tr_hint:
+        "Career conversation kalıbı. 'I'd like to' soft + 'so I can' purpose. Curiosity-driven question.",
+      example_filled: "I'd like to learn more about the team structure so I can plan my next step.",
+    },
+    {
+      id: "ex.cb1.14.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What kind of growth opportunities are you looking for?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's set up some shadowing for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d love to|i'?m hoping to|i'?d like to)",
+        "(grow|develop|build) (my skills|in|toward)",
+        "(more (exposure to|involvement in)|stretch projects)",
+        "(any (chance|opportunity) to|would it be possible to)",
+      ],
+      tr_hint:
+        "Manager growth sordu. 'Anything' = kötü. Spesifik alan + somut öneri.",
+      ideal_answer: "I'd love more exposure to cross-team projects — any chance to shadow a sprint planning?",
+    },
+    {
+      id: "ex.cb1.14.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's been the most useful skill you've picked up this year?",
+      accepted_patterns: [
+        "(honestly|i'?d say|probably)",
+        "(getting better at|learning to|how to)",
+        "(communication|prioritization|writing|presenting)",
+        "(.+) (changed (how|the way) i|made a (big )?difference)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Career conversation — soft skill seç + somut etki. 'Coding' generic — spesifik soft skill daha güçlü.",
+      ideal_response: "Honestly, learning to prioritize — it changed how I plan my week.",
+    },
+    {
+      id: "ex.cb1.14.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İngilizce öğreniyorum.",
+      wrong_en: "I am learning English.",
+      right_en: "I'm learning English / I'm working on my English.",
+      why_tr:
+        "Direkt çeviri doğru ama career conversation'da düz. 'I'm working on my English' = active improvement framing. İş contexinde 'learning' başlangıç seviyesi sinyali; 'working on' = aktif pratik. Türk öğrenci 'learning' kullanır sürekli, alternatifler daha mature.",
+    },
+    {
+      id: "ex.cb1.14.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Career growth conversation en güçlü açılış?",
+          options: ["Give me promotion", "I'd like to learn more about X so I can Y", "I want more money", "I am ready"],
+          correct: 1,
+          tr_explanation: "Curiosity + purpose = mature framing. Generic 'I want' = düz.",
+        },
+        {
+          q: "'Stretch project' ne demek?",
+          options: ["Esneme projesi", "Mevcut yetkinliğin sınırında, öğrenme odaklı proje", "Uzun proje", "Stresli proje"],
+          correct: 1,
+          tr_explanation: "'Stretch project' = comfort zone dışı, growth fırsatı. Career convo standardı.",
+        },
+        {
+          q: "'Shadowing' iş ortamında?",
+          options: ["Gölge etmek", "Birinin işini gözlemleyerek öğrenmek", "Takip etmek (creepy)", "Engellemek"],
+          correct: 1,
+          tr_explanation: "'Shadow' = senior'ı gözlemleyerek öğrenme. Standart growth metodu.",
+        },
+        {
+          q: "'I want money' yerine?",
+          options: ["Give me cash", "I'd like to discuss compensation alignment", "Pay more", "Money please"],
+          correct: 1,
+          tr_explanation: "'Compensation alignment' = mature conversation. Direkt 'money' = kaba.",
+        },
+        {
+          q: "Career conversation'da en kötü?",
+          options: ["Spesifik growth area", "Sadece şikayet, alternatif yok", "Soru sorma", "Curiosity"],
+          correct: 1,
+          tr_explanation: "Şikayet + alternatif yok = manager için yük. Çözüm odaklı conversation.",
+        },
+      ],
     },
   ],
 };

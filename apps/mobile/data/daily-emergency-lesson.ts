@@ -213,6 +213,127 @@ export const dailyEmergencyLesson_22_1: BundledLesson = {
       tr_explanation:
         "'Is sleep' yanlış kelime + 'don't wake up' direkt çeviri. Klinik standart: 'unconscious' (= bilinçsiz) + 'not responding' (= tepkisiz). 911 dispatcher bu terimleri bekler.",
     },
+    {
+      id: "ex.de22.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I need an ___ — my ___ is ___.",
+      slots: [
+        { accepted: ["ambulance", "emergency response"], distractors: ["help", "service", "doctor"] },
+        { accepted: ["friend", "father", "mother", "wife"], distractors: ["man", "person", "lady"] },
+        { accepted: ["unconscious", "having a seizure", "not breathing"], distractors: ["sleeping", "tired", "asleep"] },
+      ],
+      tr_hint:
+        "911 araması — sahne, victim, durum. Klinik kelime: 'unconscious' (bilinçsiz), 'not breathing' (nefes almıyor). 'Sleeping' kullanma — yanlış sinyal.",
+      example_filled: "I need an ambulance — my friend is unconscious.",
+    },
+    {
+      id: "ex.de22.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "911, what's your emergency?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Help is on the way. What's your address?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i need|we need) (an )?(ambulance|paramedics|emergency response)",
+        "(my (friend|father|mother|wife|husband)) is (unconscious|having a seizure|not breathing|bleeding)",
+        "(there'?s been|i'?ve had) (an )?(accident|emergency)",
+        "(send (an )?ambulance|please hurry)",
+      ],
+      tr_hint:
+        "911 acil — NET ve KISA. İlk söz: ihtiyaç (ambulance) + durum (unconscious). Türk öğrenci uzun cümle kurar — kayıp zaman. 'I need an ambulance — friend unconscious.'",
+      ideal_answer: "I need an ambulance — my friend is unconscious and not responding.",
+    },
+    {
+      id: "ex.de22.1.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Stay on the line. Is the person breathing?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (breathing|still breathing|but barely)",
+        "(no|not)(,)? (breathing|right now)",
+        "(i (can'?t|cannot) tell|i'?m not sure)",
+        "(barely|shallow|labored)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dispatcher kritik bilgi soruyor — 1 saniye gecikme = saniye değerli. Net: 'Yes, breathing' veya 'No, not breathing'. 'I don't know' yerine 'I can't tell' kullan.",
+      ideal_response: "Yes — breathing, but shallow.",
+    },
+    {
+      id: "ex.de22.1.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Arkadaşımı yere düştü.",
+      wrong_en: "My friend fall to ground.",
+      right_en: "My friend collapsed — she's on the floor.",
+      why_tr:
+        "'Fall' düzgün past değil — 'fell' lazım. Ama 911'de klinik kelime: 'collapsed' (= aniden yere düştü, tıbbi terim) + 'on the floor'. 'To ground' yerine 'on the floor/ground' (edat farkı).",
+    },
+    {
+      id: "ex.de22.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "911 araması — ilk söz?",
+          options: [
+            "Hi, how are you?",
+            "I need an ambulance — friend unconscious.",
+            "Could I have a moment?",
+            "Excuse me, sorry to bother.",
+          ],
+          correct: 1,
+          tr_explanation: "Acil = NET ve KISA. İhtiyaç + durum. Selamlama gerek yok.",
+        },
+        {
+          q: "'Unconscious' ne demek?",
+          options: [
+            "Uyuyor",
+            "Bilinçsiz (tepki vermiyor)",
+            "Yorgun",
+            "Bayılmak üzere",
+          ],
+          correct: 1,
+          tr_explanation: "Klinik terim: bilinçsiz. 'Sleeping' (uyuyor) yanlış sinyal.",
+        },
+        {
+          q: "'Stay on the line' ne demek?",
+          options: [
+            "Hat üzerinde kal — telefonu kapatma.",
+            "Çizgide kal.",
+            "Online ol.",
+            "Cevap ver.",
+          ],
+          correct: 0,
+          tr_explanation: "Dispatcher kritik talimat: hat açık kalsın, kapatma. Yardım gelene dek konuş.",
+        },
+        {
+          q: "'Is the person breathing?' nasıl cevaplanır?",
+          options: [
+            "Maybe.",
+            "Yes — breathing, but shallow. / No — not breathing.",
+            "I don't speak English.",
+            "Wait.",
+          ],
+          correct: 1,
+          tr_explanation: "Net yanıt + detay. 'Shallow' (sığ), 'barely' (zorla) gibi kelimeler kritik bilgi.",
+        },
+        {
+          q: "'Collapsed' ne demek?",
+          options: [
+            "Uyudu.",
+            "Aniden yere düştü (tıbbi).",
+            "Sandalye kırıldı.",
+            "Kayboldu.",
+          ],
+          correct: 1,
+          tr_explanation: "'Collapsed' = aniden bilinç kaybıyla düşme. 'Fell' yerine klinik kelime.",
+        },
+      ],
+    },
   ],
 };
 

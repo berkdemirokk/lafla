@@ -276,6 +276,126 @@ export const flirtOpenerLesson_1_1: BundledLesson = {
       tr_explanation:
         "'Beautiful' + 'my love' ilk mesajda = aşırı (creepy hissi). Modern apps'te: spesifik + ucu acik soru = ilgi gösterir, sınırı asmaz.",
     },
+    {
+      id: "ex.f1.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "If you had to ___ in one ___, which one would it be?",
+      slots: [
+        { accepted: ["describe your week", "sum up your day", "summarize your weekend", "explain your mood"] },
+        { accepted: ["emoji", "word", "movie", "song"] },
+      ],
+      tr_hint:
+        "'If you had to ___' = hipotetik mecburi seçim. Slot 1 fiil grubu, slot 2 isim. Türk öğrenci sıkça 'must' kullanır — 'had to' daha doğal.",
+      example_filled: "If you had to describe your week in one emoji, which one would it be?",
+    },
+    {
+      id: "ex.f1.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey! Saw you matched — what's up?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Haha okay good question — definitely a planner. You?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(quick |random |okay )?(question|i have to ask)",
+        "(would you rather|if you had to)",
+        "are you (more of a|a) (planner|wing it)",
+        "(what'?s|tell me) the (weirdest|best) thing",
+      ],
+      tr_hint:
+        "NPC 'what's up?' demis. Generic 'good you?' verme — soruyla cevapla, sohbet aç. 'Quick question — are you a planner or wing-it person?' tipi.",
+      ideal_answer: "Quick question — are you more of a planner or 'wing it' person?",
+    },
+    {
+      id: "ex.f1.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hey! So tell me — what's the weirdest thing on your camera roll right now?",
+      accepted_patterns: [
+        "(probably|honestly|definitely|hmm) (a |an )?(screenshot|photo|video|meme) of",
+        "(let me check|hold on|give me a sec)",
+        "(my answer is|for me it'?s) (.+)",
+        "(there'?s|i have) a (.+) (in there|saved)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "NPC merakli soru sordu. 3 saniye düşün, sonra spesifik cevap ver. 'Probably a screenshot of...' yapısı en doğal. Türk: 'I don't know' deme — yaratıcı bir tahmin at.",
+      ideal_response: "Honestly, probably a screenshot of a recipe I'll never make.",
+    },
+    {
+      id: "ex.f1.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Selam, nasılsın? Ne yapıyorsun?",
+      wrong_en: "Hello, how are you? What are you doing?",
+      right_en: "Hey — quick question, what's your worst icebreaker story?",
+      why_tr:
+        "Türk öğrenci dating app'ta 'nasılsın, ne yapıyorsun' kalıbını direkt çevirir. Bu = sıkıcı + okul kitabı. Modern açılış: SPESIFIK soru veya gözlem. 'How are you' formel + samimiyetsiz hissi verir.",
+    },
+    {
+      id: "ex.f1.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I have to ask' ne anlama gelir?",
+          options: [
+            "Sormak zorundayım (meraktan)",
+            "Sormaya mecburum (resmi)",
+            "Sorum var",
+            "Sormak istiyorum",
+          ],
+          correct: 0,
+          tr_explanation: "'I have to ask' = meraktan sormak (sosyal yumuşatma). Mecburi anlam değil.",
+        },
+        {
+          q: "'Wing it' deyimi ne demek?",
+          options: [
+            "Hızlı yapmak",
+            "Kanat takmak",
+            "Plansız, doğaçlama yapmak",
+            "Yarısını yapmak",
+          ],
+          correct: 2,
+          tr_explanation: "'Wing it' = plansız hareket etmek. 'I'll just wing it' = doğaçlayacağım.",
+        },
+        {
+          q: "Dating app opener için en güçlü yaklaşım?",
+          options: [
+            "'Hey' selam ile başla",
+            "Karşıdakini konuşturan eğlenceli soru",
+            "Direkt 'merhaba güzelim'",
+            "Direkt randevu teklifi",
+          ],
+          correct: 1,
+          tr_explanation: "İlk mesajın amacı sohbet başlatmak. Soru = karşı taraf cevap vermek zorunda.",
+        },
+        {
+          q: "'If you had to pick one...' kalıbı nasıl çevirilir?",
+          options: [
+            "Bir tane seç (emir)",
+            "Birini seçmen gerekiyor (mevcut)",
+            "Bir tane seçmek zorunda kalsaydın (hipotetik)",
+            "Seçim yap",
+          ],
+          correct: 2,
+          tr_explanation: "'If you had to' = hipotetik mecburiyet. Sorun yok ama hipotetik durumda hangisi?",
+        },
+        {
+          q: "Modern Tinder/Bumble ilk mesajında ne YAPILMAZ?",
+          options: [
+            "Spesifik fotoğrafa soru sormak",
+            "Eğlenceli hipotetik soru",
+            "'Hey beautiful, how are you my love?'",
+            "Self-aware mizah",
+          ],
+          correct: 2,
+          tr_explanation: "'Beautiful' + 'my love' ilk mesajda = creepy. Modern apps'te spesifik + ucu açık = kazanır.",
+        },
+      ],
+    },
   ],
 };
 
@@ -549,6 +669,129 @@ export const flirtOpenerLesson_1_2: BundledLesson = {
         "Your bio mentions climbing — what's the best route you've done lately?",
       tr_explanation:
         "Vucut yorumu + 'go to gym' = transactional, modern apps'te red flag. Doğru: bio'da yazilana referans + spesifik soru. Insan olarak ilgili, beden olarak degil.",
+    },
+    {
+      id: "ex.f1.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Your bio ___ you love ___ — what's your favorite ___?",
+      slots: [
+        { accepted: ["says", "mentions", "reads like"] },
+        { accepted: ["sushi", "travel", "climbing", "coffee", "books"] },
+        { accepted: ["spot", "place", "kind", "one"] },
+      ],
+      tr_hint:
+        "Bio referans formülü: bio detayını yakala + spesifik soru. Türk öğrenci 'Your bio is nice' = generic. Native: ÖNCE bio'dan referans göster ('says you love X'), SONRA spesifik soru sor.",
+      example_filled: "Your bio says you love sushi — what's your favorite spot in the city?",
+    },
+    {
+      id: "ex.f1.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Haha guilty as charged — definitely Sushi Zen in Brooklyn. You a fan?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Wait, then you HAVE to try the omakase there. Game-changer." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(huge|big) (fan|sushi person)",
+        "(haven'?t tried|haven'?t been to) (sushi zen|brooklyn)",
+        "(saving|adding) (it|that) (to|for) (my list|later)",
+        "(i'?m all about|i'?m into) (sushi|that)",
+        "(low.?key|honestly) (obsessed|hooked)",
+      ],
+      tr_hint:
+        "NPC restoran önerdi + sana sordu. Spesifik cevap ver. 'Yes' yetmez — enerjini göster. 'Huge fan, but haven't been there — adding it to my list' tam paket.",
+      ideal_answer: "Huge sushi fan — haven't been there yet, but adding it to my list right now.",
+    },
+    {
+      id: "ex.f1.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Spotted the bookstore photo in your bio — okay, you've got to recommend me a book.",
+      accepted_patterns: [
+        "(honestly|gotta|have to) recommend",
+        "(if you (haven'?t|have not) read|recently i)",
+        "(my favorite|the one i (keep coming back to|tell everyone))",
+        "(it depends on|what'?s your)",
+        "(saving you the trouble )?(.{3,40})( — trust me)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "NPC kitap öneri istedi. 3 sn düşün, sonra SPESİFİK kitap + neden. 'Honestly, Norwegian Wood by Murakami — slow but it sticks with you.' Türk: 'Many good books' = belirsiz, kötü.",
+      ideal_response: "Honestly — Norwegian Wood by Murakami. Slow burn but it sticks with you.",
+    },
+    {
+      id: "ex.f1.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Profilin çok güzel, çok beğendim.",
+      wrong_en: "Your profile is very nice, I liked it very much.",
+      right_en: "Your bio reads like someone I'd actually want to grab coffee with — what's the deal with the climbing photos?",
+      why_tr:
+        "Türk öğrencinin generic-compliment tuzağı. 'Very nice' + 'liked it very much' = okul kitabı + content-free. Modern dating: GENERIC iltifat = otomatik unmatch (herkese atılıyor sinyali). Native: SPESİFİK bir bio detayına referans + spesifik soru = 'önemsedim, profili okudum' enerjisi. 'Reads like' = bio'nun seni etkilediğini gösterir.",
+    },
+    {
+      id: "ex.f1.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Your bio says' alternatif ifadeleri?",
+          options: [
+            "Your CV mentions",
+            "I noticed from your bio",
+            "Your page reads",
+            "It is written",
+          ],
+          correct: 1,
+          tr_explanation: "'I noticed from your bio' veya 'Saw the X mention' = doğal varyasyonlar.",
+        },
+        {
+          q: "Fotoğraf iltifat etmenin SAĞLIKLI yolu?",
+          options: [
+            "You very pretty",
+            "Your photos — you have a great smile",
+            "Hot photos",
+            "Hepsi yanlış",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik detay (gülüş, bir foto) + dolaylı = takdir. Fiziksel iltifat aşırı = kaba.",
+        },
+        {
+          q: "Bio referansı niye güçlü opener?",
+          options: [
+            "Kısa olduğu için",
+            "'Profili okudum' enerjisi — generic değil",
+            "Soru sormak zorunda değilsin",
+            "Herkesin yaptığı şey",
+          ],
+          correct: 1,
+          tr_explanation: "Bio'sundan ayrıntı = 'önemsedim' mesajı. Generic 'Hey'den 10x güçlü.",
+        },
+        {
+          q: "'Caught the X reference in your bio' kullanım amacı?",
+          options: [
+            "Yakalandın anlamında",
+            "Profilini detaylı okuduğunu kanıt",
+            "Yakalamak fiili",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation: "'Caught the X reference' = profili gerçekten okuduğunu kanıt. Effort sinyali.",
+        },
+        {
+          q: "Türk hatası: 'You very pretty' yerine?",
+          options: [
+            "You are very pretty",
+            "I noticed your photos — you have a great smile",
+            "Hot",
+            "Beautiful",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik + dolaylı iltifat = takdir. Generic fiziksel iltifat = creepy.",
+        },
+      ],
     },
   ],
 };

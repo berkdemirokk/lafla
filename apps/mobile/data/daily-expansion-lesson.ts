@@ -123,6 +123,126 @@ export const dailyExpansionLesson_doctorBooking: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.expand.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ an appointment for ___, please.",
+      slots: [
+        { accepted: ["book", "schedule", "make", "set up"], distractors: ["take", "have", "give"] },
+        { accepted: ["this week", "tomorrow morning", "Friday afternoon", "next Monday"], distractors: ["today now", "yesterday", "always"] },
+      ],
+      tr_hint:
+        "Randevu alma kalıbı. 'I'd like to book/schedule' = standart kibar talep. Türk öğrenci 'I want to take' der — yanlış fiil. 'Make/book/schedule' kullanılır.",
+      example_filled: "I'd like to book an appointment for this week, please.",
+    },
+    {
+      id: "ex.expand.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Thanks for calling — what can I do for you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — what are your symptoms?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)(,)? (i'?d like|i would like) to (book|schedule|make) an appointment",
+        "(i need|i'?d like) to (see|book) (the )?(doctor|gp)",
+        "(could i|can i) (schedule|book) (a )?(visit|appointment)",
+        "(i'?ve been (feeling|having)) (\\w+)",
+      ],
+      tr_hint:
+        "Doktor sekreterine — net açılış: 'I'd like to book an appointment.' Türk öğrenci 'I am sick' der — fazla erken; önce randevu sonra semptom.",
+      ideal_answer: "Hi, I'd like to book an appointment with the doctor, please.",
+    },
+    {
+      id: "ex.expand.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "We have Friday at 10 AM or Monday at 2 PM. Which works?",
+      accepted_patterns: [
+        "(friday|monday)( at \\d+| morning| afternoon)? (works|sounds good|please)",
+        "(let'?s go with|i'?ll take) (friday|monday|the (\\d+))",
+        "(could you|can you) (do|fit me in) (\\w+ morning|earlier)",
+        "(friday|monday)(,)? please",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sekreter iki seçenek verdi — net seç. 'Friday at 10 works' veya 'Let's go with Monday'. Türk öğrenci uzun düşünür — net karar = profesyonel.",
+      ideal_response: "Friday at 10 works — thanks!",
+    },
+    {
+      id: "ex.expand.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Acelem var, hızlı bir randevu lazım.",
+      wrong_en: "I have hurry, I need fast appointment.",
+      right_en: "I'm in a hurry — could I get the earliest appointment?",
+      why_tr:
+        "Türk öğrenci 'acelem var'ı 'I have hurry' yapar — yanlış. Doğru: 'I'm in a hurry' (idiom). 'Fast appointment' yerine 'earliest appointment' (en erken). 'Need' yerine 'could I get' kibar.",
+    },
+    {
+      id: "ex.expand.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Doktor sekreterine ilk söz?",
+          options: [
+            "I am sick!",
+            "Hi, I'd like to book an appointment with the doctor.",
+            "Give me appointment.",
+            "Doctor please.",
+          ],
+          correct: 1,
+          tr_explanation: "'I'd like to book' = kibar standart. Önce randevu, sonra semptom.",
+        },
+        {
+          q: "'Copay' bankacılık/sigortada ne?",
+          options: [
+            "Kopyala-yapıştır",
+            "Hasta payı — sigorta dışı kalan kısım",
+            "Ortak fatura",
+            "Faiz",
+          ],
+          correct: 1,
+          tr_explanation: "'Copay' = hastanın cebinden ödediği sabit ücret ($20-50). Sigorta gerisi öder.",
+        },
+        {
+          q: "'I'm in a hurry' nasıl kullanılır?",
+          options: [
+            "Acelem var (idiom).",
+            "Acı çekiyorum.",
+            "Bekleyemem.",
+            "Tehlikedeyim.",
+          ],
+          correct: 0,
+          tr_explanation: "Standart deyim. 'I have hurry' yanlış — 'in a hurry' kalıp.",
+        },
+        {
+          q: "İki tarih seçeneğinden birini seçerken?",
+          options: [
+            "Friday at 10 works — thanks!",
+            "OK.",
+            "I don't know.",
+            "Maybe.",
+          ],
+          correct: 0,
+          tr_explanation: "'Works' = uygun. + teşekkür. Net = profesyonel.",
+        },
+        {
+          q: "'Earliest available' ne demek?",
+          options: [
+            "Geç randevu",
+            "En erken müsait (zaman)",
+            "Acil",
+            "Sabah randevu",
+          ],
+          correct: 1,
+          tr_explanation: "'Earliest available' = en erken boşluk. Acelesi olan için kalıp.",
+        },
+      ],
+    },
   ],
 };
 

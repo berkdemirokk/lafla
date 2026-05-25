@@ -263,6 +263,127 @@ export const dailySmalltalkLesson_23_1: BundledLesson = {
       tr_explanation:
         "'Why ask' = social red. Doğru: kısa detay (just need more coffee) + karşı soru (momentum).",
     },
+    {
+      id: "ex.dst23.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Pretty good, thanks — ___. ___ ___?",
+      slots: [
+        { accepted: ["just busy", "can't complain", "hanging in there", "just tired"], distractors: ["I am ok", "very fine", "no comment"] },
+        { accepted: ["How about", "What about"], distractors: ["What is", "Where is", "Why is"] },
+        { accepted: ["you", "yourself"], distractors: ["he", "they", "me"] },
+      ],
+      tr_hint:
+        "'How are you?' yanıtı + karşı soru. 'Pretty good, thanks — just busy. How about you?' Türk öğrenci 'I am very good' der + soru atlar — kötü small talk.",
+      example_filled: "Pretty good, thanks — just busy. How about you?",
+    },
+    {
+      id: "ex.dst23.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Morning! How's it going?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Same here. Long week!" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(pretty good|not bad|hanging in there|can'?t complain)(,)? (thanks|how about you|you)",
+        "(good morning)(,)? (just (busy|tired|monday))",
+        "(busy|hectic|same as usual)( as )?(.+)( how about you| you)",
+        "(can'?t complain)(,)?(.+)?(how about you|you)",
+      ],
+      tr_hint:
+        "Klasik small talk soru — kısa + samimi + karşı soru. 'Pretty good — just Monday vibes. How about you?' Türk öğrenci uzun cevap verir — kısa yeter.",
+      ideal_answer: "Pretty good, thanks — just a Monday. How about you?",
+    },
+    {
+      id: "ex.dst23.1.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Hey — how was your weekend?",
+      accepted_patterns: [
+        "(pretty good|not bad|relaxing|chill|busy)(,)? (you|how about you|yourself)",
+        "(it was|i had a )?(great|nice|chill) weekend",
+        "(just (relaxed|hung out|stayed in))",
+        "(too short)(,)? (how about you|you)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hafta sonu soruldu — kısa pozitif + karşı soru. 'Pretty good — just relaxed. How about you?' Türk öğrenci tüm hafta sonu özetler — gerek yok.",
+      ideal_response: "Pretty good — just relaxed. How about you?",
+    },
+    {
+      id: "ex.dst23.1.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Çok iyiyim, sen?",
+      wrong_en: "I am very good. And you?",
+      right_en: "Pretty good, thanks — how about you?",
+      why_tr:
+        "İki sorun: (1) 'Very good' fazla resmi — 'pretty good', 'not bad', 'can't complain' daha doğal. (2) 'And you?' eski/kitap kalıbı; 'How about you?' modern small talk.",
+    },
+    {
+      id: "ex.dst23.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'How are you?' için en doğal yanıt?",
+          options: [
+            "I am very good.",
+            "Pretty good, thanks — how about you?",
+            "Why ask?",
+            "Bad.",
+          ],
+          correct: 1,
+          tr_explanation: "'Pretty good' = native standart. + 'how about you?' = karşılık.",
+        },
+        {
+          q: "'Hanging in there' ne demek?",
+          options: [
+            "Asılı duruyorum.",
+            "Zorlu ama idare ediyorum.",
+            "Çok iyi.",
+            "Yorgunum.",
+          ],
+          correct: 1,
+          tr_explanation: "Idiom: zorda ama dayanıyorum. Hafif şikayet + mizah tonu.",
+        },
+        {
+          q: "Small talk neden 'karşı soru' önemli?",
+          options: [
+            "Sohbeti yürütür — yoksa 1-2 cevapta biter.",
+            "Tek yönlü olur.",
+            "Saygısızdır.",
+            "Hiç önemli değil.",
+          ],
+          correct: 0,
+          tr_explanation: "Karşı soru = momentum. 'How about you?' sohbeti açar.",
+        },
+        {
+          q: "'Can't complain' ne anlama gelir?",
+          options: [
+            "Şikayet etme!",
+            "İyi gidiyor (yumuşak pozitif).",
+            "Kötüyüm.",
+            "Şikayet edemem.",
+          ],
+          correct: 1,
+          tr_explanation: "'Can't complain' = idare. Mütevazı + pozitif. American small talk standart.",
+        },
+        {
+          q: "'How about you?' vs 'And you?'?",
+          options: [
+            "İkisi aynı.",
+            "'How about you?' modern + doğal; 'And you?' eski/kitap.",
+            "'And you?' doğru.",
+            "İkisi de yanlış.",
+          ],
+          correct: 1,
+          tr_explanation: "Native speaker 'how about you' kullanır. 'And you' = ders kitabı kalıbı.",
+        },
+      ],
+    },
   ],
 };
 

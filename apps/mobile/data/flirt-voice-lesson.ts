@@ -272,6 +272,130 @@ export const flirtVoiceLesson_3_1: BundledLesson = {
       tr_explanation:
         "'I send' = present indikatif + izin yok = baski. '5 minute' yapı bozuk + uzun = saygisiz. Doğru: izin + sure güvencesi ('under a minute'). Voice note etiketi = saygi sinyali.",
     },
+    {
+      id: "ex.fv3.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Mind if I send a ___ voice note? ___ to ___.",
+      slots: [
+        { accepted: ["quick", "short", "tiny", "brief"] },
+        { accepted: ["Easier", "Faster", "Way simpler", "Honestly easier"] },
+        { accepted: ["explain", "type", "describe", "walk through"] },
+      ],
+      tr_hint:
+        "Voice note izin formülü: kısalık + izin + sebep. Türk öğrenci 'I send voice' diye direkt = baskı. Native: önce izin iste ('Mind if'), sonra sebep ver. Bu etiket modern dating'de saygı sinyali.",
+      example_filled: "Mind if I send a quick voice note? Easier to explain.",
+    },
+    {
+      id: "ex.fv3.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "user", text: "Mind if I send a quick voice note? Easier than typing all this out." },
+        { speaker: "npc", text: "Yeah for sure — go ahead." },
+        { speaker: "user" },
+      ],
+      missing_at: 2,
+      accepted_patterns: [
+        "(sending|sending it|here it comes)",
+        "(thanks|appreciate it)(,)? (one sec|sec|hold on)",
+        "(promise|swear) (it'?s|it is) (short|under a minute)",
+        "(coming|on its way) (now|shortly)",
+        "(give me|gimme) (a sec|a moment)",
+      ],
+      tr_hint:
+        "NPC izin verdi — şimdi voice'u gönder işareti ver. Sessiz kalma; bir 'sending now' veya 'one sec' ile köprü kur. Türk öğrenci genelde direkt gönderir — köprü cümle saygı katar.",
+      ideal_answer: "Thanks — one sec, sending now. Promise it's short.",
+    },
+    {
+      id: "ex.fv3.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hey — quick question, you good with voice notes? I'm kind of a text-it-out type myself.",
+      accepted_patterns: [
+        "(honestly|totally) (fine|good|cool) (with|either way)",
+        "(yeah|yes)(,)? (i (use|do|like)) (voice|voice notes)",
+        "(prefer|i prefer) (texting|text) (myself|honestly)",
+        "(whatever|whichever) (works|you prefer)",
+        "(i can )?(text|type)(,)? (no problem|that'?s fine)",
+        "(let'?s )?(stick with|do) text",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "NPC tercihini sordu (voice vs text). NET cevap ver, esnek davran. 'I prefer text but I'm flexible' veya 'Voice works for me'. Türk: 'OK' tek başına yetersiz — kendi tercihini söyle.",
+      ideal_response: "Honestly I prefer text too — let's stick with that. Voice only if it's something complicated.",
+    },
+    {
+      id: "ex.fv3.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana 5 dakikalık ses kaydı atıyorum, dinle lütfen.",
+      wrong_en: "I send you 5 minute voice, listen please.",
+      right_en: "Mind if I send a quick voice note? Promise it's under a minute.",
+      why_tr:
+        "Türk öğrencinin voice etiketi tuzağı. 'I send you' = present yerine future olmalı + izin yok = baskı. '5 minute voice' = uzun + saygısız (modern voice etiketi: 30-60 saniye max). 'Listen please' = emir tonu. Doğru: izin iste ('mind if') + kısalık sözü ver ('under a minute'). Uzun voice note = modern Tinder/Bumble'da soğuma sinyali.",
+    },
+    {
+      id: "ex.fv3.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I send a voice note?' nasıl çevirilir?",
+          options: [
+            "Sesli atayım mı?",
+            "Sesli mesaj göndersem sorun olur mu?",
+            "Voice kaydet?",
+            "Hepsi doğru",
+          ],
+          correct: 3,
+          tr_explanation: "'Mind if I ___?' = sakıncası var mı? Modern dating'de voice etiketi standart girişi.",
+        },
+        {
+          q: "İdeal voice note süresi?",
+          options: [
+            "5 dakika",
+            "30-60 saniye max",
+            "Uzun, detaylı",
+            "İstediğin kadar",
+          ],
+          correct: 1,
+          tr_explanation: "Modern dating'de 30-60 sn = ideal. Uzun voice = saygısız + zor dinlenir.",
+        },
+        {
+          q: "Voice note ne zaman UYGUN?",
+          options: [
+            "İlk mesajda",
+            "Kavga sırasında",
+            "Uzun açıklama gerekiyorsa, izin alarak",
+            "Her zaman",
+          ],
+          correct: 2,
+          tr_explanation: "Voice = yazması zor şeyler için. İzin almak şart. İlk mesajda voice = creepy.",
+        },
+        {
+          q: "'Text-it-out type' deyimi ne demek?",
+          options: [
+            "Yazıyla iletişim tercih eden kişi",
+            "Çok mesaj atan",
+            "Yazılı kavga eden",
+            "Sözle anlaşmayan",
+          ],
+          correct: 0,
+          tr_explanation: "'Text-it-out type' = yazıyla halletmeyi tercih eden tip. Voice'tan kaçınan kişi tipi.",
+        },
+        {
+          q: "Türk hatası: 'I send you 5 minute voice' yerine?",
+          options: [
+            "I will send 5 minute voice",
+            "Mind if I send a quick voice note? Under a minute.",
+            "Listen this voice",
+            "Voice 5 min coming",
+          ],
+          correct: 1,
+          tr_explanation: "İzin iste ('Mind if') + süre güvencesi ('under a minute') = saygılı + modern.",
+        },
+      ],
+    },
   ],
 };
 

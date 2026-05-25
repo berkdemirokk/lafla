@@ -234,6 +234,101 @@ export const professionalB1Lesson_1: BundledLesson = {
       tr_explanation:
         "'I want make' = 'I want to open / I'd like to open'. 'Give me information' kaba — 'walk me through the options' kibar ve net. Bankada B1+ kayıt: 'I'd like to inquire' formal açılış.",
     },
+    {
+      id: "ex.pb1.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you please ___ when you ___?",
+      slots: [
+        { accepted: ['share the deck', 'send the file', 'review the doc', 'confirm the meeting'], distractors: ['share deck', 'send file', 'review doc', 'confirm meeting'] },
+        { accepted: ['have a chance', 'get a moment', 'are back', 'have time'], distractors: ['have chance', 'get moment', 'back', 'have a time'] },
+      ],
+      tr_hint:
+        "Polite request kalıbı. 'Could you please' + 'when you have a chance' = soft + considerate.",
+      example_filled: "Could you please share the deck when you have a chance?",
+    },
+    {
+      id: "ex.pb1.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — just checking on the status of the report." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks for the update, I'll let the team know." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|hey)( there)?",
+        "(thanks for|appreciate) (the check-in|reaching out|following up)",
+        "(it'?s|we'?re|the report is) (.+) (right now|currently|on track)",
+        "(should be done|aiming for|by) (.+)",
+      ],
+      tr_hint:
+        "Status check email — net + saygılı + ETA. Türk hatası: 'I'm working' belirsiz — somut tarih.",
+      ideal_answer: "Hi — thanks for the check-in. The report is in final review, should be done by Wednesday.",
+    },
+    {
+      id: "ex.pb1.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you walk me through your weekly priorities?",
+      accepted_patterns: [
+        "(sure|absolutely|of course)",
+        "(this week|right now|currently)",
+        "(top (.+)|main focus is|priorities are)",
+        "(then|after that|second priority)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Weekly review sorusu — structured cevap. Numbered priorities + reasoning.",
+      ideal_response: "Sure — top priority this week is finishing the launch checklist, then I'll move to onboarding docs.",
+    },
+    {
+      id: "ex.pb1.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana yardım edebilir miyim?",
+      wrong_en: "Can I help to you?",
+      right_en: "Can I help you? / Is there anything I can help with?",
+      why_tr:
+        "'Help to you' = Türkçe 'sana yardım' direkt çeviri, preposition fazlası. 'Help' transitive verb, 'to' almaz. Doğru: 'help you'. Alternatif daha kibar: 'Is there anything I can help with?' Türk öğrenci 'to/for' preposition'larını fazladan ekler.",
+    },
+    {
+      id: "ex.pb1.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Sana yardım edebilir miyim?' İngilizcesi?",
+          options: ["Can I help to you?", "Can I help you?", "Can I help for you?", "Can I help at you?"],
+          correct: 1,
+          tr_explanation: "'Help' transitive — 'to/for/at' almaz. 'Help + nesne' direkt.",
+        },
+        {
+          q: "Professional email opener?",
+          options: ["Hey what's up", "Hi — hope you're well", "Yo", "Dude"],
+          correct: 1,
+          tr_explanation: "'Hi — hope you're well' = warm + professional. Diğerleri casual.",
+        },
+        {
+          q: "'When you have a chance' tonunda?",
+          options: ["Aciliyet baskısı", "Esneklik göstergesi", "Resmi emir", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'When you have a chance' = baskı yapmadan istek. Profesyonel saygı.",
+        },
+        {
+          q: "Polite request en güçlü modal?",
+          options: ["Must", "Should", "Could", "Will"],
+          correct: 2,
+          tr_explanation: "'Could' = soft modal. Polite request standardı. 'Must/should' = emir tonu.",
+        },
+        {
+          q: "Status report end?",
+          options: ["The end", "Should be done by [date] — let me know if you have questions", "Bye", "Finish"],
+          correct: 1,
+          tr_explanation: "ETA + invite questions = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
+    },
   ],
 };
 
@@ -455,6 +550,101 @@ export const professionalB1Lesson_2: BundledLesson = {
         "Could you clarify which plan offers the best balance of coverage and cost for my situation?",
       tr_explanation:
         "'I want know' = 'I'd like to know / Could you clarify'. 'Most cheap', 'most good' yanlış üstünlük; 'best balance of X and Y' = profesyonel kalıp. Sigortada B1+ kayıt: 'clarify' + somut kriter.",
+    },
+    {
+      id: "ex.pb1.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you please ___ when you ___?",
+      slots: [
+        { accepted: ['share the deck', 'send the file', 'review the doc', 'confirm the meeting'], distractors: ['share deck', 'send file', 'review doc', 'confirm meeting'] },
+        { accepted: ['have a chance', 'get a moment', 'are back', 'have time'], distractors: ['have chance', 'get moment', 'back', 'have a time'] },
+      ],
+      tr_hint:
+        "Polite request kalıbı. 'Could you please' + 'when you have a chance' = soft + considerate.",
+      example_filled: "Could you please share the deck when you have a chance?",
+    },
+    {
+      id: "ex.pb1.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — just checking on the status of the report." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks for the update, I'll let the team know." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|hey)( there)?",
+        "(thanks for|appreciate) (the check-in|reaching out|following up)",
+        "(it'?s|we'?re|the report is) (.+) (right now|currently|on track)",
+        "(should be done|aiming for|by) (.+)",
+      ],
+      tr_hint:
+        "Status check email — net + saygılı + ETA. Türk hatası: 'I'm working' belirsiz — somut tarih.",
+      ideal_answer: "Hi — thanks for the check-in. The report is in final review, should be done by Wednesday.",
+    },
+    {
+      id: "ex.pb1.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you walk me through your weekly priorities?",
+      accepted_patterns: [
+        "(sure|absolutely|of course)",
+        "(this week|right now|currently)",
+        "(top (.+)|main focus is|priorities are)",
+        "(then|after that|second priority)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Weekly review sorusu — structured cevap. Numbered priorities + reasoning.",
+      ideal_response: "Sure — top priority this week is finishing the launch checklist, then I'll move to onboarding docs.",
+    },
+    {
+      id: "ex.pb1.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana yardım edebilir miyim?",
+      wrong_en: "Can I help to you?",
+      right_en: "Can I help you? / Is there anything I can help with?",
+      why_tr:
+        "'Help to you' = Türkçe 'sana yardım' direkt çeviri, preposition fazlası. 'Help' transitive verb, 'to' almaz. Doğru: 'help you'. Alternatif daha kibar: 'Is there anything I can help with?' Türk öğrenci 'to/for' preposition'larını fazladan ekler.",
+    },
+    {
+      id: "ex.pb1.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Sana yardım edebilir miyim?' İngilizcesi?",
+          options: ["Can I help to you?", "Can I help you?", "Can I help for you?", "Can I help at you?"],
+          correct: 1,
+          tr_explanation: "'Help' transitive — 'to/for/at' almaz. 'Help + nesne' direkt.",
+        },
+        {
+          q: "Professional email opener?",
+          options: ["Hey what's up", "Hi — hope you're well", "Yo", "Dude"],
+          correct: 1,
+          tr_explanation: "'Hi — hope you're well' = warm + professional. Diğerleri casual.",
+        },
+        {
+          q: "'When you have a chance' tonunda?",
+          options: ["Aciliyet baskısı", "Esneklik göstergesi", "Resmi emir", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'When you have a chance' = baskı yapmadan istek. Profesyonel saygı.",
+        },
+        {
+          q: "Polite request en güçlü modal?",
+          options: ["Must", "Should", "Could", "Will"],
+          correct: 2,
+          tr_explanation: "'Could' = soft modal. Polite request standardı. 'Must/should' = emir tonu.",
+        },
+        {
+          q: "Status report end?",
+          options: ["The end", "Should be done by [date] — let me know if you have questions", "Bye", "Finish"],
+          correct: 1,
+          tr_explanation: "ETA + invite questions = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
     },
   ],
 };
@@ -679,6 +869,101 @@ export const professionalB1Lesson_3: BundledLesson = {
         "I'd like to inquire about reviewing a contract — I have concerns about a few clauses and wanted a second opinion.",
       tr_explanation:
         "'My boss made me sign it' = duygusal, hukuk bağlamında işsiz. Avukatla görüşmede: spesifik amaç ('reviewing a contract'), ölçülü endişe ('concerns about a few clauses'), profesyonel talep ('second opinion'). Hukuki dil duyguyu değil, soruyu taşır.",
+    },
+    {
+      id: "ex.pb1.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you please ___ when you ___?",
+      slots: [
+        { accepted: ['share the deck', 'send the file', 'review the doc', 'confirm the meeting'], distractors: ['share deck', 'send file', 'review doc', 'confirm meeting'] },
+        { accepted: ['have a chance', 'get a moment', 'are back', 'have time'], distractors: ['have chance', 'get moment', 'back', 'have a time'] },
+      ],
+      tr_hint:
+        "Polite request kalıbı. 'Could you please' + 'when you have a chance' = soft + considerate.",
+      example_filled: "Could you please share the deck when you have a chance?",
+    },
+    {
+      id: "ex.pb1.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — just checking on the status of the report." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks for the update, I'll let the team know." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|hey)( there)?",
+        "(thanks for|appreciate) (the check-in|reaching out|following up)",
+        "(it'?s|we'?re|the report is) (.+) (right now|currently|on track)",
+        "(should be done|aiming for|by) (.+)",
+      ],
+      tr_hint:
+        "Status check email — net + saygılı + ETA. Türk hatası: 'I'm working' belirsiz — somut tarih.",
+      ideal_answer: "Hi — thanks for the check-in. The report is in final review, should be done by Wednesday.",
+    },
+    {
+      id: "ex.pb1.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you walk me through your weekly priorities?",
+      accepted_patterns: [
+        "(sure|absolutely|of course)",
+        "(this week|right now|currently)",
+        "(top (.+)|main focus is|priorities are)",
+        "(then|after that|second priority)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Weekly review sorusu — structured cevap. Numbered priorities + reasoning.",
+      ideal_response: "Sure — top priority this week is finishing the launch checklist, then I'll move to onboarding docs.",
+    },
+    {
+      id: "ex.pb1.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana yardım edebilir miyim?",
+      wrong_en: "Can I help to you?",
+      right_en: "Can I help you? / Is there anything I can help with?",
+      why_tr:
+        "'Help to you' = Türkçe 'sana yardım' direkt çeviri, preposition fazlası. 'Help' transitive verb, 'to' almaz. Doğru: 'help you'. Alternatif daha kibar: 'Is there anything I can help with?' Türk öğrenci 'to/for' preposition'larını fazladan ekler.",
+    },
+    {
+      id: "ex.pb1.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Sana yardım edebilir miyim?' İngilizcesi?",
+          options: ["Can I help to you?", "Can I help you?", "Can I help for you?", "Can I help at you?"],
+          correct: 1,
+          tr_explanation: "'Help' transitive — 'to/for/at' almaz. 'Help + nesne' direkt.",
+        },
+        {
+          q: "Professional email opener?",
+          options: ["Hey what's up", "Hi — hope you're well", "Yo", "Dude"],
+          correct: 1,
+          tr_explanation: "'Hi — hope you're well' = warm + professional. Diğerleri casual.",
+        },
+        {
+          q: "'When you have a chance' tonunda?",
+          options: ["Aciliyet baskısı", "Esneklik göstergesi", "Resmi emir", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'When you have a chance' = baskı yapmadan istek. Profesyonel saygı.",
+        },
+        {
+          q: "Polite request en güçlü modal?",
+          options: ["Must", "Should", "Could", "Will"],
+          correct: 2,
+          tr_explanation: "'Could' = soft modal. Polite request standardı. 'Must/should' = emir tonu.",
+        },
+        {
+          q: "Status report end?",
+          options: ["The end", "Should be done by [date] — let me know if you have questions", "Bye", "Finish"],
+          correct: 1,
+          tr_explanation: "ETA + invite questions = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
     },
   ],
 };
@@ -905,6 +1190,101 @@ export const professionalB1Lesson_4: BundledLesson = {
       tr_explanation:
         "İfadede 'maybe yes maybe no' belirsizlik = sorunlu. 'I want to go home' panik sinyali. Profesyonel ifade: belirsizliği adlandır ('not certain'), tahminini ver ('I'd estimate'), netlik iste ('clarify what level of precision'). Hukuki bağlamda kesinlik sınırını söyle.",
     },
+    {
+      id: "ex.pb1.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you please ___ when you ___?",
+      slots: [
+        { accepted: ['share the deck', 'send the file', 'review the doc', 'confirm the meeting'], distractors: ['share deck', 'send file', 'review doc', 'confirm meeting'] },
+        { accepted: ['have a chance', 'get a moment', 'are back', 'have time'], distractors: ['have chance', 'get moment', 'back', 'have a time'] },
+      ],
+      tr_hint:
+        "Polite request kalıbı. 'Could you please' + 'when you have a chance' = soft + considerate.",
+      example_filled: "Could you please share the deck when you have a chance?",
+    },
+    {
+      id: "ex.pb1.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — just checking on the status of the report." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks for the update, I'll let the team know." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|hey)( there)?",
+        "(thanks for|appreciate) (the check-in|reaching out|following up)",
+        "(it'?s|we'?re|the report is) (.+) (right now|currently|on track)",
+        "(should be done|aiming for|by) (.+)",
+      ],
+      tr_hint:
+        "Status check email — net + saygılı + ETA. Türk hatası: 'I'm working' belirsiz — somut tarih.",
+      ideal_answer: "Hi — thanks for the check-in. The report is in final review, should be done by Wednesday.",
+    },
+    {
+      id: "ex.pb1.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you walk me through your weekly priorities?",
+      accepted_patterns: [
+        "(sure|absolutely|of course)",
+        "(this week|right now|currently)",
+        "(top (.+)|main focus is|priorities are)",
+        "(then|after that|second priority)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Weekly review sorusu — structured cevap. Numbered priorities + reasoning.",
+      ideal_response: "Sure — top priority this week is finishing the launch checklist, then I'll move to onboarding docs.",
+    },
+    {
+      id: "ex.pb1.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana yardım edebilir miyim?",
+      wrong_en: "Can I help to you?",
+      right_en: "Can I help you? / Is there anything I can help with?",
+      why_tr:
+        "'Help to you' = Türkçe 'sana yardım' direkt çeviri, preposition fazlası. 'Help' transitive verb, 'to' almaz. Doğru: 'help you'. Alternatif daha kibar: 'Is there anything I can help with?' Türk öğrenci 'to/for' preposition'larını fazladan ekler.",
+    },
+    {
+      id: "ex.pb1.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Sana yardım edebilir miyim?' İngilizcesi?",
+          options: ["Can I help to you?", "Can I help you?", "Can I help for you?", "Can I help at you?"],
+          correct: 1,
+          tr_explanation: "'Help' transitive — 'to/for/at' almaz. 'Help + nesne' direkt.",
+        },
+        {
+          q: "Professional email opener?",
+          options: ["Hey what's up", "Hi — hope you're well", "Yo", "Dude"],
+          correct: 1,
+          tr_explanation: "'Hi — hope you're well' = warm + professional. Diğerleri casual.",
+        },
+        {
+          q: "'When you have a chance' tonunda?",
+          options: ["Aciliyet baskısı", "Esneklik göstergesi", "Resmi emir", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'When you have a chance' = baskı yapmadan istek. Profesyonel saygı.",
+        },
+        {
+          q: "Polite request en güçlü modal?",
+          options: ["Must", "Should", "Could", "Will"],
+          correct: 2,
+          tr_explanation: "'Could' = soft modal. Polite request standardı. 'Must/should' = emir tonu.",
+        },
+        {
+          q: "Status report end?",
+          options: ["The end", "Should be done by [date] — let me know if you have questions", "Bye", "Finish"],
+          correct: 1,
+          tr_explanation: "ETA + invite questions = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1126,6 +1506,101 @@ export const professionalB1Lesson_5: BundledLesson = {
         "Excuse me, could you tell me which form I need for a residence permit renewal, please?",
       tr_explanation:
         "'Give me' + 'quickly' = kaba ve acele. Memurla işlerde: 'could you tell me which form' (netleştirme), 'please' (kibarlık). Acele etme — bürokrasi sabırla yürür.",
+    },
+    {
+      id: "ex.pb1.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you please ___ when you ___?",
+      slots: [
+        { accepted: ['share the deck', 'send the file', 'review the doc', 'confirm the meeting'], distractors: ['share deck', 'send file', 'review doc', 'confirm meeting'] },
+        { accepted: ['have a chance', 'get a moment', 'are back', 'have time'], distractors: ['have chance', 'get moment', 'back', 'have a time'] },
+      ],
+      tr_hint:
+        "Polite request kalıbı. 'Could you please' + 'when you have a chance' = soft + considerate.",
+      example_filled: "Could you please share the deck when you have a chance?",
+    },
+    {
+      id: "ex.pb1.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — just checking on the status of the report." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks for the update, I'll let the team know." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|hey)( there)?",
+        "(thanks for|appreciate) (the check-in|reaching out|following up)",
+        "(it'?s|we'?re|the report is) (.+) (right now|currently|on track)",
+        "(should be done|aiming for|by) (.+)",
+      ],
+      tr_hint:
+        "Status check email — net + saygılı + ETA. Türk hatası: 'I'm working' belirsiz — somut tarih.",
+      ideal_answer: "Hi — thanks for the check-in. The report is in final review, should be done by Wednesday.",
+    },
+    {
+      id: "ex.pb1.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you walk me through your weekly priorities?",
+      accepted_patterns: [
+        "(sure|absolutely|of course)",
+        "(this week|right now|currently)",
+        "(top (.+)|main focus is|priorities are)",
+        "(then|after that|second priority)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Weekly review sorusu — structured cevap. Numbered priorities + reasoning.",
+      ideal_response: "Sure — top priority this week is finishing the launch checklist, then I'll move to onboarding docs.",
+    },
+    {
+      id: "ex.pb1.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana yardım edebilir miyim?",
+      wrong_en: "Can I help to you?",
+      right_en: "Can I help you? / Is there anything I can help with?",
+      why_tr:
+        "'Help to you' = Türkçe 'sana yardım' direkt çeviri, preposition fazlası. 'Help' transitive verb, 'to' almaz. Doğru: 'help you'. Alternatif daha kibar: 'Is there anything I can help with?' Türk öğrenci 'to/for' preposition'larını fazladan ekler.",
+    },
+    {
+      id: "ex.pb1.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Sana yardım edebilir miyim?' İngilizcesi?",
+          options: ["Can I help to you?", "Can I help you?", "Can I help for you?", "Can I help at you?"],
+          correct: 1,
+          tr_explanation: "'Help' transitive — 'to/for/at' almaz. 'Help + nesne' direkt.",
+        },
+        {
+          q: "Professional email opener?",
+          options: ["Hey what's up", "Hi — hope you're well", "Yo", "Dude"],
+          correct: 1,
+          tr_explanation: "'Hi — hope you're well' = warm + professional. Diğerleri casual.",
+        },
+        {
+          q: "'When you have a chance' tonunda?",
+          options: ["Aciliyet baskısı", "Esneklik göstergesi", "Resmi emir", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'When you have a chance' = baskı yapmadan istek. Profesyonel saygı.",
+        },
+        {
+          q: "Polite request en güçlü modal?",
+          options: ["Must", "Should", "Could", "Will"],
+          correct: 2,
+          tr_explanation: "'Could' = soft modal. Polite request standardı. 'Must/should' = emir tonu.",
+        },
+        {
+          q: "Status report end?",
+          options: ["The end", "Should be done by [date] — let me know if you have questions", "Bye", "Finish"],
+          correct: 1,
+          tr_explanation: "ETA + invite questions = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
     },
   ],
 };
@@ -1358,6 +1833,101 @@ export const professionalB1Lesson_6: BundledLesson = {
       tr_explanation:
         "'Please don't be angry to me' = endişe sinyali, gereksiz. Profesyonel hastalık bildirimi: spesifik sebep ('stomach bug'), durum ('won't be able to come in'), sorumluluk ('keep you updated'). 'Be angry to me' = 'be angry with me' doğru.",
     },
+    {
+      id: "ex.pb1.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you please ___ when you ___?",
+      slots: [
+        { accepted: ['share the deck', 'send the file', 'review the doc', 'confirm the meeting'], distractors: ['share deck', 'send file', 'review doc', 'confirm meeting'] },
+        { accepted: ['have a chance', 'get a moment', 'are back', 'have time'], distractors: ['have chance', 'get moment', 'back', 'have a time'] },
+      ],
+      tr_hint:
+        "Polite request kalıbı. 'Could you please' + 'when you have a chance' = soft + considerate.",
+      example_filled: "Could you please share the deck when you have a chance?",
+    },
+    {
+      id: "ex.pb1.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — just checking on the status of the report." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks for the update, I'll let the team know." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|hey)( there)?",
+        "(thanks for|appreciate) (the check-in|reaching out|following up)",
+        "(it'?s|we'?re|the report is) (.+) (right now|currently|on track)",
+        "(should be done|aiming for|by) (.+)",
+      ],
+      tr_hint:
+        "Status check email — net + saygılı + ETA. Türk hatası: 'I'm working' belirsiz — somut tarih.",
+      ideal_answer: "Hi — thanks for the check-in. The report is in final review, should be done by Wednesday.",
+    },
+    {
+      id: "ex.pb1.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you walk me through your weekly priorities?",
+      accepted_patterns: [
+        "(sure|absolutely|of course)",
+        "(this week|right now|currently)",
+        "(top (.+)|main focus is|priorities are)",
+        "(then|after that|second priority)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Weekly review sorusu — structured cevap. Numbered priorities + reasoning.",
+      ideal_response: "Sure — top priority this week is finishing the launch checklist, then I'll move to onboarding docs.",
+    },
+    {
+      id: "ex.pb1.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana yardım edebilir miyim?",
+      wrong_en: "Can I help to you?",
+      right_en: "Can I help you? / Is there anything I can help with?",
+      why_tr:
+        "'Help to you' = Türkçe 'sana yardım' direkt çeviri, preposition fazlası. 'Help' transitive verb, 'to' almaz. Doğru: 'help you'. Alternatif daha kibar: 'Is there anything I can help with?' Türk öğrenci 'to/for' preposition'larını fazladan ekler.",
+    },
+    {
+      id: "ex.pb1.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Sana yardım edebilir miyim?' İngilizcesi?",
+          options: ["Can I help to you?", "Can I help you?", "Can I help for you?", "Can I help at you?"],
+          correct: 1,
+          tr_explanation: "'Help' transitive — 'to/for/at' almaz. 'Help + nesne' direkt.",
+        },
+        {
+          q: "Professional email opener?",
+          options: ["Hey what's up", "Hi — hope you're well", "Yo", "Dude"],
+          correct: 1,
+          tr_explanation: "'Hi — hope you're well' = warm + professional. Diğerleri casual.",
+        },
+        {
+          q: "'When you have a chance' tonunda?",
+          options: ["Aciliyet baskısı", "Esneklik göstergesi", "Resmi emir", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'When you have a chance' = baskı yapmadan istek. Profesyonel saygı.",
+        },
+        {
+          q: "Polite request en güçlü modal?",
+          options: ["Must", "Should", "Could", "Will"],
+          correct: 2,
+          tr_explanation: "'Could' = soft modal. Polite request standardı. 'Must/should' = emir tonu.",
+        },
+        {
+          q: "Status report end?",
+          options: ["The end", "Should be done by [date] — let me know if you have questions", "Bye", "Finish"],
+          correct: 1,
+          tr_explanation: "ETA + invite questions = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1580,6 +2150,101 @@ export const professionalB1Lesson_7: BundledLesson = {
         "I'm interested in the flat. Could you clarify the earliest move-in date, and is there any flexibility on the rent for a longer lease?",
       tr_explanation:
         "'Give me discount because I am student' Türkçe dilekçe stili — İngiliz/Amerikan ev sahibinde işsiz. Profesyonel pazarlık: ilgi belirt ('I'm interested'), netleştir ('earliest move-in'), karşılıklı fayda sun ('flexibility for a longer lease'). 'When I can move' yanlış soru yapısı — 'when I can move in' veya 'the move-in date'.",
+    },
+    {
+      id: "ex.pb1.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you please ___ when you ___?",
+      slots: [
+        { accepted: ['share the deck', 'send the file', 'review the doc', 'confirm the meeting'], distractors: ['share deck', 'send file', 'review doc', 'confirm meeting'] },
+        { accepted: ['have a chance', 'get a moment', 'are back', 'have time'], distractors: ['have chance', 'get moment', 'back', 'have a time'] },
+      ],
+      tr_hint:
+        "Polite request kalıbı. 'Could you please' + 'when you have a chance' = soft + considerate.",
+      example_filled: "Could you please share the deck when you have a chance?",
+    },
+    {
+      id: "ex.pb1.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — just checking on the status of the report." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks for the update, I'll let the team know." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|hey)( there)?",
+        "(thanks for|appreciate) (the check-in|reaching out|following up)",
+        "(it'?s|we'?re|the report is) (.+) (right now|currently|on track)",
+        "(should be done|aiming for|by) (.+)",
+      ],
+      tr_hint:
+        "Status check email — net + saygılı + ETA. Türk hatası: 'I'm working' belirsiz — somut tarih.",
+      ideal_answer: "Hi — thanks for the check-in. The report is in final review, should be done by Wednesday.",
+    },
+    {
+      id: "ex.pb1.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you walk me through your weekly priorities?",
+      accepted_patterns: [
+        "(sure|absolutely|of course)",
+        "(this week|right now|currently)",
+        "(top (.+)|main focus is|priorities are)",
+        "(then|after that|second priority)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Weekly review sorusu — structured cevap. Numbered priorities + reasoning.",
+      ideal_response: "Sure — top priority this week is finishing the launch checklist, then I'll move to onboarding docs.",
+    },
+    {
+      id: "ex.pb1.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana yardım edebilir miyim?",
+      wrong_en: "Can I help to you?",
+      right_en: "Can I help you? / Is there anything I can help with?",
+      why_tr:
+        "'Help to you' = Türkçe 'sana yardım' direkt çeviri, preposition fazlası. 'Help' transitive verb, 'to' almaz. Doğru: 'help you'. Alternatif daha kibar: 'Is there anything I can help with?' Türk öğrenci 'to/for' preposition'larını fazladan ekler.",
+    },
+    {
+      id: "ex.pb1.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Sana yardım edebilir miyim?' İngilizcesi?",
+          options: ["Can I help to you?", "Can I help you?", "Can I help for you?", "Can I help at you?"],
+          correct: 1,
+          tr_explanation: "'Help' transitive — 'to/for/at' almaz. 'Help + nesne' direkt.",
+        },
+        {
+          q: "Professional email opener?",
+          options: ["Hey what's up", "Hi — hope you're well", "Yo", "Dude"],
+          correct: 1,
+          tr_explanation: "'Hi — hope you're well' = warm + professional. Diğerleri casual.",
+        },
+        {
+          q: "'When you have a chance' tonunda?",
+          options: ["Aciliyet baskısı", "Esneklik göstergesi", "Resmi emir", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'When you have a chance' = baskı yapmadan istek. Profesyonel saygı.",
+        },
+        {
+          q: "Polite request en güçlü modal?",
+          options: ["Must", "Should", "Could", "Will"],
+          correct: 2,
+          tr_explanation: "'Could' = soft modal. Polite request standardı. 'Must/should' = emir tonu.",
+        },
+        {
+          q: "Status report end?",
+          options: ["The end", "Should be done by [date] — let me know if you have questions", "Bye", "Finish"],
+          correct: 1,
+          tr_explanation: "ETA + invite questions = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
     },
   ],
 };
@@ -1806,6 +2471,101 @@ export const professionalB1Lesson_8: BundledLesson = {
         "I'm not satisfied with the response so far. Could you clarify the next step in your complaints procedure? I'd like to escalate this formally.",
       tr_explanation:
         "'You are the worst' + 'I will sue you' = duygusal tehdit, eskalasyonu zorlaştırır. Profesyonel: memnuniyetsizliği adlandır ('not satisfied'), prosedür sor ('complaints procedure'), formal eskalasyon iste ('escalate this formally'). Tehdit değil, sistem.",
+    },
+    {
+      id: "ex.pb1.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you please ___ when you ___?",
+      slots: [
+        { accepted: ['share the deck', 'send the file', 'review the doc', 'confirm the meeting'], distractors: ['share deck', 'send file', 'review doc', 'confirm meeting'] },
+        { accepted: ['have a chance', 'get a moment', 'are back', 'have time'], distractors: ['have chance', 'get moment', 'back', 'have a time'] },
+      ],
+      tr_hint:
+        "Polite request kalıbı. 'Could you please' + 'when you have a chance' = soft + considerate.",
+      example_filled: "Could you please share the deck when you have a chance?",
+    },
+    {
+      id: "ex.pb1.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — just checking on the status of the report." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks for the update, I'll let the team know." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|hey)( there)?",
+        "(thanks for|appreciate) (the check-in|reaching out|following up)",
+        "(it'?s|we'?re|the report is) (.+) (right now|currently|on track)",
+        "(should be done|aiming for|by) (.+)",
+      ],
+      tr_hint:
+        "Status check email — net + saygılı + ETA. Türk hatası: 'I'm working' belirsiz — somut tarih.",
+      ideal_answer: "Hi — thanks for the check-in. The report is in final review, should be done by Wednesday.",
+    },
+    {
+      id: "ex.pb1.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you walk me through your weekly priorities?",
+      accepted_patterns: [
+        "(sure|absolutely|of course)",
+        "(this week|right now|currently)",
+        "(top (.+)|main focus is|priorities are)",
+        "(then|after that|second priority)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Weekly review sorusu — structured cevap. Numbered priorities + reasoning.",
+      ideal_response: "Sure — top priority this week is finishing the launch checklist, then I'll move to onboarding docs.",
+    },
+    {
+      id: "ex.pb1.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana yardım edebilir miyim?",
+      wrong_en: "Can I help to you?",
+      right_en: "Can I help you? / Is there anything I can help with?",
+      why_tr:
+        "'Help to you' = Türkçe 'sana yardım' direkt çeviri, preposition fazlası. 'Help' transitive verb, 'to' almaz. Doğru: 'help you'. Alternatif daha kibar: 'Is there anything I can help with?' Türk öğrenci 'to/for' preposition'larını fazladan ekler.",
+    },
+    {
+      id: "ex.pb1.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Sana yardım edebilir miyim?' İngilizcesi?",
+          options: ["Can I help to you?", "Can I help you?", "Can I help for you?", "Can I help at you?"],
+          correct: 1,
+          tr_explanation: "'Help' transitive — 'to/for/at' almaz. 'Help + nesne' direkt.",
+        },
+        {
+          q: "Professional email opener?",
+          options: ["Hey what's up", "Hi — hope you're well", "Yo", "Dude"],
+          correct: 1,
+          tr_explanation: "'Hi — hope you're well' = warm + professional. Diğerleri casual.",
+        },
+        {
+          q: "'When you have a chance' tonunda?",
+          options: ["Aciliyet baskısı", "Esneklik göstergesi", "Resmi emir", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'When you have a chance' = baskı yapmadan istek. Profesyonel saygı.",
+        },
+        {
+          q: "Polite request en güçlü modal?",
+          options: ["Must", "Should", "Could", "Will"],
+          correct: 2,
+          tr_explanation: "'Could' = soft modal. Polite request standardı. 'Must/should' = emir tonu.",
+        },
+        {
+          q: "Status report end?",
+          options: ["The end", "Should be done by [date] — let me know if you have questions", "Bye", "Finish"],
+          correct: 1,
+          tr_explanation: "ETA + invite questions = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
     },
   ],
 };
@@ -2039,6 +2799,101 @@ export const professionalB1Lesson_9: BundledLesson = {
       tr_explanation:
         "'Crazy and 100% guilty' = subjektif değerlendirme; polis raporunda zarar verir. Profesyonel ifade: 'from what I observed' (sınır), 'changed lanes without signalling' (somut gözlem), 'reflect what I saw rather than my interpretation' (epistemik alçakgönüllülük). Yargı polise, gözlem sana.",
     },
+    {
+      id: "ex.pb1.9.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you please ___ when you ___?",
+      slots: [
+        { accepted: ['share the deck', 'send the file', 'review the doc', 'confirm the meeting'], distractors: ['share deck', 'send file', 'review doc', 'confirm meeting'] },
+        { accepted: ['have a chance', 'get a moment', 'are back', 'have time'], distractors: ['have chance', 'get moment', 'back', 'have a time'] },
+      ],
+      tr_hint:
+        "Polite request kalıbı. 'Could you please' + 'when you have a chance' = soft + considerate.",
+      example_filled: "Could you please share the deck when you have a chance?",
+    },
+    {
+      id: "ex.pb1.9.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — just checking on the status of the report." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks for the update, I'll let the team know." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|hey)( there)?",
+        "(thanks for|appreciate) (the check-in|reaching out|following up)",
+        "(it'?s|we'?re|the report is) (.+) (right now|currently|on track)",
+        "(should be done|aiming for|by) (.+)",
+      ],
+      tr_hint:
+        "Status check email — net + saygılı + ETA. Türk hatası: 'I'm working' belirsiz — somut tarih.",
+      ideal_answer: "Hi — thanks for the check-in. The report is in final review, should be done by Wednesday.",
+    },
+    {
+      id: "ex.pb1.9.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you walk me through your weekly priorities?",
+      accepted_patterns: [
+        "(sure|absolutely|of course)",
+        "(this week|right now|currently)",
+        "(top (.+)|main focus is|priorities are)",
+        "(then|after that|second priority)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Weekly review sorusu — structured cevap. Numbered priorities + reasoning.",
+      ideal_response: "Sure — top priority this week is finishing the launch checklist, then I'll move to onboarding docs.",
+    },
+    {
+      id: "ex.pb1.9.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana yardım edebilir miyim?",
+      wrong_en: "Can I help to you?",
+      right_en: "Can I help you? / Is there anything I can help with?",
+      why_tr:
+        "'Help to you' = Türkçe 'sana yardım' direkt çeviri, preposition fazlası. 'Help' transitive verb, 'to' almaz. Doğru: 'help you'. Alternatif daha kibar: 'Is there anything I can help with?' Türk öğrenci 'to/for' preposition'larını fazladan ekler.",
+    },
+    {
+      id: "ex.pb1.9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Sana yardım edebilir miyim?' İngilizcesi?",
+          options: ["Can I help to you?", "Can I help you?", "Can I help for you?", "Can I help at you?"],
+          correct: 1,
+          tr_explanation: "'Help' transitive — 'to/for/at' almaz. 'Help + nesne' direkt.",
+        },
+        {
+          q: "Professional email opener?",
+          options: ["Hey what's up", "Hi — hope you're well", "Yo", "Dude"],
+          correct: 1,
+          tr_explanation: "'Hi — hope you're well' = warm + professional. Diğerleri casual.",
+        },
+        {
+          q: "'When you have a chance' tonunda?",
+          options: ["Aciliyet baskısı", "Esneklik göstergesi", "Resmi emir", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'When you have a chance' = baskı yapmadan istek. Profesyonel saygı.",
+        },
+        {
+          q: "Polite request en güçlü modal?",
+          options: ["Must", "Should", "Could", "Will"],
+          correct: 2,
+          tr_explanation: "'Could' = soft modal. Polite request standardı. 'Must/should' = emir tonu.",
+        },
+        {
+          q: "Status report end?",
+          options: ["The end", "Should be done by [date] — let me know if you have questions", "Bye", "Finish"],
+          correct: 1,
+          tr_explanation: "ETA + invite questions = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2262,6 +3117,101 @@ export const professionalB1Lesson_10: BundledLesson = {
         "Excuse me — I'd like to inquire whether there's a way to expedite my application. I've been waiting for some time.",
       tr_explanation:
         "'This office is too slow' + 'give me now' = saldırgan, hiç işe yaramaz. Belediyede iş bitirme dili: 'I'd like to inquire' (kibar açılış), 'expedite' (hızlandırma için resmî terim), 'waiting for some time' (sınırlandırılmış şikayet). Memuru kazanmaya çalış, savaşma.",
+    },
+    {
+      id: "ex.pb1.10.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you please ___ when you ___?",
+      slots: [
+        { accepted: ['share the deck', 'send the file', 'review the doc', 'confirm the meeting'], distractors: ['share deck', 'send file', 'review doc', 'confirm meeting'] },
+        { accepted: ['have a chance', 'get a moment', 'are back', 'have time'], distractors: ['have chance', 'get moment', 'back', 'have a time'] },
+      ],
+      tr_hint:
+        "Polite request kalıbı. 'Could you please' + 'when you have a chance' = soft + considerate.",
+      example_filled: "Could you please share the deck when you have a chance?",
+    },
+    {
+      id: "ex.pb1.10.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — just checking on the status of the report." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks for the update, I'll let the team know." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|hey)( there)?",
+        "(thanks for|appreciate) (the check-in|reaching out|following up)",
+        "(it'?s|we'?re|the report is) (.+) (right now|currently|on track)",
+        "(should be done|aiming for|by) (.+)",
+      ],
+      tr_hint:
+        "Status check email — net + saygılı + ETA. Türk hatası: 'I'm working' belirsiz — somut tarih.",
+      ideal_answer: "Hi — thanks for the check-in. The report is in final review, should be done by Wednesday.",
+    },
+    {
+      id: "ex.pb1.10.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you walk me through your weekly priorities?",
+      accepted_patterns: [
+        "(sure|absolutely|of course)",
+        "(this week|right now|currently)",
+        "(top (.+)|main focus is|priorities are)",
+        "(then|after that|second priority)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Weekly review sorusu — structured cevap. Numbered priorities + reasoning.",
+      ideal_response: "Sure — top priority this week is finishing the launch checklist, then I'll move to onboarding docs.",
+    },
+    {
+      id: "ex.pb1.10.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana yardım edebilir miyim?",
+      wrong_en: "Can I help to you?",
+      right_en: "Can I help you? / Is there anything I can help with?",
+      why_tr:
+        "'Help to you' = Türkçe 'sana yardım' direkt çeviri, preposition fazlası. 'Help' transitive verb, 'to' almaz. Doğru: 'help you'. Alternatif daha kibar: 'Is there anything I can help with?' Türk öğrenci 'to/for' preposition'larını fazladan ekler.",
+    },
+    {
+      id: "ex.pb1.10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Sana yardım edebilir miyim?' İngilizcesi?",
+          options: ["Can I help to you?", "Can I help you?", "Can I help for you?", "Can I help at you?"],
+          correct: 1,
+          tr_explanation: "'Help' transitive — 'to/for/at' almaz. 'Help + nesne' direkt.",
+        },
+        {
+          q: "Professional email opener?",
+          options: ["Hey what's up", "Hi — hope you're well", "Yo", "Dude"],
+          correct: 1,
+          tr_explanation: "'Hi — hope you're well' = warm + professional. Diğerleri casual.",
+        },
+        {
+          q: "'When you have a chance' tonunda?",
+          options: ["Aciliyet baskısı", "Esneklik göstergesi", "Resmi emir", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'When you have a chance' = baskı yapmadan istek. Profesyonel saygı.",
+        },
+        {
+          q: "Polite request en güçlü modal?",
+          options: ["Must", "Should", "Could", "Will"],
+          correct: 2,
+          tr_explanation: "'Could' = soft modal. Polite request standardı. 'Must/should' = emir tonu.",
+        },
+        {
+          q: "Status report end?",
+          options: ["The end", "Should be done by [date] — let me know if you have questions", "Bye", "Finish"],
+          correct: 1,
+          tr_explanation: "ETA + invite questions = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
     },
   ],
 };
@@ -2488,6 +3438,101 @@ export const professionalB1Lesson_11: BundledLesson = {
         "/θæŋk juː fər jɔːr ˈɪntrəst lɛt miː tʃɛk ɒn əˌveɪləˈbɪlɪti ənd aɪl ɡɛt bæk tə juː/",
       tr_hint:
         "Sales call ana kalıbı. 'Availability' uzun: a-vey-lı-Bİ-lı-ti. 'Get back to you' bağlanır: 'get-back-tu-ya'.",
+    },
+    {
+      id: "ex.pb1.11.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you please ___ when you ___?",
+      slots: [
+        { accepted: ['share the deck', 'send the file', 'review the doc', 'confirm the meeting'], distractors: ['share deck', 'send file', 'review doc', 'confirm meeting'] },
+        { accepted: ['have a chance', 'get a moment', 'are back', 'have time'], distractors: ['have chance', 'get moment', 'back', 'have a time'] },
+      ],
+      tr_hint:
+        "Polite request kalıbı. 'Could you please' + 'when you have a chance' = soft + considerate.",
+      example_filled: "Could you please share the deck when you have a chance?",
+    },
+    {
+      id: "ex.pb1.11.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — just checking on the status of the report." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks for the update, I'll let the team know." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|hey)( there)?",
+        "(thanks for|appreciate) (the check-in|reaching out|following up)",
+        "(it'?s|we'?re|the report is) (.+) (right now|currently|on track)",
+        "(should be done|aiming for|by) (.+)",
+      ],
+      tr_hint:
+        "Status check email — net + saygılı + ETA. Türk hatası: 'I'm working' belirsiz — somut tarih.",
+      ideal_answer: "Hi — thanks for the check-in. The report is in final review, should be done by Wednesday.",
+    },
+    {
+      id: "ex.pb1.11.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you walk me through your weekly priorities?",
+      accepted_patterns: [
+        "(sure|absolutely|of course)",
+        "(this week|right now|currently)",
+        "(top (.+)|main focus is|priorities are)",
+        "(then|after that|second priority)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Weekly review sorusu — structured cevap. Numbered priorities + reasoning.",
+      ideal_response: "Sure — top priority this week is finishing the launch checklist, then I'll move to onboarding docs.",
+    },
+    {
+      id: "ex.pb1.11.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana yardım edebilir miyim?",
+      wrong_en: "Can I help to you?",
+      right_en: "Can I help you? / Is there anything I can help with?",
+      why_tr:
+        "'Help to you' = Türkçe 'sana yardım' direkt çeviri, preposition fazlası. 'Help' transitive verb, 'to' almaz. Doğru: 'help you'. Alternatif daha kibar: 'Is there anything I can help with?' Türk öğrenci 'to/for' preposition'larını fazladan ekler.",
+    },
+    {
+      id: "ex.pb1.11.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Sana yardım edebilir miyim?' İngilizcesi?",
+          options: ["Can I help to you?", "Can I help you?", "Can I help for you?", "Can I help at you?"],
+          correct: 1,
+          tr_explanation: "'Help' transitive — 'to/for/at' almaz. 'Help + nesne' direkt.",
+        },
+        {
+          q: "Professional email opener?",
+          options: ["Hey what's up", "Hi — hope you're well", "Yo", "Dude"],
+          correct: 1,
+          tr_explanation: "'Hi — hope you're well' = warm + professional. Diğerleri casual.",
+        },
+        {
+          q: "'When you have a chance' tonunda?",
+          options: ["Aciliyet baskısı", "Esneklik göstergesi", "Resmi emir", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'When you have a chance' = baskı yapmadan istek. Profesyonel saygı.",
+        },
+        {
+          q: "Polite request en güçlü modal?",
+          options: ["Must", "Should", "Could", "Will"],
+          correct: 2,
+          tr_explanation: "'Could' = soft modal. Polite request standardı. 'Must/should' = emir tonu.",
+        },
+        {
+          q: "Status report end?",
+          options: ["The end", "Should be done by [date] — let me know if you have questions", "Bye", "Finish"],
+          correct: 1,
+          tr_explanation: "ETA + invite questions = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
     },
   ],
 };
@@ -2726,6 +3771,101 @@ export const professionalB1Lesson_12: BundledLesson = {
       tr_hint:
         "Toplantı açılışı. 'Agenda' = ı-CEN-dı. 'Deliverables' = dı-LİV-rı-bılz. 'Let's get' bağlanır: 'lets-get'.",
     },
+    {
+      id: "ex.pb1.12.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you please ___ when you ___?",
+      slots: [
+        { accepted: ['share the deck', 'send the file', 'review the doc', 'confirm the meeting'], distractors: ['share deck', 'send file', 'review doc', 'confirm meeting'] },
+        { accepted: ['have a chance', 'get a moment', 'are back', 'have time'], distractors: ['have chance', 'get moment', 'back', 'have a time'] },
+      ],
+      tr_hint:
+        "Polite request kalıbı. 'Could you please' + 'when you have a chance' = soft + considerate.",
+      example_filled: "Could you please share the deck when you have a chance?",
+    },
+    {
+      id: "ex.pb1.12.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — just checking on the status of the report." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks for the update, I'll let the team know." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|hey)( there)?",
+        "(thanks for|appreciate) (the check-in|reaching out|following up)",
+        "(it'?s|we'?re|the report is) (.+) (right now|currently|on track)",
+        "(should be done|aiming for|by) (.+)",
+      ],
+      tr_hint:
+        "Status check email — net + saygılı + ETA. Türk hatası: 'I'm working' belirsiz — somut tarih.",
+      ideal_answer: "Hi — thanks for the check-in. The report is in final review, should be done by Wednesday.",
+    },
+    {
+      id: "ex.pb1.12.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you walk me through your weekly priorities?",
+      accepted_patterns: [
+        "(sure|absolutely|of course)",
+        "(this week|right now|currently)",
+        "(top (.+)|main focus is|priorities are)",
+        "(then|after that|second priority)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Weekly review sorusu — structured cevap. Numbered priorities + reasoning.",
+      ideal_response: "Sure — top priority this week is finishing the launch checklist, then I'll move to onboarding docs.",
+    },
+    {
+      id: "ex.pb1.12.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana yardım edebilir miyim?",
+      wrong_en: "Can I help to you?",
+      right_en: "Can I help you? / Is there anything I can help with?",
+      why_tr:
+        "'Help to you' = Türkçe 'sana yardım' direkt çeviri, preposition fazlası. 'Help' transitive verb, 'to' almaz. Doğru: 'help you'. Alternatif daha kibar: 'Is there anything I can help with?' Türk öğrenci 'to/for' preposition'larını fazladan ekler.",
+    },
+    {
+      id: "ex.pb1.12.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Sana yardım edebilir miyim?' İngilizcesi?",
+          options: ["Can I help to you?", "Can I help you?", "Can I help for you?", "Can I help at you?"],
+          correct: 1,
+          tr_explanation: "'Help' transitive — 'to/for/at' almaz. 'Help + nesne' direkt.",
+        },
+        {
+          q: "Professional email opener?",
+          options: ["Hey what's up", "Hi — hope you're well", "Yo", "Dude"],
+          correct: 1,
+          tr_explanation: "'Hi — hope you're well' = warm + professional. Diğerleri casual.",
+        },
+        {
+          q: "'When you have a chance' tonunda?",
+          options: ["Aciliyet baskısı", "Esneklik göstergesi", "Resmi emir", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'When you have a chance' = baskı yapmadan istek. Profesyonel saygı.",
+        },
+        {
+          q: "Polite request en güçlü modal?",
+          options: ["Must", "Should", "Could", "Will"],
+          correct: 2,
+          tr_explanation: "'Could' = soft modal. Polite request standardı. 'Must/should' = emir tonu.",
+        },
+        {
+          q: "Status report end?",
+          options: ["The end", "Should be done by [date] — let me know if you have questions", "Bye", "Finish"],
+          correct: 1,
+          tr_explanation: "ETA + invite questions = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2948,6 +4088,101 @@ export const professionalB1Lesson_13: BundledLesson = {
       tr_hint:
         "Status update kalıbı. 'I've completed' bağlanır: 'ayv-kımp-Lİ-tıd'. 'Focusing' = FOH-kı-sing. Net, kendinden emin.",
     },
+    {
+      id: "ex.pb1.13.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you please ___ when you ___?",
+      slots: [
+        { accepted: ['share the deck', 'send the file', 'review the doc', 'confirm the meeting'], distractors: ['share deck', 'send file', 'review doc', 'confirm meeting'] },
+        { accepted: ['have a chance', 'get a moment', 'are back', 'have time'], distractors: ['have chance', 'get moment', 'back', 'have a time'] },
+      ],
+      tr_hint:
+        "Polite request kalıbı. 'Could you please' + 'when you have a chance' = soft + considerate.",
+      example_filled: "Could you please share the deck when you have a chance?",
+    },
+    {
+      id: "ex.pb1.13.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — just checking on the status of the report." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks for the update, I'll let the team know." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|hey)( there)?",
+        "(thanks for|appreciate) (the check-in|reaching out|following up)",
+        "(it'?s|we'?re|the report is) (.+) (right now|currently|on track)",
+        "(should be done|aiming for|by) (.+)",
+      ],
+      tr_hint:
+        "Status check email — net + saygılı + ETA. Türk hatası: 'I'm working' belirsiz — somut tarih.",
+      ideal_answer: "Hi — thanks for the check-in. The report is in final review, should be done by Wednesday.",
+    },
+    {
+      id: "ex.pb1.13.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you walk me through your weekly priorities?",
+      accepted_patterns: [
+        "(sure|absolutely|of course)",
+        "(this week|right now|currently)",
+        "(top (.+)|main focus is|priorities are)",
+        "(then|after that|second priority)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Weekly review sorusu — structured cevap. Numbered priorities + reasoning.",
+      ideal_response: "Sure — top priority this week is finishing the launch checklist, then I'll move to onboarding docs.",
+    },
+    {
+      id: "ex.pb1.13.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana yardım edebilir miyim?",
+      wrong_en: "Can I help to you?",
+      right_en: "Can I help you? / Is there anything I can help with?",
+      why_tr:
+        "'Help to you' = Türkçe 'sana yardım' direkt çeviri, preposition fazlası. 'Help' transitive verb, 'to' almaz. Doğru: 'help you'. Alternatif daha kibar: 'Is there anything I can help with?' Türk öğrenci 'to/for' preposition'larını fazladan ekler.",
+    },
+    {
+      id: "ex.pb1.13.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Sana yardım edebilir miyim?' İngilizcesi?",
+          options: ["Can I help to you?", "Can I help you?", "Can I help for you?", "Can I help at you?"],
+          correct: 1,
+          tr_explanation: "'Help' transitive — 'to/for/at' almaz. 'Help + nesne' direkt.",
+        },
+        {
+          q: "Professional email opener?",
+          options: ["Hey what's up", "Hi — hope you're well", "Yo", "Dude"],
+          correct: 1,
+          tr_explanation: "'Hi — hope you're well' = warm + professional. Diğerleri casual.",
+        },
+        {
+          q: "'When you have a chance' tonunda?",
+          options: ["Aciliyet baskısı", "Esneklik göstergesi", "Resmi emir", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'When you have a chance' = baskı yapmadan istek. Profesyonel saygı.",
+        },
+        {
+          q: "Polite request en güçlü modal?",
+          options: ["Must", "Should", "Could", "Will"],
+          correct: 2,
+          tr_explanation: "'Could' = soft modal. Polite request standardı. 'Must/should' = emir tonu.",
+        },
+        {
+          q: "Status report end?",
+          options: ["The end", "Should be done by [date] — let me know if you have questions", "Bye", "Finish"],
+          correct: 1,
+          tr_explanation: "ETA + invite questions = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3167,6 +4402,101 @@ export const professionalB1Lesson_14: BundledLesson = {
         "/aɪ ˌʌndəˈstænd jɔː frʌˈstreɪʃən lɛt miː meɪk ðɪs raɪt fə juː təˈdeɪ/",
       tr_hint:
         "Şikayet yönetimi ana kalıbı. 'Frustration' = frıs-TREY-şın. 'Make this right' bağlanır: 'meyk-ðıs-rayt'. Yavaş, sakin, kendinden emin.",
+    },
+    {
+      id: "ex.pb1.14.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you please ___ when you ___?",
+      slots: [
+        { accepted: ['share the deck', 'send the file', 'review the doc', 'confirm the meeting'], distractors: ['share deck', 'send file', 'review doc', 'confirm meeting'] },
+        { accepted: ['have a chance', 'get a moment', 'are back', 'have time'], distractors: ['have chance', 'get moment', 'back', 'have a time'] },
+      ],
+      tr_hint:
+        "Polite request kalıbı. 'Could you please' + 'when you have a chance' = soft + considerate.",
+      example_filled: "Could you please share the deck when you have a chance?",
+    },
+    {
+      id: "ex.pb1.14.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi — just checking on the status of the report." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks for the update, I'll let the team know." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|hey)( there)?",
+        "(thanks for|appreciate) (the check-in|reaching out|following up)",
+        "(it'?s|we'?re|the report is) (.+) (right now|currently|on track)",
+        "(should be done|aiming for|by) (.+)",
+      ],
+      tr_hint:
+        "Status check email — net + saygılı + ETA. Türk hatası: 'I'm working' belirsiz — somut tarih.",
+      ideal_answer: "Hi — thanks for the check-in. The report is in final review, should be done by Wednesday.",
+    },
+    {
+      id: "ex.pb1.14.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you walk me through your weekly priorities?",
+      accepted_patterns: [
+        "(sure|absolutely|of course)",
+        "(this week|right now|currently)",
+        "(top (.+)|main focus is|priorities are)",
+        "(then|after that|second priority)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Weekly review sorusu — structured cevap. Numbered priorities + reasoning.",
+      ideal_response: "Sure — top priority this week is finishing the launch checklist, then I'll move to onboarding docs.",
+    },
+    {
+      id: "ex.pb1.14.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana yardım edebilir miyim?",
+      wrong_en: "Can I help to you?",
+      right_en: "Can I help you? / Is there anything I can help with?",
+      why_tr:
+        "'Help to you' = Türkçe 'sana yardım' direkt çeviri, preposition fazlası. 'Help' transitive verb, 'to' almaz. Doğru: 'help you'. Alternatif daha kibar: 'Is there anything I can help with?' Türk öğrenci 'to/for' preposition'larını fazladan ekler.",
+    },
+    {
+      id: "ex.pb1.14.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Sana yardım edebilir miyim?' İngilizcesi?",
+          options: ["Can I help to you?", "Can I help you?", "Can I help for you?", "Can I help at you?"],
+          correct: 1,
+          tr_explanation: "'Help' transitive — 'to/for/at' almaz. 'Help + nesne' direkt.",
+        },
+        {
+          q: "Professional email opener?",
+          options: ["Hey what's up", "Hi — hope you're well", "Yo", "Dude"],
+          correct: 1,
+          tr_explanation: "'Hi — hope you're well' = warm + professional. Diğerleri casual.",
+        },
+        {
+          q: "'When you have a chance' tonunda?",
+          options: ["Aciliyet baskısı", "Esneklik göstergesi", "Resmi emir", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'When you have a chance' = baskı yapmadan istek. Profesyonel saygı.",
+        },
+        {
+          q: "Polite request en güçlü modal?",
+          options: ["Must", "Should", "Could", "Will"],
+          correct: 2,
+          tr_explanation: "'Could' = soft modal. Polite request standardı. 'Must/should' = emir tonu.",
+        },
+        {
+          q: "Status report end?",
+          options: ["The end", "Should be done by [date] — let me know if you have questions", "Bye", "Finish"],
+          correct: 1,
+          tr_explanation: "ETA + invite questions = profesyonel kapanış. İlişki sürdürür.",
+        },
+      ],
     },
   ],
 };

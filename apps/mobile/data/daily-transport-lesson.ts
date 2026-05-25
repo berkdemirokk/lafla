@@ -267,6 +267,126 @@ export const dailyTransportLesson_17_1: BundledLesson = {
       tr_explanation:
         "Panik + emir. Doğru: 'Could you pull over' + esnek lokasyon (anywhere on the right) + sicak tesekkur.",
     },
+    {
+      id: "ex.dt17.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you ___ at ___?",
+      slots: [
+        { accepted: ["pull over", "drop me off", "stop"], distractors: ["go down", "park up", "park"] },
+        { accepted: ["the next corner", "the train station", "this address", "the curb"], distractors: ["here now", "next", "future"] },
+      ],
+      tr_hint:
+        "Şoföre — nazik talep. 'Could you pull over at ___?' Türk öğrenci 'Stop here!' der — emir + kaba. 'Could you' + lokasyon = doğru.",
+      example_filled: "Could you pull over at the next corner?",
+    },
+    {
+      id: "ex.dt17.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Where would you like to get off?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "No problem — I'll pull over at the corner." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could you (pull over|drop me off|stop)) (at|by)",
+        "(at|by) (the )?(next corner|the curb|the light)",
+        "(anywhere (on the right|here)|the (corner|station))",
+        "(right (here|there)|just (here|there))",
+      ],
+      tr_hint:
+        "Şoför iniş yeri soruyor — net + kibar. 'At the next corner, please.' Türk öğrenci 'Here!' der — eksik. 'At + place + please' standart.",
+      ideal_answer: "Could you pull over at the next corner — anywhere on the right is fine.",
+    },
+    {
+      id: "ex.dt17.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Traffic's pretty heavy — do you have a flight to catch?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (i'?ve got|i have) a flight (at|to)",
+        "(no|nope)(,)? (just)( a )?(normal day|appointment|meeting)",
+        "(unfortunately yes)(,)? (could we take|is there) (a (faster|shortcut))",
+        "(don'?t worry|no rush)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Şoför trafiği yorumluyor + soruyor — sıcak yanıt. 'Yes, I've got a flight at 3' veya 'No rush, no flight.' Türk öğrenci sessiz kalır — small talk uygula.",
+      ideal_response: "Yes, I've got a flight at three — but no rush, drive safely.",
+    },
+    {
+      id: "ex.dt17.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Otobüse biniyorum.",
+      wrong_en: "I am riding to bus.",
+      right_en: "I'm taking the bus / I'm getting on the bus.",
+      why_tr:
+        "Üç sorun: (1) 'Ride to' yanlış edat — 'ride the bus' veya 'take the bus'. (2) Türk öğrenci 'binmek'i 'ride' yapar — 'take' daha doğal. (3) 'Get on' = bin (an).",
+    },
+    {
+      id: "ex.dt17.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Taksiden iner — kibar?",
+          options: [
+            "Stop now!",
+            "Could you pull over at the next corner?",
+            "Down here.",
+            "Open door!",
+          ],
+          correct: 1,
+          tr_explanation: "'Pull over' = kenara çek. + 'at the next corner' = nazik konum.",
+        },
+        {
+          q: "'Take the bus' vs 'Ride the bus'?",
+          options: [
+            "İlki daha doğal Amerikan İngilizcesi.",
+            "İkincisi doğru.",
+            "İkisi aynı.",
+            "İkisi yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "'Take' = kullan (ulaşım). 'Take the bus/train/subway' = standart.",
+        },
+        {
+          q: "'Get on/get off' ne demek?",
+          options: [
+            "Bin / in.",
+            "Aç / kapat.",
+            "Yukarı / aşağı.",
+            "Bir saat / iki saat.",
+          ],
+          correct: 0,
+          tr_explanation: "'Get on' = bin (taşıt). 'Get off' = in. Otobüs/metro/tren için.",
+        },
+        {
+          q: "Trafikte 'no rush' ne demek?",
+          options: [
+            "Acele yok.",
+            "Hızlan.",
+            "Dur.",
+            "Yavaşla.",
+          ],
+          correct: 0,
+          tr_explanation: "'No rush' = 'acelem yok'. Şoföre stres atma sinyali.",
+        },
+        {
+          q: "Metro kartı için 'tap to enter' nedir?",
+          options: [
+            "Kartı turnikeye değdir.",
+            "Kartı sok.",
+            "Kartı kaldır.",
+            "Kartı al.",
+          ],
+          correct: 0,
+          tr_explanation: "'Tap' = hafifçe değdir (kontaktsız). 'Tap to pay/enter' modern metro/ödeme.",
+        },
+      ],
+    },
   ],
 };
 

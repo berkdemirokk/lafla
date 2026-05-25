@@ -151,6 +151,132 @@ export const erasmusDay0: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyerasmus1.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm here for ___ — I'll be staying ___.",
+      slots: [
+        { accepted: ["studies", "Erasmus", "exchange", "work", "tourism", "a conference"] },
+        { accepted: ["one semester", "four months", "two weeks", "until February", "a few days"] },
+      ],
+      tr_hint:
+        "Havaalanı temel kalıbı: amaç + süre. Türk: 'I came for' yerine 'I'm here for' (mevcut durum).",
+      example_filled: "I'm here for Erasmus — I'll be staying one semester.",
+    },
+    {
+      id: "ex.storyerasmus1.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Purpose of your visit?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "And how long will you stay?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m|im) here for (studies|tourism|work|erasmus)",
+        "(i'?m|im) (a |an )?(exchange|erasmus) student",
+        "(visiting|on vacation|on a business trip)",
+        "(study|studying) (at|in) [a-z]+",
+      ],
+      tr_hint:
+        "Memur 'amaç ne?' soruyor. 'I'm here for studies' veya 'Tourism' yeterli. Türk: 'I came for' yerine 'I'm here for'.",
+      ideal_answer: "I'm here for studies — exchange semester.",
+    },
+    {
+      id: "ex.storyerasmus1.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Do you have any food or liquids over 100ml in your carry-on?",
+      accepted_patterns: [
+        "(no|nope)(,)? (nothing|just (water|snacks))",
+        "(only|just) (a water bottle|some snacks)",
+        "(i think |maybe )?(there'?s |i have )(a yogurt|hand cream)",
+        "(let me check|hold on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Güvenlik soruşturması. 'No, nothing' veya 'Just a water bottle' yeterli. Türk: 'I have' yerine 'There's' (daha doğal nesne için).",
+      ideal_response: "No, nothing — just an empty water bottle.",
+    },
+    {
+      id: "ex.storyerasmus1.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Geldim Türkiye'den, kalacağım üç ay.",
+      wrong_en: "I come from Turkey, I will stay three months.",
+      right_en: "I'm here from Turkey, staying for three months.",
+      why_tr:
+        "Türk öğrenci 'geldim' için 'I come' kullanır — yanlış zaman. 'I'm here' (şu an durumu) + 'staying' (continuous form) daha doğal. Memur seni durumun içinde görüyor, geçmiş eylem değil.",
+    },
+    {
+      id: "ex.storyerasmus1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Purpose of your visit?' nasıl cevaplanır?",
+          options: [
+            "Because I want",
+            "I'm here for [studies/tourism/work]",
+            "My visit is for",
+            "Visit purpose: study",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kısa + doğal: 'I'm here for studies/tourism'. Türk: 'My purpose is' resmi kitap dili.",
+        },
+        {
+          q: "'How long will you stay?' yanıtı?",
+          options: [
+            "For three months / Until February",
+            "I will stay for",
+            "Three months I stay",
+            "Stay three months",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For + süre' veya 'Until + tarih'. Türk: tam cümle gereksiz, kısa cevap yeterli.",
+        },
+        {
+          q: "'Carry-on' ne demek?",
+          options: [
+            "Kabin bagajı",
+            "Bagaj kayışı",
+            "Tartılan bagaj",
+            "El koltuğu",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Carry-on' = kabin bagajı (yanına aldığın). 'Checked bag' = bagaj banta verilen.",
+        },
+        {
+          q: "Türk öğrencinin sık yaptığı hata?",
+          options: [
+            "Kısa cevap vermek",
+            "Sözcükleri Türkçe sırasıyla çevirmek (I come from)",
+            "İngilizce kullanmak",
+            "Pasaport göstermek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I come from' geniş zaman = halen oradan geliyorum (sürekli). 'I'm here from' = şu an buradayım.",
+        },
+        {
+          q: "Belge isteyen memura ne denir?",
+          options: [
+            "Take it",
+            "Here you go",
+            "Get this",
+            "I give to you",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Here you go' = işte (uzatırken). 'Take it' = al (emir, kaba). Türk: 'Take' yerine 'Here you go'.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -292,6 +418,131 @@ export const erasmusDay1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyerasmus2.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm checking in — I have a reservation under ___.",
+      slots: [
+        { accepted: ["my name", "Yilmaz", "Demir", "Kaya", "Aydin"] },
+      ],
+      tr_hint:
+        "Otel/yurt check-in açılışı. 'Under [isim]' = [isim] adına. Türk: 'My name is' yerine 'Under my name' daha kısa profesyonel.",
+      example_filled: "I'm checking in — I have a reservation under Yilmaz.",
+    },
+    {
+      id: "ex.storyerasmus2.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Welcome — your name, please?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Found it. Could I see your passport?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(it'?s |under )?[a-z]+",
+        "(i'?m|im) [a-z]+",
+        "(my name (is|'?s)) [a-z]+",
+        "(checking in (as|under)) [a-z]+",
+      ],
+      tr_hint:
+        "İsim ver: 'It's Yilmaz' veya 'Under Yilmaz'. Türk: tam cümle 'My name is...' uzun, kısa form yeterli.",
+      ideal_answer: "It's Yilmaz — checking in for tonight.",
+    },
+    {
+      id: "ex.storyerasmus2.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Could you sign here, and is there anything else you need?",
+      accepted_patterns: [
+        "(sure|of course|happy to)",
+        "(could (i|you)|can (i|you)) (have|get) (the )?(wifi (password|info))",
+        "(what time is (breakfast|checkout))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "İmza + soru fırsatı. 'Sure — could I get the WiFi?' Türk: 'OK' eksik, kibar imza + fonksiyonel soru.",
+      ideal_response: "Sure — could I get the WiFi password as well?",
+    },
+    {
+      id: "ex.storyerasmus2.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anahtarımı verir misin?",
+      wrong_en: "Can you give me my key?",
+      right_en: "Could I get my key, please?",
+      why_tr:
+        "Türk literal 'give me' = emir tonu. 'Could I get' = aynı anlam, tamamen kibar. Otel/yurt çalışanı 'give me' duyarsa kaba algılayabilir.",
+    },
+    {
+      id: "ex.storyerasmus2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Check-in açılış kalıbı?",
+          options: [
+            "I want check-in",
+            "I'm checking in — reservation under [name]",
+            "Check-in I make",
+            "Reservation me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm checking in' (şimdiki durum) + 'under [name]' (rezervasyon kim adına). Türk: tam cümle profesyonel.",
+        },
+        {
+          q: "'Key card' nedir?",
+          options: [
+            "Anahtar kart",
+            "Kart anahtar",
+            "Kapı kartı",
+            "Şifre kartı",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Key card' = modern otel/yurt elektronik anahtar.",
+        },
+        {
+          q: "'Quiet hours' ne demek?",
+          options: [
+            "Sessiz saatler (gürültü yasak)",
+            "Boş saatler",
+            "Mola saatleri",
+            "Yavaş saatler",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Quiet hours 10pm-7am' = gece 10-sabah 7 sessizlik kuralı.",
+        },
+        {
+          q: "Kaybedilen anahtar ücreti soracaksın:",
+          options: [
+            "Lose key cost?",
+            "What if I lose the key card — how much is the replacement?",
+            "Key gone, how price?",
+            "Replacement money?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Tam soru: 'What if + senaryo + how much'. Türk: parçalı eksik, tam cümle profesyonel.",
+        },
+        {
+          q: "İmza isteyen görevliye kibar cevap?",
+          options: [
+            "OK",
+            "Sure / Of course",
+            "I sign",
+            "Yes sign here",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sure' veya 'Of course' = günlük + kibar onay. Türk: 'OK' düz, 'Sure' samimi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -408,6 +659,134 @@ export const erasmusDay2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyerasmus3.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.storyerasmus3.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.storyerasmus3.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.storyerasmus3.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.storyerasmus3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -524,6 +903,132 @@ export const erasmusDay4: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyerasmus4.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Where can I find ___? I'm looking for ___.",
+      slots: [
+        { accepted: ["lentils", "bulgur", "rice", "yogurt", "tea"] },
+        { accepted: ["something specific", "a Turkish brand", "the international aisle", "fresh produce"] },
+      ],
+      tr_hint:
+        "Market yardım isteme. 'Where can I find X?' + 'I'm looking for Y.' Türk: 'I want' yerine 'I'm looking for' daha doğal.",
+      example_filled: "Where can I find lentils? I'm looking for the international aisle.",
+    },
+    {
+      id: "ex.storyerasmus4.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Need help finding something?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Aisle 7, bottom shelf — next to the rice." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (where can i find|do you have)",
+        "(i'?m looking for|trying to find) ([a-z ]+)",
+        "(could|can) you tell me where ([a-z ]+) (is|are)",
+        "(do you (carry|sell)) ([a-z ]+)",
+      ],
+      tr_hint:
+        "Şablon: 'Where can I find X?'. Türk: 'I am searching' yerine 'I'm looking for'.",
+      ideal_answer: "Yes — I'm looking for lentils.",
+    },
+    {
+      id: "ex.storyerasmus4.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "We're actually out of that. Anything similar that might work?",
+      accepted_patterns: [
+        "(do you have (any|some)) (alternatives|substitutes)",
+        "(what (about|do you recommend))",
+        "(any (similar |closer )brand)",
+        "(no worries|i'?ll check (back|next week))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Stok yok, alternatif sor. 'What do you recommend?' Türk: 'Other?' eksik, tam soru kibar.",
+      ideal_response: "Hmm — do you have any close alternatives, or should I check next week?",
+    },
+    {
+      id: "ex.storyerasmus4.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Bunun fiyatı ne kadar?",
+      wrong_en: "What is the price of this?",
+      right_en: "How much is this?",
+      why_tr:
+        "Türk literal 'What is the price' anlaşılır ama kitapça. Native: 'How much is this?' veya 'How much does it cost?' — günlük market diline daha uygun.",
+    },
+    {
+      id: "ex.storyerasmus4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Aisle' ne demek?",
+          options: [
+            "Reyon/koridor",
+            "Raf",
+            "Mağaza",
+            "Sepet",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Aisle 7' = 7. reyon/koridor. Süpermarket organizasyon birimi.",
+        },
+        {
+          q: "'I'm looking for' ne anlama?",
+          options: [
+            "Bakıyorum",
+            "Arıyorum (bulmaya çalışıyorum)",
+            "Görüyorum",
+            "Görüşürüm",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm looking for X' = X arıyorum (bulma niyeti). Türk: 'I search' yerine 'I'm looking'.",
+        },
+        {
+          q: "Fiyat sorusu için en doğal?",
+          options: [
+            "What is the price?",
+            "How much is this? / How much does it cost?",
+            "Price please",
+            "How money?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'How much is this?' = günlük, doğal. Türk: 'What is the price' kitap dili.",
+        },
+        {
+          q: "Self-checkout'da ödeme:",
+          options: [
+            "I pay",
+            "Card / Contactless / Tap to pay",
+            "Money give",
+            "Take card",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Modern ödeme: 'Tap' (temassız), 'Card', 'Contactless'. Türk: 'Card please' yeterli.",
+        },
+        {
+          q: "'Out of stock' nedir?",
+          options: [
+            "Stokta yok",
+            "Stoktan çık",
+            "Stoksuz",
+            "Bitiyor",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Out of stock' = bitmiş, stokta yok. 'We're out of X' = X'imiz kalmadı.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -657,6 +1162,135 @@ export const erasmusDay7: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyerasmus5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.storyerasmus5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.storyerasmus5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.storyerasmus5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.storyerasmus5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -775,6 +1409,132 @@ export const erasmusDay8: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyerasmus6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd love to ___, but I'm ___ tonight.",
+      slots: [
+        { accepted: ["join", "stay longer", "grab another", "come with you", "hang out"] },
+        { accepted: ["heading home", "meeting friends", "exhausted", "calling it early", "on early shift tomorrow"] },
+      ],
+      tr_hint:
+        "Bar/club nazik ret kalıbı: 'I'd love to + sebep'. Türk: 'I cannot' düz, 'I'd love to but...' kibar.",
+      example_filled: "I'd love to stay longer, but I'm heading home — early shift tomorrow.",
+    },
+    {
+      id: "ex.storyerasmus6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Are you here alone? Wanna join our table?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool — what are you drinking?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|why not)(,)? (i'?d love to|sounds (good|fun))",
+        "(actually )?(my friends are|i'?m waiting for|i'?m with)",
+        "(thanks (for asking|for the invite))(,)? (i (will|might) join)",
+        "(let me (grab|get) (my drink|something))",
+      ],
+      tr_hint:
+        "Davet kabul/red. Kabul: 'Sure, sounds good'. Şartlı: 'My friends are coming, but I can join for a bit.' Türk: 'OK' düz, 'Sounds good' samimi.",
+      ideal_answer: "Sure, sounds good — let me grab my drink.",
+    },
+    {
+      id: "ex.storyerasmus6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you here tonight?",
+      accepted_patterns: [
+        "(a friend of mine|my friend) (recommended|told me)",
+        "(just (exploring|trying somewhere new)|first time here)",
+        "(my (roommate|coworker)|some friends) (dragged|brought) me",
+        "(honestly )?(needed a drink|long week)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bar small talk başlangıcı. 'A friend recommended' veya 'Long week, needed a drink.' Türk: 'I am here because' uzun, kısa neden ver.",
+      ideal_response: "Honestly, just a long week — a coworker dragged me out.",
+    },
+    {
+      id: "ex.storyerasmus6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Hayır içmek istemiyorum, teşekkür ederim.",
+      wrong_en: "No, I don't want drink, thank you.",
+      right_en: "I'm good — maybe later, thanks.",
+      why_tr:
+        "Türk: 'I don't want' direkt = kaba ton verir. 'I'm good' yumuşatır — 'şu an istemiyorum' anlamı. 'Maybe later' kapıyı açık bırakır, anti-sosyal görünmezsin.",
+    },
+    {
+      id: "ex.storyerasmus6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Bar'da içki teklif edildi, kibarca reddet:",
+          options: [
+            "I don't want.",
+            "I'm good, maybe later.",
+            "No drink for me.",
+            "Refuse, thank you.",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm good' = şimdilik iyiyim, ihtiyacım yok. Türk: 'No' düz, 'I'm good' yumuşak.",
+        },
+        {
+          q: "'What are you drinking?' yanıtı?",
+          options: [
+            "I drink beer",
+            "A beer / Just water / Vodka tonic",
+            "Drink is beer",
+            "I am with beer",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Bar'da içki adı tek başına yeterli. 'A beer' veya 'Just water'. Türk: tam cümle gereksiz.",
+        },
+        {
+          q: "'My round' ne demek?",
+          options: [
+            "Benim turum (içki ben ısmarlıyorum)",
+            "Etrafım benim",
+            "Yuvarlak ben",
+            "Sıram",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'It's my round' = bu içkileri ben ısmarlıyorum. Bar kültürü kalıbı.",
+        },
+        {
+          q: "'Wanna join us?' ne anlama?",
+          options: [
+            "Bize katılır mısın?",
+            "Birleş bizimle",
+            "Bizimle kalır mısın?",
+            "Bize gel",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna join us?' = bize katılır mısın (sıcak davet).",
+        },
+        {
+          q: "Bar ortamında Türk hatası en yaygın?",
+          options: [
+            "Aşırı resmi cümle ('I would like to drink')",
+            "Kısa cevap vermek",
+            "İngilizce kullanmak",
+            "Adın söylemek",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Bar = günlük. 'I would like a beer' resmi restoran tonu. Bar'da 'A beer, please' yeterli.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -891,6 +1651,132 @@ export const erasmusDay12: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyerasmus8.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could I get a ___ with ___, please?",
+      slots: [
+        { accepted: ["flat white", "cappuccino", "latte", "americano", "cortado"] },
+        { accepted: ["oat milk", "almond milk", "extra shot", "no sugar", "less foam"] },
+      ],
+      tr_hint:
+        "Kahve özel sipariş kalıbı: 'Could I get + içecek + with + özel'. Türk: 'I want' düz, 'Could I get' kibar.",
+      example_filled: "Could I get a flat white with oat milk, please?",
+    },
+    {
+      id: "ex.storyerasmus8.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Morning! The usual?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Coming up — anything to eat?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (you got it|please|same as always)",
+        "(actually )?(let me )?(switch (it )?up|try something different)",
+        "(make it )?(a double|a large)(,)? please",
+        "(yes)(,)? (and|with) (a croissant|something to eat)",
+      ],
+      tr_hint:
+        "Barista sürekli müşteri tanıdı. 'You got it!' = aynen! Türk: 'Yes same' düz, 'You got it' samimi onay.",
+      ideal_answer: "Yes, you got it — flat white, please.",
+    },
+    {
+      id: "ex.storyerasmus8.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "We're out of oat milk — almond or whole instead?",
+      accepted_patterns: [
+        "(almond|whole|either) (works|is fine)",
+        "(let me )?(go with|do|take) (almond|whole)",
+        "(any (other (alternatives|options)|soy))",
+        "(actually )?(just (black|with whole)|forget the milk)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Stok yok. 'Almond works' veya 'Just black, then.' Türk: 'OK almond' eksik, 'Almond works' net kabul.",
+      ideal_response: "Almond works, thanks.",
+    },
+    {
+      id: "ex.storyerasmus8.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Sütsüz olabilir mi?",
+      wrong_en: "Can it be without milk?",
+      right_en: "Could I get it black, please?",
+      why_tr:
+        "Türk literal çeviri: 'without milk' anlaşılır ama doğal değil. 'Black' = sütsüz/sade (kahve için terim). 'Could I get it black?' kibar + doğru terim.",
+    },
+    {
+      id: "ex.storyerasmus8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'The usual?' baristanın sorduğu nedir?",
+          options: [
+            "Olağan mı?",
+            "Her zamanki (sipariş) mi?",
+            "Normal mi?",
+            "Standart mı?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The usual' = her zamanki sipariş (sürekli müşteriye sorulur).",
+        },
+        {
+          q: "Sütsüz kahve nasıl söylenir?",
+          options: [
+            "Without milk",
+            "No milk",
+            "Black",
+            "Empty",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'Black' = kahve için sütsüz/sade terim. 'Without milk' anlaşılır ama 'black' native.",
+        },
+        {
+          q: "'For here or to go?' anlamı?",
+          options: [
+            "Burada mı, paket mi?",
+            "Burada mı, dışarıda mı?",
+            "Otur mu, kalk mı?",
+            "Buradan mı, oradan mı?",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For here' = burada içeceğim. 'To go' = paket alıp gideceğim.",
+        },
+        {
+          q: "'Extra shot' ne demek?",
+          options: [
+            "Ekstra fotoğraf",
+            "İkinci espresso (kahveye)",
+            "Büyük boy",
+            "Hızlı içim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Extra shot' = ekstra espresso dozu (latte/cappuccino'ya eklenir).",
+        },
+        {
+          q: "Tezgah ödemesinde kibar kalıp?",
+          options: [
+            "I will pay with card",
+            "Card, please / Contactless",
+            "Card I take",
+            "Take my card",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Card, please' veya 'Contactless' — kısa, doğal. Türk: tam cümle gereksiz.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1004,6 +1890,135 @@ export const erasmusDay14: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyerasmus9.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.storyerasmus9.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.storyerasmus9.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.storyerasmus9.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.storyerasmus9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1139,6 +2154,134 @@ export const erasmusDay15: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyerasmus10.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.storyerasmus10.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.storyerasmus10.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.storyerasmus10.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.storyerasmus10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1256,6 +2399,134 @@ export const erasmusDay18: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyerasmus11.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.storyerasmus11.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.storyerasmus11.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.storyerasmus11.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.storyerasmus11.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1390,6 +2661,134 @@ export const erasmusDay20: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyerasmus12.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.storyerasmus12.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.storyerasmus12.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.storyerasmus12.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.storyerasmus12.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1508,6 +2907,133 @@ export const erasmusDay22: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyerasmus13.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm here to ___ — I have the ___.",
+      slots: [
+        { accepted: ["pick up a package", "drop off a return", "collect a parcel", "send something"] },
+        { accepted: ["tracking number", "notification slip", "receipt", "QR code"] },
+      ],
+      tr_hint:
+        "DHL/Post temel kalıp. 'I'm here to + amaç' + 'I have the + belge.' Türk: 'I want my package' eksik, profesyonel açılış.",
+      example_filled: "I'm here to pick up a package — I have the tracking number.",
+    },
+    {
+      id: "ex.storyerasmus13.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — tracking number and ID, please." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)(,)? (i'?m here to|i need to) (pick up|collect) (a |my )?package",
+        "(i got a |i have a )?(notification|note|slip)",
+        "(this is the (tracking|notification) (number|slip))",
+        "(it'?s from|coming from) [a-z]+",
+      ],
+      tr_hint:
+        "Açılış: 'Hi, I'm here to pick up a package.' Türk: 'I want my package' eksik, tam ifade kibar.",
+      ideal_answer: "Hi — I'm here to pick up a package. I have the tracking slip.",
+    },
+    {
+      id: "ex.storyerasmus13.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "This package is customs-flagged. You'll need to declare contents and pay 8 euros VAT.",
+      accepted_patterns: [
+        "(oh|okay)(,)? (got it|of course)",
+        "(it'?s from (my mom|family|home))",
+        "(it'?s|the contents are) (food|clothes|personal items)",
+        "(how do i declare|do i sign something)",
+        "(can i pay (by |with )?(card|cash))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Gümrük formalitesi. 'Got it — it's from family, mostly food and clothes.' Türk: 'OK' eksik, içerik belirt.",
+      ideal_response: "Got it — it's from my mom, mostly food and personal items. Card okay for the VAT?",
+    },
+    {
+      id: "ex.storyerasmus13.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Bu paket benim, alabilir miyim?",
+      wrong_en: "This package is mine, can I take?",
+      right_en: "I'm here to pick up this package — it's under my name.",
+      why_tr:
+        "Türk: 'can I take' = kaba + eksik (take what?). 'I'm here to pick up' profesyonel. 'Under my name' = adıma kayıtlı (resmi formal).",
+    },
+    {
+      id: "ex.storyerasmus13.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Tracking number' nedir?",
+          options: [
+            "Takip numarası (kargo)",
+            "Adres numarası",
+            "Telefon numarası",
+            "Sıra numarası",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Kargo izleme için verilen kod. DHL/UPS sistemlerinde paketi bulmak için.",
+        },
+        {
+          q: "'Customs' ne demek?",
+          options: [
+            "Alışkanlık",
+            "Gümrük (yurtdışı paket vergisi)",
+            "Müşteri",
+            "Adet",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Customs' = gümrük. Yurtdışından paket gelirse 'customs-flagged' = gümrüğe takıldı.",
+        },
+        {
+          q: "'VAT' kısaltması?",
+          options: [
+            "Vakum",
+            "Value Added Tax (KDV)",
+            "Vehicle",
+            "Vat (büyük kap)",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'VAT' = KDV (katma değer vergisi). AB ülkelerinde paket vergisi olarak ödenir.",
+        },
+        {
+          q: "İmza isteme: 'Could you sign here, please?' yanıtı:",
+          options: [
+            "OK I sign",
+            "Sure / Of course",
+            "Yes signing",
+            "I will write name",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sure' veya 'Of course' = günlük kibar onay. Türk: 'OK' düz, 'Sure' samimi.",
+        },
+        {
+          q: "Paket içeriğini açıklamak için doğal kalıp:",
+          options: [
+            "It's containing food",
+            "It's from my mom — food and personal items",
+            "Inside is food",
+            "Food and clothes is in",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'It's from + kişi — + içerik' net. Türk: gramer eksiltisi yapar, ana kalıp ezberle.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1643,6 +3169,135 @@ export const erasmusDay26: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyerasmus14.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.storyerasmus14.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.storyerasmus14.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.storyerasmus14.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.storyerasmus14.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1778,6 +3433,132 @@ export const erasmusDay29: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyerasmus15.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm here for ___ — I'll be staying ___.",
+      slots: [
+        { accepted: ["studies", "Erasmus", "exchange", "work", "tourism", "a conference"] },
+        { accepted: ["one semester", "four months", "two weeks", "until February", "a few days"] },
+      ],
+      tr_hint:
+        "Havaalanı temel kalıbı: amaç + süre. Türk: 'I came for' yerine 'I'm here for' (mevcut durum).",
+      example_filled: "I'm here for Erasmus — I'll be staying one semester.",
+    },
+    {
+      id: "ex.storyerasmus15.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Purpose of your visit?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "And how long will you stay?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m|im) here for (studies|tourism|work|erasmus)",
+        "(i'?m|im) (a |an )?(exchange|erasmus) student",
+        "(visiting|on vacation|on a business trip)",
+        "(study|studying) (at|in) [a-z]+",
+      ],
+      tr_hint:
+        "Memur 'amaç ne?' soruyor. 'I'm here for studies' veya 'Tourism' yeterli. Türk: 'I came for' yerine 'I'm here for'.",
+      ideal_answer: "I'm here for studies — exchange semester.",
+    },
+    {
+      id: "ex.storyerasmus15.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Do you have any food or liquids over 100ml in your carry-on?",
+      accepted_patterns: [
+        "(no|nope)(,)? (nothing|just (water|snacks))",
+        "(only|just) (a water bottle|some snacks)",
+        "(i think |maybe )?(there'?s |i have )(a yogurt|hand cream)",
+        "(let me check|hold on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Güvenlik soruşturması. 'No, nothing' veya 'Just a water bottle' yeterli. Türk: 'I have' yerine 'There's' (daha doğal nesne için).",
+      ideal_response: "No, nothing — just an empty water bottle.",
+    },
+    {
+      id: "ex.storyerasmus15.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Geldim Türkiye'den, kalacağım üç ay.",
+      wrong_en: "I come from Turkey, I will stay three months.",
+      right_en: "I'm here from Turkey, staying for three months.",
+      why_tr:
+        "Türk öğrenci 'geldim' için 'I come' kullanır — yanlış zaman. 'I'm here' (şu an durumu) + 'staying' (continuous form) daha doğal. Memur seni durumun içinde görüyor, geçmiş eylem değil.",
+    },
+    {
+      id: "ex.storyerasmus15.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Purpose of your visit?' nasıl cevaplanır?",
+          options: [
+            "Because I want",
+            "I'm here for [studies/tourism/work]",
+            "My visit is for",
+            "Visit purpose: study",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kısa + doğal: 'I'm here for studies/tourism'. Türk: 'My purpose is' resmi kitap dili.",
+        },
+        {
+          q: "'How long will you stay?' yanıtı?",
+          options: [
+            "For three months / Until February",
+            "I will stay for",
+            "Three months I stay",
+            "Stay three months",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For + süre' veya 'Until + tarih'. Türk: tam cümle gereksiz, kısa cevap yeterli.",
+        },
+        {
+          q: "'Carry-on' ne demek?",
+          options: [
+            "Kabin bagajı",
+            "Bagaj kayışı",
+            "Tartılan bagaj",
+            "El koltuğu",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Carry-on' = kabin bagajı (yanına aldığın). 'Checked bag' = bagaj banta verilen.",
+        },
+        {
+          q: "Türk öğrencinin sık yaptığı hata?",
+          options: [
+            "Kısa cevap vermek",
+            "Sözcükleri Türkçe sırasıyla çevirmek (I come from)",
+            "İngilizce kullanmak",
+            "Pasaport göstermek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I come from' geniş zaman = halen oradan geliyorum (sürekli). 'I'm here from' = şu an buradayım.",
+        },
+        {
+          q: "Belge isteyen memura ne denir?",
+          options: [
+            "Take it",
+            "Here you go",
+            "Get this",
+            "I give to you",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Here you go' = işte (uzatırken). 'Take it' = al (emir, kaba). Türk: 'Take' yerine 'Here you go'.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1927,6 +3708,134 @@ export const erasmusDay10: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyerasmus7.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could you ___ — I want to make sure ___?",
+      slots: [
+        { accepted: ["clarify", "walk me through", "explain", "confirm", "double-check"] },
+        { accepted: ["I understood correctly", "I'm on the right track", "we're aligned", "I got the details", "nothing's missed"] },
+      ],
+      tr_hint:
+        "Genel netleştirme kalıbı. 'Could you + fiil — I want to make sure + sonuç.' Türk: 'I don't understand' eksik, profesyonel netleştirme.",
+      example_filled: "Could you walk me through that — I want to make sure I understood correctly?",
+    },
+    {
+      id: "ex.storyerasmus7.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Anything else you need?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|actually)(,)? (one more (thing|question))",
+        "(could you (also|please)) ([a-z ]+)",
+        "(i wanted to (ask|check))",
+        "(quick question (about|on))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      tr_hint:
+        "Ekstra soru köprüsü. 'Actually — one more question.' Türk: 'I want to ask' düz, kibar köprü.",
+      ideal_answer: "Actually — one more thing, could you clarify the timing?",
+    },
+    {
+      id: "ex.storyerasmus7.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's the most important thing for you here?",
+      accepted_patterns: [
+        "(honestly|for me)(,)? (the (key|main) thing is)",
+        "(i (care|am focused on) most about)",
+        "(getting (this|it) right (matters|is important))",
+        "(if i had to (pick|choose)|priority(-| )wise)",
+        "(what (really )?matters is)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Öncelik beyan kalıbı. 'Honestly, the main thing is X.' Türk: 'Everything' yetersiz, tek öncelik seç.",
+      ideal_response: "Honestly, the main thing for me is getting this right the first time.",
+    },
+    {
+      id: "ex.storyerasmus7.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anlayamadım, tekrar söyle.",
+      wrong_en: "I cannot understand, say again.",
+      right_en: "Sorry, could you say that one more time?",
+      why_tr:
+        "Türk: 'I cannot + say again' = sert + emir tonu. Native: 'Sorry, could you' = nezaket + soru. Aynı sonuç, yumuşatma kritik.",
+    },
+    {
+      id: "ex.storyerasmus7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Netleştirme isterken doğal kalıp:",
+          options: [
+            "Say again",
+            "Could you say that one more time?",
+            "Repeat please",
+            "I don't understand",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you say that one more time?' = profesyonel + kibar netleştirme.",
+        },
+        {
+          q: "Ekstra soru köprüsü:",
+          options: [
+            "Question",
+            "Actually — one more thing / Quick question",
+            "More",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' veya 'Quick question' = kibar köprü, karşı tarafı şaşırtmaz.",
+        },
+        {
+          q: "Öncelik beyan kalıbı:",
+          options: [
+            "Everything important",
+            "Honestly, the main thing for me is ___",
+            "All matter",
+            "Important me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The main thing is X' = tek öncelik beyan. Karar verdirir.",
+        },
+        {
+          q: "'On the right track' anlamı?",
+          options: [
+            "Sağ yolda",
+            "Doğru yolda (anlayış için)",
+            "Tren rayında",
+            "Pist üzerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm on the right track' = doğru anlıyorum/yapıyorum. Onay arama kalıbı.",
+        },
+        {
+          q: "Türk yaygın hatası 'tekrar söyle' için?",
+          options: [
+            "'Say again' (emir tonu, kaba)",
+            "'Could you say that one more time' (kibar)",
+            "Aynı şey",
+            "Hiç fark yok",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Say again' emir, 'Could you' rica. Türk literal çevirir, soru forma çevirmeyi unutur.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -2042,6 +3951,132 @@ export const nycDay0Immigration: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storynyc1.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm here for ___ — I'll be staying ___.",
+      slots: [
+        { accepted: ["studies", "Erasmus", "exchange", "work", "tourism", "a conference"] },
+        { accepted: ["one semester", "four months", "two weeks", "until February", "a few days"] },
+      ],
+      tr_hint:
+        "Havaalanı temel kalıbı: amaç + süre. Türk: 'I came for' yerine 'I'm here for' (mevcut durum).",
+      example_filled: "I'm here for Erasmus — I'll be staying one semester.",
+    },
+    {
+      id: "ex.storynyc1.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Purpose of your visit?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "And how long will you stay?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m|im) here for (studies|tourism|work|erasmus)",
+        "(i'?m|im) (a |an )?(exchange|erasmus) student",
+        "(visiting|on vacation|on a business trip)",
+        "(study|studying) (at|in) [a-z]+",
+      ],
+      tr_hint:
+        "Memur 'amaç ne?' soruyor. 'I'm here for studies' veya 'Tourism' yeterli. Türk: 'I came for' yerine 'I'm here for'.",
+      ideal_answer: "I'm here for studies — exchange semester.",
+    },
+    {
+      id: "ex.storynyc1.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Do you have any food or liquids over 100ml in your carry-on?",
+      accepted_patterns: [
+        "(no|nope)(,)? (nothing|just (water|snacks))",
+        "(only|just) (a water bottle|some snacks)",
+        "(i think |maybe )?(there'?s |i have )(a yogurt|hand cream)",
+        "(let me check|hold on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Güvenlik soruşturması. 'No, nothing' veya 'Just a water bottle' yeterli. Türk: 'I have' yerine 'There's' (daha doğal nesne için).",
+      ideal_response: "No, nothing — just an empty water bottle.",
+    },
+    {
+      id: "ex.storynyc1.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Geldim Türkiye'den, kalacağım üç ay.",
+      wrong_en: "I come from Turkey, I will stay three months.",
+      right_en: "I'm here from Turkey, staying for three months.",
+      why_tr:
+        "Türk öğrenci 'geldim' için 'I come' kullanır — yanlış zaman. 'I'm here' (şu an durumu) + 'staying' (continuous form) daha doğal. Memur seni durumun içinde görüyor, geçmiş eylem değil.",
+    },
+    {
+      id: "ex.storynyc1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Purpose of your visit?' nasıl cevaplanır?",
+          options: [
+            "Because I want",
+            "I'm here for [studies/tourism/work]",
+            "My visit is for",
+            "Visit purpose: study",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kısa + doğal: 'I'm here for studies/tourism'. Türk: 'My purpose is' resmi kitap dili.",
+        },
+        {
+          q: "'How long will you stay?' yanıtı?",
+          options: [
+            "For three months / Until February",
+            "I will stay for",
+            "Three months I stay",
+            "Stay three months",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For + süre' veya 'Until + tarih'. Türk: tam cümle gereksiz, kısa cevap yeterli.",
+        },
+        {
+          q: "'Carry-on' ne demek?",
+          options: [
+            "Kabin bagajı",
+            "Bagaj kayışı",
+            "Tartılan bagaj",
+            "El koltuğu",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Carry-on' = kabin bagajı (yanına aldığın). 'Checked bag' = bagaj banta verilen.",
+        },
+        {
+          q: "Türk öğrencinin sık yaptığı hata?",
+          options: [
+            "Kısa cevap vermek",
+            "Sözcükleri Türkçe sırasıyla çevirmek (I come from)",
+            "İngilizce kullanmak",
+            "Pasaport göstermek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I come from' geniş zaman = halen oradan geliyorum (sürekli). 'I'm here from' = şu an buradayım.",
+        },
+        {
+          q: "Belge isteyen memura ne denir?",
+          options: [
+            "Take it",
+            "Here you go",
+            "Get this",
+            "I give to you",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Here you go' = işte (uzatırken). 'Take it' = al (emir, kaba). Türk: 'Take' yerine 'Here you go'.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -2154,6 +4189,131 @@ export const nycDay0Hotel: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storynyc2.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm checking in — I have a reservation under ___.",
+      slots: [
+        { accepted: ["my name", "Yilmaz", "Demir", "Kaya", "Aydin"] },
+      ],
+      tr_hint:
+        "Otel/yurt check-in açılışı. 'Under [isim]' = [isim] adına. Türk: 'My name is' yerine 'Under my name' daha kısa profesyonel.",
+      example_filled: "I'm checking in — I have a reservation under Yilmaz.",
+    },
+    {
+      id: "ex.storynyc2.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Welcome — your name, please?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Found it. Could I see your passport?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(it'?s |under )?[a-z]+",
+        "(i'?m|im) [a-z]+",
+        "(my name (is|'?s)) [a-z]+",
+        "(checking in (as|under)) [a-z]+",
+      ],
+      tr_hint:
+        "İsim ver: 'It's Yilmaz' veya 'Under Yilmaz'. Türk: tam cümle 'My name is...' uzun, kısa form yeterli.",
+      ideal_answer: "It's Yilmaz — checking in for tonight.",
+    },
+    {
+      id: "ex.storynyc2.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Could you sign here, and is there anything else you need?",
+      accepted_patterns: [
+        "(sure|of course|happy to)",
+        "(could (i|you)|can (i|you)) (have|get) (the )?(wifi (password|info))",
+        "(what time is (breakfast|checkout))",
+        "(no )?(i think i'?m good|that'?s all)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "İmza + soru fırsatı. 'Sure — could I get the WiFi?' Türk: 'OK' eksik, kibar imza + fonksiyonel soru.",
+      ideal_response: "Sure — could I get the WiFi password as well?",
+    },
+    {
+      id: "ex.storynyc2.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Anahtarımı verir misin?",
+      wrong_en: "Can you give me my key?",
+      right_en: "Could I get my key, please?",
+      why_tr:
+        "Türk literal 'give me' = emir tonu. 'Could I get' = aynı anlam, tamamen kibar. Otel/yurt çalışanı 'give me' duyarsa kaba algılayabilir.",
+    },
+    {
+      id: "ex.storynyc2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Check-in açılış kalıbı?",
+          options: [
+            "I want check-in",
+            "I'm checking in — reservation under [name]",
+            "Check-in I make",
+            "Reservation me",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm checking in' (şimdiki durum) + 'under [name]' (rezervasyon kim adına). Türk: tam cümle profesyonel.",
+        },
+        {
+          q: "'Key card' nedir?",
+          options: [
+            "Anahtar kart",
+            "Kart anahtar",
+            "Kapı kartı",
+            "Şifre kartı",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Key card' = modern otel/yurt elektronik anahtar.",
+        },
+        {
+          q: "'Quiet hours' ne demek?",
+          options: [
+            "Sessiz saatler (gürültü yasak)",
+            "Boş saatler",
+            "Mola saatleri",
+            "Yavaş saatler",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Quiet hours 10pm-7am' = gece 10-sabah 7 sessizlik kuralı.",
+        },
+        {
+          q: "Kaybedilen anahtar ücreti soracaksın:",
+          options: [
+            "Lose key cost?",
+            "What if I lose the key card — how much is the replacement?",
+            "Key gone, how price?",
+            "Replacement money?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Tam soru: 'What if + senaryo + how much'. Türk: parçalı eksik, tam cümle profesyonel.",
+        },
+        {
+          q: "İmza isteyen görevliye kibar cevap?",
+          options: [
+            "OK",
+            "Sure / Of course",
+            "I sign",
+            "Yes sign here",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sure' veya 'Of course' = günlük + kibar onay. Türk: 'OK' düz, 'Sure' samimi.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -2264,6 +4424,132 @@ export const nycDay1Bodega: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storynyc3.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could I get a ___ with ___, please?",
+      slots: [
+        { accepted: ["flat white", "cappuccino", "latte", "americano", "cortado"] },
+        { accepted: ["oat milk", "almond milk", "extra shot", "no sugar", "less foam"] },
+      ],
+      tr_hint:
+        "Kahve özel sipariş kalıbı: 'Could I get + içecek + with + özel'. Türk: 'I want' düz, 'Could I get' kibar.",
+      example_filled: "Could I get a flat white with oat milk, please?",
+    },
+    {
+      id: "ex.storynyc3.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Morning! The usual?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Coming up — anything to eat?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (you got it|please|same as always)",
+        "(actually )?(let me )?(switch (it )?up|try something different)",
+        "(make it )?(a double|a large)(,)? please",
+        "(yes)(,)? (and|with) (a croissant|something to eat)",
+      ],
+      tr_hint:
+        "Barista sürekli müşteri tanıdı. 'You got it!' = aynen! Türk: 'Yes same' düz, 'You got it' samimi onay.",
+      ideal_answer: "Yes, you got it — flat white, please.",
+    },
+    {
+      id: "ex.storynyc3.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "We're out of oat milk — almond or whole instead?",
+      accepted_patterns: [
+        "(almond|whole|either) (works|is fine)",
+        "(let me )?(go with|do|take) (almond|whole)",
+        "(any (other (alternatives|options)|soy))",
+        "(actually )?(just (black|with whole)|forget the milk)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Stok yok. 'Almond works' veya 'Just black, then.' Türk: 'OK almond' eksik, 'Almond works' net kabul.",
+      ideal_response: "Almond works, thanks.",
+    },
+    {
+      id: "ex.storynyc3.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Sütsüz olabilir mi?",
+      wrong_en: "Can it be without milk?",
+      right_en: "Could I get it black, please?",
+      why_tr:
+        "Türk literal çeviri: 'without milk' anlaşılır ama doğal değil. 'Black' = sütsüz/sade (kahve için terim). 'Could I get it black?' kibar + doğru terim.",
+    },
+    {
+      id: "ex.storynyc3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'The usual?' baristanın sorduğu nedir?",
+          options: [
+            "Olağan mı?",
+            "Her zamanki (sipariş) mi?",
+            "Normal mi?",
+            "Standart mı?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The usual' = her zamanki sipariş (sürekli müşteriye sorulur).",
+        },
+        {
+          q: "Sütsüz kahve nasıl söylenir?",
+          options: [
+            "Without milk",
+            "No milk",
+            "Black",
+            "Empty",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'Black' = kahve için sütsüz/sade terim. 'Without milk' anlaşılır ama 'black' native.",
+        },
+        {
+          q: "'For here or to go?' anlamı?",
+          options: [
+            "Burada mı, paket mi?",
+            "Burada mı, dışarıda mı?",
+            "Otur mu, kalk mı?",
+            "Buradan mı, oradan mı?",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For here' = burada içeceğim. 'To go' = paket alıp gideceğim.",
+        },
+        {
+          q: "'Extra shot' ne demek?",
+          options: [
+            "Ekstra fotoğraf",
+            "İkinci espresso (kahveye)",
+            "Büyük boy",
+            "Hızlı içim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Extra shot' = ekstra espresso dozu (latte/cappuccino'ya eklenir).",
+        },
+        {
+          q: "Tezgah ödemesinde kibar kalıp?",
+          options: [
+            "I will pay with card",
+            "Card, please / Contactless",
+            "Card I take",
+            "Take my card",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Card, please' veya 'Contactless' — kısa, doğal. Türk: tam cümle gereksiz.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -2372,6 +4658,132 @@ export const nycDay1TimesSquare: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storynyc4.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Can I get a ___ to go? Make it ___.",
+      slots: [
+        { accepted: ["bacon egg and cheese", "iced coffee", "bagel with cream cheese", "salad", "slice"] },
+        { accepted: ["to go", "extra cheese", "no onion", "with everything", "hot"] },
+      ],
+      tr_hint:
+        "NYC bodega/deli sipariş. 'Can I get + item + to go? Make it + özel.' Türk: 'I want' düz, 'Can I get' NYC samimi.",
+      example_filled: "Can I get a bacon egg and cheese to go? Make it extra cheese.",
+    },
+    {
+      id: "ex.storynyc4.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "What can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Comin' up. Anything else?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(can i get|let me get|i'?ll have) (a |the )?([a-z ]+)",
+        "(could i (also )?(grab|get)) (a |an )?",
+        "(make it )?(to go|for here)",
+        "(with|no) (cheese|onion|tomato|extra)",
+      ],
+      tr_hint:
+        "NYC bodega/deli sipariş. 'Can I get a coffee — black, to go.' Türk: 'I want' yerine 'Can I get' NYC kalıbı.",
+      ideal_answer: "Can I get a bacon egg and cheese to go — and a black coffee.",
+    },
+    {
+      id: "ex.storynyc4.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Cash or card?",
+      accepted_patterns: [
+        "(card|cash)( please)?",
+        "(tap )?(with )?(my (phone|watch|card))",
+        "(contactless|apple pay|google pay)",
+        "(here'?s )?(my card|the card)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hızlı ödeme. 'Card, please' veya 'Tap.' Türk: 'I will pay' uzun, kısa cevap doğal.",
+      ideal_response: "Card — tap.",
+    },
+    {
+      id: "ex.storynyc4.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Bir kahve istiyorum.",
+      wrong_en: "I want one coffee.",
+      right_en: "Can I get a coffee?",
+      why_tr:
+        "Türk: 'I want' = robotik + 'one coffee' eksik (NYC: 'a' kullanılır). 'Can I get' = NYC native sipariş kalıbı.",
+    },
+    {
+      id: "ex.storynyc4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "NYC deli sipariş açılış:",
+          options: [
+            "I want",
+            "Can I get / Let me get",
+            "Give me",
+            "Order this",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Can I get' = NYC sipariş standardı. 'Let me get' daha casual.",
+        },
+        {
+          q: "'Bodega' nedir?",
+          options: [
+            "Şarap evi",
+            "NYC corner store (24 saat market)",
+            "Bar",
+            "Garaj",
+          ],
+          correct: 1,
+          tr_explanation:
+            "NYC bodega = mahalle marketi (sigara, içecek, sandwich). Standart kelime.",
+        },
+        {
+          q: "'BEC' kısaltması?",
+          options: [
+            "Bagel egg cheese",
+            "Bacon egg and cheese (NYC breakfast)",
+            "Bread egg coffee",
+            "Bakery",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'BEC' = bacon egg and cheese sandwich, NYC kahvaltı klasiği.",
+        },
+        {
+          q: "'To go' vs 'for here':",
+          options: [
+            "Burada / paket",
+            "Paket / burada",
+            "Hızlı / yavaş",
+            "Aynı şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'To go' = paket. 'For here' = içeride yiyeceğim. ABD standart soru.",
+        },
+        {
+          q: "Hızlı ödeme NYC:",
+          options: [
+            "Pay money",
+            "Tap / Card / Contactless",
+            "I pay cash",
+            "Money",
+          ],
+          correct: 1,
+          tr_explanation:
+            "NYC modern ödeme: tap (temassız), card. Hızlı sipariş için.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -2487,6 +4899,132 @@ export const nycDay2Museum: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storynyc5.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Can I get a ___ to go? Make it ___.",
+      slots: [
+        { accepted: ["bacon egg and cheese", "iced coffee", "bagel with cream cheese", "salad", "slice"] },
+        { accepted: ["to go", "extra cheese", "no onion", "with everything", "hot"] },
+      ],
+      tr_hint:
+        "NYC bodega/deli sipariş. 'Can I get + item + to go? Make it + özel.' Türk: 'I want' düz, 'Can I get' NYC samimi.",
+      example_filled: "Can I get a bacon egg and cheese to go? Make it extra cheese.",
+    },
+    {
+      id: "ex.storynyc5.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "What can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Comin' up. Anything else?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(can i get|let me get|i'?ll have) (a |the )?([a-z ]+)",
+        "(could i (also )?(grab|get)) (a |an )?",
+        "(make it )?(to go|for here)",
+        "(with|no) (cheese|onion|tomato|extra)",
+      ],
+      tr_hint:
+        "NYC bodega/deli sipariş. 'Can I get a coffee — black, to go.' Türk: 'I want' yerine 'Can I get' NYC kalıbı.",
+      ideal_answer: "Can I get a bacon egg and cheese to go — and a black coffee.",
+    },
+    {
+      id: "ex.storynyc5.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Cash or card?",
+      accepted_patterns: [
+        "(card|cash)( please)?",
+        "(tap )?(with )?(my (phone|watch|card))",
+        "(contactless|apple pay|google pay)",
+        "(here'?s )?(my card|the card)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hızlı ödeme. 'Card, please' veya 'Tap.' Türk: 'I will pay' uzun, kısa cevap doğal.",
+      ideal_response: "Card — tap.",
+    },
+    {
+      id: "ex.storynyc5.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Bir kahve istiyorum.",
+      wrong_en: "I want one coffee.",
+      right_en: "Can I get a coffee?",
+      why_tr:
+        "Türk: 'I want' = robotik + 'one coffee' eksik (NYC: 'a' kullanılır). 'Can I get' = NYC native sipariş kalıbı.",
+    },
+    {
+      id: "ex.storynyc5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "NYC deli sipariş açılış:",
+          options: [
+            "I want",
+            "Can I get / Let me get",
+            "Give me",
+            "Order this",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Can I get' = NYC sipariş standardı. 'Let me get' daha casual.",
+        },
+        {
+          q: "'Bodega' nedir?",
+          options: [
+            "Şarap evi",
+            "NYC corner store (24 saat market)",
+            "Bar",
+            "Garaj",
+          ],
+          correct: 1,
+          tr_explanation:
+            "NYC bodega = mahalle marketi (sigara, içecek, sandwich). Standart kelime.",
+        },
+        {
+          q: "'BEC' kısaltması?",
+          options: [
+            "Bagel egg cheese",
+            "Bacon egg and cheese (NYC breakfast)",
+            "Bread egg coffee",
+            "Bakery",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'BEC' = bacon egg and cheese sandwich, NYC kahvaltı klasiği.",
+        },
+        {
+          q: "'To go' vs 'for here':",
+          options: [
+            "Burada / paket",
+            "Paket / burada",
+            "Hızlı / yavaş",
+            "Aynı şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'To go' = paket. 'For here' = içeride yiyeceğim. ABD standart soru.",
+        },
+        {
+          q: "Hızlı ödeme NYC:",
+          options: [
+            "Pay money",
+            "Tap / Card / Contactless",
+            "I pay cash",
+            "Money",
+          ],
+          correct: 1,
+          tr_explanation:
+            "NYC modern ödeme: tap (temassız), card. Hızlı sipariş için.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -2619,6 +5157,134 @@ export const nycDay2Dinner: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storynyc6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ — and is it possible to ___?",
+      slots: [
+        { accepted: ["start with the menu", "get water", "split a starter", "share a few dishes", "see the wine list"] },
+        { accepted: ["make it dairy-free", "leave out the cilantro", "swap the rice for noodles", "do it less spicy"] },
+      ],
+      tr_hint:
+        "Restoran ricacı kalıp. 'Could we + main + ve modif?' Türk: 'I want X but no Y' eksik, 'Could we + and is it possible' kibar net.",
+      example_filled: "Could we get the ramen — and is it possible to make it dairy-free?",
+    },
+    {
+      id: "ex.storynyc6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Good evening — have you had a chance to look at the menu?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — what can I help with?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (could we (start with|have)|we'?d like)",
+        "(we'?re ready to |we'?d like to )?order",
+        "(quick |one )question first",
+        "(before we order)",
+        "(could you (talk us through|recommend))",
+      ],
+      tr_hint:
+        "Açılış: 'Yes, we're ready to order — quick question first.' Türk: 'Yes I look' eksik, ek soru için kibar köprü.",
+      ideal_answer: "Yes — we're ready, but a quick question first.",
+    },
+    {
+      id: "ex.storynyc6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "And anything to drink? We have a great natural wine list.",
+      accepted_patterns: [
+        "(could we see the |what'?s on the |any )?wine list",
+        "(a bottle of |two glasses of )?(red|white|natural wine)",
+        "(what (do you |would you )?recommend)",
+        "(something (light|crisp|dry|low(-| )?intervention))",
+        "(sparkling water)( for the table)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "İçecek seç + öneri. 'A glass of red — something dry, please.' Türk: 'I want wine' eksik, sıfat + tür ekle.",
+      ideal_response: "Two glasses of red, please — something dry if you can recommend.",
+    },
+    {
+      id: "ex.storynyc6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Hesabı ayrı ödeyelim.",
+      wrong_en: "We pay separate, please.",
+      right_en: "Could we split the bill?",
+      why_tr:
+        "Türk: 'We pay separate' eksik gramer ve kaba. 'Could we split the bill?' = kibar + restoran terimi. 'Split' = bölmek (hesap için standart).",
+    },
+    {
+      id: "ex.storynyc6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I'm lactose intolerant' ne demek?",
+          options: [
+            "Süt sevmem",
+            "Laktoz intoleransım var (tıbbi)",
+            "Süt yiyemem",
+            "Süt zararlı bana",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Resmi tıbbi terim. Restoranda allergy soruları için kullanılır.",
+        },
+        {
+          q: "'On the side' kalıbı?",
+          options: [
+            "Yanda (sosu ayrı isterken)",
+            "Yan tarafta",
+            "Kenarda",
+            "Yarı yarı",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Dressing on the side' = sosu yanında ver (ben kararım). Restoran özel istek kalıbı.",
+        },
+        {
+          q: "Hesap istemek için en doğal:",
+          options: [
+            "Bring the bill",
+            "Could we get the check, please?",
+            "I want pay",
+            "Money please",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could we get the check?' (US) veya 'the bill' (UK). Türk: 'I want' düz, 'Could we get' kibar.",
+        },
+        {
+          q: "'Split the bill' nedir?",
+          options: [
+            "Hesabı yırt",
+            "Hesabı paylaş",
+            "Hesabı boz",
+            "Hesabı tamamla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Split' = bölmek (eşit paylaşmak). 'Split the bill three ways' = üçe böl.",
+        },
+        {
+          q: "Garson 'still or sparkling?' diye soruyor:",
+          options: [
+            "Hareketsiz mi köpüklü mü?",
+            "Sade (normal) mi soda mı? (su için)",
+            "Hızlı mı yavaş mı?",
+            "Şimdi mi sonra mı?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Su seçimi: 'still water' = normal, 'sparkling' = maden suyu/soda.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -2726,6 +5392,132 @@ export const nycDay3Subway: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storynyc7.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Can I get a ___ to go? Make it ___.",
+      slots: [
+        { accepted: ["bacon egg and cheese", "iced coffee", "bagel with cream cheese", "salad", "slice"] },
+        { accepted: ["to go", "extra cheese", "no onion", "with everything", "hot"] },
+      ],
+      tr_hint:
+        "NYC bodega/deli sipariş. 'Can I get + item + to go? Make it + özel.' Türk: 'I want' düz, 'Can I get' NYC samimi.",
+      example_filled: "Can I get a bacon egg and cheese to go? Make it extra cheese.",
+    },
+    {
+      id: "ex.storynyc7.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "What can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Comin' up. Anything else?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(can i get|let me get|i'?ll have) (a |the )?([a-z ]+)",
+        "(could i (also )?(grab|get)) (a |an )?",
+        "(make it )?(to go|for here)",
+        "(with|no) (cheese|onion|tomato|extra)",
+      ],
+      tr_hint:
+        "NYC bodega/deli sipariş. 'Can I get a coffee — black, to go.' Türk: 'I want' yerine 'Can I get' NYC kalıbı.",
+      ideal_answer: "Can I get a bacon egg and cheese to go — and a black coffee.",
+    },
+    {
+      id: "ex.storynyc7.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Cash or card?",
+      accepted_patterns: [
+        "(card|cash)( please)?",
+        "(tap )?(with )?(my (phone|watch|card))",
+        "(contactless|apple pay|google pay)",
+        "(here'?s )?(my card|the card)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hızlı ödeme. 'Card, please' veya 'Tap.' Türk: 'I will pay' uzun, kısa cevap doğal.",
+      ideal_response: "Card — tap.",
+    },
+    {
+      id: "ex.storynyc7.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Bir kahve istiyorum.",
+      wrong_en: "I want one coffee.",
+      right_en: "Can I get a coffee?",
+      why_tr:
+        "Türk: 'I want' = robotik + 'one coffee' eksik (NYC: 'a' kullanılır). 'Can I get' = NYC native sipariş kalıbı.",
+    },
+    {
+      id: "ex.storynyc7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "NYC deli sipariş açılış:",
+          options: [
+            "I want",
+            "Can I get / Let me get",
+            "Give me",
+            "Order this",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Can I get' = NYC sipariş standardı. 'Let me get' daha casual.",
+        },
+        {
+          q: "'Bodega' nedir?",
+          options: [
+            "Şarap evi",
+            "NYC corner store (24 saat market)",
+            "Bar",
+            "Garaj",
+          ],
+          correct: 1,
+          tr_explanation:
+            "NYC bodega = mahalle marketi (sigara, içecek, sandwich). Standart kelime.",
+        },
+        {
+          q: "'BEC' kısaltması?",
+          options: [
+            "Bagel egg cheese",
+            "Bacon egg and cheese (NYC breakfast)",
+            "Bread egg coffee",
+            "Bakery",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'BEC' = bacon egg and cheese sandwich, NYC kahvaltı klasiği.",
+        },
+        {
+          q: "'To go' vs 'for here':",
+          options: [
+            "Burada / paket",
+            "Paket / burada",
+            "Hızlı / yavaş",
+            "Aynı şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'To go' = paket. 'For here' = içeride yiyeceğim. ABD standart soru.",
+        },
+        {
+          q: "Hızlı ödeme NYC:",
+          options: [
+            "Pay money",
+            "Tap / Card / Contactless",
+            "I pay cash",
+            "Money",
+          ],
+          correct: 1,
+          tr_explanation:
+            "NYC modern ödeme: tap (temassız), card. Hızlı sipariş için.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -2861,6 +5653,132 @@ export const nycDay4Mike: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storynyc8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd love to ___, but I'm ___ tonight.",
+      slots: [
+        { accepted: ["join", "stay longer", "grab another", "come with you", "hang out"] },
+        { accepted: ["heading home", "meeting friends", "exhausted", "calling it early", "on early shift tomorrow"] },
+      ],
+      tr_hint:
+        "Bar/club nazik ret kalıbı: 'I'd love to + sebep'. Türk: 'I cannot' düz, 'I'd love to but...' kibar.",
+      example_filled: "I'd love to stay longer, but I'm heading home — early shift tomorrow.",
+    },
+    {
+      id: "ex.storynyc8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Are you here alone? Wanna join our table?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool — what are you drinking?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|why not)(,)? (i'?d love to|sounds (good|fun))",
+        "(actually )?(my friends are|i'?m waiting for|i'?m with)",
+        "(thanks (for asking|for the invite))(,)? (i (will|might) join)",
+        "(let me (grab|get) (my drink|something))",
+      ],
+      tr_hint:
+        "Davet kabul/red. Kabul: 'Sure, sounds good'. Şartlı: 'My friends are coming, but I can join for a bit.' Türk: 'OK' düz, 'Sounds good' samimi.",
+      ideal_answer: "Sure, sounds good — let me grab my drink.",
+    },
+    {
+      id: "ex.storynyc8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you here tonight?",
+      accepted_patterns: [
+        "(a friend of mine|my friend) (recommended|told me)",
+        "(just (exploring|trying somewhere new)|first time here)",
+        "(my (roommate|coworker)|some friends) (dragged|brought) me",
+        "(honestly )?(needed a drink|long week)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bar small talk başlangıcı. 'A friend recommended' veya 'Long week, needed a drink.' Türk: 'I am here because' uzun, kısa neden ver.",
+      ideal_response: "Honestly, just a long week — a coworker dragged me out.",
+    },
+    {
+      id: "ex.storynyc8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Hayır içmek istemiyorum, teşekkür ederim.",
+      wrong_en: "No, I don't want drink, thank you.",
+      right_en: "I'm good — maybe later, thanks.",
+      why_tr:
+        "Türk: 'I don't want' direkt = kaba ton verir. 'I'm good' yumuşatır — 'şu an istemiyorum' anlamı. 'Maybe later' kapıyı açık bırakır, anti-sosyal görünmezsin.",
+    },
+    {
+      id: "ex.storynyc8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Bar'da içki teklif edildi, kibarca reddet:",
+          options: [
+            "I don't want.",
+            "I'm good, maybe later.",
+            "No drink for me.",
+            "Refuse, thank you.",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm good' = şimdilik iyiyim, ihtiyacım yok. Türk: 'No' düz, 'I'm good' yumuşak.",
+        },
+        {
+          q: "'What are you drinking?' yanıtı?",
+          options: [
+            "I drink beer",
+            "A beer / Just water / Vodka tonic",
+            "Drink is beer",
+            "I am with beer",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Bar'da içki adı tek başına yeterli. 'A beer' veya 'Just water'. Türk: tam cümle gereksiz.",
+        },
+        {
+          q: "'My round' ne demek?",
+          options: [
+            "Benim turum (içki ben ısmarlıyorum)",
+            "Etrafım benim",
+            "Yuvarlak ben",
+            "Sıram",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'It's my round' = bu içkileri ben ısmarlıyorum. Bar kültürü kalıbı.",
+        },
+        {
+          q: "'Wanna join us?' ne anlama?",
+          options: [
+            "Bize katılır mısın?",
+            "Birleş bizimle",
+            "Bizimle kalır mısın?",
+            "Bize gel",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna join us?' = bize katılır mısın (sıcak davet).",
+        },
+        {
+          q: "Bar ortamında Türk hatası en yaygın?",
+          options: [
+            "Aşırı resmi cümle ('I would like to drink')",
+            "Kısa cevap vermek",
+            "İngilizce kullanmak",
+            "Adın söylemek",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Bar = günlük. 'I would like a beer' resmi restoran tonu. Bar'da 'A beer, please' yeterli.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -2973,6 +5891,132 @@ export const nycDay5Uber: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storynyc9.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Can I get a ___ to go? Make it ___.",
+      slots: [
+        { accepted: ["bacon egg and cheese", "iced coffee", "bagel with cream cheese", "salad", "slice"] },
+        { accepted: ["to go", "extra cheese", "no onion", "with everything", "hot"] },
+      ],
+      tr_hint:
+        "NYC bodega/deli sipariş. 'Can I get + item + to go? Make it + özel.' Türk: 'I want' düz, 'Can I get' NYC samimi.",
+      example_filled: "Can I get a bacon egg and cheese to go? Make it extra cheese.",
+    },
+    {
+      id: "ex.storynyc9.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "What can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Comin' up. Anything else?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(can i get|let me get|i'?ll have) (a |the )?([a-z ]+)",
+        "(could i (also )?(grab|get)) (a |an )?",
+        "(make it )?(to go|for here)",
+        "(with|no) (cheese|onion|tomato|extra)",
+      ],
+      tr_hint:
+        "NYC bodega/deli sipariş. 'Can I get a coffee — black, to go.' Türk: 'I want' yerine 'Can I get' NYC kalıbı.",
+      ideal_answer: "Can I get a bacon egg and cheese to go — and a black coffee.",
+    },
+    {
+      id: "ex.storynyc9.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Cash or card?",
+      accepted_patterns: [
+        "(card|cash)( please)?",
+        "(tap )?(with )?(my (phone|watch|card))",
+        "(contactless|apple pay|google pay)",
+        "(here'?s )?(my card|the card)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hızlı ödeme. 'Card, please' veya 'Tap.' Türk: 'I will pay' uzun, kısa cevap doğal.",
+      ideal_response: "Card — tap.",
+    },
+    {
+      id: "ex.storynyc9.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Bir kahve istiyorum.",
+      wrong_en: "I want one coffee.",
+      right_en: "Can I get a coffee?",
+      why_tr:
+        "Türk: 'I want' = robotik + 'one coffee' eksik (NYC: 'a' kullanılır). 'Can I get' = NYC native sipariş kalıbı.",
+    },
+    {
+      id: "ex.storynyc9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "NYC deli sipariş açılış:",
+          options: [
+            "I want",
+            "Can I get / Let me get",
+            "Give me",
+            "Order this",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Can I get' = NYC sipariş standardı. 'Let me get' daha casual.",
+        },
+        {
+          q: "'Bodega' nedir?",
+          options: [
+            "Şarap evi",
+            "NYC corner store (24 saat market)",
+            "Bar",
+            "Garaj",
+          ],
+          correct: 1,
+          tr_explanation:
+            "NYC bodega = mahalle marketi (sigara, içecek, sandwich). Standart kelime.",
+        },
+        {
+          q: "'BEC' kısaltması?",
+          options: [
+            "Bagel egg cheese",
+            "Bacon egg and cheese (NYC breakfast)",
+            "Bread egg coffee",
+            "Bakery",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'BEC' = bacon egg and cheese sandwich, NYC kahvaltı klasiği.",
+        },
+        {
+          q: "'To go' vs 'for here':",
+          options: [
+            "Burada / paket",
+            "Paket / burada",
+            "Hızlı / yavaş",
+            "Aynı şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'To go' = paket. 'For here' = içeride yiyeceğim. ABD standart soru.",
+        },
+        {
+          q: "Hızlı ödeme NYC:",
+          options: [
+            "Pay money",
+            "Tap / Card / Contactless",
+            "I pay cash",
+            "Money",
+          ],
+          correct: 1,
+          tr_explanation:
+            "NYC modern ödeme: tap (temassız), card. Hızlı sipariş için.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -3086,6 +6130,132 @@ export const nycDay5Pharmacy: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storynyc10.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Can I get a ___ to go? Make it ___.",
+      slots: [
+        { accepted: ["bacon egg and cheese", "iced coffee", "bagel with cream cheese", "salad", "slice"] },
+        { accepted: ["to go", "extra cheese", "no onion", "with everything", "hot"] },
+      ],
+      tr_hint:
+        "NYC bodega/deli sipariş. 'Can I get + item + to go? Make it + özel.' Türk: 'I want' düz, 'Can I get' NYC samimi.",
+      example_filled: "Can I get a bacon egg and cheese to go? Make it extra cheese.",
+    },
+    {
+      id: "ex.storynyc10.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "What can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Comin' up. Anything else?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(can i get|let me get|i'?ll have) (a |the )?([a-z ]+)",
+        "(could i (also )?(grab|get)) (a |an )?",
+        "(make it )?(to go|for here)",
+        "(with|no) (cheese|onion|tomato|extra)",
+      ],
+      tr_hint:
+        "NYC bodega/deli sipariş. 'Can I get a coffee — black, to go.' Türk: 'I want' yerine 'Can I get' NYC kalıbı.",
+      ideal_answer: "Can I get a bacon egg and cheese to go — and a black coffee.",
+    },
+    {
+      id: "ex.storynyc10.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Cash or card?",
+      accepted_patterns: [
+        "(card|cash)( please)?",
+        "(tap )?(with )?(my (phone|watch|card))",
+        "(contactless|apple pay|google pay)",
+        "(here'?s )?(my card|the card)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hızlı ödeme. 'Card, please' veya 'Tap.' Türk: 'I will pay' uzun, kısa cevap doğal.",
+      ideal_response: "Card — tap.",
+    },
+    {
+      id: "ex.storynyc10.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Bir kahve istiyorum.",
+      wrong_en: "I want one coffee.",
+      right_en: "Can I get a coffee?",
+      why_tr:
+        "Türk: 'I want' = robotik + 'one coffee' eksik (NYC: 'a' kullanılır). 'Can I get' = NYC native sipariş kalıbı.",
+    },
+    {
+      id: "ex.storynyc10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "NYC deli sipariş açılış:",
+          options: [
+            "I want",
+            "Can I get / Let me get",
+            "Give me",
+            "Order this",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Can I get' = NYC sipariş standardı. 'Let me get' daha casual.",
+        },
+        {
+          q: "'Bodega' nedir?",
+          options: [
+            "Şarap evi",
+            "NYC corner store (24 saat market)",
+            "Bar",
+            "Garaj",
+          ],
+          correct: 1,
+          tr_explanation:
+            "NYC bodega = mahalle marketi (sigara, içecek, sandwich). Standart kelime.",
+        },
+        {
+          q: "'BEC' kısaltması?",
+          options: [
+            "Bagel egg cheese",
+            "Bacon egg and cheese (NYC breakfast)",
+            "Bread egg coffee",
+            "Bakery",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'BEC' = bacon egg and cheese sandwich, NYC kahvaltı klasiği.",
+        },
+        {
+          q: "'To go' vs 'for here':",
+          options: [
+            "Burada / paket",
+            "Paket / burada",
+            "Hızlı / yavaş",
+            "Aynı şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'To go' = paket. 'For here' = içeride yiyeceğim. ABD standart soru.",
+        },
+        {
+          q: "Hızlı ödeme NYC:",
+          options: [
+            "Pay money",
+            "Tap / Card / Contactless",
+            "I pay cash",
+            "Money",
+          ],
+          correct: 1,
+          tr_explanation:
+            "NYC modern ödeme: tap (temassız), card. Hızlı sipariş için.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -3202,6 +6372,132 @@ export const nycDay6Souvenir: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storynyc11.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Can I get a ___ to go? Make it ___.",
+      slots: [
+        { accepted: ["bacon egg and cheese", "iced coffee", "bagel with cream cheese", "salad", "slice"] },
+        { accepted: ["to go", "extra cheese", "no onion", "with everything", "hot"] },
+      ],
+      tr_hint:
+        "NYC bodega/deli sipariş. 'Can I get + item + to go? Make it + özel.' Türk: 'I want' düz, 'Can I get' NYC samimi.",
+      example_filled: "Can I get a bacon egg and cheese to go? Make it extra cheese.",
+    },
+    {
+      id: "ex.storynyc11.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "What can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Comin' up. Anything else?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(can i get|let me get|i'?ll have) (a |the )?([a-z ]+)",
+        "(could i (also )?(grab|get)) (a |an )?",
+        "(make it )?(to go|for here)",
+        "(with|no) (cheese|onion|tomato|extra)",
+      ],
+      tr_hint:
+        "NYC bodega/deli sipariş. 'Can I get a coffee — black, to go.' Türk: 'I want' yerine 'Can I get' NYC kalıbı.",
+      ideal_answer: "Can I get a bacon egg and cheese to go — and a black coffee.",
+    },
+    {
+      id: "ex.storynyc11.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Cash or card?",
+      accepted_patterns: [
+        "(card|cash)( please)?",
+        "(tap )?(with )?(my (phone|watch|card))",
+        "(contactless|apple pay|google pay)",
+        "(here'?s )?(my card|the card)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hızlı ödeme. 'Card, please' veya 'Tap.' Türk: 'I will pay' uzun, kısa cevap doğal.",
+      ideal_response: "Card — tap.",
+    },
+    {
+      id: "ex.storynyc11.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Bir kahve istiyorum.",
+      wrong_en: "I want one coffee.",
+      right_en: "Can I get a coffee?",
+      why_tr:
+        "Türk: 'I want' = robotik + 'one coffee' eksik (NYC: 'a' kullanılır). 'Can I get' = NYC native sipariş kalıbı.",
+    },
+    {
+      id: "ex.storynyc11.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "NYC deli sipariş açılış:",
+          options: [
+            "I want",
+            "Can I get / Let me get",
+            "Give me",
+            "Order this",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Can I get' = NYC sipariş standardı. 'Let me get' daha casual.",
+        },
+        {
+          q: "'Bodega' nedir?",
+          options: [
+            "Şarap evi",
+            "NYC corner store (24 saat market)",
+            "Bar",
+            "Garaj",
+          ],
+          correct: 1,
+          tr_explanation:
+            "NYC bodega = mahalle marketi (sigara, içecek, sandwich). Standart kelime.",
+        },
+        {
+          q: "'BEC' kısaltması?",
+          options: [
+            "Bagel egg cheese",
+            "Bacon egg and cheese (NYC breakfast)",
+            "Bread egg coffee",
+            "Bakery",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'BEC' = bacon egg and cheese sandwich, NYC kahvaltı klasiği.",
+        },
+        {
+          q: "'To go' vs 'for here':",
+          options: [
+            "Burada / paket",
+            "Paket / burada",
+            "Hızlı / yavaş",
+            "Aynı şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'To go' = paket. 'For here' = içeride yiyeceğim. ABD standart soru.",
+        },
+        {
+          q: "Hızlı ödeme NYC:",
+          options: [
+            "Pay money",
+            "Tap / Card / Contactless",
+            "I pay cash",
+            "Money",
+          ],
+          correct: 1,
+          tr_explanation:
+            "NYC modern ödeme: tap (temassız), card. Hızlı sipariş için.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -3331,6 +6627,132 @@ export const nycDay6JFK: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storynyc12.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "I'm here for ___ — I'll be staying ___.",
+      slots: [
+        { accepted: ["studies", "Erasmus", "exchange", "work", "tourism", "a conference"] },
+        { accepted: ["one semester", "four months", "two weeks", "until February", "a few days"] },
+      ],
+      tr_hint:
+        "Havaalanı temel kalıbı: amaç + süre. Türk: 'I came for' yerine 'I'm here for' (mevcut durum).",
+      example_filled: "I'm here for Erasmus — I'll be staying one semester.",
+    },
+    {
+      id: "ex.storynyc12.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Purpose of your visit?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "And how long will you stay?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m|im) here for (studies|tourism|work|erasmus)",
+        "(i'?m|im) (a |an )?(exchange|erasmus) student",
+        "(visiting|on vacation|on a business trip)",
+        "(study|studying) (at|in) [a-z]+",
+      ],
+      tr_hint:
+        "Memur 'amaç ne?' soruyor. 'I'm here for studies' veya 'Tourism' yeterli. Türk: 'I came for' yerine 'I'm here for'.",
+      ideal_answer: "I'm here for studies — exchange semester.",
+    },
+    {
+      id: "ex.storynyc12.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Do you have any food or liquids over 100ml in your carry-on?",
+      accepted_patterns: [
+        "(no|nope)(,)? (nothing|just (water|snacks))",
+        "(only|just) (a water bottle|some snacks)",
+        "(i think |maybe )?(there'?s |i have )(a yogurt|hand cream)",
+        "(let me check|hold on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Güvenlik soruşturması. 'No, nothing' veya 'Just a water bottle' yeterli. Türk: 'I have' yerine 'There's' (daha doğal nesne için).",
+      ideal_response: "No, nothing — just an empty water bottle.",
+    },
+    {
+      id: "ex.storynyc12.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Geldim Türkiye'den, kalacağım üç ay.",
+      wrong_en: "I come from Turkey, I will stay three months.",
+      right_en: "I'm here from Turkey, staying for three months.",
+      why_tr:
+        "Türk öğrenci 'geldim' için 'I come' kullanır — yanlış zaman. 'I'm here' (şu an durumu) + 'staying' (continuous form) daha doğal. Memur seni durumun içinde görüyor, geçmiş eylem değil.",
+    },
+    {
+      id: "ex.storynyc12.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Purpose of your visit?' nasıl cevaplanır?",
+          options: [
+            "Because I want",
+            "I'm here for [studies/tourism/work]",
+            "My visit is for",
+            "Visit purpose: study",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kısa + doğal: 'I'm here for studies/tourism'. Türk: 'My purpose is' resmi kitap dili.",
+        },
+        {
+          q: "'How long will you stay?' yanıtı?",
+          options: [
+            "For three months / Until February",
+            "I will stay for",
+            "Three months I stay",
+            "Stay three months",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'For + süre' veya 'Until + tarih'. Türk: tam cümle gereksiz, kısa cevap yeterli.",
+        },
+        {
+          q: "'Carry-on' ne demek?",
+          options: [
+            "Kabin bagajı",
+            "Bagaj kayışı",
+            "Tartılan bagaj",
+            "El koltuğu",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Carry-on' = kabin bagajı (yanına aldığın). 'Checked bag' = bagaj banta verilen.",
+        },
+        {
+          q: "Türk öğrencinin sık yaptığı hata?",
+          options: [
+            "Kısa cevap vermek",
+            "Sözcükleri Türkçe sırasıyla çevirmek (I come from)",
+            "İngilizce kullanmak",
+            "Pasaport göstermek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I come from' geniş zaman = halen oradan geliyorum (sürekli). 'I'm here from' = şu an buradayım.",
+        },
+        {
+          q: "Belge isteyen memura ne denir?",
+          options: [
+            "Take it",
+            "Here you go",
+            "Get this",
+            "I give to you",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Here you go' = işte (uzatırken). 'Take it' = al (emir, kaba). Türk: 'Take' yerine 'Here you go'.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -3469,6 +6891,134 @@ export const ieltsDay1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyielts1.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "On one hand, ___; on the other hand, ___. Overall, I believe ___.",
+      slots: [
+        { accepted: ["technology saves time", "remote work is convenient", "education is universally available", "social media connects people"] },
+        { accepted: ["it can isolate us", "burnout is real", "quality varies widely", "misinformation spreads fast"] },
+        { accepted: ["the benefits outweigh the risks", "balance is essential", "regulation is the answer", "individuals must adapt"] },
+      ],
+      tr_hint:
+        "IELTS Task 2 essay kalıbı: 'On one hand X, on the other hand Y. Overall Z.' Türk: argüman kalıbı = puan + 0.5.",
+      example_filled: "On one hand, technology saves time; on the other hand, it can isolate us. Overall, I believe balance is essential.",
+    },
+    {
+      id: "ex.storyielts1.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Tell me about a memorable trip you've taken." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Interesting. And what made it memorable?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(a few years ago|back in [0-9]+|last summer) (i (went|travelled) to)",
+        "(one trip that (really )?stands out)",
+        "(the trip i (remember|always come back to) (the most|vividly))",
+        "(it was (in|during|to)) ([a-z ]+) (and )",
+      ],
+      tr_hint:
+        "Speaking Part 2 narrative açılış. 'A few years ago, I went to X.' Türk: 'I go to' yerine 'I went to' (past simple).",
+      ideal_answer: "A few years ago, I went to Kyoto with my family — and one moment really stands out.",
+    },
+    {
+      id: "ex.storyielts1.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Do you think technology is making society better or worse?",
+      accepted_patterns: [
+        "(in my view|i would argue)",
+        "(it'?s a (complex|nuanced) issue)",
+        "(while technology has (clear|undeniable) benefits)",
+        "(however|on the other hand|that said)",
+        "(if i had to take a position)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "IELTS Part 3 argument kalıbı. 'It's nuanced — while X, however Y. If I had to take a position...' Türk: 'Yes' yetersiz, 7+ band için nüans + pozisyon.",
+      ideal_response: "In my view, it's nuanced — while technology has clear benefits, it also creates new dependencies. If I had to take a position, I'd lean toward 'better, with caveats.'",
+    },
+    {
+      id: "ex.storyielts1.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Bence bu konu çok zor ve cevap veremem.",
+      wrong_en: "I think this topic is very hard and I cannot answer.",
+      right_en: "That's a thought-provoking question — let me approach it from two angles.",
+      why_tr:
+        "Türk: 'I cannot answer' = IELTS Speaking ölü kıvılcım, 5 puan tavanı. 'Thought-provoking + two angles' = düşünme süresi alır + nüans gösterir = 7+ band sinyali.",
+    },
+    {
+      id: "ex.storyielts1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "IELTS Task 2 argüman kalıbı:",
+          options: [
+            "I think yes / no",
+            "On one hand X; on the other hand Y. Overall Z.",
+            "It is good",
+            "I agree",
+          ],
+          correct: 1,
+          tr_explanation:
+            "İki taraflı analiz + sonuç = 7+ band. Türk: tek yönlü argüman 5.5 tavan.",
+        },
+        {
+          q: "Speaking Part 3 düşünme bağlacı?",
+          options: [
+            "Umm hmm",
+            "That's a thought-provoking question / It's complex",
+            "I don't know",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Düşünme zamanı al + nüans göster: 'That's a thought-provoking question.'",
+        },
+        {
+          q: "'Outweigh' fiil anlamı?",
+          options: [
+            "Tartmak",
+            "Daha ağır basmak (avantaj kazanmak)",
+            "Dışarı ağırlık",
+            "Bekletmek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Benefits outweigh risks' = avantajlar dezavantajları geçer. Task 2 standart kalıp.",
+        },
+        {
+          q: "'Nuanced' sıfat anlamı?",
+          options: [
+            "Basit",
+            "Çok katmanlı/incelikli (siyah-beyaz değil)",
+            "Yeni",
+            "Tartışmalı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'It's nuanced' = basit cevap yok, derinlikli. 7+ band sinyali.",
+        },
+        {
+          q: "IELTS Speaking 'cannot answer' = ?",
+          options: [
+            "Profesyonel",
+            "Ölü kıvılcım, 5 puan tavanı",
+            "İyi seçim",
+            "Standart",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Pasif kabul = puanı düşürür. Aktif: 'Let me approach this from two angles.'",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -3586,6 +7136,134 @@ export const ieltsDay2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyielts2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — could we ___ before ___?",
+      slots: [
+        { accepted: ["sync on the priorities", "align on the timeline", "go over the spec", "loop in someone from"] },
+        { accepted: ["we kick off", "the standup", "I start writing", "Friday's review", "the meeting"] },
+      ],
+      tr_hint:
+        "İş yeri yumuşak köprü. 'Quick question — could we X before Y?' Türk: 'I have problem' eksik, 'Quick question' yumuşatma + saygı.",
+      example_filled: "Quick question — could we sync on priorities before I start writing?",
+    },
+    {
+      id: "ex.storyielts2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good catch. Let's set up a quick sync." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was (looking at|reviewing)) (the (spec|ticket|PR|design))",
+        "(i think there'?s (a |an )?(edge case|gap|inconsistency))",
+        "(could we (clarify|revisit|loop in))",
+        "(i wanted to (flag|surface|raise))",
+        "(quick (question|thought) on)",
+      ],
+      tr_hint:
+        "Sorun belirt + çözüm öner. 'I was reviewing the spec — there's an edge case I wanted to flag.' Türk: 'There is problem' eksik, profesyonel terim.",
+      ideal_answer: "I was reviewing the spec — wanted to flag an edge case before we go too far.",
+    },
+    {
+      id: "ex.storyielts2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you have it done by end of day?",
+      accepted_patterns: [
+        "(yes|definitely|i can)(,)? (it (should|will) be (done|ready))",
+        "(realistically )?(end of (day|tomorrow)) (works|is doable)",
+        "(i'?d need (until|to push to))",
+        "(is there flexibility|could we revisit) (on (the )?deadline)",
+        "(if (something|the priority) shifts)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Realist taahhüt. 'I can — but realistically end of tomorrow is safer.' Türk: 'Yes I do' acele kabul, gerçekçi pazarlık güvenli.",
+      ideal_response: "I can — but realistically end of tomorrow is safer. Is there flex on that?",
+    },
+    {
+      id: "ex.storyielts2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu nasıl yapacağımı bilmiyorum.",
+      wrong_en: "I don't know how to do this.",
+      right_en: "I want to make sure I'm on the right track — could we walk through the approach together?",
+      why_tr:
+        "Türk: 'I don't know' = pasif + zayıf. Profesyonel: 'I want to make sure' = aktif + sorumluluk. 'Walk through together' = işbirliği daveti. Junior ton'dan senior ton'a geçiş.",
+    },
+    {
+      id: "ex.storyielts2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Quick question' iş yerinde işlevi?",
+          options: [
+            "Hızlı soru",
+            "Soru/öneri için kibar köprü (interruption yumuşatma)",
+            "Acil acil",
+            "Sıkıntı bildir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Quick question' = mesai yarıda kestiğin için kibar yumuşatma. 'Hey, quick question...' karşı taraf hazır olur.",
+        },
+        {
+          q: "'EOD' kısaltması?",
+          options: [
+            "End of day (mesai sonu)",
+            "Every other day",
+            "End of debate",
+            "Error of data",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'EOD' = end of day (mesai bitimi). 'EOW' = end of week. Slack/email kısaltmaları.",
+        },
+        {
+          q: "'I'll loop you in' anlamı?",
+          options: [
+            "Seni döngüye sokacağım",
+            "Seni dahil edeceğim (CC/email)",
+            "Sana ilmik atacağım",
+            "Sana zaman vereceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loop someone in' = bir konuya dahil etmek (email CC, Slack tag). Standart iş kalıbı.",
+        },
+        {
+          q: "'Flag' (fiil olarak) ne demek?",
+          options: [
+            "Bayrak çekmek",
+            "Dikkat çekmek/işaretlemek (sorun bildirmek)",
+            "Sallamak",
+            "Yarıştırmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want to flag an issue' = sorun bildirmek istiyorum. Email/meeting kalıbı.",
+        },
+        {
+          q: "Bilmediğin işi sorman profesyonel:",
+          options: [
+            "I don't know what to do",
+            "I want to make sure I'm on the right track — could we walk through it?",
+            "Help me",
+            "Tell me what",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktif + işbirliği isteyen kalıp. 'I don't know' = pasif zayıf.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -3704,6 +7382,134 @@ export const ieltsDay4: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyielts3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I really enjoyed your ___ — quick question about ___?",
+      slots: [
+        { accepted: ["talk", "panel", "session", "keynote", "demo"] },
+        { accepted: ["the architecture", "your scaling story", "the team setup", "the trade-offs", "what's next"] },
+      ],
+      tr_hint:
+        "Konferans networking açılışı. 'Compliment + question' kalıbı. Türk: 'I have a question' düz, övgü + soru samimi.",
+      example_filled: "I really enjoyed your talk — quick question about the scaling story?",
+    },
+    {
+      id: "ex.storyielts3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Thanks! What did you want to know?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good question — that took us about six months to figure out." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was curious (about|how))",
+        "(how did you (handle|approach|decide on))",
+        "(what was the (deciding|hardest) (factor|part))",
+        "(when you mentioned ([a-z ]+) — (what does that mean|how does that work))",
+        "(at my (company|team|shop) we'?re (looking at|considering))",
+      ],
+      tr_hint:
+        "Spesifik soru. 'How did you approach the migration?' Türk: 'I want to know about everything' eksik, dar soru profesyonel.",
+      ideal_answer: "I was curious how you handled the migration phase — at my team we're looking at something similar.",
+    },
+    {
+      id: "ex.storyielts3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Are you working on anything similar at your company?",
+      accepted_patterns: [
+        "(yeah|kind of|sort of)(,)? (we'?re (just )?(starting|exploring))",
+        "(my (team|squad)) (is (currently|in the middle of))",
+        "(we (took a different approach|went the other way))",
+        "(here'?s my (contact|linkedin)|let'?s (stay in touch|exchange))",
+        "(could i (pick your brain|ping you))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Networking — kendi durum + bağlantı kur. 'Yeah, my team is doing X — could I ping you on LinkedIn?' Türk: 'No, nothing' soğuk, durum + follow-up.",
+      ideal_response: "Yeah — we're just starting. Could I ping you on LinkedIn to keep the conversation going?",
+    },
+    {
+      id: "ex.storyielts3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Konuşmanı çok beğendim, çok başarılısın.",
+      wrong_en: "I liked your talk very much, you are very successful.",
+      right_en: "Really enjoyed your talk — especially the part about migration trade-offs.",
+      why_tr:
+        "Türk: 'you are very successful' = aşırı + creepy ton verir. Native: spesifik kısma övgü = daha güçlü + samimi. 'Successful' kişisel yargı, konfor bozar.",
+    },
+    {
+      id: "ex.storyielts3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Konferans networking açılışı:",
+          options: [
+            "Hello, I am here",
+            "Compliment + spesifik soru (Enjoyed your talk — question about X?)",
+            "Tell me about you",
+            "I want to know",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Konuşmacının kendi enerjisinden başla. Övgü + soru = doğal köprü.",
+        },
+        {
+          q: "'Pick your brain' deyimi?",
+          options: [
+            "Beynini seç",
+            "Fikrini sormak/danışmak (samimi)",
+            "Aklını oku",
+            "Beyni topla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Can I pick your brain?' = fikrini sorabilir miyim? Networking samimi kalıbı.",
+        },
+        {
+          q: "'Stay in touch' ne demek?",
+          options: [
+            "Dokunarak kal",
+            "İrtibatı koru (devam edelim)",
+            "Yakın dur",
+            "Stresli ol",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Let's stay in touch' = irtibatı kopartmayalım. Konferans veda + LinkedIn ekleme kalıbı.",
+        },
+        {
+          q: "'Trade-off' anlamı?",
+          options: [
+            "Takas",
+            "Bedel/değiş tokuş (X kazanmak için Y kaybetmek)",
+            "Pazarlık",
+            "Ticari fırsat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Trade-off' = avantaj/dezavantaj dengesi (mimari kararlarda yaygın).",
+        },
+        {
+          q: "Övgü için spesifik vs genel:",
+          options: [
+            "Genel ('Great talk!')",
+            "Spesifik ('That migration part was great — especially how you...')",
+            "Genel iyi",
+            "Aynı şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Spesifik övgü = dikkat ettiğin sinyali. 'Great talk' jenerik, spesifik kısım = derinlik.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -3839,6 +7645,134 @@ export const ieltsDay6: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyielts4.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "On one hand, ___; on the other hand, ___. Overall, I believe ___.",
+      slots: [
+        { accepted: ["technology saves time", "remote work is convenient", "education is universally available", "social media connects people"] },
+        { accepted: ["it can isolate us", "burnout is real", "quality varies widely", "misinformation spreads fast"] },
+        { accepted: ["the benefits outweigh the risks", "balance is essential", "regulation is the answer", "individuals must adapt"] },
+      ],
+      tr_hint:
+        "IELTS Task 2 essay kalıbı: 'On one hand X, on the other hand Y. Overall Z.' Türk: argüman kalıbı = puan + 0.5.",
+      example_filled: "On one hand, technology saves time; on the other hand, it can isolate us. Overall, I believe balance is essential.",
+    },
+    {
+      id: "ex.storyielts4.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Tell me about a memorable trip you've taken." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Interesting. And what made it memorable?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(a few years ago|back in [0-9]+|last summer) (i (went|travelled) to)",
+        "(one trip that (really )?stands out)",
+        "(the trip i (remember|always come back to) (the most|vividly))",
+        "(it was (in|during|to)) ([a-z ]+) (and )",
+      ],
+      tr_hint:
+        "Speaking Part 2 narrative açılış. 'A few years ago, I went to X.' Türk: 'I go to' yerine 'I went to' (past simple).",
+      ideal_answer: "A few years ago, I went to Kyoto with my family — and one moment really stands out.",
+    },
+    {
+      id: "ex.storyielts4.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Do you think technology is making society better or worse?",
+      accepted_patterns: [
+        "(in my view|i would argue)",
+        "(it'?s a (complex|nuanced) issue)",
+        "(while technology has (clear|undeniable) benefits)",
+        "(however|on the other hand|that said)",
+        "(if i had to take a position)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "IELTS Part 3 argument kalıbı. 'It's nuanced — while X, however Y. If I had to take a position...' Türk: 'Yes' yetersiz, 7+ band için nüans + pozisyon.",
+      ideal_response: "In my view, it's nuanced — while technology has clear benefits, it also creates new dependencies. If I had to take a position, I'd lean toward 'better, with caveats.'",
+    },
+    {
+      id: "ex.storyielts4.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Bence bu konu çok zor ve cevap veremem.",
+      wrong_en: "I think this topic is very hard and I cannot answer.",
+      right_en: "That's a thought-provoking question — let me approach it from two angles.",
+      why_tr:
+        "Türk: 'I cannot answer' = IELTS Speaking ölü kıvılcım, 5 puan tavanı. 'Thought-provoking + two angles' = düşünme süresi alır + nüans gösterir = 7+ band sinyali.",
+    },
+    {
+      id: "ex.storyielts4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "IELTS Task 2 argüman kalıbı:",
+          options: [
+            "I think yes / no",
+            "On one hand X; on the other hand Y. Overall Z.",
+            "It is good",
+            "I agree",
+          ],
+          correct: 1,
+          tr_explanation:
+            "İki taraflı analiz + sonuç = 7+ band. Türk: tek yönlü argüman 5.5 tavan.",
+        },
+        {
+          q: "Speaking Part 3 düşünme bağlacı?",
+          options: [
+            "Umm hmm",
+            "That's a thought-provoking question / It's complex",
+            "I don't know",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Düşünme zamanı al + nüans göster: 'That's a thought-provoking question.'",
+        },
+        {
+          q: "'Outweigh' fiil anlamı?",
+          options: [
+            "Tartmak",
+            "Daha ağır basmak (avantaj kazanmak)",
+            "Dışarı ağırlık",
+            "Bekletmek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Benefits outweigh risks' = avantajlar dezavantajları geçer. Task 2 standart kalıp.",
+        },
+        {
+          q: "'Nuanced' sıfat anlamı?",
+          options: [
+            "Basit",
+            "Çok katmanlı/incelikli (siyah-beyaz değil)",
+            "Yeni",
+            "Tartışmalı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'It's nuanced' = basit cevap yok, derinlikli. 7+ band sinyali.",
+        },
+        {
+          q: "IELTS Speaking 'cannot answer' = ?",
+          options: [
+            "Profesyonel",
+            "Ölü kıvılcım, 5 puan tavanı",
+            "İyi seçim",
+            "Standart",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Pasif kabul = puanı düşürür. Aktif: 'Let me approach this from two angles.'",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -3940,6 +7874,132 @@ export const ieltsDay8: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyielts5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd love to ___, but I'm ___ tonight.",
+      slots: [
+        { accepted: ["join", "stay longer", "grab another", "come with you", "hang out"] },
+        { accepted: ["heading home", "meeting friends", "exhausted", "calling it early", "on early shift tomorrow"] },
+      ],
+      tr_hint:
+        "Bar/club nazik ret kalıbı: 'I'd love to + sebep'. Türk: 'I cannot' düz, 'I'd love to but...' kibar.",
+      example_filled: "I'd love to stay longer, but I'm heading home — early shift tomorrow.",
+    },
+    {
+      id: "ex.storyielts5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Are you here alone? Wanna join our table?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool — what are you drinking?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|why not)(,)? (i'?d love to|sounds (good|fun))",
+        "(actually )?(my friends are|i'?m waiting for|i'?m with)",
+        "(thanks (for asking|for the invite))(,)? (i (will|might) join)",
+        "(let me (grab|get) (my drink|something))",
+      ],
+      tr_hint:
+        "Davet kabul/red. Kabul: 'Sure, sounds good'. Şartlı: 'My friends are coming, but I can join for a bit.' Türk: 'OK' düz, 'Sounds good' samimi.",
+      ideal_answer: "Sure, sounds good — let me grab my drink.",
+    },
+    {
+      id: "ex.storyielts5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So what brings you here tonight?",
+      accepted_patterns: [
+        "(a friend of mine|my friend) (recommended|told me)",
+        "(just (exploring|trying somewhere new)|first time here)",
+        "(my (roommate|coworker)|some friends) (dragged|brought) me",
+        "(honestly )?(needed a drink|long week)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bar small talk başlangıcı. 'A friend recommended' veya 'Long week, needed a drink.' Türk: 'I am here because' uzun, kısa neden ver.",
+      ideal_response: "Honestly, just a long week — a coworker dragged me out.",
+    },
+    {
+      id: "ex.storyielts5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Hayır içmek istemiyorum, teşekkür ederim.",
+      wrong_en: "No, I don't want drink, thank you.",
+      right_en: "I'm good — maybe later, thanks.",
+      why_tr:
+        "Türk: 'I don't want' direkt = kaba ton verir. 'I'm good' yumuşatır — 'şu an istemiyorum' anlamı. 'Maybe later' kapıyı açık bırakır, anti-sosyal görünmezsin.",
+    },
+    {
+      id: "ex.storyielts5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Bar'da içki teklif edildi, kibarca reddet:",
+          options: [
+            "I don't want.",
+            "I'm good, maybe later.",
+            "No drink for me.",
+            "Refuse, thank you.",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm good' = şimdilik iyiyim, ihtiyacım yok. Türk: 'No' düz, 'I'm good' yumuşak.",
+        },
+        {
+          q: "'What are you drinking?' yanıtı?",
+          options: [
+            "I drink beer",
+            "A beer / Just water / Vodka tonic",
+            "Drink is beer",
+            "I am with beer",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Bar'da içki adı tek başına yeterli. 'A beer' veya 'Just water'. Türk: tam cümle gereksiz.",
+        },
+        {
+          q: "'My round' ne demek?",
+          options: [
+            "Benim turum (içki ben ısmarlıyorum)",
+            "Etrafım benim",
+            "Yuvarlak ben",
+            "Sıram",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'It's my round' = bu içkileri ben ısmarlıyorum. Bar kültürü kalıbı.",
+        },
+        {
+          q: "'Wanna join us?' ne anlama?",
+          options: [
+            "Bize katılır mısın?",
+            "Birleş bizimle",
+            "Bizimle kalır mısın?",
+            "Bize gel",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna join us?' = bize katılır mısın (sıcak davet).",
+        },
+        {
+          q: "Bar ortamında Türk hatası en yaygın?",
+          options: [
+            "Aşırı resmi cümle ('I would like to drink')",
+            "Kısa cevap vermek",
+            "İngilizce kullanmak",
+            "Adın söylemek",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Bar = günlük. 'I would like a beer' resmi restoran tonu. Bar'da 'A beer, please' yeterli.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -4056,6 +8116,134 @@ export const ieltsDay10: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyielts6.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "On one hand, ___; on the other hand, ___. Overall, I believe ___.",
+      slots: [
+        { accepted: ["technology saves time", "remote work is convenient", "education is universally available", "social media connects people"] },
+        { accepted: ["it can isolate us", "burnout is real", "quality varies widely", "misinformation spreads fast"] },
+        { accepted: ["the benefits outweigh the risks", "balance is essential", "regulation is the answer", "individuals must adapt"] },
+      ],
+      tr_hint:
+        "IELTS Task 2 essay kalıbı: 'On one hand X, on the other hand Y. Overall Z.' Türk: argüman kalıbı = puan + 0.5.",
+      example_filled: "On one hand, technology saves time; on the other hand, it can isolate us. Overall, I believe balance is essential.",
+    },
+    {
+      id: "ex.storyielts6.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Tell me about a memorable trip you've taken." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Interesting. And what made it memorable?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(a few years ago|back in [0-9]+|last summer) (i (went|travelled) to)",
+        "(one trip that (really )?stands out)",
+        "(the trip i (remember|always come back to) (the most|vividly))",
+        "(it was (in|during|to)) ([a-z ]+) (and )",
+      ],
+      tr_hint:
+        "Speaking Part 2 narrative açılış. 'A few years ago, I went to X.' Türk: 'I go to' yerine 'I went to' (past simple).",
+      ideal_answer: "A few years ago, I went to Kyoto with my family — and one moment really stands out.",
+    },
+    {
+      id: "ex.storyielts6.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Do you think technology is making society better or worse?",
+      accepted_patterns: [
+        "(in my view|i would argue)",
+        "(it'?s a (complex|nuanced) issue)",
+        "(while technology has (clear|undeniable) benefits)",
+        "(however|on the other hand|that said)",
+        "(if i had to take a position)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "IELTS Part 3 argument kalıbı. 'It's nuanced — while X, however Y. If I had to take a position...' Türk: 'Yes' yetersiz, 7+ band için nüans + pozisyon.",
+      ideal_response: "In my view, it's nuanced — while technology has clear benefits, it also creates new dependencies. If I had to take a position, I'd lean toward 'better, with caveats.'",
+    },
+    {
+      id: "ex.storyielts6.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Bence bu konu çok zor ve cevap veremem.",
+      wrong_en: "I think this topic is very hard and I cannot answer.",
+      right_en: "That's a thought-provoking question — let me approach it from two angles.",
+      why_tr:
+        "Türk: 'I cannot answer' = IELTS Speaking ölü kıvılcım, 5 puan tavanı. 'Thought-provoking + two angles' = düşünme süresi alır + nüans gösterir = 7+ band sinyali.",
+    },
+    {
+      id: "ex.storyielts6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "IELTS Task 2 argüman kalıbı:",
+          options: [
+            "I think yes / no",
+            "On one hand X; on the other hand Y. Overall Z.",
+            "It is good",
+            "I agree",
+          ],
+          correct: 1,
+          tr_explanation:
+            "İki taraflı analiz + sonuç = 7+ band. Türk: tek yönlü argüman 5.5 tavan.",
+        },
+        {
+          q: "Speaking Part 3 düşünme bağlacı?",
+          options: [
+            "Umm hmm",
+            "That's a thought-provoking question / It's complex",
+            "I don't know",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Düşünme zamanı al + nüans göster: 'That's a thought-provoking question.'",
+        },
+        {
+          q: "'Outweigh' fiil anlamı?",
+          options: [
+            "Tartmak",
+            "Daha ağır basmak (avantaj kazanmak)",
+            "Dışarı ağırlık",
+            "Bekletmek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Benefits outweigh risks' = avantajlar dezavantajları geçer. Task 2 standart kalıp.",
+        },
+        {
+          q: "'Nuanced' sıfat anlamı?",
+          options: [
+            "Basit",
+            "Çok katmanlı/incelikli (siyah-beyaz değil)",
+            "Yeni",
+            "Tartışmalı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'It's nuanced' = basit cevap yok, derinlikli. 7+ band sinyali.",
+        },
+        {
+          q: "IELTS Speaking 'cannot answer' = ?",
+          options: [
+            "Profesyonel",
+            "Ölü kıvılcım, 5 puan tavanı",
+            "İyi seçim",
+            "Standart",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Pasif kabul = puanı düşürür. Aktif: 'Let me approach this from two angles.'",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -4173,6 +8361,134 @@ export const ieltsDay13: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyielts7.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "On one hand, ___; on the other hand, ___. Overall, I believe ___.",
+      slots: [
+        { accepted: ["technology saves time", "remote work is convenient", "education is universally available", "social media connects people"] },
+        { accepted: ["it can isolate us", "burnout is real", "quality varies widely", "misinformation spreads fast"] },
+        { accepted: ["the benefits outweigh the risks", "balance is essential", "regulation is the answer", "individuals must adapt"] },
+      ],
+      tr_hint:
+        "IELTS Task 2 essay kalıbı: 'On one hand X, on the other hand Y. Overall Z.' Türk: argüman kalıbı = puan + 0.5.",
+      example_filled: "On one hand, technology saves time; on the other hand, it can isolate us. Overall, I believe balance is essential.",
+    },
+    {
+      id: "ex.storyielts7.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Tell me about a memorable trip you've taken." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Interesting. And what made it memorable?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(a few years ago|back in [0-9]+|last summer) (i (went|travelled) to)",
+        "(one trip that (really )?stands out)",
+        "(the trip i (remember|always come back to) (the most|vividly))",
+        "(it was (in|during|to)) ([a-z ]+) (and )",
+      ],
+      tr_hint:
+        "Speaking Part 2 narrative açılış. 'A few years ago, I went to X.' Türk: 'I go to' yerine 'I went to' (past simple).",
+      ideal_answer: "A few years ago, I went to Kyoto with my family — and one moment really stands out.",
+    },
+    {
+      id: "ex.storyielts7.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Do you think technology is making society better or worse?",
+      accepted_patterns: [
+        "(in my view|i would argue)",
+        "(it'?s a (complex|nuanced) issue)",
+        "(while technology has (clear|undeniable) benefits)",
+        "(however|on the other hand|that said)",
+        "(if i had to take a position)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "IELTS Part 3 argument kalıbı. 'It's nuanced — while X, however Y. If I had to take a position...' Türk: 'Yes' yetersiz, 7+ band için nüans + pozisyon.",
+      ideal_response: "In my view, it's nuanced — while technology has clear benefits, it also creates new dependencies. If I had to take a position, I'd lean toward 'better, with caveats.'",
+    },
+    {
+      id: "ex.storyielts7.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Bence bu konu çok zor ve cevap veremem.",
+      wrong_en: "I think this topic is very hard and I cannot answer.",
+      right_en: "That's a thought-provoking question — let me approach it from two angles.",
+      why_tr:
+        "Türk: 'I cannot answer' = IELTS Speaking ölü kıvılcım, 5 puan tavanı. 'Thought-provoking + two angles' = düşünme süresi alır + nüans gösterir = 7+ band sinyali.",
+    },
+    {
+      id: "ex.storyielts7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "IELTS Task 2 argüman kalıbı:",
+          options: [
+            "I think yes / no",
+            "On one hand X; on the other hand Y. Overall Z.",
+            "It is good",
+            "I agree",
+          ],
+          correct: 1,
+          tr_explanation:
+            "İki taraflı analiz + sonuç = 7+ band. Türk: tek yönlü argüman 5.5 tavan.",
+        },
+        {
+          q: "Speaking Part 3 düşünme bağlacı?",
+          options: [
+            "Umm hmm",
+            "That's a thought-provoking question / It's complex",
+            "I don't know",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Düşünme zamanı al + nüans göster: 'That's a thought-provoking question.'",
+        },
+        {
+          q: "'Outweigh' fiil anlamı?",
+          options: [
+            "Tartmak",
+            "Daha ağır basmak (avantaj kazanmak)",
+            "Dışarı ağırlık",
+            "Bekletmek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Benefits outweigh risks' = avantajlar dezavantajları geçer. Task 2 standart kalıp.",
+        },
+        {
+          q: "'Nuanced' sıfat anlamı?",
+          options: [
+            "Basit",
+            "Çok katmanlı/incelikli (siyah-beyaz değil)",
+            "Yeni",
+            "Tartışmalı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'It's nuanced' = basit cevap yok, derinlikli. 7+ band sinyali.",
+        },
+        {
+          q: "IELTS Speaking 'cannot answer' = ?",
+          options: [
+            "Profesyonel",
+            "Ölü kıvılcım, 5 puan tavanı",
+            "İyi seçim",
+            "Standart",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Pasif kabul = puanı düşürür. Aktif: 'Let me approach this from two angles.'",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -4291,6 +8607,134 @@ export const ieltsDay15: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyielts8.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "On one hand, ___; on the other hand, ___. Overall, I believe ___.",
+      slots: [
+        { accepted: ["technology saves time", "remote work is convenient", "education is universally available", "social media connects people"] },
+        { accepted: ["it can isolate us", "burnout is real", "quality varies widely", "misinformation spreads fast"] },
+        { accepted: ["the benefits outweigh the risks", "balance is essential", "regulation is the answer", "individuals must adapt"] },
+      ],
+      tr_hint:
+        "IELTS Task 2 essay kalıbı: 'On one hand X, on the other hand Y. Overall Z.' Türk: argüman kalıbı = puan + 0.5.",
+      example_filled: "On one hand, technology saves time; on the other hand, it can isolate us. Overall, I believe balance is essential.",
+    },
+    {
+      id: "ex.storyielts8.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Tell me about a memorable trip you've taken." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Interesting. And what made it memorable?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(a few years ago|back in [0-9]+|last summer) (i (went|travelled) to)",
+        "(one trip that (really )?stands out)",
+        "(the trip i (remember|always come back to) (the most|vividly))",
+        "(it was (in|during|to)) ([a-z ]+) (and )",
+      ],
+      tr_hint:
+        "Speaking Part 2 narrative açılış. 'A few years ago, I went to X.' Türk: 'I go to' yerine 'I went to' (past simple).",
+      ideal_answer: "A few years ago, I went to Kyoto with my family — and one moment really stands out.",
+    },
+    {
+      id: "ex.storyielts8.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Do you think technology is making society better or worse?",
+      accepted_patterns: [
+        "(in my view|i would argue)",
+        "(it'?s a (complex|nuanced) issue)",
+        "(while technology has (clear|undeniable) benefits)",
+        "(however|on the other hand|that said)",
+        "(if i had to take a position)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "IELTS Part 3 argument kalıbı. 'It's nuanced — while X, however Y. If I had to take a position...' Türk: 'Yes' yetersiz, 7+ band için nüans + pozisyon.",
+      ideal_response: "In my view, it's nuanced — while technology has clear benefits, it also creates new dependencies. If I had to take a position, I'd lean toward 'better, with caveats.'",
+    },
+    {
+      id: "ex.storyielts8.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Bence bu konu çok zor ve cevap veremem.",
+      wrong_en: "I think this topic is very hard and I cannot answer.",
+      right_en: "That's a thought-provoking question — let me approach it from two angles.",
+      why_tr:
+        "Türk: 'I cannot answer' = IELTS Speaking ölü kıvılcım, 5 puan tavanı. 'Thought-provoking + two angles' = düşünme süresi alır + nüans gösterir = 7+ band sinyali.",
+    },
+    {
+      id: "ex.storyielts8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "IELTS Task 2 argüman kalıbı:",
+          options: [
+            "I think yes / no",
+            "On one hand X; on the other hand Y. Overall Z.",
+            "It is good",
+            "I agree",
+          ],
+          correct: 1,
+          tr_explanation:
+            "İki taraflı analiz + sonuç = 7+ band. Türk: tek yönlü argüman 5.5 tavan.",
+        },
+        {
+          q: "Speaking Part 3 düşünme bağlacı?",
+          options: [
+            "Umm hmm",
+            "That's a thought-provoking question / It's complex",
+            "I don't know",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Düşünme zamanı al + nüans göster: 'That's a thought-provoking question.'",
+        },
+        {
+          q: "'Outweigh' fiil anlamı?",
+          options: [
+            "Tartmak",
+            "Daha ağır basmak (avantaj kazanmak)",
+            "Dışarı ağırlık",
+            "Bekletmek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Benefits outweigh risks' = avantajlar dezavantajları geçer. Task 2 standart kalıp.",
+        },
+        {
+          q: "'Nuanced' sıfat anlamı?",
+          options: [
+            "Basit",
+            "Çok katmanlı/incelikli (siyah-beyaz değil)",
+            "Yeni",
+            "Tartışmalı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'It's nuanced' = basit cevap yok, derinlikli. 7+ band sinyali.",
+        },
+        {
+          q: "IELTS Speaking 'cannot answer' = ?",
+          options: [
+            "Profesyonel",
+            "Ölü kıvılcım, 5 puan tavanı",
+            "İyi seçim",
+            "Standart",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Pasif kabul = puanı düşürür. Aktif: 'Let me approach this from two angles.'",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -4409,6 +8853,134 @@ export const ieltsDay17: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyielts9.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "On one hand, ___; on the other hand, ___. Overall, I believe ___.",
+      slots: [
+        { accepted: ["technology saves time", "remote work is convenient", "education is universally available", "social media connects people"] },
+        { accepted: ["it can isolate us", "burnout is real", "quality varies widely", "misinformation spreads fast"] },
+        { accepted: ["the benefits outweigh the risks", "balance is essential", "regulation is the answer", "individuals must adapt"] },
+      ],
+      tr_hint:
+        "IELTS Task 2 essay kalıbı: 'On one hand X, on the other hand Y. Overall Z.' Türk: argüman kalıbı = puan + 0.5.",
+      example_filled: "On one hand, technology saves time; on the other hand, it can isolate us. Overall, I believe balance is essential.",
+    },
+    {
+      id: "ex.storyielts9.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Tell me about a memorable trip you've taken." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Interesting. And what made it memorable?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(a few years ago|back in [0-9]+|last summer) (i (went|travelled) to)",
+        "(one trip that (really )?stands out)",
+        "(the trip i (remember|always come back to) (the most|vividly))",
+        "(it was (in|during|to)) ([a-z ]+) (and )",
+      ],
+      tr_hint:
+        "Speaking Part 2 narrative açılış. 'A few years ago, I went to X.' Türk: 'I go to' yerine 'I went to' (past simple).",
+      ideal_answer: "A few years ago, I went to Kyoto with my family — and one moment really stands out.",
+    },
+    {
+      id: "ex.storyielts9.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Do you think technology is making society better or worse?",
+      accepted_patterns: [
+        "(in my view|i would argue)",
+        "(it'?s a (complex|nuanced) issue)",
+        "(while technology has (clear|undeniable) benefits)",
+        "(however|on the other hand|that said)",
+        "(if i had to take a position)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "IELTS Part 3 argument kalıbı. 'It's nuanced — while X, however Y. If I had to take a position...' Türk: 'Yes' yetersiz, 7+ band için nüans + pozisyon.",
+      ideal_response: "In my view, it's nuanced — while technology has clear benefits, it also creates new dependencies. If I had to take a position, I'd lean toward 'better, with caveats.'",
+    },
+    {
+      id: "ex.storyielts9.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Bence bu konu çok zor ve cevap veremem.",
+      wrong_en: "I think this topic is very hard and I cannot answer.",
+      right_en: "That's a thought-provoking question — let me approach it from two angles.",
+      why_tr:
+        "Türk: 'I cannot answer' = IELTS Speaking ölü kıvılcım, 5 puan tavanı. 'Thought-provoking + two angles' = düşünme süresi alır + nüans gösterir = 7+ band sinyali.",
+    },
+    {
+      id: "ex.storyielts9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "IELTS Task 2 argüman kalıbı:",
+          options: [
+            "I think yes / no",
+            "On one hand X; on the other hand Y. Overall Z.",
+            "It is good",
+            "I agree",
+          ],
+          correct: 1,
+          tr_explanation:
+            "İki taraflı analiz + sonuç = 7+ band. Türk: tek yönlü argüman 5.5 tavan.",
+        },
+        {
+          q: "Speaking Part 3 düşünme bağlacı?",
+          options: [
+            "Umm hmm",
+            "That's a thought-provoking question / It's complex",
+            "I don't know",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Düşünme zamanı al + nüans göster: 'That's a thought-provoking question.'",
+        },
+        {
+          q: "'Outweigh' fiil anlamı?",
+          options: [
+            "Tartmak",
+            "Daha ağır basmak (avantaj kazanmak)",
+            "Dışarı ağırlık",
+            "Bekletmek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Benefits outweigh risks' = avantajlar dezavantajları geçer. Task 2 standart kalıp.",
+        },
+        {
+          q: "'Nuanced' sıfat anlamı?",
+          options: [
+            "Basit",
+            "Çok katmanlı/incelikli (siyah-beyaz değil)",
+            "Yeni",
+            "Tartışmalı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'It's nuanced' = basit cevap yok, derinlikli. 7+ band sinyali.",
+        },
+        {
+          q: "IELTS Speaking 'cannot answer' = ?",
+          options: [
+            "Profesyonel",
+            "Ölü kıvılcım, 5 puan tavanı",
+            "İyi seçim",
+            "Standart",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Pasif kabul = puanı düşürür. Aktif: 'Let me approach this from two angles.'",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -4549,6 +9121,134 @@ export const ieltsDay20: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyielts10.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "On one hand, ___; on the other hand, ___. Overall, I believe ___.",
+      slots: [
+        { accepted: ["technology saves time", "remote work is convenient", "education is universally available", "social media connects people"] },
+        { accepted: ["it can isolate us", "burnout is real", "quality varies widely", "misinformation spreads fast"] },
+        { accepted: ["the benefits outweigh the risks", "balance is essential", "regulation is the answer", "individuals must adapt"] },
+      ],
+      tr_hint:
+        "IELTS Task 2 essay kalıbı: 'On one hand X, on the other hand Y. Overall Z.' Türk: argüman kalıbı = puan + 0.5.",
+      example_filled: "On one hand, technology saves time; on the other hand, it can isolate us. Overall, I believe balance is essential.",
+    },
+    {
+      id: "ex.storyielts10.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Tell me about a memorable trip you've taken." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Interesting. And what made it memorable?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(a few years ago|back in [0-9]+|last summer) (i (went|travelled) to)",
+        "(one trip that (really )?stands out)",
+        "(the trip i (remember|always come back to) (the most|vividly))",
+        "(it was (in|during|to)) ([a-z ]+) (and )",
+      ],
+      tr_hint:
+        "Speaking Part 2 narrative açılış. 'A few years ago, I went to X.' Türk: 'I go to' yerine 'I went to' (past simple).",
+      ideal_answer: "A few years ago, I went to Kyoto with my family — and one moment really stands out.",
+    },
+    {
+      id: "ex.storyielts10.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Do you think technology is making society better or worse?",
+      accepted_patterns: [
+        "(in my view|i would argue)",
+        "(it'?s a (complex|nuanced) issue)",
+        "(while technology has (clear|undeniable) benefits)",
+        "(however|on the other hand|that said)",
+        "(if i had to take a position)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "IELTS Part 3 argument kalıbı. 'It's nuanced — while X, however Y. If I had to take a position...' Türk: 'Yes' yetersiz, 7+ band için nüans + pozisyon.",
+      ideal_response: "In my view, it's nuanced — while technology has clear benefits, it also creates new dependencies. If I had to take a position, I'd lean toward 'better, with caveats.'",
+    },
+    {
+      id: "ex.storyielts10.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Bence bu konu çok zor ve cevap veremem.",
+      wrong_en: "I think this topic is very hard and I cannot answer.",
+      right_en: "That's a thought-provoking question — let me approach it from two angles.",
+      why_tr:
+        "Türk: 'I cannot answer' = IELTS Speaking ölü kıvılcım, 5 puan tavanı. 'Thought-provoking + two angles' = düşünme süresi alır + nüans gösterir = 7+ band sinyali.",
+    },
+    {
+      id: "ex.storyielts10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "IELTS Task 2 argüman kalıbı:",
+          options: [
+            "I think yes / no",
+            "On one hand X; on the other hand Y. Overall Z.",
+            "It is good",
+            "I agree",
+          ],
+          correct: 1,
+          tr_explanation:
+            "İki taraflı analiz + sonuç = 7+ band. Türk: tek yönlü argüman 5.5 tavan.",
+        },
+        {
+          q: "Speaking Part 3 düşünme bağlacı?",
+          options: [
+            "Umm hmm",
+            "That's a thought-provoking question / It's complex",
+            "I don't know",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Düşünme zamanı al + nüans göster: 'That's a thought-provoking question.'",
+        },
+        {
+          q: "'Outweigh' fiil anlamı?",
+          options: [
+            "Tartmak",
+            "Daha ağır basmak (avantaj kazanmak)",
+            "Dışarı ağırlık",
+            "Bekletmek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Benefits outweigh risks' = avantajlar dezavantajları geçer. Task 2 standart kalıp.",
+        },
+        {
+          q: "'Nuanced' sıfat anlamı?",
+          options: [
+            "Basit",
+            "Çok katmanlı/incelikli (siyah-beyaz değil)",
+            "Yeni",
+            "Tartışmalı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'It's nuanced' = basit cevap yok, derinlikli. 7+ band sinyali.",
+        },
+        {
+          q: "IELTS Speaking 'cannot answer' = ?",
+          options: [
+            "Profesyonel",
+            "Ölü kıvılcım, 5 puan tavanı",
+            "İyi seçim",
+            "Standart",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Pasif kabul = puanı düşürür. Aktif: 'Let me approach this from two angles.'",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -4667,6 +9367,134 @@ export const ieltsDay23: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyielts11.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "On one hand, ___; on the other hand, ___. Overall, I believe ___.",
+      slots: [
+        { accepted: ["technology saves time", "remote work is convenient", "education is universally available", "social media connects people"] },
+        { accepted: ["it can isolate us", "burnout is real", "quality varies widely", "misinformation spreads fast"] },
+        { accepted: ["the benefits outweigh the risks", "balance is essential", "regulation is the answer", "individuals must adapt"] },
+      ],
+      tr_hint:
+        "IELTS Task 2 essay kalıbı: 'On one hand X, on the other hand Y. Overall Z.' Türk: argüman kalıbı = puan + 0.5.",
+      example_filled: "On one hand, technology saves time; on the other hand, it can isolate us. Overall, I believe balance is essential.",
+    },
+    {
+      id: "ex.storyielts11.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Tell me about a memorable trip you've taken." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Interesting. And what made it memorable?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(a few years ago|back in [0-9]+|last summer) (i (went|travelled) to)",
+        "(one trip that (really )?stands out)",
+        "(the trip i (remember|always come back to) (the most|vividly))",
+        "(it was (in|during|to)) ([a-z ]+) (and )",
+      ],
+      tr_hint:
+        "Speaking Part 2 narrative açılış. 'A few years ago, I went to X.' Türk: 'I go to' yerine 'I went to' (past simple).",
+      ideal_answer: "A few years ago, I went to Kyoto with my family — and one moment really stands out.",
+    },
+    {
+      id: "ex.storyielts11.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Do you think technology is making society better or worse?",
+      accepted_patterns: [
+        "(in my view|i would argue)",
+        "(it'?s a (complex|nuanced) issue)",
+        "(while technology has (clear|undeniable) benefits)",
+        "(however|on the other hand|that said)",
+        "(if i had to take a position)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "IELTS Part 3 argument kalıbı. 'It's nuanced — while X, however Y. If I had to take a position...' Türk: 'Yes' yetersiz, 7+ band için nüans + pozisyon.",
+      ideal_response: "In my view, it's nuanced — while technology has clear benefits, it also creates new dependencies. If I had to take a position, I'd lean toward 'better, with caveats.'",
+    },
+    {
+      id: "ex.storyielts11.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Bence bu konu çok zor ve cevap veremem.",
+      wrong_en: "I think this topic is very hard and I cannot answer.",
+      right_en: "That's a thought-provoking question — let me approach it from two angles.",
+      why_tr:
+        "Türk: 'I cannot answer' = IELTS Speaking ölü kıvılcım, 5 puan tavanı. 'Thought-provoking + two angles' = düşünme süresi alır + nüans gösterir = 7+ band sinyali.",
+    },
+    {
+      id: "ex.storyielts11.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "IELTS Task 2 argüman kalıbı:",
+          options: [
+            "I think yes / no",
+            "On one hand X; on the other hand Y. Overall Z.",
+            "It is good",
+            "I agree",
+          ],
+          correct: 1,
+          tr_explanation:
+            "İki taraflı analiz + sonuç = 7+ band. Türk: tek yönlü argüman 5.5 tavan.",
+        },
+        {
+          q: "Speaking Part 3 düşünme bağlacı?",
+          options: [
+            "Umm hmm",
+            "That's a thought-provoking question / It's complex",
+            "I don't know",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Düşünme zamanı al + nüans göster: 'That's a thought-provoking question.'",
+        },
+        {
+          q: "'Outweigh' fiil anlamı?",
+          options: [
+            "Tartmak",
+            "Daha ağır basmak (avantaj kazanmak)",
+            "Dışarı ağırlık",
+            "Bekletmek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Benefits outweigh risks' = avantajlar dezavantajları geçer. Task 2 standart kalıp.",
+        },
+        {
+          q: "'Nuanced' sıfat anlamı?",
+          options: [
+            "Basit",
+            "Çok katmanlı/incelikli (siyah-beyaz değil)",
+            "Yeni",
+            "Tartışmalı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'It's nuanced' = basit cevap yok, derinlikli. 7+ band sinyali.",
+        },
+        {
+          q: "IELTS Speaking 'cannot answer' = ?",
+          options: [
+            "Profesyonel",
+            "Ölü kıvılcım, 5 puan tavanı",
+            "İyi seçim",
+            "Standart",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Pasif kabul = puanı düşürür. Aktif: 'Let me approach this from two angles.'",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -4802,6 +9630,134 @@ export const ieltsDay27: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyielts12.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "On one hand, ___; on the other hand, ___. Overall, I believe ___.",
+      slots: [
+        { accepted: ["technology saves time", "remote work is convenient", "education is universally available", "social media connects people"] },
+        { accepted: ["it can isolate us", "burnout is real", "quality varies widely", "misinformation spreads fast"] },
+        { accepted: ["the benefits outweigh the risks", "balance is essential", "regulation is the answer", "individuals must adapt"] },
+      ],
+      tr_hint:
+        "IELTS Task 2 essay kalıbı: 'On one hand X, on the other hand Y. Overall Z.' Türk: argüman kalıbı = puan + 0.5.",
+      example_filled: "On one hand, technology saves time; on the other hand, it can isolate us. Overall, I believe balance is essential.",
+    },
+    {
+      id: "ex.storyielts12.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Tell me about a memorable trip you've taken." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Interesting. And what made it memorable?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(a few years ago|back in [0-9]+|last summer) (i (went|travelled) to)",
+        "(one trip that (really )?stands out)",
+        "(the trip i (remember|always come back to) (the most|vividly))",
+        "(it was (in|during|to)) ([a-z ]+) (and )",
+      ],
+      tr_hint:
+        "Speaking Part 2 narrative açılış. 'A few years ago, I went to X.' Türk: 'I go to' yerine 'I went to' (past simple).",
+      ideal_answer: "A few years ago, I went to Kyoto with my family — and one moment really stands out.",
+    },
+    {
+      id: "ex.storyielts12.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Do you think technology is making society better or worse?",
+      accepted_patterns: [
+        "(in my view|i would argue)",
+        "(it'?s a (complex|nuanced) issue)",
+        "(while technology has (clear|undeniable) benefits)",
+        "(however|on the other hand|that said)",
+        "(if i had to take a position)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "IELTS Part 3 argument kalıbı. 'It's nuanced — while X, however Y. If I had to take a position...' Türk: 'Yes' yetersiz, 7+ band için nüans + pozisyon.",
+      ideal_response: "In my view, it's nuanced — while technology has clear benefits, it also creates new dependencies. If I had to take a position, I'd lean toward 'better, with caveats.'",
+    },
+    {
+      id: "ex.storyielts12.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Bence bu konu çok zor ve cevap veremem.",
+      wrong_en: "I think this topic is very hard and I cannot answer.",
+      right_en: "That's a thought-provoking question — let me approach it from two angles.",
+      why_tr:
+        "Türk: 'I cannot answer' = IELTS Speaking ölü kıvılcım, 5 puan tavanı. 'Thought-provoking + two angles' = düşünme süresi alır + nüans gösterir = 7+ band sinyali.",
+    },
+    {
+      id: "ex.storyielts12.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "IELTS Task 2 argüman kalıbı:",
+          options: [
+            "I think yes / no",
+            "On one hand X; on the other hand Y. Overall Z.",
+            "It is good",
+            "I agree",
+          ],
+          correct: 1,
+          tr_explanation:
+            "İki taraflı analiz + sonuç = 7+ band. Türk: tek yönlü argüman 5.5 tavan.",
+        },
+        {
+          q: "Speaking Part 3 düşünme bağlacı?",
+          options: [
+            "Umm hmm",
+            "That's a thought-provoking question / It's complex",
+            "I don't know",
+            "Wait",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Düşünme zamanı al + nüans göster: 'That's a thought-provoking question.'",
+        },
+        {
+          q: "'Outweigh' fiil anlamı?",
+          options: [
+            "Tartmak",
+            "Daha ağır basmak (avantaj kazanmak)",
+            "Dışarı ağırlık",
+            "Bekletmek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Benefits outweigh risks' = avantajlar dezavantajları geçer. Task 2 standart kalıp.",
+        },
+        {
+          q: "'Nuanced' sıfat anlamı?",
+          options: [
+            "Basit",
+            "Çok katmanlı/incelikli (siyah-beyaz değil)",
+            "Yeni",
+            "Tartışmalı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'It's nuanced' = basit cevap yok, derinlikli. 7+ band sinyali.",
+        },
+        {
+          q: "IELTS Speaking 'cannot answer' = ?",
+          options: [
+            "Profesyonel",
+            "Ölü kıvılcım, 5 puan tavanı",
+            "İyi seçim",
+            "Standart",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Pasif kabul = puanı düşürür. Aktif: 'Let me approach this from two angles.'",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -4937,6 +9893,134 @@ export const ieltsDay30: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.storyielts13.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I really enjoyed your ___ — quick question about ___?",
+      slots: [
+        { accepted: ["talk", "panel", "session", "keynote", "demo"] },
+        { accepted: ["the architecture", "your scaling story", "the team setup", "the trade-offs", "what's next"] },
+      ],
+      tr_hint:
+        "Konferans networking açılışı. 'Compliment + question' kalıbı. Türk: 'I have a question' düz, övgü + soru samimi.",
+      example_filled: "I really enjoyed your talk — quick question about the scaling story?",
+    },
+    {
+      id: "ex.storyielts13.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Thanks! What did you want to know?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good question — that took us about six months to figure out." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i was curious (about|how))",
+        "(how did you (handle|approach|decide on))",
+        "(what was the (deciding|hardest) (factor|part))",
+        "(when you mentioned ([a-z ]+) — (what does that mean|how does that work))",
+        "(at my (company|team|shop) we'?re (looking at|considering))",
+      ],
+      tr_hint:
+        "Spesifik soru. 'How did you approach the migration?' Türk: 'I want to know about everything' eksik, dar soru profesyonel.",
+      ideal_answer: "I was curious how you handled the migration phase — at my team we're looking at something similar.",
+    },
+    {
+      id: "ex.storyielts13.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Are you working on anything similar at your company?",
+      accepted_patterns: [
+        "(yeah|kind of|sort of)(,)? (we'?re (just )?(starting|exploring))",
+        "(my (team|squad)) (is (currently|in the middle of))",
+        "(we (took a different approach|went the other way))",
+        "(here'?s my (contact|linkedin)|let'?s (stay in touch|exchange))",
+        "(could i (pick your brain|ping you))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Networking — kendi durum + bağlantı kur. 'Yeah, my team is doing X — could I ping you on LinkedIn?' Türk: 'No, nothing' soğuk, durum + follow-up.",
+      ideal_response: "Yeah — we're just starting. Could I ping you on LinkedIn to keep the conversation going?",
+    },
+    {
+      id: "ex.storyielts13.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Konuşmanı çok beğendim, çok başarılısın.",
+      wrong_en: "I liked your talk very much, you are very successful.",
+      right_en: "Really enjoyed your talk — especially the part about migration trade-offs.",
+      why_tr:
+        "Türk: 'you are very successful' = aşırı + creepy ton verir. Native: spesifik kısma övgü = daha güçlü + samimi. 'Successful' kişisel yargı, konfor bozar.",
+    },
+    {
+      id: "ex.storyielts13.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Konferans networking açılışı:",
+          options: [
+            "Hello, I am here",
+            "Compliment + spesifik soru (Enjoyed your talk — question about X?)",
+            "Tell me about you",
+            "I want to know",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Konuşmacının kendi enerjisinden başla. Övgü + soru = doğal köprü.",
+        },
+        {
+          q: "'Pick your brain' deyimi?",
+          options: [
+            "Beynini seç",
+            "Fikrini sormak/danışmak (samimi)",
+            "Aklını oku",
+            "Beyni topla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Can I pick your brain?' = fikrini sorabilir miyim? Networking samimi kalıbı.",
+        },
+        {
+          q: "'Stay in touch' ne demek?",
+          options: [
+            "Dokunarak kal",
+            "İrtibatı koru (devam edelim)",
+            "Yakın dur",
+            "Stresli ol",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Let's stay in touch' = irtibatı kopartmayalım. Konferans veda + LinkedIn ekleme kalıbı.",
+        },
+        {
+          q: "'Trade-off' anlamı?",
+          options: [
+            "Takas",
+            "Bedel/değiş tokuş (X kazanmak için Y kaybetmek)",
+            "Pazarlık",
+            "Ticari fırsat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Trade-off' = avantaj/dezavantaj dengesi (mimari kararlarda yaygın).",
+        },
+        {
+          q: "Övgü için spesifik vs genel:",
+          options: [
+            "Genel ('Great talk!')",
+            "Spesifik ('That migration part was great — especially how you...')",
+            "Genel iyi",
+            "Aynı şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Spesifik övgü = dikkat ettiğin sinyali. 'Great talk' jenerik, spesifik kısım = derinlik.",
+        },
+      ],
+    },
+
   ],
 };
 

@@ -212,6 +212,129 @@ export const flirtCancelLesson_5_1: BundledLesson = {
       tr_explanation:
         "'I am tired today. No date.' direkt Türkçe çevirisi — duygusuz + emredici. Doğru: 'running on empty' (deyim) + 'would you be open to' (saygılı sorma).",
     },
+    {
+      id: "ex.fc5.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Hey, so sorry — ___ came up. Can we ___?",
+      slots: [
+        { accepted: ["something", "work", "a family thing", "an emergency"] },
+        { accepted: ["reschedule", "move it", "do this another time", "try again later this week"] },
+      ],
+      tr_hint:
+        "İptal mesajının temel formülü: özür + sebep + yeniden teklif. Türk öğrenci 'I am sorry but I can not come' diye yazar — bu mesafeli ve eziklik tonu. Native 'so sorry' + 'can we ___' yapısı sıcak ve aktif.",
+      example_filled: "Hey, so sorry — something came up. Can we reschedule?",
+    },
+    {
+      id: "ex.fc5.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "user", text: "Hey, I'm so sorry — something came up at work. Can we reschedule?" },
+        { speaker: "npc", text: "No worries! Stuff happens. What's your week looking like?" },
+        { speaker: "user" },
+      ],
+      missing_at: 2,
+      accepted_patterns: [
+        "(thank you|thanks|appreciate) (for being|so) (chill|understanding|cool)",
+        "(thursday|friday|saturday|sunday|tomorrow) (works|is open|sounds good)",
+        "(rest of (this|the) week|the weekend) is (free|open|clear)",
+        "(i was|i'?m) (really )?(looking forward|excited)",
+        "(let me|i'?ll) (check|look at) my (schedule|calendar)",
+      ],
+      tr_hint:
+        "NPC seni anlayışla karşıladı, bir alternatif tarih istedi. Cevap: önce teşekkür (chill olduğun için), sonra somut tarih öner. 'Thursday or Friday work?' gibi.",
+      ideal_answer: "Thank you for being so chill about it — I feel terrible. Thursday or Friday work for you?",
+    },
+    {
+      id: "ex.fc5.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hey — just checking in, are we still on for tonight? I'm about to head out.",
+      accepted_patterns: [
+        "(oh |hey )?(i'?m|i am) so sorry",
+        "(actually|honestly)[,—-]? (something|work|a family thing) came up",
+        "(was about to|just about to) (text|message) you",
+        "(have to|gotta|need to) (cancel|reschedule)",
+        "(can we|could we) (push|move|reschedule)",
+        "(i feel|feeling) (terrible|awful)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "NPC hazırlanıyor — geç kalma! 3 saniye düşün, sonra ÖZÜR + SEBEP + RESCHEDULE ÖNERİ. 'Oh hey — I'm so sorry, something just came up. Can we push to tomorrow?' gibi tam paket.",
+      ideal_response: "Oh hey — I'm so sorry, I was just about to text you. Something just came up at work. Any chance we can push to tomorrow?",
+    },
+    {
+      id: "ex.fc5.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bugün gelemeyeceğim, başka gün yapalım.",
+      wrong_en: "I can't come today, let's do it other day.",
+      right_en: "I'm so sorry — I can't make it tonight. Can we reschedule for later this week?",
+      why_tr:
+        "Türk öğrencinin klasik direct-translation tuzağı. 'I can't come' = soğuk + 'come' Amerikan İngilizcesinde 'gelmek' için 'make it' kullanılır (date için özellikle). 'Other day' grammatik hatalı + belirsiz — 'another day' veya somut tarih ('later this week') verilmeli. Native: 'I can't make it' + 'reschedule for ___'.",
+    },
+    {
+      id: "ex.fc5.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Something came up' nasıl çevirilir?",
+          options: [
+            "Bir şey yukarıya çıktı",
+            "Bir şey çıktı / iş çıktı",
+            "Bir şey yapıldı",
+            "Geldi",
+          ],
+          correct: 1,
+          tr_explanation: "'Something came up' = beklenmedik bir iş/durum çıktı. İptal için universal yumuşatma kalıbı.",
+        },
+        {
+          q: "Aynı gün iptal mesajının üç ayağı?",
+          options: [
+            "Özür / Sebep / Yeniden teklif",
+            "Sebep / Para / İade",
+            "Özür / İstifa / Vedalaş",
+            "Üzgünüm / Bahane / Bitir",
+          ],
+          correct: 0,
+          tr_explanation: "Özür + somut sebep + yeniden teklif = saygılı + niyet samimi.",
+        },
+        {
+          q: "'Reschedule' fiili tam olarak ne demek?",
+          options: [
+            "Geç kalmak",
+            "İptal etmek",
+            "Yeniden zamanlama yapmak",
+            "Programdan çıkarmak",
+          ],
+          correct: 2,
+          tr_explanation: "'Reschedule' = randevu/toplantı zamanını değiştirmek. 'Cancel' = tamamen iptal.",
+        },
+        {
+          q: "Iptal mesajı NE ZAMAN atılır?",
+          options: [
+            "Randevu saatinden hemen önce",
+            "Randevu saatinde",
+            "Mümkün olan en erken saat",
+            "Hiç atma, sessiz kal",
+          ],
+          correct: 2,
+          tr_explanation: "Karşı taraf hazırlanmadan önce mesaj at = saygı. Hazırlandıktan sonra iptal = emek hakaret.",
+        },
+        {
+          q: "Türk hatası: 'I can't come' yerine ne kullanılır (date için)?",
+          options: [
+            "I can't arrive",
+            "I can't make it",
+            "I can't get",
+            "I can't go",
+          ],
+          correct: 1,
+          tr_explanation: "'I can't make it' = gelemeyeceğim (event/date için standart). 'I can't come' Türk öğrencinin direkt çevirisi — doğru ama soğuk.",
+        },
+      ],
+    },
   ],
 };
 

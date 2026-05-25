@@ -267,6 +267,130 @@ export const flirtDefineLesson_6_1: BundledLesson = {
       tr_explanation:
         "'Decide now' = ültimatom, kaçma tetikler. Doğru: 'I'd love to' (kendi pozisyonun) + 'no pressure' (esneklik) = sağlıklı niyet beyanı.",
     },
+    {
+      id: "ex.fd6.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "Where's your ___ at on ___?",
+      slots: [
+        { accepted: ["head", "mind", "heart"] },
+        { accepted: ["us", "this", "the exclusive thing", "where we're going"] },
+      ],
+      tr_hint:
+        "DTR (Define The Relationship) konuşmasının yumuşak girişi. Türk öğrenci 'Are we exclusive?' diye direkt sorar — bu defansif. Native: 'Where's your head at on us?' = açık + baskısız. Diyalog açar, ültimatom değil.",
+      example_filled: "Where's your head at on us?",
+    },
+    {
+      id: "ex.fd6.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "user", text: "Hey, wanted to ask — where's your head at on us?" },
+        { speaker: "npc", text: "Honestly I was thinking the same thing. What are you feeling?" },
+        { speaker: "user" },
+      ],
+      missing_at: 2,
+      accepted_patterns: [
+        "(i'?m |i am )(feeling|thinking|in) (this|us|the same)",
+        "(want to|i want to|would like to) (stop|not be) seeing other people",
+        "(i'?m |would be )(into|down for|good with) (just us|exclusive)",
+        "(you'?re |you are )(the only one|the only person) (i'?m )?seeing",
+        "(been|im) really into this",
+        "(honestly|truly)(,)? (i'?m|i am) (in|all in|here for it)",
+      ],
+      tr_hint:
+        "NPC top sana attı — 'what are YOU feeling?' diye sordu. Belirsiz cevap = backpedal sinyali. NET ol: 'I want to stop seeing other people' veya 'I'm all in'. Pozisyon almak güven yaratır.",
+      ideal_answer: "Honestly, I want to stop seeing other people. You're the only one I'm interested in.",
+    },
+    {
+      id: "ex.fd6.1.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "So what does exclusive look like for you — like, are we deleting the apps?",
+      accepted_patterns: [
+        "(yes|yeah|absolutely)(,)? (let'?s )?(delete|nuke|kill) (the )?apps",
+        "(deleting|deleted|off) (mine|the apps) tonight",
+        "(yeah|sure)(,)? (i'?m |i am )?(already )?off them",
+        "(let'?s )?(both )?(delete|drop) them (together|now)",
+        "(i'?ll|i will) (delete|take down) mine if you do",
+        "(apps off|apps gone|off the apps)(,)? (sounds good|works for me)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "NPC somut bir kriter sundu — 'are we deleting the apps?'. EVET veya HAYIR olmalı, ama kesin ol. Türk öğrenci 'maybe' demek ister — burada 'maybe' = backpedal. 'Yes, deleting tonight, together?' = sevimli ortak ritüel.",
+      ideal_response: "Yes — deleting them tonight. Together?",
+    },
+    {
+      id: "ex.fd6.1.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Sen artık benim kız arkadaşımsın, değil mi?",
+      wrong_en: "You are my girlfriend now, right?",
+      right_en: "Where's your head at on us — feeling like we're heading somewhere exclusive?",
+      why_tr:
+        "Türk erkeğin klasik dating tuzağı. 'You are my girlfriend now' = etiket dayatma, baskı, partneri unsubscribe ettirir. Native dating'de etiket karşılıklı diyalog SONRASI gelir, önce değil. Modern: 'Where's your head at?' = açık soru, karşı tarafa düşünme alanı bırakır. 'Right?' = pozitif onay beklentisi = baskı.",
+    },
+    {
+      id: "ex.fd6.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Where's your head at?' nasıl çevirilir?",
+          options: [
+            "Kafan nerede?",
+            "Bu konuda ne düşünüyorsun? (casual)",
+            "Aklın nerede?",
+            "Hepsi doğru",
+          ],
+          correct: 3,
+          tr_explanation: "'Where's your head at?' = ne düşünüyorsun bu konuda. Casual diyalog açma. Hepsi geçerli çeviri.",
+        },
+        {
+          q: "'Soft launch' dating'de ne demek?",
+          options: [
+            "Hafifçe başlatmak",
+            "İlişkiyi sosyal medyada yarı-açık göstermek",
+            "Yavaş yavaş tanışmak",
+            "Düşük profil tutmak",
+          ],
+          correct: 1,
+          tr_explanation: "'Soft launch' = Instagram'da kısmen açık (yüzü görünmeyen foto, etiketsiz). Modern dating jargonu.",
+        },
+        {
+          q: "Exclusivity konuşması ne zaman ideal?",
+          options: [
+            "İlk randevudan sonra",
+            "3-6 hafta arası — momentum var ama erken değil",
+            "1 yıl sonra",
+            "Hiç yapma",
+          ],
+          correct: 1,
+          tr_explanation: "3-6 hafta = tatlı nokta. Erken = baskıcı, geç = sinyaller bulanık.",
+        },
+        {
+          q: "'On the same page' deyimi ne anlama gelir?",
+          options: [
+            "Aynı sayfada",
+            "Aynı düşüncede / mutabakat halinde",
+            "Aynı kitap",
+            "Bağlantılı",
+          ],
+          correct: 1,
+          tr_explanation: "'On the same page' = aynı düşüncede. İlişki konuşmalarında 'mutabık' anlamında çok geçer.",
+        },
+        {
+          q: "Türk hatası: 'You are my girlfriend now' yerine?",
+          options: [
+            "You're my girlfriend, right?",
+            "Where's your head at on us?",
+            "Are we exclusive now?",
+            "Hepsi yanlış",
+          ],
+          correct: 1,
+          tr_explanation: "Etiket dayatma yerine diyalog aç. 'Where's your head at?' = açık soru, baskı yok.",
+        },
+      ],
+    },
   ],
 };
 

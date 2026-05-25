@@ -231,6 +231,130 @@ export const cafeLesson_1_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.1.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Could I get a ___ with ___, please?",
+      slots: [
+        {
+          accepted: ["coffee", "latte", "cappuccino", "americano"],
+          distractors: ["bread", "menu", "fork"],
+        },
+        {
+          accepted: ["oat milk", "almond milk", "extra shot", "no sugar"],
+          distractors: ["water", "tea", "sugar maybe"],
+        },
+      ],
+      tr_hint:
+        "Kafe sipariş kalıbı: 'Could I get a [içecek] with [özelleştirme]?' — kibar talep + özel istek. Türk öğrenci 'I want' der; 'Could I get' çok daha doğal.",
+      example_filled: "Could I get a latte with oat milk, please?",
+    },
+    {
+      id: "ex.1.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi there, what can I get for you?" },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Sure thing — any size preference? Small, medium, or large?",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a|an) (coffee|latte|cappuccino|americano)",
+        "(i'?d like|i'?ll have) (a|an) (latte|coffee|americano)",
+        "(just )?(a |an )?(coffee|latte|americano)( please)?",
+        "(could i|can i) (please )?(have|get) (the|a) (.+)",
+      ],
+      tr_hint:
+        "Barista sipariş soruyor. Net cevap: 'Could I get a latte, please?' veya 'I'd like an americano.' Türk öğrenci 'I want coffee' der — yumuşat: 'Could I get'.",
+      ideal_answer: "Could I get a latte, please?",
+    },
+    {
+      id: "ex.1.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "For here or to go?",
+      accepted_patterns: [
+        "(for here|to go)( please)?",
+        "(i'?ll )?(take it )?to go( please)?",
+        "(here|sit in|stay)( please)?",
+        "(let me )?(sit|drink it) here",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Barista 'burada mı paket mi?' diye soruyor. 3 sn — karar ver. 'For here, please' veya 'To go, thanks.' Türk öğrenci 'I drink here' der — 'For here' yerleşik kalıp.",
+      ideal_response: "For here, please.",
+    },
+    {
+      id: "ex.1.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bir kahve istiyorum.",
+      wrong_en: "I want one coffee.",
+      right_en: "Could I get a coffee, please?",
+      why_tr:
+        "Türk öğrenci 'istiyorum' = 'I want' diye çevirir + 'bir' = 'one' der. Doğru ama kasada kaba/çocukça hissi verir. 'Could I get a coffee, please?' = kibar yetişkin sipariş. 'A' = bir (belgisiz), 'one' sayı.",
+    },
+    {
+      id: "ex.1.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'For here or to go?' ne sorulur?",
+          options: [
+            "Buraya mı gidiyorsun, dışarı mı?",
+            "Burada mı içeceksin, paket mi?",
+            "Hangi yere oturmak istersin?",
+            "Buradan mı geliyorsun?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'For here' = burada içeceğim. 'To go' = paket. Klasik barista sorusu.",
+        },
+        {
+          q: "EN doğal kafe sipariş başlangıcı?",
+          options: ["I want coffee", "Could I get a coffee, please?", "Give me coffee", "Coffee me"],
+          correct: 1,
+          tr_explanation:
+            "'Could I get [X], please?' kibar + modern. 'I want' işe yarar ama biraz çocukça. 'Give me' kaba.",
+        },
+        {
+          q: "'Could I have' ile 'I'd like' farkı?",
+          options: [
+            "Hiçbir fark yok",
+            "İkisi de kibar; 'Could I' soru, 'I'd like' beyan",
+            "'Could I' sadece kasada, 'I'd like' restoranda",
+            "'I'd like' yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "İkisi de kibar yetişkin sipariş. 'Could I have' = soru formu. 'I'd like' = beyan ('istiyorum' kibar hali).",
+        },
+        {
+          q: "'Extra shot' ne demek?",
+          options: [
+            "Ek bir fotoğraf",
+            "Ekstra espresso atışı",
+            "Ek bir bardak",
+            "Bedava içecek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Shot' = espresso atışı (30ml). 'Extra shot' = ekstra espresso = içecek daha güçlü.",
+        },
+        {
+          q: "Türk 'bir kahve' yerine ABD'de yaygın?",
+          options: ["One coffee", "A coffee", "The coffee", "Coffee one"],
+          correct: 1,
+          tr_explanation:
+            "'A coffee' = bir kahve (belgisiz tanımlık). 'One coffee' = sayı vurgusu (çok değil, bir tane). Sipariş bağlamında 'a' standart.",
+        },
+      ],
+    },
   ],
 };
 
@@ -476,6 +600,137 @@ export const cafeLesson_1_2: BundledLesson = {
       correct_sentence: "I'll have an iced latte with extra ice, please.",
       tr_explanation:
         "'Cold latte' direkt çeviri — doğrusu 'iced latte' (sabit kalıp). 'Much ice' yanlış — 'extra ice' veya 'lots of ice' doğal.",
+    },
+    {
+      id: "ex.1.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'll have a ___, ___, please.",
+      slots: [
+        {
+          accepted: ["flat white", "cappuccino", "latte", "macchiato"],
+          distractors: ["coffee strong", "milk drink", "espresso big"],
+        },
+        {
+          accepted: ["medium", "large", "small", "double"],
+          distractors: ["big", "much", "more"],
+        },
+      ],
+      tr_hint:
+        "İçecek + boyut: 'I'll have a [içecek], [boyut], please.' İki kısım virgülle. Türk öğrenci 'big' der — 'large' standart kafe boyut kelimesi.",
+      example_filled: "I'll have a flat white, medium, please.",
+    },
+    {
+      id: "ex.1.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "What can I get you today?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Got it — small or medium?",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a|an) (flat white|cappuccino|latte|americano|macchiato)",
+        "(i'?d like|i'?ll have) (a|an) (flat white|cappuccino|latte|americano)",
+        "(a|an) (flat white|cappuccino|latte|americano)( please)?",
+      ],
+      tr_hint:
+        "Barista ne istediğini soruyor. Net cevap: 'I'll have a flat white, please.' veya 'Could I get a cappuccino?' Boyutu sonra söyleyecek.",
+      ideal_answer: "I'll have a flat white, please.",
+    },
+    {
+      id: "ex.1.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Just to clarify — flat white or latte? They're a bit different.",
+      accepted_patterns: [
+        "(flat white|latte)( please)?",
+        "(let'?s go with|i'?ll go with) (the )?(flat white|latte)",
+        "what'?s the difference",
+        "(actually )?(the )?(flat white|latte)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Barista 'tam emin misin?' demiş. 3 sn — kararını ver. 'Flat white, please' veya 'Actually, the latte.' Bilmiyorsan: 'What's the difference?' (öğrenme şansı).",
+      ideal_response: "Flat white, please — less milk than a latte.",
+    },
+    {
+      id: "ex.1.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sütlü kahve istiyorum.",
+      wrong_en: "I want milk coffee.",
+      right_en: "Could I get a latte, please?",
+      why_tr:
+        "Türk 'sütlü kahve' = 'milk coffee' direkt çevirir. ABD'de 'milk coffee' diye bir içecek yok — bunu derseniz barista şaşırır. Çeşit söyle: 'latte' (çok sütlü), 'cappuccino' (köpüklü), 'flat white' (az ama yoğun sütlü).",
+    },
+    {
+      id: "ex.1.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Flat white vs latte farkı?",
+          options: [
+            "Hiç fark yok",
+            "Flat white daha az süt, daha güçlü espresso oranı",
+            "Latte sıcak, flat white soğuk",
+            "Flat white çay, latte kahve",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Flat white = daha az süt + microfoam. Espresso vurgusu daha güçlü. Latte = daha çok süt, daha kremsi.",
+        },
+        {
+          q: "'Iced latte' nasıl Türkçeleştirilir?",
+          options: ["Buz kahve", "Buzlu latte", "Soğuk kahve", "Donmuş latte"],
+          correct: 1,
+          tr_explanation:
+            "'Iced latte' = buzlu latte (sabit kalıp). 'Cold latte' yanlış — doğrusu 'iced'.",
+        },
+        {
+          q: "Americano nedir?",
+          options: [
+            "Amerikan kahvesi (filtre)",
+            "Espresso + sıcak su",
+            "Süt köpüklü kahve",
+            "Buzlu çay",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Americano = espresso + sıcak su ile sulandırılmış. Türkiye'deki 'filtre kahve' değil — espresso bazlı.",
+        },
+        {
+          q: "'Could I get a medium latte?' yapısı?",
+          options: [
+            "Kibar boyutlu sipariş",
+            "Soru değil emir",
+            "Sadece UK'da kullanılır",
+            "Yanlış İngilizce",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Could I get a [boyut] [içecek]?' = kibar + spesifik sipariş kalıbı. Boyut: small, medium, large.",
+        },
+        {
+          q: "'Macchiato' kelimesinin telaffuzu?",
+          options: [
+            "MAK-chi-yato",
+            "MAH-kee-ah-toh",
+            "MAS-kee-yato",
+            "ma-shee-AH-toh",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Macchiato' İtalyanca'dan: 'mah-kee-AH-toh'. Türk 'maçiato' der — doğrusu 'cc' = 'k' sesi (mahKEE).",
+        },
+      ],
     },
   ],
 };
@@ -745,6 +1000,134 @@ export const cafeLesson_1_3: BundledLesson = {
       tr_explanation:
         "'Sugar free' diet ürün etiketi — sipariş için 'with no sugar' veya 'unsweetened' kullanılır. 'Little milk' tekil — 'a little less milk' daha doğal.",
     },
+    {
+      id: "ex.1.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Can I have my coffee ___, with ___?",
+      slots: [
+        {
+          accepted: ["decaf", "iced", "extra hot", "half-caf"],
+          distractors: ["sugar free", "with milk", "no caffeine"],
+        },
+        {
+          accepted: ["oat milk", "almond milk", "an extra shot", "no sugar"],
+          distractors: ["water", "tea bag", "lemon"],
+        },
+      ],
+      tr_hint:
+        "Özelleştirme kalıbı: 'Can I have my coffee [özellik], with [ekleme]?' İki ayrı talep. Türk öğrenci 'I take decaf coffee' der; 'have my coffee decaf' modern.",
+      example_filled: "Can I have my coffee decaf, with oat milk?",
+    },
+    {
+      id: "ex.1.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "One latte coming up. Any customizations?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Sure thing, oat milk and an extra shot. No problem.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) (you|i) (make it|have it|get it) with (oat|almond|soy) milk",
+        "(extra shot|double shot|two shots)( please)?",
+        "(could|can) i (have|get) (oat|almond|soy) milk( please)?",
+        "(no sugar|sugar[- ]free|unsweetened)( please)?",
+        "(extra hot|less hot|warm)( please)?",
+      ],
+      tr_hint:
+        "Barista özelleştirme soruyor. Net liste: 'Oat milk and an extra shot, please.' Türk öğrenci tüm istekleri tek kelimelerde sıralar — virgül + 'and' bağla.",
+      ideal_answer: "Oat milk and an extra shot, please.",
+    },
+    {
+      id: "ex.1.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you like your latte — anything special?",
+      accepted_patterns: [
+        "(decaf|iced|extra hot)( please)?",
+        "(oat|almond|soy) milk(,| and )? ?(no sugar)?",
+        "(an |one )?extra shot( please)?",
+        "(no|nothing)(,)? (just|the )?(regular|standard)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Barista özelleştirme istiyor. 3 sn — Türk öğrenci 'normal' der; 'Just regular, thanks' veya 'Oat milk, please.' Net + kısa.",
+      ideal_response: "Oat milk, please — no sugar.",
+    },
+    {
+      id: "ex.1.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Şeker olmasın.",
+      wrong_en: "Without sugar.",
+      right_en: "No sugar, please.",
+      why_tr:
+        "Türk 'olmasın' = 'without' diye direkt çevirir. 'Without sugar' anlaşılır ama biraz garip — 'No sugar, please' çok daha yaygın ve doğal. Kibar ekleme: 'please'.",
+    },
+    {
+      id: "ex.1.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Decaf' ne anlama gelir?",
+          options: [
+            "Süper güçlü kahve",
+            "Kafeinsiz kahve",
+            "Buzlu kahve",
+            "Kremalı kahve",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Decaf' = decaffeinated = kafeinsiz. Türk öğrenci 'no caffeine' der — anlaşılır ama 'decaf' yerleşik kafe kelimesi.",
+        },
+        {
+          q: "'Oat milk' nedir?",
+          options: ["Süt köpüğü", "Yulaf sütü", "Yumurta sütü", "Bitkisel yağ"],
+          correct: 1,
+          tr_explanation:
+            "'Oat milk' = yulaf sütü (vegan/laktoz alternatifi). 'Almond milk' = badem, 'soy milk' = soya.",
+        },
+        {
+          q: "'Extra shot' siparişe ne ekler?",
+          options: [
+            "Daha fazla süt",
+            "Bir espresso atışı daha (daha güçlü)",
+            "Daha fazla sıcaklık",
+            "İkinci bir bardak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Extra shot' = ekstra espresso atışı = içecek daha güçlü/kafein. 'Double shot' = 2 espresso (zaten dahil olabilir).",
+        },
+        {
+          q: "Sütsüz / siyah kahve istemek için?",
+          options: [
+            "Could I have a black coffee, please?",
+            "I want coffee no milk",
+            "Without milk coffee",
+            "Make milk away",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'A black coffee' = siyah kahve (sütsüz). Yerleşik kalıp. 'No milk' eklemek de geçer: 'a coffee with no milk'.",
+        },
+        {
+          q: "'Unsweetened' ne demek?",
+          options: ["Acı kahve", "Şekersiz / tatlandırıcısız", "Acılı içecek", "Bozulmuş"],
+          correct: 1,
+          tr_explanation:
+            "'Unsweetened' = şeker/şurup eklenmemiş. 'No sugar' alternatif. Diet bağlamda 'sugar-free' (etiket).",
+        },
+      ],
+    },
   ],
 };
 
@@ -990,6 +1373,133 @@ export const cafeLesson_1_4: BundledLesson = {
       tr_explanation:
         "'Write on cup' komut tonu. Doğrusu 'put it under [name]' veya 'it's for [name]'. Heceleme şart — Türk ismi olduğu için.",
     },
+    {
+      id: "ex.1.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'll take it ___, please. Name's ___.",
+      slots: [
+        {
+          accepted: ["to go", "for here", "in a paper cup"],
+          distractors: ["away", "outside", "in cup"],
+        },
+        {
+          accepted: ["Berk", "Mert", "Selin", "Emre"],
+          distractors: ["Coffee", "Customer", "Big"],
+        },
+      ],
+      tr_hint:
+        "Paket/burada + isim kalıbı: 'I'll take it [yöntem], please. Name's [isim].' Türk öğrenci 'I take outside' der — 'to go' yerleşik kalıp.",
+      example_filled: "I'll take it to go, please. Name's Berk.",
+    },
+    {
+      id: "ex.1.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "And is that for here or to go?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Great. Can I get a name for the order?",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(for here|to go)( please)?",
+        "(i'?ll take it |it'?s )?to go( please)?",
+        "(for )?here( please)?",
+        "(i'?ll )?(sit|drink) (it )?here",
+      ],
+      tr_hint:
+        "Barista 'burada mı paket mi?' diye soruyor. Tek kelime cevap yeterli: 'To go, please' veya 'For here.' Sonra ismi söyleyeceksin.",
+      ideal_answer: "To go, please.",
+    },
+    {
+      id: "ex.1.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can I get a name for the order?",
+      accepted_patterns: [
+        "(it'?s |i'?m |name'?s |my name'?s )?[a-z]+",
+        "[a-z]+ — [a-z](,? [a-z]){2,}",
+        "under [a-z]+( please)?",
+        "(you can )?(spell it|write it) [a-z]+",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Barista ismini istiyor. 3 sn düşün. 'Berk — B-E-R-K' (Türkçe ismi heceleyerek kurtul). Barista'lar Türk isimleri yanlış yazar — hecele.",
+      ideal_response: "It's Berk — B-E-R-K.",
+    },
+    {
+      id: "ex.1.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Paket lütfen.",
+      wrong_en: "Package please.",
+      right_en: "To go, please.",
+      why_tr:
+        "Türk 'paket' = 'package' diye direkt çevirir. 'Package' = kargo paketi/koli! Kafede içeceği 'to go' (yanına alma) deriz. UK'da 'take away' alternatif. Barista 'package' deyince şaşkın bakar.",
+    },
+    {
+      id: "ex.1.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'For here' ne anlama gelir?",
+          options: [
+            "Buraya bırak",
+            "Burada içeceğim (yerinde)",
+            "Buradan al",
+            "Buraya gel",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'For here' = burada içeceğim (yerinde tüketim). 'To go' = paket. Klasik kafe ikili sorusu.",
+        },
+        {
+          q: "Türk ismi 'Berk' barista'ya nasıl iletilir?",
+          options: [
+            "Berk just",
+            "Berk — B-E-R-K",
+            "Berk name",
+            "Berk fast",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Berk — B-E-R-K' (heceleme şart). ABD barista'ları Türk isimlerini yanlış yazar (Burk, Burrk, vs.). Hecele kurtul.",
+        },
+        {
+          q: "UK İngilizcesinde 'to go' karşılığı?",
+          options: ["Package", "Take away / takeaway", "Out", "Travel"],
+          correct: 1,
+          tr_explanation:
+            "UK'da 'take away' (veya 'takeaway') = paket. ABD'de 'to go' standart. Türkiye'de UK formu daha çok bilinir.",
+        },
+        {
+          q: "'Can I get a name?' nasıl yanıtlanır?",
+          options: ["Yes name", "It's Berk", "Name yes", "Coffee"],
+          correct: 1,
+          tr_explanation:
+            "'It's [isim]' veya 'I'm [isim]' veya sadece '[isim]'. Türk öğrenci 'yes my name is...' der — uzatma, kısa cevap.",
+        },
+        {
+          q: "Çiftin biri için iki isim — EN doğal?",
+          options: [
+            "Two name Berk Ali",
+            "Berk and Ali — two coffees",
+            "We are Berk Ali",
+            "Name two people",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Berk and Ali — two coffees' net + akılcı. Barista her bardağa ayrı isim yazar.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1177,6 +1687,139 @@ export const cafeLesson_1_5: BundledLesson = {
       tr_hint:
         "'Instead' = 'ın-STED', vurgu ikinci hecede. 'Oat' uzun 'oʊ' — Türkçe 'ot' gibi okumamaya dikkat.",
     },
+    {
+      id: "ex.1.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Can I get ___ instead of ___?",
+      slots: [
+        {
+          accepted: ["oat milk", "almond milk", "soy milk", "decaf"],
+          distractors: ["just milk", "any milk", "tea"],
+        },
+        {
+          accepted: ["regular milk", "dairy", "regular", "cow milk"],
+          distractors: ["normal", "the milk normal", "milk normal"],
+        },
+      ],
+      tr_hint:
+        "Substitusyon kalıbı: 'Can I get [yeni] instead of [eski]?' Türk öğrenci 'change' fiili kullanır — 'instead of' standart kafe modifikasyon kalıbı.",
+      example_filled: "Can I get oat milk instead of regular milk?",
+    },
+    {
+      id: "ex.1.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "One vanilla latte coming up. Anything to modify?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Sure — half-sweet and oat milk. No problem.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) it (with )?(oat|almond) milk( instead)?",
+        "(half|less) (sweet|sugar|syrup)( please)?",
+        "(extra|less) (hot|foam|sugar)( please)?",
+        "(no|hold the) (whip|whipped cream|syrup)",
+        "(could|can) you (make it|do it) (with|without) (.+)",
+      ],
+      tr_hint:
+        "Barista 'modifiye var mı?' diye soruyor. Net liste: 'Half-sweet and oat milk, please.' Türk öğrenci tek tek söyler — virgül + 'and' birleştir.",
+      ideal_answer: "Half-sweet, please. And oat milk instead of regular.",
+    },
+    {
+      id: "ex.1.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Got it. Any milk substitution today?",
+      accepted_patterns: [
+        "(oat|almond|soy|coconut) milk( please)?",
+        "(could|can) i (get|have) (oat|almond) milk",
+        "(yes|yeah) (oat|almond) milk( please)?",
+        "(no thanks|just regular|regular is fine)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Barista süt alternatifi soruyor. 3 sn — vegan/laktoz mı? 'Oat milk, please' yaygın seçim. Yoksa: 'No, regular is fine.'",
+      ideal_response: "Oat milk, please.",
+    },
+    {
+      id: "ex.1.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Az şeker olsun.",
+      wrong_en: "Make less sugar.",
+      right_en: "Half-sweet, please.",
+      why_tr:
+        "Türk 'az şeker olsun' = 'make less sugar' direkt çevirir — anlaşılır ama kafede yaygın değil. Doğru: 'half-sweet' (yarısı kadar tatlı) veya 'easy on the sugar'. Modern kafe sözlüğü.",
+    },
+    {
+      id: "ex.1.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Instead of' ne anlatır?",
+          options: ["Olmadan", "Yerine", "Birlikte", "Ekstra"],
+          correct: 1,
+          tr_explanation:
+            "'Instead of [X]' = [X]'in yerine. 'Oat milk instead of regular' = normal yerine yulaf.",
+        },
+        {
+          q: "'Half-sweet' siparişe ne ekler?",
+          options: [
+            "Yarısı kadar şeker/şurup",
+            "Yarısı buz",
+            "İçecek yarısı",
+            "Yarı sıcak",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Half-sweet' = yarı tatlılık (genelde şurup pump'ları yarıya iner). Türk öğrenci 'less sweet' der — 'half-sweet' yerleşik.",
+        },
+        {
+          q: "'Hold the whip' ne demek?",
+          options: [
+            "Krema beklesin",
+            "Krema ekleme (whipped cream olmasın)",
+            "Krema tut",
+            "Krema yarısı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Hold the [X]' = [X] ekleme (siparişten çıkar). 'Hold the whip' = krem yok. Sandviçte 'hold the onion' = soğan yok.",
+        },
+        {
+          q: "'Extra hot' ne anlatır?",
+          options: [
+            "Ekstra acılı",
+            "Daha sıcak yapılması (daha yüksek sıcaklıkta süt)",
+            "Çok güçlü kahve",
+            "Hızlı yapılması",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Extra hot' = süt daha yüksek sıcaklıkta köpürtülsün. Türk öğrenci sıcaklığı zayıf bulduğunda diyebilir.",
+        },
+        {
+          q: "Vegan biri için süt alternatifleri?",
+          options: [
+            "Skim milk, 2%",
+            "Oat, almond, soy, coconut milk",
+            "Whole milk",
+            "Cream",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Vegan: yulaf, badem, soya, hindistan cevizi sütü. Diğerleri (skim, 2%, whole) inek sütü.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1345,6 +1988,143 @@ export const cafeLesson_1_6: BundledLesson = {
       ipa: "ˈprɪti ɡʊd θæŋks haʊ əˈbaʊt juː",
       tr_hint:
         "'Pretty' = 'PRI-ti' (vurgu ilk). 'How about you' birleşir → 'haʊ-ə-BAUT-yu'. Sonda 'you' yumuşak.",
+    },
+    {
+      id: "ex.1.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "It's been ___ today, ___?",
+      slots: [
+        {
+          accepted: ["pretty busy", "kind of slow", "really chill", "crazy busy"],
+          distractors: ["very many", "much people", "people lot"],
+        },
+        {
+          accepted: ["huh", "right", "isn't it"],
+          distractors: ["yes?", "no?", "what?"],
+        },
+      ],
+      tr_hint:
+        "Sıra sohbeti kalıbı: 'It's been [zarf+sıfat] today, [onay tag].' Türk öğrenci 'today many people' der — yapısı bozuk. 'It's been busy' doğru.",
+      example_filled: "It's been pretty busy today, huh?",
+    },
+    {
+      id: "ex.1.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Crazy line today, right?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Tell me about it — Monday rush is always wild.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yeah|totally|for real)(,)? (so )?(busy|crazy|wild)",
+        "(no )?kidding(,)? (it'?s )?(packed|crazy|busy)",
+        "(every )?monday (is|gets) like this",
+        "(at least )?the (line|wait) (is moving|moves fast)",
+      ],
+      tr_hint:
+        "Bekleyen biri sohbet açtı. Onaylama small talk: 'Yeah, totally crazy' veya 'Monday rush, right?' Türk öğrenci sessiz kalır — kısa onay sosyal lubricant.",
+      ideal_answer: "Yeah, totally — Monday rush is the worst.",
+    },
+    {
+      id: "ex.1.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hey, do you know if their oat milk is good here?",
+      accepted_patterns: [
+        "(yeah|yes)(,)? (it'?s |the oat milk is )(pretty )?good",
+        "(i think|i'?m pretty sure)(,)? (it'?s )?(good|fine|okay)",
+        "(i'?ve had it|i tried it)(,)? (it'?s )?(great|good)",
+        "(honestly|to be honest)(,)? (i don'?t know|i haven'?t tried it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yabancı sıra arkadaşı oat milk soruyor. 3 sn — bilirsen söyle, bilmiyorsan dürüst ol. 'Yeah, it's good' veya 'I haven't tried it here.' Türk: tam cümle kur.",
+      ideal_response: "Yeah, it's pretty good — I've had it before.",
+    },
+    {
+      id: "ex.1.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bugün çok kalabalık.",
+      wrong_en: "Today very people.",
+      right_en: "It's pretty packed today.",
+      why_tr:
+        "Türk 'çok kalabalık' = 'very people' diye direkt çevirir — yapı bozuk. Doğru: 'It's packed' (doluş) veya 'It's busy' (yoğun). Sıfat kullan, 'many people' kötü cümle.",
+    },
+    {
+      id: "ex.1.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Tell me about it' deyimi ne anlatır?",
+          options: [
+            "Bana anlat (gerçek istek)",
+            "Aynen, kesinlikle (onaylama deyimi)",
+            "Soru sor",
+            "Konuyu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Tell me about it' = 'aynen, ben de hissediyorum' (deyim). Gerçek anlatım isteği değil, empati.",
+        },
+        {
+          q: "'Monday rush' ne anlama gelir?",
+          options: [
+            "Pazartesi indirimi",
+            "Pazartesi yoğunluğu (mesai başı kalabalık)",
+            "Pazartesi acelesi",
+            "Pazartesi indirimli",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Rush' = yoğun saatler. 'Morning rush' = sabah yoğunluk. 'Monday rush' = pazartesi sabahları kafede kalabalık.",
+        },
+        {
+          q: "Sıra sohbeti açmak için EN doğal?",
+          options: [
+            "Why so many people?",
+            "Crazy line today, right?",
+            "Wait long time",
+            "Coffee soon?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Crazy line, right?' = açık + onay isteyen. 'Right?' tag question — karşı tarafı konuşturur.",
+        },
+        {
+          q: "'Pretty good' tonu?",
+          options: [
+            "Mükemmel",
+            "Oldukça iyi (yumuşak/normal pozitif)",
+            "Güzel görünüyor",
+            "Çok iyi olabilir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Pretty good' = oldukça iyi (yumuşak pozitif). Aşırı değil, doğal small talk yanıtı.",
+        },
+        {
+          q: "ABD kafelerinde small talk kültürü?",
+          options: [
+            "Ayıp, sessizlik tercih edilir",
+            "Yaygın, sıra arkadaşıyla 1-2 cümle normaldir",
+            "Sadece arkadaşlar konuşur",
+            "Garson konuşmaz",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD'de sıradayken yan kişiyle '1-2 cümlelik small talk' standart. Türkiye'deki 'yabancıyla konuşma' refleksinden farklı.",
+        },
+      ],
     },
   ],
 };
@@ -1535,6 +2315,143 @@ export const cafeLesson_1_7: BundledLesson = {
       ipa: "ˈsɒri aɪ θɪŋk ðɛərz ə ˈmɪks ʌp wɪð maɪ ˈɔːrdər",
       tr_hint:
         "'There's' = 'ðɛərz' — Türkçe'de zorlu 'th' sesi, dilini hafif ısır. 'Mix-up' tek kelime gibi: 'MIKS-ap'.",
+    },
+    {
+      id: "ex.1.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Sorry, I think ___ — I ordered ___.",
+      slots: [
+        {
+          accepted: ["there's a mix-up", "this isn't mine", "this is wrong"],
+          distractors: ["this is bad", "you mistake", "wrong order"],
+        },
+        {
+          accepted: ["a latte", "an iced coffee", "a flat white", "a cappuccino"],
+          distractors: ["coffee thing", "drink milk", "espresso big"],
+        },
+      ],
+      tr_hint:
+        "Yanlış sipariş kalıbı: 'Sorry, I think [problem] — I ordered [sipariş].' Suçlamadan sorgulama. Türk öğrenci 'wrong order!' der — yumuşat: 'I think there's a mix-up.'",
+      example_filled: "Sorry, I think there's a mix-up — I ordered a latte.",
+    },
+    {
+      id: "ex.1.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Cappuccino for Berk!",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Oh, my apologies! Let me fix that right now — one latte coming up.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sorry|excuse me)(,)? (i think|i believe) (this is wrong|there'?s a mix[- ]up)",
+        "(actually )?i ordered a (latte|flat white|americano|cappuccino)",
+        "(this )?(isn'?t|is not) mine(,)? i ordered (a |an )?(.+)",
+        "(could you|can you) check\\?",
+      ],
+      tr_hint:
+        "Barista yanlış içecek getirdi. Yumuşak düzeltme: 'Sorry, I ordered a latte.' Türk öğrenci agresif olur — 'This is wrong!' yerine 'I think there's a mix-up.'",
+      ideal_answer: "Sorry — I think there's a mix-up. I ordered a latte.",
+    },
+    {
+      id: "ex.1.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hot chocolate for the gentleman!",
+      accepted_patterns: [
+        "(sorry|excuse me)(,)? (i think|i believe) (this is wrong|i ordered)",
+        "(actually )?i ordered a (latte|coffee|americano|cappuccino)",
+        "(this )?(isn'?t|is not) mine",
+        "(could you|can you) check (the )?order\\?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Barista yanlış sipariş çağırdı. 3 sn — kibarca sorgula. 'Sorry, I ordered a coffee, not hot chocolate.' Türk öğrenci öfkelenir — sakin + spesifik ol.",
+      ideal_response: "Sorry — I ordered a coffee, not hot chocolate.",
+    },
+    {
+      id: "ex.1.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu benim değil!",
+      wrong_en: "This is not me!",
+      right_en: "I think this isn't mine — I ordered a latte.",
+      why_tr:
+        "Türk 'bu benim değil' = 'this is not me' direkt çevirir — komik (sen değilsin demek!). Doğru: 'this isn't mine'. 'Mine' iyelik zamiri (benimki). Yumuşat 'I think' ekle.",
+    },
+    {
+      id: "ex.1.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mix-up' ne demek?",
+          options: [
+            "Karışım (içecek)",
+            "Karışıklık / yanlış anlama",
+            "Karıştırıcı",
+            "Karma içecek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Mix-up' = karışıklık (yanlış sipariş, isim, vb.). 'There's a mix-up with my order' = siparişimde karışıklık var.",
+        },
+        {
+          q: "Yanlış sipariş geldi. EN kibar başlangıç?",
+          options: [
+            "Wrong order!",
+            "Sorry, I think there's a mix-up.",
+            "Why this?",
+            "You wrong!",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sorry, I think there's a mix-up.' = yumuşatıcı + sosyal. Barista hata yapmış olabilir ama suçlama değil.",
+        },
+        {
+          q: "'This isn't mine' ne anlatır?",
+          options: [
+            "Bu sen değilsin",
+            "Bu benimki değil",
+            "Bu hatalı",
+            "Bu eski",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Mine' = benimki (iyelik zamiri). 'This isn't mine' = bu içecek bana ait değil.",
+        },
+        {
+          q: "Barista 'sorry, my mistake' dedi. EN nazik cevap?",
+          options: [
+            "Bad bad bad",
+            "No worries — happens.",
+            "You must pay",
+            "Free coffee?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'No worries — happens.' = stresli olma, herkes hata yapar. Sıcak + ilişki dengeli.",
+        },
+        {
+          q: "'I ordered a latte, not a cappuccino' yapısı?",
+          options: [
+            "Negatif kontrast",
+            "Spesifik düzeltme + alternatif belirtme",
+            "Soru",
+            "İstek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'X, not Y' = spesifik düzeltme. Net + suçlama değil. Barista neyi düzelteceğini hemen anlar.",
+        },
+      ],
     },
   ],
 };
@@ -1730,6 +2647,143 @@ export const cafeLesson_1_8: BundledLesson = {
       ipa: "kʊd aɪ ɡɛt ə kʌp ˈkæriər ænd səm ˈɛkstrə ˈnæpkɪnz pliːz",
       tr_hint:
         "'Carrier' = 'KÆR-i-ər', üç hece. 'Napkins' = 'NAP-kınz' (Türk 'peçete'ye benzemez). Sondaki 'please' net uzun 'iː'.",
+    },
+    {
+      id: "ex.1.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get ___, please? I'm taking it ___.",
+      slots: [
+        {
+          accepted: ["a cup carrier", "extra napkins", "a sleeve", "a tray"],
+          distractors: ["a box", "milk extra", "more cup"],
+        },
+        {
+          accepted: ["to go", "out", "to the office", "home"],
+          distractors: ["away", "outside", "package"],
+        },
+      ],
+      tr_hint:
+        "Paketleme talebi: 'Could I get [aksesuar], please? I'm taking it [yer/yöntem].' Türk öğrenci 'I need package' der — 'cup carrier' yerleşik kelime.",
+      example_filled: "Could I get a cup carrier, please? I'm taking it to the office.",
+    },
+    {
+      id: "ex.1.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Here are your three drinks. Need anything else?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Of course — carrier and a sleeve on the hot one, coming up.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the )?(cup )?carrier",
+        "(could|can) i (get|have) a (cup )?sleeve",
+        "(some |a few )?(extra )?napkins (please|too)",
+        "(yeah|yes)(,)? (a )?(carrier|sleeve|some napkins)( please)?",
+      ],
+      tr_hint:
+        "3 içecek var — taşımak için aksesuar lazım. Net liste: 'Could I get a carrier and a sleeve, please?' Türk öğrenci kaba 'I take' der — kibar 'could I'.",
+      ideal_answer: "Could I get a carrier and a sleeve on the hot one, please?",
+    },
+    {
+      id: "ex.1.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hot one to go for you — need a sleeve or stopper?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (a sleeve|both)( please)?",
+        "(both|sleeve and stopper)( please)?",
+        "(just a |a )?(sleeve|stopper)( please)?",
+        "(no thanks|i'?m good|all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Barista aksesuar soruyor — sleeve (sıcaktan koruyucu kağıt) + stopper (kapak tıkacı). Hızlı karar: 'Both, please' veya 'Just a sleeve, thanks.'",
+      ideal_response: "Both, please — easier for the walk.",
+    },
+    {
+      id: "ex.1.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Yanına paket verir misiniz?",
+      wrong_en: "Can you give me package?",
+      right_en: "Could I get a cup carrier, please?",
+      why_tr:
+        "Türk 'paket' = 'package' diye direkt çevirir. Kafede 'package' = kargo paketi (alakasız). Doğru: 'cup carrier' (taşıma tepsisi/kutusu), 'sleeve' (kağıt sıkıcı), 'tray' (büyük tepsi). Spesifik kelime kullan.",
+    },
+    {
+      id: "ex.1.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Cup carrier' nedir?",
+          options: [
+            "Kahve kuryesi",
+            "Birden fazla bardağı taşıyan karton/plastik aparat",
+            "Kahve makinesi",
+            "Büyük bardak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Cup carrier' = 2-4 bardak taşımak için karton/plastik aparat. Türk öğrenci kütüphane masasında görür ama adını bilmez.",
+        },
+        {
+          q: "'Sleeve' kafe bağlamında ne demek?",
+          options: [
+            "Gömlek kolu",
+            "Sıcak bardağın etrafına geçen kağıt kılıf",
+            "Kapak",
+            "Pipet",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sleeve' = sıcak bardağın etrafına geçen kağıt halka (elinizi yakmasın diye). Türk öğrenci bunu 'kabuk' der — doğrusu 'sleeve'.",
+        },
+        {
+          q: "'Stopper' veya 'lid plug' ne işe yarar?",
+          options: [
+            "Kapak deliğini tıkar (sızdırmaz)",
+            "Kahveyi durdurur",
+            "Sıcak tutar",
+            "Hızlandırır",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Stopper' = kapak deliğini tıkayan plastik kama. To-go bardak çantada dökülmesin diye. Modern kafe aksesuar.",
+        },
+        {
+          q: "'Could I get some napkins?' tonu?",
+          options: [
+            "Kibar talep",
+            "Emir",
+            "Soru değil",
+            "Yanlış kullanım",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Could I get [X]?' = kibar talep formu. 'Some napkins' = birkaç peçete (belirsiz miktar).",
+        },
+        {
+          q: "Bir ofise 3 kişilik kahve götürüyorsun. EN doğal?",
+          options: [
+            "Three coffees three carriers",
+            "Could I get a carrier for the three of them?",
+            "Coffees out office",
+            "All carrier",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could I get a carrier for the three of them?' = 3'ü için bir taşıyıcı. Tek 'carrier' 4 bardağa kadar tutar — pratik.",
+        },
+      ],
     },
   ],
 };

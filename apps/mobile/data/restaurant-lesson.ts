@@ -264,6 +264,142 @@ export const restaurantLesson_2_1: BundledLesson = {
       tr_explanation:
         "Article eksik ('a reservation'). 'In 8 o'clock' yanlış — saat için 'at eight' kullanılır. 'Made' geçmiş, ama 'have' şu anki rezervasyonu vurgular.",
     },
+    {
+      id: "ex.2.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "We have a reservation at ___ under ___ — for ___ people.",
+      slots: [
+        {
+          accepted: ["seven", "eight", "seven thirty", "nine"],
+          distractors: ["7 o'clock thing", "later time", "evening"],
+        },
+        {
+          accepted: ["Berk", "Mert", "Selin", "Emre"],
+          distractors: ["Reserve", "Customer", "Group"],
+        },
+        {
+          accepted: ["two", "four", "six", "eight"],
+          distractors: ["many", "couple peoples", "group"],
+        },
+      ],
+      tr_hint:
+        "Rezervasyon kalıbı: 'We have a reservation at [saat] under [isim] — for [sayı] people.' Hostess hızla bulur. Türk öğrenci 'rezervasyon var' der — tam cümle.",
+      example_filled: "We have a reservation at seven under Berk — for four people.",
+    },
+    {
+      id: "ex.2.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Welcome to Olive Garden! Do you have a reservation?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Berk, party of four at 7 — yes, your table's ready. Right this way.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (we have a |we'?ve got a )?reservation (at|for) (.+)",
+        "(it'?s|under) (berk|mert|selin)( for (.+) at \\d+)?",
+        "(yes|sure)(,)? (under (berk|mert|selin)|for (\\d+|four) at \\d+)",
+        "(party of |table for) (.+) (at|for) (.+) under (berk|mert|selin)",
+      ],
+      tr_hint:
+        "Host rezervasyon soruyor. Net cevap: 'Yes, under Berk — for four at seven.' Hızlı + spesifik (isim, sayı, saat). Türk öğrenci yavaş söyler — hızlandır.",
+      ideal_answer: "Yes — under Berk, for four at seven.",
+    },
+    {
+      id: "ex.2.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Inside or patio?",
+      accepted_patterns: [
+        "(inside|patio|outside)( please)?",
+        "(if you have|do you have) (a |the )?(window|booth|patio)( table)?",
+        "(actually )?(inside|outside) (works|please)",
+        "(no preference|either is fine|whichever is faster)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Host iç/dış soruyor. 3 sn — havaya bağlı karar. 'Inside, please' veya 'Patio, if available.' Türk öğrenci tereddüt eder — net seçim.",
+      ideal_response: "Patio, if you have it open.",
+    },
+    {
+      id: "ex.2.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Saat 8'e rezervasyon yaptırdım.",
+      wrong_en: "I made reservation in 8 o'clock.",
+      right_en: "I have a reservation at eight.",
+      why_tr:
+        "Türk 'saat 8'e' = 'in 8' diye direkt çevirir — yanlış edat. Doğru: 'at eight' (saat için 'at'). 'I have' (sahibim) 'I made' (yaptım)dan daha doğal — rezervasyon hâlâ geçerli.",
+    },
+    {
+      id: "ex.2.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Saat için doğru edat?",
+          options: ["in", "at", "on", "by"],
+          correct: 1,
+          tr_explanation:
+            "Saat için 'at' (at eight, at 7:30). Gün için 'on' (on Monday). Ay/yıl için 'in' (in May, in 2026). Türk 'in' kullanır — yanlış.",
+        },
+        {
+          q: "'Party of four' yapısı?",
+          options: [
+            "4'lük parti",
+            "4 kişilik grup (restoran)",
+            "4 oda",
+            "4 tabak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Party of [sayı]' = [sayı] kişilik grup. Restoran/rezervasyon yerleşik kalıp. 'Party' burada 'eğlence' değil 'grup'.",
+        },
+        {
+          q: "'Under [isim]' rezervasyon bağlamında?",
+          options: [
+            "İsim altında",
+            "İsim adına / için",
+            "Düşük rütbe",
+            "Sınırlı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Under [isim]' = [isim] adına rezervasyon. Host listesinde bulur. Türk 'in name' der — 'under' yerleşik.",
+        },
+        {
+          q: "Hostess seçim sundu (inside/patio). EN doğal?",
+          options: [
+            "Anywhere",
+            "Patio if available, please",
+            "I no care",
+            "Quick please",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Patio if available, please' = tercih + esneklik. Hostess masa durumuna göre yerleştirir.",
+        },
+        {
+          q: "Türk öğrenci tipik hata: 'I made reservation' yerine?",
+          options: [
+            "Aynı (doğru)",
+            "I have a reservation (article + present)",
+            "I do reservation",
+            "I will reservation",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'A reservation' (article eksik tipik hata). 'I have' (present) — geçerli rezervasyon vurgusu. 'I made' (past) — yaptım ama bu kalıp host'a yararsız.",
+        },
+      ],
+    },
   ],
 };
 
@@ -551,6 +687,137 @@ export const restaurantLesson_2_2: BundledLesson = {
       tr_explanation:
         "'I take' kafede zayıf, restoranda yanlış. 'You bring' suçlayıcı/komut. Doğrusu: 'I'll have [X] with [Y] on the side'.",
     },
+    {
+      id: "ex.2.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'll have ___ ___, with ___ on the side.",
+      slots: [
+        {
+          accepted: ["the salmon", "the steak", "the pasta", "the chicken"],
+          distractors: ["food", "meal big", "thing main"],
+        },
+        {
+          accepted: ["medium-rare", "well-done", "grilled", "blackened"],
+          distractors: ["good cooked", "any way", "fast"],
+        },
+        {
+          accepted: ["fries", "rice", "vegetables", "a salad"],
+          distractors: ["potato thing", "food yes", "more big"],
+        },
+      ],
+      tr_hint:
+        "Restoran sipariş kalıbı: 'I'll have [yemek] [hazırlık], with [yan ürün] on the side.' Türk öğrenci 'food and X' der — 'with X on the side' yerleşik.",
+      example_filled: "I'll have the salmon grilled, with a salad on the side.",
+    },
+    {
+      id: "ex.2.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Are you ready to order?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Great choice — and how would you like the steak cooked?",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (i'?ll have|i'?d like) (the )?(salmon|steak|pasta|chicken)",
+        "(could|can) i (get|have) (the )?(salmon|steak|pasta|chicken)( please)?",
+        "(i'?ll have|i'?d like to (start|order)) (the )?(.+)",
+        "(yes|sure)(,)? (i'?ll have|let me have) (the )?(.+)",
+      ],
+      tr_hint:
+        "Garson sipariş soruyor. Net + kibar: 'Yes, I'll have the steak, please.' Türk öğrenci 'I want' der — 'I'll have' veya 'I'd like' restoranda doğal.",
+      ideal_answer: "Yes — I'll have the steak, please.",
+    },
+    {
+      id: "ex.2.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Would you like to start with an appetizer or just go straight to the main?",
+      accepted_patterns: [
+        "(could|can) we (start with|get) (an |the )?(.+)( as an appetizer)?",
+        "(yes|sure)(,)? (we'?ll|let'?s) (start with|share) (an |the )?(.+)",
+        "(actually )?(no thanks|let'?s just|just go) (straight to|to the) (main|entrees)",
+        "(let'?s |we'?ll )?just (the )?main( course)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson başlangıç soruyor. 3 sn — açlık + bütçe. 'We'll start with the bread' veya 'Just the main, thanks.' Türk öğrenci tereddüt eder — net karar.",
+      ideal_response: "Let's start with the bread basket — and main right after.",
+    },
+    {
+      id: "ex.2.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Etin yanına pilav getirir misiniz?",
+      wrong_en: "Bring rice next to meat.",
+      right_en: "I'll have rice on the side, please.",
+      why_tr:
+        "Türk 'yanına' = 'next to' diye direkt çevirir — restoranda 'on the side' yerleşik. 'Bring' komut tonu — 'I'll have' yumuşak sipariş kalıbı.",
+    },
+    {
+      id: "ex.2.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I'll have' restoranda?",
+          options: [
+            "Sahip olacağım",
+            "İstiyorum (kibar sipariş)",
+            "Tutarım",
+            "Yiyeceğim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'll have [X]' = X'i alacağım/istiyorum (kibar restoran sipariş kalıbı). Türk 'I want' der — daha çocukça.",
+        },
+        {
+          q: "'On the side' restoran bağlamında?",
+          options: [
+            "Yan tarafta",
+            "Ayrı tabakta (yan ürün)",
+            "Üstünde",
+            "Sonra",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On the side' = ayrı tabakta (sos, salata, patates yan ürün olarak). 'Rice on the side' = pilav ayrı.",
+        },
+        {
+          q: "Garson 'how would you like it cooked?' diye sordu. Cevap?",
+          options: [
+            "Cook good",
+            "Medium-rare, please",
+            "Hot pls",
+            "Fast cook",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Pişirme derecesi: rare/medium-rare/medium/medium-well/well-done. 'Medium-rare, please' yerleşik kalıp.",
+        },
+        {
+          q: "'Appetizer' ne demek?",
+          options: ["Tatlı", "Ana yemek", "Başlangıç / meze", "İçecek"],
+          correct: 2,
+          tr_explanation:
+            "'Appetizer' = başlangıç / meze (Italian: antipasto). 'Starter' alternatif. 'Main' = ana yemek, 'dessert' = tatlı.",
+        },
+        {
+          q: "Türk 'menü' yerine ABD restoranda?",
+          options: ["Menu (sipariş listesi)", "Combo", "Set", "Bundle"],
+          correct: 0,
+          tr_explanation:
+            "'Menu' = sipariş listesi (yiyecek seçenekleri). Türkiye'deki 'menü' (combo) = ABD'de 'combo'. Karıştırma!",
+        },
+      ],
+    },
   ],
 };
 
@@ -767,6 +1034,147 @@ export const restaurantLesson_2_3: BundledLesson = {
       correct_sentence: "Sorry, could I get another fork? Mine fell on the floor.",
       tr_explanation:
         "'Bring me' komut. 'Mine fell down' kelimesi kelimesine çeviri. Doğrusu 'Could I get another fork? Mine fell on the floor.' — 'sorry' yumuşatıcı.",
+    },
+    {
+      id: "ex.2.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Sorry, could I get ___? ___ ___.",
+      slots: [
+        {
+          accepted: ["another fork", "more water", "another napkin", "more bread"],
+          distractors: ["fork another", "water more", "stuff more"],
+        },
+        {
+          accepted: ["Mine fell", "We're out of water", "It got dirty"],
+          distractors: ["Bad thing", "Problem", "Fast"],
+        },
+        {
+          accepted: ["on the floor", "from the table", "by accident"],
+          distractors: ["downstairs", "very fast", "later"],
+        },
+      ],
+      tr_hint:
+        "Yumuşak istek kalıbı: 'Sorry, could I get [istek]? [neden].' Türk öğrenci 'bring' der — 'could I get' kibar + neden açıklamak sosyal.",
+      example_filled: "Sorry, could I get another fork? Mine fell on the floor.",
+    },
+    {
+      id: "ex.2.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "How's everything tasting?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Of course — be right back with more water.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(it'?s|everything is) (great|good|delicious)",
+        "(could|can) we (get|have) (some |more )?(water|bread|napkins)",
+        "(actually|sorry)(,)? (could|can) i (get|have) (another|more) (.+)",
+        "(yes|yeah)(,)? (it'?s|everything is) (great|good)(,)? (could|can) we (get|have) (some|more) (water|bread)\\?",
+      ],
+      tr_hint:
+        "Garson check-in yapıyor. Olumlu + ek istek: 'Great, thanks — could we get more water?' Türk öğrenci tek kelime der — tam cümle + ek talep.",
+      ideal_answer: "Great, thanks — could we get some more water?",
+    },
+    {
+      id: "ex.2.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Is everything okay over here?",
+      accepted_patterns: [
+        "(yes|yeah|everything'?s)(,)? (great|good|fine|delicious)( thanks)?",
+        "(actually )?(could|can) we (get|have) (more|some) (water|bread|napkins)",
+        "(could|can) you (warm this up|reheat this|take this back)",
+        "(no thanks|all good)( thanks)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson kontrol soruyor. 3 sn — iyi mi, problem var mı? 'Great, thanks!' veya 'Actually, could we get more water?' Türk öğrenci sessiz kalır — iletişim.",
+      ideal_response: "Yes, great — could we get some more water though?",
+    },
+    {
+      id: "ex.2.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bana bir çatal daha getirir misiniz?",
+      wrong_en: "Bring me one fork again.",
+      right_en: "Could I get another fork?",
+      why_tr:
+        "Türk 'getirir misiniz?' = 'bring me' diye direkt çevirir — komut tonu. Doğru: 'Could I get [öğe]?' kibar talep. 'Another' (bir daha) Türkçe 'tekrar bir tane' karşılığı.",
+    },
+    {
+      id: "ex.2.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Garson 'how is everything?' diye sordu. Cevap?",
+          options: [
+            "Good big",
+            "Great, thanks — and could we get more water?",
+            "Bad cold",
+            "Why ask",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Great, thanks' (olumlu) + ek istek aynı cümlede. Türk öğrenci ayrı cümleler kurar — birleştir.",
+        },
+        {
+          q: "'Could I get another X?' yapısı?",
+          options: [
+            "X'i bana ver",
+            "Bir X daha alabilir miyim? (kibar)",
+            "X'i değiştir",
+            "X istemem",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could I get another [öğe]?' = bir daha [öğe] alabilir miyim. 'Another' = ek bir, başka bir. Yerleşik istek kalıbı.",
+        },
+        {
+          q: "'On the floor' yapısı?",
+          options: [
+            "Katta",
+            "Yerde / yere",
+            "Aşağıda",
+            "Üst katta",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On the floor' = yerde. Çatal düştüğünde 'fell on the floor'. Türk 'on ground' der — restoranda 'floor' (zemin).",
+        },
+        {
+          q: "Restoran 'sorry' kullanımı?",
+          options: [
+            "Üzgünüm (suçluluk)",
+            "Yumuşatıcı söz başlatma",
+            "Pardon (geç kalma)",
+            "Kötü çevre",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Restoran 'Sorry' = yumuşatıcı söz açma. 'Sorry, could I get...' = sosyal lubricant. Suçluluk değil, kibar başlangıç.",
+        },
+        {
+          q: "Su isteme. EN doğal?",
+          options: [
+            "Water more!",
+            "Could we get more water, please?",
+            "Bring water",
+            "Need water",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could we get more water, please?' = kibar + kibar artı 'please'. Türk öğrenci 'bring' der — komut. 'Get' yumuşak fiil.",
+        },
+      ],
     },
   ],
 };
@@ -995,6 +1403,138 @@ export const restaurantLesson_2_4: BundledLesson = {
       tr_explanation:
         "Tek kelime + komut tonu. 'Every one own' kırık yapı — doğrusu 'separate checks' (ayrı çek). Tam soru cümlesi kibar.",
     },
+    {
+      id: "ex.2.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we get ___, please? We'd like ___.",
+      slots: [
+        {
+          accepted: ["the check", "the bill", "the receipt"],
+          distractors: ["money paper", "stuff", "thing now"],
+        },
+        {
+          accepted: ["separate checks", "to split it evenly", "to pay together", "an itemized bill"],
+          distractors: ["separate stuff", "money fast", "pay alone"],
+        },
+      ],
+      tr_hint:
+        "Hesap kalıbı: 'Could we get [istek], please? We'd like [ödeme şekli].' Türk öğrenci 'bill please' tek başına der — kibar genişlet.",
+      example_filled: "Could we get the check, please? We'd like separate checks.",
+    },
+    {
+      id: "ex.2.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Anything else, or can I bring the check?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Separate checks coming up — give me one minute.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (the )?check( please)?",
+        "(could|can) we (get|have) (the )?(check|bill)(,)? (please)?",
+        "(we'?d like|let'?s do) separate checks( please)?",
+        "(split it )?(evenly|separately)( please)?",
+      ],
+      tr_hint:
+        "Garson hesabı sordu. Net + bölme isteği: 'Yes, the check please — separate checks.' Türk öğrenci 'bill' der — 'check' ABD'de standart.",
+      ideal_answer: "Yes, the check please — and separate checks if possible.",
+    },
+    {
+      id: "ex.2.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "One check or splitting?",
+      accepted_patterns: [
+        "(one |single |all on one )?check( please)?",
+        "(separate|split it|two|three) (checks|please|evenly)",
+        "(let'?s )?split it (evenly|fifty[- ]fifty)( please)?",
+        "(everyone|all) (on one|together)( card)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson kart durumu soruyor. 3 sn — anlaşıldı mı? 'Separate, please' veya 'One check, all together.' Türk öğrenci tereddüt eder — hızlı karar.",
+      ideal_response: "Separate checks, please.",
+    },
+    {
+      id: "ex.2.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Hesap lütfen.",
+      wrong_en: "Bill please.",
+      right_en: "Could we get the check, please?",
+      why_tr:
+        "Türk 'hesap lütfen' = 'bill please' diye çevirir — anlaşılır ama kısa/komut tonlu. Doğru: 'Could we get the check, please?' = kibar + tam cümle. ABD'de 'check' (UK'da 'bill').",
+    },
+    {
+      id: "ex.2.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "ABD restoranda 'hesap' kelimesi?",
+          options: ["Bill", "Check", "Receipt", "Tab"],
+          correct: 1,
+          tr_explanation:
+            "ABD'de 'check' yaygın (ödenmemiş hesap). UK'da 'bill'. 'Receipt' = ödeme sonrası fiş.",
+        },
+        {
+          q: "'Separate checks' ne anlatır?",
+          options: [
+            "Ayrı çek (kişi başı hesap)",
+            "Yarısı şimdi, yarısı sonra",
+            "Çift çek",
+            "Boş çek",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Separate checks' = ayrı hesaplar (her kişi kendininkini öder). Eşit bölmenin (split evenly) alternatifi.",
+        },
+        {
+          q: "'Split it evenly' yapısı?",
+          options: [
+            "Eşit böl",
+            "Yarıya böl",
+            "İkiye ayır",
+            "Eşit ödeme",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Split it evenly' = eşit böl (toplam tutar / kişi sayısı). 'Fifty-fifty' iki kişi için aynı.",
+        },
+        {
+          q: "Garsonu 'check' için çağırmadan?",
+          options: [
+            "Hayır, çağırman lazım",
+            "Bekle, garson getirir veya 'whenever you're ready' diye sor",
+            "Kendi git",
+            "Telefon ara",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Garson 'whenever you're ready' = ne zaman istersen. Sen söyle 'check please' veya el sallayarak göstergeyi yazar.",
+        },
+        {
+          q: "ABD'de tipping kültürü (bahşiş)?",
+          options: [
+            "Yok",
+            "15-20% standart (hesabın üstüne)",
+            "5%",
+            "Sadece taksiye",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD'de tipping standardı %15-20 (özellikle servis iyiyse). Türkiye'deki %10 refleksinden farklı — restorancılar tipping'le yaşar.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1195,6 +1735,142 @@ export const restaurantLesson_2_5: BundledLesson = {
       tr_hint:
         "'Allergic' = ə-LƏR-jik, 'g' yumuşak 'ʤ'. 'Nuts' kısa 'ʌ'. 'Contain' içinde 'a' uzun 'eɪ': kən-TEYN.",
     },
+    {
+      id: "ex.2.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm allergic to ___ — does this ___ ___?",
+      slots: [
+        {
+          accepted: ["nuts", "shellfish", "dairy", "gluten"],
+          distractors: ["food bad", "spicy", "much"],
+        },
+        {
+          accepted: ["dish", "meal", "menu item", "salad"],
+          distractors: ["food this", "stuff", "menu"],
+        },
+        {
+          accepted: ["contain any", "have any", "include any"],
+          distractors: ["have inside", "include thing", "fast"],
+        },
+      ],
+      tr_hint:
+        "Alerji + soru kalıbı: 'I'm allergic to [öğe] — does this [öğe2] [içerme]?' Türk öğrenci 'I no eat' der — 'I'm allergic' yapı net + ciddi.",
+      example_filled: "I'm allergic to nuts — does this dish contain any?",
+    },
+    {
+      id: "ex.2.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Welcome — any allergies or dietary restrictions tonight?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Got it — I'll let the kitchen know to be careful with cross-contamination. Thanks for letting me know.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (i'?m|i am) allergic to (.+)",
+        "(yeah )?(i have a |i'?ve got a )(nut|shellfish|gluten|dairy) allergy",
+        "(no |i don'?t have any) allergies(,)? (thanks|thank you)",
+        "(actually )?(i can'?t have|i don'?t eat) (.+)",
+      ],
+      tr_hint:
+        "Garson alerji soruyor (ABD restoranda standart). Net cevap: 'Yes, I'm allergic to nuts.' Türk öğrenci 'no problem' der — varsa söyle.",
+      ideal_answer: "Yes — I'm allergic to peanuts. Could you make sure there's none?",
+    },
+    {
+      id: "ex.2.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Just to let you know, our pesto has pine nuts and parmesan.",
+      accepted_patterns: [
+        "(thanks|good to know|appreciate the heads up)",
+        "(actually )?(i'?ll skip|i'?ll pass on) (the pesto|that)",
+        "(could you )?(use a different sauce|make it without)",
+        "(no )?(problem|worries)(,)? (i'?ll go with|let me get) (the )?(.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson alerji uyarısı verdi (fıstık, peynir). 3 sn — alerjin var mı? 'Thanks for the heads up — I'll skip the pesto.' Türk öğrenci panikler — sakin karar.",
+      ideal_response: "Thanks for the heads up — I'll skip the pesto then.",
+    },
+    {
+      id: "ex.2.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bende süt alerjisi var.",
+      wrong_en: "I have milk allergic.",
+      right_en: "I'm allergic to dairy.",
+      why_tr:
+        "Türk 'alerjisi var' = 'have allergic' diye çevirir — sıfat-isim karışıklığı. 'Allergic' sıfat (alerjik). Doğru: 'I'm allergic to [öğe]' veya 'I have a [öğe] allergy' (isim).",
+    },
+    {
+      id: "ex.2.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Dairy' ne demek?",
+          options: ["Diyet", "Süt ürünü (genel)", "Donmuş", "Kuruyemiş"],
+          correct: 1,
+          tr_explanation:
+            "'Dairy' = süt ürünleri (süt, peynir, tereyağı). 'Dairy-free' = sütsüz. 'Lactose-free' = laktozsuz.",
+        },
+        {
+          q: "'Cross-contamination' restoran bağlamında?",
+          options: [
+            "Çapraz kontaminasyon (alerjenin başka yemeğe bulaşması)",
+            "Çift sipariş",
+            "Tabak değişimi",
+            "Mutfak temizliği",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Cross-contamination' = alerjen (fıstık, gluten) başka yemeğe bulaşması. Aynı tava, eldiven, kesme tahtası. Ciddi alerjik = sormalı.",
+        },
+        {
+          q: "'Dietary restrictions' ne demek?",
+          options: [
+            "Diyet sınırlaması",
+            "Diyetisyen tavsiyesi",
+            "Diyet plan",
+            "Beslenme aksaklığı",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Dietary restrictions' = diyet sınırlamaları (alerji, vejetaryen, vegan, halal, kosher). Garson sorması ABD'de yaygın.",
+        },
+        {
+          q: "'Vegan' ve 'vegetarian' farkı?",
+          options: [
+            "Aynı",
+            "Vegan = hiç hayvansal yok, vegetarian = et yok ama süt/yumurta olabilir",
+            "Vegan et yer, vegetarian yemez",
+            "Sadece sebze",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Vegetarian = et yok (süt, yumurta olabilir). Vegan = hiç hayvansal ürün yok (süt, bal, deri dahil). Çiğnenmiş kavramlar.",
+        },
+        {
+          q: "Türk öğrenci 'gluten-free' yapısı?",
+          options: [
+            "Glutensiz",
+            "Gluten dolu",
+            "Gluten testi",
+            "Gluten arar",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'[Öğe]-free' = [öğe]siz. 'Gluten-free' = glutensiz. 'Sugar-free' = şekersiz. 'Nut-free' = fıstıksız. Sıfat oluşturma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1390,6 +2066,147 @@ export const restaurantLesson_2_6: BundledLesson = {
       ipa: "wʌt wʊd ju ˌrɛkəˈmɛnd ɪts aʊər fɜːrst taɪm hɪər",
       tr_hint:
         "'What would you' bağlanır → 'wʌt-wʊ-ʤə'. 'Recommend' vurgusu sonda: re-kə-MEND. 'First time' net 't' sesleri.",
+    },
+    {
+      id: "ex.2.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "What would you ___? It's our ___ ___.",
+      slots: [
+        {
+          accepted: ["recommend", "suggest", "go with"],
+          distractors: ["like", "order fast", "tell more"],
+        },
+        {
+          accepted: ["first", "second", "anniversary", "birthday"],
+          distractors: ["always", "every time", "old"],
+        },
+        {
+          accepted: ["time here", "night out", "visit"],
+          distractors: ["come here", "place", "fast"],
+        },
+      ],
+      tr_hint:
+        "Öneri kalıbı: 'What would you [fiil]? It's our [bağlam].' Bağlam paylaşımı garson kararına yardım eder. Türk öğrenci 'what's good?' der — daha kibar.",
+      example_filled: "What would you recommend? It's our first time here.",
+    },
+    {
+      id: "ex.2.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Have you been to our place before?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Welcome! Then you have to try the chef's special — and our house wine is amazing.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no|nope|first time)(,)? (it'?s our|we'?re trying it for the) first time",
+        "(actually )?(this is|it'?s) our first (time|visit)",
+        "(what would you|do you have any) (recommendation|suggestions)\\?",
+        "(any |what'?s the )(chef'?s special|popular dish|signature)\\?",
+      ],
+      tr_hint:
+        "Garson 'daha önce geldin mi?' diye soruyor. Net + öneri istegi: 'No, first time — what would you recommend?' Türk öğrenci 'no' der — soru ekle.",
+      ideal_answer: "No, first time — what would you recommend?",
+    },
+    {
+      id: "ex.2.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "The salmon is the chef's favorite, but the steak is the most popular tonight.",
+      accepted_patterns: [
+        "(let'?s go with|i'?ll have|i'?ll try) the (salmon|steak)( please)?",
+        "(could|can) i (get|have) (the )?(salmon|steak)( please)?",
+        "(hmm|let'?s see)(,)? (what about|which is) (more popular|fresher)",
+        "(actually )?(both sound good|i'?ll go with the chef'?s)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson öneri verdi. 3 sn — hangisini istersen seç. 'I'll go with the chef's special, then.' Türk öğrenci tereddüt eder — net karar.",
+      ideal_response: "Let's go with the chef's special — sounds great.",
+    },
+    {
+      id: "ex.2.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buranın spesyali ne?",
+      wrong_en: "What is this place special?",
+      right_en: "What's the chef's special tonight?",
+      why_tr:
+        "Türk 'buranın spesyali' = 'this place special' diye direkt çevirir — yapı zayıf. Doğru: 'chef's special' (şefin önerisi) veya 'house specialty'. 'Tonight' ekleme şu anki menüyü açar.",
+    },
+    {
+      id: "ex.2.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Chef's special' ne demek?",
+          options: [
+            "Şefin özel hayatı",
+            "Şefin özel önerisi (genelde menüde yok)",
+            "Özel kişi",
+            "Çok özel müşteri",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Chef's special' = şefin günlük önerisi. Genelde menüde yok, sözlü olarak söylenir. Taze + öne çıkarılan yemek.",
+        },
+        {
+          q: "'What would you recommend?' tonu?",
+          options: [
+            "Resmi soruşturma",
+            "Kibar öneri talebi",
+            "Direkt sipariş",
+            "Garsonu test",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'What would you recommend?' = ne önerirsin? (kibar). Garson görüşünü değer verir, garson da memnun olur.",
+        },
+        {
+          q: "'House specialty' veya 'house wine' yapısı?",
+          options: [
+            "Ev özelliği",
+            "Restoranın imza ürünü / şarabı",
+            "Yerel uzmanlık",
+            "Müşteri tercihi",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'House [öğe]' = restoranın imza/öz [öğe]. 'House wine' = restoranın seçtiği şarap (ucuz, makul). 'House specialty' = ev özelliği yemeği.",
+        },
+        {
+          q: "'It's our first time here' yapısı?",
+          options: [
+            "Burada ilk seferimiz",
+            "İlk sefer",
+            "Birinci yer",
+            "Yeni geliyoruz",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'It's our first time here' = burada ilk seferimiz. Garson kararına yardım eder — özel ilgi gösterilebilir.",
+        },
+        {
+          q: "Garson öneri yaptıktan sonra EN doğal?",
+          options: [
+            "What else?",
+            "Sounds great — I'll go with the chef's special",
+            "Different food",
+            "No, I want something else",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sounds great' = öneri hoşuma gitti (sosyal yumuşatma) + 'I'll go with' net karar. Türk öğrenci 'OK' der — pekiştir.",
+        },
+      ],
     },
   ],
 };
@@ -1590,6 +2407,143 @@ export const restaurantLesson_2_7: BundledLesson = {
       tr_hint:
         "'No worries' = 'noʊ-WƏ-riz'. 'Recommend instead' bağlanır: re-kə-MEN-din-STED. 'Instead' vurgusu sonda.",
     },
+    {
+      id: "ex.2.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "No worries — what would you ___ ___?",
+      slots: [
+        {
+          accepted: ["recommend", "suggest", "go with"],
+          distractors: ["bring fast", "show me", "make"],
+        },
+        {
+          accepted: ["instead", "in place of that", "as an alternative"],
+          distractors: ["after", "before", "more"],
+        },
+      ],
+      tr_hint:
+        "Alternatif soru kalıbı: 'No worries — what would you [fiil] [edat]?' Sınır yemek olmazsa esnek geç. Türk öğrenci 'OK what else' der — kibar genişlet.",
+      example_filled: "No worries — what would you recommend instead?",
+    },
+    {
+      id: "ex.2.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Sorry, we're out of the salmon tonight.",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "The branzino is fresh today — similar prep, lighter flavor.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no worries|that'?s fine|no problem)(,)? what would you (recommend|suggest)( instead)?",
+        "(what )?(do you have|else is good|fresh tonight)\\?",
+        "(any (other |) fish|something similar)\\?",
+        "(actually )?(let me have|i'?ll go with) (the )?(.+)",
+      ],
+      tr_hint:
+        "Garson 'salmon yok' dedi. Sakin alternatif sor: 'No worries — what would you recommend instead?' Türk öğrenci hayalkırıklığı gösterir — esnek + kibar.",
+      ideal_answer: "No worries — what would you recommend instead?",
+    },
+    {
+      id: "ex.2.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Unfortunately, we're 86 the special tonight — sold out.",
+      accepted_patterns: [
+        "(no worries|that'?s fine|no problem)(,)? what (else|do you suggest)",
+        "(any |what'?s another) (popular|chef'?s) (dish|special)\\?",
+        "(thanks for letting me know|no problem)(,)? (let me look at the menu)",
+        "(can|could) you (recommend|suggest) (something|another dish)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson 'spesyal bitti' dedi (86 = restoran slangı 'tükendi'). 3 sn — sakin alternatif. 'No worries — what else do you suggest?' Türk öğrenci 'why!' der — kalmadıysa esnek.",
+      ideal_response: "No worries — what else do you suggest?",
+    },
+    {
+      id: "ex.2.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Salmon yok mu?",
+      wrong_en: "No salmon there is not?",
+      right_en: "Are you out of salmon?",
+      why_tr:
+        "Türk 'var mı/yok mu?' yapısını direkt çeviremez. Doğru: 'Are you out of [öğe]?' (X tükendi mi?) veya 'Do you still have [öğe]?'. Yapı farklı.",
+    },
+    {
+      id: "ex.2.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Restoran slang '86 the [öğe]' ne demek?",
+          options: [
+            "86 tane var",
+            "Tükendi / kalmadı",
+            "86'ya indirim",
+            "Eski (1986)",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'86' = restoran slang 'tükendi'. 'We're 86 the salmon' = salmon kalmadı. Personel arası kullanılır, müşteriye 'we're out of' söylenir.",
+        },
+        {
+          q: "'We're out of [öğe]' yapısı?",
+          options: [
+            "Biz dışındayız",
+            "Tükendi / kalmadı",
+            "Çıkmak üzere",
+            "Yok değil",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'We're out of [öğe]' = [öğe] tükendi/kalmadı. 'Out of stock' alternatif. Restoran/mağaza yaygın.",
+        },
+        {
+          q: "Yemek olmadığında EN doğal tepki?",
+          options: [
+            "Why no?",
+            "No worries — what would you recommend instead?",
+            "Bad bad",
+            "OK bye",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'No worries — what would you recommend instead?' = sakin + alternatif iste. Garson öneri verir, gece kurtulur.",
+        },
+        {
+          q: "Yemek tükendiğinde Türk öğrenci'nin tipik hatası?",
+          options: [
+            "Sakin tepki",
+            "'Why no!' veya 'I waited for this!' (agresif)",
+            "Çık git",
+            "Manager iste",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Türk öğrenci agresif olur — ABD'de bu 'difficult customer' damgası. Sakin + esnek = iyi servis.",
+        },
+        {
+          q: "'Similar prep' yapısı?",
+          options: [
+            "Hazırlık benzer (pişirme yöntemi)",
+            "Aynı miktar",
+            "Aynı fiyat",
+            "Yer ayır",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Prep' = preparation (hazırlık). 'Similar prep' = benzer pişirme yöntemi (ızgara, fırın). Garson alternatif tavsiyesinde kullanır.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1789,6 +2743,143 @@ export const restaurantLesson_2_8: BundledLesson = {
       ipa: "kʊd wi ɡɛt ə haɪ ʧɛr ænd ə kɪdz ˈmɛnju pliːz",
       tr_hint:
         "'High chair' = HAY-ʧer (iki kelime ama tek nefes). 'Kids menu' = KIDZ-men-yu. 'Could we' bağlanır: 'kud-wi'.",
+    },
+    {
+      id: "ex.2.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we get ___ and ___, please?",
+      slots: [
+        {
+          accepted: ["a high chair", "a booster seat", "a kids menu"],
+          distractors: ["chair tall", "menu special", "baby"],
+        },
+        {
+          accepted: ["a kids menu", "some crayons", "a sippy cup", "a kid-friendly option"],
+          distractors: ["paper", "drink small", "child meal"],
+        },
+      ],
+      tr_hint:
+        "Çocuklu aile kalıbı: 'Could we get [öğe1] and [öğe2], please?' İki istek tek cümlede. Türk öğrenci ayrı söyler — birleştir.",
+      example_filled: "Could we get a high chair and a kids menu, please?",
+    },
+    {
+      id: "ex.2.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Welcome — table for how many tonight?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Two adults and a toddler — sure, we have a high chair. Right this way!",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(a |table for )?(\\d+|two|three|four)(,)? (and|with) (a |an )?(toddler|kid|baby|child)",
+        "(two adults )?and (a |one )?(toddler|kid|child)",
+        "(table for) (\\d+ adults )?(and|with) (a |one )?(kid|toddler)",
+        "(could we get|do you have) (a |the )?(high chair|kids menu)\\?",
+      ],
+      tr_hint:
+        "Host kaç kişi soruyor. Net + çocuk bilgisi: 'Two adults and a toddler — could we get a high chair?' Türk öğrenci 'three people' der — yaş kategorisi yardımcı olur.",
+      ideal_answer: "Two adults and a toddler — could we get a high chair?",
+    },
+    {
+      id: "ex.2.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Do you need a kids menu for your little one?",
+      accepted_patterns: [
+        "(yes|yeah)( please)?(,)? (and )?(maybe )?(some )?(crayons|colors)",
+        "(yes|sure)(,)? (that would be great|thanks)",
+        "(do you have|is there) (a |any )?(kid|child)[- ]friendly (option|menu)",
+        "(no thanks|she'?ll share with us)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson çocuk menüsü soruyor. 3 sn — çocuk yaşına göre karar. 'Yes, please — and some crayons if you have them.' ABD restoranları çocuklu aile dostu.",
+      ideal_response: "Yes, please — and some crayons would be great.",
+    },
+    {
+      id: "ex.2.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çocuk sandalyesi alabilir miyiz?",
+      wrong_en: "Can we have baby chair?",
+      right_en: "Could we get a high chair?",
+      why_tr:
+        "Türk 'çocuk sandalyesi' = 'baby chair' diye direkt çevirir. Doğru: 'high chair' (bebek sandalyesi) veya 'booster seat' (büyük çocuk için yükseltici). Yerleşik kelimeler.",
+    },
+    {
+      id: "ex.2.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'High chair' ne demek?",
+          options: [
+            "Yüksek sandalye (yetişkin)",
+            "Bebek/küçük çocuk yemek sandalyesi (yüksek)",
+            "Ofis sandalyesi",
+            "Salıncak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'High chair' = bebek/küçük çocuk için yüksek yemek sandalyesi (tepsili). 'Booster seat' = büyük çocuk için sandalye üstüne yükseltici.",
+        },
+        {
+          q: "'Kids menu' ABD'de yaygın mı?",
+          options: [
+            "Hayır",
+            "Evet, çoğu restoran sunar (basit + indirimli yemekler)",
+            "Sadece fast food",
+            "Sadece akşam",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD'de çoğu restoran 'kids menu' sunar: mac & cheese, chicken tenders, mini burger. Genelde $5-8.",
+        },
+        {
+          q: "'Toddler' ne demek?",
+          options: [
+            "Yetişkin",
+            "1-3 yaş çocuk (yürümeye başlayan)",
+            "5-10 yaş çocuk",
+            "Bebek (0-1)",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Toddler' = 1-3 yaş yürümeye başlayan çocuk. 'Baby' = 0-1, 'kid' = 4+. Türk öğrenci 'child' der — yaşa göre spesifik.",
+        },
+        {
+          q: "Çocuklu aile restoranda iste. EN doğal?",
+          options: [
+            "Need many things",
+            "Could we get a high chair, a kids menu, and some crayons?",
+            "Help child",
+            "Fast for baby",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could we get [liste], please?' = kibar + birleşik istek. Garson birden hepsini toplar.",
+        },
+        {
+          q: "'Sippy cup' nedir?",
+          options: [
+            "Küçük bardak",
+            "Bebek/çocuk için sızdırmaz kapaklı bardak",
+            "Çay bardağı",
+            "Espresso bardağı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sippy cup' = bebek/toddler için kapaklı, ağzı topraklı bardak (dökülmesin). ABD restoranlarda çocuklu aileler ister.",
+        },
+      ],
     },
   ],
 };

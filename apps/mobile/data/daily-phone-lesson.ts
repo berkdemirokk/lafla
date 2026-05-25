@@ -211,6 +211,126 @@ export const dailyPhoneLesson_21_1: BundledLesson = {
       tr_explanation:
         "Saldırgan + belirsiz. Doğru: tarih + spesifik (doesn't look right) + saygili soru.",
     },
+    {
+      id: "ex.dph21.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm calling about ___ — could you ___?",
+      slots: [
+        { accepted: ["a charge", "my bill", "an issue", "a problem"], distractors: ["something", "trouble", "you"] },
+        { accepted: ["help me", "check it", "walk me through it", "look into it"], distractors: ["fix me", "solve me", "see"] },
+      ],
+      tr_hint:
+        "Telefon görüşmesi açılış kalıbı. 'I'm calling about ___' = sebep + 'could you ___' = nazik talep. Türk öğrenci 'You make problem' der — saldırgan + yanlış.",
+      example_filled: "I'm calling about a charge — could you help me?",
+    },
+    {
+      id: "ex.dph21.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Thanks for calling — how can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — could I have your account number?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)(,)? (i'?m calling about) (a |an )?(charge|bill|issue|problem)",
+        "(i (need|wanted) to (report|ask|check)) (about )?",
+        "(i'?ve got|i have) (a )?(question|issue) (about|with)",
+        "(could you (look into|help me with))",
+      ],
+      tr_hint:
+        "Müşteri hizmetleri — net problem söyle. 'I'm calling about a charge on my bill.' Türk öğrenci uzun açıklar — kısa + net olmalı.",
+      ideal_answer: "Hi, I'm calling about a charge on my bill that doesn't look right.",
+    },
+    {
+      id: "ex.dph21.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I can hear you breaking up — could you repeat that?",
+      accepted_patterns: [
+        "(sure|of course|sorry)(,)? (let me|can you (hear me )?(now|better))",
+        "(yes)(,)? (i (said|was saying))",
+        "(is this (better|clearer))",
+        "(can you hear me (now|better))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Karşı taraf 'hat kötü' diyor — sakin + tekrar et. 'Sorry, can you hear me now?' Türk öğrenci panikler — sakin onaylama yeter.",
+      ideal_response: "Sorry — can you hear me better now?",
+    },
+    {
+      id: "ex.dph21.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bilgi verir misin?",
+      wrong_en: "Can you give me informations?",
+      right_en: "Could you give me some information?",
+      why_tr:
+        "İki Türk hatası: (1) 'information' uncountable — 'informations' diye çoğul olmaz. 'Some information' veya 'pieces of information'. (2) 'Can you' yerine 'Could you' kibar.",
+    },
+    {
+      id: "ex.dph21.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Müşteri hizmetlerini ararken açılış?",
+          options: [
+            "You charge wrong!",
+            "Hi, I'm calling about a charge on my bill.",
+            "Hello, problem.",
+            "Help!",
+          ],
+          correct: 1,
+          tr_explanation: "'I'm calling about ___' = sebep söyle. Sakin + net.",
+        },
+        {
+          q: "'Breaking up' (call'da) ne demek?",
+          options: [
+            "Hat kesiliyor / kalitesi kötü.",
+            "Ayrılmak.",
+            "Bağırmak.",
+            "Yavaşlamak.",
+          ],
+          correct: 0,
+          tr_explanation: "'You're breaking up' = sesin kesik kesik geliyor. Telefon kalıbı.",
+        },
+        {
+          q: "'Reference number' niçin önemli?",
+          options: [
+            "Geri arayınca kayıt için.",
+            "Kimlik için.",
+            "Borç için.",
+            "Adres için.",
+          ],
+          correct: 0,
+          tr_explanation: "'Ref number' = aramaya özel kayıt no. Tekrar arayınca işlemi bağlayan.",
+        },
+        {
+          q: "'Information' nasıl kullanılır?",
+          options: [
+            "Informations çoğul.",
+            "Uncountable — 'some information' veya 'pieces of information'.",
+            "Hep tekil.",
+            "İhtiyaç yok.",
+          ],
+          correct: 1,
+          tr_explanation: "Sayılamaz isim. 'Information' her zaman tekil form, miktar belirteçleriyle ('some', 'a piece of') kullanılır.",
+        },
+        {
+          q: "'Could you check?' vs 'Check it!' farkı?",
+          options: [
+            "İlki kibar talep; ikincisi emir (kaba).",
+            "İkisi aynı.",
+            "İlki emir.",
+            "İkincisi soru.",
+          ],
+          correct: 0,
+          tr_explanation: "'Could you' = nazik form. 'Check it!' = ünlem (kaba). Müşteri hizmetlerinde kritik fark.",
+        },
+      ],
+    },
   ],
 };
 

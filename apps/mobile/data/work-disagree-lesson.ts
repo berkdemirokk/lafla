@@ -227,6 +227,101 @@ export const workDisagreeLesson_34_1: BundledLesson = {
       tr_explanation:
         "'I am disagree' yanlış — 'disagree' fiil, 'I disagree' veya süregelen için 'I've been disagreeing'. 'I want make' yanlış — 'want to make/have' (mastar). 'Make discussion' Türkçe; doğrusu 'have a discussion'.",
     },
+    {
+      id: "ex.wd34.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I see your point, but I'd push back on ___ because ___.",
+      slots: [
+        { accepted: ['that assumption', 'the timeline', 'this approach', 'that priority'], distractors: ['that assumptions', 'timelines', 'this approachs', 'priorities'] },
+        { accepted: ['it ignores the data', "we'd ship late", 'the cost is too high', "users won't adopt"], distractors: ['it ignore the data', "we'd ship lately", 'the cost is too higher', "users don't adopt"] },
+      ],
+      tr_hint:
+        "Kibar disagreement formula. 'I see your point' = empati ön ek, sonra 'but' ile aksini söyle. 'Push back' = nazikçe itiraz.",
+      example_filled: "I see your point, but I'd push back on the timeline because we'd ship late.",
+    },
+    {
+      id: "ex.wd34.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I really think we should just ship it as-is and iterate." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Hmm, fair — what would you propose instead?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i hear you|i see (where|what)|fair point)",
+        "(but|however|that said)",
+        "(i'?m worried|i'?m concerned|my concern is) (about|that)",
+        "(what if we|could we|maybe) (.+) (first|instead)",
+      ],
+      tr_hint:
+        "Manager 'just ship' dedi. Direkt 'No' verme — agree → reframe → counter-propose.",
+      ideal_answer: "I hear you, but I'm worried about the bug reports — what if we ship to 10% first?",
+    },
+    {
+      id: "ex.wd34.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I don't think your approach is going to work — we tried something similar last year.",
+      accepted_patterns: [
+        "(could you|can you) (tell me more|share|elaborate)",
+        "(what didn'?t work|what was different) (last time|then|before)",
+        "(in this case|this time) (.+) (different|new|changed)",
+        "(i'?d love to|would help to) understand",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior pushback yaptı. Defansif olma — context iste. Türk hatası: 'You are wrong' = burning bridges.",
+      ideal_response: "Could you share more about what didn't work last time? I want to make sure we're not repeating it.",
+    },
+    {
+      id: "ex.wd34.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence sen yanılıyorsun.",
+      wrong_en: "I think you are wrong.",
+      right_en: "I see it a bit differently — could we talk through it?",
+      why_tr:
+        "'You are wrong' = direkt saldırı. İş İngilizcesinde 'I see it differently' = pozisyonu belirtir, kişiyi suçlamaz. 'Could we talk through it' = işbirliği daveti. Türk doğrudanlığı US/UK iş kültüründe agresif algılanır.",
+    },
+    {
+      id: "ex.wd34.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Push back' iş İngilizcesinde ne demek?",
+          options: ["İtmek (fiziksel)", "Nazikçe itiraz etmek", "Geri çevirmek (terbiyesiz)", "Reddetmek"],
+          correct: 1,
+          tr_explanation: "'Push back' = profesyonel itiraz. Saygılı disagreement.",
+        },
+        {
+          q: "Disagreement için en kötü açılış?",
+          options: ["I hear you, but...", "You are wrong", "I see your point, however...", "I'd push back on..."],
+          correct: 1,
+          tr_explanation: "'You are wrong' = saldırı. İlk üç = empati + kontra. Pratik formula.",
+        },
+        {
+          q: "'Fair point' ne işe yarar?",
+          options: ["Tamamen kabul", "Empati gösterip kendi pozisyonunu söylemek için ön ek", "Konuyu kapatma", "Pas geçme"],
+          correct: 1,
+          tr_explanation: "'Fair point' = karşı tarafın haklı kısmını kabul + 'but' ile devam. Yumuşatıcı.",
+        },
+        {
+          q: "Counter-proposal en güçlü ne zaman?",
+          options: ["Empati'siz", "Empati + concern + alternatif", "Sadece 'No'", "Sessiz kalmak"],
+          correct: 1,
+          tr_explanation: "Agree → reframe → counter-propose formula. Profesyonel disagreement standardı.",
+        },
+        {
+          q: "'I'd love to understand' tonunda nedir?",
+          options: ["Saldırgan", "İşbirliğine açık", "Pasif-agresif", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'I'd love to understand' = curiosity tone. Disagreement'i öğrenme fırsatına çevirir.",
+        },
+      ],
+    },
   ],
 };
 
@@ -437,6 +532,101 @@ export const workDisagreeLesson_34_2: BundledLesson = {
       correct_sentence: "This code has been in review for 3 days — I made the changes but the reviewer hasn't answered.",
       tr_explanation:
         "'Since 3 days' yanlış — süre için 'for'. 'I make change' yanlış zaman — geçmiş için 'I made the changes' (belirli + çoğul). 'Reviewer no answer' Türkçe; doğrusu 'the reviewer hasn't answered'. Süregelen durum için present perfect.",
+    },
+    {
+      id: "ex.wd34.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I see your point, but I'd push back on ___ because ___.",
+      slots: [
+        { accepted: ['that assumption', 'the timeline', 'this approach', 'that priority'], distractors: ['that assumptions', 'timelines', 'this approachs', 'priorities'] },
+        { accepted: ['it ignores the data', "we'd ship late", 'the cost is too high', "users won't adopt"], distractors: ['it ignore the data', "we'd ship lately", 'the cost is too higher', "users don't adopt"] },
+      ],
+      tr_hint:
+        "Kibar disagreement formula. 'I see your point' = empati ön ek, sonra 'but' ile aksini söyle. 'Push back' = nazikçe itiraz.",
+      example_filled: "I see your point, but I'd push back on the timeline because we'd ship late.",
+    },
+    {
+      id: "ex.wd34.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I really think we should just ship it as-is and iterate." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Hmm, fair — what would you propose instead?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i hear you|i see (where|what)|fair point)",
+        "(but|however|that said)",
+        "(i'?m worried|i'?m concerned|my concern is) (about|that)",
+        "(what if we|could we|maybe) (.+) (first|instead)",
+      ],
+      tr_hint:
+        "Manager 'just ship' dedi. Direkt 'No' verme — agree → reframe → counter-propose.",
+      ideal_answer: "I hear you, but I'm worried about the bug reports — what if we ship to 10% first?",
+    },
+    {
+      id: "ex.wd34.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I don't think your approach is going to work — we tried something similar last year.",
+      accepted_patterns: [
+        "(could you|can you) (tell me more|share|elaborate)",
+        "(what didn'?t work|what was different) (last time|then|before)",
+        "(in this case|this time) (.+) (different|new|changed)",
+        "(i'?d love to|would help to) understand",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior pushback yaptı. Defansif olma — context iste. Türk hatası: 'You are wrong' = burning bridges.",
+      ideal_response: "Could you share more about what didn't work last time? I want to make sure we're not repeating it.",
+    },
+    {
+      id: "ex.wd34.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence sen yanılıyorsun.",
+      wrong_en: "I think you are wrong.",
+      right_en: "I see it a bit differently — could we talk through it?",
+      why_tr:
+        "'You are wrong' = direkt saldırı. İş İngilizcesinde 'I see it differently' = pozisyonu belirtir, kişiyi suçlamaz. 'Could we talk through it' = işbirliği daveti. Türk doğrudanlığı US/UK iş kültüründe agresif algılanır.",
+    },
+    {
+      id: "ex.wd34.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Push back' iş İngilizcesinde ne demek?",
+          options: ["İtmek (fiziksel)", "Nazikçe itiraz etmek", "Geri çevirmek (terbiyesiz)", "Reddetmek"],
+          correct: 1,
+          tr_explanation: "'Push back' = profesyonel itiraz. Saygılı disagreement.",
+        },
+        {
+          q: "Disagreement için en kötü açılış?",
+          options: ["I hear you, but...", "You are wrong", "I see your point, however...", "I'd push back on..."],
+          correct: 1,
+          tr_explanation: "'You are wrong' = saldırı. İlk üç = empati + kontra. Pratik formula.",
+        },
+        {
+          q: "'Fair point' ne işe yarar?",
+          options: ["Tamamen kabul", "Empati gösterip kendi pozisyonunu söylemek için ön ek", "Konuyu kapatma", "Pas geçme"],
+          correct: 1,
+          tr_explanation: "'Fair point' = karşı tarafın haklı kısmını kabul + 'but' ile devam. Yumuşatıcı.",
+        },
+        {
+          q: "Counter-proposal en güçlü ne zaman?",
+          options: ["Empati'siz", "Empati + concern + alternatif", "Sadece 'No'", "Sessiz kalmak"],
+          correct: 1,
+          tr_explanation: "Agree → reframe → counter-propose formula. Profesyonel disagreement standardı.",
+        },
+        {
+          q: "'I'd love to understand' tonunda nedir?",
+          options: ["Saldırgan", "İşbirliğine açık", "Pasif-agresif", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'I'd love to understand' = curiosity tone. Disagreement'i öğrenme fırsatına çevirir.",
+        },
+      ],
     },
   ],
 };
@@ -663,6 +853,101 @@ export const workDisagreeLesson_34_3: BundledLesson = {
       correct_sentence: "We've been discussing this for an hour — let's make a decision now.",
       tr_explanation:
         "'We discuss' yanlış zaman; süregelen için 'we've been discussing'. 'Since 1 hour' yanlış — süre için 'for an hour'. 'We make decision' yerine 'let's make a decision' (öneri + sayılabilir).",
+    },
+    {
+      id: "ex.wd34.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I see your point, but I'd push back on ___ because ___.",
+      slots: [
+        { accepted: ['that assumption', 'the timeline', 'this approach', 'that priority'], distractors: ['that assumptions', 'timelines', 'this approachs', 'priorities'] },
+        { accepted: ['it ignores the data', "we'd ship late", 'the cost is too high', "users won't adopt"], distractors: ['it ignore the data', "we'd ship lately", 'the cost is too higher', "users don't adopt"] },
+      ],
+      tr_hint:
+        "Kibar disagreement formula. 'I see your point' = empati ön ek, sonra 'but' ile aksini söyle. 'Push back' = nazikçe itiraz.",
+      example_filled: "I see your point, but I'd push back on the timeline because we'd ship late.",
+    },
+    {
+      id: "ex.wd34.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I really think we should just ship it as-is and iterate." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Hmm, fair — what would you propose instead?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i hear you|i see (where|what)|fair point)",
+        "(but|however|that said)",
+        "(i'?m worried|i'?m concerned|my concern is) (about|that)",
+        "(what if we|could we|maybe) (.+) (first|instead)",
+      ],
+      tr_hint:
+        "Manager 'just ship' dedi. Direkt 'No' verme — agree → reframe → counter-propose.",
+      ideal_answer: "I hear you, but I'm worried about the bug reports — what if we ship to 10% first?",
+    },
+    {
+      id: "ex.wd34.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I don't think your approach is going to work — we tried something similar last year.",
+      accepted_patterns: [
+        "(could you|can you) (tell me more|share|elaborate)",
+        "(what didn'?t work|what was different) (last time|then|before)",
+        "(in this case|this time) (.+) (different|new|changed)",
+        "(i'?d love to|would help to) understand",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior pushback yaptı. Defansif olma — context iste. Türk hatası: 'You are wrong' = burning bridges.",
+      ideal_response: "Could you share more about what didn't work last time? I want to make sure we're not repeating it.",
+    },
+    {
+      id: "ex.wd34.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence sen yanılıyorsun.",
+      wrong_en: "I think you are wrong.",
+      right_en: "I see it a bit differently — could we talk through it?",
+      why_tr:
+        "'You are wrong' = direkt saldırı. İş İngilizcesinde 'I see it differently' = pozisyonu belirtir, kişiyi suçlamaz. 'Could we talk through it' = işbirliği daveti. Türk doğrudanlığı US/UK iş kültüründe agresif algılanır.",
+    },
+    {
+      id: "ex.wd34.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Push back' iş İngilizcesinde ne demek?",
+          options: ["İtmek (fiziksel)", "Nazikçe itiraz etmek", "Geri çevirmek (terbiyesiz)", "Reddetmek"],
+          correct: 1,
+          tr_explanation: "'Push back' = profesyonel itiraz. Saygılı disagreement.",
+        },
+        {
+          q: "Disagreement için en kötü açılış?",
+          options: ["I hear you, but...", "You are wrong", "I see your point, however...", "I'd push back on..."],
+          correct: 1,
+          tr_explanation: "'You are wrong' = saldırı. İlk üç = empati + kontra. Pratik formula.",
+        },
+        {
+          q: "'Fair point' ne işe yarar?",
+          options: ["Tamamen kabul", "Empati gösterip kendi pozisyonunu söylemek için ön ek", "Konuyu kapatma", "Pas geçme"],
+          correct: 1,
+          tr_explanation: "'Fair point' = karşı tarafın haklı kısmını kabul + 'but' ile devam. Yumuşatıcı.",
+        },
+        {
+          q: "Counter-proposal en güçlü ne zaman?",
+          options: ["Empati'siz", "Empati + concern + alternatif", "Sadece 'No'", "Sessiz kalmak"],
+          correct: 1,
+          tr_explanation: "Agree → reframe → counter-propose formula. Profesyonel disagreement standardı.",
+        },
+        {
+          q: "'I'd love to understand' tonunda nedir?",
+          options: ["Saldırgan", "İşbirliğine açık", "Pasif-agresif", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'I'd love to understand' = curiosity tone. Disagreement'i öğrenme fırsatına çevirir.",
+        },
+      ],
     },
   ],
 };
@@ -891,6 +1176,101 @@ export const workDisagreeLesson_34_4: BundledLesson = {
       tr_explanation:
         "'We argue' yanlış zaman; süregelen tartışma için 'we've been arguing'. 'Since 2 weeks' yanlış — süre için 'for'. 'Forget all' Türkçe; doğrusu 'move on' (work register).",
     },
+    {
+      id: "ex.wd34.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I see your point, but I'd push back on ___ because ___.",
+      slots: [
+        { accepted: ['that assumption', 'the timeline', 'this approach', 'that priority'], distractors: ['that assumptions', 'timelines', 'this approachs', 'priorities'] },
+        { accepted: ['it ignores the data', "we'd ship late", 'the cost is too high', "users won't adopt"], distractors: ['it ignore the data', "we'd ship lately", 'the cost is too higher', "users don't adopt"] },
+      ],
+      tr_hint:
+        "Kibar disagreement formula. 'I see your point' = empati ön ek, sonra 'but' ile aksini söyle. 'Push back' = nazikçe itiraz.",
+      example_filled: "I see your point, but I'd push back on the timeline because we'd ship late.",
+    },
+    {
+      id: "ex.wd34.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I really think we should just ship it as-is and iterate." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Hmm, fair — what would you propose instead?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i hear you|i see (where|what)|fair point)",
+        "(but|however|that said)",
+        "(i'?m worried|i'?m concerned|my concern is) (about|that)",
+        "(what if we|could we|maybe) (.+) (first|instead)",
+      ],
+      tr_hint:
+        "Manager 'just ship' dedi. Direkt 'No' verme — agree → reframe → counter-propose.",
+      ideal_answer: "I hear you, but I'm worried about the bug reports — what if we ship to 10% first?",
+    },
+    {
+      id: "ex.wd34.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I don't think your approach is going to work — we tried something similar last year.",
+      accepted_patterns: [
+        "(could you|can you) (tell me more|share|elaborate)",
+        "(what didn'?t work|what was different) (last time|then|before)",
+        "(in this case|this time) (.+) (different|new|changed)",
+        "(i'?d love to|would help to) understand",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior pushback yaptı. Defansif olma — context iste. Türk hatası: 'You are wrong' = burning bridges.",
+      ideal_response: "Could you share more about what didn't work last time? I want to make sure we're not repeating it.",
+    },
+    {
+      id: "ex.wd34.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence sen yanılıyorsun.",
+      wrong_en: "I think you are wrong.",
+      right_en: "I see it a bit differently — could we talk through it?",
+      why_tr:
+        "'You are wrong' = direkt saldırı. İş İngilizcesinde 'I see it differently' = pozisyonu belirtir, kişiyi suçlamaz. 'Could we talk through it' = işbirliği daveti. Türk doğrudanlığı US/UK iş kültüründe agresif algılanır.",
+    },
+    {
+      id: "ex.wd34.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Push back' iş İngilizcesinde ne demek?",
+          options: ["İtmek (fiziksel)", "Nazikçe itiraz etmek", "Geri çevirmek (terbiyesiz)", "Reddetmek"],
+          correct: 1,
+          tr_explanation: "'Push back' = profesyonel itiraz. Saygılı disagreement.",
+        },
+        {
+          q: "Disagreement için en kötü açılış?",
+          options: ["I hear you, but...", "You are wrong", "I see your point, however...", "I'd push back on..."],
+          correct: 1,
+          tr_explanation: "'You are wrong' = saldırı. İlk üç = empati + kontra. Pratik formula.",
+        },
+        {
+          q: "'Fair point' ne işe yarar?",
+          options: ["Tamamen kabul", "Empati gösterip kendi pozisyonunu söylemek için ön ek", "Konuyu kapatma", "Pas geçme"],
+          correct: 1,
+          tr_explanation: "'Fair point' = karşı tarafın haklı kısmını kabul + 'but' ile devam. Yumuşatıcı.",
+        },
+        {
+          q: "Counter-proposal en güçlü ne zaman?",
+          options: ["Empati'siz", "Empati + concern + alternatif", "Sadece 'No'", "Sessiz kalmak"],
+          correct: 1,
+          tr_explanation: "Agree → reframe → counter-propose formula. Profesyonel disagreement standardı.",
+        },
+        {
+          q: "'I'd love to understand' tonunda nedir?",
+          options: ["Saldırgan", "İşbirliğine açık", "Pasif-agresif", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'I'd love to understand' = curiosity tone. Disagreement'i öğrenme fırsatına çevirir.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1079,6 +1459,101 @@ export const workDisagreeLesson_34_5: BundledLesson = {
       phrase: "I see where you're coming from, but let me offer a different angle.",
       tr_translation: "Nereden geldiğini anlıyorum, ama farklı bir açı sunmak istiyorum.",
       ipa: "/aɪ siː weər jʊər ˈkʌmɪŋ frɒm bət lɛt miː ˈɒfər ə ˈdɪfərənt ˈæŋɡəl/",
+    },
+    {
+      id: "ex.wd34.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I see your point, but I'd push back on ___ because ___.",
+      slots: [
+        { accepted: ['that assumption', 'the timeline', 'this approach', 'that priority'], distractors: ['that assumptions', 'timelines', 'this approachs', 'priorities'] },
+        { accepted: ['it ignores the data', "we'd ship late", 'the cost is too high', "users won't adopt"], distractors: ['it ignore the data', "we'd ship lately", 'the cost is too higher', "users don't adopt"] },
+      ],
+      tr_hint:
+        "Kibar disagreement formula. 'I see your point' = empati ön ek, sonra 'but' ile aksini söyle. 'Push back' = nazikçe itiraz.",
+      example_filled: "I see your point, but I'd push back on the timeline because we'd ship late.",
+    },
+    {
+      id: "ex.wd34.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I really think we should just ship it as-is and iterate." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Hmm, fair — what would you propose instead?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i hear you|i see (where|what)|fair point)",
+        "(but|however|that said)",
+        "(i'?m worried|i'?m concerned|my concern is) (about|that)",
+        "(what if we|could we|maybe) (.+) (first|instead)",
+      ],
+      tr_hint:
+        "Manager 'just ship' dedi. Direkt 'No' verme — agree → reframe → counter-propose.",
+      ideal_answer: "I hear you, but I'm worried about the bug reports — what if we ship to 10% first?",
+    },
+    {
+      id: "ex.wd34.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I don't think your approach is going to work — we tried something similar last year.",
+      accepted_patterns: [
+        "(could you|can you) (tell me more|share|elaborate)",
+        "(what didn'?t work|what was different) (last time|then|before)",
+        "(in this case|this time) (.+) (different|new|changed)",
+        "(i'?d love to|would help to) understand",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior pushback yaptı. Defansif olma — context iste. Türk hatası: 'You are wrong' = burning bridges.",
+      ideal_response: "Could you share more about what didn't work last time? I want to make sure we're not repeating it.",
+    },
+    {
+      id: "ex.wd34.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence sen yanılıyorsun.",
+      wrong_en: "I think you are wrong.",
+      right_en: "I see it a bit differently — could we talk through it?",
+      why_tr:
+        "'You are wrong' = direkt saldırı. İş İngilizcesinde 'I see it differently' = pozisyonu belirtir, kişiyi suçlamaz. 'Could we talk through it' = işbirliği daveti. Türk doğrudanlığı US/UK iş kültüründe agresif algılanır.",
+    },
+    {
+      id: "ex.wd34.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Push back' iş İngilizcesinde ne demek?",
+          options: ["İtmek (fiziksel)", "Nazikçe itiraz etmek", "Geri çevirmek (terbiyesiz)", "Reddetmek"],
+          correct: 1,
+          tr_explanation: "'Push back' = profesyonel itiraz. Saygılı disagreement.",
+        },
+        {
+          q: "Disagreement için en kötü açılış?",
+          options: ["I hear you, but...", "You are wrong", "I see your point, however...", "I'd push back on..."],
+          correct: 1,
+          tr_explanation: "'You are wrong' = saldırı. İlk üç = empati + kontra. Pratik formula.",
+        },
+        {
+          q: "'Fair point' ne işe yarar?",
+          options: ["Tamamen kabul", "Empati gösterip kendi pozisyonunu söylemek için ön ek", "Konuyu kapatma", "Pas geçme"],
+          correct: 1,
+          tr_explanation: "'Fair point' = karşı tarafın haklı kısmını kabul + 'but' ile devam. Yumuşatıcı.",
+        },
+        {
+          q: "Counter-proposal en güçlü ne zaman?",
+          options: ["Empati'siz", "Empati + concern + alternatif", "Sadece 'No'", "Sessiz kalmak"],
+          correct: 1,
+          tr_explanation: "Agree → reframe → counter-propose formula. Profesyonel disagreement standardı.",
+        },
+        {
+          q: "'I'd love to understand' tonunda nedir?",
+          options: ["Saldırgan", "İşbirliğine açık", "Pasif-agresif", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'I'd love to understand' = curiosity tone. Disagreement'i öğrenme fırsatına çevirir.",
+        },
+      ],
     },
   ],
 };
@@ -1277,6 +1752,101 @@ export const workDisagreeLesson_34_6: BundledLesson = {
       tr_translation: "Beni dinle — bir şey gözden kaçırıyor olabilirim, ama bir endişem var.",
       ipa: "/hɪər miː aʊt aɪ maɪt biː ˈmɪsɪŋ ˈsʌmθɪŋ bət aɪ hæv ə kənˈsɜːn/",
     },
+    {
+      id: "ex.wd34.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I see your point, but I'd push back on ___ because ___.",
+      slots: [
+        { accepted: ['that assumption', 'the timeline', 'this approach', 'that priority'], distractors: ['that assumptions', 'timelines', 'this approachs', 'priorities'] },
+        { accepted: ['it ignores the data', "we'd ship late", 'the cost is too high', "users won't adopt"], distractors: ['it ignore the data', "we'd ship lately", 'the cost is too higher', "users don't adopt"] },
+      ],
+      tr_hint:
+        "Kibar disagreement formula. 'I see your point' = empati ön ek, sonra 'but' ile aksini söyle. 'Push back' = nazikçe itiraz.",
+      example_filled: "I see your point, but I'd push back on the timeline because we'd ship late.",
+    },
+    {
+      id: "ex.wd34.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I really think we should just ship it as-is and iterate." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Hmm, fair — what would you propose instead?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i hear you|i see (where|what)|fair point)",
+        "(but|however|that said)",
+        "(i'?m worried|i'?m concerned|my concern is) (about|that)",
+        "(what if we|could we|maybe) (.+) (first|instead)",
+      ],
+      tr_hint:
+        "Manager 'just ship' dedi. Direkt 'No' verme — agree → reframe → counter-propose.",
+      ideal_answer: "I hear you, but I'm worried about the bug reports — what if we ship to 10% first?",
+    },
+    {
+      id: "ex.wd34.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I don't think your approach is going to work — we tried something similar last year.",
+      accepted_patterns: [
+        "(could you|can you) (tell me more|share|elaborate)",
+        "(what didn'?t work|what was different) (last time|then|before)",
+        "(in this case|this time) (.+) (different|new|changed)",
+        "(i'?d love to|would help to) understand",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior pushback yaptı. Defansif olma — context iste. Türk hatası: 'You are wrong' = burning bridges.",
+      ideal_response: "Could you share more about what didn't work last time? I want to make sure we're not repeating it.",
+    },
+    {
+      id: "ex.wd34.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence sen yanılıyorsun.",
+      wrong_en: "I think you are wrong.",
+      right_en: "I see it a bit differently — could we talk through it?",
+      why_tr:
+        "'You are wrong' = direkt saldırı. İş İngilizcesinde 'I see it differently' = pozisyonu belirtir, kişiyi suçlamaz. 'Could we talk through it' = işbirliği daveti. Türk doğrudanlığı US/UK iş kültüründe agresif algılanır.",
+    },
+    {
+      id: "ex.wd34.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Push back' iş İngilizcesinde ne demek?",
+          options: ["İtmek (fiziksel)", "Nazikçe itiraz etmek", "Geri çevirmek (terbiyesiz)", "Reddetmek"],
+          correct: 1,
+          tr_explanation: "'Push back' = profesyonel itiraz. Saygılı disagreement.",
+        },
+        {
+          q: "Disagreement için en kötü açılış?",
+          options: ["I hear you, but...", "You are wrong", "I see your point, however...", "I'd push back on..."],
+          correct: 1,
+          tr_explanation: "'You are wrong' = saldırı. İlk üç = empati + kontra. Pratik formula.",
+        },
+        {
+          q: "'Fair point' ne işe yarar?",
+          options: ["Tamamen kabul", "Empati gösterip kendi pozisyonunu söylemek için ön ek", "Konuyu kapatma", "Pas geçme"],
+          correct: 1,
+          tr_explanation: "'Fair point' = karşı tarafın haklı kısmını kabul + 'but' ile devam. Yumuşatıcı.",
+        },
+        {
+          q: "Counter-proposal en güçlü ne zaman?",
+          options: ["Empati'siz", "Empati + concern + alternatif", "Sadece 'No'", "Sessiz kalmak"],
+          correct: 1,
+          tr_explanation: "Agree → reframe → counter-propose formula. Profesyonel disagreement standardı.",
+        },
+        {
+          q: "'I'd love to understand' tonunda nedir?",
+          options: ["Saldırgan", "İşbirliğine açık", "Pasif-agresif", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'I'd love to understand' = curiosity tone. Disagreement'i öğrenme fırsatına çevirir.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1468,6 +2038,101 @@ export const workDisagreeLesson_34_7: BundledLesson = {
       phrase: "Hard agree on the timeline — what if we tried this approach for scope?",
       tr_translation: "Zaman çizelgesine kesin katılıyorum — kapsam için bu yaklaşımı denesek?",
       ipa: "/hɑːd əˈɡriː ɒn ðə ˈtaɪmlaɪn wɒt ɪf wiː traɪd ðɪs əˈprəʊtʃ fə skəʊp/",
+    },
+    {
+      id: "ex.wd34.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I see your point, but I'd push back on ___ because ___.",
+      slots: [
+        { accepted: ['that assumption', 'the timeline', 'this approach', 'that priority'], distractors: ['that assumptions', 'timelines', 'this approachs', 'priorities'] },
+        { accepted: ['it ignores the data', "we'd ship late", 'the cost is too high', "users won't adopt"], distractors: ['it ignore the data', "we'd ship lately", 'the cost is too higher', "users don't adopt"] },
+      ],
+      tr_hint:
+        "Kibar disagreement formula. 'I see your point' = empati ön ek, sonra 'but' ile aksini söyle. 'Push back' = nazikçe itiraz.",
+      example_filled: "I see your point, but I'd push back on the timeline because we'd ship late.",
+    },
+    {
+      id: "ex.wd34.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I really think we should just ship it as-is and iterate." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Hmm, fair — what would you propose instead?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i hear you|i see (where|what)|fair point)",
+        "(but|however|that said)",
+        "(i'?m worried|i'?m concerned|my concern is) (about|that)",
+        "(what if we|could we|maybe) (.+) (first|instead)",
+      ],
+      tr_hint:
+        "Manager 'just ship' dedi. Direkt 'No' verme — agree → reframe → counter-propose.",
+      ideal_answer: "I hear you, but I'm worried about the bug reports — what if we ship to 10% first?",
+    },
+    {
+      id: "ex.wd34.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I don't think your approach is going to work — we tried something similar last year.",
+      accepted_patterns: [
+        "(could you|can you) (tell me more|share|elaborate)",
+        "(what didn'?t work|what was different) (last time|then|before)",
+        "(in this case|this time) (.+) (different|new|changed)",
+        "(i'?d love to|would help to) understand",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior pushback yaptı. Defansif olma — context iste. Türk hatası: 'You are wrong' = burning bridges.",
+      ideal_response: "Could you share more about what didn't work last time? I want to make sure we're not repeating it.",
+    },
+    {
+      id: "ex.wd34.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence sen yanılıyorsun.",
+      wrong_en: "I think you are wrong.",
+      right_en: "I see it a bit differently — could we talk through it?",
+      why_tr:
+        "'You are wrong' = direkt saldırı. İş İngilizcesinde 'I see it differently' = pozisyonu belirtir, kişiyi suçlamaz. 'Could we talk through it' = işbirliği daveti. Türk doğrudanlığı US/UK iş kültüründe agresif algılanır.",
+    },
+    {
+      id: "ex.wd34.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Push back' iş İngilizcesinde ne demek?",
+          options: ["İtmek (fiziksel)", "Nazikçe itiraz etmek", "Geri çevirmek (terbiyesiz)", "Reddetmek"],
+          correct: 1,
+          tr_explanation: "'Push back' = profesyonel itiraz. Saygılı disagreement.",
+        },
+        {
+          q: "Disagreement için en kötü açılış?",
+          options: ["I hear you, but...", "You are wrong", "I see your point, however...", "I'd push back on..."],
+          correct: 1,
+          tr_explanation: "'You are wrong' = saldırı. İlk üç = empati + kontra. Pratik formula.",
+        },
+        {
+          q: "'Fair point' ne işe yarar?",
+          options: ["Tamamen kabul", "Empati gösterip kendi pozisyonunu söylemek için ön ek", "Konuyu kapatma", "Pas geçme"],
+          correct: 1,
+          tr_explanation: "'Fair point' = karşı tarafın haklı kısmını kabul + 'but' ile devam. Yumuşatıcı.",
+        },
+        {
+          q: "Counter-proposal en güçlü ne zaman?",
+          options: ["Empati'siz", "Empati + concern + alternatif", "Sadece 'No'", "Sessiz kalmak"],
+          correct: 1,
+          tr_explanation: "Agree → reframe → counter-propose formula. Profesyonel disagreement standardı.",
+        },
+        {
+          q: "'I'd love to understand' tonunda nedir?",
+          options: ["Saldırgan", "İşbirliğine açık", "Pasif-agresif", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'I'd love to understand' = curiosity tone. Disagreement'i öğrenme fırsatına çevirir.",
+        },
+      ],
     },
   ],
 };
@@ -1663,6 +2328,101 @@ export const workDisagreeLesson_34_8: BundledLesson = {
       phrase: "Let's find common ground — we can table this and circle back tomorrow.",
       tr_translation: "Ortak zemin bulalım — bunu erteleyebiliriz ve yarın geri dönebiliriz.",
       ipa: "/lɛts faɪnd ˈkɒmən ɡraʊnd wiː kən ˈteɪbəl ðɪs ənd ˈsɜːkəl bæk təˈmɒrəʊ/",
+    },
+    {
+      id: "ex.wd34.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I see your point, but I'd push back on ___ because ___.",
+      slots: [
+        { accepted: ['that assumption', 'the timeline', 'this approach', 'that priority'], distractors: ['that assumptions', 'timelines', 'this approachs', 'priorities'] },
+        { accepted: ['it ignores the data', "we'd ship late", 'the cost is too high', "users won't adopt"], distractors: ['it ignore the data', "we'd ship lately", 'the cost is too higher', "users don't adopt"] },
+      ],
+      tr_hint:
+        "Kibar disagreement formula. 'I see your point' = empati ön ek, sonra 'but' ile aksini söyle. 'Push back' = nazikçe itiraz.",
+      example_filled: "I see your point, but I'd push back on the timeline because we'd ship late.",
+    },
+    {
+      id: "ex.wd34.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I really think we should just ship it as-is and iterate." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Hmm, fair — what would you propose instead?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i hear you|i see (where|what)|fair point)",
+        "(but|however|that said)",
+        "(i'?m worried|i'?m concerned|my concern is) (about|that)",
+        "(what if we|could we|maybe) (.+) (first|instead)",
+      ],
+      tr_hint:
+        "Manager 'just ship' dedi. Direkt 'No' verme — agree → reframe → counter-propose.",
+      ideal_answer: "I hear you, but I'm worried about the bug reports — what if we ship to 10% first?",
+    },
+    {
+      id: "ex.wd34.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I don't think your approach is going to work — we tried something similar last year.",
+      accepted_patterns: [
+        "(could you|can you) (tell me more|share|elaborate)",
+        "(what didn'?t work|what was different) (last time|then|before)",
+        "(in this case|this time) (.+) (different|new|changed)",
+        "(i'?d love to|would help to) understand",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Senior pushback yaptı. Defansif olma — context iste. Türk hatası: 'You are wrong' = burning bridges.",
+      ideal_response: "Could you share more about what didn't work last time? I want to make sure we're not repeating it.",
+    },
+    {
+      id: "ex.wd34.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bence sen yanılıyorsun.",
+      wrong_en: "I think you are wrong.",
+      right_en: "I see it a bit differently — could we talk through it?",
+      why_tr:
+        "'You are wrong' = direkt saldırı. İş İngilizcesinde 'I see it differently' = pozisyonu belirtir, kişiyi suçlamaz. 'Could we talk through it' = işbirliği daveti. Türk doğrudanlığı US/UK iş kültüründe agresif algılanır.",
+    },
+    {
+      id: "ex.wd34.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Push back' iş İngilizcesinde ne demek?",
+          options: ["İtmek (fiziksel)", "Nazikçe itiraz etmek", "Geri çevirmek (terbiyesiz)", "Reddetmek"],
+          correct: 1,
+          tr_explanation: "'Push back' = profesyonel itiraz. Saygılı disagreement.",
+        },
+        {
+          q: "Disagreement için en kötü açılış?",
+          options: ["I hear you, but...", "You are wrong", "I see your point, however...", "I'd push back on..."],
+          correct: 1,
+          tr_explanation: "'You are wrong' = saldırı. İlk üç = empati + kontra. Pratik formula.",
+        },
+        {
+          q: "'Fair point' ne işe yarar?",
+          options: ["Tamamen kabul", "Empati gösterip kendi pozisyonunu söylemek için ön ek", "Konuyu kapatma", "Pas geçme"],
+          correct: 1,
+          tr_explanation: "'Fair point' = karşı tarafın haklı kısmını kabul + 'but' ile devam. Yumuşatıcı.",
+        },
+        {
+          q: "Counter-proposal en güçlü ne zaman?",
+          options: ["Empati'siz", "Empati + concern + alternatif", "Sadece 'No'", "Sessiz kalmak"],
+          correct: 1,
+          tr_explanation: "Agree → reframe → counter-propose formula. Profesyonel disagreement standardı.",
+        },
+        {
+          q: "'I'd love to understand' tonunda nedir?",
+          options: ["Saldırgan", "İşbirliğine açık", "Pasif-agresif", "Belirsiz"],
+          correct: 1,
+          tr_explanation: "'I'd love to understand' = curiosity tone. Disagreement'i öğrenme fırsatına çevirir.",
+        },
+      ],
     },
   ],
 };

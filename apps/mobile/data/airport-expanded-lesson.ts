@@ -151,6 +151,143 @@ export const airportLesson_44_9: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.44.9.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm here for ___ and I'm staying for ___ ___.",
+      slots: [
+        {
+          accepted: ["tourism", "a holiday", "vacation"],
+          distractors: ["tourist", "holidays", "tour"],
+        },
+        {
+          accepted: ["10", "7", "two", "14"],
+          distractors: ["a 10", "the 10", "during 10"],
+        },
+        {
+          accepted: ["days", "nights", "weeks"],
+          distractors: ["day", "during days", "for"],
+        },
+      ],
+      tr_hint:
+        "Immigration formül: amaç + 'staying for' + süre. 'During 10 days' YANLIŞ — 'for' kullan.",
+      example_filled: "I'm here for tourism and I'm staying for 10 days.",
+    },
+    {
+      id: "ex.44.9.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's the purpose of your visit?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "And how long are you staying?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(tourism|holiday|vacation|sightseeing)",
+        "(i('m| am) here (for|on)) (tourism|holiday|vacation)",
+        "(just (a |for )?(holiday|vacation))",
+        "(visiting (family|friends|new york))",
+      ],
+      tr_hint:
+        "Tek kelime ya da kısa cümle: 'Tourism.' veya 'I'm here on holiday.' Uzun açıklama YAPMA.",
+      ideal_answer: "I'm here for tourism.",
+    },
+    {
+      id: "ex.44.9.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Where will you be staying?",
+      accepted_patterns: [
+        "(at (a |the )?hotel)",
+        "(at the (hilton|marriott|hyatt))",
+        "(in (manhattan|brooklyn|midtown))",
+        "(with (a |my )?(friend|family))",
+        "(an airbnb in \\w+)",
+        "(here('s| is) (my )?reservation)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Otel + şehir: 'At the Hilton in Midtown.' Veya 'With a friend in Brooklyn.' Tam adresi ezberleme — şehir + tip yeter.",
+      ideal_response: "At a hotel in Manhattan — here's my reservation.",
+    },
+    {
+      id: "ex.44.9.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "On gün boyunca kalacağım.",
+      wrong_en: "I will stay during ten days.",
+      right_en: "I'm staying for ten days.",
+      why_tr:
+        "Türk öğrenci 'boyunca' = 'during' der. YANLIŞ: 'during' = belirli bir olay/dönem boyunca ('during the meeting'). Süre için 'for' kullan: 'for 10 days', 'for two weeks'. Ayrıca 'will stay' future formel — present continuous ('I'm staying') yakın gelecek için daha doğal.",
+    },
+    {
+      id: "ex.44.9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'How long are you staying?' EN doğru cevap?",
+          options: [
+            "During ten days.",
+            "Ten days.",
+            "I will stay ten.",
+            "Ten day.",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kısa cevap yeter: 'Ten days.' veya 'For ten days.' 'During' YANLIŞ, 'day' tekil YANLIŞ.",
+        },
+        {
+          q: "Immigration için EN önemli üç belge?",
+          options: [
+            "Pasaport + cüzdan + telefon",
+            "Pasaport + return ticket + otel/adres",
+            "Pasaport + selfie + kredi kartı",
+            "Pasaport + nakit + hediye",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Üçü hazır olsun: pasaport, dönüş bileti, kalacak yer. Tereddüt = ek inceleme.",
+        },
+        {
+          q: "'For tourism' / 'on holiday' farkı?",
+          options: [
+            "İkisi de aynı şey",
+            "Farklı anlam",
+            "'For tourism' resmi, 'on holiday' UK günlük",
+            "Sadece UK'de geçerli",
+          ],
+          correct: 0,
+          tr_explanation:
+            "İkisi de 'tatil için' anlamında. 'For tourism' = US, 'on holiday' = UK günlük. Memura ikisi de net.",
+        },
+        {
+          q: "Memur 'Have you been here before?' — daha önce gelmedin. EN doğru cevap?",
+          options: [
+            "I never came.",
+            "No, this is my first time.",
+            "First time.",
+            "No coming before.",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'This is my first time' = ilk kez. Tam cümle + güvenli.",
+        },
+        {
+          q: "'During' ile 'for' farkı (süre)?",
+          options: [
+            "Aynı şey",
+            "'During' = belirli bir olay süresince; 'for' = süre uzunluğu",
+            "'During' resmi, 'for' günlük",
+            "Sadece tek kullanım var",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'During the meeting' = toplantı boyunca. 'For two hours' = iki saat boyunca (süre miktarı). Süre için 'for' kullan.",
+        },
+      ],
+    },
   ],
 };
 
@@ -281,6 +418,146 @@ export const airportLesson_44_10: BundledLesson = {
         {
           speaker: "npc",
           message: "Okay, here's your reference number. We'll text you with updates.",
+        },
+      ],
+    },
+    {
+      id: "ex.44.10.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "My ___ ___ on the belt — I need to file ___.",
+      slots: [
+        {
+          accepted: ["bag", "suitcase", "checked bag"],
+          distractors: ["bags", "luggages", "baggages"],
+        },
+        {
+          accepted: ["didn't arrive", "didn't come out", "didn't show up", "is missing"],
+          distractors: ["didn't came", "doesn't arrive", "no arrive"],
+        },
+        {
+          accepted: ["a report", "a lost-baggage report", "a PIR", "a delayed-baggage report"],
+          distractors: ["report", "the form", "lost form"],
+        },
+      ],
+      tr_hint:
+        "Kayıp bagaj rapor açılışı: 'My bag didn't arrive on the belt — I need to file a report.' Türk hatası: 'luggages' yok.",
+      example_filled:
+        "My bag didn't arrive on the belt — I need to file a report.",
+    },
+    {
+      id: "ex.44.10.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi, how can I help you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sorry to hear that — what flight were you on?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|excuse me)",
+        "(my (bag|suitcase|luggage)) (didn't arrive|is missing|didn't come)",
+        "(my bag didn't come out)",
+        "(i can't find my (bag|suitcase|luggage))",
+        "(the belt (stopped|is empty|finished))",
+      ],
+      tr_hint:
+        "Sakin + net: 'Hi, my bag didn't arrive on the belt.' Panik yapma.",
+      ideal_answer: "Hi — my bag didn't arrive on the belt.",
+    },
+    {
+      id: "ex.44.10.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Could you describe your bag — color, brand, anything distinctive?",
+      accepted_patterns: [
+        "(it('s| is) (a )?(black|blue|red|grey|silver))",
+        "(medium|large|small) (size )?(suitcase|bag)",
+        "(it has (a |the )?(wheels|name tag|stickers|ribbon))",
+        "(samsonite|american tourister|polo)",
+        "(my name is on it)",
+        "(hard[- ]?shell)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Renk + boyut + marka + işaret: 'It's a black, medium Samsonite with a red ribbon.' Spesifiklik tanımayı hızlandırır.",
+      ideal_response:
+        "It's a black, medium Samsonite with wheels — has a red ribbon on the handle.",
+    },
+    {
+      id: "ex.44.10.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bagajım kayıp.",
+      wrong_en: "My baggage is lose.",
+      right_en: "My baggage is lost.",
+      why_tr:
+        "Türk öğrenci 'lose' (V1, kaybetmek fiili) ile 'lost' (V3, kayıp sıfat) karıştırır. Doğru: 'My bag is LOST' (sıfat olarak kullanılır). 'Lose' fiildir: 'I always lose my keys'. Hatırla: 'lost & found' = 'kayıp eşya bürosu'.",
+    },
+    {
+      id: "ex.44.10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Bagaj bandı boşaldı, valiz yok — İLK adım?",
+          options: [
+            "Havalimanından çık",
+            "Lost & Found / Baggage Service gişesine git",
+            "Saatlerce bekle",
+            "Sosyal medyaya yaz",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Havalimanını terk etmeden raporu doldur. Referans numarası = takip + tazminat anahtarı.",
+        },
+        {
+          q: "'Baggage claim tag' nedir?",
+          options: [
+            "Pasaport etiketi",
+            "Biniş kartına yapıştırılan bagaj etiketi (barkod)",
+            "Bagaj torbası",
+            "Otel kuponu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Check-in'de bagajına yapıştırılan barkodun bir kopyası genelde biniş kartının arkasına yapışıktır. Kayıp valiz raporu için şart.",
+        },
+        {
+          q: "'My bag didn't arrive' vs 'My bag is lost' farkı?",
+          options: [
+            "Aynı",
+            "'Didn't arrive' = belirsiz (gelmedi yet); 'is lost' = daha kesin (kayıp)",
+            "Farklı havayolu",
+            "Sadece kelime farkı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Didn't arrive' başlangıç ifadesi — belki sonradan gelir. 'Lost' daha kalıcı durum. İkisi de doğru ama 'didn't arrive' önce kullan.",
+        },
+        {
+          q: "'Lost' sıfat, 'lose' fiil — DOĞRU cümle?",
+          options: [
+            "I lose my bag.",
+            "My bag is lose.",
+            "My bag is lost.",
+            "I lost my bag is.",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'Is lost' = kayıp (sıfat). 'I lost my bag' (geçmiş fiil) de doğru. 'My bag is lose' YANLIŞ.",
+        },
+        {
+          q: "Otele teslim için ne lazım?",
+          options: [
+            "Sadece isim",
+            "Otel adı + adres (rezervasyondan)",
+            "Sadece pasaport",
+            "Bagaj fotoğrafı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Hotel name + tam adres. Email'deki rezervasyondan oku — net olsun.",
         },
       ],
     },
@@ -415,6 +692,142 @@ export const airportLesson_44_11: BundledLesson = {
         {
           speaker: "npc",
           message: "You're welcome. Hurry up — boarding starts in 30 minutes!",
+        },
+      ],
+    },
+    {
+      id: "ex.44.11.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "How do I get to ___ ___?",
+      slots: [
+        {
+          accepted: ["gate", "terminal", "the shuttle", "the gate"],
+          distractors: ["airplane", "an"],
+        },
+        {
+          accepted: ["B42", "5", "2", "D12"],
+          distractors: ["go", "now", "fast"],
+        },
+      ],
+      tr_hint:
+        "Yön sorma kalıbı: 'How do I get to + place'. Türk: 'How can I go' YANLIŞ — 'how do I get' native.",
+      example_filled: "How do I get to gate B42?",
+    },
+    {
+      id: "ex.44.11.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — what's your flight number?" },
+        { speaker: "user", text: "BA245." },
+      ],
+      missing_at: 0,
+      accepted_patterns: [
+        "(hi|hello|excuse me)",
+        "(i('m| am) (a bit )?lost)",
+        "(i can't find (my )?gate)",
+        "(how do i get to (gate |terminal )?\\w*\\d+)",
+        "(could you help me)",
+      ],
+      tr_hint:
+        "Net + saygılı aç: 'Hi, I'm a bit lost — how do I get to gate B42?'",
+      ideal_answer:
+        "Hi, I'm a bit lost — how do I get to gate B42?",
+    },
+    {
+      id: "ex.44.11.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Take the shuttle from Terminal 3 to Terminal 5 — it runs every 10 minutes.",
+      accepted_patterns: [
+        "(where (do i|can i) (catch|find) (the |it))",
+        "(how long does it take)",
+        "(is it (far|close))",
+        "(can i (still )?make it)",
+        "(thanks|got it|perfect)",
+        "(do i need a ticket)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Önemli detay sor: nerede + ne kadar sürer. 'Where do I catch the shuttle and how long does it take?'",
+      ideal_response:
+        "Where do I catch the shuttle, and how long does it take?",
+    },
+    {
+      id: "ex.44.11.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Kayboldum.",
+      wrong_en: "I lost.",
+      right_en: "I'm lost.",
+      why_tr:
+        "Türk öğrenci 'kayboldum' = 'I lost' der ('lost' = kayıp). YANLIŞ: 'lost' burada sıfat, 'be' fiiline ihtiyaç var. Doğru: 'I am lost' / 'I'm lost'. 'I lost' = bir şey kaybettim ('I lost my keys'). Karışmasın.",
+    },
+    {
+      id: "ex.44.11.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I'm lost' Türkçesi?",
+          options: [
+            "Kaybettim",
+            "Kayboldum",
+            "Bittim",
+            "Buldum",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm lost' = kayboldum (sıfat olarak). 'I lost' = bir şey kaybettim (fiil olarak).",
+        },
+        {
+          q: "Büyük havalimanında terminal arasını nasıl geçersin?",
+          options: [
+            "Taksi",
+            "Terminal shuttle (ücretsiz)",
+            "Yürüyerek 1 saat",
+            "Uber",
+          ],
+          correct: 1,
+          tr_explanation:
+            "LHR, JFK, AMS, FRA: ücretsiz shuttle/tren. 'Where can I catch the shuttle to Terminal 5?'",
+        },
+        {
+          q: "'Boarding starts in 30 minutes' Türkçesi?",
+          options: [
+            "Biniş 30 dakika önce başladı",
+            "Biniş 30 dakika sonra başlıyor",
+            "Boarding 30 dakika sürüyor",
+            "Şu an biniş",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'In + zaman' = ne kadar sonra. 'Boarding starts in 30 minutes' = 30 dakika sonra biniş başlıyor.",
+        },
+        {
+          q: "'Can you point me in the right direction?' ne demek?",
+          options: [
+            "Beni yöne çevir",
+            "Bana doğru yönü gösterir misin?",
+            "Beni döndür",
+            "Yolu sor",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Klasik yol sorma kalıbı: 'Could/can you point me in the right direction?' = 'Bana doğru yönü gösterir misin?'",
+        },
+        {
+          q: "'You're a lifesaver!' ne anlama gelir?",
+          options: [
+            "Sen cankurtaransın",
+            "Çok teşekkürler, hayatımı kurtardın (samimi)",
+            "Su altında nefes alabilirsin",
+            "Doktor",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Samimi teşekkür: 'You're a lifesaver!' = 'Hayat kurtardın!' Görevliye söylenince çok pozitif.",
         },
       ],
     },
@@ -553,6 +966,148 @@ export const airportLesson_44_12: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.44.12.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "My phone ___ work — where can I ___ a ___?",
+      slots: [
+        {
+          accepted: ["doesn't", "isn't working", "won't"],
+          distractors: ["no", "is no", "not"],
+        },
+        {
+          accepted: ["buy", "get", "find"],
+          distractors: ["have", "make", "take"],
+        },
+        {
+          accepted: ["SIM card", "data plan", "tourist SIM"],
+          distractors: ["phone card", "sim", "data"],
+        },
+      ],
+      tr_hint:
+        "Telefon sorunu + çözüm. 'Doesn't work' (third person singular). Türk: 'is no' YANLIŞ.",
+      example_filled:
+        "My phone doesn't work — where can I buy a SIM card?",
+    },
+    {
+      id: "ex.44.12.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Hi, how can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "There's free airport wifi. Network is 'AirportFree'." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|excuse me)",
+        "(my phone (isn't|doesn't|won't) (work|connect|have service))",
+        "(i can't (use|connect to) (my )?phone)",
+        "(no (signal|service|data))",
+        "(i need to (call|text) (my )?(family|home))",
+        "(is there (free )?wifi)",
+      ],
+      tr_hint:
+        "Sorunu açıkla + ihtiyaç: 'Hi — my phone doesn't have service. Is there free wifi?'",
+      ideal_answer:
+        "Hi — my phone doesn't have service and I need to text my family. Is there wifi?",
+    },
+    {
+      id: "ex.44.12.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Sign in with your email — it's free for 60 minutes.",
+      accepted_patterns: [
+        "(thanks|thank you|got it|great|okay)",
+        "(only 60 minutes|just an hour)",
+        "(what if i need more time)",
+        "(can i (buy|get) (a )?sim (card)?)",
+        "(where can i (get|buy) a sim)",
+        "(is there a (phone|sim) shop)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Teşekkür + SIM iste: 'Thanks — and can I buy a SIM card here?'",
+      ideal_response:
+        "Thanks — and can I buy a SIM card here too?",
+    },
+    {
+      id: "ex.44.12.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Telefonum çekmiyor.",
+      wrong_en: "My phone doesn't draw.",
+      right_en: "My phone doesn't have service / has no signal.",
+      why_tr:
+        "Türk öğrenci 'çekmek' = 'draw/pull' der ve 'phone doesn't pull/draw' söyler. YANLIŞ. Doğru: 'doesn't have service' (servis çekmiyor) / 'has no signal' (sinyal yok). 'No reception' da kullanılır. Native bu ifadelerden birini bekler.",
+    },
+    {
+      id: "ex.44.12.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Telefonum çekmiyor' EN doğru çeviri?",
+          options: [
+            "My phone doesn't draw.",
+            "My phone has no signal / doesn't have service.",
+            "My phone is not pulling.",
+            "My phone is no.",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Çekmek' = sinyal almak. 'No signal' veya 'no service'. 'Draw/pull' YANLIŞ (Türk hatası).",
+        },
+        {
+          q: "'Tourist SIM' nedir?",
+          options: [
+            "Yerel hat",
+            "Turistlere özel kısa süreli (data + minutes) SIM kart",
+            "Pasaport çipi",
+            "Wifi kuponu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Yabancılar için 7-30 gün geçerli paket. Pasaport ile alınır. UK: Vodafone, EE; ABD: T-Mobile, AT&T.",
+        },
+        {
+          q: "'Wifi password' istemek için EN kibar?",
+          options: [
+            "Wifi! Password!",
+            "Give password.",
+            "What's the wifi password, please?",
+            "Open wifi for me.",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'What's the wifi password, please?' = standart kibar. 'Could I have the wifi password?' de doğru.",
+        },
+        {
+          q: "Havalimanı ücretsiz wifi tipik süre limiti?",
+          options: [
+            "Süresiz",
+            "Genelde 30-60 dakika (üstü ödemeli)",
+            "10 saniye",
+            "1 yıl",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Çoğu havalimanı 30-60 dk ücretsiz, sonrası ücretli. Email ile signup yaygın. WhatsApp/iMessage için yeter.",
+        },
+        {
+          q: "'My phone doesn't have service' Türkçesi?",
+          options: [
+            "Telefonum hizmet etmiyor",
+            "Telefonum çekmiyor / sinyali yok",
+            "Telefonum servis aramıyor",
+            "Telefonum bozuk",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Service' = hücresel sinyal. 'No service' = sinyal yok. Türk: 'çekmiyor' karşılığı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -684,6 +1239,145 @@ export const airportLesson_44_13: BundledLesson = {
         {
           speaker: "npc",
           message: "Okay, you're good to go. Enjoy your stay.",
+        },
+      ],
+    },
+    {
+      id: "ex.44.13.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Just some ___ — ___ for ___.",
+      slots: [
+        {
+          accepted: ["Turkish delight", "lokum", "sweets", "tea"],
+          distractors: ["Turkish food", "delight Turkish", "lokumlar"],
+        },
+        {
+          accepted: ["gifts", "a gift", "presents", "souvenirs"],
+          distractors: ["gift", "for gift", "give"],
+        },
+        {
+          accepted: ["my friend", "my family", "personal use", "my mother"],
+          distractors: ["friend", "family", "me my friend"],
+        },
+      ],
+      tr_hint:
+        "Customs cevap kalıbı: 'just some' (sadece biraz) + tip + 'gifts for' + alıcı. Dürüst + kısa.",
+      example_filled: "Just some Turkish delight — gifts for my friend.",
+    },
+    {
+      id: "ex.44.13.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Do you have anything to declare?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "How much are we talking about?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(just|only) (some |a few )?(sweets|candy|chocolate|gifts)",
+        "(i (have|brought) (some )?(turkish delight|lokum|tea|spices))",
+        "(only (some )?food)",
+        "(some gifts for (my )?(friend|family))",
+      ],
+      tr_hint:
+        "Dürüst + kısa: 'Just some Turkish delight and tea — gifts for my friend.' Yalan söyleme.",
+      ideal_answer:
+        "Just some Turkish delight and tea — gifts for my friend.",
+    },
+    {
+      id: "ex.44.13.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Any meat, dairy, or fresh fruit?",
+      accepted_patterns: [
+        "(no|nope|none|nothing like that)",
+        "(no meat|no fruit|no dairy)",
+        "(just (sweets|sugar|dry)) (stuff|food)?",
+        "(it('s| is) all (dry|sealed|packaged))",
+        "(everything is (in )?(sealed )?packages)",
+        "(no fresh (anything|food))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "ABD/UK et+meyve+süt yasak. Net: 'No meat, no fruit — just dry sweets in sealed packs.'",
+      ideal_response:
+        "No meat, no fruit — just dry sweets in sealed packages.",
+    },
+    {
+      id: "ex.44.13.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Beyan edecek bir şeyim yok.",
+      wrong_en: "I don't have nothing to declare.",
+      right_en: "I have nothing to declare. / I don't have anything to declare.",
+      why_tr:
+        "Türk öğrenci çift olumsuzluk yapar: 'don't' + 'nothing'. YANLIŞ — İngilizce'de çift olumsuz olumlu olur ('don't have nothing' = 'something var' mantığı). Kural: ya 'I have nothing' (have + olumsuz isim) ya 'I don't have anything' (don't + olumlu isim). İkisini birlikte kullanma.",
+    },
+    {
+      id: "ex.44.13.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Anything to declare?' tam karşılığı?",
+          options: [
+            "Bir şey söyle",
+            "Beyan edecek (yüksek değer / yiyecek / $10k+ / hediye limit üstü) bir şey var mı?",
+            "İsim ver",
+            "Sevdiğin şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Gümrük beyan sorusu. Hediye limit altıysa, kişisel eşyaysa 'No, nothing to declare.' Et/süt sıkı yasak çoğu ülkede.",
+        },
+        {
+          q: "ABD/UK'a hangi yiyecek getirmek YASAK?",
+          options: [
+            "Lokum",
+            "Et, süt, taze meyve",
+            "Çay",
+            "Çikolata",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Et, süt ürünü, taze meyve+sebze hayvancılık/tarım koruması için yasak. Kuru/paketli sweets, çay sorun değil.",
+        },
+        {
+          q: "'Personal use' ne anlama gelir?",
+          options: [
+            "Tek kişilik",
+            "Kişisel kullanım için (satış değil)",
+            "Sadece bana ait",
+            "Ev kullanımı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Customs sorar: 'personal use or for sale?' Cevap: 'personal' veya 'gifts'. Ticari miktarsa beyan edilir.",
+        },
+        {
+          q: "'Sealed packages' Türkçesi?",
+          options: [
+            "Hediye paketleri",
+            "Kapalı / mühürlü ambalajlar",
+            "Boş kutular",
+            "Açık paketler",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sealed' = mühürlü/kapalı. Fabrika ambalajlı kuru gıda en güvenli — gümrük rahat geçirir.",
+        },
+        {
+          q: "Customs çantanı açmanı istedi — EN doğru tepki?",
+          options: [
+            "Kesinlikle hayır",
+            "Sure, no problem — let me open it for you.",
+            "Why?",
+            "I'm busy.",
+          ],
+          correct: 1,
+          tr_explanation:
+            "İtiraz = şüphe yaratır. 'Sure' + 'no problem' + aç. Standart prosedür, dakikalar içinde biter.",
         },
       ],
     },
@@ -819,6 +1513,147 @@ export const airportLesson_44_14: BundledLesson = {
           speaker: "npc",
           message:
             "Be at Gate B7 by 7am. Shuttle to the hotel is right outside Door 3. Sleep well.",
+        },
+      ],
+    },
+    {
+      id: "ex.44.14.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I ___ my connection — could you ___ on ___?",
+      slots: [
+        {
+          accepted: ["missed", "lost", "couldn't make"],
+          distractors: ["miss", "missing", "missed it"],
+        },
+        {
+          accepted: ["rebook me", "put me", "place me", "get me"],
+          distractors: ["take me", "book", "rebook"],
+        },
+        {
+          accepted: ["the next flight", "tomorrow's flight", "an earlier flight"],
+          distractors: ["next plane", "other flight", "new"],
+        },
+      ],
+      tr_hint:
+        "Aktarma kaçırma talep kalıbı: 'I missed my connection — could you rebook me on the next flight?'",
+      example_filled:
+        "I missed my connection — could you rebook me on the next flight?",
+    },
+    {
+      id: "ex.44.14.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "user" },
+        { speaker: "npc", text: "I'm sorry — let me find the next flight to Istanbul." },
+        { speaker: "user", text: "Thanks — and since it's on you, can you arrange a hotel?" },
+      ],
+      missing_at: 0,
+      accepted_patterns: [
+        "(hi|hello|excuse me)",
+        "(i missed my connection)",
+        "(the (inbound|first|previous) (flight|leg)) (was|got) (delayed|late)",
+        "(what are my options)",
+        "(could you (rebook|put) me on (the next|another) flight)",
+      ],
+      tr_hint:
+        "Sebep + talep tek nefes: 'Hi — I missed my connection because the inbound was delayed. Could you rebook me?'",
+      ideal_answer:
+        "Hi — I missed my connection because the inbound was delayed. Could you rebook me on the next flight?",
+    },
+    {
+      id: "ex.44.14.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "I can put you on tomorrow morning's flight. Is that okay?",
+      accepted_patterns: [
+        "(that (works|would be great)|thank you)",
+        "(yes please|please do)",
+        "(could you (also|please) (book|arrange) (the )?(hotel|meal voucher))",
+        "(is there anything (earlier|sooner|tonight))",
+        "(what time should i be (here|back))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kabul + hotel sor: 'That works — could you also arrange a hotel since the delay is on you?'",
+      ideal_response:
+        "That works — could you also arrange a hotel since the delay is on you?",
+    },
+    {
+      id: "ex.44.14.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Bu sizin hatanız.",
+      wrong_en: "This is your fault! You did wrong!",
+      right_en:
+        "Since the delay was on your end, would I be entitled to a hotel?",
+      why_tr:
+        "Türk öğrenci stres altında 'your fault' (saldırgan) der. ESL bağlamında YANLIŞ değil ama airport müşteri ilişkileri kuralı: suçlama yerine HAK iste. 'Since the delay was on your end' (gecikme sizin tarafınızdaysa) — passive + saygılı + hak talebi. Görevli savunmaya geçmez, çözüm sunar.",
+    },
+    {
+      id: "ex.44.14.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Aktarmayı havayolu hatasıyla kaçırdın — neler talep edebilirsin?",
+          options: [
+            "Hiçbir şey",
+            "Rebook + hotel voucher + meal voucher",
+            "Sadece kahve",
+            "Sadece refund",
+          ],
+          correct: 1,
+          tr_explanation:
+            "EC261 (AB), DOT (ABD): gecikme havayolu hatası = yeniden rezervasyon + otel + yemek kuponu. İstemeden vermezler.",
+        },
+        {
+          q: "'On your end' / 'on us' ne demek?",
+          options: [
+            "Yanında",
+            "Sizin tarafınızda / hatanız",
+            "Sonunda",
+            "Üzerinizde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On your end' / 'on us' = sizin hatanız. Hak talebinde nötr ifade — suçlamadan sorumluluğu işaret eder.",
+        },
+        {
+          q: "'I missed my connection' ne demek?",
+          options: [
+            "Bağlantımı özledim",
+            "Aktarma uçuşumu kaçırdım",
+            "Bağlantıyı kaybettim",
+            "İnternet yok",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Miss' = kaçırmak. 'Missed my connection' = aktarma uçuşunu kaçırdım. Standart kalıp.",
+        },
+        {
+          q: "Bagaj otomatik aktarmadan İstanbul'a etiketli — sen ne yapmalısın?",
+          options: [
+            "Aktarmada bagajı bul, taşı",
+            "Hiçbir şey — bagaj otomatik gider",
+            "Yeniden check-in yap",
+            "Lost & Found'a git",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Tagged through to Istanbul' = bagaj son varış noktasına etiketli. Aktarmada elinle taşımazsın, otomatik gider.",
+        },
+        {
+          q: "Service desk'te şikayet açılışı EN doğru?",
+          options: [
+            "You're terrible!",
+            "I missed my connection because the inbound was delayed. What are my options?",
+            "Plane gone! Help!",
+            "Refund now!",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Sebep (passive) + soru ('what are my options') = nötr, profesyonel. Görevli en iyi seçeneği önerir.",
         },
       ],
     },
@@ -958,6 +1793,148 @@ export const airportLesson_44_15: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.44.15.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Is there a ___ option, or could I ___?",
+      slots: [
+        {
+          accepted: ["vegetarian", "vegan", "gluten-free", "halal", "meat-free"],
+          distractors: ["vegetable", "no meat", "meatless"],
+        },
+        {
+          accepted: [
+            "have just bread",
+            "get the salad",
+            "skip the meat",
+            "have the side dish",
+          ],
+          distractors: ["bread eat", "no eat", "stop"],
+        },
+      ],
+      tr_hint:
+        "Diyet kalıbı: 'vegetarian/vegan/halal/gluten-free option'. Türk: 'vegetable' (sebze) ≠ 'vegetarian' (vejetaryen).",
+      example_filled:
+        "Is there a vegetarian option, or could I have just bread?",
+    },
+    {
+      id: "ex.44.15.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Chicken or pasta tonight?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "The pasta has meat sauce. Did you request a special meal?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(is the pasta vegetarian)",
+        "(do you have (a )?vegetarian (option|meal))",
+        "(i('m| am) vegetarian)",
+        "(i don't eat (meat|chicken))",
+        "(any (meat[- ]?free|veggie) options)",
+      ],
+      tr_hint:
+        "Doğrudan: 'I'm vegetarian — is the pasta meat-free?' 'I am not eat meat' YANLIŞ.",
+      ideal_answer:
+        "I'm vegetarian — is the pasta meat-free?",
+    },
+    {
+      id: "ex.44.15.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Let me check if we have any spare vegetarian meals.",
+      accepted_patterns: [
+        "(thank you|that would be great|appreciate it|amazing)",
+        "(thanks so much)",
+        "(i('d| would) really appreciate (it|that))",
+        "(no rush)",
+        "(take your time)",
+        "(if not (i can )?(just )?have (the )?bread)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Minnet + esneklik: 'Thank you so much — and no rush. If not, bread is fine.'",
+      ideal_response:
+        "Thank you so much — no rush. If not, just bread is fine.",
+    },
+    {
+      id: "ex.44.15.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Et yemiyorum.",
+      wrong_en: "I am not eat meat.",
+      right_en: "I don't eat meat.",
+      why_tr:
+        "Türk öğrenci 'am' + V1 yapar (Türkçe'de 'yemiyorum' = '-yorum' eki ile birleşik). YANLIŞ. Doğru: simple present negative = subject + don't/doesn't + V1. 'I don't eat meat.' 'She doesn't eat pork.' 'Am not' sadece -ing fiille kullanılır ('I am not eating now').",
+    },
+    {
+      id: "ex.44.15.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I don't eat meat' Türkçesi?",
+          options: [
+            "Et yemiyorum (alışkanlık/diyet)",
+            "Şu an et yemiyorum",
+            "Et yiyemem",
+            "Et yemedim",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Simple present negative = genel alışkanlık. 'I don't eat meat' = düzenli yemiyorum (vejetaryen).",
+        },
+        {
+          q: "'Special meal' nedir (uçak terimi)?",
+          options: [
+            "Premium yemek",
+            "Diyet/inanç tabanlı önceden istenmiş yemek (vegetarian, halal, gluten-free, vb.)",
+            "Pilot yemeği",
+            "Bonus tatlı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Rezervasyonda kodla istenir: VGML (vejetaryen), HNML (helal), GFML (glutensiz). 24-48 saat öncesi.",
+        },
+        {
+          q: "Hostese diyet sormak için EN doğru?",
+          options: [
+            "Give vegetable!",
+            "I am vegetable.",
+            "I'm vegetarian — is there a meat-free option?",
+            "No meat me!",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'I'm vegetarian' (sıfat) + 'meat-free option' = profesyonel + net. 'Vegetable' = sebze, 'vegetarian' = vejetaryen — karıştırma.",
+        },
+        {
+          q: "Özel yemek istemedin ama uçakta vejetaryen lazım — EN doğru tutum?",
+          options: [
+            "Şikayet et",
+            "Dürüst söyle: 'I forgot to request — is there anything else?'",
+            "Et ye",
+            "Aç kal sessizce",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Hosteste yedek vejetaryen olabilir. 'I forgot to request — is there anything else?' = saygılı + esnek.",
+        },
+        {
+          q: "'Could I also have some water?' anlam farkı?",
+          options: [
+            "Yemek istiyorum",
+            "Ek istek köprüsü — 'ayrıca su alabilir miyim?'",
+            "Su bedava mı?",
+            "Susuzum",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Also' = ek istek. Hostese ikinci şey isterken kullan. 'Could I also have a blanket?' yaygın yapı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1089,6 +2066,147 @@ export const airportLesson_44_16: BundledLesson = {
         {
           speaker: "npc",
           message: "No problem at all. Try to get some rest.",
+        },
+      ],
+    },
+    {
+      id: "ex.44.16.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you help me with ___, and also could I get ___ ___?",
+      slots: [
+        {
+          accepted: ["this form", "the form", "this section", "the immigration form"],
+          distractors: ["my form", "form", "the question"],
+        },
+        {
+          accepted: ["an extra", "a", "another"],
+          distractors: ["one more extra", "any", "some"],
+        },
+        {
+          accepted: ["blanket", "pillow", "bottle of water", "headset"],
+          distractors: ["water bottle", "blankets", "pillows"],
+        },
+      ],
+      tr_hint:
+        "Çift istek kalıbı: 'Could you help me with X, and also could I get a Y?' Tek nefes, kibar, verimli.",
+      example_filled:
+        "Could you help me with this form, and also could I get an extra blanket?",
+    },
+    {
+      id: "ex.44.16.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Excuse me, is there something I can help with?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course. Which part is confusing?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah|hi|sorry to bother you)",
+        "(could you help me (with )?(this|the)? form)",
+        "(i don't understand (this|the) form)",
+        "(can you (explain|help me with) (the )?form)",
+        "(it('s| is) the (immigration|customs|entry) form)",
+      ],
+      tr_hint:
+        "Saygılı + net: 'Yes — sorry to bother you, could you help me with this immigration form?'",
+      ideal_answer:
+        "Yes — sorry to bother you. Could you help me with this immigration form?",
+    },
+    {
+      id: "ex.44.16.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Sure, what else?",
+      accepted_patterns: [
+        "(could i (have|get)) (an )?extra blanket",
+        "(it('s| is) (a bit |kind of |really )?(cold|chilly))",
+        "(i('m| am) (a bit |kind of |really )?(cold|freezing))",
+        "(and (some |a glass of )?water)",
+        "(also (some )?water for my (pill|medicine))",
+        "(i need (to take|some water for)) (a )?(pill|medicine|tablet)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "İki şey birleştir: 'Could I get an extra blanket and some water? I need to take a pill.'",
+      ideal_response:
+        "Could I get an extra blanket and some water? I need to take a pill.",
+    },
+    {
+      id: "ex.44.16.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Üşüyorum.",
+      wrong_en: "I have cold.",
+      right_en: "I'm cold.",
+      why_tr:
+        "Türk öğrenci 'üşümek' = sahip olmak gibi düşünür: 'I have cold' veya 'I am have cold'. YANLIŞ. Doğru: 'I'm cold' (be + sıfat). Aynı kural: 'I'm hungry / tired / thirsty / sleepy'. 'I have cold' = nezleyim ('I have a cold' = nezleyim, çok farklı).",
+    },
+    {
+      id: "ex.44.16.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I'm cold' vs 'I have a cold' farkı?",
+          options: [
+            "Aynı şey",
+            "'I'm cold' = üşüyorum; 'I have a cold' = nezleyim",
+            "İkisi de hastalık",
+            "Birincisi yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Be + adjective = his/durum; have + noun = sahip olma. 'I'm cold' = his; 'I have a cold' = hastalık.",
+        },
+        {
+          q: "'Port of entry' nedir (immigration formu)?",
+          options: [
+            "Liman ismi",
+            "İlk indiğin havalimanı (örn. JFK)",
+            "Pasaport ofisi",
+            "Vize numarası",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Port of entry' = ülkeye giriş yaptığın havalimanı. ABD: JFK, LAX, ORD; UK: LHR. Form'a yaz.",
+        },
+        {
+          q: "Hosteste iki şey isteyeceksin — EN doğru yapı?",
+          options: [
+            "Give blanket. Give water.",
+            "I want blanket and water.",
+            "Could I get an extra blanket and some water?",
+            "Blanket! Water!",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'Could I get + thing 1 + and + thing 2?' = kibar + verimli. Tek nefes, hostese saygılı.",
+        },
+        {
+          q: "'Actually, could I ask one more thing?' ne işe yarar?",
+          options: [
+            "Konu değiştirme köprüsü (ek soruya geçiş)",
+            "Vedalaşma",
+            "Yasak",
+            "Şikayet",
+          ],
+          correct: 0,
+          tr_explanation:
+            "İlk istek/sorudan ikincisine geçiş köprüsü. Hostes kabul ederse rahatça ikinci şeyi sor.",
+        },
+        {
+          q: "'Could you help me with' tam karşılığı?",
+          options: [
+            "Yardım et",
+            "...ile bana yardım eder misin",
+            "Yardım gerekli mi",
+            "Beni anla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Standart kibar yardım talebi. 'Could you help me with this form?' = bu formla yardım eder misin?",
         },
       ],
     },
@@ -1229,6 +2347,153 @@ export const airportLesson_44_17: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.44.17.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Is this ___ allowed in ___, or should I ___?",
+      slots: [
+        {
+          accepted: ["power bank", "spare battery", "lithium battery"],
+          distractors: ["power", "battery power", "this"],
+        },
+        {
+          accepted: ["my carry-on", "the cabin", "hand luggage", "checked baggage"],
+          distractors: ["bag", "luggage", "the carry"],
+        },
+        {
+          accepted: [
+            "move it to my carry-on",
+            "take it out",
+            "leave it behind",
+            "put it in the cabin bag",
+          ],
+          distractors: ["throw it", "take", "move bag"],
+        },
+      ],
+      tr_hint:
+        "Power bank kuralı kalıbı: nesne + 'allowed in' + yer + alternatif eylem.",
+      example_filled:
+        "Is this power bank allowed in my carry-on, or should I move it to checked baggage?",
+    },
+    {
+      id: "ex.44.17.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Is this a power bank in your suitcase?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Power banks aren't allowed in checked baggage." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah|that('s| is) right)",
+        "(it('s| is) (my )?power bank)",
+        "(for my phone)",
+        "(is (it|that) (a )?problem)",
+        "(should i (take it out|move it))",
+        "(is it not (allowed|okay))",
+      ],
+      tr_hint:
+        "Onayla + sor: 'Yes, that's my power bank. Is that a problem?'",
+      ideal_answer:
+        "Yes, that's my power bank — is that a problem?",
+    },
+    {
+      id: "ex.44.17.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's the capacity? Is it under 20,000 mAh?",
+      accepted_patterns: [
+        "(yes|i think so)",
+        "(it('s| is) (10|10,?000|twenty thousand|20,?000)( mah)?)",
+        "(let me check)",
+        "(it should be (under|less than) (20,?000|20k))",
+        "(it says \\w+ on the back)",
+        "(i('m| am) not sure (— )?(can|let me) (check|look))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kontrol et: 'Let me check — it says 10,000 mAh on the back.' Bilmiyorsan dürüst söyle.",
+      ideal_response:
+        "Let me check — it says 10,000 mAh on the back, so yes, under 20.",
+    },
+    {
+      id: "ex.44.17.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Bilmiyordum.",
+      wrong_en: "I am no know.",
+      right_en: "I didn't know.",
+      why_tr:
+        "Türk öğrenci 'bilmiyordum' geçmiş zaman + 'değil' yapar: 'I am no know'. YANLIŞ. Doğru: simple past negative = didn't + V1. 'I didn't know'. Not: 'I don't know' = bilmiyorum (şu an); 'I didn't know' = bilmiyordum (geçmiş). Önemli ton: özür dilerken 'I didn't know' standart.",
+    },
+    {
+      id: "ex.44.17.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Power bank uçakta nereye konur?",
+          options: [
+            "Kargo (checked) bagaja",
+            "Kabin (carry-on) çantasına — kargo YASAK",
+            "Heriki yere",
+            "Cebine",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Lityum-iyon piller kargo bölümünde yasak — yangın riski. Sadece carry-on'da, gözünün önünde.",
+        },
+        {
+          q: "Power bank kapasite limiti?",
+          options: [
+            "Sınır yok",
+            "Genelde 100 Wh (~27,000 mAh) — bunun üstü için özel izin",
+            "10 mAh",
+            "1 kg",
+          ],
+          correct: 1,
+          tr_explanation:
+            "FAA + IATA: 100Wh altı serbest, 100-160Wh özel izin (genelde 2 adet), üstü yasak. mAh'ye çevirirsen ~27,000.",
+        },
+        {
+          q: "'I didn't know' Türkçesi?",
+          options: [
+            "Bilmiyorum",
+            "Bilmiyordum",
+            "Bilirim",
+            "Anlamadım",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Simple past negative = geçmişte bilmiyordum. Özür dilerken sık: 'Oh, I didn't know — sorry.'",
+        },
+        {
+          q: "Görevli 'It's not allowed' dedi — EN doğru tutum?",
+          options: [
+            "Tartış",
+            "İşbirlikçi ol: 'Oh, I didn't know. I'll move it now.'",
+            "Görmezden gel",
+            "Yalanla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Sakin + işbirliği = hızlı çözüm. 'I didn't know' + 'I'll move it' — görevli memnun, sen uçaktasın.",
+        },
+        {
+          q: "'mAh' nedir?",
+          options: [
+            "Bilet sınıfı",
+            "Pil kapasite birimi (milliamp-hour)",
+            "Bagaj kodu",
+            "Vize tipi",
+          ],
+          correct: 1,
+          tr_explanation:
+            "milliamp-hour = pil enerji kapasitesi. Power bank kutusunda yazar. Watt-hour'a çevirme: mAh × volt / 1000 = Wh.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1361,6 +2626,157 @@ export const airportLesson_44_18: BundledLesson = {
         {
           speaker: "npc",
           message: "My pleasure. Have a great flight, and take care of mom.",
+        },
+      ],
+    },
+    {
+      id: "ex.44.18.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we have ___ for my ___? She has trouble ___.",
+      slots: [
+        {
+          accepted: [
+            "wheelchair assistance",
+            "a wheelchair",
+            "mobility assistance",
+            "some help",
+          ],
+          distractors: ["wheelchair", "the chair", "wheel chair"],
+        },
+        {
+          accepted: ["mother", "mom", "grandmother", "grandfather", "father"],
+          distractors: ["mother is", "mom her", "mum"],
+        },
+        {
+          accepted: [
+            "walking long distances",
+            "walking",
+            "getting around",
+            "standing for long",
+          ],
+          distractors: ["walk", "to walk", "walking long"],
+        },
+      ],
+      tr_hint:
+        "Yardım talep kalıbı: 'Could we have + service + for my + person + reason.' Esnek + saygılı.",
+      example_filled:
+        "Could we have wheelchair assistance for my mother? She has trouble walking long distances.",
+    },
+    {
+      id: "ex.44.18.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Good morning, checking in?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course. Did you request it when booking?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah|hi|good morning)",
+        "(checking in for (flight |the )?\\w+)",
+        "(two people|two of us|me and my (mom|mother|father|grandmother))",
+        "(also,? (could|can) we (have|get|request)) (some )?wheelchair (assistance|help)",
+        "(my (mom|mother) (has|needs) (some )?help (walking|getting around))",
+      ],
+      tr_hint:
+        "Check-in + istek: 'Yes, checking in for two — and could we have wheelchair assistance for my mom?'",
+      ideal_answer:
+        "Yes, checking in for two — and could we have wheelchair assistance for my mom? She has trouble walking.",
+    },
+    {
+      id: "ex.44.18.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Someone will be here in about 5 minutes to take her through security and to the gate.",
+      accepted_patterns: [
+        "(perfect|great|thank you so much|amazing)",
+        "(can i go (with|along) (her|my mom))",
+        "(do i (also )?go (through|with her))",
+        "(will they (stay|wait) at the gate)",
+        "(will they help her (board|get on))",
+        "(thank you for arranging (it|this))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Teşekkür + ek soru: 'Thank you — can I go with her, or do I go separately?'",
+      ideal_response:
+        "Thank you so much — can I go with her, or do I go separately?",
+    },
+    {
+      id: "ex.44.18.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Annem yürümede zorluk çekiyor.",
+      wrong_en: "My mother has difficulty in walk.",
+      right_en: "My mother has trouble walking. / has difficulty walking.",
+      why_tr:
+        "Türk öğrenci 'zorluk çekmek' = 'have difficulty in + V1' der ('in walk', 'in eat'). YANLIŞ: 'have trouble/difficulty' + V-ing (gerund). Doğru: 'has trouble WALKING'. 'In' takısı yok, '-ing' formu lazım. Aynı: 'have a hard time + V-ing'.",
+    },
+    {
+      id: "ex.44.18.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wheelchair assistance' Türkçesi?",
+          options: [
+            "Tekerlek tamiri",
+            "Tekerlekli sandalye yardımı (havayolu hizmeti)",
+            "Mobilya yardımı",
+            "Pasaport ofisi",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Yaşlı, hareket güçlüğü olan, ameliyat sonrası yolcular için ücretsiz hizmet. Rezervasyonda ya da check-in'de iste.",
+        },
+        {
+          q: "'Has trouble walking' — DOĞRU yapı?",
+          options: [
+            "has trouble in walk",
+            "has trouble walking (gerund)",
+            "has trouble to walk",
+            "has trouble walks",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Have trouble/difficulty' + V-ing (gerund). 'In walk' / 'to walk' YANLIŞ.",
+        },
+        {
+          q: "Mobility assistance ücretsiz mi?",
+          options: [
+            "Hayır, premium",
+            "Evet — havayolu yasal olarak vermek zorunda",
+            "Sadece business class",
+            "Bilet ek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "AB EC1107, ABD ACAA: havayolu hareket güçlüğü olan yolculara ücretsiz yardım sağlamak zorunda. Önceden iste.",
+        },
+        {
+          q: "'Priority lane' ne demek?",
+          options: [
+            "Öncelikli koltuk",
+            "Öncelikli (hızlı) hat — yaşlı, çocuklu, business yolcu için",
+            "VIP salonu",
+            "Premium menü",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Check-in, güvenlik, biniş kuyruklarında öncelikli hat. Wheelchair assistance ile geçersin.",
+        },
+        {
+          q: "Wheelchair için 5 dk önce request ettin — EN doğru ton?",
+          options: [
+            "Talepkar",
+            "Saygılı + dürüst: 'No, I didn't — can we still request it now?'",
+            "Suçlayıcı",
+            "Tartışmacı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Dürüstlük + esneklik = hızlı çözüm. Görevli son anda da düzenler — yardım hizmeti standart.",
         },
       ],
     },
@@ -1501,6 +2917,153 @@ export const airportLesson_44_19: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.44.19.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "By any chance, is there any ___ today? Could I ___ or ___?",
+      slots: [
+        {
+          accepted: [
+            "upgrade availability",
+            "premium economy availability",
+            "business class availability",
+          ],
+          distractors: ["upgrade", "premium", "availability"],
+        },
+        {
+          accepted: ["use my miles", "pay with miles", "use frequent flyer miles"],
+          distractors: ["miles", "use miles", "go with miles"],
+        },
+        {
+          accepted: ["pay the difference", "pay cash", "pay the fare difference"],
+          distractors: ["difference", "pay extra", "pay"],
+        },
+      ],
+      tr_hint:
+        "Upgrade pazarlık kalıbı: 'by any chance' (yumuşatıcı) + 'upgrade availability' + iki ödeme seçeneği. Kibar + esnek.",
+      example_filled:
+        "By any chance, is there any upgrade availability today? Could I use my miles or pay the difference?",
+    },
+    {
+      id: "ex.44.19.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Good afternoon. Checking in for New York?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "We do have a couple of seats open in business." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah|good afternoon)",
+        "(checking in for (flight )?\\w+ to (new york|jfk))",
+        "(by any chance|i was wondering)",
+        "(any upgrade (availability|options))",
+        "(could i (upgrade|move up))",
+      ],
+      tr_hint:
+        "Check-in + upgrade köprüsü: 'Yes, checking in for TK1 to JFK. By any chance, is there any upgrade availability today?'",
+      ideal_answer:
+        "Yes, checking in for TK1 to JFK. By any chance, is there any upgrade availability today?",
+    },
+    {
+      id: "ex.44.19.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line:
+        "Cash upgrade is $1,200 or 60,000 miles. Which would you prefer?",
+      accepted_patterns: [
+        "(let me think)",
+        "(could i use my miles)",
+        "(i('m| am) a (silver|gold|elite|frequent flyer))",
+        "(any chance (of |for )?a discount)",
+        "(is there premium economy as a middle option)",
+        "(what about (just )?premium economy)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Pazarlık: 'Hmm — what about premium economy as a middle option?' veya 'Could I use my miles?'",
+      ideal_response:
+        "Hmm — what about premium economy as a middle option?",
+    },
+    {
+      id: "ex.da44.19.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Upgrade istiyorum.",
+      wrong_en: "I want upgrade.",
+      right_en:
+        "By any chance, is there any upgrade availability today?",
+      why_tr:
+        "Türk öğrenci direkt 'I want upgrade' der — kontuvar bağlamında ÇOK KABA + 'an' makalesi de eksik. Doğru: 'by any chance' (kibar yumuşatıcı) + 'is there any upgrade availability'. Sorgulayıcı yapı görevliye seçenek sunduğunu hissettirir. 'I want' = emir, 'is there any... availability' = bilgi sorma.",
+    },
+    {
+      id: "ex.da44.19.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Upgrade istemenin EN doğru kalıbı?",
+          options: [
+            "I want upgrade!",
+            "By any chance, is there any upgrade availability?",
+            "Give me business!",
+            "Cheaper class no!",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'By any chance' = kibar yumuşatıcı. Görevli reddetse bile saygılı atmosfer korunur, ileride hatırlanabilir.",
+        },
+        {
+          q: "'Pay the difference' Türkçesi?",
+          options: [
+            "Para iadesi",
+            "Farkı öde (ekonomi vs business arası)",
+            "Tüm ücreti öde",
+            "Para çek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Ekonomi bileti aldın, premium economy'e geçmek için sadece ARADAKİ farkı öde. Cash upgrade = bu fark.",
+        },
+        {
+          q: "Frequent flyer mileage ile ne yapılır?",
+          options: [
+            "Sadece bilet alınır",
+            "Upgrade, lounge erişimi, bagaj fee, partner havayolu uçuşu",
+            "Sadece otel",
+            "Yiyecek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Mileage çok yönlü: upgrade en popüler kullanım, çoğu havayolu hem cash hem mile alır.",
+        },
+        {
+          q: "'Premium economy' ne sunar?",
+          options: [
+            "Aynısı, daha pahalı",
+            "Daha geniş koltuk + lounge + öncelikli biniş + daha iyi yemek",
+            "Pilot kabini",
+            "Yatak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Ekonomi-business arası seviye. Genelde +%30-50 fiyat, lounge erişimi, daha geniş koltuk.",
+        },
+        {
+          q: "'Sounds like a deal!' ne demek?",
+          options: [
+            "Anlaştık (positive onay)",
+            "Sesli yap",
+            "Sözleşme imza at",
+            "Hayır",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Sounds like a deal' = anlaştık (samimi onay). Kabul + pozitif ton. Native günlük dil.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1638,6 +3201,159 @@ export const airportLesson_44_20: BundledLesson = {
         {
           speaker: "npc",
           message: "Happy to help. Enjoy your rest, and have a safe flight onwards.",
+        },
+      ],
+    },
+    {
+      id: "ex.44.20.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "I have a ___-hour layover and I don't ___ — what ___?",
+      slots: [
+        {
+          accepted: ["14", "12", "10", "8"],
+          distractors: ["fourteen hour", "a 14", "the 14"],
+        },
+        {
+          accepted: [
+            "have a transit visa",
+            "have a visa",
+            "have entry rights",
+            "have permission to leave",
+          ],
+          distractors: ["have visa", "have a transit", "got visa"],
+        },
+        {
+          accepted: [
+            "are my options",
+            "can I do inside",
+            "do you recommend",
+            "is there to do",
+          ],
+          distractors: ["I do", "options", "me do"],
+        },
+      ],
+      tr_hint:
+        "Transit dilemma kalıbı: süre + 'don't have a transit visa' + soru. Native + nötr.",
+      example_filled:
+        "I have a 14-hour layover and I don't have a transit visa — what are my options?",
+    },
+    {
+      id: "ex.44.20.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Hi, how can I help you today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "No problem — there's plenty to do air-side." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|excuse me)",
+        "(i have (a )?(\\d+|fourteen|long|big)[- ]?hour layover)",
+        "(i don't have (a )?transit visa)",
+        "(i can't leave (the airport|air[- ]?side))",
+        "(what (are )?(my )?options)",
+        "(any (recommendations|advice))",
+      ],
+      tr_hint:
+        "Net + nötr: 'Hi — I have a 14-hour layover and I don't have a transit visa. What are my options inside?'",
+      ideal_answer:
+        "Hi — I have a 14-hour layover and I don't have a transit visa. What are my options inside?",
+    },
+    {
+      id: "ex.44.20.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line:
+        "You can book a sleep pod for 4 hours or a day room with shower for 12 hours.",
+      accepted_patterns: [
+        "(how much (does it |do they )?cost)",
+        "(what('s| is) the difference)",
+        "(which would you (recommend|suggest))",
+        "(can i pay by (the )?hour)",
+        "(do i need to (book|reserve) (in advance|now))",
+        "(what about (a )?shower)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Fiyat + tavsiye: 'How much do they cost, and which would you recommend for 14 hours?'",
+      ideal_response:
+        "How much do they cost, and which would you recommend for 14 hours?",
+    },
+    {
+      id: "ex.44.20.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Vakit öldürmem gerek.",
+      wrong_en: "I need to kill the time.",
+      right_en: "I need to kill some time. / I need to pass the time.",
+      why_tr:
+        "Türk öğrenci 'vakti öldürmek' tam çevirir: 'kill the time'. Yakın ama belirteç hatası: 'the time' (belirli zaman) kullanılmaz. Doğru: 'kill SOME time' veya 'kill time' (article'sız). Eşanlamı: 'pass the time' (vakit geçirmek). Native: 'How do you kill time during a long layover?'",
+    },
+    {
+      id: "ex.44.20.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Transit visa' nedir?",
+          options: [
+            "Pasaport rengi",
+            "Aktarma sırasında havalimanından çıkmak için gerekli vize",
+            "Bilet tipi",
+            "Uçak bagaj kuralı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Bazı ülkeler aktarma için bile vize ister. Türk pasaportlular Schengen aktarmalarda 'airport transit visa' (ATV) ister bazı durumlarda.",
+        },
+        {
+          q: "'Air-side' vs 'land-side' farkı?",
+          options: [
+            "Uçuş sınıfları",
+            "Air-side = güvenlik geçtikten sonra; Land-side = check-in alanı (genel)",
+            "Bilet türleri",
+            "Şirket adları",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Air-side = boarding gate'lere doğru, güvenlik sonrası. Land-side = check-in, restoran (giriş). Transit yolcusu air-side'da kalır.",
+        },
+        {
+          q: "'Kill time' Türkçesi?",
+          options: [
+            "Zaman katil",
+            "Vakit öldürmek / geçirmek",
+            "Zamanı durdur",
+            "Hızlı git",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Kill time' = vakit öldürmek. 'I need to kill some time' veya 'pass the time'. The'siz kullan.",
+        },
+        {
+          q: "Uzun layover'da ne yapılabilir (air-side)?",
+          options: [
+            "Hiçbir şey, otur bekle",
+            "Sleep pod / day room, lounge, duş, shopping, restoran, prayer room",
+            "Sadece uyumak",
+            "Sadece yemek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Doha, Singapore, Dubai, Istanbul gibi büyük transit hub'larında: uyku kabini, day room, duş, prayer room, lounge, food court hepsi var.",
+        },
+        {
+          q: "'Sleep pod' nedir?",
+          options: [
+            "Bireysel uyku kapsülü (havalimanında saatlik kiralık)",
+            "Uçak koltuğu",
+            "Çocuk yatağı",
+            "Bagaj dolabı",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Sleep pod' = küçük bireysel uyku kapsülü. Yatak + perde + USB. Saatlik kiralık (~$25-40/4 saat). Uzun aktarmada altın değerinde.",
         },
       ],
     },

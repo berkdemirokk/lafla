@@ -139,6 +139,127 @@ export const ieltsWritingLesson_w1_1: BundledLesson = {
         { speaker: "npc", message: "Well done. That's a solid Task 1 structure — opening, overview, two body paragraphs with data, summary. Aim for 150+ words." },
       ],
     },
+    {
+      id: "ex.ielts.w1.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "The ___ illustrates ___ across ___.",
+      slots: [
+        { accepted: ["chart", "bar chart", "graph", "data"] },
+        { accepted: ["coffee consumption", "per-capita consumption figures", "annual consumption patterns", "comparative consumption rates"] },
+        { accepted: ["five countries between 2020 and 2024", "five major nations over a four-year period", "the surveyed countries", "Turkey, Brazil, Italy, Germany and the USA"] },
+      ],
+      tr_hint:
+        "Task 1 opening formula: 'The X illustrates Y across Z.' Akademik register — 'illustrates' > 'shows'. Türk öğrenci 'shows that' der — yanlış. 'Illustrates' direkt obje alır.",
+      example_filled: "The bar chart illustrates coffee consumption across five countries between 2020 and 2024.",
+    },
+    {
+      id: "ex.ielts.w1.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Quick test — write me an overview sentence for the coffee consumption chart. Remember: big picture, no exact numbers." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good. That captures the trend without drowning in data." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(overall|in general|on the whole),?",
+        "(coffee consumption|consumption levels) (rose|increased|grew) (in (most|the majority))",
+        "(while|whereas) (some|a few|certain) (countries|nations) (saw|experienced) (a decline|stagnation)",
+        "(the highest (figures|consumption|levels) (were recorded|appeared) in)",
+      ],
+      tr_hint:
+        "Overview = no numbers. 'Overall, coffee consumption rose in most countries, while a few saw decline.' Türk öğrenci direkt rakam atar — overview = trend, rakam body'de.",
+      ideal_answer: "Overall, coffee consumption rose in most countries between 2020 and 2024, while a few saw a marginal decline.",
+    },
+    {
+      id: "ex.ielts.w1.1.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Describe in one sentence the country with the highest consumption. Use specific figures.",
+      accepted_patterns: [
+        "(italy|the highest figure|the leading country) (consumed|recorded|reached)",
+        "at (approximately|around|just over|nearly) \\d+ ?(kg|kilograms)",
+        "(rose|climbed) from \\d+ to \\d+",
+        "(stood at|reached a peak of|peaked at)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik rakam + ülke: 'Italy recorded the highest consumption, at approximately 6 kg per capita in 2024.' 'In Italy was' YANLIŞ → 'Italy recorded / Italy consumed'.",
+      ideal_response: "Italy recorded the highest consumption, reaching approximately 6 kg per capita in 2024.",
+    },
+    {
+      id: "ex.ielts.w1.1.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Bence kahve tüketimi çok arttı çünkü kahve popüler oldu.",
+      wrong_en: "I think coffee consumption increased very because coffee became popular.",
+      right_en: "Coffee consumption rose markedly across most countries between 2020 and 2024.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'I think' = Task 1'de YASAK — opinion içermez, otomatik band 5; (2) 'Increased very' = adverb position hatası → 'rose markedly' (band 7+ adverb); (3) 'Because' = cause açıklama Task 1'de gerekmiyor, sadece tasvir; (4) 'Became popular' = informal + Task 1 register dışı. Task 1 register: pasif, neutral, opinion-free, present perfect veya past simple.",
+    },
+    {
+      id: "ex.ielts.w1.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Task 1'de YASAK olan ifade?",
+          options: [
+            "Overall",
+            "In contrast",
+            "I think / I believe / In my opinion",
+            "Approximately",
+          ],
+          correct: 2,
+          tr_explanation: "Task 1 = opinion-free description. 'I think' otomatik band 5.",
+        },
+        {
+          q: "'Çok arttı' için Task 1 band 7+ ifade?",
+          options: [
+            "Increased very much",
+            "Increased very",
+            "Rose markedly / increased significantly",
+            "Very increased",
+          ],
+          correct: 2,
+          tr_explanation: "'Markedly / significantly / sharply' = band 7+ adverbs. 'Very much' informal.",
+        },
+        {
+          q: "Task 1 opening verb tercih?",
+          options: [
+            "Shows / says",
+            "Illustrates / depicts / presents",
+            "Talks about",
+            "Tells",
+          ],
+          correct: 1,
+          tr_explanation: "Akademik register: 'illustrates / depicts / presents'. 'Shows' OK ama lexical variety için 'illustrates' daha iyi.",
+        },
+        {
+          q: "'Increase of' yapısının sorunu?",
+          options: [
+            "Doğru",
+            "'Of' yanlış preposition → 'increase IN'",
+            "'Increase' yanlış kelime",
+            "Hiçbir sorun yok",
+          ],
+          correct: 1,
+          tr_explanation: "'An increase IN X' = doğru. Türk öğrenci 'increase of X' der — Türkçeden gelen kalıp hatası.",
+        },
+        {
+          q: "Overview cümlesinde ne OLMAMALI?",
+          options: [
+            "Trend yönü",
+            "Karşılaştırma kelimesi",
+            "Spesifik rakamlar (40%, 6 kg vb)",
+            "'Overall' linker",
+          ],
+          correct: 2,
+          tr_explanation: "Overview = big picture, NO numbers. Rakamlar body paragraflarında.",
+        },
+      ],
+    },
   ],
 };
 
@@ -252,6 +373,128 @@ export const ieltsWritingLesson_w1_2: BundledLesson = {
           hint_tr: "Summary: 'In summary, the graph highlights contrasting demographic trends, with Turkey growing while Japan ages and shrinks.' Band 7+ kelime: 'contrasting', 'demographic trends', 'trajectories'.",
         },
         { speaker: "npc", message: "Excellent. Notice — present simple for facts, past for historical data, future projections for 2025+." },
+      ],
+    },
+    {
+      id: "ex.ielts.w1.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 5,
+      template: "___ population ___ from ___ million in 1990 to ___ million by 2025.",
+      slots: [
+        { accepted: ["Turkey's", "Japan's", "The country's"] },
+        { accepted: ["rose steadily", "climbed gradually", "increased sharply", "declined gradually", "fell markedly"] },
+        { accepted: ["around 55", "approximately 128", "roughly 60", "just over 50"] },
+        { accepted: ["85", "115", "70", "82"] },
+      ],
+      tr_hint:
+        "Line graph cümle formula: 'X's population [verb] from Y million in 1990 to Z million by 2025.' Possessive 's şart. Türk öğrenci 'Turkey population' der — possessive eksik.",
+      example_filled: "Turkey's population rose steadily from around 55 million in 1990 to 85 million by 2025.",
+    },
+    {
+      id: "ex.ielts.w1.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 5,
+      turns: [
+        { speaker: "npc", text: "Write the overview sentence for the Turkey-Japan population trend graph. Note: opposite trends, no specific numbers." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good — you captured the divergence without drowning in figures." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(overall|in general|broadly speaking),?",
+        "(turkey'?s population|the population of turkey) (rose|grew|increased) (steadily|gradually)",
+        "(whereas|while) (japan'?s|that of japan) (declined|fell|decreased)",
+        "(contrasting|opposite|diverging) (trends|trajectories)",
+      ],
+      tr_hint:
+        "Diverging trend overview: 'Overall, Turkey's population rose steadily, whereas Japan's declined — illustrating contrasting demographic trajectories.' Possessive 's şart.",
+      ideal_answer: "Overall, Turkey's population rose steadily, whereas Japan's declined — illustrating contrasting demographic trajectories.",
+    },
+    {
+      id: "ex.ielts.w1.2.lr1",
+      type: "listen_respond",
+      difficulty: 5,
+      npc_line: "Describe Japan's projected trend in one sentence using future projection language.",
+      accepted_patterns: [
+        "(japan'?s|the japanese) population (is projected|is expected|is forecast)",
+        "to (fall|decline|drop) (to|further to)",
+        "(by 2030|by the end of (the period|the decade))",
+        "(approximately|around|just over) \\d+",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Future projection: 'Japan's population is projected to fall to around 115 million by 2030.' Türk öğrenci 'will fall' der — projection için 'is projected to' band 7+.",
+      ideal_response: "Japan's population is projected to decline further to around 115 million by 2030.",
+    },
+    {
+      id: "ex.ielts.w1.2.tt1",
+      type: "thinking_trap",
+      difficulty: 5,
+      tr_thought: "Türkiye nüfusu artıyordu ve Japonya nüfusu azalıyordu.",
+      wrong_en: "Turkey population was increasing and Japan population was decreasing.",
+      right_en: "Turkey's population rose steadily, whereas Japan's declined.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'Turkey population' = possessive eksik → 'Turkey's population' (apostrofe + s); (2) 'Was increasing' = continuous overuse → past simple 'rose' yeterli; (3) 'And' = düz linker → 'whereas' (band 7+ contrast); (4) Repetitive 'population' → ikinci sefer 'Japan's' (deletion). Range of structures band 7+.",
+    },
+    {
+      id: "ex.ielts.w1.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Türkiye'nin nüfusu' için doğru yapı?",
+          options: [
+            "Turkey population",
+            "Turkey's population",
+            "Population of Turkey only",
+            "Population Turkey",
+          ],
+          correct: 1,
+          tr_explanation: "Possessive 's şart. Türk öğrenci sıkça düşürür. 'The population of Turkey' de OK ama 'Turkey's' daha kısa.",
+        },
+        {
+          q: "Gelecek projeksiyon için band 7+ yapı?",
+          options: [
+            "Will be",
+            "Going to be",
+            "Is projected to / is expected to / is forecast to",
+            "Future will",
+          ],
+          correct: 2,
+          tr_explanation: "'Is projected/expected/forecast to' = academic future projection. 'Will' direkt + informal.",
+        },
+        {
+          q: "'Zirve yaptı' için band 7+ verb?",
+          options: [
+            "Reached top",
+            "Was top",
+            "Peaked at / reached its peak at",
+            "Top was",
+          ],
+          correct: 2,
+          tr_explanation: "'Peaked at' = sabit collocation. 'Reached its peak' alternatif.",
+        },
+        {
+          q: "'1990 ile 2030 arasında' için doğru yapı?",
+          options: [
+            "Between 1990-2030",
+            "Between 1990 and 2030",
+            "From 1990-2030",
+            "1990 to 2030 between",
+          ],
+          correct: 1,
+          tr_explanation: "'Between X and Y' (tire değil 'and'). Türk öğrenci sıkça tire kullanır = informal.",
+        },
+        {
+          q: "'Dalgalandı' için Task 1 verb?",
+          options: [
+            "Wavered",
+            "Moved",
+            "Fluctuated between X and Y",
+            "Was wave",
+          ],
+          correct: 2,
+          tr_explanation: "'Fluctuated between' = sabit Task 1 collocation. 'Wavered' band 8+ ama daha az kullanılır.",
+        },
       ],
     },
   ],
@@ -369,6 +612,128 @@ export const ieltsWritingLesson_w1_3: BundledLesson = {
         { speaker: "npc", message: "Perfect. Pie chart writing is all about proportion language — 'accounts for', 'makes up', 'represents'. Avoid 'is' for percentages." },
       ],
     },
+    {
+      id: "ex.ielts.w1.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "___ accounts for approximately ___ of total ___, ___ the largest share.",
+      slots: [
+        { accepted: ["Heating", "Space heating", "Cooling and heating"] },
+        { accepted: ["40 per cent", "40%", "two-fifths", "just under half"] },
+        { accepted: ["household energy consumption", "energy use", "domestic electricity demand"] },
+        { accepted: ["representing", "constituting", "comprising"] },
+      ],
+      tr_hint:
+        "Pie chart cümle formula: 'X accounts for approximately Y of total Z, representing the largest share.' Türk öğrenci 'X is 40%' der — YANLIŞ collocation → 'accounts for / makes up / represents'.",
+      example_filled: "Heating accounts for approximately 40 per cent of total household energy consumption, representing the largest share.",
+    },
+    {
+      id: "ex.ielts.w1.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Write me the overview for this pie chart — what dominates, what's marginal. No exact percentages." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good. The contrast between dominant and marginal categories is clear." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(overall|in general|it is clear that),?",
+        "(heating|space heating) (dominates|accounts for the largest share)",
+        "(while|whereas) (lighting|small appliances|cooking) (forms|represents) (the smallest|a marginal)",
+        "(the (bulk|majority) of (energy use|household consumption))",
+      ],
+      tr_hint:
+        "Overview = en büyük + en küçük, rakam yok. 'Overall, heating dominates while lighting forms only a marginal share.' Türk öğrenci sayıları sıralar — overview = big picture.",
+      ideal_answer: "Overall, heating dominates household energy use, while lighting forms only a marginal share.",
+    },
+    {
+      id: "ex.ielts.w1.3.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Write me the contrast sentence for the smallest category. Use 'by contrast'.",
+      accepted_patterns: [
+        "(by contrast|in contrast|at the other end),?",
+        "(lighting|cooking) (makes up|forms|represents|accounts for) (only|just|merely)",
+        "(a marginal|the smallest|a negligible) (proportion|share)",
+        "(at (only|just) |less than )\\d+ ?(per cent|%)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Contrast formula: 'By contrast, lighting forms only 5 per cent — a marginal share.' Türk öğrenci 'lighting is 5%' der — collocation hatası.",
+      ideal_response: "By contrast, lighting forms only 5 per cent — a marginal share at the other end of the chart.",
+    },
+    {
+      id: "ex.ielts.w1.3.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Isıtma %40 ve aydınlatma %5.",
+      wrong_en: "Heating is 40% and lighting is 5%.",
+      right_en: "Heating accounts for 40 per cent, while lighting represents a marginal 5 per cent.",
+      why_tr:
+        "Türk öğrenci 3 hata: (1) 'Heating is 40%' = collocation hatası — kategori bir % DEĞİL, % ALIR → 'accounts for / makes up / represents' (band 7+ proportion verbs); (2) 'And' = düz → 'while' (Task 1 contrast); (3) '40%' = informal symbol → 'per cent' (formal Task 1). 'Marginal' band 7+ adjective ekle.",
+    },
+    {
+      id: "ex.ielts.w1.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'%40' Task 1 formal yazımı?",
+          options: [
+            "40%",
+            "40 percent",
+            "40 per cent",
+            "40 %",
+          ],
+          correct: 2,
+          tr_explanation: "'Per cent' (boşluk) = UK formal Task 1 register. 'Percent' (boşluksuz) US, OK ama UK tercih.",
+        },
+        {
+          q: "'Isıtma %40' band 7+ collocation?",
+          options: [
+            "Heating is 40%",
+            "Heating means 40%",
+            "Heating accounts for 40 per cent",
+            "Heating = 40%",
+          ],
+          correct: 2,
+          tr_explanation: "'Accounts for / makes up / represents' = proportion verbs. 'Is' YANLIŞ — kategori % değil, % alır.",
+        },
+        {
+          q: "Pie chart'ta orta kategorileri nasıl ele al?",
+          options: [
+            "Hepsini tek tek listele",
+            "Atla, sadece en büyük ve en küçüğü yaz",
+            "Gruplandır: 'X and Y combined account for Z%'",
+            "Yazma",
+          ],
+          correct: 2,
+          tr_explanation: "Gruplandırma = band 7+ technique. 4-6 kategori varsa orta olanları birleştir.",
+        },
+        {
+          q: "'Marginal share' ne demek?",
+          options: [
+            "Geniş pay",
+            "Marjinal/küçük pay",
+            "Önemli pay",
+            "Yarısı",
+          ],
+          correct: 1,
+          tr_explanation: "'Marginal' = küçük, önemsiz. Band 7+ proportion adjective.",
+        },
+        {
+          q: "Pie chart conclusion için doğru kalıp?",
+          options: [
+            "I think it is true",
+            "Overall, X and Y dominate, while Z remains marginal",
+            "All categories matter",
+            "Pie is clear",
+          ],
+          correct: 1,
+          tr_explanation: "Conclusion = overview tekrarı + nuance. Opinion vermez, yapı özetler.",
+        },
+      ],
+    },
   ],
 };
 
@@ -473,6 +838,128 @@ export const ieltsWritingLesson_w1_4: BundledLesson = {
           hint_tr: "Wrap-up: 'Overall, the data reveals consistent growth in Turkish tourism, although Istanbul continues to dominate.' Band 7+: 'consistent', 'continues to dominate'.",
         },
         { speaker: "npc", message: "Strong work. Tables are tricky — don't list every cell. Pick highest, lowest, and one comparison." },
+      ],
+    },
+    {
+      id: "ex.ielts.w1.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "___ attracted approximately ___ million tourists in 2022, ___ to ___ million by 2024.",
+      slots: [
+        { accepted: ["Istanbul", "Antalya", "Cappadocia", "Bodrum"] },
+        { accepted: ["15", "10", "0.8", "5"] },
+        { accepted: ["rising steadily", "climbing markedly", "growing gradually", "increasing significantly"] },
+        { accepted: ["18", "13", "1", "6"] },
+      ],
+      tr_hint:
+        "Table cümle formula: 'X attracted ~Y million tourists in 2022, rising/climbing to Z million by 2024.' 'Attract / receive / draw' tourists collocation. Türk öğrenci 'take tourists' der — YANLIŞ.",
+      example_filled: "Istanbul attracted approximately 15 million tourists in 2022, rising steadily to 18 million by 2024.",
+    },
+    {
+      id: "ex.ielts.w1.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Write the overview for the tourism table. Who's #1, what's the overall trend, no exact figures." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good — clear standout + general trend captured." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(overall|in general|it is evident that),?",
+        "(istanbul) (remained|was) (by far the most|the most) (popular|visited)",
+        "(arrivals|tourist numbers) (rose|grew|increased) (across|in) (all|most)",
+        "(every|each) (city|destination|location)",
+      ],
+      tr_hint:
+        "Table overview: 'Overall, Istanbul remained by far the most popular destination, while tourist numbers grew across all four cities.' 'Most popular' = superlative, 'the' unutma.",
+      ideal_answer: "Overall, Istanbul remained by far the most popular destination, while tourist numbers grew across all four cities.",
+    },
+    {
+      id: "ex.ielts.w1.4.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Compare Istanbul and Bodrum in one sentence — which grew faster?",
+      accepted_patterns: [
+        "(while|whereas) (istanbul) (grew|increased) (steadily|moderately)",
+        "(bodrum|antalya) (saw|experienced) (more rapid|faster|sharper) (growth|increase)",
+        "(in (relative|proportional|percentage) terms)",
+        "(at a (steeper|sharper|faster) rate)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik karşılaştırma: 'While Istanbul grew steadily, Antalya saw faster growth in relative terms, with arrivals nearly doubling.' Doğrudan kıyas = band 7+.",
+      ideal_response: "While Istanbul grew steadily in absolute terms, Antalya saw faster relative growth, with arrivals nearly doubling.",
+    },
+    {
+      id: "ex.ielts.w1.4.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Antalya turist aldı ve büyüdü.",
+      wrong_en: "Antalya took tourists and growed.",
+      right_en: "Antalya attracted increasing numbers of tourists and grew steadily.",
+      why_tr:
+        "Türk öğrenci 3 hata: (1) 'Took tourists' = collocation hatası — şehir/destinasyon turist almaz, çeker → 'attract / receive / draw' (band 7+); (2) 'Growed' = irregular verb hatası → 'grew' (past simple) veya 'has grown' (present perfect); (3) Vague 'tourists' yerine 'increasing numbers of tourists' (band 7+ specificity). Tablo öğeleri için: cities don't 'take', they 'attract'.",
+    },
+    {
+      id: "ex.ielts.w1.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Turist çekti' için doğru verb?",
+          options: [
+            "Took tourists",
+            "Caught tourists",
+            "Attracted / received / drew tourists",
+            "Brought tourists",
+          ],
+          correct: 2,
+          tr_explanation: "'Attract / receive / draw' tourists = sabit Task 1 collocation. 'Take' YANLIŞ.",
+        },
+        {
+          q: "'Grow' fiilinin past simple formu?",
+          options: [
+            "Growed",
+            "Grew",
+            "Growen",
+            "Growing",
+          ],
+          correct: 1,
+          tr_explanation: "'Grow' irregular → grew → grown. Türk öğrenci sıkça 'growed' der.",
+        },
+        {
+          q: "Table writing'de en sık yapılan hata?",
+          options: [
+            "Her hücreyi tek tek listelemek",
+            "Overview yazmak",
+            "Linker kullanmak",
+            "Conclusion yazmak",
+          ],
+          correct: 0,
+          tr_explanation: "Table = en yüksek + en düşük + 1-2 karşılaştırma seç. Her hücreyi yazmak band düşürür.",
+        },
+        {
+          q: "'En popüler destinasyon' doğru yapı?",
+          options: [
+            "Most popular destination",
+            "The most popular destination",
+            "Popular most destination",
+            "Most populair destination",
+          ],
+          correct: 1,
+          tr_explanation: "Superlative ('most popular') önünde 'the' şart. Türk öğrenci sıkça unutur.",
+        },
+        {
+          q: "'2 katına çıktı' için band 7+ verb?",
+          options: [
+            "Became two times",
+            "Doubled / nearly doubled",
+            "Two times more",
+            "Twice big",
+          ],
+          correct: 1,
+          tr_explanation: "'Doubled / tripled / quadrupled' = band 7+ change verbs. 'Two times' düz.",
+        },
       ],
     },
   ],
@@ -590,6 +1077,127 @@ export const ieltsWritingLesson_w1_5: BundledLesson = {
         { speaker: "npc", message: "Excellent. Map writing = passive voice + past simple + present perfect. No 'I' or 'we'." },
       ],
     },
+    {
+      id: "ex.ielts.w1.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 5,
+      template: "The ___ was demolished and ___ replaced by ___.",
+      slots: [
+        { accepted: ["old market", "original park", "traditional factory", "former school", "outdated building"] },
+        { accepted: ["subsequently", "later", "ultimately", "eventually"] },
+        { accepted: ["a shopping mall", "a modern residential block", "a metro station", "an office complex", "a public square"] },
+      ],
+      tr_hint:
+        "Map passive formula: 'The X was demolished and subsequently replaced by Y.' Türk öğrenci 'They demolished X' der — map'te kim yaptı belirsiz, PASİF şart. Band 7+ register.",
+      example_filled: "The old market was demolished and subsequently replaced by a shopping mall.",
+    },
+    {
+      id: "ex.ielts.w1.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 5,
+      turns: [
+        { speaker: "npc", text: "Write the overview for the 1980 vs 2024 map. What's the BIG transformation?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good. The direction of change is clear." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(overall|in general),?",
+        "(the (area|city centre)) (underwent|has undergone|experienced) (significant|considerable|major) (changes|transformation)",
+        "(becoming (more (urban|commercial|developed))|with (it )?becoming)",
+        "(many (traditional|old)) (features|buildings) (were (replaced|removed)|have disappeared)",
+      ],
+      tr_hint:
+        "Map overview: 'Overall, the city centre underwent significant transformation, becoming more commercial and densely built.' 'Pass changes' YANLIŞ → 'undergo changes'.",
+      ideal_answer: "Overall, the city centre underwent significant transformation, becoming far more commercial and densely built.",
+    },
+    {
+      id: "ex.ielts.w1.5.lr1",
+      type: "listen_respond",
+      difficulty: 5,
+      npc_line: "Describe what's been added to the area using present perfect passive.",
+      accepted_patterns: [
+        "(a (new|modern)|several) (shopping mall|metro station|residential building|park) (has been (built|constructed)|was added)",
+        "(in the (south|west|north|east))",
+        "(where (the old|the original)) (.+) (used to (stand|be|exist))",
+        "(modern (infrastructure|facilities))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Present perfect passive: 'A new metro station has been constructed in the south, where the old market used to stand.' 'They built' YANLIŞ — pasif şart.",
+      ideal_response: "A new metro station has been constructed in the south, where the original market used to stand.",
+    },
+    {
+      id: "ex.ielts.w1.5.tt1",
+      type: "thinking_trap",
+      difficulty: 5,
+      tr_thought: "Onlar parkı yıktılar ve avm yaptılar.",
+      wrong_en: "They demolished the park and they made a shopping mall.",
+      right_en: "The park was demolished and replaced by a shopping mall.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'They demolished' = aktif voice — map'te fail belirsiz, PASİF şart → 'was demolished'; (2) 'Made a shopping mall' = collocation hatası → 'a mall was built / was constructed' (binalar 'made' edilmez); (3) Repetitive 'they... they...' → conjunction + parallel passive; (4) Map register: passive voice + 'was/has been + V3' formula. Aktif yapı map'te otomatik band düşürür.",
+    },
+    {
+      id: "ex.ielts.w1.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Map writing'de doğru voice?",
+          options: [
+            "Active (They built)",
+            "Passive (was built / has been built)",
+            "Imperative (Build!)",
+            "Continuous (was building)",
+          ],
+          correct: 1,
+          tr_explanation: "Map'te fail (kim yaptı) belirsiz, pasif şart. Aktif voice band 5-6.",
+        },
+        {
+          q: "'AVM yaptılar' için doğru verb?",
+          options: [
+            "Made a mall",
+            "Did a mall",
+            "Built / constructed a mall",
+            "Created a mall",
+          ],
+          correct: 2,
+          tr_explanation: "Binalar 'built / constructed'. 'Made' = yemek için. Türk öğrenci 'yaptı' = 'made' sanır.",
+        },
+        {
+          q: "'Yer değişti' map için band 7+ ifade?",
+          options: [
+            "Place changed",
+            "X was replaced by Y / where X used to stand",
+            "Now there is Y",
+            "Different now",
+          ],
+          correct: 1,
+          tr_explanation: "'Was replaced by' / 'where X used to stand' = map register, band 7+.",
+        },
+        {
+          q: "'Aynı kaldı' map için ifade?",
+          options: [
+            "Stayed same",
+            "Was same",
+            "Remained unchanged / preserved / continues to exist",
+            "Same",
+          ],
+          correct: 2,
+          tr_explanation: "'Remained unchanged / preserved' = band 7+ continuity verbs.",
+        },
+        {
+          q: "Map summary için typical phrase?",
+          options: [
+            "All changed",
+            "The area has been transformed into ___ at the expense of ___",
+            "Everything is new",
+            "New buildings",
+          ],
+          correct: 1,
+          tr_explanation: "'Transformed into X at the expense of Y' = band 7+ map summary. 'At the expense of' nüans katmanı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -705,6 +1313,127 @@ export const ieltsWritingLesson_w1_6: BundledLesson = {
         { speaker: "npc", message: "Beautiful. Process = passive voice + 'firstly/then/subsequently/finally'. Avoid 'first of all' (informal)." },
       ],
     },
+    {
+      id: "ex.ielts.w1.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "Firstly, ___ is ___, after which it is ___.",
+      slots: [
+        { accepted: ["the waste paper", "used paper", "raw material"] },
+        { accepted: ["collected from homes and offices", "gathered from various sources", "sorted by type", "classified"] },
+        { accepted: ["shredded into smaller pieces", "transported to the facility", "mixed with water", "cleaned thoroughly"] },
+      ],
+      tr_hint:
+        "Process passive formula: 'Firstly, X is V3, after which it is V3.' Sequential linker + pasif şart. Türk öğrenci 'They collect paper' der — aktif voice band düşürür.",
+      example_filled: "Firstly, the waste paper is collected from homes and offices, after which it is sorted by type.",
+    },
+    {
+      id: "ex.ielts.w1.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        { speaker: "npc", text: "Write the overview sentence for the paper recycling process — how many stages, where it starts and ends." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good — the scope of the process is clear." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(overall|in general),?",
+        "(the process|paper recycling) (can be (divided|broken down) into|consists of) (\\d+ )?(main )?(stages|phases|steps)",
+        "(begins with (the )?collection|starts with) (waste|used paper)",
+        "(ends with|culminates in) (finished|new) (paper|product)",
+      ],
+      tr_hint:
+        "Process overview: 'Overall, the process can be divided into three main phases — collection, processing, and finishing — beginning with waste paper and ending with new rolls.' Aşama sayısı + start/end.",
+      ideal_answer: "Overall, the process can be divided into three main phases, beginning with waste paper collection and ending with finished paper rolls.",
+    },
+    {
+      id: "ex.ielts.w1.6.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Describe the middle stage — pulping — using passive voice.",
+      accepted_patterns: [
+        "(the (shredded )?paper|it) is (mixed|combined) with (water|chemicals)",
+        "(to (form|create|produce))",
+        "(a pulp|paper pulp)",
+        "(which is (subsequently|then) (bleached|cleaned))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Middle stage: 'The shredded paper is mixed with water to form a pulp, which is subsequently bleached.' Pasif + 'to + V1' purpose marker.",
+      ideal_response: "The shredded paper is then mixed with water to form a pulp, which is subsequently bleached to remove impurities.",
+    },
+    {
+      id: "ex.ielts.w1.6.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Önce kağıdı topluyorlar, sonra makineye atıyorlar.",
+      wrong_en: "First they are collecting paper, then they throw to machine.",
+      right_en: "Firstly, the paper is collected, after which it is fed into a machine.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'They are collecting' = active continuous — process'te pasif simple → 'is collected'; (2) 'First' = informal → 'Firstly' (Task 1 register); (3) 'Throw to machine' = collocation hatası → 'fed into a machine' / 'transferred to'; (4) Article 'a/the' eksik → 'a machine' veya 'the machine'. Process register = pasif simple, akademik linkers ('firstly/subsequently/finally').",
+    },
+    {
+      id: "ex.ielts.w1.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Process diagram voice tercihi?",
+          options: [
+            "Active continuous (they are doing)",
+            "Active simple (they do)",
+            "Passive simple (it is done)",
+            "Future (it will be done)",
+          ],
+          correct: 2,
+          tr_explanation: "Process = pasif simple. Fail (kim) önemli değil, eylem önemli.",
+        },
+        {
+          q: "'İlk olarak' Task 1 formal?",
+          options: [
+            "First",
+            "Firstly / To begin with / Initially",
+            "1st",
+            "First of all",
+          ],
+          correct: 1,
+          tr_explanation: "'Firstly / To begin with / Initially' = Task 1 register. 'First of all' informal.",
+        },
+        {
+          q: "'Sonra' sequential linker?",
+          options: [
+            "After",
+            "Then only",
+            "Subsequently / after which / next",
+            "After then",
+          ],
+          correct: 2,
+          tr_explanation: "'Subsequently / after which' = band 7+ sequential. 'Then' OK ama overuse'tan kaçın.",
+        },
+        {
+          q: "'X için' purpose marker?",
+          options: [
+            "For",
+            "To + V1 / in order to",
+            "Because",
+            "Why",
+          ],
+          correct: 1,
+          tr_explanation: "'To + V1' / 'in order to' = purpose. 'For + V-ing' (gerund), nadir.",
+        },
+        {
+          q: "'Son aşamada' Task 1 closer?",
+          options: [
+            "Last",
+            "Finally / in the final stage",
+            "End",
+            "Finish",
+          ],
+          correct: 1,
+          tr_explanation: "'Finally / in the final stage' = process closer. 'Last' OK ama 'Finally' Task 1 register.",
+        },
+      ],
+    },
   ],
 };
 
@@ -818,6 +1547,127 @@ export const ieltsWritingLesson_w1_7: BundledLesson = {
           hint_tr: "Wrap: 'In summary, both indicators rose, with wages outpacing employment, particularly after 2020.' 'Outpace / outstrip' band 7+ comparison verbs. ASLA neden açıklama — Task 1'de 'because of inflation' yazma.",
         },
         { speaker: "npc", message: "Excellent. Combined charts test if you can integrate two data sources. Always look for correlation or divergence." },
+      ],
+    },
+    {
+      id: "ex.ielts.w1.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 6,
+      template: "Until ___, the two indicators ___, after which ___.",
+      slots: [
+        { accepted: ["2020", "the mid-2010s", "the start of the decade"] },
+        { accepted: ["moved in line with each other", "rose at comparable rates", "tracked one another closely", "remained in step"] },
+        { accepted: ["they diverged sharply", "wages began to surge while employment stagnated", "a clear gap emerged", "the relationship broke down"] },
+      ],
+      tr_hint:
+        "Mixed graph correlation: 'Until X, the two indicators moved in line with each other, after which they diverged.' Türk öğrenci tek yön açıklar. Bu yapı = correlation/divergence band 7+ kritik.",
+      example_filled: "Until 2020, the two indicators moved in line with each other, after which they diverged sharply.",
+    },
+    {
+      id: "ex.ielts.w1.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 6,
+      turns: [
+        { speaker: "npc", text: "Write the overview for the employment-wage combo chart. Did both rise? Did wages outpace employment?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — relationship between the two captured." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(overall|in general|broadly speaking),?",
+        "(both|the two indicators) (rose|increased|grew) (over the period|throughout)",
+        "(however|though|although) (wages|employment) (grew|rose) (more rapidly|faster)",
+        "(at a (steeper|sharper) rate)",
+      ],
+      tr_hint:
+        "Combo overview: 'Overall, both employment and wages rose over the period, though wages grew at a steeper rate.' Çift değişken — ilişki ifade et.",
+      ideal_answer: "Overall, both employment and wages rose over the decade, though wages grew at a substantially steeper rate.",
+    },
+    {
+      id: "ex.ielts.w1.7.lr1",
+      type: "listen_respond",
+      difficulty: 6,
+      npc_line: "Describe the wage trend using line graph language and rate of change.",
+      accepted_patterns: [
+        "(meanwhile|in parallel|simultaneously),?",
+        "(average wages|wage levels) (rose|climbed|surged) (sharply|significantly|dramatically)",
+        "from (around )?\\d+ to (around )?\\d+",
+        "(more than (doubled|tripled|quintupled))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Wage trend: 'Meanwhile, average wages rose sharply from 2,000 to 12,000 TRY — more than quintupling over the same period.' 'Quintuple' = 5x band 7+.",
+      ideal_response: "Meanwhile, average wages climbed sharply from 2,000 to 12,000 TRY, more than quintupling over the same period.",
+    },
+    {
+      id: "ex.ielts.w1.7.tt1",
+      type: "thinking_trap",
+      difficulty: 6,
+      tr_thought: "İstihdam ve ücret arttı çünkü enflasyon yüksekti.",
+      wrong_en: "Employment and wage increased because inflation was high.",
+      right_en: "Employment and wages both rose, with wages outpacing employment significantly.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'Wage' yerine 'wages' (uncountable Task 1'de plural); (2) 'Increased' tek verb iki özne için yetersiz → 'both rose' (parallel structure); (3) 'Because inflation' = Task 1'de CAUSE açıklaması YASAK — sadece tasvir; (4) Karşılaştırma eksik → 'outpacing employment' (band 7+ comparative). Task 1 = tasvir, asla 'because' ile sebep açıklama (Task 2'de OK).",
+    },
+    {
+      id: "ex.ielts.w1.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Task 1'de 'because' kullanmak doğru mu?",
+          options: [
+            "Evet, sebep açıkla",
+            "Hayır — Task 1 sadece tasvir, sebep YASAK",
+            "Bazen",
+            "Sadece introduction'da",
+          ],
+          correct: 1,
+          tr_explanation: "Task 1 = description, NO causation. 'Because' kullanmak Task 2 işi. Otomatik band düşürür.",
+        },
+        {
+          q: "'Daha hızlı büyüdü' band 7+ verb?",
+          options: [
+            "Grew more quickly",
+            "Outpaced / outstripped",
+            "Was faster",
+            "Speed grew",
+          ],
+          correct: 1,
+          tr_explanation: "'Outpaced / outstripped' = band 7+ comparative growth verbs.",
+        },
+        {
+          q: "'5 katına çıktı' verb?",
+          options: [
+            "Increased 5 times",
+            "Quintupled",
+            "Became 5x",
+            "Five times more",
+          ],
+          correct: 1,
+          tr_explanation: "'Doubled (2x) / tripled (3x) / quadrupled (4x) / quintupled (5x)' = band 7+ change verbs.",
+        },
+        {
+          q: "Combo chart için en önemli analiz?",
+          options: [
+            "Sadece bir veri seti",
+            "Correlation / divergence — iki veri arasındaki ilişki",
+            "Sadece overview",
+            "Tüm rakamlar",
+          ],
+          correct: 1,
+          tr_explanation: "Combo chart = iki veri arasındaki ilişki test eder. 'Until X moved together, after diverged' band 7+.",
+        },
+        {
+          q: "Parallel trends için linker?",
+          options: [
+            "Same",
+            "Also",
+            "In line with / in parallel / alongside",
+            "And also",
+          ],
+          correct: 2,
+          tr_explanation: "'In line with / in parallel / alongside' = band 7+ parallel trend linkers.",
+        },
       ],
     },
   ],
@@ -937,6 +1787,127 @@ export const ieltsWritingLesson_w1_8: BundledLesson = {
         { speaker: "npc", message: "Outstanding. Branching diagrams need 'if', 'depending on', 'otherwise'. Skip nothing — every branch matters." },
       ],
     },
+    {
+      id: "ex.ielts.w1.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 5,
+      template: "If ___, ___; otherwise, ___.",
+      slots: [
+        { accepted: ["the item is in stock", "payment is approved", "the customer is verified", "the address is valid"] },
+        { accepted: ["the order proceeds to packing", "it is forwarded to the warehouse", "the parcel moves to dispatch", "it advances to the next stage"] },
+        { accepted: ["the customer is notified of a delay", "the transaction is cancelled", "the order is held for review", "the system returns an error"] },
+      ],
+      tr_hint:
+        "Branching flow chart formula: 'If X, Y; otherwise, Z.' Conditional + alternatif yol. Türk öğrenci 'when' kullanır — 'if' branching için doğru.",
+      example_filled: "If the item is in stock, the order proceeds to packing; otherwise, the customer is notified of a delay.",
+    },
+    {
+      id: "ex.ielts.w1.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 5,
+      turns: [
+        { speaker: "npc", text: "Write the overview for the online order flow chart. Mention the number of stages AND decision points." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good — branching nature captured." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(overall|in general),?",
+        "(the process) (involves|comprises) (\\d+ )?(main )?(phases|stages|key steps)",
+        "(with (two|several) )?(decision points|branches|checks)",
+        "(that determine|determining) (the (next |subsequent ))?(step|route|action)",
+      ],
+      tr_hint:
+        "Branching overview: 'Overall, the process involves three main phases with two decision points that determine the next step.' Decision points (branching) overview'da belirt.",
+      ideal_answer: "Overall, the process involves three main phases with two decision points that determine the route the order takes.",
+    },
+    {
+      id: "ex.ielts.w1.8.lr1",
+      type: "listen_respond",
+      difficulty: 5,
+      npc_line: "Describe the final delivery stage with branching logic.",
+      accepted_patterns: [
+        "(at this stage|in the final phase),?",
+        "(the parcel|the order) is (sorted|routed) (depending on|based on|according to)",
+        "(local orders|city orders) (are (delivered|sent))",
+        "(while|whereas) (regional|distant) (orders|deliveries) (go through|are routed via)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Branching delivery: 'In the final phase, the parcel is routed depending on location — local orders are delivered the same day, while regional orders go through distribution hubs.' 'Depending on' branching kelime.",
+      ideal_response: "In the final phase, the parcel is routed depending on location — local orders are delivered the same day, while regional orders pass through distribution hubs.",
+    },
+    {
+      id: "ex.ielts.w1.8.tt1",
+      type: "thinking_trap",
+      difficulty: 5,
+      tr_thought: "Sipariş stoktaysa gönderilir, yoksa müşteri bekliyor.",
+      wrong_en: "When order is in stock, it sends, otherwise customer wait.",
+      right_en: "If the order is in stock, it is dispatched; otherwise, the customer is notified.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'When' yerine 'If' (branching = conditional 'if'); (2) 'It sends' = active hatası → 'it is dispatched' (passive — fail belirsiz); (3) 'Customer wait' = subject-verb agreement + tense → 'the customer is notified' (passive); (4) Article 'the' eksik → 'the order' / 'the customer'. Branching = if + passive + semicolon + otherwise.",
+    },
+    {
+      id: "ex.ielts.w1.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Branching diagram'da koşullu yapı?",
+          options: [
+            "When ___, ___",
+            "If ___, ___; otherwise, ___",
+            "Maybe ___",
+            "Sometimes ___",
+          ],
+          correct: 1,
+          tr_explanation: "'If ___, ___; otherwise, ___' = branching standart. 'When' time için, 'if' condition için.",
+        },
+        {
+          q: "'Konuma göre yönlendirilir' band 7+ ifade?",
+          options: [
+            "Sent by location",
+            "Goes by place",
+            "Routed depending on / based on location",
+            "Direction location",
+          ],
+          correct: 2,
+          tr_explanation: "'Routed depending on / based on' = branching band 7+ phrasing.",
+        },
+        {
+          q: "Flow chart writing voice?",
+          options: [
+            "Active (they send)",
+            "Passive (it is sent)",
+            "Continuous (is sending)",
+            "Future (will send)",
+          ],
+          correct: 1,
+          tr_explanation: "Process/flow chart = pasif. Fail belirsiz, eylem önemli.",
+        },
+        {
+          q: "Branching diagram'da kritik linker grubu?",
+          options: [
+            "And, but, so",
+            "If, depending on, otherwise, while",
+            "First, second, third",
+            "Like, you know",
+          ],
+          correct: 1,
+          tr_explanation: "Branching = conditional + comparative linkers. 'Otherwise', 'depending on', 'while' kritik.",
+        },
+        {
+          q: "Flow chart summary için doğru kalıp?",
+          options: [
+            "All process",
+            "Done",
+            "The process involves multiple checks and branching paths, culminating in delivery",
+            "Order finished",
+          ],
+          correct: 2,
+          tr_explanation: "'Multiple checks + branching paths + culminating in' = band 7+ flow chart wrap.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1047,6 +2018,126 @@ export const ieltsWritingLesson_w2_1: BundledLesson = {
         { speaker: "npc", message: "Excellent. Opinion essays — clear stance from sentence one, two reasons + counterpoint, restate at end. Aim for 250+ words." },
       ],
     },
+    {
+      id: "ex.ielts.w2.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 5,
+      template: "I firmly believe ___, primarily because ___, and ___.",
+      slots: [
+        { accepted: ["higher education should be tuition-free", "free university serves a vital public good", "free education promotes social mobility"] },
+        { accepted: ["it underpins social mobility", "it represents an investment in national productivity", "it removes a major barrier to opportunity"] },
+        { accepted: ["the long-term economic returns justify the cost", "an educated workforce benefits society as a whole", "it reduces inequality across generations"] },
+      ],
+      tr_hint:
+        "Task 2 opinion thesis formula: 'I firmly believe X, primarily because Y, and Z.' Stance + 2 reasons. Türk öğrenci 'I am agree' der — YANLIŞ → 'I agree' (agree = verb, no 'am').",
+      example_filled: "I firmly believe higher education should be tuition-free, primarily because it underpins social mobility, and the long-term economic returns justify the cost.",
+    },
+    {
+      id: "ex.ielts.w2.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 5,
+      turns: [
+        { speaker: "npc", text: "Write me the introduction paragraph for the free education essay. Paraphrase + state thesis." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Strong intro — clear stance from sentence two." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(it (is|has been) (often |frequently )?argued|some (people |argue))",
+        "(higher education|university tuition|tertiary education)",
+        "(should (be|remain) (free|tuition-free|publicly funded))",
+        "(i (firmly |strongly )?(believe|agree|hold the view))",
+      ],
+      tr_hint:
+        "Intro yapı: paraphrase + thesis. 'It is often argued that university tuition should be free. I firmly agree, primarily because of social equity and economic returns.' İki cümle yeterli.",
+      ideal_answer: "It is often argued that university tuition should be free for all students. I firmly agree with this position, primarily on grounds of social equity and economic returns.",
+    },
+    {
+      id: "ex.ielts.w2.1.lr1",
+      type: "listen_respond",
+      difficulty: 5,
+      npc_line: "Write me the topic sentence for body paragraph 1 — your strongest reason.",
+      accepted_patterns: [
+        "(firstly|to begin with|the primary reason|one compelling argument)",
+        "(free (university |higher )?education) (promotes|ensures|enables) (social (equity|mobility))",
+        "(equal opportunity)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Body topic sentence: 'Firstly, free higher education promotes social mobility by removing financial barriers.' Linker + claim + brief justification.",
+      ideal_response: "Firstly, free higher education promotes social mobility by removing the financial barriers that prevent students from low-income backgrounds from accessing tertiary education.",
+    },
+    {
+      id: "ex.ielts.w2.1.tt1",
+      type: "thinking_trap",
+      difficulty: 5,
+      tr_thought: "Bence üniversite ücretsiz olmalı çünkü ben katılıyorum.",
+      wrong_en: "According to me, university should free because I am agree.",
+      right_en: "I firmly believe higher education should be tuition-free, primarily on grounds of social equity.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'According to me' = YANLIŞ — 'According to' başkası için ('according to research'), kendi için 'in my view / I believe'; (2) 'Should free' = 'be' eksik → 'should BE free'; (3) 'I am agree' = 'agree' verb, auxiliary yok → 'I agree'; (4) 'Because I am agree' = circular reasoning (kanıt değil görüş tekrarı) → 'on grounds of social equity' (concrete reason). Task 2 thesis = stance + concrete justification.",
+    },
+    {
+      id: "ex.ielts.w2.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bence' Task 2 doğru ifade?",
+          options: [
+            "According to me",
+            "In my opinion / I firmly believe",
+            "For me only",
+            "Me think",
+          ],
+          correct: 1,
+          tr_explanation: "'According to me' YANLIŞ — 'according to' başkası için. Kendi görüş: 'In my view / I firmly believe / I would argue'.",
+        },
+        {
+          q: "'Katılıyorum' doğru yapı?",
+          options: [
+            "I am agree",
+            "I am agreed",
+            "I agree",
+            "I'm agree",
+          ],
+          correct: 2,
+          tr_explanation: "'Agree' verb (fiil), 'be + agree' YASAK. 'I agree' / 'I disagree'.",
+        },
+        {
+          q: "Task 2 opinion essay yapısı?",
+          options: [
+            "Intro + 1 body + conclusion",
+            "Intro + body 1 + body 2 (+ optional counterpoint) + conclusion",
+            "Sadece body",
+            "Sadece conclusion",
+          ],
+          correct: 1,
+          tr_explanation: "Standard: intro + 2 body (her biri 1 reason + example) + optional counterpoint + conclusion. ~250 kelime.",
+        },
+        {
+          q: "Body 1 topic sentence için linker?",
+          options: [
+            "First only",
+            "Firstly / The primary reason / One compelling argument",
+            "1",
+            "Beginning",
+          ],
+          correct: 1,
+          tr_explanation: "'Firstly / The primary reason' = Task 2 body opener. 'First' (zarf olmadan) informal.",
+        },
+        {
+          q: "Counterpoint band 7+ neden önemli?",
+          options: [
+            "Gereksiz",
+            "Karşı görüşü kabul etmek + reddetmek = nuanced thinking",
+            "Skoru düşürür",
+            "Konuyu değiştirir",
+          ],
+          correct: 1,
+          tr_explanation: "'Admittedly ___, however ___' = band 7+ nuanced argumentation. Sadece tek taraf band 6.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1153,6 +2244,126 @@ export const ieltsWritingLesson_w2_2: BundledLesson = {
           hint_tr: "Conclusion: 'In conclusion, while technology has clear drawbacks, its capacity to empower outweighs them, provided it is used thoughtfully.' 'Provided that' band 7+ conditional connector.",
         },
         { speaker: "npc", message: "Strong essay. Discussion = both views fairly presented, then YOUR stance. Don't skip either view." },
+      ],
+    },
+    {
+      id: "ex.ielts.w2.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 6,
+      template: "While some argue ___, others contend ___.",
+      slots: [
+        { accepted: ["technology breeds passivity", "digital tools erode basic skills", "social media isolates us", "automation makes us redundant"] },
+        { accepted: ["it empowers users by democratising access", "it expands opportunity unprecedentedly", "it enhances productivity remarkably", "it has revolutionised communication"] },
+      ],
+      tr_hint:
+        "Discussion essay opener: 'While some argue X, others contend Y.' Klasik iki taraf yapı. Türk öğrenci 'Some say X and some say Y' der — 'while/whereas' band 7+.",
+      example_filled: "While some argue technology breeds passivity, others contend it empowers users by democratising access to opportunity.",
+    },
+    {
+      id: "ex.ielts.w2.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 6,
+      turns: [
+        { speaker: "npc", text: "Write me the intro for the 'tech makes us lazy vs empowers us' discussion essay." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Excellent — both views previewed, stance signalled." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(the (rise|spread|proliferation) of (modern )?technology)",
+        "(has (sparked|prompted|generated) (significant )?debate)",
+        "(while some (argue|contend|maintain))",
+        "(others (believe|hold|claim))",
+        "(in (this essay|the following),? i will|i will (argue|examine))",
+      ],
+      tr_hint:
+        "Discussion intro yapı: 'The proliferation of modern technology has sparked debate. While some argue it makes us lazy, others contend it empowers us. This essay examines both before arguing the latter holds greater weight.' İki görüş + ipucu.",
+      ideal_answer: "The proliferation of modern technology has sparked considerable debate. While some argue it breeds laziness, others contend it empowers users. This essay will examine both views before arguing that, on balance, technology empowers.",
+    },
+    {
+      id: "ex.ielts.w2.2.lr1",
+      type: "listen_respond",
+      difficulty: 6,
+      npc_line: "Write me the opinion paragraph topic sentence — pick a side with nuance.",
+      accepted_patterns: [
+        "(in my (view|opinion)|personally|i (am inclined to|tend to))",
+        "(the (empowerment|laziness) argument) (is more compelling|holds (more|greater) weight)",
+        "(although|while|granted)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Opinion topic sentence + nuance: 'In my view, the empowerment argument holds greater weight, although excessive use can foster laziness.' Stance + concession band 7+.",
+      ideal_response: "In my view, the empowerment argument holds greater weight, although I acknowledge that excessive use can foster laziness when discipline is lacking.",
+    },
+    {
+      id: "ex.ielts.w2.2.tt1",
+      type: "thinking_trap",
+      difficulty: 6,
+      tr_thought: "Bazı insanlar diyor ki teknoloji kötü, bazıları iyi diyor.",
+      wrong_en: "Some persons say technology is bad, some persons say good.",
+      right_en: "While some maintain technology breeds laziness, others contend it empowers users.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'Some persons' = formal-legal register, IELTS'te 'people' veya 'critics/proponents'; (2) 'Say' = informal → 'maintain / contend / argue' (Task 2 register); (3) 'Bad / good' = childish vocabulary → 'breeds laziness / empowers users' (specific); (4) Parallel structure eksik → 'while X, others Y'. Discussion essay = formal two-camp framing.",
+    },
+    {
+      id: "ex.ielts.w2.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Discussion essay yapısı?",
+          options: [
+            "Sadece bir görüş",
+            "View 1 paragraph + View 2 paragraph + your opinion + conclusion",
+            "Karşı görüşü göz ardı et",
+            "Sadece intro",
+          ],
+          correct: 1,
+          tr_explanation: "Discussion = iki görüş fair sun + senin pozisyonu açıkla + conclusion. Tek taraf = band düşüş.",
+        },
+        {
+          q: "'Bazı insanlar diyor' Task 2 doğru?",
+          options: [
+            "Some persons say",
+            "Some people say",
+            "Some argue / proponents maintain / critics contend",
+            "Many men say",
+          ],
+          correct: 2,
+          tr_explanation: "Task 2 register: 'argue / maintain / contend / posit'. 'Persons' YASAK, 'say' informal.",
+        },
+        {
+          q: "'Savunucular' band 7+ kelime?",
+          options: [
+            "Helpers",
+            "Proponents / advocates",
+            "Defenders only",
+            "Lawyers",
+          ],
+          correct: 1,
+          tr_explanation: "'Proponents / advocates' = Task 2 academic register. 'Defenders' OK ama 'proponents' standard.",
+        },
+        {
+          q: "'Muhalifler' band 7+?",
+          options: [
+            "Bad people",
+            "Detractors / critics / opponents",
+            "Enemies",
+            "Other side",
+          ],
+          correct: 1,
+          tr_explanation: "'Detractors / critics' = Task 2 register. 'Opponents' OK, 'enemies' aşırı.",
+        },
+        {
+          q: "Opinion paragraph'ta nuance neden önemli?",
+          options: [
+            "Gereksiz",
+            "Hem tarafı seç hem karşı tarafın geçerli noktasını kabul et = band 7+",
+            "Tek görüş yeterli",
+            "Sadece nuance'sız direkt",
+          ],
+          correct: 1,
+          tr_explanation: "'Although I acknowledge ___' = nuanced commitment. Band 7+ sophistication.",
+        },
       ],
     },
   ],
@@ -1275,6 +2486,127 @@ export const ieltsWritingLesson_w2_3: BundledLesson = {
         { speaker: "npc", message: "Solid. Problem/solution = identify 2 causes, propose 2 solutions, each with example. Don't propose vague 'awareness campaigns'." },
       ],
     },
+    {
+      id: "ex.ielts.w2.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 5,
+      template: "The primary cause of ___ stems from ___, particularly in ___.",
+      slots: [
+        { accepted: ["urban congestion", "rising traffic", "this problem", "the crisis"] },
+        { accepted: ["rapid urbanisation and rising car ownership", "inadequate public infrastructure", "poor urban planning", "a combination of cultural and economic factors"] },
+        { accepted: ["rapidly growing cities like Istanbul", "developing nations", "the metropolitan areas of Turkey", "fast-growing megacities"] },
+      ],
+      tr_hint:
+        "Problem/Solution cause formula: 'The primary cause of X stems from Y, particularly in Z.' Türk öğrenci 'X happens because' der — düz. 'Stems from' band 7+ causation.",
+      example_filled: "The primary cause of urban congestion stems from rapid urbanisation and rising car ownership, particularly in rapidly growing cities like Istanbul.",
+    },
+    {
+      id: "ex.ielts.w2.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 5,
+      turns: [
+        { speaker: "npc", text: "Write me the intro for the urban traffic congestion problem/solution essay." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Clean intro — problem stated, essay scope previewed." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(traffic congestion|gridlock|urban traffic) (has (become|emerged as))",
+        "(a (pressing|serious|growing) (issue|problem|concern))",
+        "(in (many )?(major )?cities)",
+        "(this essay will (examine|explore))",
+        "(the (causes|main causes)) and (propose|suggest) (solutions|remedies)",
+      ],
+      tr_hint:
+        "Problem/Solution intro: 'Traffic congestion has become a pressing issue in major cities worldwide. This essay will examine its main causes and propose practical solutions.' İki kısım da preview et.",
+      ideal_answer: "Traffic congestion has become a pressing issue in major cities worldwide. This essay will examine its primary causes and propose practical solutions.",
+    },
+    {
+      id: "ex.ielts.w2.3.lr1",
+      type: "listen_respond",
+      difficulty: 5,
+      npc_line: "Propose one viable solution + its mechanism in one sentence.",
+      accepted_patterns: [
+        "(one (viable|effective) solution|to address this(,| problem,))",
+        "(investing in|expanding|upgrading) (public transport|metro)",
+        "(reduces|cuts) (the need for|reliance on) (private (vehicles|cars))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Solution topic + mechanism: 'One viable solution is investing in public transport, which reduces reliance on private cars — Istanbul's metro has notably alleviated congestion.' Mechanism + example band 7+.",
+      ideal_response: "One viable solution is investing in public transport, which reduces reliance on private cars — Istanbul's expanded metro has notably alleviated congestion on key corridors.",
+    },
+    {
+      id: "ex.ielts.w2.3.tt1",
+      type: "thinking_trap",
+      difficulty: 5,
+      tr_thought: "Trafiği çözmek için insanlar metro kullanmalı.",
+      wrong_en: "For solve traffic, persons should use metro.",
+      right_en: "To alleviate congestion, residents should be encouraged to use public transport.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'For solve' = preposition + V1 hatası → 'To solve' veya 'In order to solve' (purpose marker); (2) 'Persons' = legal register → 'residents / commuters / citizens'; (3) 'Use metro' = article eksik + verb düz → 'should be encouraged to use public transport' (passive recommendation, band 7+); (4) 'Çözmek' direkt 'solve' yerine 'alleviate' (band 7+ register).",
+    },
+    {
+      id: "ex.ielts.w2.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'___ için' purpose marker?",
+          options: [
+            "For + V1",
+            "To + V1 / In order to + V1",
+            "Because",
+            "Why",
+          ],
+          correct: 1,
+          tr_explanation: "Purpose = 'To + V1' veya 'In order to + V1'. 'For + V-ing' nadir + spesifik kontekst.",
+        },
+        {
+          q: "'___'dan kaynaklanıyor' band 7+?",
+          options: [
+            "Come from",
+            "Stems from / arises from / results from",
+            "Because of",
+            "From",
+          ],
+          correct: 1,
+          tr_explanation: "'Stems from / arises from / results from' = academic causation. 'Comes from' informal.",
+        },
+        {
+          q: "'Hafifletmek' band 7+ verb?",
+          options: [
+            "Make less",
+            "Mitigate / alleviate / ease",
+            "Less",
+            "Reduce only",
+          ],
+          correct: 1,
+          tr_explanation: "'Mitigate / alleviate / ease' = academic verbs. 'Reduce' OK ama 'alleviate' Task 2 tercih.",
+        },
+        {
+          q: "Problem/Solution essay yapısı?",
+          options: [
+            "Sadece problem",
+            "2 causes + 2 solutions, each with example",
+            "Sadece solution",
+            "Intro only",
+          ],
+          correct: 1,
+          tr_explanation: "Problem/Solution = 2 cause + 2 solution + example. Vague 'awareness' = band 6.",
+        },
+        {
+          q: "'Caydırmak' policy verb?",
+          options: [
+            "Stop",
+            "Block",
+            "Deter / discourage",
+            "End",
+          ],
+          correct: 2,
+          tr_explanation: "'Deter / discourage' = policy verbs, band 7+. 'Congestion charges deter unnecessary trips'.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1383,6 +2715,128 @@ export const ieltsWritingLesson_w2_4: BundledLesson = {
           hint_tr: "Conclusion: 'In conclusion, while financial pressures and cultural norms drive this trend, its impact on independence and family formation is largely negative.' İki sorunun cevabı bir cümlede — band 7+ technique.",
         },
         { speaker: "npc", message: "Strong. Two-part questions = address BOTH parts. Many students forget the second half — automatic band loss." },
+      ],
+    },
+    {
+      id: "ex.ielts.w2.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 6,
+      template: "This trend stems primarily from ___, compounded by ___.",
+      slots: [
+        { accepted: ["financial constraints in major cities", "rising housing costs", "economic uncertainty among young adults", "stagnant entry-level wages"] },
+        { accepted: ["cultural norms favouring multi-generational households", "traditional family expectations", "the prolonged duration of higher education", "delayed entry into the workforce"] },
+      ],
+      tr_hint:
+        "Two-part cause formula: 'This trend stems primarily from X, compounded by Y.' Multiple causes. Türk öğrenci tek sebep der — 'compounded by' band 7+ multi-causal.",
+      example_filled: "This trend stems primarily from financial constraints in major cities, compounded by cultural norms favouring multi-generational households.",
+    },
+    {
+      id: "ex.ielts.w2.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 6,
+      turns: [
+        { speaker: "npc", text: "Write the intro for the two-part question 'Why are young adults staying with parents, and is this positive or negative?' — must signal answering BOTH parts." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good — both parts of the question previewed." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(in (many )?(modern )?(societies|countries))",
+        "(young adults|young people|millennials) (are (increasingly )?staying)",
+        "(with (their )?parents|in the family home)",
+        "(longer than (in the past|previous generations))",
+        "(this essay will (examine|explore)) (the (causes|reasons))",
+        "(and (argue|assess|evaluate))",
+      ],
+      tr_hint:
+        "Two-part intro: '___ + this essay will examine causes AND argue it is largely negative.' İki kısım açıkça belirt.",
+      ideal_answer: "In many countries, young adults are staying with parents longer than in the past. This essay will examine the causes of this trend and argue that, on balance, it is largely negative.",
+    },
+    {
+      id: "ex.ielts.w2.4.lr1",
+      type: "listen_respond",
+      difficulty: 6,
+      npc_line: "Write a nuanced 'positive or negative' opinion sentence with concession.",
+      accepted_patterns: [
+        "(in my view|i would argue)",
+        "(this trend is (largely|mostly|primarily) (negative|positive))",
+        "(admittedly|on the one hand|granted)",
+        "(however|on the other hand)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Nuanced stance: 'In my view, this trend is largely negative. Admittedly, staying home allows savings; however, it delays independence and life-skill development.' Concession + main argument band 7+.",
+      ideal_response: "In my view, this trend is largely negative. Admittedly, staying home enables savings and emotional support; however, it delays independence and the development of essential life skills.",
+    },
+    {
+      id: "ex.ielts.w2.4.tt1",
+      type: "thinking_trap",
+      difficulty: 6,
+      tr_thought: "Genç insanlar evde kalıyor çünkü kiralar pahalı, bu kötü.",
+      wrong_en: "Young persons stay home because rents are expensive, this bad.",
+      right_en: "Young adults remain in the family home largely due to financial constraints — a trend with predominantly negative consequences.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'Young persons' = formal-legal → 'young adults / millennials'; (2) 'Stay home' = informal → 'remain in the family home' (band 7+); (3) 'Rents are expensive' = informal → 'financial constraints' (academic abstract); (4) 'This bad' = subject-verb eksik + childish → 'a trend with predominantly negative consequences' (academic conclusion). Two-part essay = formal nuanced register.",
+    },
+    {
+      id: "ex.ielts.w2.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Two-part question'da kritik?",
+          options: [
+            "Sadece ilk soruya cevap",
+            "Her iki kısma cevap ver — bir tanesini unutmak otomatik band düşürür",
+            "Sadece intro",
+            "İki conclusion",
+          ],
+          correct: 1,
+          tr_explanation: "Two-part = iki kısım. Birini atla = task achievement düşer = band 6 max.",
+        },
+        {
+          q: "'Olumlu mu olumsuz mu' sorusuna doğru cevap stratejisi?",
+          options: [
+            "Yes / no",
+            "Mostly negative / largely positive — nuanced verdict with concession",
+            "Both equally",
+            "Bilmiyorum",
+          ],
+          correct: 1,
+          tr_explanation: "'Largely negative — admittedly X, however Y' = nuanced verdict, band 7+.",
+        },
+        {
+          q: "'Compounded by' ne demek?",
+          options: [
+            "Karıştırılmış",
+            "___ tarafından şiddetlendirilmiş / kötüleştirilmiş",
+            "Birleştirilmiş",
+            "Karşılaştırılmış",
+          ],
+          correct: 1,
+          tr_explanation: "'Compounded by' = etkisi başka faktörle artmak. Band 7+ multi-causal collocation.",
+        },
+        {
+          q: "'Multi-generational households' ne demek?",
+          options: [
+            "Çok katlı evler",
+            "Çok kuşaklı haneler / 3+ nesil bir arada",
+            "Modern evler",
+            "Büyük evler",
+          ],
+          correct: 1,
+          tr_explanation: "'Multi-generational household' = Task 2 demographic topic vocabulary, band 7+.",
+        },
+        {
+          q: "Two-part essay broader societal impact eklemek?",
+          options: [
+            "Gereksiz",
+            "Band 7+ — bireysel + toplumsal seviye gösterir wider perspective",
+            "Skoru düşürür",
+            "Sadece conclusion'da",
+          ],
+          correct: 1,
+          tr_explanation: "'On a societal level, this affects birth rates / family formation' = band 7+ wider view.",
+        },
       ],
     },
   ],
@@ -1507,6 +2961,128 @@ export const ieltsWritingLesson_w2_5: BundledLesson = {
         { speaker: "npc", message: "Excellent. Adv/Disadv = 2 advantages + 2 disadvantages + verdict. Each with concrete example." },
       ],
     },
+    {
+      id: "ex.ielts.w2.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 5,
+      template: "A notable advantage of ___ is ___, particularly for ___.",
+      slots: [
+        { accepted: ["working from home", "remote work", "telecommuting", "flexible arrangements"] },
+        { accepted: ["the flexibility it affords employees", "the time savings from eliminated commutes", "the access to a wider talent pool for employers", "the autonomy it grants workers"] },
+        { accepted: ["Turkish workers facing long commutes in Istanbul", "parents balancing work and family", "knowledge workers in creative roles", "introverted employees who thrive without office distractions"] },
+      ],
+      tr_hint:
+        "Adv/Disadv formula: 'A notable advantage of X is Y, particularly for Z.' Türk öğrenci 'X has advantage' der — düz. Bu yapı = specific benefit + beneficiary band 7+.",
+      example_filled: "A notable advantage of working from home is the flexibility it affords employees, particularly for Turkish workers facing long commutes in Istanbul.",
+    },
+    {
+      id: "ex.ielts.w2.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 5,
+      turns: [
+        { speaker: "npc", text: "Write the intro for the remote work advantages/disadvantages essay." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good — context + scope clear." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(since the (covid-19 )?pandemic|in (recent )?years)",
+        "(working from home|remote work|telecommuting)",
+        "(has (become|grown|emerged))",
+        "(widespread|increasingly common|the new norm)",
+        "(this essay will (examine|discuss|explore))",
+      ],
+      tr_hint:
+        "Adv/Disadv intro: 'Since the COVID-19 pandemic, working from home has become widespread. This essay will examine both the key advantages and drawbacks of this shift.' Net çift yön.",
+      ideal_answer: "Since the COVID-19 pandemic, working from home has become widespread. This essay will examine both the key advantages and the notable drawbacks of this shift.",
+    },
+    {
+      id: "ex.ielts.w2.5.lr1",
+      type: "listen_respond",
+      difficulty: 5,
+      npc_line: "Write one significant drawback of remote work with a concrete example.",
+      accepted_patterns: [
+        "(a (significant|notable) drawback)",
+        "(is (the )?(social )?isolation)",
+        "(employees (may|can) (feel|experience))",
+        "(disconnected|lonely|isolated)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Drawback + example: 'A significant drawback is social isolation — employees feel disconnected from colleagues, weakening team cohesion.' Specific verb + example band 7+.",
+      ideal_response: "A significant drawback is social isolation — employees often feel disconnected from colleagues, which weakens team cohesion and informal mentorship.",
+    },
+    {
+      id: "ex.ielts.w2.5.tt1",
+      type: "thinking_trap",
+      difficulty: 5,
+      tr_thought: "Evden çalışmanın artıları var, eksileri var.",
+      wrong_en: "Working at home has plus and minus.",
+      right_en: "Working from home offers notable advantages, though it also presents significant drawbacks.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'At home' = preposition hatası → 'from home' (sabit collocation 'work from home'); (2) 'Plus and minus' = informal noun → 'advantages and drawbacks / benefits and downsides' (formal); (3) 'Has plus' = collocation hatası → 'offers advantages' (band 7+ verb); (4) Sentence parallel structure eksik → 'offers X, though it also presents Y'. Adv/Disadv essay = balanced framing.",
+    },
+    {
+      id: "ex.ielts.w2.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Evden çalışmak' doğru preposition?",
+          options: [
+            "Work at home",
+            "Work from home",
+            "Work in home",
+            "Work by home",
+          ],
+          correct: 1,
+          tr_explanation: "'Work from home' = sabit collocation. 'At home' yer için ('I am at home'), iş context'inde 'from home'.",
+        },
+        {
+          q: "'Artıları/eksileri' formal Task 2?",
+          options: [
+            "Plus and minus",
+            "Pluses and minuses",
+            "Advantages and drawbacks / benefits and downsides",
+            "Good and bad",
+          ],
+          correct: 2,
+          tr_explanation: "'Advantages and drawbacks' = Task 2 register. 'Plus/minus' informal.",
+        },
+        {
+          q: "'Aşıyor / üstün geliyor' verb?",
+          options: [
+            "Beats",
+            "Outweighs / supersedes / surpasses",
+            "More than",
+            "Higher than",
+          ],
+          correct: 1,
+          tr_explanation: "'Outweighs' = avantajlar > dezavantajlar. Band 7+ Task 2 verdict verb.",
+        },
+        {
+          q: "'Verim' (productivity context) doğru kelime?",
+          options: [
+            "Production",
+            "Productivity",
+            "Producing",
+            "Product",
+          ],
+          correct: 1,
+          tr_explanation: "'Productivity' = uncountable, Task 2 academic noun. 'Production' = üretim (somut).",
+        },
+        {
+          q: "Adv/Disadv conclusion için tipik kalıp?",
+          options: [
+            "All good",
+            "While X offers clear benefits, it also poses challenges — on balance, the advantages outweigh",
+            "Decision yes",
+            "End",
+          ],
+          correct: 1,
+          tr_explanation: "Balanced verdict + 'on balance' = band 7+ Adv/Disadv closure.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1626,6 +3202,126 @@ export const ieltsWritingLesson_w2_6: BundledLesson = {
           hint_tr: "Conclusion: 'In conclusion, I largely agree that governments should restrict single-use plastics, although a total ban may be impractical. A targeted, phased approach is preferable.' 'Largely / to a large extent' tutarlı kullan.",
         },
         { speaker: "npc", message: "Excellent. 'To what extent' questions reward NUANCE. Partial agreement with reasons = band 7+. Black-and-white = band 5-6." },
+      ],
+    },
+    {
+      id: "ex.ielts.w2.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 6,
+      template: "I largely agree, albeit with the caveat that ___.",
+      slots: [
+        { accepted: ["a phased approach is more practical than an outright ban", "certain medical applications require exemption", "implementation must be sensitive to economic realities", "alternatives must be in place first"] },
+      ],
+      tr_hint:
+        "'To what extent' nuanced thesis: 'I largely agree, albeit with the caveat that ___.' 'Albeit' = band 8+ formal concession. Türk öğrenci 'I agree' veya 'I disagree' direkt — nuance eksik.",
+      example_filled: "I largely agree, albeit with the caveat that a phased approach is more practical than an outright ban.",
+    },
+    {
+      id: "ex.ielts.w2.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 6,
+      turns: [
+        { speaker: "npc", text: "Write me the intro for 'Governments should ban all single-use plastics. To what extent do you agree?' — show nuanced stance." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Excellent — partial agreement clearly signalled." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(single-use plastics|disposable plastics)",
+        "(have (become|emerged as))",
+        "(a (major|significant) (environmental|ecological) (concern|threat))",
+        "(it has been (proposed|argued|suggested))",
+        "(i largely agree|i agree to a large extent|while i (largely|broadly) support)",
+      ],
+      tr_hint:
+        "Nuanced intro: 'Single-use plastics have become a major environmental concern. While I largely agree that governments should restrict them, I believe a phased approach is more practical than an outright ban.' Partial agreement.",
+      ideal_answer: "Single-use plastics have become a major environmental concern. While I largely agree that governments should restrict them, I believe a phased approach is more practical than an outright ban.",
+    },
+    {
+      id: "ex.ielts.w2.6.lr1",
+      type: "listen_respond",
+      difficulty: 6,
+      npc_line: "Add the nuance — why not a 'complete' ban? Use 'albeit' if you can.",
+      accepted_patterns: [
+        "(however|nevertheless|that said)",
+        "(a (complete|total|outright) ban (may|might) be (impractical|premature))",
+        "(certain (medical|hospital|sanitary) (products|applications))",
+        "(albeit|though) (necessary|for hygiene)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Nuance with albeit: 'However, an outright ban may be impractical. Certain medical applications rely on single-use plastics — albeit for legitimate hygiene reasons.' 'Albeit' band 8+.",
+      ideal_response: "However, an outright ban may be impractical. Certain medical applications rely on single-use plastics — albeit for legitimate hygiene reasons.",
+    },
+    {
+      id: "ex.ielts.w2.6.tt1",
+      type: "thinking_trap",
+      difficulty: 6,
+      tr_thought: "Plastikler kötü, hepsi yasaklanmalı.",
+      wrong_en: "Plastics are bad, all should ban.",
+      right_en: "Single-use plastics pose serious environmental risks, although a complete ban may prove impractical.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) Black-and-white statement ('bad') = band 5 — IELTS 'to what extent' soruları nuance ödüllendiriyor; (2) 'All should ban' = passive eksik + subject yok → 'all should be banned' (passive); (3) Concession eksik → 'although' clause = band 7+; (4) 'Bad' = childish vocabulary → 'pose serious environmental risks' (academic). 'To what extent' = HEDGE şart.",
+    },
+    {
+      id: "ex.ielts.w2.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'To what extent' sorusunda strateji?",
+          options: [
+            "Black-and-white yes / no",
+            "Partial agreement with concession — 'I largely agree, albeit ___'",
+            "Sadece yes",
+            "Sadece no",
+          ],
+          correct: 1,
+          tr_explanation: "'To what extent' = nuance test. 'Largely agree / agree to a large extent' = band 7+. Black-and-white band 5.",
+        },
+        {
+          q: "'Albeit' ne demek?",
+          options: [
+            "Belki",
+            "Her ne kadar / olmasına rağmen",
+            "Şüphesiz",
+            "Eğer",
+          ],
+          correct: 1,
+          tr_explanation: "'Albeit' = although + concession. Band 8+ formal. 'Effective, albeit costly'.",
+        },
+        {
+          q: "'Yasaklamak' formal verb?",
+          options: [
+            "Stop",
+            "Ban / prohibit / outlaw",
+            "Block",
+            "Cancel",
+          ],
+          correct: 1,
+          tr_explanation: "'Ban / prohibit / outlaw' = formal restriction verbs. 'Stop' informal.",
+        },
+        {
+          q: "'Sosyal medya zarar veriyor' band 7+?",
+          options: [
+            "Social media is bad",
+            "Social media damages",
+            "Social media poses serious risks / has detrimental effects",
+            "Social media is harmful very",
+          ],
+          correct: 2,
+          tr_explanation: "'Poses risks / has detrimental effects' = band 7+ academic damage collocations.",
+        },
+        {
+          q: "Çevre Task 2 vocabulary?",
+          options: [
+            "Trees",
+            "Environmental degradation / ecological footprint / sustainability",
+            "Green only",
+            "Nature",
+          ],
+          correct: 1,
+          tr_explanation: "Band 7+ environment topical: 'environmental degradation / ecological footprint / sustainability / biodiversity'.",
+        },
       ],
     },
   ],
@@ -1751,6 +3447,127 @@ export const ieltsWritingLesson_w2_7: BundledLesson = {
         { speaker: "npc", message: "Great. Discussion essays don't require you to pick one side — synthesis ('both have merit, here's how to combine') is a strong move." },
       ],
     },
+    {
+      id: "ex.ielts.w2.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 6,
+      template: "This is a false dichotomy — ___ and ___ are not mutually exclusive but ___.",
+      slots: [
+        { accepted: ["practical skills", "vocational training", "technical competencies", "applied learning"] },
+        { accepted: ["critical thinking", "intellectual breadth", "analytical reasoning", "broader academic depth"] },
+        { accepted: ["complement each other", "reinforce one another", "together produce well-rounded graduates", "are equally essential in modern professions"] },
+      ],
+      tr_hint:
+        "Discussion synthesis position: 'This is a false dichotomy — X and Y are not mutually exclusive but Z.' Türk öğrenci tek tarafı seçer — synthesis band 8+ move.",
+      example_filled: "This is a false dichotomy — practical skills and critical thinking are not mutually exclusive but complement each other.",
+    },
+    {
+      id: "ex.ielts.w2.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 6,
+      turns: [
+        { speaker: "npc", text: "Write me the intro for 'Should universities focus on practical skills or critical thinking?' Present both, signal stance." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Strong — both camps present, position implied." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(the (purpose|role|mission) of (higher education|universities))",
+        "(has (long )?been (debated|contested))",
+        "(some (argue|maintain|contend))",
+        "(while others (champion|advocate))",
+      ],
+      tr_hint:
+        "Discussion intro: 'The mission of higher education has long been debated. Some argue universities should focus on practical skills, while others champion critical thinking. This essay examines both before arguing for a balanced approach.' İki kamp + senin pozisyon.",
+      ideal_answer: "The mission of higher education has long been contested. Some argue universities should focus on practical skills for employment, while others champion critical thinking. This essay will examine both views before arguing for a balanced approach.",
+    },
+    {
+      id: "ex.ielts.w2.7.lr1",
+      type: "listen_respond",
+      difficulty: 6,
+      npc_line: "Write a synthesis sentence — argue both views can coexist.",
+      accepted_patterns: [
+        "(in my (view|opinion)|i would (argue|maintain))",
+        "(this is (a (false dichotomy|misleading binary)))",
+        "(the (two|both) (are not mutually exclusive|complement each other))",
+        "(the (best|strongest) (universities|programmes)) (combine|integrate)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Synthesis opinion: 'In my view, this is a false dichotomy. The best universities integrate both — graduates with technical skills AND critical thinking are far more valuable.' 'False dichotomy' band 8+.",
+      ideal_response: "In my view, this is a false dichotomy. The best universities integrate both — graduates equipped with technical skills AND critical thinking are far more valuable than those with either alone.",
+    },
+    {
+      id: "ex.ielts.w2.7.tt1",
+      type: "thinking_trap",
+      difficulty: 6,
+      tr_thought: "Üniversite öğrencilere iş bulmak için ders öğretmeli.",
+      wrong_en: "University should teach lessons to students for find job.",
+      right_en: "Universities should equip students with skills directly relevant to employment, while also fostering critical thinking.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'University' singular yerine 'universities' plural (institutional generalization); (2) 'Teach lessons' = informal → 'equip students with skills' (band 7+ collocation); (3) 'For find job' = preposition + V1 hatası → 'for finding employment' (gerund) veya 'directly relevant to employment'; (4) 'Job' = informal → 'employment / career' (Task 2 register); (5) Synthesis eksik → 'while also fostering critical thinking' (band 7+ both-sides).",
+    },
+    {
+      id: "ex.ielts.w2.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'False dichotomy' ne demek?",
+          options: [
+            "Yanlış sözlük",
+            "Yanlış ikilik — iki seçeneğin sahte zıtlığı",
+            "Yanlış cevap",
+            "Çift soru",
+          ],
+          correct: 1,
+          tr_explanation: "'False dichotomy' = ikisi de mümkün ama tek seçim olarak sunulan durum. Band 8+ argument move.",
+        },
+        {
+          q: "'İş bulmak' Task 2 formal?",
+          options: [
+            "For find job",
+            "For finding job",
+            "For employment / for finding employment",
+            "Find job",
+          ],
+          correct: 2,
+          tr_explanation: "'For + V-ing' gerund. 'Employment' = formal noun. 'Job' Task 2'de informal.",
+        },
+        {
+          q: "Discussion essay'de synthesis pozisyonu?",
+          options: [
+            "Yasak",
+            "Geçerli + sophistication — 'both have merit, here's how to combine'",
+            "Sadece bir taraf seç",
+            "Üçüncü yol bul",
+          ],
+          correct: 1,
+          tr_explanation: "Synthesis ('both views complement') = band 7+ argument. 'False dichotomy' band 8+ move.",
+        },
+        {
+          q: "'Donatmak' (skill context) band 7+ verb?",
+          options: [
+            "Give skills",
+            "Equip / endow / arm",
+            "Teach skills",
+            "Show skills",
+          ],
+          correct: 1,
+          tr_explanation: "'Equip students with skills' = sabit band 7+ collocation. 'Endow with' formal alternatif.",
+        },
+        {
+          q: "'Birbirini tamamlar' ifadesi?",
+          options: [
+            "Complete each other",
+            "Help each",
+            "Complement each other / reinforce one another",
+            "Same each other",
+          ],
+          correct: 2,
+          tr_explanation: "'Complement each other' = tamamlamak. 'Compliment' (iltifat) ile karıştırma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1873,6 +3690,129 @@ export const ieltsWritingLesson_w2_8: BundledLesson = {
           hint_tr: "Conclusion: 'In conclusion, modern stress stems from work pressure, financial anxiety, and digital overload. It can be alleviated by combining personal practices like exercise with policy measures like working-hour limits.' İki seviye conclusion.",
         },
         { speaker: "npc", message: "Excellent. Notice how 'both individuals and societies' got addressed — Task 2 prompts often ask for two levels. Don't ignore one." },
+      ],
+    },
+    {
+      id: "ex.ielts.w2.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 5,
+      template: "At ___ level, ___ can ___ stress through ___.",
+      slots: [
+        { accepted: ["the individual", "a personal", "the societal", "the institutional"] },
+        { accepted: ["individuals", "workers", "governments", "employers", "schools"] },
+        { accepted: ["alleviate", "mitigate", "reduce", "tackle"] },
+        { accepted: ["regular exercise and mindfulness practices", "right-to-disconnect legislation", "reasonable working-hour limits", "investment in mental health services"] },
+      ],
+      tr_hint:
+        "Problem/Solution multi-level formula: 'At X level, Y can alleviate stress through Z.' İki seviye (birey + toplum) Task 2'de kritik. Türk öğrenci tek seviye yazar.",
+      example_filled: "At the individual level, individuals can alleviate stress through regular exercise and mindfulness practices.",
+    },
+    {
+      id: "ex.ielts.w2.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 5,
+      turns: [
+        { speaker: "npc", text: "Write the intro for 'Stress is increasingly common. What are the causes, and what can individuals and societies do?' Both levels must be signalled." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good — both causes and dual-level solutions previewed." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(stress (has become|is increasingly recognised|emerged as))",
+        "(a (pervasive|widespread|growing) (problem|concern|issue))",
+        "(affecting (millions|people of all ages))",
+        "(this essay will (examine|explore))",
+        "(the (main|key) (causes|drivers)) (and (propose|suggest) (solutions|measures))",
+      ],
+      tr_hint:
+        "Multi-level intro: 'Stress has become a pervasive concern in modern life, affecting people across demographics. This essay will examine the main causes and propose solutions at both individual and societal levels.' İki seviye signal.",
+      ideal_answer: "Stress has become a pervasive concern in modern life, affecting people across all demographics. This essay will examine the main causes and propose solutions at both individual and societal levels.",
+    },
+    {
+      id: "ex.ielts.w2.8.lr1",
+      type: "listen_respond",
+      difficulty: 5,
+      npc_line: "Write a societal-level solution with a real-world policy example.",
+      accepted_patterns: [
+        "(at (the )?societal level|on a (broader|wider) scale)",
+        "(governments|employers|institutions) (can (play a role|contribute))",
+        "(by (enforcing|implementing|introducing))",
+        "(france (introduced|passed)|several (european )?countries (have))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Societal + example: 'At the societal level, governments can enforce right-to-disconnect laws — France introduced such legislation in 2017, protecting workers from after-hours emails.' Concrete policy + country.",
+      ideal_response: "At the societal level, governments can introduce right-to-disconnect laws — France passed such legislation in 2017, protecting employees from after-hours work communications.",
+    },
+    {
+      id: "ex.ielts.w2.8.tt1",
+      type: "thinking_trap",
+      difficulty: 5,
+      tr_thought: "Stresi azaltmak için spor yapmalıyız ve devlet de yardım etmeli.",
+      wrong_en: "For reduce stress, we should sport and government also help.",
+      right_en: "Stress can be alleviated through regular exercise at the individual level and supportive policy at the societal level.",
+      why_tr:
+        "Türk öğrenci 4 hata: (1) 'For reduce' = preposition + V1 → 'To reduce' veya 'In order to reduce'; (2) 'We should sport' = noun verb hatası → 'engage in exercise' veya 'exercise regularly' (sport = noun, can't be verb alone in this sense); (3) 'Government also help' = third-person 's' eksik → 'the government helps' veya 'supportive policy'; (4) Multi-level eksik → 'at the individual level / at the societal level' (band 7+ structure). Passive 'can be alleviated' = academic register.",
+    },
+    {
+      id: "ex.ielts.w2.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bireysel ve toplumsal seviye' Task 2 multi-level kalıp?",
+          options: [
+            "Individual and society",
+            "At the individual level / at the societal level",
+            "People and government",
+            "Self and outside",
+          ],
+          correct: 1,
+          tr_explanation: "'At the X level' = Task 2 multi-level structure. Soru iki seviye istediğinde şart.",
+        },
+        {
+          q: "'Sporu (spor yapma)' Task 2 verb?",
+          options: [
+            "Sport",
+            "Do sport",
+            "Engage in exercise / exercise regularly",
+            "Play sport",
+          ],
+          correct: 2,
+          tr_explanation: "'Sport' noun. 'Exercise' hem noun hem verb. 'Engage in exercise' Task 2 band 7+ collocation.",
+        },
+        {
+          q: "'Stres yükünü hafifletmek' band 7+?",
+          options: [
+            "Make stress less",
+            "Alleviate the burden of stress / mitigate stress",
+            "Stress reduction",
+            "Less stress",
+          ],
+          correct: 1,
+          tr_explanation: "'Alleviate / mitigate' + 'burden / strain' = band 7+ stress collocations.",
+        },
+        {
+          q: "'Ruhsal iyi oluş' band 7+?",
+          options: [
+            "Mental good",
+            "Mental health only",
+            "Mental well-being",
+            "Mind health",
+          ],
+          correct: 2,
+          tr_explanation: "'Mental well-being' = sabit Task 2 health collocation. 'Mental health' OK ama 'well-being' band 7+.",
+        },
+        {
+          q: "Spesifik ülke policy örneği nasıl band'i etkiler?",
+          options: [
+            "Skoru düşürür",
+            "Band 7+ — concrete policy examples task achievement güçlendirir",
+            "Etkisiz",
+            "Sadece İngiltere kabul",
+          ],
+          correct: 1,
+          tr_explanation: "'France's right-to-disconnect law (2017)' gibi concrete example = band 7+ supporting evidence.",
+        },
       ],
     },
   ],

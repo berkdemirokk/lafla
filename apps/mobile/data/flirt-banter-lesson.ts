@@ -277,6 +277,135 @@ export const flirtBanterLesson_2_1: BundledLesson = {
       tr_explanation:
         "'Ok. Then what do you do for fun anyway?' = momentum öldürür + temadan kacar. Doğru: kisinin actigi spesifik konuyu kazi. Generic 'what do you do for fun' = small talk geri sayım.",
     },
+    {
+      id: "ex.flirtbanter1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.flirtbanter1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.flirtbanter1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.flirtbanter1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.flirtbanter1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -559,6 +688,135 @@ export const flirtBanterLesson_2_2: BundledLesson = {
       tr_explanation:
         "'Why you say bad' savunmaci + bozuk yapı. 'I am very good person' = defansif oz-savunma, banter'i kırar. Doğru: espriyle kabul + ust yap = oyun devam eder.",
     },
+    {
+      id: "ex.flirtbanter2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.flirtbanter2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.flirtbanter2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.flirtbanter2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.flirtbanter2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -777,6 +1035,135 @@ export const flirtBanterLesson_2_3: BundledLesson = {
       tr_explanation:
         "'Tell me all your trauma' = sınır asmak + therapist rolu. Modern apps'te red flag. Doğru: izin iste + çıkış kapısı. 'Totally fine to skip' güven yaratır = aslında daha çok paylaşır.",
     },
+    {
+      id: "ex.flirtbanter3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.flirtbanter3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.flirtbanter3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.flirtbanter3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.flirtbanter3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -996,6 +1383,135 @@ export const flirtBanterLesson_2_4: BundledLesson = {
       tr_explanation:
         "Eski sevgili + 'destroyed me' + 'cry every night' = trauma dumping = ilk sohbette unmatch. Modern olgun: kabul + ne yaptin (terapi, vs.) + simdiki durum. Vulnerability = saglikli sınır.",
     },
+    {
+      id: "ex.flirtbanter4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.flirtbanter4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.flirtbanter4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.flirtbanter4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.flirtbanter4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1171,6 +1687,135 @@ export const flirtBanterLesson_2_5: BundledLesson = {
       tr_hint:
         "Playful meydan tonu — gülümseyerek. 'Bet you can't' bağlı, 'prove me wrong' sondaki vurgu.",
     },
+    {
+      id: "ex.flirtbanter5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.flirtbanter5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.flirtbanter5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.flirtbanter5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.flirtbanter5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1347,6 +1992,135 @@ export const flirtBanterLesson_2_6: BundledLesson = {
       tr_hint:
         "Sıcak takılma tonu — gülümseyerek, hakaret değil. 'Snob alert' bağlı, 'iconic choice' onaylayıcı kapanış.",
     },
+    {
+      id: "ex.flirtbanter6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.flirtbanter6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.flirtbanter6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.flirtbanter6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.flirtbanter6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1525,6 +2299,135 @@ export const flirtBanterLesson_2_7: BundledLesson = {
       tr_hint:
         "Sahte şikayet tonu — gülümseyerek. 'Coming for my whole personality' bağlı, 'menace' sıcak söyle, hakaret tonu yok.",
     },
+    {
+      id: "ex.flirtbanter7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.flirtbanter7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.flirtbanter7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.flirtbanter7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.flirtbanter7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 
@@ -1706,6 +2609,135 @@ export const flirtBanterLesson_2_8: BundledLesson = {
       tr_hint:
         "Resmi iş dili tonu — playful ironik. 'Per our earlier kombucha discussion' bağlı söyle, 'ahead of the curve' kararlı bitiş.",
     },
+    {
+      id: "ex.flirtbanter8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Wanna ___ on ___? I know a ___ spot.",
+      slots: [
+        { accepted: ["grab a drink", "get coffee", "do dinner", "meet up", "hang"] },
+        { accepted: ["Thursday", "Friday", "Saturday", "the weekend", "this week"] },
+        { accepted: ["great", "cozy", "fun", "low-key", "small natural wine"] },
+      ],
+      tr_hint:
+        "Dating app davet kalıbı. 'Wanna + casual fiil + zaman' + 'I know a + sıfat + spot.' Türk: 'Do you want to meet' düz, 'Wanna grab a drink' samimi/oyuncu.",
+      example_filled: "Wanna grab a drink on Thursday? I know a cozy spot in Kreuzberg.",
+    },
+    {
+      id: "ex.flirtbanter8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Aw, same! And yes — what did you have in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect — Saturday at 8?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(there'?s |i heard about |i'?ve been wanting to try) (a |this )?(place|spot|restaurant)",
+        "(do you like |are you into) (turkish|italian|ramen|sushi|thai)",
+        "(i was thinking |how about) (turkish food|that place)",
+        "(you (pick|choose)|your call)",
+        "(somewhere (casual|nice|in (mitte|kreuzberg))?)",
+      ],
+      tr_hint:
+        "Yer öner ama esnek: 'How about Turkish?' veya 'You pick.' Türk: 'I want to eat at X' yerine 'I was thinking X' (öneri tonu).",
+      ideal_answer: "I was thinking that small Turkish place in Kreuzberg — unless you'd rather pick?",
+    },
+    {
+      id: "ex.flirtbanter8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Honestly, I almost cancelled — work was hell. Glad I didn't.",
+      accepted_patterns: [
+        "(me too|same)(,)? (i was (nervous|busy too))",
+        "(really )?glad you didn'?t",
+        "(what happened at work|that bad)",
+        "(this is exactly what i needed)",
+        "(then we both win|then this was the right call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıcak karşılık + soru. 'Glad you didn't! What happened at work?' Türk: 'Me too' yetersiz, derinlik ekle.",
+      ideal_response: "Really glad you didn't — sounds rough. What happened?",
+    },
+    {
+      id: "ex.flirtbanter8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Buluşmak ister misin?",
+      wrong_en: "Do you want to meet?",
+      right_en: "Wanna grab a drink sometime?",
+      why_tr:
+        "'Do you want to meet?' iş görüşmesi tonu. 'Wanna grab a drink' = dating app native. 'Meet' formel + belirsiz, 'grab a drink' spesifik + samimi.",
+    },
+    {
+      id: "ex.flirtbanter8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wanna' ne demek?",
+          options: [
+            "Want to (casual kısaltma)",
+            "Want a",
+            "Wanna brand",
+            "İstemek (fiil)",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wanna' = 'want to' kısaltılmış (yazılı casual). 'Wanna grab' = istersen.",
+        },
+        {
+          q: "'I'm in' anlamı?",
+          options: [
+            "İçerideyim",
+            "Varım (kabul)",
+            "Giriş",
+            "İçinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in' = varım, katılırım (davet kabul kısa form).",
+        },
+        {
+          q: "Date'te kalp soruşturması doğal kalıbı?",
+          options: [
+            "Tell me about yourself",
+            "How are you actually doing? / Real talk —",
+            "What is your story",
+            "Explain your life",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Real talk — how are you doing?' = derinlik açıcı + samimi. Türk: 'Tell me about yourself' iş görüşmesi.",
+        },
+        {
+          q: "'Locked in' deyimi?",
+          options: [
+            "Kilitli",
+            "Kesinleşti (plan)",
+            "Hapis",
+            "Bağlandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Locked in' = plan kesinleşti, iptal yok. 'Saturday at 8, locked in.'",
+        },
+        {
+          q: "'Wouldn't dream of it' anlamı?",
+          options: [
+            "Rüya görmem",
+            "Asla (iptal etmem) — şaka karşılığı",
+            "Hayal değil",
+            "Düşünmedim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Wouldn't dream of cancelling' = iptal etmeyi düşünmem bile. Romantik vurgu için kalıp.",
+        },
+      ],
+    },
+
   ],
 };
 

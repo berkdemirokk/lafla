@@ -138,6 +138,127 @@ export const dailyExpandedLesson_neighbor: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.dex.neighbor.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Hi, I just ___ in to ___ — I'm in ___.",
+      slots: [
+        { accepted: ["moved", "settled"], distractors: ["come", "go", "arrived"] },
+        { accepted: ["the building", "the neighborhood", "this place"], distractors: ["here", "downtown", "city"] },
+        { accepted: ["3B", "apartment 4A", "the unit upstairs"], distractors: ["a flat", "my home", "next"] },
+      ],
+      tr_hint:
+        "Komşuyla ilk tanışma kalıbı: 'Hi, I just ___ in to ___' — sebep + lokasyon. Türk öğrenci 'I am new here' der — daha doğal: 'I just moved in.'",
+      example_filled: "Hi, I just moved in to the building — I'm in 3B.",
+    },
+    {
+      id: "ex.dex.neighbor.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Hey! I haven't seen you around — are you new?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Welcome! I'm Sarah, 4A. Let me know if you need anything." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hey|hello)(,)? (yeah|yes)(,)? (i )?just moved in",
+        "(i'?m|my name is) [a-z]+(,)? (just )?moved in",
+        "(yeah|yep)(,)? (this week|last week)(,)? (i'?m )?in",
+        "(nice to meet you)",
+      ],
+      tr_hint:
+        "Komşu fark etti — onayla + isim + daire. 'Hi, yeah — I just moved in. I'm Berk, 3B.' Türk öğrenci sadece 'yes' der — eksik.",
+      ideal_answer: "Hi, yeah — I just moved in. I'm Berk, 3B. Nice to meet you!",
+    },
+    {
+      id: "ex.dex.neighbor.1.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Let me know if you need anything — recommendations, the laundry code, anything.",
+      accepted_patterns: [
+        "(thanks|thank you)(,)? (that'?s (really )?(kind|sweet)|appreciate (it|that))",
+        "(actually|by the way)(,)? (where('s| is)|how does)",
+        "(thanks)(,)? (i (might|will)) (take you up on (that|it))",
+        "(that'?s (so )?nice)(,)? thanks",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yardım teklifi geldi — kibar teşekkür + opsiyonel takip. 'Thanks, that's really kind' veya 'Actually, where's the laundry?' Türk öğrenci direkt soru sorar — önce teşekkür.",
+      ideal_response: "Thanks, that's really kind — I might take you up on that.",
+    },
+    {
+      id: "ex.dex.neighbor.1.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Aynı binadayım.",
+      wrong_en: "I am living in the same building.",
+      right_en: "I live in the same building.",
+      why_tr:
+        "Türk öğrenci 'present continuous' kullanır ('I am living') — yanlış. Sürekli/geçici durumlar: 'I live' (kalıcı). 'I'm living' sadece geçici ('this month, while moving' gibi).",
+    },
+    {
+      id: "ex.dex.neighbor.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Komşuya kibar ilk söz?",
+          options: [
+            "Where you live?",
+            "Hi — I just moved in. I'm in 3B.",
+            "I am new.",
+            "Hello, who you?",
+          ],
+          correct: 1,
+          tr_explanation: "'I just moved in' = yeni taşındım (doğal kalıp). + daire numarası = bilgi paylaşımı.",
+        },
+        {
+          q: "'Next door' ne demek?",
+          options: [
+            "Sonraki kapı",
+            "Yan daire / yan komşu",
+            "Kapının yanında",
+            "Sonraki gün",
+          ],
+          correct: 1,
+          tr_explanation: "'Next door' = yan komşu/daire. 'I live next door' = yandayım.",
+        },
+        {
+          q: "'Let me know if you need anything' nasıl yanıtlanır?",
+          options: [
+            "OK.",
+            "Thanks, that's really kind — I might take you up on that.",
+            "I don't need.",
+            "Maybe.",
+          ],
+          correct: 1,
+          tr_explanation: "Yardım teklifi = teşekkür + olası kabul. 'Take you up on that' = teklifini kabul edebilirim.",
+        },
+        {
+          q: "'I live here' vs 'I am living here' farkı?",
+          options: [
+            "Aynı şey.",
+            "'I live here' kalıcı; 'I am living here' geçici.",
+            "Birinci yanlış.",
+            "Birinci geçmiş.",
+          ],
+          correct: 1,
+          tr_explanation: "'Live' = sabit durum (simple). 'Am living' = geçici (continuous, ay-haftalık).",
+        },
+        {
+          q: "'See you around!' ne demek?",
+          options: [
+            "Etrafı gör.",
+            "Tekrar görüşürüz (kısa veda).",
+            "Etrafıma bak.",
+            "Beni gör.",
+          ],
+          correct: 1,
+          tr_explanation: "'See you around' = sokakta/koridorda tekrar görüşürüz. Bina/mahalle vedası.",
+        },
+      ],
+    },
   ],
 };
 

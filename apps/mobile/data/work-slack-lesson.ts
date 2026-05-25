@@ -209,6 +209,100 @@ export const workSlackLesson_9_1: BundledLesson = {
       tr_explanation:
         "'Happy with knowing' kirik yapi — gerund yanlis. 'Get to know' deyim = tanimak. Slack intro = enerji + sicaklik.",
     },
+    {
+      id: "ex.ws9.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — when you have a sec, could you ___?",
+      slots: [
+        { accepted: ['take a look at the PR', 'send over the deck', 'share the link', 'confirm the deadline'], distractors: ['take a look on PR', 'send over deck', 'share link', 'confirm deadline'] },
+      ],
+      tr_hint:
+        "Slack async kalıbı. 'When you have a sec' = aciliyet baskısı yok. Türk hatası: 'Hi.' deyip beklemek — direkt soru sor.",
+      example_filled: "Quick question — when you have a sec, could you take a look at the PR?",
+    },
+    {
+      id: "ex.ws9.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, sorry for the slow reply — just got out of a meeting." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, I'll DM you the details in a few." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no (worries|stress)|all good|totally fine)",
+        "(whenever (works|you'?re free)|no rush)",
+        "(thanks|appreciate (it|the update))",
+        "(let me know|just ping me) (when|if)",
+      ],
+      tr_hint:
+        "Karşı taraf geç döndü — yumuşat. Türk hatası: 'I'm waiting' = pasif-agresif. 'No worries' standart Slack.",
+      ideal_answer: "No worries — whenever works. Thanks!",
+    },
+    {
+      id: "ex.ws9.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Did you see my message from earlier?",
+      accepted_patterns: [
+        "(yeah|yes|just (now|saw))",
+        "(sorry|apologies)( for the delay)?",
+        "(i'?ll|let me) (get back to you|reply) (shortly|after this)",
+        "(reading it now|on it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Birisi takip ediyor — kabul + ETA ver. 'I forgot' verme — 'just saw, on it' daha iyi.",
+      ideal_response: "Just saw it — sorry for the delay, I'll reply shortly.",
+    },
+    {
+      id: "ex.ws9.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sen 'merhaba' yazdın ama soruyu sormadın.",
+      wrong_en: "Hi.",
+      right_en: "Hey — quick question about the deploy script. Got 10 minutes today?",
+      why_tr:
+        "Sadece 'Hi' yazıp beklemek = anti-pattern. Karşı taraf 'Hi' deyip durmak = ne istediği belli değil, bekleme yaratır. Slack async culture: ilk mesajda tam context. Türk öğrenci kibarlık adına 'Hi' deyip durmaya alışkındır — Slack'te bu uygunsuz.",
+    },
+    {
+      id: "ex.ws9.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Slack'te sadece 'Hi' yazıp beklemek?",
+          options: ["İyi", "Anti-pattern — direkt soruyu sor", "Standart", "Kibar"],
+          correct: 1,
+          tr_explanation: "'Hi' tek başına = ne istediğin belli değil. Slack async = ilk mesajda tam context.",
+        },
+        {
+          q: "'No worries' Slack'te kullanımı?",
+          options: ["Saldırgan", "Yumuşatıcı default cevap", "Resmi", "Soru"],
+          correct: 1,
+          tr_explanation: "'No worries' = stres yapma. Slack'te 'sorry for delay' cevabı standardı.",
+        },
+        {
+          q: "'DM me' ne demek?",
+          options: ["Beni izle", "Direkt mesaj at", "Beni indir", "Mention et"],
+          correct: 1,
+          tr_explanation: "'DM' = direct message. Public kanal yerine özel mesaj.",
+        },
+        {
+          q: "'Whenever works' tonunda ne?",
+          options: ["Önemsiz", "Esnek + saygılı", "Resmi", "Belirsiz emir"],
+          correct: 1,
+          tr_explanation: "'Whenever works' = aciliyet baskısı yok. Karşı tarafı rahatlatır.",
+        },
+        {
+          q: "Slack'te 'Dear Team' kullanımı?",
+          options: ["Standart", "Email tonu — Slack için uygunsuz", "En iyi", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Slack casual. 'Dear Team' email tonu — yabancılaştırıcı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -418,6 +512,100 @@ export const workSlackLesson_9_2: BundledLesson = {
         "Hey — quick question about the API. Whenever works for you.",
       tr_explanation:
         "'Are you there? Answer fast' = baskici + saygisiz. Async Slack norm: konteksti hemen ver + baski koyma.",
+    },
+    {
+      id: "ex.ws9.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — when you have a sec, could you ___?",
+      slots: [
+        { accepted: ['take a look at the PR', 'send over the deck', 'share the link', 'confirm the deadline'], distractors: ['take a look on PR', 'send over deck', 'share link', 'confirm deadline'] },
+      ],
+      tr_hint:
+        "Slack async kalıbı. 'When you have a sec' = aciliyet baskısı yok. Türk hatası: 'Hi.' deyip beklemek — direkt soru sor.",
+      example_filled: "Quick question — when you have a sec, could you take a look at the PR?",
+    },
+    {
+      id: "ex.ws9.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, sorry for the slow reply — just got out of a meeting." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, I'll DM you the details in a few." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no (worries|stress)|all good|totally fine)",
+        "(whenever (works|you'?re free)|no rush)",
+        "(thanks|appreciate (it|the update))",
+        "(let me know|just ping me) (when|if)",
+      ],
+      tr_hint:
+        "Karşı taraf geç döndü — yumuşat. Türk hatası: 'I'm waiting' = pasif-agresif. 'No worries' standart Slack.",
+      ideal_answer: "No worries — whenever works. Thanks!",
+    },
+    {
+      id: "ex.ws9.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Did you see my message from earlier?",
+      accepted_patterns: [
+        "(yeah|yes|just (now|saw))",
+        "(sorry|apologies)( for the delay)?",
+        "(i'?ll|let me) (get back to you|reply) (shortly|after this)",
+        "(reading it now|on it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Birisi takip ediyor — kabul + ETA ver. 'I forgot' verme — 'just saw, on it' daha iyi.",
+      ideal_response: "Just saw it — sorry for the delay, I'll reply shortly.",
+    },
+    {
+      id: "ex.ws9.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sen 'merhaba' yazdın ama soruyu sormadın.",
+      wrong_en: "Hi.",
+      right_en: "Hey — quick question about the deploy script. Got 10 minutes today?",
+      why_tr:
+        "Sadece 'Hi' yazıp beklemek = anti-pattern. Karşı taraf 'Hi' deyip durmak = ne istediği belli değil, bekleme yaratır. Slack async culture: ilk mesajda tam context. Türk öğrenci kibarlık adına 'Hi' deyip durmaya alışkındır — Slack'te bu uygunsuz.",
+    },
+    {
+      id: "ex.ws9.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Slack'te sadece 'Hi' yazıp beklemek?",
+          options: ["İyi", "Anti-pattern — direkt soruyu sor", "Standart", "Kibar"],
+          correct: 1,
+          tr_explanation: "'Hi' tek başına = ne istediğin belli değil. Slack async = ilk mesajda tam context.",
+        },
+        {
+          q: "'No worries' Slack'te kullanımı?",
+          options: ["Saldırgan", "Yumuşatıcı default cevap", "Resmi", "Soru"],
+          correct: 1,
+          tr_explanation: "'No worries' = stres yapma. Slack'te 'sorry for delay' cevabı standardı.",
+        },
+        {
+          q: "'DM me' ne demek?",
+          options: ["Beni izle", "Direkt mesaj at", "Beni indir", "Mention et"],
+          correct: 1,
+          tr_explanation: "'DM' = direct message. Public kanal yerine özel mesaj.",
+        },
+        {
+          q: "'Whenever works' tonunda ne?",
+          options: ["Önemsiz", "Esnek + saygılı", "Resmi", "Belirsiz emir"],
+          correct: 1,
+          tr_explanation: "'Whenever works' = aciliyet baskısı yok. Karşı tarafı rahatlatır.",
+        },
+        {
+          q: "Slack'te 'Dear Team' kullanımı?",
+          options: ["Standart", "Email tonu — Slack için uygunsuz", "En iyi", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Slack casual. 'Dear Team' email tonu — yabancılaştırıcı.",
+        },
+      ],
     },
   ],
 };
@@ -630,6 +818,100 @@ export const workSlackLesson_9_3: BundledLesson = {
       tr_explanation:
         "'Continue to work on stuff' = belirsiz + uzun. Standup = spesifik + kisa. 'Today: [aksiyon] + [aksiyon]' format.",
     },
+    {
+      id: "ex.ws9.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — when you have a sec, could you ___?",
+      slots: [
+        { accepted: ['take a look at the PR', 'send over the deck', 'share the link', 'confirm the deadline'], distractors: ['take a look on PR', 'send over deck', 'share link', 'confirm deadline'] },
+      ],
+      tr_hint:
+        "Slack async kalıbı. 'When you have a sec' = aciliyet baskısı yok. Türk hatası: 'Hi.' deyip beklemek — direkt soru sor.",
+      example_filled: "Quick question — when you have a sec, could you take a look at the PR?",
+    },
+    {
+      id: "ex.ws9.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, sorry for the slow reply — just got out of a meeting." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, I'll DM you the details in a few." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no (worries|stress)|all good|totally fine)",
+        "(whenever (works|you'?re free)|no rush)",
+        "(thanks|appreciate (it|the update))",
+        "(let me know|just ping me) (when|if)",
+      ],
+      tr_hint:
+        "Karşı taraf geç döndü — yumuşat. Türk hatası: 'I'm waiting' = pasif-agresif. 'No worries' standart Slack.",
+      ideal_answer: "No worries — whenever works. Thanks!",
+    },
+    {
+      id: "ex.ws9.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Did you see my message from earlier?",
+      accepted_patterns: [
+        "(yeah|yes|just (now|saw))",
+        "(sorry|apologies)( for the delay)?",
+        "(i'?ll|let me) (get back to you|reply) (shortly|after this)",
+        "(reading it now|on it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Birisi takip ediyor — kabul + ETA ver. 'I forgot' verme — 'just saw, on it' daha iyi.",
+      ideal_response: "Just saw it — sorry for the delay, I'll reply shortly.",
+    },
+    {
+      id: "ex.ws9.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sen 'merhaba' yazdın ama soruyu sormadın.",
+      wrong_en: "Hi.",
+      right_en: "Hey — quick question about the deploy script. Got 10 minutes today?",
+      why_tr:
+        "Sadece 'Hi' yazıp beklemek = anti-pattern. Karşı taraf 'Hi' deyip durmak = ne istediği belli değil, bekleme yaratır. Slack async culture: ilk mesajda tam context. Türk öğrenci kibarlık adına 'Hi' deyip durmaya alışkındır — Slack'te bu uygunsuz.",
+    },
+    {
+      id: "ex.ws9.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Slack'te sadece 'Hi' yazıp beklemek?",
+          options: ["İyi", "Anti-pattern — direkt soruyu sor", "Standart", "Kibar"],
+          correct: 1,
+          tr_explanation: "'Hi' tek başına = ne istediğin belli değil. Slack async = ilk mesajda tam context.",
+        },
+        {
+          q: "'No worries' Slack'te kullanımı?",
+          options: ["Saldırgan", "Yumuşatıcı default cevap", "Resmi", "Soru"],
+          correct: 1,
+          tr_explanation: "'No worries' = stres yapma. Slack'te 'sorry for delay' cevabı standardı.",
+        },
+        {
+          q: "'DM me' ne demek?",
+          options: ["Beni izle", "Direkt mesaj at", "Beni indir", "Mention et"],
+          correct: 1,
+          tr_explanation: "'DM' = direct message. Public kanal yerine özel mesaj.",
+        },
+        {
+          q: "'Whenever works' tonunda ne?",
+          options: ["Önemsiz", "Esnek + saygılı", "Resmi", "Belirsiz emir"],
+          correct: 1,
+          tr_explanation: "'Whenever works' = aciliyet baskısı yok. Karşı tarafı rahatlatır.",
+        },
+        {
+          q: "Slack'te 'Dear Team' kullanımı?",
+          options: ["Standart", "Email tonu — Slack için uygunsuz", "En iyi", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Slack casual. 'Dear Team' email tonu — yabancılaştırıcı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -840,6 +1122,100 @@ export const workSlackLesson_9_4: BundledLesson = {
       tr_explanation:
         "'Reply you' yanlis — 'reply' transitive degil: 'reply TO you'. 'In private message' yerine 'in DM' Slack norm. 'Follow up' = takip et.",
     },
+    {
+      id: "ex.ws9.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — when you have a sec, could you ___?",
+      slots: [
+        { accepted: ['take a look at the PR', 'send over the deck', 'share the link', 'confirm the deadline'], distractors: ['take a look on PR', 'send over deck', 'share link', 'confirm deadline'] },
+      ],
+      tr_hint:
+        "Slack async kalıbı. 'When you have a sec' = aciliyet baskısı yok. Türk hatası: 'Hi.' deyip beklemek — direkt soru sor.",
+      example_filled: "Quick question — when you have a sec, could you take a look at the PR?",
+    },
+    {
+      id: "ex.ws9.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, sorry for the slow reply — just got out of a meeting." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, I'll DM you the details in a few." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no (worries|stress)|all good|totally fine)",
+        "(whenever (works|you'?re free)|no rush)",
+        "(thanks|appreciate (it|the update))",
+        "(let me know|just ping me) (when|if)",
+      ],
+      tr_hint:
+        "Karşı taraf geç döndü — yumuşat. Türk hatası: 'I'm waiting' = pasif-agresif. 'No worries' standart Slack.",
+      ideal_answer: "No worries — whenever works. Thanks!",
+    },
+    {
+      id: "ex.ws9.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Did you see my message from earlier?",
+      accepted_patterns: [
+        "(yeah|yes|just (now|saw))",
+        "(sorry|apologies)( for the delay)?",
+        "(i'?ll|let me) (get back to you|reply) (shortly|after this)",
+        "(reading it now|on it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Birisi takip ediyor — kabul + ETA ver. 'I forgot' verme — 'just saw, on it' daha iyi.",
+      ideal_response: "Just saw it — sorry for the delay, I'll reply shortly.",
+    },
+    {
+      id: "ex.ws9.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sen 'merhaba' yazdın ama soruyu sormadın.",
+      wrong_en: "Hi.",
+      right_en: "Hey — quick question about the deploy script. Got 10 minutes today?",
+      why_tr:
+        "Sadece 'Hi' yazıp beklemek = anti-pattern. Karşı taraf 'Hi' deyip durmak = ne istediği belli değil, bekleme yaratır. Slack async culture: ilk mesajda tam context. Türk öğrenci kibarlık adına 'Hi' deyip durmaya alışkındır — Slack'te bu uygunsuz.",
+    },
+    {
+      id: "ex.ws9.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Slack'te sadece 'Hi' yazıp beklemek?",
+          options: ["İyi", "Anti-pattern — direkt soruyu sor", "Standart", "Kibar"],
+          correct: 1,
+          tr_explanation: "'Hi' tek başına = ne istediğin belli değil. Slack async = ilk mesajda tam context.",
+        },
+        {
+          q: "'No worries' Slack'te kullanımı?",
+          options: ["Saldırgan", "Yumuşatıcı default cevap", "Resmi", "Soru"],
+          correct: 1,
+          tr_explanation: "'No worries' = stres yapma. Slack'te 'sorry for delay' cevabı standardı.",
+        },
+        {
+          q: "'DM me' ne demek?",
+          options: ["Beni izle", "Direkt mesaj at", "Beni indir", "Mention et"],
+          correct: 1,
+          tr_explanation: "'DM' = direct message. Public kanal yerine özel mesaj.",
+        },
+        {
+          q: "'Whenever works' tonunda ne?",
+          options: ["Önemsiz", "Esnek + saygılı", "Resmi", "Belirsiz emir"],
+          correct: 1,
+          tr_explanation: "'Whenever works' = aciliyet baskısı yok. Karşı tarafı rahatlatır.",
+        },
+        {
+          q: "Slack'te 'Dear Team' kullanımı?",
+          options: ["Standart", "Email tonu — Slack için uygunsuz", "En iyi", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Slack casual. 'Dear Team' email tonu — yabancılaştırıcı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1012,6 +1388,100 @@ export const workSlackLesson_9_5: BundledLesson = {
       ipa: "/hɛdz ʌp maɪt slɪp tu təˈmɑroʊ/",
       tr_articulation_hint:
         "'Heads up' birlesik (hed-zap). 'Might slip' = belki gecikir, nazik bayrak. 'To tomorrow' yumusak ge-cis. Endise yok, sade uyari tonu.",
+    },
+    {
+      id: "ex.ws9.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — when you have a sec, could you ___?",
+      slots: [
+        { accepted: ['take a look at the PR', 'send over the deck', 'share the link', 'confirm the deadline'], distractors: ['take a look on PR', 'send over deck', 'share link', 'confirm deadline'] },
+      ],
+      tr_hint:
+        "Slack async kalıbı. 'When you have a sec' = aciliyet baskısı yok. Türk hatası: 'Hi.' deyip beklemek — direkt soru sor.",
+      example_filled: "Quick question — when you have a sec, could you take a look at the PR?",
+    },
+    {
+      id: "ex.ws9.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, sorry for the slow reply — just got out of a meeting." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, I'll DM you the details in a few." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no (worries|stress)|all good|totally fine)",
+        "(whenever (works|you'?re free)|no rush)",
+        "(thanks|appreciate (it|the update))",
+        "(let me know|just ping me) (when|if)",
+      ],
+      tr_hint:
+        "Karşı taraf geç döndü — yumuşat. Türk hatası: 'I'm waiting' = pasif-agresif. 'No worries' standart Slack.",
+      ideal_answer: "No worries — whenever works. Thanks!",
+    },
+    {
+      id: "ex.ws9.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Did you see my message from earlier?",
+      accepted_patterns: [
+        "(yeah|yes|just (now|saw))",
+        "(sorry|apologies)( for the delay)?",
+        "(i'?ll|let me) (get back to you|reply) (shortly|after this)",
+        "(reading it now|on it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Birisi takip ediyor — kabul + ETA ver. 'I forgot' verme — 'just saw, on it' daha iyi.",
+      ideal_response: "Just saw it — sorry for the delay, I'll reply shortly.",
+    },
+    {
+      id: "ex.ws9.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sen 'merhaba' yazdın ama soruyu sormadın.",
+      wrong_en: "Hi.",
+      right_en: "Hey — quick question about the deploy script. Got 10 minutes today?",
+      why_tr:
+        "Sadece 'Hi' yazıp beklemek = anti-pattern. Karşı taraf 'Hi' deyip durmak = ne istediği belli değil, bekleme yaratır. Slack async culture: ilk mesajda tam context. Türk öğrenci kibarlık adına 'Hi' deyip durmaya alışkındır — Slack'te bu uygunsuz.",
+    },
+    {
+      id: "ex.ws9.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Slack'te sadece 'Hi' yazıp beklemek?",
+          options: ["İyi", "Anti-pattern — direkt soruyu sor", "Standart", "Kibar"],
+          correct: 1,
+          tr_explanation: "'Hi' tek başına = ne istediğin belli değil. Slack async = ilk mesajda tam context.",
+        },
+        {
+          q: "'No worries' Slack'te kullanımı?",
+          options: ["Saldırgan", "Yumuşatıcı default cevap", "Resmi", "Soru"],
+          correct: 1,
+          tr_explanation: "'No worries' = stres yapma. Slack'te 'sorry for delay' cevabı standardı.",
+        },
+        {
+          q: "'DM me' ne demek?",
+          options: ["Beni izle", "Direkt mesaj at", "Beni indir", "Mention et"],
+          correct: 1,
+          tr_explanation: "'DM' = direct message. Public kanal yerine özel mesaj.",
+        },
+        {
+          q: "'Whenever works' tonunda ne?",
+          options: ["Önemsiz", "Esnek + saygılı", "Resmi", "Belirsiz emir"],
+          correct: 1,
+          tr_explanation: "'Whenever works' = aciliyet baskısı yok. Karşı tarafı rahatlatır.",
+        },
+        {
+          q: "Slack'te 'Dear Team' kullanımı?",
+          options: ["Standart", "Email tonu — Slack için uygunsuz", "En iyi", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Slack casual. 'Dear Team' email tonu — yabancılaştırıcı.",
+        },
+      ],
     },
   ],
 };
@@ -1187,6 +1657,100 @@ export const workSlackLesson_9_6: BundledLesson = {
       tr_articulation_hint:
         "'Got 5 min' = gat-faiv-min, hizla bagla. Soru yukselen tonu sonda. Yapay degil, rahat ton — yoneticiyle dahi casual.",
     },
+    {
+      id: "ex.ws9.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — when you have a sec, could you ___?",
+      slots: [
+        { accepted: ['take a look at the PR', 'send over the deck', 'share the link', 'confirm the deadline'], distractors: ['take a look on PR', 'send over deck', 'share link', 'confirm deadline'] },
+      ],
+      tr_hint:
+        "Slack async kalıbı. 'When you have a sec' = aciliyet baskısı yok. Türk hatası: 'Hi.' deyip beklemek — direkt soru sor.",
+      example_filled: "Quick question — when you have a sec, could you take a look at the PR?",
+    },
+    {
+      id: "ex.ws9.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, sorry for the slow reply — just got out of a meeting." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, I'll DM you the details in a few." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no (worries|stress)|all good|totally fine)",
+        "(whenever (works|you'?re free)|no rush)",
+        "(thanks|appreciate (it|the update))",
+        "(let me know|just ping me) (when|if)",
+      ],
+      tr_hint:
+        "Karşı taraf geç döndü — yumuşat. Türk hatası: 'I'm waiting' = pasif-agresif. 'No worries' standart Slack.",
+      ideal_answer: "No worries — whenever works. Thanks!",
+    },
+    {
+      id: "ex.ws9.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Did you see my message from earlier?",
+      accepted_patterns: [
+        "(yeah|yes|just (now|saw))",
+        "(sorry|apologies)( for the delay)?",
+        "(i'?ll|let me) (get back to you|reply) (shortly|after this)",
+        "(reading it now|on it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Birisi takip ediyor — kabul + ETA ver. 'I forgot' verme — 'just saw, on it' daha iyi.",
+      ideal_response: "Just saw it — sorry for the delay, I'll reply shortly.",
+    },
+    {
+      id: "ex.ws9.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sen 'merhaba' yazdın ama soruyu sormadın.",
+      wrong_en: "Hi.",
+      right_en: "Hey — quick question about the deploy script. Got 10 minutes today?",
+      why_tr:
+        "Sadece 'Hi' yazıp beklemek = anti-pattern. Karşı taraf 'Hi' deyip durmak = ne istediği belli değil, bekleme yaratır. Slack async culture: ilk mesajda tam context. Türk öğrenci kibarlık adına 'Hi' deyip durmaya alışkındır — Slack'te bu uygunsuz.",
+    },
+    {
+      id: "ex.ws9.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Slack'te sadece 'Hi' yazıp beklemek?",
+          options: ["İyi", "Anti-pattern — direkt soruyu sor", "Standart", "Kibar"],
+          correct: 1,
+          tr_explanation: "'Hi' tek başına = ne istediğin belli değil. Slack async = ilk mesajda tam context.",
+        },
+        {
+          q: "'No worries' Slack'te kullanımı?",
+          options: ["Saldırgan", "Yumuşatıcı default cevap", "Resmi", "Soru"],
+          correct: 1,
+          tr_explanation: "'No worries' = stres yapma. Slack'te 'sorry for delay' cevabı standardı.",
+        },
+        {
+          q: "'DM me' ne demek?",
+          options: ["Beni izle", "Direkt mesaj at", "Beni indir", "Mention et"],
+          correct: 1,
+          tr_explanation: "'DM' = direct message. Public kanal yerine özel mesaj.",
+        },
+        {
+          q: "'Whenever works' tonunda ne?",
+          options: ["Önemsiz", "Esnek + saygılı", "Resmi", "Belirsiz emir"],
+          correct: 1,
+          tr_explanation: "'Whenever works' = aciliyet baskısı yok. Karşı tarafı rahatlatır.",
+        },
+        {
+          q: "Slack'te 'Dear Team' kullanımı?",
+          options: ["Standart", "Email tonu — Slack için uygunsuz", "En iyi", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Slack casual. 'Dear Team' email tonu — yabancılaştırıcı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1359,6 +1923,100 @@ export const workSlackLesson_9_7: BundledLesson = {
       ipa: "/ˈpʊtɪŋ ðɪs ɪn ə θrɛd tu kip ðə ˈtʃænəl klin/",
       tr_articulation_hint:
         "'Putting this' = put-ting-this, kisa duraklama. 'In a thread' birlesik. 'Channel clean' iki vurguyla. Aciklayici, kibirli olmayan ton.",
+    },
+    {
+      id: "ex.ws9.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — when you have a sec, could you ___?",
+      slots: [
+        { accepted: ['take a look at the PR', 'send over the deck', 'share the link', 'confirm the deadline'], distractors: ['take a look on PR', 'send over deck', 'share link', 'confirm deadline'] },
+      ],
+      tr_hint:
+        "Slack async kalıbı. 'When you have a sec' = aciliyet baskısı yok. Türk hatası: 'Hi.' deyip beklemek — direkt soru sor.",
+      example_filled: "Quick question — when you have a sec, could you take a look at the PR?",
+    },
+    {
+      id: "ex.ws9.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, sorry for the slow reply — just got out of a meeting." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, I'll DM you the details in a few." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no (worries|stress)|all good|totally fine)",
+        "(whenever (works|you'?re free)|no rush)",
+        "(thanks|appreciate (it|the update))",
+        "(let me know|just ping me) (when|if)",
+      ],
+      tr_hint:
+        "Karşı taraf geç döndü — yumuşat. Türk hatası: 'I'm waiting' = pasif-agresif. 'No worries' standart Slack.",
+      ideal_answer: "No worries — whenever works. Thanks!",
+    },
+    {
+      id: "ex.ws9.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Did you see my message from earlier?",
+      accepted_patterns: [
+        "(yeah|yes|just (now|saw))",
+        "(sorry|apologies)( for the delay)?",
+        "(i'?ll|let me) (get back to you|reply) (shortly|after this)",
+        "(reading it now|on it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Birisi takip ediyor — kabul + ETA ver. 'I forgot' verme — 'just saw, on it' daha iyi.",
+      ideal_response: "Just saw it — sorry for the delay, I'll reply shortly.",
+    },
+    {
+      id: "ex.ws9.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sen 'merhaba' yazdın ama soruyu sormadın.",
+      wrong_en: "Hi.",
+      right_en: "Hey — quick question about the deploy script. Got 10 minutes today?",
+      why_tr:
+        "Sadece 'Hi' yazıp beklemek = anti-pattern. Karşı taraf 'Hi' deyip durmak = ne istediği belli değil, bekleme yaratır. Slack async culture: ilk mesajda tam context. Türk öğrenci kibarlık adına 'Hi' deyip durmaya alışkındır — Slack'te bu uygunsuz.",
+    },
+    {
+      id: "ex.ws9.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Slack'te sadece 'Hi' yazıp beklemek?",
+          options: ["İyi", "Anti-pattern — direkt soruyu sor", "Standart", "Kibar"],
+          correct: 1,
+          tr_explanation: "'Hi' tek başına = ne istediğin belli değil. Slack async = ilk mesajda tam context.",
+        },
+        {
+          q: "'No worries' Slack'te kullanımı?",
+          options: ["Saldırgan", "Yumuşatıcı default cevap", "Resmi", "Soru"],
+          correct: 1,
+          tr_explanation: "'No worries' = stres yapma. Slack'te 'sorry for delay' cevabı standardı.",
+        },
+        {
+          q: "'DM me' ne demek?",
+          options: ["Beni izle", "Direkt mesaj at", "Beni indir", "Mention et"],
+          correct: 1,
+          tr_explanation: "'DM' = direct message. Public kanal yerine özel mesaj.",
+        },
+        {
+          q: "'Whenever works' tonunda ne?",
+          options: ["Önemsiz", "Esnek + saygılı", "Resmi", "Belirsiz emir"],
+          correct: 1,
+          tr_explanation: "'Whenever works' = aciliyet baskısı yok. Karşı tarafı rahatlatır.",
+        },
+        {
+          q: "Slack'te 'Dear Team' kullanımı?",
+          options: ["Standart", "Email tonu — Slack için uygunsuz", "En iyi", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Slack casual. 'Dear Team' email tonu — yabancılaştırıcı.",
+        },
+      ],
     },
   ],
 };
@@ -1533,6 +2191,100 @@ export const workSlackLesson_9_8: BundledLesson = {
       ipa: "/ə θʌmz ʌp wɜrks fɔr mi/",
       tr_articulation_hint:
         "'Thumbs up' = thamz-ap, th uzerinde dil dislere. 'Works for me' birlesik (works-fır-mi). Onay tonu, soru tonu degil.",
+    },
+    {
+      id: "ex.ws9.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Quick question — when you have a sec, could you ___?",
+      slots: [
+        { accepted: ['take a look at the PR', 'send over the deck', 'share the link', 'confirm the deadline'], distractors: ['take a look on PR', 'send over deck', 'share link', 'confirm deadline'] },
+      ],
+      tr_hint:
+        "Slack async kalıbı. 'When you have a sec' = aciliyet baskısı yok. Türk hatası: 'Hi.' deyip beklemek — direkt soru sor.",
+      example_filled: "Quick question — when you have a sec, could you take a look at the PR?",
+    },
+    {
+      id: "ex.ws9.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, sorry for the slow reply — just got out of a meeting." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, I'll DM you the details in a few." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no (worries|stress)|all good|totally fine)",
+        "(whenever (works|you'?re free)|no rush)",
+        "(thanks|appreciate (it|the update))",
+        "(let me know|just ping me) (when|if)",
+      ],
+      tr_hint:
+        "Karşı taraf geç döndü — yumuşat. Türk hatası: 'I'm waiting' = pasif-agresif. 'No worries' standart Slack.",
+      ideal_answer: "No worries — whenever works. Thanks!",
+    },
+    {
+      id: "ex.ws9.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Did you see my message from earlier?",
+      accepted_patterns: [
+        "(yeah|yes|just (now|saw))",
+        "(sorry|apologies)( for the delay)?",
+        "(i'?ll|let me) (get back to you|reply) (shortly|after this)",
+        "(reading it now|on it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Birisi takip ediyor — kabul + ETA ver. 'I forgot' verme — 'just saw, on it' daha iyi.",
+      ideal_response: "Just saw it — sorry for the delay, I'll reply shortly.",
+    },
+    {
+      id: "ex.ws9.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sen 'merhaba' yazdın ama soruyu sormadın.",
+      wrong_en: "Hi.",
+      right_en: "Hey — quick question about the deploy script. Got 10 minutes today?",
+      why_tr:
+        "Sadece 'Hi' yazıp beklemek = anti-pattern. Karşı taraf 'Hi' deyip durmak = ne istediği belli değil, bekleme yaratır. Slack async culture: ilk mesajda tam context. Türk öğrenci kibarlık adına 'Hi' deyip durmaya alışkındır — Slack'te bu uygunsuz.",
+    },
+    {
+      id: "ex.ws9.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Slack'te sadece 'Hi' yazıp beklemek?",
+          options: ["İyi", "Anti-pattern — direkt soruyu sor", "Standart", "Kibar"],
+          correct: 1,
+          tr_explanation: "'Hi' tek başına = ne istediğin belli değil. Slack async = ilk mesajda tam context.",
+        },
+        {
+          q: "'No worries' Slack'te kullanımı?",
+          options: ["Saldırgan", "Yumuşatıcı default cevap", "Resmi", "Soru"],
+          correct: 1,
+          tr_explanation: "'No worries' = stres yapma. Slack'te 'sorry for delay' cevabı standardı.",
+        },
+        {
+          q: "'DM me' ne demek?",
+          options: ["Beni izle", "Direkt mesaj at", "Beni indir", "Mention et"],
+          correct: 1,
+          tr_explanation: "'DM' = direct message. Public kanal yerine özel mesaj.",
+        },
+        {
+          q: "'Whenever works' tonunda ne?",
+          options: ["Önemsiz", "Esnek + saygılı", "Resmi", "Belirsiz emir"],
+          correct: 1,
+          tr_explanation: "'Whenever works' = aciliyet baskısı yok. Karşı tarafı rahatlatır.",
+        },
+        {
+          q: "Slack'te 'Dear Team' kullanımı?",
+          options: ["Standart", "Email tonu — Slack için uygunsuz", "En iyi", "Zorunlu"],
+          correct: 1,
+          tr_explanation: "Slack casual. 'Dear Team' email tonu — yabancılaştırıcı.",
+        },
+      ],
     },
   ],
 };

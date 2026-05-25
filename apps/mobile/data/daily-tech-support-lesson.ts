@@ -219,6 +219,127 @@ export const dailyTechSupportLesson_36_1: BundledLesson = {
       tr_explanation:
         "Tek kelime + emir. Doğru: ne (Wi-Fi) + ne kadar (two hours) + gözlem (red light) + kanit (no error code).",
     },
+    {
+      id: "ex.dts36.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "My ___ ___ for ___ — could you help?",
+      slots: [
+        { accepted: ["Wi-Fi", "internet", "modem", "connection"], distractors: ["computer thing", "data", "thing"] },
+        { accepted: ["has been down", "isn't working", "keeps disconnecting"], distractors: ["broken", "is broken", "no work"] },
+        { accepted: ["two hours", "the whole day", "since this morning"], distractors: ["now", "always", "much time"] },
+      ],
+      tr_hint:
+        "Tech support kalıbı: ne + ne kadar + yardım iste. Türk öğrenci 'broken!' der — net + spesifik olmalı. 'Has been down for X' = X süredir kapalı.",
+      example_filled: "My Wi-Fi has been down for two hours — could you help?",
+    },
+    {
+      id: "ex.dts36.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Thank you for calling tech support — how can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sorry to hear that. Could you describe what you see on the modem?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)(,)? (my (wi-?fi|internet|connection)) (has been down|isn'?t working)",
+        "(i'?m calling because) (my (wi-?fi|internet))",
+        "(i'?ve been (having|getting)) (problems|issues) with",
+        "(could you (help|walk me through))",
+      ],
+      tr_hint:
+        "Net problem söyle: 'Hi, my Wi-Fi has been down for two hours.' Türk öğrenci uzun açıklar — kısa + spesifik daha güçlü.",
+      ideal_answer: "Hi, my Wi-Fi has been down for two hours — could you help me figure it out?",
+    },
+    {
+      id: "ex.dts36.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Could you try unplugging the modem for thirty seconds and plugging it back in?",
+      accepted_patterns: [
+        "(sure|of course|okay|alright)(,)? (let me (try|do that))",
+        "(just (unplug|wait|now))",
+        "(it'?s back|i'?m back)(,)? (still (the same|no signal)|now it works)",
+        "(could you (stay on|wait)|hold on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tech rep adım veriyor — onayla + dene + raporla. 'Sure, let me try' veya 'Just did it — still no signal.' Türk öğrenci sessiz uygular — konuş.",
+      ideal_response: "Sure, let me try — hold on.",
+    },
+    {
+      id: "ex.dts36.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sinyal yok.",
+      wrong_en: "No signal exist.",
+      right_en: "There's no signal / I'm not getting a signal.",
+      why_tr:
+        "İki sorun: (1) 'No signal exist' grammatik yanlış — 'there is no signal' lazım. (2) Daha doğal: 'I'm not getting a signal' (= sinyal alamıyorum, problem benim cihazda).",
+    },
+    {
+      id: "ex.dts36.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Tech support açılış?",
+          options: [
+            "Broken now!",
+            "Hi, my Wi-Fi has been down for two hours — could you help?",
+            "Fix it.",
+            "Help me!",
+          ],
+          correct: 1,
+          tr_explanation: "Net problem + süre + nazik talep. Tech rep'in işini kolaylaştırır.",
+        },
+        {
+          q: "'Has been down for X hours' nasıl?",
+          options: [
+            "X saatte aşağıda.",
+            "X saattir bozuk/kapalı.",
+            "X saatten beri inecek.",
+            "X saat sonra.",
+          ],
+          correct: 1,
+          tr_explanation: "Present perfect: 'has been down' = hala devam ediyor. 'For X hours' = süre.",
+        },
+        {
+          q: "'Could you walk me through it?' ne demek?",
+          options: [
+            "Birlikte yürür müsün?",
+            "Adım adım anlatır mısın?",
+            "Yola çıkar mısın?",
+            "Beni yönlendir.",
+          ],
+          correct: 1,
+          tr_explanation: "'Walk me through' = adım adım gösterip anlatmak. Tech support kalıbı.",
+        },
+        {
+          q: "'Error code' ne anlama gelir?",
+          options: [
+            "Hata mesajı kodu (örn. E-404).",
+            "Şifre.",
+            "Yazılım sürümü.",
+            "Hesap numarası.",
+          ],
+          correct: 0,
+          tr_explanation: "Error code = sistem üreten benzersiz hata kodu. Tech rep aradığı bilgi.",
+        },
+        {
+          q: "'I'm not getting a signal' vs 'No signal'?",
+          options: [
+            "İkisi aynı.",
+            "İlki tam cümle + doğal; ikincisi eksik kelime.",
+            "İkisi yanlış.",
+            "İkincisi doğru.",
+          ],
+          correct: 1,
+          tr_explanation: "Tam cümle = profesyonel. 'I'm not getting' = aktif rapor.",
+        },
+      ],
+    },
   ],
 };
 

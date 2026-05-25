@@ -274,6 +274,147 @@ export const complaintLesson_5_1: BundledLesson = {
       tr_explanation:
         "'Too much cooked' yapısal hata — doğrusu 'overcooked' veya 'well done'. 'Cook again less' kırık komut — 'Could I get another?' kibar + spesifik.",
     },
+    {
+      id: "ex.5.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I asked for ___, but ___ came out ___.",
+      slots: [
+        {
+          accepted: ["medium-rare", "medium", "well-done", "rare"],
+          distractors: ["medium-cooked", "half-cooked", "soft cooked"],
+        },
+        {
+          accepted: ["this", "it", "the steak", "the burger"],
+          distractors: ["meat thing", "food this", "order"],
+        },
+        {
+          accepted: ["well-done", "overcooked", "raw", "burnt"],
+          distractors: ["too cooked", "much fire", "very hot"],
+        },
+      ],
+      tr_hint:
+        "Şikayet kalıbı: 'I asked for [istek], but [öğe] came out [sonuç].' Suçlamadan + spesifik. Türk öğrenci 'meat bad' der — bu yapı kibar + net.",
+      example_filled: "I asked for medium-rare, but this came out well-done.",
+    },
+    {
+      id: "ex.5.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "How's everything tasting?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Oh, I'm so sorry — let me get the kitchen to fix that right away.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(actually|sorry|excuse me)(,)? (i think|i believe) (this is|it'?s) (overcooked|undercooked|cold)",
+        "(i asked for|i ordered) (medium[- ]rare|rare|medium)(,)? but (this|it) came out (well[- ]done|overcooked)",
+        "(could|can) you (send it back|check|remake)( the steak| this)?",
+        "(this is|it'?s) (a bit |too )?(cold|salty|spicy|raw)",
+      ],
+      tr_hint:
+        "Garson 'tadını nasıl buldunuz?' diye soruyor. Yumuşak şikayet: 'Actually, I asked for medium-rare, but this is well-done.' Suçlamadan + spesifik.",
+      ideal_answer: "Actually, I asked for medium-rare, but this came out well-done.",
+    },
+    {
+      id: "ex.5.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Is everything to your liking?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (it'?s|everything is) (great|good|delicious)",
+        "(actually|honestly)(,)? (the|my) (.+) is (a bit |too )?(cold|salty|overcooked)",
+        "(could|can) you (warm it up|reheat it|remake it)",
+        "(this is|it'?s) not quite (what i ordered|right)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson check-in yapıyor. 3 sn — tadını değerlendir. İyi: 'Yes, great, thanks!' Problem var: 'Actually, mine is a bit cold.' Türk öğrenci sessizleşir — sorun varsa söyle.",
+      ideal_response: "Actually, mine is a bit cold — could you warm it up?",
+    },
+    {
+      id: "ex.5.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu et çok pişmiş.",
+      wrong_en: "This meat too much cooked.",
+      right_en: "This came out a bit overcooked.",
+      why_tr:
+        "Türk 'çok pişmiş' = 'too much cooked' diye direkt çevirir — yapı bozuk. Doğru: 'overcooked' (sıfat) veya 'well-done' (pişirme derecesi). 'A bit' yumuşatma — Türk öğrenci 'very' kullanır, daha agresif.",
+    },
+    {
+      id: "ex.5.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Medium-rare' nasıl pişmiş bir biftek?",
+          options: [
+            "Tam pişmiş",
+            "Az pişmiş (ortası kırmızı, dış kabarmış)",
+            "Çiğ",
+            "Yanmış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Medium-rare' = ortası kırmızı/pembe (130-135°F). Rare (kanlı), medium-rare (pembe), medium (hafif pembe), medium-well (az pembe), well-done (tam pişmiş).",
+        },
+        {
+          q: "'I asked for X but this came out Y' yapısının amacı?",
+          options: [
+            "Suçlama",
+            "Kibar + spesifik şikayet",
+            "Soru",
+            "Onay",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I asked for [istek], but this came out [sonuç]' = beklenti vs gerçek, suçlama değil. Garson durumu hemen anlar.",
+        },
+        {
+          q: "'Overcooked' ne demek?",
+          options: [
+            "Az pişmiş",
+            "Fazla pişmiş / sert pişmiş",
+            "Çiğ",
+            "Buharda",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Overcooked' = aşırı pişmiş (kuru, sert). 'Undercooked' = az pişmiş. 'Done to perfection' = mükemmel pişmiş.",
+        },
+        {
+          q: "Bifteğin tadı tuzlu. EN doğal şikayet?",
+          options: [
+            "Salt too much",
+            "This is a bit salty for me.",
+            "Salt much",
+            "No salt",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'A bit salty for me' = yumuşatıcı + öznel. Garson kibarca alternatif sunar. Türk öğrenci 'too salty' der — daha sert.",
+        },
+        {
+          q: "ABD restoranında şikayet kültürü?",
+          options: [
+            "Şikayet etmek ayıp, sessiz kal",
+            "Kibarca dile getirmek standart, garson düzeltir",
+            "Garsonu çağırmadan kalkıp ödemeden çık",
+            "Bahşişten düşür",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD'de kibarca şikayet etmek tamamen normal. Garson düzeltmek için yetkilidir (yeni tabak, indirim, vb.). Türkiye'deki 'sessiz kalma' refleksinden farklı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -489,6 +630,143 @@ export const complaintLesson_5_2: BundledLesson = {
         "Sorry, I don't think this is mine — I ordered the pasta.",
       tr_explanation:
         "'Take back!' komut + agresif. 'Plate' yerine 'dish' veya yemek adı. 'I don't think this is mine' yumuşatıcı + spesifik.",
+    },
+    {
+      id: "ex.5.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Sorry, this isn't ___ — I ordered ___.",
+      slots: [
+        {
+          accepted: ["mine", "what I ordered", "right"],
+          distractors: ["me", "good", "fast"],
+        },
+        {
+          accepted: ["the pasta", "the burger", "the chicken", "the salad"],
+          distractors: ["food different", "menu item", "yellow plate"],
+        },
+      ],
+      tr_hint:
+        "Yanlış sipariş düzeltme: 'Sorry, this isn't [problem] — I ordered [doğrusu].' 'Mine' = benimki (iyelik zamiri). Türk öğrenci 'this not me' der — yapı bozuk.",
+      example_filled: "Sorry, this isn't mine — I ordered the pasta.",
+    },
+    {
+      id: "ex.5.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Here's your chicken parmesan!",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Oh no, my apologies! Let me grab the right dish — it'll be just a minute.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sorry|excuse me)(,)? (this )?(isn'?t|is not) (mine|what i ordered)",
+        "(actually )?i (ordered|got) the (pasta|salad|burger|fish)",
+        "(this )?(might be|is) (for )?(someone else'?s|another table'?s)",
+        "(could you|can you) double[- ]check (the )?order\\?",
+      ],
+      tr_hint:
+        "Garson yanlış yemek getirdi. Yumuşak düzeltme: 'Sorry, this isn't mine — I ordered the pasta.' Türk öğrenci kaba 'wrong!' der — kibar + spesifik ol.",
+      ideal_answer: "Sorry, this isn't mine — I ordered the pasta.",
+    },
+    {
+      id: "ex.5.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "One burger and one chicken sandwich for the table!",
+      accepted_patterns: [
+        "(actually )?i (ordered|got) (the |a )?(pasta|fish|steak|salad)",
+        "(sorry|excuse me)(,)? (this )?(isn'?t|is not) (mine|ours)",
+        "(could you|can you) (check|verify) (the )?(order|table)\\?",
+        "i (don'?t think|believe) (this is|that'?s) (ours|mine)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yanlış masa/sipariş gibi. 3 sn — emin misin? 'Sorry, I ordered the pasta — could you check?' Türk öğrenci suçlar — sakin sorgula.",
+      ideal_response: "Sorry — I ordered the pasta. Could you check?",
+    },
+    {
+      id: "ex.5.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bunu geri götür!",
+      wrong_en: "Take this back!",
+      right_en: "Could you take this back, please?",
+      why_tr:
+        "Türk 'geri götür!' = 'take this back!' direkt çevirir — emir tonu, kaba. Doğru: 'Could you take this back, please?' = kibar talep. 'Could you' + 'please' yumuşatıcı.",
+    },
+    {
+      id: "ex.5.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'This isn't mine' ne anlatır?",
+          options: [
+            "Bu sen değilsin",
+            "Bu benim değil",
+            "Bu hatalı",
+            "Bu eski",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Mine' = benimki (iyelik zamiri). 'This isn't mine' = bu yemek bana ait değil.",
+        },
+        {
+          q: "Yanlış sipariş geldi. EN kibar başlangıç?",
+          options: [
+            "Wrong!",
+            "Sorry, I think this isn't mine.",
+            "Why this?",
+            "Take back",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sorry, I think this isn't mine.' = yumuşak + dolaylı. Garson hata yapmış olabilir ama suçlama değil.",
+        },
+        {
+          q: "'I ordered X' yapısı nedir?",
+          options: [
+            "Şimdiki zaman",
+            "Geçmiş zaman (sipariş verdim)",
+            "Gelecek zaman",
+            "Şart kipi",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I ordered' = past simple. Sipariş daha önce verildi, gelen yanlış. Tense önemli — şikayet kapsamında.",
+        },
+        {
+          q: "Garson 'my apologies' dedi. EN nazik karşılık?",
+          options: [
+            "OK bad",
+            "No worries — it happens.",
+            "You pay",
+            "Money back",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'No worries — it happens.' = sıcak kabul. ABD'de bu sosyal yumuşatma standart. İlişki dengeli kalır.",
+        },
+        {
+          q: "Yanlış sipariş sonrası ne beklenir?",
+          options: [
+            "Para iadesi her zaman",
+            "Doğrusu hemen getirilir, bazen ek özür/küçük indirim",
+            "Manager mutlaka çıkar",
+            "Polis çağrılır",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD'de yanlış sipariş = doğrusu hemen getirilir + sıcak özür. Ciddi hata varsa indirim/bedava içecek. 'Comp' = indirimle değiştirme.",
+        },
+      ],
     },
   ],
 };
@@ -719,6 +997,143 @@ export const complaintLesson_5_3: BundledLesson = {
       tr_explanation:
         "'Come here!' komut. 'Angry customer' kendini etiketleme — geri tepme yaratır. Doğrusu sakin + kibar: 'Could I speak to...?' + 'address something'.",
     },
+    {
+      id: "ex.5.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I ___ to the ___, please?",
+      slots: [
+        {
+          accepted: ["speak", "talk"],
+          distractors: ["yell", "shout", "tell"],
+        },
+        {
+          accepted: ["manager", "supervisor", "owner"],
+          distractors: ["big person", "high boss", "kitchen"],
+        },
+      ],
+      tr_hint:
+        "Yönetici talebi: 'Could I speak to the manager, please?' Sakin + kibar — agresif olma. Türk öğrenci 'I want manager!' der — yapı kaba.",
+      example_filled: "Could I speak to the manager, please?",
+    },
+    {
+      id: "ex.5.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "I'm sorry, that's the best I can do.",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Of course — I'll get the manager for you right away.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (please )?(speak|talk) to the (manager|supervisor)",
+        "(i'?d like|i would like) to (speak|talk) to (a |the )?manager",
+        "(is there) (a |the )?manager (available|here|on duty)\\??",
+        "(could|can) (you|i) (get|have) the manager",
+      ],
+      tr_hint:
+        "Garson yetersiz cevap verdi. Sakin yükselt: 'Could I speak to the manager, please?' Türk öğrenci öfkelenir — sakin + kibar talep.",
+      ideal_answer: "Could I speak to the manager, please?",
+    },
+    {
+      id: "ex.5.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hi, I'm the manager — how can I help?",
+      accepted_patterns: [
+        "(hi|hello)(,)? (thanks for|appreciate you) coming over",
+        "(i'?d like to|i wanted to) (address|discuss|talk about) (.+)",
+        "(there'?s been|we'?ve had) (an issue|a problem) with (.+)",
+        "(could you )?(help us|sort this out)\\?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Manager geldi. 3 sn — durumu sakin açıkla. 'Hi — thanks for coming. We've had an issue with our order.' Türk öğrenci agresif başlar — soğukkanlı kal.",
+      ideal_response: "Hi — thanks for coming over. We've had an issue with our order.",
+    },
+    {
+      id: "ex.5.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Müdür çağırın!",
+      wrong_en: "Call manager!",
+      right_en: "Could I speak to the manager, please?",
+      why_tr:
+        "Türk 'müdür çağırın' = 'call manager!' direkt çevirir — komut + kaba. Doğru: 'Could I speak to the manager, please?' = sakin + kibar. ABD'de ton önemli — agresif başlarsan iletişim sertleşir.",
+    },
+    {
+      id: "ex.5.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could I speak to the manager?' tonu?",
+          options: [
+            "Tehdit",
+            "Sakin + kibar talep",
+            "Komut",
+            "Sorgu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could I speak to the manager?' = sakin + kibar talep. 'Could I' yumuşatma. Garson ciddiye alır.",
+        },
+        {
+          q: "'I'd like to address something' ne anlatır?",
+          options: [
+            "Adres vermek",
+            "Bir konuyu dile getirmek istiyorum",
+            "Adresi sormak",
+            "Yön sormak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Address [something]' = bir konuyu dile getirmek/ele almak. Şikayet bağlamında resmi + saygılı.",
+        },
+        {
+          q: "Manager geldiğinde EN doğru başlangıç?",
+          options: [
+            "You bad restaurant!",
+            "Hi — thanks for coming. There's been an issue with our order.",
+            "Money back now!",
+            "Why slow?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Sıcak + objektif: 'thanks for coming' + 'there's been an issue.' Suçlama değil, problem tanımlama. ABD ton ön planda.",
+        },
+        {
+          q: "ABD'de şikayetin sonucu genelde?",
+          options: [
+            "Kovulmak",
+            "İndirim, bedava içecek, doğru sipariş (manager yetkili)",
+            "Polis çağrısı",
+            "Restoran kapatılır",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Manager yetkili: yemek üzerinden indirim ('comp'), bedava içecek, yeni tabak. Türkiye'deki 'haksız' refleksinden farklı — proaktif çözüm.",
+        },
+        {
+          q: "Şikayet sırasında EN önemli kural?",
+          options: [
+            "Bağırarak gücünü göster",
+            "Sakin + spesifik + çözüm odaklı kal",
+            "Tehdit et",
+            "Sosyal medyada paylaş",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Sakin + spesifik (ne, ne zaman, neden) + ne istediğini söyle. ABD'de agresif olursan 'difficult customer' damgası — çözüm zorlaşır.",
+        },
+      ],
+    },
   ],
 };
 
@@ -896,6 +1311,147 @@ export const complaintLesson_5_5: BundledLesson = {
       ipa: "ðɪs keɪm aʊt koʊld kʊd wi ɡɛt ɪt riˈhiːtɪd",
       tr_hint:
         "'Came out' bağlanır: 'keym-aut'. 'Reheated' vurgu ikinci hece: 'ri-HEE-tid'. Sakin, üzgün-ama-net ton.",
+    },
+    {
+      id: "ex.5.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Sorry, ___ is ___ — could you ___?",
+      slots: [
+        {
+          accepted: ["this", "the soup", "the steak", "my burger"],
+          distractors: ["here", "food", "plate"],
+        },
+        {
+          accepted: ["cold", "lukewarm", "not hot enough"],
+          distractors: ["no hot", "very cool", "not warm too"],
+        },
+        {
+          accepted: ["warm it up", "reheat it", "send it back"],
+          distractors: ["fire again", "make hot", "burn it"],
+        },
+      ],
+      tr_hint:
+        "Sıcaklık şikayeti: 'Sorry, [öğe] is [durum] — could you [çözüm]?' Yumuşatma + çözüm önerisi. 'Lukewarm' = ılık (ne sıcak ne soğuk).",
+      example_filled: "Sorry, the soup is lukewarm — could you warm it up?",
+    },
+    {
+      id: "ex.5.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "How are we doing here?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Oh no — let me take that back to the kitchen real quick.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(actually|sorry)(,)? (my|the) (.+) (is |came out )?(cold|lukewarm)",
+        "(could|can) you (warm it up|reheat it|heat it up)( please)?",
+        "(it'?s |this is )?(not |a bit )?(hot|warm) enough",
+        "(could|can) you (send it back|microwave it|reheat)\\?",
+      ],
+      tr_hint:
+        "Garson check-in yapıyor. Yemek soğuk. Yumuşak şikayet: 'Actually, mine came out a bit cold — could you reheat it?' Spesifik + çözüm önerisi.",
+      ideal_answer: "Actually, mine came out a bit cold — could you warm it up?",
+    },
+    {
+      id: "ex.5.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Everything to your satisfaction?",
+      accepted_patterns: [
+        "(actually|honestly)(,)? (the |my )(.+) (is|came out) (cold|lukewarm)",
+        "(could|can) (you|we) (warm it up|reheat it|microwave it)",
+        "(yes|yeah)(,)? (it'?s|everything is) (great|good|fine)",
+        "(this is|it'?s) (not hot|cool) (enough )?(for me|i think)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson tatmin sorusu. 3 sn — gerçek değerlendirme. Soğuksa: 'Actually, it's a bit cold' (yumuşak) + çözüm önerisi. Türk öğrenci sessiz kalır — söyle.",
+      ideal_response: "Actually, mine is a bit cold — could you warm it up?",
+    },
+    {
+      id: "ex.5.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Yemek soğuk!",
+      wrong_en: "Food cold!",
+      right_en: "Sorry, this came out a bit cold.",
+      why_tr:
+        "Türk 'yemek soğuk!' = 'food cold!' diye direkt çevirir — fiilsiz + sert. Doğru: 'this came out cold' (geçmiş + yumuşak) + 'sorry' ekle. 'Sorry' suçluyu sen değil yapar — sosyal lubricant.",
+    },
+    {
+      id: "ex.5.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Lukewarm' ne demek?",
+          options: [
+            "Çok sıcak",
+            "Ilık (ne sıcak ne soğuk)",
+            "Buz gibi",
+            "Yanmış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Lukewarm' = ılık. Türk öğrenci 'cold' der ama tam soğuk değilse 'lukewarm' daha doğru. Çorba/kahve şikayetinde sık.",
+        },
+        {
+          q: "'Could you reheat it?' = ?",
+          options: [
+            "Yeniden ısıtır mısınız?",
+            "Soğutur musunuz?",
+            "Pişirir misiniz?",
+            "Servis eder misiniz?",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Reheat' = yeniden ısıt (mikrodalga veya kısa fırın). Yemek soğuksa standart talep.",
+        },
+        {
+          q: "'Came out cold' yapısı ne anlatır?",
+          options: [
+            "Soğuk çıktı (sunulduğunda soğuktu)",
+            "Soğuğa çıktı",
+            "Soğuk soğuk yedi",
+            "Soğukta kaldı",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Came out' = (mutfaktan) çıktı / sunuldu. 'Came out cold' = sunulduğunda soğuktu (garson hatası değil ama mutfak issue'su).",
+        },
+        {
+          q: "Yumuşak şikayet için EN doğal başlangıç?",
+          options: [
+            "I am angry",
+            "Actually, sorry, but mine came out cold",
+            "Bad food",
+            "Why cold?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually, sorry, but [problem]' = yumuşatma 3 katı. 'Actually' (önemli not), 'sorry' (özür yumuşatma), 'but' (kontrast). ABD'de standart yumuşak başlangıç.",
+        },
+        {
+          q: "Soğuk yemek için EN pratik çözüm önerisi?",
+          options: [
+            "Para iadesi",
+            "Could you warm it up / reheat it?",
+            "Bedava içecek",
+            "Yeni tabak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Warm it up' veya 'reheat it' = hızlı çözüm. Yeni tabak istemek aşırı (uzun bekleme). Garson genelde mikrodalga ile 30 sn ısıtır.",
+        },
+      ],
     },
   ],
 };
@@ -1075,6 +1631,147 @@ export const complaintLesson_5_6: BundledLesson = {
       ipa: "aɪ θɪŋk ðɛrz ˈsʌmθɪŋ ɔf wɪð ðə bɪl",
       tr_hint:
         "'Something off' bağlanır: 'SAM-thing-ɔf'. 'There's' kısaltma. Tonun sakin ve sorgulayıcı olsun, suçlayıcı değil.",
+    },
+    {
+      id: "ex.5.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I think there's ___ with ___ — ___?",
+      slots: [
+        {
+          accepted: ["a mistake", "something off", "an error"],
+          distractors: ["a problem big", "bad thing", "issue"],
+        },
+        {
+          accepted: ["the bill", "the check", "the total"],
+          distractors: ["money paper", "this", "cash"],
+        },
+        {
+          accepted: ["could you double-check", "could you verify", "could you take a look"],
+          distractors: ["fix now", "look quickly", "again look"],
+        },
+      ],
+      tr_hint:
+        "Hesap sorgulama kalıbı: 'I think there's [problem] with [öğe] — [çözüm talep]?' Yumuşak + spesifik + çözüm odaklı. Suçlamadan kibar sorgulama.",
+      example_filled: "I think there's a mistake with the bill — could you double-check?",
+    },
+    {
+      id: "ex.5.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Here's your check. All set?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Let me check that for you — yes, you're right, my apologies.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(actually|sorry)(,)? (i think|i believe) (there'?s|something'?s) (a mistake|wrong|off)",
+        "(could|can) you (double[- ]check|verify) (the|this) (bill|check|total)\\?",
+        "(we|i) didn'?t (order|get|have) (this|the .+)",
+        "(this )?(charge|item) (looks|seems) (wrong|off)",
+      ],
+      tr_hint:
+        "Hesap geldi, bir hata var. Yumuşak sorgulama: 'Actually, I think there's a mistake — could you double-check?' Türk öğrenci suçlar — sakin + spesifik ol.",
+      ideal_answer: "Actually, I think there's a mistake — could you double-check?",
+    },
+    {
+      id: "ex.5.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "All right, here's the check whenever you're ready.",
+      accepted_patterns: [
+        "(thanks|thank you)(,)? (i'?ll )?(have a look|take a look)",
+        "(actually )?(could|can) you (explain|verify) (this|the) (charge|item)",
+        "(i think|i believe) (there'?s|something'?s) (wrong|off|a mistake)",
+        "(we|i) (didn'?t order|never had) (the |this )(.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson hesabı bıraktı. 3 sn — bakmadan teşekkür et veya inceledikten sonra sorgula. 'Thanks — actually, could you explain this charge?'",
+      ideal_response: "Thanks — actually, could you explain this charge?",
+    },
+    {
+      id: "ex.5.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Hesap yanlış!",
+      wrong_en: "Bill wrong!",
+      right_en: "I think there's something off with the bill.",
+      why_tr:
+        "Türk 'hesap yanlış!' = 'bill wrong!' diye direkt çevirir — fiilsiz + suçlayıcı. Doğru: 'I think there's something off' = sakin + yumuşatma + dolaylı. Garson hata yapmış olabilir, suçlama yerine sorgula.",
+    },
+    {
+      id: "ex.5.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Something off' deyimi ne anlatır?",
+          options: [
+            "Bir şey kapalı",
+            "Bir şey ters / olağandışı",
+            "Bir şey gitti",
+            "Bir şey eksik",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Something off' = bir şey ters/yanlış (deyim). 'Off' burada 'normal olmayan' anlamında. 'Something's off with the bill' = hesapta bir yanlışlık var.",
+        },
+        {
+          q: "'Could you double-check?' tonu?",
+          options: [
+            "Suçlama",
+            "Yumuşatıcı + nazik kontrol talebi",
+            "Emir",
+            "Şüphe",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could you double-check?' = nazik kontrol talebi. 'Double-check' = bir daha bakmak. Garson hata yapmış olabilir, kibarca isteme.",
+        },
+        {
+          q: "'We didn't order this' ne anlatır?",
+          options: [
+            "Biz almadık (geçmiş)",
+            "Biz almıyoruz (şimdi)",
+            "Biz alamayız (yapamayız)",
+            "Bunu almak istemiyoruz",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'We didn't order' = geçmiş zaman negatif (sipariş vermedik). Past simple. Hesapta yer alan ama gerçek olmayan kalem için kullanılır.",
+        },
+        {
+          q: "Hesap sorgulama için EN doğal başlangıç?",
+          options: [
+            "Bill wrong!",
+            "I think there's a mistake — could you check?",
+            "Pay this no",
+            "Money bad",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I think there's a mistake — could you check?' = yumuşak + spesifik + çözüm önerisi. Garson hemen anlar, kontrol eder.",
+        },
+        {
+          q: "Hesapta hata bulundu. EN doğru sonraki adım?",
+          options: [
+            "Manager şikayet",
+            "Garson kibarca düzeltir, gerekirse manager",
+            "Ödemeden çık",
+            "Polis çağır",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Hatayı görmek + kibarca düzeltme isteği = yeterli. Garson manager onayıyla yeni hesap getirir. Türk öğrenci panikler — ABD'de standart prosedür.",
+        },
+      ],
     },
   ],
 };
@@ -1265,6 +1962,147 @@ export const complaintLesson_5_7: BundledLesson = {
       ipa: "ɪts bɪn əˈbaʊt ˈθɜːrti ˈmɪnɪts ˈɛni ˈʌpdeɪt ɒn aʊr ˈɔːrdər",
       tr_hint:
         "'It's been' kısaltma + bağlanma: 'its-bin'. 'About' yumuşatıcı, biraz uzat. 'Any update?' soru tonu yükselsin ama nazikçe.",
+    },
+    {
+      id: "ex.5.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "It's been ___ — could you ___ on ___?",
+      slots: [
+        {
+          accepted: ["about 30 minutes", "almost an hour", "a while"],
+          distractors: ["very long", "very minute", "fast"],
+        },
+        {
+          accepted: ["check", "give us an update", "see what's happening"],
+          distractors: ["look fast", "hurry", "ask"],
+        },
+        {
+          accepted: ["our order", "the food", "our table"],
+          distractors: ["the menu", "the price", "the seat"],
+        },
+      ],
+      tr_hint:
+        "Sabırlı bekleme kalıbı: 'It's been [süre] — could you [çözüm] on [öğe]?' Zaman + kibar kontrol talebi. Türk öğrenci 'where food?' der — yapı kaba.",
+      example_filled: "It's been about 30 minutes — could you check on our order?",
+    },
+    {
+      id: "ex.5.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Sorry for the wait! Can I get you anything else while you're waiting?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Let me check on that for you right now — sorry again.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(actually )?(could|can) you (check on|see what'?s happening with) (our|the) (order|food)",
+        "(it'?s been|we'?ve been waiting) (a while|about \\d+ minutes|almost an hour)",
+        "(any )?(update|word) on (our|the) (order|food)\\?",
+        "(do you know|any idea) (when|how much longer)",
+      ],
+      tr_hint:
+        "Garson özür diledi ama yemek hâlâ yok. Sakin kontrol: 'Actually, could you check on our order? It's been about 30 minutes.' Türk öğrenci agresif olur — sakin + spesifik.",
+      ideal_answer: "Actually — could you check on our order? It's been about 30 minutes.",
+    },
+    {
+      id: "ex.5.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Sorry — kitchen's a bit slammed tonight. Your food's almost ready!",
+      accepted_patterns: [
+        "(thanks|thank you)(,)? (we'?ll )?(wait|hang on)",
+        "(no )?worries(,)? (take your time|no rush)",
+        "(could you|can you) (let us know|update us) (when|in a few)",
+        "(how much longer|do you have an eta)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson 'mutfak yoğun' diye özür diledi. 3 sn — sabırlı kabul mü, ETA istemek mi? 'No worries, take your time' veya 'How much longer?'",
+      ideal_response: "No worries — how much longer, roughly?",
+    },
+    {
+      id: "ex.5.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Yemek nerede?",
+      wrong_en: "Where is food?",
+      right_en: "Could you check on our order?",
+      why_tr:
+        "Türk 'yemek nerede?' = 'where is food?' diye direkt çevirir — kaba + sert. Doğru: 'Could you check on our order?' = kibar + iletişimsel. Garson durumu kontrol eder, ETA verir.",
+    },
+    {
+      id: "ex.5.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Check on our order' ne anlatır?",
+          options: [
+            "Siparişi denetle",
+            "Siparişin durumunu kontrol et",
+            "Sipariş gözetle",
+            "Sipariş aç",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Check on [X]' = X'in durumunu kontrol et. Garson mutfağa gider, ne kadar kaldığını sorar.",
+        },
+        {
+          q: "'It's been about 30 minutes' yapısı?",
+          options: [
+            "30 dakika hakkında",
+            "30 dakika oldu (yaklaşık)",
+            "30 dakika önce",
+            "30 dakika sonra",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'It's been [süre]' = [süre] oldu (zamanın geçtiği bildirimi). 'About' = yaklaşık. Present perfect: durum hâlâ devam ediyor.",
+        },
+        {
+          q: "'Slammed' kelimesi mutfak bağlamında ne demek?",
+          options: [
+            "Yorgun",
+            "Çok yoğun / kapasitenin üstünde",
+            "Kapalı",
+            "Kapı çarptı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Slammed' = çok yoğun (slang). 'Kitchen's slammed' = mutfak nefes alamıyor kadar yoğun. Garson özür dilerken sık kullanır.",
+        },
+        {
+          q: "'ETA' ne demek?",
+          options: [
+            "Hata kodu",
+            "Estimated Time of Arrival (tahmini varış süresi)",
+            "Ekstra Tam Aksesuar",
+            "Erken Tahmin",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'ETA' = Estimated Time of Arrival = tahmini varış. 'Do you have an ETA?' = ne zaman gelir, tahminin var mı? Modern ABD'de yaygın.",
+        },
+        {
+          q: "Yemek geç geliyor. EN doğru tepki?",
+          options: [
+            "Sessiz bekle, sonra yorum yapma",
+            "Sakin + spesifik kontrol talebi (30 dk sonra)",
+            "Bağırarak garsonu çağır",
+            "Kalkıp gitmek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "30 dk sonra kibarca kontrol talebi standart. Sessiz bekleyip bahşişten düşürmek pasif-agresif. ABD'de iletişim açık + sakin.",
+        },
+      ],
     },
   ],
 };
@@ -1460,6 +2298,147 @@ export const complaintLesson_5_8: BundledLesson = {
       ipa: "ˈsɒri tə bi ˈdɪfɪkəlt bʌt kʊd aɪ spiːk tə ə ˈmænɪʤər",
       tr_hint:
         "'Sorry to be difficult' baştan sonra sakin ton. 'Difficult' üç hece: 'DIF-i-kʌlt'. 'Manager' vurgu ilk hece. Eskalasyon ama kibar — yüksek ses değil, kararlı ses.",
+    },
+    {
+      id: "ex.5.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      template: "Sorry to be ___, but ___ — could I ___?",
+      slots: [
+        {
+          accepted: ["difficult", "a bother", "persistent"],
+          distractors: ["bad", "angry", "rude"],
+        },
+        {
+          accepted: ["this isn't working", "the room is unusable", "I need a different solution"],
+          distractors: ["I am very mad", "this is bad", "I hate you"],
+        },
+        {
+          accepted: ["speak to a manager", "get a different room", "request a refund"],
+          distractors: ["talk fast", "demand money", "yell loud"],
+        },
+      ],
+      tr_hint:
+        "Eskalasyon kalıbı: 'Sorry to be [yumuşatma], but [problem] — could I [çözüm]?' ABD eskalasyon = sakin + kibar + spesifik. Türk öğrenci sertleşir — kontrol et.",
+      example_filled: "Sorry to be difficult, but this isn't working — could I speak to a manager?",
+    },
+    {
+      id: "ex.5.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      turns: [
+        {
+          speaker: "npc",
+          text: "I understand the frustration, but this is the only room we have available.",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Of course, let me get the manager on duty for you.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sorry to be (difficult|a bother)|i understand)(,)? but",
+        "(could|can) i (please )?(speak to|talk to) (a|the) manager",
+        "(this )?(situation|problem) (isn'?t|is not) (acceptable|working) (for me|right now)",
+        "(i'?d like to|i would like to) (escalate this|request a refund)",
+      ],
+      tr_hint:
+        "Resepsiyon çözüm sunamıyor. Eskalasyon: 'Sorry to be difficult, but could I speak to a manager?' Sakin + kibar + kararlı. Türk öğrenci sertleşir — sesini yükseltme.",
+      ideal_answer: "I understand, but could I please speak to a manager?",
+    },
+    {
+      id: "ex.5.8.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      npc_line: "Sir, I'm sorry but there's really nothing more I can do.",
+      accepted_patterns: [
+        "(i understand|i hear you|i appreciate that)(,)? but",
+        "(could|can) i (please )?(speak to|talk to) (a|the) (manager|supervisor)",
+        "(this isn'?t working|i need a different solution)( please)?",
+        "(thanks for your help|appreciate it)(,)? (but )?(could)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Görevli çıkmazda. 3 sn — sakin eskalasyon. 'I understand, but I'd like to speak to a manager.' Türk öğrenci 'why no help!' der — soğukkanlı kal.",
+      ideal_response: "I understand — but could I please speak to a manager?",
+    },
+    {
+      id: "ex.5.8.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      tr_thought: "Yeter, müdürünüzü çağırın!",
+      wrong_en: "Enough, call your manager!",
+      right_en: "I'd like to speak to a manager, please.",
+      why_tr:
+        "Türk 'yeter, müdürünüzü çağırın!' = 'enough, call your manager!' direkt çevirir — emir + tehdit tonu. ABD'de bu 'difficult customer' damgası verir, çözüm zorlaşır. Doğru: sakin + kibar + kararlı talep.",
+    },
+    {
+      id: "ex.5.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Sorry to be difficult' deyimi ne anlatır?",
+          options: [
+            "Zor olduğum için özür dilerim (yumuşatıcı)",
+            "Zorluyorum",
+            "Zorum",
+            "Bana güç olun",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Sorry to be difficult' = 'zor olduğum için özür dilerim' (yumuşatıcı eskalasyon). Karşı tarafa nazik bir 'biliyorum baş ağrısıyım ama' ifadesi. ABD'de standart.",
+        },
+        {
+          q: "ABD'de eskalasyonun EN etkili tonu?",
+          options: [
+            "Bağırarak",
+            "Sakin + kararlı + kibar (broken record technique)",
+            "Sessiz protesto",
+            "Tehditle",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Broken record' = aynı sakin tonla net + kararlı tekrar. 'I understand, but I'd like to speak to a manager.' Bağırmak = 'difficult customer' damgası.",
+        },
+        {
+          q: "'I'd like to escalate this' ne anlatır?",
+          options: [
+            "Bunu büyütmek istiyorum (üst yetkiliye)",
+            "Çıkmak istiyorum",
+            "Bunu görmezden gelmek",
+            "Bunu unutmak",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Escalate [issue]' = sorunu üst yetkiliye taşı. 'Escalation' = eskalasyon (manager, head office). Resmi + iş İngilizcesi.",
+        },
+        {
+          q: "Otel oda problemi için EN etkili adım?",
+          options: [
+            "Sosyal medyada paylaş",
+            "Yelp review yaz",
+            "Sakinen manager + opsiyonel: indirim/değişiklik talep et",
+            "Polis çağır",
+          ],
+          correct: 2,
+          tr_explanation:
+            "Manager yetkili (oda değişikliği, indirim, free night). Sakin + spesifik talep. Sonra istersen review yaz — ama önce manager.",
+        },
+        {
+          q: "'I understand' eskalasyonda neye yarar?",
+          options: [
+            "Kabul ettiğini gösterir",
+            "Empati + sonra net talep (karşı tarafı yumuşatır)",
+            "Karşı tarafı kazanır",
+            "Konuyu kapatır",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I understand' = karşı tarafı duydum, ama hâlâ talebim var. Empati + kararlılık dengesi. Türk öğrenci 'no understand!' der — ters etki.",
+        },
+      ],
     },
   ],
 };

@@ -269,6 +269,135 @@ export const billLesson_4_1: BundledLesson = {
       tr_explanation:
         "'I no order' yanlış yapı — doğrusu 'I don't think we ordered'. Yumuşatıcı 'I don't think' suçlamadan sorgulama.",
     },
+    {
+      id: "ex.4.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you ___ this ___, please?",
+      slots: [
+        {
+          accepted: ["explain", "double-check", "clarify"],
+          distractors: ["say", "tell", "make"],
+        },
+        {
+          accepted: ["charge", "item", "line"],
+          distractors: ["money", "thing", "price"],
+        },
+      ],
+      tr_hint:
+        "Hesap sorgulama kalıbı: 'Could you [fiil] this [isim], please?' — kibar talep + spesifik nesne. Türk öğrenci 'tell me about' deriz ama 'explain' daha doğal.",
+      example_filled: "Could you explain this charge, please?",
+    },
+    {
+      id: "ex.4.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Here's your bill. Is everything alright?" },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Oh, let me check — yes, that's the service charge. I should have mentioned it.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(actually|hi|hey)?(,)? (i think|i believe) there'?s a mistake",
+        "(could|can) you (explain|double[- ]check) (this|the) (charge|item|line)",
+        "(what'?s|what is) this (charge|item|amount) for",
+        "i don'?t (recognize|remember) (this|ordering this)",
+      ],
+      tr_hint:
+        "Garson 'her şey yolunda mı?' diye sordu. Yumuşak sorgulama: 'I think there's a mistake' veya 'Could you explain this charge?' — suçlama değil.",
+      ideal_answer: "I think there's a mistake — could you explain this charge?",
+    },
+    {
+      id: "ex.4.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Here's the check. Take your time, no rush at all.",
+      accepted_patterns: [
+        "(thanks|thank you|cheers)(,)? (i'?ll )?(have a look|take a look|check it)",
+        "(actually )?(could|can) you (explain|clarify) (this|the) (charge|item)",
+        "(thanks|thank you)(,)? (give us|give me) a (minute|sec)",
+        "(perfect|great)(,)? thanks",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson hesabı verdi. 3 sn düşün, sonra ya teşekkür et ya da sorgula. 'Take your time' = 'acele etme', cevap olarak nazik kabul yeterli. Türk öğrenci sessiz kalır — kısa bir 'thanks' kibar.",
+      ideal_response: "Thanks — I'll have a look. Actually, could you explain this charge?",
+    },
+    {
+      id: "ex.4.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Hesap lütfen.",
+      wrong_en: "Bill please.",
+      right_en: "Could I get the check, please?",
+      why_tr:
+        "Türk öğrenci 'Hesap lütfen' = 'Bill please' kuraklığıyla çevirir. Doğru ama ABD'de 'check' kelimesi yaygın + 'Could I get' yumuşak talep. UK'da 'bill', ABD'de 'check' — restoranda 'Could I get the check?' standart.",
+    },
+    {
+      id: "ex.4.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Service charge' ne demek?",
+          options: [
+            "Vergi (tax)",
+            "Servis ücreti / otomatik bahşiş",
+            "Garson maaşı",
+            "Ekstra masraf",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Service charge' = ABD'de 6+ kişilik gruplara otomatik %18-20 eklenir. Vergi (tax) ayrı bir kalem.",
+        },
+        {
+          q: "ABD restoranında 'bill' yerine yaygın kelime?",
+          options: ["receipt", "ticket", "check", "tab"],
+          correct: 2,
+          tr_explanation:
+            "ABD'de 'check' yaygın ('Could I get the check?'). UK'da 'bill'. 'Tab' = bar hesabı (bekleyen). 'Receipt' = ödeme sonrası fiş.",
+        },
+        {
+          q: "Hesabı sorgularken EN kibar başlangıç?",
+          options: [
+            "Bill wrong!",
+            "I think there's a mistake — could you check?",
+            "Why so expensive?",
+            "Fix this!",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I think there's a mistake' yumuşatıcı yapı — saldırgan değil. 'Could you check?' kibar talep.",
+        },
+        {
+          q: "'Could you double-check this?' ne demek?",
+          options: [
+            "İki kere ödeyebilir miyim?",
+            "Bunu tekrar kontrol eder misiniz?",
+            "Çift kart kullanır mıyım?",
+            "İki fiş alabilir miyim?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Double-check' = bir daha gözden geçirmek. 'Could you double-check the total?' = toplamı tekrar bakar mısınız?",
+        },
+        {
+          q: "Hesap doğru ama yine de sormak istiyorsun. EN doğal?",
+          options: [
+            "I want know about charge",
+            "What this number means?",
+            "Sorry, could you explain this line?",
+            "Charge explain please",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'Sorry, could you explain this line?' tam kibar + spesifik. 'Sorry' yumuşatma, 'this line' = bu satır (hesap kaleminde).",
+        },
+      ],
+    },
   ],
 };
 
@@ -484,6 +613,136 @@ export const billLesson_4_2: BundledLesson = {
         "Could we split the bill in half? She'll pay her share, I'll pay mine.",
       tr_explanation:
         "'Two pieces' yanlış idiom — doğrusu 'split in half' veya 'in two'. 'Share' = pay; 'her share / my share' standart.",
+    },
+    {
+      id: "ex.4.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we split it ___, please?",
+      slots: [
+        {
+          accepted: ["evenly", "fifty-fifty", "down the middle"],
+          distractors: ["equally same", "half-half", "two parts"],
+        },
+      ],
+      tr_hint:
+        "Hesap bölme kalıbı: 'Could we split it [yöntem], please?' — kibar talep. 'Evenly' = eşit, 'fifty-fifty' = 50/50, 'down the middle' = tam ortadan. Türk 'equal' deriz ama 'evenly' doğru zarftır.",
+      example_filled: "Could we split it evenly, please?",
+    },
+    {
+      id: "ex.4.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "All set? One card or splitting?" },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Sure thing — by item or evenly?",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) we (just )?split (it|the bill)( evenly)?",
+        "(separate|two|different) (checks|cards)( please)?",
+        "(let'?s )?split (it|the bill) (fifty[- ]fifty|down the middle|evenly)",
+        "(could|can) we (get|do) separate checks",
+      ],
+      tr_hint:
+        "Garson 'tek kart mı bölüşüyor musunuz?' diye sordu. Net cevap: 'Could we split it?' veya 'Separate checks, please.' Türk: tek kelime 'split' yetmez — tam cümle kur.",
+      ideal_answer: "Could we split it, please? Separate checks if possible.",
+    },
+    {
+      id: "ex.4.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Are we splitting evenly tonight, or by what each of you ordered?",
+      accepted_patterns: [
+        "(let'?s |just )?(do |go with )?(an )?even split",
+        "(split it )?evenly( please)?",
+        "by what (we|each of us) ordered",
+        "(actually )?by (item|order|what we had)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson bölme yöntemi sordu. 3 sn düşün — eşit mi item bazında mı? 'Let's just go evenly' veya 'By what we ordered, please' — net karar.",
+      ideal_response: "Let's just split it evenly — it's easier.",
+    },
+    {
+      id: "ex.4.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Hesabı ikiye bölelim.",
+      wrong_en: "Let's divide the bill into two.",
+      right_en: "Let's split it down the middle.",
+      why_tr:
+        "Türk öğrenci 'bölmek' = 'divide' diye direkt çevirir. Restoranda doğru fiil 'split'. 'Divide' matematik/akademik bağlamda. 'Down the middle' = idiomatic 50/50 — daha doğal.",
+    },
+    {
+      id: "ex.4.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Separate checks' ne demek?",
+          options: [
+            "İndirimli hesap",
+            "Ayrı çekler (her kişi kendi hesabını alır)",
+            "İade çeki",
+            "Bahşişli hesap",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Separate checks' = ayrı hesap kağıtları. Her kişi kendininkini alır + öder. Eşit bölmenin (split evenly) alternatifi.",
+        },
+        {
+          q: "'Go Dutch' deyimi ne anlama gelir?",
+          options: [
+            "Hollanda'ya gitmek",
+            "Herkes kendi hesabını öder",
+            "Tek kişi öder",
+            "Bahşiş vermemek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Go Dutch' = sosyal deyim. Herkes kendi tüketimini öder. Romantik olmayan randevularda 'let's go Dutch' yaygın.",
+        },
+        {
+          q: "ABD'de hesap bölmenin yaygınlığı?",
+          options: [
+            "Ayıp, garson rahatsız olur",
+            "Çok yaygın, garson normal karşılar",
+            "Sadece arkadaşlar arasında",
+            "Yasal olarak yasak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD'de bölme tamamen standart. Garsonlar kart machine'i her birine getirir — alışıktır.",
+        },
+        {
+          q: "'Fifty-fifty' ve 'down the middle' aynı şey mi?",
+          options: [
+            "Hayır, farklı yöntemler",
+            "Evet, ikisi de eşit bölme (50/50)",
+            "Fifty-fifty kart, down the middle nakit",
+            "Sadece UK'da geçerli",
+          ],
+          correct: 1,
+          tr_explanation:
+            "İkisi de = eşit ortadan bölme. 'Fifty-fifty' sayısal, 'down the middle' idiomatic. Birbirinin yerine geçer.",
+        },
+        {
+          q: "3 kişi, eşit bölmek için EN doğal?",
+          options: [
+            "Three way pay",
+            "Bill three parts",
+            "Split it three ways",
+            "We three pay one",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'Split it three ways' = 3 kişiye eşit böl. 'Sayı + ways' yerleşik kalıp (two ways, three ways, four ways).",
+        },
+      ],
     },
   ],
 };
@@ -714,6 +973,135 @@ export const billLesson_4_3: BundledLesson = {
       tr_explanation:
         "'Money' İngilizce'de para — ama kasada özelleştir: 'cash' (nakit). 'Pay with cash' veya 'in cash' standart.",
     },
+    {
+      id: "ex.4.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I ___ with ___, please?",
+      slots: [
+        {
+          accepted: ["pay", "tap", "settle up"],
+          distractors: ["give", "make", "do"],
+        },
+        {
+          accepted: ["card", "cash", "Apple Pay"],
+          distractors: ["money", "credit", "the chip"],
+        },
+      ],
+      tr_hint:
+        "Ödeme kalıbı: 'Could I [fiil] with [yöntem]?' — kibar talep. Türk 'I pay cash' der ama doğru yapı 'pay with cash'. 'Money' yerine 'cash' kullan.",
+      example_filled: "Could I pay with Apple Pay, please?",
+    },
+    {
+      id: "ex.4.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "How would you like to pay?" },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Perfect — go ahead and tap whenever you're ready.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(card|cash|apple pay|contactless)( please)?",
+        "(do you take|do you accept) (apple pay|contactless|tap[- ]to[- ]pay)",
+        "(could|can) i (pay|use) (apple pay|contactless)",
+        "(i'?ll )?(tap|use my phone|use apple pay)",
+      ],
+      tr_hint:
+        "Kasada 'nasıl ödemek istersiniz?' soruldu. Net cevap: 'Card, please' veya 'Apple Pay, if you take it'. Türk genelde 'with cash, please' der — doğru ama 'cash, please' tek başına yeterli.",
+      ideal_answer: "Apple Pay, if you take it.",
+    },
+    {
+      id: "ex.4.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Would you like the receipt printed or emailed?",
+      accepted_patterns: [
+        "(printed|emailed|both)( please)?",
+        "(could|can) you email (it|the receipt)( to me)?",
+        "(no thanks|no thank you|i'?m good)",
+        "(just )?(text|email) (it|please)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kasiyer fiş türünü sordu. Hızlı karar: 'Emailed, please' veya 'Printed, thanks'. Türk öğrenci sessizleşir — net seçim yap.",
+      ideal_response: "Emailed, please — that's easier.",
+    },
+    {
+      id: "ex.4.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Fiş alabilir miyim?",
+      wrong_en: "Can I take a recipe?",
+      right_en: "Could I get a receipt, please?",
+      why_tr:
+        "Türk öğrenci klasik tuzak: 'receipt' (fiş) ile 'recipe' (yemek tarifi) karıştırır. Telaffuz farkı: receipt = 'ri-SİYT' ('p' sessiz), recipe = 'RE-sə-pi'. Kasada 'recipe' istersen garson yüzüne tuhaf bakar!",
+    },
+    {
+      id: "ex.4.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Tap to pay' ne demek?",
+          options: [
+            "Kartı tak (chip okuma)",
+            "Şifre gir",
+            "Kartı/telefonu yaklaştır (temassız)",
+            "Kartı çek (manyetik şerit)",
+          ],
+          correct: 2,
+          tr_explanation:
+            "Tap = temassız ödeme. Insert = chip okuma. Swipe = manyetik şerit çekme. Modern ABD kasalarında en yaygın 'tap'.",
+        },
+        {
+          q: "'Receipt' ve 'recipe' farkı?",
+          options: [
+            "Aynı şey",
+            "Receipt = fiş, recipe = yemek tarifi",
+            "Recipe = fiş, receipt = tarif",
+            "İkisi de ödeme belgesi",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Receipt = ödeme sonrası fiş. Recipe = yemek tarifi. Telaffuz farklı: ri-SİYT vs RE-sə-pi. Türk öğrencinin klasik tuzağı.",
+        },
+        {
+          q: "ABD'de en yaygın temassız ödeme uygulaması?",
+          options: ["BKM Express", "Apple Pay / Google Pay", "Papara", "Troy"],
+          correct: 1,
+          tr_explanation:
+            "ABD'de Apple Pay (iPhone) ve Google Pay (Android). Çoğu kasada 'tap-to-pay' destekler. Türk öğrenci 'BKM' der — ABD'de yok.",
+        },
+        {
+          q: "'Do you take Apple Pay?' yapısının amacı?",
+          options: [
+            "Apple Pay var mı?",
+            "Apple Pay kabul ediyor musunuz?",
+            "Apple Pay'e geçer mi?",
+            "Apple Pay nedir?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Take' = kabul etmek (ödeme bağlamında). 'Do you take [yöntem]?' sabit kalıp. 'Accept' resmi alternatif.",
+        },
+        {
+          q: "Fiş istemenin EN doğal yolu?",
+          options: [
+            "Give me receipt",
+            "Receipt please",
+            "Could I get a receipt, please?",
+            "I want recipe",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'Could I get a receipt, please?' kibar + standart. 'Receipt please' kısa ama biraz cut. 'I want recipe' = yemek tarifi (yanlış kelime).",
+        },
+      ],
+    },
   ],
 };
 
@@ -893,6 +1281,143 @@ export const billLesson_4_4: BundledLesson = {
       tr_hint:
         "'How much' bağlanır → 'haʊ-mʌʧ'. 'Per person' içinde iki kez 'pɜːr' sesi — Türkçe 'pör' gibi ama 'r' yutulur (US) veya hafif duyulur (UK). Vurgu 'PER-son' ilk hecede.",
     },
+    {
+      id: "ex.4.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Let's just split it ___ ___.",
+      slots: [
+        {
+          accepted: ["four", "three", "five", "six"],
+          distractors: ["by four", "fourth", "fourly"],
+        },
+        {
+          accepted: ["ways"],
+          distractors: ["parts", "people", "splits"],
+        },
+      ],
+      tr_hint:
+        "Eşit bölme kalıbı: 'Split it [sayı] ways.' Yerleşik idiom — 'four ways' = 4 kişiye eşit. 'Parts' veya 'pieces' yerine 'ways' kullan.",
+      example_filled: "Let's just split it four ways.",
+    },
+    {
+      id: "ex.4.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Bill's $80 total. How are we doing this?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Twenty each, easy. Let's just go even.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let'?s |we'?ll )?(just |) ?split it (four|3|three|4) ways",
+        "(let'?s |we'?ll )?(just )?(split|do) it evenly",
+        "(how much |what'?s )(it )?per person",
+        "(fifty[- ]fifty|down the middle|even split)( please)?",
+      ],
+      tr_hint:
+        "Hesap geldi, 4 kişisin. Önerini söyle: 'Split it four ways' veya 'How much per person?' — net hesaplama gir.",
+      ideal_answer: "Let's just split it four ways — twenty each.",
+    },
+    {
+      id: "ex.4.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Bill's $96 for the table. Even split, or by what each had?",
+      accepted_patterns: [
+        "(even split|evenly|fifty[- ]fifty)( please)?",
+        "(let'?s |we'?ll )?split it (four|3|three) ways",
+        "(by what we|by what each) (had|ordered)",
+        "(actually )?by item (please|if (you|that) can)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson bölme yöntemi soruyor. 3 sn düşün — eşit mi item bazında mı? Grupta eşit genelde pratik. 'Even split, please' kısa + net.",
+      ideal_response: "Even split, please — easier for everyone.",
+    },
+    {
+      id: "ex.4.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Kişi başı ne kadar düşüyor?",
+      wrong_en: "How much falls to each person?",
+      right_en: "How much per person?",
+      why_tr:
+        "Türk 'düşüyor' fiilini direkt 'falls' diye çevirir — İngilizce'de absürt. Doğru kalıp: 'How much per person?' veya 'What's each one's share?'. 'Per' = başına; sabit prepozisyon.",
+    },
+    {
+      id: "ex.4.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Per person' ne demek?",
+          options: [
+            "Her kişiyle",
+            "Kişi başı",
+            "Kişiye özel",
+            "Birini seçerek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Per person' = kişi başı. 'How much per person?' = kişi başı ne kadar? Sabit prepozisyon kullanımı.",
+        },
+        {
+          q: "'Down the middle' deyimi ne anlatır?",
+          options: [
+            "Masanın ortasında",
+            "Tam ortadan eşit böl (50/50)",
+            "Yarısı şimdi öde",
+            "Hesap satır ortasında",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Split it down the middle' = tam ortadan ikiye böl. 'Fifty-fifty' ile aynı anlam — iki kişi için.",
+        },
+        {
+          q: "5 kişi eşit bölecek. EN doğal?",
+          options: [
+            "Five way split",
+            "Split it five ways",
+            "Divide for five",
+            "Per five person",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Split it five ways' = 5 kişiye eşit böl. 'Sayı + ways' yerleşik kalıbı.",
+        },
+        {
+          q: "'Sound good?' nasıl yanıtlanır (onay)?",
+          options: [
+            "Bell sound",
+            "Sounds great / Works for me",
+            "Music nice",
+            "Sounds again",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sounds good / Sounds great / Works for me' = onay. 'Sound' (fiil) = bir şey hakkında izlenim. Türk 'good sound' der — ters çevir.",
+        },
+        {
+          q: "Türk arkadaşlık kültüründe 'sıra bende' refleksi ABD'de?",
+          options: [
+            "Çok yaygın, normal karşılanır",
+            "Yok, herkes kendi tüketimini öder",
+            "Sadece akrabalar arası",
+            "Sadece doğum günlerinde",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD'de 'sen geçen sefer ödedin, bu sefer ben' refleksi zayıf. Herkes kendi payını öder ('Dutch'). Türkiye'deki misafirperverlik kültürünün karşılığı yoktur.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1071,6 +1596,143 @@ export const billLesson_4_5: BundledLesson = {
       ipa: "kʊd wi gɛt ðɪs ˈaɪtəmaɪzd pliːz",
       tr_hint:
         "'Itemized' = 'AY-tem-ayzd', 3 hece, vurgu ilk hecede. Türk için tuzak: ortadaki 'e' kısa schwa ('ə'), 'AY-tım-ayzd' gibi. Son 'd' yumuşak duyulur.",
+    },
+    {
+      id: "ex.4.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'll just ___ for ___, please.",
+      slots: [
+        {
+          accepted: ["pay", "cover", "Venmo"],
+          distractors: ["give", "make", "buy"],
+        },
+        {
+          accepted: ["what I had", "mine", "my order", "the salad"],
+          distractors: ["my money", "what I", "self"],
+        },
+      ],
+      tr_hint:
+        "Itemized ödeme: 'I'll [fiil] for [neye karşılık].' 'Cover' = ödemeyi üstlenmek (sosyal fiil). 'Pay for what I had' = yediğimi öderim. Türk öğrenci 'pay my money' der — yapısal bozuk.",
+      example_filled: "I'll just pay for what I had, please.",
+    },
+    {
+      id: "ex.4.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Should we just split evenly? Easier that way.",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Oh, you barely ate — sure, let's do itemized. What was yours?",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(actually|honestly )?mine was (just |only )?(the )?salad",
+        "i'?ll (just )?(cover|pay for) (my|mine|what i had)",
+        "(could|can) we (do |get )?itemized( instead)?",
+        "(i'?d|i would) (rather|prefer to) pay for (just )?mine",
+      ],
+      tr_hint:
+        "Arkadaş 'eşit bölelim' önerdi ama sen sadece salata aldın. Kibarca farklılaş: 'Actually mine was just the salad' veya 'Could we do itemized?'",
+      ideal_answer: "Actually, mine was just the salad — could we do itemized?",
+    },
+    {
+      id: "ex.4.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Hey, mine's around $30 — what was yours?",
+      accepted_patterns: [
+        "mine was (just |only )?(\\$?\\d+|about \\$?\\d+|around \\$?\\d+|the .+)",
+        "(just|only) (the )?(salad|burger|drink|appetizer)",
+        "(i'?ll )?(venmo|cashapp|zelle|send) you( my share)?",
+        "(thanks|appreciate it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Arkadaş kendi tutarını söyledi. 3 sn düşün — sen ne yedin? 'Mine was the salad, like $14' net + spesifik. Türk öğrenci 'I no remember' der — tahminle söyle.",
+      ideal_response: "Mine was just the salad — about $14.",
+    },
+    {
+      id: "ex.4.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Ben kendi yediğimi öderim.",
+      wrong_en: "I pay my eat.",
+      right_en: "I'll cover what I had.",
+      why_tr:
+        "Türk 'yediğimi öderim' = 'pay my eat' direkt çeviri — 'eat' isim değil, fiil. Doğru: 'cover what I had' veya 'pay for my order'. 'Cover' = ödemeyi üstlenmek (kibar sosyal fiil).",
+    },
+    {
+      id: "ex.4.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Itemized bill' ne demek?",
+          options: [
+            "Toplam tutarlı hesap",
+            "Kalem kalem dökümlü hesap",
+            "Ayrı çek",
+            "Bahşişli hesap",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Itemized' = her ürünün ayrı yazıldığı dökümlü hesap. 'Could we get it itemized?' her kalemi görmek için.",
+        },
+        {
+          q: "'I'll cover what I had' ne anlatır?",
+          options: [
+            "Yediğimi kapatırım (üstünü örterim)",
+            "Sadece kendi siparişimi öderim",
+            "Hesabı kaplarım",
+            "Sipariş veririm",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Cover' = ödemeyi üstlenmek (sosyal fiil, 'kapatmak'). 'What I had' = yediklerim. = 'sadece kendi payımı öderim'.",
+        },
+        {
+          q: "Venmo'da 'handle' ne demek?",
+          options: [
+            "Kulp / saplama",
+            "Hesap kullanıcı adı (@username)",
+            "Şifre",
+            "Karşı taraf rolü",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Handle' = sosyal medya/uygulamada kullanıcı adı (genelde @ ile). 'What's your Venmo handle?' = Venmo kullanıcı adın ne?",
+        },
+        {
+          q: "ABD restoranında 'separate checks' istemenin tonu?",
+          options: [
+            "Ayıp, garson rahatsız olur",
+            "Normal, garson alışıktır",
+            "Sadece formel restoranlarda",
+            "Sadece 2 kişiyse",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD restoranlarında ayrı hesap çok normal. Garsonlar baştan sorar bile: 'One check or separate?'",
+        },
+        {
+          q: "'Just the salad' yapısı ne anlatır?",
+          options: [
+            "Sadece doğru salata",
+            "Yalnız salata (başka bir şey değil)",
+            "Adil bir salata",
+            "Hazır salata",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Just' = sadece / yalnız (sınırlama). 'Just the salad' = yalnız salata. 'Mine was just the salad' = benimki yalnız salata idi.",
+        },
+      ],
     },
   ],
 };
@@ -1253,6 +1915,144 @@ export const billLesson_4_6: BundledLesson = {
       tr_hint:
         "'Venmo' = 'VEN-moh', vurgu ilk hece, 'o' uzun ve yuvarlak. 'Handle' = 'HAN-dl', sonu '-dl' belirsiz schwa+l. 'What's your' bağlanır → 'wʌts-yɔːr'.",
     },
+    {
+      id: "ex.4.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Let me ___ you my ___.",
+      slots: [
+        {
+          accepted: ["Venmo", "Zelle", "Cashapp", "pay"],
+          distractors: ["money", "send", "give"],
+        },
+        {
+          accepted: ["share", "half", "part"],
+          distractors: ["money", "self", "pay"],
+        },
+      ],
+      tr_hint:
+        "ABD geri ödeme: 'Let me Venmo you my share' — Venmo/Zelle/Cashapp fiil olarak kullanılır. 'Share' = pay (kişinin kısmı). Türk öğrenci 'send you money' der — daha resmi.",
+      example_filled: "Let me Venmo you my share.",
+    },
+    {
+      id: "ex.4.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Don't worry, I got it. You can get the next one.",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Seriously, don't worry about it. Next time, deal?",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no |)(seriously |really )?let me (venmo|cashapp|zelle|pay|send) you",
+        "(are you sure|you sure)\\??",
+        "i (owe|got) you one",
+        "(next (round|one|time)('?s)?) (is )?on me",
+        "what'?s your (venmo|handle|cashapp)",
+      ],
+      tr_hint:
+        "Arkadaş 'merak etme, ben ödedim' dedi. İsrar et: 'Let me Venmo you' veya kabul et: 'I owe you one — next round's on me.'",
+      ideal_answer: "Are you sure? Let me at least Venmo you my share.",
+    },
+    {
+      id: "ex.4.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Don't worry about it — you got the last one anyway.",
+      accepted_patterns: [
+        "(thanks|thank you|appreciate it)( so much)?",
+        "(are you sure|you sure)\\??",
+        "(next (one|round)|tomorrow|next time) (is )?on me",
+        "i (owe|got) you one",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Arkadaş 'son sefer sen ödedin' dedi. 3 sn — minnetkar kabul yeterli. 'Thanks, I owe you one' veya 'Next one's on me.' Türk öğrenci ısrar eder — ABD'de tek 'no really' yeterli.",
+      ideal_response: "Thanks — I owe you one. Next round's on me.",
+    },
+    {
+      id: "ex.4.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sana bir borcum var.",
+      wrong_en: "I have a debt to you.",
+      right_en: "I owe you one.",
+      why_tr:
+        "Türk 'borç' = 'debt' diye direkt çevirir. 'Debt' resmi/banka borcu için kullanılır — sosyal bağlamda absürt. 'I owe you one' = sosyal iyilik borcu deyimi. Para olmasa da geçer.",
+    },
+    {
+      id: "ex.4.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I owe you one' ne anlama gelir?",
+          options: [
+            "Sana bir tane borçluyum (sayı)",
+            "Sana bir iyilik/minnet borcum var (deyim)",
+            "Bir kez daha sipariş veririm",
+            "Sana bir tane ısmarlayacağım",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I owe you one' = sosyal deyim. Para borcu olabilir ama daha çok 'sana minnettarım, karşılığını vereceğim'.",
+        },
+        {
+          q: "ABD'de en yaygın arkadaş para gönderme uygulamaları?",
+          options: [
+            "WhatsApp Pay, Telegram",
+            "Venmo, Zelle, Cashapp",
+            "PayPal Friends",
+            "Wise, Revolut",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Venmo (sosyal feed), Zelle (banka), Cashapp (genç). Türkiye'deki IBAN/Papara karşılığı.",
+        },
+        {
+          q: "'Next round's on me' ne anlatır?",
+          options: [
+            "Bir tur daha içki",
+            "Sıradaki ödeme benden",
+            "Sonraki masada otururuz",
+            "Tekrar başlayalım",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On me' = benden (ödeme deyimi). 'Round' = tur (içki veya yemek). 'Next round's on me' = bir sonraki sefer ben öderim.",
+        },
+        {
+          q: "Venmo'da 'handle' istemenin doğal yolu?",
+          options: [
+            "Give Venmo number",
+            "What's your Venmo handle?",
+            "Send Venmo me",
+            "Venmo telephone?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'What's your Venmo handle?' = Venmo kullanıcı adın ne? 'Handle' = sosyal medya kullanıcı adı.",
+        },
+        {
+          q: "Arkadaş 'don't worry about it' dedi. EN doğal kabul?",
+          options: [
+            "No worry",
+            "Thanks — I owe you one",
+            "OK money",
+            "Bye bye",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Thanks — I owe you one' = sıcak kabul + karşılık vaadi. 'No worry' kısa ama eksik (doğrusu 'no worries'). İlişki dengeli kalır.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1433,6 +2233,143 @@ export const billLesson_4_7: BundledLesson = {
       ipa: "kʊd wi gɛt ˈsɛpərɪt ʧɛks fɔːr ðə ˈteɪbəl pliːz",
       tr_hint:
         "'Separate' (sıfat) = 'SEP-ə-rət' 3 hece, vurgu ilk hecede, son 't' yumuşak. Fiil hali 'separate' = 'SEP-ə-reyt' uzun 'eyt' — sıfattan farklı! Burada sıfat (hesap çeşidi).",
+    },
+    {
+      id: "ex.4.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you ___ these cards ___?",
+      slots: [
+        {
+          accepted: ["run", "process", "charge"],
+          distractors: ["take", "make", "do"],
+        },
+        {
+          accepted: ["separately", "one by one"],
+          distractors: ["alone", "apart", "all"],
+        },
+      ],
+      tr_hint:
+        "Grup kart kalıbı: 'Could you [fiil] these cards [zarf]?' — 'Run a card' = kartı işleme almak (kasada). 'Separately' = ayrı ayrı. Türk öğrenci 'take' der ama 'run' standart.",
+      example_filled: "Could you run these cards separately?",
+    },
+    {
+      id: "ex.4.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Heads up — we add 20% gratuity for parties of eight or more.",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Sure thing — even split it is.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|thank you|good to know)( the heads up)?",
+        "(could|can) we (split|do) (it|the bill)( evenly)?",
+        "(group split|even split)( works| please)?",
+        "(let'?s|we'?ll) (just )?(do|go with) (an )?even split",
+      ],
+      tr_hint:
+        "Garson otomatik bahşişi haber verdi. Kibar onay + bölme önerisi: 'Thanks for the heads up — let's do an even split.' Bahşiş zaten dahil, kafan rahat.",
+      ideal_answer: "Thanks for the heads up — let's just do an even split.",
+    },
+    {
+      id: "ex.4.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "With 20% gratuity, that's $52 per person. How are you splitting the cards?",
+      accepted_patterns: [
+        "(could|can) you run (these |a few |some )?(cards )?separately",
+        "(here'?s|here are) (\\d+|three|four|five) cards",
+        "i'?ll (cover|put it on|charge) it (all )?(on|to) (my|one) card",
+        "(one card|just one)( works| for everything)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson kart planı sordu. 3 sn — kaç kart var? 'Could you run these three separately?' veya 'Put it all on my card, others will Venmo me.'",
+      ideal_response: "Could you run these four separately, please?",
+    },
+    {
+      id: "ex.4.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bahşişi siz mi koydunuz?",
+      wrong_en: "Did you put the tip?",
+      right_en: "Is gratuity included?",
+      why_tr:
+        "Türk 'bahşişi koymak' = 'put the tip' diye direkt çevirir — kaba. Doğru: 'Is gratuity included?' veya 'Is service charge already added?'. 'Gratuity' resmi kelime, 'tip' günlük — ikisi de geçer.",
+    },
+    {
+      id: "ex.4.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Auto-gratuity' ne demek?",
+          options: [
+            "Bedava ekstra içecek",
+            "Büyük gruplara otomatik eklenen %18-20 bahşiş",
+            "Bahşiş yasağı",
+            "Garson bahşiş istemesi",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD'de 6+ kişilik gruplara otomatik %18-20 bahşiş (auto-gratuity / gratuity) eklenir. Ekstra bahşiş gerekmez!",
+        },
+        {
+          q: "'Run a card' restoran bağlamında ne demek?",
+          options: [
+            "Kart ile koşmak",
+            "Kartı işleme almak / kasada çekmek",
+            "Kart hızlandırmak",
+            "Kart kontrol etmek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Run a card' = kartı POS makinesinden geçirmek (kasada işlem). 'Run them separately' = her birini ayrı ayrı işle.",
+        },
+        {
+          q: "8 kişi yemek, EN pratik hesap çözümü?",
+          options: [
+            "Garson 8 kart machine getirsin",
+            "Tek kart + diğerleri Venmo gönderir",
+            "Sırayla kart geçilsin",
+            "Yarısı nakit, yarısı kart",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Büyük grupta organizatör tek karta öder, diğerleri Venmo/Zelle gönderir. Garson hızlı, hesap basit.",
+        },
+        {
+          q: "'Group split is easier' ne anlatır?",
+          options: [
+            "Grupla split daha kolay",
+            "Eşit bölmek daha pratik",
+            "Gruba bölünelim",
+            "Grupça gidelim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Group split' = eşit grup paylaşımı. Itemized yerine pratik. Garson da rahatlar.",
+        },
+        {
+          q: "'Heads up' deyimi ne anlama gelir?",
+          options: [
+            "Yukarı bak",
+            "Önceden uyarı / bilgi notu",
+            "Kafa yukarı",
+            "Dikkatli ol",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Heads up' = önceden uyarı (informal). Garsonun '20% gratuity ekleniyor' uyarısı bir 'heads up'.",
+        },
+      ],
     },
   ],
 };

@@ -129,6 +129,126 @@ export const a2MicroLesson_borrow: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a2.bo.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      template: "Sorry to bother you — could I ___ a ___?",
+      slots: [
+        { accepted: ["borrow", "get", "have"], distractors: ["take", "give", "buy"] },
+        { accepted: ["cup of sugar", "little flour", "pinch of salt", "spoon"], distractors: ["sugar buy", "loan", "all sugar"] },
+      ],
+      tr_hint:
+        "Komşudan ödünç isteme kalıbı. 'Sorry to bother + could I borrow' = en kibar form. Türk öğrenci 'Give me sugar' der — kaba.",
+      example_filled: "Sorry to bother you — could I borrow a cup of sugar?",
+    },
+    {
+      id: "ex.a2.bo.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Hey neighbor! What's up?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me get you some." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hey|sorry to bother you)(,)? (could i|can i) borrow",
+        "(would you mind (lending|giving)) me",
+        "(do you have (any|some)) (sugar|flour|salt|milk) (i could|i can)",
+        "(quick question|tiny favor)",
+      ],
+      tr_hint:
+        "Komşu açtı — kibar ricaya geç. 'Sorry to bother — could I borrow a cup of sugar?' Türk öğrenci direkt 'sugar' der — eksik.",
+      ideal_answer: "Hey — sorry to bother you, could I borrow a cup of sugar?",
+    },
+    {
+      id: "ex.a2.bo.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Sure! How much do you need?",
+      accepted_patterns: [
+        "(just |only )?a (cup|little|bit|spoonful)",
+        "(half a (cup|teaspoon))",
+        "(thanks)(,)? (just )?a (little|small) (amount|bit)",
+        "(whatever you can (spare|give))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Komşu miktar soruyor — net + mütevazı. 'Just a cup' veya 'Whatever you can spare.' Türk öğrenci aşırı miktar ister — küçük tut.",
+      ideal_response: "Just a cup, please — that's plenty.",
+    },
+    {
+      id: "ex.a2.bo.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Bana biraz şeker ver.",
+      wrong_en: "Give me some sugar.",
+      right_en: "Could I borrow some sugar, please?",
+      why_tr:
+        "Türk öğrenci 'ver bana'yı 'give me' yapar — komşuya emir tonu kaba. 'Could I borrow' = nazik. + 'please' her zaman.",
+    },
+    {
+      id: "ex.a2.bo.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Borrow' ne demek?",
+          options: [
+            "Ödünç almak (geri vereceksin).",
+            "Hediye etmek.",
+            "Satın almak.",
+            "Atmak.",
+          ],
+          correct: 0,
+          tr_explanation: "'Borrow' = ödünç al. 'Lend' = ödünç ver. İki taraflı kalıp.",
+        },
+        {
+          q: "Komşudan kibar talep?",
+          options: [
+            "Give me sugar!",
+            "Sorry to bother — could I borrow a cup of sugar?",
+            "Sugar?",
+            "I need sugar.",
+          ],
+          correct: 1,
+          tr_explanation: "'Sorry to bother + could I borrow' = en kibar yaklaşım.",
+        },
+        {
+          q: "'How much?' (sayılamayan) örneği?",
+          options: [
+            "How much apples?",
+            "How much sugar?",
+            "How much books?",
+            "How much chairs?",
+          ],
+          correct: 1,
+          tr_explanation: "Sugar = sayılamayan. 'How much sugar?' doğru. Apples = sayılabilen → 'how many'.",
+        },
+        {
+          q: "'No rush' ne demek?",
+          options: [
+            "Acele etme / sorun değil.",
+            "Bekle.",
+            "Hadi.",
+            "Hızlı ol.",
+          ],
+          correct: 0,
+          tr_explanation: "'No rush' = acelesi yok. Komşu / arkadaş için rahatlatıcı.",
+        },
+        {
+          q: "Şeker iade ederken kibar?",
+          options: [
+            "Take.",
+            "Thanks so much — here's the sugar back.",
+            "Sugar.",
+            "I am back.",
+          ],
+          correct: 1,
+          tr_explanation: "Teşekkür + nesne iadesi. 'Here's X back' = X'i geri veriyorum.",
+        },
+      ],
+    },
   ],
 };
 

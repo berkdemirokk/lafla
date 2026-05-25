@@ -151,6 +151,101 @@ export const workExpansionLesson_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -299,6 +394,101 @@ export const workExpansionLesson_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -423,6 +613,101 @@ export const workExpansionLesson_3: BundledLesson = {
           speaker: "npc",
           message:
             "Of course. Talk next week.",
+        },
+      ],
+    },
+    {
+      id: "ex.we3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -565,6 +850,101 @@ export const workExpansionLesson_4: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -704,6 +1084,101 @@ export const workExpansionLesson_5: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -826,6 +1301,101 @@ export const workExpansionLesson_6: BundledLesson = {
           speaker: "npc",
           message:
             "Perfect. Excited for you.",
+        },
+      ],
+    },
+    {
+      id: "ex.we6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -962,6 +1532,101 @@ export const workExpansionLesson_7: BundledLesson = {
           ],
           hint_tr:
             "Kapanis: 'Appreciate the flexibility — see you Tuesday!'",
+        },
+      ],
+    },
+    {
+      id: "ex.we7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -1105,6 +1770,101 @@ export const workExpansionLesson_8: BundledLesson = {
           ],
           hint_tr:
             "Kapanis: 'Well said. Catch you next week!'",
+        },
+      ],
+    },
+    {
+      id: "ex.we8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -1252,6 +2012,101 @@ export const workExpansionLesson_9: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we9.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we9.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we9.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we9.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1393,6 +2248,101 @@ export const workExpansionLesson_11: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we11.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we11.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we11.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we11.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we11.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1529,6 +2479,101 @@ export const workExpansionLesson_12: BundledLesson = {
           ],
           hint_tr:
             "Kapanis: 'Will do — thanks for the time.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we12.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we12.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we12.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we12.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we12.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -1691,6 +2736,101 @@ export const workExpansionLesson_13: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we13.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we13.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we13.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we13.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we13.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1812,6 +2952,101 @@ export const workExpansionLesson_14: BundledLesson = {
           ],
           hint_tr:
             "Kapanis: 'On it — by Friday. Easier to hit when it's concrete. Appreciate the clarity.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we14.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we14.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we14.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we14.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we14.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -1974,6 +3209,101 @@ export const workExpansionLesson_15: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we15.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we15.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we15.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we15.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we15.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2106,6 +3436,101 @@ export const workExpansionLesson_16: BundledLesson = {
           ],
           hint_tr:
             "Son: 'You got this, brother.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we16.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we16.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we16.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we16.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we16.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -2250,6 +3675,101 @@ export const workExpansionLesson_10: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we10.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we10.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we10.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we10.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2387,6 +3907,101 @@ export const workExpansionLesson_17: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we17.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we17.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we17.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we17.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we17.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2520,6 +4135,101 @@ export const workExpansionLesson_18: BundledLesson = {
           ],
           hint_tr:
             "Kapanis: 'Appreciate the cover. Daily ping until Thursday. Won't happen again.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we18.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we18.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we18.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we18.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we18.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -2675,6 +4385,101 @@ export const workExpansionLesson_19: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we19.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we19.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we19.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we19.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we19.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2815,6 +4620,101 @@ export const workExpansionLesson_20: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we20.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we20.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we20.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we20.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we20.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2938,6 +4838,101 @@ export const workExpansionLesson_21: BundledLesson = {
           ],
           hint_tr:
             "Kapat (suclu hissetme yok): 'No worries — rather you ask. Have a good weekend.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we21.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we21.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we21.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we21.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we21.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -3090,6 +5085,101 @@ export const workExpansionLesson_22: BundledLesson = {
           ],
           hint_tr:
             "Iliski kapat (yikma): 'Means a lot. Drinks before I go? And I'll write a LinkedIn recommendation for you too.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we22.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we22.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we22.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we22.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we22.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -3260,6 +5350,101 @@ export const workExpansionLesson_23: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we23.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we23.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we23.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we23.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we23.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3397,6 +5582,101 @@ export const workExpansionLesson_24: BundledLesson = {
           ],
           hint_tr:
             "Kapanis: 'Doc by EOD. Weekly sync to stay aligned. Thanks both.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we24.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we24.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we24.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we24.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we24.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -3549,6 +5829,101 @@ export const workExpansionLesson_25: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we25.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we25.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we25.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we25.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we25.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3676,6 +6051,101 @@ export const workExpansionLesson_26: BundledLesson = {
           speaker: "npc",
           message:
             "Thanks for asking what others were thinking.",
+        },
+      ],
+    },
+    {
+      id: "ex.we26.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we26.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we26.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we26.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we26.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -3817,6 +6287,101 @@ export const workExpansionLesson_27: BundledLesson = {
           ],
           hint_tr:
             "Kapanis: 'Glad we had the space — harder to raise later. Thank you.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we27.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we27.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we27.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we27.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we27.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -3963,6 +6528,101 @@ export const workExpansionLesson_28: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we28.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we28.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we28.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we28.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we28.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -4102,6 +6762,101 @@ export const workExpansionLesson_29: BundledLesson = {
           ],
           hint_tr:
             "Kapat: 'Let's ship. Catch you in Slack on kickoff.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we29.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we29.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we29.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we29.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we29.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -4253,6 +7008,101 @@ export const workExpansionLesson_30: BundledLesson = {
           ],
           hint_tr:
             "Kapanis: 'Sending now. Appreciate the eyes.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we30.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we30.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we30.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we30.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we30.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -4425,6 +7275,101 @@ export const workExpansionLesson_31: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we31.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we31.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we31.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we31.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we31.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -4544,6 +7489,101 @@ export const workExpansionLesson_32: BundledLesson = {
           ],
           hint_tr:
             "Lock: 'Thursday 3pm works — sending calendar invite. Looking forward.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we32.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we32.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we32.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we32.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we32.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -4709,6 +7749,101 @@ export const workExpansionLesson_33: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we33.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we33.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we33.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we33.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we33.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -4864,6 +7999,101 @@ export const workExpansionLesson_34: BundledLesson = {
           ],
           hint_tr:
             "Kapanis: 'Thanks for the advocacy. Rooting for us to land it.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we34.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we34.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we34.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we34.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we34.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -5026,6 +8256,101 @@ export const workExpansionLesson_35: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we35.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we35.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we35.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we35.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we35.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -5172,6 +8497,101 @@ export const workExpansionLesson_36: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we36.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we36.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we36.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we36.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we36.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -5313,6 +8733,101 @@ export const workExpansionLesson_37: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we37.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we37.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we37.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we37.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we37.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -5431,6 +8946,101 @@ export const workExpansionLesson_38: BundledLesson = {
           ],
           hint_tr:
             "Kapat: 'Thanks. Updates same channel. Friday summary as usual.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we38.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we38.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we38.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we38.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we38.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -5559,6 +9169,101 @@ export const workExpansionLesson_39: BundledLesson = {
           ],
           hint_tr:
             "Kapat: 'Both work. Appreciate the flex. Rotation starts next Tuesday.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we39.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we39.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we39.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we39.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we39.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -5698,6 +9403,101 @@ export const workExpansionLesson_40: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we40.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we40.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we40.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we40.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we40.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -5833,6 +9633,101 @@ export const workExpansionLesson_41: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we41.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we41.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we41.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we41.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we41.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -5952,6 +9847,101 @@ export const workExpansionLesson_42: BundledLesson = {
           ],
           hint_tr:
             "Kapat: 'Of course — ping me when you push, happy to re-review. Good work.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we42.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we42.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we42.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we42.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we42.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -6116,6 +10106,101 @@ export const workExpansionLesson_43: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we43.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we43.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we43.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we43.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we43.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -6276,6 +10361,101 @@ export const workExpansionLesson_44: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we44.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we44.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we44.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we44.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we44.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -6427,6 +10607,101 @@ export const workExpansionLesson_45: BundledLesson = {
           ],
           hint_tr:
             "Final: 'Likewise — thanks for the time.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we45.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we45.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we45.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we45.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we45.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -6595,6 +10870,101 @@ export const workExpansionLesson_46: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we46.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we46.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we46.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we46.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we46.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -6744,6 +11114,101 @@ export const workExpansionLesson_47: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.we47.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we47.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we47.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we47.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we47.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -6880,6 +11345,101 @@ export const workExpansionLesson_48: BundledLesson = {
           ],
           hint_tr:
             "Kapanis: 'Of course — stay away from drama.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we48.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we48.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we48.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we48.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we48.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -7037,6 +11597,101 @@ export const workExpansionLesson_49: BundledLesson = {
           ],
           hint_tr:
             "Takimi tanit: 'Thanks — team did the heavy lifting. Maya, David, Hasan especially. Happy to take more questions.'",
+        },
+      ],
+    },
+    {
+      id: "ex.we49.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we49.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we49.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we49.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we49.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },
@@ -7205,6 +11860,101 @@ export const workExpansionLesson_50: BundledLesson = {
           ],
           hint_tr:
             "Final: 'Will do — happy holidays. Talk in January!'",
+        },
+      ],
+    },
+    {
+      id: "ex.we50.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could we ___ to discuss ___?",
+      slots: [
+        { accepted: ['schedule a meeting', 'jump on a call', 'find some time', 'sync up'], distractors: ['scheduling a meeting', 'jump in a call', 'found time', 'synced up'] },
+        { accepted: ['the proposal', 'next steps', 'the roadmap', 'blockers'], distractors: ['proposals', 'next step', 'roadmaps', "blocker's"] },
+      ],
+      tr_hint:
+        "Toplantı isteme kalıbı. 'Could we' = polite modal. 'Jump on a call' = kısa görüşme deyimi.",
+      example_filled: "Could we schedule a meeting to discuss the proposal?",
+    },
+    {
+      id: "ex.we50.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, do you have a sec to chat about the project?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great — let's grab 15 minutes after standup." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah|absolutely)( thing)?",
+        "(what'?s on your mind|what'?s up|what would you like to discuss)",
+        "(i'?m free|got time) (now|after|around)",
+        "(let me know|name a time) (when works|that works)",
+      ],
+      tr_hint:
+        "Quick chat isteği — esneklik göster + somut zaman öner. Türk hatası: 'Yes sir' aşırı resmi.",
+      ideal_answer: "Sure thing — I'm free after standup, want to grab 15 minutes then?",
+    },
+    {
+      id: "ex.we50.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How's the project tracking? Are we still on schedule?",
+      accepted_patterns: [
+        "(we'?re|things are) (on track|tracking well|going well)",
+        "(slightly|a bit) (behind|ahead) (on (.+))?",
+        "(one|two|a couple) (blockers?|risks?|issues?)",
+        "(should ship|aiming for|targeting) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Status update sorusu — net + ileriye dönük. 'I don't know' = kötü. Spesifik durum + plan.",
+      ideal_response: "We're mostly on track — one small blocker on the API side, should be cleared by Wednesday.",
+    },
+    {
+      id: "ex.we50.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Toplantıyı yaptık.",
+      wrong_en: "We did a meeting.",
+      right_en: "We had a meeting.",
+      why_tr:
+        "'Did a meeting' = Türkçe 'toplantı yaptık' direkt çeviri. İngilizcede meeting 'have' edilir, 'do' edilmez. Aynı şekilde: have a call, have a chat, have a discussion. 'Did' = ev ödevi yapmak için kullanılır, sosyal aktivitelerde değil.",
+    },
+    {
+      id: "ex.we50.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Toplantı yaptık' İngilizce karşılığı?",
+          options: ["We did a meeting", "We had a meeting", "We made a meeting", "We performed a meeting"],
+          correct: 1,
+          tr_explanation: "Meeting 'have' edilir. Aynı: have a call, have a chat.",
+        },
+        {
+          q: "'Jump on a call' deyimi?",
+          options: ["Aramaya atlamak", "Hızlı bir görüşme yapmak", "Telefonu atmak", "Aramayı geçmek"],
+          correct: 1,
+          tr_explanation: "'Jump on a call' = kısa, gayriresmi telefon görüşmesi.",
+        },
+        {
+          q: "'Sync up' ne demek?",
+          options: ["Senkronize cihaz", "Bilgi alışverişi yapmak (kısa toplantı)", "Eşitlemek", "Birleşmek"],
+          correct: 1,
+          tr_explanation: "'Sync up' = takım içi kısa bilgi paylaşımı. Iş İngilizcesinde çok yaygın.",
+        },
+        {
+          q: "'On track' anlamı?",
+          options: ["Tren yolunda", "Programa uygun ilerliyor", "Yarış pistinde", "Geride"],
+          correct: 1,
+          tr_explanation: "'On track' = takvime uygun, planlı ilerliyor. Status update standardı.",
+        },
+        {
+          q: "'Could we schedule a meeting?' yerine eşdeğer kibar?",
+          options: ["Schedule meeting", "Would it be possible to set up a meeting?", "Meeting please", "Let's meeting"],
+          correct: 1,
+          tr_explanation: "'Would it be possible' = aşırı kibar form. 'Could we' middle, 'Schedule meeting' = direktif.",
         },
       ],
     },

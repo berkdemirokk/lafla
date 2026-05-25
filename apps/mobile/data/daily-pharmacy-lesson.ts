@@ -268,6 +268,126 @@ export const dailyPharmacyLesson_19_1: BundledLesson = {
       tr_explanation:
         "'Give pill' = emir + grammatik degil. Doğru: süre (since this morning) + tip (mild) + saygili soru.",
     },
+    {
+      id: "ex.dp19.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I have a ___, do you have anything for ___?",
+      slots: [
+        { accepted: ["headache", "sore throat", "stomach ache", "cough"], distractors: ["pain", "feeling", "problem"] },
+        { accepted: ["the pain", "it", "this"], distractors: ["medicine", "drug", "help"] },
+      ],
+      tr_hint:
+        "Eczane standart kalıbı. 'I have a ___, do you have anything for ___?' = semptom + çözüm sor. Türk öğrenci 'give me medicine' der — kaba. Bu kalıp doğru ton.",
+      example_filled: "I have a headache, do you have anything for the pain?",
+    },
+    {
+      id: "ex.dp19.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hi, how can I help you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — are you allergic to anything?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)(,)? (i have|i'?ve had) a (headache|sore throat|cough|fever)",
+        "(do you have|could you (recommend|suggest)) (anything|something) for",
+        "(i'?m looking for) (something for|a )",
+        "(could you (give|recommend) me)",
+      ],
+      tr_hint:
+        "Eczacıya — semptom + çözüm sor. 'Hi, I've had a headache since this morning. Do you have anything for it?' Türk öğrenci direkt 'give me aspirin' der — kaba.",
+      ideal_answer: "Hi, I've had a headache since this morning — do you have anything for it?",
+    },
+    {
+      id: "ex.dp19.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Do you have a prescription for that?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (here you go|here it is|it'?s here)",
+        "(no|not yet)(,)? (is (there )?(something )?over[- ]the[- ]counter)",
+        "(i don'?t have one)(,)? (could you (recommend|suggest))",
+        "(my doctor (said|told me)) (to come)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Eczacı reçete soruyor — net evet/hayır + takip. 'Yes, here it is' veya 'No, is there something OTC?' Türk öğrenci sessiz kalır — bilgi ver.",
+      ideal_response: "No, I don't — is there something over-the-counter?",
+    },
+    {
+      id: "ex.dp19.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İlaç almam lazım.",
+      wrong_en: "I need to take medicine.",
+      right_en: "I need to pick up a prescription / I need some medication.",
+      why_tr:
+        "İki problem: (1) 'medicine' uncountable — 'a medicine' yanlış. 'Some medicine' veya 'medication'. (2) 'Take medicine' = ilaç içmek; 'pick up' = eczaneden teslim almak. Bağlam farklı.",
+    },
+    {
+      id: "ex.dp19.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Eczanede kibar açılış?",
+          options: [
+            "Give me pill!",
+            "I have a headache — do you have anything for it?",
+            "Aspirin!",
+            "I need medicine.",
+          ],
+          correct: 1,
+          tr_explanation: "Semptom + soru. 'Anything for it?' = çözüm önerir misin?",
+        },
+        {
+          q: "'Over-the-counter' (OTC) ne demek?",
+          options: [
+            "Reçetesiz satılan ilaç.",
+            "Pahalı ilaç.",
+            "İthal ilaç.",
+            "Yasak ilaç.",
+          ],
+          correct: 0,
+          tr_explanation: "OTC = reçete istemeyen, raftan alınan ilaç. 'Prescription' (reçeteli) zıttı.",
+        },
+        {
+          q: "'Painkiller' ne demek?",
+          options: [
+            "Ağrı kesici (genel terim).",
+            "Acı veren ilaç.",
+            "Reçete.",
+            "Şurup.",
+          ],
+          correct: 0,
+          tr_explanation: "'Painkiller' = ağrıyı azaltan ilaç. 'Mild painkiller' = hafif.",
+        },
+        {
+          q: "'Are you allergic to anything?' nasıl yanıtlanır?",
+          options: [
+            "I'm sick.",
+            "No, no allergies. / Yes, I'm allergic to penicillin.",
+            "Maybe.",
+            "What allergy?",
+          ],
+          correct: 1,
+          tr_explanation: "Net evet/hayır. 'I'm allergic to X' = X alerjim var.",
+        },
+        {
+          q: "'Pick up a prescription' ne demek?",
+          options: [
+            "İlaç içmek.",
+            "Eczaneden hazır reçeteyi teslim almak.",
+            "Reçete yazmak.",
+            "Reçete kaybetmek.",
+          ],
+          correct: 1,
+          tr_explanation: "'Pick up' = teslim al. 'Take' = içmek. Bağlam farklı.",
+        },
+      ],
+    },
   ],
 };
 

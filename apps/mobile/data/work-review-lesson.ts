@@ -214,6 +214,102 @@ export const workReviewLesson_12_1: BundledLesson = {
       tr_explanation:
         "'Was part of the team' = gorunmez = manager 'kim ne yapti?' diye sorar. Self review: 'Led / Owned / Drove' fiilleri + spesifik aksiyon.",
     },
+    {
+      id: "ex.wr12.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Looking back on the ___, I'd say my biggest ___ was ___.",
+      slots: [
+        { accepted: ['quarter', 'year', 'project', 'half'], distractors: ["quarter's", "year's", 'projects', "half's"] },
+        { accepted: ['win', 'growth area', 'challenge', 'learning'], distractors: ['wins', 'growth areas', 'challenges', 'learnings'] },
+        { accepted: ['the migration', 'the redesign', 'the launch', 'the rollout'], distractors: ['migration', 'redesign', 'launch', 'rollout'] },
+      ],
+      tr_hint:
+        "Self-review opener kalıbı. 'Looking back' = reflective tone. 'Biggest X was Y' = spesifik claim.",
+      example_filled: "Looking back on the quarter, I'd say my biggest win was the migration.",
+    },
+    {
+      id: "ex.wr12.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "How do you feel the year went overall?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's a balanced read — let's talk about each area." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(overall|honestly|on the whole)",
+        "(i'?d say|i think|i feel like) (it was|things went)",
+        "(strong on|did well on|grew in)",
+        "(room to grow|to improve|to (.+))",
+      ],
+      tr_hint:
+        "Year-end review — manager self-assessment istiyor. Türk hatası: 'I am perfect' veya 'I am bad' — balance ver.",
+      ideal_answer: "Honestly, I think it went well — strong on shipping, room to grow on cross-team communication.",
+    },
+    {
+      id: "ex.wr12.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's one thing you'd do differently this year?",
+      accepted_patterns: [
+        "(honestly|to be honest|i think)",
+        "(i'?d (.+) (earlier|sooner|differently))",
+        "(asked for help|raised the flag|spoken up) (.+) (faster|earlier)",
+        "(one thing|in hindsight)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hindsight sorusu — defansif olma, growth mindset göster. 'Nothing' = kötü cevap.",
+      ideal_response: "Honestly, I'd ask for help sooner — I held onto the blocker for two weeks before raising it.",
+    },
+    {
+      id: "ex.wr12.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu projeyi yaptım.",
+      wrong_en: "I did this project.",
+      right_en: "I worked on this project / I led this project / I shipped this project.",
+      why_tr:
+        "'Did this project' = Türkçe 'projeyi yaptım' direkt çeviri. İş İngilizcesinde 'work on/lead/ship/own' kalıpları. 'Did' iş projelerinde generic ve impact göstermez. Review'de spesifik action verb (led, owned, shipped) = scope sinyali.",
+    },
+    {
+      id: "ex.wr12.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bu projeyi yaptım' review'de en güçlü?",
+          options: ["I did this project", "I led this project end-to-end", "I made this", "Project was done"],
+          correct: 1,
+          tr_explanation: "'Led end-to-end' = scope + ownership sinyali. 'Did' impact göstermez.",
+        },
+        {
+          q: "Self-review'de en kötü cevap?",
+          options: ["Honest + balanced", "I am perfect / Everything was great", "Specific examples", "Growth areas"],
+          correct: 1,
+          tr_explanation: "'Everything perfect' = self-awareness yok sinyali. Manager için red flag.",
+        },
+        {
+          q: "'Growth area' yerine kaba alternatif?",
+          options: ["Weakness", "Strength", "Win", "Skill"],
+          correct: 0,
+          tr_explanation: "'Weakness' = label, fix önermez. 'Growth area' = improvement framing.",
+        },
+        {
+          q: "Action verb hangisi en güçlü?",
+          options: ["Did", "Helped", "Led / Owned / Shipped", "Looked at"],
+          correct: 2,
+          tr_explanation: "'Led/owned/shipped' = scope ve impact gösterir. Diğerleri minimal.",
+        },
+        {
+          q: "'Room to grow on X' tonunda ne?",
+          options: ["Saldırı", "Constructive growth mindset", "Excuse", "Şikayet"],
+          correct: 1,
+          tr_explanation: "'Room to grow' = self-aware + forward-looking. Review'de pozitif sinyali.",
+        },
+      ],
+    },
   ],
 };
 
@@ -425,6 +521,102 @@ export const workReviewLesson_12_2: BundledLesson = {
         "Want to make sure I understand — can you share a concrete example?",
       tr_explanation:
         "'Not fair, you are wrong' = defansif + saldirgan = iliski + buyume kaybi. Olgun: 'understand isteyerek' + 'concrete example' istemek.",
+    },
+    {
+      id: "ex.wr12.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Looking back on the ___, I'd say my biggest ___ was ___.",
+      slots: [
+        { accepted: ['quarter', 'year', 'project', 'half'], distractors: ["quarter's", "year's", 'projects', "half's"] },
+        { accepted: ['win', 'growth area', 'challenge', 'learning'], distractors: ['wins', 'growth areas', 'challenges', 'learnings'] },
+        { accepted: ['the migration', 'the redesign', 'the launch', 'the rollout'], distractors: ['migration', 'redesign', 'launch', 'rollout'] },
+      ],
+      tr_hint:
+        "Self-review opener kalıbı. 'Looking back' = reflective tone. 'Biggest X was Y' = spesifik claim.",
+      example_filled: "Looking back on the quarter, I'd say my biggest win was the migration.",
+    },
+    {
+      id: "ex.wr12.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "How do you feel the year went overall?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's a balanced read — let's talk about each area." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(overall|honestly|on the whole)",
+        "(i'?d say|i think|i feel like) (it was|things went)",
+        "(strong on|did well on|grew in)",
+        "(room to grow|to improve|to (.+))",
+      ],
+      tr_hint:
+        "Year-end review — manager self-assessment istiyor. Türk hatası: 'I am perfect' veya 'I am bad' — balance ver.",
+      ideal_answer: "Honestly, I think it went well — strong on shipping, room to grow on cross-team communication.",
+    },
+    {
+      id: "ex.wr12.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's one thing you'd do differently this year?",
+      accepted_patterns: [
+        "(honestly|to be honest|i think)",
+        "(i'?d (.+) (earlier|sooner|differently))",
+        "(asked for help|raised the flag|spoken up) (.+) (faster|earlier)",
+        "(one thing|in hindsight)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hindsight sorusu — defansif olma, growth mindset göster. 'Nothing' = kötü cevap.",
+      ideal_response: "Honestly, I'd ask for help sooner — I held onto the blocker for two weeks before raising it.",
+    },
+    {
+      id: "ex.wr12.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu projeyi yaptım.",
+      wrong_en: "I did this project.",
+      right_en: "I worked on this project / I led this project / I shipped this project.",
+      why_tr:
+        "'Did this project' = Türkçe 'projeyi yaptım' direkt çeviri. İş İngilizcesinde 'work on/lead/ship/own' kalıpları. 'Did' iş projelerinde generic ve impact göstermez. Review'de spesifik action verb (led, owned, shipped) = scope sinyali.",
+    },
+    {
+      id: "ex.wr12.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bu projeyi yaptım' review'de en güçlü?",
+          options: ["I did this project", "I led this project end-to-end", "I made this", "Project was done"],
+          correct: 1,
+          tr_explanation: "'Led end-to-end' = scope + ownership sinyali. 'Did' impact göstermez.",
+        },
+        {
+          q: "Self-review'de en kötü cevap?",
+          options: ["Honest + balanced", "I am perfect / Everything was great", "Specific examples", "Growth areas"],
+          correct: 1,
+          tr_explanation: "'Everything perfect' = self-awareness yok sinyali. Manager için red flag.",
+        },
+        {
+          q: "'Growth area' yerine kaba alternatif?",
+          options: ["Weakness", "Strength", "Win", "Skill"],
+          correct: 0,
+          tr_explanation: "'Weakness' = label, fix önermez. 'Growth area' = improvement framing.",
+        },
+        {
+          q: "Action verb hangisi en güçlü?",
+          options: ["Did", "Helped", "Led / Owned / Shipped", "Looked at"],
+          correct: 2,
+          tr_explanation: "'Led/owned/shipped' = scope ve impact gösterir. Diğerleri minimal.",
+        },
+        {
+          q: "'Room to grow on X' tonunda ne?",
+          options: ["Saldırı", "Constructive growth mindset", "Excuse", "Şikayet"],
+          correct: 1,
+          tr_explanation: "'Room to grow' = self-aware + forward-looking. Review'de pozitif sinyali.",
+        },
+      ],
     },
   ],
 };
@@ -639,6 +831,102 @@ export const workReviewLesson_12_3: BundledLesson = {
       tr_explanation:
         "'Working too long, deserve raise' = duygusal + kidem argumani. Modern is dunyasinda etki + market verisi konusur. Sahsi ihtiyac sirket karari uretmiyor.",
     },
+    {
+      id: "ex.wr12.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Looking back on the ___, I'd say my biggest ___ was ___.",
+      slots: [
+        { accepted: ['quarter', 'year', 'project', 'half'], distractors: ["quarter's", "year's", 'projects', "half's"] },
+        { accepted: ['win', 'growth area', 'challenge', 'learning'], distractors: ['wins', 'growth areas', 'challenges', 'learnings'] },
+        { accepted: ['the migration', 'the redesign', 'the launch', 'the rollout'], distractors: ['migration', 'redesign', 'launch', 'rollout'] },
+      ],
+      tr_hint:
+        "Self-review opener kalıbı. 'Looking back' = reflective tone. 'Biggest X was Y' = spesifik claim.",
+      example_filled: "Looking back on the quarter, I'd say my biggest win was the migration.",
+    },
+    {
+      id: "ex.wr12.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "How do you feel the year went overall?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's a balanced read — let's talk about each area." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(overall|honestly|on the whole)",
+        "(i'?d say|i think|i feel like) (it was|things went)",
+        "(strong on|did well on|grew in)",
+        "(room to grow|to improve|to (.+))",
+      ],
+      tr_hint:
+        "Year-end review — manager self-assessment istiyor. Türk hatası: 'I am perfect' veya 'I am bad' — balance ver.",
+      ideal_answer: "Honestly, I think it went well — strong on shipping, room to grow on cross-team communication.",
+    },
+    {
+      id: "ex.wr12.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's one thing you'd do differently this year?",
+      accepted_patterns: [
+        "(honestly|to be honest|i think)",
+        "(i'?d (.+) (earlier|sooner|differently))",
+        "(asked for help|raised the flag|spoken up) (.+) (faster|earlier)",
+        "(one thing|in hindsight)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hindsight sorusu — defansif olma, growth mindset göster. 'Nothing' = kötü cevap.",
+      ideal_response: "Honestly, I'd ask for help sooner — I held onto the blocker for two weeks before raising it.",
+    },
+    {
+      id: "ex.wr12.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu projeyi yaptım.",
+      wrong_en: "I did this project.",
+      right_en: "I worked on this project / I led this project / I shipped this project.",
+      why_tr:
+        "'Did this project' = Türkçe 'projeyi yaptım' direkt çeviri. İş İngilizcesinde 'work on/lead/ship/own' kalıpları. 'Did' iş projelerinde generic ve impact göstermez. Review'de spesifik action verb (led, owned, shipped) = scope sinyali.",
+    },
+    {
+      id: "ex.wr12.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bu projeyi yaptım' review'de en güçlü?",
+          options: ["I did this project", "I led this project end-to-end", "I made this", "Project was done"],
+          correct: 1,
+          tr_explanation: "'Led end-to-end' = scope + ownership sinyali. 'Did' impact göstermez.",
+        },
+        {
+          q: "Self-review'de en kötü cevap?",
+          options: ["Honest + balanced", "I am perfect / Everything was great", "Specific examples", "Growth areas"],
+          correct: 1,
+          tr_explanation: "'Everything perfect' = self-awareness yok sinyali. Manager için red flag.",
+        },
+        {
+          q: "'Growth area' yerine kaba alternatif?",
+          options: ["Weakness", "Strength", "Win", "Skill"],
+          correct: 0,
+          tr_explanation: "'Weakness' = label, fix önermez. 'Growth area' = improvement framing.",
+        },
+        {
+          q: "Action verb hangisi en güçlü?",
+          options: ["Did", "Helped", "Led / Owned / Shipped", "Looked at"],
+          correct: 2,
+          tr_explanation: "'Led/owned/shipped' = scope ve impact gösterir. Diğerleri minimal.",
+        },
+        {
+          q: "'Room to grow on X' tonunda ne?",
+          options: ["Saldırı", "Constructive growth mindset", "Excuse", "Şikayet"],
+          correct: 1,
+          tr_explanation: "'Room to grow' = self-aware + forward-looking. Review'de pozitif sinyali.",
+        },
+      ],
+    },
   ],
 };
 
@@ -851,6 +1139,102 @@ export const workReviewLesson_12_4: BundledLesson = {
       tr_explanation:
         "'Too quiet, slow always' = etiket + kisi saldirisi = HR riski. Peer feedback: davranis (proactive updates) + actionable oneri.",
     },
+    {
+      id: "ex.wr12.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Looking back on the ___, I'd say my biggest ___ was ___.",
+      slots: [
+        { accepted: ['quarter', 'year', 'project', 'half'], distractors: ["quarter's", "year's", 'projects', "half's"] },
+        { accepted: ['win', 'growth area', 'challenge', 'learning'], distractors: ['wins', 'growth areas', 'challenges', 'learnings'] },
+        { accepted: ['the migration', 'the redesign', 'the launch', 'the rollout'], distractors: ['migration', 'redesign', 'launch', 'rollout'] },
+      ],
+      tr_hint:
+        "Self-review opener kalıbı. 'Looking back' = reflective tone. 'Biggest X was Y' = spesifik claim.",
+      example_filled: "Looking back on the quarter, I'd say my biggest win was the migration.",
+    },
+    {
+      id: "ex.wr12.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "How do you feel the year went overall?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's a balanced read — let's talk about each area." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(overall|honestly|on the whole)",
+        "(i'?d say|i think|i feel like) (it was|things went)",
+        "(strong on|did well on|grew in)",
+        "(room to grow|to improve|to (.+))",
+      ],
+      tr_hint:
+        "Year-end review — manager self-assessment istiyor. Türk hatası: 'I am perfect' veya 'I am bad' — balance ver.",
+      ideal_answer: "Honestly, I think it went well — strong on shipping, room to grow on cross-team communication.",
+    },
+    {
+      id: "ex.wr12.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's one thing you'd do differently this year?",
+      accepted_patterns: [
+        "(honestly|to be honest|i think)",
+        "(i'?d (.+) (earlier|sooner|differently))",
+        "(asked for help|raised the flag|spoken up) (.+) (faster|earlier)",
+        "(one thing|in hindsight)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hindsight sorusu — defansif olma, growth mindset göster. 'Nothing' = kötü cevap.",
+      ideal_response: "Honestly, I'd ask for help sooner — I held onto the blocker for two weeks before raising it.",
+    },
+    {
+      id: "ex.wr12.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu projeyi yaptım.",
+      wrong_en: "I did this project.",
+      right_en: "I worked on this project / I led this project / I shipped this project.",
+      why_tr:
+        "'Did this project' = Türkçe 'projeyi yaptım' direkt çeviri. İş İngilizcesinde 'work on/lead/ship/own' kalıpları. 'Did' iş projelerinde generic ve impact göstermez. Review'de spesifik action verb (led, owned, shipped) = scope sinyali.",
+    },
+    {
+      id: "ex.wr12.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bu projeyi yaptım' review'de en güçlü?",
+          options: ["I did this project", "I led this project end-to-end", "I made this", "Project was done"],
+          correct: 1,
+          tr_explanation: "'Led end-to-end' = scope + ownership sinyali. 'Did' impact göstermez.",
+        },
+        {
+          q: "Self-review'de en kötü cevap?",
+          options: ["Honest + balanced", "I am perfect / Everything was great", "Specific examples", "Growth areas"],
+          correct: 1,
+          tr_explanation: "'Everything perfect' = self-awareness yok sinyali. Manager için red flag.",
+        },
+        {
+          q: "'Growth area' yerine kaba alternatif?",
+          options: ["Weakness", "Strength", "Win", "Skill"],
+          correct: 0,
+          tr_explanation: "'Weakness' = label, fix önermez. 'Growth area' = improvement framing.",
+        },
+        {
+          q: "Action verb hangisi en güçlü?",
+          options: ["Did", "Helped", "Led / Owned / Shipped", "Looked at"],
+          correct: 2,
+          tr_explanation: "'Led/owned/shipped' = scope ve impact gösterir. Diğerleri minimal.",
+        },
+        {
+          q: "'Room to grow on X' tonunda ne?",
+          options: ["Saldırı", "Constructive growth mindset", "Excuse", "Şikayet"],
+          correct: 1,
+          tr_explanation: "'Room to grow' = self-aware + forward-looking. Review'de pozitif sinyali.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1027,6 +1411,102 @@ export const workReviewLesson_12_5: BundledLesson = {
       ipa: "/droʊv ə ˈθɜrti pərˈsɛnt ɪmˈpruvmənt ɪn rɪˈtɛnʃən/",
       tr_articulation_hint:
         "'Drove' (drive past tense) sert d ile. 'Percent' = pır-sent, vurgu sonda. 'Retention' = ri-ten-sın, vurgu ortada. Veri sunum tonu — sakin + kararli + kanitla.",
+    },
+    {
+      id: "ex.wr12.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Looking back on the ___, I'd say my biggest ___ was ___.",
+      slots: [
+        { accepted: ['quarter', 'year', 'project', 'half'], distractors: ["quarter's", "year's", 'projects', "half's"] },
+        { accepted: ['win', 'growth area', 'challenge', 'learning'], distractors: ['wins', 'growth areas', 'challenges', 'learnings'] },
+        { accepted: ['the migration', 'the redesign', 'the launch', 'the rollout'], distractors: ['migration', 'redesign', 'launch', 'rollout'] },
+      ],
+      tr_hint:
+        "Self-review opener kalıbı. 'Looking back' = reflective tone. 'Biggest X was Y' = spesifik claim.",
+      example_filled: "Looking back on the quarter, I'd say my biggest win was the migration.",
+    },
+    {
+      id: "ex.wr12.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "How do you feel the year went overall?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's a balanced read — let's talk about each area." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(overall|honestly|on the whole)",
+        "(i'?d say|i think|i feel like) (it was|things went)",
+        "(strong on|did well on|grew in)",
+        "(room to grow|to improve|to (.+))",
+      ],
+      tr_hint:
+        "Year-end review — manager self-assessment istiyor. Türk hatası: 'I am perfect' veya 'I am bad' — balance ver.",
+      ideal_answer: "Honestly, I think it went well — strong on shipping, room to grow on cross-team communication.",
+    },
+    {
+      id: "ex.wr12.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's one thing you'd do differently this year?",
+      accepted_patterns: [
+        "(honestly|to be honest|i think)",
+        "(i'?d (.+) (earlier|sooner|differently))",
+        "(asked for help|raised the flag|spoken up) (.+) (faster|earlier)",
+        "(one thing|in hindsight)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hindsight sorusu — defansif olma, growth mindset göster. 'Nothing' = kötü cevap.",
+      ideal_response: "Honestly, I'd ask for help sooner — I held onto the blocker for two weeks before raising it.",
+    },
+    {
+      id: "ex.wr12.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu projeyi yaptım.",
+      wrong_en: "I did this project.",
+      right_en: "I worked on this project / I led this project / I shipped this project.",
+      why_tr:
+        "'Did this project' = Türkçe 'projeyi yaptım' direkt çeviri. İş İngilizcesinde 'work on/lead/ship/own' kalıpları. 'Did' iş projelerinde generic ve impact göstermez. Review'de spesifik action verb (led, owned, shipped) = scope sinyali.",
+    },
+    {
+      id: "ex.wr12.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bu projeyi yaptım' review'de en güçlü?",
+          options: ["I did this project", "I led this project end-to-end", "I made this", "Project was done"],
+          correct: 1,
+          tr_explanation: "'Led end-to-end' = scope + ownership sinyali. 'Did' impact göstermez.",
+        },
+        {
+          q: "Self-review'de en kötü cevap?",
+          options: ["Honest + balanced", "I am perfect / Everything was great", "Specific examples", "Growth areas"],
+          correct: 1,
+          tr_explanation: "'Everything perfect' = self-awareness yok sinyali. Manager için red flag.",
+        },
+        {
+          q: "'Growth area' yerine kaba alternatif?",
+          options: ["Weakness", "Strength", "Win", "Skill"],
+          correct: 0,
+          tr_explanation: "'Weakness' = label, fix önermez. 'Growth area' = improvement framing.",
+        },
+        {
+          q: "Action verb hangisi en güçlü?",
+          options: ["Did", "Helped", "Led / Owned / Shipped", "Looked at"],
+          correct: 2,
+          tr_explanation: "'Led/owned/shipped' = scope ve impact gösterir. Diğerleri minimal.",
+        },
+        {
+          q: "'Room to grow on X' tonunda ne?",
+          options: ["Saldırı", "Constructive growth mindset", "Excuse", "Şikayet"],
+          correct: 1,
+          tr_explanation: "'Room to grow' = self-aware + forward-looking. Review'de pozitif sinyali.",
+        },
+      ],
     },
   ],
 };
@@ -1205,6 +1685,102 @@ export const workReviewLesson_12_6: BundledLesson = {
       tr_articulation_hint:
         "'Understand' = an-dır-stend, vurgu sonda. 'More' uzun, kapatici degil davetkar. Ton kritik: merak + acik, yargi yok. Sakin tempo, hafif yukselen son.",
     },
+    {
+      id: "ex.wr12.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Looking back on the ___, I'd say my biggest ___ was ___.",
+      slots: [
+        { accepted: ['quarter', 'year', 'project', 'half'], distractors: ["quarter's", "year's", 'projects', "half's"] },
+        { accepted: ['win', 'growth area', 'challenge', 'learning'], distractors: ['wins', 'growth areas', 'challenges', 'learnings'] },
+        { accepted: ['the migration', 'the redesign', 'the launch', 'the rollout'], distractors: ['migration', 'redesign', 'launch', 'rollout'] },
+      ],
+      tr_hint:
+        "Self-review opener kalıbı. 'Looking back' = reflective tone. 'Biggest X was Y' = spesifik claim.",
+      example_filled: "Looking back on the quarter, I'd say my biggest win was the migration.",
+    },
+    {
+      id: "ex.wr12.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "How do you feel the year went overall?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's a balanced read — let's talk about each area." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(overall|honestly|on the whole)",
+        "(i'?d say|i think|i feel like) (it was|things went)",
+        "(strong on|did well on|grew in)",
+        "(room to grow|to improve|to (.+))",
+      ],
+      tr_hint:
+        "Year-end review — manager self-assessment istiyor. Türk hatası: 'I am perfect' veya 'I am bad' — balance ver.",
+      ideal_answer: "Honestly, I think it went well — strong on shipping, room to grow on cross-team communication.",
+    },
+    {
+      id: "ex.wr12.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's one thing you'd do differently this year?",
+      accepted_patterns: [
+        "(honestly|to be honest|i think)",
+        "(i'?d (.+) (earlier|sooner|differently))",
+        "(asked for help|raised the flag|spoken up) (.+) (faster|earlier)",
+        "(one thing|in hindsight)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hindsight sorusu — defansif olma, growth mindset göster. 'Nothing' = kötü cevap.",
+      ideal_response: "Honestly, I'd ask for help sooner — I held onto the blocker for two weeks before raising it.",
+    },
+    {
+      id: "ex.wr12.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu projeyi yaptım.",
+      wrong_en: "I did this project.",
+      right_en: "I worked on this project / I led this project / I shipped this project.",
+      why_tr:
+        "'Did this project' = Türkçe 'projeyi yaptım' direkt çeviri. İş İngilizcesinde 'work on/lead/ship/own' kalıpları. 'Did' iş projelerinde generic ve impact göstermez. Review'de spesifik action verb (led, owned, shipped) = scope sinyali.",
+    },
+    {
+      id: "ex.wr12.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bu projeyi yaptım' review'de en güçlü?",
+          options: ["I did this project", "I led this project end-to-end", "I made this", "Project was done"],
+          correct: 1,
+          tr_explanation: "'Led end-to-end' = scope + ownership sinyali. 'Did' impact göstermez.",
+        },
+        {
+          q: "Self-review'de en kötü cevap?",
+          options: ["Honest + balanced", "I am perfect / Everything was great", "Specific examples", "Growth areas"],
+          correct: 1,
+          tr_explanation: "'Everything perfect' = self-awareness yok sinyali. Manager için red flag.",
+        },
+        {
+          q: "'Growth area' yerine kaba alternatif?",
+          options: ["Weakness", "Strength", "Win", "Skill"],
+          correct: 0,
+          tr_explanation: "'Weakness' = label, fix önermez. 'Growth area' = improvement framing.",
+        },
+        {
+          q: "Action verb hangisi en güçlü?",
+          options: ["Did", "Helped", "Led / Owned / Shipped", "Looked at"],
+          correct: 2,
+          tr_explanation: "'Led/owned/shipped' = scope ve impact gösterir. Diğerleri minimal.",
+        },
+        {
+          q: "'Room to grow on X' tonunda ne?",
+          options: ["Saldırı", "Constructive growth mindset", "Excuse", "Şikayet"],
+          correct: 1,
+          tr_explanation: "'Room to grow' = self-aware + forward-looking. Review'de pozitif sinyali.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1381,6 +1957,102 @@ export const workReviewLesson_12_7: BundledLesson = {
       ipa: "/wʌts wʌn θɪŋ aɪ kʊd du ˈbɛtər/",
       tr_articulation_hint:
         "'What's' (wats) — t sesi yumusak. 'Thing' = th sesi, dil dislerin arasinda. 'Better' = be-tır, vurgu basta. Ton merakli + ozguvenli — savunmasiz ama zayif degil.",
+    },
+    {
+      id: "ex.wr12.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Looking back on the ___, I'd say my biggest ___ was ___.",
+      slots: [
+        { accepted: ['quarter', 'year', 'project', 'half'], distractors: ["quarter's", "year's", 'projects', "half's"] },
+        { accepted: ['win', 'growth area', 'challenge', 'learning'], distractors: ['wins', 'growth areas', 'challenges', 'learnings'] },
+        { accepted: ['the migration', 'the redesign', 'the launch', 'the rollout'], distractors: ['migration', 'redesign', 'launch', 'rollout'] },
+      ],
+      tr_hint:
+        "Self-review opener kalıbı. 'Looking back' = reflective tone. 'Biggest X was Y' = spesifik claim.",
+      example_filled: "Looking back on the quarter, I'd say my biggest win was the migration.",
+    },
+    {
+      id: "ex.wr12.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "How do you feel the year went overall?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's a balanced read — let's talk about each area." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(overall|honestly|on the whole)",
+        "(i'?d say|i think|i feel like) (it was|things went)",
+        "(strong on|did well on|grew in)",
+        "(room to grow|to improve|to (.+))",
+      ],
+      tr_hint:
+        "Year-end review — manager self-assessment istiyor. Türk hatası: 'I am perfect' veya 'I am bad' — balance ver.",
+      ideal_answer: "Honestly, I think it went well — strong on shipping, room to grow on cross-team communication.",
+    },
+    {
+      id: "ex.wr12.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's one thing you'd do differently this year?",
+      accepted_patterns: [
+        "(honestly|to be honest|i think)",
+        "(i'?d (.+) (earlier|sooner|differently))",
+        "(asked for help|raised the flag|spoken up) (.+) (faster|earlier)",
+        "(one thing|in hindsight)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hindsight sorusu — defansif olma, growth mindset göster. 'Nothing' = kötü cevap.",
+      ideal_response: "Honestly, I'd ask for help sooner — I held onto the blocker for two weeks before raising it.",
+    },
+    {
+      id: "ex.wr12.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu projeyi yaptım.",
+      wrong_en: "I did this project.",
+      right_en: "I worked on this project / I led this project / I shipped this project.",
+      why_tr:
+        "'Did this project' = Türkçe 'projeyi yaptım' direkt çeviri. İş İngilizcesinde 'work on/lead/ship/own' kalıpları. 'Did' iş projelerinde generic ve impact göstermez. Review'de spesifik action verb (led, owned, shipped) = scope sinyali.",
+    },
+    {
+      id: "ex.wr12.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bu projeyi yaptım' review'de en güçlü?",
+          options: ["I did this project", "I led this project end-to-end", "I made this", "Project was done"],
+          correct: 1,
+          tr_explanation: "'Led end-to-end' = scope + ownership sinyali. 'Did' impact göstermez.",
+        },
+        {
+          q: "Self-review'de en kötü cevap?",
+          options: ["Honest + balanced", "I am perfect / Everything was great", "Specific examples", "Growth areas"],
+          correct: 1,
+          tr_explanation: "'Everything perfect' = self-awareness yok sinyali. Manager için red flag.",
+        },
+        {
+          q: "'Growth area' yerine kaba alternatif?",
+          options: ["Weakness", "Strength", "Win", "Skill"],
+          correct: 0,
+          tr_explanation: "'Weakness' = label, fix önermez. 'Growth area' = improvement framing.",
+        },
+        {
+          q: "Action verb hangisi en güçlü?",
+          options: ["Did", "Helped", "Led / Owned / Shipped", "Looked at"],
+          correct: 2,
+          tr_explanation: "'Led/owned/shipped' = scope ve impact gösterir. Diğerleri minimal.",
+        },
+        {
+          q: "'Room to grow on X' tonunda ne?",
+          options: ["Saldırı", "Constructive growth mindset", "Excuse", "Şikayet"],
+          correct: 1,
+          tr_explanation: "'Room to grow' = self-aware + forward-looking. Review'de pozitif sinyali.",
+        },
+      ],
     },
   ],
 };
@@ -1559,6 +2231,102 @@ export const workReviewLesson_12_8: BundledLesson = {
       ipa: "/wʌt dʌz greɪt lʊk laɪk æt ðɪs ˈlɛvəl/",
       tr_articulation_hint:
         "'Great' (g-reyt) — gercek r sesi. 'Look' kisa, 'like' uzun ay sesi. 'Level' = le-vıl, vurgu basta. Ton: meraki + kararli + savunmasiz. Drama yok, plan modu.",
+    },
+    {
+      id: "ex.wr12.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Looking back on the ___, I'd say my biggest ___ was ___.",
+      slots: [
+        { accepted: ['quarter', 'year', 'project', 'half'], distractors: ["quarter's", "year's", 'projects', "half's"] },
+        { accepted: ['win', 'growth area', 'challenge', 'learning'], distractors: ['wins', 'growth areas', 'challenges', 'learnings'] },
+        { accepted: ['the migration', 'the redesign', 'the launch', 'the rollout'], distractors: ['migration', 'redesign', 'launch', 'rollout'] },
+      ],
+      tr_hint:
+        "Self-review opener kalıbı. 'Looking back' = reflective tone. 'Biggest X was Y' = spesifik claim.",
+      example_filled: "Looking back on the quarter, I'd say my biggest win was the migration.",
+    },
+    {
+      id: "ex.wr12.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "How do you feel the year went overall?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's a balanced read — let's talk about each area." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(overall|honestly|on the whole)",
+        "(i'?d say|i think|i feel like) (it was|things went)",
+        "(strong on|did well on|grew in)",
+        "(room to grow|to improve|to (.+))",
+      ],
+      tr_hint:
+        "Year-end review — manager self-assessment istiyor. Türk hatası: 'I am perfect' veya 'I am bad' — balance ver.",
+      ideal_answer: "Honestly, I think it went well — strong on shipping, room to grow on cross-team communication.",
+    },
+    {
+      id: "ex.wr12.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's one thing you'd do differently this year?",
+      accepted_patterns: [
+        "(honestly|to be honest|i think)",
+        "(i'?d (.+) (earlier|sooner|differently))",
+        "(asked for help|raised the flag|spoken up) (.+) (faster|earlier)",
+        "(one thing|in hindsight)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hindsight sorusu — defansif olma, growth mindset göster. 'Nothing' = kötü cevap.",
+      ideal_response: "Honestly, I'd ask for help sooner — I held onto the blocker for two weeks before raising it.",
+    },
+    {
+      id: "ex.wr12.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu projeyi yaptım.",
+      wrong_en: "I did this project.",
+      right_en: "I worked on this project / I led this project / I shipped this project.",
+      why_tr:
+        "'Did this project' = Türkçe 'projeyi yaptım' direkt çeviri. İş İngilizcesinde 'work on/lead/ship/own' kalıpları. 'Did' iş projelerinde generic ve impact göstermez. Review'de spesifik action verb (led, owned, shipped) = scope sinyali.",
+    },
+    {
+      id: "ex.wr12.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bu projeyi yaptım' review'de en güçlü?",
+          options: ["I did this project", "I led this project end-to-end", "I made this", "Project was done"],
+          correct: 1,
+          tr_explanation: "'Led end-to-end' = scope + ownership sinyali. 'Did' impact göstermez.",
+        },
+        {
+          q: "Self-review'de en kötü cevap?",
+          options: ["Honest + balanced", "I am perfect / Everything was great", "Specific examples", "Growth areas"],
+          correct: 1,
+          tr_explanation: "'Everything perfect' = self-awareness yok sinyali. Manager için red flag.",
+        },
+        {
+          q: "'Growth area' yerine kaba alternatif?",
+          options: ["Weakness", "Strength", "Win", "Skill"],
+          correct: 0,
+          tr_explanation: "'Weakness' = label, fix önermez. 'Growth area' = improvement framing.",
+        },
+        {
+          q: "Action verb hangisi en güçlü?",
+          options: ["Did", "Helped", "Led / Owned / Shipped", "Looked at"],
+          correct: 2,
+          tr_explanation: "'Led/owned/shipped' = scope ve impact gösterir. Diğerleri minimal.",
+        },
+        {
+          q: "'Room to grow on X' tonunda ne?",
+          options: ["Saldırı", "Constructive growth mindset", "Excuse", "Şikayet"],
+          correct: 1,
+          tr_explanation: "'Room to grow' = self-aware + forward-looking. Review'de pozitif sinyali.",
+        },
+      ],
     },
   ],
 };

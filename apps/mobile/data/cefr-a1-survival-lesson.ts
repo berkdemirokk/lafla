@@ -152,6 +152,123 @@ export const cefrA1SurvivalLesson_1: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a1s.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 1,
+      template: "___, how are you?",
+      slots: [
+        { accepted: ["Hello", "Hi", "Good morning", "Hey"], distractors: ["Bye", "Sorry", "Hello me"] },
+      ],
+      tr_hint:
+        "En basit selamlaşma. 'Hello/Hi/Good morning' + 'how are you?' Türk öğrenci doğrudan 'how are you' der — selamlama lazım.",
+      example_filled: "Hello, how are you?",
+    },
+    {
+      id: "ex.a1s.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 1,
+      turns: [
+        { speaker: "npc", text: "Hello, how are you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I'm fine too. Thank you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m (fine|good|okay))(,)?( thank you|thanks)?( and you|how about you)?",
+        "(good|fine)(,)? (thanks|thank you)",
+        "(not bad)(,)? (how about you|and you)",
+      ],
+      tr_hint:
+        "'How are you?' = nasılsın? Cevap: 'I'm fine, thank you. And you?' Türk öğrenci 'I am very good' der — fazla resmi. 'I'm fine' standart.",
+      ideal_answer: "I'm fine, thank you. And you?",
+    },
+    {
+      id: "ex.a1s.1.lr1",
+      type: "listen_respond",
+      difficulty: 1,
+      npc_line: "Hello! How are you today?",
+      accepted_patterns: [
+        "(i'?m (fine|good))(,)?( thank you|thanks)?(,)? (and you|how about you)",
+        "(hello|hi)(,)? (i'?m (fine|good))",
+        "(fine)(,)? (thank you|thanks)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "İlk selamlama. Net + kibar. 'I'm fine, thank you. And you?' En güvenli A1 cevap.",
+      ideal_response: "Hello! I'm fine, thank you. And you?",
+    },
+    {
+      id: "ex.a1s.1.tt1",
+      type: "thinking_trap",
+      difficulty: 1,
+      tr_thought: "Ben iyiyim, sen?",
+      wrong_en: "I am good, you?",
+      right_en: "I'm fine, thank you. And you?",
+      why_tr:
+        "İki sorun: (1) 'I am good' Amerikan'da OK ama A1 öğrenci için 'I'm fine' standart. (2) 'You?' eksik — 'And you?' tam cümle. Sadece 'you?' kısa + kaba.",
+    },
+    {
+      id: "ex.a1s.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Hello' ne demek?",
+          options: [
+            "Hoşçakal",
+            "Merhaba",
+            "Teşekkürler",
+            "Lütfen",
+          ],
+          correct: 1,
+          tr_explanation: "'Hello' = merhaba. Selamlaşmanın en yaygın kelimesi.",
+        },
+        {
+          q: "'How are you?' = ?",
+          options: [
+            "Sen nasılsın? (Nasılsın?)",
+            "Sen kimsin?",
+            "Sen nerelisin?",
+            "Ne zaman?",
+          ],
+          correct: 0,
+          tr_explanation: "'How are you?' = nasılsın?. Selamlama sonrası standart soru.",
+        },
+        {
+          q: "'I'm fine' = ?",
+          options: [
+            "İyiyim.",
+            "Anlamadım.",
+            "Lütfen.",
+            "Hoşçakal.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'm fine' = iyiyim. 'How are you?' cevabı.",
+        },
+        {
+          q: "'Good morning' ne zaman söylenir?",
+          options: [
+            "Akşam",
+            "Sabah (~6-12)",
+            "Gece",
+            "Her zaman",
+          ],
+          correct: 1,
+          tr_explanation: "'Good morning' = günaydın (sabah). 'Good afternoon' = öğleden sonra. 'Good evening' = akşam.",
+        },
+        {
+          q: "Vedalaşma için en basit?",
+          options: [
+            "Hello.",
+            "Goodbye. / Bye.",
+            "How are you?",
+            "Sorry.",
+          ],
+          correct: 1,
+          tr_explanation: "'Goodbye' = hoşçakal. 'Bye' = kısaltma (samimi).",
+        },
+      ],
+    },
   ],
 };
 

@@ -273,6 +273,102 @@ export const workStandupLesson_33_1: BundledLesson = {
       tr_explanation:
         "'I do many works' tense + kelime sayisi yanlis ('works' bu baglamda 'work'). 'Maybe blocker' belirsiz — Standup'ta blocker varsa SOMUT soyle, yoksa 'no blockers'. Y/T/B = kesin baslik formati.",
     },
+    {
+      id: "ex.wst33.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Yesterday I ___; today I'm ___; blockers: ___.",
+      slots: [
+        { accepted: ['wrapped up the migration', 'shipped the auth flow', 'finished the design review', 'merged the PR'], distractors: ['wrapping up migration', 'ship the auth flow', 'finished design review', 'merging PR'] },
+        { accepted: ['working on the cleanup', 'moving to the dashboard', 'doing the QA pass', 'writing tests'], distractors: ['work on cleanup', 'moved to dashboard', "doing QA pass's", 'write tests'] },
+        { accepted: ['none', 'waiting on review', 'blocked on design', 'waiting on QA'], distractors: ['nothing', 'waiting review', 'block on design', 'wait on QA'] },
+      ],
+      tr_hint:
+        "Standup format. Yesterday/today/blockers. Past simple → present continuous → 'none' veya spesifik blocker.",
+      example_filled: "Yesterday I wrapped up the migration; today I'm working on the cleanup; blockers: none.",
+    },
+    {
+      id: "ex.wst33.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Quick standup — who wants to go first?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, anyone blocked on anything?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i can go|i'?ll start|i'?ll kick off)",
+        "(yesterday|last (.+))",
+        "(today|this morning) (i'?m|i)",
+        "(no|none|nothing) blocking|(i'?m|i am) blocked on",
+      ],
+      tr_hint:
+        "Standup başladı — kısa, net, structured. Türk hatası: 'Ben...' deyip uzatma. 1 dakika max.",
+      ideal_answer: "I can go first — yesterday I shipped the API change, today I'm onboarding the new dev, no blockers.",
+    },
+    {
+      id: "ex.wst33.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Anything blocking you right now?",
+      accepted_patterns: [
+        "(yeah|yes|actually)",
+        "(i'?m blocked|stuck) on (.+)",
+        "(waiting on|need (input|review|approval) from) (.+)",
+        "(nothing right now|all good|no blockers)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Standup'ta blocker sorusu — net cevap. Vague 'maybe' = kötü. Spesifik kişi + neden.",
+      ideal_response: "Yeah — I'm blocked on the API spec, waiting on input from the backend team.",
+    },
+    {
+      id: "ex.wst33.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Dün toplantıdaydım.",
+      wrong_en: "Yesterday I was at meeting.",
+      right_en: "Yesterday I was in a meeting / Yesterday I was in meetings all day.",
+      why_tr:
+        "'At meeting' = location preposition hatası. 'In a meeting' (article + in) standardı. Article eksik = Türkçe etkisi (Türkçede article yok). Meeting 'in' edilir çünkü içeride bir aktivite olarak görülür. 'At the meeting' specific bir toplantıya işaret eder, 'in a meeting' generic 'toplantıda olmak' anlamı.",
+    },
+    {
+      id: "ex.wst33.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Standup formatı?",
+          options: ["Free-flow konuşma", "Yesterday/Today/Blockers", "Tüm hayatın hikayesi", "Sadece sorunlar"],
+          correct: 1,
+          tr_explanation: "Standart formula = ne yaptın / ne yapıyorsun / blocker. Standup ekonomisi.",
+        },
+        {
+          q: "'Toplantıdaydım' İngilizcesi?",
+          options: ["I was at meeting", "I was in a meeting", "I was meeting", "I had meeting"],
+          correct: 1,
+          tr_explanation: "'In a meeting' = article + correct preposition. 'At meeting' yanlış.",
+        },
+        {
+          q: "Standup'ta optimum süre?",
+          options: ["5 dakika kişi başı", "30-60 saniye kişi başı", "10 dakika", "Sınırsız"],
+          correct: 1,
+          tr_explanation: "30-60 saniye. Daha fazla = sync'i bloklar, sonraki kişi sıkılır.",
+        },
+        {
+          q: "'No blockers' anlamı?",
+          options: ["Çok blocker var", "Engelleyici yok, devam edebilirim", "Konuşmam yok", "Bilmiyorum"],
+          correct: 1,
+          tr_explanation: "'No blockers' = ilerlemeye engel yok. Standup kapanış sinyali.",
+        },
+        {
+          q: "Blocker olduğunda en iyi format?",
+          options: ["Vague 'maybe' ifade", "Spesifik kişi/system + neden + ne lazım", "Sus", "Sadece şikayet"],
+          correct: 1,
+          tr_explanation: "'Blocked on X by Y, need Z' = aksiyon alabilir format. Standup amacı bu.",
+        },
+      ],
+    },
   ],
 };
 
@@ -554,6 +650,102 @@ export const workStandupLesson_33_2: BundledLesson = {
       tr_explanation:
         "'Have problem' = belirsiz + genel. 'Please help me now' = baski + zaman zorlamasi. Doğru: spesifik konu + spesifik sure + kibar cagri. Ekipte herkes karar verir kim 20 dakika ayirabilir.",
     },
+    {
+      id: "ex.wst33.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Yesterday I ___; today I'm ___; blockers: ___.",
+      slots: [
+        { accepted: ['wrapped up the migration', 'shipped the auth flow', 'finished the design review', 'merged the PR'], distractors: ['wrapping up migration', 'ship the auth flow', 'finished design review', 'merging PR'] },
+        { accepted: ['working on the cleanup', 'moving to the dashboard', 'doing the QA pass', 'writing tests'], distractors: ['work on cleanup', 'moved to dashboard', "doing QA pass's", 'write tests'] },
+        { accepted: ['none', 'waiting on review', 'blocked on design', 'waiting on QA'], distractors: ['nothing', 'waiting review', 'block on design', 'wait on QA'] },
+      ],
+      tr_hint:
+        "Standup format. Yesterday/today/blockers. Past simple → present continuous → 'none' veya spesifik blocker.",
+      example_filled: "Yesterday I wrapped up the migration; today I'm working on the cleanup; blockers: none.",
+    },
+    {
+      id: "ex.wst33.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Quick standup — who wants to go first?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, anyone blocked on anything?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i can go|i'?ll start|i'?ll kick off)",
+        "(yesterday|last (.+))",
+        "(today|this morning) (i'?m|i)",
+        "(no|none|nothing) blocking|(i'?m|i am) blocked on",
+      ],
+      tr_hint:
+        "Standup başladı — kısa, net, structured. Türk hatası: 'Ben...' deyip uzatma. 1 dakika max.",
+      ideal_answer: "I can go first — yesterday I shipped the API change, today I'm onboarding the new dev, no blockers.",
+    },
+    {
+      id: "ex.wst33.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Anything blocking you right now?",
+      accepted_patterns: [
+        "(yeah|yes|actually)",
+        "(i'?m blocked|stuck) on (.+)",
+        "(waiting on|need (input|review|approval) from) (.+)",
+        "(nothing right now|all good|no blockers)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Standup'ta blocker sorusu — net cevap. Vague 'maybe' = kötü. Spesifik kişi + neden.",
+      ideal_response: "Yeah — I'm blocked on the API spec, waiting on input from the backend team.",
+    },
+    {
+      id: "ex.wst33.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Dün toplantıdaydım.",
+      wrong_en: "Yesterday I was at meeting.",
+      right_en: "Yesterday I was in a meeting / Yesterday I was in meetings all day.",
+      why_tr:
+        "'At meeting' = location preposition hatası. 'In a meeting' (article + in) standardı. Article eksik = Türkçe etkisi (Türkçede article yok). Meeting 'in' edilir çünkü içeride bir aktivite olarak görülür. 'At the meeting' specific bir toplantıya işaret eder, 'in a meeting' generic 'toplantıda olmak' anlamı.",
+    },
+    {
+      id: "ex.wst33.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Standup formatı?",
+          options: ["Free-flow konuşma", "Yesterday/Today/Blockers", "Tüm hayatın hikayesi", "Sadece sorunlar"],
+          correct: 1,
+          tr_explanation: "Standart formula = ne yaptın / ne yapıyorsun / blocker. Standup ekonomisi.",
+        },
+        {
+          q: "'Toplantıdaydım' İngilizcesi?",
+          options: ["I was at meeting", "I was in a meeting", "I was meeting", "I had meeting"],
+          correct: 1,
+          tr_explanation: "'In a meeting' = article + correct preposition. 'At meeting' yanlış.",
+        },
+        {
+          q: "Standup'ta optimum süre?",
+          options: ["5 dakika kişi başı", "30-60 saniye kişi başı", "10 dakika", "Sınırsız"],
+          correct: 1,
+          tr_explanation: "30-60 saniye. Daha fazla = sync'i bloklar, sonraki kişi sıkılır.",
+        },
+        {
+          q: "'No blockers' anlamı?",
+          options: ["Çok blocker var", "Engelleyici yok, devam edebilirim", "Konuşmam yok", "Bilmiyorum"],
+          correct: 1,
+          tr_explanation: "'No blockers' = ilerlemeye engel yok. Standup kapanış sinyali.",
+        },
+        {
+          q: "Blocker olduğunda en iyi format?",
+          options: ["Vague 'maybe' ifade", "Spesifik kişi/system + neden + ne lazım", "Sus", "Sadece şikayet"],
+          correct: 1,
+          tr_explanation: "'Blocked on X by Y, need Z' = aksiyon alabilir format. Standup amacı bu.",
+        },
+      ],
+    },
   ],
 };
 
@@ -772,6 +964,102 @@ export const workStandupLesson_33_3: BundledLesson = {
         ":white_check_mark: Y: auth PR merged\n:construction: T: onboarding flow\n:no_entry: B: blocked on design review (@ali)",
       tr_explanation:
         "Async = taranabilir. Kucuk harf + 'idk' + paragraf = profesyonel degil + kimse okumaz. Doğru: emoji + Y/T/B + @mention. 2 saniyede parse edilir.",
+    },
+    {
+      id: "ex.wst33.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Yesterday I ___; today I'm ___; blockers: ___.",
+      slots: [
+        { accepted: ['wrapped up the migration', 'shipped the auth flow', 'finished the design review', 'merged the PR'], distractors: ['wrapping up migration', 'ship the auth flow', 'finished design review', 'merging PR'] },
+        { accepted: ['working on the cleanup', 'moving to the dashboard', 'doing the QA pass', 'writing tests'], distractors: ['work on cleanup', 'moved to dashboard', "doing QA pass's", 'write tests'] },
+        { accepted: ['none', 'waiting on review', 'blocked on design', 'waiting on QA'], distractors: ['nothing', 'waiting review', 'block on design', 'wait on QA'] },
+      ],
+      tr_hint:
+        "Standup format. Yesterday/today/blockers. Past simple → present continuous → 'none' veya spesifik blocker.",
+      example_filled: "Yesterday I wrapped up the migration; today I'm working on the cleanup; blockers: none.",
+    },
+    {
+      id: "ex.wst33.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Quick standup — who wants to go first?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, anyone blocked on anything?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i can go|i'?ll start|i'?ll kick off)",
+        "(yesterday|last (.+))",
+        "(today|this morning) (i'?m|i)",
+        "(no|none|nothing) blocking|(i'?m|i am) blocked on",
+      ],
+      tr_hint:
+        "Standup başladı — kısa, net, structured. Türk hatası: 'Ben...' deyip uzatma. 1 dakika max.",
+      ideal_answer: "I can go first — yesterday I shipped the API change, today I'm onboarding the new dev, no blockers.",
+    },
+    {
+      id: "ex.wst33.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Anything blocking you right now?",
+      accepted_patterns: [
+        "(yeah|yes|actually)",
+        "(i'?m blocked|stuck) on (.+)",
+        "(waiting on|need (input|review|approval) from) (.+)",
+        "(nothing right now|all good|no blockers)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Standup'ta blocker sorusu — net cevap. Vague 'maybe' = kötü. Spesifik kişi + neden.",
+      ideal_response: "Yeah — I'm blocked on the API spec, waiting on input from the backend team.",
+    },
+    {
+      id: "ex.wst33.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Dün toplantıdaydım.",
+      wrong_en: "Yesterday I was at meeting.",
+      right_en: "Yesterday I was in a meeting / Yesterday I was in meetings all day.",
+      why_tr:
+        "'At meeting' = location preposition hatası. 'In a meeting' (article + in) standardı. Article eksik = Türkçe etkisi (Türkçede article yok). Meeting 'in' edilir çünkü içeride bir aktivite olarak görülür. 'At the meeting' specific bir toplantıya işaret eder, 'in a meeting' generic 'toplantıda olmak' anlamı.",
+    },
+    {
+      id: "ex.wst33.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Standup formatı?",
+          options: ["Free-flow konuşma", "Yesterday/Today/Blockers", "Tüm hayatın hikayesi", "Sadece sorunlar"],
+          correct: 1,
+          tr_explanation: "Standart formula = ne yaptın / ne yapıyorsun / blocker. Standup ekonomisi.",
+        },
+        {
+          q: "'Toplantıdaydım' İngilizcesi?",
+          options: ["I was at meeting", "I was in a meeting", "I was meeting", "I had meeting"],
+          correct: 1,
+          tr_explanation: "'In a meeting' = article + correct preposition. 'At meeting' yanlış.",
+        },
+        {
+          q: "Standup'ta optimum süre?",
+          options: ["5 dakika kişi başı", "30-60 saniye kişi başı", "10 dakika", "Sınırsız"],
+          correct: 1,
+          tr_explanation: "30-60 saniye. Daha fazla = sync'i bloklar, sonraki kişi sıkılır.",
+        },
+        {
+          q: "'No blockers' anlamı?",
+          options: ["Çok blocker var", "Engelleyici yok, devam edebilirim", "Konuşmam yok", "Bilmiyorum"],
+          correct: 1,
+          tr_explanation: "'No blockers' = ilerlemeye engel yok. Standup kapanış sinyali.",
+        },
+        {
+          q: "Blocker olduğunda en iyi format?",
+          options: ["Vague 'maybe' ifade", "Spesifik kişi/system + neden + ne lazım", "Sus", "Sadece şikayet"],
+          correct: 1,
+          tr_explanation: "'Blocked on X by Y, need Z' = aksiyon alabilir format. Standup amacı bu.",
+        },
+      ],
     },
   ],
 };
@@ -998,6 +1286,102 @@ export const workStandupLesson_33_4: BundledLesson = {
       tr_explanation:
         "'Stop talking' + 'Move next person' = sert + saygisiz, ekipte morali dusurur. Doğru: kibar kesme + sebep + alternatif. Lider time-keeping yumusaktir, sert degil.",
     },
+    {
+      id: "ex.wst33.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Yesterday I ___; today I'm ___; blockers: ___.",
+      slots: [
+        { accepted: ['wrapped up the migration', 'shipped the auth flow', 'finished the design review', 'merged the PR'], distractors: ['wrapping up migration', 'ship the auth flow', 'finished design review', 'merging PR'] },
+        { accepted: ['working on the cleanup', 'moving to the dashboard', 'doing the QA pass', 'writing tests'], distractors: ['work on cleanup', 'moved to dashboard', "doing QA pass's", 'write tests'] },
+        { accepted: ['none', 'waiting on review', 'blocked on design', 'waiting on QA'], distractors: ['nothing', 'waiting review', 'block on design', 'wait on QA'] },
+      ],
+      tr_hint:
+        "Standup format. Yesterday/today/blockers. Past simple → present continuous → 'none' veya spesifik blocker.",
+      example_filled: "Yesterday I wrapped up the migration; today I'm working on the cleanup; blockers: none.",
+    },
+    {
+      id: "ex.wst33.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Quick standup — who wants to go first?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, anyone blocked on anything?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i can go|i'?ll start|i'?ll kick off)",
+        "(yesterday|last (.+))",
+        "(today|this morning) (i'?m|i)",
+        "(no|none|nothing) blocking|(i'?m|i am) blocked on",
+      ],
+      tr_hint:
+        "Standup başladı — kısa, net, structured. Türk hatası: 'Ben...' deyip uzatma. 1 dakika max.",
+      ideal_answer: "I can go first — yesterday I shipped the API change, today I'm onboarding the new dev, no blockers.",
+    },
+    {
+      id: "ex.wst33.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Anything blocking you right now?",
+      accepted_patterns: [
+        "(yeah|yes|actually)",
+        "(i'?m blocked|stuck) on (.+)",
+        "(waiting on|need (input|review|approval) from) (.+)",
+        "(nothing right now|all good|no blockers)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Standup'ta blocker sorusu — net cevap. Vague 'maybe' = kötü. Spesifik kişi + neden.",
+      ideal_response: "Yeah — I'm blocked on the API spec, waiting on input from the backend team.",
+    },
+    {
+      id: "ex.wst33.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Dün toplantıdaydım.",
+      wrong_en: "Yesterday I was at meeting.",
+      right_en: "Yesterday I was in a meeting / Yesterday I was in meetings all day.",
+      why_tr:
+        "'At meeting' = location preposition hatası. 'In a meeting' (article + in) standardı. Article eksik = Türkçe etkisi (Türkçede article yok). Meeting 'in' edilir çünkü içeride bir aktivite olarak görülür. 'At the meeting' specific bir toplantıya işaret eder, 'in a meeting' generic 'toplantıda olmak' anlamı.",
+    },
+    {
+      id: "ex.wst33.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Standup formatı?",
+          options: ["Free-flow konuşma", "Yesterday/Today/Blockers", "Tüm hayatın hikayesi", "Sadece sorunlar"],
+          correct: 1,
+          tr_explanation: "Standart formula = ne yaptın / ne yapıyorsun / blocker. Standup ekonomisi.",
+        },
+        {
+          q: "'Toplantıdaydım' İngilizcesi?",
+          options: ["I was at meeting", "I was in a meeting", "I was meeting", "I had meeting"],
+          correct: 1,
+          tr_explanation: "'In a meeting' = article + correct preposition. 'At meeting' yanlış.",
+        },
+        {
+          q: "Standup'ta optimum süre?",
+          options: ["5 dakika kişi başı", "30-60 saniye kişi başı", "10 dakika", "Sınırsız"],
+          correct: 1,
+          tr_explanation: "30-60 saniye. Daha fazla = sync'i bloklar, sonraki kişi sıkılır.",
+        },
+        {
+          q: "'No blockers' anlamı?",
+          options: ["Çok blocker var", "Engelleyici yok, devam edebilirim", "Konuşmam yok", "Bilmiyorum"],
+          correct: 1,
+          tr_explanation: "'No blockers' = ilerlemeye engel yok. Standup kapanış sinyali.",
+        },
+        {
+          q: "Blocker olduğunda en iyi format?",
+          options: ["Vague 'maybe' ifade", "Spesifik kişi/system + neden + ne lazım", "Sus", "Sadece şikayet"],
+          correct: 1,
+          tr_explanation: "'Blocked on X by Y, need Z' = aksiyon alabilir format. Standup amacı bu.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1176,6 +1560,102 @@ export const workStandupLesson_33_5: BundledLesson = {
       ipa: "/kwɪk ˌʌpˈdeɪt ʃɪpt sɜːtʃ ˈjɛstədeɪ ɒn ˈkæʃɪŋ təˈdeɪ nəʊ ˈblɒkəz/",
       tr_hint:
         "Baslik ritmi — her bolum kisa nefes. 'Shipped' sert 'd', 'no blockers' yumusak kapanis. Tempo: hizli ama net.",
+    },
+    {
+      id: "ex.wst33.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Yesterday I ___; today I'm ___; blockers: ___.",
+      slots: [
+        { accepted: ['wrapped up the migration', 'shipped the auth flow', 'finished the design review', 'merged the PR'], distractors: ['wrapping up migration', 'ship the auth flow', 'finished design review', 'merging PR'] },
+        { accepted: ['working on the cleanup', 'moving to the dashboard', 'doing the QA pass', 'writing tests'], distractors: ['work on cleanup', 'moved to dashboard', "doing QA pass's", 'write tests'] },
+        { accepted: ['none', 'waiting on review', 'blocked on design', 'waiting on QA'], distractors: ['nothing', 'waiting review', 'block on design', 'wait on QA'] },
+      ],
+      tr_hint:
+        "Standup format. Yesterday/today/blockers. Past simple → present continuous → 'none' veya spesifik blocker.",
+      example_filled: "Yesterday I wrapped up the migration; today I'm working on the cleanup; blockers: none.",
+    },
+    {
+      id: "ex.wst33.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Quick standup — who wants to go first?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, anyone blocked on anything?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i can go|i'?ll start|i'?ll kick off)",
+        "(yesterday|last (.+))",
+        "(today|this morning) (i'?m|i)",
+        "(no|none|nothing) blocking|(i'?m|i am) blocked on",
+      ],
+      tr_hint:
+        "Standup başladı — kısa, net, structured. Türk hatası: 'Ben...' deyip uzatma. 1 dakika max.",
+      ideal_answer: "I can go first — yesterday I shipped the API change, today I'm onboarding the new dev, no blockers.",
+    },
+    {
+      id: "ex.wst33.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Anything blocking you right now?",
+      accepted_patterns: [
+        "(yeah|yes|actually)",
+        "(i'?m blocked|stuck) on (.+)",
+        "(waiting on|need (input|review|approval) from) (.+)",
+        "(nothing right now|all good|no blockers)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Standup'ta blocker sorusu — net cevap. Vague 'maybe' = kötü. Spesifik kişi + neden.",
+      ideal_response: "Yeah — I'm blocked on the API spec, waiting on input from the backend team.",
+    },
+    {
+      id: "ex.wst33.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Dün toplantıdaydım.",
+      wrong_en: "Yesterday I was at meeting.",
+      right_en: "Yesterday I was in a meeting / Yesterday I was in meetings all day.",
+      why_tr:
+        "'At meeting' = location preposition hatası. 'In a meeting' (article + in) standardı. Article eksik = Türkçe etkisi (Türkçede article yok). Meeting 'in' edilir çünkü içeride bir aktivite olarak görülür. 'At the meeting' specific bir toplantıya işaret eder, 'in a meeting' generic 'toplantıda olmak' anlamı.",
+    },
+    {
+      id: "ex.wst33.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Standup formatı?",
+          options: ["Free-flow konuşma", "Yesterday/Today/Blockers", "Tüm hayatın hikayesi", "Sadece sorunlar"],
+          correct: 1,
+          tr_explanation: "Standart formula = ne yaptın / ne yapıyorsun / blocker. Standup ekonomisi.",
+        },
+        {
+          q: "'Toplantıdaydım' İngilizcesi?",
+          options: ["I was at meeting", "I was in a meeting", "I was meeting", "I had meeting"],
+          correct: 1,
+          tr_explanation: "'In a meeting' = article + correct preposition. 'At meeting' yanlış.",
+        },
+        {
+          q: "Standup'ta optimum süre?",
+          options: ["5 dakika kişi başı", "30-60 saniye kişi başı", "10 dakika", "Sınırsız"],
+          correct: 1,
+          tr_explanation: "30-60 saniye. Daha fazla = sync'i bloklar, sonraki kişi sıkılır.",
+        },
+        {
+          q: "'No blockers' anlamı?",
+          options: ["Çok blocker var", "Engelleyici yok, devam edebilirim", "Konuşmam yok", "Bilmiyorum"],
+          correct: 1,
+          tr_explanation: "'No blockers' = ilerlemeye engel yok. Standup kapanış sinyali.",
+        },
+        {
+          q: "Blocker olduğunda en iyi format?",
+          options: ["Vague 'maybe' ifade", "Spesifik kişi/system + neden + ne lazım", "Sus", "Sadece şikayet"],
+          correct: 1,
+          tr_explanation: "'Blocked on X by Y, need Z' = aksiyon alabilir format. Standup amacı bu.",
+        },
+      ],
     },
   ],
 };
@@ -1358,6 +1838,102 @@ export const workStandupLesson_33_6: BundledLesson = {
       tr_hint:
         "'OAuth' = 'oh-auth' iki heceli. 'Bandwidth' = 'BAND-width' ilk hece vurgulu. Kapanis sorusu hafif yukseliyor.",
     },
+    {
+      id: "ex.wst33.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Yesterday I ___; today I'm ___; blockers: ___.",
+      slots: [
+        { accepted: ['wrapped up the migration', 'shipped the auth flow', 'finished the design review', 'merged the PR'], distractors: ['wrapping up migration', 'ship the auth flow', 'finished design review', 'merging PR'] },
+        { accepted: ['working on the cleanup', 'moving to the dashboard', 'doing the QA pass', 'writing tests'], distractors: ['work on cleanup', 'moved to dashboard', "doing QA pass's", 'write tests'] },
+        { accepted: ['none', 'waiting on review', 'blocked on design', 'waiting on QA'], distractors: ['nothing', 'waiting review', 'block on design', 'wait on QA'] },
+      ],
+      tr_hint:
+        "Standup format. Yesterday/today/blockers. Past simple → present continuous → 'none' veya spesifik blocker.",
+      example_filled: "Yesterday I wrapped up the migration; today I'm working on the cleanup; blockers: none.",
+    },
+    {
+      id: "ex.wst33.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Quick standup — who wants to go first?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, anyone blocked on anything?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i can go|i'?ll start|i'?ll kick off)",
+        "(yesterday|last (.+))",
+        "(today|this morning) (i'?m|i)",
+        "(no|none|nothing) blocking|(i'?m|i am) blocked on",
+      ],
+      tr_hint:
+        "Standup başladı — kısa, net, structured. Türk hatası: 'Ben...' deyip uzatma. 1 dakika max.",
+      ideal_answer: "I can go first — yesterday I shipped the API change, today I'm onboarding the new dev, no blockers.",
+    },
+    {
+      id: "ex.wst33.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Anything blocking you right now?",
+      accepted_patterns: [
+        "(yeah|yes|actually)",
+        "(i'?m blocked|stuck) on (.+)",
+        "(waiting on|need (input|review|approval) from) (.+)",
+        "(nothing right now|all good|no blockers)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Standup'ta blocker sorusu — net cevap. Vague 'maybe' = kötü. Spesifik kişi + neden.",
+      ideal_response: "Yeah — I'm blocked on the API spec, waiting on input from the backend team.",
+    },
+    {
+      id: "ex.wst33.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Dün toplantıdaydım.",
+      wrong_en: "Yesterday I was at meeting.",
+      right_en: "Yesterday I was in a meeting / Yesterday I was in meetings all day.",
+      why_tr:
+        "'At meeting' = location preposition hatası. 'In a meeting' (article + in) standardı. Article eksik = Türkçe etkisi (Türkçede article yok). Meeting 'in' edilir çünkü içeride bir aktivite olarak görülür. 'At the meeting' specific bir toplantıya işaret eder, 'in a meeting' generic 'toplantıda olmak' anlamı.",
+    },
+    {
+      id: "ex.wst33.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Standup formatı?",
+          options: ["Free-flow konuşma", "Yesterday/Today/Blockers", "Tüm hayatın hikayesi", "Sadece sorunlar"],
+          correct: 1,
+          tr_explanation: "Standart formula = ne yaptın / ne yapıyorsun / blocker. Standup ekonomisi.",
+        },
+        {
+          q: "'Toplantıdaydım' İngilizcesi?",
+          options: ["I was at meeting", "I was in a meeting", "I was meeting", "I had meeting"],
+          correct: 1,
+          tr_explanation: "'In a meeting' = article + correct preposition. 'At meeting' yanlış.",
+        },
+        {
+          q: "Standup'ta optimum süre?",
+          options: ["5 dakika kişi başı", "30-60 saniye kişi başı", "10 dakika", "Sınırsız"],
+          correct: 1,
+          tr_explanation: "30-60 saniye. Daha fazla = sync'i bloklar, sonraki kişi sıkılır.",
+        },
+        {
+          q: "'No blockers' anlamı?",
+          options: ["Çok blocker var", "Engelleyici yok, devam edebilirim", "Konuşmam yok", "Bilmiyorum"],
+          correct: 1,
+          tr_explanation: "'No blockers' = ilerlemeye engel yok. Standup kapanış sinyali.",
+        },
+        {
+          q: "Blocker olduğunda en iyi format?",
+          options: ["Vague 'maybe' ifade", "Spesifik kişi/system + neden + ne lazım", "Sus", "Sadece şikayet"],
+          correct: 1,
+          tr_explanation: "'Blocked on X by Y, need Z' = aksiyon alabilir format. Standup amacı bu.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1539,6 +2115,102 @@ export const workStandupLesson_33_7: BundledLesson = {
       tr_hint:
         "'Wrapped up' baglı, 't' duser. 'Happy to' sicak ton — gulumseyerek soyle. 'Demo' = 'DEM-oh', ilk hece.",
     },
+    {
+      id: "ex.wst33.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Yesterday I ___; today I'm ___; blockers: ___.",
+      slots: [
+        { accepted: ['wrapped up the migration', 'shipped the auth flow', 'finished the design review', 'merged the PR'], distractors: ['wrapping up migration', 'ship the auth flow', 'finished design review', 'merging PR'] },
+        { accepted: ['working on the cleanup', 'moving to the dashboard', 'doing the QA pass', 'writing tests'], distractors: ['work on cleanup', 'moved to dashboard', "doing QA pass's", 'write tests'] },
+        { accepted: ['none', 'waiting on review', 'blocked on design', 'waiting on QA'], distractors: ['nothing', 'waiting review', 'block on design', 'wait on QA'] },
+      ],
+      tr_hint:
+        "Standup format. Yesterday/today/blockers. Past simple → present continuous → 'none' veya spesifik blocker.",
+      example_filled: "Yesterday I wrapped up the migration; today I'm working on the cleanup; blockers: none.",
+    },
+    {
+      id: "ex.wst33.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Quick standup — who wants to go first?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, anyone blocked on anything?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i can go|i'?ll start|i'?ll kick off)",
+        "(yesterday|last (.+))",
+        "(today|this morning) (i'?m|i)",
+        "(no|none|nothing) blocking|(i'?m|i am) blocked on",
+      ],
+      tr_hint:
+        "Standup başladı — kısa, net, structured. Türk hatası: 'Ben...' deyip uzatma. 1 dakika max.",
+      ideal_answer: "I can go first — yesterday I shipped the API change, today I'm onboarding the new dev, no blockers.",
+    },
+    {
+      id: "ex.wst33.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Anything blocking you right now?",
+      accepted_patterns: [
+        "(yeah|yes|actually)",
+        "(i'?m blocked|stuck) on (.+)",
+        "(waiting on|need (input|review|approval) from) (.+)",
+        "(nothing right now|all good|no blockers)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Standup'ta blocker sorusu — net cevap. Vague 'maybe' = kötü. Spesifik kişi + neden.",
+      ideal_response: "Yeah — I'm blocked on the API spec, waiting on input from the backend team.",
+    },
+    {
+      id: "ex.wst33.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Dün toplantıdaydım.",
+      wrong_en: "Yesterday I was at meeting.",
+      right_en: "Yesterday I was in a meeting / Yesterday I was in meetings all day.",
+      why_tr:
+        "'At meeting' = location preposition hatası. 'In a meeting' (article + in) standardı. Article eksik = Türkçe etkisi (Türkçede article yok). Meeting 'in' edilir çünkü içeride bir aktivite olarak görülür. 'At the meeting' specific bir toplantıya işaret eder, 'in a meeting' generic 'toplantıda olmak' anlamı.",
+    },
+    {
+      id: "ex.wst33.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Standup formatı?",
+          options: ["Free-flow konuşma", "Yesterday/Today/Blockers", "Tüm hayatın hikayesi", "Sadece sorunlar"],
+          correct: 1,
+          tr_explanation: "Standart formula = ne yaptın / ne yapıyorsun / blocker. Standup ekonomisi.",
+        },
+        {
+          q: "'Toplantıdaydım' İngilizcesi?",
+          options: ["I was at meeting", "I was in a meeting", "I was meeting", "I had meeting"],
+          correct: 1,
+          tr_explanation: "'In a meeting' = article + correct preposition. 'At meeting' yanlış.",
+        },
+        {
+          q: "Standup'ta optimum süre?",
+          options: ["5 dakika kişi başı", "30-60 saniye kişi başı", "10 dakika", "Sınırsız"],
+          correct: 1,
+          tr_explanation: "30-60 saniye. Daha fazla = sync'i bloklar, sonraki kişi sıkılır.",
+        },
+        {
+          q: "'No blockers' anlamı?",
+          options: ["Çok blocker var", "Engelleyici yok, devam edebilirim", "Konuşmam yok", "Bilmiyorum"],
+          correct: 1,
+          tr_explanation: "'No blockers' = ilerlemeye engel yok. Standup kapanış sinyali.",
+        },
+        {
+          q: "Blocker olduğunda en iyi format?",
+          options: ["Vague 'maybe' ifade", "Spesifik kişi/system + neden + ne lazım", "Sus", "Sadece şikayet"],
+          correct: 1,
+          tr_explanation: "'Blocked on X by Y, need Z' = aksiyon alabilir format. Standup amacı bu.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1711,6 +2383,102 @@ export const workStandupLesson_33_8: BundledLesson = {
       ipa: "/ˈskɪpɪŋ ˈstændʌp təˈdeɪ ˈdrɒpɪŋ ən ˌeɪˈsɪŋk ˈʌpdeɪt ɪn slæk nəʊ ˈblɒkəz/",
       tr_hint:
         "'Skipping' net 'sk' baslangici. 'Async' = 'AY-sink' (Brit) ya da 'A-sink' (US) — kisaltma hissi. Kapanis 'no blockers' kararli.",
+    },
+    {
+      id: "ex.wst33.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Yesterday I ___; today I'm ___; blockers: ___.",
+      slots: [
+        { accepted: ['wrapped up the migration', 'shipped the auth flow', 'finished the design review', 'merged the PR'], distractors: ['wrapping up migration', 'ship the auth flow', 'finished design review', 'merging PR'] },
+        { accepted: ['working on the cleanup', 'moving to the dashboard', 'doing the QA pass', 'writing tests'], distractors: ['work on cleanup', 'moved to dashboard', "doing QA pass's", 'write tests'] },
+        { accepted: ['none', 'waiting on review', 'blocked on design', 'waiting on QA'], distractors: ['nothing', 'waiting review', 'block on design', 'wait on QA'] },
+      ],
+      tr_hint:
+        "Standup format. Yesterday/today/blockers. Past simple → present continuous → 'none' veya spesifik blocker.",
+      example_filled: "Yesterday I wrapped up the migration; today I'm working on the cleanup; blockers: none.",
+    },
+    {
+      id: "ex.wst33.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Quick standup — who wants to go first?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, anyone blocked on anything?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i can go|i'?ll start|i'?ll kick off)",
+        "(yesterday|last (.+))",
+        "(today|this morning) (i'?m|i)",
+        "(no|none|nothing) blocking|(i'?m|i am) blocked on",
+      ],
+      tr_hint:
+        "Standup başladı — kısa, net, structured. Türk hatası: 'Ben...' deyip uzatma. 1 dakika max.",
+      ideal_answer: "I can go first — yesterday I shipped the API change, today I'm onboarding the new dev, no blockers.",
+    },
+    {
+      id: "ex.wst33.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Anything blocking you right now?",
+      accepted_patterns: [
+        "(yeah|yes|actually)",
+        "(i'?m blocked|stuck) on (.+)",
+        "(waiting on|need (input|review|approval) from) (.+)",
+        "(nothing right now|all good|no blockers)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Standup'ta blocker sorusu — net cevap. Vague 'maybe' = kötü. Spesifik kişi + neden.",
+      ideal_response: "Yeah — I'm blocked on the API spec, waiting on input from the backend team.",
+    },
+    {
+      id: "ex.wst33.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Dün toplantıdaydım.",
+      wrong_en: "Yesterday I was at meeting.",
+      right_en: "Yesterday I was in a meeting / Yesterday I was in meetings all day.",
+      why_tr:
+        "'At meeting' = location preposition hatası. 'In a meeting' (article + in) standardı. Article eksik = Türkçe etkisi (Türkçede article yok). Meeting 'in' edilir çünkü içeride bir aktivite olarak görülür. 'At the meeting' specific bir toplantıya işaret eder, 'in a meeting' generic 'toplantıda olmak' anlamı.",
+    },
+    {
+      id: "ex.wst33.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Standup formatı?",
+          options: ["Free-flow konuşma", "Yesterday/Today/Blockers", "Tüm hayatın hikayesi", "Sadece sorunlar"],
+          correct: 1,
+          tr_explanation: "Standart formula = ne yaptın / ne yapıyorsun / blocker. Standup ekonomisi.",
+        },
+        {
+          q: "'Toplantıdaydım' İngilizcesi?",
+          options: ["I was at meeting", "I was in a meeting", "I was meeting", "I had meeting"],
+          correct: 1,
+          tr_explanation: "'In a meeting' = article + correct preposition. 'At meeting' yanlış.",
+        },
+        {
+          q: "Standup'ta optimum süre?",
+          options: ["5 dakika kişi başı", "30-60 saniye kişi başı", "10 dakika", "Sınırsız"],
+          correct: 1,
+          tr_explanation: "30-60 saniye. Daha fazla = sync'i bloklar, sonraki kişi sıkılır.",
+        },
+        {
+          q: "'No blockers' anlamı?",
+          options: ["Çok blocker var", "Engelleyici yok, devam edebilirim", "Konuşmam yok", "Bilmiyorum"],
+          correct: 1,
+          tr_explanation: "'No blockers' = ilerlemeye engel yok. Standup kapanış sinyali.",
+        },
+        {
+          q: "Blocker olduğunda en iyi format?",
+          options: ["Vague 'maybe' ifade", "Spesifik kişi/system + neden + ne lazım", "Sus", "Sadece şikayet"],
+          correct: 1,
+          tr_explanation: "'Blocked on X by Y, need Z' = aksiyon alabilir format. Standup amacı bu.",
+        },
+      ],
     },
   ],
 };

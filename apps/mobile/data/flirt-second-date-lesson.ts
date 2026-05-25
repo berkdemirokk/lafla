@@ -288,6 +288,128 @@ export const flirtSecondDateLesson_42_1: BundledLesson = {
       tr_explanation:
         "'I want second date' = direkt Türkçe çevirisi, soğuk. Doğru: önce duygu beyanı ('such a good time') + esnek davet + somut upgrade ('dinner this time').",
     },
+    {
+      id: "ex.fsd42.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Had such a good time — free ___? ___ this time.",
+      slots: [
+        { accepted: ["Saturday", "next week", "this weekend", "Friday"] },
+        { accepted: ["Dinner", "Drinks", "A walk by the river", "Brunch"] },
+      ],
+      tr_hint:
+        "İkinci randevu teklif formülü: duygu beyanı + esnek davet + upgrade. Türk öğrenci 'I want second date' diye direkt = transactional. Native: ÖNCE duyguyu paylaş ('had such a good time'), SONRA somut upgrade öner.",
+      example_filled: "Had such a good time — free Saturday? Dinner this time.",
+    },
+    {
+      id: "ex.fsd42.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "user", text: "Had such a good time — free Saturday? Dinner this time." },
+        { speaker: "npc", text: "Honestly was hoping you'd say that. Got somewhere in mind?" },
+        { speaker: "user" },
+      ],
+      missing_at: 2,
+      accepted_patterns: [
+        "(there'?s|i know) (this|a) (place|spot|restaurant) (i'?ve|i have) been (meaning|wanting) to try",
+        "(do you have|got any) (suggestions|preferences|food allergies)",
+        "(let me|i'?ll) (look something up|find a place)",
+        "(open to|down for) (anywhere|whatever)",
+        "(you )?(pick|choose|decide) (this time|please)",
+      ],
+      tr_hint:
+        "NPC sevindi, somut yer soruyor. SEN proaktif öner ya da onun seçmesine açık bırak. 'There's this place I've been meaning to try' = proaktif + yeni deneyim sinyali. Türk: 'I don't know' = vasat enerji.",
+      ideal_answer: "There's this Italian place near the river I've been meaning to try — looks perfect for a date.",
+    },
+    {
+      id: "ex.fsd42.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Last night was really fun — I was hoping you'd want to do something again.",
+      accepted_patterns: [
+        "(was about to|i was going to) (text you|ask)",
+        "(reading my mind|exactly what i was thinking)",
+        "(yeah |honestly )?(let'?s do it|i'?m in|for sure)",
+        "(want to|wanna) (grab|do|try) (dinner|drinks|brunch|something)",
+        "(free|down) (for|to) (.+) (saturday|this weekend|next week)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "NPC açık kart oynuyor — sen tereddütsüz cevap ver. 'Maybe' = backpedal sinyali. Net + heyecanlı: 'Reading my mind — Saturday dinner?'. Türk: 'OK we can do' = zayıf enerji.",
+      ideal_response: "Honestly was about to text you — Saturday dinner? There's a place I've been wanting to try.",
+    },
+    {
+      id: "ex.fsd42.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "İkinci randevuya çıkmak ister misin?",
+      wrong_en: "Do you want to go second date?",
+      right_en: "Had such a great time — free Saturday for round two?",
+      why_tr:
+        "Türk öğrencinin transactional çeviri tuzağı. 'Do you want to go second date' = grammatik bozuk (artikel yok) + kuru + business meeting tonu. Modern dating: 'round two' (sevimli + casual) veya 'do this again' (akıcı). Önce duygu beyanı ('had such a great time') = sıcaklık. Direkt 'second date' kelimesi = robotik.",
+    },
+    {
+      id: "ex.fsd42.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Round two' deyimi dating'de ne demek?",
+          options: [
+            "İkinci raund",
+            "İkinci randevu (sevimli + casual)",
+            "İkinci içki",
+            "Yedek plan",
+          ],
+          correct: 1,
+          tr_explanation: "'Round two' = ikinci randevu için sevimli + casual ifade. 'Second date' resmi/transactional kalır.",
+        },
+        {
+          q: "İkinci randevu teklif etmeden önce ne yapılmalı?",
+          options: [
+            "Duygu beyanı (had a great time)",
+            "Direkt teklif at",
+            "Karşı tarafı sıkıştır",
+            "Üç gün bekle",
+          ],
+          correct: 0,
+          tr_explanation: "Önce 'had a great time' = sıcaklık. Sonra somut teklif = doğal akış.",
+        },
+        {
+          q: "'Hard launch' dating'de ne demek?",
+          options: [
+            "Sert başlatmak",
+            "İlişkiyi sosyal medyada açık ilan",
+            "Hızlı evlilik",
+            "Tartışma başlatmak",
+          ],
+          correct: 1,
+          tr_explanation: "'Hard launch' = ilişkiyi sosyal medyada yüz/etiketli paylaşım. Soft launch (yüz kapalı) sonrasında gelir.",
+        },
+        {
+          q: "İkinci randevu için aktivite upgrade örneği?",
+          options: [
+            "Kahve -> kahve",
+            "Kahve -> dinner / walk / drinks",
+            "Restoran -> evde yemek",
+            "Hepsi yanlış",
+          ],
+          correct: 1,
+          tr_explanation: "İkinci randevu = kademeli upgrade. Coffee -> dinner/drinks doğal ilerleme. Eve davet erken.",
+        },
+        {
+          q: "Türk hatası: 'I want second date' yerine?",
+          options: [
+            "I want a second date",
+            "Had such a good time — free Saturday for round two?",
+            "Let's do second date",
+            "We need second meeting",
+          ],
+          correct: 1,
+          tr_explanation: "Duygu + teklif + casual jargon ('round two') = modern. 'I want X' robotic + transactional.",
+        },
+      ],
+    },
   ],
 };
 

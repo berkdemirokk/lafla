@@ -260,6 +260,133 @@ export const barLesson_7_1: BundledLesson = {
       tr_explanation:
         "'Big beer' belirsiz. Doğal kalıp: 'pint' (ölçü) + 'on tap' (fıçıdan) + 'whatever' (ne olursa). 'Fresh' bira için tuhaf.",
     },
+    {
+      id: "ex.7.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a ___ of the ___, please?",
+      slots: [
+        { accepted: ["pint", "glass", "bottle", "shot"] },
+        { accepted: ["IPA", "red wine", "lager", "house white"] },
+      ],
+      tr_hint:
+        "'Could I get a ___ of the ___' = barda klasik sipariş yapısı. Slot 1 = ölçü (pint/glass/bottle/shot), slot 2 = içki. Türk: 'A beer please' bile kabul ama 'Could I get a pint of the IPA' = bartender hemen anlar, profesyonel.",
+      example_filled: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, what can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing. Pint or half-pint?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the )?(pint|glass|beer|wine|whiskey)",
+        "(i'?ll have|i'?d like) (a |the )?(beer|ipa|lager|wine)",
+        "(what'?s|what is) on (tap|draft)",
+        "(a |one )?(beer|ipa|lager)( please)?",
+        "(could|can) i (see|get) (the )?(menu|drinks list|cocktail list)",
+      ],
+      tr_hint:
+        "Bartender açıldı 'what can I get you?'. Cevap: 'Could I get a pint of the IPA?' veya 'I'll have a beer'. Türk: 'I want beer' yerine 'I'll have a beer' veya 'Could I get a beer' daha doğal.",
+      ideal_answer: "Could I get a pint of the IPA, please?",
+    },
+    {
+      id: "ex.7.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What are you having tonight?",
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(beer|ipa|lager|wine|whiskey|gin)",
+        "(could|can) i (get|have|try) (a |an |the )?(pint|glass)",
+        "(what'?s|what is) (good|on tap|on draft)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(just )?(a |an )?(beer|water)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender'ın sıkça kullandığı 'what are you having?' = 'what can I get you?' Samimi. 3 saniye düşün, sonra spesifik söyle. 'I'll have a pint of lager' veya 'What's on tap?' Türk: 'I want one beer' yerine 'I'll have a beer'.",
+      ideal_response: "I'll have a pint of whatever's on tap, please.",
+    },
+    {
+      id: "ex.7.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Garson! Hesabı getir, bir bira daha alacağım.",
+      wrong_en: "Waiter! Bring the bill, I will take one more beer.",
+      right_en: "Hey — could I get the tab? Actually, one more beer first.",
+      why_tr:
+        "Türk öğrenci 'garson' → 'waiter' çevirir; barda bartender olur. 'Hesap' → 'bill' restoranda; barda 'tab' (açık hesap) veya 'check'. 'I will take' formel + kırık — 'I'll have' veya 'could I get' doğal. 'Bring' komut tonu kaba; 'could I get' kibar.",
+    },
+    {
+      id: "ex.7.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Barda 'tab' ne demek?",
+          options: [
+            "Bardağın kapağı",
+            "Açık hesap (kart bırakırsın, sonunda topluca ödenir)",
+            "Bira çeşidi",
+            "Bar masası",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Tab' = barda biriken hesap. Türkçe karşılığı: 'açık hesap'. Her içkide kart çekmek yerine biriktirip toplu öde — ABD/UK bar standardı.",
+        },
+        {
+          q: "Bartender'a en doğal 'bir bira lütfen' nasıl söylenir?",
+          options: [
+            "One beer please",
+            "Give me one beer",
+            "I'll have a beer",
+            "I want beer",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'I'll have a beer' = en doğal sipariş kalıbı. 'One beer please' anlaşılır ama robot gibi; 'Give me' kaba; 'I want' okul çocuğu havası.",
+        },
+        {
+          q: "'On tap' ne anlama gelir?",
+          options: [
+            "Şişe içinde",
+            "Fıçıdan (draft)",
+            "Soğuk",
+            "Sade",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On tap' = fıçıdan akan bira. 'On draft' aynı anlam. 'What's on tap?' = fıçıdan ne var?",
+        },
+        {
+          q: "Barda 'garson' = ?",
+          options: [
+            "Waiter",
+            "Bartender / server",
+            "Host",
+            "Cashier",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Bar konteksti: bira/cocktail veren = 'bartender'; masaya servis yapan = 'server'. 'Waiter' restoran terimi, barda kullanılmaz.",
+        },
+        {
+          q: "Hesabı kapatmak için doğru idiom?",
+          options: [
+            "Close the bill",
+            "Finish the tab",
+            "Close me out / close out my tab",
+            "End my account",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'Close me out' veya 'close out my tab' = bar idiom'u — hesabı kapat, ödeyeceğim. 'Settle up' da yaygın alternatif.",
+        },
+      ],
+    },
   ],
 };
 
@@ -470,6 +597,133 @@ export const barLesson_7_2: BundledLesson = {
       correct_sentence: "A vodka neat, please. No ice.",
       tr_explanation:
         "'Clean' bar terminolojisinde yok — doğrusu 'neat' (sek, oda sıcaklığı). 'No ice' netleştirme için ek.",
+    },
+    {
+      id: "ex.7.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'll have ___, ___ please.",
+      slots: [
+        { accepted: ["an Old Fashioned", "a Negroni", "a martini", "a whiskey sour"] },
+        { accepted: ["neat", "on the rocks", "with a twist", "straight up"] },
+      ],
+      tr_hint:
+        "'I'll have ___, ___' = cocktail + hazırlama. Slot 1 = klasik cocktail adı (büyük harf!), slot 2 = hazırlama. 'Neat' = sek/buzsuz, 'on the rocks' = buzlu, 'with a twist' = limon kabuğu, 'straight up' = soğutulmuş ama buzsuz.",
+      example_filled: "I'll have an Old Fashioned, on the rocks please.",
+    },
+    {
+      id: "ex.7.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What are we drinking tonight?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good choice. How do you take it — neat, on the rocks, or with a twist?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have|try) (a |an )?(old fashioned|negroni|martini|margarita)",
+        "(i'?ll have|i'?d like) (a |an )?(old fashioned|negroni|whiskey|gin)",
+        "(a |an )?(old fashioned|negroni|martini|margarita|gin and tonic)",
+        "(surprise me|bartender'?s choice|your call)",
+        "(what'?s|how is) (your |the )?(signature|special)",
+      ],
+      tr_hint:
+        "Cocktail bar. Bartender klasik açılış 'what are we drinking?' Spesifik bir cocktail söyle. Türk: 'I want cocktail' belirsiz — 'I'll have a Negroni' kesin.",
+      ideal_answer: "I'll have a Negroni, please.",
+    },
+    {
+      id: "ex.7.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How would you like your whiskey — neat, on the rocks, or with a splash?",
+      accepted_patterns: [
+        "(neat|on the rocks|with a (twist|splash)|straight up)",
+        "(i'?ll have it|i'?ll take it|make it) (neat|on the rocks|with a twist)",
+        "(neat|on the rocks)( please| thanks)?",
+        "(no ice|with ice)( please)?",
+        "(however you (recommend|like))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender hazırlama soruyor. 3 saniye düşün, kısa cevap: 'Neat, please' veya 'On the rocks'. Türk: Tam cümle gerekmez — tek kelime + 'please' yeterli.",
+      ideal_response: "On the rocks, please.",
+    },
+    {
+      id: "ex.7.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sek bir viski lütfen, buz yok.",
+      wrong_en: "One dry whiskey please, no ice.",
+      right_en: "A whiskey, neat — no ice, please.",
+      why_tr:
+        "Türk öğrenci 'sek' → 'dry' çevirir; 'dry' martini için kullanılır (az vermut), viski için 'neat'. 'Neat' = oda sıcaklığı + buzsuz + sade — bar standart terim. 'Dry whiskey' bartender'a tuhaf gelir, anlamaz.",
+    },
+    {
+      id: "ex.7.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Neat' = ?",
+          options: [
+            "Buzlu",
+            "Sek + buzsuz + oda sıcaklığı",
+            "Karışık cocktail",
+            "Soğuk + suluk",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Neat' = premium likör için ideal: hiç dokunulmamış, oda sıcaklığı, buzsuz. Viski + bourbon + tequila reposado için yaygın.",
+        },
+        {
+          q: "'On the rocks' ne demek?",
+          options: [
+            "Kayalık zeminde",
+            "Buzlu (bardakta buz var)",
+            "Sek",
+            "Karışık",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Rocks' = bar slang'inde buz küpleri. 'Whiskey on the rocks' = buzlu viski.",
+        },
+        {
+          q: "'With a twist' martini için ne ekler?",
+          options: [
+            "İkiye katlanmış porsiyon",
+            "Limon kabuğu süs (aroma için burulmuş)",
+            "Karıştırılmış",
+            "Soğutulmuş",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Twist' = bartender'ın limon kabuğunu burkup bardağın kenarına sürdüğü garnish — aroma ekler.",
+        },
+        {
+          q: "Cocktail siparişinde 'double' ne demek?",
+          options: [
+            "İki bardak",
+            "Çift likör ölçüsü (standart porsiyonun iki katı)",
+            "İki kişilik",
+            "İkinci tur",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Make it a double' = likör ölçüsünü iki katına çıkar. Standart 'shot' (~30ml) yerine ~60ml.",
+        },
+        {
+          q: "'Shaken or stirred?' kim sorar, neden?",
+          options: [
+            "Garson yemek için",
+            "Bartender cocktail karıştırma yöntemi için",
+            "Müşteri buz için",
+            "Şarap için sommelier",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Cocktail karıştırma: 'shaken' (çalkalanmış — köpüklü, buzlu) vs 'stirred' (karıştırılmış — net, soğuk). James Bond martini'yi 'shaken, not stirred' ister.",
+        },
+      ],
     },
   ],
 };
@@ -694,6 +948,133 @@ export const barLesson_7_3: BundledLesson = {
       tr_explanation:
         "'Pay all drinks now' kırık komut. 'I want go home' grammar yok. Doğal: 'Close out my tab' + 'I'm heading out' (gidiyorum).",
     },
+    {
+      id: "ex.7.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you ___ when you get a ___?",
+      slots: [
+        { accepted: ["close me out", "close out my tab", "bring me the check", "settle me up"] },
+        { accepted: ["sec", "moment", "minute", "chance"] },
+      ],
+      tr_hint:
+        "'Could you ___ when you get a ___?' = kibar bekleme kalıbı. Slot 1 = aksiyon (hesabı kapat), slot 2 = zaman (sec/moment). Bartender meşgulse 'when you get a sec' = vaktin olunca. Türk: 'Now!' yerine 'when you get a sec' = profesyonel.",
+      example_filled: "Could you close me out when you get a sec?",
+    },
+    {
+      id: "ex.7.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Last call! Want one more or are we good?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — card or cash?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m good|i'?m done|no thanks|i'?ll pass)",
+        "(could|can) you (close me out|just close my tab|settle me up)",
+        "(i'?ll )(just )?(take the check|close out|settle up)",
+        "(could|can) (i|we) (get|have) the (tab|check|bill)",
+        "(i'?m calling it|calling it a night)",
+      ],
+      tr_hint:
+        "Last call. Geceyi bitir + hesap iste. Türk: 'I want to pay' yerine 'Could you close me out?' bar idiom'u. 'I'm good' = teşekkür ederim daha yok.",
+      ideal_answer: "I'm good, thanks — could you close me out?",
+    },
+    {
+      id: "ex.7.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Want me to keep the tab open or close it out?",
+      accepted_patterns: [
+        "(close it out|close me out|just close it)( please)?",
+        "(keep it open|leave it open|keep it running)",
+        "(actually )?(close|just close) (it|my tab|out)( please)?",
+        "(one more|a few more)( and then close)?",
+        "(i'?m good|i'?m done|that'?s it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor: tab açık kalsın mı kapansın mı? Karar ver: 'Close it out, please' (kapat) veya 'Keep it open' (açık tut). Türk: Düşünme süreci doğal — '3 saniye' tasarlanmış.",
+      ideal_response: "Close it out, please — I'm calling it a night.",
+    },
+    {
+      id: "ex.7.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Hesabı isteyebilir miyim, ödeyeceğim.",
+      wrong_en: "Can I want the bill, I will pay?",
+      right_en: "Could I get the check / close out my tab, please?",
+      why_tr:
+        "Türk öğrenci 'isteyebilir miyim' → 'Can I want' direkt çevirir — 'want' modal olamaz. Doğal: 'Could I get' (kibar isteme). 'I will pay' eklemesi gereksiz (bartender zaten ödeneceğini biliyor); 'please' yeterli. Barda 'bill' = restoran terimi, 'check' veya 'tab' daha yaygın.",
+    },
+    {
+      id: "ex.7.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Close me out' tam karşılığı?",
+          options: [
+            "Beni dışarı kapat",
+            "Hesabımı kapat, ödüyorum",
+            "Kapıyı kapat",
+            "Bitir konuşmayı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Close me out' = bar idiom'u. Tab'i kapat, total çıkar, kart çek. 'Settle up' eş anlamlı.",
+        },
+        {
+          q: "'Last call' anonsundan sonra ne olur?",
+          options: [
+            "Bir saat daha açık",
+            "Son sipariş alınır, sonra bar kapanır",
+            "İndirim başlar",
+            "Müzik biter",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Last call' = bar kapanmadan önce son sipariş hakkı. Yasalar gereği belirli saatte (ABD'de eyalete göre değişir).",
+        },
+        {
+          q: "'Card on file' ne demek?",
+          options: [
+            "Kart dosyada",
+            "Kart bartender'da saklı, tab açıkken kullanılır",
+            "Kart kayıp",
+            "Kart kilitli",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On file' = sistemde / saklı. Bartender kartı tab kapanana kadar tutar.",
+        },
+        {
+          q: "Bartender'ı çağırmadan kibar bekleme nasıl?",
+          options: [
+            "Hey, fast!",
+            "When you get a sec, could you...",
+            "Come now!",
+            "Quickly please",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'When you get a sec' = vaktin olunca. Bartender kalabalıkta meşgul, bu kalıp ile bekleyeceğini bildirirsin = profesyonel.",
+        },
+        {
+          q: "'Heading out' ne demek?",
+          options: [
+            "Başına bir şey takmak",
+            "Dışarı gitmek üzereyim, ayrılıyorum",
+            "Yön bulmak",
+            "Bara dönmek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Heading out' = ayrılıyorum / gidiyorum (yer/etkinlikten). 'I'm heading out' = veda etmeden önceki klasik kalıp.",
+        },
+      ],
+    },
   ],
 };
 
@@ -886,6 +1267,133 @@ export const barLesson_7_4: BundledLesson = {
       tr_hint:
         "'Signature' = 'SIG-nə-çər' — 't' yumuşar 'ç' olur. 'Not too sweet' birleşir, 'tuː' uzun. Tavsiye sorma ritmi.",
     },
+    {
+      id: "ex.7.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm in the mood for something ___ and ___.",
+      slots: [
+        { accepted: ["smoky", "fruity", "bitter", "refreshing"] },
+        { accepted: ["strong", "not too sweet", "boozy", "light"] },
+      ],
+      tr_hint:
+        "'I'm in the mood for ___' = canım ___ çekiyor. Slot 1 = ana karakter (smoky/fruity), slot 2 = yan özellik (strong/not too sweet). Bartender'a iki sıfat verirsen tavsiye netleşir. Türk: 'I want strong drink' yerine 'I'm in the mood for something smoky and strong' = profesyonel.",
+      example_filled: "I'm in the mood for something smoky and not too sweet.",
+    },
+    {
+      id: "ex.7.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Hey, welcome in. First time here?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, our signature is a smoky mezcal cocktail — sound good?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yeah|yes|first time)[,. ]+ (what'?s|how is) (your |the )?(signature|special|recommendation)",
+        "(no|first time|never been)[,. ]+ (any |what would you )?recommend",
+        "(could|can) you recommend (something|a cocktail)",
+        "(what'?s|how is) (good|popular|the house special)",
+        "(i'?m a |more of a )(gin|whiskey|tequila) (person|fan)",
+      ],
+      tr_hint:
+        "İlk sefer. Tavsiye iste — 'What's your signature?' Türk: Direkt menu istemek yerine bartender'ı işine dahil et = daha iyi cocktail çıkar.",
+      ideal_answer: "Yeah, first time — what's your signature cocktail?",
+    },
+    {
+      id: "ex.7.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Are you more of a gin person, or do you want me to surprise you?",
+      accepted_patterns: [
+        "(i'?m a |more of a )(gin|whiskey|tequila|vodka|rum) (person|drinker|fan)",
+        "(gin|whiskey|tequila) (works|sounds good)",
+        "(surprise me|your call|bartender'?s choice)",
+        "(something|anything) (not too|with less) (sweet|strong|bitter)",
+        "(usually |mostly )(gin|whiskey|tequila)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender içki tercihini soruyor. Spesifik söyle veya yetkilendir. 'Gin person' = cin sevenler grubu. 'Surprise me' = sen bil. Türk: 'I like every drink' kaçamak — bir şey seç!",
+      ideal_response: "I'm more of a gin person — surprise me.",
+    },
+    {
+      id: "ex.7.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Çok tatlı olmasın, biraz acı sevmem ama güçlü olsun.",
+      wrong_en: "Not so sweet, I don't like little bitter but strong.",
+      right_en: "Something strong but not too sweet — and easy on the bitter side.",
+      why_tr:
+        "Türkçe sıralama + 'so/little' kullanımı bozar. Doğal: 'not too + sıfat' = abartısız, 'easy on the ___' = az tut. 'I don't like little bitter' grammar bozuk. 'But' = ama bağlayıcı, sıfatları gruplar.",
+    },
+    {
+      id: "ex.7.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Signature cocktail' = ?",
+          options: [
+            "İmza atılan içki",
+            "Mekanın özel imza cocktaili (kendine has)",
+            "Müşteri imzalar gibi",
+            "Resmi içki",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Signature' = mekanın gururla önerdiği özgün tarif. Bartender'ın iddiası bu cocktaildedir.",
+        },
+        {
+          q: "'I'm in the mood for ___' nasıl çevirilir?",
+          options: [
+            "Modumdayım",
+            "Canım ___ çekiyor",
+            "Beni ___'a sok",
+            "Modum ___'da",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm in the mood for' = canım çekiyor. Sokak idiom'u, restoran + bar + sinema kontekstinde sık.",
+        },
+        {
+          q: "'Surprise me' bartender'a ne mesajı?",
+          options: [
+            "Hızlı yap",
+            "Sen seç, ben aşağı yukarı her şeyi içerim",
+            "Sürpriz parti",
+            "İki tane yap",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Surprise me' = bartender'a tam yetki. 'Dealer's choice' eşanlamlı.",
+        },
+        {
+          q: "'Not too sweet' yapısı nasıl bozulur?",
+          options: [
+            "Çok değil tatlı",
+            "Çok tatlı değil",
+            "Hiç tatlı değil",
+            "Az tatlı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Not too + sıfat' = aşırı + değil. 'Not too sweet' = aşırı tatlı değil (biraz olabilir). Türkçe 'çok da' karşılığı.",
+        },
+        {
+          q: "'House special' = ?",
+          options: [
+            "Evdeki özel",
+            "Mekana özgü, o günkü öneri",
+            "Pahalı menü",
+            "Aile içki",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'House' = bar/restoran kendisi. 'House special' = işletmenin özel tarifi/önerisi. 'House wine' = mekanın kendi şarabı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1072,6 +1580,133 @@ export const barLesson_7_5: BundledLesson = {
       ipa: "kʊd aɪ stɑːrt ə tæb dʒʌst kiːp ɪt ˈoʊpən",
       tr_hint:
         "'Start a tab' = 'STAR-tə-tæb' bağlanır. 'Just keep it' = 'cas-KEEP-it'. 'Open' iki hece, 'OH-pən'.",
+    },
+    {
+      id: "ex.7.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I leave my ___ and ___ a tab?",
+      slots: [
+        { accepted: ["card", "credit card", "ID", "debit card"] },
+        { accepted: ["start", "open", "get going", "set up"] },
+      ],
+      tr_hint:
+        "'Could I leave my ___ and ___ a tab?' = tab açma yapısı. Slot 1 = kart (US'de yaygın), slot 2 = aksiyon (start/open). Türk: 'I want tab' belirsiz; 'Could I leave my card and start a tab' = bartender hemen anlar.",
+      example_filled: "Could I leave my card and start a tab?",
+    },
+    {
+      id: "ex.7.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Here's your beer. Want to start a tab or pay as you go?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure, I'll need a card. Keep it open?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(start|open) a tab( please)?",
+        "(let'?s|i'?ll) (start|open|do) a tab",
+        "(could|can) i (start|open|leave) (a tab|my card)",
+        "(tab please|tab works|tab sounds good)",
+        "(pay as i go|just this one|i'?ll pay each round)",
+      ],
+      tr_hint:
+        "Bartender ödeme şeklini soruyor. Tab açtırmak için: 'Start a tab, please.' Türk: 'Hesap aç' = open/start a tab. ABD'de tab standart, Türkiye'de yaygın değil.",
+      ideal_answer: "Let's start a tab, please.",
+    },
+    {
+      id: "ex.7.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "You want me to keep that card on file, or close it out after each round?",
+      accepted_patterns: [
+        "(keep|leave) it (open|on file|running)",
+        "(just )?keep it (open|on file)",
+        "(close it|close out) (after|when)",
+        "(open|on file) (is good|works|please)",
+        "(let'?s keep|i'?ll keep) it (open|running)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender soruyor: kart açık kalsın mı her turda kapansın mı? 'Keep it open' = açık tut (daha içeceğim). 'Close after each round' = her turda kapat. Türk: 'Keep' = tutmak; bar idiom'unda 'açık bırak'.",
+      ideal_response: "Just keep it open, please.",
+    },
+    {
+      id: "ex.7.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Kartımı bırakayım, sonra topluca öderim.",
+      wrong_en: "Let me leave my card, after I pay together.",
+      right_en: "I'll leave my card — I'll settle up at the end.",
+      why_tr:
+        "Türk öğrenci 'topluca' → 'together' çevirir; 'together' beraber/birlikte anlamı taşır, hesap için kullanılmaz. Doğal: 'settle up at the end' = sonunda hesaplaşırım. 'After I pay' yapısı sıralama bozuk; 'I'll' = gelecek niyet daha akıcı.",
+    },
+    {
+      id: "ex.7.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "ABD/UK bar'larında 'open a tab' niye yaygın?",
+          options: [
+            "Yasa gerektiriyor",
+            "Her içki için kart çekmek pratik değil — biriktirip toplu öde",
+            "Sadece turistler için",
+            "Vergi avantajı için",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Türkiye'de adisyon (kağıt liste) mantığı vardır ama kart bırakma yok. ABD'de kart bartender'da, içkiler biriktirilir, çıkışta total ödenir.",
+        },
+        {
+          q: "'Card on file' = ?",
+          options: [
+            "Kart dosyada (resmi)",
+            "Kart bartender'da saklı (tab'i kapatınca çekilir)",
+            "Kart sahibi kayıtlı",
+            "Kart kilidi açık",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On file' = sistemde / saklı. Bartender kartı tab açıkken tutar, kapanınca total çeker.",
+        },
+        {
+          q: "'Settle up' deyimi ne demek?",
+          options: [
+            "Yerleşmek",
+            "Hesabı halletmek, ödemek",
+            "Karar vermek",
+            "Sakinleşmek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Settle up' = hesapları kapatmak/ödemek. 'Let me settle up at the end' = sonunda hesaplayacağım. Bar idiom'u.",
+        },
+        {
+          q: "'Pay as you go' alternatifi nedir?",
+          options: [
+            "Yürürken öde",
+            "Her içkide ayrı ayrı öde (tab açmadan)",
+            "Önceden öde",
+            "Hiç ödeme",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Pay as you go' = her içki için ayrı ödeme. Tab alternatifi — bartender her seferinde kart çeker.",
+        },
+        {
+          q: "'Keep it open' bar'da ne demek?",
+          options: [
+            "Kapıyı açık tut",
+            "Tab'i kapatma, daha içeceğim",
+            "Bardağı dolu tut",
+            "Kart açık kalsın",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Keep it open' = tab açık kalsın (daha sipariş gelecek). Bartender 'close it out?' diye sorduğunda cevap.",
+        },
+      ],
     },
   ],
 };
@@ -1261,6 +1896,133 @@ export const barLesson_7_6: BundledLesson = {
       ipa: "nɛkst raʊndz ɒn miː wʌt ɑːr juː ˈdrɪŋkɪŋ",
       tr_hint:
         "'Round's' = 'raʊndz' ('s' z sesi olur). 'On me' iki kelime birleşir 'AHN-mee'. 'Drinking' = 'DRIN-king', 'ng' burunsu ses.",
+    },
+    {
+      id: "ex.7.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "This ___'s on me — you can grab the ___.",
+      slots: [
+        { accepted: ["round", "one", "drink", "tab"] },
+        { accepted: ["next one", "next round", "tip", "food"] },
+      ],
+      tr_hint:
+        "'This ___'s on me' = bu benden. Slot 1 = ikram (round/drink), slot 2 = karşılık (next one/tip). Türk: 'I pay for you' kaba; 'on me' = idiom — saygılı + samimi. UK pub'larında nezaket kuralı: tur değişir.",
+      example_filled: "This round's on me — you can grab the next one.",
+    },
+    {
+      id: "ex.7.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm gonna grab the next round — what'll you have?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Cool, an IPA it is. Same for the others?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?ll have|i'?d like|let me have) (a |an |the )?(ipa|lager|gin and tonic|wine)",
+        "(an? )?(ipa|lager|whiskey|wine)( please)?",
+        "(same|same as before|whatever you'?re having)",
+        "(surprise me|your call|i'?ll let you pick)",
+        "(thanks|appreciate it)[,. ]+ (i'?ll have|an ipa|a beer)",
+      ],
+      tr_hint:
+        "Arkadaş tur alıyor. Söyle ne içeceksin — spesifik veya esnek. Türk: 'Same' = aynısından (kısa + doğal). 'Whatever you're having' = sen ne içiyorsan = nezaket.",
+      ideal_answer: "Thanks — I'll have an IPA.",
+    },
+    {
+      id: "ex.7.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Same again, or you want to switch it up?",
+      accepted_patterns: [
+        "(same|same again|same as before)( please)?",
+        "(let'?s|i'?ll) switch (it up|things up)",
+        "(try|switch to) (a |an )?(ipa|gin|wine|whiskey)",
+        "(actually )?(let me try|switch to) (something|the)",
+        "(yeah|yes)[,. ]+ same",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender veya arkadaş soruyor: aynısından mı yoksa değiştirelim mi? Hızlı karar ver. 'Same' (aynı) veya 'switch it up' (değiştir). Türk: Düşünme normal — 3 saniye verildi.",
+      ideal_response: "Same again, thanks.",
+    },
+    {
+      id: "ex.7.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu içkiyi ben ödüyorum, bir sonrakini sen al.",
+      wrong_en: "I pay this drink for you, you take next one.",
+      right_en: "This one's on me — you can grab the next round.",
+      why_tr:
+        "Türk öğrenci 'ben ödüyorum' → 'I pay' direkt çevirir; doğru ama transactional/kaba. 'On me' = idiom: 'benden olsun'. 'You take next' grammar bozuk; 'you can grab the next round' = samimi + nezaket. UK pub kültüründe 'round' = tur (sırayla ikram = ritüel).",
+    },
+    {
+      id: "ex.7.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Round' bar bağlamında ne demek?",
+          options: [
+            "Yuvarlak bardak",
+            "Tüm gruba bir tur içki (her kişiye bir tane)",
+            "Bar bölümü",
+            "Bira çeşidi",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Round' = grup için bir tur içki. UK pub'larında sırayla herkes bir tur ikram eder = sosyal nezaket kuralı.",
+        },
+        {
+          q: "'This one's on me' nasıl çevirilir?",
+          options: [
+            "Bu üstüme",
+            "Bu benden / ben ödüyorum",
+            "Bu benim için",
+            "Bu sıram",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On me' = benden. 'Drinks on me', 'dinner on me' aynı yapı. Türkçe: 'benden olsun' / 'benim üstüme' karşılığı.",
+        },
+        {
+          q: "'Same again?' kim sorar, ne anlama gelir?",
+          options: [
+            "Bartender/arkadaş — aynısından bir tane daha mı?",
+            "Müşteri — aynı kişi misin?",
+            "Saat sorusu",
+            "Müzik sorusu",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Same again?' = aynı içkiden tekrar mı? Tur arası hızlı bilgi alma. Bartender de, arkadaş tur alırken de söyler.",
+        },
+        {
+          q: "'Switch it up' deyimi ne demek?",
+          options: [
+            "Bardağı çevir",
+            "Değişiklik yap, başka bir şey dene",
+            "Anahtar çevir",
+            "İçkiyi değiştir gibi başka şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Switch it up' = aynısından sıkıldım, değişiklik yapalım. 'Mix it up' eşanlamlı. Genel kullanım idiom'u.",
+        },
+        {
+          q: "'I'll grab it' bar bağlamında ne anlama gelir?",
+          options: [
+            "Yakalayacağım",
+            "Ben alacağım (içkileri / hesabı / turu)",
+            "Tutarım",
+            "Bana ver",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Grab' = hızlı al / hallet. 'I'll grab the next round' = bir sonraki turu ben alırım. Samimi alternatif 'I'll get it'.",
+        },
+      ],
     },
   ],
 };
@@ -1452,6 +2214,133 @@ export const barLesson_7_7: BundledLesson = {
       ipa: "aɪm ˈkɔːlɪŋ ɪt lɛt miː ɡræb ən ˈuːbər",
       tr_hint:
         "'Calling it' = 'KAW-ling-it' bağlanır. 'Grab an' = 'GRA-bən' birleşir. 'Uber' = 'OO-bər', 'u' uzun.",
+    },
+    {
+      id: "ex.7.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm calling it — let me ___ an ___.",
+      slots: [
+        { accepted: ["grab", "call", "order", "request"] },
+        { accepted: ["Uber", "Lyft", "Uber home", "Uber back"] },
+      ],
+      tr_hint:
+        "'I'm calling it — let me ___ an ___' = geceyi bitirme + ulaşım. Slot 1 = aksiyon (grab/call), slot 2 = ulaşım servisi. Türk: 'I take taxi' grammar bozuk; 'grab an Uber' = samimi + doğal.",
+      example_filled: "I'm calling it — let me grab an Uber.",
+    },
+    {
+      id: "ex.7.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Last call! One more, or you good?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. You good to get home okay?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m good|i'?m done|i'?ll pass|no thanks)",
+        "(i'?m calling it|calling it a night|i'?m out)",
+        "(could|can) you (close me out|close out my tab|settle me up)",
+        "(yeah|just |i'?m )(good|done|out|heading out)",
+        "(i'?ll )(just )?(close out|settle up|take the check)",
+      ],
+      tr_hint:
+        "Last call! Geceyi bitir. 'I'm good' (yeter, sağol) + 'close me out' (hesabı kapat). Türk: 'No more' kaba — 'I'm good' = nezaket.",
+      ideal_answer: "I'm good — could you close me out, please?",
+    },
+    {
+      id: "ex.7.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "You got a ride home, or you want me to call you one?",
+      accepted_patterns: [
+        "(i'?m |i'?ll be )?(calling|grabbing|getting) (an |a )?(uber|lyft|ride|cab)",
+        "(my |the )?(uber|lyft|ride) (is |'s )?(on the way|coming|here)",
+        "(i'?m good|all good|got it covered)",
+        "(yeah|yes)[,. ]+ (uber|lyft) (is|'s|coming)",
+        "(could|can) you (call|grab) (me )?(a |an )?(uber|lyft|cab)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bartender güvenliğini soruyor. Cevap: 'My Uber's on the way' (Uber yolda) veya 'Yeah, I got it covered' (hallediyorum). Türk: 'I take taxi alone' yerine 'I'm grabbing an Uber' = modern + doğal.",
+      ideal_response: "Yeah, my Uber's on the way — thanks for checking.",
+    },
+    {
+      id: "ex.7.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bar bitti, taksi alıp eve gideceğim hızlıca.",
+      wrong_en: "Bar finished, I take taxi go home quick.",
+      right_en: "Last call's done — I'm gonna grab an Uber and head home.",
+      why_tr:
+        "Türkçe kelime sırası + artikel eksikliği. Doğal: 'Last call's done' (bar resmen kapandı), 'grab an Uber' (Uber çağır — modern; ABD'de taksi düşük seviye), 'head home' (eve dön = doğal phrasal verb). 'Quick' burada gereksiz; 'gonna' = 'going to' samimi.",
+    },
+    {
+      id: "ex.7.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I'm calling it' tam karşılığı?",
+          options: [
+            "Telefon arıyorum",
+            "Geceyi bitiriyorum, gidiyorum",
+            "Karar veriyorum",
+            "İsim veriyorum",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Calling it' = 'calling it a night/day' kısaltması. Geceyi bitirme idiom'u. 'I'm calling it' tek başına = bitiyorum.",
+        },
+        {
+          q: "'Grab an Uber' niye 'call an Uber'dan daha doğal?",
+          options: [
+            "Daha hızlı",
+            "Samimi tonda; 'grab' = hızlıca al/hallet — modern, dil ekonomisi",
+            "Sadece ABD'de",
+            "Daha kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Grab' = hızlı + samimi alma. 'Grab a coffee', 'grab lunch' aynı kalıpta. 'Call' = ara/çağır da doğru ama biraz formal.",
+        },
+        {
+          q: "'Get home safe' niye söylenir?",
+          options: [
+            "Sigorta için",
+            "Güvenli eve dönüş dileği (bar/gece sosyal nezaket)",
+            "Güvenlik kuralı",
+            "Telefon mesajı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Get home safe' = bartender, arkadaş, tanıdığın geceleri söylediği nezaket dileği. Tinder/Bumble buluşmalarda da yaygın.",
+        },
+        {
+          q: "'Share an Uber' bar grubu için ne anlama gelir?",
+          options: [
+            "Uber paylaşmak (aynı arabada gitme)",
+            "Uber reklamı paylaşmak",
+            "Uber hesabı paylaşmak",
+            "Sürücüye not paylaşmak",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Share an Uber' = aynı yönde gidiyorsanız bir Uber ile birlikte gitme. Maliyet bölme. 'Carpool' resmi alternatif.",
+        },
+        {
+          q: "'Head home' = ?",
+          options: [
+            "Eve başı kalkmak",
+            "Eve doğru gitmek, eve dönmek",
+            "Evde başı dik durmak",
+            "Eve baş yapma",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Head' = yönelmek (fiil). 'Head home' = eve doğru yola çık. 'I'm heading home' = eve gidiyorum. Doğal phrasal verb.",
+        },
+      ],
     },
   ],
 };

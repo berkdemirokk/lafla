@@ -296,6 +296,126 @@ export const dailyGymLesson_35_1: BundledLesson = {
       tr_explanation:
         "'Enter the gym as a member' direkt çeviri ('üye olarak gym'e girmek'). İngilizce'de 'sign up for a membership' standart kalıp. 'I want' kaba; 'I'd like' kibar.",
     },
+    {
+      id: "ex.dgl35.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'd like to ___ a ___ membership, please.",
+      slots: [
+        { accepted: ["sign up for", "purchase", "get"], distractors: ["enter", "take", "buy in"] },
+        { accepted: ["monthly", "yearly", "gym", "premium"], distractors: ["entry", "good", "small"] },
+      ],
+      tr_hint:
+        "Gym üyeliği kalıbı. 'Sign up for' = kayıt ol (fiili kalıp). 'Enter the gym' yanlış — bina değil üyelik. 'Monthly membership' = aylık.",
+      example_filled: "I'd like to sign up for a monthly membership, please.",
+    },
+    {
+      id: "ex.dgl35.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Welcome! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — monthly or yearly?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)(,)? (i'?d like|i would like) to (sign up|join)",
+        "(i'?m interested in) (a )?membership",
+        "(could you|can you) (walk me through|tell me) (the )?(membership|plans|options)",
+        "(i want to|i'?d like to) (join|sign up)",
+      ],
+      tr_hint:
+        "Spor salonu — net giriş: 'Hi, I'd like to sign up for a membership.' Türk öğrenci 'I want to be member' der — yanlış kalıp.",
+      ideal_answer: "Hi, I'd like to sign up for a membership — could you walk me through the plans?",
+    },
+    {
+      id: "ex.dgl35.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Is there any way to waive the initiation fee?",
+      accepted_patterns: [
+        "(yes|sure|of course)(,)? (we (can|could)) (waive|skip)",
+        "(it'?s a (promotion|special))",
+        "(no|unfortunately)(,)? (we (can'?t|cannot))",
+        "(let me check|hold on)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Resepsiyonist sana soruyor (rol değişimi: sen resepsiyonist) ya da müşteri sözüne cevap. Düşük seviye: net kısa onay. 'Sure, we can waive it' tipi.",
+      ideal_response: "Sure — we can waive it this month, it's a promotion.",
+    },
+    {
+      id: "ex.dgl35.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Spora gidiyorum her gün.",
+      wrong_en: "I am going to gym every day.",
+      right_en: "I go to the gym every day.",
+      why_tr:
+        "İki Türk hatası: (1) 'going to' alışkanlık için yanlış — simple present ('I go') lazım. (2) 'to gym' eksik 'the' artikeli — 'to the gym'. Türk öğrenci artikel atlar.",
+    },
+    {
+      id: "ex.dgl35.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Gym kayıt için en doğru söz?",
+          options: [
+            "I want to enter as member.",
+            "I'd like to sign up for a membership, please.",
+            "Give me membership.",
+            "I am here for gym.",
+          ],
+          correct: 1,
+          tr_explanation: "'Sign up for' = kayıt ol (kalıp). 'Enter' bina için, 'membership' için 'sign up'.",
+        },
+        {
+          q: "'Initiation fee' ne demek?",
+          options: [
+            "Aylık ücret",
+            "Giriş / kayıt ücreti (tek seferlik)",
+            "Vergi",
+            "Bahşiş",
+          ],
+          correct: 1,
+          tr_explanation: "'Initiation fee' = kayıt ücreti, tek seferlik. 'Monthly fee' = aylık aidat.",
+        },
+        {
+          q: "'I go to the gym' vs 'I am going to gym' farkı?",
+          options: [
+            "Birinci alışkanlık (her gün); ikinci yanlış (artikel eksik + present continuous yanlış).",
+            "Aynı.",
+            "İkinci kibar.",
+            "Birinci geçmiş.",
+          ],
+          correct: 0,
+          tr_explanation: "Alışkanlık = simple present + 'the gym'. Continuous sadece 'şu an' için.",
+        },
+        {
+          q: "'Waive the fee' ne demek?",
+          options: [
+            "Ücreti ödeyin",
+            "Ücretten vazgeç (iptal et)",
+            "Ücreti azalt",
+            "Ücreti ekle",
+          ],
+          correct: 1,
+          tr_explanation: "'Waive' = vazgeç / iptal et. 'Waive the fee' = ücreti almamak.",
+        },
+        {
+          q: "Membership cancel etmek için kalıp?",
+          options: [
+            "Stop my membership.",
+            "I'd like to cancel my membership, please.",
+            "No more gym.",
+            "Membership end.",
+          ],
+          correct: 1,
+          tr_explanation: "'I'd like to cancel' = kibar iptal. 'Stop' kaba.",
+        },
+      ],
+    },
   ],
 };
 

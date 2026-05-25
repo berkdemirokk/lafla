@@ -289,6 +289,131 @@ export const orderFastfoodLesson_43_1: BundledLesson = {
       tr_explanation:
         "'Potato' yerine 'fries'. 'Coca' yerine 'Coke'. 'Big size' yerine 'large'. 'Salad' yanlış kelime — 'lettuce' (marul).",
     },
+    {
+      id: "ex.off43.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'll have ___ combo, ___, with ___.",
+      slots: [
+        {
+          accepted: ["the burger", "the chicken", "the spicy", "the big mac"],
+          distractors: ["food big", "meal one", "menu"],
+        },
+        {
+          accepted: ["large", "medium", "small", "to go"],
+          distractors: ["big much", "extra big", "very small"],
+        },
+        {
+          accepted: ["a Coke", "a Sprite", "lemonade", "iced tea"],
+          distractors: ["water big", "drink fast", "Coca cold"],
+        },
+      ],
+      tr_hint:
+        "Fast food sipariş kalıbı: 'I'll have [öğe] combo, [boyut], with [içecek].' Türk öğrenci 'I want menu' der — 'combo' standart ABD kelime, menu farklı anlam.",
+      example_filled: "I'll have the burger combo, large, with a Coke.",
+    },
+    {
+      id: "ex.off43.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Welcome! What can I get you today?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Sure, that's a large burger combo. Anything else?",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a|the) (burger|chicken|spicy) combo",
+        "(i'?ll have|i'?d like) (the )?(burger|chicken) combo( large| medium)?",
+        "(a |the )?(burger|chicken|big mac) combo( please)?",
+      ],
+      tr_hint:
+        "Kasada karşı taraf 'ne istersin?' diyor. Net sipariş: 'I'll have the burger combo, large, please.' Türk öğrenci tek kelime der — tam cümle kur.",
+      ideal_answer: "I'll have the burger combo, large, please.",
+    },
+    {
+      id: "ex.off43.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "For here or to go?",
+      accepted_patterns: [
+        "(for here|to go)( please)?",
+        "(i'?ll )?(take it )?to go( please)?",
+        "(here|sit in|eat here)( please)?",
+        "(let me )?(sit|eat) here",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kasiyer 'burada mı paket mi?' diye sordu. Tek kelime cevap yeterli: 'To go, please' veya 'For here.' Türk öğrenci 'I drink here' der — 'For here' yerleşik.",
+      ideal_response: "To go, please.",
+    },
+    {
+      id: "ex.off43.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bir Coca büyük boy.",
+      wrong_en: "One Coca big.",
+      right_en: "A large Coke, please.",
+      why_tr:
+        "Türk 'Coca' diye söyler — ABD'de marka adı 'Coke' (kısaltma) standart. 'Big' yerine 'large' (boyut sıfatı). 'One' yerine 'a' (belgisiz). Cümle yapısı: sıfat + isim + please.",
+    },
+    {
+      id: "ex.off43.1.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Combo' fast food'da ne demek?",
+          options: [
+            "Karışım içecek",
+            "Sandviç + patates + içecek menüsü",
+            "Yedek malzeme",
+            "Sandviç tek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Combo' = sandviç + yan ürün (patates) + içecek = tek paket. Türk 'menu' der — ABD'de 'menu' = sipariş listesi (yenilebilir öğeler).",
+        },
+        {
+          q: "ABD'de 'Coca-Cola' nasıl kısaltılır?",
+          options: ["Cola", "Coke", "CC", "Coca"],
+          correct: 1,
+          tr_explanation:
+            "'Coke' = Coca-Cola'nın yaygın kısaltması. Türk 'Coca' der — ABD'de bu anlaşılır ama 'Coke' standart.",
+        },
+        {
+          q: "'Lettuce' ne demek?",
+          options: ["Limon", "Marul", "Domates", "Mantar"],
+          correct: 1,
+          tr_explanation:
+            "'Lettuce' = marul (burger içine giren yeşil yaprak). Türk 'salad' der — 'salad' karışık yemek, 'lettuce' tek yaprak.",
+        },
+        {
+          q: "Türk 'patates' fast food'da?",
+          options: ["Potato", "Fries", "Spuds", "Chips (UK)"],
+          correct: 1,
+          tr_explanation:
+            "ABD'de 'fries' (kızarmış patates). 'Potato' = ham/pişmiş patates (genel). UK'da 'chips'. Türk öğrenci 'potato' der — fast food'da 'fries' net.",
+        },
+        {
+          q: "'A large Coke' yapısı?",
+          options: [
+            "Büyük tutarlı kola",
+            "Bir büyük boy Coke",
+            "Coke büyütülmüş",
+            "Coke ekstra",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'A [boyut] [içecek]' = bir [boyut] [içecek]. 'A large Coke' = bir büyük kola. Sıfat öncüllük + isim sonuç.",
+        },
+      ],
+    },
   ],
 };
 
@@ -573,6 +698,147 @@ export const orderFastfoodLesson_43_2: BundledLesson = {
       tr_explanation:
         "'Everything inside' belirsiz — 'the works' yerleşik idiom. 'Onion no' kırık — 'hold the onions'. 'Much rice' yerine 'easy on the rice' (az koy) ya da 'extra rice' (çok).",
     },
+    {
+      id: "ex.off43.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Hold the ___ and ___ the ___, please.",
+      slots: [
+        {
+          accepted: ["onions", "pickles", "mayo", "lettuce"],
+          distractors: ["food cold", "drink yes", "menu"],
+        },
+        {
+          accepted: ["easy on", "go heavy on", "extra"],
+          distractors: ["fast on", "more for", "much for"],
+        },
+        {
+          accepted: ["sauce", "cheese", "rice", "guac"],
+          distractors: ["bread", "spicy", "drink"],
+        },
+      ],
+      tr_hint:
+        "Counter özelleştirme kalıbı: 'Hold the [çıkar] and [zarf] the [düzenle], please.' 'Easy on' = az koy, 'go heavy on' = çok koy. Modern fast food sözlüğü.",
+      example_filled: "Hold the onions and easy on the sauce, please.",
+    },
+    {
+      id: "ex.off43.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Burger combo, large. Any modifications?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Got it — no onions, extra cheese, sauce on the side. Confirmed!",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no |hold the )?(onions|pickles|mayo|cheese)",
+        "(extra )(sauce|cheese|fries|bacon)",
+        "(easy on|go light on|heavy on) (the )?(sauce|cheese|salt)",
+        "(could you )?(make it|do it) (without|with no) (.+)",
+      ],
+      tr_hint:
+        "Kasiyer modifikasyon soruyor. Net liste: 'No onions, extra cheese, sauce on the side.' Türk öğrenci tek tek tekrar eder — virgül + 'and' birleştir.",
+      ideal_answer: "No onions, extra cheese, and sauce on the side, please.",
+    },
+    {
+      id: "ex.off43.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Cheese on the burger?",
+      accepted_patterns: [
+        "(yes|sure|yeah)( cheese)?( please)?",
+        "(no thanks|no cheese|hold the cheese)",
+        "(extra |double )?cheese( please)?",
+        "(actually )?yes(,)? (extra )?cheese",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kasiyer peynir soruyor. 3 sn — basit karar. 'Yes, please' veya 'No thanks.' Türk öğrenci tereddüt eder — hızlı net cevap.",
+      ideal_response: "Yes, extra cheese please.",
+    },
+    {
+      id: "ex.off43.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Soğan koymayın.",
+      wrong_en: "Don't put onion.",
+      right_en: "Hold the onions, please.",
+      why_tr:
+        "Türk 'koymayın' = 'don't put' diye direkt çevirir — anlaşılır ama yaygın değil. Doğru: 'Hold the [öğe]' = [öğe] eklemeyin (fast food slang). 'No [öğe]' alternatif.",
+    },
+    {
+      id: "ex.off43.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'The works' fast food bağlamında ne demek?",
+          options: [
+            "İşçilik",
+            "Tüm malzemeler (her şey ekli)",
+            "Çalışan",
+            "Sıkı çalış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'The works' = her şey ekli (sandviçte tüm sosalar, sebzeler, ekstralar). 'Give me the works' = en zengin versiyonu.",
+        },
+        {
+          q: "'Easy on the sauce' yapısı?",
+          options: [
+            "Sos kolay",
+            "Sos az koy",
+            "Sos hızlı koy",
+            "Sos tatlı koy",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Easy on [öğe]' = [öğeyi] az koy. 'Easy on the salt' = az tuz. Türk öğrenci 'less sauce' der — 'easy on' yerleşik fast food slang.",
+        },
+        {
+          q: "'Go heavy on the cheese' ne anlatır?",
+          options: [
+            "Az peynir",
+            "Bol peynir",
+            "Ağır peynir tipi",
+            "Peynir koyma",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Go heavy on [öğe]' = bol koy. 'Easy on'un zıttı. Modern fast food sözlüğü — Subway, Chipotle gibi yerlerde yaygın.",
+        },
+        {
+          q: "'Hold the X' delivery/fast food'da?",
+          options: [
+            "X'i tut",
+            "X eklemeyin",
+            "X bekle",
+            "X yarım",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Hold the [öğe]' = eklemeyin. Türk öğrenci 'tutmak' anlar — 'hold' burada 'durdurmak/eklemeyin' anlamında.",
+        },
+        {
+          q: "Chipotle'de burrito siparişi. EN doğal?",
+          options: [
+            "Big chicken food",
+            "Chicken burrito with rice, beans, mild salsa — extra guac",
+            "Eat big rice meat",
+            "Spicy yes",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Chipotle: 'protein + base + sauces' yapısı. 'Chicken burrito with...' modern sipariş. 'Guac' (guacamole kısaltma) Chipotle slang.",
+        },
+      ],
+    },
   ],
 };
 
@@ -818,6 +1084,147 @@ export const orderFastfoodLesson_43_3: BundledLesson = {
         "I'm allergic to nuts — please make sure there's none in my order.",
       tr_explanation:
         "'Have nut allergic' yanlış yapı — doğrusu 'I'm allergic to [X]' (sıfat) veya 'I have a [X] allergy' (isim). 'No put inside' kırık komut.",
+    },
+    {
+      id: "ex.off43.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm allergic to ___ — please ___.",
+      slots: [
+        {
+          accepted: ["nuts", "peanuts", "shellfish", "dairy"],
+          distractors: ["food bad", "much things", "spicy"],
+        },
+        {
+          accepted: [
+            "make sure there's none in my order",
+            "use a clean pan",
+            "double-check the ingredients",
+          ],
+          distractors: ["fast send", "good cook", "be quick"],
+        },
+      ],
+      tr_hint:
+        "Alerji bildirimi kalıbı: 'I'm allergic to [öğe] — please [çözüm].' Türk öğrenci 'allergy nut' der — 'I'm allergic to' standart yapı. Çapraz bulaşma kavramı önemli.",
+      example_filled: "I'm allergic to peanuts — please make sure there's none in my order.",
+    },
+    {
+      id: "ex.off43.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Any allergies I should know about?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Got it — I'll let the kitchen know to be extra careful with cross-contamination.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (i'?m allergic to|i can'?t have) (nuts|peanuts|dairy|shellfish)",
+        "(could you|can you) (make sure|double[- ]check) (there'?s no|it doesn'?t have) (.+)",
+        "(no |no )?allergies(,)? (thanks|thank you)",
+        "(i have a |i'?ve got a )(nut|peanut|dairy|gluten) allergy",
+      ],
+      tr_hint:
+        "Kasiyer alerji soruyor. Net bildirim: 'Yes, I'm allergic to nuts — please make sure there's none.' Türk öğrenci 'no allergy' der — varsa söyle, yoksa 'No allergies, thanks.'",
+      ideal_answer: "Yes, I'm allergic to peanuts — could you make sure there's none?",
+    },
+    {
+      id: "ex.off43.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Just so you know, our fryer uses peanut oil. Is that okay?",
+      accepted_patterns: [
+        "(actually )?(no|i'?m allergic)(,)? (i can'?t have|i can'?t eat) (peanuts|that)",
+        "(could you|can you) (use a different|a separate) (fryer|oil)",
+        "(yeah|yes)(,)? (no problem|that'?s fine)",
+        "(let me )?(switch|change) (my )?(order|side)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kasiyer önemli bir uyarı verdi — fıstık yağı. 3 sn — alerjin var mı? 'Actually, I'm allergic — could you use a different fryer?' veya alerjin yoksa 'Yeah, that's fine.'",
+      ideal_response: "Actually, I'm allergic — could you use a different fryer?",
+    },
+    {
+      id: "ex.off43.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Fıstık alerjisi var bende.",
+      wrong_en: "I have peanut allergic.",
+      right_en: "I'm allergic to peanuts.",
+      why_tr:
+        "Türk öğrenci 'allerjisi var' = 'have allergic' diye çevirir — yanlış part-of-speech. 'Allergic' sıfat (alerjik), 'allergy' isim (alerji). Doğru: 'I'm allergic to X' (sıfat) veya 'I have a X allergy' (isim).",
+    },
+    {
+      id: "ex.off43.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Cross-contamination' ne demek?",
+          options: [
+            "Çapraz kontaminasyon (alerjen başka yemeğe bulaşma)",
+            "Çift sipariş",
+            "Yemek karışımı",
+            "Bozulma",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Cross-contamination' = alerjenin başka yemeğe bulaşması (aynı tava, eldiven, vs.). Ciddi alerjisi olanlar mutlaka sormalı.",
+        },
+        {
+          q: "'I'm allergic to X' yapısı doğru mu?",
+          options: [
+            "Hayır, yanlış",
+            "Evet, sıfat yapı (allergic = alerjik)",
+            "Sadece UK'da",
+            "Sadece çocuklarda",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Allergic' sıfat. 'I'm allergic to [öğe]' = ben [öğeye] alerjikim. Standart yapı.",
+        },
+        {
+          q: "'Gluten-free' ne demek?",
+          options: [
+            "Gluten dolu",
+            "Gluten içermeyen",
+            "Gluten yenmez",
+            "Gluten testli",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Gluten-free' = glutensiz. 'Dairy-free' = sütsüz. 'Nut-free' = fıstıksız. Sıfat oluşturma kalıbı.",
+        },
+        {
+          q: "Ciddi alerji için EN net iletişim?",
+          options: [
+            "I can't eat",
+            "I'm allergic — could you make sure there's no [öğe]?",
+            "No bad food",
+            "Sick fast",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'm allergic — could you make sure...' = spesifik + ciddi. ABD restoranları alerjiyi ciddiye alır. Spesifik kelime hayat kurtarır.",
+        },
+        {
+          q: "'EpiPen' nedir?",
+          options: [
+            "Tek kullanımlık kalem",
+            "Ciddi alerji epinefrin enjektörü (acil)",
+            "Yazı tahtası",
+            "Diyabet ölçer",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'EpiPen' = epinefrin enjektörü (alerjik şok için acil). Ciddi alerjisi olanlar yanında taşır. ABD'de yaygın.",
+        },
+      ],
     },
   ],
 };
@@ -1071,6 +1478,143 @@ export const orderFastfoodLesson_43_4: BundledLesson = {
       tr_explanation:
         "'I want my money back' agresif. 'Totally wrong' belirsiz. Doğrusu seçenek sunmak: 'refund OR remade'. Spesifik: 'isn't what I ordered'.",
     },
+    {
+      id: "ex.off43.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could you ___ it, or ___?",
+      slots: [
+        {
+          accepted: ["remake", "swap", "fix"],
+          distractors: ["fast make", "new try", "burn"],
+        },
+        {
+          accepted: ["get a refund", "switch to a different order", "credit my account"],
+          distractors: ["money give", "back fast", "give free"],
+        },
+      ],
+      tr_hint:
+        "Yanlış sipariş kalıbı: 'Could you [çözüm 1], or [çözüm 2]?' İki seçenek sun — kasiyer rahat eder. Türk öğrenci 'I want refund!' der — yumuşat.",
+      example_filled: "Could you remake it, or get a refund?",
+    },
+    {
+      id: "ex.off43.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Here you go, have a great day!",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Oh my apologies — let me get that fixed for you right away.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sorry|excuse me)(,)? (this isn'?t|this is not) what i ordered",
+        "(i ordered a |i got a )(burger|chicken|fries) (instead|wrong)",
+        "(could you |can you )(remake|swap|fix) (it|this)\\?",
+        "(this )?(burger|chicken) has (cheese|onions) (in it )?— i (ordered|asked for) (no|without) (cheese|onions)",
+      ],
+      tr_hint:
+        "Kasiyer sipariş verdi ama yanlış. Yumuşak düzeltme: 'Sorry, this isn't what I ordered.' Türk öğrenci 'wrong!' der — sakin + spesifik.",
+      ideal_answer: "Sorry, this isn't what I ordered — could you remake it?",
+    },
+    {
+      id: "ex.off43.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Sorry about that — would you like me to remake it or refund you?",
+      accepted_patterns: [
+        "(remake|refund)( please)?",
+        "(could you )?remake (it|the order)( please)?",
+        "(a )?refund( please)?",
+        "(remake works|refund is fine)( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kasiyer iki seçenek sundu. 3 sn — bekleyebilirsen: 'Remake, please.' Acelen varsa: 'Refund, thanks.' Net + kısa karar.",
+      ideal_response: "Remake it, please — if it's not too long.",
+    },
+    {
+      id: "ex.off43.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Yanlış sipariş!",
+      wrong_en: "Wrong order!",
+      right_en: "This isn't what I ordered.",
+      why_tr:
+        "Türk 'yanlış sipariş!' = 'wrong order!' diye direkt çevirir — fiilsiz + sert. Doğru: 'This isn't what I ordered' = sakin + spesifik. 'What I ordered' = sipariş ettiğim (relatif clause).",
+    },
+    {
+      id: "ex.off43.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Remake' yapısı?",
+          options: [
+            "Yeniden yap (re- + make)",
+            "Yapım",
+            "Tekrarla",
+            "Sat",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Remake' = yeniden yap. 'Re-' = yeniden öneki. Yanlış siparişte 'remake it' = baştan yap.",
+        },
+        {
+          q: "ABD fast food'da şikayet kültürü?",
+          options: [
+            "Tabu, sessiz kalınır",
+            "Normal, kasiyer remake/refund sunar",
+            "Manager'a gönderir",
+            "Ücretsiz başka yemek verilir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD'de fast food şikayet = sıradan. Kasiyer hemen remake (yeniden yap) veya refund (iade) sunar.",
+        },
+        {
+          q: "'This isn't what I ordered' yapısı?",
+          options: [
+            "Bu sipariş ettiğim değil",
+            "Sipariş etmedim",
+            "Bunu istemem",
+            "Sipariş yanlış",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'What I ordered' = sipariş ettiğim (relatif clause). 'This isn't what I ordered' = bu, sipariş ettiğim değil. Geçmiş zaman.",
+        },
+        {
+          q: "Yumuşak şikayet için EN doğal başlangıç?",
+          options: [
+            "Wrong!",
+            "Sorry, I think this is wrong.",
+            "You bad!",
+            "Pay back!",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sorry, I think...' = yumuşatma + dolaylı. Suçlama yerine sorgulama. Modern ABD ton.",
+        },
+        {
+          q: "'Could you remake it, or get a refund?' yapısı?",
+          options: [
+            "Tek seçenek",
+            "İki seçenek sunma (kasiyer rahat)",
+            "Tehdit",
+            "Soru değil",
+          ],
+          correct: 1,
+          tr_explanation:
+            "İki seçenek = kasiyer hangisi mümkünse onu yapar. Karşı tarafa esneklik tanımak ilişkiyi dengeli tutar.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1286,6 +1830,141 @@ export const orderFastfoodLesson_43_5: BundledLesson = {
       ipa: "kʊd aɪ ɡɛt ə ˈnʌmbər θriː wɪð ə koʊk pliːz",
       tr_hint:
         "Mikrofona net: 'Number' içinde 'b' duyulur. 'Three' içinde 'th' (dil dişe). 'Coke' = 'KOWK' tek hece. Yavaş + net.",
+    },
+    {
+      id: "ex.off43.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Could I get a number ___ with ___, please?",
+      slots: [
+        {
+          accepted: ["three", "five", "two", "seven"],
+          distractors: ["big", "good", "any"],
+        },
+        {
+          accepted: ["a Coke", "a Sprite", "lemonade", "iced tea"],
+          distractors: ["water big", "drink fast", "anything"],
+        },
+      ],
+      tr_hint:
+        "Drive-thru kalıbı: 'Could I get a number [sayı] with [içecek], please?' ABD fast food'da combo numarası yaygın. Türk öğrenci 'menu 3' der — 'number three' net.",
+      example_filled: "Could I get a number three with a Coke, please?",
+    },
+    {
+      id: "ex.off43.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Welcome to McDonald's, what can I get for you?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Got it, large number three with a Coke. Anything else?",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (a |the )?number (one|two|three|four|five|6|7)",
+        "(i'?ll have|i'?d like) (a |the )?number (one|two|three|four|five)( large)?( with a coke)?",
+        "(a |the )?(large |medium |small )?number (one|two|three|four|five)( with a coke)?",
+      ],
+      tr_hint:
+        "Drive-thru mikrofon. Net + yavaş: 'Could I get a large number three with a Coke?' Türk öğrenci hızlı söyler — yavaşla, mikrofon zayıf.",
+      ideal_answer: "Could I get a large number three with a Coke, please?",
+    },
+    {
+      id: "ex.off43.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Sorry, could you repeat that? I didn't quite catch it.",
+      accepted_patterns: [
+        "(yes|sure)(,)? (a )?(large )?number (one|two|three|four|five)( with a coke)?",
+        "(let me )?(say it )?again(,)? (a )?number (one|two|three|four|five)",
+        "(could|can) i (get|have) (a |the )?number (one|two|three|four|five)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kasiyer duymadı, tekrar istiyor. 3 sn — sakin tekrar et. Yavaşla, mikrofon zayıf olabilir. Türk öğrenci paniklər — sakin + net tekrar.",
+      ideal_response: "Sure — a large number three with a Coke, please.",
+    },
+    {
+      id: "ex.off43.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "3 numara menü.",
+      wrong_en: "Number 3 menu.",
+      right_en: "A number three combo, please.",
+      why_tr:
+        "Türk 'menü 3' = 'number 3 menu' diye direkt çevirir — 'menu' ABD'de sipariş listesi (yiyecek seçimleri). Doğru: 'A number three combo' (numara üç komboyu). 'Combo' = combo menü.",
+    },
+    {
+      id: "ex.off43.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Drive-thru' nedir?",
+          options: [
+            "Yol başı",
+            "Arabadan sipariş (drive-through)",
+            "Otopark",
+            "Hızlı yol",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Drive-thru' (drive-through kısaltma) = arabadan inmeden sipariş + ödeme + teslim. ABD'de yaygın.",
+        },
+        {
+          q: "ABD fast food'da 'number three' ne anlatır?",
+          options: [
+            "3 kişilik",
+            "3 numaralı combo (sipariş listesinde)",
+            "3 ekstra",
+            "3. ürün",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD fast food (McDonald's, Burger King, Wendy's) combo menülerine numara verir. 'Number three' = 3. combo.",
+        },
+        {
+          q: "Drive-thru mikrofonu zayıf. EN doğru taktik?",
+          options: [
+            "Bağır",
+            "Yavaşla + net telaffuz + tekrar etmeye hazır ol",
+            "Hızlı söyle",
+            "Sus, pencereye git",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Drive-thru mikrofonu rezistanslı. Yavaş + net konuş. Kasiyer tekrar isteyebilir — sakin tekrar et.",
+        },
+        {
+          q: "'Pull up to the window' ne demek?",
+          options: [
+            "Pencere aç",
+            "Pencereye doğru ilerle (drive-thru sırada)",
+            "Pencereyi çek",
+            "Aşağı in",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Pull up' = araba ile ilerle (sırada). 'Pull up to the window' = pencereye gel = ödeme + teslim noktası.",
+        },
+        {
+          q: "Combo numarası bilmiyorsan?",
+          options: [
+            "Bağır",
+            "Sandviç ismiyle söyle: 'A Big Mac combo, please'",
+            "Çık git",
+            "El kol salla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Numara unutsan da combo ismiyle söyle. 'A Big Mac combo, please' net + ABD fast food yaygın.",
+        },
+      ],
     },
   ],
 };
@@ -1506,6 +2185,143 @@ export const orderFastfoodLesson_43_6: BundledLesson = {
       tr_hint:
         "'Make it a' bağlanır → 'meyk-ɪd-ə'. 'Large' içinde 'r' yumuşak. 'Shake' = 'ŞEYK' tek hece, net.",
     },
+    {
+      id: "ex.off43.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "Yes, make it ___ and add ___.",
+      slots: [
+        {
+          accepted: ["a large", "a medium", "a meal", "a combo"],
+          distractors: ["big size", "extra fast", "more big"],
+        },
+        {
+          accepted: ["a shake", "an apple pie", "extra fries", "a cookie"],
+          distractors: ["food extra", "drink anyway", "menu"],
+        },
+      ],
+      tr_hint:
+        "Upsell kabul kalıbı: 'Yes, make it [boyut yükseltme] and add [ekstra].' Türk öğrenci 'big more' der — 'make it large' standart. 'Add' = ekle.",
+      example_filled: "Yes, make it a large and add a shake.",
+    },
+    {
+      id: "ex.off43.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Would you like to make it a meal for two dollars more?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Great choice! That comes with fries and a drink.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|sure|yeah)( please)?(,)? (make it a meal|sounds good)",
+        "(yeah|yes)(,)? (let'?s |i'?ll )?(do that|go for it)",
+        "(no thanks|i'?m good)(,)? (just the )?(sandwich|burger)",
+        "(actually )?(no thanks|maybe next time)",
+      ],
+      tr_hint:
+        "Kasiyer upsell yapıyor (+$2 menü). Hızlı karar: 'Yes, make it a meal' veya 'No thanks, just the sandwich.' Türk öğrenci sessiz kalır — net cevap.",
+      ideal_answer: "Yes, sounds good — make it a meal.",
+    },
+    {
+      id: "ex.off43.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Would you like to add fries and a drink for just a dollar more?",
+      accepted_patterns: [
+        "(yes|sure|yeah)(,)? (sounds good|that works)",
+        "(no thanks|i'?m good)( just the burger)?",
+        "(actually )?(yeah|sure)( why not| go for it)",
+        "(maybe |) (next time|some other time)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "+$1 upsell teklifi. 3 sn — değer mi? 'Yeah, why not!' veya 'No thanks, just the burger.' Türk öğrenci tereddüt eder — hızlı + net.",
+      ideal_response: "Yeah, why not — sounds like a deal.",
+    },
+    {
+      id: "ex.off43.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Patatesi büyük yap.",
+      wrong_en: "Make potato big.",
+      right_en: "Could you upsize the fries?",
+      why_tr:
+        "Türk 'büyük yap' = 'make big' diye direkt çevirir — yapı yetersiz. Doğru: 'upsize' (büyük boya geç fiil) veya 'make it a large'. 'Potato' yerine 'fries' (fast food).",
+    },
+    {
+      id: "ex.off43.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Upsize' fast food'da ne demek?",
+          options: [
+            "Boyutu küçült",
+            "Bir üst boya geç",
+            "Pahalı yap",
+            "Yeniden yap",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Upsize' = bir üst boya geç (small → medium → large). Kasiyer 'want to upsize?' diye sorar = bir üste geç.",
+        },
+        {
+          q: "'Make it a meal' yapısı?",
+          options: [
+            "Yemek yap",
+            "Sandviçi combo'ya çevir (patates + içecek ekle)",
+            "Menü oluştur",
+            "Yemek pişir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Make it a meal' = sandviçten combo'ya geç (patates + içecek ekle). Klasik upsell teklifi.",
+        },
+        {
+          q: "ABD fast food'da upsell kültürü?",
+          options: [
+            "Yok",
+            "Yaygın, kasiyer her zaman teklif eder",
+            "Kibar değil",
+            "Sadece geceleri",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD fast food kasiyerleri eğitildir: upsize, add-on, combo teklifleri. Türk öğrenci panikler — net 'yes/no' yeterli.",
+        },
+        {
+          q: "'For a dollar more' yapısı?",
+          options: [
+            "Bir dolar için",
+            "Bir dolar daha (ek ücret)",
+            "Dolar fazlası",
+            "Dolar kazanılır",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'For [tutar] more' = [tutar] kadar daha (ek ücret). 'For a dollar more' = +1$. Upsell fiyatlandırma kalıbı.",
+        },
+        {
+          q: "Upsell'i reddetmek için EN doğal?",
+          options: [
+            "No money",
+            "No thanks, just the sandwich",
+            "Bad price",
+            "Fast no",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'No thanks, just the [sipariş]' = kibar + net. Türk öğrenci 'no want' der — 'no thanks' standart sosyal yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1718,6 +2534,141 @@ export const orderFastfoodLesson_43_7: BundledLesson = {
       ipa: "noʊ ˈpɪkəlz noʊ ˈʌnjənz ˈɛkstrə tʃiːz pliːz",
       tr_hint:
         "Liste ritmi: virgülde duraklama, vurgu son kelime. 'Pickles' = 'PİK-əlz'. 'Onions' = 'ʌN-yənz' (tek hece gibi hızlı).",
+    },
+    {
+      id: "ex.off43.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "No ___, no ___, extra ___, please.",
+      slots: [
+        {
+          accepted: ["pickles", "onions", "mayo", "lettuce"],
+          distractors: ["bread", "drink", "fast"],
+        },
+        {
+          accepted: ["mustard", "tomatoes", "ketchup", "mayo"],
+          distractors: ["meat much", "fries no", "drink hot"],
+        },
+        {
+          accepted: ["cheese", "sauce", "bacon", "pickles"],
+          distractors: ["drink", "menu", "burger"],
+        },
+      ],
+      tr_hint:
+        "Liste yapı: 'No [çıkar1], no [çıkar2], extra [ekle], please.' Modern fast food sözlüğü. Türk öğrenci 'without' kullanır — 'no [öğe]' yerleşik fast food.",
+      example_filled: "No pickles, no onions, extra cheese, please.",
+    },
+    {
+      id: "ex.off43.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "What can I get for you today?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Got it — burger with no pickles, no onions, extra cheese. That'll be $8.50.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(a |the )?burger (with )?no (pickles|onions|mayo|cheese)",
+        "(could|can) i (get|have) a burger (with no|no) (.+)( extra (cheese|sauce))?",
+        "(a |the )?(.+) burger(,)? (no|hold the) (.+)",
+      ],
+      tr_hint:
+        "Kasiyer ne istersin diye soruyor. Net customize: 'A burger with no pickles, no onions, extra cheese.' Türk öğrenci tek tek söyler — virgül ile sıralı liste yap.",
+      ideal_answer: "A burger with no pickles, no onions, and extra cheese, please.",
+    },
+    {
+      id: "ex.off43.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Pickles okay on your burger?",
+      accepted_patterns: [
+        "(no thanks|no pickles|hold the pickles)",
+        "(yes|sure)( pickles are fine)?",
+        "(actually )?no pickles( please)?",
+        "(could you|can you) (hold the|no) pickles",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kasiyer turşu soruyor. 3 sn — hızlı karar. 'No pickles, please' veya 'Yes, pickles are fine.' Türk öğrenci tereddüt eder — net 'yes/no'.",
+      ideal_response: "No pickles, please.",
+    },
+    {
+      id: "ex.off43.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Turşu olmasın.",
+      wrong_en: "Pickle don't be.",
+      right_en: "No pickles, please.",
+      why_tr:
+        "Türk 'olmasın' = 'don't be' diye direkt çevirir — anlaşılır ama yapısı yetersiz. Doğru: 'No [öğe], please' = fast food standart. 'Hold the [öğe]' alternatif.",
+    },
+    {
+      id: "ex.off43.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Pickles' ne demek?",
+          options: ["Bezelye", "Turşu (genelde salatalık turşusu)", "Patlıcan", "Domates"],
+          correct: 1,
+          tr_explanation:
+            "'Pickles' = turşu (US fast food'da genelde salatalık turşusu). Burger içine standart. Türk öğrenci 'pickled' der — 'pickles' isim hali.",
+        },
+        {
+          q: "Customize için EN doğal yapı?",
+          options: [
+            "I no want",
+            "Without onion",
+            "No onions, please",
+            "Onion don't",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'No [öğe], please' = fast food standart customize. Türk öğrenci 'without' kullanır — anlaşılır ama 'no' yaygın.",
+        },
+        {
+          q: "'Extra cheese' yapısı?",
+          options: [
+            "Ekstra peynir",
+            "Ek/daha çok peynir",
+            "Peynirsiz",
+            "Pahalı peynir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Extra [öğe]' = ek/daha çok [öğe]. 'Extra cheese' = ek peynir. Customize'de yaygın.",
+        },
+        {
+          q: "Liste sıralı söylerken doğal ritim?",
+          options: [
+            "Tek nefes hızlı",
+            "Virgülde duraklama + sonu vurgulu",
+            "Bağırarak",
+            "Mırıldanarak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Liste konuşurken virgülde duraklama (kısa nefes). Son öğeye vurgu. Kasiyer kafasını toparlayabilsin diye yavaş + ritmik.",
+        },
+        {
+          q: "'Hold the X' tonu fast food'da?",
+          options: [
+            "Kaba",
+            "Standart customize slang",
+            "Resmi",
+            "Çocukça",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Hold the [öğe]' = fast food yerleşik slang ('eklemeyin'). Kasiyer hemen anlar. Türk öğrenci yabancı bulur — alışmak gerek.",
+        },
+      ],
     },
   ],
 };
@@ -1932,6 +2883,146 @@ export const orderFastfoodLesson_43_8: BundledLesson = {
       ipa: "aɪm hɪr tə pɪk ʌp ə ˈmoʊbəl ˈɔːrdər ˈʌndər bɜːrk",
       tr_hint:
         "'Pick up' = 'PİK-ʌp' bağlanır. 'Mobile' US'de 'MOW-bəl' (UK'da 'MOW-bayl'). 'Under' = 'ʌn-dər' net.",
+    },
+    {
+      id: "ex.off43.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      template: "I'm here to ___ a mobile order ___ ___.",
+      slots: [
+        {
+          accepted: ["pick up", "grab", "collect"],
+          distractors: ["take", "get fast", "find"],
+        },
+        {
+          accepted: ["under", "for"],
+          distractors: ["from", "to", "with"],
+        },
+        {
+          accepted: ["Berk", "Mert", "Selin", "Emre"],
+          distractors: ["Coffee", "Customer", "Big"],
+        },
+      ],
+      tr_hint:
+        "Mobile order pickup kalıbı: 'I'm here to [fiil] a mobile order [edat] [isim].' Türk öğrenci 'I take order' der — 'pick up' yerleşik kalıp. 'Under [isim]' = [isim] adına.",
+      example_filled: "I'm here to pick up a mobile order under Berk.",
+    },
+    {
+      id: "ex.off43.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        {
+          speaker: "npc",
+          text: "Hi! Mobile pickup is over there — what's the name on the order?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Found it — it should be ready in 2 minutes. Just hang tight.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(it'?s )?(under )?(berk|mert|selin)( — [a-z](-[a-z]){2,})?",
+        "(the name is|name'?s) (berk|mert|selin)",
+        "(under )?(berk|mert|selin)(,)? (B-E-R-K|M-E-R-T|S-E-L-I-N)",
+      ],
+      tr_hint:
+        "Personel isim soruyor. Hızlı + heceleyerek: 'It's under Berk — B-E-R-K.' Türk ismi olduğu için hecele. Türk öğrenci ismini hızlı söyler — yavaş.",
+      ideal_answer: "It's under Berk — B-E-R-K.",
+    },
+    {
+      id: "ex.off43.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Sorry, what name was that again?",
+      accepted_patterns: [
+        "(it'?s|name'?s) [a-z]+ — [a-z](-[a-z]){2,}",
+        "(let me spell it|i'?ll spell it)(,)? [a-z](-[a-z]){2,}",
+        "(under )?[a-z]+(,)? [a-z](-[a-z]){2,}",
+        "[a-z]+ (b-e-r-k|m-e-r-t|s-e-l-i-n|e-m-r-e)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Personel ismi duymadı. 3 sn — sakin hecele. 'Berk — B-E-R-K.' Türk öğrenci sertleşir — sakin tekrar et + hecele.",
+      ideal_response: "Berk — B-E-R-K.",
+    },
+    {
+      id: "ex.off43.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Siparişimi almaya geldim.",
+      wrong_en: "I came to take my order.",
+      right_en: "I'm here to pick up my mobile order.",
+      why_tr:
+        "Türk 'almak' = 'take' diye direkt çevirir. ABD'de 'pick up' (al-götür) yerleşik kalıp. 'I came' yerine 'I'm here' present continuous — şu anda buradayım. Daha doğal.",
+    },
+    {
+      id: "ex.off43.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mobile order' ne demek?",
+          options: [
+            "Mobil sipariş (uygulamadan)",
+            "Hareketli sipariş",
+            "Cep telefonu",
+            "Hızlı sipariş",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Mobile order' = uygulamadan verilen sipariş (Starbucks, McDonald's apps). 'Mobile pickup' = uygulamadan veril + mağazadan al.",
+        },
+        {
+          q: "'Pick up' bağlamı?",
+          options: [
+            "Yukarı kaldır",
+            "Al + götür (hazır siparişi)",
+            "Telefon aç",
+            "Yenile",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Pick up' = mağazadan teslim al. 'Pick up an order' = sipariş al. Drive-thru/curbside dışındaki standart yöntem.",
+        },
+        {
+          q: "Türk ismi 'Berk' personele nasıl iletilir?",
+          options: [
+            "Berk",
+            "Berk — B-E-R-K (heceleyerek)",
+            "Berk burk",
+            "Berk fast",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Türk ismi = hece şart. 'Berk — B-E-R-K' personel yanlış yazmasın diye. ABD personeli Türk isimlerini yanlış yazar.",
+        },
+        {
+          q: "'It's under Berk' yapısı?",
+          options: [
+            "Berk altında",
+            "Berk adına (sipariş)",
+            "Berk hakkında",
+            "Berk için",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Under [isim]' = [isim] adına (sipariş, rezervasyon). 'It's under Berk' = sipariş Berk adına. Pickup standart kalıbı.",
+        },
+        {
+          q: "Mobile pickup'ta personel uzun sürüyor. EN doğru?",
+          options: [
+            "Bağır",
+            "Sakince bekle, gerekirse 'any update?' sor",
+            "Çık git",
+            "Telefon çek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Mobile pickup hızlı olmalı. Geç olursa nazikçe: 'Any update on the mobile order?' Türk öğrenci panikler — sakin + sabırlı.",
+        },
+      ],
     },
   ],
 };
