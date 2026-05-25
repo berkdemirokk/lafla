@@ -516,6 +516,23 @@ export const flirtDefineLesson_6_2: BundledLesson = {
           message:
             "Got it. I'm into that. Glad we talked.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Can we check in on this in a couple weeks, see how it's working?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|absolutely)(,)? (let'?s|that'?s a) (good idea|smart|plan)",
+            "(check[- ]in|revisit) (in (two|2|a couple)|every (two|2)|monthly)",
+            "(if (something|anything) (shifts|changes))(,)? (i'?ll|we'?ll) (say|talk)",
+            "(love that|appreciate that|sounds healthy)(,)? .{0,40}",
+            "(open communication|keeping it open) (matters|works for me)",
+          ],
+          hint_tr:
+            "Düzenli kontrol önerisini kabul et: 'Yes — let's revisit in two weeks. Open communication matters.' Sınır sabit değil, yaşayan bir anlaşma.",
+        },
       ],
     },
     {
@@ -913,6 +930,23 @@ export const flirtDefineLesson_6_3: BundledLesson = {
           speaker: "npc",
           message:
             "Same. Let's just keep building this, no rush.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Where do you see us in six months — same city, traveling, what?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|truthfully) (i (can )?see|i picture) (us|this) (.+)",
+            "(same city|together|building|growing) (still|in six months)",
+            "(maybe (a )?trip|maybe (we )?travel) (together|somewhere)( in (the )?spring)?",
+            "(day by day|no rush)(,)? but (.+) (feels real|is the direction)",
+            "(want to (visit|meet) (your|my) (family|friends))",
+          ],
+          hint_tr:
+            "Somut zaman + niyet: 'Honestly, I see us still building — same city, maybe a trip in spring. Day by day, but that's the direction.' Türk öğrenci 'evlilik' atlama yapar; ölçülü ol.",
         },
       ],
     },
@@ -1313,6 +1347,23 @@ export const flirtDefineLesson_6_4: BundledLesson = {
           message:
             "I really appreciate you telling me. We can do that. Whatever you need.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Just so I know — are you seeing anyone else, or is this still just us?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no |not at all)[,—-]? (still just (us|you)|only you)",
+            "(just you|only you|exclusively you)(,)? (.+)",
+            "(slowing down|quieter days) (doesn'?t mean|isn'?t about) (anyone else|other people)",
+            "(what about you|you too|same on your end)",
+            "(honestly|truthfully) (just )?(you|us)",
+          ],
+          hint_tr:
+            "Dürüst cevap + soruyu iade et: 'Just you — slowing down isn't about anyone else. What about you?' Reciprocate = sağlıklı.",
+        },
       ],
     },
     {
@@ -1710,6 +1761,23 @@ export const flirtDefineLesson_6_5: BundledLesson = {
           message:
             "Same — I'm enjoying this and I see something real here. Want to talk more about it?",
         },
+        {
+          speaker: "npc",
+          message:
+            "Like — are you seeing anyone else, or is this just us right now?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|truthfully) (just |only )?(you|us)",
+            "(not seeing|haven'?t been seeing) (anyone else|other people)( in a while)?",
+            "(been (off|deleted)|off) the apps( for (.+))?",
+            "(you'?re the only|just one) (person|one) (i'?m (interested in|seeing))",
+            "(what about you|how about you|same on your end)",
+          ],
+          hint_tr:
+            "Dürüst + reciprocate: 'Just you — been off the apps for a few weeks. What about you?' Türk öğrenci kaçar; net cevap ver + soruyu iade et.",
+        },
       ],
     },
     {
@@ -2070,6 +2138,23 @@ export const flirtDefineLesson_6_6: BundledLesson = {
           message:
             "Yeah — I'm in. Let's do it together right now.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Okay — so what are we, exactly? Like, what should I tell my sister when she asks?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(let'?s |we can )?(call (it|us) what feels right|figure out labels later)",
+            "(boyfriend|girlfriend|partner|together) (works|sounds good|if (you'?re|that'?s) comfortable)",
+            "(no rush on labels|labels can wait)(,)? (just (us|exclusive)) for now",
+            "(tell her|say) (we'?re )?(seeing each other|together|exclusive)",
+            "(your call|whatever you'?re comfortable telling her)",
+          ],
+          hint_tr:
+            "Label ya da intentional ambiguity + boundary. 'Tell her we're exclusive — labels can wait, no rush.' Türk öğrenci direkt 'boyfriend' der; karşı tarafın komforuna alan bırak.",
+        },
       ],
     },
     {
@@ -2429,6 +2514,23 @@ export const flirtDefineLesson_6_7: BundledLesson = {
           message:
             "Same. Best week ever. Should we tell our friends or keep it just us for now?",
         },
+        {
+          speaker: "npc",
+          message:
+            "And just so we're clear — exclusive means exclusive, right? No apps, no other people?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|absolutely|definitely)(,)? (exclusive means|just us)",
+            "(off the apps|apps (are )?gone|deleted (them|the apps))",
+            "(no one else|just you)(,)? (.+)",
+            "(same page|aligned) (on that|here)",
+            "(want this )?(to be )?(serious|real)(,)? (.+)",
+          ],
+          hint_tr:
+            "Net teyit + boundary: 'Yes — apps are gone, just you. We're on the same page.' Belirsizlik bırakma; net çerçeveleme güven yaratır.",
+        },
       ],
     },
     {
@@ -2787,6 +2889,23 @@ export const flirtDefineLesson_6_8: BundledLesson = {
           speaker: "npc",
           message:
             "Thanks for being honest. I can give it more time — we're good.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "How about we check in again in a month? See where we both are then.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|absolutely|that)( sounds|works|is) (perfect|fair|like a plan)",
+            "(a month|in a month|four weeks) (works for me|sounds right)",
+            "(love that|appreciate that)(,)? (no pressure|baby steps)",
+            "(if things shift|if either of us)(,)? (we'?ll )?(say|talk)",
+            "(thank you|so grateful) for (being patient|getting it)",
+          ],
+          hint_tr:
+            "Somut zaman + saygı: 'Yes — a month sounds fair. If things shift either way, we'll talk. Thanks for getting it.' Sınır net + kapı açık.",
         },
       ],
     },

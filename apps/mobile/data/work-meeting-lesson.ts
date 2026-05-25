@@ -1058,6 +1058,23 @@ export const workMeetingLesson_10_3: BundledLesson = {
           message:
             "Good question. On retry, the event goes back to the front of the queue.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Want me to drop the architecture doc in the channel for everyone?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes|yeah|that'?d be|that would be) (great|super helpful|amazing)",
+            "(would (love|appreciate) the (doc|link))",
+            "(thanks|appreciate (it|that)|thank you for (the )?walkthrough)",
+            "(i'?ll (read it|dig in|review it) (after|today|tonight))",
+            "(any (additional|other) (resources|docs) (would help|are useful))",
+          ],
+          hint_tr:
+            "Onay + teşekkür + sonraki adım: 'Yes — that'd be super helpful. I'll dig in tonight. Thanks for the walkthrough.' Doc + audience check için 'in the channel' = takım için paylaşım.",
+        },
       ],
     },
     {
@@ -1403,6 +1420,23 @@ export const workMeetingLesson_10_4: BundledLesson = {
           speaker: "npc",
           message:
             "Perfect. Thanks for keeping us on track.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Any objections to the deadlines, or are we all good?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no objections|all good|we'?re good|good on my end)",
+            "(silence is consent|sounds like we'?re aligned|looks aligned)",
+            "(if (anyone|someone) (has concerns|is worried))(,)? (flag (it|them)|speak up) (now|in chat)",
+            "(quick check)(,)? (any (concerns|risks|dependencies)) (i'?m missing|to flag)",
+            "(friday delivery|the dates) (work|are realistic) (for everyone)?",
+          ],
+          hint_tr:
+            "Sessizlik = onay vs sessizlik = endişe ayrımı: 'All good — if anyone has concerns, flag in chat now, otherwise silence is consent.' Türk öğrenci 'no objections' der ama dependency'leri sormaz; ekle.",
         },
       ],
     },
@@ -1751,6 +1785,23 @@ export const workMeetingLesson_10_5: BundledLesson = {
           message:
             "Sounds good. Sarah, want to continue from where you were?",
         },
+        {
+          speaker: "npc",
+          message:
+            "Berk — heads up, we'll need your input on the staging rollout when we get to that part.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(got it|noted|copy that|sounds good|will do)",
+            "(thanks for|appreciate) (the heads up|flagging that)",
+            "(i'?ll (jump in|chime in|speak up) when (it comes up|we get there))",
+            "(ready to|happy to) (weigh in|share|cover that)",
+            "(let me know|just )?ping me (when|the moment) (we'?re )?(at|on) (that|staging)",
+          ],
+          hint_tr:
+            "Heads-up'a teşekkür + ready signal: 'Got it — thanks for the heads up. I'll jump in when we get to staging.' Pasif izleyici değil, hazır katılımcı.",
+        },
       ],
     },
     {
@@ -2060,6 +2111,23 @@ export const workMeetingLesson_10_6: BundledLesson = {
           speaker: "npc",
           message:
             "Great add. Let's capture that as a follow-up.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Who wants to own writing up the performance findings — Sarah, you, or someone else?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(happy to|i can) (own (that|it)|take (that|it) on)",
+            "(i'?ll (own|take|write up|capture)) (the (perf|performance) (findings|doc|notes))",
+            "(by (eod )?(friday|wednesday|monday)|next sprint)",
+            "(or |either)? (sarah and i|together with sarah) (could pair on it|can split it)",
+            "(will (share|drop|post) (it )?(in (slack|the doc)|in the channel))",
+          ],
+          hint_tr:
+            "Sahiplenme + deadline + dependency: 'Happy to own it — I'll write up by Friday EOD and loop Sarah for review.' Action item alma = lider sinyali.",
         },
       ],
     },
@@ -2372,6 +2440,23 @@ export const workMeetingLesson_10_7: BundledLesson = {
           message:
             "Exactly. After five retries it goes to a dead-letter queue. Great question.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Anything else you want me to clarify before we move on?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|nothing else)(,)? (i'?m good|that covers it|crystal now)",
+            "(one (more|quick) (thing|question))(,)? (.+)",
+            "(actually )?(yes)(,)? (.+)",
+            "(thanks again|appreciate the (patience|walkthrough|detail))",
+            "(i'?ll (review|catch up on) (the doc|the diagram) (after|tonight))",
+          ],
+          hint_tr:
+            "Net kapanış veya ek soru: 'Nothing else — that covers it. Thanks for the walkthrough!' veya 'Actually one more — what's the alert threshold on the DLQ?' Sessiz kalma; doğrula veya sor.",
+        },
       ],
     },
     {
@@ -2681,6 +2766,23 @@ export const workMeetingLesson_10_8: BundledLesson = {
           speaker: "npc",
           message:
             "Perfect. Thanks for keeping us tight. Talk Monday.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh — one more thing. Are there any dependencies on the API docs that could slip the timeline?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(good (catch|question))(,)? (.+)",
+            "(yes|actually yes)(,)? (waiting on|need (input|approval) from) (.+)",
+            "(no )?(major )?(dependencies|blockers)( on my end)?",
+            "(design (sign[- ]off|review)|legal (review|approval)|qa (signoff|pass)) (still pending|in progress)",
+            "(if (.+) slips|worst case)(,)? (.+) (could push|might extend)",
+          ],
+          hint_tr:
+            "Deadline + dependency: 'Good catch — waiting on design sign-off, if that slips by Wed we'll need to push Friday by a day.' Türk öğrenci 'no problem' der; dürüst risk ifadesi = güvenilir senior sinyali.",
         },
       ],
     },

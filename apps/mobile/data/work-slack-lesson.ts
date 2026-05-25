@@ -119,6 +119,24 @@ export const workSlackLesson_9_1: BundledLesson = {
           message:
             "Cool — I'm in NYC. Let's set up a virtual coffee this week!",
         },
+        {
+          speaker: "npc",
+          message:
+            "What kinds of projects are you most excited to dig into here?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(excited|stoked|looking forward) (to (dig|jump|dive) into)",
+            "(coming from|background in) (react|typescript|node|design systems)",
+            "(love|enjoy|gravitate toward) (the (frontend|infra|product) side)",
+            "(curious about|hoping to learn) (the (stack|codebase|product))",
+            "(would love to|happy to) (pair|shadow|sit in on)",
+            "(open to (anything|whatever)|wherever the team needs)",
+          ],
+          hint_tr:
+            "Bir-iki ilgi alanı + açıklık: 'Mostly frontend, but happy to dig wherever the team needs me.'",
+        },
       ],
     },
     {
@@ -594,6 +612,23 @@ export const workSlackLesson_9_2: BundledLesson = {
           message:
             "Ah, let's huddle. I'll ping you in 2.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Cool — can you share the error log in the huddle so I can see what you're hitting?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yep|yeah|sure|absolutely|will do)",
+            "(have (the )?logs (open|ready|pulled up)|got the logs (ready|pulled))",
+            "(stack trace|console output|network tab) (open|pulled|on screen)",
+            "(share (my )?screen|screen share) (when (we|you) jump|once we'?re on)",
+            "(ready when you are|standing by|jumping in now)",
+          ],
+          hint_tr:
+            "Hazırlık sinyali: 'Yep — logs and stack trace ready. Will share screen when we hop on.'",
+        },
       ],
     },
     {
@@ -940,6 +975,23 @@ export const workSlackLesson_9_3: BundledLesson = {
           speaker: "npc",
           message:
             "Sounds good. Ping me if anything changes.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "One more thing — can you tag the design folks in the review thread today?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yep|yeah|sure|on it|will do|got it)",
+            "(tagging|will tag|going to tag) (them|design|maya) (now|right after this|in a sec)",
+            "(linking|with) (the (figma|prototype|spec))",
+            "(by (noon|lunch|eod|end of day))",
+            "(let me know|tag me) (if (anyone'?s|you'?re) missing)",
+          ],
+          hint_tr:
+            "Onay + zaman: 'Yep — tagging design in the thread now, will link the Figma too.'",
         },
       ],
     },
@@ -1288,6 +1340,24 @@ export const workSlackLesson_9_4: BundledLesson = {
           message:
             "Got it. Reading now.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Quick follow-up in the thread — should we loop in QA on this one?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(good (call|catch|idea)|definitely|yeah good call)",
+            "(tagging|looping in|adding) (qa|priya|the qa team)",
+            "(in (the )?thread|below|right now)",
+            "(once|after) (i (write up|finish) (the )?repro)",
+            "(they'?ll want|going to need) (the (steps|repro|env))",
+            "(no need|not yet|probably not) (until (we|i) (confirm|repro))",
+          ],
+          hint_tr:
+            "Karar + aksiyon: 'Good call — tagging QA in the thread once I write up the repro steps.'",
+        },
       ],
     },
     {
@@ -1634,6 +1704,24 @@ export const workSlackLesson_9_5: BundledLesson = {
           message:
             "Appreciate it. Tag me when ready.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Also — any risks on the Friday demo I should flag to the PM?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(one risk|a couple of risks|nothing major|all clear)",
+            "(qa cycle|design sign-?off|review|approval) (still (pending|outstanding))",
+            "(if (it )?slips|worst case|backup plan)",
+            "(have a (fallback|plan b)|can cut scope|de-?scope)",
+            "(will (flag|update|surface) (in (\\#)?(standup|the channel)|in writing))",
+            "(no surprises|nothing the pm doesn'?t already know)",
+          ],
+          hint_tr:
+            "Risk netleştir: 'One risk — QA cycle still pending. Have a fallback if it slips. Will flag in standup.'",
+        },
       ],
     },
     {
@@ -1943,6 +2031,24 @@ export const workSlackLesson_9_6: BundledLesson = {
           message:
             "Perfect. Enjoy the time off!",
         },
+        {
+          speaker: "npc",
+          message:
+            "One last thing — will you update your Slack status so the team knows?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yep|yeah|absolutely|of course|will do|good call)",
+            "(setting|updating|going to set) (my (status|slack status))",
+            "(ooo (thu|thursday)-?(fri|friday)|out (thu|thursday) (and|through) (fri|friday))",
+            "(calendar blocked|calendar updated|google calendar set)",
+            "(auto-?responder|out of office reply) (on|set up|enabled)",
+            "(back monday|return monday)",
+          ],
+          hint_tr:
+            "Onay: 'Yep — setting status now, calendar blocked too. Back Monday.'",
+        },
       ],
     },
     {
@@ -2250,6 +2356,24 @@ export const workSlackLesson_9_7: BundledLesson = {
           speaker: "npc",
           message:
             "Will read first, ping you if I have Qs.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Quick check — how urgent is this? Need a hotfix or can it wait for the next deploy?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(low|medium|high) (priority|severity|impact)",
+            "(not urgent|no fire|nothing'?s burning|edge case only)",
+            "(small (slice|percent) of users|under \\d+ users (affected|hit))",
+            "(can wait|fine to wait|not blocking) (for (the )?next (deploy|release))",
+            "(would (recommend|lean toward)|leaning toward) (hotfix|next deploy)",
+            "(repro is (clean|consistent)|happy to draft (a fix|the patch))",
+          ],
+          hint_tr:
+            "Triage: 'Low impact — edge case only. Fine to wait for next deploy. Happy to draft the fix though.'",
         },
       ],
     },
@@ -2559,6 +2683,23 @@ export const workSlackLesson_9_8: BundledLesson = {
           speaker: "npc",
           message:
             "Fair point. Let's huddle this afternoon.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Can you drop a quick write-up of the risks in the thread before we hop on?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yep|yeah|absolutely|on it|will do)",
+            "(dropping|writing up|will post) (the (risks|breakdown|tldr)) (in (the )?thread|below)",
+            "(three|two|a few) (bullets|points|risks)",
+            "(before (we |the )?huddle|by (2|the call|then))",
+            "(includes|with) (mitigations|fallback (options|plans)|de-?scope (ideas|options))",
+          ],
+          hint_tr:
+            "Yazılı sahiplenme: 'On it — three bullets in the thread before the huddle, with mitigations.'",
         },
       ],
     },

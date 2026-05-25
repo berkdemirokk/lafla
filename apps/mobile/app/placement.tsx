@@ -349,6 +349,37 @@ export default function PlacementScreen() {
     }).catch(() => {});
   };
 
+  // 2026-05-25 (B-SCN-15) — Speaking + listening skip handlers.
+  // Mic permission reddedildiyse / TTS çalışmazsa kullanıcı placement'ın
+  // 80%'ini bitirmiş halde stuck olmasın diye opt-in skip kapısı.
+  // Skip = neutral default skor (50) yaz, kalan akışı bozma. applyOralAdjustment
+  // her iki skor da <50 olursa MCQ seviyesini bir alt band'e indiriyor;
+  // 50 default'u "noise" olarak değerlendirir, MCQ skoru korunur.
+  const handleSpeakingSkip = () => {
+    setSpeakingScore(50);
+    void trackEvent("placement_speaking_skipped", {
+      mcq_level: mcqDerivedLevel,
+    }).catch(() => {});
+    setPhase("listening");
+  };
+
+  const handleListeningSkip = () => {
+    const neutralScore = 50;
+    setListeningScore(neutralScore);
+    const adjusted = applyOralAdjustment(
+      mcqDerivedLevel ?? "A1",
+      speakingScore,
+      neutralScore,
+    );
+    setFinalLevel(adjusted);
+    setPhase("done");
+    void trackEvent("placement_listening_skipped", {
+      mcq_level: mcqDerivedLevel,
+      speaking_score: speakingScore,
+      final_level: adjusted,
+    }).catch(() => {});
+  };
+
   const handleAccept = async () => {
     if (!finalLevel || saving) return;
     setSaving(true);
@@ -423,6 +454,7 @@ export default function PlacementScreen() {
             phrase={target.phrase}
             trHint={target.tr}
             onComplete={handleSpeakingComplete}
+            onSkip={handleSpeakingSkip}
           />
         </ScrollView>
       </SafeAreaView>
@@ -446,6 +478,7 @@ export default function PlacementScreen() {
             sentence={target.sentence}
             trHint={target.tr}
             onComplete={handleListeningComplete}
+            onSkip={handleListeningSkip}
           />
         </ScrollView>
       </SafeAreaView>

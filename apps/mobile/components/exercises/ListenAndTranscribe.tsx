@@ -15,6 +15,10 @@ interface Props {
   acceptedVariants?: string[];
   trHint?: string;
   onComplete: (result: ExerciseResult) => void;
+  /** 2026-05-25 (B-SCN-15) — Opt-in skip kapısı. Placement gibi flow'larda
+   *  TTS/audio çalışmazsa veya kullanıcı dinleme istemiyorsa stuck kalmadan
+   *  çıkabilir. Lesson akışında verilmez → buton görünmez (geri uyumluluk). */
+  onSkip?: () => void;
 }
 
 const MAX_PLAYS = 3;
@@ -24,6 +28,7 @@ export function ListenAndTranscribe({
   acceptedVariants,
   trHint,
   onComplete,
+  onSkip,
 }: Props) {
   const [input, setInput] = useState("");
   const [result, setResult] = useState<ExerciseResult | null>(null);
@@ -150,6 +155,25 @@ export function ListenAndTranscribe({
 
       {showHint && <Text style={styles.hint}>💡 {trHint}</Text>}
 
+      {/* 2026-05-25 (B-SCN-15) — Skip kapısı. Sadece parent onSkip verdiyse
+          ve henüz cevap göndermediyse (graded sonrası skip mantıksız) görünür.
+          Placement flow için escape hatch. */}
+      {onSkip && !result && (
+        <Pressable
+          onPress={() => {
+            hapticSelection();
+            onSkip();
+          }}
+          style={({ pressed }) => [
+            styles.skipBtn,
+            pressed && styles.skipBtnPressed,
+          ]}
+          hitSlop={8}
+        >
+          <Text style={styles.skipBtnText}>Bu egzersizi atla →</Text>
+        </Pressable>
+      )}
+
       <View style={styles.footer}>
         <Button
           label={result ? "Devam et →" : "Kontrol et"}
@@ -256,6 +280,26 @@ const styles = StyleSheet.create({
     color: tokens.text.secondary,
     fontSize: 14,
     marginTop: tokens.spacing.md,
+  },
+  // Skip button — küçük, tertiary tonda. Yalnızca onSkip prop'u verildiyse.
+  skipBtn: {
+    marginTop: tokens.spacing.md,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    borderRadius: tokens.radius.full,
+    alignSelf: "center",
+    backgroundColor: "transparent",
+    borderWidth: 1,
+    borderColor: tokens.border.outline,
+  },
+  skipBtnPressed: {
+    opacity: 0.6,
+  },
+  skipBtnText: {
+    fontSize: 13,
+    color: tokens.text.secondary,
+    fontWeight: tokens.weight.semibold,
+    letterSpacing: 0.2,
   },
   footer: {
     marginTop: "auto",

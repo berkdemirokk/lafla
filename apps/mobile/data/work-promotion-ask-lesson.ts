@@ -126,6 +126,24 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
           speaker: "npc",
           message: "Got it — Thursday at 2 works. Send the agenda when ready.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Anything I should look at on my end before we meet?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(appreciate (you asking|that))",
+            "(the (levels|career) rubric|the (current )?level (expectations|criteria))",
+            "(my recent (work|projects|shipped wins)|q[1-4] (deliverables|impact))",
+            "(impact doc|one-?pager|highlights doc) (i'?ll send|going over today)",
+            "(open to|happy to) (hear (what'?s missing|where the bar is))",
+            "(no homework needed|nothing required|just (the agenda|the doc))",
+          ],
+          hint_tr:
+            "Hazırlık yönlendir: 'Appreciate you asking — the levels rubric and the one-pager I'll send. No other homework needed.'",
+        },
       ],
     },
     {
@@ -575,6 +593,24 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
           message:
             "Compelling. Let me think about how to move this through HR.",
         },
+        {
+          speaker: "npc",
+          message:
+            "What's your timing on this — are you hoping for next cycle or sooner?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|ideally|hoping for) (next cycle|this (cycle|review)|sooner if (possible|feasible))",
+            "(want to be (intentional|patient)|not (in a rush|trying to force))",
+            "(open to (the )?(timing|sequencing|cadence) (you|that works))",
+            "(would love (the )?clarity|want to (know|align on) the (path|sequencing))",
+            "(realistic about|aware that) (calibration|the process|hr cycles)",
+            "(if|once) (the case is strong|impact is visible)",
+          ],
+          hint_tr:
+            "Esnek + net: 'Honestly, hoping for next cycle — but open to your read on timing. Want to be intentional, not push.'",
+        },
       ],
     },
     {
@@ -934,6 +970,24 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
           speaker: "npc",
           message:
             "Fair ask. Let me see what I can do on the base — I'll get back to you Friday.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "If base is tight, would you consider equity or a sign-on to bridge the gap?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(absolutely|definitely|open to that|happy to (consider|explore))",
+            "(equity|sign-?on|bonus|stock refresh) (works|is on the table|makes sense)",
+            "(prefer|lean toward) (base if possible|cash where (you can|possible))",
+            "(could we|would you) (combine|stack|layer) (a (refresh|grant))",
+            "(give me a sense|walk me through) (what'?s typical|what (the)? package looks like)",
+            "(comfortable closing|would land) (if (the )?(total comp|tc) (gets to|hits))",
+          ],
+          hint_tr:
+            "Esnek anchor: 'Absolutely — equity works. Prefer base where possible, but happy to layer a sign-on to bridge.'",
         },
       ],
     },
@@ -1297,6 +1351,24 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
           message:
             "Great. Send it over, we'll align, and check in monthly.",
         },
+        {
+          speaker: "npc",
+          message:
+            "How will we know we're on track at the monthly check-ins — what does progress look like?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(good question|appreciate (you asking|that))",
+            "(milestones|markers|signals) (for each (criterion|month|cycle))",
+            "(month 1|month 2|by q1) (.+) (kickoff|started|shipped)",
+            "(measurable|concrete|visible) (progress|movement|delivery)",
+            "(write up|share|send) (a (one-?pager|status|update)) (before each check-?in)",
+            "(course-?correct|adjust) (if (i'?m off|signals (slip|change)))",
+          ],
+          hint_tr:
+            "Somut izleme: 'Good question — month-by-month milestones, with a one-pager before each check-in. Easy to course-correct.'",
+        },
       ],
     },
     {
@@ -1657,6 +1729,24 @@ export const workPromotionAskLesson_38_5: BundledLesson = {
           message:
             "Totally fair. Block 45 minutes on Thursday — send the doc beforehand.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Anything you'd want me to bring or prep on my side?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(appreciate (the )?question|thanks for asking)",
+            "(your (honest )?read|how you (see|read) the (level|bar|gap))",
+            "(the (levels )?rubric|what (great|exceeds) looks like)",
+            "(feedback (you'?ve been (sitting on|holding)|from peers))",
+            "(no homework|nothing required|just (the doc|an open mind))",
+            "(open to|happy to hear) (anything you'?d push back on)",
+          ],
+          hint_tr:
+            "Hazırlık ver: 'Your honest read on the gap to the next level — that's the most useful thing.'",
+        },
       ],
     },
     {
@@ -1969,6 +2059,24 @@ export const workPromotionAskLesson_38_6: BundledLesson = {
         {
           speaker: "npc",
           message: "Got it. That's the kind of scope I want to write up.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Can you back this up with a brag doc I can paste from?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(absolutely|definitely|on it|will do|have one ready)",
+            "(brag doc|impact doc|highlights one-?pager) (ready|drafted|already started)",
+            "(quantified|with (the )?(metrics|numbers|impact))",
+            "(by (friday|eod|tomorrow|tonight)|in your inbox)",
+            "(copy-?paste(-)?friendly|easy to (pull|drop) into the (calibration|review))",
+            "(structured by|organized by) (project|scope|impact)",
+          ],
+          hint_tr:
+            "Yazılı destek: 'Absolutely — brag doc ready, quantified per project. Copy-paste friendly, in your inbox by EOD.'",
         },
       ],
     },
@@ -2289,6 +2397,24 @@ export const workPromotionAskLesson_38_7: BundledLesson = {
           message:
             "Fair. I can't promise 185 today, but I'll push for it. Let me come back Friday.",
         },
+        {
+          speaker: "npc",
+          message:
+            "If the number doesn't move, what else would make this work for you?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(appreciate (you asking|that question)|fair question)",
+            "(equity refresh|stock grant|additional rsus) (would help|matters)",
+            "(sign-?on bonus|cash bonus|one-?time payment)",
+            "(title (bump|change)|leveling) (matters|signals (scope|growth))",
+            "(promotion (timing|path)|locked-?in (next cycle|review))",
+            "(comfortable closing|happy to move forward) (if (total comp|tc|the package))",
+          ],
+          hint_tr:
+            "Alternatif anchor: 'Equity refresh and a locked-in promotion path for next cycle — that would close the gap.'",
+        },
       ],
     },
     {
@@ -2606,6 +2732,24 @@ export const workPromotionAskLesson_38_8: BundledLesson = {
           speaker: "npc",
           message:
             "180 base plus a 10K sign-on. That's my final number. Take it home.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "When can you give me an answer? I'd like to wrap this up this week.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(absolutely|of course|that'?s fair|understood)",
+            "(let me (sit with|sleep on)) (it|this|the offer)",
+            "(by (tomorrow|end of day tomorrow|thursday|eod))",
+            "(want to (review|run the numbers|talk it through) (with my (partner|family|advisor)))",
+            "(committed to|will (have an answer|come back)) (within \\d+ hours|by (then|the deadline))",
+            "(comfortable closing|leaning toward yes|will likely accept) (assuming|if)",
+          ],
+          hint_tr:
+            "Zaman al + commit: 'Understood — let me sit with it overnight. I'll have an answer by EOD tomorrow.'",
         },
       ],
     },

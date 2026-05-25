@@ -122,6 +122,24 @@ export const workReviewLesson_12_1: BundledLesson = {
           message:
             "Excellent. I'll reflect this in your rating.",
         },
+        {
+          speaker: "npc",
+          message:
+            "One more — where do you see your biggest growth area for next year?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(honestly|to be honest|biggest (growth )?(area|opportunity))",
+            "(speaking up (more |earlier )?(in|at) (design reviews|leadership syncs))",
+            "(broader scope|cross-?team (visibility|influence)|company-?wide)",
+            "(asking for help (sooner|earlier)|raising blockers (faster|earlier))",
+            "(mentorship|coaching|sponsorship)",
+            "(want to (be intentional|invest|focus) (on|in))",
+          ],
+          hint_tr:
+            "Growth area framing: 'Honestly, broader cross-team visibility — want to be intentional about it next year.'",
+        },
       ],
     },
     {
@@ -603,6 +621,24 @@ export const workReviewLesson_12_2: BundledLesson = {
           message:
             "Appreciate that. You're growing into this.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Want to check in on this again in a month — does that work?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(absolutely|definitely|yes|of course|works for me)",
+            "(monthly|in (a|one) month|four weeks out)",
+            "(would (love|appreciate) (that|the check-?in))",
+            "(will (track|note|capture)) (specific (moments|examples))",
+            "(come back with|bring) (data|examples|what'?s (working|landing))",
+            "(open to|happy to) (course-?correct|adjust)",
+          ],
+          hint_tr:
+            "Plan kabul: 'Absolutely — would appreciate the check-in. Will bring specific moments where it landed.'",
+        },
       ],
     },
     {
@@ -954,6 +990,24 @@ export const workReviewLesson_12_3: BundledLesson = {
           message:
             "Compelling case. Let me discuss with HR — back to you Friday.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Anything you'd want me to highlight specifically when I make the case?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(appreciate|thanks for) (asking|that)",
+            "(the (auth|migration|incident) (work|project|delivery))",
+            "(cross-?team (impact|scope)|beyond (my )?scope)",
+            "(measurable (outcome|impact|result)|the \\d+% (lift|drop))",
+            "(mentorship|onboarding|ramped|coached)",
+            "(happy to (send|share)|will send) (a one-?pager|the doc|highlights)",
+          ],
+          hint_tr:
+            "Spesifik anchor: 'The cross-team impact and the 40% drop — happy to send a one-pager today.'",
+        },
       ],
     },
     {
@@ -1303,6 +1357,24 @@ export const workReviewLesson_12_4: BundledLesson = {
           speaker: "npc",
           message:
             "Will pass it along constructively. Thanks.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Would you be open to mentioning that strength to her directly too?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(absolutely|definitely|yeah|of course|happy to)",
+            "(reach out|drop her|send her) (a (note|message)|a quick (dm|slack))",
+            "(this week|in our next 1:1|today)",
+            "(want her to|she should) (hear it|know it lands)",
+            "(positive feedback (in writing|in person)|public (kudos|recognition))",
+            "(also (shout (her |it )?out|tag her)) (in the (channel|thread|standup))",
+          ],
+          hint_tr:
+            "İlişki yatırımı: 'Absolutely — will drop her a note this week. Want her to hear it directly.'",
         },
       ],
     },
@@ -1657,6 +1729,24 @@ export const workReviewLesson_12_5: BundledLesson = {
           message:
             "That's the level I want to see. Going to land well in calibration.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Can you tighten this into two or three bullets for me to bring into the room?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(absolutely|definitely|on it|will do)",
+            "(three bullets|two-?three (bullets|lines)|tight version)",
+            "(each one|every bullet) (with (the )?(metric|number|impact))",
+            "(by (eod|end of day|friday|tomorrow))",
+            "(in (your )?inbox|in slack|over (in dm|in a doc))",
+            "(quantified|measurable|with the (number|stat))",
+          ],
+          hint_tr:
+            "Tight commit: 'Absolutely — three bullets, each with the number, by EOD in your inbox.'",
+        },
       ],
     },
     {
@@ -1970,6 +2060,24 @@ export const workReviewLesson_12_6: BundledLesson = {
           speaker: "npc",
           message:
             "That's a mature response. Glad we talked through it.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Want me to share this kind of feedback in real-time going forward, or save it for 1:1s?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(real-?time|in the moment|right after) (works (best|for me)|would help)",
+            "(prefer (it )?fresh|while it'?s fresh|while i can still (recall|see) it)",
+            "(quick dm|a slack ping|a quiet nudge) (after (the meeting|standup))",
+            "(don'?t wait|no need to wait) (for (the )?1:1)",
+            "(grateful|appreciate) (the (heads-?up|directness))",
+            "(both works|either works) (depending on (the )?severity)",
+          ],
+          hint_tr:
+            "Tercih netleştir: 'Real-time works best — a quick DM after the meeting while it's fresh.'",
         },
       ],
     },
@@ -2285,6 +2393,24 @@ export const workReviewLesson_12_7: BundledLesson = {
           message:
             "A short doc before each launch — even three bullets — would help a lot.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Want me to flag it again if I stop seeing the doc on the next launch?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yes please|absolutely|please do|definitely)",
+            "(call me out|nudge me|flag me) (if (i slip|i forget|you don'?t see))",
+            "(want to (build|make) this (a habit|stick)|trying to make it stick)",
+            "(rather (hear|know) early|sooner is better)",
+            "(would (mean a lot|really help)|grateful for that)",
+            "(send the (next|first) doc by|will share before the next launch)",
+          ],
+          hint_tr:
+            "Hesap verme açma: 'Yes please — call me out if you don't see the doc. Trying to make this stick.'",
+        },
       ],
     },
     {
@@ -2599,6 +2725,24 @@ export const workReviewLesson_12_8: BundledLesson = {
           speaker: "npc",
           message:
             "That's exactly the move. Send the plan by next Friday — I'll back you.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "What support do you need from me to make this work?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(appreciate (you asking|that question))",
+            "(visibility|exposure|air-?cover) (with (leadership|the broader org|partners))",
+            "(intros to|connections with) (the (\\w+) lead|cross-?team partners)",
+            "(unblock me on|run interference on) (politics|prioritization)",
+            "(monthly|biweekly) (check-?ins|syncs) (on (progress|the plan))",
+            "(honest (read|feedback) (in the moment|along the way)|coaching as i go)",
+          ],
+          hint_tr:
+            "Spesifik talep: 'Appreciate that — biggest thing is air-cover with leadership and monthly check-ins to course-correct.'",
         },
       ],
     },

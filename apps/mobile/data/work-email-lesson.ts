@@ -1055,6 +1055,23 @@ export const workEmailLesson_11_3: BundledLesson = {
           message:
             "Sounds good. Daily updates would help.",
         },
+        {
+          speaker: "npc",
+          message:
+            "When can I expect the first one?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(first one|first update) (today|tomorrow) (by|before) (eod|9 ?am|noon)",
+            "(starting (tomorrow|today)|kicking off (tomorrow|today))",
+            "(every (morning|day)|daily by (9 ?am|10 ?am|noon))",
+            "(if (something|anything) shifts|if i (need to|miss one))(,)? (i'?ll )?(flag (it )?early|let you know)",
+            "(slack (.+)|drop (it )?in (slack|the channel))",
+          ],
+          hint_tr:
+            "Realistic ETA + opt-out: 'First one tomorrow by 9am — daily after that. If something shifts I'll flag early.' Türk öğrenci 'as soon as possible' der; somut zaman ver + esneklik ekle.",
+        },
       ],
     },
     {
@@ -1404,6 +1421,23 @@ export const workEmailLesson_11_4: BundledLesson = {
           message:
             "You too!",
         },
+        {
+          speaker: "npc",
+          message:
+            "Thanks for the heads-up on the timeline shift, by the way.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(of course|no problem|happy to|anytime)",
+            "(will keep you|i'?ll keep you) (posted|in the loop) (as (things|it) (evolves|moves))",
+            "(let'?s )?(sync (next week|on monday|friday)|circle back) (to (confirm|check in))",
+            "(ping me|tag me) (if (anything|something) changes (on your end)?)",
+            "(thanks for|appreciate) (the flexibility|being flexible|the patience)",
+          ],
+          hint_tr:
+            "Next-step + check-in: 'Anytime — I'll keep you posted. Let's sync Monday to confirm scope. Ping me if anything shifts on your end.' Modern email = ileri bakan kapanış.",
+        },
       ],
     },
     {
@@ -1749,6 +1783,23 @@ export const workEmailLesson_11_5: BundledLesson = {
           ],
           hint_tr:
             "Onayla + somut: 'Tuesday works! Sending a Calendly link — pick any 20-min slot. Appreciate the time!'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "When can I expect the calendar link — today or tomorrow?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sending|sharing|dropping) (it )?(now|today|in (a few|5) min)",
+            "(by (eod|end of day)|before (5pm|tonight))",
+            "(here'?s the link|just sent|in your inbox now)",
+            "(if (the slot|none) (doesn'?t work|works)|if nothing fits)(,)? (.+) (lmk|let me know)",
+            "(grateful|thanks) (for (.+)|again)",
+          ],
+          hint_tr:
+            "Realistic ETA + opt-out: 'Sending it in 5 min — if no slot works, just let me know your preferred window. Thanks again!' Soğuk email follow-up'ta net ETA = profesyonel.",
         },
       ],
     },
@@ -2379,6 +2430,23 @@ export const workEmailLesson_11_7: BundledLesson = {
           hint_tr:
             "'Thanks! Will circle back Monday — tag me if something blows up.'",
         },
+        {
+          speaker: "npc",
+          message:
+            "When can I expect a response on this if it can't wait till Monday?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(realistically|honestly) (.+) (before monday|over the weekend)",
+            "(if (it'?s )?(truly )?urgent|if it (can'?t|won'?t) wait)(,)? (ping|reach) (sarah|mehmet|the team)",
+            "(i'?ll (peek|check)) (.+) (once a day|every evening)",
+            "(otherwise|barring (emergencies|fires)) monday (morning|first thing)",
+            "(no commitment|can'?t guarantee) (turnaround|reply) (before|until) monday",
+          ],
+          hint_tr:
+            "Realistic ETA + opt-out: 'If truly urgent, ping Sarah — she's covering. Otherwise Monday first thing. I won't promise weekend turnaround.' OOO'da net sınır = saygılı.",
+        },
       ],
     },
     {
@@ -2688,6 +2756,23 @@ export const workEmailLesson_11_8: BundledLesson = {
           ],
           hint_tr:
             "Esnek karsi teklif: 'Monthly could work — weekly is a lot for my bandwidth. Async update in between? Tag me if specific blockers.'",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Thanks for the heads-up on the bandwidth. When should we sync to confirm the monthly cadence?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|of course|happy to)(,)? (.+)",
+            "(let'?s (sync|chat|catch up)) (next week|on (monday|friday)|in a few days)",
+            "(i'?ll (drop|send)) (a |the )?(calendar (hold|invite)|slot) (for|by) (.+)",
+            "(once (the )?first monthly (lands|happens))(,)? (.+) (check in|revisit)",
+            "(ping me|tag me) (when|the moment) (you (have|need)|design (.+))",
+          ],
+          hint_tr:
+            "Next-step + check-in: 'Happy to — let's sync next Monday, I'll drop a calendar hold. After the first monthly, we'll revisit cadence.' Reddi yumuşat + ileri bakan plan.",
         },
       ],
     },

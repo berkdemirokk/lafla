@@ -1082,6 +1082,23 @@ export const workStandupLesson_33_3: BundledLesson = {
           message:
             "Cool, ping me if you want me to re-review.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Anything else blocking you today I should know about?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|actually) (one (more|other) thing)(,)? (.+)",
+            "(stuck on|blocked on|waiting on) (.+) (from|by) (@\\w+|design|qa|infra)",
+            "(could use|need) (.+) (from|by) (eod|tomorrow|friday)",
+            "(no )?(nothing else|all good|that'?s it)( on my end)?",
+            "(@\\w+|owner)(,)? (any chance|could you) (.+)",
+          ],
+          hint_tr:
+            "Specific blocker + ask + owner: 'Yeah — blocked on design review from @maya, could use it by EOD tomorrow.' Veya 'Nothing else, all good.' Async'te @mention = aksiyon alabilir format.",
+        },
       ],
     },
     {
@@ -1445,6 +1462,23 @@ export const workStandupLesson_33_4: BundledLesson = {
           message:
             "Cool. Thanks for keeping us on track.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Hey — quick one before you go. I'm blocked on the same migration question. Could you help unblock me later?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(yeah|absolutely|of course|happy to)",
+            "(when (works|are you free)|name a time)",
+            "(after (the )?sync|after lunch|2 ?pm|3 ?pm|later today)",
+            "(15|20|30) (min|minutes) (should do it|tops)",
+            "(if you can|could you) (drop|send) (the (repro|error|details)) (in dms?|in slack)",
+          ],
+          hint_tr:
+            "Yardım teklifi + when + scope: 'Yeah — happy to. 2pm works, drop the repro in DMs first, 20 min should do it.' Spesifik zaman + scope = saygılı yardım.",
+        },
       ],
     },
     {
@@ -1805,6 +1839,23 @@ export const workStandupLesson_33_5: BundledLesson = {
           message:
             "Got it. Next up, Ayse.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Wait — Berk, anything blocking you I should know about before we move on?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|nothing|all good)( on my end)?",
+            "(actually|yeah) (one thing)(,)? (.+)",
+            "(blocked on|waiting on) (.+) (from|by) (.+)",
+            "(could use|need) (.+) (review|input|approval)",
+            "(@\\w+|need (.+) from)(,)? (any chance|when (you'?re|you are) free)",
+          ],
+          hint_tr:
+            "Specific blocker + ask + owner (veya temiz): 'Actually — blocked on the design review, need it from @maya by EOD.' Standup'ta sessizlik = sürpriz, erken bayrak = sağlıklı.",
+        },
       ],
     },
     {
@@ -2122,6 +2173,23 @@ export const workStandupLesson_33_6: BundledLesson = {
           speaker: "npc",
           message:
             "Cool, I'll DM you around 1.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "I'll help unblock you on the OAuth piece — that work?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you|appreciate (it|you|that))(,)? (.+)",
+            "(seriously|honestly) (.+) helpful",
+            "(1 ?pm|after lunch|whenever (you'?re|you are) free) (works|is great)",
+            "(scope[- ]?wise|just on)(,)? (the (refresh|callback|token) (part|step|piece))",
+            "(20|30) (min|minutes) (should (do it|be enough)|tops)",
+          ],
+          hint_tr:
+            "Thanks + when + scope: 'Thanks — seriously helpful. 1pm works, just on the token refresh piece. 20 min tops.' Yardımı kabul ederken kapsam belirt = yardımcının zamanına saygı.",
         },
       ],
     },
@@ -2441,6 +2509,23 @@ export const workStandupLesson_33_7: BundledLesson = {
           message:
             "Perfect, looking forward to it.",
         },
+        {
+          speaker: "npc",
+          message:
+            "Quick — anything blocking you on the next piece, or you good?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(no|nothing|all good|good for now)( on my end)?",
+            "(actually|yeah) (one thing)(,)? (.+)",
+            "(could use|need) (.+) (review|input|sign[- ]off) (from|by) (.+)",
+            "(@\\w+|design|qa|product)(,)? (any chance|when you'?re free)",
+            "(by (eod|tomorrow|friday)|this week)",
+          ],
+          hint_tr:
+            "Specific blocker + ask + owner: 'All good — actually, could use design sign-off from @sarah by Friday on the next iteration.' Demo'dan sonra sıradaki adımın blocker'ını flag'le.",
+        },
       ],
     },
     {
@@ -2750,6 +2835,23 @@ export const workStandupLesson_33_8: BundledLesson = {
           speaker: "npc",
           message:
             "Cool, talk later.",
+        },
+        {
+          speaker: "npc",
+          message:
+            "Oh wait — heads up, I might be able to help unblock you on the migration if you want, after lunch?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|seriously|appreciate (it|you))(,)? (.+)",
+            "(after lunch|1 ?pm|2 ?pm) (works|is great|sounds good)",
+            "(scope[- ]?wise|just on)(,)? (the (rollback|migration|cutover) step)",
+            "(20|30) (min|minutes) (tops|should do it)",
+            "(i'?ll )?(drop|share|send) (the (repro|details|trace)) (in (dms?|slack)) (first|before)",
+          ],
+          hint_tr:
+            "Thanks + when + scope: 'Seriously appreciate it — after lunch works. Just on the rollback step, 30 min tops. I'll drop details in DMs first.' Async kaçtım ama hala erişilebilirim sinyali.",
         },
       ],
     },

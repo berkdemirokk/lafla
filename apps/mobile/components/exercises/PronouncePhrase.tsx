@@ -44,6 +44,11 @@ interface Props {
   phrase: string;
   trHint?: string;
   onComplete: (result: ExerciseResult) => void;
+  /** 2026-05-25 (B-SCN-15) — Eğer parent skip yolunu desteklediği bir flow ise
+   *  (placement test gibi) bu prop'u verir. Mic permission reddedildiyse /
+   *  cihaz desteklemiyorsa kullanıcı stuck kalmadan egzersizi atlayabilir.
+   *  Verilmediyse skip butonu render edilmez (lesson akışında geri uyumluluk). */
+  onSkip?: () => void;
 }
 
 type Stage = "idle" | "listening" | "graded";
@@ -69,7 +74,7 @@ function feedbackFor(score: number): string {
   return "Yavaş ve net söylemeyi dene.";
 }
 
-export function PronouncePhrase({ phrase, trHint, onComplete }: Props) {
+export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
   const [stage, setStage] = useState<Stage>("idle");
   const [graded, setGraded] = useState<GradedState | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -348,6 +353,29 @@ export function PronouncePhrase({ phrase, trHint, onComplete }: Props) {
         </View>
       )}
 
+      {/* 2026-05-25 (B-SCN-15) — Skip butonu. Mic permission reddedildiyse
+          veya cihaz desteklemiyorsa kullanıcı stuck kalmasın. Sadece:
+            • parent onSkip prop'u verdiyse (placement gibi opt-in flow)
+            • stage idle/listening (graded'da artık skip mantıklı değil)
+            • errorMsg var (yani gerçekten mic problemi yaşandı; aksi halde
+              "kolay yolu seçme" gürültüsü olurdu).
+          Bu kombinasyon Hafta-1 churn'ün gizli kaynağıydı (audit raporu). */}
+      {onSkip && errorMsg && stage !== "graded" && (
+        <Pressable
+          onPress={() => {
+            hapticImpact("light");
+            onSkip();
+          }}
+          style={({ pressed }) => [
+            styles.skipBtn,
+            pressed && styles.skipBtnPressed,
+          ]}
+          hitSlop={8}
+        >
+          <Text style={styles.skipBtnText}>Bu egzersizi atla →</Text>
+        </Pressable>
+      )}
+
       <View style={styles.footer}>
         {stage === "idle" && (
           <Pressable
@@ -497,6 +525,28 @@ const styles = StyleSheet.create({
     color: tokens.semantic.onErrorContainer,
     fontSize: 14,
     fontWeight: tokens.weight.semibold,
+  },
+
+  // Skip button — küçük, tertiary. Yalnızca onSkip prop'u + errorMsg
+  // varsa görünür (parent opt-in escape hatch).
+  skipBtn: {
+    marginTop: tokens.spacing.sm,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    borderRadius: tokens.radius.full,
+    alignSelf: "center",
+    backgroundColor: "transparent",
+    borderWidth: 1,
+    borderColor: tokens.border.outline,
+  },
+  skipBtnPressed: {
+    opacity: 0.6,
+  },
+  skipBtnText: {
+    fontSize: 13,
+    color: tokens.text.secondary,
+    fontWeight: tokens.weight.semibold,
+    letterSpacing: 0.2,
   },
 
   // Footer
