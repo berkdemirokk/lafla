@@ -247,8 +247,17 @@ export default function Home() {
     (_lessonId: string) => {
       const total = scenes.length;
       if (total <= 1) return;
-      const next = (lastIndexRef.current + 1) % total;
-      listRef.current?.scrollToIndex({ index: next, animated: true });
+      // 2026-05-25 — Sonsuz modulo loop yerine son sahneye gelince başa
+      // dönme. Listenin sonundaysak haptik feedback + en başa dön; user
+      // "hepsini gördüm" sinyali alır. Önceki modulo bypass kullanıcıyı
+      // sahte sonsuz scroll içinde bırakıyordu.
+      const nextRaw = lastIndexRef.current + 1;
+      if (nextRaw >= total) {
+        // Son sahnedeyiz — başa sar, ileride EmptyState eklenebilir.
+        listRef.current?.scrollToIndex({ index: 0, animated: true });
+        return;
+      }
+      listRef.current?.scrollToIndex({ index: nextRaw, animated: true });
     },
     [scenes.length],
   );

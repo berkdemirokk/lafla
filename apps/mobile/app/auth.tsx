@@ -549,8 +549,22 @@ export default function Auth() {
   };
 
   const skipAuth = async () => {
-    const onboarded = await AsyncStorage.getItem("lafla.onboarded");
-    router.replace((onboarded === "true" ? "/today" : "/onboarding") as never);
+    // 2026-05-25 — "Atla" anonymous mode'a geçiş. Stale flag bypass'ini
+    // önlemek için onboarded flag + GERÇEK içerik (interests) ikisini de
+    // ara. Sadece flag'e güvenmek başka hesaptan kalan state ile yeni
+    // anonymous user'ı boş /today'e atıyordu.
+    const [onboarded, interestsRaw] = await Promise.all([
+      AsyncStorage.getItem("lafla.onboarded").catch(() => null),
+      AsyncStorage.getItem("lafla.interests").catch(() => null),
+    ]);
+    let hasRealProgress = false;
+    if (onboarded === "true" && interestsRaw) {
+      try {
+        const parsed = JSON.parse(interestsRaw);
+        hasRealProgress = Array.isArray(parsed) && parsed.length > 0;
+      } catch {}
+    }
+    router.replace((hasRealProgress ? "/today" : "/onboarding") as never);
   };
 
   const switchMode = (next: Mode) => {

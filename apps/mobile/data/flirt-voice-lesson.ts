@@ -517,6 +517,26 @@ export const flirtVoiceLesson_3_2: BundledLesson = {
           hint_tr:
             "Devam: 'Okay, here it goes — no judgment.'",
         },
+        // 2026-05-25 — Eklendi: turn 4-5 (npc + user). Önceki versiyon 3-turn
+        // idi (npc sadece 1 konuşma) → sahne yarım hissi. Şimdi 5-turn.
+        {
+          speaker: "npc",
+          message:
+            "Okay just listened — your voice is nicer than I thought lol. Send more.",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you)( for (saying|listening))?",
+            "(glad|happy)( you )?(liked it|heard it)",
+            "(might|will) (send|do) more",
+            "(now you got me|i'?ll keep doing it)",
+            "(my voice|i'?m) (sounds )?(better|nicer)( in person)?",
+            "(see\\?|told you|right\\?)",
+          ],
+          hint_tr:
+            "Cevap: 'Glad you liked it — might keep sending these.'",
+        },
       ],
     },
     {

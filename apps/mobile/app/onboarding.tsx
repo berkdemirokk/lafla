@@ -429,6 +429,12 @@ export default function Onboarding() {
 
   // ---------- Render ----------
   const showBack = state.step !== "welcome" && !saving;
+  // 2026-05-25 — Welcome adımında "Geri" yerine "← Çıkış" göster.
+  // Yanlışlıkla onboarding'e giren user auth/today'e dönebilsin.
+  const handleWelcomeExit = () => {
+    hapticSelection();
+    router.replace("/auth" as never);
+  };
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
@@ -444,6 +450,16 @@ export default function Onboarding() {
             accessibilityLabel="Önceki adıma dön"
           >
             <Text style={styles.headerBtnText}>← Geri</Text>
+          </Pressable>
+        ) : state.step === "welcome" ? (
+          <Pressable
+            onPress={handleWelcomeExit}
+            style={styles.headerBtn}
+            hitSlop={16}
+            accessibilityRole="button"
+            accessibilityLabel="Çıkış yap, giriş ekranına dön"
+          >
+            <Text style={styles.headerBtnText}>← Çıkış</Text>
           </Pressable>
         ) : (
           <View style={styles.headerBtn} />
@@ -1294,7 +1310,7 @@ function CefrStep({
       <ScrollView contentContainerStyle={styles.stepScroll}>
         <Text style={styles.stepHeader}>İngilizce seviyen?</Text>
         <Text style={styles.stepSubtitle}>
-          Test ile ölç (3 dakika) veya kendin seç — zamanla otomatik ayarlanır.
+          Test ile ölç (~6 dakika) veya kendin seç — zamanla otomatik ayarlanır.
         </Text>
 
         {/* Placement test CTA — primary path. Lerna AI'da var, Lafla'da
@@ -1308,13 +1324,13 @@ function CefrStep({
             saving && styles.placementCtaDisabled,
           ]}
           accessibilityRole="button"
-          accessibilityLabel="3 dakikada adaptive İngilizce seviye testi"
+          accessibilityLabel="6 dakikada adaptive İngilizce seviye testi"
         >
           <Text style={styles.placementCtaIcon}>🎯</Text>
           <View style={styles.placementCtaText}>
             <Text style={styles.placementCtaTitle}>Test ile ölç</Text>
             <Text style={styles.placementCtaSub}>
-              6 soru, ~3 dakika — gerçek seviyeni öğren
+              12 soru + konuşma + dinleme · ~6 dakika
             </Text>
           </View>
           <Text style={styles.placementCtaArrow}>›</Text>

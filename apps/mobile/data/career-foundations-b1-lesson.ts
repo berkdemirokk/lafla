@@ -3856,9 +3856,12 @@ export const careerB1Lesson_13: BundledLesson = {
 
 // ============================================================
 // Lesson 14 — Accepting or Declining an Offer
+// 2026-05-25 — ID conflict fix: önceki versiyon "career.b1.offer.1" idi (Lesson 9
+// ile aynı), Map overwrite ediyordu → Lesson 9 hiç görünmüyordu. Şimdi
+// "career.b1.offer.2".
 // ============================================================
 export const careerB1Lesson_14: BundledLesson = {
-  id: "career.b1.offer.1",
+  id: "career.b1.offer.2",
   skill_id: "career.b1",
   index: 14,
   title: "İş Teklifi Geldi — Accept/Decline",

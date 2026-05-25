@@ -1619,10 +1619,13 @@ function VerdictView({
     })();
   }, []);
   // 2026-05-21 — Daily Plan auto-advance countdown.
-  // planNextLabel varsa kullanıcı 3-2-1 sayar ve otomatik bir sonraki
+  // 2026-05-25 — 3s → 5s. Skor count-up (900ms) + CEFR delta animasyonu
+  // (950+700ms) tamamlanmadan countdown başlıyordu → kullanıcı skoru
+  // okuyamadan sıradaki sahneye fırlatılıyordu. 5s ile rahat okuma süresi.
+  // planNextLabel varsa kullanıcı 5-4-3-2-1 sayar ve otomatik bir sonraki
   // sahneye geçer. "Şimdi git" butonuyla atlanabilir; "Mola al" pause eder.
   const [autoCountdown, setAutoCountdown] = useState<number | null>(
-    planNextLabel ? 3 : null,
+    planNextLabel ? 5 : null,
   );
   useEffect(() => {
     if (autoCountdown === null) return;
@@ -1881,8 +1884,10 @@ function VerdictView({
           />
         )}
         {/* Skoru paylaş — Adım 5 (2026-05-20).
-            Verdict altında ikincil CTA. Story-friendly 1080×1920 card
-            view-shot ile capture, expo-sharing ile native share sheet. */}
+            2026-05-25 — Skor >= 60 olmadıkça gösterme. Düşük skoru paylaş
+            CTA'sı kullanıcıya başarısızlığı suratına sokuyordu. Sadece
+            kullanıcı kendini iyi hissedeceği skor seviyesinde göster. */}
+        {sceneResult.score >= 60 && (
         <View style={verdictStyles.shareRow}>
           <Pressable
             onPress={async () => {
@@ -1972,6 +1977,7 @@ function VerdictView({
             <Text style={verdictStyles.shareBtnText}>💬 Arkadaşına gönder</Text>
           </Pressable>
         </View>
+        )}
       </View>
 
       {/* Off-screen share card — capture target. Görünmez ama view-shot

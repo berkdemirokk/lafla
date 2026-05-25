@@ -111,8 +111,12 @@ function formatTimeUntil(target: Date): string {
 
 function sanitizeName(raw: string | null | undefined): string {
   if (!raw) return "";
+  // 2026-05-25 — Regex artık kontrol karakterleri striplediyor (\x00-\x1F\x7F),
+  // önceki versiyon `/[ -]/g` printable SPACE-DASH'i siliyordu → "Berk Demir-Ok"
+  // → "BerkDemirOk". Fix scenario/[id].tsx'tedüzeltilmişti; today + profile'a
+  // taşındı.
   // eslint-disable-next-line no-control-regex
-  const cleaned = raw.replace(/[ -]/g, "").replace(/\s+/g, " ").trim();
+  const cleaned = raw.replace(/[\x00-\x1F\x7F]/g, "").replace(/\s+/g, " ").trim();
   if (cleaned.length <= 30) return cleaned;
   return cleaned.slice(0, 28) + "…";
 }

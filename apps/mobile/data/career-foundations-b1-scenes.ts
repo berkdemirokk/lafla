@@ -17,7 +17,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     skillId: "career.b1",
     lessonId: "career.b1.tellme.1",
     isNew: true,
-    progressLabel: "1/10 ders",
+    progressLabel: "1/14 ders",
   },
   {
     id: "scene-career-b1-2",
@@ -31,7 +31,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     skillId: "career.b1",
     lessonId: "career.b1.whycompany.1",
     isNew: true,
-    progressLabel: "2/10 ders",
+    progressLabel: "2/14 ders",
   },
   {
     id: "scene-career-b1-3",
@@ -45,7 +45,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     skillId: "career.b1",
     lessonId: "career.b1.history.1",
     isNew: true,
-    progressLabel: "3/10 ders",
+    progressLabel: "3/14 ders",
   },
   {
     id: "scene-career-b1-4",
@@ -59,7 +59,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     skillId: "career.b1",
     lessonId: "career.b1.salary.1",
     isNew: true,
-    progressLabel: "4/10 ders",
+    progressLabel: "4/14 ders",
   },
   {
     id: "scene-career-b1-5",
@@ -73,7 +73,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     skillId: "career.b1",
     lessonId: "career.b1.strengths.1",
     isNew: true,
-    progressLabel: "5/10 ders",
+    progressLabel: "5/14 ders",
   },
   {
     id: "scene-career-b1-6",
@@ -87,7 +87,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     skillId: "career.b1",
     lessonId: "career.b1.whyleaving.1",
     isNew: true,
-    progressLabel: "6/10 ders",
+    progressLabel: "6/14 ders",
   },
   {
     id: "scene-career-b1-7",
@@ -101,7 +101,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     skillId: "career.b1",
     lessonId: "career.b1.askquestions.1",
     isNew: true,
-    progressLabel: "7/10 ders",
+    progressLabel: "7/14 ders",
   },
   {
     id: "scene-career-b1-8",
@@ -115,7 +115,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     skillId: "career.b1",
     lessonId: "career.b1.followup.1",
     isNew: true,
-    progressLabel: "8/10 ders",
+    progressLabel: "8/14 ders",
   },
   {
     id: "scene-career-b1-9",
@@ -129,7 +129,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     skillId: "career.b1",
     lessonId: "career.b1.offer.1",
     isNew: true,
-    progressLabel: "9/10 ders",
+    progressLabel: "9/14 ders",
   },
   {
     id: "scene-career-b1-10",
@@ -143,7 +143,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     skillId: "career.b1",
     lessonId: "career.b1.firstday.1",
     isNew: true,
-    progressLabel: "10/10 ders ✓",
+    progressLabel: "10/14 ders",
   },
   {
     id: "scene-career-b1-11",
@@ -197,7 +197,7 @@ export const careerFoundationsB1Scenes: Scene[] = [
     mode: "work",
     cefrLevel: "B1",
     skillId: "career.b1",
-    lessonId: "career.b1.offer.1",
+    lessonId: "career.b1.offer.2",
     isNew: true,
     progressLabel: "14/14 ders ✓",
   },

@@ -1853,6 +1853,26 @@ export const workEmailLesson_11_6: BundledLesson = {
           hint_tr:
             "'Totally get it — launch mode is brutal. Resending now. Ping me whenever, no rush.'",
         },
+        // 2026-05-25 — Eklendi: turn 4-5 (npc + user). 3-turn idi (npc 1x
+        // konuşma) → sahne yarım hissi.
+        {
+          speaker: "npc",
+          message:
+            "Got it, thanks. I'll try to take a look this week. Anything specific you want feedback on?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(thanks|thank you)( for (looking|taking a look))?",
+            "(no rush|whenever (works|good))",
+            "(specifically|in particular) (the |on )",
+            "(curious (about|on)|wondering (about|if))",
+            "(slide \\d+|page \\d+|the (pricing|timeline|scope))",
+            "(any (thoughts|feedback)|let me know what)",
+          ],
+          hint_tr:
+            "Cevap: 'Thanks — no rush. Specifically curious on the pricing slide. Any thoughts welcome.'",
+        },
       ],
     },
     {
