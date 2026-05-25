@@ -74,10 +74,12 @@ import {
   getScenario,
   computeSceneFluency,
   type Scenario,
+  type SetupPhrase,
 } from "../../lib/scenario";
 import {
   recordCefrProgress,
   getCefrLevel,
+  filterSetupByLevel,
   type CefrProgressDelta,
   type CefrLevel,
 } from "../../lib/cefr-level";
@@ -228,6 +230,13 @@ export default function ScenarioScreen() {
 
   const [phase, setPhase] = useState<Phase>("setup");
   const [setupIdx, setSetupIdx] = useState(0);
+  // 2026-05-25 — Phase 5D adaptive setup. Lessons artık 25 vocab ile geliyor;
+  // filterSetupByLevel user level'a göre comfort-zone +1 band'lardan 12 vocab
+  // seçer. Hydrate edilene kadar fallback olarak scenario.setup'ın ilk 12'sini
+  // gösteririz (mount blink riski yok — getCefrLevel <50ms).
+  const [filteredSetup, setFilteredSetup] = useState<SetupPhrase[]>(() =>
+    scenario ? filterSetupByLevel(scenario.setup, null) : [],
+  );
   // 2026-05-24 — Content expansion (Phase 1C, Agent C). Yeni faz indeksleri.
   // setup-extra phase'inde scenario.setupExtra[setupExtraIdx] render edilir.
   // pre-scene phase'inde scenario.preScene[preSceneIdx] render edilir.
@@ -288,10 +297,19 @@ export default function ScenarioScreen() {
       } catch {
         setDisplayName("");
       }
+      // 2026-05-25 — Phase 5D: userLevel resolve edildikten hemen sonra
+      // adaptive setup filter'ı uygula. Level null ise filterSetupByLevel
+      // ilk 12 vocab'ı döner; partial-retag durumunda untagged vocab her
+      // zaman dahil edilir → eski lesson davranışı korunur.
+      let resolvedLevel: CefrLevel | null = null;
       try {
-        setUserLevel(await getCefrLevel());
+        resolvedLevel = await getCefrLevel();
       } catch {
-        setUserLevel(null);
+        resolvedLevel = null;
+      }
+      setUserLevel(resolvedLevel);
+      if (scenario) {
+        setFilteredSetup(filterSetupByLevel(scenario.setup, resolvedLevel));
       }
       // Daily plan next-in-line lookup. Bu sahne kullanıcının bugünkü plan
       // sırasındaysa, bir sonraki sahneyi bul — verdict ekranı auto-advance
@@ -377,11 +395,12 @@ export default function ScenarioScreen() {
   // Auto-speak the current setup phrase
   useEffect(() => {
     if (phase !== "setup" || !scenario) return;
-    const phrase = scenario.setup[setupIdx];
+    // 2026-05-25 — Phase 5D: filteredSetup üzerinden oku (cap 12, adaptive).
+    const phrase = filteredSetup[setupIdx];
     if (!phrase) return;
     const t = setTimeout(() => speak(phrase.en), 400);
     return () => clearTimeout(t);
-  }, [phase, setupIdx, scenario]);
+  }, [phase, setupIdx, scenario, filteredSetup]);
 
   // Trigger the scene intro overlay the first time scene phase is reached.
   useEffect(() => {
@@ -600,7 +619,8 @@ export default function ScenarioScreen() {
 
   const advanceSetup = () => {
     hapticImpact("light");
-    if (setupIdx + 1 < scenario.setup.length) {
+    // 2026-05-25 — Phase 5D: filteredSetup.length kullan (cap 12, adaptive).
+    if (setupIdx + 1 < filteredSetup.length) {
       setSetupIdx(setupIdx + 1);
     } else {
       goToNextPhase("setup");
@@ -765,13 +785,13 @@ export default function ScenarioScreen() {
         {/* PhaseShell cross-fades between phase renders so the swap from
             setup → drill → scene → verdict feels deliberate, not abrupt. */}
         <PhaseShell phaseKey={phase} style={styles.flex}>
-          {phase === "setup" && scenario.setup[setupIdx] && (
+          {phase === "setup" && filteredSetup[setupIdx] && (
             <View style={{ flex: 1 }}>
               <SetupView
                 key={`setup-${setupIdx}`}
-                phrase={scenario.setup[setupIdx]}
+                phrase={filteredSetup[setupIdx]}
                 stepIndex={setupIdx}
-                total={scenario.setup.length}
+                total={filteredSetup.length}
                 onNext={advanceSetup}
               />
               {/* 2026-05-21 — Hard Mode toggle (Premium). Setup'ta gözükür

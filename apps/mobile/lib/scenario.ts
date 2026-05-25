@@ -35,6 +35,13 @@ export interface SetupPhrase {
   tr: string;
   example?: string;
   example_tr?: string;
+  /**
+   * 2026-05-25 — Phase 5D adaptive setup. vocab_tile.cefr_band'tan map edilir.
+   * Eski lesson dosyalarında (henüz retag edilmemiş) undefined kalır —
+   * filterSetupByLevel untagged vocab'ları HER zaman dahil eder, bu sayede
+   * tagged + untagged karışım gracefully çalışır.
+   */
+  cefr_band?: CefrLevel;
 }
 
 export interface SceneTurn {
@@ -100,7 +107,8 @@ function modeOf(skillId: string): string {
  * Extract a Scenario from a BundledLesson.
  *
  * Setup pipeline:
- * - setup = ilk 12 vocab_tile (eski: 6 → 12, lesson author intent açılır)
+ * - setup = ilk 25 vocab_tile (tüm pool; UI tarafında user level'a göre
+ *   filtrelenir, filterSetupByLevel cap 12 uygular)
  * - setupExtra = tüm sentence_pattern + dialogue_gap (order preserved)
  * - preScene = ilk 3 listen_respond
  * - recallQuiz = ilk recall_quiz (yoksa null)
@@ -110,6 +118,12 @@ function modeOf(skillId: string): string {
  * 2026-05-24 — Setup cap 6 → 12 (content expansion). Eski lesson'lar yeni
  * egzersiz tiplerini içermez; bu durumda setupExtra=[], preScene=[],
  * recallQuiz=null olur ve UI bu fazları skip eder.
+ *
+ * 2026-05-25 — Phase 5D: cap 12 → 25 (adaptive). lessons retag edildikçe
+ * vocab_tile sayısı 25'e çıkıyor; SetupPhrase.cefr_band buradan map edilir.
+ * Adaptive seçim filterSetupByLevel'da: comfort-zone +1 band'lar + untagged
+ * her zaman dahil → cap 12. Retag edilmemiş eski lesson'larda setup ≤12
+ * kalır, davranış değişmez.
  */
 export function lessonToScenario(lesson: BundledLesson): Scenario | null {
   const exercises = lesson.exercises as AnyExercise[];
@@ -126,11 +140,17 @@ export function lessonToScenario(lesson: BundledLesson): Scenario | null {
   // A scenario MUST have a roleplay. Skip lessons without one.
   if (!roleplay) return null;
 
-  const setup: SetupPhrase[] = vocabTiles.slice(0, 12).map((v) => ({
+  // 2026-05-25 — Phase 5D: cap 12 → 25. Adaptive filtering UI tarafında
+  // (filterSetupByLevel) yapılıyor — burada tüm pool'u Setup'a getiriyoruz ki
+  // user level'a göre comfort-zone +1 band'lardan 12 vocab seçilebilsin.
+  // cefr_band field'ı vocab_tile'dan SetupPhrase'e map edilir; eski lesson
+  // dosyalarında undefined kalır (backward compat).
+  const setup: SetupPhrase[] = vocabTiles.slice(0, 25).map((v) => ({
     en: v.word_or_phrase,
     tr: v.tr_translation,
     example: v.example,
     example_tr: v.example_tr,
+    cefr_band: v.cefr_band as CefrLevel | undefined,
   }));
 
   // Setup-2: pattern + dialogue gap (order preserved from lesson file).

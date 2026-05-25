@@ -449,3 +449,90 @@ export async function onLevelAdvanced(newLevel: CefrLevel): Promise<void> {
     // Never block the level-up path — certificate award is best-effort.
   }
 }
+
+// ============================================================
+// 2026-05-25 — Phase 5D adaptive setup filter
+// ============================================================
+//
+// Lessons now ship 25 vocab tiles each, tagged with cefr_band (A1..C2).
+// Setup phase shows 12 — picked from the user's "comfort zone +1": one band
+// below + own band + one band above (A1/C2 collapse to 2 bands). Untagged
+// vocab is ALWAYS kept so partially-retagged lessons degrade gracefully
+// (a user always sees content; the cefr filter just trims when it can).
+//
+// Edge handling:
+//   - user level null (pre-onboarding)      → return first 12 untouched
+//   - filtered pool < 8 (very narrow band)  → fall back to first 12 of raw
+//     pool. Threshold 8 is the "feels thin" cutoff observed in dogfooding
+//     a B2 user against an A1 lesson: <8 cards looks like a bug to the
+//     user, even if technically correct.
+//   - filtered pool ≥ 8                     → return first 12 of filtered
+
+// Local type alias to avoid importing the full SetupPhrase shape — keeps
+// this helper coupled only to the cefr_band field name.
+interface CefrBandedPhrase {
+  cefr_band?: CefrLevel;
+}
+
+/**
+ * Verilen user CEFR level için uygun vocab band'larını döner.
+ * Adaptive setup filtering için kullanılır.
+ *
+ * Mantık: bir seviye altı + kendi seviyesi + bir seviye üstü = "comfort zone +1"
+ * - A1 → ["A1", "A2"]
+ * - A2 → ["A1", "A2", "B1"]
+ * - B1 → ["A2", "B1", "B2"]
+ * - B2 → ["B1", "B2", "C1"]
+ * - C1 → ["B2", "C1", "C2"]
+ * - C2 → ["C1", "C2"]
+ */
+export function bandFor(userLevel: CefrLevel): CefrLevel[] {
+  switch (userLevel) {
+    case "A1":
+      return ["A1", "A2"];
+    case "A2":
+      return ["A1", "A2", "B1"];
+    case "B1":
+      return ["A2", "B1", "B2"];
+    case "B2":
+      return ["B1", "B2", "C1"];
+    case "C1":
+      return ["B2", "C1", "C2"];
+    case "C2":
+      return ["C1", "C2"];
+  }
+}
+
+/**
+ * Setup vocab'ı user level'a göre filtreleyip cap 12 uygular.
+ *
+ * Kurallar:
+ *   - userLevel null (henüz seçilmemiş) → ilk 12 vocab (untouched)
+ *   - userLevel var → bandFor() içindeki band'lara uyan vocab + cefr_band
+ *     undefined olan vocab dahil
+ *   - Filtered pool < 8 ise: fallback — tüm pool'un ilk 12'si (band'a uygun
+ *     vocab yoksa kullanıcıyı boş ekranla bırakma)
+ *   - Filtered pool ≥ 8 ise: ilk 12'sini döner
+ *
+ * Untagged vocab her zaman dahil — partial retag durumunda lesson
+ * gracefully çalışır (yeni 25 vocab'lı lesson + eski 12 vocab'lı lesson
+ * aynı kod path'ten geçer).
+ *
+ * Generic <T extends CefrBandedPhrase> sayesinde SetupPhrase'i import
+ * etmeden coupling minimum kalır; caller tip'i koruyarak geri alır.
+ */
+export function filterSetupByLevel<T extends CefrBandedPhrase>(
+  setup: readonly T[],
+  userLevel: CefrLevel | null,
+): T[] {
+  if (!userLevel) return setup.slice(0, 12);
+
+  const acceptableBands = bandFor(userLevel);
+  const filtered = setup.filter(
+    (s) => !s.cefr_band || acceptableBands.includes(s.cefr_band),
+  );
+
+  if (filtered.length >= 8) return filtered.slice(0, 12);
+  // Fallback: band-uygun pool yetersizse tüm setup'ın ilk 12'sini al.
+  return setup.slice(0, 12);
+}
