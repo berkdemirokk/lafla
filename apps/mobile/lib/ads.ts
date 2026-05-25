@@ -268,8 +268,8 @@ export async function showRewardedAd(): Promise<RewardedResult> {
         userClosed = true;
         cleanup();
         if (earnedReward) {
-          // 2026-05-25 — 24h → 20 dk. Bir sahne paketi süresi.
-          resolve({ ok: true, minutesGranted: 20 });
+          // 2026-05-25 — 24h → 30 dk. Bir sahne paketi süresi.
+          resolve({ ok: true, minutesGranted: 30 });
         } else {
           resolve({
             ok: false,

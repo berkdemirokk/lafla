@@ -5,8 +5,8 @@
 // Aggressive interstitial yerine opt-in rewarded ad = daha az kullanıcı acısı,
 // daha yüksek ARPU.
 //
-// 2026-05-25 — Süre 24 saat → 20 dakika. 24 saat'in kullanıcıya verdiği
-// "Pro abone gibi" hissi monetization funnel'ı bozuyordu. 20 dakika "bir
+// 2026-05-25 — Süre 24 saat → 30 dakika. 24 saat'in kullanıcıya verdiği
+// "Pro abone gibi" hissi monetization funnel'ı bozuyordu. 30 dakika "bir
 // sahne paketi" süresi — istersen tekrar reklam izle, bir paket daha aç.
 //
 // Mimari:
@@ -27,7 +27,7 @@ interface RewardedState {
   expiresAt: number;
   /** Granted at — analytics ve debug için. */
   grantedAt: number;
-  /** İlgili grant'in dakika süresi (default 20). */
+  /** İlgili grant'in dakika süresi (default 30). */
   minutes: number;
 }
 
@@ -97,14 +97,14 @@ export async function getRewardedExpiresAt(): Promise<Date | null> {
 }
 
 /**
- * Yeni bir rewarded premium grant'i kaydet. Default 20 dakika (kısa bir
+ * Yeni bir rewarded premium grant'i kaydet. Default 30 dakika (kısa bir
  * "sahne paketi" süresi — kullanıcı sahne yaparken aktif kalır, bitince
  * tekrar reklam izleyebilir).
  *
  * 2026-05-25 — Eski default 24 saat'ti, "Pro abone gibi" hissi monetization
- * funnel'ını yiyordu. 20 dk daha doğru ölçek.
+ * funnel'ını yiyordu. 30 dk daha doğru ölçek.
  */
-export async function grantRewardedPremium(minutes = 20): Promise<void> {
+export async function grantRewardedPremium(minutes = 30): Promise<void> {
   const now = Date.now();
   const expiresAt = now + minutes * 60 * 1000;
   await write({ expiresAt, grantedAt: now, minutes });
