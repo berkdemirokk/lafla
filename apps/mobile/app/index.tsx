@@ -133,28 +133,27 @@ export default function Splash() {
     const decide = async () => {
       if (routedRef.current) return; // skip() öne geçtiyse no-op
       if (session) {
+        // 2026-05-25 — Signed-in user için SERVER profili authoritative.
+        // Önceki versiyon profile.onboarding_completed_at null ise local
+        // `lafla.onboarded="true"` fallback'ine düşüyordu. Bu yüzden başka
+        // hesaptan kalan stale local flag onboarding'i atlatıyordu.
+        // Yeni davranış: profile yoksa veya onboarding_completed_at null
+        // ise → /onboarding (kullanıcı tekrar setup'ı tamamlamalı).
+        // Local flag artık SADECE anonim mode için (signed-out path).
+        let profileOnboarded = false;
         try {
           const profile = await getCurrentProfile();
-          if (profile?.onboarding_completed_at) {
-            routedRef.current = true;
-            router.replace("/today" as never);
-            return;
-          }
+          profileOnboarded = !!profile?.onboarding_completed_at;
         } catch {
-          // Profile fetch fail — fall through to local check
+          // Network fail — profile fetch yapamadık. Bu durumda local'e bak
+          // ki offline launch'ta kullanıcı sıkışmasın.
+          try {
+            const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
+            profileOnboarded = localOnboarded === "true";
+          } catch {}
         }
-        // Signed-in but onboarding not finished yet (e.g. fresh signup before
-        // completing interests). Local flag still respected as a tie-break.
-        try {
-          const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
-          if (localOnboarded === "true") {
-            routedRef.current = true;
-            router.replace("/today" as never);
-            return;
-          }
-        } catch {}
         routedRef.current = true;
-        router.replace("/onboarding" as never);
+        router.replace((profileOnboarded ? "/today" : "/onboarding") as never);
         return;
       }
       // Signed-out → always /auth. User can press "Atla" in auth screen if

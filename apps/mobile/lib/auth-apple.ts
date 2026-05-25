@@ -31,6 +31,7 @@
 
 import { Platform } from "react-native";
 import * as SecureStore from "expo-secure-store";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import Constants from "expo-constants";
 import { supabase } from "./supabase";
 import { captureException, captureMessage } from "./sentry";
@@ -230,6 +231,16 @@ export async function signInWithApple(): Promise<AppleAuthResult> {
   if (sbError) {
     return { ok: false, error: sbError.message };
   }
+
+  // 2026-05-25 — Stale user-data temizliği. Önceki kullanıcı (veya aynı
+  // kullanıcının önceki test run'ı) `lafla.onboarded="true"` flag'i
+  // bırakmış olabilir → yeni signed-in user yanlışlıkla /today'e gidip
+  // onboarding'i atlatıyordu. signIn sonrası flag'i temizle ki splash
+  // routing'i server profile'ından okusun.
+  await AsyncStorage.multiRemove([
+    "lafla.onboarded",
+    "lafla.onboarding.step",
+  ]).catch(() => {});
 
   // Cache PII for repeat sign-ins (Apple won't resend it).
   await storeAppleCredentials({ appleUserId, email });

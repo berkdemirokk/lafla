@@ -49,6 +49,13 @@ export async function signUpWithEmail(email: string, password: string) {
 export async function signInWithEmail(email: string, password: string) {
   const { data, error } = await supabase.auth.signInWithPassword({ email, password });
   if (error) throw error;
+  // 2026-05-25 — Sadece "onboarded" + "onboarding.step" temizle: önceki
+  // kullanıcıdan kalma stale onboarded flag yeni signed-in user'ı onboarding'i
+  // atlatmasın. displayName/interests TUTULUR — returning user için cache.
+  await AsyncStorage.multiRemove([
+    "lafla.onboarded",
+    "lafla.onboarding.step",
+  ]).catch(() => {});
   return data;
 }
 
@@ -59,6 +66,11 @@ export async function signInWithApple(identityToken: string, nonce?: string) {
     nonce,
   });
   if (error) throw error;
+  // 2026-05-25 — signInWithEmail ile aynı: sadece onboarding flag'leri.
+  await AsyncStorage.multiRemove([
+    "lafla.onboarded",
+    "lafla.onboarding.step",
+  ]).catch(() => {});
   return data;
 }
 

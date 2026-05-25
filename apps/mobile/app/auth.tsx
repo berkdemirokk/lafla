@@ -71,11 +71,14 @@ import { tokens } from "../theme";
 //   2. Local AsyncStorage check (lafla.onboarded === "true") — offline-first
 //   3. İkisi de değilse → /onboarding (gerçekten yeni kullanıcı)
 async function decidePostAuthRoute(): Promise<"/today" | "/onboarding"> {
+  // 2026-05-25 — Server profile authoritative. Local "lafla.onboarded"
+  // başka hesaptan kalan stale state olabilir; signed-in user için
+  // sadece offline-fallback olarak kullan.
   try {
     const profile = await getCurrentProfile();
-    if (profile?.onboarding_completed_at) return "/today";
+    return profile?.onboarding_completed_at ? "/today" : "/onboarding";
   } catch {
-    // Network/profile fetch fail — fall through to local check
+    // Network fail — offline fallback.
   }
   try {
     const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");

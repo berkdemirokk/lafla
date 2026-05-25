@@ -673,6 +673,14 @@ export default function Today() {
                 : "Kelime tekrarı"
             }
           >
+            <View style={styles.tileInnerHighlight} pointerEvents="none" />
+            <View
+              style={[
+                styles.tileGlowBlob,
+                { backgroundColor: tokens.brand.primary },
+              ]}
+              pointerEvents="none"
+            />
             <View style={styles.tileIconRow}>
               <View
                 style={[
@@ -680,7 +688,7 @@ export default function Today() {
                   { backgroundColor: tokens.brand.primarySoft },
                 ]}
               >
-                <Icon name="vocab" size={20} color={tokens.brand.primary} />
+                <Icon name="vocab" size={22} color={tokens.brand.primary} />
               </View>
               {vocabBadge ? (
                 <View style={styles.tileBadge}>
@@ -713,6 +721,14 @@ export default function Today() {
                 : "Sürpriz — Akış'tan keşfet"
             }
           >
+            <View style={styles.tileInnerHighlight} pointerEvents="none" />
+            <View
+              style={[
+                styles.tileGlowBlob,
+                { backgroundColor: tokens.brand.tertiary },
+              ]}
+              pointerEvents="none"
+            />
             <View style={styles.tileIconRow}>
               <View
                 style={[
@@ -720,7 +736,7 @@ export default function Today() {
                   { backgroundColor: tokens.brand.tertiarySoft },
                 ]}
               >
-                <Icon name="surprise" size={20} color={tokens.brand.tertiary} />
+                <Icon name="surprise" size={22} color={tokens.brand.tertiary} />
               </View>
               {surpriseBadge ? (
                 <View style={[styles.tileBadge, styles.tileBadgeCyan]}>
@@ -750,6 +766,14 @@ export default function Today() {
                 : "Günün özel sahnesi"
             }
           >
+            <View style={styles.tileInnerHighlight} pointerEvents="none" />
+            <View
+              style={[
+                styles.tileGlowBlob,
+                { backgroundColor: tokens.brand.tertiary },
+              ]}
+              pointerEvents="none"
+            />
             <View style={styles.tileIconRow}>
               <View
                 style={[
@@ -759,7 +783,7 @@ export default function Today() {
               >
                 <Icon
                   name={state.dailyCompleted ? "checkmark" : "target"}
-                  size={20}
+                  size={22}
                   color={tokens.brand.tertiary}
                 />
               </View>
@@ -785,16 +809,28 @@ export default function Today() {
                 : "Bugünün cümlesini yazmak için günlüğü aç"
             }
           >
+            <View style={styles.tileInnerHighlight} pointerEvents="none" />
+            <View
+              style={[
+                styles.tileGlowBlob,
+                {
+                  backgroundColor: state.diaryWrittenToday
+                    ? tokens.brand.tertiary
+                    : tokens.text.secondary,
+                },
+              ]}
+              pointerEvents="none"
+            />
             <View style={styles.tileIconRow}>
               <View
                 style={[
                   styles.tileIconWrap,
-                  { backgroundColor: "rgba(255,255,255,0.05)" },
+                  { backgroundColor: "rgba(255,255,255,0.06)" },
                 ]}
               >
                 <Icon
                   name={state.diaryWrittenToday ? "checkmark" : "diary"}
-                  size={20}
+                  size={22}
                   color={
                     state.diaryWrittenToday
                       ? tokens.brand.tertiary
@@ -1288,18 +1324,49 @@ const styles = StyleSheet.create({
     gap: 12,
     marginTop: 4,
   },
+  // 2026-05-25 — 3D depth pass. Eski flat tile → multi-layer:
+  //   • SurfaceContainerHigh (daha açık) backgroundColor
+  //   • Daha kalın gölge + offset (lifted card)
+  //   • Inner highlight top edge (Apple HIG bevel)
+  //   • Inner radial-style accent blob (alt sağ köşede color tint)
   tile: {
     flexBasis: "48%",
     flexGrow: 1,
     aspectRatio: 1,
-    backgroundColor: tokens.bg.surfaceContainer,
+    backgroundColor: tokens.bg.surfaceContainerHigh,
     borderWidth: 1,
-    borderColor: tokens.border.light,
-    borderRadius: tokens.radius.lg,
+    borderColor: tokens.border.outlineVariant,
+    borderRadius: 22,
     padding: 16,
     justifyContent: "space-between",
     overflow: "hidden",
     position: "relative",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.35,
+    shadowRadius: 12,
+    elevation: 8,
+  },
+  // Inner highlight — kart üst kenarında 1px parlak hat (bevel hissi).
+  tileInnerHighlight: {
+    position: "absolute",
+    top: 0,
+    left: 1,
+    right: 1,
+    height: 1,
+    backgroundColor: "rgba(255,255,255,0.10)",
+    borderTopLeftRadius: 22,
+    borderTopRightRadius: 22,
+  },
+  // Alt-sağ köşede tint glow (radial yok RN'de — blurred large circle ile fake).
+  tileGlowBlob: {
+    position: "absolute",
+    bottom: -28,
+    right: -28,
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    opacity: 0.12,
   },
   tileIconRow: {
     flexDirection: "row",
@@ -1307,11 +1374,17 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
   },
   tileIconWrap: {
-    width: 44,
-    height: 44,
-    borderRadius: 14,
+    width: 48,
+    height: 48,
+    borderRadius: 16,
     alignItems: "center",
     justifyContent: "center",
+    // Icon container'a da hafif shadow — "ikon yüzeyden hafif yukarıda" hissi.
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 3,
   },
   tileBadge: {
     minWidth: 22,
@@ -1346,15 +1419,22 @@ const styles = StyleSheet.create({
     fontFamily: tokens.font.display,
   },
 
-  // Haftalık ilerleme widget'ı — 7 nokta.
+  // Haftalık ilerleme widget'ı — 7 nokta + depth pass.
   weeklyCard: {
-    backgroundColor: tokens.bg.surfaceContainer,
+    backgroundColor: tokens.bg.surfaceContainerHigh,
     borderWidth: 1,
-    borderColor: tokens.border.light,
-    borderRadius: tokens.radius.lg,
-    padding: 16,
-    gap: 12,
+    borderColor: tokens.border.outlineVariant,
+    borderRadius: 22,
+    padding: 18,
+    gap: 14,
     marginTop: 4,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.30,
+    shadowRadius: 10,
+    elevation: 6,
+    overflow: "hidden",
+    position: "relative",
   },
   weeklyHeader: {
     flexDirection: "row",
