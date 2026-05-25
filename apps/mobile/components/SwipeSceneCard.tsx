@@ -49,10 +49,14 @@ const SCREEN = Dimensions.get("window");
 // a high-velocity flick so accidental thumb shifts don't trigger nav.
 const SWIPE_DISTANCE_THRESHOLD = 110;
 const SWIPE_VELOCITY_THRESHOLD = 0.55;
-// Only treat a gesture as horizontal if the user has moved meaningfully
-// sideways AND not too vertically (vertical owns the FlatList paging).
-const HORIZONTAL_ACTIVATION = 12;
-const VERTICAL_REJECT_RATIO = 1.4; // |dy|/|dx| above this → vertical gesture
+// 2026-05-25 — Vertical paging korunması için threshold'lar sıkılaştırıldı.
+// Eski: HORIZONTAL_ACTIVATION=12 + VERTICAL_REJECT_RATIO=1.4 → kullanıcı yukarı
+// kaydırırken hafif diagonal hareket (dx=15px, dy=20px gibi) horizontal
+// sayılıyordu → yanlışlıkla scenario açıyordu veya skip ediyordu.
+// Yeni: HORIZONTAL_ACTIVATION=30 + VERTICAL_REJECT_RATIO=0.7 → sadece net
+// horizontal hareketlerde PanResponder devralır. Vertical paging öncelikli.
+const HORIZONTAL_ACTIVATION = 30;
+const VERTICAL_REJECT_RATIO = 0.7; // |dy|/|dx| above this → vertical gesture
 
 // ---------------------------------------------------------------------------
 // Per-mode accent colors (used for the floating mode chip).
@@ -315,12 +319,15 @@ function SwipeSceneCardImpl({
         ]}
         {...panResponder.panHandlers}
       >
-        {/* Pressable body — tap-to-enter as a third path alongside swipe & CTA. */}
-        <Pressable
-          onPress={handleEnterPress}
+        {/* 2026-05-25 — Body Pressable'ın onPress'i kaldırıldı. Eski versiyon
+            tap-to-enter idi (3. yol, swipe + CTA yanında) ama kullanıcı sahne
+            içeriğini incelemek için dokununca yanlışlıkla scenario açıyordu.
+            Şimdi sadece "Konuş ▶" CTA veya swipe-right scenario'ya götürür.
+            Body içinde scroll/tap olmayan inert View. */}
+        <View
           style={styles.body}
-          accessibilityRole="button"
-          accessibilityLabel={`Sahne: ${displayTitle}. Konuşmaya başlamak için dokun.`}
+          accessibilityRole="text"
+          accessibilityLabel={`Sahne: ${displayTitle}. Konuş butonuna basarak başla, sağa kaydırarak da girilebilir.`}
         >
           {/* Floating overlays — mode + CEFR + completion */}
           <View style={styles.overlayTop}>
@@ -384,7 +391,7 @@ function SwipeSceneCardImpl({
               ⇡ Sonraki  ·  → Konuş  ·  ← Atla
             </Text>
           </View>
-        </Pressable>
+        </View>
       </Animated.View>
 
       {/* Bumble-style floating action buttons — pinned above the bottom nav. */}
