@@ -54,8 +54,36 @@ import {
   signInWithEmail,
   signUpWithEmail,
   sendPasswordReset,
+  getCurrentProfile,
 } from "../lib/auth";
 import { tokens } from "../theme";
+
+// 2026-05-25 — Routing helper: sign-in sonrası returning user'ı /today'e,
+// yeni user'ı /onboarding'e yönlendir.
+//
+// SORUN: önceki versiyon sign-in başarılı olunca koşulsuz /onboarding'e
+// gidiyordu. Returning user'lar (zaten profili olan) tekrar baştan
+// onboarding görüyordu → "girdim ama hala başlangıçta" hissi.
+//
+// MANTIK:
+//   1. Sunucu profili check (onboarding_completed_at) — auth completed
+//   2. Local AsyncStorage check (lafla.onboarded === "true") — offline-first
+//   3. İkisi de değilse → /onboarding (gerçekten yeni kullanıcı)
+async function decidePostAuthRoute(): Promise<"/today" | "/onboarding"> {
+  try {
+    const profile = await getCurrentProfile();
+    if (profile?.onboarding_completed_at) return "/today";
+  } catch {
+    // Network/profile fetch fail — fall through to local check
+  }
+  try {
+    const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
+    if (localOnboarded === "true") return "/today";
+  } catch {
+    // ignore
+  }
+  return "/onboarding";
+}
 
 type Mode = "signin" | "signup" | "forgot";
 
@@ -448,6 +476,7 @@ export default function Auth() {
         setMode("signin");
         return;
       }
+      let isNewSignup = false;
       if (mode === "signup") {
         const result = await signUpWithEmail(email.trim(), password);
         if (!result.session) {
@@ -459,13 +488,28 @@ export default function Auth() {
           setMode("signin");
           return;
         }
+        isNewSignup = true;
       } else {
         await signInWithEmail(email.trim(), password);
       }
-      router.replace("/onboarding");
+      // 2026-05-25 — Returning user routing fix. Yeni signup → her zaman
+      // /onboarding. Sign-in → profile check + local check → /today veya
+      // /onboarding. Bu olmadan zaten onboarded kullanıcılar tekrar baştan
+      // başlatılıyordu.
+      const route = isNewSignup
+        ? "/onboarding"
+        : await decidePostAuthRoute();
+      router.replace(route as never);
     } catch (e: any) {
       const msg = e?.message ?? "Bir şeyler ters gitti.";
       setErrorTone("error");
+      // 2026-05-25 — Diagnostic için tam Supabase error'ını console'a düş.
+      // Kullanıcıya friendly Türkçe çevirim, ama TestFlight log'undan
+      // debug için orijinal hatayı görmek lazım.
+      if (__DEV__) {
+        // eslint-disable-next-line no-console
+        console.warn("[auth] submit failed:", e);
+      }
       // Friendlier Turkish messages for common errors
       if (msg.toLowerCase().includes("invalid login credentials")) {
         setError("Email veya parola yanlış.");
@@ -473,12 +517,21 @@ export default function Auth() {
         setError("Bu email zaten kayıtlı. Giriş yapmayı dene.");
       } else if (msg.toLowerCase().includes("email not confirmed")) {
         setError("Email henüz doğrulanmadı. Inbox'ını kontrol et.");
+      } else if (msg.toLowerCase().includes("network") || msg.toLowerCase().includes("fetch")) {
+        setError("Bağlantı problemi. İnternet kontrolü yap, tekrar dene.");
       } else {
         setError(msg);
       }
     } finally {
       setLoading(false);
     }
+  };
+
+  // 2026-05-25 — Apple Sign-In success → returning user'ı /today'e yönlendir.
+  // Önceki versiyon hep /onboarding'e gidiyordu.
+  const handleAppleSuccess = async () => {
+    const route = await decidePostAuthRoute();
+    router.replace(route as never);
   };
 
   const skipAuth = async () => {
@@ -632,7 +685,7 @@ export default function Auth() {
                 <View style={styles.dividerLine} />
               </View>
               <AppleSignInButton
-                onSuccess={() => router.replace("/onboarding")}
+                onSuccess={() => void handleAppleSuccess()}
                 onError={(msg) => {
                   setErrorTone("error");
                   setError(msg);
