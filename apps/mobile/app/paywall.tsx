@@ -309,7 +309,14 @@ export default function PaywallScreen() {
       data: { plan: selected, fromIntro: isFromIntro },
     });
     try {
-      const result = await purchasePackage(selected);
+      // 10sn timeout — RC SDK hang ederse setLoading(false) hiç çağrılmazdı,
+      // CTA disabled kalırdı. Promise.race + reject ile finally garantili.
+      const result = await Promise.race([
+        purchasePackage(selected),
+        new Promise<never>((_, reject) =>
+          setTimeout(() => reject(new Error("Zaman aşımı — tekrar dene")), 10000),
+        ),
+      ]);
       if (result.ok) {
         hapticSuccess();
         void trackEvent("purchase_success", { plan: selected }).catch(() => {});

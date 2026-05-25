@@ -11,6 +11,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.9.11] - 2026-05-25 — Faz 4-6: 7-fazlı scenario flow + 966-lesson coverage
+
+> **v0.9.1–v0.9.10 cancelled** — TestFlight build basılmadı. Bu entry v0.9.0 → v0.9.11 tüm değişiklikleri kapsar (içerik üretim ağırlıklı; cumulative).
+
+### Added
+
+- **7-fazlı scenario flow** (`lib/scenario.ts` + `app/scenario/[id].tsx`) — SETUP → SETUP-EXTRA → PRE-SCENE → DRILL → SCENE → VERDICT + RECALL. Roleplay'in tek başına zor + sıkıcı olduğu hissi ortadan kalktı; sahneye girince önce doyurucu öğrenme, sonra kademeli roleplay.
+- **5 yeni egzersiz tipi** (`components/exercises/{SentencePattern,DialogueGap,ListenRespond,ThinkingTrap,RecallQuiz}.tsx`) — sentence_pattern (şablon doldur), dialogue_gap (yarım diyalog), listen_respond (NPC der + sen söyle), thinking_trap (Türk düşünce kalıbı vs İngilizce), recall_quiz (sahne sonu hızlı flashcard).
+- **966/966 lesson coverage** — Faz 6 gap fix sonrası her lesson 5 yeni tipin tamamına sahip. 0 gap. Toplam ~1,650 yeni egzersiz Faz 6'da, ~3,255 egzersiz Faz 3'te (cumulative ~4,900).
+- **Adaptive setup filter** (`lib/cefr-level.ts` — `bandFor`, `filterSetupByLevel`) — user CEFR level → "comfort zone +1" band'lardan vocab pool. Untagged vocab her zaman dahil (graceful degradation).
+- **Vocab pool cap 12 → 25** + `cefr_band` tagging — geniş pool'lu yeni lesson + dar pool'lu eski lesson aynı kod path'inden geçer.
+- **Placement test 6Q → 12Q branching** (`data/cefr-placement-bank.ts:807` `PLACEMENT_QUESTION_COUNT = 12`, `app/placement.tsx`) — 8 question × 6 CEFR level. ±1 level branching + last-6 dominant calculation.
+- **Rewarded ad 24h → 20 dk grant** (`lib/rewarded.ts`, `lib/ads.ts`, `app/today.tsx`) — `lafla.premium.rewarded` storage migrated; legacy `hours` field backward-compat.
+- **StreakMilestoneModal** (`components/StreakMilestoneModal.tsx`) — streak_7/30/100 unlock'larında full-screen cyan halo + ShareCard.
+
+### Changed
+
+- **Supabase session storage**: `lib/supabase.ts` SecureStore → AsyncStorage. iOS Keychain 2KB cap aştığı için JWT'ler kaybediliyordu ("kullanıcı girişi yapılmıyor" raporu fix).
+- **Auth post-login routing** (`app/auth.tsx` `decidePostAuthRoute`) — returning user `/today`'e gidiyor; eskiden `/onboarding`'e atılıyordu.
+- **Swipe sensitivity tightened** (`components/SwipeSceneCard.tsx`) — HORIZONTAL_ACTIVATION 12 → 30, VERTICAL_REJECT_RATIO inverted, body Pressable kaldırıldı. Kazara sahneye girme bug fix.
+- **SentencePattern distractor fallback** — `distractors` yoksa `accepted[]` chip'lere fan-out. 409 lesson item'ında trivial UX (tek chip) düzeltildi.
+- **Messaging**: "25 vocab per lesson" → "pool cap 25, lesson-bazlı değişir" (`lib/cefr-level.ts`, `app/scenario/[id].tsx` yorumlar).
+
+### Fixed
+
+- **daily-quests crash bombası** (`lib/daily-quests.ts:121-129`) — `QUEST_POOL.find(...)!.target` non-null assertion eski stored quest id'lerde crash ederdi. `?.target` guard + early continue.
+- **scenario.tsx verdict useEffect cleanup** (`app/scenario/[id].tsx:1687-1722`) — `return () => clearTimeout` async IIFE'den dönüyordu, useEffect'e ulaşmazdı. Şimdi `cancelled` flag + outer-scope timer ref'leri = gerçek cleanup.
+- **179 vocab_tile `cefr_band` eksikliği** — 13 dosyada toplam 179 tile tagged (flirt-deep 58, flirt-* 12'şer, order-* 12'şer, airport-deep 9, complaint 1). Domain-aware heuristics: flirt→B2, order/airport→B1.
+
+---
+
 ## [0.9.0] - 2026-05-23 — Faz 3: LLM-siz Smart Conversation
 
 ### Added
@@ -184,7 +215,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **EAS Build** — `eas.json` development / preview / production profilleri.
 - **Supabase** — Postgres schema, auth policies, migration scaffolding.
 
-[Unreleased]: https://github.com/berkdemirok/lafla/compare/lafla-v0.9.0...HEAD
+[Unreleased]: https://github.com/berkdemirok/lafla/compare/lafla-v0.9.11...HEAD
+[0.9.11]: https://github.com/berkdemirok/lafla/releases/tag/lafla-v0.9.11
 [0.9.0]: https://github.com/berkdemirok/lafla/releases/tag/lafla-v0.9.0
 [0.8.0]: https://github.com/berkdemirok/lafla/releases/tag/lafla-v0.8.0
 [0.7.0]: https://github.com/berkdemirok/lafla/releases/tag/lafla-v0.7.0

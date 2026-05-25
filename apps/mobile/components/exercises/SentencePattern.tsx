@@ -58,12 +58,24 @@ export function SentencePattern({
 
   // Her slot için chip option listesi — doğru + distractor, deterministik
   // shuffle (her render aynı sıra, sayfa yenileme stabilitesi için).
+  //
+  // Fallback: distractor yoksa accepted[] tümünü chip olarak göster (her biri
+  // doğru sayılır, accepted.some check skor hesaplamada zaten handle ediyor).
+  // Lesson data'da %42 item distractor olmadan ship'lendi — tek chip trivial
+  // UX'i bu fallback engelliyor. Best case: 3-4 distractor; fallback: 1-3
+  // doğru alternatif. Worst case: accepted.length === 1 → tek chip kalır
+  // (nadir, ileride content fix).
   const optionsPerSlot = useMemo(
     () =>
       slots.map((s, slotIdx) => {
-        const correct = s.accepted[0] ?? "";
-        const distractors = (s.distractors ?? []).slice(0, 3);
-        const all = [correct, ...distractors];
+        const acceptedList = s.accepted ?? [];
+        const explicitDistractors = (s.distractors ?? []).slice(0, 3);
+        const all =
+          explicitDistractors.length > 0
+            ? [acceptedList[0] ?? "", ...explicitDistractors]
+            : acceptedList.length > 0
+              ? acceptedList
+              : [""];
         // Stable shuffle — slot index seed.
         return all
           .map((value, i) => ({

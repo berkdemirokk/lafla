@@ -454,7 +454,9 @@ export async function onLevelAdvanced(newLevel: CefrLevel): Promise<void> {
 // 2026-05-25 — Phase 5D adaptive setup filter
 // ============================================================
 //
-// Lessons now ship 25 vocab tiles each, tagged with cefr_band (A1..C2).
+// Lessons now ship up to 25 vocab tiles (pool cap), tagged with cefr_band
+// (A1..C2). Pool size varies per lesson — older lessons may carry 12-15,
+// retagged lessons up to 25. Cap enforced at slice(0, 25) in scenario.ts.
 // Setup phase shows 12 — picked from the user's "comfort zone +1": one band
 // below + own band + one band above (A1/C2 collapse to 2 bands). Untagged
 // vocab is ALWAYS kept so partially-retagged lessons degrade gracefully
@@ -515,8 +517,8 @@ export function bandFor(userLevel: CefrLevel): CefrLevel[] {
  *   - Filtered pool ≥ 8 ise: ilk 12'sini döner
  *
  * Untagged vocab her zaman dahil — partial retag durumunda lesson
- * gracefully çalışır (yeni 25 vocab'lı lesson + eski 12 vocab'lı lesson
- * aynı kod path'ten geçer).
+ * gracefully çalışır (geniş pool'lu yeni lesson + dar pool'lu eski lesson
+ * aynı kod path'ten geçer; pool cap 25 ama gerçek boyut lesson-bazlı).
  *
  * Generic <T extends CefrBandedPhrase> sayesinde SetupPhrase'i import
  * etmeden coupling minimum kalır; caller tip'i koruyarak geri alır.

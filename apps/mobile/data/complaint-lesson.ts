@@ -2912,6 +2912,7 @@ export const complaintLesson_5_8: BundledLesson = {
       id: "ex.5.8.1",
       type: "vocab_tile",
       difficulty: 2,
+      cefr_band: "B1",
       word_or_phrase: "There's an issue with my room",
       tr_translation: "Odamla ilgili bir sorun var",
       example: "Hi, there's an issue with my room — could someone take a look?",

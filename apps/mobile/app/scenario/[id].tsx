@@ -230,10 +230,11 @@ export default function ScenarioScreen() {
 
   const [phase, setPhase] = useState<Phase>("setup");
   const [setupIdx, setSetupIdx] = useState(0);
-  // 2026-05-25 — Phase 5D adaptive setup. Lessons artık 25 vocab ile geliyor;
-  // filterSetupByLevel user level'a göre comfort-zone +1 band'lardan 12 vocab
-  // seçer. Hydrate edilene kadar fallback olarak scenario.setup'ın ilk 12'sini
-  // gösteririz (mount blink riski yok — getCefrLevel <50ms).
+  // 2026-05-25 — Phase 5D adaptive setup. Lessons pool cap 25 vocab (lesson-
+  // bazlı gerçek boyut değişir; filterSetupByLevel user level'a göre comfort-
+  // zone +1 band'lardan en fazla 12 vocab seçer). Hydrate edilene kadar
+  // fallback olarak scenario.setup'ın ilk 12'sini gösteririz (mount blink
+  // riski yok — getCefrLevel <50ms).
   const [filteredSetup, setFilteredSetup] = useState<SetupPhrase[]>(() =>
     scenario ? filterSetupByLevel(scenario.setup, null) : [],
   );
@@ -1686,9 +1687,14 @@ function VerdictView({
   useEffect(() => {
     if (savedDeltaRef.current) return;
     savedDeltaRef.current = true;
+    // Cleanup: async IIFE'den dönen `return () => ...` useEffect'e ulaşmazdı
+    // (zombie timer). Şimdi cancelled flag + timer ref'leri outer scope'ta.
+    let cancelled = false;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+    let intervalId: ReturnType<typeof setInterval> | null = null;
     (async () => {
       const d = await recordCefrProgress(sceneResult.score).catch(() => null);
-      if (!d) return;
+      if (cancelled || !d) return;
       setCefrDelta(d);
       // Animate from before → after over ~700ms starting after the score count-up
       const target = d.after;
@@ -1697,20 +1703,25 @@ function VerdictView({
       const steps = 30;
       const stepMs = totalMs / steps;
       const startDelay = 950;
-      const startTimer = setTimeout(() => {
+      timeoutId = setTimeout(() => {
+        if (cancelled) return;
         setDisplayedProgress(start);
         let i = 0;
-        const id = setInterval(() => {
+        intervalId = setInterval(() => {
           i += 1;
           const t = Math.min(1, i / steps);
           const eased = 1 - Math.pow(1 - t, 3);
           const value = start + (target - start) * eased;
           setDisplayedProgress(value);
-          if (i >= steps) clearInterval(id);
+          if (i >= steps && intervalId) clearInterval(intervalId);
         }, stepMs);
       }, startDelay);
-      return () => clearTimeout(startTimer);
     })();
+    return () => {
+      cancelled = true;
+      if (timeoutId) clearTimeout(timeoutId);
+      if (intervalId) clearInterval(intervalId);
+    };
   }, [sceneResult.score]);
 
   return (

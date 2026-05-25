@@ -119,12 +119,13 @@ export async function progressQuest(
   const state = await getDailyQuests();
   let changed = false;
   for (const q of state.quests) {
+    // QUEST_POOL'da olmayan quest id'leri (eski versiyondan stored state)
+    // sessizce atla — `find()!` non-null assert'i crash bombasıydı.
+    const def = QUEST_POOL.find((p) => p.id === q.id);
+    if (!def) continue;
     const delta = matcher(q.id);
-    if (delta > 0 && q.progress < QUEST_POOL.find((p) => p.id === q.id)!.target) {
-      q.progress = Math.min(
-        q.progress + delta,
-        QUEST_POOL.find((p) => p.id === q.id)!.target,
-      );
+    if (delta > 0 && q.progress < def.target) {
+      q.progress = Math.min(q.progress + delta, def.target);
       changed = true;
     }
   }

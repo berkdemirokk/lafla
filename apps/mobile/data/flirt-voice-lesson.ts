@@ -19,6 +19,7 @@ export const flirtVoiceLesson_3_1: BundledLesson = {
       id: "ex.fv3.1.1",
       type: "vocab_tile",
       difficulty: 2,
+      cefr_band: "B2",
       word_or_phrase: "Mind if I send a voice note?",
       tr_translation: "Sesli mesaj göndersem sorun olur mu?",
       example: "Mind if I send a voice note? Easier than typing.",
@@ -254,6 +255,7 @@ export const flirtVoiceLesson_3_1: BundledLesson = {
       id: "ex.fv3.1.11",
       type: "vocab_tile",
       difficulty: 3,
+      cefr_band: "B2",
       word_or_phrase: "Hate to text-bomb you",
       tr_translation: "Sana mesaj yagmuru atmaktan nefret ederim",
       example:
@@ -415,6 +417,7 @@ export const flirtVoiceLesson_3_2: BundledLesson = {
       id: "ex.fv3.2.1",
       type: "vocab_tile",
       difficulty: 2,
+      cefr_band: "B2",
       word_or_phrase: "Quick voice memo for you",
       tr_translation: "Sana hızlı bir sesli mesaj",
       example: "Quick voice memo for you — easier than typing this out.",
@@ -594,6 +597,7 @@ export const flirtVoiceLesson_3_2: BundledLesson = {
       id: "ex.fv3.2.11",
       type: "vocab_tile",
       difficulty: 3,
+      cefr_band: "B2",
       word_or_phrase: "Tone is hard to read over text",
       tr_translation: "Yazidan ton anlamak zor",
       example:
@@ -767,6 +771,7 @@ export const flirtVoiceLesson_3_3: BundledLesson = {
       id: "ex.fv3.3.1",
       type: "vocab_tile",
       difficulty: 2,
+      cefr_band: "B2",
       word_or_phrase: "Loved your voice note",
       tr_translation: "Sesli mesajını çok beğendim",
       example: "Loved your voice note — way more personal.",
@@ -948,6 +953,7 @@ export const flirtVoiceLesson_3_3: BundledLesson = {
       id: "ex.fv3.3.11",
       type: "vocab_tile",
       difficulty: 3,
+      cefr_band: "B2",
       word_or_phrase: "Sounds way less stiff than your texts",
       tr_translation: "Yazidan çok daha akici çikiyor sesin",
       example:
@@ -1121,6 +1127,7 @@ export const flirtVoiceLesson_3_4: BundledLesson = {
       id: "ex.fv3.4.1",
       type: "vocab_tile",
       difficulty: 2,
+      cefr_band: "B2",
       word_or_phrase: "FaceTime when",
       tr_translation: "Ne zaman FaceTime'da konuşalım",
       example: "FaceTime when? Tired of typing.",
@@ -1315,6 +1322,7 @@ export const flirtVoiceLesson_3_4: BundledLesson = {
       id: "ex.fv3.4.11",
       type: "vocab_tile",
       difficulty: 3,
+      cefr_band: "B2",
       word_or_phrase: "Save us both the typing",
       tr_translation: "Ikimizi de yazma derdinden kurtaralim",
       example:
@@ -1487,6 +1495,7 @@ export const flirtVoiceLesson_3_5: BundledLesson = {
       id: "ex.fv3.5.1",
       type: "vocab_tile",
       difficulty: 2,
+      cefr_band: "B2",
       word_or_phrase: "We've been chatting a bit",
       tr_translation: "Bir süredir yazışıyoruz",
       example:
@@ -1803,6 +1812,7 @@ export const flirtVoiceLesson_3_6: BundledLesson = {
       id: "ex.fv3.6.1",
       type: "vocab_tile",
       difficulty: 2,
+      cefr_band: "B2",
       word_or_phrase: "Replying in kind",
       tr_translation: "Aynı şekilde karşılık verme",
       example:
@@ -2117,6 +2127,7 @@ export const flirtVoiceLesson_3_7: BundledLesson = {
       id: "ex.fv3.7.1",
       type: "vocab_tile",
       difficulty: 2,
+      cefr_band: "B2",
       word_or_phrase: "Your voice prompt got me",
       tr_translation: "Voice prompt'un beni etkiledi",
       example:
@@ -2446,6 +2457,7 @@ export const flirtVoiceLesson_3_8: BundledLesson = {
       id: "ex.fv3.8.1",
       type: "vocab_tile",
       difficulty: 2,
+      cefr_band: "B2",
       word_or_phrase: "Vibe check before we meet",
       tr_translation: "Buluşmadan önce uyum testi",
       example:

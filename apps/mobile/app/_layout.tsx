@@ -3,13 +3,13 @@
 // History: the previous layout registered 32 screens. After the radical cut
 // (2026-05-20) we kept only routes that map to the single-action home + voice
 // loop. Faz 2 (v0.8.0) added phoneme-drill + listen-mode as silent-environment
-// alternatives. Faz 3 (v0.9.0) kept the route surface stable. Current count
-// is 16 — 10 core routes plus diary, voice-journal, relationships, profile,
-// phoneme-drill, listen-mode. If any deep-link or referral URL still points to
-// an old removed route, it 404s; that remains acceptable for v0.x.
+// alternatives. Faz 3 (v0.9.0) kept the route surface stable.
 //
-// 2026-05-23 — Faz 3 son durumu: 16 route, hepsi kullanıcı-tarafından
-// erişilebilir. Yeni ekran eklerken bu listeyi güncel tut.
+// 2026-05-25 — 22 route. Önceki sayım stale'di (16 derdi). 6 yeni ekran
+// auto-discover ile çalışıyordu ama screenOptions (animation: fade,
+// contentStyle bg) almıyordu. Şimdi register edildi: today, history,
+// certificates, ielts-band, vocab-book, weakness-report. Yeni ekran
+// eklerken bu listeyi güncel tut.
 
 import { useEffect } from "react";
 import { Stack } from "expo-router";
@@ -158,6 +158,12 @@ export default function RootLayout() {
           <Stack.Screen name="relationships" />
           <Stack.Screen name="phoneme-drill" />
           <Stack.Screen name="listen-mode" />
+          <Stack.Screen name="today" />
+          <Stack.Screen name="history" />
+          <Stack.Screen name="certificates" />
+          <Stack.Screen name="ielts-band" />
+          <Stack.Screen name="vocab-book" />
+          <Stack.Screen name="weakness-report" />
         </Stack>
       </ErrorBoundary>
     </SafeAreaProvider>

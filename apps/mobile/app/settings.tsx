@@ -45,6 +45,7 @@ import {
   isNotificationsEnabled,
 } from "../lib/notifications";
 import { redeemReferralCode, getRedeemedCode } from "../lib/referral";
+import { signOut } from "../lib/auth";
 import { tokens } from "../theme";
 
 const K_AUTO_SPEAK = "lafla.settings.autoSpeak";
@@ -492,6 +493,30 @@ export default function SettingsScreen() {
             icon="🎁"
             label="Bir davet kodum var"
             onPress={handleReferralRedeem}
+          />
+          {/* Çıkış yap — Apple review pattern Settings → Account → Sign Out
+              beklediği için profile.tsx'tekine ek olarak buraya da eklendi. */}
+          <Row
+            icon="🚪"
+            label="Çıkış yap"
+            onPress={() => {
+              hapticSelection();
+              Alert.alert(
+                "Hesap",
+                "Çıkış yapmak istediğine emin misin?",
+                [
+                  { text: "Vazgeç", style: "cancel" },
+                  {
+                    text: "Çıkış",
+                    style: "destructive",
+                    onPress: async () => {
+                      await signOut().catch(() => {});
+                      router.replace("/auth" as never);
+                    },
+                  },
+                ],
+              );
+            }}
           />
           <Row
             icon="🗑️"

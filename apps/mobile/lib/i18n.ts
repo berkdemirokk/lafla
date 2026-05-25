@@ -47,28 +47,16 @@ function isLocale(value: unknown): value is Locale {
 
 /**
  * Best-effort detection of the device locale using expo-localization.
- * Returns null if the module is not installed (it is optional — Lafla does
- * not depend on it). Keeps the runtime resilient to package changes.
+ *
+ * 2026-05-25 — DİSABLED. UI'nın %99'u hardcoded Türkçe. EN device locale
+ * fallback'i Apple reviewer (device EN) gibi senaryoda Apple Sign-In butonu
+ * EN, geri kalan TR mismatch'ine yol açıyordu. Tam i18n migration bitene
+ * kadar device locale ignored → hep DEFAULT_LOCALE'e (TR) düşer. User manuel
+ * setLocale("en") çağırırsa sözlükteki ~22 key EN olur, geri kalan TR (zaten
+ * yarı-half state). Tam i18n migrate'inde bu return'ü eski haline getir.
  */
 function detectDeviceLocale(): Locale | null {
-  try {
-    // Use a dynamic require so the module is genuinely optional. If it is
-    // not installed, the catch returns null and we fall back to default.
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const localization = require("expo-localization");
-    const tag: string | undefined =
-      localization?.locale ??
-      localization?.getLocales?.()?.[0]?.languageTag ??
-      localization?.getLocales?.()?.[0]?.languageCode;
-    if (typeof tag === "string") {
-      const lower = tag.toLowerCase();
-      if (lower.startsWith("tr")) return "tr";
-      return "en";
-    }
-    return null;
-  } catch {
-    return null;
-  }
+  return null;
 }
 
 /**
