@@ -62,7 +62,7 @@ const METADATA = {
   bundleId: "com.lafla.app",
   // Apple "App Store Connect" version string (CFBundleShortVersionString).
   // app.json'daki version ile aynı olmalı.
-  appStoreVersion: "0.9.8",
+  appStoreVersion: "0.9.9",
 
   // tr-TR primary
   tr: {
