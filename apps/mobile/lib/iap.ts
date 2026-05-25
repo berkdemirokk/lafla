@@ -26,7 +26,7 @@
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Constants from "expo-constants";
-import { captureException } from "./sentry";
+import { captureException, captureMessage } from "./sentry";
 import { isObject, parseSafe } from "./json-safe";
 import { isRewardedPremiumActive } from "./rewarded";
 
@@ -99,6 +99,13 @@ async function initIfNeeded(): Promise<boolean> {
     if (__DEV__) {
       // eslint-disable-next-line no-console
       console.debug("[Lafla iap] No RevenueCat key — falling back to mock");
+    } else {
+      // 2026-05-25 (B-PAY-12) — Production'da key olmadan başlatma silent
+      // free tier'a düşmek demek; aylarca fark edilmez. Sentry'e P1 sinyal.
+      captureMessage(
+        "iap.no_revenuecat_key_in_production",
+        "warning",
+      );
     }
     _initFailed = true;
     _purchases = null;
@@ -120,6 +127,32 @@ async function initIfNeeded(): Promise<boolean> {
     _initFailed = true;
     _purchases = null;
     return false;
+  }
+}
+
+// ------------------------------------------------------------
+// 2026-05-25 (B-PAY-3) — Premium-state change pub/sub.
+// Purchase başarılı oldu ama UI component'leri (AdBanner, scenario,
+// freechat) eski "free" cache'iyle render kalıyordu. Mount sonrası tek
+// okuma yapan component'ler subscribePremiumChange ile listener kaydı.
+// ------------------------------------------------------------
+
+const _premiumListeners = new Set<() => void>();
+
+export function subscribePremiumChange(cb: () => void): () => void {
+  _premiumListeners.add(cb);
+  return () => {
+    _premiumListeners.delete(cb);
+  };
+}
+
+export function notifyPremiumChange(): void {
+  for (const cb of _premiumListeners) {
+    try {
+      cb();
+    } catch {
+      // bir listener çökerse diğerleri etkilenmesin
+    }
   }
 }
 
@@ -232,14 +265,19 @@ export async function purchasePackage(id: PackageId): Promise<PurchaseResult> {
 
   const live = await initIfNeeded();
   if (!live) {
+    // 2026-05-25 (B-PAY-5) — Init başarısızsa bir kez retry için bayrağı
+    // sıfırla; sonraki purchasePackage çağrısı (kullanıcı "Tekrar dene"
+    // basarsa) yeniden init dener. Aksi halde "_initialized=true,
+    // _purchases=null" durumunda sıkışıyordu.
+    _initialized = false;
     // PRODUCTION SAFETY: the mock path grants premium without any real
     // charge. In a released build that would be a "give everyone premium"
-    // backdoor (anyone who triggers SDK init failure gets unlocked
-    // content). Gate the mock strictly to __DEV__.
+    // backdoor. Gate the mock strictly to __DEV__.
     if (!__DEV__) {
       return {
         ok: false,
-        error: "Billing not available. Please try again or contact support.",
+        error:
+          "Ödeme servisine ulaşılamıyor. İnternet bağlantını kontrol edip tekrar dene. Devam ederse berkkdemirok@gmail.com adresine yaz.",
       };
     }
     await new Promise((resolve) => setTimeout(resolve, 250));
@@ -290,6 +328,9 @@ export async function purchasePackage(id: PackageId): Promise<PurchaseResult> {
       customerInfo?.entitlements?.active?.[PREMIUM_ENTITLEMENT],
     );
     if (active) {
+      // 2026-05-25 (B-PAY-3) — UI'a haber ver, AdBanner/scenario/freechat
+      // mount'unu beklemeden refresh etsin.
+      notifyPremiumChange();
       return { ok: true, entitlement: PREMIUM_ENTITLEMENT };
     }
     return { ok: false, error: "Purchase did not unlock entitlement" };
@@ -311,21 +352,45 @@ export async function purchasePackage(id: PackageId): Promise<PurchaseResult> {
  * Real SDK: Purchases.restorePurchases() → check entitlement.
  * Fallback: re-read mock state.
  */
+export type RestoreResult =
+  | { ok: true; active: boolean }
+  | { ok: false; error: string };
+
 export async function restorePurchases(): Promise<boolean> {
+  const r = await restorePurchasesDetailed();
+  return r.ok && r.active;
+}
+
+/**
+ * 2026-05-25 (B-PAY-2) — restorePurchases boolean dönüyordu; network fail
+ * ile "abonelik yok" sessizce karışıyordu. Detailed version error mesajı
+ * döner; Apple 3.1.1 reject riski azaltılır.
+ */
+export async function restorePurchasesDetailed(): Promise<RestoreResult> {
   const live = await initIfNeeded();
   if (!live) {
+    if (!__DEV__) {
+      return { ok: false, error: "Billing SDK not available" };
+    }
     await new Promise((resolve) => setTimeout(resolve, 200));
-    return (await readMock()).active;
+    return { ok: true, active: (await readMock()).active };
   }
 
-  // Defensive null-check (see isPremium for rationale).
-  if (!_purchases) return (await readMock()).active;
+  if (!_purchases) {
+    if (!__DEV__) {
+      return { ok: false, error: "Billing SDK not available" };
+    }
+    return { ok: true, active: (await readMock()).active };
+  }
 
   try {
     const info = await _purchases.restorePurchases();
-    return Boolean(info?.entitlements?.active?.[PREMIUM_ENTITLEMENT]);
-  } catch {
-    return false;
+    const active = Boolean(info?.entitlements?.active?.[PREMIUM_ENTITLEMENT]);
+    if (active) notifyPremiumChange();
+    return { ok: true, active };
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : "Restore failed";
+    return { ok: false, error: msg };
   }
 }
 

@@ -43,7 +43,8 @@ import {
 import { recordUserText } from "../lib/mistake-tracker";
 import { trackEvent } from "../lib/analytics";
 import { speak } from "../lib/tts";
-import { isPremium } from "../lib/iap";
+import { isPremium, subscribePremiumChange } from "../lib/iap";
+import { useSession } from "../lib/useSession";
 
 interface ChatLine {
   speaker: "npc" | "user";
@@ -76,15 +77,33 @@ export default function FreechatScreen() {
   // Sahne açılışında analytics + premium check (kullanıcı premium'sa
   // turn limit'i devre dışı kalır — Lafla Pro "uzunluk sınırı yok" sözünü
   // bu noktada yerine getiriyoruz).
+  // 2026-05-25 (B-PAY-3) — subscribePremiumChange ile purchase/rewarded
+  // grant sonrası refresh; aksi halde turn limit eski cache'le tetiklenir.
   useEffect(() => {
     void trackEvent("freechat_opened", { prompt_id: prompt.id }).catch(
       () => {},
     );
-    (async () => {
+    let cancelled = false;
+    const refresh = async () => {
       const isPrem = await isPremium().catch(() => false);
-      setPremium(isPrem);
-    })();
+      if (!cancelled) setPremium(isPrem);
+    };
+    refresh();
+    const unsub = subscribePremiumChange(refresh);
+    return () => {
+      cancelled = true;
+      unsub();
+    };
   }, [prompt.id]);
+
+  // 2026-05-25 (B-PAY-13) — Anonim user freechat'e ulaşırsa paywall'a
+  // gönder; RC user ID yok → satın alma yapsa bile entitlement attribute
+  // edilmez. Sign-in zorunlu.
+  const { session, loading: sessionLoading } = useSession();
+  useEffect(() => {
+    if (sessionLoading) return;
+    if (!session) router.replace("/auth" as never);
+  }, [session, sessionLoading, router]);
 
   // Auto-scroll on new line — keep latest bubble in view.
   useEffect(() => {

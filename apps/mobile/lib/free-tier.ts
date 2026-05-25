@@ -28,8 +28,15 @@ const K_FREE_COUNT = "lafla.freeTier.count";
  */
 export const FREE_DAILY_SCENE_QUOTA = 3;
 
+// 2026-05-25 (B-PAY-11) — Eski versiyon `toDateString()` LOCAL timezone'a
+// bağımlıydı: kullanıcı uçakta saat değiştirebilir / TR → AB seyahat ederse
+// gece yarısı geçişinde sayaç ya erken sıfırlanır ya ileriye atlar. UTC
+// gün başlangıcı stabildir; abuse vektörünü de kapatır (cihaz saatini
+// ileri al → quota sıfırla).
 function todayKey(): string {
-  return new Date().toDateString();
+  const d = new Date();
+  // YYYY-MM-DD (UTC)
+  return d.toISOString().slice(0, 10);
 }
 
 interface CounterState {

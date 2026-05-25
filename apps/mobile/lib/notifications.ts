@@ -302,10 +302,14 @@ async function scheduleAt(
 }
 
 async function readContext(): Promise<NotifContext> {
+  // 2026-05-25 (B-EDGE-1) — Storage key mismatch fix.
+  // notifications.ts "lafla.local.profile.v1" okuyordu ama local-progress.ts
+  // "lafla.profile" yazıyor. Sonuç: streakDays her zaman undefined → push
+  // mesajlarındaki "{days} gün streak" hep 0 → kişiselleştirme ölü.
   const [nameRaw, lastSceneRaw, profileRaw] = await Promise.all([
     AsyncStorage.getItem("lafla.displayName").catch(() => null),
     AsyncStorage.getItem(K_LAST_SCENE).catch(() => null),
-    AsyncStorage.getItem("lafla.local.profile.v1").catch(() => null),
+    AsyncStorage.getItem("lafla.profile").catch(() => null),
   ]);
   let streakDays: number | undefined;
   if (profileRaw) {
@@ -399,7 +403,7 @@ export async function scheduleWeeklySummary(): Promise<void> {
         title: WEEKLY_SUMMARY_TITLE,
         body: WEEKLY_SUMMARY_BODY,
         sound: "default",
-        data: { deepLink: "lafla://progress" },
+        data: { deepLink: "lafla://profile" },
       },
       trigger: {
         type: Notifications.SchedulableTriggerInputTypes.CALENDAR,

@@ -171,8 +171,10 @@ function extractExampleFromHint(hint?: string): string | null {
 // whitespace, and hard-caps the length. Casing is preserved.
 function sanitizeUserName(raw: string | null | undefined): string {
   if (!raw) return "";
+  // 2026-05-25 (B-SCN-1) — Doğrusu kontrol karakterleri (\x00-\x1F + DEL).
+  // Önceki versiyon `/[ -]/g` printable space-dash strip ediyordu — yanlış.
   // eslint-disable-next-line no-control-regex
-  let cleaned = raw.replace(/[ -]/g, "");
+  let cleaned = raw.replace(/[\x00-\x1F\x7F]/g, "");
   // Drop quote characters that could disrupt the rendered sentence; leaves
   // apostrophes (O'Brien) intact because they're meaningful in names.
   cleaned = cleaned.replace(/["`]/g, "");
@@ -213,6 +215,16 @@ export function personalizeOpener(
 
   const greeting = m[1]!;
   const rest = m[3] ?? "";
+
+  // 2026-05-25 (B-SCN-3) — Lesson author NPC opener'a kullanıcı adını
+  // hardcode etmiş olabilir ("Hi, Berk."). Bu durumda kişiselleştirme
+  // duplicate ekler: "Hi Berk, Berk." → çift. Rest içinde isim varsa
+  // personalize etmeyi atla, original'i döndür.
+  const lowerRest = rest.toLowerCase();
+  const lowerName = name.toLowerCase();
+  if (lowerName && lowerRest.includes(lowerName)) {
+    return text;
+  }
 
   // If the remainder starts with a comma/punctuation+space, keep it; we just
   // splice the name between greeting and remainder. Otherwise insert a
@@ -642,8 +654,11 @@ export function RoleplayChat({
     // When the listening window closes (timeout or `end` event from the lib),
     // sttAbortRef stays set but recording flips false. Poll for finality via
     // a one-shot timeout that matches the lib's timeoutMs + a small buffer.
+    // 2026-05-25 (B-SCN-15) — `if (!recording) return` stale closure idi
+    // (kapatma sırasında `recording` initial false okunuyordu). Doğru
+    // kontrol: sttAbortRef hala bizim controller mı?
     const closeTimer = setTimeout(() => {
-      if (!recording) return;
+      if (sttAbortRef.current !== controller) return;
       void stopStt().catch(() => {});
       setRecording(false);
       const text = finalText || interimText;

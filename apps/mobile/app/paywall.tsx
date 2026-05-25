@@ -66,7 +66,7 @@ import {
   getOffering,
   isLiveBilling,
   purchasePackage,
-  restorePurchases,
+  restorePurchasesDetailed,
   type PackageId,
 } from "../lib/iap";
 import { Icon, type IconName } from "../components/Icon";
@@ -156,7 +156,12 @@ export default function PaywallScreen() {
   const isFromWeakness = from === "weakness";
   const handleClose = () => {
     hapticImpact("light");
-    if (isFromIntro) {
+    // 2026-05-25 (B-PAY-6) — Apple 3.1.1 gereği: kullanıcı paywall'dan
+    // ÇIKABİLMELİ. Önceki versiyon router.back() çağırıyordu; ama scenario
+    // ve diğer trigger'lar `router.replace("/paywall?from=...")` ile
+    // geliyor → navigation stack'te geri gidecek yer yok → kullanıcı
+    // sıkışır. canGoBack() false ise /today'e fallback.
+    if (isFromIntro || !router.canGoBack()) {
       router.replace("/today" as never);
     } else {
       router.back();
@@ -169,6 +174,9 @@ export default function PaywallScreen() {
   const [loading, setLoading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [, setLive] = useState<boolean | null>(null);
+  // 2026-05-25 (B-PAY-7) — Offering fetch fail durumunda kullanıcıya retry
+  // sun, sessizce fallback fiyatla CTA'yı tıklatma.
+  const [offeringFailed, setOfferingFailed] = useState(false);
   // Both tiers stored — toggle switches the displayed card without re-fetch.
   // micros is used to compute "X% indirim" without hardcoding the discount.
   const [livePrices, setLivePrices] = useState<LivePrices>({
@@ -194,34 +202,46 @@ export default function PaywallScreen() {
   // CTA pulse — subtle scale 1.0 ↔ 1.03 to draw the eye without nagging.
   const ctaScale = useSharedValue(1);
 
+  const loadOffering = async () => {
+    setOfferingFailed(false);
+    const isLive = await isLiveBilling();
+    setLive(isLive);
+    if (!isLive) {
+      // Dev'de fallback price'lar görünecek, prod'da kullanıcıya retry banner.
+      if (!__DEV__) setOfferingFailed(true);
+      return;
+    }
+    try {
+      const offering = await getOffering();
+      if (!offering?.monthly && !offering?.yearly) {
+        setOfferingFailed(true);
+        return;
+      }
+      setLivePrices({
+        monthly: offering?.monthly
+          ? {
+              price: offering.monthly.price,
+              micros: offering.monthly.priceAmountMicros ?? null,
+              trialDays: offering.monthly.trialDays,
+            }
+          : null,
+        yearly: offering?.yearly
+          ? {
+              price: offering.yearly.price,
+              micros: offering.yearly.priceAmountMicros ?? null,
+              trialDays: offering.yearly.trialDays,
+            }
+          : null,
+      });
+    } catch {
+      setOfferingFailed(true);
+    }
+  };
+
   useEffect(() => {
     void trackEvent("paywall_viewed").catch(() => {});
-    (async () => {
-      const isLive = await isLiveBilling();
-      setLive(isLive);
-      if (isLive) {
-        const offering = await getOffering();
-        // Defensive: offering can be partial (one tier configured but not
-        // the other). Fall through to FALLBACK_* for the missing side so
-        // the UI never shows "null" or "undefined".
-        setLivePrices({
-          monthly: offering?.monthly
-            ? {
-                price: offering.monthly.price,
-                micros: offering.monthly.priceAmountMicros ?? null,
-                trialDays: offering.monthly.trialDays,
-              }
-            : null,
-          yearly: offering?.yearly
-            ? {
-                price: offering.yearly.price,
-                micros: offering.yearly.priceAmountMicros ?? null,
-                trialDays: offering.yearly.trialDays,
-              }
-            : null,
-        });
-      }
-    })();
+    void loadOffering();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -298,6 +318,20 @@ export default function PaywallScreen() {
   }));
 
   const handlePurchase = async (selected: PackageId) => {
+    // 2026-05-25 (B-PAY-7) — Offering fetch fail durumda CTA tıklatma;
+    // kullanıcı yanlış/eksik fiyat üzerine alım deneyemesin.
+    if (offeringFailed) {
+      hapticImpact("light");
+      Alert.alert(
+        "Fiyat yüklenemedi",
+        "İnternet bağlantını kontrol edip tekrar dene.",
+        [
+          { text: "Yeniden dene", onPress: () => void loadOffering() },
+          { text: "Kapat", style: "cancel" },
+        ],
+      );
+      return;
+    }
     hapticImpact("medium");
     setLoading(true);
     void trackEvent("purchase_initiated", { plan: selected }).catch(() => {});
@@ -368,14 +402,25 @@ export default function PaywallScreen() {
     hapticImpact("light");
     setLoading(true);
     try {
-      const restored = await restorePurchases();
-      if (restored) hapticSuccess();
-      Alert.alert(
-        restored ? "Geri yüklendi" : "Aktif abonelik bulunamadı",
-        restored
-          ? "Premium özellikler tekrar aktif."
-          : "Bu Apple ID üzerinde aktif bir Lafla aboneliği bulamadık.",
-      );
+      // 2026-05-25 (B-PAY-2) — Detailed restore: network/SDK fail "yok" değil
+      // "tekrar dene" sun. Apple Guideline 3.1.1 ihlali riskini düşür.
+      const result = await restorePurchasesDetailed();
+      if (!result.ok) {
+        Alert.alert(
+          "Geri yükleme başarısız",
+          "İnternet bağlantını kontrol edip tekrar dene.",
+        );
+        return;
+      }
+      if (result.active) {
+        hapticSuccess();
+        Alert.alert("Geri yüklendi", "Premium özellikler tekrar aktif.");
+      } else {
+        Alert.alert(
+          "Aktif abonelik bulunamadı",
+          "Bu Apple ID üzerinde aktif bir Lafla aboneliği bulamadık.",
+        );
+      }
     } catch {
       Alert.alert("Hata", "Geri yükleme başarısız.");
     } finally {
@@ -588,7 +633,14 @@ export default function PaywallScreen() {
             </View>
             <View style={styles.popularPill}>
               <Text style={styles.popularPillText}>
-                {isYearly ? "EN İYİ DEĞER" : "ESNEK"}
+                {/* 2026-05-25 (B-PAY-14) — "EN İYİ DEĞER" sadece gerçek
+                    indirim varsa. Yearly ASC'de yanlışlıkla pahalı set
+                    edildiyse Apple 3.1.1 misrepresentation flag riski. */}
+                {isYearly
+                  ? showDiscountBadge
+                    ? "EN İYİ DEĞER"
+                    : "YILLIK"
+                  : "ESNEK"}
               </Text>
             </View>
           </View>

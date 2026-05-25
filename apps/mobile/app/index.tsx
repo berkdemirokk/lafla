@@ -2,7 +2,7 @@
 // Auto-routes: signed-in + onboarded → /home; signed-in only → /onboarding;
 // signed-out → /auth. Tap on screen accelerates routing.
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
@@ -23,6 +23,11 @@ import { tokens } from "../theme";
 export default function Splash() {
   const router = useRouter();
   const { session, loading } = useSession();
+  // 2026-05-25 (B-AUTH-3) — decide() setTimeout ile skip() Pressable arasında
+  // race: kullanıcı 300ms reveal sırasında ekrana dokunursa hem skip hem
+  // decide router.replace tetikliyordu → expo-router'da çift navigation,
+  // last-write-wins. Bayrak: ilk yürüten route'lar, ikinci no-op.
+  const routedRef = useRef(false);
 
   // Brand reveal animation — wordmark zooms IN from "behind the screen"
   // with a subtle 3D perspective tilt. Halo glow pulses behind for premium
@@ -119,24 +124,43 @@ export default function Splash() {
   useEffect(() => {
     if (loading) return;
 
+    // 2026-05-25 — Bug fix: session null iken splash /today'e atıyordu
+    // (lafla.onboarded="true" varsa). Sonuç: kullanıcı auth ekranını asla
+    // göremedi, "kullanıcı girişi çıkmıyor" şikayeti. Doğru davranış:
+    // signed-out user her zaman /auth'a gelir; oradan "Atla" ile onboarding/
+    // today'e skip edebilir. Local onboarded flag artık SADECE auth'tan
+    // Atla path'inde okunur (auth.tsx skipAuth).
     const decide = async () => {
-      // Signed-in + onboarding done → home
+      if (routedRef.current) return; // skip() öne geçtiyse no-op
       if (session) {
-        const profile = await getCurrentProfile();
-        if (profile?.onboarding_completed_at) {
-          router.replace("/today" as never);
-          return;
+        try {
+          const profile = await getCurrentProfile();
+          if (profile?.onboarding_completed_at) {
+            routedRef.current = true;
+            router.replace("/today" as never);
+            return;
+          }
+        } catch {
+          // Profile fetch fail — fall through to local check
         }
+        // Signed-in but onboarding not finished yet (e.g. fresh signup before
+        // completing interests). Local flag still respected as a tie-break.
+        try {
+          const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
+          if (localOnboarded === "true") {
+            routedRef.current = true;
+            router.replace("/today" as never);
+            return;
+          }
+        } catch {}
+        routedRef.current = true;
+        router.replace("/onboarding" as never);
+        return;
       }
-      // Local state — onboarded? home
-      try {
-        const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
-        if (localOnboarded === "true") {
-          router.replace("/today" as never);
-          return;
-        }
-      } catch {}
-      router.replace("/onboarding");
+      // Signed-out → always /auth. User can press "Atla" in auth screen if
+      // they want anonymous local-only mode.
+      routedRef.current = true;
+      router.replace("/auth" as never);
     };
 
     // Short brand reveal — keeps the splash perceivable without delaying
@@ -147,17 +171,15 @@ export default function Splash() {
 
   const skip = async () => {
     if (loading) return;
+    if (routedRef.current) return; // decide() öne geçtiyse no-op
+    routedRef.current = true;
     if (session) {
       const profile = await getCurrentProfile();
       router.replace((profile?.onboarding_completed_at ? "/today" : "/onboarding") as never);
       return;
     }
-    try {
-      const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
-      router.replace((localOnboarded === "true" ? "/today" : "/onboarding") as never);
-    } catch {
-      router.replace("/onboarding");
-    }
+    // Signed-out tap — same destination as decide(): /auth.
+    router.replace("/auth" as never);
   };
 
   return (

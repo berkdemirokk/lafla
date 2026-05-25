@@ -18,6 +18,8 @@ import {
   StyleSheet,
   Animated,
   Easing,
+  AppState,
+  type AppStateStatus,
 } from "react-native";
 import { Button } from "../Button";
 import { SpeakerButton } from "../SpeakerButton";
@@ -138,6 +140,24 @@ export function PronouncePhrase({ phrase, trHint, onComplete }: Props) {
     };
   }, []);
 
+  // 2026-05-25 (B-SCN-14) — Kullanıcı listening sırasında Ayarlar'a giderse
+  // (örn. mic permission açmak için) component mount kalır, mic native side
+  // background'da donar. App active'e dönerse stage hala "listening" + pulse
+  // loop'u. AppState listener ile background'da stopListening + stage idle.
+  useEffect(() => {
+    const sub = AppState.addEventListener("change", (next: AppStateStatus) => {
+      if (next !== "active" && stage === "listening") {
+        try {
+          // eslint-disable-next-line @typescript-eslint/no-var-requires
+          const sr = require("../../lib/speech-recognition");
+          sr?.stopListening?.();
+        } catch {}
+        setStage("idle");
+      }
+    });
+    return () => sub.remove();
+  }, [stage]);
+
   const handleMicPress = async () => {
     hapticImpact("medium");
     setErrorMsg(null);
@@ -213,7 +233,21 @@ export function PronouncePhrase({ phrase, trHint, onComplete }: Props) {
       },
       onError: (e) => {
         hapticError();
-        setErrorMsg(e.message || "Mikrofon hatası");
+        // 2026-05-25 (B-SCN-10) — Engine'den gelen mesajlar İngilizce
+        // (örn. "speech recognition permission denied"). Türk kullanıcıya
+        // anlamlı çevirim.
+        const raw = (e.message || "").toLowerCase();
+        let tr: string;
+        if (raw.includes("permission")) {
+          tr = "Mikrofon izni gerekli — Ayarlar'dan izin ver.";
+        } else if (raw.includes("network") || raw.includes("fetch")) {
+          tr = "Bağlantı problemi. İnternetini kontrol et.";
+        } else if (raw.includes("not available") || raw.includes("module")) {
+          tr = "Mikrofon bu cihazda desteklenmiyor.";
+        } else {
+          tr = "Mikrofon hatası — bir daha dene.";
+        }
+        setErrorMsg(tr);
         // Only return to idle if we haven't already graded successfully.
         if (!gradedThisSession.current) {
           setStage("idle");

@@ -56,9 +56,13 @@ const TR_TO_ASCII: Record<string, string> = {
 };
 
 export function normalize(s: string): string {
+  // 2026-05-25 (B-SCN-6) — TR_TO_ASCII map'i toLowerCase'ten ÖNCE uygulanmalı.
+  // JavaScript locale-naive toLowerCase: "İ" → "i̇" (i + combining dot
+  // above). Sonradan regex map "İ" eşleşmez, U+0307 string'de kalır →
+  // similarity düşer. Map önce → "İ" → "i", sonra toLowerCase no-op.
   return s
-    .toLowerCase()
     .replace(/[çğıİöşüÇĞÖŞÜ]/g, (c) => TR_TO_ASCII[c] ?? c)
+    .toLowerCase()
     // Apostrophes: contractions stay one token ("I'm" → "im", not "i m")
     .replace(/['']/g, "")
     .replace(/[.,!?;:"()—–\-]/g, " ")
@@ -129,6 +133,10 @@ export function matchPhrase(input: {
 }
 
 // Regex-with-fallback for roleplay acceptable_patterns
+// 2026-05-25 (B-SCN-8) — Malformed regex content author hatasıyken silent
+// substring fallback'a düşüyordu. Dev'de console.warn ile sinyal; prod'da
+// telemetry için bayrak (caller analytics'e bağlayabilir).
+const _badPatternsSeen = new Set<string>();
 export function matchAgainstPatterns(
   userInput: string,
   patterns: string[],
@@ -139,6 +147,13 @@ export function matchAgainstPatterns(
       const regex = new RegExp(pattern, "i");
       if (regex.test(userInput)) return true;
     } catch {
+      if (!_badPatternsSeen.has(pattern)) {
+        _badPatternsSeen.add(pattern);
+        if (__DEV__) {
+          // eslint-disable-next-line no-console
+          console.warn(`[engine] malformed regex pattern: ${pattern}`);
+        }
+      }
       // Malformed regex - fall back to substring match
       if (lowered.includes(pattern.toLowerCase())) return true;
     }
@@ -230,6 +245,18 @@ export function evaluateTranslate(
   acceptedVariants: string[],
   input: string,
 ): ExerciseResult {
+  // 2026-05-25 (B-SCN-7) — Content tooling target ve accepted_variants ikisini
+  // de boş bırakırsa best_variant boş string olur, feedback `Hmm. Şöyle dene: ""`
+  // şeklinde gözükür. Guard ekle.
+  if (!target.trim() && acceptedVariants.every((v) => !v.trim())) {
+    return {
+      exercise_id: "translate",
+      exercise_type: "translate",
+      correct: false,
+      score: 0,
+      feedback: "Bu egzersiz hazır değil — bir sonrakine geç.",
+    };
+  }
   const match = matchPhrase({
     user_text: input,
     canonical: target,

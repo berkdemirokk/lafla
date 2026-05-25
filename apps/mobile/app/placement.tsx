@@ -20,6 +20,7 @@ import {
   StyleSheet,
   Pressable,
   ScrollView,
+  Alert,
 } from "react-native";
 import Animated, {
   Easing,
@@ -362,16 +363,29 @@ export default function PlacementScreen() {
     // Finalize onboarding (helper) — setCefrLevel + setOnboarded + ATT +
     // analytics + completeOnboarding (Supabase sync). Interests + name
     // disk'te zaten kaydedildi onboarding tarafında.
-    const [interests, nameRaw] = await Promise.all([
-      getInterests().catch(() => [] as string[]),
-      AsyncStorage.getItem("lafla.displayName").catch(() => null),
-    ]);
-    await finalizeOnboarding({
-      level: finalLevel,
-      interests,
-      displayName: nameRaw ?? "",
-      source: "placement_test",
-    });
+    // 2026-05-25 (B-AUTH-9) — finalizeOnboarding throw ederse (AsyncStorage
+    // full, Supabase 5xx) önceki versiyon uncaught promise rejection
+    // çekirdek'e gidiyordu. Şimdi: kullanıcıya hata göster, saving'i kaldır.
+    try {
+      const [interests, nameRaw] = await Promise.all([
+        getInterests().catch(() => [] as string[]),
+        AsyncStorage.getItem("lafla.displayName").catch(() => null),
+      ]);
+      await finalizeOnboarding({
+        level: finalLevel,
+        interests,
+        displayName: nameRaw ?? "",
+        source: "placement_test",
+      });
+    } catch (e) {
+      setSaving(false);
+      Alert.alert(
+        "Bir şey ters gitti",
+        "Seviyen kaydedilemedi. İnternetini kontrol edip tekrar dene.",
+        [{ text: "Tamam" }],
+      );
+      return;
+    }
 
     // Finalize başarılı — şimdi atomik temizlik. Restore state'i sil.
     void AsyncStorage.removeItem(K_PLACEMENT_STATE).catch(() => {});

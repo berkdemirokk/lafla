@@ -39,6 +39,7 @@ import mobileAds, {
 import { isPremium } from "./iap";
 import { grantRewardedPremium } from "./rewarded";
 import { trackEvent } from "./analytics";
+import { captureMessage } from "./sentry";
 
 // ─── Config ────────────────────────────────────────────────────────────
 
@@ -78,11 +79,23 @@ export function getBannerUnitId(): string {
   return id || TestIds.BANNER;
 }
 
+// 2026-05-25 (B-PAY-1) — Production'da rewarded unit ID boşsa AdMob'a TEST
+// reklam isteği gider; AdMob policy violation → hesap askıya alınır, gerçek
+// revenue=0. Boş ID durumunu Sentry'ye P0 sinyalle bildir, ilk kez fark
+// edildiğinde bir kez raporlanır.
+let _reportedEmptyRewardedUnit = false;
 function getRewardedUnitId(): string {
   if (USE_TEST_ADS) return TestIds.REWARDED;
   const key =
     Platform.OS === "ios" ? "admobRewardedIos" : "admobRewardedAndroid";
   const id = (Constants.expoConfig?.extra?.[key] as string | undefined) ?? "";
+  if (!id && !_reportedEmptyRewardedUnit) {
+    _reportedEmptyRewardedUnit = true;
+    captureMessage(
+      `ads.empty_rewarded_unit_id_in_production_${Platform.OS}`,
+      "error",
+    );
+  }
   return id || TestIds.REWARDED;
 }
 
@@ -139,8 +152,16 @@ export async function onScenarioComplete(): Promise<void> {
   _scenarioCount += 1;
   if (_scenarioCount < SHOW_EVERY_N) return;
 
-  _scenarioCount = 0;
-  await showInterstitial().catch(() => {});
+  // 2026-05-25 (B-PAY-17) — Counter'ı SADECE başarılı interstitial sonrası
+  // sıfırla. Önceki versiyon try'dan önce sıfırlıyordu → ad load fail olursa
+  // sonraki 3 sahne reklamsız (revenue loss). Şimdi: success → reset, fail
+  // → bir sonraki sahnede tekrar dene.
+  try {
+    await showInterstitial();
+    _scenarioCount = 0;
+  } catch {
+    // Bir sonraki sahnede tekrar dene; counter'ı sıfırlama.
+  }
 }
 
 async function showInterstitial(): Promise<void> {
@@ -264,8 +285,27 @@ export async function showRewardedAd(): Promise<RewardedResult> {
           // CLOSED event'i bekle (kullanıcı reklamı bitirdikten sonra X'e basabilir).
         },
       );
+      // 2026-05-25 (B-PAY-4) — EARNED_REWARD geldi ama kullanıcı app'i
+      // background'a aldı / killledı → CLOSED hiç gelmez, promise sonsuza
+      // kadar pending. Sonuç: "Hazırlanıyor..." donmuş, app reopen'da
+      // _loadingRewarded true kalır → CTA tıklanamaz. Watchdog: EARNED'dan
+      // sonra 4sn içinde CLOSED gelmezse grant'i ver, promise'i çöz.
+      let earnedWatchdog: ReturnType<typeof setTimeout> | null = null;
+      const unsubEarnedWatch = ad.addAdEventListener(
+        RewardedAdEventType.EARNED_REWARD,
+        () => {
+          if (earnedWatchdog) return;
+          earnedWatchdog = setTimeout(() => {
+            if (!userClosed) {
+              cleanup();
+              resolve({ ok: true, minutesGranted: 30 });
+            }
+          }, 4000);
+        },
+      );
       const unsubClosed = ad.addAdEventListener(AdEventType.CLOSED, () => {
         userClosed = true;
+        if (earnedWatchdog) clearTimeout(earnedWatchdog);
         cleanup();
         if (earnedReward) {
           // 2026-05-25 — 24h → 30 dk. Bir sahne paketi süresi.
@@ -289,6 +329,7 @@ export async function showRewardedAd(): Promise<RewardedResult> {
       function cleanup() {
         unsubLoaded();
         unsubEarned();
+        unsubEarnedWatch();
         unsubClosed();
         unsubError();
       }

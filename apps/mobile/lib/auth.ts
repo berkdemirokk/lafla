@@ -6,7 +6,26 @@
 // only exists because some older call sites still use it directly — prefer
 // `signInWithApple` from `./auth-apple.ts` for new code.
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as SecureStore from "expo-secure-store";
 import { supabase } from "./supabase";
+
+// 2026-05-25 — signOut sırasında temizlenecek user-data anahtarları.
+// signOut bu key'leri silmediği için: User1 onboarding bitirir →
+// lafla.onboarded="true" → çıkar → Auth ekranında "Atla" görür → skipAuth
+// onboarded="true" gördüğü için /today'e atlar → User2 hesap açamaz.
+// Aşağıdaki key'ler hesap-bağlı (cihaz-bağlı değil); signOut'ta clear.
+// Not: lafla.intro.match.completed, lafla.cefr.* gibi progress key'leri
+// burada CLEAR EDİLMEZ — kullanıcı tekrar girince devam etsin diye.
+const USER_BOUND_KEYS = [
+  "lafla.onboarded",
+  "lafla.onboarding.step",
+  "lafla.displayName",
+  "lafla.interests",
+];
+const SECURE_STORE_USER_KEYS = [
+  "lafla.apple.credentials.v1",
+];
 
 export type Profile = {
   id: string;
@@ -44,6 +63,14 @@ export async function signInWithApple(identityToken: string, nonce?: string) {
 }
 
 export async function signOut() {
+  // Local user-bound storage'ı önce temizle ki Supabase callback'i bir sonraki
+  // mount'ı yanlış yere yönlendirmesin (B-AUTH-1).
+  await Promise.all([
+    AsyncStorage.multiRemove(USER_BOUND_KEYS).catch(() => {}),
+    ...SECURE_STORE_USER_KEYS.map((k) =>
+      SecureStore.deleteItemAsync(k).catch(() => {}),
+    ),
+  ]);
   const { error } = await supabase.auth.signOut();
   if (error) throw error;
 }

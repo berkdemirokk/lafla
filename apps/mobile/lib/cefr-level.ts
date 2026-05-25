@@ -90,7 +90,22 @@ export interface CefrProgressDelta {
  * No-op (`null` döner) sadece kullanıcı henüz CEFR seçmediyse — bu durum
  * adım 4 (onboarding cefr step) atlandığında oluşur ki bu olmamalı.
  */
+// 2026-05-25 (B-SCN-13) — AsyncStorage read-modify-write race koruması.
+// İki sahne hızlıca tamamlanırsa (intro + first scene auto-advance) iki
+// recordCefrProgress paralel çalışıyordu, biri diğerinin yazısını ezdi.
+// Modül-içi single-flight kuyruk: ardışık çağrılar await'lenir.
+let cefrWriteChain: Promise<unknown> = Promise.resolve();
+
 export async function recordCefrProgress(
+  score: number,
+): Promise<CefrProgressDelta | null> {
+  const job = cefrWriteChain.then(() => _recordCefrProgressInner(score));
+  // Sonraki çağrı bizi bekleyecek; hata olsa bile zincir kırılmasın.
+  cefrWriteChain = job.catch(() => undefined);
+  return job;
+}
+
+async function _recordCefrProgressInner(
   score: number,
 ): Promise<CefrProgressDelta | null> {
   const fromLevel = await getCefrLevel();
@@ -218,10 +233,20 @@ export async function applyDecayIfDue(): Promise<DecayResult> {
   }
 
   // Premium muaf — Lafla Pro değer önerisi.
+  // 2026-05-25 (B-SCN-5) — Önceki versiyon `.catch(() => false)` yapıyordu;
+  // RC init henüz tamamlanmamışken (cold start race) premium kullanıcı
+  // sahte "free" görüp decay yiyordu. Güvenli taraf: belirsizlikte decay
+  // ATLA. Premium kullanıcıya yanlışlıkla ceza vermek istenmiyor.
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const iap = require("./iap") as { isPremium: () => Promise<boolean> };
-  const premium = await iap.isPremium().catch(() => false);
-  if (premium) {
+  let premium = false;
+  let premiumDeterminate = true;
+  try {
+    premium = await iap.isPremium();
+  } catch {
+    premiumDeterminate = false; // belirsiz — bu turda decay'i atla
+  }
+  if (premium || !premiumDeterminate) {
     return {
       decayApplied: 0,
       before: 0,

@@ -33,6 +33,7 @@ import { Platform } from "react-native";
 import * as SecureStore from "expo-secure-store";
 import Constants from "expo-constants";
 import { supabase } from "./supabase";
+import { captureException, captureMessage } from "./sentry";
 
 // 2026-05-23 — Apple Sign-In token exchange edge function endpoint.
 // Backend supabase/functions/apple-token-exchange'i çağırır.
@@ -241,9 +242,20 @@ export async function signInWithApple(): Promise<AppleAuthResult> {
   const authorizationCode: string | undefined =
     credential?.authorizationCode ?? undefined;
   if (authorizationCode) {
-    void exchangeAppleAuthorizationCode(authorizationCode).catch(() => {
-      // Non-fatal — see docs/APPLE_SIGNIN_SETUP.md if backend env not set.
-    });
+    // 2026-05-25 (B-AUTH-5) — eski versiyon sessizce yutuyordu. Apple 5.1.1(v)
+    // revoke chain'i ileride bu refresh_token'a bağlı; backend env yoksa
+    // veya 5xx dönerse account deletion patladığında Apple reject olur.
+    // captureMessage ile Sentry'e P1 sinyal at; user'a hata göstermeye
+    // gerek yok (sign-in başarılı sayılır, deletion path lazımken anlaşılır).
+    void exchangeAppleAuthorizationCode(authorizationCode)
+      .then((ok) => {
+        if (!ok) {
+          captureMessage("apple_token_exchange_failed", "warning");
+        }
+      })
+      .catch((err: unknown) => {
+        captureException(err);
+      });
   }
 
   // If the user shared their name on first sign-in, push it onto the profile

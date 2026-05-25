@@ -48,6 +48,23 @@ interface PlanProgress {
   completedCount: number;
   /** Son ne zaman bir sahne tamamlandı. */
   lastCompletedAt: string;
+  /**
+   * 2026-05-25 (B-EDGE-15) — Idempotency için kullanılan lessonId listesi.
+   * Aynı sahne 2 kez oynanırsa veya double-effect tetiklerse sadece bir kez
+   * sayılsın. Sahne ID'leri (`scene-...`) yerine LESSON ID'leri tutulur
+   * çünkü plan da lessonId üzerinden yönetiliyor.
+   */
+  completedLessonIds?: string[];
+  /**
+   * 2026-05-25 (B-EDGE-4) — Plan'ın kimliği. Plan yeniden üretildiğinde
+   * (content silindi veya başka neden) progress eski plan'a ait olamaz.
+   * lessonIds.join("|") hash'i — değişirse progress reset.
+   */
+  planSig?: string;
+}
+
+function planSigFrom(lessonIds: readonly string[]): string {
+  return lessonIds.join("|");
 }
 
 function todayKey(): string {
@@ -151,7 +168,12 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
     picked.push(s);
   }
 
-  // Persist
+  // 2026-05-25 (B-EDGE-7) — picked boş veya çok kısa olursa storage'a yazma.
+  // Yarın user yeni içerikle plan üretebilsin; boş plan persist edilirse
+  // ertesi gün de aynı boş plan rehydrate edilir (empty state loop).
+  if (picked.length === 0) {
+    return [];
+  }
   const plan: StoredPlan = {
     date: today,
     lessonIds: picked.map((s) => s.lessonId),
@@ -174,40 +196,72 @@ export async function getPlanProgress(): Promise<{
   total: number;
 }> {
   const today = todayKey();
+  const planScenes = await getOrCreateDailyPlan();
+  const sig = planSigFrom(planScenes.map((s) => s.lessonId));
   let completed = 0;
   try {
     const raw = await AsyncStorage.getItem(K_PLAN_PROGRESS);
     if (raw) {
       const p = JSON.parse(raw) as PlanProgress;
-      if (p.date === today) completed = p.completedCount;
+      // 2026-05-25 (B-EDGE-4) — Plan yeniden üretildiyse (signature mismatch)
+      // progress'i geçersiz say. Aksi halde yeni 5 sahnenin hepsi yapılmamış
+      // ama "5/5 tamam" görünür.
+      if (p.date === today && (!p.planSig || p.planSig === sig)) {
+        completed = p.completedCount;
+      }
     }
   } catch {
     // ignore
   }
-  const planScenes = await getOrCreateDailyPlan();
   return { completed: Math.min(completed, planScenes.length), total: planScenes.length };
 }
 
 /**
  * Bir sahne tamamlandıktan sonra plan progress'i artır.
- * Idempotent değil — sahne 2 kere oynanırsa 2 kere artar. Caller verdict
- * sonu hook'una tek-shot bağlamalı.
+ *
+ * 2026-05-25 (B-EDGE-15) — Şimdi IDEMPOTENT: aynı lessonId 2 kez gelirse 2.
+ * çağrı no-op. Plan signature mismatch'inde progress reset.
  */
-export async function incrementPlanProgress(): Promise<void> {
+export async function incrementPlanProgress(lessonId?: string): Promise<void> {
   const today = todayKey();
+  const planScenes = await getOrCreateDailyPlan();
+  const sig = planSigFrom(planScenes.map((s) => s.lessonId));
   let progress: PlanProgress = {
     date: today,
     completedCount: 0,
+    completedLessonIds: [],
+    planSig: sig,
     lastCompletedAt: new Date().toISOString(),
   };
   try {
     const raw = await AsyncStorage.getItem(K_PLAN_PROGRESS);
     if (raw) {
       const p = JSON.parse(raw) as PlanProgress;
-      if (p.date === today) progress = p;
+      // Plan değişmediyse aynı progress objesini taşı.
+      if (p.date === today && (!p.planSig || p.planSig === sig)) {
+        progress = {
+          date: today,
+          completedCount: p.completedCount ?? 0,
+          completedLessonIds: Array.isArray(p.completedLessonIds)
+            ? p.completedLessonIds
+            : [],
+          planSig: sig,
+          lastCompletedAt: p.lastCompletedAt ?? new Date().toISOString(),
+        };
+      }
     }
   } catch {
     // ignore
+  }
+  if (lessonId) {
+    if (progress.completedLessonIds?.includes(lessonId)) {
+      // Already counted — no-op.
+      return;
+    }
+    progress.completedLessonIds = [
+      ...(progress.completedLessonIds ?? []),
+      lessonId,
+    ];
   }
   progress.completedCount = (progress.completedCount ?? 0) + 1;
   progress.lastCompletedAt = new Date().toISOString();

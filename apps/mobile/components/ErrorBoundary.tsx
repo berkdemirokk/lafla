@@ -73,13 +73,22 @@ export class ErrorBoundary extends React.Component<Props, State> {
   };
 
   handleReport = (): void => {
-    const { error } = this.state;
+    const { error, errorInfo } = this.state;
     const subject = encodeURIComponent("Lafla crash report");
+    // 2026-05-25 (B-EDGE-6) — Önceki body sadece error.message taşıyordu;
+    // componentStack yoksa kullanıcı yararsız mail atardı. Şimdi: stack
+    // kırpılmış olarak eklenir.
+    const stackPreview = errorInfo?.componentStack
+      ? errorInfo.componentStack.split("\n").slice(0, 10).join("\n")
+      : "(stack yok)";
     const bodyLines = [
       "Bir hata oluştu. Aşağıdaki detaylar otomatik olarak Sentry'ye gönderildi.",
       "",
       `Hata: ${error?.message ?? "unknown"}`,
       `Zaman: ${new Date().toISOString()}`,
+      "",
+      "Stack:",
+      stackPreview,
       "",
       "Ne yapıyordunuz?",
       "",

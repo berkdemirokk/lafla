@@ -1,6 +1,7 @@
 // Lafla — Daily quest system. Local-only, resets every midnight.
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { parseSafe, isObject } from "./json-safe";
 
 const K_QUESTS = "lafla.dailyquests";
 
@@ -93,11 +94,24 @@ function pickDailyQuests(seed: string): QuestId[] {
 
 export async function getDailyQuests(): Promise<DailyQuestState> {
   const today = todayStr();
+  // 2026-05-25 (B-EDGE-5) — parseSafe ile defensive JSON; corrupte storage
+  // crash etmesin (try/catch yuttuğunda yine fresh üretir ama parseSafe
+  // ile Sentry breadcrumb da bırakırız).
   try {
     const raw = await AsyncStorage.getItem(K_QUESTS);
-    if (raw) {
-      const parsed = JSON.parse(raw) as DailyQuestState;
-      if (parsed.date === today) return parsed;
+    const parsed = parseSafe<Partial<DailyQuestState>>(
+      raw,
+      {},
+      isObject,
+      { source: "daily-quests.getDailyQuests" },
+    );
+    if (
+      parsed &&
+      typeof parsed.date === "string" &&
+      Array.isArray(parsed.quests) &&
+      parsed.date === today
+    ) {
+      return { date: parsed.date, quests: parsed.quests };
     }
   } catch {
     // fall through

@@ -52,6 +52,19 @@ export function ListenAndTranscribe({
 
   const submit = () => {
     if (!input.trim()) return;
+    // 2026-05-25 (B-SCN-22) — Lesson author audio_text/sentence boş bıraktıysa
+    // ve acceptedVariants da boş geliyorsa matchPhrase candidates.length === 0
+    // branch'ine düşüp 0 puan veriyordu. Kullanıcıya anlamlı geri dön.
+    if (!sentence.trim() && (!acceptedVariants || acceptedVariants.every((v) => !v.trim()))) {
+      setResult({
+        exercise_id: "listen_transcribe",
+        exercise_type: "listen_transcribe",
+        correct: false,
+        score: 0,
+        feedback: "Bu egzersiz hazır değil — bir sonrakine geç.",
+      });
+      return;
+    }
     const match = matchPhrase({
       user_text: input,
       canonical: sentence,

@@ -19,6 +19,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { parseSafe, isObject } from "./json-safe";
+import { notifyPremiumChange } from "./iap";
 
 const K_REWARDED = "lafla.premium.rewarded";
 
@@ -56,6 +57,19 @@ async function read(): Promise<RewardedState | null> {
           ? parsed.hours * 60
           : 0;
     if (minutes <= 0) return null;
+    // 2026-05-25 (B-PAY-15) — Eski "hours" formatı ile okuduysak storage'a
+    // yeni "minutes" formatıyla yaz; eski grant kalıntısı 24h olarak göründüğü
+    // sürece yeni grant'le karışırdı. Write-back idempotent.
+    if (typeof parsed.minutes !== "number") {
+      void AsyncStorage.setItem(
+        K_REWARDED,
+        JSON.stringify({
+          expiresAt: parsed.expiresAt,
+          grantedAt: parsed.grantedAt,
+          minutes,
+        }),
+      ).catch(() => {});
+    }
     return {
       expiresAt: parsed.expiresAt,
       grantedAt: parsed.grantedAt,
@@ -108,6 +122,8 @@ export async function grantRewardedPremium(minutes = 30): Promise<void> {
   const now = Date.now();
   const expiresAt = now + minutes * 60 * 1000;
   await write({ expiresAt, grantedAt: now, minutes });
+  // 2026-05-25 (B-PAY-3) — UI listener'larına haber ver (AdBanner gizlensin).
+  notifyPremiumChange();
 }
 
 /**
@@ -117,6 +133,7 @@ export async function grantRewardedPremium(minutes = 30): Promise<void> {
 export async function clearRewardedPremium(): Promise<void> {
   try {
     await AsyncStorage.removeItem(K_REWARDED);
+    notifyPremiumChange();
   } catch {
     // best effort
   }

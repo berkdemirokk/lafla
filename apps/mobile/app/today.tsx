@@ -410,6 +410,11 @@ export default function Today() {
       streakPulse.value = 0;
       return;
     }
+    // 2026-05-25 (B-EDGE-12) — Önce explicit reset, withRepeat mid-sequence
+    // cancellation'da shared value yarım durumda kalabiliyordu (chip frozen
+    // mid-pulse). Reset 0'a, sonra loop başlat.
+    cancelAnimation(streakPulse);
+    streakPulse.value = 0;
     // Streak chip: heartbeat — quick up, quick down, long rest. Mimics
     // a real pulse so the chip feels alive without being annoying.
     // Cycle ~3.5s (yavaşlatma sonrası): 280ms up + 320ms down + 2900ms rest.
@@ -427,19 +432,14 @@ export default function Today() {
     };
   }, [streak, streakPulse]);
 
-  // 2026-05-24 — Suggestion banner cap.
-  // Önceki davranış: surprise + daily + vocab hepsi aynı anda render olabiliyordu →
-  // worst case 7 dikey kart üst üste. Yeni: bu 3 türden en fazla 2'sini göster.
-  // Priority: vocab (deterministic TODO) > surprise (rare reward) > daily (rotating).
-  // Streak risk / erozyon zaten mutually exclusive, ayrı slot.
-  const suggestionPool: Array<"vocab" | "surprise" | "daily"> = [];
-  if (state.vocabDue > 0) suggestionPool.push("vocab");
-  if (state.surprise) suggestionPool.push("surprise");
-  if (state.daily) suggestionPool.push("daily");
-  const visibleSuggestions = new Set(suggestionPool.slice(0, 2));
-  const showVocabBanner = visibleSuggestions.has("vocab");
-  const showSurpriseBanner = visibleSuggestions.has("surprise");
-  const showDailyBanner = visibleSuggestions.has("daily");
+  // 2026-05-25 — 2×2 action grid. Önceki "banner cap 2" logic'i kaldırıldı.
+  // Şimdi 4 tile hep görünür: Kelime tekrarı / Sürpriz / Günün özeli / Günlük.
+  // Her tile rozet (sayı veya ✓) gösterir; yokken sade ikon + label.
+  // Tile boş veri ile de tıklanır — kullanıcı tıklayıp ilgili ekranı gezer.
+  const vocabBadge = state.vocabDue > 0 ? String(state.vocabDue) : null;
+  const surpriseBadge = state.surprise ? "•" : null;
+  const dailyBadge = state.dailyCompleted ? "✓" : state.daily ? "•" : null;
+  const diaryBadge = state.diaryWrittenToday ? "✓" : null;
 
   // Empty state — plan yoksa ve done değilse (state hydrated ama plan boş).
   // Yeni kullanıcı / plan generator hata verdi / hot-reload sonrası gibi durumlar.
@@ -654,97 +654,130 @@ export default function Today() {
           </Animated.View>
         ) : null}
 
-        {/* Sürpriz sahne (variable reward) — banner cap gating'i ile */}
-        {state.surprise && showSurpriseBanner && (
-          <Animated.View entering={FadeInDown.delay(180).duration(360)}>
-            <Pressable
-              onPress={async () => {
-                const id = state.surprise!.lessonId;
+        {/* 2×2 ACTION GRID — 4 hızlı eylem her zaman görünür.
+            Önceki "banner cap 2" 3 ayrı dikey kart üretiyordu (vocab/surprise/
+            daily) + 1 diary banner. Şimdi grid: kullanıcı her zaman 4 seçenek
+            görür, ilgili olan rozet (sayı / ✓) gösterir. Daha az dikey scroll,
+            daha okunaklı hierarchy. */}
+        <Animated.View
+          entering={FadeInDown.delay(180).duration(360)}
+          style={styles.tileGrid}
+        >
+          <Pressable
+            onPress={() => router.push("/review" as never)}
+            style={({ pressed }) => [styles.tile, pressed && styles.pressed]}
+            accessibilityRole="button"
+            accessibilityLabel={
+              state.vocabDue > 0
+                ? `Kelime tekrarı: ${state.vocabDue} kelime`
+                : "Kelime tekrarı"
+            }
+          >
+            <View style={styles.tileIconRow}>
+              <View
+                style={[
+                  styles.tileIconWrap,
+                  { backgroundColor: tokens.brand.primarySoft },
+                ]}
+              >
+                <Icon name="vocab" size={20} color={tokens.brand.primary} />
+              </View>
+              {vocabBadge ? (
+                <View style={styles.tileBadge}>
+                  <Text style={styles.tileBadgeText}>{vocabBadge}</Text>
+                </View>
+              ) : null}
+            </View>
+            <View>
+              <Text style={styles.tileEyebrow}>PRATİK</Text>
+              <Text style={styles.tileTitle}>Kelime</Text>
+            </View>
+          </Pressable>
+
+          <Pressable
+            onPress={async () => {
+              if (state.surprise) {
+                const id = state.surprise.lessonId;
                 await consumeSurprise().catch(() => {});
                 router.push(`/scenario/${id}` as never);
-              }}
-              style={({ pressed }) => [
-                styles.surpriseBanner,
-                pressed && styles.pressed,
-              ]}
-              accessibilityRole="button"
-              accessibilityLabel={`Sürpriz sahne: ${state.surprise.title.replace(/\n/g, " ")}`}
-            >
-              <View style={styles.bannerLabelRow}>
-                <Icon name="surprise" size={12} color={tokens.brand.primary} />
-                <Text style={styles.surpriseLabel}>SÜRPRİZ</Text>
-              </View>
-              <Text style={styles.surpriseTitle} numberOfLines={2}>
-                {state.surprise.title.replace(/\n/g, " ")}
-              </Text>
-            </Pressable>
-          </Animated.View>
-        )}
-
-        {/* Daily exclusive — banner cap gating'i ile */}
-        {state.daily && showDailyBanner && (
-          <Animated.View entering={FadeInDown.delay(240).duration(360)}>
-            <Pressable
-              onPress={() =>
-                router.push(`/scenario/${state.daily!.lessonId}` as never)
+              } else {
+                // Sürpriz hazır değil — kullanıcıyı Akış'a yönlendir.
+                router.push("/home" as never);
               }
-              style={({ pressed }) => [
-                styles.dailyBanner,
-                pressed && styles.pressed,
-              ]}
-              accessibilityRole="button"
-              accessibilityLabel={`Bugün için: ${state.daily.title.replace(/\n/g, " ")}`}
-            >
-              <View style={styles.bannerLabelRow}>
+            }}
+            style={({ pressed }) => [styles.tile, pressed && styles.pressed]}
+            accessibilityRole="button"
+            accessibilityLabel={
+              state.surprise
+                ? `Sürpriz sahne: ${state.surprise.title.replace(/\n/g, " ")}`
+                : "Sürpriz — Akış'tan keşfet"
+            }
+          >
+            <View style={styles.tileIconRow}>
+              <View
+                style={[
+                  styles.tileIconWrap,
+                  { backgroundColor: tokens.brand.tertiarySoft },
+                ]}
+              >
+                <Icon name="surprise" size={20} color={tokens.brand.tertiary} />
+              </View>
+              {surpriseBadge ? (
+                <View style={[styles.tileBadge, styles.tileBadgeCyan]}>
+                  <Text style={styles.tileBadgeText}>{surpriseBadge}</Text>
+                </View>
+              ) : null}
+            </View>
+            <View>
+              <Text style={styles.tileEyebrow}>KEŞFET</Text>
+              <Text style={styles.tileTitle}>Sürpriz</Text>
+            </View>
+          </Pressable>
+
+          <Pressable
+            onPress={() => {
+              if (state.daily) {
+                router.push(`/scenario/${state.daily.lessonId}` as never);
+              } else {
+                router.push("/home" as never);
+              }
+            }}
+            style={({ pressed }) => [styles.tile, pressed && styles.pressed]}
+            accessibilityRole="button"
+            accessibilityLabel={
+              state.daily
+                ? `Bugün için: ${state.daily.title.replace(/\n/g, " ")}`
+                : "Günün özel sahnesi"
+            }
+          >
+            <View style={styles.tileIconRow}>
+              <View
+                style={[
+                  styles.tileIconWrap,
+                  { backgroundColor: tokens.brand.tertiarySoft },
+                ]}
+              >
                 <Icon
                   name={state.dailyCompleted ? "checkmark" : "target"}
-                  size={12}
+                  size={20}
                   color={tokens.brand.tertiary}
                 />
-                <Text style={styles.dailyLabel}>
-                  {state.dailyCompleted ? "BUGÜN TAMAMLANDI" : "BUGÜN İÇİN"}
-                </Text>
               </View>
-              <Text style={styles.dailyTitle} numberOfLines={2}>
-                {state.daily.title.replace(/\n/g, " ")}
-              </Text>
-            </Pressable>
-          </Animated.View>
-        )}
+              {dailyBadge ? (
+                <View style={[styles.tileBadge, styles.tileBadgeCyan]}>
+                  <Text style={styles.tileBadgeText}>{dailyBadge}</Text>
+                </View>
+              ) : null}
+            </View>
+            <View>
+              <Text style={styles.tileEyebrow}>ÖZEL</Text>
+              <Text style={styles.tileTitle}>Günün Özeli</Text>
+            </View>
+          </Pressable>
 
-        {/* Vocab review — banner cap gating'i ile (priority en yüksek) */}
-        {state.vocabDue > 0 && showVocabBanner && (
-          <Animated.View entering={FadeInDown.delay(300).duration(360)}>
-            <Pressable
-              onPress={() => router.push("/review" as never)}
-              style={({ pressed }) => [
-                styles.vocabBanner,
-                pressed && styles.pressed,
-              ]}
-              accessibilityRole="button"
-              accessibilityLabel={`Bugünkü tekrar: ${state.vocabDue} kelime`}
-            >
-              <View style={styles.bannerLabelRow}>
-                <Icon name="vocab" size={12} color={tokens.semantic.warning} />
-                <Text style={styles.vocabLabel}>KELİME TEKRARI</Text>
-              </View>
-              <Text style={styles.vocabText}>
-                {state.vocabDue} kelime · ~{state.vocabDueMin} dk
-              </Text>
-            </Pressable>
-          </Animated.View>
-        )}
-
-        {/* Diary nudge — bugün yazılmamışsa ince bir banner. Yazılmışsa
-            "Bugün ✓" ile pasif satır göster (negative reinforcement YOK).
-            Brand-safe: confetti, mascot, sound effect yok. */}
-        <Animated.View entering={FadeInDown.delay(330).duration(360)}>
           <Pressable
             onPress={() => router.push("/diary" as never)}
-            style={({ pressed }) => [
-              state.diaryWrittenToday ? styles.diaryDone : styles.diaryNudge,
-              pressed && styles.pressed,
-            ]}
+            style={({ pressed }) => [styles.tile, pressed && styles.pressed]}
             accessibilityRole="button"
             accessibilityLabel={
               state.diaryWrittenToday
@@ -752,38 +785,64 @@ export default function Today() {
                 : "Bugünün cümlesini yazmak için günlüğü aç"
             }
           >
-            <View style={styles.bannerLabelRow}>
-              <Icon
-                name={state.diaryWrittenToday ? "checkmark" : "diary"}
-                size={12}
-                color={
-                  state.diaryWrittenToday
-                    ? tokens.brand.tertiary
-                    : tokens.brand.primary
-                }
-              />
-              <Text
-                style={
-                  state.diaryWrittenToday
-                    ? styles.diaryDoneLabel
-                    : styles.diaryNudgeLabel
-                }
+            <View style={styles.tileIconRow}>
+              <View
+                style={[
+                  styles.tileIconWrap,
+                  { backgroundColor: "rgba(255,255,255,0.05)" },
+                ]}
               >
-                {state.diaryWrittenToday ? "BUGÜN" : "GÜNLÜK"}
-              </Text>
+                <Icon
+                  name={state.diaryWrittenToday ? "checkmark" : "diary"}
+                  size={20}
+                  color={
+                    state.diaryWrittenToday
+                      ? tokens.brand.tertiary
+                      : tokens.text.secondary
+                  }
+                />
+              </View>
+              {diaryBadge ? (
+                <View style={[styles.tileBadge, styles.tileBadgeCyan]}>
+                  <Text style={styles.tileBadgeText}>{diaryBadge}</Text>
+                </View>
+              ) : null}
             </View>
-            <Text
-              style={
-                state.diaryWrittenToday
-                  ? styles.diaryDoneText
-                  : styles.diaryNudgeText
-              }
-            >
-              {state.diaryWrittenToday
-                ? "Bugünün cümlesi yazıldı"
-                : "Bugün 1 cümle İngilizce yaz"}
-            </Text>
+            <View>
+              <Text style={styles.tileEyebrow}>ARŞİV</Text>
+              <Text style={styles.tileTitle}>Günlük</Text>
+            </View>
           </Pressable>
+        </Animated.View>
+
+        {/* HAFTALIK İLERLEME — 7 nokta, bu hafta kaç gün pratik yapıldı.
+            longest_streak'ten değil, son 7 günün her birinde sahne tamamlandı
+            mı bilgisinden gelir. Local profile.current_streak fallback olarak
+            kullanılır (gerçek günlük completion verisi yoksa). */}
+        <Animated.View
+          entering={FadeInDown.delay(280).duration(360)}
+          style={styles.weeklyCard}
+        >
+          <View style={styles.weeklyHeader}>
+            <Text style={styles.weeklyLabel}>HAFTALIK İLERLEME</Text>
+            <Text style={styles.weeklyCount}>
+              {Math.min(streak, 7)} / 7 Gün
+            </Text>
+          </View>
+          <View style={styles.weeklyDotsRow}>
+            {Array.from({ length: 7 }).map((_, i) => {
+              const filled = i < Math.min(streak, 7);
+              return (
+                <View
+                  key={i}
+                  style={[
+                    styles.weeklyDot,
+                    filled ? styles.weeklyDotFilled : styles.weeklyDotEmpty,
+                  ]}
+                />
+              );
+            })}
+          </View>
         </Animated.View>
 
         {/* "Akış'ta keşfet" CTA — kullanıcı plan dışı bir şey istiyorsa */}
@@ -1218,6 +1277,119 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: tokens.text.secondary,
     letterSpacing: -0.1,
+  },
+
+  // 2026-05-25 — 2×2 action grid stilleri (modernize redesign).
+  // Eski vocab/surprise/daily/diary banner stilleri korunuyor (geri dönüş
+  // gerekirse erişilebilir), ama yeni tasarımda kullanılmıyor.
+  tileGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 12,
+    marginTop: 4,
+  },
+  tile: {
+    flexBasis: "48%",
+    flexGrow: 1,
+    aspectRatio: 1,
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.border.light,
+    borderRadius: tokens.radius.lg,
+    padding: 16,
+    justifyContent: "space-between",
+    overflow: "hidden",
+    position: "relative",
+  },
+  tileIconRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+  },
+  tileIconWrap: {
+    width: 44,
+    height: 44,
+    borderRadius: 14,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  tileBadge: {
+    minWidth: 22,
+    height: 22,
+    borderRadius: 11,
+    paddingHorizontal: 6,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: tokens.brand.primary,
+  },
+  tileBadgeCyan: {
+    backgroundColor: tokens.brand.tertiary,
+  },
+  tileBadgeText: {
+    fontSize: 11,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.onPrimary,
+    letterSpacing: 0.2,
+  },
+  tileEyebrow: {
+    fontSize: 10,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.tertiary,
+    letterSpacing: 1.2,
+    marginBottom: 4,
+  },
+  tileTitle: {
+    fontSize: 16,
+    fontWeight: tokens.weight.bold,
+    color: tokens.text.primary,
+    letterSpacing: -0.2,
+    fontFamily: tokens.font.display,
+  },
+
+  // Haftalık ilerleme widget'ı — 7 nokta.
+  weeklyCard: {
+    backgroundColor: tokens.bg.surfaceContainer,
+    borderWidth: 1,
+    borderColor: tokens.border.light,
+    borderRadius: tokens.radius.lg,
+    padding: 16,
+    gap: 12,
+    marginTop: 4,
+  },
+  weeklyHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  weeklyLabel: {
+    fontSize: 11,
+    fontWeight: tokens.weight.extrabold,
+    color: tokens.text.primary,
+    letterSpacing: 1.5,
+  },
+  weeklyCount: {
+    fontSize: 13,
+    color: tokens.text.tertiary,
+    fontWeight: tokens.weight.medium,
+  },
+  weeklyDotsRow: {
+    flexDirection: "row",
+    gap: 6,
+  },
+  weeklyDot: {
+    flex: 1,
+    height: 6,
+    borderRadius: 3,
+  },
+  weeklyDotFilled: {
+    backgroundColor: tokens.brand.tertiary,
+    shadowColor: tokens.brand.tertiary,
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
+    shadowOffset: { width: 0, height: 0 },
+  },
+  weeklyDotEmpty: {
+    backgroundColor: tokens.border.light,
   },
 
   // Explore CTA

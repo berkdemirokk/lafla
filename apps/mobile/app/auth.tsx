@@ -56,6 +56,7 @@ import {
   sendPasswordReset,
   getCurrentProfile,
 } from "../lib/auth";
+import { isSupabaseConfigured } from "../lib/supabase";
 import { tokens } from "../theme";
 
 // 2026-05-25 — Routing helper: sign-in sonrası returning user'ı /today'e,
@@ -454,6 +455,16 @@ export default function Auth() {
 
   // -------- Submit / business logic (preserved) --------
   const submit = async () => {
+    // 2026-05-25 (B-AUTH-7) — Supabase config eksikse her submit "Bağlantı
+    // problemi" mesajıyla biter; gerçek sebep env eksikliği. User'a
+    // anlamlı sinyal ver, EAS Secret eksikliğini hızlı yakalamak için.
+    if (!isSupabaseConfigured) {
+      setErrorTone("error");
+      setError(
+        "Yapılandırma hatası — uygulamayı tekrar başlatmayı dene. (DEV: Supabase env eksik)",
+      );
+      return;
+    }
     if (!email.trim()) {
       setErrorTone("error");
       setError("Email adresini gir.");

@@ -140,10 +140,12 @@ const K_DISPLAY_NAME = "lafla.displayName";
 // Sanitize a display name for safe inline rendering. Strips control chars,
 // collapses whitespace, trims, drops quote chars, and visually truncates
 // long names. Casing is preserved verbatim. The stored value is unchanged.
+// 2026-05-25 (B-SCN-1) — regex `/[ -]/g` aslında SPACE-DASH printable range
+// match ediyordu, kontrol karakterleri DEĞİL. Doğrusu \x00-\x1F + DEL (0x7F).
 function sanitizeName(raw: string | null | undefined): string {
   if (!raw) return "";
   // eslint-disable-next-line no-control-regex
-  let cleaned = raw.replace(/[ -]/g, "");
+  let cleaned = raw.replace(/[\x00-\x1F\x7F]/g, "");
   cleaned = cleaned.replace(/["`]/g, "");
   cleaned = cleaned.replace(/\s+/g, " ").trim();
   if (cleaned.length > 30) cleaned = cleaned.slice(0, 28) + "…";
@@ -227,6 +229,10 @@ export default function ScenarioScreen() {
   // sahneden gelir. VERDICT bittiğinde "Devam" home yerine paywall'a gider
   // ve `lafla.intro.match.completed` true yazılır — bir daha tetiklenmez.
   const isIntro = intro === "true";
+  // 2026-05-25 (B-PAY-9) — Paywall'a tek seferlik navigation; quota guard
+  // ile hard-mode click gibi paralel tetikleyicilerin duplicate router
+  // replace etmesini önler.
+  const paywallNavRef = useRef(false);
 
   const [phase, setPhase] = useState<Phase>("setup");
   const [setupIdx, setSetupIdx] = useState(0);
@@ -371,15 +377,24 @@ export default function ScenarioScreen() {
   // Gate check FIRST_RENDER'da, scenario hidden olur.
   useEffect(() => {
     if (!scenario || isIntro) return;
+    let cancelled = false;
     (async () => {
       const gated = await shouldGatePaywall().catch(() => false);
+      // 2026-05-25 (B-PAY-9) — Async navigation race koruması; başka bir
+      // path (örn. hard-mode tap) önce paywall'a yönlendirdiyse ya da
+      // component unmount olduysa duplicate replace etme.
+      if (cancelled || paywallNavRef.current) return;
       if (gated) {
+        paywallNavRef.current = true;
         void trackEvent("paywall_triggered_by_free_quota", {
           scenario_id: scenario.id,
         }).catch(() => {});
         router.replace("/paywall?from=quota" as never);
       }
     })();
+    return () => {
+      cancelled = true;
+    };
   }, [scenario, isIntro, router]);
   const [unlockedToast, setUnlockedToast] = useState<AchievementDef | null>(null);
   const [unlockQueue, setUnlockQueue] = useState<AchievementDef[]>([]);
@@ -630,15 +645,17 @@ export default function ScenarioScreen() {
 
   const advanceSetupExtra = () => {
     if (setupExtraIdx + 1 < (scenario.setupExtra?.length ?? 0)) {
-      setSetupExtraIdx(setupExtraIdx + 1);
+      setSetupExtraIdx((i) => i + 1);
     } else {
       goToNextPhase("setup-extra");
     }
   };
 
+  // 2026-05-25 (B-SCN-9) — Functional update; React 18 strict mode double-render
+  // ve hızlı tap'lemede stale state ile out-of-bounds risk azaltılır.
   const advanceDrill = () => {
     if (drillIdx + 1 < scenario.warmups.length) {
-      setDrillIdx(drillIdx + 1);
+      setDrillIdx((i) => i + 1);
     } else {
       goToNextPhase("drill");
     }
@@ -678,7 +695,9 @@ export default function ScenarioScreen() {
     // (getNextInPlan null değilse veya scenario.id planda son sahneyse de
     // sayılır; tek artırım, "Bugünün planı: 5 sahne · 20 dk" başlangıcının
     // her tamamlamada güncel kalması için.)
-    incrementPlanProgress().catch(() => {});
+    // 2026-05-25 (B-EDGE-15) — lessonId verince idempotent: aynı sahne 2 kez
+    // tetiklenirse (double-effect / hot reload) 2 kez sayılmaz.
+    incrementPlanProgress(scenario.id).catch(() => {});
 
     // 2026-05-21 — Free-tier sayacı artır (premium muaf).
     // Sahne tamamlandığında — verdict ekranı açılırken. Bir sonraki sahne
@@ -807,6 +826,8 @@ export default function ScenarioScreen() {
                     // RevenueCat init ~50-500ms sürüyor; o aralıkta tap'lar
                     // accidental premium unlock'a yol açıyordu.
                     if (isPremiumState !== true) {
+                      if (paywallNavRef.current) return;
+                      paywallNavRef.current = true;
                       router.push("/paywall?from=hard-mode" as never);
                     } else {
                       setHardMode((p) => !p);
@@ -1227,9 +1248,16 @@ function DrillRenderer({
         <RecallQuiz items={exercise.items} onComplete={onComplete} />
       );
     default:
-      // recap_quiz and others: auto-skip (covered by setup/scene)
+      // 2026-05-25 (B-SCN-17) — Recap_quiz beklenen auto-skip; ama bilinmeyen
+      // type "skipped" ID ile kayıtlanırsa analytics'te ayırt edilemez.
+      // Beklenmedik type'ı tek seferlik kaydet (content team patch'lesin).
+      if (exercise.type !== "recap_quiz") {
+        void trackEvent("exercise_unknown_type_autoskipped", {
+          exercise_type: exercise.type ?? "(undefined)",
+        }).catch(() => {});
+      }
       onComplete({
-        exercise_id: "skipped",
+        exercise_id: exercise.type === "recap_quiz" ? "skipped" : `unknown_${exercise.type}`,
         exercise_type: exercise.type,
         correct: true,
         score: 100,
@@ -1575,9 +1603,12 @@ function VerdictView({
         const enriched = top
           .map((m) => {
             const pat = patterns.getPattern(m.patternId);
-            if (!pat) return null;
+            // 2026-05-25 (B-SCN-2) — example_wrong yoksa user'a regex string'i
+            // ("^i am\s+go") gösterme. Bu kaydı tamamen at, kalan top mistakes
+            // dolar dolmaz görünür.
+            if (!pat || !pat.example_wrong) return null;
             return {
-              matched: pat.example_wrong ?? m.patternId,
+              matched: pat.example_wrong,
               reason_tr: pat.reason_tr,
               correct_example: pat.example_right,
             };
@@ -1693,6 +1724,10 @@ function VerdictView({
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
     let intervalId: ReturnType<typeof setInterval> | null = null;
     (async () => {
+      // 2026-05-25 (B-SCN-19) — "Sahneyi bitir" ile 0 puanlı verdict'e ulaşan
+      // kullanıcı CEFR ilerlemesi alıyordu (PROGRESS_LOW 0.005). Min 30
+      // puan eşiği: gerçekten denemiş olmayanın CEFR'e katkısı olmasın.
+      if (sceneResult.score < 30) return;
       const d = await recordCefrProgress(sceneResult.score).catch(() => null);
       if (cancelled || !d) return;
       setCefrDelta(d);
