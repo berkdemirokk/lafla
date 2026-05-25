@@ -865,6 +865,131 @@ export const dailyDirectionsLesson_16_2: BundledLesson = {
       tr_explanation:
         "'I am go' yanlış zaman; tarif komutu için Imperative (emir) kullanılır: 'Go up'. 'Turn the right side' direkt çeviri; doğru kalıp 'turn right' (artikel + 'side' fazla).",
     },
+    {
+      id: "ex.dd16.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Could you ___ me ___ to ___?",
+      slots: [
+        { accepted: ["show", "help", "guide"], distractors: ["say", "tell", "direct"] },
+        { accepted: ["the way", "how to get", "directions"], distractors: ["the road", "place", "going"] },
+        { accepted: ["the metro", "the museum", "Central Park"], distractors: ["go metro", "in metro", "to metro"] },
+      ],
+      tr_hint:
+        "Kibar yön sorma kalıbı. 'Could you show me the way to...?' = 'göstermek' (visual + sözlü). Türk öğrenci 'tell me road' der — yanlış kalıp.",
+      example_filled: "Could you show me the way to the metro?",
+    },
+    {
+      id: "ex.dd16.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      cefr_band: "A2",
+      turns: [
+        { speaker: "npc", text: "Hi, are you looking for somewhere?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — it's just two blocks down, on your left." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (i'?m (trying to find|looking for)|do you know where)",
+        "(could you|can you) (tell me|show me|help me) (the way|how to get) to",
+        "(i'?m a bit )?lost — (could you )?(help me|tell me) (find|where)",
+        "(my (phone|gps) (isn'?t|is not) working) — (could you|do you know)",
+      ],
+      tr_hint:
+        "Yardımsever yabancı sordu — kibar cevap. Türk öğrenci 'I want to go' der — yetersiz. 'I'm looking for' veya 'I'm a bit lost' daha doğal.",
+      ideal_answer: "Yes, I'm trying to find the metro — could you show me?",
+    },
+    {
+      id: "ex.dd16.2.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      cefr_band: "A2",
+      npc_line: "Just go straight for two blocks, then turn left. You'll see it.",
+      accepted_patterns: [
+        "(thank you|thanks)(,)? (so much|much appreciated)",
+        "(straight )?(for )?two blocks then (left|turn left)\\?? (got it|okay)",
+        "(could you )?(repeat that|say that again)\\??",
+        "(so) (straight|two blocks) (and|then) (left|turn left)\\?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yön aldın — tekrarla onayla. 'Straight, two blocks, then left' net tekrar. Türk öğrenci sadece 'thanks' der — anlama eksik. Tekrarlamak akıllı.",
+      ideal_response: "So, straight for two blocks then left — got it. Thanks!",
+    },
+    {
+      id: "ex.dd16.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Telefonum kapandı, yol göstermenizi istiyorum.",
+      wrong_en: "My phone is close, I want you show me road.",
+      right_en: "My phone died — could you point me in the right direction?",
+      why_tr:
+        "'Close' yanlış kelime (kapandı = died/ran out of battery). 'I want you show me' eksik 'to'. Doğru: 'could you point me in the right direction' = doğru yöne yönlendir (idiyom).",
+    },
+    {
+      id: "ex.dd16.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Go straight' ne demek?",
+          options: [
+            "Sağa dön.",
+            "Düz git / dümdüz.",
+            "Geri dön.",
+            "Karşıya geç.",
+          ],
+          correct: 1,
+          tr_explanation: "'Straight' = düz. Yön tarifinde temel: 'go straight, then turn right'.",
+        },
+        {
+          q: "'Two blocks' nedir?",
+          options: [
+            "İki bina.",
+            "İki sokak boyu / iki ada.",
+            "İki dakika.",
+            "İki kilometre.",
+          ],
+          correct: 1,
+          tr_explanation: "ABD/UK'da 'block' = bir sokak ile bir sonraki sokak arası. 'Two blocks' = iki sokak yürü.",
+        },
+        {
+          q: "'My phone died' ne demek?",
+          options: [
+            "Telefonum çalındı.",
+            "Telefonum şarjı bitti.",
+            "Telefonum bozuldu.",
+            "Telefonum kayboldu.",
+          ],
+          correct: 1,
+          tr_explanation: "'Died' = şarjı bitti. 'My phone is dead' = şu an kapalı. Yaygın deyim.",
+        },
+        {
+          q: "'Point me in the right direction' anlamı?",
+          options: [
+            "Beni doğru yöne yönlendir.",
+            "Bana sağı göster.",
+            "Beni doğru söyle.",
+            "Beni gönder.",
+          ],
+          correct: 0,
+          tr_explanation: "İdiyom: 'doğru yönü göster'. Hem fiziksel hem mecazi yön rica.",
+        },
+        {
+          q: "Yön aldıktan sonra EN iyi tepki?",
+          options: [
+            "Repeat 'thanks' uniquely.",
+            "Straight + landmark sayısı + dönüş tekrar et + thanks.",
+            "Yes.",
+            "Bye.",
+          ],
+          correct: 1,
+          tr_explanation: "Tekrarlama anlamayı doğrular. Yabancı senin anladığını görünce mutlu olur.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1212,6 +1337,131 @@ export const dailyDirectionsLesson_16_3: BundledLesson = {
       tr_explanation:
         "'Losing the road' direkt çeviri ('yolu kaybediyorum') — İngilizce'de 'I'm lost' (= kayboldum) standart. 'Please help me' agresif; 'Could you' kibar.",
     },
+    {
+      id: "ex.dd16.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "I'm ___ ___ — could you help me find ___?",
+      slots: [
+        { accepted: ["a bit", "completely", "totally"], distractors: ["very", "much", "more"] },
+        { accepted: ["lost", "confused", "turned around"], distractors: ["losing", "lose", "going lost"] },
+        { accepted: ["my hotel", "the metro", "Times Square"], distractors: ["hotel", "metro", "place"] },
+      ],
+      tr_hint:
+        "Kayıp kalıbı. 'I'm lost' = kayboldum (sıfat). Türk öğrenci 'I am losing road' der — yanlış. 'A bit lost' (biraz) yumuşatır.",
+      example_filled: "I'm a bit lost — could you help me find my hotel?",
+    },
+    {
+      id: "ex.dd16.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      cefr_band: "A2",
+      turns: [
+        { speaker: "npc", text: "You look a bit confused — need any help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh, the Marriott? It's just three blocks that way." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (i'?m (a bit )?lost|i can'?t find)",
+        "(i'?m looking for|i'?m trying to (find|get to)) (the )?(marriott|my hotel|hotel)",
+        "(could you|can you) (help me|tell me how) (find|get to)",
+        "(my (gps|phone) (isn'?t|is not) working) — (i need|i'?m looking for)",
+      ],
+      tr_hint:
+        "Yardımsever yabancı sordu — dürüstçe 'lost' kabul et. Türk öğrenci 'no I'm fine' der pride'dan — kayıp uzar. Kabul + spesifik hedef ver.",
+      ideal_answer: "Yes, I'm a bit lost — I'm looking for the Marriott Hotel.",
+    },
+    {
+      id: "ex.dd16.3.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      cefr_band: "A2",
+      npc_line: "Are you walking, or do you have a car?",
+      accepted_patterns: [
+        "(i'?m |on foot)? walking",
+        "(yes|yeah)(,)? (on foot|walking|by foot)",
+        "(no|nope)(,)? (i have a |i'?m driving|driving)",
+        "(walking)(,)? (is it )?(close|far|nearby)\\?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yön tarifi yöntem (yürüme/araba) farkı önemli. Net cevap: 'Walking' veya 'Driving'. Türk öğrenci uzun anlatım yapar — gereksiz. Tek kelime + mesafe soru.",
+      ideal_response: "Walking — is it far?",
+    },
+    {
+      id: "ex.dd16.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Otelimi bulamıyorum, çok zaman geçti.",
+      wrong_en: "I cannot find my hotel, much time passed.",
+      right_en: "I've been looking for my hotel for a while — could you help me?",
+      why_tr:
+        "'Much time passed' Türkçe ('çok zaman geçti') direkt çeviri. Doğru: present perfect 'I've been looking for...for a while' = bir süredir arıyorum. 'Cannot find' resmî; 'can't find' günlük.",
+    },
+    {
+      id: "ex.dd16.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I'm lost' ne demek?",
+          options: [
+            "Kayıbım.",
+            "Kayboldum.",
+            "Yoldayım.",
+            "Yorgunum.",
+          ],
+          correct: 1,
+          tr_explanation: "'Lost' = sıfat (kayıp). 'I'm lost' kabul kalıbı.",
+        },
+        {
+          q: "'Turned around' kayıp anlamında ne demek?",
+          options: [
+            "Geri dön.",
+            "Yönümü şaşırdım.",
+            "Etrafımda dönüyorum.",
+            "Yorgunum.",
+          ],
+          correct: 1,
+          tr_explanation: "Deyim: 'I'm turned around' = yönümü kaybettim. 'I'm lost'tan biraz daha hafif.",
+        },
+        {
+          q: "'Three blocks that way' nasıl yorumlanır?",
+          options: [
+            "Üç sokak ileride o yönde.",
+            "Üç gün sonra.",
+            "Üç dakika.",
+            "Üçüncü kapı.",
+          ],
+          correct: 0,
+          tr_explanation: "'That way' = o yönde (genel işaret). + 'three blocks' = üç sokak ileri.",
+        },
+        {
+          q: "'I'm trying to find' yapısı?",
+          options: [
+            "Past tense.",
+            "Present continuous — devam eden eylem.",
+            "Future.",
+            "Imperative.",
+          ],
+          correct: 1,
+          tr_explanation: "'I'm trying' = present continuous. 'Aramaya çalışıyorum' anlamı.",
+        },
+        {
+          q: "Kayıpken yabancıya EN iyi yaklaşım?",
+          options: [
+            "I lost!",
+            "Excuse me — I'm a bit lost, could you help me find the Marriott?",
+            "Help where hotel?",
+            "Map me!",
+          ],
+          correct: 1,
+          tr_explanation: "Selam + dürüstçe kayıp kabul + spesifik hedef + kibar rica.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1528,6 +1778,133 @@ export const dailyDirectionsLesson_16_5: BundledLesson = {
       ipa: "/kʊd juː pɔɪnt miː tuː ðə ˈnɪərɪst ˈsʌbweɪ ˈsteɪʃən/",
       tr_hint:
         "'Could you' = 'kud-yu' bağlanır. 'Point me to' = 'poynt-mi-tu'. 'Nearest' = 'ni-rıst' (vurgu ilk hecede).",
+    },
+    {
+      id: "ex.dd16.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Excuse me — my ___ ___ working. Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["GPS", "phone", "Google Maps"], distractors: ["GPS device", "the GPS", "google"] },
+        { accepted: ["isn't", "stopped", "is not"], distractors: ["doesn't", "not", "no"] },
+        { accepted: ["point", "direct", "show"], distractors: ["say", "tell", "give"] },
+        { accepted: ["to", "toward"], distractors: ["at", "in", "of"] },
+        { accepted: ["the subway", "the bus stop", "downtown"], distractors: ["subway place", "bus", "down"] },
+      ],
+      tr_hint:
+        "GPS bozuldu kalıbı. 'My phone isn't working' + kibar rica. Türk öğrenci 'GPS broke, where subway?' der — yetersiz. Tam cümle + 'point me to' direkt yön.",
+      example_filled: "Excuse me — my GPS isn't working. Could you point me to the subway?",
+    },
+    {
+      id: "ex.dd16.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      cefr_band: "A2",
+      turns: [
+        { speaker: "npc", text: "Yes, are you lost?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "The subway? Sure — see that pharmacy? Turn right just after it." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (a bit|kinda|kind of)?( lost)?",
+        "(my )?(gps|phone|google maps) (isn'?t|is not|stopped) working",
+        "(could you|can you) (point me|show me|tell me) (the way )?to (the )?(subway|bus|metro)",
+        "(i'?m trying to find|i'?m looking for) (the )?(nearest )?(subway|metro|station)",
+      ],
+      tr_hint:
+        "Yerel halka resmî olmayan yardım rica. 'Excuse me' + GPS down + spesifik hedef. Türk öğrenci 'where subway?' der — yetersiz. Tam cümle.",
+      ideal_answer: "Yes, a bit — my phone died and I'm looking for the nearest subway.",
+    },
+    {
+      id: "ex.dd16.5.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      cefr_band: "A2",
+      npc_line: "Just past the pharmacy on your right — about five minutes on foot.",
+      accepted_patterns: [
+        "(thank you|thanks)(,)? (so much|much appreciated)",
+        "(past the pharmacy on the right)\\?? (got it|okay)",
+        "(could you )?(point|show) me (which way|which direction)\\??",
+        "(so) (right after the pharmacy|on the right)\\?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yön onayı + teşekkür. Türk öğrenci sadece 'thanks' der — anlama doğrulamak için tekrarla. 'So, past the pharmacy on the right?' = onaylama.",
+      ideal_response: "Past the pharmacy on the right — got it. Thanks so much!",
+    },
+    {
+      id: "ex.dd16.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Google Maps çalışmıyor, en yakın metro neresi?",
+      wrong_en: "Google Maps don't work, where nearest metro?",
+      right_en: "My Google Maps isn't loading — could you tell me where the nearest metro is?",
+      why_tr:
+        "'Don't' yanlış (Google Maps tekil — 'doesn't' veya 'isn't'). 'Where nearest metro?' eksik cümle. Doğru: 'could you tell me where ___ is' = kibar dolaylı soru.",
+    },
+    {
+      id: "ex.dd16.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Just past the pharmacy' ne demek?",
+          options: [
+            "Eczanenin tam karşısında.",
+            "Eczanenin hemen ötesinde / sonrasında.",
+            "Eczanenin yakınında.",
+            "Eczanenin önünde.",
+          ],
+          correct: 1,
+          tr_explanation: "'Just past X' = X'i geçtikten hemen sonra. Yön tarifinde yaygın.",
+        },
+        {
+          q: "'On foot' nasıl çevirilir?",
+          options: [
+            "Ayakla.",
+            "Yürüyerek.",
+            "Hızlı.",
+            "Yavaş.",
+          ],
+          correct: 1,
+          tr_explanation: "'On foot' = yürüyerek (idiom). 'By car/bus/foot' kalıbı.",
+        },
+        {
+          q: "'Point me to the subway' anlamı?",
+          options: [
+            "Metroya beni at.",
+            "Metroyu işaret et / yolunu göster.",
+            "Beni metroda göster.",
+            "Metroyu söyle.",
+          ],
+          correct: 1,
+          tr_explanation: "'Point me to X' = X'in yönünü göster. Yön sormanın doğal yolu.",
+        },
+        {
+          q: "'My phone died' tek başına anlam?",
+          options: [
+            "Telefonum bozuldu.",
+            "Telefonum şarjı bitti / kapandı.",
+            "Telefonum kayboldu.",
+            "Telefonum çalıyor.",
+          ],
+          correct: 1,
+          tr_explanation: "'Died' = şarjı bitti (idiom). Yön sorma gerekçesi olarak yaygın.",
+        },
+        {
+          q: "Yerel halktan yardım isterken EN nazik?",
+          options: [
+            "Hey! Where subway?",
+            "Excuse me — my phone died, could you point me to the subway?",
+            "Subway, please?",
+            "I need subway directions!",
+          ],
+          correct: 1,
+          tr_explanation: "Selam + gerekçe + kibar rica = yerel halk yardımsever olur.",
+        },
+      ],
     },
   ],
 };
@@ -1850,6 +2227,134 @@ export const dailyDirectionsLesson_16_6: BundledLesson = {
       tr_hint:
         "'Two blocks' = 'tu-bloks'. 'Take a' bağlanır = 'teyk-ı'. 'At the light' = 'at-dı-layt'. Net + akıcı söyle.",
     },
+    {
+      id: "ex.dd16.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Go ___ ___ ___ ___ then turn ___ at the ___.",
+      slots: [
+        { accepted: ["down", "up", "along"], distractors: ["go", "in", "on"] },
+        { accepted: ["this street", "the avenue", "Main"], distractors: ["road", "way", "path"] },
+        { accepted: ["for", "about"], distractors: ["at", "with", "by"] },
+        { accepted: ["two blocks", "three blocks", "100 meters"], distractors: ["minute", "way", "more"] },
+        { accepted: ["left", "right"], distractors: ["leftly", "righting", "the left side"] },
+        { accepted: ["light", "stop sign", "corner"], distractors: ["lighter", "sign", "stop"] },
+      ],
+      tr_hint:
+        "Yön TARIF edici kalıp — net + adım adım. 'Go down X for two blocks then turn right at the light' = standart. Türk öğrenci 'You go and turn' der — eksik mesafe + landmark.",
+      example_filled: "Go down this street for two blocks then turn right at the light.",
+    },
+    {
+      id: "ex.dd16.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Excuse me — do you know how to get to the museum?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great, thank you! And about how long does it take to walk?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|yeah)(,)? (go|walk) (down|up|along) (this|that) (street|avenue|road)",
+        "(it'?s|the museum is) (about )?(two|three|four) blocks (down|away)",
+        "(go straight )?(for )?(two|three) blocks(,)? (then|and) turn (left|right)",
+        "(you'?ll see it|you can'?t miss it) (on (your )?(left|right))?",
+      ],
+      tr_hint:
+        "Sen yön anlatan tarafsın — net + adım adım. Türk öğrenci 'you go and then museum' der — yetersiz. Sokak ismi + mesafe + landmark + dönüş.",
+      ideal_answer: "Sure! Go down this street for two blocks, then turn right at the light. You'll see it on your left.",
+    },
+    {
+      id: "ex.dd16.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How far is it on foot?",
+      accepted_patterns: [
+        "(about |around )?(five|ten|fifteen) (minutes|min)( walking)?",
+        "(it'?s |maybe )?(\\d+|a few) (minutes|min) (on foot|walking)",
+        "(not far|pretty close|just around the corner)",
+        "(quicker by )?(metro|cab|uber)( if you want)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yürüme süresi sor. Net SAYI ver. Türk öğrenci 'not too far' der — belirsiz. 'About 10 minutes' netleştirir.",
+      ideal_response: "About 10 minutes on foot — not too bad.",
+    },
+    {
+      id: "ex.dd16.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "İleri git, sonra sağ dönüş yap.",
+      wrong_en: "Go forward, then make right turn.",
+      right_en: "Go straight, then take a right at the next light.",
+      why_tr:
+        "'Go forward' Türkçe etkisi ('ileri'). Doğru: 'go straight' (düz). 'Make right turn' yanlış kalıp; 'take a right' veya 'turn right' standart. + 'at the light' landmark ekle.",
+    },
+    {
+      id: "ex.dd16.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Take a right' = ?",
+          options: [
+            "Sağ al.",
+            "Sağa dön.",
+            "Sağdan geç.",
+            "Sağ yap.",
+          ],
+          correct: 1,
+          tr_explanation: "'Take a right' = 'turn right' eşanlamlı. Günlük İngilizce'de yaygın.",
+        },
+        {
+          q: "'At the light' nedir?",
+          options: [
+            "Işıkta — trafik ışığında.",
+            "Aydınlık yerde.",
+            "Lambada.",
+            "Geceleyin.",
+          ],
+          correct: 0,
+          tr_explanation: "'Light' = traffic light. Yön tarifinde landmark olarak çok yaygın.",
+        },
+        {
+          q: "'You can't miss it' anlamı?",
+          options: [
+            "Onu kaçırma.",
+            "Görmemen imkansız (büyük/belirgin).",
+            "Kayıp olmaz.",
+            "Hızlı git.",
+          ],
+          correct: 1,
+          tr_explanation: "Yön tarifi sonu klasik kapanış — hedef belirgin demek.",
+        },
+        {
+          q: "'About 10 minutes on foot' = ?",
+          options: [
+            "Yürüyerek yaklaşık 10 dakika.",
+            "Ayakla 10 dakika.",
+            "Tam 10 dakika.",
+            "Az 10 dakika.",
+          ],
+          correct: 0,
+          tr_explanation: "'About' = yaklaşık. 'On foot' = yürüyerek.",
+        },
+        {
+          q: "Yön tarif ederken EN iyi sıra?",
+          options: [
+            "Hedef + adımlar.",
+            "Yön + mesafe + landmark + dönüş + hedef ipucu.",
+            "Sadece sokak adı.",
+            "Tüm haritayı çiz.",
+          ],
+          correct: 1,
+          tr_explanation: "'Down this street for two blocks, then right at the light. It's on your left.' = ideal yapı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2166,6 +2671,131 @@ export const dailyDirectionsLesson_16_7: BundledLesson = {
       ipa: "/ɪz ðɛər ə ˈstɑːrbʌks wɪˈðɪn ˈwɔːkɪŋ ˈdɪstəns/",
       tr_hint:
         "'Is there a' bağlanır = 'ız-der-ı'. 'Starbucks' vurgu ilk hecede = 'STAR-bıks'. 'Within' = 'wi-DHIN' (th sesi).",
+    },
+    {
+      id: "ex.dd16.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Is there ___ ___ ___ around here?",
+      slots: [
+        { accepted: ["a", "an"], distractors: ["the", "any of", "some"] },
+        { accepted: ["coffee shop", "ATM", "pharmacy", "good", "cheap"], distractors: ["coffee place", "money machine", "drug store"] },
+        { accepted: ["nearby", "close by", "anywhere"], distractors: ["near", "close", "neighbor"] },
+      ],
+      tr_hint:
+        "Yakındaki yer sorma. 'Is there a coffee shop around here?' = yaygın. Türk öğrenci 'where is coffee' der — yetersiz. 'Around here' = bu civarda.",
+      example_filled: "Is there a coffee shop nearby around here?",
+    },
+    {
+      id: "ex.dd16.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      cefr_band: "A2",
+      turns: [
+        { speaker: "npc", text: "Hi! Can I help you with something?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Yes, there's a Bank of America right across the street." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello|excuse me)(,)? (is there )?(a |an )?(atm|bank|coffee shop|pharmacy) (around|near|nearby)",
+        "(do you know )?(where (i can find|the nearest))? (a |an )?(atm|bank)",
+        "(i'?m looking for) (a |an )?(atm|coffee shop|pharmacy)",
+        "(is there )?(a |an )?(atm|coffee shop) (within|close|nearby)( walking distance)?",
+      ],
+      tr_hint:
+        "Resepsiyona/yabancıya yakındaki yer sor. 'Is there a [place] around here?' net. Türk öğrenci 'where ATM?' der — yetersiz. Tam soru cümlesi.",
+      ideal_answer: "Hi, is there an ATM around here?",
+    },
+    {
+      id: "ex.dd16.7.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      cefr_band: "A2",
+      npc_line: "Yes — there's a Bank of America just across the street.",
+      accepted_patterns: [
+        "(perfect|great)(,)? (thanks|thank you)",
+        "(across the street)\\?? (got it|okay)",
+        "(could you )?(point|show) me (which way|exactly)\\??",
+        "(is it )?(close|nearby|right there)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yer öğrendin — teşekkür + onayla. 'Across the street, got it' = anladım. Türk öğrenci sadece 'thanks' der; ek doğrulama hata önler.",
+      ideal_response: "Across the street — perfect, thanks!",
+    },
+    {
+      id: "ex.dd16.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Burada yakınında ATM var mı?",
+      wrong_en: "Here near is there ATM?",
+      right_en: "Is there an ATM nearby?",
+      why_tr:
+        "'Here near is there ATM' Türkçe sıralama. İngilizce'de: 'Is there + a/an + noun + adverb (nearby)'. 'Around here' veya 'nearby' = aynı anlam, doğru pozisyon.",
+    },
+    {
+      id: "ex.dd16.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Around here' anlamı?",
+          options: [
+            "Buralarda / bu civarda.",
+            "Etrafımda.",
+            "Burada dönüyorum.",
+            "Burayı çevre.",
+          ],
+          correct: 0,
+          tr_explanation: "'Around here' = bu civarda. Yer sorma idyomi.",
+        },
+        {
+          q: "'Within walking distance' = ?",
+          options: [
+            "Yürüme mesafesinde.",
+            "Yürüyerek imkansız.",
+            "Çok yakın.",
+            "Sadece arabayla.",
+          ],
+          correct: 0,
+          tr_explanation: "Idiom: 5-15 dk yürüme mesafesi. ABD'de yaygın ifade.",
+        },
+        {
+          q: "'Across the street' nedir?",
+          options: [
+            "Sokağın karşısında.",
+            "Sokakta yürürken.",
+            "Sokak içinde.",
+            "Sokak uzunluğu.",
+          ],
+          correct: 0,
+          tr_explanation: "'Across' = karşıda. Çok yaygın konum kalıbı.",
+        },
+        {
+          q: "'Is there a ___' niye 'a/an'?",
+          options: [
+            "Tekil, belirsiz nesne (any/one).",
+            "Yanlış.",
+            "Çoğul.",
+            "Zorunlu değil.",
+          ],
+          correct: 0,
+          tr_explanation: "'Is there a' = var mı bir...? Tekil belirsiz artikel. Plural için: 'Are there any...'",
+        },
+        {
+          q: "Yakındaki yer sorarken EN doğal başlangıç?",
+          options: [
+            "Hey ATM nerede?",
+            "Excuse me, is there an ATM around here?",
+            "ATM!",
+            "Where ATM?",
+          ],
+          correct: 1,
+          tr_explanation: "Selam + soru + 'around here' = doğal kibar yer sorma kalıbı.",
+        },
+      ],
     },
   ],
 };
@@ -2488,6 +3118,130 @@ export const dailyDirectionsLesson_16_8: BundledLesson = {
       ipa: "/teɪk ðə ˈdaʊntaʊn fɔːr treɪn ænd ˈtrænsfɜːr ət ˈjuːnjən skweər/",
       tr_hint:
         "'Downtown' vurgu ilk hecede = 'DAUN-taun'. 'Transfer' = 'TRANS-fır'. 'Union Square' = 'YU-nyın skwer'. Net hece vurgusu.",
+    },
+    {
+      id: "ex.dd16.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Which ___ should I take to get to ___?",
+      slots: [
+        { accepted: ["train", "subway line", "bus"], distractors: ["car", "metro train", "ride"] },
+        { accepted: ["Times Square", "Brooklyn Bridge", "the airport"], distractors: ["Square Times", "in Brooklyn", "airport"] },
+      ],
+      tr_hint:
+        "Metro yön sorma. 'Which train should I take?' = hangi treni almalıyım? Türk öğrenci 'what train I go?' der — yanlış. 'Should I take' modal yapı.",
+      example_filled: "Which train should I take to get to Times Square?",
+    },
+    {
+      id: "ex.dd16.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Excuse me — are you a local?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great. How do I get from here to JFK Airport by train?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (kind of|sort of|i live (near|around))",
+        "(yes|sure)(,)? (i can help|how can i help)",
+        "(no|not really)(,)? (but i'?ll )?try (to help)?",
+        "(yeah)(,)? (i know the area)",
+      ],
+      tr_hint:
+        "Yerel halka soruluyorsun — kabul + yardıma hazır. 'Yes, kind of — how can I help?' Türk öğrenci 'no' der utangaç — yardımlaşma ortamı kaybolur.",
+      ideal_answer: "Yes, sort of — how can I help?",
+    },
+    {
+      id: "ex.dd16.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Take the E train to Jamaica and transfer to the AirTrain.",
+      accepted_patterns: [
+        "(so) (the )?e train (then |to )?(airtrain|jamaica)\\?? (got it|thanks)",
+        "(thank you|thanks)(,)? (so much|that helps)",
+        "(how often )?(does the )?(e train|airtrain) (run|come)\\??",
+        "(how long )?(does it take|will it take)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Karmaşık yön aldın (transfer var) — TEKRARLA onayla. Türk öğrenci 'OK' der — kaybolur. Adımları tekrar et + ek soru (süre, sıklık).",
+      ideal_response: "So E train to Jamaica then AirTrain — got it. Thanks!",
+    },
+    {
+      id: "ex.dd16.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Hangi tren JFK'ye gider?",
+      wrong_en: "Which train go to JFK?",
+      right_en: "Which train goes to JFK Airport?",
+      why_tr:
+        "'Train go' eksik subject-verb agreement — train tekil ('goes'). 'JFK' kabul, ama tam adı 'JFK Airport' bilgi paylaşımı için iyi. Tekil 3. şahıs: -s.",
+    },
+    {
+      id: "ex.dd16.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Transfer at Union Square' anlamı?",
+          options: [
+            "Union Square'de aktar.",
+            "Union Square'de para gönder.",
+            "Union Square'i değiştir.",
+            "Union Square'de dur.",
+          ],
+          correct: 0,
+          tr_explanation: "Metroda 'transfer' = trenden trene aktarma. Türkçe'de 'aktarmalı' anlamı.",
+        },
+        {
+          q: "'Downtown train' = ?",
+          options: [
+            "Şehir merkezine giden tren.",
+            "Şehir dışına giden tren.",
+            "Aşağı doğru giden tren.",
+            "İndirimli tren.",
+          ],
+          correct: 0,
+          tr_explanation: "NYC'de 'downtown' = güney/merkez yön. 'Uptown' = kuzey/yukarı.",
+        },
+        {
+          q: "'Take the 4 train' nasıl çevirilir?",
+          options: [
+            "4 numaralı treni al / bin.",
+            "4 trende ol.",
+            "Treni 4 dakika.",
+            "4 tane tren al.",
+          ],
+          correct: 0,
+          tr_explanation: "'Take the X train' = X treni bin. Metro/bus için standart.",
+        },
+        {
+          q: "'How often does the train run?' anlamı?",
+          options: [
+            "Tren ne sıklıkla gelir / sefer yapar?",
+            "Tren ne kadar hızlı?",
+            "Tren nereye gider?",
+            "Tren ne zaman duruyor?",
+          ],
+          correct: 0,
+          tr_explanation: "'How often runs' = sefer sıklığı. Geç saatte/hafta sonu farklı olabilir.",
+        },
+        {
+          q: "Metro yön aldığında EN iyi yaklaşım?",
+          options: [
+            "OK.",
+            "Adımları tekrar et + süre sor.",
+            "Sadece thanks.",
+            "Bir kağıda not al + git.",
+          ],
+          correct: 1,
+          tr_explanation: "Karmaşık metro yön = tekrar onayla + sıklık sor. Aktarmalı yön kolay kaybolur.",
+        },
+      ],
     },
   ],
 };

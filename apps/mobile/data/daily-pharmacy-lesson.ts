@@ -862,6 +862,132 @@ export const dailyPharmacyLesson_19_2: BundledLesson = {
       tr_explanation:
         "Emir + belirsiz kim. Doğru: isim + saygili süre sorusu.",
     },
+    {
+      id: "ex.dp19.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'd like to ___ ___ ___ for ___.",
+      slots: [
+        { accepted: ["refill", "pick up", "request"], distractors: ["take", "buy", "make"] },
+        { accepted: ["my prescription", "a prescription"], distractors: ["my drug", "medicine", "pills"] },
+        { accepted: ["", "today", "right now"], distractors: ["fast", "good", "well"] },
+        { accepted: ["amoxicillin", "Lipitor", "blood pressure"], distractors: ["sick", "fever", "cold"] },
+      ],
+      tr_hint:
+        "Reçete yenileme kalıbı. 'Refill my prescription for X' = X reçetemi yenile. Türk öğrenci 'I want medicine' der — yetersiz.",
+      example_filled: "I'd like to refill my prescription for amoxicillin.",
+    },
+    {
+      id: "ex.dp19.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Pharmacy — how can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure. Can I see your ID and insurance card?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i want) to (refill|pick up|fill) (a |my )?prescription",
+        "(picking up|here to pick up) (a |my )?(prescription|medication)",
+        "(my doctor )?(called in|sent) (a |my )?prescription",
+        "(could you|can you) (check|see) (if )?(my )?prescription (is ready)\\??",
+      ],
+      tr_hint:
+        "Eczanede reçete almak. Net + kibar. Türk öğrenci 'where my drug?' der — kabaca.",
+      ideal_answer: "Hi, I'd like to pick up a prescription under Yilmaz.",
+    },
+    {
+      id: "ex.dp19.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "We're out of stock — it'll be in tomorrow. Can you come back?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (i'?ll )?(come back tomorrow|swing by tomorrow)",
+        "(is there )?(another pharmacy|location)( that has it)\\??",
+        "(could you|can you) (call around|check)\\??",
+        "(could you )?(text|call) me when (it'?s in|it arrives)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "İlaç yok — kabul + alternatif sor. Türk öğrenci 'OK' der pes. 'Could you text me when it's in?' iyi soru.",
+      ideal_response: "Could you text me when it arrives?",
+    },
+    {
+      id: "ex.dp19.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Reçetemi yenilemem lazım.",
+      wrong_en: "I need renew my prescription.",
+      right_en: "I'd like to refill my prescription.",
+      why_tr:
+        "'Need renew' eksik 'to' (need to + verb). 'Renew' belge için (lisans); reçete için 'refill' (= yeniden doldur) standart eczane terimi.",
+    },
+    {
+      id: "ex.dp19.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Refill' eczane anlamı?",
+          options: [
+            "Reçete yenilemek / aynı ilacı tekrar almak.",
+            "Şişe doldurmak.",
+            "Su almak.",
+            "Yeni reçete yazdırmak.",
+          ],
+          correct: 0,
+          tr_explanation: "'Refill' = mevcut reçete üzerinden tekrar al. Doktoru aramaya gerek yok.",
+        },
+        {
+          q: "'Copay' nedir?",
+          options: [
+            "Sigortanın karşılamadığı cep ödemesi.",
+            "Sigortanın toplam ödemesi.",
+            "Doktorun maaşı.",
+            "İlaç fiyatı.",
+          ],
+          correct: 0,
+          tr_explanation: "'Copayment' = sigortalıya rağmen ödediğin pay. Standart ABD terminolojisi.",
+        },
+        {
+          q: "'Out of stock' = ?",
+          options: [
+            "Stokta yok.",
+            "Stokta var.",
+            "Çok stok.",
+            "Az stok.",
+          ],
+          correct: 0,
+          tr_explanation: "'Out of stock' = bulunmuyor. Eczane/mağazada yaygın.",
+        },
+        {
+          q: "'Pick up a prescription' = ?",
+          options: [
+            "Hazır reçeteyi al / teslim al.",
+            "Reçete yaz.",
+            "Reçete oku.",
+            "Reçete bırak.",
+          ],
+          correct: 0,
+          tr_explanation: "'Pick up' = hazır olanı al. Reçete eczanede hazırlanır + sen 'pick up' edersin.",
+        },
+        {
+          q: "Eczanede EN net giriş?",
+          options: [
+            "Give me medicine!",
+            "Hi, picking up a prescription under [name].",
+            "Where my drug?",
+            "Drug now.",
+          ],
+          correct: 1,
+          tr_explanation: "Selam + 'picking up' + isim (kayıt için). Eczane SOP'una uygun.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1205,6 +1331,133 @@ export const dailyPharmacyLesson_19_3: BundledLesson = {
       tr_explanation:
         "Belirsiz olcek + sure. Doğru: tip (sharp) + yer (lower back) + sure (since Monday) + skala (8/10).",
     },
+    {
+      id: "ex.dp19.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I have ___ ___ in ___ ___ for ___.",
+      slots: [
+        { accepted: ["a sharp", "a dull", "throbbing", "burning"], distractors: ["big", "much", "very"] },
+        { accepted: ["pain", "ache", "discomfort"], distractors: ["hurt", "sick", "feeling"] },
+        { accepted: ["my lower back", "my chest", "my abdomen"], distractors: ["back", "stomach", "chest"] },
+        { accepted: ["", "right side", "the area"], distractors: ["place", "spot", "part"] },
+        { accepted: ["three days", "a week", "since Monday"], distractors: ["much", "long", "many"] },
+      ],
+      tr_hint:
+        "Ağrı tanımlama: TYPE + KONUM + SÜRE. 'Sharp pain in my lower back for three days' = klinik standart. Türk öğrenci 'big pain' der — belirsiz.",
+      example_filled: "I have a sharp pain in my lower back for three days.",
+    },
+    {
+      id: "ex.dp19.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi — what brings you in today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I see. On a scale of 1 to 10, how bad is the pain?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i have|i'?ve had) (a )?(sharp|dull|throbbing|burning) (pain|ache) in (my )?(back|chest|abdomen|head)",
+        "(my )?(back|chest|stomach|head) (has been )?(hurting|aching)",
+        "(for|since) (\\d+ )?(days|weeks|monday|the morning)",
+        "(it'?s |i'?m )?(been )?(getting worse|sharper|more frequent)",
+      ],
+      tr_hint:
+        "Eczacı/doktor: SPESIFIK ağrı tarifi. Türk öğrenci 'I am sick' der — yetersiz. Tip + yer + süre.",
+      ideal_answer: "I have a sharp pain in my lower back that started three days ago.",
+    },
+    {
+      id: "ex.dp19.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "On a scale of 1 to 10, how would you rate it?",
+      accepted_patterns: [
+        "(about |around )?(a |an )?(seven|eight|six)( out of ten)?",
+        "(maybe )?(\\d+|a six)( out of ten)?",
+        "(it'?s |getting )?(worse|sharper) — (a )?(8|9)( out of ten)?",
+        "(when i move )?(it'?s )?(a 7|much worse)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Ağrı skalası — SAYI ver. 'Six out of ten' veya 'an eight'. Türk öğrenci 'much' der — yetersiz.",
+      ideal_response: "About a seven — it gets worse when I bend over.",
+    },
+    {
+      id: "ex.dp19.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Karnım çok ağrıyor.",
+      wrong_en: "My stomach has very pain.",
+      right_en: "I have a sharp pain in my stomach.",
+      why_tr:
+        "'Has very pain' yanlış kalıp ('have pain' yok; 'ache' veya 'a pain' lazım). Doğru: 'I have a sharp pain in X'. + Spesifik (sharp).",
+    },
+    {
+      id: "ex.dp19.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Throbbing pain' ne tür?",
+          options: [
+            "Zonklayan / nabız gibi atan.",
+            "Keskin.",
+            "Hafif.",
+            "Sürekli.",
+          ],
+          correct: 0,
+          tr_explanation: "Migraine/baş ağrısı için yaygın. Klinik tanım.",
+        },
+        {
+          q: "'Sharp pain' = ?",
+          options: [
+            "Keskin / saplayıcı ağrı (bıçak gibi).",
+            "Tatlı ağrı.",
+            "Yavaş ağrı.",
+            "Eski ağrı.",
+          ],
+          correct: 0,
+          tr_explanation: "'Sharp' vs 'dull' = klinik temel ayrım.",
+        },
+        {
+          q: "'Lower back' = ?",
+          options: [
+            "Bel.",
+            "Üst sırt.",
+            "Boyun.",
+            "Karın.",
+          ],
+          correct: 0,
+          tr_explanation: "'Lower back' = bel (lumbal bölge). 'Upper back' = sırt üstü.",
+        },
+        {
+          q: "'For three days' tense?",
+          options: [
+            "Present simple.",
+            "Past simple.",
+            "Süre belirten — present perfect ile uyum (since + nokta zaman, for + süre).",
+            "Future.",
+          ],
+          correct: 2,
+          tr_explanation: "'For X duration' = present perfect ile süre. 'I've had it for 3 days'.",
+        },
+        {
+          q: "Klinik ağrı tarifi EN net?",
+          options: [
+            "Big pain.",
+            "Sharp pain in my lower back for three days.",
+            "Hurt me.",
+            "Pain everywhere.",
+          ],
+          correct: 1,
+          tr_explanation: "Type + konum + süre = klinik standart.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1508,6 +1761,131 @@ export const dailyPharmacyLesson_19_5: BundledLesson = {
       ipa: "aɪ niːd ˈsʌmθɪŋ nɒn ˈdraʊzi fər ˈdeɪtaɪm",
       tr_hint:
         "'Non-drowsy' = 'non-DRAW-zi' (vurgu ikinci hece). 'Daytime' = 'DEY-taym'. Tek nefeste.",
+    },
+    {
+      id: "ex.dp19.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Do you have something ___ ___ ___?",
+      slots: [
+        { accepted: ["for", "to treat"], distractors: ["about", "of", "on"] },
+        { accepted: ["a cold", "a cough", "a sore throat", "congestion"], distractors: ["sick", "ill", "bad"] },
+        { accepted: ["that's non-drowsy", "I can take during the day", "without sedation"], distractors: ["good", "strong", "fast"] },
+      ],
+      tr_hint:
+        "OTC ilaç sorma. 'Something for a cold that's non-drowsy' = uyku yapmayan soğuk algınlığı ilacı. Türk öğrenci 'I want cold medicine' der — eksik detay.",
+      example_filled: "Do you have something for a cold that's non-drowsy?",
+    },
+    {
+      id: "ex.dp19.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi — how can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure. Are you looking for something for daytime or nighttime?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (do you have|i need) (something|anything) for (a )?(cold|cough|sore throat)",
+        "(i'?ve had|i'?m fighting) (a )?(cold|cough|the flu)",
+        "(any )?(recommendations|otc options) for (cold|cough)\\??",
+        "(could you|can you) recommend (an )?otc",
+      ],
+      tr_hint:
+        "Eczanede OTC tavsiye. Türk öğrenci 'give me cold medicine' der — eksik. 'Do you have something for a cold?' kibar.",
+      ideal_answer: "Hi, do you have something for a cold that's non-drowsy?",
+    },
+    {
+      id: "ex.dp19.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sudafed PE is non-drowsy. Are you taking any other medications?",
+      accepted_patterns: [
+        "(no|nope)(,)? (nothing else|just vitamins)",
+        "(yes|yeah)(,)? (i'?m on) (\\w+|some medication)",
+        "(actually )?(i take|i'?m taking) (\\w+) (for|because of)",
+        "(any )?(interaction|side effect) (concerns)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Eczacı ilaç etkileşim sordu — DÜRÜST cevap. Türk öğrenci 'no nothing' der hata. Mevcut ilaçları SÖYLE.",
+      ideal_response: "I take Lipitor for cholesterol — any interactions?",
+    },
+    {
+      id: "ex.dp19.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Soğuk algınlığım var, gündüz uyutmayan bir şey.",
+      wrong_en: "I have cold, want something not sleep day.",
+      right_en: "I have a cold — could I get something non-drowsy for daytime?",
+      why_tr:
+        "'Not sleep' yanlış kalıp. 'Non-drowsy' (= uyku yapmayan) tek kelime. 'Daytime' tek kelime — 'in day' yanlış. Profesyonel eczane terminolojisi.",
+    },
+    {
+      id: "ex.dp19.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'OTC' = ?",
+          options: [
+            "Over-the-counter — reçetesiz ilaç.",
+            "On the Computer.",
+            "Out the cold.",
+            "On the Counter.",
+          ],
+          correct: 0,
+          tr_explanation: "'Over-the-counter' = reçetesiz satılan. ABD eczanesinde standart kategori.",
+        },
+        {
+          q: "'Non-drowsy' = ?",
+          options: [
+            "Uyku yapmayan / sersemletmeyen.",
+            "Uyku yapan.",
+            "Hızlı çalışan.",
+            "Güçlü.",
+          ],
+          correct: 0,
+          tr_explanation: "'Drowsy' = sersem/uykulu. 'Non-' = -mayan. Gündüz ilaçları için bu özellik şart.",
+        },
+        {
+          q: "'Sore throat' = ?",
+          options: [
+            "Ağrılı boğaz.",
+            "Boğaz kanseri.",
+            "Boğaz açma.",
+            "Boğazlama.",
+          ],
+          correct: 0,
+          tr_explanation: "'Sore' = ağrılı/tahrişli. Soğuk algınlığı belirtisi.",
+        },
+        {
+          q: "'Drug interaction' anlamı?",
+          options: [
+            "İlaç etkileşimi (birbirini etkileme).",
+            "İlaç birleşimi.",
+            "İlaç satışı.",
+            "İlaç fiyatı.",
+          ],
+          correct: 0,
+          tr_explanation: "İki ilaç birlikte alındığında birbirini etkileyebilir. Eczacı bunu kontrol eder.",
+        },
+        {
+          q: "OTC tavsiye için EN net?",
+          options: [
+            "Cold pills!",
+            "Do you have something non-drowsy for a cold?",
+            "Give cold medicine.",
+            "Sick, help!",
+          ],
+          correct: 1,
+          tr_explanation: "Soru + spesifik özellik + nedeni. Eczacı net öneri yapar.",
+        },
+      ],
     },
   ],
 };
@@ -1814,6 +2192,132 @@ export const dailyPharmacyLesson_19_6: BundledLesson = {
       tr_hint:
         "'How long is' baglanir → 'haw-LONG-iz'. 'Pickup' = 'PIK-ap' (vurgu ilk hece, tek kelime).",
     },
+    {
+      id: "ex.dp19.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'm here to ___ ___ ___ under ___.",
+      slots: [
+        { accepted: ["pick up", "collect"], distractors: ["take", "buy", "get"] },
+        { accepted: ["a prescription", "my prescription", "some meds"], distractors: ["drug", "medicine", "pills"] },
+        { accepted: ["", "for amoxicillin", "for blood pressure"], distractors: ["fast", "today now", "good"] },
+        { accepted: ["Yilmaz", "the name Smith", "my name"], distractors: ["me", "self", "myself"] },
+      ],
+      tr_hint:
+        "Reçete teslim alma. 'I'm here to pick up under [name]' = isim ile reçete al. Türk öğrenci 'I came for medicine' der — eksik.",
+      example_filled: "I'm here to pick up a prescription under Yilmaz.",
+    },
+    {
+      id: "ex.dp19.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi — how can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Let me check. Date of birth, please?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?m here|came in) to pick up (a |my )?prescription",
+        "(picking up|here for) (a |my )?(prescription|meds) under (\\w+|the name)",
+        "(any idea )?(how long )?(it'?ll take|the wait is)\\??",
+        "(could you|can you) check (if )?(my )?prescription (is ready)\\??",
+      ],
+      tr_hint:
+        "Reçete pickup için: isim + süre soru. Türk öğrenci sadece 'medicine' der — yetersiz.",
+      ideal_answer: "Hi, I'm here to pick up a prescription under Yilmaz.",
+    },
+    {
+      id: "ex.dp19.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "It'll be about 20 minutes — would you like to wait or come back?",
+      accepted_patterns: [
+        "(i'?ll )?(wait|stick around)",
+        "(i'?ll )?(come back|swing by) (in )?(20 min|an hour)",
+        "(could you )?(text|call) me when (it'?s )?ready\\??",
+        "(works for me)(,)? (thanks)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "20 dk bekle veya dön. NET karar ver. Türk öğrenci 'OK' der — belirsiz. 'Wait' veya 'come back in 20'.",
+      ideal_response: "I'll come back in 20 — could you text me when it's ready?",
+    },
+    {
+      id: "ex.dp19.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Reçetemi almaya geldim.",
+      wrong_en: "I come to take my prescription.",
+      right_en: "I'm here to pick up my prescription.",
+      why_tr:
+        "'I come' yanlış zaman (present simple = genel alışkanlık). Şu an = 'I'm here'. 'Take' yanlış fiil; eczane terimi 'pick up' (= hazır olanı al).",
+    },
+    {
+      id: "ex.dp19.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Pick up a prescription' = ?",
+          options: [
+            "Hazır reçeteyi teslim al.",
+            "Reçete yaz.",
+            "Reçete bul.",
+            "Reçete bırak.",
+          ],
+          correct: 0,
+          tr_explanation: "'Pick up' = hazır olanı al. Eczane standart terim.",
+        },
+        {
+          q: "'Under [name]' anlamı?",
+          options: [
+            "[isim] adına / [isim]'in adı altında.",
+            "[isim] altında.",
+            "[isim] içinde.",
+            "[isim] üzerinde.",
+          ],
+          correct: 0,
+          tr_explanation: "Sistem kaydı için: 'under Yilmaz' = Yılmaz adına. Aradı = bulur.",
+        },
+        {
+          q: "'How long is the wait?' = ?",
+          options: [
+            "Ne kadar bekleme süresi?",
+            "Ne uzun bekliyorsun?",
+            "Ne zaman bekliyorum?",
+            "Bekleme nerede?",
+          ],
+          correct: 0,
+          tr_explanation: "'Wait' isim olarak = bekleme süresi. 'How long is X' = X ne kadar.",
+        },
+        {
+          q: "'Text me when ready' niye pratik?",
+          options: [
+            "Beklemeden işine devam edebilirsin.",
+            "Eczane mesleği.",
+            "Ücretli.",
+            "Tek seçenek.",
+          ],
+          correct: 0,
+          tr_explanation: "Bekleme yerine alışveriş/kahve = zaman tasarrufu. ABD'de yaygın hizmet.",
+        },
+        {
+          q: "Reçete pickup EN profesyonel?",
+          options: [
+            "Medicine!",
+            "Hi, picking up a prescription under [name].",
+            "Drug come?",
+            "Where pills?",
+          ],
+          correct: 1,
+          tr_explanation: "Selam + 'picking up' + isim = sistemde net arama.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2118,6 +2622,131 @@ export const dailyPharmacyLesson_19_7: BundledLesson = {
       ipa: "ˈɛni ˌɪntərˈækʃənz wɪð maɪ ˈkɜrənt ˌmɛdɪˈkeɪʃənz",
       tr_hint:
         "'Interactions' = 'in-ter-AK-shenz' (4 hece, vurgu ucuncu). 'Medications' = 'me-di-KEY-shenz' (4 hece).",
+    },
+    {
+      id: "ex.dp19.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "What are the ___ ___ ___?",
+      slots: [
+        { accepted: ["side effects", "common side effects", "main side effects"], distractors: ["sides", "negative things", "bad things"] },
+        { accepted: ["of", "for", "associated with"], distractors: ["from", "to", "in"] },
+        { accepted: ["this medication", "Claritin", "Zyrtec"], distractors: ["this drug here", "this medicine bad", "this thing"] },
+      ],
+      tr_hint:
+        "Yan etki sorma kalıbı. 'What are the side effects of X?' standart eczacı sorusu. Türk öğrenci 'this medicine danger?' der — kabaca.",
+      example_filled: "What are the side effects of this medication?",
+    },
+    {
+      id: "ex.dp19.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "Claritin is a good choice for allergies." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Common ones include dry mouth and mild headache, but it's non-drowsy." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(what are )?(the )?(side effects|main side effects)",
+        "(any )?(interactions )?with (my other meds|other medications)\\??",
+        "(is it )?(safe to take with|compatible with) (my other meds)\\??",
+        "(how often )?(can|should) i take (it|this)\\??",
+      ],
+      tr_hint:
+        "Eczacı öneri yaptı — yan etki sor + etkileşim sor. Türk öğrenci 'OK' der — riski almama. Detay sor.",
+      ideal_answer: "What are the main side effects? Any interactions with my Lipitor?",
+    },
+    {
+      id: "ex.dp19.7.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "Take one in the morning with food. Avoid alcohol while you're on it.",
+      accepted_patterns: [
+        "(got it|understood)(,)? (morning|with food|no alcohol)",
+        "(thanks)(,)? (so morning|in the morning)\\? (with food)\\?",
+        "(how long )?(does it last|until effects)\\??",
+        "(can i drive )?(while taking it)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Talimat aldın — TEKRARLA + ek soru. 'Morning with food, no alcohol — got it'. Türk öğrenci 'OK' der — pratik bilgi kaybeder.",
+      ideal_response: "Got it — morning with food, no alcohol. Can I drive while on it?",
+    },
+    {
+      id: "ex.dp19.7.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Bu ilaç başka ilaçlarımla beraber kullanılır mı?",
+      wrong_en: "This medicine can use together my other medicine?",
+      right_en: "Is this safe to take with my other medications?",
+      why_tr:
+        "'Can use together' eksik 'be' + yanlış kalıp. Doğru: 'Is X safe to take with Y?'. 'Medicine' tekil/sayılamaz; 'medications' resmî çoğul kullanım.",
+    },
+    {
+      id: "ex.dp19.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Side effect' = ?",
+          options: [
+            "Yan etki (istenmeyen).",
+            "Yan etkiler.",
+            "Yan tepki.",
+            "Hızlı tepki.",
+          ],
+          correct: 0,
+          tr_explanation: "İlaçların istenmeyen etkileri. Eczacıya sormak şart.",
+        },
+        {
+          q: "'Drug interaction' niye önemli?",
+          options: [
+            "İki ilaç birbirini güçlendirebilir/zayıflatabilir — tehlikeli.",
+            "Hızlı tedavi.",
+            "Ucuz.",
+            "Önemsiz.",
+          ],
+          correct: 0,
+          tr_explanation: "Bazı ilaçlar birlikte alındığında kanama, hipotansiyon vb. sebep olur.",
+        },
+        {
+          q: "'Non-drowsy' antihistaminler örneği?",
+          options: [
+            "Benadryl.",
+            "Claritin / Zyrtec.",
+            "Aspirin.",
+            "Tylenol.",
+          ],
+          correct: 1,
+          tr_explanation: "2. nesil antihistaminler uyku yapmaz. 1. nesil (Benadryl) uyutur.",
+        },
+        {
+          q: "'Avoid alcohol while on it' = ?",
+          options: [
+            "Bu ilacı kullanırken alkol uzak dur.",
+            "Bunu alkolle al.",
+            "Alkolden sonra.",
+            "Alkolden önce.",
+          ],
+          correct: 0,
+          tr_explanation: "İlaç+alkol etkileşim riski yüksek. Eczacı uyarısı önemli.",
+        },
+        {
+          q: "Yan etki sorma EN profesyonel?",
+          options: [
+            "Bad effect?",
+            "What are the main side effects of this medication?",
+            "Make me sick?",
+            "Effects?",
+          ],
+          correct: 1,
+          tr_explanation: "Tam soru kalıbı = eczacı net liste verir.",
+        },
+      ],
     },
   ],
 };
@@ -2424,6 +3053,132 @@ export const dailyPharmacyLesson_19_8: BundledLesson = {
       ipa: "ʃʊd aɪ siː ə ˈdɒktər ɔr weɪt ɪt aʊt",
       tr_hint:
         "'Should I' = 'shud-AI'. 'Wait it out' baglanir → 'wey-di-DAWT'. Iki secenek arasi tonlama: ilk yukari, ikinci asagi.",
+    },
+    {
+      id: "ex.dp19.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "Should I ___ ___ ___ or ___?",
+      slots: [
+        { accepted: ["see", "go to", "visit"], distractors: ["meet", "find", "look"] },
+        { accepted: ["a doctor", "a GP", "urgent care"], distractors: ["doctor", "medic", "expert"] },
+        { accepted: ["for this", "about this", ""], distractors: ["fast", "soon", "here"] },
+        { accepted: ["wait it out", "try OTC first", "see if it passes"], distractors: ["wait", "rest more", "skip it"] },
+      ],
+      tr_hint:
+        "Eczacıdan doktor tavsiyesi. 'Should I see a doctor or wait?' = uzman görüşü. Türk öğrenci 'go doctor?' der — eksik.",
+      example_filled: "Should I see a doctor for this or wait it out?",
+    },
+    {
+      id: "ex.dp19.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "It does sound like more than a simple cold." },
+        { speaker: "user" },
+        { speaker: "npc", text: "I'd recommend seeing a doctor — your symptoms have lasted too long." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(should i|do i need to) (see|visit) (a |the )?(doctor|gp|urgent care)",
+        "(is this )?(something )?serious\\??",
+        "(or should i )?(wait it out|let it pass)",
+        "(any )?(red flags|warning signs) (i should )?watch (out )?for\\??",
+      ],
+      tr_hint:
+        "Eczacı endişeli — doktor tavsiyesi sor. Türk öğrenci 'OK' der pes. Aktif soru: 'should I see a doctor or wait?'",
+      ideal_answer: "Should I see a doctor for this, or wait it out?",
+    },
+    {
+      id: "ex.dp19.8.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "If your fever goes above 102 or lasts more than 3 days, see a doctor immediately.",
+      accepted_patterns: [
+        "(got it|understood)(,)? (above 102|three days)",
+        "(thanks|appreciate it)(,)? (i'?ll keep an eye on it)",
+        "(any other )?(warning signs|red flags) (to watch for)\\??",
+        "(should i )?(go to urgent care|the ER)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Eczacı kırmızı bayrak verdi — TEKRARLA + ek soru. 'Above 102 or 3 days — got it'. Türk öğrenci 'thanks' der yetersiz.",
+      ideal_response: "Got it — 102 fever or 3 days. Any other warning signs?",
+    },
+    {
+      id: "ex.dp19.8.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Doktora gideyim mi?",
+      wrong_en: "I go doctor?",
+      right_en: "Should I see a doctor about this?",
+      why_tr:
+        "'I go doctor?' Türkçe direkt sorular. Doğru: 'Should I see a doctor?' — modal 'should' + 'see' fiili (doktorla görüşmek). 'Go to doctor' kabul ama 'see' daha doğal.",
+    },
+    {
+      id: "ex.dp19.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wait it out' = ?",
+          options: [
+            "Bekle, kendisi geçsin.",
+            "Dışarıda bekle.",
+            "Beklemekten vazgeç.",
+            "Acele et.",
+          ],
+          correct: 0,
+          tr_explanation: "İdiyom: aktif tedavi etmeden iyileşmeyi bekle. Viral durumlarda yaygın.",
+        },
+        {
+          q: "'Red flags' tıbbi anlamı?",
+          options: [
+            "Kırmızı bayraklar — ciddi semptom uyarıları.",
+            "Bayrak.",
+            "Kırmızı.",
+            "Düşman.",
+          ],
+          correct: 0,
+          tr_explanation: "'Red flag symptoms' = acil doktor gerektiren semptomlar.",
+        },
+        {
+          q: "'Urgent care' ABD'de nedir?",
+          options: [
+            "Acil bakım merkezi (ER'den hafif, GP'den hızlı).",
+            "Acil servis.",
+            "Bakımevi.",
+            "Eczane.",
+          ],
+          correct: 0,
+          tr_explanation: "ER'den ucuz + bekleme az + GP randevu beklemeden. Orta seviye sorunlar için.",
+        },
+        {
+          q: "'See a doctor' niye 'see' kullanır?",
+          options: [
+            "İdiyom: doktorla görüşmek/muayene olmak.",
+            "Görmek için.",
+            "Bakmak için.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "'See a doctor/dentist/specialist' = doktor muayenesine git. Sabit kalıp.",
+        },
+        {
+          q: "Eczacıdan doktor tavsiyesi EN net?",
+          options: [
+            "Doctor?",
+            "Should I see a doctor about this, or wait it out?",
+            "Go doctor now?",
+            "Doctor good?",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + alternatif = profesyonel danışmanlık sorusu.",
+        },
+      ],
     },
   ],
 };

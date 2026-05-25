@@ -855,6 +855,130 @@ export const dailyTaxiLesson_32_2: BundledLesson = {
       tr_explanation:
         "Belirsiz + güvensiz. Doğru: isim sor + plaka dogrula (sahte Uber riski gercek).",
     },
+    {
+      id: "ex.dx32.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Hi, are you here for ___? Could I ___ the ___?",
+      slots: [
+        { accepted: ["Berk", "Yilmaz", "my name"], distractors: ["me", "yourself", "we"] },
+        { accepted: ["confirm", "check"], distractors: ["see", "do", "look"] },
+        { accepted: ["plate", "license plate", "name"], distractors: ["car", "Uber", "thing"] },
+      ],
+      tr_hint:
+        "Uber pickup güvenlik kalıbı. 'Are you here for Berk?' Türk öğrenci sadece 'Uber?' der — sahte Uber riski.",
+      example_filled: "Hi, are you here for Berk? Could I confirm the plate?",
+    },
+    {
+      id: "ex.dx32.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hey, jump in!" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Yes, that's me — Berk, plate 4-5-9." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hey)?(,)? (are you here for|are you picking up) (\\w+)",
+        "(could i )?(confirm|check)( the )?(plate|name)\\??",
+        "(what'?s )?(the (name|plate) on the (order|app))\\??",
+        "(my )?(name (is|on app is)) (\\w+)",
+      ],
+      tr_hint:
+        "Uber güvenlik: isim + plaka onayla. Türk öğrenci direkt biner — sahte uber riski.",
+      ideal_answer: "Hi! Are you picking up Berk? Could I confirm the plate?",
+    },
+    {
+      id: "ex.dx32.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sorry, I'm running about 5 minutes late — traffic.",
+      accepted_patterns: [
+        "(no worries|no problem|all good)",
+        "(could you )?text me (when you arrive|your eta)\\??",
+        "(thanks for letting me know)(,)? (i'?ll wait)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Şoför geç kalacak — sabırlı + ETA sor. Türk öğrenci 'OK' der; tahmini varış zamanını öğren.",
+      ideal_response: "No worries — could you text me when you're close?",
+    },
+    {
+      id: "ex.dx32.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Uber sen misin? Bineyim.",
+      wrong_en: "You Uber? I get in.",
+      right_en: "Hi, are you here for Berk? Mind if I confirm the plate?",
+      why_tr:
+        "'You Uber?' eksik 'are' + grammatik değil. Doğru: 'are you here for X?' + güvenlik (plate confirm). ABD'de sahte Uber risk.",
+    },
+    {
+      id: "ex.dx32.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Uber öncesi güvenlik adımı?",
+          options: [
+            "Direkt bin.",
+            "İsim + plaka onayla.",
+            "Konuş.",
+            "Sus.",
+          ],
+          correct: 1,
+          tr_explanation: "Sahte Uber dolandırıcılığı gerçek. İsim/plaka doğrulamak şart.",
+        },
+        {
+          q: "'Are you here for [name]?' niye iyi soru?",
+          options: [
+            "Şoför app'te seni görür — onaylar.",
+            "Anlamsız.",
+            "Hızlı.",
+            "Resmî.",
+          ],
+          correct: 0,
+          tr_explanation: "Şoför app'te yolcu adını görür. 'Berk?' = doğrulama.",
+        },
+        {
+          q: "'Running 5 minutes late' = ?",
+          options: [
+            "5 dakika geç kalıyor.",
+            "5 dakika koşuyor.",
+            "5 dakika erken.",
+            "5 dakika sürer.",
+          ],
+          correct: 0,
+          tr_explanation: "'Running late' = geç kalmak. Trafik için yaygın.",
+        },
+        {
+          q: "'License plate' = ?",
+          options: [
+            "Plaka (araç).",
+            "Sürücü belgesi.",
+            "Kayıt.",
+            "Lisans.",
+          ],
+          correct: 0,
+          tr_explanation: "Araç plakası. App'te son 3 hane görünür.",
+        },
+        {
+          q: "Uber pickup EN güvenli açılış?",
+          options: [
+            "Uber!",
+            "Hi, are you here for Berk?",
+            "I get in.",
+            "Move car.",
+          ],
+          correct: 1,
+          tr_explanation: "İsim sorma = sahte Uber'den korur.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1198,6 +1322,131 @@ export const dailyTaxiLesson_32_3: BundledLesson = {
         "Would you mind turning the music down? Also, getting a little chilly — could you ease off the AC?",
       tr_explanation:
         "Emir kipi + panik. Doğru: 'Would you mind' + spesifik istek + 'a little chilly' (kibar tarif).",
+    },
+    {
+      id: "ex.dx32.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Would you mind ___ the ___ ___?",
+      slots: [
+        { accepted: ["turning", "lowering"], distractors: ["stop", "make", "do"] },
+        { accepted: ["AC", "music", "volume", "heater"], distractors: ["thing", "fast", "good"] },
+        { accepted: ["down", "up", "off"], distractors: ["stop", "fast", "now"] },
+      ],
+      tr_hint:
+        "Yol esnası rica. 'Would you mind turning the AC down?' Türk öğrenci 'AC stop!' der — kabaca.",
+      example_filled: "Would you mind turning the AC down?",
+    },
+    {
+      id: "ex.dx32.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Everything alright back there?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure thing — no problem!" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(would you mind |could you )?(turning|lowering) (the )?(music|ac)( down)?",
+        "(getting a bit )?(cold|warm|chilly) — (could you )?(adjust|ease off)",
+        "(could you )?(close|crack|open) (the )?window",
+        "(actually )?(could we )?(take .{1,20})\\?",
+      ],
+      tr_hint:
+        "Yol esnası rahatsızlık. Türk öğrenci sustur — yolculuk rahatsız. Kibar rica yap.",
+      ideal_answer: "Actually — would you mind turning the AC down a little?",
+    },
+    {
+      id: "ex.dx32.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How much longer do you need? Traffic is bad ahead.",
+      accepted_patterns: [
+        "(no rush)(,)? (whatever)",
+        "(could you )?(take the side streets|reroute)\\??",
+        "(any way )?(faster)\\??",
+        "(thanks for )?(letting me know)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Trafik uyarısı — alternatif sor veya kabul. Türk öğrenci 'OK' der; aktif olarak yan yol sor.",
+      ideal_response: "Could you take the side streets if it's faster?",
+    },
+    {
+      id: "ex.dx32.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Klimayı kapat, soğuk.",
+      wrong_en: "Close AC, cold.",
+      right_en: "Would you mind turning the AC down? Getting a bit chilly.",
+      why_tr:
+        "'Close AC' emir + yanlış fiil ('turn off' veya 'turn down'). Doğru: 'Would you mind' + 'a bit chilly' (yumuşatma).",
+    },
+    {
+      id: "ex.dx32.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Turn down the AC' = ?",
+          options: [
+            "Klimayı az/aşağı (azalt).",
+            "Klimayı çevir.",
+            "Klimayı yere koy.",
+            "Klimayı kapat.",
+          ],
+          correct: 0,
+          tr_explanation: "'Turn down' = azalt. 'Turn off' = tamamen kapat. 'Turn up' = artır.",
+        },
+        {
+          q: "'Pull over' anlamı?",
+          options: [
+            "Aracı kenara çek / dur.",
+            "Geri al.",
+            "İlerle.",
+            "Sağa dön.",
+          ],
+          correct: 0,
+          tr_explanation: "Şoföre durması için: 'Could you pull over here?'",
+        },
+        {
+          q: "'Ease off' anlamı?",
+          options: [
+            "Yavaşla / azalt.",
+            "Hızlan.",
+            "Kapat.",
+            "Aç.",
+          ],
+          correct: 0,
+          tr_explanation: "'Ease off the AC' = klimayı yavaş yavaş azalt.",
+        },
+        {
+          q: "'Would you mind Ving?' niye?",
+          options: [
+            "Resmî nazik rica.",
+            "Şart.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Yumuşak rica + V-ing yapısı. Müşteri hizmetlerinde yaygın.",
+        },
+        {
+          q: "Yol esnası rica EN profesyonel?",
+          options: [
+            "Music stop!",
+            "Would you mind turning the music down?",
+            "Quiet!",
+            "Off music.",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + V-ing + yumuşak = profesyonel.",
+        },
+      ],
     },
   ],
 };
@@ -1558,6 +1807,132 @@ export const dailyTaxiLesson_32_4: BundledLesson = {
       tr_explanation:
         "'No tip never' = grammatik degil + ABD kabasi. Doğru: standart tip (%18) + saygili fiş istegi.",
     },
+    {
+      id: "ex.dx32.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'll add ___ — ___ ___ ___ ___?",
+      slots: [
+        { accepted: ["18%", "20%", "fifteen percent"], distractors: ["no tip", "money", "fast"] },
+        { accepted: ["could I", "can I"], distractors: ["I will", "you give", "give me"] },
+        { accepted: ["get", "have"], distractors: ["give", "see", "do"] },
+        { accepted: ["a receipt", "the receipt"], distractors: ["money", "ticket", "thing"] },
+        { accepted: ["", "too", "please"], distractors: ["thanks please", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Taksi ödeme + bahşiş. 'I'll add 20% — could I get a receipt?' Türk öğrenci 'no tip' der kabaca; %18-20 ABD'de standart.",
+      example_filled: "I'll add 20% — could I get a receipt, please?",
+    },
+    {
+      id: "ex.dx32.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "That'll be $42.50." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure, no problem — receipt is in the app." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?ll add )?(18%|20%|fifteen|twenty) (percent)?( tip)?",
+        "(could you )?(round it up to|just round)",
+        "(could i )?(get|have) (a )?receipt\\??",
+        "(here'?s )?(fifty|cash)",
+      ],
+      tr_hint:
+        "Ödeme zamanı: bahşiş + fiş iste. Türk öğrenci kart verir bitti — bahşiş atlanırsa şoför memnun değil.",
+      ideal_answer: "I'll add 20% — could I get a receipt, please?",
+    },
+    {
+      id: "ex.dx32.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Cash or card?",
+      accepted_patterns: [
+        "(card)( please)?",
+        "(cash)( please)?",
+        "(cash )?(here'?s|i have) (fifty|cash)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Şoför ödeme yöntemi sordu — kısa cevap. Türk öğrenci uzun anlatım — gereksiz.",
+      ideal_response: "Card, please.",
+    },
+    {
+      id: "ex.dx32.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bahşiş yok, fiş ver.",
+      wrong_en: "No tip, give receipt.",
+      right_en: "I'll add 18% — could I get a receipt, please?",
+      why_tr:
+        "'No tip' ABD'de kaba (standart %18-20). 'Give receipt' emir. Doğru: bahşiş ekle + kibar fiş rica.",
+    },
+    {
+      id: "ex.dx32.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "ABD taksi standart bahşiş?",
+          options: [
+            "0%.",
+            "15-20%.",
+            "50%.",
+            "5%.",
+          ],
+          correct: 1,
+          tr_explanation: "Standart %18 (orta), %20 (iyi). Yok = saygısız.",
+        },
+        {
+          q: "'Round it up' = ?",
+          options: [
+            "Yuvarla yukarı.",
+            "Yuvarla aşağı.",
+            "Yuvarlak yap.",
+            "Yuvarlanma.",
+          ],
+          correct: 0,
+          tr_explanation: "$42.50 → $45 = round up. Bahşiş için pratik kalıp.",
+        },
+        {
+          q: "'Cash or card?' uygun cevap?",
+          options: [
+            "Yes.",
+            "Card, please.",
+            "Maybe.",
+            "Both.",
+          ],
+          correct: 1,
+          tr_explanation: "Net seçim. Türk öğrenci uzun anlatım yapar — gereksiz.",
+        },
+        {
+          q: "Fiş istemek için EN kibar?",
+          options: [
+            "Receipt!",
+            "Could I get a receipt, please?",
+            "Give receipt.",
+            "Paper.",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + please = standart.",
+        },
+        {
+          q: "Taksi ödeme EN profesyonel?",
+          options: [
+            "Money no tip.",
+            "I'll add 20% — could I get a receipt?",
+            "Card.",
+            "Fast pay.",
+          ],
+          correct: 1,
+          tr_explanation: "Bahşiş + fiş rica = profesyonel.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1863,6 +2238,131 @@ export const dailyTaxiLesson_32_5: BundledLesson = {
       tr_hint:
         "Pickup tanitim. 'Side entrance' = yan giris. 'Blue jacket' = mavi ceket. Net + kisa = şoför bulur.",
     },
+    {
+      id: "ex.dx32.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'm at the ___ ___, ___ ___.",
+      slots: [
+        { accepted: ["side", "main", "back"], distractors: ["fast", "good", "outside"] },
+        { accepted: ["entrance", "door", "exit"], distractors: ["place", "spot", "thing"] },
+        { accepted: ["wearing a", "in a", "blue"], distractors: ["fast", "good", "the"] },
+        { accepted: ["blue jacket", "red coat", "black hat"], distractors: ["clothing", "blue thing", "jacket"] },
+      ],
+      tr_hint:
+        "Şoföre tanım: konum + görüntü. 'Side entrance, blue jacket'. Türk öğrenci 'I am here' der — bulamaz.",
+      example_filled: "I'm at the side entrance, wearing a blue jacket.",
+    },
+    {
+      id: "ex.dx32.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "I'm here but I don't see you — where exactly?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — I see you now, be right there." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m at the )?(side|main|back) entrance",
+        "(near|by) (the )?(coffee shop|bank|landmark)",
+        "(wearing|in) (a )?(blue|red|black) (jacket|coat|hat)",
+        "(i'?ll )?wave (when you get close|at you)",
+      ],
+      tr_hint:
+        "Şoför bulamadı — net + görsel tarif. Türk öğrenci 'here' der — yararsız.",
+      ideal_answer: "I'm at the side entrance — blue jacket, I'll wave.",
+    },
+    {
+      id: "ex.dx32.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Are you on Park or 5th?",
+      accepted_patterns: [
+        "(park|5th)( ave)?",
+        "(corner of )?(park|5th) and \\w+",
+        "(on park )?(near \\w+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Şoför sokak sordu — NET cevap. Türk öğrenci 'I don't know' der — şoför ayrılır.",
+      ideal_response: "Park — near the corner of 23rd.",
+    },
+    {
+      id: "ex.dx32.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Yan kapıdayım, mavi ceket var.",
+      wrong_en: "I am side door, blue coat have.",
+      right_en: "I'm at the side entrance, wearing a blue jacket.",
+      why_tr:
+        "'Side door' kabul ama 'side entrance' resmî. 'Blue coat have' Türkçe sıra. Doğru: 'wearing a blue jacket'.",
+    },
+    {
+      id: "ex.dx32.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Pickup için bulunabilir tarif?",
+          options: [
+            "Here.",
+            "Side entrance + clothing + landmark.",
+            "Building.",
+            "Outside.",
+          ],
+          correct: 1,
+          tr_explanation: "Şoför app'te genel adresi görür. Spesifik konum + tarif şart.",
+        },
+        {
+          q: "'I'll wave' niye iyi?",
+          options: [
+            "Görsel sinyal — şoför ayırt eder.",
+            "Eğlenceli.",
+            "Şart.",
+            "Eski moda.",
+          ],
+          correct: 0,
+          tr_explanation: "Şoför '50 kişi var, hangisi?' belirsizliği çözer.",
+        },
+        {
+          q: "'Wearing a blue jacket' yapısı?",
+          options: [
+            "Present continuous — şu an giyiyor.",
+            "Past.",
+            "Future.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "'Wearing' = present continuous. Anlık görüntü tarifi.",
+        },
+        {
+          q: "'Side entrance' = ?",
+          options: [
+            "Yan giriş.",
+            "Yan kapı.",
+            "İç giriş.",
+            "Ana giriş.",
+          ],
+          correct: 0,
+          tr_explanation: "Büyük binalarda iki+ giriş. 'Side' = yan tarafta.",
+        },
+        {
+          q: "Şoföre EN bulunabilir tarif?",
+          options: [
+            "Here.",
+            "Side entrance, blue jacket, I'll wave.",
+            "Outside.",
+            "Building.",
+          ],
+          correct: 1,
+          tr_explanation: "Yer + görüntü + sinyal = anlık bulma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2165,6 +2665,133 @@ export const dailyTaxiLesson_32_6: BundledLesson = {
       ipa: "drɑːp mi æt ðə ˈkɔːrnər ɪnˈstɛd",
       tr_hint:
         "Rota değiştir. 'Drop me' baglanir → 'drap-mi'. 'Instead' son hece vurgulu: in-STED.",
+    },
+    {
+      id: "ex.dx32.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___ ___ ___?",
+      slots: [
+        { accepted: ["drop", "let off"], distractors: ["take", "go", "make"] },
+        { accepted: ["at", "off at"], distractors: ["in", "by", "of"] },
+        { accepted: ["the corner", "5th and Main", "the next light"], distractors: ["here", "now", "fast"] },
+        { accepted: ["instead", "if possible"], distractors: ["fast", "now", "yes"] },
+        { accepted: ["", "thanks", "please"], distractors: ["yes", "OK", "money"] },
+      ],
+      tr_hint:
+        "Rota değişikliği yumuşak. 'Could you drop me at the corner instead?' Türk öğrenci 'stop here!' der — kabaca.",
+      example_filled: "Could you drop me at the corner instead?",
+    },
+    {
+      id: "ex.dx32.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "GPS says 3 minutes to your destination." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure, no problem." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(actually )?(could you )?(drop me|let me off) (at|near)",
+        "(change of plans|small change)(,)? (could we go to)",
+        "(could we )?(take .{1,20}) (instead)\\??",
+        "(could you )?(stop at|pull over at) (\\w+)",
+      ],
+      tr_hint:
+        "Rota değişikliği — yumuşak rica. Türk öğrenci 'stop!' der kabaca. 'Could you drop me' standart.",
+      ideal_answer: "Actually, could you drop me at the corner instead?",
+    },
+    {
+      id: "ex.dx32.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "That'll be a couple extra dollars on the fare. Okay?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (that'?s fine|no problem)",
+        "(how much )?(extra)\\??",
+        "(could you )?(stick to the original|forget it)\\??",
+        "(works for me)(,)? (thanks)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Ek ücret — kabul veya sor. Türk öğrenci 'OK' der bile bilmeden. 'How much extra?' netleştir.",
+      ideal_response: "That's fine — how much extra?",
+    },
+    {
+      id: "ex.dx32.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Burada dur, burada ineceğim.",
+      wrong_en: "Stop here, get off here.",
+      right_en: "Could you drop me here, please?",
+      why_tr:
+        "'Stop here, get off' emir kipi. Doğru: 'Could you drop me here?' = standart Uber/taksi kalıbı.",
+    },
+    {
+      id: "ex.dx32.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Drop me at X' = ?",
+          options: [
+            "X'te beni indir.",
+            "X'e götür.",
+            "X'i bırak.",
+            "X'i al.",
+          ],
+          correct: 0,
+          tr_explanation: "Uber/taksi standart. 'Drop off' = yolcu indirmek.",
+        },
+        {
+          q: "'Instead' = ?",
+          options: [
+            "Onun yerine.",
+            "İçinde.",
+            "Yerine geç.",
+            "Yapıyorum.",
+          ],
+          correct: 0,
+          tr_explanation: "Alternatif belirten yumuşak kelime. 'Coffee instead of tea' = çay yerine kahve.",
+        },
+        {
+          q: "Rota değişikliği EN nazik?",
+          options: [
+            "Change route!",
+            "Could you drop me at the corner instead?",
+            "Stop here!",
+            "Other place.",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik yer + 'instead' = profesyonel.",
+        },
+        {
+          q: "'Couple extra dollars' = ?",
+          options: [
+            "Birkaç dolar ekstra.",
+            "Çok para.",
+            "Az para.",
+            "Yarım dolar.",
+          ],
+          correct: 0,
+          tr_explanation: "'Couple' = 2-3 (yaklaşık). Casual ifade.",
+        },
+        {
+          q: "Şoföre rota değişti EN profesyonel?",
+          options: [
+            "Other place!",
+            "Actually, could you drop me at 5th and Main instead?",
+            "Change!",
+            "Stop!",
+          ],
+          correct: 1,
+          tr_explanation: "'Actually' yumuşatma + modal + 'instead'.",
+        },
+      ],
     },
   ],
 };
@@ -2471,6 +3098,132 @@ export const dailyTaxiLesson_32_7: BundledLesson = {
       ipa: "ɪz ðə ˈmiːtər ˈrʌnɪŋ",
       tr_hint:
         "Dolandirici filtre. 'Meter' = sayaç (mee-ter). 'Running' = islemek (run-ing). Net soru tonu.",
+    },
+    {
+      id: "ex.dx32.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Is the ___ ___? ___ does it usually cost to ___?",
+      slots: [
+        { accepted: ["meter", "fare"], distractors: ["car", "thing", "money"] },
+        { accepted: ["running", "on"], distractors: ["work", "go", "ready"] },
+        { accepted: ["How much", "What"], distractors: ["Why", "Where", "When"] },
+        { accepted: ["the airport", "downtown", "Times Square"], distractors: ["go", "here", "now"] },
+      ],
+      tr_hint:
+        "Ücret kontrol. 'Is the meter running?' = sayaç çalışıyor mu? Dolandırıcılığı önler.",
+      example_filled: "Is the meter running? How much does it usually cost to the airport?",
+    },
+    {
+      id: "ex.dx32.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hop in! Where to?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "About $35 — meter's on now." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(the )?airport — (is the )?meter (running|on)\\??",
+        "(how much )?(does it usually cost )?to (the airport|downtown)\\??",
+        "(flat rate )?(or |vs )?(metered)\\??",
+        "(could you )?(start the meter)\\??",
+      ],
+      tr_hint:
+        "Taksiye bin + ücret sor. Türk öğrenci sustur — sonra şişirilmiş fiyat. 'Meter running?' temel.",
+      ideal_answer: "The airport — is the meter running?",
+    },
+    {
+      id: "ex.dx32.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "It's a flat rate of $55 to JFK.",
+      accepted_patterns: [
+        "(plus tolls)\\??",
+        "(does that include )?(tolls|tip)\\??",
+        "(sounds good|fine)(,)? (let'?s go)",
+        "(actually )?(could we )?(use the meter instead)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Flat rate teklif edildi — geçiş ücreti dahil mi sor. Türk öğrenci 'OK' der — sonra ek ücret.",
+      ideal_response: "Does that include tolls?",
+    },
+    {
+      id: "ex.dx32.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bu ücret çok. Niye?",
+      wrong_en: "This price too much! Why?",
+      right_en: "Could you break down the fare for me?",
+      why_tr:
+        "'Too much!' kavga başlatır. Doğru: 'Could you break down...?' = sakin + açıklama rica. Şoför saygılı cevap verir.",
+    },
+    {
+      id: "ex.dx32.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Meter' taksi anlamı?",
+          options: [
+            "Sayaç (mesafe ölçen).",
+            "Metre ölçü.",
+            "Mete.",
+            "Kasa.",
+          ],
+          correct: 0,
+          tr_explanation: "Taksilerde otomatik fiyat sayacı. Şoför açar.",
+        },
+        {
+          q: "'Flat rate' = ?",
+          options: [
+            "Sabit fiyat (mesafeden bağımsız).",
+            "Yassı oran.",
+            "Düşük.",
+            "Yeni.",
+          ],
+          correct: 0,
+          tr_explanation: "Airport gibi rotalar genelde flat rate. Meter'den farklı.",
+        },
+        {
+          q: "'Plus tolls' = ?",
+          options: [
+            "+ geçiş ücreti (köprü/tünel).",
+            "Artı bahşiş.",
+            "+ vergi.",
+            "+ extra.",
+          ],
+          correct: 0,
+          tr_explanation: "ABD'de geçişler ayrı. Yolcu öder.",
+        },
+        {
+          q: "'Break down the fare' = ?",
+          options: [
+            "Ücreti detaylandır (kalemlere ayır).",
+            "Ücreti kır.",
+            "Ücret düşür.",
+            "Ücret iptal.",
+          ],
+          correct: 0,
+          tr_explanation: "'Break down' = detaylandır. Şoför meter + tolls + fee açıklasın.",
+        },
+        {
+          q: "Şüpheli ücret EN profesyonel?",
+          options: [
+            "Why expensive?!",
+            "Could you break down the fare?",
+            "Bad price!",
+            "Cheaper!",
+          ],
+          correct: 1,
+          tr_explanation: "Sakin + açıklama rica = profesyonel + sonuç.",
+        },
+      ],
     },
   ],
 };
@@ -2789,6 +3542,131 @@ export const dailyTaxiLesson_32_8: BundledLesson = {
       ipa: "haʊz jɔːr ʃɪft ˈɡoʊɪŋ soʊ fɑːr",
       tr_hint:
         "Small talk acici. 'How's your' baglanir → 'hauz-yor'. 'So far' = simdiye kadar (so-FAR vurgu).",
+    },
+    {
+      id: "ex.dx32.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "How's ___ ___ ___ ___?",
+      slots: [
+        { accepted: ["your shift", "the day", "business"], distractors: ["job", "thing", "time"] },
+        { accepted: ["going", "treating you"], distractors: ["doing", "make", "work"] },
+        { accepted: ["so far", ""], distractors: ["fast", "yes", "OK"] },
+        { accepted: ["", "today", ""], distractors: ["now", "fast", "good"] },
+      ],
+      tr_hint:
+        "Şoför small talk. 'How's your shift going so far?' Türk öğrenci sustur — sohbet doğal değil.",
+      example_filled: "How's your shift going so far?",
+    },
+    {
+      id: "ex.dx32.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Beautiful weather, huh?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Right? Been driving since 4 AM, gorgeous sunrise." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yeah|i know)(,)? (perfect|gorgeous)( day)?",
+        "(how'?s your )?(shift|day) (going|been)\\??",
+        "(busy day|busy week)\\??",
+        "(been driving )?(long|all day)\\??",
+      ],
+      tr_hint:
+        "Hava açılışı + iş sor. Sıcak sohbet açıcı. Türk öğrenci sustur — saygısız sayılır.",
+      ideal_answer: "Yeah, gorgeous! How's your shift going?",
+    },
+    {
+      id: "ex.dx32.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Where are you from originally?",
+      accepted_patterns: [
+        "(turkey|istanbul)( actually)?",
+        "(originally from )?(turkey|istanbul)",
+        "(how about you)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Köken sordu — kabul + soru iade. Türk öğrenci 'Turkey' der biter. 'How about you?' sohbeti açar.",
+      ideal_response: "Turkey, actually. How about you?",
+    },
+    {
+      id: "ex.dx32.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Nereden geliyorsun?",
+      wrong_en: "Where you come from?",
+      right_en: "Where are you from originally?",
+      why_tr:
+        "'Where you come' eksik 'do'. Doğru: 'Where are you from?' = soru kalıbı. + 'originally' yumuşatma (köken).",
+    },
+    {
+      id: "ex.dx32.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'How's X going?' kullanım?",
+          options: [
+            "X nasıl gidiyor — sohbet açıcı.",
+            "X gidiyor mu.",
+            "X yolda mı.",
+            "X bitti mi.",
+          ],
+          correct: 0,
+          tr_explanation: "Casual sorgulama. 'How's life?' 'How's work?' yaygın.",
+        },
+        {
+          q: "'So far' = ?",
+          options: [
+            "Şimdiye kadar / şu ana dek.",
+            "Uzak.",
+            "Çok.",
+            "Az.",
+          ],
+          correct: 0,
+          tr_explanation: "Zaman idyomu. 'How's it going so far?' = şu ana dek nasıl?",
+        },
+        {
+          q: "Şoför sohbet sürdürmek?",
+          options: [
+            "Sus.",
+            "Soruyu iade et (How about you?).",
+            "Telefon.",
+            "Hızlı bitir.",
+          ],
+          correct: 1,
+          tr_explanation: "Sohbet karşılıklı olmalı. Soru iade et.",
+        },
+        {
+          q: "Köken sorma EN saygılı?",
+          options: [
+            "Where you?",
+            "Where are you from originally?",
+            "What country?",
+            "From where?",
+          ],
+          correct: 1,
+          tr_explanation: "'Originally' = köken (vatanı sevgisini ima eder).",
+        },
+        {
+          q: "Şoför small talk uygun konular?",
+          options: [
+            "Politika + din.",
+            "Hava + iş + memleket + spor.",
+            "Maaş + aile.",
+            "Sessizlik.",
+          ],
+          correct: 1,
+          tr_explanation: "Nötr + sıcak konular. Politika/din riskli.",
+        },
+      ],
     },
   ],
 };

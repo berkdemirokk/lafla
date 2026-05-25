@@ -810,6 +810,127 @@ export const dailyEmergencyLesson_22_2: BundledLesson = {
       tr_explanation:
         "'Stoled' yanlış — 'steal'in geçmişi 'stole' (düzensiz fiil). 'Make complaint' Türkçe etkisi; doğru kalıp 'file a complaint' (= şikayette bulun).",
     },
+    {
+      id: "ex.de22.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'd like to ___ a ___ — someone ___ my ___.",
+      slots: [
+        { accepted: ["report", "file"], distractors: ["make", "do", "say"] },
+        { accepted: ["theft", "robbery", "crime"], distractors: ["complain", "problem", "issue"] },
+        { accepted: ["stole", "took", "snatched"], distractors: ["steal", "stoled", "robbed off"] },
+        { accepted: ["wallet", "phone", "bag", "passport"], distractors: ["money things", "stuff", "items"] },
+      ],
+      tr_hint:
+        "Karakolda standart şikayet kalıbı. 'File/report a theft' = hırsızlık bildir. Slot 3'te düzensiz past: 'stole' (steal'in geçmişi). Türk öğrenci 'stoled' der — yanlış.",
+      example_filled: "I'd like to report a theft — someone stole my wallet.",
+    },
+    {
+      id: "ex.de22.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Police station, how can I help you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I'm sorry to hear that. When and where did it happen?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i want) to (report|file) (a )?(theft|robbery|stolen)",
+        "(someone|a thief) (stole|took|snatched) my (wallet|phone|bag)",
+        "(my )?(wallet|phone|bag) (was|got) (stolen|taken)",
+        "(i'?d like to )?(file a complaint|report a crime)",
+      ],
+      tr_hint:
+        "Polis memuruna ilk söz: NET problem söyle. 'I'd like to report a theft' kibar + resmî. Türk öğrenci 'My wallet stolen' diyor — 'was stolen' (passive) lazım.",
+      ideal_answer: "Hi, I'd like to report a theft — someone stole my wallet on the metro.",
+    },
+    {
+      id: "ex.de22.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Can you describe what was in your wallet?",
+      accepted_patterns: [
+        "(my )?(id|driver'?s license|passport)( and| plus)? (some )?(cash|credit cards?)",
+        "(about |around )?(some )?(cash|money) and (a few )?cards",
+        "(my )?(id|cards), (some )?cash,? and (my )?(receipts|passport)",
+        "(mostly|just) (cards|id and cash)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Polis listeleme bekliyor — KISA + NET. 'My ID, two credit cards, and about 200 dollars'. Türk öğrenci 'in my wallet there was' diyor — gereksiz, direkt liste yap.",
+      ideal_response: "My ID, two credit cards, and about 200 dollars in cash.",
+    },
+    {
+      id: "ex.de22.2.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Adamı gördüm ama yüzünü hatırlamıyorum.",
+      wrong_en: "I saw the man but I don't remember his face.",
+      right_en: "I got a glimpse of him, but I can't recall his face clearly.",
+      why_tr:
+        "Polis raporunda klinik dil önemli. 'I saw' → 'got a glimpse' (kısa baktım) daha tarif edici. 'Don't remember' → 'can't recall' resmî + 'clearly' net olmadığını söylüyor. Türkçe direkt çeviri zayıf kalır.",
+    },
+    {
+      id: "ex.de22.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'File a complaint' ne demek?",
+          options: [
+            "Dosyala — yere koy.",
+            "Şikayette bulun (resmî bildirim).",
+            "Dosya aç (klasör).",
+            "Dosya doldur.",
+          ],
+          correct: 1,
+          tr_explanation: "'File' burada fiil = resmî olarak bildir. 'File a complaint/report/lawsuit' yaygın kalıp.",
+        },
+        {
+          q: "'Steal' fiilinin past hali nedir?",
+          options: ["Stealed", "Stoled", "Stole", "Stealt"],
+          correct: 2,
+          tr_explanation: "'Steal → stole → stolen' düzensiz fiil. 'Stoled' yanlış kullanım.",
+        },
+        {
+          q: "Karakolda ilk net cümle?",
+          options: [
+            "Hello, how are you?",
+            "I'd like to report a theft — someone stole my wallet.",
+            "My wallet not here.",
+            "Police please help.",
+          ],
+          correct: 1,
+          tr_explanation: "'I'd like to report' = resmî giriş. + Net problem (someone stole my wallet).",
+        },
+        {
+          q: "'Got a glimpse of him' ne demek?",
+          options: [
+            "Onu yakaladım.",
+            "Onu kısa süre / şöyle bir gördüm.",
+            "Ona bağırdım.",
+            "Ona dokundum.",
+          ],
+          correct: 1,
+          tr_explanation: "'Glimpse' = bir an gördüm (net değil). Polis tarifinde 'I got a glimpse' = belirsiz tanıklık.",
+        },
+        {
+          q: "'Was stolen' ne tür yapı?",
+          options: [
+            "Active — özne yaptı.",
+            "Passive — nesneye yapıldı (kim yaptığı önemsiz).",
+            "Soru kalıbı.",
+            "Gelecek zaman.",
+          ],
+          correct: 1,
+          tr_explanation: "Passive voice: 'My wallet was stolen' = çalındı (kim çaldı belirsiz). Türk öğrenci active deniyor — yanlış sinyal.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1114,6 +1235,131 @@ export const dailyEmergencyLesson_22_3: BundledLesson = {
       tr_hint:
         "Stres altinda yavas + net. 'Corner' = 'KOR-nır'. '5th' = 'fifθ' (th = dil ısırma). Sayilari net soyle.",
     },
+    {
+      id: "ex.de22.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'm on ___ ___, near the ___.",
+      slots: [
+        { accepted: ["5th", "Main", "Park", "Oak"], distractors: ["fifth-street", "main-street", "this", "here"] },
+        { accepted: ["Street", "Avenue", "Boulevard", "Road"], distractors: ["place", "spot", "area"] },
+        { accepted: ["pharmacy", "gas station", "bus stop", "Starbucks"], distractors: ["green sign", "big building", "thing"] },
+      ],
+      tr_hint:
+        "Dispatcher konum kalıbı: SOKAK + NUMARA/ADI + LANDMARK. Türk öğrenci 'I am here' diyor — anlamsız. 'On 5th Street near the pharmacy' net konum.",
+      example_filled: "I'm on 5th Avenue, near the pharmacy.",
+    },
+    {
+      id: "ex.de22.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "911, what's the address of your emergency?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. I'm sending units now. Stay on the line." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m|we'?re) (on|at) (the )?(corner of |outside )?[^.]+(street|avenue|boulevard|road)",
+        "(near|in front of|outside) (the )?(pharmacy|gas station|starbucks|bus stop)",
+        "(intersection of|corner of) \\w+ (and|&) \\w+",
+        "no street sign(s)? — (it'?s |i'?m )?(near|by|across from)",
+      ],
+      tr_hint:
+        "Acil — KESİN konum. 'Corner of X and Y' veya 'near the [landmark]'. Türk öğrenci 'here' diyor — boş. Sokak ismi + en yakın işaret nokta.",
+      ideal_answer: "I'm on the corner of 5th and Main, in front of the pharmacy.",
+    },
+    {
+      id: "ex.de22.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Can you see any street signs from where you are?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (it says|i can see) \\w+",
+        "(no|not really)(,)? (but )?(there'?s a |i see )?(pharmacy|landmark|store)",
+        "(i can see )?(a )?(stop sign|cross street)",
+        "(let me check|hold on|one sec)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dispatcher konumu doğrulayacak — etrafa bak. Tabela varsa OKU. Türk öğrenci 'I don't know' diyor — yetersiz. 'Let me check' veya 'no but I see [landmark]'.",
+      ideal_response: "Yes, it says Main Street and 5th Avenue.",
+    },
+    {
+      id: "ex.de22.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Buradayım, gelin lütfen.",
+      wrong_en: "I am here, please come.",
+      right_en: "I'm on 5th Street near the pharmacy — please hurry.",
+      why_tr:
+        "'Here' dispatcher için anlamsız — sen neredeysin oradasın, GPS yoksa ne yapsın? Sokak adı + landmark VER. Türk 'buradayım' direkt çeviriyor; İngilizce'de spesifik konum lazım.",
+    },
+    {
+      id: "ex.de22.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Dispatcher konum sorduğunda en kötü cevap?",
+          options: [
+            "I'm on 5th and Main.",
+            "Outside the pharmacy on Park Avenue.",
+            "I am here, come quick.",
+            "Corner of Oak and 3rd Street.",
+          ],
+          correct: 2,
+          tr_explanation: "'Here' yetersiz — sokak/landmark VER. GPS olsa bile spesifik konum saniye kazandırır.",
+        },
+        {
+          q: "'Wave them down' ne demek?",
+          options: [
+            "El sallayarak aşağı in.",
+            "Ambulansa el salla — yerini göster.",
+            "El sallayarak çağır.",
+            "Aşağı sallandır.",
+          ],
+          correct: 1,
+          tr_explanation: "Paramedikler adrese gelse bile sen görünmelisin. 'Wave them down' = el sallayarak işaret et.",
+        },
+        {
+          q: "'Stay on the line' nasıl çevirilir?",
+          options: [
+            "Hatta kal — telefonu kapatma.",
+            "Çizgide kal.",
+            "Sıra bekle.",
+            "Çevrim içi kal.",
+          ],
+          correct: 0,
+          tr_explanation: "Dispatcher kritik talimat. 'Stay on the line' = telefonu kapatma, yardım gelene kadar konuş.",
+        },
+        {
+          q: "'Corner of 5th and Main' ne demek?",
+          options: [
+            "5. ve Main'in köşesi (iki sokağın kesişimi).",
+            "5 numara, Main Caddesi.",
+            "Main'in 5. binası.",
+            "Main Caddesi'nin köşesi.",
+          ],
+          correct: 0,
+          tr_explanation: "'Corner of X and Y' = iki sokağın kesiştiği köşe. Net konum kalıbı.",
+        },
+        {
+          q: "'Please hurry' ne anlamda?",
+          options: [
+            "Lütfen acele edin.",
+            "Lütfen kapatın.",
+            "Lütfen bekleyin.",
+            "Lütfen tekrar arayın.",
+          ],
+          correct: 0,
+          tr_explanation: "'Hurry' = acele et. Acilde uygun + dispatcher anlar. 'Quick please' yerine 'hurry' daha doğal.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1415,6 +1661,132 @@ export const dailyEmergencyLesson_22_4: BundledLesson = {
       ipa: "/ʃɑːrp peɪn ɪn maɪ tʃɛst ˈstɑːrtɪd əˈbaʊt ən ˈaʊər əˈɡoʊ/",
       tr_hint:
         "'Sharp' = 'sharp' (kisa). 'Chest' = 'çest'. 'Hour' = 'a-uır' (h sessiz!). Net + sakin.",
+    },
+    {
+      id: "ex.de22.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I have ___ ___ ___ that started ___ ago.",
+      slots: [
+        { accepted: ["sharp", "dull", "stabbing", "burning"], distractors: ["very", "really", "so"] },
+        { accepted: ["chest", "abdominal", "back", "head"], distractors: ["chestal", "stomachy", "heady"] },
+        { accepted: ["pain", "ache", "discomfort"], distractors: ["hurt", "sick", "feeling"] },
+        { accepted: ["an hour", "two hours", "this morning", "yesterday"], distractors: ["before", "long time", "now"] },
+      ],
+      tr_hint:
+        "ER triaj kalıbı: SIDDET + KONUM + TÜR + ZAMAN. 'Sharp chest pain that started an hour ago' = ER hemşiresi bunu bekliyor. Türk öğrenci 'I am pain' diyor — yanlış grammar.",
+      example_filled: "I have sharp chest pain that started an hour ago.",
+    },
+    {
+      id: "ex.de22.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "ER reception — what brings you in today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay, on a scale of 1 to 10, how bad is the pain?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i have|i'?ve had|i'?m having) (sharp|dull|severe|stabbing) (chest|abdominal|back) pain",
+        "(my )?(chest|stomach|head|back) (hurts|is hurting)",
+        "(i'?ve been|i'?m) (vomiting|having trouble breathing|short of breath)",
+        "(it started|started) (about )?(an hour|two hours) ago",
+      ],
+      tr_hint:
+        "'What brings you in?' = neden geldin. Kısa cevap: ana semptom + zaman. Türk öğrenci 'I am sick' diyor — yetersiz. ER kelime: 'sharp pain' + 'started X ago'.",
+      ideal_answer: "I have sharp chest pain that started about an hour ago.",
+    },
+    {
+      id: "ex.de22.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "On a scale of 1 to 10, how would you rate the pain?",
+      accepted_patterns: [
+        "(about |around |maybe )?(a |an )?(seven|eight|nine|ten)( out of ten)?",
+        "(probably )?(a )?\\d( out of)? (10|ten)",
+        "(it'?s )?(getting )?(worse|sharper)",
+        "(severe|very intense|unbearable)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "ER standart: 1-10 ağrı skalası. SAYI ver. Türk öğrenci 'çok ağrı' = 'a lot of pain' diyor — yetersiz. 'Around an eight' kabul edilir.",
+      ideal_response: "About an eight — it's getting sharper.",
+    },
+    {
+      id: "ex.de22.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Çok kötü hissediyorum, sanırım enfeksiyonum var.",
+      wrong_en: "I'm very bad feeling, I think have infection.",
+      right_en: "I'm not feeling well — I think I might have an infection.",
+      why_tr:
+        "'Very bad feeling' yanlış sıra + tonlama. Doğru: 'I'm not feeling well' (resmî, doktor için uygun). 'I think have infection' eksik özne; 'I think I might have' belirsizlik = doğru klinik dil.",
+    },
+    {
+      id: "ex.de22.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Sharp pain' ne tür ağrı?",
+          options: [
+            "Bıçak gibi keskin/saplayıcı.",
+            "Tatlı/yumuşak.",
+            "Yavaş yavaş.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'Sharp' = keskin (bıçak gibi). 'Dull' = künt/donuk. Klinik ayrım önemli.",
+        },
+        {
+          q: "ER'da 'on a scale of 1 to 10' nasıl cevaplanır?",
+          options: [
+            "A lot.",
+            "About an eight.",
+            "Very bad.",
+            "Çok.",
+          ],
+          correct: 1,
+          tr_explanation: "SAYI ver. 'A lot/very bad' = subjektif. Sayı = klinik karşılaştırma.",
+        },
+        {
+          q: "'I'm not feeling well' ne demek?",
+          options: [
+            "İyi değilim (rahatsızım).",
+            "Yoldayım.",
+            "Eve gidiyorum.",
+            "İyi değil.",
+          ],
+          correct: 0,
+          tr_explanation: "'Not feeling well' = rahatsızım. Doktora resmî giriş kalıbı.",
+        },
+        {
+          q: "'Started an hour ago' ne yapı?",
+          options: [
+            "Present perfect.",
+            "Past simple (geçmiş zaman).",
+            "Future.",
+            "Continuous.",
+          ],
+          correct: 1,
+          tr_explanation: "'Started' = past simple. + 'an hour ago' belirli geçmiş. ER'da net + standart.",
+        },
+        {
+          q: "'Shortness of breath' ne demek?",
+          options: [
+            "Kısa nefes alma — nefes darlığı.",
+            "Hızlı koşmak.",
+            "Konuşamamak.",
+            "Sessiz olmak.",
+          ],
+          correct: 0,
+          tr_explanation: "'Shortness of breath' = nefes darlığı (klinik terim). Türk öğrenci 'I can't breathe' diyor — daha şiddetli. 'Shortness' = orta.",
+        },
+      ],
     },
   ],
 };
@@ -1720,6 +2092,131 @@ export const dailyEmergencyLesson_22_5: BundledLesson = {
       tr_hint:
         "'Passport' vurgu ilk hece: 'PAS-port'. 'Citizen' = 'SI-tı-zın'. 'Turkish' = 'TƏR-kiş' (R yumusak).",
     },
+    {
+      id: "ex.de22.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I need ___ ___ ___ as soon as possible.",
+      slots: [
+        { accepted: ["an emergency", "a temporary", "a replacement"], distractors: ["fast", "urgent", "quick"] },
+        { accepted: ["travel document", "passport", "ID"], distractors: ["paper", "thing", "kimlik"] },
+        { accepted: ["issued", "arranged", "processed"], distractors: ["doing", "making", "given"] },
+      ],
+      tr_hint:
+        "Konsolosluk standart talep kalıbı. 'Emergency travel document' = acil seyahat belgesi. Türk öğrenci 'I want quick passport' der — yanlış kalıp. 'Issued' = düzenlemek (resmî).",
+      example_filled: "I need an emergency travel document issued as soon as possible.",
+    },
+    {
+      id: "ex.de22.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Turkish Consulate, how may I help you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I see. Do you have your Turkish ID number with you?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)(,)? (i'?m a |i am a )?turkish citizen",
+        "(i lost|i'?ve lost|my .+ was stolen) (my )?passport",
+        "(i need|i'?d like) (a |an )?(emergency|temporary|replacement) (travel )?document",
+        "(my flight is|i have a flight) (tomorrow|in \\d+ (hours|days))",
+      ],
+      tr_hint:
+        "Konsolosluk resmî kanal — kibar + net. Türk vatandaşı olduğunu söyle + problem (passport lost/stolen) + ihtiyaç (emergency document). 'I want passport' yetersiz.",
+      ideal_answer: "Hi, I'm a Turkish citizen — I lost my passport and need a replacement.",
+    },
+    {
+      id: "ex.de22.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "When does your return flight leave?",
+      accepted_patterns: [
+        "(it'?s |the flight is )?(tomorrow|in two days|on monday)( at \\d+)?",
+        "(in )?(\\d+ |a few )?(hours|days)",
+        "(this )?(evening|tonight|sunday)( at )?\\d+",
+        "(i'?m not sure|let me check) (the (exact )?time)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Memur aciliyet için soruyor — net zaman ver. 'Tomorrow at 8 PM' veya 'in two days'. Türk öğrenci 'soon' diyor — yararsız. SAYI + GÜN ver.",
+      ideal_response: "Tomorrow evening at 8 PM.",
+    },
+    {
+      id: "ex.de22.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Pasaportumu yeniliyebilir misiniz acaba?",
+      wrong_en: "Can you renew me passport?",
+      right_en: "Could I get my passport renewed here, please?",
+      why_tr:
+        "'Can you renew me passport' Türkçe gramer — 'me' yanlış possessive ('my' olmalı). Doğru kibar: 'Could I get... renewed' (causative). Resmî kurumda 'could I' daha uygun.",
+    },
+    {
+      id: "ex.de22.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Emergency travel document' ne demek?",
+          options: [
+            "Acil seyahat belgesi (pasaport yerine geçer geçici).",
+            "Acil pasaport başvurusu.",
+            "Acil bilet.",
+            "Acil onay.",
+          ],
+          correct: 0,
+          tr_explanation: "Pasaport kaybolduğunda konsolosluk geçici belge düzenler. Tek seyahat için geçerli.",
+        },
+        {
+          q: "'I'm a Turkish citizen' nasıl çevirilir?",
+          options: [
+            "Türk vatandaşıyım.",
+            "Türk'üm.",
+            "Türkçeyim.",
+            "Türk dilini biliyorum.",
+          ],
+          correct: 0,
+          tr_explanation: "'Citizen' = vatandaş (resmî). 'I'm Turkish' = milliyetim. İkisi farklı.",
+        },
+        {
+          q: "'Could I get my passport renewed' niye doğru?",
+          options: [
+            "Yanlış — 'renew my passport' lazım.",
+            "Causative kalıp: 'get + [obj] + done' — başkası yapacak.",
+            "Çok gayri resmî.",
+            "Past tense.",
+          ],
+          correct: 1,
+          tr_explanation: "'Get X done' = X yaptırmak (causative). Resmî kurumda doğru kalıp.",
+        },
+        {
+          q: "Konsolosluk memuruna ilk söz?",
+          options: [
+            "Help me passport!",
+            "Hi, I'm a Turkish citizen — I lost my passport.",
+            "Give passport.",
+            "Passport need.",
+          ],
+          correct: 1,
+          tr_explanation: "Selam + vatandaşlık + problem. Resmî kurumda sıralı + net.",
+        },
+        {
+          q: "'As soon as possible' ne anlamda?",
+          options: [
+            "Mümkün olduğunca çabuk.",
+            "Mümkünse.",
+            "Mümkün.",
+            "Bir an evvel.",
+          ],
+          correct: 0,
+          tr_explanation: "ASAP kısaltması bu. Aciliyet ifadesi. 'Bir an evvel' de yakın anlam ama formel İngilizce'de 'as soon as possible'.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2021,6 +2518,132 @@ export const dailyEmergencyLesson_22_6: BundledLesson = {
       ipa: "/kʊd aɪ faɪl ə rɪˈpɔːrt maɪ bæɡ wəz ˈstoʊlən/",
       tr_hint:
         "'File' = 'fayl'. 'Stolen' = 'STOU-lın' (vurgu ilk hece). Polis tonu sakin + net. Soruyu yukselt sonu.",
+    },
+    {
+      id: "ex.de22.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'd like to ___ a ___ — my ___ was ___.",
+      slots: [
+        { accepted: ["file", "report"], distractors: ["make", "open", "create"] },
+        { accepted: ["theft report", "stolen-property report", "complaint"], distractors: ["claim", "problem", "issue"] },
+        { accepted: ["bag", "backpack", "purse", "luggage"], distractors: ["thing", "stuff", "item"] },
+        { accepted: ["stolen", "taken", "snatched"], distractors: ["steal", "stoled", "robbed off"] },
+      ],
+      tr_hint:
+        "Polis raporu standart kalıp. 'File a theft report' = hırsızlık raporu düzenle. 'Was stolen' passive — kim çaldığı belirsiz. Türk öğrenci 'someone stoled' diyor — yanlış.",
+      example_filled: "I'd like to file a theft report — my bag was stolen.",
+    },
+    {
+      id: "ex.de22.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Police station — how can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I'm sorry to hear that. Where and when did it happen?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i want) to (file|report) (a )?(theft|stolen)",
+        "(my )?(bag|backpack|purse|wallet) was stolen",
+        "(someone )?(stole|took|snatched) (my )?(bag|backpack)",
+        "(i'?d like to )?(file a report|make a statement)",
+      ],
+      tr_hint:
+        "Karakola net giriş: 'I'd like to file a report — my bag was stolen'. Passive voice ('was stolen') resmî. Türk öğrenci 'My bag stolen' diyor — eksik yardımcı fiil.",
+      ideal_answer: "Hi, I'd like to file a theft report — my bag was stolen at the metro station.",
+    },
+    {
+      id: "ex.de22.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Can you describe the person who took it?",
+      accepted_patterns: [
+        "(he was )?(tall|short|medium|young|middle.aged)",
+        "(he wore|wearing) (a )?(hoodie|jacket|hat|backpack)",
+        "(i didn'?t (really )?see (their|his) face|i can'?t recall)",
+        "(it (all )?happened (so )?fast|i barely saw)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Polis fiziksel tarif istiyor — boy, kıyafet, yaş. Türk öğrenci 'normal' diyor — yetersiz. Spesifik detay (jacket color, height range) lazım. Hatırlamıyorsan: 'I didn't get a good look'.",
+      ideal_response: "He was tall, wearing a dark hoodie — I didn't see his face clearly.",
+    },
+    {
+      id: "ex.de22.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana adam çantamı çaldı.",
+      wrong_en: "A man stoled to me my bag.",
+      right_en: "A man snatched my bag from me.",
+      why_tr:
+        "'Stoled' yanlış — past hali 'stole'. 'To me' Türkçe gramer; doğru: 'from me' (benden). 'Snatched' = aniden kaptı (daha güçlü fiil). Polis raporunda spesifik fiil tercih edilir.",
+    },
+    {
+      id: "ex.de22.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'My bag was stolen' niye passive?",
+          options: [
+            "Çünkü past tense.",
+            "Çünkü kim çaldığı önemsiz / belirsiz.",
+            "Çünkü soru.",
+            "Çünkü negatif.",
+          ],
+          correct: 1,
+          tr_explanation: "Passive voice = nesne öne, fail belirsiz/önemsiz. Polis raporunda yaygın.",
+        },
+        {
+          q: "'File a theft report' tam karşılığı?",
+          options: [
+            "Hırsızlık dosyası açmak (resmî bildirim).",
+            "Dosya yapmak.",
+            "Klasör hırsızlığı.",
+            "Rapor yazmak.",
+          ],
+          correct: 0,
+          tr_explanation: "'File a report' = resmî rapor düzenle. Polis prosedürü.",
+        },
+        {
+          q: "'Snatched' ne demek?",
+          options: [
+            "Kibarca aldı.",
+            "Aniden / zorla kaptı.",
+            "Yavaşça aldı.",
+            "Düşürdü.",
+          ],
+          correct: 1,
+          tr_explanation: "'Snatch' = ani hızlı kapma. Çantayı 'stole' yerine 'snatched' = aniden çaldı.",
+        },
+        {
+          q: "'I didn't get a good look' ne demek?",
+          options: [
+            "Çok iyi baktım.",
+            "İyi göremedim / yüzünü net göremedim.",
+            "Bakmak istemedim.",
+            "Bakmadım hiç.",
+          ],
+          correct: 1,
+          tr_explanation: "'Get a look' = bir bakış at. 'Didn't get a good look' = net göremedim. Polis bunu anlar — emin olmama hali.",
+        },
+        {
+          q: "Polis fiziksel tarif sorduğunda EN kötü cevap?",
+          options: [
+            "Tall, dark hoodie, brown hair.",
+            "He was just normal.",
+            "I didn't get a good look but he had a backpack.",
+            "Short, wearing a red jacket.",
+          ],
+          correct: 1,
+          tr_explanation: "'Just normal' = bilgi sıfır. Polis için işe yaramaz. Spesifik özellik (boy, kıyafet rengi, aksesuar) ya da 'I didn't get a good look' dürüst cevap.",
+        },
+      ],
     },
   ],
 };

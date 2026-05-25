@@ -861,6 +861,133 @@ export const dailyShoppingLesson_18_2: BundledLesson = {
       tr_explanation:
         "'Bad size give me fast' = kaba + emir. Doğru: spesifik (a bit snug) + saygili (when you get a moment).",
     },
+    {
+      id: "ex.ds18.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "This is a bit ___ — could you ___ ___ ___ ___?",
+      slots: [
+        { accepted: ["snug", "tight", "loose", "long"], distractors: ["bad", "wrong", "ugly"] },
+        { accepted: ["bring", "grab"], distractors: ["take", "give", "get me"] },
+        { accepted: ["the next size up", "a medium", "a larger size"], distractors: ["other size", "bigger thing", "another"] },
+        { accepted: ["", "in the same color", "when you get a sec"], distractors: ["fast", "now", "today"] },
+        { accepted: ["", "please", ""], distractors: ["thanks please", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Soyunma odası beden talep. 'A bit snug — could you bring the next size up?' Türk öğrenci 'bring big' der — kabaca.",
+      example_filled: "This is a bit snug — could you bring the next size up, please?",
+    },
+    {
+      id: "ex.ds18.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "How's it fitting?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure, let me grab a large for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(it'?s )?(a bit |slightly )?(snug|tight|loose|long)",
+        "(could you )?bring (the |a )?(next size up|larger|smaller)",
+        "(the )?(medium|small) (feels|is) (snug|tight)",
+        "(could i )?(try a )?(large|medium|different size)\\??",
+      ],
+      tr_hint:
+        "Soyunma odasında çalışana net cevap. 'It's a bit snug' + 'could you bring the next size?' Türk öğrenci 'small' der yalın.",
+      ideal_answer: "It's a bit snug — could you bring a large?",
+    },
+    {
+      id: "ex.ds18.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "We're out of large in this color. Want me to check another store?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (please|would be great)",
+        "(could you )?(call|check)\\??",
+        "(no|not really)(,)? (i'?ll )?(just )?(try a different color)",
+        "(actually )?(do you have it )?(online)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Stok yok — başka mağaza sor veya online. Türk öğrenci 'OK' der pes. Aktif çözüm sor.",
+      ideal_response: "Yes please — could you check another store?",
+    },
+    {
+      id: "ex.ds18.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bu küçük geldi, daha büyüğünü getir.",
+      wrong_en: "This small, bring big.",
+      right_en: "This is a bit small — could you bring the next size up?",
+      why_tr:
+        "'This small' eksik 'is'. 'Bring big' emir + belirsiz. Doğru: 'a bit small' (yumuşatma) + 'next size up' (resmi terim).",
+    },
+    {
+      id: "ex.ds18.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'A bit snug' = ?",
+          options: [
+            "Biraz dar / sıkı.",
+            "Biraz büyük.",
+            "Biraz kötü.",
+            "Çok rahat.",
+          ],
+          correct: 0,
+          tr_explanation: "'Snug' = vücuda sarılı/dar (kısmen). 'Tight'tan daha hafif.",
+        },
+        {
+          q: "'Size up' = ?",
+          options: [
+            "Bir büyük beden al.",
+            "Beden büyüt.",
+            "Boy uzat.",
+            "Beden ölç.",
+          ],
+          correct: 0,
+          tr_explanation: "Mağaza terimi: 'size up' (bir büyük) vs 'size down' (bir küçük).",
+        },
+        {
+          q: "'Out of stock' = ?",
+          options: [
+            "Stokta yok.",
+            "Stokta çok.",
+            "Yeni stok.",
+            "Stok geldi.",
+          ],
+          correct: 0,
+          tr_explanation: "Stok bitti. 'We're out of X' yaygın kalıp.",
+        },
+        {
+          q: "'Check another store' niye akıllı?",
+          options: [
+            "Diğer şube'de olabilir.",
+            "Yorgunluk.",
+            "İstemek.",
+            "Reddetmek.",
+          ],
+          correct: 0,
+          tr_explanation: "Chain mağazalarda farklı şubeler farklı stok tutar.",
+        },
+        {
+          q: "Soyunma odası beden talep EN profesyonel?",
+          options: [
+            "Bring big!",
+            "This is a bit snug — could you bring the next size up?",
+            "Small no good.",
+            "Other size.",
+          ],
+          correct: 1,
+          tr_explanation: "Yumuşatma + kibar rica + 'next size up' resmi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1203,6 +1330,131 @@ export const dailyShoppingLesson_18_3: BundledLesson = {
         "Could I get the refund back to my original card, please?",
       tr_explanation:
         "'Money give me' = emir + grammatik degil. Doğru: 'Could I get' + spesifik (original card).",
+    },
+    {
+      id: "ex.ds18.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'd like to ___ this — ___ ___?",
+      slots: [
+        { accepted: ["return", "exchange", "refund"], distractors: ["give back", "money back", "take"] },
+        { accepted: ["it doesn't fit", "it's the wrong size", "I changed my mind"], distractors: ["bad", "wrong", "no good"] },
+        { accepted: ["here's the receipt", "do you take returns", "is that possible"], distractors: ["fast", "now", "OK"] },
+      ],
+      tr_hint:
+        "İade kalıbı. 'I'd like to return this — it doesn't fit'. Türk öğrenci 'money back' der — yanlış.",
+      example_filled: "I'd like to return this — it doesn't fit, here's the receipt.",
+    },
+    {
+      id: "ex.ds18.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course. Do you have your receipt with you?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i want) to (return|exchange) (this|these)",
+        "(it )?(doesn'?t fit|wrong size|changed my mind)",
+        "(could i )?(get a )?(refund|exchange)",
+        "(is it )?(possible to return|too late to return)\\??",
+      ],
+      tr_hint:
+        "İade talep. Net + kibar. Türk öğrenci 'money back' diyor — eksik. 'Return' kullan.",
+      ideal_answer: "Hi, I'd like to return this — it doesn't fit. Here's the receipt.",
+    },
+    {
+      id: "ex.ds18.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Would you like a refund or store credit?",
+      accepted_patterns: [
+        "(refund )?(to (my )?card)( please)?",
+        "(store credit )?(would be (great|fine))?",
+        "(which is faster )?(processing)\\??",
+        "(refund please)(,)? (back to (my )?original card)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "İki seçenek: nakit iade veya mağaza kredisi. NET karar ver. Türk öğrenci 'OK' der — bilemez.",
+      ideal_response: "Refund to my card, please — same card I used.",
+    },
+    {
+      id: "ex.ds18.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bunu iade etmek istiyorum, parayı geri ver.",
+      wrong_en: "I want return this, give money back.",
+      right_en: "I'd like to return this — could I get a refund?",
+      why_tr:
+        "'Want return' eksik 'to' (want to + verb). 'Give money back' emir + yanlış kalıp. Doğru: 'Could I get a refund?' = kibar.",
+    },
+    {
+      id: "ex.ds18.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Return' vs 'Exchange'?",
+          options: [
+            "Return = para iade; Exchange = farklı ürün.",
+            "Aynı şey.",
+            "Return = ürünü ver; Exchange = parayı al.",
+            "Hiç fark yok.",
+          ],
+          correct: 0,
+          tr_explanation: "Return = ürün geri + para iade. Exchange = ürün geri + başka ürün al.",
+        },
+        {
+          q: "'Store credit' nedir?",
+          options: [
+            "Mağaza kredisi (sadece o mağazada geçer).",
+            "Banka kredisi.",
+            "İndirim.",
+            "Hediye.",
+          ],
+          correct: 0,
+          tr_explanation: "Para iadesi yerine: 'store credit' = mağaza için harcanabilir bakiye.",
+        },
+        {
+          q: "'Original card' anlamı?",
+          options: [
+            "Ödediğin orijinal kart.",
+            "Eski kart.",
+            "Ana kart.",
+            "Yeni kart.",
+          ],
+          correct: 0,
+          tr_explanation: "İade ödediğin karta gelir. 'Original card' = ödeme kartı.",
+        },
+        {
+          q: "'Receipt' = ?",
+          options: [
+            "Fiş / makbuz.",
+            "Faturalı.",
+            "Fatura.",
+            "Para.",
+          ],
+          correct: 0,
+          tr_explanation: "Mağaza fişi. İade için genelde gerekli.",
+        },
+        {
+          q: "İade EN net?",
+          options: [
+            "Money back!",
+            "I'd like to return this — could I get a refund to my card?",
+            "Return!",
+            "Give money.",
+          ],
+          correct: 1,
+          tr_explanation: "Kibar + spesifik (refund + card) = profesyonel.",
+        },
+      ],
     },
   ],
 };
@@ -1547,6 +1799,131 @@ export const dailyShoppingLesson_18_4: BundledLesson = {
       tr_explanation:
         "'Discount me cheap' = emir + grammatik degil. Doğru: 'Any chance' + spesifik tip (first-time customer / promo).",
     },
+    {
+      id: "ex.ds18.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Is there any ___ ___ for ___?",
+      slots: [
+        { accepted: ["discount", "promotion", "deal"], distractors: ["cheap", "lower", "free"] },
+        { accepted: ["available", "running", ""], distractors: ["fast", "good", "yes"] },
+        { accepted: ["first-time customers", "students", "this item"], distractors: ["me", "more buying", "good people"] },
+      ],
+      tr_hint:
+        "İndirim sorma kalıbı. 'Any discount for first-time customers?' Türk öğrenci 'discount me' der — kabaca.",
+      example_filled: "Is there any discount for first-time customers?",
+    },
+    {
+      id: "ex.ds18.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "That'll be $89.99." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Actually yes — sign up for our email list for 10% off." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(any |is there any )?(discount|promo|deal) (running|available)\\??",
+        "(any )?(first.time|student|loyalty) discount\\??",
+        "(do you )?(price match|honor coupons)\\??",
+        "(any chance )?(of a discount)\\??",
+      ],
+      tr_hint:
+        "Kasada fiyat duydun — indirim sor. Türk öğrenci utangaç sustu — fırsat kayıp.",
+      ideal_answer: "Quick question — any first-time customer discount?",
+    },
+    {
+      id: "ex.ds18.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "If you sign up for our email list, you get 10% off today.",
+      accepted_patterns: [
+        "(sure|yes)(,)? (i'?ll sign up|count me in)",
+        "(what )?(do you )?(send|email)\\??",
+        "(could i )?(unsubscribe later)\\??",
+        "(perfect|love that)(,)? (sign me up)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Email kayıt = %10 indirim. Türk öğrenci 'no' der spam korkusundan. Kabul + 'unsubscribe later' düşün.",
+      ideal_response: "Sure — sign me up, I can unsubscribe later.",
+    },
+    {
+      id: "ex.ds18.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "İndirim var mı bana?",
+      wrong_en: "Discount for me?",
+      right_en: "Is there any discount available today?",
+      why_tr:
+        "'Discount for me' eksik fiil + kişiselleşmiş = kabaca. Doğru: 'Is there any discount?' = genel soru.",
+    },
+    {
+      id: "ex.ds18.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Promo running' anlamı?",
+          options: [
+            "Aktif promosyon (devam eden).",
+            "Hızlı promosyon.",
+            "Yeni promosyon.",
+            "Eski promosyon.",
+          ],
+          correct: 0,
+          tr_explanation: "'Running' burada = devam ediyor. 'Promo running' = aktif kampanya.",
+        },
+        {
+          q: "'Price match' nedir?",
+          options: [
+            "Rakibin fiyatına eşitleme.",
+            "Fiyat artırma.",
+            "Yeni fiyat.",
+            "Fiyat etiketi.",
+          ],
+          correct: 0,
+          tr_explanation: "Bir başka mağazada daha ucuz görürsen, gösterirsen mağaza eşitler. ABD'de yaygın.",
+        },
+        {
+          q: "'Sign up for email list' = ?",
+          options: [
+            "E-posta listesine kayıt ol.",
+            "İmza at.",
+            "E-posta yaz.",
+            "Liste yap.",
+          ],
+          correct: 0,
+          tr_explanation: "Mağaza bültenine üye ol. Karşılığında indirim kuponu gelir.",
+        },
+        {
+          q: "'Quick question' niye iyi?",
+          options: [
+            "Kasada hızlı + nazik geçiş.",
+            "Hızlı soru.",
+            "Çabuk.",
+            "Anlamsız.",
+          ],
+          correct: 0,
+          tr_explanation: "Kasadaki sıra varsa: 'quick question' = uzatmayacağım sinyali.",
+        },
+        {
+          q: "İndirim sorma EN profesyonel?",
+          options: [
+            "Discount!",
+            "Quick question — any first-time customer discount?",
+            "Cheap me.",
+            "Less price.",
+          ],
+          correct: 1,
+          tr_explanation: "Yumuşatma + spesifik tip = etkili soru.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1853,6 +2230,129 @@ export const dailyShoppingLesson_18_5: BundledLesson = {
       ipa: "kʊd aɪ ɪksˈtʃeɪndʒ ðɪs fər ə ˈlɑːrdʒər saɪz",
       tr_hint:
         "'Exchange' vurgu ikinci hece: iks-CHEYNJ. 'For a' bağlanır → 'fəra'. Net polite kalip.",
+    },
+    {
+      id: "ex.ds18.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could I exchange this for a ___ ___?",
+      slots: [
+        { accepted: ["larger", "smaller", "different"], distractors: ["big", "small", "other"] },
+        { accepted: ["size", "color", "style"], distractors: ["one", "thing", "model"] },
+      ],
+      tr_hint:
+        "Değişim kalıbı. 'Could I exchange this for a larger size?' Türk öğrenci 'change for big' der — kabaca.",
+      example_filled: "Could I exchange this for a larger size?",
+    },
+    {
+      id: "ex.ds18.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — do you have the receipt and tags?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d like|could i) (exchange|swap) (this|these)",
+        "(this )?(doesn'?t fit|wrong size)",
+        "(could i )?(get a (different|larger|smaller))",
+      ],
+      tr_hint:
+        "Değişim talep. Türk öğrenci 'change' der — eksik. 'Exchange this for...' standart.",
+      ideal_answer: "I'd like to exchange this — it's too small.",
+    },
+    {
+      id: "ex.ds18.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "I see the tags are off. We can't accept this for exchange.",
+      accepted_patterns: [
+        "(oh|wait) — (i'?ve only tried it on)",
+        "(could i )?(speak to a manager)\\??",
+        "(any way )?(you could )?(make an exception)\\??",
+        "(what about )?(store credit)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Etiket çıktı = ret. Türk öğrenci 'OK' der pes. Aktif: manager iste veya store credit.",
+      ideal_response: "Oh — could you make an exception? I just tried it on once.",
+    },
+    {
+      id: "ex.ds18.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bu küçük geldi, büyük olanla değiştir.",
+      wrong_en: "This small, change big one.",
+      right_en: "This is too small — could I exchange it for a large?",
+      why_tr:
+        "'Change big' eksik kalıp. Doğru: 'exchange it for a large' = açık değişim terimi.",
+    },
+    {
+      id: "ex.ds18.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Exchange' = ?",
+          options: [
+            "Değiş tokuş.",
+            "Para.",
+            "Sat.",
+            "Al.",
+          ],
+          correct: 0,
+          tr_explanation: "Bir ürünü diğeriyle değiştir. Aynı fiyatta veya farkı öder.",
+        },
+        {
+          q: "'Make an exception' = ?",
+          options: [
+            "İstisna yap.",
+            "Hata yap.",
+            "Sıraya gir.",
+            "Reddet.",
+          ],
+          correct: 0,
+          tr_explanation: "Kuraldan istisna. 'Could you make an exception?' = nazik ricaa.",
+        },
+        {
+          q: "'Tags off' = ?",
+          options: [
+            "Etiket çıkarılmış (giyilmiş).",
+            "Etiket var.",
+            "Etiket yeni.",
+            "Etiket pahalı.",
+          ],
+          correct: 0,
+          tr_explanation: "Mağazalar 'tags on' (etiket takılı) iade kabul eder. Çıkmışsa zor.",
+        },
+        {
+          q: "'I've only tried it on' = ?",
+          options: [
+            "Sadece deniyorum (giymedim sokakta).",
+            "Birdaha denerim.",
+            "Denedim ve aldım.",
+            "Hiç denemedim.",
+          ],
+          correct: 0,
+          tr_explanation: "Present perfect: deneme yapıldı + halen yeni durum. Müşteri suçunu hafifletir.",
+        },
+        {
+          q: "Değişim red sonrası EN doğru tepki?",
+          options: [
+            "OK bye.",
+            "Could you make an exception? I just tried it on once.",
+            "Bad store!",
+            "OK.",
+          ],
+          correct: 1,
+          tr_explanation: "Nazik istisna ricaa + açıklama = sonuç değişebilir.",
+        },
+      ],
     },
   ],
 };
@@ -2161,6 +2661,132 @@ export const dailyShoppingLesson_18_6: BundledLesson = {
       tr_hint:
         "'Receipt' vurgu ikinci hece: rə-SEET ('p' SESSIZ!). Turklerin yaygin hatasi: 'reseept' DEGIL — 'rə-SEET'.",
     },
+    {
+      id: "ex.ds18.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Is there any way to ___ ___ ___ ___?",
+      slots: [
+        { accepted: ["return", "exchange", "process"], distractors: ["give", "take", "make"] },
+        { accepted: ["this", "this item"], distractors: ["one", "thing", "stuff"] },
+        { accepted: ["without", "with no"], distractors: ["no", "yes", "and"] },
+        { accepted: ["a receipt", "the receipt", "proof of purchase"], distractors: ["paper", "fis", "money"] },
+      ],
+      tr_hint:
+        "Receipt'siz iade kalıbı. 'Any way to return without a receipt?' Türk öğrenci 'no receipt OK?' der — kabaca.",
+      example_filled: "Is there any way to return this without a receipt?",
+    },
+    {
+      id: "ex.ds18.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi, how can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Hmm, without a receipt we can only offer store credit. Is that okay?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i want) to (return|exchange) (this|these)",
+        "(unfortunately|sadly) (i )?(don'?t have|lost) the receipt",
+        "(it was )?(a gift|gift)",
+        "(any way )?(you could|i could) (return|exchange) (it )?(without)\\??",
+      ],
+      tr_hint:
+        "Receipt'siz iade — dürüst + spesifik. 'I don't have the receipt, it was a gift'. Türk öğrenci direkt 'return' der — kayıp.",
+      ideal_answer: "I'd like to return this — unfortunately I don't have the receipt, it was a gift.",
+    },
+    {
+      id: "ex.ds18.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "We can offer store credit at the lowest sale price. Would that work?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (that works|fine)",
+        "(could you )?(check )?(the original price)\\??",
+        "(what would the )?(store credit )?be\\??",
+        "(thanks)(,)? (i'?ll take it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "En düşük satış fiyatı önerildi — kabul veya sor. Türk öğrenci 'OK' der — bilemez.",
+      ideal_response: "What would the store credit amount be?",
+    },
+    {
+      id: "ex.ds18.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Fiş yok, geri verebilir miyim?",
+      wrong_en: "No receipt, return possible?",
+      right_en: "Is there any way to return this without a receipt?",
+      why_tr:
+        "'No receipt return?' eksik kalıp. Doğru: 'any way to' + 'without' = standart soft soru.",
+    },
+    {
+      id: "ex.ds18.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Without a receipt' niye zor?",
+          options: [
+            "Satın alma kanıtı yok, suistimal riski.",
+            "Çünkü yaşlı.",
+            "Çünkü pahalı.",
+            "Çünkü eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Mağaza riskli görüyor. Tag'ler tutarsa belki store credit verir.",
+        },
+        {
+          q: "'It was a gift' iade için niye iyi?",
+          options: [
+            "Doğal sebep + makul (alıcı receipt yok).",
+            "Hediyeydi.",
+            "Yeni.",
+            "Pahalı.",
+          ],
+          correct: 0,
+          tr_explanation: "Hediye iade ABD'de yaygın. Mağaza esnek.",
+        },
+        {
+          q: "'Lowest sale price' = ?",
+          options: [
+            "En düşük satış fiyatı (geçmiş indirim).",
+            "İlk fiyat.",
+            "Yeni fiyat.",
+            "Etiket fiyatı.",
+          ],
+          correct: 0,
+          tr_explanation: "Receipt yoksa mağaza en düşük indirim fiyatından kredi verir.",
+        },
+        {
+          q: "'Proof of purchase' = ?",
+          options: [
+            "Satın alma kanıtı (receipt veya kart).",
+            "Mağaza kuralı.",
+            "İade kuralı.",
+            "Boş.",
+          ],
+          correct: 0,
+          tr_explanation: "Receipt'siz: kart işlemi de proof olarak gösterilebilir.",
+        },
+        {
+          q: "Receipt'siz iade EN profesyonel?",
+          options: [
+            "Return!",
+            "I'd like to return this — unfortunately I don't have the receipt.",
+            "No receipt OK?",
+            "Money back!",
+          ],
+          correct: 1,
+          tr_explanation: "Talep + dürüst gerekçe = personel anlayışlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2466,6 +3092,131 @@ export const dailyShoppingLesson_18_7: BundledLesson = {
       ipa: "aɪ doʊnt θɪŋk ðə ˈdɪskaʊnt əˈplaɪd",
       tr_hint:
         "'I don't think' = yumusatici (sucalama yok). 'Discount' vurgu ilk hece: DIS-kaunt. 'Applied' vurgu ikinci hece: ə-PLAID.",
+    },
+    {
+      id: "ex.ds18.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I don't think the ___ ___ — ___ ___.",
+      slots: [
+        { accepted: ["discount", "coupon", "promo code"], distractors: ["thing", "cheap", "money"] },
+        { accepted: ["applied", "kicked in", "registered"], distractors: ["worked", "happened", "is"] },
+        { accepted: ["could you take a look", "could you check"], distractors: ["fix it", "do it", "make"] },
+        { accepted: ["", "the receipt shows full price", ""], distractors: ["fast", "now", "OK"] },
+      ],
+      tr_hint:
+        "İndirim uygulanmadı kalıbı. 'I don't think the discount applied'. Türk öğrenci 'cheap price wrong!' der — kabaca.",
+      example_filled: "I don't think the discount applied — could you take a look?",
+    },
+    {
+      id: "ex.ds18.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Your total comes to $120." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh let me check — what was the discount?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(actually )?(i don'?t think) (the )?(discount|coupon) (applied|went through)",
+        "(the )?(price tag|shelf tag) said (it was )?(\\d+%? off|on sale)",
+        "(could you )?(double.check|recheck)",
+        "(my )?(coupon|promo code) (didn'?t register|hasn'?t kicked in)",
+      ],
+      tr_hint:
+        "Kasada yanlış fiyat — saygılı belirt. Türk öğrenci sustur — para kaybeder. 'I don't think' yumuşatma.",
+      ideal_answer: "Actually, I don't think the discount applied — the shelf tag said 30% off.",
+    },
+    {
+      id: "ex.ds18.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "You're right, the system didn't take the coupon. Let me fix that.",
+      accepted_patterns: [
+        "(thanks|appreciate it)(,)? (no problem|all good)",
+        "(no worries|of course)(,)? (just wanted to check)",
+        "(yes|please)(,)? (i was )?(confused)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hata kabul edildi — sıcak kapanış. 'No worries' suçlamayı azaltır. Türk öğrenci 'OK' der — soğuk.",
+      ideal_response: "No worries — thanks for fixing it!",
+    },
+    {
+      id: "ex.ds18.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bu fiyat yanlış!",
+      wrong_en: "This price wrong!",
+      right_en: "I don't think the discount applied — could you double-check?",
+      why_tr:
+        "'This price wrong!' suçlayıcı + emir. Doğru: 'I don't think...' = yumuşatma + 'could you double-check?' = kibar.",
+    },
+    {
+      id: "ex.ds18.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I don't think X applied' niye yumuşatıcı?",
+          options: [
+            "Suçlama değil, gözlem — kasiyer savunmaya geçmez.",
+            "Hızlı.",
+            "Resmî.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Müşteri sorumlu görünmez; sistem hatası ima eder. İlişki korunur.",
+        },
+        {
+          q: "'Shelf tag' = ?",
+          options: [
+            "Raf etiketi (fiyat).",
+            "Ürün ismi.",
+            "Marka.",
+            "Kişisel etiket.",
+          ],
+          correct: 0,
+          tr_explanation: "ABD mağazalarda fiyat raf altında etiketle. Bazen güncel değil.",
+        },
+        {
+          q: "'Double-check' = ?",
+          options: [
+            "İki kez kontrol et.",
+            "İkili çek.",
+            "İki kart.",
+            "İki numara.",
+          ],
+          correct: 0,
+          tr_explanation: "'Double-' = iki / yeniden. 'Double-check the math' = matematiği yeniden kontrol et.",
+        },
+        {
+          q: "'Kicked in' = ?",
+          options: [
+            "Çalışmaya başladı (sistem/indirim).",
+            "Tekme attı.",
+            "İçeri girdi.",
+            "Bitti.",
+          ],
+          correct: 0,
+          tr_explanation: "İdiyom: 'discount kicked in' = indirim aktif oldu. Yaygın kasada.",
+        },
+        {
+          q: "Yanlış fiyat EN profesyonel?",
+          options: [
+            "Wrong price!",
+            "I don't think the discount applied — could you double-check?",
+            "Cheaper!",
+            "Bad system.",
+          ],
+          correct: 1,
+          tr_explanation: "Yumuşatma + kibar rica = hızlı çözüm + ilişki korunur.",
+        },
+      ],
     },
   ],
 };
@@ -2773,6 +3524,129 @@ export const dailyShoppingLesson_18_8: BundledLesson = {
       ipa: "ɪkˈskjuːz mi wɛr wʊd aɪ faɪnd ðə sɒks",
       tr_hint:
         "'Excuse me' = standart acilis. 'Where would I find' = nazik soru kalibi (direkt 'where is' den daha kibar). Akici telaffuz.",
+    },
+    {
+      id: "ex.ds18.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Excuse me, where would I find the ___?",
+      slots: [
+        { accepted: ["socks", "milk", "running shoes", "vitamins"], distractors: ["sock thing", "fast", "good"] },
+      ],
+      tr_hint:
+        "Mağaza personeline yer sorma. 'Where would I find...' Türk öğrenci 'Where socks?' der — eksik.",
+      example_filled: "Excuse me, where would I find the socks?",
+    },
+    {
+      id: "ex.ds18.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi, can I help you find something?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — they're in aisle 5, on the left." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|please)(,)? (where would i find|where are) (the )?(\\w+)",
+        "(i'?m looking for|trying to find) (the )?(\\w+)",
+        "(do you have )?(any )?(\\w+) (in stock)\\??",
+        "(could you )?(point me to) (the )?(\\w+)\\??",
+      ],
+      tr_hint:
+        "Mağaza çalışanı yardım önerdi — net + kibar. Türk öğrenci utangaç sustur — kaybeder.",
+      ideal_answer: "Yes, where would I find the running shoes?",
+    },
+    {
+      id: "ex.ds18.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sorry, we're out of stock. Do you want a rain check?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (please|that'?d be great)",
+        "(what'?s a )?(rain check)\\??",
+        "(when would )?(it (come|come back) in stock)\\??",
+        "(could you )?(check another store)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Stokta yok — 'rain check' (sonra aynı fiyattan al) iste. Türk öğrenci 'OK' der — fırsat kaçar.",
+      ideal_response: "Yes please — when would it be back in stock?",
+    },
+    {
+      id: "ex.ds18.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Çoraplar nerede?",
+      wrong_en: "Where socks?",
+      right_en: "Excuse me, where would I find the socks?",
+      why_tr:
+        "'Where socks?' eksik yapı + kabaca. Doğru: 'Excuse me' (selam) + 'where would I find' (modal yumuşak) = nazik soru.",
+    },
+    {
+      id: "ex.ds18.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Where would I find X?' niye 'would'?",
+          options: [
+            "Modal yumuşak soru kalıbı.",
+            "Past tense.",
+            "Şart.",
+            "Future.",
+          ],
+          correct: 0,
+          tr_explanation: "'Where would I find' = nazik soru. 'Where is' kabul ama 'would' daha hospitable.",
+        },
+        {
+          q: "'Aisle' = ?",
+          options: [
+            "Mağaza koridoru.",
+            "Sıra.",
+            "Reyon.",
+            "Kasa.",
+          ],
+          correct: 0,
+          tr_explanation: "Mağaza içi koridorlar numaralandırılmış. 'Aisle 5' = 5. koridor.",
+        },
+        {
+          q: "'Rain check' ABD'de nedir?",
+          options: [
+            "Stokta yokken sonradan aynı fiyattan alma taahhüdü.",
+            "Yağmur kontrolü.",
+            "Kupon.",
+            "Hediye kartı.",
+          ],
+          correct: 0,
+          tr_explanation: "Sale ürün biterse mağaza 'rain check' verir. Sonra geldiğinde aynı fiyatta alırsın.",
+        },
+        {
+          q: "'Out of stock' karşıt?",
+          options: [
+            "In stock.",
+            "Sale.",
+            "New.",
+            "Old.",
+          ],
+          correct: 0,
+          tr_explanation: "'In stock' = bulunuyor. 'Out of stock' = stokta yok.",
+        },
+        {
+          q: "Mağaza çalışanına EN profesyonel?",
+          options: [
+            "Socks where?",
+            "Excuse me, where would I find the socks?",
+            "Need socks!",
+            "Sock?",
+          ],
+          correct: 1,
+          tr_explanation: "Selam + nazik soru = profesyonel.",
+        },
+      ],
     },
   ],
 };

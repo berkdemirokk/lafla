@@ -544,6 +544,143 @@ export const flirtRecoveryLesson_8_2: BundledLesson = {
       tr_explanation:
         "'Please forget me' = dramatik + soğuk. Doğru: 'drunk me' (espri ile sahiplen) + 'wipe from memory' (komik abartı) = hafifletip ilişkiyi koru.",
     },
+    {
+      id: "ex.frec8.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "Mortified at what ___ sent — please ___ from your ___.",
+      slots: [
+        { accepted: ["drunk me", "tipsy me", "midnight me", "exhausted me"] },
+        { accepted: ["wipe those texts", "scrub the screenshots", "delete those messages", "erase that conversation"] },
+        { accepted: ["memory", "phone", "mind", "feed"] },
+      ],
+      tr_hint:
+        "Sarhoş text recovery kalıbı — self-aware + komik. Türk öğrenci 'I'm sorry I was drunk' der; bu yumuşatmaz; 'drunk me' (espri ile sahiplen) = self-aware mizah.",
+      example_filled:
+        "Mortified at what drunk me sent — please wipe those texts from your memory.",
+    },
+    {
+      id: "ex.frec8.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "Lol I see the 11 messages from 2am — interesting." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Hahaha honestly kind of cute. No need to apologize." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(mortified|cringing|dying) (at|over) (what drunk me|those texts)",
+        "(drunk me|midnight me) (was|got) (.+)",
+        "(please|can you) (wipe|delete|scrub|erase) (.+)",
+        "(apologies|so sorry) for (.+)",
+        "(coffee|drinks) on me (this week|to make up)",
+      ],
+      tr_hint:
+        "Self-aware mizah + telafi. 'Mortified at drunk me — please wipe those from memory. Coffee on me this week?' tipi. Türk öğrenci ezikleşir; KENDİNLE DALGA GEÇ.",
+      ideal_answer:
+        "Mortified at what drunk me sent — please wipe those from memory. Coffee on me this week to apologize properly?",
+    },
+    {
+      id: "ex.frec8.2.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "Okay so the drunk texts — what was THAT about?",
+      accepted_patterns: [
+        "(honestly|truthfully) (drunk me|midnight me) (.+)",
+        "(no excuse|wouldn'?t blame you for) (.+)",
+        "(let me make it up|coffee on me)",
+        "(can you|will you) (wipe|scrub|delete) (.+)",
+        "(genuinely cringing|mortified)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Mahcup ama mizahlı sahiplen. 'Honestly drunk me was a different person — let me make it up with coffee?' tipi. Defansif olma; KABUL ET + ESPRI.",
+      ideal_response:
+        "Honestly drunk me was a different person. Let me make it up — coffee this week?",
+    },
+    {
+      id: "ex.frec8.2.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Çok içtim. Lütfen beni unut",
+      wrong_en: "I drank too much. Please forget me.",
+      right_en: "Mortified at what drunk me sent — please wipe those texts from your memory.",
+      why_tr:
+        "Türk öğrenci 'beni unut' kalıbını birebir çevirir = dramatik + sert + soğuk = ilişki biter. Modern dating: sarhoş text recovery = espri + sahiplen. 'Drunk me' (espri ile self-aware) + 'wipe from memory' (komik abartı) = hafifletip ilişkiyi koru.",
+    },
+    {
+      id: "ex.frec8.2.rq1",
+      type: "recall_quiz",
+      difficulty: 4,
+      cefr_band: "B2",
+      items: [
+        {
+          q: "Sarhoş text recovery'de en sağlıklı yaklaşım?",
+          options: [
+            "Yok say, hiç bahsetme",
+            "'Drunk me' espri ile sahiplen + telafi öner",
+            "'Forget me' dramatik özür",
+            "Suçlama",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Drunk me' = self-aware espri. Sahiplenmek + hafifletmek = ilişki korunur.",
+        },
+        {
+          q: "'Wipe from memory' niye etkili?",
+          options: [
+            "Yapısal yanlış",
+            "Komik abartı = ciddiyeti hafifletir",
+            "Çok formal",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Mizahlı abartı = ciddiyeti azaltır. Karşı taraf gülümser = drama olmaz.",
+        },
+        {
+          q: "'Mortified' anlamı?",
+          options: [
+            "Ölümcül",
+            "Aşırı utanmış / mahcup",
+            "Kızgın",
+            "Sıkıntılı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Mortified' = utançtan yere bakacak halde. Mizahlı abartı kalıbı.",
+        },
+        {
+          q: "'Drunk me' kalıbının fonksiyonu?",
+          options: [
+            "Sorumsuzluk",
+            "Self-aware espri: kendiyle dalga + hafifletme",
+            "Mazaret üretme",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Drunk me / future me / midnight me' = kendi içinde mizahlı dilimleme. Self-aware standardı.",
+        },
+        {
+          q: "Sarhoş text sonrası telafi şart mı?",
+          options: [
+            "Hayır, sadece özür",
+            "Evet — 'coffee on me' tarzı somut jest yardımcı",
+            "Hediye",
+            "Hiçbir şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Telafi jest'i = ciddi olduğunu göster. 'Coffee on me this week' = somut + casual.",
+        },
+      ],
+    },
   ],
 };
 
@@ -756,6 +893,142 @@ export const flirtRecoveryLesson_8_3: BundledLesson = {
       tr_explanation:
         "'Why you no write me?' = suçlayıcı + bozuk yapı. Doğru: 'Hey stranger' (sıcak) + kendi sessizliğini sahiplen + samimi soru.",
     },
+    {
+      id: "ex.frec8.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "Hey stranger — ___, sorry for the silence. ___?",
+      slots: [
+        { accepted: ["life got hectic on my end", "work has been brutal", "had a lot going on", "totally spaced out lately"] },
+        { accepted: ["How have you been", "Catch up soon", "Coffee this week", "What's new"] },
+      ],
+      tr_hint:
+        "Uzun sessizlik sonrası re-engagement: sıcak + sahiplen + spesifik soru. Türk öğrenci 'Why you didn't write?' der; bu suçlama; 'sorry for the silence' = sahiplenir.",
+      example_filled:
+        "Hey stranger — life got hectic on my end, sorry for the silence. How have you been?",
+    },
+    {
+      id: "ex.frec8.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "Hey stranger — was wondering if you fell off the planet." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Same — coffee Friday?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hahaha|lol)[,—-]? (almost did|kind of did)",
+        "(life got|work has been) (hectic|crazy|brutal)",
+        "(sorry|apologies) for (the silence|going dark|disappearing)",
+        "(would love to|let'?s) (catch up|grab coffee)",
+        "(missed you|been thinking about you)",
+      ],
+      tr_hint:
+        "Sessizliği sahiplenip pozitife döndür. 'Hahaha almost did — life got hectic. Missed you, coffee soon?' tipi. Defansif olma; SAHIPLEN.",
+      ideal_answer:
+        "Hahaha almost did — life got hectic, sorry for going dark. Coffee soon? Missed you.",
+    },
+    {
+      id: "ex.frec8.3.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "I thought you ghosted me — what's the story?",
+      accepted_patterns: [
+        "(accidental |unintentional )?ghosting",
+        "(life|work) (got in the way|exploded)",
+        "(never my intention|not on purpose)",
+        "(coffee|drinks) on me (this week|to make it up)",
+        "(missed you|been wanting to text)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Endişeyi gider + telafi öner. 'Accidental ghosting — life exploded, never on purpose. Coffee on me?' tipi. KABUL ET ama özür dilemekte boğulma.",
+      ideal_response:
+        "Accidental ghosting — life exploded, never on purpose. Coffee on me this week to make up?",
+    },
+    {
+      id: "ex.frec8.3.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Uzun zamandır yazışmıyoruz, niye yazmıyorsun?",
+      wrong_en: "Long time! Why you no write me?",
+      right_en: "Hey stranger — life got hectic on my end, sorry for the silence. How have you been?",
+      why_tr:
+        "Türk öğrenci 'niye yazmıyorsun' kalıbını birebir çevirir = suçlama + 'why you no write' yapısal yanlış (do-support eksik: 'why don't you write'). Doğru: 'Hey stranger' = sıcak + kendi sessizliğini SAHIPLEN ('sorry for the silence') + samimi soru ('how have you been?'). Karşı tarafı suçlama.",
+    },
+    {
+      id: "ex.frec8.3.rq1",
+      type: "recall_quiz",
+      difficulty: 4,
+      cefr_band: "B2",
+      items: [
+        {
+          q: "Uzun sessizlik sonrası re-engagement açılış?",
+          options: [
+            "'Why you no write me?' (suçlama)",
+            "'Hey stranger' + kendi sessizliğini sahiplen",
+            "Sessiz devam",
+            "Suçla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Hey stranger' = sıcak + casual. Kendi sessizliğini sahiplen = saygılı.",
+        },
+        {
+          q: "'Catch up' anlamı?",
+          options: [
+            "Yetiş",
+            "Hasret giderme / güncelle (sosyal)",
+            "Yakala",
+            "Kovala",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Catch up' = sosyal güncelleme. Re-engagement standart kalıbı.",
+        },
+        {
+          q: "'Ghosting' niye negatif?",
+          options: [
+            "Hayalet inancı",
+            "Sessizce kaybolma = saygısız + caring eksik sinyali",
+            "Yapısal yanlış",
+            "Eski terim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Ghosting' = açıklamasız kaybolma. Modern dating'te en çok eleştirilen davranış.",
+        },
+        {
+          q: "'Accidental ghosting' kalıbı:",
+          options: [
+            "İstemeden uzaklaşma — kasıtsız ifade",
+            "Kasıtlı ghosting",
+            "Yapısal yanlış",
+            "Mizah",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Accidental ghosting' = niyetli değildim sinyali. Mazeret değil, dürüst kabul.",
+        },
+        {
+          q: "Re-engagement'ta YAPILMAMASI gereken?",
+          options: [
+            "Sıcak açılış",
+            "Suçlamak (sen yazmıyorsun)",
+            "Telafi önermek",
+            "Spesifik soru",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Suçlama = savunmaya iter. Re-engagement = pozitif çerçeve + ileri görüş.",
+        },
+      ],
+    },
   ],
 };
 
@@ -927,6 +1200,142 @@ export const flirtRecoveryLesson_8_5: BundledLesson = {
       ipa: "ˈmɔːtɪfaɪd æt lɑːst naɪt kæn wi prɪˈtend ðæt ˈdɪdənt ˈhæpən",
       tr_hint:
         "'Mortified' = MOR-ti-fayd, 3 hece, dramatik vurgu birinci hecede. 'Pretend' yumusak, 'didn't' kisaltma. Hafif gulumseyerek soyle — utanci espriyle tasi.",
+    },
+    {
+      id: "ex.frec8.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Mortified at last night — ___ ___?",
+      slots: [
+        { accepted: ["can we", "could we", "can you", "want to"] },
+        { accepted: ["pretend that didn't happen", "wipe last night from memory", "do a hard reset", "start fresh"] },
+      ],
+      tr_hint:
+        "Sarhoş text ertesi sabah özür kalıbı — self-aware + reset isteme. Türk öğrenci 'Was wasted' diye övünür; bu olgunluk eksik; 'mortified' = utanır + 'sober me' tarafına pivot.",
+      example_filled:
+        "Mortified at last night — can we pretend that didn't happen?",
+    },
+    {
+      id: "ex.frec8.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hey morning — interesting messages last night lol." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sober you sounds way more chill — coffee?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(mortified|cringing|dying) (at|about) (last night|those texts)",
+        "(can we|could we) (pretend|act like) (that didn'?t happen|nothing happened)",
+        "(sober me|morning me) (is way|is so much) (more|chill|coherent)",
+        "(let me make|can we) (a fresh|fresh) (start|reset)",
+        "(coffee on me|drinks on me)[,—-]? (.+)",
+      ],
+      tr_hint:
+        "Self-aware mahcup + sober me'ye pivot. 'Mortified at last night — sober me is way more chill, coffee?' tipi. ALKOL'ü romantize etme; sorumluluğu al.",
+      ideal_answer:
+        "Mortified at last night — sober me is way more chill. Can we hard reset over coffee?",
+    },
+    {
+      id: "ex.frec8.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "So those 2am texts — wanna talk about that?",
+      accepted_patterns: [
+        "(honestly|truthfully) (cringing|dying) at (last night|those)",
+        "(sober me|day me|morning me) (is|would never)",
+        "(can we|let'?s) (pretend|act like|do a reset)",
+        "(no excuse|wouldn'?t do that sober)",
+        "(coffee|breakfast) (on me|to make up)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Self-aware + sober me pivot. 'Honestly cringing — sober me wouldn't have done that. Coffee to reset?' tipi. Esprileyici ama sorumluluk al.",
+      ideal_response:
+        "Honestly cringing — sober me wouldn't have spammed you. Coffee to reset?",
+    },
+    {
+      id: "ex.frec8.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Dün gece çok kafam iyiydi, çok eğlenceliydi",
+      wrong_en: "Last night I was so wasted, was very fun.",
+      right_en: "Mortified at last night — can we pretend that didn't happen?",
+      why_tr:
+        "Türk öğrenci 'kafam iyiydi + eğlenceliydi' kalıbını birebir çevirir = alcohol romantization + olgunluk eksik = red flag. 'Was wasted' = övünç tonu. Doğru: 'mortified' (utanır) + sober me'ye pivot = sorumluluk dilinde, olgun.",
+    },
+    {
+      id: "ex.frec8.5.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Sarhoş text ertesi sabah olgun yaklaşım?",
+          options: [
+            "'Was wasted lol' diye övün",
+            "'Mortified' + sober me'ye pivot",
+            "Yok say",
+            "Bahane uydur",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Mortified' = utancı kabul. Sober me'ye pivot = sorumluluk dilinde olgun.",
+        },
+        {
+          q: "'Hard reset' burada ne anlama gelir?",
+          options: [
+            "Bilgisayar sıfırlama",
+            "Sıfırdan başlama / temiz sayfa açma",
+            "Cihazı bozma",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Hard reset' = temiz başlangıç (sosyal mecaz). 'Let's hard reset over coffee' = bunu unutalım, sıfırdan.",
+        },
+        {
+          q: "Sarhoş text sonrası YAPILMAMASI gereken?",
+          options: [
+            "Espri + sahiplen",
+            "Alkolü romantize etmek + 'was wasted' diye övünme",
+            "Telafi öner",
+            "'Sober me' pivot",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Alkol övünç = olgunluk eksik. Modern dating + Apple App Store: alcohol promotion'a girme.",
+        },
+        {
+          q: "'Pretend that didn't happen' niye etkili?",
+          options: [
+            "Yalan",
+            "Karşı tarafa exit ramp = 'hatırlıyorum' demek zorunda kalmaz",
+            "Çok formal",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Karşı taraf 'hayır hatırlıyorum' demek zorunda kalmaz. Kibar exit ramp.",
+        },
+        {
+          q: "'Sober me' kalıbının fonksiyonu?",
+          options: [
+            "Bahane",
+            "İki versiyonun farkı = self-aware + reset",
+            "Yapısal",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sober me / drunk me' = self-aware dilimleme. Bahane DEĞİL; sorumluluk paylaşımı.",
+        },
+      ],
     },
   ],
 };
@@ -1101,6 +1510,142 @@ export const flirtRecoveryLesson_8_6: BundledLesson = {
       tr_hint:
         "'Owe you' bagli okun (ow-yoo), gunluk konusmada I dustu. 'Explanation' = eks-pluh-NAY-shun, 4 hece vurgu 3.'de. Sessiz/samimi ton — ozur agirligi tasiyici.",
     },
+    {
+      id: "ex.frec8.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "Owe you an explanation — ___. ___.",
+      slots: [
+        { accepted: ["got pulled into a tough month", "life took a hard turn", "had to focus on family stuff", "was processing a lot"] },
+        { accepted: ["No pressure to respond", "Totally get if you're done", "Just wanted you to know", "Doing better now"] },
+      ],
+      tr_hint:
+        "Ghost yaptıktan sonra geri dönüş kalıbı — sahiplen + sebep + baskısız. Türk öğrenci 'Sorry I was busy' der; bu generic; 'tough month' = somut + sahiplenir.",
+      example_filled:
+        "Owe you an explanation — got pulled into a tough month. No pressure to respond.",
+    },
+    {
+      id: "ex.frec8.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "Wow, look who's alive." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Appreciate the honesty — give me a sec." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(owe you|i owe you) (an explanation|the truth)",
+        "(got pulled into|life took|had to deal with) (.+)",
+        "(no pressure|totally get) (to respond|if you'?re done)",
+        "(was wrong|that wasn'?t fair),? (.+)",
+        "(forgive me|fully understand)",
+      ],
+      tr_hint:
+        "Ghost sonrası geri dönüş — sahiplen + somut sebep + sınırı bırak. 'Owe you an explanation — tough month, no excuse. No pressure to respond' tipi.",
+      ideal_answer:
+        "Owe you an explanation — got pulled into a tough month, no excuse. No pressure to respond.",
+    },
+    {
+      id: "ex.frec8.6.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "I needed an explanation back then. Why now?",
+      accepted_patterns: [
+        "(you'?re right|that'?s fair)[,—-]? (.+)",
+        "(processing|figuring out|managing) (something|a lot|family stuff)",
+        "(no excuse|wouldn'?t blame you)",
+        "(can'?t take|i can'?t take) it back",
+        "(just wanted you to know|wanted to set the record straight)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hatayı kabul + saygılı sebep. 'You're right — was processing family stuff, no excuse. Wanted you to know' tipi. Karşı tarafa yargılama hakkı tanı.",
+      ideal_response:
+        "You're right — was processing family stuff, no excuse. Just wanted you to know.",
+    },
+    {
+      id: "ex.frec8.6.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Üzgünüm meşguldüm, beni affet",
+      wrong_en: "Sorry I was busy. Forgive me.",
+      right_en: "Owe you an explanation — got pulled into a tough month. No pressure to respond.",
+      why_tr:
+        "Türk öğrenci 'meşguldüm + affet' kalıbını birebir çevirir = 'busy' generic bahane + 'forgive me' talep (affedilmeyi isteyemezsin, SUNARSIN). Doğru: 'owe you' (sahiplen) + somut sebep ('tough month') + 'no pressure' = saygı.",
+    },
+    {
+      id: "ex.frec8.6.rq1",
+      type: "recall_quiz",
+      difficulty: 4,
+      cefr_band: "B2",
+      items: [
+        {
+          q: "Ghost'tan geri dönüşte ne yapılır?",
+          options: [
+            "Sus, devam et",
+            "Sahiplen ('owe you an explanation') + somut sebep + baskısız",
+            "Suçla",
+            "Yalan söyle",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Owe you' = sahiplenme. Somut sebep = generic değil. 'No pressure' = saygı.",
+        },
+        {
+          q: "'Busy' bahanesi niye zayıf?",
+          options: [
+            "Yapısal yanlış",
+            "Herkesin bahanesi = inanılmaz",
+            "Çok formal",
+            "Yanlış kelime",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Busy' = generic. 'Pulled into a tough month' = somut + sahiplenir.",
+        },
+        {
+          q: "'No pressure to respond' niye olgun?",
+          options: [
+            "Baskı yok = karşı tarafa hayır deme alanı = saygı",
+            "Yapısal",
+            "Çok kibar",
+            "Anlamsız",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Affedilmeyi talep etmek yerine sunarsın. Karşı tarafa hayır deme alanı = olgunluk.",
+        },
+        {
+          q: "Karşı taraf 'forgive me?' isteyince ne deme?",
+          options: [
+            "'No pressure / fully get if you're done'",
+            "'You have to forgive me'",
+            "'Forget it'",
+            "Hiçbir şey",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Affedilmeyi sun, talep etme. 'Fully get if you're done' = olgun ret kabul.",
+        },
+        {
+          q: "Ghost'tan geri dönmek için ideal süre?",
+          options: [
+            "1 hafta sonra",
+            "Sebep çözüldüğünde, dürüst açıklama ile her zaman",
+            "1 ay sonra",
+            "Hiç",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Süre kuralı yok. Sahiplen + somut açıklama + baskısız = her zaman uygun.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1273,6 +1818,143 @@ export const flirtRecoveryLesson_8_7: BundledLesson = {
       tr_hint:
         "'Wasn't' = WUH-zunt, hizli. 'Meant for you' bagli (men-fər-yoo). 'Pretend' yumusak pi-TREND. Komik panik tonu — gulumseyerek kac.",
     },
+    {
+      id: "ex.frec8.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "That wasn't ___ for you — ___ ___?",
+      slots: [
+        { accepted: ["meant", "intended", "supposed to be sent"] },
+        { accepted: ["pretend you didn't see that", "can we please erase", "let's just delete"] },
+        { accepted: ["please", "okay", "deal", "ahaha"] },
+      ],
+      tr_hint:
+        "Yanlış kişiye text recovery kalıbı — komik panik + exit ramp. Türk öğrenci dramatik özür diler; bunun yerine espriyle hızla kaç.",
+      example_filled:
+        "That wasn't meant for you — pretend you didn't see that, please?",
+    },
+    {
+      id: "ex.frec8.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Lol, 'sorry I'm so late for work tomorrow' — that for me?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Hahaha consider it forgotten. Have a good night." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(omg|oh no|lol)[,—-]? (that|those)",
+        "(wasn'?t |not )meant for you",
+        "(pretend|act like) you (didn'?t see|never saw)",
+        "(can you|please)[,—-]? (delete|erase|wipe)",
+        "(meant for |sent to wrong person)",
+      ],
+      tr_hint:
+        "Yanlış kişiye text — komik panik + exit ramp. 'Omg that wasn't meant for you — pretend you didn't see that?' tipi. Dramatik özür yapma; gülümse.",
+      ideal_answer:
+        "Omg, that wasn't meant for you — pretend you didn't see that?",
+    },
+    {
+      id: "ex.frec8.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Wait, I got a text about your boss being annoying — was that for me?",
+      accepted_patterns: [
+        "(haha|lol|omg)[,—-]? (no|absolutely not)",
+        "(meant for|was for) (my friend|my mom|someone else)",
+        "(pretend|act like) (you didn'?t see|nothing happened)",
+        "(consider it deleted|deleted from my brain)",
+        "(typing fast|moving fast),? (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hafif panik + exit ramp + espri. 'Haha no — meant for my friend! Pretend you didn't see that' tipi. Drama yok; gülümseyerek geç.",
+      ideal_response:
+        "Haha no — meant for my friend! Pretend you didn't see that?",
+    },
+    {
+      id: "ex.frec8.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Aman tanrım yanlış kişiye gönderdim, çok özür dilerim",
+      wrong_en: "Oh my god wrong person, I am very very sorry.",
+      right_en: "That wasn't meant for you — pretend you didn't see that?",
+      why_tr:
+        "Türk öğrenci dramatik özür + 'very very sorry' diye çevirir = panik amplifiye eder + ciddiyet katar. Modern: espriyle hızla kapat. 'Pretend you didn't see' = sosyal sözleşme + exit ramp. Karşı taraf gülümser, drama olmaz.",
+    },
+    {
+      id: "ex.frec8.7.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Yanlış kişiye text recovery'de en olgun yaklaşım?",
+          options: [
+            "Dramatik özür + 'very very sorry'",
+            "Hafif espri + exit ramp ('pretend you didn't see')",
+            "Sus + yok say",
+            "Karşı tarafı suçla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Drama amplifiye. 'Pretend you didn't see' = sosyal sözleşme = kimse zorlanmaz.",
+        },
+        {
+          q: "'Pretend you didn't see that' niye güçlü?",
+          options: [
+            "Karşı tarafa exit ramp = kimse zorlanmaz",
+            "Saldırgan",
+            "Yapısal",
+            "Resmi",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Karşı taraf gülümser veya sessiz devam edebilir — sosyal sözleşme.",
+        },
+        {
+          q: "Drama yapmamak niye önemli?",
+          options: [
+            "Çok dikkat çeker, basit hatayı büyütür",
+            "Yapısal",
+            "Çok kibar",
+            "Yanlış",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Küçük hatayı büyütme. 'Lol wasn't for you' = küçük + komik.",
+        },
+        {
+          q: "Türk hatası: 'very very sorry':",
+          options: [
+            "Resmi olduğu için iyi",
+            "Abartı + ciddiyet ekler = drama büyütür",
+            "Yapısal",
+            "Doğru",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Very very' = drama amplifiye. 'Pretend you didn't see' = hafif + sosyal.",
+        },
+        {
+          q: "Yanlış kişiye gönderildiği SUMMARYNDE en iyi davranış?",
+          options: [
+            "Sahiplen + espri + dikkati hızla başka şeye çevir",
+            "Tekrar tekrar özür",
+            "Yok say",
+            "Sus",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Sahiplen + espri + 'how was your day?' gibi konu değiştir = hızlı geçiş.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1444,6 +2126,142 @@ export const flirtRecoveryLesson_8_8: BundledLesson = {
       ipa: "ðæt ɪˈməʊdʒi ˈlændɪd wɪəd let mi traɪ ðæt əˈɡen",
       tr_hint:
         "'Emoji' = i-MOH-jee, 3 hece, vurgu 2. hecede. 'Landed' kisa LAN-did. 'Weird' tek hece, uzun /iːə/. Hafif gulumseyerek soyle — garipligi sahiplenip espri kat.",
+    },
+    {
+      id: "ex.frec8.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "That emoji ___ — let me ___.",
+      slots: [
+        { accepted: ["landed weird", "got auto-corrected", "wasn't what I meant", "betrayed me"] },
+        { accepted: ["try that again", "say it in words", "explain what I meant", "redo that"] },
+      ],
+      tr_hint:
+        "Emoji hata recovery kalıbı — sahiplen + niyeti sözle açıkla. Türk öğrenci 'Sorry wrong emoji' der; bu yetersiz; SPESIFIK niyet açıkla.",
+      example_filled:
+        "That emoji landed weird — let me try that again.",
+    },
+    {
+      id: "ex.frec8.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Lol that eggplant emoji — what was that?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Hahaha okay redemption arc accepted." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(omg|lol|haha)[,—-]? (that|that one)",
+        "(thumbs betrayed me|autocomplete betrayed me)",
+        "(landed weird|wasn'?t what i meant|came out wrong)",
+        "(what i meant was|i meant to say)",
+        "(let me try|let me redo)",
+      ],
+      tr_hint:
+        "Emoji gaffe — mizah + niyet açıklama. 'Lol my thumbs betrayed me — what I meant was: looking forward to coffee' tipi. Espri = utancı cazibeye çevirir.",
+      ideal_answer:
+        "Lol my thumbs betrayed me — what I meant was: I'm looking forward to coffee.",
+    },
+    {
+      id: "ex.frec8.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "That smirk emoji — what should I read into that?",
+      accepted_patterns: [
+        "(omg|haha) (let me|i should)",
+        "(say it in words|use words)",
+        "(landed weird|wasn'?t what i meant|came out wrong)",
+        "(what i meant)[,—-]? (.+)",
+        "(i'?ll be clearer|let me be clearer)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Emoji yanlış anlaşıldı — sözle açıkla. 'Haha let me say it in words: I'm just excited to see you Friday' tipi. Belirsiz emoji yerine SPESIFIK kelime.",
+      ideal_response:
+        "Haha let me say it in words — I'm just excited to see you Friday. No mystery.",
+    },
+    {
+      id: "ex.frec8.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Pardon yanlış emoji",
+      wrong_en: "Sorry wrong emoji.",
+      right_en: "That emoji landed weird — let me try that again.",
+      why_tr:
+        "Türk öğrenci 'pardon yanlış' kalıbını birebir çevirir = jenerik + niyet açıklamaz. Doğru: hata sahiplen + niyeti sözle aç. 'Landed weird' = self-aware mizah; 'let me try again' = düzeltme.",
+    },
+    {
+      id: "ex.frec8.8.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Emoji gaffe recovery yaklaşımı?",
+          options: [
+            "'Sorry wrong emoji' (generic)",
+            "Sahiplen + 'let me say it in words' (niyet açıkla)",
+            "Sus",
+            "Sürekli emoji at",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Sözle açıklama = belirsizlik kapanır. Emoji'de yanlış anlama riski yüksek.",
+        },
+        {
+          q: "'Thumbs betrayed me' kalıbı:",
+          options: [
+            "Yapısal yanlış",
+            "Self-aware mizah — utancı cazibeye çevirir",
+            "Tahkir",
+            "Çok formal",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Thumbs betrayed me' = parmaklarım ihanet etti = mizah. Utancı hafifleştirir.",
+        },
+        {
+          q: "Reset sonrası ne yapılır?",
+          options: [
+            "Daha çok emoji",
+            "Sözle gerçek niyeti söyle = netlik + samimiyet",
+            "Konu değiştir",
+            "Yine özür",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'What I meant was...' = niyeti söze çevir, belirsizliği kapat.",
+        },
+        {
+          q: "Karşı taraf emoji'yi yanlış yorumlarsa?",
+          options: [
+            "Sus",
+            "Komik mizahla düzelt + sözle açıkla",
+            "Suçla",
+            "Aynı emoji'yi tekrar at",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Sözle açıkla. Emoji ile düzeltme = daha çok belirsizlik.",
+        },
+        {
+          q: "'Landed weird' burada anlamı?",
+          options: [
+            "Yere indi",
+            "Garip karşılandı, garip etki yaptı",
+            "Düşmek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'X landed weird' = X garip karşılandı/yorumlandı. Sosyal-aware ifade.",
+        },
+      ],
     },
   ],
 };

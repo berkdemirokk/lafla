@@ -686,6 +686,143 @@ export const flirtDateLesson_4_2: BundledLesson = {
       tr_explanation:
         "'You come restaurant' = komut + bozuk. 'I pay everything' = transactional power-play. Doğru: soru + spesifik fikir (onun bahsettigi yer = dinledim sinyali) + 'happy to' (kolaylik teklif, baskinlik degil).",
     },
+    {
+      id: "ex.fd4.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I know this little ___ place that does ___ — ___?",
+      slots: [
+        { accepted: ["Italian", "Thai", "Mexican", "sushi", "Mediterranean"] },
+        { accepted: ["ridiculous pasta", "amazing tacos", "the best ramen", "homemade pizza", "small plates"] },
+        { accepted: ["Friday night", "Saturday", "tomorrow", "this week", "Sunday brunch"] },
+      ],
+      tr_hint:
+        "Dinner teklif kalıbı: 'I know this little X place' = personal + sahiplenme. Türk öğrenci 'I want to take you to a restaurant' der; bu robotik; 'I know this little place' samimi + canlı.",
+      example_filled:
+        "I know this little Italian place that does ridiculous pasta — Friday night?",
+    },
+    {
+      id: "ex.fd4.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Coffee was fun — what's the move?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Friday Italian sounds amazing — I'll be hungry by then." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(want to|wanna|down to) (grab |get )?(dinner|drinks)",
+        "(round 2|next time|second round)[,—-]? (.+)",
+        "(i know|there'?s) (this )?(little |cool |amazing )?(place|spot|restaurant)",
+        "(dinner|drinks) (this |next )?(friday|saturday|sunday|night)",
+        "(thinking|leaning toward) (italian|thai|sushi|mexican|tapas)",
+      ],
+      tr_hint:
+        "İkinci randevu öner — spesifik yer + spesifik gün. 'Round 2 — Italian Friday? I know this little place' tipi. Türk öğrenci 'Let's meet again' der; bunun yerine SPESİFİK ol.",
+      ideal_answer:
+        "Round 2 — Italian Friday? I know this little place that does ridiculous pasta.",
+    },
+    {
+      id: "ex.fd4.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sounds great — should we meet there or grab a drink first?",
+      accepted_patterns: [
+        "(drink |drinks )?first (sounds|would be) (good|great)",
+        "(let'?s |we can )?(meet|see each other) (at the place|there)",
+        "(yeah|sure)[,—-]? (a quick )?(drink|cocktail) first",
+        "(easy|good) either way",
+        "(grab|get) a (drink|cocktail) (first|beforehand)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Plan netleştir. 'Drinks first — that wine bar by the river' tipi. Tek kelimeli 'okay' YETMEZ; spesifik öneri ekle.",
+      ideal_response:
+        "Drinks first sounds perfect — that wine bar by the river? Then dinner.",
+    },
+    {
+      id: "ex.fd4.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Yarın benimle restorana gel. Her şeyi ben öderim",
+      wrong_en: "Tomorrow you come restaurant with me. I pay everything.",
+      right_en: "Free for dinner Friday? Thinking that wine bar you mentioned — happy to grab the reservation.",
+      why_tr:
+        "Türk öğrenci 'gel + öderim' kalıbını birebir çevirir = komut + transactional power-play = creepy. 'I pay everything' büyük red flag (modern dating splits or alternates). 'Happy to grab the reservation' = kolaylık teklif (baskınlık değil). 'You come restaurant' yapısal yanlış.",
+    },
+    {
+      id: "ex.fd4.2.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Dinner date'in coffee'den avantajı?",
+          options: [
+            "Daha ucuz",
+            "Daha uzun + romantic vibe + atmosfer",
+            "Daha hızlı",
+            "Karşı tarafı zorlamaz",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Dinner = 2-3 saat + masa düzeni + atmosfer. Coffee'nin doğal devamı.",
+        },
+        {
+          q: "'I know this little place' niye etkili?",
+          options: [
+            "Mütevazı görünür",
+            "Personal + sahiplenme + sıcak çağrışım",
+            "İndirim ima eder",
+            "İsim ezberlemeye gerek yok",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'This little place' = bir köşeni paylaşıyorsun = samimi.",
+        },
+        {
+          q: "Restoran teklifinde en doğal kalıp?",
+          options: [
+            "Eat with me",
+            "Want to grab dinner?",
+            "Food please together",
+            "Restaurant come",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Want to grab dinner' = casual + saygılı. Modern dating standartı.",
+        },
+        {
+          q: "'I pay everything' niye red flag?",
+          options: [
+            "Yapısal yanlış (the everything)",
+            "Modern dating'te transactional + güç dengesini bozar",
+            "Çok kibirli",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Modern dating = ödemeler bölünür veya sıraya konur. 'I pay everything' = transactional power play. 'Happy to grab the reservation' yeterli.",
+        },
+        {
+          q: "'Save you the menu anxiety' anlamı?",
+          options: [
+            "Menü sıkıntısından koru",
+            "Sana menü anksiyetesi yaratmadan yer seçme jest'i",
+            "Menüyü sakla",
+            "Anksiyete varsa söyle",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Save you the menu anxiety' = 'sen düşünme, yer ben seçeyim' jest'i. Self-aware mizahla casual liderlik.",
+        },
+      ],
+    },
   ],
 };
 
@@ -902,6 +1039,143 @@ export const flirtDateLesson_4_3: BundledLesson = {
         "Down for that photo exhibit Saturday? Closes Sunday — figured it could be fun together.",
       tr_explanation:
         "'We go museum' = komut + bozuk. 'I don't care' = saygisiz. Doğru: davet + neden ('closes Sunday' aciliyet) + 'together' (paylasim vurgu). Activity date'in özü ortak deneyim — dayatma degil.",
+    },
+    {
+      id: "ex.fd4.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Down for ___ ___? ___.",
+      slots: [
+        { accepted: ["a walk through the market", "that photo exhibit", "a hike", "the rooftop jazz", "the comedy show"] },
+        { accepted: ["Saturday", "Sunday morning", "this weekend", "tomorrow"] },
+        { accepted: ["Forecast looks great", "Closes Sunday", "Heard it's amazing", "Could make a morning of it"] },
+      ],
+      tr_hint:
+        "Activity randevu kalıbı: davet + zaman + motivator (neden). Türk öğrenci 'Let's go museum' der; bunun yerine 'Down for that exhibit Saturday? Closes Sunday' = aciliyet + casual.",
+      example_filled:
+        "Down for a walk through the market Saturday? Forecast looks great.",
+    },
+    {
+      id: "ex.fd4.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "I'm getting tired of coffee dates honestly — any creative ideas?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh I love that — yes please." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(down for|up for|interested in) (something|a) (different|fun|new)",
+        "(there'?s|i know about|saw) (this |a )?(exhibit|show|market|festival)",
+        "(want to|wanna|should we) (hit|check out|go to|do) (.+)",
+        "(rooftop|jazz|comedy|farmers market|botanical garden|exhibit)",
+        "(make a |we'?ll make a )(morning|day|night) of it",
+      ],
+      tr_hint:
+        "Yaratıcı + spesifik activity öner. 'Down for that rooftop jazz thing Saturday? Make a night of it' tipi. 'Yet another coffee' = sıkıcı; FARKLI yer/etkinlik bul.",
+      ideal_answer:
+        "Down for that rooftop jazz thing Saturday? We could make a night of it.",
+    },
+    {
+      id: "ex.fd4.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sounds fun! What time were you thinking?",
+      accepted_patterns: [
+        "(saturday|sunday) (morning|afternoon|evening)",
+        "(\\d+am|\\d+ am|\\d+ ?pm)",
+        "(around|like) (11|12|1|2|3|6|7|8)",
+        "(meet there|meet me there)",
+        "(grab|get) (coffee|food) (first|after)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik saat + lojistik. 'Saturday 11am — meet at the entrance, brunch after?' tipi. 'Whenever' deme; SPESİFİK ol.",
+      ideal_response:
+        "Saturday 11am — meet at the entrance? Brunch after if we're hungry.",
+    },
+    {
+      id: "ex.fd4.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Cumartesi müzeye gidiyoruz. Hoşuna gidiyor mu gitmiyor mu, fark etmez",
+      wrong_en: "Saturday we go museum. You like museum or not, I dont care.",
+      right_en: "Down for that photo exhibit Saturday? Closes Sunday — figured it could be fun together.",
+      why_tr:
+        "Türk öğrenci 'gidiyoruz + fark etmez' kalıbını birebir çevirir = komut + saygısız + bozuk. 'We go museum' yapısal hata. 'I don't care' direkt çevrilince saygısız hisse yol açar. Doğru: davet (Down for) + sebep (closes Sunday = aciliyet) + ortaklık (together).",
+    },
+    {
+      id: "ex.fd4.3.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Activity date'in avantajı?",
+          options: [
+            "Hızlı",
+            "Memorable + paylaşılan deneyim + sohbet ihtiyacı azalır",
+            "Ucuz",
+            "Karşı tarafı korkutur",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Birlikte deneyim = doğal sohbet konusu + 'ilk' kategorisinde anı.",
+        },
+        {
+          q: "'Down for [X]?' anlamı?",
+          options: [
+            "Aşağı düş",
+            "X'e var mısın (rahat teklif)",
+            "X'i kaybet",
+            "X için aşağı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Down for' = razı mısın. Modern casual standart.",
+        },
+        {
+          q: "Activity önerirken en iyi ekstra detay?",
+          options: [
+            "Para",
+            "Yer + zaman + motivator (forecast/kapanıyor)",
+            "Süre tahmini",
+            "Geçmiş randevu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Closes this weekend' = aciliyet. 'Forecast looks perfect' = motivator. EVET demeyi kolaylaştırır.",
+        },
+        {
+          q: "'Make a morning of it' anlamı?",
+          options: [
+            "Sabah yapmak",
+            "Sabahı uzatıp ortak etkinlik yapmak",
+            "Sabahı bitirmek",
+            "Sabah kalkmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Make a morning/night/day of it' = sadece tek aktivite değil, sabahı/günü uzatıp komple program. Activity-stack yaklaşımı.",
+        },
+        {
+          q: "'Hit the exhibit' burada ne anlama gelir?",
+          options: [
+            "Sergiye vurmak (literal)",
+            "Sergiye casual olarak uğramak",
+            "Sergiyi geçmek",
+            "Sergiyi atlamak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Hit X' = casual 'gitmek/uğramak'. 'Let's hit the market' = pazara uğrayalım.",
+        },
+      ],
     },
   ],
 };
@@ -1123,6 +1397,142 @@ export const flirtDateLesson_4_4: BundledLesson = {
       tr_explanation:
         "'Why we don't meet ever' = pasif-saldirgan + ezikçe. 'You don't want me probably' = guvensizlik gosterisi = unmatch tetigi. Doğru: pozitif framing + somut teklif. Modern dating'te ozguven = guvenli baglilik sinyali.",
     },
+    {
+      id: "ex.fd4.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "We've been ___ a while — should we just ___?",
+      slots: [
+        { accepted: ["chatting", "texting", "going back and forth", "messaging"] },
+        { accepted: ["meet", "grab coffee", "do this in person", "take this offline"] },
+      ],
+      tr_hint:
+        "Pen-pal fazından çıkma kalıbı. Türk öğrenci 'Why don't we meet?' der; bu pasif-saldırgan. 'We've been chatting a while — should we just meet?' kararlı + pozitif.",
+      example_filled:
+        "We've been chatting a while — should we just meet?",
+    },
+    {
+      id: "ex.fd4.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Loving this convo honestly — what's your week look like?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Yes please — Friday works for me." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(want to|wanna|should we) (take this|move this) offline",
+        "(better way|easier|less effort) (to|than) (text|do this)",
+        "(we'?ve been|been) (chatting|texting) (a while|for days)",
+        "(should we|let'?s) just (meet|grab coffee)",
+        "(coffee|drinks) (this )?(thursday|friday|weekend)",
+      ],
+      tr_hint:
+        "Momentum kazandığı an: gerçek hayata çevir. 'Same — let's skip the text marathon. Coffee Friday?' tipi. Türk öğrenci 'My week is busy' diye savunur; bunun yerine TEKLİF et.",
+      ideal_answer:
+        "Same — let's skip the text marathon. Coffee Friday work for you?",
+    },
+    {
+      id: "ex.fd4.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Wait, are you saying we should just meet up already?",
+      accepted_patterns: [
+        "(yes|yeah|that'?s|exactly what)",
+        "(text|chat) marathon (is real|gets old|kills it)",
+        "(better in person|easier face to face)",
+        "(saturday|friday|this week|tomorrow) (works|good for me|open)",
+        "(let me know|tell me) (what works|what day)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Olgun bir 'evet' ver — spesifik gün ekle. 'Yeah — text marathon is real, let's just grab coffee. Saturday?' tipi. Türk öğrenci 'maybe' der; KARARLI ol.",
+      ideal_response:
+        "Yes — text marathon gets old. Saturday morning coffee?",
+    },
+    {
+      id: "ex.fd4.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Niye hiç buluşmuyoruz? Beni istemiyorsundur herhalde",
+      wrong_en: "Why we don't meet ever? You don't want me probably.",
+      right_en: "We've been chatting a while — better in person, right? Free for coffee this week?",
+      why_tr:
+        "Türk öğrenci 'niye + beni istemiyorsundur' kalıbını birebir çevirir = pasif-saldırgan + güvensizlik gösterisi = unmatch tetiği. 'Why we don't meet' yapısal yanlış (should be 'Why don't we meet'). Doğru: pozitif framing + somut teklif. Modern dating: özgüven = güvenli bağlılık.",
+    },
+    {
+      id: "ex.fd4.4.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Match sonrası yazışma için ideal süre?",
+          options: [
+            "Sınırsız",
+            "1-2 hafta — sonra momentum kaybolur",
+            "1 ay",
+            "Önemli değil",
+          ],
+          correct: 1,
+          tr_explanation:
+            "1-2 hafta sonra momentum azalır + 'pen pal' hissi. Doğrudan teklif daha iyi.",
+        },
+        {
+          q: "'Take this offline' anlamı?",
+          options: [
+            "Uygulamadan sil",
+            "Uygulamadan çık + yüz yüze görüş",
+            "İnterneti kes",
+            "Sessize al",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Offline' = app dışı. Modern dating: 'meet in real life'.",
+        },
+        {
+          q: "App'te aşırı uzun yazışma niye riskli?",
+          options: [
+            "Para kaybı",
+            "İdeal versiyon hayal eder = gerçek buluşma hayal kırıklığı",
+            "Telefon ısınır",
+            "App banlar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Çok yazışma = ideal hayal. Gerçek buluşma o ideal'i karşılayamaz.",
+        },
+        {
+          q: "'Pen-pal phase' ne demek?",
+          options: [
+            "Mektupla yazışma",
+            "Uzun süre sadece yazışıp buluşmama (negatif)",
+            "Kalemle yazmak",
+            "Arkadaş fazı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Pen-pal phase' = mektup arkadaşı = sadece yazışma, gerçek hayatta görüşmeme. Modern dating'te kaçınılması gereken faz.",
+        },
+        {
+          q: "'Better in person, right?' niye etkili?",
+          options: [
+            "Karşı taraftan onay alır + olgun + pozitif framing",
+            "Suçlama içerir",
+            "Çok resmi",
+            "Yapısal yanlış",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Doğrudan + olgun. Karşı tarafın onayını isteyen kibar bir öneri. 'Right?' = ortaklık daveti.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1312,6 +1722,142 @@ export const flirtDateLesson_4_5: BundledLesson = {
       tr_hint:
         "Sessizlik kırma tonu — rahat, meraklı, hafif yukarı çıkış. 'Random one' bağli, 'weirdly into' tek nefes — komedi vurgu.",
     },
+    {
+      id: "ex.fd4.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Random ___ for you — ___?",
+      slots: [
+        { accepted: ["question", "thought", "one", "topic"] },
+        { accepted: ["what's the last thing that made you laugh", "what's something you've gotten weirdly into lately", "do you have a hot take", "what's the weirdest thing in your fridge"] },
+      ],
+      tr_hint:
+        "Sessizlik kırma kalıbı: 'Random question for you...' = doğal geçiş. Türk öğrenci 'I forgot what to say' der; bu paniği gösterir; soruya geç.",
+      example_filled:
+        "Random question for you — what's the last thing that genuinely made you laugh?",
+    },
+    {
+      id: "ex.fd4.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "..." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh that's a great question — okay let me think." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(okay |so )?random (question|one|thought)",
+        "(that|this) reminds me of (something|a thing)",
+        "(quick |honest )?(question|topic) (for you|switch)",
+        "(switching gears|new topic)[,—-]? (.+)",
+        "(what'?s|tell me) (the )?(weirdest|last|most random) (.+)",
+      ],
+      tr_hint:
+        "Sessizlik kırıldı — yeni topic aç. 'Okay random one — what's something you've recently gotten weirdly into?' tipi. Sessizliği KABUL ETME ('I forgot what to say' deme); doğal geçişle yeni konu.",
+      ideal_answer:
+        "Okay random one — what's something you've recently gotten weirdly into?",
+    },
+    {
+      id: "ex.fd4.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Oh sorry — I spaced out for a sec. What were you saying?",
+      accepted_patterns: [
+        "(no worries|all good)[,—-]? (i was )?(also |just )(.+)",
+        "(honestly|nothing important)[,—-]? (.+)",
+        "(switching gears|let'?s switch),? (.+)",
+        "(actually|wait),? (.+) (just|just thought of|came to mind)",
+        "(let'?s pretend|let'?s say) (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sessizliği oyuna çevir. 'No worries — also spaced. Switching gears: hot take, pineapple on pizza?' tipi. Türk öğrenci 'Sorry I forgot' der; bu paniği büyütür; sakin kal.",
+      ideal_response:
+        "No worries — also spaced. Random one: what's the weirdest thing in your fridge right now?",
+    },
+    {
+      id: "ex.fd4.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Aklım boşaldı, ne diyeceğimi bilmiyorum",
+      wrong_en: "My head is empty now, I don't know what to say.",
+      right_en: "Okay random one — what's something you've gotten weirdly into lately?",
+      why_tr:
+        "Türk öğrenci 'aklım boşaldı + ne diyeceğimi bilmiyorum' kalıbını birebir çevirir = paniği büyütür + güvensiz. Modern dating: sessizlik DOĞAL; doğal bir geçişle ('Okay random one') yeni soru aç. 'My head is empty' tuhaf bir çeviri; 'mind blank' bile demektense soruyla devam ET.",
+    },
+    {
+      id: "ex.fd4.5.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Awkward silence'a en sağlıklı reaksiyon?",
+          options: [
+            "Paniği göstermek",
+            "Doğal geçişle yeni soru/topic aç",
+            "Susmak",
+            "Telefona bakmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Sessizlik doğal. 'Random question for you' = sakin geçiş; karşı tarafı rahatlatır.",
+        },
+        {
+          q: "'That reminds me of something' niye doğal?",
+          options: [
+            "Yapay",
+            "Önceki konudan organik bağlantı kurar",
+            "Sadece UK kullanır",
+            "Kibar değil",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Reminds me' = sohbet beyninde gibi görünür — sessizlik düşmemiş gibi olur.",
+        },
+        {
+          q: "'My head is empty now' niye risk?",
+          options: [
+            "Yapısal yanlış",
+            "Sessizliği kabul + paniği gösterir = energy düşer",
+            "Çok formal",
+            "Yanlış kelime",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Türk hatası: 'aklım boşaldı' direkt çeviri. Karşı taraf zaten sessizliği hissetti — ek olarak panik gösterme.",
+        },
+        {
+          q: "'Hot take' anlamı?",
+          options: [
+            "Sıcak çekiliş",
+            "Provokatif görüş / tartışmalı fikir",
+            "Sıcak çay",
+            "Hızlı alış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Hot take' = provokatif/güçlü görüş. Sessizlik kırmak için ideal: 'Hot take — pineapple on pizza?'",
+        },
+        {
+          q: "'Switching gears' deyiminin anlamı?",
+          options: [
+            "Vites değiştirmek",
+            "Konu değiştirmek (casual transition)",
+            "Hız yapmak",
+            "Mekanik tamir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Switching gears' = konu değiştirme. 'Switching gears — what's your guilty pleasure show?' tipi geçiş.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1500,6 +2046,143 @@ export const flirtDateLesson_4_6: BundledLesson = {
       ipa: "/ˈhæpi tə ɡræb ðɪs wʌn — bʌt ˈɒnɪstli ˈsplɪtɪŋ wɜːks tuː ɪf juːd ˈrɑːðə/",
       tr_hint:
         "Esnek teklif tonu — ısrarcı değil, seçenek sunan. 'Happy to grab' bağli kalip, 'if you'd rather' yumuşak kapanış.",
+    },
+    {
+      id: "ex.fd4.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Happy to ___ this one — but ___ works too if you'd ___.",
+      slots: [
+        { accepted: ["grab", "get", "take care of"] },
+        { accepted: ["splitting", "going Dutch", "venmo", "splitsies"] },
+        { accepted: ["rather", "prefer", "feel better", "like"] },
+      ],
+      tr_hint:
+        "Esnek hesap kalıbı — teklif et + seçenek bırak. Türk öğrenci 'I will pay everything' der; bu transactional. 'Happy to grab this one' = ileride sıra değişir ima eder = eşitlik.",
+      example_filled:
+        "Happy to grab this one — but splitting works too if you'd rather.",
+    },
+    {
+      id: "ex.fd4.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Should we split or do you want to get it?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "That's sweet — okay, next one's on me then." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(happy to|let me) (get|grab|take care of) this one",
+        "(splitting|splitsies|going dutch|venmo) (works|is fine|is good) too",
+        "(this one'?s on me|on me)[,—-]? (.+)",
+        "(if you'?d rather|if you prefer) (split|do dutch)",
+        "(next one)( on you)?",
+      ],
+      tr_hint:
+        "Hesap kalıbı: teklif + alternatif. 'Happy to get this one — but venmo works too if you'd rather' tipi. Türk öğrenci 'I pay everything' der; bu transactional power play; KAÇIN.",
+      ideal_answer:
+        "Happy to get this one — but venmo works too if you'd rather. Next one's on you.",
+    },
+    {
+      id: "ex.fd4.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Honestly I'd feel weird not paying anything — can we split?",
+      accepted_patterns: [
+        "(totally|sure|of course|absolutely)[,—-]? (let'?s )?(split|do dutch)",
+        "(works for me|sounds good|good with me)",
+        "(let me|i'?ll) (venmo|send you|cover) (you|my half)",
+        "(your call|whatever you'?re comfortable with)",
+        "(next one|round 2|next time) (is on me|i'?ll get)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Empatik kabul: karşı tarafın isteğine saygı. 'Totally — let's split. Next one on me' tipi. Israr etme ('No no, I insist!') = saygısızlık.",
+      ideal_response:
+        "Totally — let's split. I'll venmo you. Next one's on me though.",
+    },
+    {
+      id: "ex.fd4.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Erkek olduğum için ben ödemeliyim",
+      wrong_en: "I am man, I should pay everything.",
+      right_en: "Happy to grab this one — but honestly, splitting works too if you'd rather.",
+      why_tr:
+        "Türk öğrenci 'erkek olduğum için ödemeliyim' kalıbını birebir çevirir = cinsiyet rolü + 'I am man' yapısal yanlış. Modern Batı dating: paylaşma standart; ısrar etmek (insistence) = güç dengesini bozar + bazen küçük düşürür. 'Happy to grab this one' (bu sefer) = saygılı + sıralı.",
+    },
+    {
+      id: "ex.fd4.6.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Modern Batı dating'te hesap kuralı?",
+          options: [
+            "Erkek hep öder",
+            "Paylaşma standart; jest olarak teklif edilir",
+            "Kadın hep öder",
+            "Önce gelen öder",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Modern Batı dating'te paylaşma = norm. Teklif jest'i hala değerli ama ısrar etmek saygısızlık.",
+        },
+        {
+          q: "'Going Dutch' anlamı?",
+          options: [
+            "Hollandalı gibi",
+            "Hesabı paylaşmak",
+            "Hollanda'ya gitmek",
+            "Dutch dilini öğrenmek",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD/UK deyimi. 'Going Dutch' = paylaşmak. Modern dating'te casual + saygılı.",
+        },
+        {
+          q: "'Let me get this one' vs 'I will pay'?",
+          options: [
+            "Aynı",
+            "'This one' = ileride sıra değişir; 'I will pay' = transactional + güç",
+            "'I will pay' daha samimi",
+            "Fark yok",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'This one' = sadece bu sefer (eşitsizlik yaratmaz). 'I will pay' = kapatma + güç dengesi bozuk.",
+        },
+        {
+          q: "Bütçen kısıtlıysa olgun hamle?",
+          options: [
+            "Stresli kartı uzatmak",
+            "'Happy to split' deyip seçenek sunmak",
+            "Yemeği yememek",
+            "Yalan ('unuttum cüzdanı')",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Bütçe sınırı normal. 'Happy to split' = saygılı + zeki.",
+        },
+        {
+          q: "'Splitsies' nasıl bir kelime?",
+          options: [
+            "Resmi ödeme yöntemi",
+            "Casual + sevimli 'split' versiyonu",
+            "Yapısal yanlış",
+            "Eski İngilizce",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Splitsies' = casual + sevimli, çocukça versiyonu 'split'in. Gerilimi azaltan kelime.",
+        },
+      ],
     },
   ],
 };
@@ -1692,6 +2375,143 @@ export const flirtDateLesson_4_7: BundledLesson = {
       ipa: "/heɪ — dʒʌst ˈmeɪkɪŋ ʃɔː juː ɡɒt həʊm seɪf — təˈnaɪt wɒz ˈɒnɪstli ðə bɛst ɪn ə waɪl — nəʊ rʌʃ ɒn rɪˈplaɪɪŋ/",
       tr_hint:
         "Caring + sınırlı ton. 'Just making sure' bağli yumuşatma, 'no rush on replying' alçak vurgu — yapışmasız kapanış.",
+    },
+    {
+      id: "ex.fd4.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Just ___ you got home safe. ___. No rush on ___.",
+      slots: [
+        { accepted: ["making sure", "checking", "wanted to confirm", "double-checking"] },
+        { accepted: ["Tonight was great", "Had a lot of fun", "That was the best night in a while", "Loved it"] },
+        { accepted: ["replying", "responding", "getting back", "the text"] },
+      ],
+      tr_hint:
+        "Caring follow-up kalıbı: özen + olumlu yansıma + yapışmasız kapanış. Türk öğrenci 'Are you okay?' der; bu generic + endişeli; SPESIFIK 'got home safe' düşünceli.",
+      example_filled:
+        "Just making sure you got home safe. Tonight was great. No rush on replying.",
+    },
+    {
+      id: "ex.fd4.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "..." },
+        { speaker: "user" },
+        { speaker: "npc", text: "(2 hours later) Made it home — that was honestly the best night I've had in months." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(just |hey )?(making sure|checking) you got home (safe|okay|alright)",
+        "(tonight|that) was (honestly|really|seriously) (the best|fun|great)",
+        "(no rush|no pressure) on (replying|getting back)",
+        "(sleep well|good night)[,—-]? (.+)",
+        "(let me know|text me) (when you'?re )(home|in)",
+      ],
+      tr_hint:
+        "Eve vardın mı text'i — caring ama yapışmasız. 'Just making sure you got home safe — tonight was great. No rush on replying.' tipi. ÜST ÜSTE mesaj atma.",
+      ideal_answer:
+        "Just making sure you got home safe. Tonight was honestly the best in a while. No rush on replying.",
+    },
+    {
+      id: "ex.fd4.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Just got home — that was so much fun. Did you have fun?",
+      accepted_patterns: [
+        "(so much fun|the best time|honestly great)",
+        "(sleep well|sweet dreams|good night)",
+        "(we should|let'?s) (do that|do this) (again|soon)",
+        "(can'?t wait|looking forward) (for|to) round 2",
+        "(text you tomorrow|talk tomorrow)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Olumlu yansıma + yapışmasız. 'Honestly great — sleep well. Round 2 soon?' tipi. 'I love you' (TOO EARLY) deme; ÖLÇÜLÜ ol.",
+      ideal_response:
+        "Honestly the best night in a while — sleep well. Round 2 soon?",
+    },
+    {
+      id: "ex.fd4.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Eve vardın mı? İyi misin? Mesajlaşmıyoruz endişeleniyorum",
+      wrong_en: "You arrive home? You okay? We don't message I worry.",
+      right_en: "Just making sure you got home safe. Tonight was great. No rush on replying.",
+      why_tr:
+        "Türk öğrenci 'vardın mı + endişeleniyorum' kalıbını birebir çevirir = yapışkan + güvensiz + yapısal yanlış ('we don't message I worry' bozuk). Modern dating: caring AMA sınırlı. 'No rush on replying' = baskı yok sinyali = paradoksal cevap arttırır.",
+    },
+    {
+      id: "ex.fd4.7.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "'Got home safe?' niye etkili?",
+          options: [
+            "Çok formal",
+            "Spesifik + düşünceli ('iyi misin'in özelleşmiş hali)",
+            "Çok generic",
+            "Endişeli",
+          ],
+          correct: 1,
+          tr_explanation:
+            "İlgi sinyali ama tehlikesiz. Spesifik 'eve vardın mı' = düşünceli.",
+        },
+        {
+          q: "'No rush on replying' fonksiyonu?",
+          options: [
+            "Çok formal",
+            "Yapışmasız sinyal — 'cevap beklemiyorum, sadece dert etme'",
+            "İlgisiz görünür",
+            "Sadece kibarlık",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Karşı taraf yorgun + uyku. 'No rush' = baskı yok = sen olgun + güvenli.",
+        },
+        {
+          q: "Cevap gecikince üst üste 3 mesaj?",
+          options: [
+            "Endişe gösterir, romantik",
+            "Red flag — kontrol + paniklemiş enerji",
+            "Doğal davranış",
+            "Takdir edilir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Tek mesaj at, bırak. Üst üste mesaj = en hızlı block sebebi.",
+        },
+        {
+          q: "Randevu sonrası text'i NE ZAMAN atmalı?",
+          options: [
+            "Hemen ayrılırken",
+            "1-2 saat içinde (eve vardığında) veya ertesi sabah",
+            "1 hafta sonra",
+            "Hiç atma",
+          ],
+          correct: 1,
+          tr_explanation:
+            "1-2 saat = caring + zamanında. Ertesi sabah = chill + olgun. 24 saat+ = soğukluk sinyali.",
+        },
+        {
+          q: "'Tonight was honestly the best in a while' niye iyi?",
+          options: [
+            "Yüzeysel",
+            "Spesifik + sıcak + abartısız (önemli olduğunu söyler ama TOO MUCH değil)",
+            "Çok kibirli",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'In a while' = yakın zamanda en iyi (sıcak ama abartısız). 'I love you' (TOO EARLY) yerine ölçülü iltifat.",
+        },
+      ],
     },
   ],
 };
@@ -1886,6 +2706,143 @@ export const flirtDateLesson_4_8: BundledLesson = {
       ipa: "/ɔːlˈrɛdi ˈθɪŋkɪŋ əˈbaʊt raʊnd tuː — ðeəz ðɪs pleɪs aɪv biːn ˈmiːnɪŋ tə traɪ — seɪm taɪm nɛkst wiːk/",
       tr_hint:
         "Momentum tonu — kararlı, heyecanlı, baskısız. 'Already thinking' bağli — hızı koru. 'Same time next week' soru tonu hafif yukarı.",
+    },
+    {
+      id: "ex.fd4.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Already thinking about ___ — ___. Same time ___?",
+      slots: [
+        { accepted: ["round two", "round 2", "a do-over", "the next one"] },
+        { accepted: ["there's this place I've been meaning to try", "wine bar by the river opens late", "rooftop jazz Saturday", "that bakery you mentioned"] },
+        { accepted: ["next week", "Friday", "Saturday", "next Thursday"] },
+      ],
+      tr_hint:
+        "İkinci randevu momentum kalıbı — kararlı + spesifik + zaman. Türk öğrenci 'I want we go together' der; yapısal yanlış; 'Already thinking about round two' = enerji + planlı.",
+      example_filled:
+        "Already thinking about round two — there's this place I've been meaning to try. Same time next week?",
+    },
+    {
+      id: "ex.fd4.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Loved last night honestly — when can I see you again?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Yes — Friday at 8 sounds perfect." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(already )?(thinking about|planning) (round (2|two)|the next one)",
+        "(there'?s|i know about) (this )?(place|spot|restaurant|wine bar)",
+        "(been meaning to|wanted to) (try|check out)",
+        "(same time|this )?(friday|saturday|next week)( at \\d+)?",
+        "(no waiting|let'?s not wait)[,—-]? (.+)",
+      ],
+      tr_hint:
+        "Karşı taraftan momentum yakaladın — hemen plan öner. 'Already thinking about round 2 — there's this wine bar I've been meaning to try. Friday 8?' tipi.",
+      ideal_answer:
+        "Already on it — there's this wine bar I've been meaning to try. Friday 8?",
+    },
+    {
+      id: "ex.fd4.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "When do you want to do this again? I'm pretty open this week.",
+      accepted_patterns: [
+        "(friday|saturday|thursday|tomorrow) (works|sounds good|i'?m open)",
+        "(\\d+ ?pm|seven|eight) (works|sounds good)",
+        "(there'?s|i know about) (.+) (we should|we could) (try|check out)",
+        "(let me|let'?s) pick (a day|something)",
+        "(round 2|next one)[,—-]? (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik gün + spesifik yer öner — momentum kaybetme. 'Friday 8 — that wine bar?' tipi. 'Anytime' deme; 'whenever' deme; KARARLI ol.",
+      ideal_response:
+        "Friday at 8 — wine bar I've been meaning to take you to. Round 2?",
+    },
+    {
+      id: "ex.fd4.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Tekrar beraber gitmek istiyorum",
+      wrong_en: "I want we go together again.",
+      right_en: "Already thinking about round two — there's this place I've been meaning to try. Same time next week?",
+      why_tr:
+        "Türk öğrenci 'biz' kalıbını birebir 'I want we' diye çevirir = yapısal yanlış. İngilizce'de 'we' özne olarak gelir; 'I want' sonrası 'to go' kullanılır. Modern dating: ikinci randevu önerisi = momentum + spesifik + zaman. 'Round two' = casual + enerjik.",
+    },
+    {
+      id: "ex.fd4.8.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "İkinci randevu için en iyi zaman?",
+          options: [
+            "1 ay sonra",
+            "İlk randevu sonrası 1 hafta içinde — momentum",
+            "Hiç teklif etme",
+            "1 yıl sonra",
+          ],
+          correct: 1,
+          tr_explanation:
+            "1 hafta içinde = momentum + ciddi olduğunu sinyalle. 2 hafta+ = soğukluk hissi.",
+        },
+        {
+          q: "'I've been meaning to try' kalıbı:",
+          options: [
+            "Çok formal",
+            "Listenin parçası + sahiplenme = bunu seninle yapmak istiyorum",
+            "Belirsiz",
+            "Sadece UK",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I've been meaning' = uzun zamandır = özellikle senle yapmak istiyorum sinyali.",
+        },
+        {
+          q: "'I want we go' yerine doğru?",
+          options: [
+            "I want we going",
+            "Want to go together? / Want to grab dinner?",
+            "I am wanting we go",
+            "We must go now",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I want we' = Türkçe yapı. İngilizce: 'I want TO go' veya soru 'Want to go?'.",
+        },
+        {
+          q: "'Round 2' niye etkili momentum sinyali?",
+          options: [
+            "Resmi terim",
+            "Birinciyi başarılı kabul + ikinciye enerji",
+            "Çok agresif",
+            "Anlamsız",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Round 2' = birinci başarılıydı + ikincisi de gelecek enerjisi. Casual + güçlü.",
+        },
+        {
+          q: "Doğrudan + spesifik teklif niye 'sometime soon'dan iyi?",
+          options: [
+            "'Sometime' = vague = momentum öldürür; spesifik gün/yer = ciddi",
+            "Daha uzun",
+            "Sadece ABD'de",
+            "Yapısal yanlış",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Sometime soon' = pasif = unutulur. 'Friday 8 at wine bar' = aksiyon + plan.",
+        },
+      ],
     },
   ],
 };

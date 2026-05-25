@@ -920,6 +920,133 @@ export const dailyGymLesson_35_2: BundledLesson = {
       tr_explanation:
         "'Do sport' direkt çeviri ('spor yapmak'); İngilizce'de spesifik: 'lift weights' (= ağırlık çalış). 'For take muscle' yanlış edat + 'take' yanlış fiil; doğru: 'to build muscle'.",
     },
+    {
+      id: "ex.dgl35.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'd like to ___ ___ ___ to ___ ___.",
+      slots: [
+        { accepted: ["work with", "train with", "book"], distractors: ["have", "use", "make"] },
+        { accepted: ["a personal trainer", "a coach", "someone"], distractors: ["coach", "trainer person", "PT"] },
+        { accepted: ["once a week", "twice a month", "regularly"], distractors: ["weekly", "for time", "sometime"] },
+        { accepted: ["build muscle", "lose weight", "get stronger"], distractors: ["take muscle", "do exercise", "be fit"] },
+        { accepted: ["over the next 3 months", "for the summer", "long term"], distractors: ["for time", "for muscle", "for me"] },
+      ],
+      tr_hint:
+        "Personal trainer rica kalıp. 'Work with a trainer to build muscle' = doğru fiil. Türk öğrenci 'I want trainer for muscle' der — yetersiz. Hedef + süre ekle.",
+      example_filled: "I'd like to work with a personal trainer once a week to build muscle over the next 3 months.",
+    },
+    {
+      id: "ex.dgl35.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Welcome! Are you interested in personal training?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. What are your fitness goals?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (i'?d like|i want) to (work with|hire) (a |the )?(trainer|pt)",
+        "(i'?m looking for|i need) (a |the )?(personal )?trainer",
+        "(could you|can you) (tell me about|walk me through) (your )?(rates|sessions|packages)",
+        "(yes|definitely)(,)? (i'?d like to |i want to )(learn|build|lose)",
+      ],
+      tr_hint:
+        "Resepsiyon trainer önerdi — kabul + spesifik hedef. Türk öğrenci 'yes I need' der — yetersiz. Hedef belirt (build muscle / lose weight).",
+      ideal_answer: "Yes, I'd like to work with a trainer — I'm trying to build muscle.",
+    },
+    {
+      id: "ex.dgl35.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Our trainers charge $80 per session. Would you like to book one?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (let'?s do it|i'?d love to)",
+        "(could you|can you) tell me about (packages|discounts)\\??",
+        "(are there )?(cheaper|group) (options|sessions)\\??",
+        "(let me )?(think about it|i'?ll come back)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Fiyat duydun — kabul + pazarlık imkanı sor. 'Packages?' veya 'group sessions?' iyi sorular. Türk öğrenci direkt 'yes' der — pazarlık kaçar.",
+      ideal_response: "Could you tell me about package deals first?",
+    },
+    {
+      id: "ex.dgl35.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Kas yapmak için ne yapmalıyım?",
+      wrong_en: "What I do for take muscle?",
+      right_en: "What should I do to build muscle?",
+      why_tr:
+        "'What I do' eksik yardımcı ('should'). 'For take muscle' iki yanlış: 'for' edat hatası ('to'), 'take' yanlış fiil ('build'). 'Build muscle' = kas yapmak (sabit kalıp).",
+    },
+    {
+      id: "ex.dgl35.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Build muscle' tam çevirisi?",
+          options: [
+            "Kas yapmak / kas inşa etmek.",
+            "Kas almak.",
+            "Kasları çekmek.",
+            "Kas yıkmak.",
+          ],
+          correct: 0,
+          tr_explanation: "Bodybuilding standart kalıbı: 'build' = inşa et/yap. 'Take muscle' Türkçe etkili yanlış.",
+        },
+        {
+          q: "'Personal trainer' kısaltması?",
+          options: [
+            "PT.",
+            "PTR.",
+            "PRO.",
+            "PER.",
+          ],
+          correct: 0,
+          tr_explanation: "'PT' yaygın günlük kısaltma. 'I'm seeing a PT' = trainer'la çalışıyorum.",
+        },
+        {
+          q: "'Per session' anlamı?",
+          options: [
+            "Seans başına.",
+            "Toplam.",
+            "Aylık.",
+            "Ücretsiz.",
+          ],
+          correct: 0,
+          tr_explanation: "'Per X' = X başına. '$80 per session' = seans başı 80$.",
+        },
+        {
+          q: "'Lift weights' = ?",
+          options: [
+            "Ağırlık kaldır / dambıl çalış.",
+            "Ağırlığı tart.",
+            "Ağırlığa düş.",
+            "Hafif kaldır.",
+          ],
+          correct: 0,
+          tr_explanation: "'Lift' = kaldırmak. 'Lift weights' = halter/dumbell çalışmak.",
+        },
+        {
+          q: "Trainer rica ederken hedef nasıl söylenmeli?",
+          options: [
+            "I want take muscle.",
+            "I want to build muscle / lose weight / get stronger.",
+            "Make me strong.",
+            "Body building.",
+          ],
+          correct: 1,
+          tr_explanation: "Hedef + doğru fiil. Trainer net plan yapabilir.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1294,6 +1421,131 @@ export const dailyGymLesson_35_3: BundledLesson = {
       tr_explanation:
         "'Finish?' kaba tek kelime. 'I will use after you' direkt çeviri. Gym standardı: 'Are you almost done?' + 'I'll jump in' (= ben gireyim). Rahat ton önemli.",
     },
+    {
+      id: "ex.dgl35.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Are you ___ ___ ___ the ___?",
+      slots: [
+        { accepted: ["almost", "still"], distractors: ["near", "close", "soon"] },
+        { accepted: ["done", "finished"], distractors: ["end", "finish", "doing"] },
+        { accepted: ["with", "using"], distractors: ["on", "for", "to"] },
+        { accepted: ["bench", "squat rack", "treadmill", "machine"], distractors: ["bench thing", "machine here", "place"] },
+      ],
+      tr_hint:
+        "Gym etiket: ekipmana sahip olan kişiye sorma. 'Are you almost done with the bench?' = rahatsız etmeden sırada bekliyorum. Türk öğrenci 'Bitti mi?' direkt der — kaba.",
+      example_filled: "Are you almost done with the bench?",
+    },
+    {
+      id: "ex.dgl35.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hey — yeah, I have about two sets left." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure, no problem. Want to share between sets?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no )?worries(,)? (take your time|i'?ll wait)",
+        "(cool|sounds good)(,)? (i'?ll )?(jump in|hop in) (after you)?",
+        "(would you )?(mind if i )?(work in|share)\\??",
+        "(no rush|no hurry)(,)? (mind if i )?(work in)\\??",
+      ],
+      tr_hint:
+        "Gym etiket — sabırlı + 'work in' (aynı ekipmanı paylaş). Türk öğrenci 'OK I wait' der — yetersiz. 'Mind if I work in?' = pro gym kalıbı.",
+      ideal_answer: "No worries — would you mind if I worked in between sets?",
+    },
+    {
+      id: "ex.dgl35.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, what weight do you need? I'll help you swap plates.",
+      accepted_patterns: [
+        "(thanks|appreciate it)(,)? (i'?m at|i need) (\\d+|a|some)( pounds| lbs| kgs?)?",
+        "(actually )?(i'?ll )?(do my own|swap them myself)",
+        "(only )?(\\d+|just a) (pound|kg)s?( each side| plates)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yardım teklif edildi — teşekkür + spesifik ağırlık. 'Thanks, I'm at 135 pounds'. Türk öğrenci kapalı durur — 'No, I do myself' yerine teşekkür + ağırlık ver.",
+      ideal_response: "Thanks — I'm at 135 pounds, just two plates each side.",
+    },
+    {
+      id: "ex.dgl35.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bitirdin mi bench'i?",
+      wrong_en: "Finish you bench?",
+      right_en: "Are you almost done with the bench?",
+      why_tr:
+        "'Finish you bench?' Türkçe sıra + eksik fiil. Doğru: 'Are you done?' yardımcı fiil. 'Almost' yumuşatıcı = sabırlı izlenim. Etiket önemli.",
+    },
+    {
+      id: "ex.dgl35.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Work in' gym anlamı?",
+          options: [
+            "İşe gitmek.",
+            "Aynı ekipmanı paylaş — setler arası kullan.",
+            "Çok çalışmak.",
+            "Set yapmak.",
+          ],
+          correct: 1,
+          tr_explanation: "'Work in' = iki kişi aynı ekipmanı sırayla kullanır. Gym etiketi.",
+        },
+        {
+          q: "'Sets' ne demek?",
+          options: [
+            "Tekrar grupları (10 reps × 3 set gibi).",
+            "Spor kıyafeti.",
+            "Spor takım.",
+            "Set yemek.",
+          ],
+          correct: 0,
+          tr_explanation: "1 set = N tekrar. 3 set × 10 reps = 30 tekrar.",
+        },
+        {
+          q: "'Almost done' yumuşatıcı işlevi?",
+          options: [
+            "Aciliyet artırır.",
+            "Sabırlı + nazik izlenim verir.",
+            "Hızlı bitir komut.",
+            "Bilgi sıfır.",
+          ],
+          correct: 1,
+          tr_explanation: "'Almost' = neredeyse. Kişi sabırlı, baskı yok — daha kibar ton.",
+        },
+        {
+          q: "'Plates' gym'de nedir?",
+          options: [
+            "Tabaklar.",
+            "Ağırlık diskleri (45 lb, 25 lb plates).",
+            "Spor giysisi.",
+            "Plaka.",
+          ],
+          correct: 1,
+          tr_explanation: "'Plate' = halter diski. '45 lb plate each side' = her tarafta 20 kg.",
+        },
+        {
+          q: "Gym etiket EN önemli kural?",
+          options: [
+            "Yüksek sesle hesap.",
+            "Sabır + 'work in' soru + ekipmanı sil.",
+            "Hızlı bitir kaç.",
+            "Müzik yüksek.",
+          ],
+          correct: 1,
+          tr_explanation: "Saygı + paylaşım + temizlik = gym sosyal kurallar.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1666,6 +1918,133 @@ export const dailyGymLesson_35_4: BundledLesson = {
       tr_explanation:
         "'Make yoga lesson' Türkçe etkisi ('yoga dersi yapmak'). Doğru: 'take a yoga class'. 'At the morning' yanlış edat; 'in the morning' standart. 'I want' kaba; 'I'd like' kibar.",
     },
+    {
+      id: "ex.dgl35.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'd like to ___ a ___ ___ class ___ ___.",
+      slots: [
+        { accepted: ["take", "join", "sign up for"], distractors: ["make", "do", "have"] },
+        { accepted: ["beginner", "yoga", "spin", "HIIT"], distractors: ["beginning", "start", "easy"] },
+        { accepted: ["", "morning", "evening"], distractors: ["fast", "very", "good"] },
+        { accepted: ["at", "on"], distractors: ["in", "by", "with"] },
+        { accepted: ["6 PM", "Saturday", "Monday morning"], distractors: ["weekend", "tomorrow", "now"] },
+      ],
+      tr_hint:
+        "Class rezervasyon kalıbı. 'Take a class' = derse katıl. 'I'd like to take' = kibar. Türk öğrenci 'make class' der — yanlış fiil.",
+      example_filled: "I'd like to take a beginner yoga class on Saturday morning.",
+    },
+    {
+      id: "ex.dgl35.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Welcome to the studio! Looking for a class?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great choice! Are you a beginner or intermediate?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (i'?d like|i want) to (take|join|sign up for) (a )?(yoga|spin|hiit|beginner)? class",
+        "(i'?m interested in|do you have) (a )?(beginner|yoga|spin) class",
+        "(could you|can you) (tell me about|recommend) (your )?(classes|schedule)",
+        "(what )?(classes )?(do you have|are there) (today|tomorrow|this week)\\??",
+      ],
+      tr_hint:
+        "Class merkezinde resepsiyon: 'I'd like to join a yoga class'. Türk öğrenci 'I want yoga' der — eksik fiil. Tam cümle + kibar.",
+      ideal_answer: "Yes, I'd like to take a beginner yoga class.",
+    },
+    {
+      id: "ex.dgl35.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Lockers are around the corner — the code is your birthday.",
+      accepted_patterns: [
+        "(thanks|appreciate it)(,)? (got it)?",
+        "(my birthday)\\?? (do you mean) (mmdd|ddmm|mm/dd)",
+        "(thanks)(,)? (around the corner)\\?? (got it)?",
+        "(does the locker )?(stay locked|need a token)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Soyunma odası bilgisi aldın — teşekkür + onayla. Türk öğrenci sadece 'OK' der; locker kullanımı net olmazsa eşyalar tehlikede.",
+      ideal_response: "Thanks — around the corner, got it.",
+    },
+    {
+      id: "ex.dgl35.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Sabahları yoga dersi yapmak istiyorum.",
+      wrong_en: "I want make yoga lesson at mornings.",
+      right_en: "I'd like to take a yoga class in the mornings.",
+      why_tr:
+        "'Make yoga lesson' Türkçe direkt çeviri. 'Take a class' = ders al. 'At mornings' yanlış edat — 'in the morning' veya 'in the mornings'. 'I'd like' = kibar.",
+    },
+    {
+      id: "ex.dgl35.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Take a yoga class' = ?",
+          options: [
+            "Yoga dersini al / katıl.",
+            "Yoga sınıfını taşı.",
+            "Yoga sınıfı kur.",
+            "Yoga dersini öğret.",
+          ],
+          correct: 0,
+          tr_explanation: "'Take a class' = derse katıl. 'Make' yerine 'take' standart.",
+        },
+        {
+          q: "'In the morning' niye 'in'?",
+          options: [
+            "Belirli zaman dilimi edatı (in the morning/afternoon).",
+            "Yanlış.",
+            "Saat için.",
+            "Tarih için.",
+          ],
+          correct: 0,
+          tr_explanation: "'In the morning/afternoon/evening' standart. 'At' = saat (at 6 PM).",
+        },
+        {
+          q: "'Beginner-friendly' anlamı?",
+          options: [
+            "Yeni başlayan dostça (kolay başlanabilir).",
+            "Acemi arkadaşı.",
+            "Başlangıç saat.",
+            "Yardımcı arkadaş.",
+          ],
+          correct: 0,
+          tr_explanation: "'X-friendly' = X için uygun. 'Beginner-friendly class' = yeni başlayanlara uygun.",
+        },
+        {
+          q: "'Punch in the code' = ?",
+          options: [
+            "Şifreyi yumrukla.",
+            "Şifreyi gir (tuşla).",
+            "Şifreyi sil.",
+            "Şifreyi söyle.",
+          ],
+          correct: 1,
+          tr_explanation: "'Punch in' = tuş tuş gir. Keypad veya digital lock için yaygın.",
+        },
+        {
+          q: "Sınıf öncesi resepsiyona EN iyi giriş?",
+          options: [
+            "Yoga, please.",
+            "Hi, I'd like to take a beginner yoga class.",
+            "Where yoga?",
+            "Yoga lesson now.",
+          ],
+          correct: 1,
+          tr_explanation: "Selam + kibar rica + spesifik (beginner) = profesyonel.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1996,6 +2375,132 @@ export const dailyGymLesson_35_5: BundledLesson = {
       ipa: "/maɪnd ɪf aɪ wɜːrk ɪn/",
       tr_hint:
         "'Mind if I' bağlanır = 'mayn-di-fay'. 'Work in' = 'WURK-in' (vurgu work'ta). Rahat ton.",
+    },
+    {
+      id: "ex.dgl35.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Are you ___ ___ the ___? Mind if I ___?",
+      slots: [
+        { accepted: ["using", "still on"], distractors: ["use", "doing", "with"] },
+        { accepted: ["", "still"], distractors: ["very", "more", "for"] },
+        { accepted: ["machine", "treadmill", "bench"], distractors: ["thing", "place", "tool"] },
+        { accepted: ["work in", "jump in", "share"], distractors: ["use also", "do same", "make in"] },
+      ],
+      tr_hint:
+        "Aleti kullanan kişiye yaklaşım. 'Are you using?' = sahibi misin? 'Mind if I work in?' = paylaşalım mı? Türk öğrenci 'finished?' der — kaba.",
+      example_filled: "Are you using the bench? Mind if I work in?",
+    },
+    {
+      id: "ex.dgl35.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Yeah, I have two more sets left." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — we can work in together." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(cool|sounds good)(,)? (mind if i )?(work in)\\??",
+        "(no worries|no rush)(,)? (i'?ll wait)?",
+        "(would you )?(mind if i )?(share|hop in) (between sets)?\\??",
+        "(do you )?(mind if i|want to) work in\\??",
+      ],
+      tr_hint:
+        "Set sayısı duydun — paylaşım önerisi yap. 'Work in between sets' = setler arasında ben de yap. Türk öğrenci sadece 'OK' der — verimsiz.",
+      ideal_answer: "Cool — mind if I work in between sets?",
+    },
+    {
+      id: "ex.dgl35.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure — what weight are you at?",
+      accepted_patterns: [
+        "(i'?m at|i'?m doing) (\\d+|some) (pounds|lbs|kgs?)",
+        "(about|around) (\\d+) (lbs|kgs?)",
+        "(just )?(a bit )?(lighter|heavier) than you",
+        "(\\d+)( pounds| lbs| kgs?)( each side| per side)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Paylaşım onaylandı, ağırlık sordu. Spesifik SAYI ver. Türk öğrenci 'medium' der — yararsız. '135 lbs' veya 'about 60 kg' net.",
+      ideal_response: "I'm at 135 pounds — a bit lighter than you.",
+    },
+    {
+      id: "ex.dgl35.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bu makineyi kullanıyor musun? Ben de kullanabilir miyim?",
+      wrong_en: "You use this machine? Can I use too?",
+      right_en: "Are you using this? Mind if I work in?",
+      why_tr:
+        "'You use this?' eksik yardımcı ('are' lazım — present continuous). 'Can I use too' yanlış kalıp. Doğru: 'mind if I work in?' = gym standart paylaşım sorusu.",
+    },
+    {
+      id: "ex.dgl35.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Mind if I work in?' = ?",
+          options: [
+            "İşe gelmemde sakınca var mı?",
+            "Setler arası paylaşmamda sakınca var mı?",
+            "İçeri girmemde sakınca var mı?",
+            "Çalışmama izin verir misin?",
+          ],
+          correct: 1,
+          tr_explanation: "'Work in' gym deyim: setler arası aynı ekipmanda paylaş.",
+        },
+        {
+          q: "'Are you using ___?' niye 'are'?",
+          options: [
+            "Present continuous (şu an yapıyor mu?).",
+            "Past tense.",
+            "Question.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "'Are you Ving' = present continuous (şu an). 'Do you use' = genel alışkanlık.",
+        },
+        {
+          q: "Ağırlık söylerken birim?",
+          options: [
+            "ABD: pounds (lbs). UK/AB: kg.",
+            "Sadece kg.",
+            "Sadece ton.",
+            "Sadece pound.",
+          ],
+          correct: 0,
+          tr_explanation: "ABD gym: 'lbs'. AB/UK: 'kg'. 1 lb ≈ 0.45 kg.",
+        },
+        {
+          q: "'Two more sets left' nedir?",
+          options: [
+            "İki set daha kaldı.",
+            "İki sol set.",
+            "Sol setteyim.",
+            "Set ayrıldı.",
+          ],
+          correct: 0,
+          tr_explanation: "'Sets left' = kalan setler. 'Two more' = iki daha. Toplam: iki set daha yapacak.",
+        },
+        {
+          q: "Yoğun bir gym'de aleti istemek için EN doğru?",
+          options: [
+            "Finish?",
+            "Mind if I work in?",
+            "Move!",
+            "My turn now.",
+          ],
+          correct: 1,
+          tr_explanation: "Gym etiket: 'Mind if I work in?' = en doğru paylaşım sorusu.",
+        },
+      ],
     },
   ],
 };
@@ -2330,6 +2835,133 @@ export const dailyGymLesson_35_6: BundledLesson = {
       tr_hint:
         "'Could you' bağlanır = 'ku-cu'. 'Spot me' = 'SPOT-mi' (vurgu spot'ta). 'On this set' tek soluk.",
     },
+    {
+      id: "ex.dgl35.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___ ___ ___?",
+      slots: [
+        { accepted: ["spot"], distractors: ["watch", "help", "see"] },
+        { accepted: ["on", "for"], distractors: ["at", "in", "with"] },
+        { accepted: ["this set", "a set", "the bench"], distractors: ["set this", "bench this", "set one"] },
+        { accepted: ["I'm going", "I'll do", "I want"], distractors: ["I go", "I make", "I take"] },
+        { accepted: ["for 10 reps", "heavy", "to failure"], distractors: ["fast", "good", "long"] },
+      ],
+      tr_hint:
+        "Spotter rica kalıbı. 'Could you spot me on this set?' = bu setimde gözcü ol. Türk öğrenci 'help me lift' der — yetersiz. 'Spot' spesifik gym terimi.",
+      example_filled: "Could you spot me on this set? I'm going for 10 reps.",
+    },
+    {
+      id: "ex.dgl35.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Sure, no problem — how many reps?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. I'll just help on the last few if you need it." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m )?(going for|aiming for) (\\d+|ten|eight) (reps)?",
+        "(maybe |around )?(\\d+) (reps)?",
+        "(probably )?(8|10|12)( reps)?",
+        "(it'?s )?(my )?(heavy|last) set",
+      ],
+      tr_hint:
+        "Spotter kabul + rep sayısı sordu. SAYI ver. 'I'm going for 10' = 10 hedefi. Türk öğrenci 'much reps' der — belirsiz.",
+      ideal_answer: "I'm going for 8 — it's a heavy set.",
+    },
+    {
+      id: "ex.dgl35.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "When do you want me to help — only if you fail?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (only|just) (if|when) i (struggle|fail|get stuck)",
+        "(just )?(the last 1-2 reps|on the last rep)",
+        "(don'?t touch the bar )?(unless i|until i)( say so| fail)",
+        "(just keep your hands close|hover over it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spotter ne zaman yardımcı olsun? NET söyle. Türk öğrenci 'when difficult' der — belirsiz. 'Only if I fail' veya 'last 2 reps' net.",
+      ideal_response: "Just on the last rep, only if I struggle.",
+    },
+    {
+      id: "ex.dgl35.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Ağır kaldıracağım, bana yardım eder misin?",
+      wrong_en: "I lift heavy, can you help me?",
+      right_en: "I'm going heavy this set — could you spot me?",
+      why_tr:
+        "'I lift heavy' present simple (genel alışkanlık) — yanlış zaman. Doğru: 'I'm going heavy this set' (present continuous, şu an). 'Help me' yerine 'spot me' = gym jargon.",
+    },
+    {
+      id: "ex.dgl35.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Spot me' gym anlamı?",
+          options: [
+            "Beni gör.",
+            "Set sırasında gözcülük yap (sıkışırsam yardım).",
+            "Beni nokta.",
+            "Yerimi tut.",
+          ],
+          correct: 1,
+          tr_explanation: "'Spot' gym terminolojisi: ağır set sırasında yardımcı. Squat/bench için kritik.",
+        },
+        {
+          q: "'Rep' ne demek?",
+          options: [
+            "Repetition (tekrar) — bir tek hareket.",
+            "Replicate (kopya).",
+            "Report.",
+            "Sat.",
+          ],
+          correct: 0,
+          tr_explanation: "'Rep' = 1 tekrar (1 push-up, 1 squat). 10 reps = 10 tekrar.",
+        },
+        {
+          q: "'Going for 10 reps' anlamı?",
+          options: [
+            "10 tekrara gidiyorum (hedef).",
+            "10 saniye.",
+            "10 set.",
+            "10 dakika.",
+          ],
+          correct: 0,
+          tr_explanation: "'Going for X' = X hedefliyorum. Reps için yaygın kalıp.",
+        },
+        {
+          q: "'To failure' gym anlamı?",
+          options: [
+            "Başarısızlığa.",
+            "Yapamadığım yere kadar (kasın bitkin olduğu son rep).",
+            "Hızlı.",
+            "Düşmek.",
+          ],
+          correct: 1,
+          tr_explanation: "'To failure' = mekanik yetersizlik. İleri seviye antrenman terimi.",
+        },
+        {
+          q: "Ağır set öncesi spotter'a EN iyi bilgi?",
+          options: [
+            "Reps + when to help.",
+            "Sadece 'help me'.",
+            "Sadece weight.",
+            "Sadece 'don't help'.",
+          ],
+          correct: 0,
+          tr_explanation: "Spotter güvenli yardım için: rep hedefi + müdahale zamanı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2663,6 +3295,131 @@ export const dailyGymLesson_35_7: BundledLesson = {
       ipa: "/ˈɛni tɪps ɒn fɔːrm/",
       tr_hint:
         "'Any tips' = 'E-ni-tips' (vurgu 'E-ni'). 'On form' tek soluk. Casual, samimi ton.",
+    },
+    {
+      id: "ex.dgl35.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Any tips on ___ ___ when I'm ___?",
+      slots: [
+        { accepted: ["my form", "technique", "breathing"], distractors: ["form me", "shape", "way"] },
+        { accepted: ["", "for the squat", "during the lift"], distractors: ["fast", "hard", "well"] },
+        { accepted: ["squatting", "benching", "deadlifting"], distractors: ["doing squat", "make bench", "in deadlift"] },
+      ],
+      tr_hint:
+        "Trainer ile sohbet kalıbı. 'Any tips on form?' = form tavsiye? Türk öğrenci 'tell me how' der — yetersiz. 'Tips' = küçük öneri, profesyonel.",
+      example_filled: "Any tips on my form when I'm squatting?",
+    },
+    {
+      id: "ex.dgl35.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hey, working hard today! You're hitting all the muscle groups." },
+        { speaker: "user" },
+        { speaker: "npc", text: "PPL — push, pull, legs. Classic and effective. Need any advice?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)(,)? (i'?m doing) (a )?(ppl|push pull legs|split)",
+        "(yeah|yes)(,)? (just )?(doing|on a) (split|ppl)",
+        "(actually )?(could you|can you) give me (a )?(tip|pointer)",
+        "(any )?(tips on|advice on) (my form|technique)\\??",
+      ],
+      tr_hint:
+        "Trainer iltifat etti — split bilgisi paylaş + form tavsiye iste. Türk öğrenci sadece 'thanks' der — fırsat kaybeder. Konuşmayı sürdür.",
+      ideal_answer: "Thanks — I'm on a PPL split. Any tips on my squat form?",
+    },
+    {
+      id: "ex.dgl35.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure — keep your knees in line with your toes when squatting.",
+      accepted_patterns: [
+        "(got it|thanks|appreciate it)(,)? (i'?ll )?(keep that in mind|work on it)",
+        "(knees )?(over toes)\\?? (got it|okay)",
+        "(could you )?(show me|demonstrate)\\??",
+        "(should i )?(go )?(deeper|lower)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Tavsiye aldın — TEKRARLA + ek soru. 'Knees over toes — got it'. Türk öğrenci sadece 'thanks' der; pratik için tekrar etmek anahtar.",
+      ideal_response: "Knees over toes — got it. Should I go lower?",
+    },
+    {
+      id: "ex.dgl35.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Antrenmanım ne dersin?",
+      wrong_en: "What you say about my workout?",
+      right_en: "What do you think of my workout?",
+      why_tr:
+        "'What you say' eksik 'do' (soru yardımcısı). 'What do you think of X' = X hakkında ne düşünüyorsun (yaygın soru). 'About' yerine 'of' = doğal edat.",
+    },
+    {
+      id: "ex.dgl35.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'PPL split' = ?",
+          options: [
+            "Push, Pull, Legs — kas grubu antrenman bölümü.",
+            "Pull power lift.",
+            "Plate per lift.",
+            "Personal plan limit.",
+          ],
+          correct: 0,
+          tr_explanation: "Klasik 3-gün split: 1.gün push (göğüs/omuz), 2.gün pull (sırt/biceps), 3.gün legs.",
+        },
+        {
+          q: "'Form' gym anlamı?",
+          options: [
+            "Şekil / hareket tekniği.",
+            "Form doldur.",
+            "Şirket formu.",
+            "Üye formu.",
+          ],
+          correct: 0,
+          tr_explanation: "'Form' = hareket tekniği. 'Bad form' = yanlış teknik (sakatlık riski).",
+        },
+        {
+          q: "'Knees in line with toes' nasıl çevirilir?",
+          options: [
+            "Dizler ayak parmakları hizasında.",
+            "Dizler kapalı.",
+            "Dizler düz.",
+            "Ayaklar dizler.",
+          ],
+          correct: 0,
+          tr_explanation: "Squat tekniği temel kural: dizler ayak hizasında kalmalı. İçeri/dışarı kayarsa sakatlık.",
+        },
+        {
+          q: "'Hit all muscle groups' anlamı?",
+          options: [
+            "Bütün kas gruplarını vur (çalıştır).",
+            "Kaslara vur.",
+            "Kaslara dokunma.",
+            "Kasları say.",
+          ],
+          correct: 0,
+          tr_explanation: "'Hit' burada = çalıştır. 'Hit chest day' = göğüs günü çalış.",
+        },
+        {
+          q: "Trainer ile sohbet için EN iyi açılış?",
+          options: [
+            "Help.",
+            "Hey — any tips on my form?",
+            "Make me strong.",
+            "Look at me.",
+          ],
+          correct: 1,
+          tr_explanation: "Casual selam + spesifik soru (form). Pro gym sosyalleşme.",
+        },
+      ],
     },
   ],
 };
@@ -3015,6 +3772,132 @@ export const dailyGymLesson_35_8: BundledLesson = {
       ipa: "/maɪ ˈkiːkɑːrd ˈɪzənt ˈwɜːrkɪŋ dɪd maɪ ˈmɛmbərʃɪp ɪkˈspaɪər/",
       tr_hint:
         "'Isn't' = 'I-zınt' (tek hece). 'Membership' = 'MEM-bır-şip' (vurgu ilk hece). 'Expire' = 'ik-SPAYR' (vurgu ikinci hece).",
+    },
+    {
+      id: "ex.dgl35.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "My ___ ___ ___ — could you ___?",
+      slots: [
+        { accepted: ["keycard", "membership card", "fob"], distractors: ["key card here", "card thing", "member"] },
+        { accepted: ["isn't", "stopped"], distractors: ["doesn't", "not", "no"] },
+        { accepted: ["working", "letting me in", "scanning"], distractors: ["work", "go", "make"] },
+        { accepted: ["take a look", "check it", "help me out"], distractors: ["fix it", "look it", "do it"] },
+      ],
+      tr_hint:
+        "Üyelik kart problemi. 'My keycard isn't working' = kart çalışmıyor. Türk öğrenci 'card broken' der — yanlış. 'Isn't working' present continuous.",
+      example_filled: "My keycard isn't working — could you take a look?",
+    },
+    {
+      id: "ex.dgl35.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Front desk — what's going on?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Let me check. What's your member number?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hey)?(,)? (my )?(keycard|membership card) (isn'?t|is not|stopped) working",
+        "(my )?(membership )?(card )?(won'?t scan|doesn'?t let me in)",
+        "(did|has) my membership (expire|expired)\\??",
+        "(could you|can you) help me — (my )?(card|keycard) (isn'?t|is not) working",
+      ],
+      tr_hint:
+        "Üyelik problemi raporu. 'My keycard isn't working' net. Türk öğrenci panic mode 'help broken' der — gereksiz. Sakin + net rapor.",
+      ideal_answer: "Hi, my keycard isn't working — could you check if my membership expired?",
+    },
+    {
+      id: "ex.dgl35.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Your card expired last week. Would you like to renew?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (i'?d like to|let'?s) renew",
+        "(could you|can you) tell me about (rates|monthly fee|annual plan)\\??",
+        "(can i )?(pay )?(monthly|annually|today)\\??",
+        "(actually|hmm) — (let me )?(think about it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Üyelik bitmiş — renew + sor. 'Could you tell me about plans?' = seçenek sor. Türk öğrenci direkt 'yes renew' der — pazarlık fırsatı kaçar.",
+      ideal_response: "Could you tell me about the monthly rates first?",
+    },
+    {
+      id: "ex.dgl35.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Kartım çalışmıyor, içeri giremiyorum.",
+      wrong_en: "My card not work, I cannot enter.",
+      right_en: "My card isn't working — it won't let me in.",
+      why_tr:
+        "'Not work' eksik yardımcı fiil. 'Cannot enter' resmî/sert; gym için 'won't let me in' (= izin vermiyor) daha doğal. Casual + spesifik.",
+    },
+    {
+      id: "ex.dgl35.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'My membership expired' = ?",
+          options: [
+            "Üyeliğim bitti / süresi doldu.",
+            "Üyeliğim çalıştı.",
+            "Üyeliğim yeni.",
+            "Üyeliğim iptal.",
+          ],
+          correct: 0,
+          tr_explanation: "'Expire' = süre dolmak (kart/üyelik için yaygın).",
+        },
+        {
+          q: "'Renew' anlamı?",
+          options: [
+            "Yenile / uzat.",
+            "Iptal et.",
+            "Sat.",
+            "Sat al.",
+          ],
+          correct: 0,
+          tr_explanation: "'Renew' = yenile. Üyelik/abonelik uzatma için sabit kalıp.",
+        },
+        {
+          q: "'Won't let me in' tam anlamı?",
+          options: [
+            "İçeri girmemi engelliyor / izin vermiyor.",
+            "İçeri giremem yasak.",
+            "İçeri girdim.",
+            "Dışarı çıkmıyor.",
+          ],
+          correct: 0,
+          tr_explanation: "'X won't let me Y' = X, Y'me izin vermiyor. Cihaz/sistem davranışı için yaygın.",
+        },
+        {
+          q: "Üyelik sorunu için EN iyi giriş?",
+          options: [
+            "Card broken!",
+            "My keycard isn't working — could you take a look?",
+            "Fix card now!",
+            "Card stop working bad.",
+          ],
+          correct: 1,
+          tr_explanation: "Net sorun + kibar yardım rica. Personel profesyonel ton bekler.",
+        },
+        {
+          q: "'Take a look' anlamı?",
+          options: [
+            "Bir bakış at / kontrol et.",
+            "Götür.",
+            "Görmezden gel.",
+            "Bekle.",
+          ],
+          correct: 0,
+          tr_explanation: "'Take a look' = kontrol et (kısa süreli inceleme). Casual + kibar.",
+        },
+      ],
     },
   ],
 };

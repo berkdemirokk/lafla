@@ -710,6 +710,126 @@ export const cefrA2DailyLesson_pharmacy: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a2.ph.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Do you have anything for ___ ___?",
+      slots: [
+        { accepted: ["a", "an", "the"], distractors: ["my", "some"] },
+        { accepted: ["headache", "cough", "sore throat", "fever", "allergy"], distractors: ["sick", "ill"] },
+      ],
+      tr_hint:
+        "Eczane sorma: 'Do you have anything for a headache?' Türk öğrenci 'Headache medicine?' der — kırık.",
+      example_filled: "Do you have anything for a headache?",
+    },
+    {
+      id: "ex.a2.ph.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Hi — how can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I'd recommend this. Take two with water." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)(,)? do you have (anything|something) for",
+        "(i ('m| am) looking for) (something for|a )?(headache|cough|cold)",
+        "(could (i|you) (recommend|suggest))",
+      ],
+      tr_hint:
+        "Eczacıya: 'Hi — do you have something for a cough?' Türk öğrenci direkt 'cough' der — eksik.",
+      ideal_answer: "Hi — do you have something for a cough?",
+    },
+    {
+      id: "ex.a2.ph.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Take two with water, three times a day.",
+      accepted_patterns: [
+        "(okay|alright|got it)",
+        "(thanks|thank you)(,)? (got it|understood)",
+        "(two|three) times (a day)",
+        "(with water|with food)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Talimat alındı: 'Got it — thanks!' Türk öğrenci 'ok' der — eksik. Anladığını söyle.",
+      ideal_response: "Got it — thanks.",
+    },
+    {
+      id: "ex.a2.ph.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Baş ağrısı için bir şey var mı?",
+      wrong_en: "Headache medicine you have?",
+      right_en: "Do you have something for a headache?",
+      why_tr:
+        "Türk öğrenci sondan başa sıralar — kırık. Doğru: 'Do you have + something for + isim?' Sabit kalıp.",
+    },
+    {
+      id: "ex.a2.ph.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Eczanede semptom için isteme?",
+          options: [
+            "Headache medicine!",
+            "Do you have something for a headache?",
+            "Medicine my head.",
+            "Need medicine.",
+          ],
+          correct: 1,
+          tr_explanation: "'Do you have something for + semptom?' = standart eczane sorusu.",
+        },
+        {
+          q: "'Three times a day' = ?",
+          options: [
+            "Günde üç kez.",
+            "Üç günde bir.",
+            "Üç günün.",
+            "Üç saatte bir.",
+          ],
+          correct: 0,
+          tr_explanation: "'Sayı + times + a day' = günde ... kez. İlaç dozajı klasiği.",
+        },
+        {
+          q: "'Take with water' = ?",
+          options: [
+            "Su ile al (ilaç).",
+            "Suyu al.",
+            "Sulu yer.",
+            "Sıvı al.",
+          ],
+          correct: 0,
+          tr_explanation: "'Take with + sıvı/yemek' = ilaç alma talimatı. 'With food' = yemekle.",
+        },
+        {
+          q: "'I'd recommend this' = ?",
+          options: [
+            "Bunu tavsiye ederim.",
+            "Bunu beğenirim.",
+            "Bunu istemem.",
+            "Bunu hatırlarım.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd recommend' = öneririm. 'I would'un kısaltması.",
+        },
+        {
+          q: "'That'll be $6.50' = ?",
+          options: [
+            "6.50 dolar olacak (ödeme).",
+            "6.50 dolar oldu.",
+            "6.50 dolar tut.",
+            "6.50 dolar yokluk.",
+          ],
+          correct: 0,
+          tr_explanation: "'That'll be + fiyat' = idiom: kasiyer kalıbı, ödeme miktarı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1012,6 +1132,125 @@ export const cefrA2DailyLesson_doctor: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a2.dr.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "I have ___ ___.",
+      slots: [
+        { accepted: ["a", "an", "some"], distractors: ["the", "my"] },
+        { accepted: ["headache", "fever", "sore throat", "stomachache", "cough"], distractors: ["sick", "feel"] },
+      ],
+      tr_hint:
+        "Semptom anlatımı: 'I have a headache.' Türk öğrenci 'My head hurts' der — kabul ama 'I have a + isim' standart.",
+      example_filled: "I have a headache.",
+    },
+    {
+      id: "ex.a2.dr.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "What seems to be the problem?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I'm sorry to hear that. How long has it been going on?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i have (a |an )?(headache|fever|sore throat|stomachache|cough))",
+        "(my (head|throat|stomach|back)) hurts",
+        "(i (feel|am)) (very )?(sick|dizzy|tired|nauseous)",
+      ],
+      tr_hint:
+        "Doktora semptom: 'I have a sore throat and a headache.' Türk öğrenci 'I'm sick' der — eksik. Belirti söyle.",
+      ideal_answer: "I have a sore throat and a headache.",
+    },
+    {
+      id: "ex.a2.dr.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "How long has this been going on?",
+      accepted_patterns: [
+        "(since |for )?(a few|three|two|five) days",
+        "(about |around )?(a week|two days)",
+        "(since |from )?(yesterday|monday|two days ago)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Süre cevabı: 'For three days.' veya 'Since yesterday.' Türk öğrenci 'three days' der — 'for' eksik.",
+      ideal_response: "For about three days.",
+    },
+    {
+      id: "ex.a2.dr.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Başım ağrıyor.",
+      wrong_en: "My head is paining.",
+      right_en: "I have a headache.",
+      why_tr:
+        "Türk öğrenci 'ağrı'yı 'pain' (isim) verb gibi kullanır — yanlış. Doğru: 'I have + a + ağrı ismi'. 'Headache', 'toothache', 'backache' = ağrı isimleri.",
+    },
+    {
+      id: "ex.a2.dr.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I have a headache' = ?",
+          options: [
+            "Başım ağrıyor.",
+            "Başım büyük.",
+            "Başım kayıp.",
+            "Başım sallıyor.",
+          ],
+          correct: 0,
+          tr_explanation: "'Headache' = baş ağrısı. 'I have a + isim' kalıbı semptomlar için.",
+        },
+        {
+          q: "'Sore throat' = ?",
+          options: [
+            "Boğaz ağrısı.",
+            "Boğaz boş.",
+            "Boğaz kuru.",
+            "Boğaz açık.",
+          ],
+          correct: 0,
+          tr_explanation: "'Sore' = ağrılı/hassas. 'Sore + organ' = ağrılı organ.",
+        },
+        {
+          q: "'How long has this been going on?' = ?",
+          options: [
+            "Ne kadar süredir devam ediyor?",
+            "Ne kadar uzun?",
+            "Ne kadar gidiyor?",
+            "Nereye gidiyor?",
+          ],
+          correct: 0,
+          tr_explanation: "'How long' = ne süredir. Present perfect ile süre.",
+        },
+        {
+          q: "'For three days' / 'since Monday' farkı?",
+          options: [
+            "Aynı.",
+            "For + süre (3 gün); since + zaman noktası (Pazartesi).",
+            "For = sonra; since = önce.",
+            "For = aslında.",
+          ],
+          correct: 1,
+          tr_explanation: "'For' süre uzunluğu. 'Since' başlangıç noktası. Önemli fark.",
+        },
+        {
+          q: "'I'm sorry to hear that' = ?",
+          options: [
+            "Duyduğuma üzüldüm.",
+            "Duydum.",
+            "Bana söyleme.",
+            "Doğru duydum.",
+          ],
+          correct: 0,
+          tr_explanation: "'Sorry to hear that' = idiom: kötü habere empati. Üzgün haber/şikayet cevabı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1311,6 +1550,126 @@ export const cefrA2DailyLesson_taxi: BundledLesson = {
         {
           speaker: "npc",
           message: "Thanks a lot, have a good one!",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.tx.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Could you take me to ___, ___?",
+      slots: [
+        { accepted: ["the airport", "downtown", "this address", "the station"], distractors: ["airport", "downtown go"] },
+        { accepted: ["please", "if possible", "as soon as you can"], distractors: ["yes", "no"] },
+      ],
+      tr_hint:
+        "Taksi yön: 'Could you take me to the airport, please?' Türk öğrenci 'Airport!' der — kaba. Tam cümle kibar.",
+      example_filled: "Could you take me to the airport, please?",
+    },
+    {
+      id: "ex.a2.tx.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Where to?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure, hop in!" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) you take me to (the )?[a-z]",
+        "(to )?(the airport|downtown|this address)(,)? please",
+        "(i('m| am)) going to (the )?[a-z]",
+      ],
+      tr_hint:
+        "Taksiye girdiğinde: 'Could you take me to the airport?' Türk öğrenci 'Airport' der — eksik.",
+      ideal_answer: "Could you take me to the airport, please?",
+    },
+    {
+      id: "ex.a2.tx.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "It'll be about fifteen dollars.",
+      accepted_patterns: [
+        "(okay|alright|sounds good|no problem)",
+        "(here|here you go)(,)? (here'?s )?(twenty)",
+        "(card|cash)(,)? please",
+        "(keep the change)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Ücret bilgisi geldi — onayla + ödeme. 'Okay — card, please.' Türk öğrenci sus kalır — tepki ver.",
+      ideal_response: "Okay — card, please.",
+    },
+    {
+      id: "ex.a2.tx.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Beni havalimanına götür.",
+      wrong_en: "Take me airport.",
+      right_en: "Could you take me to the airport?",
+      why_tr:
+        "Türk öğrenci 'to'yu atlar ve emir kipi kullanır. Doğru: 'Could you take me + to + the + yer.' 'To' atlanmaz, 'could' kibarlaştırır.",
+    },
+    {
+      id: "ex.a2.tx.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Taksiye 'havalimanına götür' kibar?",
+          options: [
+            "Airport!",
+            "Could you take me to the airport?",
+            "Airport take me.",
+            "Go airport.",
+          ],
+          correct: 1,
+          tr_explanation: "'Could you take me to + yer' = kibar taksi talimatı. 'Could' yumuşatır.",
+        },
+        {
+          q: "'Where to?' = ?",
+          options: [
+            "Nereye gidiyorsun?",
+            "Nereden geliyorsun?",
+            "Nereye gitmem?",
+            "Nereye iz?",
+          ],
+          correct: 0,
+          tr_explanation: "'Where to?' = idiom: nereye? Taksi şoföründen ilk soru.",
+        },
+        {
+          q: "'Hop in' = ?",
+          options: [
+            "Atla içeri.",
+            "Otur dışarı.",
+            "İn aşağı.",
+            "Geç önümden.",
+          ],
+          correct: 0,
+          tr_explanation: "'Hop in' = idiom: arabaya bin. Sıcak/günlük davet.",
+        },
+        {
+          q: "'Keep the change' = ?",
+          options: [
+            "Para üstünü tut.",
+            "Parayı sakla.",
+            "Bozuk para getir.",
+            "Para üstünü ver.",
+          ],
+          correct: 0,
+          tr_explanation: "'Keep the change' = para üstünü bahşiş olarak ver. Taksi/restoran klasiği.",
+        },
+        {
+          q: "ABD'de taksi bahşişi?",
+          options: [
+            "Yok.",
+            "%15-20.",
+            "%5.",
+            "%50.",
+          ],
+          correct: 1,
+          tr_explanation: "ABD'de taksi bahşişi standart %15-20. Round up + birkaç dolar yaygın.",
         },
       ],
     },
@@ -1630,6 +1989,125 @@ export const cefrA2DailyLesson_hotel: BundledLesson = {
       phrase: "I have a reservation under the name of Berk.",
       tr_hint: "'Reservation' = 'rezerveyşın'. 'Under' = 'andır'. Akıcı dene.",
     },
+    {
+      id: "ex.a2.ht.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "I have a ___ under ___.",
+      slots: [
+        { accepted: ["reservation", "booking"], distractors: ["reserved", "book"] },
+        { accepted: ["the name of Berk", "Berk Acer", "my name", "tonight"], distractors: ["my", "Berk for"] },
+      ],
+      tr_hint:
+        "Otel check-in: 'I have a reservation under the name of Berk.' Türk öğrenci 'Reservation Berk' der — eksik. 'Under the name of + isim' sabit.",
+      example_filled: "I have a reservation under the name of Berk.",
+    },
+    {
+      id: "ex.a2.ht.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Good evening — checking in?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. Let me find your booking." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes(,)? )?i have a (reservation|booking)( under)?",
+        "(checking in)(,)? (the name'?s|under the name of) [a-z]+",
+        "(yes(,)? )?(it('s| is) )?(under|for) (the name of )?[a-z]+",
+      ],
+      tr_hint:
+        "Check-in: 'Yes, I have a reservation under Berk Acer.' Türk öğrenci 'Berk' der — eksik.",
+      ideal_answer: "Yes — I have a reservation under Berk Acer.",
+    },
+    {
+      id: "ex.a2.ht.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "How many nights are you staying?",
+      accepted_patterns: [
+        "(just |only )?(one|two|three|four) (night|nights)",
+        "(three|four|five) (nights?)",
+        "(until (sunday|monday|next week))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Gece sayısı: 'Three nights.' Türk öğrenci 'three night' der — eksik. Çoğul 'nights'.",
+      ideal_response: "Three nights, please.",
+    },
+    {
+      id: "ex.a2.ht.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Rezervasyonum var.",
+      wrong_en: "I have reservation.",
+      right_en: "I have a reservation.",
+      why_tr:
+        "Türk öğrenci 'a/an' atlar. 'Reservation' sayılabilen tek nesne — 'a' şart. Doğru: 'I have A reservation.'",
+    },
+    {
+      id: "ex.a2.ht.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Check-in başlangıç?",
+          options: [
+            "Berk room please.",
+            "I have a reservation under Berk.",
+            "Reservation me.",
+            "Hotel for Berk.",
+          ],
+          correct: 1,
+          tr_explanation: "'I have a reservation under + isim' = check-in açılışı. 'Under the name of' = ... adına.",
+        },
+        {
+          q: "'How many nights?' cevap?",
+          options: [
+            "Three night.",
+            "Three nights.",
+            "Three nighter.",
+            "Threen night.",
+          ],
+          correct: 1,
+          tr_explanation: "Birden fazla → çoğul. 'Three nights' standart.",
+        },
+        {
+          q: "'Check-in' = ?",
+          options: [
+            "Giriş (otel/uçak).",
+            "Çıkış.",
+            "Kontrol.",
+            "Test.",
+          ],
+          correct: 0,
+          tr_explanation: "'Check-in' = otele/uçağa giriş. 'Check-out' = çıkış. İkili kalıp.",
+        },
+        {
+          q: "'Enjoy your stay' = ?",
+          options: [
+            "Konaklamana iyi olsun.",
+            "Kalış güzel olsun.",
+            "Tatilin keyifli olsun.",
+            "Hepsi doğru.",
+          ],
+          correct: 3,
+          tr_explanation: "'Enjoy your stay' = otel klasik kapanışı. Tüm çevirileri kabul.",
+        },
+        {
+          q: "'Reservation' yerine?",
+          options: [
+            "Booking.",
+            "Book.",
+            "Buying.",
+            "Renting.",
+          ],
+          correct: 0,
+          tr_explanation: "'Booking' = rezervasyon (UK & US, otel/uçak). 'Reservation' = (US, restoran/otel).",
+        },
+      ],
+    },
   ],
 };
 
@@ -1918,6 +2396,125 @@ export const cefrA2DailyLesson_shopping: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a2.sh.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Do you have this in ___ ___?",
+      slots: [
+        { accepted: ["a", "an"], distractors: ["the", "some"] },
+        { accepted: ["medium", "large", "different color", "smaller size"], distractors: ["color", "size"] },
+      ],
+      tr_hint:
+        "Beden/renk sorma: 'Do you have this in a medium?' Türk öğrenci 'M size?' der — eksik. Tam soru kibar.",
+      example_filled: "Do you have this in a medium?",
+    },
+    {
+      id: "ex.a2.sh.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Can I help you find something?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Let me check the back." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(do you have this in) (a |an )?(medium|large|small|different color)",
+        "(i('m| am)) looking for (a |an )?(medium|large|small|red|blue)",
+        "(do you have) (a |an )?(bigger|smaller) (size|one)",
+      ],
+      tr_hint:
+        "Beden isteği: 'Do you have this in a medium?' Türk öğrenci 'M, please' der — eksik.",
+      ideal_answer: "Do you have this in a smaller size?",
+    },
+    {
+      id: "ex.a2.sh.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "How much is this?",
+      accepted_patterns: [
+        "(it('s| is)) [0-9]+ (dollars|euros)",
+        "(it('s| is)) (around |about )?[a-z]+ (dollars|euros)",
+        "(let me check) (the )?(price|tag)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Fiyat söyleme (satıcı): 'It's twenty-nine ninety-nine.' Türk öğrenci 'twenty-nine 99' karıştırır.",
+      ideal_response: "It's twenty-nine dollars.",
+    },
+    {
+      id: "ex.a2.sh.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Bu kaç para?",
+      wrong_en: "This how much?",
+      right_en: "How much is this?",
+      why_tr:
+        "Türk öğrenci sondan başa sıralama yapar: 'This how much' — kırık. Doğru: 'How much is this?' Soru kelimeleri başa.",
+    },
+    {
+      id: "ex.a2.sh.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Fiyat sorma?",
+          options: [
+            "This how much?",
+            "How much is this?",
+            "Price what?",
+            "Cost it?",
+          ],
+          correct: 1,
+          tr_explanation: "'How much is + isim?' = fiyat sorma. Sabit kalıp.",
+        },
+        {
+          q: "'Can I try this on?' = ?",
+          options: [
+            "Bunu deneyebilir miyim (giysi)?",
+            "Bunu açabilir miyim?",
+            "Bunu seveyim mi?",
+            "Bunu yiyim mi?",
+          ],
+          correct: 0,
+          tr_explanation: "'Try on' = giysi dene. 'Try' yemek dene. 'On' kıyafet için ek.",
+        },
+        {
+          q: "'Do you have this in medium?' = ?",
+          options: [
+            "Medium beden var mı?",
+            "Medium pizza var mı?",
+            "Medium fiyat?",
+            "Medium nerede?",
+          ],
+          correct: 0,
+          tr_explanation: "'Do you have X in Y?' = Y beden/renk olarak X var mı?",
+        },
+        {
+          q: "'Take your time' = ?",
+          options: [
+            "Acele etme.",
+            "Vaktini al.",
+            "Zamanın doldu.",
+            "Hemen yap.",
+          ],
+          correct: 0,
+          tr_explanation: "'Take your time' = idiom: acele etme. Satıcının nazik daveti.",
+        },
+        {
+          q: "'It's twenty-nine ninety-nine' = ?",
+          options: [
+            "29.99 dolar/euro.",
+            "2999 dolar.",
+            "29 yıl 99 ay.",
+            "29 + 99.",
+          ],
+          correct: 0,
+          tr_explanation: "'Twenty-nine ninety-nine' = $29.99. ABD'de fiyatlar genelde .99.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2203,6 +2800,125 @@ export const cefrA2DailyLesson_datetime: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a2.dt.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Let's meet on ___ at ___.",
+      slots: [
+        { accepted: ["Monday", "Friday", "Tuesday", "the weekend"], distractors: ["in Monday", "to Monday"] },
+        { accepted: ["seven", "three", "noon", "six thirty", "quarter past five"], distractors: ["7 hour", "morning seven"] },
+      ],
+      tr_hint:
+        "Buluşma kalıbı: 'Let's meet on Friday at seven.' Türk öğrenci 'in Friday' der — yanlış. Gün öncesi 'on', saat öncesi 'at'.",
+      example_filled: "Let's meet on Friday at seven.",
+    },
+    {
+      id: "ex.a2.dt.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "When works for you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sounds great — see you then!" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(how about|let'?s say|maybe) (monday|tuesday|wednesday|thursday|friday|saturday|sunday)",
+        "(on )?(monday|tuesday|wednesday|thursday|friday|saturday|sunday)( at )?[0-9]?",
+        "(tomorrow|next week)( at)? [0-9]",
+      ],
+      tr_hint:
+        "Saat/gün önerme: 'How about Friday at seven?' Türk öğrenci 'Friday seven' der — eksik. 'How about + gün + at + saat'.",
+      ideal_answer: "How about Friday at seven?",
+    },
+    {
+      id: "ex.a2.dt.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What time should we meet?",
+      accepted_patterns: [
+        "(how about|maybe|let'?s say) [0-9a-z ]+",
+        "(at )?[0-9]+(:[0-9]+)?",
+        "(half past|quarter (to|past)) [a-z]+",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Saat önerme: 'How about seven thirty?' Türk öğrenci 'seven half' der — yanlış. Doğru: 'seven thirty' veya 'half past seven'.",
+      ideal_response: "How about seven thirty?",
+    },
+    {
+      id: "ex.a2.dt.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Cuma günü saat 7'de buluşalım.",
+      wrong_en: "Let's meet in Friday at seven.",
+      right_en: "Let's meet on Friday at seven.",
+      why_tr:
+        "Türk öğrenci günlere 'in' koyar — yanlış. Gün → 'on', ay → 'in', saat → 'at'. ON Friday AT seven IN May.",
+    },
+    {
+      id: "ex.a2.dt.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Edat: ___ Friday ___ seven ___ May?",
+          options: [
+            "On / at / in.",
+            "At / on / in.",
+            "In / at / on.",
+            "On / on / on.",
+          ],
+          correct: 0,
+          tr_explanation: "Gün → on, saat → at, ay → in. Sabit kurallar.",
+        },
+        {
+          q: "'See you then!' = ?",
+          options: [
+            "Görüşürüz o zaman.",
+            "Görüşürüz sonra.",
+            "Görüşürüz hep.",
+            "O zaman göründü.",
+          ],
+          correct: 0,
+          tr_explanation: "'See you then' = idiom: kararlaştırdığımız zaman görüşürüz. Plan kapanışı.",
+        },
+        {
+          q: "'How about Friday?' = ?",
+          options: [
+            "Cuma nasıl?",
+            "Cuma ne hakkında?",
+            "Cumayla ne?",
+            "Cuma kim?",
+          ],
+          correct: 0,
+          tr_explanation: "'How about + zaman' = öneri yapma. 'Cuma nasıl?' veya 'Cuma uygun mu?'.",
+        },
+        {
+          q: "7:30 = ?",
+          options: [
+            "Seven half.",
+            "Half past seven / seven thirty.",
+            "Half seven.",
+            "Seven half thirty.",
+          ],
+          correct: 1,
+          tr_explanation: "İkisi de doğru: 'half past seven' (UK formal) veya 'seven thirty' (US, daha doğal).",
+        },
+        {
+          q: "'Sounds great!' = ?",
+          options: [
+            "Harika ses.",
+            "Harika!",
+            "Sesi güzel.",
+            "Sesli harika.",
+          ],
+          correct: 1,
+          tr_explanation: "'Sounds + sıfat' = idiom: ...gibi geliyor / kulağa ... geliyor. 'Sounds great' = harika!",
+        },
+      ],
+    },
   ],
 };
 
@@ -2485,6 +3201,125 @@ export const cefrA2DailyLesson_weather: BundledLesson = {
             "(thanks|thank you)",
           ],
           hint_tr: "'Thanks, you too!' veya 'You too — take care!'",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.wt.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "It's ___ ___.",
+      slots: [
+        { accepted: ["sunny", "rainy", "cold", "hot", "cloudy", "windy"], distractors: ["sun", "rain"] },
+        { accepted: ["today", "outside", "this morning", "in the evening"], distractors: ["the today", "in today"] },
+      ],
+      tr_hint:
+        "Hava söyleme: 'It's sunny today.' Türk öğrenci 'Today sun' der — yanlış. 'It's + sıfat + zaman'.",
+      example_filled: "It's sunny today.",
+    },
+    {
+      id: "ex.a2.wt.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Lovely day, isn't it?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Right? Let's enjoy it!" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|absolutely|definitely)(,)? (it('s| is)) (really )?(beautiful|nice|lovely|warm|sunny)",
+        "(i know|right)(,)? (it('s| is)) (so )?(nice|warm|sunny)",
+        "(finally|at last)(,)? (some )?(sun|warmth)",
+      ],
+      tr_hint:
+        "Hava small talk: 'Yes, it's lovely!' veya 'Right? It's perfect!' Türk öğrenci 'yes' der — küçük konuşma eksik.",
+      ideal_answer: "Yes, it's absolutely lovely!",
+    },
+    {
+      id: "ex.a2.wt.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "How's the weather over there?",
+      accepted_patterns: [
+        "(it('s| is)) (pretty |very |really )?(sunny|cold|hot|rainy|cloudy|warm|cool)",
+        "(it('s| is)) (around |about )?[0-9]+ degrees",
+        "(not bad|pretty good|nice)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hava cevabı: 'It's pretty warm — around 25 degrees.' Türk öğrenci tek 'warm' der — sayı/detay ekle.",
+      ideal_response: "It's pretty warm — around twenty-five degrees.",
+    },
+    {
+      id: "ex.a2.wt.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Bugün hava güneşli.",
+      wrong_en: "Today weather is sunny.",
+      right_en: "It's sunny today.",
+      why_tr:
+        "Türk öğrenci 'Today weather is...' diye başlar — yanlış sıralama. Doğru: 'It's + sıfat + today'. Hava için subject 'it'.",
+    },
+    {
+      id: "ex.a2.wt.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Hava söyleme öznesi?",
+          options: [
+            "Weather is...",
+            "It is...",
+            "Today is...",
+            "Sun is...",
+          ],
+          correct: 1,
+          tr_explanation: "Hava için subject 'it'. 'It's sunny' standart. 'Weather is' kaba.",
+        },
+        {
+          q: "'Lovely day, isn't it?' = ?",
+          options: [
+            "Güzel gün, değil mi?",
+            "Güzel gün, sıcak mı?",
+            "Sıcak mı, güzel mi?",
+            "Gün güzel.",
+          ],
+          correct: 0,
+          tr_explanation: "Tag question: 'isn't it?' = değil mi? Onay/küçük konuşma için.",
+        },
+        {
+          q: "Sıcaklık nasıl söylenir?",
+          options: [
+            "25 hot.",
+            "It's around 25 degrees.",
+            "Hot 25.",
+            "Today 25.",
+          ],
+          correct: 1,
+          tr_explanation: "'It's + sayı + degrees' = sıcaklık. 'Around' = yaklaşık.",
+        },
+        {
+          q: "'Stay warm' ne anlam taşır?",
+          options: [
+            "Sıcak kal (üşüme).",
+            "Buraya gel.",
+            "Sıcak yer.",
+            "Sıcak ev.",
+          ],
+          correct: 0,
+          tr_explanation: "'Stay warm' = üşüme/sıcak tut kendini. Kış vedalaşması.",
+        },
+        {
+          q: "'Cloudy' = ?",
+          options: [
+            "Açık.",
+            "Bulutlu.",
+            "Yağmurlu.",
+            "Karlı.",
+          ],
+          correct: 1,
+          tr_explanation: "'Cloud' = bulut, 'cloudy' = bulutlu. 'Sunny' (güneşli) / 'rainy' (yağmurlu) / 'snowy' (karlı).",
         },
       ],
     },
@@ -2777,6 +3612,126 @@ export const cefrA2DailyLesson_lost: BundledLesson = {
         {
           speaker: "npc",
           message: "Happy to help. Take care!",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.ls.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "I think I ___ my ___.",
+      slots: [
+        { accepted: ["lost", "left", "forgot"], distractors: ["lose", "leaving"] },
+        { accepted: ["phone", "wallet", "bag", "keys", "passport"], distractors: ["phones", "the all"] },
+      ],
+      tr_hint:
+        "Kayıp eşya: 'I think I lost my phone.' Türk öğrenci 'My phone lost' der — yanlış. 'I + past tense'.",
+      example_filled: "I think I lost my phone.",
+    },
+    {
+      id: "ex.a2.ls.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Hi — can I help you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh no — let me check. What does it look like?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|excuse me)(,)? i (think i )?(lost|left|forgot) (my )?(phone|wallet|bag|jacket)",
+        "(i can'?t find) (my )?(phone|wallet|bag)",
+        "(i need help)(,)? i (lost|left)",
+      ],
+      tr_hint:
+        "Kayıp bildirimi: 'I think I lost my phone here yesterday.' Türk öğrenci tek 'phone lost' der — eksik.",
+      ideal_answer: "I think I lost my phone here yesterday.",
+    },
+    {
+      id: "ex.a2.ls.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What does it look like?",
+      accepted_patterns: [
+        "(it('s| is)) (a )?(black|white|red|blue|small|big)",
+        "(it('s| is)) (an )?iphone",
+        "(it has) (a )?(blue|red|black) case",
+        "(it looks like)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Eşya tarifi: 'It's a black iPhone with a blue case.' Türk öğrenci 'phone black' der — sıralama yanlış. 'It's + a + sıfat + isim'.",
+      ideal_response: "It's a black iPhone with a blue case.",
+    },
+    {
+      id: "ex.a2.ls.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Telefonumu kaybettim.",
+      wrong_en: "My phone is lost.",
+      right_en: "I lost my phone.",
+      why_tr:
+        "Türk öğrenci 'kaybetmek'i pasif yapar: 'is lost' — anlamsız. Doğru: aktif 'I lost' (past tense). Sen yaptın, sen söyle.",
+    },
+    {
+      id: "ex.a2.ls.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I lost my phone' = ?",
+          options: [
+            "Telefonumu kaybettim.",
+            "Telefonum kayıp.",
+            "Kayıp telefonum.",
+            "Telefonsuz.",
+          ],
+          correct: 0,
+          tr_explanation: "'I lost' = past tense 'lose'. Aktif cümle.",
+        },
+        {
+          q: "'Lose' / 'lost' / 'leave' / 'left' farkı?",
+          options: [
+            "Aynı.",
+            "Lose = kaybet, Leave = bırak (unutarak).",
+            "Lose = bırak, Leave = kaybet.",
+            "Önemsiz.",
+          ],
+          correct: 1,
+          tr_explanation: "'Lost' = kayboldu/bulunamıyor. 'Left' = bilerek bırak / unut (örn. 'I left my bag at the cafe').",
+        },
+        {
+          q: "'What does it look like?' = ?",
+          options: [
+            "Neye benziyor?",
+            "Ne istiyor?",
+            "Nerede?",
+            "Hangisi?",
+          ],
+          correct: 0,
+          tr_explanation: "'Look like' = idiom: benze/görün. Tarif sormak için.",
+        },
+        {
+          q: "'You're a lifesaver' = ?",
+          options: [
+            "Hayat kurtarıcısın (idiom).",
+            "Doktorsun.",
+            "Hayat sigortası.",
+            "Çok yaşa.",
+          ],
+          correct: 0,
+          tr_explanation: "'Lifesaver' = idiom: çok yardımcı oldun. Teşekkür kalıbı.",
+        },
+        {
+          q: "'Lost and found' = ?",
+          options: [
+            "Kayıp eşya bölümü.",
+            "Kayıp bulundu.",
+            "Bulundum kaybettim.",
+            "Kayıp arandı.",
+          ],
+          correct: 0,
+          tr_explanation: "'Lost and found' = sabit terim: kayıp eşya ofisi. Havalimanı/otel/AVM'de.",
         },
       ],
     },
@@ -3124,6 +4079,126 @@ export const cefrA2DailyLesson_transit: BundledLesson = {
       tr_explanation:
         "Soru cümlesinde 'does' (auxiliary) gerekli. 'When DOES the next train come?' — fiil çekimi 'come' (does + bare verb).",
     },
+    {
+      id: "ex.a2.tr.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "A ___ ticket to ___, please.",
+      slots: [
+        { accepted: ["one-way", "round-trip", "single", "return"], distractors: ["one direction", "go return"] },
+        { accepted: ["downtown", "the airport", "Boston", "the station"], distractors: ["downtown go", "near"] },
+      ],
+      tr_hint:
+        "Bilet alma: 'A round-trip ticket to the airport, please.' Türk öğrenci 'Ticket airport' der — eksik. Tam cümle kibar.",
+      example_filled: "A one-way ticket to downtown, please.",
+    },
+    {
+      id: "ex.a2.tr.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Where to?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "That'll be 6 dollars 50." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(a |one )?(one-?way|round-?trip|single|return) ticket to",
+        "(downtown|the airport|union station)(,)? please",
+        "(could i get|i('d| would) like) a ticket to",
+      ],
+      tr_hint:
+        "Bilet talebi: 'A one-way ticket to downtown, please.' Türk öğrenci direkt yer söyler — eksik.",
+      ideal_answer: "A one-way ticket to downtown, please.",
+    },
+    {
+      id: "ex.a2.tr.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "When does the next train leave?",
+      accepted_patterns: [
+        "(in (five|ten|fifteen|twenty) minutes)",
+        "(at )?[0-9]+(:[0-9]+)?",
+        "(it (leaves|comes)) (at |in )?",
+        "(every (ten|fifteen|twenty) minutes)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Saat verme: 'In ten minutes' veya 'At 8:15.' Türk öğrenci 'after ten minutes' der — yanlış. 'In + zaman' gelecek.",
+      ideal_response: "In ten minutes — at 8:15.",
+    },
+    {
+      id: "ex.a2.tr.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Bir sonraki tren ne zaman geliyor?",
+      wrong_en: "When the next train comes?",
+      right_en: "When does the next train come?",
+      why_tr:
+        "Soru cümlesinde 'do/does' yardımcı fiil şart. Türk öğrenci atlar. Doğru: 'When DOES the next train come?' Üçüncü tekil → does.",
+    },
+    {
+      id: "ex.a2.tr.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'One-way ticket' = ?",
+          options: [
+            "Gidiş-dönüş bilet.",
+            "Tek yön bilet.",
+            "Tek bilet.",
+            "İki bilet.",
+          ],
+          correct: 1,
+          tr_explanation: "'One-way' = tek yön. 'Round-trip' (US) / 'return' (UK) = gidiş-dönüş.",
+        },
+        {
+          q: "Tren gelir 10 dakika sonra = ?",
+          options: [
+            "After ten minutes.",
+            "In ten minutes.",
+            "On ten minutes.",
+            "To ten minutes.",
+          ],
+          correct: 1,
+          tr_explanation: "'In + zaman' = ... sonra. Gelecek. 'After' Türk hatası.",
+        },
+        {
+          q: "'Where to?' = ?",
+          options: [
+            "Nereye?",
+            "Nereden?",
+            "Ne kadar?",
+            "Ne zaman?",
+          ],
+          correct: 0,
+          tr_explanation: "'Where to?' = idiom: nereye gidiyorsun? Taksi/bilet için klasik.",
+        },
+        {
+          q: "'Every ten minutes' = ?",
+          options: [
+            "Her on dakikada bir.",
+            "On dakika sonra.",
+            "Her on dakika.",
+            "On dakika her.",
+          ],
+          correct: 0,
+          tr_explanation: "'Every + zaman' = her ... bir. Tarife/sıklık için.",
+        },
+        {
+          q: "Soruda 'does' ne zaman?",
+          options: [
+            "Tüm soru cümlelerinde.",
+            "3. tekil (he/she/it/the train) + present simple.",
+            "Hep.",
+            "Asla.",
+          ],
+          correct: 1,
+          tr_explanation: "Present simple soru: 3. tekil → does, diğer → do. 'When DOES it leave?' / 'When DO they leave?'",
+        },
+      ],
+    },
   ],
 };
 
@@ -3459,6 +4534,125 @@ export const cefrA2DailyLesson_weatherLikes: BundledLesson = {
       ipa: "aɪ lʌv ˈsʌni deɪz",
       tr_hint:
         "'Love' = 'lav' (kısa). 'Sunny' = 'sani'. 'Days' = 'deyz', sonda 'z' sesi.",
+    },
+    {
+      id: "ex.a2.wl.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "I ___ ___ weather.",
+      slots: [
+        { accepted: ["love", "like", "don't like", "hate", "prefer"], distractors: ["am love", "have love"] },
+        { accepted: ["sunny", "rainy", "cold", "hot", "cloudy"], distractors: ["sun", "rain"] },
+      ],
+      tr_hint:
+        "Hava tercihi: 'I love sunny weather.' Türk öğrenci 'I love sun' der — eksik. 'Weather' kelimesi gerekli.",
+      example_filled: "I love sunny weather.",
+    },
+    {
+      id: "ex.a2.wl.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "What kind of weather do you prefer?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Same here! I hate the cold." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i (love|like|prefer)) (sunny|warm|cool|hot|cold) (weather|days)",
+        "(i (don'?t like|hate)) (rain|snow|cold)",
+        "(warm and (sunny|breezy))",
+      ],
+      tr_hint:
+        "Hava tercihi: 'I prefer warm, sunny weather.' Türk öğrenci tek kelime 'hot' der — yetersiz, açıkla.",
+      ideal_answer: "I prefer warm, sunny weather.",
+    },
+    {
+      id: "ex.a2.wl.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Do you like the rain?",
+      accepted_patterns: [
+        "(yes(,)? )?i (love|like) (the )?rain",
+        "(no(,)? )?(not (really|much)|i (hate|don'?t (like|love)))",
+        "(it depends|sometimes)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "'Yes, I love rainy days.' veya 'No, not really.' Türk öğrenci 'Yes' der — açıkla, neden.",
+      ideal_response: "Not really — I prefer sunny weather.",
+    },
+    {
+      id: "ex.a2.wl.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Soğuğu sevmem.",
+      wrong_en: "I no like cold.",
+      right_en: "I don't like cold weather.",
+      why_tr:
+        "Türk öğrenci 'no'yu yardımcı fiil yerine koyar — yanlış. Doğru: 'I don't (do not) like'. + 'cold' tek başına eksik, 'cold weather'.",
+    },
+    {
+      id: "ex.a2.wl.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Sunny days' = ?",
+          options: [
+            "Güneşli günler.",
+            "Pazar günleri.",
+            "Yaz günleri.",
+            "Sıcak günler.",
+          ],
+          correct: 0,
+          tr_explanation: "'Sunny' = güneşli. 'Sunday' = pazar günü. Karıştırılır.",
+        },
+        {
+          q: "'I prefer X over Y' = ?",
+          options: [
+            "X'i Y'ye tercih ederim.",
+            "X yerine Y.",
+            "X = Y.",
+            "Ne X ne Y.",
+          ],
+          correct: 0,
+          tr_explanation: "'Prefer X over Y' = X'i Y'ye tercih et. Karşılaştırma kalıbı.",
+        },
+        {
+          q: "'It depends' = ?",
+          options: [
+            "Bağlı.",
+            "Duruma göre değişir.",
+            "Bağımsız.",
+            "Önemsiz.",
+          ],
+          correct: 1,
+          tr_explanation: "'It depends' = idiom: koşullara bağlı. Net cevap vermek istemediğinde.",
+        },
+        {
+          q: "'I hate cold weather' = ?",
+          options: [
+            "Soğuk hayvanları severim.",
+            "Soğuk havadan nefret ederim.",
+            "Sıcak havayı severim.",
+            "Bilmiyorum.",
+          ],
+          correct: 1,
+          tr_explanation: "'Hate + isim' = nefret et. 'I hate + weather/food/X' yaygın.",
+        },
+        {
+          q: "'Warm and breezy' = ?",
+          options: [
+            "Sıcak ve rüzgarlı (hafif).",
+            "Çok sıcak.",
+            "Karlı ve soğuk.",
+            "Yağmurlu.",
+          ],
+          correct: 0,
+          tr_explanation: "'Breezy' = hafif rüzgarlı. 'Warm and breezy' = ideal hava (çoğunlukla).",
+        },
+      ],
     },
   ],
 };
@@ -3808,6 +5002,126 @@ export const cefrA2DailyLesson_hobbies: BundledLesson = {
       tr_hint:
         "'Usually' = 'yujuli' (üç hece). 'Gym' = 'cim'. 'After work' bağlanır → 'aftırvörk'.",
     },
+    {
+      id: "ex.a2.hb.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "I like ___ in my ___.",
+      slots: [
+        { accepted: ["reading", "running", "cooking", "playing games", "watching movies"], distractors: ["to reading", "read"] },
+        { accepted: ["free time", "spare time", "weekends", "evenings"], distractors: ["time free", "much time"] },
+      ],
+      tr_hint:
+        "Hobi anlatımı: 'I like reading in my free time.' Türk öğrenci 'I like to read' der — kabul ama 'I like + verb-ing' daha doğal.",
+      example_filled: "I like reading in my free time.",
+    },
+    {
+      id: "ex.a2.hb.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "What do you do for fun?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh nice — how often?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i like|i enjoy|i love) (reading|running|cooking|playing|watching|hiking)",
+        "(i('m| am) into) (sports|music|movies|art|reading)",
+        "(my (hobby|hobbies) is|are)",
+      ],
+      tr_hint:
+        "Hobi: 'I love hiking.' veya 'I'm into music.' Türk öğrenci 'My hobby music' der — yanlış. 'I'm into + isim' yaygın.",
+      ideal_answer: "I love hiking on weekends.",
+    },
+    {
+      id: "ex.a2.hb.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "How often do you exercise?",
+      accepted_patterns: [
+        "(i (exercise|work out|go to the gym)) (twice|three times|every|once)",
+        "(three|four|five) times (a week|per week)",
+        "(every (day|other day))",
+        "(not (very )?often)(,)? (maybe|sometimes)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sıklık: 'Three times a week.' Türk öğrenci 'in week three' der — kırık. 'Sayı + times + a week' sabit.",
+      ideal_response: "Three times a week, usually after work.",
+    },
+    {
+      id: "ex.a2.hb.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Kitap okumayı severim.",
+      wrong_en: "I love to reading.",
+      right_en: "I love reading.",
+      why_tr:
+        "Türk öğrenci 'sevmek' fiilinden sonra 'to' ekler ama '-ing' ile 'to' aynı anda olmaz. 'I love reading' (verb-ing) veya 'I love to read' (to + base). İkisi karışmaz.",
+    },
+    {
+      id: "ex.a2.hb.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Hobi anlatımı?",
+          options: [
+            "My hobby music.",
+            "I'm into music.",
+            "I have music.",
+            "Music is hobby.",
+          ],
+          correct: 1,
+          tr_explanation: "'I'm into + isim' = idiom: ile ilgileniyorum. Konuşma dilinde yaygın.",
+        },
+        {
+          q: "'I like reading' ve 'I like to read' farkı?",
+          options: [
+            "İkisi de doğal.",
+            "Sadece reading doğru.",
+            "Sadece to read doğru.",
+            "Aynı şey değil.",
+          ],
+          correct: 0,
+          tr_explanation: "'Like + verb-ing' ve 'like + to + base' ikisi de doğal. Eğitim İngilizcesi 'to read' önerir; konuşma 'reading'.",
+        },
+        {
+          q: "'Three times a week' = ?",
+          options: [
+            "Haftada üç kere.",
+            "Üç hafta.",
+            "Üç günde bir.",
+            "Üç saatte bir.",
+          ],
+          correct: 0,
+          tr_explanation: "'Sayı + times + a week' = haftada ... kez. Sabit sıklık kalıbı.",
+        },
+        {
+          q: "'In my free time' = ?",
+          options: [
+            "Vaktimde.",
+            "Boş zamanımda.",
+            "Hep zamanda.",
+            "Ücretsiz zaman.",
+          ],
+          correct: 1,
+          tr_explanation: "'Free time' = idiom: boş zaman (çalışmadığın zaman). 'Spare time' eş anlamlı.",
+        },
+        {
+          q: "'How often do you...?' = ?",
+          options: [
+            "Ne sıklıkla?",
+            "Ne kadar?",
+            "Ne zaman?",
+            "Ne çok?",
+          ],
+          correct: 0,
+          tr_explanation: "'How often' = ne sıklıkla. Sıklık sorusu için sabit.",
+        },
+      ],
+    },
   ],
 };
 
@@ -4149,6 +5463,126 @@ export const cefrA2DailyLesson_family: BundledLesson = {
       ipa: "maɪ ˈsɪstər ɪz ˈoʊldər ðæn mi",
       tr_hint:
         "'Sister' = 'sistır'. 'Older' = 'oldır'. 'Than' = 'den' (kısa, vurgusuz).",
+    },
+    {
+      id: "ex.a2.fm.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "I have ___ ___.",
+      slots: [
+        { accepted: ["one", "two", "three"], distractors: ["a", "the"] },
+        { accepted: ["brother", "sister", "brothers and sisters", "siblings"], distractors: ["brothers", "sisters family"] },
+      ],
+      tr_hint:
+        "Aile sayma: 'I have two brothers.' Türk öğrenci 'I have brother two' der — sıra yanlış. 'Sayı + isim'.",
+      example_filled: "I have one brother.",
+    },
+    {
+      id: "ex.a2.fm.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Do you have any siblings?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh nice! Are they older or younger?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes(,)? )?i have (one|two|three) (brother|sister|sibling)",
+        "(no(,)? )?i('m| am) an only child",
+        "(yes)(,)? i have (a |an )?(older|younger) (brother|sister)",
+      ],
+      tr_hint:
+        "Kardeş sorusu: 'I have one brother and one sister.' Türk öğrenci 'My brother one' der — yanlış. 'I have + sayı + isim'.",
+      ideal_answer: "Yes, I have one brother and one sister.",
+    },
+    {
+      id: "ex.a2.fm.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Tell me about your family.",
+      accepted_patterns: [
+        "(i have a (big|small|nice) family)",
+        "(we are (four|five|six|seven) (people|in my family))",
+        "(my (mom|dad|brother|sister))( is|'s) (a |an )?[a-z]",
+        "(there are (four|five|six|seven) (of us|people))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Aile anlatımı: 'I have a small family — my parents and my sister.' Türk öğrenci 'My family big' der — yardımcı fiil eksik.",
+      ideal_response: "I have a small family — my parents and one sister.",
+    },
+    {
+      id: "ex.a2.fm.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Ablam benden büyük.",
+      wrong_en: "My sister more big than me.",
+      right_en: "My sister is older than me.",
+      why_tr:
+        "İki Türk hatası: (1) 'More big' yanlış — 'older' (tek heceli sıfat). (2) Yaş için 'old', boy için 'tall'. + 'Is' atlanmaz.",
+    },
+    {
+      id: "ex.a2.fm.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I have two brothers' = ?",
+          options: [
+            "İki erkek kardeşim var.",
+            "İki kardeşim var.",
+            "Birader var iki.",
+            "İki erkeğim var.",
+          ],
+          correct: 0,
+          tr_explanation: "'Brother' = erkek kardeş. 'Sister' = kız kardeş. 'Sibling' = cinsiyetsiz.",
+        },
+        {
+          q: "'I'm an only child' = ?",
+          options: [
+            "Tek çocuğum.",
+            "Tek başına çocuk değilim.",
+            "Çocuk yoktum.",
+            "Çocuktum.",
+          ],
+          correct: 0,
+          tr_explanation: "'Only child' = idiom: tek çocuk (kardeşim yok). Yaygın kullanım.",
+        },
+        {
+          q: "Yaş karşılaştırması: 'older than'?",
+          options: [
+            "Daha yaşlı/büyük (-den).",
+            "Yaşlı oldu.",
+            "Daha eski.",
+            "Yıl daha.",
+          ],
+          correct: 0,
+          tr_explanation: "'Older than' = -den daha yaşlı/büyük. Aile/insanlar için.",
+        },
+        {
+          q: "'My parents' = ?",
+          options: [
+            "Ailem.",
+            "Annem ve babam.",
+            "Çocuklarım.",
+            "Akrabalarım.",
+          ],
+          correct: 1,
+          tr_explanation: "'Parents' = anne + baba. 'Mom and dad' = günlük; 'parents' = standart.",
+        },
+        {
+          q: "'There are four of us' = ?",
+          options: [
+            "Dört kişiyiz.",
+            "Bizden dört.",
+            "Dörtte birimiz.",
+            "Dört bizden.",
+          ],
+          correct: 0,
+          tr_explanation: "'There are + sayı + of us' = ... kişiyiz. Aile/grup tanıtırken kalıp.",
+        },
+      ],
     },
   ],
 };
@@ -4513,6 +5947,125 @@ export const cefrA2DailyLesson_morningRoutine: BundledLesson = {
       ipa: "aɪ ɡɛt ʌp æt ˈsɛvən ðɛn aɪ hæv ˈbrɛkfəst",
       tr_hint:
         "'Get up' bağlanır → 'getap'. 'Breakfast' = 'brekfıst' (iki hece). 'Then' = 'den', kısa.",
+    },
+    {
+      id: "ex.a2.mr.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "I usually ___ at ___.",
+      slots: [
+        { accepted: ["get up", "have breakfast", "leave home", "start work"], distractors: ["wake", "sleep up"] },
+        { accepted: ["seven", "eight", "nine", "six thirty", "quarter past seven"], distractors: ["7 hour", "in seven"] },
+      ],
+      tr_hint:
+        "Günlük rutin: 'I usually get up at seven.' Türk öğrenci 'I waking' der — yanlış. Present simple + adverb of frequency.",
+      example_filled: "I usually get up at seven.",
+    },
+    {
+      id: "ex.a2.mr.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "What time do you usually get up?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Wow, that's early!" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i usually )?get up (at |around )?[a-z0-9]",
+        "(around |about )?(six|seven|eight) (in the morning)?",
+        "(i ('m| am)) (an )?early (riser|bird)",
+      ],
+      tr_hint:
+        "Uyanma saati: 'I usually get up at six thirty.' Türk öğrenci 'Wake six' der — eksik.",
+      ideal_answer: "I usually get up at six thirty.",
+    },
+    {
+      id: "ex.a2.mr.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What do you do first thing in the morning?",
+      accepted_patterns: [
+        "(i (have|make)) (breakfast|coffee|tea)",
+        "(first(,)? )?i (check (my )?phone|brush my teeth|shower)",
+        "(i usually )?(go for a (walk|run)|exercise)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "İlk iş: 'First, I make coffee.' Türk öğrenci 'I drink coffee first' der — sıralama eksik. 'First' önce.",
+      ideal_response: "First, I make coffee.",
+    },
+    {
+      id: "ex.a2.mr.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Saat 7'de uyanırım.",
+      wrong_en: "I waking in seven.",
+      right_en: "I get up at seven.",
+      why_tr:
+        "Türk öğrenci 'uyan'ı 'waking' yapar (ing eki) — yanlış. + 'in seven' yanlış, 'at seven'. + 'Wake up' uyanma; 'get up' yataktan kalkma.",
+    },
+    {
+      id: "ex.a2.mr.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I get up at 7' = ?",
+          options: [
+            "Saat 7'de yataktan kalkarım.",
+            "Saat 7'de uyumam.",
+            "Saat 7'de geç kalkarım.",
+            "Saat 7'de oturmam.",
+          ],
+          correct: 0,
+          tr_explanation: "'Get up' = yataktan kalk. 'Wake up' = uyanmak. İkisi sırayla olur.",
+        },
+        {
+          q: "'Usually' yeri?",
+          options: [
+            "Cümle sonunda.",
+            "Cümle başında.",
+            "Özne ile fiil arasında (I usually get up).",
+            "Önemsiz.",
+          ],
+          correct: 2,
+          tr_explanation: "'Usually', 'often', 'always' = sıklık zarfı. Özne ve fiil arasında. 'I always go' / 'She often eats'.",
+        },
+        {
+          q: "Saat öncesi edat?",
+          options: [
+            "In.",
+            "At.",
+            "On.",
+            "To.",
+          ],
+          correct: 1,
+          tr_explanation: "Saat öncesi 'at'. 'At seven' / 'at noon'. 'In seven' Türk hatası.",
+        },
+        {
+          q: "'First, then' = ?",
+          options: [
+            "İlk, sonra.",
+            "Sonra, ilk.",
+            "Önce, hemen.",
+            "Asla.",
+          ],
+          correct: 0,
+          tr_explanation: "'First X, then Y' = önce X yap, sonra Y. Sıra anlatma kalıbı.",
+        },
+        {
+          q: "'I have breakfast' = ?",
+          options: [
+            "Kahvaltım var.",
+            "Kahvaltı yaparım.",
+            "Kahvaltı isterim.",
+            "Kahvaltı vermem.",
+          ],
+          correct: 1,
+          tr_explanation: "'Have + öğün' = idiom: öğün ye. 'Have breakfast/lunch/dinner'. 'Eat' resmi.",
+        },
+      ],
     },
   ],
 };

@@ -643,6 +643,126 @@ export const a2MicroLesson_package: BundledLesson = {
       phrase: "Could you leave it at the door, please?",
       tr_hint: "'Could' = 'kud'. 'Leave it' = 'liv it'. Yumuşak söyle.",
     },
+    {
+      id: "ex.a2.pk.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Could you ___ it ___?",
+      slots: [
+        { accepted: ["leave", "drop", "place", "put"], distractors: ["throw", "give"] },
+        { accepted: ["at the door", "with my neighbor", "in the lobby", "by the gate"], distractors: ["to door", "near"] },
+      ],
+      tr_hint:
+        "Kurye talimatı: 'Could you leave it at the door?' Türk öğrenci 'Leave door!' der — kaba. 'Could you' = kibar talimat.",
+      example_filled: "Could you leave it at the door?",
+    },
+    {
+      id: "ex.a2.pk.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Delivery for you — can you sign here?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Right here on the screen, please." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sure|of course)(,)? where",
+        "(sure|yes)(,)? (no problem|of course)",
+        "(where|right here)\\?",
+        "do i (need to|have to) sign",
+      ],
+      tr_hint:
+        "İmza isteyene: 'Sure — where?' Türk öğrenci direkt imzalar, sormaz — sormak normal.",
+      ideal_answer: "Sure — where do I sign?",
+    },
+    {
+      id: "ex.a2.pk.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Are you Berk?",
+      accepted_patterns: [
+        "(yes|yeah|yep)(,)? (that('s| is) me|i('m| am) berk)",
+        "(that('s| is) right|that('s| is) me)",
+        "yes(,)? i am",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kurye doğruluyor — 'Yes, that's me.' Türk öğrenci sadece 'yes' der — eksik. 'That's me' = standart onay.",
+      ideal_response: "Yes, that's me.",
+    },
+    {
+      id: "ex.a2.pk.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Onu kapıya bırakabilir misin?",
+      wrong_en: "Can you leave him at door?",
+      right_en: "Could you leave it at the door?",
+      why_tr:
+        "İki Türk hatası: (1) 'Him' yerine 'it' (paket cansız). (2) 'Door' belirli — 'the door'. + 'Could' 'Can'den daha kibar.",
+    },
+    {
+      id: "ex.a2.pk.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Kuryeye kibar talimat?",
+          options: [
+            "Leave door!",
+            "Could you leave it at the door?",
+            "Door drop.",
+            "Give door.",
+          ],
+          correct: 1,
+          tr_explanation: "'Could you' = kibar talimat. 'Leave door' Türk hatası, kaba.",
+        },
+        {
+          q: "İmza yeri soran kurye: 'Where?' yerine?",
+          options: [
+            "Where do I sign?",
+            "Sign where?",
+            "Sign me?",
+            "Where sign?",
+          ],
+          correct: 0,
+          tr_explanation: "Tam cümle: 'Where do I sign?' Türk öğrenci 'where sign?' der — kırık.",
+        },
+        {
+          q: "'That's me' = ?",
+          options: [
+            "O benim.",
+            "Benim (kimlik onayı).",
+            "Beni o.",
+            "Bana o.",
+          ],
+          correct: 1,
+          tr_explanation: "'That's me' = kimlik onayı. 'Are you X?' sorusuna doğal cevap.",
+        },
+        {
+          q: "Paket için 'him' vs 'it'?",
+          options: [
+            "Cansız nesne → it.",
+            "Cansız nesne → him.",
+            "Erkek isimliyse → him.",
+            "Bayan adıyla geldiyse → her.",
+          ],
+          correct: 0,
+          tr_explanation: "Cansız nesneler hep 'it'. Paket, çanta, telefon — 'it'.",
+        },
+        {
+          q: "'Take care, have a good one!' farkı?",
+          options: [
+            "Aynı şey, fark yok.",
+            "İkisi de samimi kapanış.",
+            "'Take care' resmi.",
+            "'Have a good one' eski.",
+          ],
+          correct: 1,
+          tr_explanation: "İkisi de samimi vedalaşma. 'Have a good one' = 'have a good day' kısaltması.",
+        },
+      ],
+    },
   ],
 };
 
@@ -912,6 +1032,126 @@ export const a2MicroLesson_halfday: BundledLesson = {
             "(thanks|thank you)(,)? i (will|'ll)",
           ],
           hint_tr: "'Thanks, I appreciate it.' kısa ve profesyonel.",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.hd.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Could I ___ this ___?",
+      slots: [
+        { accepted: ["take", "leave", "use"], distractors: ["get away", "give"] },
+        { accepted: ["afternoon off", "Friday off", "half day off", "Thursday afternoon"], distractors: ["off afternoon", "for afternoon"] },
+      ],
+      tr_hint:
+        "Patrondan izin: 'Could I take this afternoon off?' Türk öğrenci 'I want off' der — kaba. 'Could I take + zaman + off' = standart kalıp.",
+      example_filled: "Could I take this afternoon off?",
+    },
+    {
+      id: "ex.a2.hd.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Sure — is everything okay?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. Take care of it." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (just |everything )?(a (doctor|dentist)|family|personal)",
+        "(i('ve| have) got|i have) (a |an )?(appointment|doctor)",
+        "(nothing serious|just (a )?personal (thing|matter))",
+      ],
+      tr_hint:
+        "Sebep belirtme — kısa + dürüst. 'Just a doctor's appointment.' Türk öğrenci uzun açıklar — kısa tut. Detay gerekmez.",
+      ideal_answer: "Yes — just a doctor's appointment.",
+    },
+    {
+      id: "ex.a2.hd.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Just wrap up your tasks first, okay?",
+      accepted_patterns: [
+        "(of course|sure|definitely)(,)? i (will|'ll)",
+        "(yes|absolutely)(,)? (i'?ll|will) (finish|wrap up|handle)",
+        "(no problem|got it)(,)? (i'?ll )?(make sure|finish)",
+        "(thanks|appreciate it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Patron koşul koydu — kabul + söz. 'Of course — I'll finish everything first.' Türk öğrenci 'okay' der — eksik.",
+      ideal_response: "Of course — I'll wrap everything up first.",
+    },
+    {
+      id: "ex.a2.hd.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "İzin almak istiyorum.",
+      wrong_en: "I want take off.",
+      right_en: "Could I take the afternoon off?",
+      why_tr:
+        "İki Türk hatası: (1) 'I want' kaba — 'Could I' kibar. (2) 'Take off' eksik — neyi off? 'Take + zaman + off' = sabit. 'Take the day off' / 'take Friday off'.",
+    },
+    {
+      id: "ex.a2.hd.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Patrondan kibar izin?",
+          options: [
+            "I want off.",
+            "Could I take the afternoon off?",
+            "Off afternoon!",
+            "Give me off.",
+          ],
+          correct: 1,
+          tr_explanation: "'Could I take + zaman + off' = standart. 'Take off' bütün halinde değil — arasına zaman.",
+        },
+        {
+          q: "'Wrap up' ne demek?",
+          options: [
+            "Sar.",
+            "Bitir (işi).",
+            "Yukarı kaldır.",
+            "Hızlandır.",
+          ],
+          correct: 1,
+          tr_explanation: "'Wrap up' = idiom: bitirmek/tamamlamak. İş hayatında çok yaygın.",
+        },
+        {
+          q: "'Take care of it' ne anlam taşır?",
+          options: [
+            "Ona dikkat et.",
+            "Hallet onu.",
+            "Yumuşat onu.",
+            "Yine yap.",
+          ],
+          correct: 1,
+          tr_explanation: "'Take care of it' = idiom: işle ilgilen, hallet. 'Care' burada 'iş halletme' anlamında.",
+        },
+        {
+          q: "'Half day off' = ?",
+          options: [
+            "Yarım gün izin.",
+            "Yarım gün çalışma.",
+            "Yarım gün izinsiz.",
+            "Yarı maaş.",
+          ],
+          correct: 0,
+          tr_explanation: "'Half day off' = yarım gün izinli. 'A day off' = bir gün izin.",
+        },
+        {
+          q: "İş sebebi sorunca neye dikkat?",
+          options: [
+            "Çok detay ver.",
+            "Kısa + dürüst.",
+            "Sebep söyleme.",
+            "Bahane uydur.",
+          ],
+          correct: 1,
+          tr_explanation: "İş ortamında 'a doctor's appointment' / 'a family matter' yeterli. Detay paylaşmak zorunda değilsin.",
         },
       ],
     },
@@ -1192,6 +1432,126 @@ export const a2MicroLesson_invite: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a2.iv.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Would you like to ___ ___?",
+      slots: [
+        { accepted: ["come over", "join us", "grab dinner", "have lunch"], distractors: ["come", "lunch dinner"] },
+        { accepted: ["this weekend", "on Saturday", "after work", "tomorrow evening"], distractors: ["weekend", "Saturday day"] },
+      ],
+      tr_hint:
+        "Davet kalıbı: 'Would you like to come over this weekend?' Türk öğrenci 'You want come?' der — kaba. 'Would you like' = kibar.",
+      example_filled: "Would you like to come over this weekend?",
+    },
+    {
+      id: "ex.a2.iv.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "I'd love to! What time?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect. Should I bring anything?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(around |about )?(seven|eight|six|five|nine)( o'?clock)?",
+        "(let'?s say|how about|maybe) (seven|eight|six|five|nine)",
+        "(saturday|tomorrow) (at )?(seven|eight|six)",
+      ],
+      tr_hint:
+        "Saat söyleme: 'How about seven?' veya 'Let's say eight o'clock.' Türk öğrenci direkt 'seven' der — eksik.",
+      ideal_answer: "How about seven o'clock?",
+    },
+    {
+      id: "ex.a2.iv.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Should I bring anything?",
+      accepted_patterns: [
+        "(no|nothing|don'?t worry)(,)? (just )?(yourself|come)",
+        "(no )?need(,)? i('ve| have) (got it|everything)",
+        "(maybe )?(some )?wine (if you (want|like))?",
+        "(just bring yourself)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Davet eden: 'No, just bring yourself!' veya 'Maybe some wine.' Türk öğrenci 'no' der — soğuk. Sıcak ifade lazım.",
+      ideal_response: "Just bring yourself — I've got everything!",
+    },
+    {
+      id: "ex.a2.iv.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Yemeğe gelmek ister misin?",
+      wrong_en: "You want come to dinner?",
+      right_en: "Would you like to come over for dinner?",
+      why_tr:
+        "Türk öğrenci 'ister misin'i 'You want' yapar — kaba/kırık. 'Would you like' = kibar davet kalıbı. + 'to come over' = ziyarete gel.",
+    },
+    {
+      id: "ex.a2.iv.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Kibarca davet?",
+          options: [
+            "You want come?",
+            "Would you like to come over?",
+            "Come now.",
+            "Coming you?",
+          ],
+          correct: 1,
+          tr_explanation: "'Would you like to' = en kibar davet. 'You want' kaba.",
+        },
+        {
+          q: "'Come over' ne demek?",
+          options: [
+            "Karşıya geç.",
+            "Bana ziyarete gel.",
+            "Bitir gel.",
+            "Gözden geçir.",
+          ],
+          correct: 1,
+          tr_explanation: "'Come over' = idiom: bana / evime gel. Davet kalıbı.",
+        },
+        {
+          q: "'I'd love to!' = ?",
+          options: [
+            "Çok isterim!",
+            "Aşkım var.",
+            "Sevdim.",
+            "Belki.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd love to' = idiom: çok isterim. Coşkulu kabul.",
+        },
+        {
+          q: "'Just bring yourself' = ?",
+          options: [
+            "Yalnız gel.",
+            "Sadece kendin gel (bir şey getirme).",
+            "Hızlı gel.",
+            "Hediyeyle gel.",
+          ],
+          correct: 1,
+          tr_explanation: "'Just bring yourself' = idiom: bir şey getirme, sadece kendin yeter. Sıcak davet kapanışı.",
+        },
+        {
+          q: "'How about seven?' = ?",
+          options: [
+            "Saat 7 nasıl?",
+            "7 kişi nasıl?",
+            "7 buçuk?",
+            "Yedi neden?",
+          ],
+          correct: 0,
+          tr_explanation: "'How about + saat' = saat önerme kalıbı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1466,6 +1826,126 @@ export const a2MicroLesson_farewell: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a2.fw.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Thanks for ___ — I'll really ___.",
+      slots: [
+        { accepted: ["everything", "all your support", "all the help", "such a great year"], distractors: ["everythings", "the all"] },
+        { accepted: ["miss you guys", "miss this place", "stay in touch", "remember it"], distractors: ["miss", "be touch"] },
+      ],
+      tr_hint:
+        "Veda kalıbı: 'Thanks for everything — I'll really miss you guys.' Türk öğrenci 'bye for everything' der — eksik. 'Thanks for + everything' = sıcak.",
+      example_filled: "Thanks for everything — I'll really miss you guys.",
+    },
+    {
+      id: "ex.a2.fw.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "We're really going to miss you here." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Stay in touch, okay?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i('ll| will))(,)? (i('ll| will) )?miss you (guys|too|all)",
+        "(thanks|thank you)(,)? (i('ll| will))?( really)? miss",
+        "(it('s| was)) been (great|amazing|wonderful)",
+      ],
+      tr_hint:
+        "Veda: 'I'll miss you guys too — it's been great.' Türk öğrenci sadece 'bye' der — duygu eksik.",
+      ideal_answer: "I'll miss you guys too — it's been a great year.",
+    },
+    {
+      id: "ex.a2.fw.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Let's keep in touch — promise?",
+      accepted_patterns: [
+        "(of course|definitely|absolutely)(,)? (i )?(promise|will)",
+        "(yes|yeah)(,)? (let'?s|we'?ll)",
+        "(for sure|definitely|i('ll| will))",
+        "(send|drop) me a (message|text)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Söz: 'Of course — I promise!' veya 'Definitely, drop me a message.' Türk öğrenci 'maybe' der — soğuk.",
+      ideal_response: "Of course — drop me a message anytime!",
+    },
+    {
+      id: "ex.a2.fw.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Her şey için teşekkürler.",
+      wrong_en: "Thanks for the everything.",
+      right_en: "Thanks for everything.",
+      why_tr:
+        "Türk öğrenci 'her şey'i 'the everything' yapar — yanlış. 'Everything' belirli, 'the' almaz. Sabit: 'Thanks for everything'.",
+    },
+    {
+      id: "ex.a2.fw.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Veda klasiği?",
+          options: [
+            "Thanks for the everything.",
+            "Thanks for everything.",
+            "Thanks all things.",
+            "Thank you all.",
+          ],
+          correct: 1,
+          tr_explanation: "'Thanks for everything' = sabit kalıp. 'The' yok.",
+        },
+        {
+          q: "'Stay in touch' ne demek?",
+          options: [
+            "Dokunuşta kal.",
+            "İletişimde kal.",
+            "Yakın dur.",
+            "Sessiz kal.",
+          ],
+          correct: 1,
+          tr_explanation: "'Stay in touch' = idiom: iletişimi sürdür. Veda klasiği.",
+        },
+        {
+          q: "'Take care!' = ?",
+          options: [
+            "Kendine iyi bak.",
+            "Dikkatli ol.",
+            "Geç al.",
+            "Hızlı ol.",
+          ],
+          correct: 0,
+          tr_explanation: "'Take care' = kendine iyi bak / kendine dikkat et. 'Goodbye' yerine sıcak kapanış.",
+        },
+        {
+          q: "'I'll miss you guys' = ?",
+          options: [
+            "Sizi özleyeceğim (gruba).",
+            "Erkekleri özleyeceğim.",
+            "Erkek arkadaş.",
+            "Sizi kaybedeceğim.",
+          ],
+          correct: 0,
+          tr_explanation: "'You guys' = siz (kalabalık). 'Guys' cinsiyetsiz konuşma dilinde.",
+        },
+        {
+          q: "'Drop me a message' = ?",
+          options: [
+            "Mesaj at.",
+            "Mesaj düşür.",
+            "Mesajı bırak.",
+            "Mesajdan vazgeç.",
+          ],
+          correct: 0,
+          tr_explanation: "'Drop me a message' = idiom: mesaj at. 'Send me a message' ile eş anlamlı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1723,6 +2203,125 @@ export const a2MicroLesson_birthday: BundledLesson = {
         {
           speaker: "npc",
           message: "Have fun tonight!",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.bd.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Happy birthday! I ___ you ___.",
+      slots: [
+        { accepted: ["hope", "wish", "got", "brought"], distractors: ["want", "have"] },
+        { accepted: ["have a great year", "love it", "something small", "the best day"], distractors: ["happy you", "good thing"] },
+      ],
+      tr_hint:
+        "Doğum günü tebriği: 'Happy birthday! I hope you have a great year.' Türk öğrenci 'happy birthday for you' der — yanlış. Direkt 'Happy birthday!'.",
+      example_filled: "Happy birthday! I hope you have a great year.",
+    },
+    {
+      id: "ex.a2.bd.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "You came! Thanks for being here." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Aww, you didn't have to bring a gift!" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(happy birthday)(,)? (this is for you|i got you|got you something)",
+        "(of course|wouldn'?t miss it)(,)? happy birthday",
+        "(here'?s )?a (little|small) something",
+      ],
+      tr_hint:
+        "Doğum günü selamı + hediye verme: 'Happy birthday! I got you a little something.' Türk öğrenci sadece 'happy birthday' der — hediye kelimesi eksik.",
+      ideal_answer: "Happy birthday! I got you a little something — hope you like it.",
+    },
+    {
+      id: "ex.a2.bd.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Make a wish!",
+      accepted_patterns: [
+        "(okay|alright)(,)? (let me think|here goes)",
+        "(i('m| am) gonna|i('ll| will)) (think|wish)",
+        "(can'?t (tell|say))(,)? (or it won'?t come true|secret)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Mum üflerken: 'I can't tell, or it won't come true!' İngilizce kültürde dilek söylenmez. Türk öğrenci direkt söyler.",
+      ideal_response: "I can't tell, or it won't come true!",
+    },
+    {
+      id: "ex.a2.bd.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Sana doğum günün kutlu olsun.",
+      wrong_en: "Happy birthday for you.",
+      right_en: "Happy birthday!",
+      why_tr:
+        "Türkçede 'sana' (for you) ekleriz. İngilizcede 'Happy birthday!' tek başına yeterli. 'For you' kalıbı yanlış. Direkt söyle.",
+    },
+    {
+      id: "ex.a2.bd.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Doğum günü tebriği?",
+          options: [
+            "Happy birthday for you!",
+            "Happy birthday!",
+            "Birthday happy you!",
+            "Born day happy!",
+          ],
+          correct: 1,
+          tr_explanation: "'Happy birthday!' tek başına standart. 'For you' Türk hatası.",
+        },
+        {
+          q: "'Make a wish' = ?",
+          options: [
+            "Yıka dileğini.",
+            "Dilek tut.",
+            "Yap istek.",
+            "İste şimdi.",
+          ],
+          correct: 1,
+          tr_explanation: "'Make a wish' = idiom: mum üflemeden önce dilek tut.",
+        },
+        {
+          q: "Hediye verirken doğal söz?",
+          options: [
+            "Take this gift.",
+            "Hope you like it!",
+            "I bought gift.",
+            "Open it now.",
+          ],
+          correct: 1,
+          tr_explanation: "'Hope you like it!' = hediye sunma kalıbı. Türk öğrenci 'Take gift' der — kaba.",
+        },
+        {
+          q: "'It won't come true' ne demek?",
+          options: [
+            "Gerçek olmayacak.",
+            "Çıkmayacak.",
+            "Bilinmeyecek.",
+            "Beklenmiyor.",
+          ],
+          correct: 0,
+          tr_explanation: "'Come true' = idiom: (dilek/rüya) gerçekleşmek. Mum üfleme batıl inancı.",
+        },
+        {
+          q: "'A little something' ne demek?",
+          options: [
+            "Küçük bir şey (hediye).",
+            "Az bir şey.",
+            "Önemli bir şey.",
+            "Daha az.",
+          ],
+          correct: 0,
+          tr_explanation: "'A little something' = idiom: küçük bir hediye (mütevazı). 'Bir şey aldım' demek.",
         },
       ],
     },
@@ -1986,6 +2585,126 @@ export const a2MicroLesson_condolences: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a2.cd.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "I'm so sorry ___ — if you need anything, ___.",
+      slots: [
+        { accepted: ["for your loss", "to hear that", "about your father", "to hear the news"], distractors: ["because loss", "sorry loss"] },
+        { accepted: ["please let me know", "I'm here", "just call", "don't hesitate to reach out"], distractors: ["call me", "I help"] },
+      ],
+      tr_hint:
+        "Başsağlığı dileme: 'I'm so sorry for your loss — if you need anything, please let me know.' Türk öğrenci 'condolences' kullanır — resmi/soğuk. 'Sorry for your loss' = sıcak.",
+      example_filled: "I'm so sorry for your loss — if you need anything, please let me know.",
+    },
+    {
+      id: "ex.a2.cd.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "My grandmother passed away yesterday." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thank you — that means a lot." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(oh )?i('m| am) (so |really )?sorry( to hear that| for your loss)?",
+        "(my (deepest|sincere)) (condolences|sympathies)",
+        "(i('m| am) here for you|if there'?s (anything|something))",
+      ],
+      tr_hint:
+        "Üzücü habere: 'Oh, I'm so sorry to hear that.' Türk öğrenci 'My condolences' der — resmi/mesafeli. Daha sıcak: 'so sorry.'",
+      ideal_answer: "Oh, I'm so sorry to hear that. My deepest condolences.",
+    },
+    {
+      id: "ex.a2.cd.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "It's been a tough week — I lost my dad.",
+      accepted_patterns: [
+        "(oh )?i('m| am) (so |really |truly )?sorry( for your loss)?",
+        "(that('s| is)) (heartbreaking|devastating|terrible)",
+        "(my (deepest|sincere)) (condolences|sympathies)",
+        "(if you need anything|i('m| am) here)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Çok üzücü habere: sıcak + kısa. 'Oh, I'm so sorry. I'm here if you need anything.' Türk öğrenci sus kalır — bir şey söyle.",
+      ideal_response: "Oh — I'm so sorry. I'm here for you if you need anything.",
+    },
+    {
+      id: "ex.a2.cd.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Başın sağolsun.",
+      wrong_en: "Your head is healthy.",
+      right_en: "I'm so sorry for your loss.",
+      why_tr:
+        "Türk öğrenci 'baş + sağ' Türkçe deyimi birebir çevirir — komik/anlamsız. İngilizce idiom: 'sorry for your loss' veya 'my condolences'. Asla çevirme.",
+    },
+    {
+      id: "ex.a2.cd.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Başsağlığı için en doğal ifade?",
+          options: [
+            "Sorry for your head.",
+            "I'm so sorry for your loss.",
+            "Bad luck.",
+            "Take it easy.",
+          ],
+          correct: 1,
+          tr_explanation: "'Sorry for your loss' = idiom: başsağlığı. 'Sorry for your head' Türk hatası.",
+        },
+        {
+          q: "'My condolences' ne anlam taşır?",
+          options: [
+            "Başsağlığı (resmi).",
+            "Konuşma.",
+            "Düşüncelerim.",
+            "Şikayetim.",
+          ],
+          correct: 0,
+          tr_explanation: "'Condolences' = resmi başsağlığı. Cenaze/kart için uygun. Konuşma dilinde 'so sorry' daha sıcak.",
+        },
+        {
+          q: "'Passed away' ne demek?",
+          options: [
+            "Vefat etti.",
+            "Geçti gitti.",
+            "Bayıldı.",
+            "Hasta.",
+          ],
+          correct: 0,
+          tr_explanation: "'Passed away' = ölmek (kibar). 'Died' = öldü (direkt). 'Passed away' daha hassas/saygılı.",
+        },
+        {
+          q: "Üzücü haberden sonra desteğini göstermek?",
+          options: [
+            "Don't worry.",
+            "If you need anything, let me know.",
+            "Forget it.",
+            "Move on.",
+          ],
+          correct: 1,
+          tr_explanation: "'If you need anything, let me know' = kibarca destek vermek. Hazır ol.",
+        },
+        {
+          q: "'I lost my dad' = ?",
+          options: [
+            "Babamı kaybettim (öldü).",
+            "Babamı bulamıyorum.",
+            "Babamı unutuyorum.",
+            "Babamla küstüm.",
+          ],
+          correct: 0,
+          tr_explanation: "'Lost + family member' = idiom: o kişi öldü. Doğal kullanım, asla 'killed' deme.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2243,6 +2962,126 @@ export const a2MicroLesson_promotion: BundledLesson = {
         {
           speaker: "npc",
           message: "Deal. Friday after work?",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.pr.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Congratulations on ___ — you ___ !",
+      slots: [
+        { accepted: ["the promotion", "the new role", "your new position", "becoming manager"], distractors: ["promotion", "new"] },
+        { accepted: ["totally deserve it", "really earned it", "worked so hard", "deserve every bit"], distractors: ["deserve", "earned"] },
+      ],
+      tr_hint:
+        "Terfi tebriği: kişisel + içten. 'Congratulations on the promotion — you totally deserve it!' Türk öğrenci 'congrats!' der — eksik.",
+      example_filled: "Congratulations on the promotion — you totally deserve it!",
+    },
+    {
+      id: "ex.a2.pr.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Hey — I got promoted today!" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks! It still feels unreal." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(oh )?(wow|amazing|congratulations)(,)? (that('s| is)) (huge|amazing|incredible|great)",
+        "(congrats|congratulations)(,)? (you )?(deserve|earned) (it|every bit)",
+        "(i('m| am) so happy for you|so proud of you)",
+      ],
+      tr_hint:
+        "Terfi haberine içten tepki: 'Wow — congrats! You totally deserve it!' Türk öğrenci 'congrats' der — daha sıcak ol.",
+      ideal_answer: "Oh wow — congratulations! You totally deserve it.",
+    },
+    {
+      id: "ex.a2.pr.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "I just got promoted to senior manager.",
+      accepted_patterns: [
+        "(oh )?(wow|amazing|congratulations|congrats)",
+        "(that('s| is)) (huge|amazing|incredible|wonderful|great news)",
+        "(i('m| am) so happy for you|so proud)",
+        "(you )?(totally )?deserve it",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Terfi haberi geldi — abartılı tepki normal: 'Wow! That's huge!' Türk öğrenci 'okay' der — eksik. Coş.",
+      ideal_response: "Wow — that's amazing! Congratulations!",
+    },
+    {
+      id: "ex.a2.pr.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Terfin için tebrikler.",
+      wrong_en: "Congratulations for your promotion.",
+      right_en: "Congratulations on your promotion.",
+      why_tr:
+        "Türk öğrenci 'için' Türkçe edatını 'for' yapar. İngilizcede tebrik kalıbı: 'Congratulations ON + isim'. Sabit kalıp.",
+    },
+    {
+      id: "ex.a2.pr.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Terfi için tebrik?",
+          options: [
+            "Congratulations for promotion.",
+            "Congratulations on your promotion.",
+            "Congratulations to promotion.",
+            "Congrats your promotion.",
+          ],
+          correct: 1,
+          tr_explanation: "'Congratulations on' = sabit kalıp. 'for' Türk hatası.",
+        },
+        {
+          q: "'You deserve it' ne demek?",
+          options: [
+            "Bunu hak ettin.",
+            "Sana yakıştı.",
+            "Mecbursun.",
+            "Beklenirdi.",
+          ],
+          correct: 0,
+          tr_explanation: "'Deserve' = hak etmek. Tebrik kalıbında çok yaygın.",
+        },
+        {
+          q: "'Drinks are on me' = ?",
+          options: [
+            "İçecekler bende.",
+            "İçecekleri ben ısmarlıyorum.",
+            "İçecek üstümde.",
+            "İçeceğim.",
+          ],
+          correct: 1,
+          tr_explanation: "'On me' = idiom: ben ısmarlıyorum. Kutlama klasiği.",
+        },
+        {
+          q: "'I got promoted' ne demek?",
+          options: [
+            "Terfi aldım.",
+            "Terfi verdim.",
+            "Terfi yok.",
+            "Terfi bekliyorum.",
+          ],
+          correct: 0,
+          tr_explanation: "Passive: 'I got promoted' = bana terfi verildi. Türk 'Promotion received me' yapar — yanlış.",
+        },
+        {
+          q: "'That's huge' ne anlam taşır?",
+          options: [
+            "Büyük şey (önemli).",
+            "Çok büyük.",
+            "Çok ağır.",
+            "Çok zor.",
+          ],
+          correct: 0,
+          tr_explanation: "'Huge' = çok önemli/büyük (boyut değil önem). Kutlama tepkisi.",
         },
       ],
     },
@@ -2507,6 +3346,125 @@ export const a2MicroLesson_askstranger: BundledLesson = {
         {
           speaker: "npc",
           message: "No problem, have a good one!",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.as.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Excuse me — ___ ___?",
+      slots: [
+        { accepted: ["do you know", "could you tell me", "could you help me find"], distractors: ["you know where", "tell me where"] },
+        { accepted: ["where the metro is", "how to get to the station", "if there's a bank nearby", "what time it is"], distractors: ["where metro", "go station"] },
+      ],
+      tr_hint:
+        "Yabancıya yardım sorma: 'Excuse me — do you know where the metro is?' Türk öğrenci direkt 'Metro where?' der — kaba/kırık.",
+      example_filled: "Excuse me — do you know where the metro is?",
+    },
+    {
+      id: "ex.a2.as.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Yes?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — it's two streets down on the left." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sorry|excuse me)(,)? (do you know|could you tell me)",
+        "(could you help|i('m| am) looking for)",
+        "(do you know where|how do i get to)",
+      ],
+      tr_hint:
+        "Yardım açılışı: 'Sorry to bother you — could you tell me how to get to...' Türk öğrenci direkt soruyu sorar — açılışla yumuşat.",
+      ideal_answer: "Sorry to bother you — could you tell me how to get to the post office?",
+    },
+    {
+      id: "ex.a2.as.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Sorry, I'm not from around here either.",
+      accepted_patterns: [
+        "(oh )?(no problem|that'?s okay|no worries)(,)? thanks (anyway)?",
+        "(thanks|thank you)(,)? (anyway|all the same)",
+        "(no worries|okay)(,)? (i'?ll|will) (ask|try) someone",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bilmediğini söylediler — kibarca teşekkür. 'No problem — thanks anyway!' Türk öğrenci 'ok' der — kuru.",
+      ideal_response: "Oh, no problem — thanks anyway!",
+    },
+    {
+      id: "ex.a2.as.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Metro nerede biliyor musunuz?",
+      wrong_en: "You know where is metro?",
+      right_en: "Do you know where the metro is?",
+      why_tr:
+        "Türk öğrenci doğrudan soru sıralaması kullanır: 'where is metro'. Embedded soruda (do you know) düz cümle olmalı: 'where the metro is'.",
+    },
+    {
+      id: "ex.a2.as.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Yabancıya en kibar açılış?",
+          options: [
+            "Hey, where is bank?",
+            "Excuse me — do you know where the bank is?",
+            "Bank? Bank?",
+            "Help me find bank.",
+          ],
+          correct: 1,
+          tr_explanation: "'Excuse me' + 'do you know' = en kibar yaklaşım. Yabancıyı durdurmak için ideal.",
+        },
+        {
+          q: "'Do you know where X is' içinde sıralama?",
+          options: [
+            "Düz cümle: where X is.",
+            "Soru: where is X.",
+            "Sondan başa: is X where.",
+            "Önemsiz.",
+          ],
+          correct: 0,
+          tr_explanation: "Embedded question (gömülü soru): yardımcı fiil yer değiştirmez. 'Where the bank is', 'where is the bank' değil.",
+        },
+        {
+          q: "'Thanks anyway' ne anlam taşır?",
+          options: [
+            "Yardım etmesen de teşekkürler.",
+            "Tekrar teşekkür.",
+            "Hadi ama.",
+            "Bilmesem de.",
+          ],
+          correct: 0,
+          tr_explanation: "'Thanks anyway' = idiom: yardım edemesen de, soruyu kabul ettiğin için teşekkürler. Yabancıyla iyi kapanış.",
+        },
+        {
+          q: "'Two streets down on the left' = ?",
+          options: [
+            "İki cadde aşağıda, solda.",
+            "İki sokak ötede, sağda.",
+            "İki cadde sağda, aşağıda.",
+            "İki blok ileride.",
+          ],
+          correct: 0,
+          tr_explanation: "'Down' = ileride (yönelim). 'On the left' = solda. Tarif kalıbı.",
+        },
+        {
+          q: "'I'm not from around here' ne demek?",
+          options: [
+            "Buralı değilim.",
+            "Burayı bilmem.",
+            "Gelmem.",
+            "Sevmem.",
+          ],
+          correct: 0,
+          tr_explanation: "'Not from around here' = idiom: ben de yabancıyım, bilmem.",
         },
       ],
     },
@@ -2780,6 +3738,126 @@ export const a2MicroLesson_return: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a2.rt.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "I'd like to ___ this — ___.",
+      slots: [
+        { accepted: ["return", "exchange", "refund", "swap"], distractors: ["give back", "throwing"] },
+        { accepted: ["it doesn't work", "it's the wrong size", "there's a defect", "it broke after one day"], distractors: ["bad", "no good"] },
+      ],
+      tr_hint:
+        "İade isteği: 'I'd like to return this — it doesn't work.' Türk öğrenci 'Give back!' der — kaba. 'I'd like to' = kibar.",
+      example_filled: "I'd like to return this — it doesn't work.",
+    },
+    {
+      id: "ex.a2.rt.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Hi, how can I help you today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Do you have the receipt?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)(,)? i('d| would) like to (return|exchange|refund)",
+        "(i bought this) (yesterday|last week)(,)? (but )?it (doesn'?t|isn'?t)",
+        "(this )(stopped|broke|doesn'?t)",
+      ],
+      tr_hint:
+        "İade gerekçesi kısaca: 'I'd like to return this — it stopped working.' Türk öğrenci uzun açıklar — kısa tut.",
+      ideal_answer: "Hi — I'd like to return this. It stopped working after one day.",
+    },
+    {
+      id: "ex.a2.rt.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Do you have the receipt?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (here|let me)",
+        "(here you go|here it is)",
+        "(yes(,)? )?i (have|got) (it|the receipt) (right )?here",
+        "(no|unfortunately)(,)? i don'?t",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Fiş soran satıcıya: 'Yes, here you go.' Türk öğrenci 'yes' der — eksik. Fiş ver + söyle.",
+      ideal_response: "Yes, here you go.",
+    },
+    {
+      id: "ex.a2.rt.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Bunu iade etmek istiyorum.",
+      wrong_en: "I want give this back.",
+      right_en: "I'd like to return this.",
+      why_tr:
+        "İki Türk hatası: (1) 'I want' kaba — 'I'd like to' daha kibar. (2) 'Give back' yerine 'return' (mağazada). 'Give back' kişiye verme (aldığın kalemi geri ver).",
+    },
+    {
+      id: "ex.a2.rt.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Return' ne demek (mağazada)?",
+          options: [
+            "Geri ver / iade et.",
+            "Geri al.",
+            "Geri gel.",
+            "Tekrarla.",
+          ],
+          correct: 0,
+          tr_explanation: "'Return' = iade et (mağazada). Para geri alırsın veya yenisi gelir.",
+        },
+        {
+          q: "'Exchange' ne demek?",
+          options: [
+            "İade.",
+            "Değiştir (örn. M beden → L beden).",
+            "Tamir.",
+            "Para üstü.",
+          ],
+          correct: 1,
+          tr_explanation: "'Exchange' = değiştir. Aynı ürünün farklı bedeni/rengi vb.",
+        },
+        {
+          q: "'It doesn't work' ne demek?",
+          options: [
+            "Çalışmıyor / bozuk.",
+            "İşe yaramaz.",
+            "İşten ayrıldı.",
+            "Çalışmam.",
+          ],
+          correct: 0,
+          tr_explanation: "'Doesn't work' = (ürün) çalışmıyor. Bozulduğunda klasik ifade.",
+        },
+        {
+          q: "Fiş = ?",
+          options: [
+            "Receipt.",
+            "Recipe.",
+            "Reception.",
+            "Recess.",
+          ],
+          correct: 0,
+          tr_explanation: "'Receipt' = fiş. 'Recipe' = yemek tarifi (karıştırılır). 'Receipt'in 'p'si okunmaz.",
+        },
+        {
+          q: "'I'd like a refund' ne demek?",
+          options: [
+            "Geri ödeme istiyorum.",
+            "Tamir istiyorum.",
+            "Yenisi istiyorum.",
+            "İndirim istiyorum.",
+          ],
+          correct: 0,
+          tr_explanation: "'Refund' = para iadesi. 'Exchange' = ürün değişimi. İkisi farklı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3030,6 +4108,126 @@ export const a2MicroLesson_wifi: BundledLesson = {
             "appreciate it",
           ],
           hint_tr: "'Will do, thanks!' kısa cevap.",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.wf.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Could I get the ___ ___?",
+      slots: [
+        { accepted: ["Wi-Fi", "WiFi", "internet", "network"], distractors: ["wireless code", "wifi internet"] },
+        { accepted: ["password", "code", "name", "details"], distractors: ["sign", "number"] },
+      ],
+      tr_hint:
+        "Wi-Fi şifre isteme: 'Could I get the Wi-Fi password?' Türk öğrenci 'Give me wifi' der — kaba. 'Could I get' = kibar.",
+      example_filled: "Could I get the Wi-Fi password?",
+    },
+    {
+      id: "ex.a2.wf.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Welcome! Anything I can help with?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — it's on the receipt." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (the )?(wi-?fi|internet)( password| code)?",
+        "(is there )?(wi-?fi) (here|available)\\??",
+        "(do you have) (wi-?fi|internet)",
+      ],
+      tr_hint:
+        "Kafede wifi sorma: 'Could I get the Wi-Fi password?' veya 'Is there Wi-Fi here?' Türk öğrenci direkt 'Wi-Fi?' der — eksik.",
+      ideal_answer: "Hi! Could I get the Wi-Fi password, please?",
+    },
+    {
+      id: "ex.a2.wf.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Sure — the password is on the menu, all lowercase.",
+      accepted_patterns: [
+        "(thanks|thank you)(,)? i (got it|see it)",
+        "(perfect|great|appreciate it)",
+        "(got it|i see)(,)? thanks",
+        "(thanks )?a lot",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Şifre bilgisi geldi — teşekkür et. 'Got it, thanks!' veya 'Perfect, thanks!' Türk öğrenci sadece 'ok' der — soğuk.",
+      ideal_response: "Got it — thanks a lot!",
+    },
+    {
+      id: "ex.a2.wf.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Wi-Fi şifresi nedir?",
+      wrong_en: "Wi-Fi password what is?",
+      right_en: "What's the Wi-Fi password?",
+      why_tr:
+        "Türk öğrenci kelime sıralamasını Türkçeden alır. İngilizce: 'What's + the + isim' = soru kalıbı. Sondaki 'what is' yanlış.",
+    },
+    {
+      id: "ex.a2.wf.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Kibarca wifi şifresi isteme?",
+          options: [
+            "Give me wifi.",
+            "Could I get the Wi-Fi password?",
+            "Wifi password!",
+            "Want wifi.",
+          ],
+          correct: 1,
+          tr_explanation: "'Could I get' = kibar isteme. 'Give me' kaba/emir.",
+        },
+        {
+          q: "'Lowercase' ne demek?",
+          options: [
+            "Büyük harfle.",
+            "Küçük harfle.",
+            "Sayıyla.",
+            "Sembolle.",
+          ],
+          correct: 1,
+          tr_explanation: "'Lowercase' = küçük harf. 'Uppercase' = büyük harf. Şifrelerde sık.",
+        },
+        {
+          q: "'On the receipt' ne demek?",
+          options: [
+            "Fiş üstünde.",
+            "Fiş bitti.",
+            "Fiş yazılır.",
+            "Fişte yok.",
+          ],
+          correct: 0,
+          tr_explanation: "'On + yüzey' = üstünde. 'On the receipt' = fiş üstünde yazılı.",
+        },
+        {
+          q: "'Is there Wi-Fi here?' = ?",
+          options: [
+            "Burada wifi var mı?",
+            "Wifi nerede?",
+            "Wifi neden yok?",
+            "Wifi açık mı?",
+          ],
+          correct: 0,
+          tr_explanation: "'Is there...?' = ... var mı? Varlık sorgusu.",
+        },
+        {
+          q: "'Got it, thanks!' ne anlam taşır?",
+          options: [
+            "Anladım, teşekkürler.",
+            "Aldım, gidiyorum.",
+            "Bilgi yetmedi.",
+            "Tekrar söyle.",
+          ],
+          correct: 0,
+          tr_explanation: "'Got it' = idiom: anladım. + 'thanks' = onayla + teşekkür.",
         },
       ],
     },
@@ -3291,6 +4489,126 @@ export const a2MicroLesson_tipping: BundledLesson = {
         {
           speaker: "npc",
           message: "No problem, take your time.",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.tp.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Is ___ included, or ___ ?",
+      slots: [
+        { accepted: ["service", "the tip", "gratuity", "tax"], distractors: ["bill", "money"] },
+        { accepted: ["should I tip", "do I add it", "is it separate", "do I leave more"], distractors: ["money give", "I pay how"] },
+      ],
+      tr_hint:
+        "Bahşiş sorusu kibarca: 'Is service included, or should I tip?' Türk öğrenci 'service inside?' der — kırık. Tam cümle daha kibar.",
+      example_filled: "Is service included, or should I tip?",
+    },
+    {
+      id: "ex.a2.tp.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Here's your bill. Total is forty-two." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Service isn't included — anything you'd like to leave is appreciated." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(is )?service (included|charge|in (the )?bill)",
+        "(should i (tip|leave|add)) (anything|a tip)",
+        "(quick question|sorry)(,)? (is|do) (service|tip)",
+      ],
+      tr_hint:
+        "Faturadan sonra bahşiş sorusu: 'Is service included?' Türk öğrenci sormaz, sıkılır — sormak normal.",
+      ideal_answer: "Quick question — is service included?",
+    },
+    {
+      id: "ex.a2.tp.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Would you like to leave a tip?",
+      accepted_patterns: [
+        "(sure|yes|of course|definitely)",
+        "(yes(,)? )?(i'?ll|will) (leave|add) (something|[0-9]+|a (little|small) tip|10%)",
+        "(could you )?(add|put) (10|15|20)( ?%| dollars| euros)? on (it|the (bill|card))",
+        "(keep the change)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bahşiş teklifi: kabul + miktar belirt. 'Sure, add 10% please' veya 'Keep the change.' Türk öğrenci 'yes' der — eksik.",
+      ideal_response: "Sure — could you add 15 percent, please?",
+    },
+    {
+      id: "ex.a2.tp.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Servis dahil mi?",
+      wrong_en: "Service is in?",
+      right_en: "Is service included?",
+      why_tr:
+        "Türk öğrenci 'dahil'i 'in' yapar — yanlış. 'Included' = dahil edilmiş. 'Is service included?' = standart kalıp.",
+    },
+    {
+      id: "ex.a2.tp.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Service is included' ne demek?",
+          options: [
+            "Servis var.",
+            "Servis ücreti hesaba dahil.",
+            "Servis ayrı.",
+            "Servis ücretsiz.",
+          ],
+          correct: 1,
+          tr_explanation: "'Included' = dahil. Hesapta bahşiş zaten var, eklemeye gerek yok.",
+        },
+        {
+          q: "'Keep the change' ne demek?",
+          options: [
+            "Para üstünü tut (bahşiş olarak).",
+            "Parayı sakla.",
+            "Bozuk para getir.",
+            "Para üstünü ver.",
+          ],
+          correct: 0,
+          tr_explanation: "'Keep the change' = para üstünü bahşiş olarak vermek. Klasik kalıp.",
+        },
+        {
+          q: "Yüzde 15 bahşiş nasıl?",
+          options: [
+            "Add 15 percent.",
+            "15 percent give.",
+            "Tip 15.",
+            "Money 15.",
+          ],
+          correct: 0,
+          tr_explanation: "'Add + miktar + percent' = bahşiş ekle. 'Add 15 percent' = standart.",
+        },
+        {
+          q: "ABD'de tipik restoran bahşişi?",
+          options: [
+            "5%.",
+            "15-20%.",
+            "%50.",
+            "Yok.",
+          ],
+          correct: 1,
+          tr_explanation: "ABD'de standart: %15-20. Avrupa'da çok daha az veya dahil. Ülkeye göre değişir.",
+        },
+        {
+          q: "'Gratuity' ne demek?",
+          options: [
+            "Şükran.",
+            "Bahşiş (resmi).",
+            "Hediye.",
+            "Para üstü.",
+          ],
+          correct: 1,
+          tr_explanation: "'Gratuity' = bahşiş (resmi/faturada). 'Tip' günlük, 'gratuity' menü/faturada.",
         },
       ],
     },
@@ -3566,6 +4884,125 @@ export const a2MicroLesson_catchup: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a2.cu.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "It's been ___ — how have you ___?",
+      slots: [
+        { accepted: ["ages", "so long", "forever", "years", "a while"], distractors: ["very", "lot time", "much"] },
+        { accepted: ["been", "been doing", "been keeping"], distractors: ["are", "do", "doing"] },
+      ],
+      tr_hint:
+        "Eski tanıdıkla karşılaşma kalıbı. 'How have you been?' = nasılsın (uzun süredir). Türk öğrenci 'How are you?' der — aynı ama daha samimi değil.",
+      example_filled: "It's been ages — how have you been?",
+    },
+    {
+      id: "ex.a2.cu.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Wait — is that you? Long time no see!" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I know, right? Way too long!" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(oh )?(my god|wow|hey)(,)? (it('s| is) been|how (have|are) you)",
+        "(it('s| is) been (ages|so long|forever|years))",
+        "(long time no see)(,)? how (are|have) you",
+      ],
+      tr_hint:
+        "Sürpriz karşılaşma: 'Oh wow! It's been ages! How have you been?' Türk öğrenci kuru cevap verir — duyguyu göster.",
+      ideal_answer: "Oh wow, it's been ages! How have you been?",
+    },
+    {
+      id: "ex.a2.cu.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "How have you been?",
+      accepted_patterns: [
+        "(pretty )?good(,)? (and you|how about you|you)",
+        "(can'?t complain|busy but good|same old)",
+        "(not bad|all good|doing well)(,)? (you|and you)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Cevap + soru iade: 'Good, you?' veya 'Can't complain, how about you?' Türk öğrenci sadece 'fine' der — eksik (soru iade et).",
+      ideal_response: "Pretty good, can't complain. How about you?",
+    },
+    {
+      id: "ex.a2.cu.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Çok uzun zaman oldu.",
+      wrong_en: "Very long time pass.",
+      right_en: "It's been ages!",
+      why_tr:
+        "Türk öğrenci 'pass' kullanır — yanlış. 'It's been ages' veya 'It's been so long' = idiom. Konuşma dilinde 'Long time no see' de yaygın.",
+    },
+    {
+      id: "ex.a2.cu.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Long time no see' ne demek?",
+          options: [
+            "Görüş eksik.",
+            "Uzun zamandır görüşmüyoruz.",
+            "Görmek zor.",
+            "Uzun süre yok.",
+          ],
+          correct: 1,
+          tr_explanation: "'Long time no see' = idiom: uzun zamandır görüşmüyoruz. Pidgin English'ten gelir, çok yaygın.",
+        },
+        {
+          q: "'How have you been?' farkı?",
+          options: [
+            "How are you ile aynı, fark yok.",
+            "Daha samimi/uzun süredir görmediğin biri için.",
+            "Daha resmi.",
+            "Sadece hastalara.",
+          ],
+          correct: 1,
+          tr_explanation: "Uzun süredir görmediğin biri için 'How have you been?' daha uygun.",
+        },
+        {
+          q: "'It's been ages' ne demek?",
+          options: [
+            "Çok eski.",
+            "Çok uzun zaman oldu.",
+            "Yaşlı.",
+            "Aylar geçti.",
+          ],
+          correct: 1,
+          tr_explanation: "'Ages' = idiom: çok uzun zaman. Time + 'ages' yaygın.",
+        },
+        {
+          q: "'Can't complain' ne demek?",
+          options: [
+            "Şikayet edemem.",
+            "İyiyim (modest cevap).",
+            "Şikayet etmem.",
+            "Kötü.",
+          ],
+          correct: 1,
+          tr_explanation: "'Can't complain' = idiom: iyiyim ama abartmıyorum. Tipik küçük konuşma cevabı.",
+        },
+        {
+          q: "Eski arkadaşla buluşma — sonu nasıl kapanır?",
+          options: [
+            "Bye.",
+            "Let's catch up soon!",
+            "Goodbye sir.",
+            "Finished.",
+          ],
+          correct: 1,
+          tr_explanation: "'Let's catch up soon' = idiom: tekrar buluşalım. Samimi kapanış.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3824,6 +5261,125 @@ export const a2MicroLesson_weekend: BundledLesson = {
         {
           speaker: "npc",
           message: "Exhausting but fun. Anyway, back to work!",
+        },
+      ],
+    },
+    {
+      id: "ex.a2.wk.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "I'm planning to ___ this ___.",
+      slots: [
+        { accepted: ["relax", "see my family", "watch movies", "go hiking", "catch up on sleep"], distractors: ["relaxing", "to relax"] },
+        { accepted: ["weekend", "Saturday", "Sunday", "evening"], distractors: ["in weekend", "the weekend day"] },
+      ],
+      tr_hint:
+        "Hafta sonu planı: 'I'm planning to + base verb + this weekend.' Türk öğrenci 'I plan relaxing' der — yanlış. 'plan to + base'.",
+      example_filled: "I'm planning to relax this weekend.",
+    },
+    {
+      id: "ex.a2.wk.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Any plans for the weekend?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sounds nice! Have fun." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(not (much|really)|nothing (much|special))(,)? (just|maybe)",
+        "(i('m| am) (going to|planning to)|i('ll| will))",
+        "(probably|maybe) (just )?(stay home|relax|see|meet)",
+      ],
+      tr_hint:
+        "'Not much, just relaxing' = doğal cevap. Türk öğrenci 'I no have plan' der — yanlış. Konuşma seviyesinde rahat.",
+      ideal_answer: "Not much, just relaxing at home with the family.",
+    },
+    {
+      id: "ex.a2.wk.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "How was your weekend?",
+      accepted_patterns: [
+        "(it was )?(great|good|nice|relaxing|busy|quiet)",
+        "(pretty )?(good|nice|busy)(,)? (i|we|just)",
+        "(not bad|just relaxed|stayed home)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hafta sonu sorusuna kısa cevap: 'Pretty good, I just relaxed.' Türk öğrenci uzun açıklar — kısa + sonra detay.",
+      ideal_response: "Pretty good — I just relaxed at home.",
+    },
+    {
+      id: "ex.a2.wk.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Bu hafta sonu sinemaya gideceğim.",
+      wrong_en: "I will go to cinema in weekend.",
+      right_en: "I'm going to the cinema this weekend.",
+      why_tr:
+        "İki Türk hatası: (1) 'In weekend' yanlış, 'this weekend' veya 'on the weekend'. (2) 'cinema' belirli → 'the cinema'. (3) 'going to' planlı eylemler için 'will'den doğal.",
+    },
+    {
+      id: "ex.a2.wk.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Any plans for the weekend?' cevabı?",
+          options: [
+            "No plan.",
+            "Not much, just relaxing.",
+            "I no go.",
+            "Weekend free.",
+          ],
+          correct: 1,
+          tr_explanation: "'Not much, just + verb-ing' = doğal hafta sonu cevabı. Çok yaygın.",
+        },
+        {
+          q: "Bu hafta sonu = ?",
+          options: [
+            "In weekend.",
+            "This weekend / on the weekend.",
+            "At weekend.",
+            "By weekend.",
+          ],
+          correct: 1,
+          tr_explanation: "'This weekend' veya 'on the weekend'. 'In weekend' Türk hatası.",
+        },
+        {
+          q: "'How was your weekend?' cevabı?",
+          options: [
+            "My weekend was.",
+            "It was great.",
+            "Was good my weekend.",
+            "Weekend nice.",
+          ],
+          correct: 1,
+          tr_explanation: "'It was + sıfat' kalıbı. Konu zaten geçen hafta sonu — 'it' yeterli.",
+        },
+        {
+          q: "'I'm planning to' yerine 'I planning to' demek?",
+          options: [
+            "İkisi de doğru.",
+            "'I'm' eksik bırakılmaz — yardımcı fiil şart.",
+            "Sadece resmi yazıda.",
+            "Konuşmada doğal.",
+          ],
+          correct: 1,
+          tr_explanation: "'I'm planning' = 'I am planning'. Yardımcı fiil ('am/is/are') hep kalır.",
+        },
+        {
+          q: "'Catch up on sleep' ne demek?",
+          options: [
+            "Uyuma yetişmek / uyku açığını kapatmak.",
+            "Erken uyumak.",
+            "Geç uyumak.",
+            "Uyumamak.",
+          ],
+          correct: 0,
+          tr_explanation: "'Catch up on sleep' = haftadaki uyku açığını kapatmak. Hafta sonu klasiği.",
         },
       ],
     },
@@ -4129,6 +5685,126 @@ export const a2MicroLesson_late: BundledLesson = {
       tr_explanation:
         "'Because of' + isim ('the traffic'), 'because' + cümle ('the traffic was bad'). İkisi karıştırılmaz: 'because of bad traffic' veya 'because the traffic was bad'.",
     },
+    {
+      id: "ex.a2.lt.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Sorry I'm late — ___ ___.",
+      slots: [
+        { accepted: ["the traffic was bad", "I missed the bus", "my meeting ran over", "the train was delayed"], distractors: ["traffic bad", "bus miss"] },
+        { accepted: ["it won't happen again", "won't be long", "I really apologize", "I lost track of time"], distractors: ["sorry sorry", "again happen"] },
+      ],
+      tr_hint:
+        "Geç kalma özrü: kısa sebep + nazik kapanış. Türk öğrenci 'Sorry, traffic' der — eksik. Tam cümle daha doğal.",
+      example_filled: "Sorry I'm late — the traffic was bad. It won't happen again.",
+    },
+    {
+      id: "ex.a2.lt.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "There you are — we already started." },
+        { speaker: "user" },
+        { speaker: "npc", text: "No worries, take a seat." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i('m| am) (so |really |very )?sorry)",
+        "(sorry|apologies)(,)? (i('m| am) late|the (traffic|bus|train|meeting))",
+        "(sorry i('m| am) late)(,)?( i)?",
+      ],
+      tr_hint:
+        "Geç kalınca: önce özür, sonra kısa sebep. Türk öğrenci sadece 'sorry' der — sebep eksik. 'Sorry I'm late — the traffic was terrible.'",
+      ideal_answer: "I'm so sorry I'm late — the traffic was terrible.",
+    },
+    {
+      id: "ex.a2.lt.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "Why are you late?",
+      accepted_patterns: [
+        "(the )?(traffic|bus|train|meeting) (was|got|ran)",
+        "i missed",
+        "i('m| am) (so |really )?sorry(,)? (the|i)",
+        "(there was) (heavy )?traffic",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sebep cevabı: kısa + dürüst. 'The traffic was bad.' veya 'I missed the bus.' Türk öğrenci uzun açıklar — kısa tut.",
+      ideal_response: "I'm sorry — the traffic was really heavy.",
+    },
+    {
+      id: "ex.a2.lt.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Trafik yüzünden geç kaldım.",
+      wrong_en: "I late because of traffic.",
+      right_en: "I'm late because of the traffic.",
+      why_tr:
+        "Türk öğrenci 'I late' der — yardımcı fiil unutuyor. Doğru: 'I'm late' (I am). + 'the traffic' belirli (yola).",
+    },
+    {
+      id: "ex.a2.lt.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Geç kaldığında en doğal başlangıç?",
+          options: [
+            "Hello, I'm late.",
+            "Sorry I'm late — the traffic was bad.",
+            "I late traffic.",
+            "Traffic problem.",
+          ],
+          correct: 1,
+          tr_explanation: "'Sorry I'm late + sebep' = standart kalıp. Özür önce.",
+        },
+        {
+          q: "'Running late' ne demek?",
+          options: [
+            "Koşarak geliyorum.",
+            "Gecikiyorum / yetişmem zor.",
+            "Erken geliyorum.",
+            "Yorgunum.",
+          ],
+          correct: 1,
+          tr_explanation: "'I'm running late' = gecikiyorum. Telefon/sms'te sık kullanılır.",
+        },
+        {
+          q: "'Because' ve 'because of' farkı?",
+          options: [
+            "Aynı şey, fark yok.",
+            "Because + cümle, because of + isim.",
+            "Because of + cümle, because + isim.",
+            "Because resmi, because of günlük.",
+          ],
+          correct: 1,
+          tr_explanation: "'Because the traffic was bad' (cümle) / 'Because of the traffic' (isim).",
+        },
+        {
+          q: "'My meeting ran over' ne demek?",
+          options: [
+            "Toplantı uzadı.",
+            "Toplantıya gittim.",
+            "Toplantı iptal oldu.",
+            "Toplantıdan kaçtım.",
+          ],
+          correct: 0,
+          tr_explanation: "'Ran over' = öngörülenden uzun sürdü. İş hayatında çok yaygın.",
+        },
+        {
+          q: "'It won't happen again' ne anlam taşır?",
+          options: [
+            "Bir daha olmayacak (söz).",
+            "Yine olabilir.",
+            "Sık olur.",
+            "Asla olmaz.",
+          ],
+          correct: 0,
+          tr_explanation: "Özürle birlikte söz verme: 'won't happen again' = bir daha tekrarlamayacağım.",
+        },
+      ],
+    },
   ],
 };
 
@@ -4405,6 +6081,125 @@ export const a2MicroLesson_numbers: BundledLesson = {
       tr_hint:
         "'Thirteen' ve 'thirty' farkı: 'thirteen' son hece uzun (-teen), 'thirty' kısa (-ty). Net ayır.",
     },
+    {
+      id: "ex.a2.nu.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "It costs ___ ___.",
+      slots: [
+        { accepted: ["twenty", "thirty", "fifty", "a hundred", "two hundred"], distractors: ["twenty hundred", "two hundreds"] },
+        { accepted: ["dollars", "euros", "liras", "cents"], distractors: ["dollar", "money"] },
+      ],
+      tr_hint:
+        "Fiyat söyleme: 'It costs twenty dollars.' Türk öğrenci 'two hundreds' der — yanlış. Sayıdan sonra çoğul, ama 'hundred' tek kalır.",
+      example_filled: "It costs twenty dollars.",
+    },
+    {
+      id: "ex.a2.nu.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "How old are you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh, same here!" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "i('m| am) [a-z]+",
+        "i('m| am) (about |around )?[0-9]+",
+        "(twenty|thirty|forty|fifty|sixty)( [a-z]+)?",
+      ],
+      tr_hint:
+        "Yaş cevabı: 'I'm twenty-five.' Türk öğrenci 'I have 25 years' der — yanlış (Fransızca etkisi). 'I am + yaş'.",
+      ideal_answer: "I'm twenty-eight.",
+    },
+    {
+      id: "ex.a2.nu.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What's your phone number?",
+      accepted_patterns: [
+        "(it('s| is)|my number is) [0-9]",
+        "(zero|five|two|three|four|six|seven|eight|nine|one)( [a-z]+){3,}",
+        "[0-9]+( [0-9]+){2,}",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Telefon numarasını rakam rakam söyle. 'It's 0-5-3-2...' veya 'five three two two...' Türk öğrenci 'My number is...' der — kabul.",
+      ideal_response: "It's zero five three two two five seven nine.",
+    },
+    {
+      id: "ex.a2.nu.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "25 yaşındayım.",
+      wrong_en: "I have 25 years.",
+      right_en: "I'm twenty-five.",
+      why_tr:
+        "Türkçede 'yaşındayım' var ama İngilizcede 'I am + yaş'. Fransızca/İtalyanca 'have'+yaş kullanır; İngilizce kullanmaz. Yaygın hata.",
+    },
+    {
+      id: "ex.a2.nu.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I'm 25' nasıl söylenir?",
+          options: [
+            "I have 25 years.",
+            "I'm twenty-five.",
+            "My age is 25 years.",
+            "I am 25 year old.",
+          ],
+          correct: 1,
+          tr_explanation: "'I'm + yaş' kalıbı. 'I have years' Türk/Fransız hatası.",
+        },
+        {
+          q: "13 ve 30 farkı?",
+          options: [
+            "Aynı söylenir.",
+            "Thirteen sonu uzun (-teen), thirty kısa (-ty).",
+            "Thirteen kısa, thirty uzun.",
+            "Sayılar değişmez.",
+          ],
+          correct: 1,
+          tr_explanation: "'-teen' uzun, vurgulu. '-ty' kısa, hızlı. Sık karıştırılır.",
+        },
+        {
+          q: "'Two hundred dollars' yerine 'two hundreds dollars' demek?",
+          options: [
+            "Doğru, çoğul yapılır.",
+            "Yanlış — hundred tek kalır.",
+            "İkisi de doğal.",
+            "Sadece resmi yazıda.",
+          ],
+          correct: 1,
+          tr_explanation: "'Hundred', 'thousand', 'million' sayıdan sonra tek. Sadece 'hundreds of' (belirsiz) çoğul.",
+        },
+        {
+          q: "'It costs fifty dollars' ne demek?",
+          options: [
+            "5 dolar.",
+            "50 dolar.",
+            "15 dolar.",
+            "500 dolar.",
+          ],
+          correct: 1,
+          tr_explanation: "Fifty = 50. Fifteen = 15. Sık karıştırılır.",
+        },
+        {
+          q: "Telefon numarası nasıl söylenir?",
+          options: [
+            "Tek tek rakam: zero, five, three...",
+            "Bütün sayıyı: five hundred thirty...",
+            "Türkçe: sıfır, beş...",
+            "Sadece yazılı.",
+          ],
+          correct: 0,
+          tr_explanation: "Telefon rakam rakam söylenir. 'Zero' yerine 'oh' da denir ('oh-five-three').",
+        },
+      ],
+    },
   ],
 };
 
@@ -4675,6 +6470,123 @@ export const a2MicroLesson_daysmonths: BundledLesson = {
       ipa: "maɪ ˈbɜːrθdeɪ ɪz ɒn ðə tɛnθ ʌv meɪ",
       tr_hint:
         "'Birthday' = 'börth-day'. 'Tenth' içinde 'th' dilini dişlerin arasına koy. 'May' net 'mey'.",
+    },
+    {
+      id: "ex.a2.dm.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "I'll see you on ___ ___.",
+      slots: [
+        { accepted: ["Monday", "Tuesday", "Friday", "Saturday", "Sunday"], distractors: ["in Monday", "the Monday"] },
+        { accepted: ["morning", "afternoon", "evening", "next week", "at six"], distractors: ["in morning", "to morning"] },
+      ],
+      tr_hint:
+        "Gün öncesi 'on' kullanılır. Türk öğrenci 'in Monday' der — yanlış. 'on Monday morning' = pazartesi sabahı.",
+      example_filled: "I'll see you on Monday morning.",
+    },
+    {
+      id: "ex.a2.dm.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "When is your birthday?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh nice! I'll remember." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(it('s| is)|mine('s| is)) (on )?(january|february|march|april|may|june|july|august|september|october|november|december)",
+        "(my birthday is) (on )?(january|february|march|april|may|june|july|august|september|october|november|december|the [0-9])",
+      ],
+      tr_hint:
+        "'My birthday is on the tenth of May' = 10 Mayıs. Türk öğrenci 'My birthday in May' der — eksik kalıp.",
+      ideal_answer: "It's on the tenth of May.",
+    },
+    {
+      id: "ex.a2.dm.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What day is it today?",
+      accepted_patterns: [
+        "(it('s| is)) (monday|tuesday|wednesday|thursday|friday|saturday|sunday)",
+        "(today is) (monday|tuesday|wednesday|thursday|friday|saturday|sunday)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Gün cevabı: 'It's Monday.' veya 'Today is Monday.' Türk öğrenci 'Today Monday' der — eksik.",
+      ideal_response: "It's Tuesday.",
+    },
+    {
+      id: "ex.a2.dm.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Pazartesi günü görüşürüz.",
+      wrong_en: "See you in Monday.",
+      right_en: "See you on Monday.",
+      why_tr:
+        "Türkçede '-de/-da' var ama İngilizcede günler için 'on'. 'In' aylar/yıllar için (in May, in 2026). Türk öğrenci hep 'in' der.",
+    },
+    {
+      id: "ex.a2.dm.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Pazartesi' İngilizce?",
+          options: [
+            "Sunday.",
+            "Monday.",
+            "Tuesday.",
+            "Friday.",
+          ],
+          correct: 1,
+          tr_explanation: "Monday = Pazartesi. Sunday = Pazar (karıştırılır).",
+        },
+        {
+          q: "Pazartesi günü = ?",
+          options: [
+            "In Monday.",
+            "On Monday.",
+            "At Monday.",
+            "To Monday.",
+          ],
+          correct: 1,
+          tr_explanation: "Günler öncesi 'on'. 'In Monday' Türk hatası.",
+        },
+        {
+          q: "Mayıs ayında = ?",
+          options: [
+            "On May.",
+            "In May.",
+            "At May.",
+            "To May.",
+          ],
+          correct: 1,
+          tr_explanation: "Aylar öncesi 'in'. 'On May' yanlış. Gün öncesi 'on', ay öncesi 'in'.",
+        },
+        {
+          q: "'July' hangi ay?",
+          options: [
+            "Haziran.",
+            "Temmuz.",
+            "Ağustos.",
+            "Mayıs.",
+          ],
+          correct: 1,
+          tr_explanation: "July = Temmuz. June = Haziran (karıştırılır).",
+        },
+        {
+          q: "'See you next Friday' ne demek?",
+          options: [
+            "Geçen cuma görüşürüz.",
+            "Önümüzdeki cuma görüşürüz.",
+            "Her cuma görüşürüz.",
+            "Cuma günü görüşürüz.",
+          ],
+          correct: 1,
+          tr_explanation: "'Next Friday' = önümüzdeki cuma. 'Last Friday' = geçen cuma.",
+        },
+      ],
     },
   ],
 };
@@ -4953,6 +6865,125 @@ export const a2MicroLesson_time: BundledLesson = {
       tr_hint:
         "'Quarter' = 'kwortır'. 'To nine' birleşir → 'tu nayn'. Sonda 'morning' alçal.",
     },
+    {
+      id: "ex.a2.tm.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "It's ___ ___.",
+      slots: [
+        { accepted: ["half past", "quarter to", "quarter past", "ten past"], distractors: ["half to", "quarter half", "past quarter"] },
+        { accepted: ["seven", "eight", "nine", "ten", "noon"], distractors: ["o'clock", "morning"] },
+      ],
+      tr_hint:
+        "Saat söyleme: 'half past seven' = 7:30. Türk öğrenci '7 buçuk' yerine 'seven and half' der — yanlış.",
+      example_filled: "It's half past seven.",
+    },
+    {
+      id: "ex.a2.tm.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "What time is it?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh, we should hurry then." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(it('s| is)) (around |about )?[0-9]",
+        "(it('s| is)) (half past|quarter (to|past)|ten (to|past)) [a-z]+",
+        "(it('s| is)) [a-z]+ o'?clock",
+      ],
+      tr_hint:
+        "Saat sorusuna doğal cevap: 'It's quarter past five.' Türk öğrenci 'Time is...' der — yanlış. 'It's + saat'.",
+      ideal_answer: "It's quarter past five.",
+    },
+    {
+      id: "ex.a2.tm.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "What time does the meeting start?",
+      accepted_patterns: [
+        "(it (starts|begins)) at [0-9]",
+        "at [0-9]+(:[0-9]+)?",
+        "(starts) at (half past|quarter (to|past))? ?[a-z0-9]+",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Saat → 'at + saat'. 'In nine' yanlış, 'at nine' doğru. Türk öğrenci 'in' takılır.",
+      ideal_response: "It starts at nine.",
+    },
+    {
+      id: "ex.a2.tm.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Saat 7 buçuk.",
+      wrong_en: "It's seven and half.",
+      right_en: "It's half past seven.",
+      why_tr:
+        "Türk öğrenci '7 buçuk'u 'seven and half' yapar. Doğru kalıp: 'half past + saat'. Önce buçuk, sonra saat.",
+    },
+    {
+      id: "ex.a2.tm.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Saat 7:30 nasıl söylenir?",
+          options: [
+            "Seven and half.",
+            "Half past seven.",
+            "Half seven thirty.",
+            "Seven half.",
+          ],
+          correct: 1,
+          tr_explanation: "'Half past seven' = 7:30. 'Past' = -dan sonra; half = yarım.",
+        },
+        {
+          q: "Saat 8:45 nasıl söylenir?",
+          options: [
+            "Quarter to nine.",
+            "Quarter past eight.",
+            "Eight forty-five quarter.",
+            "Quarter eight nine.",
+          ],
+          correct: 0,
+          tr_explanation: "8:45 = 9'a 15 var → 'quarter to nine'. 'To' = -e var.",
+        },
+        {
+          q: "'What time is it?' cevabı?",
+          options: [
+            "Time is five.",
+            "It's five.",
+            "Five o'clock now.",
+            "Now five.",
+          ],
+          correct: 1,
+          tr_explanation: "'It's + saat' kalıbı. 'Time is' Türk hatası.",
+        },
+        {
+          q: "Toplantı 9'da başlar — hangisi doğru?",
+          options: [
+            "It starts in nine.",
+            "It starts at nine.",
+            "It starts on nine.",
+            "It starts to nine.",
+          ],
+          correct: 1,
+          tr_explanation: "Saat öncesi 'at'. 'In nine' Türk hatası — 'in' aylar/yıllar için.",
+        },
+        {
+          q: "'Quarter past' ne demek?",
+          options: [
+            "15 var.",
+            "15 geçiyor.",
+            "Yarım.",
+            "Tam saat.",
+          ],
+          correct: 1,
+          tr_explanation: "'Quarter past' = 15 geçe. 'Quarter to' = 15 var.",
+        },
+      ],
+    },
   ],
 };
 
@@ -5230,6 +7261,125 @@ export const a2MicroLesson_descriptors: BundledLesson = {
       ipa: "ðɪs wʌn ɪz ˈbɪɡər ðæn ði ˈʌðər",
       tr_hint:
         "'Bigger' = 'biger'. 'Than' yumuşak (zayıf form). 'Other' = 'adır'. Akışkan söyle.",
+    },
+    {
+      id: "ex.a2.ds.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "This one is ___ than ___.",
+      slots: [
+        { accepted: ["bigger", "smaller", "longer", "shorter", "cheaper"], distractors: ["more big", "more small", "biggest"] },
+        { accepted: ["the other", "that one", "this size", "the blue one"], distractors: ["other", "blue"] },
+      ],
+      tr_hint:
+        "Karşılaştırma kalıbı: 'bigger than'. Türk öğrenci 'more big' der — yanlış. Tek heceli sıfat → '-er'.",
+      example_filled: "This one is bigger than the other.",
+    },
+    {
+      id: "ex.a2.ds.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      turns: [
+        { speaker: "npc", text: "Do you want the big one or the small one?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good choice — it's also lighter." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i('ll| will) take|i('d| would) like|give me) (the )?(big|small|smaller|bigger) (one|please)",
+        "(the )?(big|small|smaller|bigger) one(,)? please",
+        "i prefer (the )?(big|small|smaller|bigger)",
+      ],
+      tr_hint:
+        "'The big one' / 'the small one' — 'one' tekrarı önemli. Türk öğrenci 'I take big' der — eksik.",
+      ideal_answer: "I'll take the small one, please.",
+    },
+    {
+      id: "ex.a2.ds.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      npc_line: "How tall are you?",
+      accepted_patterns: [
+        "i('m| am) (about |around )?[0-9]",
+        "(about |around )?[0-9]+ (cm|centimeters|feet|foot)",
+        "around [0-9]",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Boy sorusu — 'I'm about 170 cm.' Türk öğrenci 'My tall is...' der — yanlış. 'I am + boy' kalıbı.",
+      ideal_response: "I'm about 175 centimeters.",
+    },
+    {
+      id: "ex.a2.ds.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      tr_thought: "Bu daha çok büyük.",
+      wrong_en: "This is more big.",
+      right_en: "This is bigger.",
+      why_tr:
+        "Türkçede 'daha + sıfat' var, İngilizcede tek heceli sıfat → '-er' eki. 'More big' kulağa çocuksu geliyor.",
+    },
+    {
+      id: "ex.a2.ds.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Bigger than' ne demek?",
+          options: [
+            "Daha büyük (-den).",
+            "En büyük.",
+            "Çok büyük.",
+            "Büyüktü.",
+          ],
+          correct: 0,
+          tr_explanation: "'Bigger than' = '-den daha büyük'. Karşılaştırma kalıbı.",
+        },
+        {
+          q: "'How tall are you?' cevabı?",
+          options: [
+            "My tall is 170.",
+            "I'm 170 cm.",
+            "I have 170 tall.",
+            "Tall me 170.",
+          ],
+          correct: 1,
+          tr_explanation: "'I'm + boy' kalıbı. 'My tall is' Türk hatası.",
+        },
+        {
+          q: "'Smaller' ne demek?",
+          options: [
+            "Daha büyük.",
+            "Daha küçük.",
+            "Aynı boy.",
+            "Çok küçük.",
+          ],
+          correct: 1,
+          tr_explanation: "'Small' → 'smaller' = daha küçük.",
+        },
+        {
+          q: "'The big one' yerine sadece 'big' demek?",
+          options: [
+            "Doğal, problem yok.",
+            "Eksik — 'one' lazım, neyi seçtiğin belli olmalı.",
+            "Daha kibar.",
+            "Aynı anlam.",
+          ],
+          correct: 1,
+          tr_explanation: "'The big one' = büyük olanı. Sadece 'big' eksik.",
+        },
+        {
+          q: "Tek heceli sıfat karşılaştırması?",
+          options: [
+            "more + sıfat.",
+            "sıfat + -er.",
+            "sıfat + -est.",
+            "the + sıfat.",
+          ],
+          correct: 1,
+          tr_explanation: "Tek hece → '-er'. Big → bigger, small → smaller, tall → taller.",
+        },
+      ],
     },
   ],
 };

@@ -612,6 +612,142 @@ export const flirtVoiceLesson_3_2: BundledLesson = {
       tr_explanation:
         "10 dakika monolog + 'um/like/idk' dolgular = dinleyici kaybeder. Doğru: kısa + spesifik amac + 'back to you' (karsi taraf icin yer). Voice = present, podcast degil.",
     },
+    {
+      id: "ex.fv3.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Hey, quick voice — ___, ___.",
+      slots: [
+        { accepted: ["wanted to share one thing", "had something fun to ask", "couldn't text this part", "easier to say than type"] },
+        { accepted: ["then back to you", "no need to respond by voice", "text if easier", "your turn"] },
+      ],
+      tr_hint:
+        "Voice note açılış kalıbı: niyet + sınır. Türk öğrenci uzun monolog atar; bunun yerine KISA + amaç + 'back to you' (karşılıklı).",
+      example_filled:
+        "Hey, quick voice — wanted to share one thing, then back to you.",
+    },
+    {
+      id: "ex.fv3.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Voice notes are weirdly intimate, right?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Hahaha yeah let's keep them short and fun." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yeah|honestly|definitely)[,—-]? (kind of |a little )(intimate|vulnerable)",
+        "(thinking)? voice (note|notes)? (should|gotta) (be|stay) (short|under \\d+)",
+        "(easier to say|harder to text)",
+        "(no podcast|not making a podcast)[,—-]? (.+)",
+        "(tone)? (is hard to read|comes out flat) over text",
+      ],
+      tr_hint:
+        "Voice note hakkında meta-konuşma. 'Yeah honestly vulnerable — that's why I keep them short. No podcast vibe' tipi. Self-aware = çekici.",
+      ideal_answer:
+        "Yeah honestly — vulnerable. That's why I keep them under 30 seconds. No podcast vibe.",
+    },
+    {
+      id: "ex.fv3.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Why a voice note instead of texting?",
+      accepted_patterns: [
+        "(tone|jokes) (is|are) hard to (read|land) (over text|by text)",
+        "(easier|comes out better) (by voice|to say)",
+        "(didn'?t want|wanted to avoid) (coming out flat|coming across wrong)",
+        "(felt like|thought it could be) (more real|warmer)",
+        "(quick |short )?voice (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Voice tercih sebebi açıklama. 'Tone is hard to read in text — didn't want it coming out flat' tipi. Türk öğrenci 'I like voice' der; bu zayıf; SEBEP açıkla.",
+      ideal_response:
+        "Tone's hard to read in text — didn't want this coming out flat. Quick one only.",
+    },
+    {
+      id: "ex.fv3.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Sana 10 dakikalık ses notu attım, dinle",
+      wrong_en: "I sent you 10 minute voice, listen.",
+      right_en: "Hey, quick voice note — wanted to share one thing, then back to you.",
+      why_tr:
+        "Türk öğrenci '10 dakikalık + dinle' kalıbını birebir çevirir = uzun + emir + 'I sent' yapısal yanlış. Modern voice note: 30 saniye altı + niyet + 'back to you' (karşılıklılık). Voice = sohbet, monolog DEĞİL.",
+    },
+    {
+      id: "ex.fv3.2.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Voice note ideal uzunluk?",
+          options: [
+            "Sınırsız",
+            "30 saniye - 1 dakika arası",
+            "10 dakika",
+            "1 saat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "30sn-1dk = dinlenir. Daha uzun = monolog hissi + dinleyici kaybeder.",
+        },
+        {
+          q: "Voice note'ta niye 'tone is hard to read over text' söylenir?",
+          options: [
+            "Bahane",
+            "Voice tercih sebebini açıklar = self-aware + saygılı",
+            "Şikayet",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Tonu söylemek = niyetli iletişim. Karşı taraf neden voice geldi anlar.",
+        },
+        {
+          q: "'Back to you' kalıbı:",
+          options: [
+            "Karşılıklılık daveti — ben söyledim, sıra sende",
+            "Soğuk",
+            "Resmi",
+            "Yapısal yanlış",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Back to you' = sıra sende. Monolog değil, sohbet sinyali.",
+        },
+        {
+          q: "Voice note'ta 'um/like/uhh' fazla varsa?",
+          options: [
+            "Doğal",
+            "Düşünmeden kayıt etmiş — yeniden kaydet (15sn için sorun değil, uzun ise sorun)",
+            "Çekici",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aşırı dolgu = beklenti hissi. 1-2 doğal; 'um like um like' = yeniden kayıt.",
+        },
+        {
+          q: "Voice note'un EN BÜYÜK avantajı?",
+          options: [
+            "Hızlı",
+            "Ton + duygu taşıma — text'in yapamadığı",
+            "Daha çok kelime",
+            "Yapısal",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Ton ses ile gelir. Şaka, samimiyet, ironi — text'ten daha net.",
+        },
+      ],
+    },
   ],
 };
 
@@ -828,6 +964,143 @@ export const flirtVoiceLesson_3_3: BundledLesson = {
         "Just listened twice — your laugh is killing me, especially that ending.",
       tr_explanation:
         "'Ok heard. Cool. Anyway.' = sifir yatirim, voice atan kişiye saygisiz. Doğru: spesifik tepki + ne hosuna gitti. Modern dating: yatirim simetrik olmali = devam = ilgi.",
+    },
+    {
+      id: "ex.fv3.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Just listened ___ — ___ is killing me, especially ___.",
+      slots: [
+        { accepted: ["twice", "three times", "on repeat", "again"] },
+        { accepted: ["your laugh", "the way you say 'whatever'", "your tone", "the joke at the end"] },
+        { accepted: ["that ending", "the punchline", "how casual it was", "the pause before that"] },
+      ],
+      tr_hint:
+        "Voice note'a yatırımlı cevap kalıbı — spesifik detay yakala. Türk öğrenci 'Cool, heard it' der; bu sıfır yatırım; SPESİFİK + duygu = ilgi sinyali.",
+      example_filled:
+        "Just listened twice — your laugh is killing me, especially that ending.",
+    },
+    {
+      id: "ex.fv3.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Okay sent the voice — hope it didn't come out weird." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Ha — glad you got it. Was nervous tbh." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(just |okay )(listened|heard) (twice|.+)",
+        "(your laugh|that tone|your voice) (.+) (killed me|got me|made me smile)",
+        "(especially|particularly) (.+)",
+        "(sounds way )?(less stiff|more like you|warmer) (than your texts|than i expected)",
+        "(no weird|not weird at all)[,—-]? (.+)",
+      ],
+      tr_hint:
+        "Yatırımlı + spesifik cevap. 'Listened twice — your laugh is killing me, especially that ending' tipi. 'Cool' YETMEZ; DETAY ekle.",
+      ideal_answer:
+        "Just listened twice — your laugh is killing me, especially that ending. Way less stiff than your texts in a good way.",
+    },
+    {
+      id: "ex.fv3.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "So what did you think when you heard it?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (smiled|laughed)",
+        "(your voice|tone) (caught me off guard|surprised me)",
+        "(especially|particularly) (.+)",
+        "(more (warm|relaxed)|less stiff than your texts)",
+        "(asked me|made me) (want to call|want a call)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik + duygulu. 'Honestly your tone caught me off guard — way warmer than texts. Now I want to call' tipi. Voice yatırımı = simetrik tepki.",
+      ideal_response:
+        "Honestly — way warmer than texts. Now I kind of want to call.",
+    },
+    {
+      id: "ex.fv3.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Sesini dinledim, güzel",
+      wrong_en: "I heard your voice, nice.",
+      right_en: "Just listened twice — your laugh is killing me, especially that ending.",
+      why_tr:
+        "Türk öğrenci 'dinledim + güzel' kalıbını birebir çevirir = generic + zayıf yatırım. Modern dating: yatırım simetrik = spesifik detay + duygu. 'Your laugh is killing me' = hangi an etkiledi söyle.",
+    },
+    {
+      id: "ex.fv3.3.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Voice note'a olgun cevap formülü?",
+          options: [
+            "'Ok cool'",
+            "Spesifik detay + duygu + 'twice' (yatırım göstergesi)",
+            "Sus",
+            "Aynı kalitede geri voice atma şartı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Spesifik = dinlediğini kanıtla. 'Listened twice' = yatırım. 'Your laugh' = neyin değdi anlat.",
+        },
+        {
+          q: "'Way less stiff than your texts' niye iltifat?",
+          options: [
+            "Hakaret",
+            "Voice = warmer/looser = pozitif sürpriz",
+            "Yapısal yanlış",
+            "Çok formal",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Text formal/dik olabilir. Voice'ta rahatlık = otantik versiyon = beğeni.",
+        },
+        {
+          q: "Karşı taraf 'hope it didn't come out weird' derse?",
+          options: [
+            "'Yes weird'",
+            "'No weird at all' + sıcak detay",
+            "Sus",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Endişesini gider + sıcak. 'No weird at all — actually loved it' tipi.",
+        },
+        {
+          q: "'Caught me off guard' niye iltifat?",
+          options: [
+            "Saldırı",
+            "Pozitif sürpriz — beklemediğim güzel bir şey",
+            "Yapısal yanlış",
+            "Çok formal",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Caught me off guard in a good way' = beklemiyordum + güzeldi. Soft iltifat.",
+        },
+        {
+          q: "Voice note 'cool, anyway' demek niye risk?",
+          options: [
+            "Çok kısa",
+            "Sıfır yatırım = karşı taraf voice atan kişi olarak küçümsenmiş hisseder",
+            "Yapısal",
+            "Çok formal",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Voice = riskli yatırım. Cevapta yatırım eksik = saygısızlık = atan kişi pişman olur.",
+        },
+      ],
     },
   ],
 };
@@ -1059,6 +1332,142 @@ export const flirtVoiceLesson_3_4: BundledLesson = {
       tr_explanation:
         "'Now I want see you face' = komut + sahiplenme + yapı bozuk. Modern dating'te urgent + transactional = unmatch tetigi. Doğru: 'free for X' (esnek) + alternatif zaman = saygi + secim hakki.",
     },
+    {
+      id: "ex.fv3.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Free for a quick ___, or is ___ easier?",
+      slots: [
+        { accepted: ["FaceTime tonight", "call tomorrow", "video chat this weekend", "phone catch-up Sunday"] },
+        { accepted: ["later this week", "another night", "morning instead", "voice note for now"] },
+      ],
+      tr_hint:
+        "Voice/video call geçiş kalıbı — esnek + alternatif. Türk öğrenci 'Video call now' der; bu komut + tehlikeli; 'Free for X — or alternative' = saygılı.",
+      example_filled:
+        "Free for a quick FaceTime tonight, or is later this week easier?",
+    },
+    {
+      id: "ex.fv3.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "I'm honestly tired of typing — what do you think?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Yes! FaceTime 9pm?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(read my mind|you read my mind|same here)",
+        "(wanna|want to) (just )?facetime",
+        "(save us both|skip)( the typing)",
+        "(tonight|tomorrow night) (after \\d+|works)",
+        "(free for|down for) (a quick |a short )?(call|facetime)",
+      ],
+      tr_hint:
+        "Voice/video çağrısına geçiş - karşılıklı istek tetiklendi. 'Save us both the typing — FaceTime tonight?' tipi. Kararlı + casual.",
+      ideal_answer:
+        "You read my mind — save us both the typing. FaceTime tonight after 9?",
+    },
+    {
+      id: "ex.fv3.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Should we just call instead of texting back and forth?",
+      accepted_patterns: [
+        "(yes|honestly yes|same)",
+        "(read my mind|i was thinking the same)",
+        "(save us both|save us) the typing",
+        "(tonight|tomorrow|this weekend) (after \\d+|works for me)",
+        "(let me know|tell me) when works",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Karşı taraf call önerdi — kabul + spesifik zaman. 'Yes — read my mind. Tonight after 9?' tipi. KARARLI olun.",
+      ideal_response:
+        "Yes — read my mind. Tonight after 9, or tomorrow morning?",
+    },
+    {
+      id: "ex.fv3.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Görüntülü ara şimdi, yüzünü görmek istiyorum",
+      wrong_en: "Video call now I want see you face.",
+      right_en: "Free for a quick FaceTime tonight, or is later this week easier?",
+      why_tr:
+        "Türk öğrenci 'şimdi + yüzünü' kalıbını birebir çevirir = urgent + sahiplenme + 'see you face' yapısal yanlış ('see your face'). Modern dating'te urgent + transactional = unmatch tetiği. 'Free for X' = saygılı esneklik.",
+    },
+    {
+      id: "ex.fv3.4.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Voice/video call'a geçiş için ideal anahtar?",
+          options: [
+            "Direkt 'video call now'",
+            "'Save us both the typing' (mutual fayda + esnek zaman)",
+            "Sus",
+            "Israr",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Save us both the typing' = ikimize de iyi. Mutual + casual.",
+        },
+        {
+          q: "Türk hatası: 'I want see you face'",
+          options: [
+            "Yapısal yanlış + sahiplenme tonu",
+            "Çok formal",
+            "Çok kibar",
+            "Doğru",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'see your face' (article). + 'now' = urgent = unmatch. Saygılı esneklik şart.",
+        },
+        {
+          q: "'You read my mind' anlamı?",
+          options: [
+            "Aklımı okudun (aynı şeyi düşündüm)",
+            "Yapısal yanlış",
+            "Resmi",
+            "Yanlış",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'You read my mind' = aynı şeyi düşünüyordum, casual + sıcak.",
+        },
+        {
+          q: "Voice call zamanı önerirken?",
+          options: [
+            "Spesifik saat + alternatif",
+            "Hep 'whenever'",
+            "Sadece şimdi",
+            "Hiç",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Spesifik = ciddi. 'After 9 tonight, or tomorrow?' = esnek + planlı.",
+        },
+        {
+          q: "Video call ile voice call hangisi 1. ?",
+          options: [
+            "Direkt video",
+            "Voice (sesli) önce, video sonra (rahatlık seviyesi)",
+            "İkisi aynı",
+            "Hiç",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Voice = düşük commitment. Video = göz teması = daha intim. Sıra önemli.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1239,6 +1648,142 @@ export const flirtVoiceLesson_3_5: BundledLesson = {
       tr_hint:
         "Saygılı zamanlama sorusu — kararsız değil, düşünceli. 'Would it be' bağlı, 'VM' iki harf net: 'viː-ɛm'. 'Under thirty' süre güvencesi vurgulu.",
     },
+    {
+      id: "ex.fv3.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Would it be too early to send a ___? Promise it's ___.",
+      slots: [
+        { accepted: ["quick VM", "short voice", "30-second voice note", "quick voice"] },
+        { accepted: ["under 30 seconds", "less than a minute", "actually short", "not a podcast"] },
+      ],
+      tr_hint:
+        "İlk voice memo zamanlama kalıbı — saygılı izin + süre güvencesi. Türk öğrenci direkt voice atıyor; bu erken; izin + süre + niyet açıklama.",
+      example_filled:
+        "Would it be too early to send a quick VM? Promise it's under 30 seconds.",
+    },
+    {
+      id: "ex.fv3.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Been wanting to ask — when do you usually go voice with someone new?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Smart approach — go for it." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(after a (few|couple) (days|good convos))",
+        "(when (text|the convo) (feels|gets) (warm|hot))",
+        "(test the waters|see if they'?re into it) first",
+        "(would it be|is it) too early",
+        "(promise|i promise) (it'?s under \\d+|short)",
+      ],
+      tr_hint:
+        "Voice memo timing felsefesi. 'After a few good convos — when text feels warm. Would it be too early?' tipi. SAYGILI + SORU.",
+      ideal_answer:
+        "After a few good convos — when text feels warm. Would it be too early to try now? Promise under 30 seconds.",
+    },
+    {
+      id: "ex.fv3.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Send a voice anytime — I like that you actually use voice.",
+      accepted_patterns: [
+        "(thanks|appreciate)( that)?",
+        "(short ones only|keeping it short)",
+        "(here'?s|i'?ll send) (a quick one|one now)",
+        "(promise|it'?ll be) under (\\d+|a minute)",
+        "(consider it done|coming up)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Onay verildi — sınır içinde kullan. 'Thanks — short ones only, promise. Sending one now' tipi. Aşırıya kaçma.",
+      ideal_response:
+        "Thanks — short ones only, promise. Sending one in a sec.",
+    },
+    {
+      id: "ex.fv3.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Sesli kayıt göndereceğim hemen",
+      wrong_en: "I send voice record now.",
+      right_en: "Would it be too early to send a quick VM? Promise it's under 30 seconds.",
+      why_tr:
+        "Türk öğrenci 'göndereceğim hemen' kalıbını birebir çevirir = izinsiz + acele + 'voice record' yapısal yanlış. Modern: 'voice note / voice memo / VM' standart kelime. Doğru: izin sor + süre güvencesi = saygılı + casual.",
+    },
+    {
+      id: "ex.fv3.5.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "İlk voice memo zamanlaması?",
+          options: [
+            "Hemen ilk gün",
+            "Birkaç güzel sohbet sonrası, izin + süre güvencesi ile",
+            "1 yıl sonra",
+            "Hiç",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Erken voice = invasive. Karşı taraf konfor seviyesi belli olunca uygun.",
+        },
+        {
+          q: "'Promise it's under 30 seconds' fonksiyonu?",
+          options: [
+            "Yalan",
+            "Süre güvencesi = saygı (karşı taraf 10dk monolog beklemiyor)",
+            "Yapısal",
+            "Çok formal",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Süre güvencesi = saygı. Karşı taraf 'kısa bir şey' bekler.",
+        },
+        {
+          q: "'Jumping the gun' anlamı?",
+          options: [
+            "Silahla atlama",
+            "Erken davranma / acele etme",
+            "Yarış başlatma",
+            "Korkutma",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Idiom: zamanından önce yapmak. 'Is this jumping the gun?' = bu erken mi.",
+        },
+        {
+          q: "Karşı taraf voice atmaktan rahatsız mı?",
+          options: [
+            "Direkt sor",
+            "Saygılı izin iste: 'would it be too early?'",
+            "Bilmeden at",
+            "Sürekli at",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Soru = saygı. 'Would it be too early?' = sınır kontrolü.",
+        },
+        {
+          q: "'VM' kısaltması neyin?",
+          options: [
+            "Voice Memo (voice mesajı)",
+            "Video Mail",
+            "Visual Message",
+            "Vibration",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'VM' = Voice Memo. Modern dating slang. 'Voice note' da yaygın.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1416,6 +1961,142 @@ export const flirtVoiceLesson_3_6: BundledLesson = {
       ipa: "/lʌvd jɔː vɔɪs ˈmɛməʊ — rɪˈplaɪɪŋ ɪn kaɪnd — ɡɪv miː faɪv/",
       tr_hint:
         "Reciprocity tonu — sıcak, kararlı, hızlı. 'In kind' birleşik 'ın-kaynd'. 'Give me five' casual zaman taahhüdü, beş dakika anlamında.",
+    },
+    {
+      id: "ex.fv3.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Loved your voice memo — ___, ___.",
+      slots: [
+        { accepted: ["replying in kind", "responding by voice", "going voice too", "voice back coming"] },
+        { accepted: ["give me five", "give me a few minutes", "incoming in a sec", "stand by"] },
+      ],
+      tr_hint:
+        "Voice'a voice cevap kalıbı (reciprocity). Türk öğrenci 'ok cool' der; bu sıfır reciprocity; 'replying in kind' = aynı tür cevap sözü.",
+      example_filled:
+        "Loved your voice memo — replying in kind, give me five.",
+    },
+    {
+      id: "ex.fv3.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "[voice note received] So that was my favorite thing about you so far — random?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Hahaha yes please — incoming." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(loved (it|your voice memo))",
+        "(replying in kind|responding by voice)",
+        "(give me|in) (a few|five) (minutes|seconds)",
+        "(on the subway|in a meeting),? (.+) (vm back|voice back) in (.+)",
+        "(stand by|hold on)[,—-]? (.+)",
+      ],
+      tr_hint:
+        "Voice geldi - reciprocity. 'Loved it — replying in kind, give me 5' VEYA 'Loved it — on the subway, VM back in an hour' tipi. Text + voice sözü.",
+      ideal_answer:
+        "Loved your voice memo — replying in kind, give me five.",
+    },
+    {
+      id: "ex.fv3.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Would love to hear your voice back — same energy.",
+      accepted_patterns: [
+        "(loved (it|that))[,—-]? (.+)",
+        "(replying in kind|going voice too)",
+        "(give me (5|a few)|stand by|incoming)",
+        "(on the train|in a meeting),? (.+) (later|in an hour)",
+        "(promise|i'?ll have one back)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Talep + reciprocity sözü. 'Loved it — replying in kind, give me 5' tipi. Hemen cevap veremiyorsan: 'In a meeting — VM back in an hour'.",
+      ideal_response:
+        "Loved it — replying in kind, give me five minutes.",
+    },
+    {
+      id: "ex.fv3.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Tamam dinledim, sonra yazarım",
+      wrong_en: "Ok I listen, write later.",
+      right_en: "Loved your voice memo — replying in kind, give me five.",
+      why_tr:
+        "Türk öğrenci 'tamam + sonra yazarım' kalıbını birebir çevirir = sıfır reciprocity + 'I listen' present yanlış (should be 'listened'). Voice'a voice cevap = ilgi simetrisi. 'Replying in kind' = aynı şekilde cevap.",
+    },
+    {
+      id: "ex.fv3.6.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Voice'a en uygun cevap?",
+          options: [
+            "'Ok cool' text",
+            "Voice (reciprocity)",
+            "Sus",
+            "Emoji",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Voice = yatırım. Reciprocity = aynı yatırım. Text cevap = düşüş sinyali.",
+        },
+        {
+          q: "'In kind' anlamı?",
+          options: [
+            "Nazikçe",
+            "Aynı tür / aynı şekilde",
+            "Mücadele ile",
+            "Yapısal",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'In kind' = aynı tür. Voice → voice = doğru reciprocity.",
+        },
+        {
+          q: "Hemen voice atamıyorsan?",
+          options: [
+            "Sus",
+            "Kısa text + sebep + voice sözü ver",
+            "Sadece emoji",
+            "1 hafta bekle",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loved it — on the subway, VM back in an hour' = bağı korur + reciprocity sözü.",
+        },
+        {
+          q: "Voice'a text cevap niye risk?",
+          options: [
+            "Çok kısa",
+            "Yatırım simetrisi bozulur = ilgi düşüş sinyali",
+            "Yapısal",
+            "Önemsiz",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Voice attı, sen text = 'voice'a o kadar değer vermedim' sinyali.",
+        },
+        {
+          q: "'Give me five' burada anlamı?",
+          options: [
+            "Bana 5 lira ver",
+            "5 dakika ver (zaman taahhüdü)",
+            "Beşli toka",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Give me five' = 5 dakika ver. Casual zaman taahhüdü.",
+        },
+      ],
     },
   ],
 };
@@ -1610,6 +2291,142 @@ export const flirtVoiceLesson_3_7: BundledLesson = {
       tr_hint:
         "Spesifik iltifat tonu — gözlemci, sıcak. 'Got me' bağlı vurgulu. 'Calm energy' yumuşak baş, 'rare' kapanış net.",
     },
+    {
+      id: "ex.fv3.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Your voice prompt got me — ___ ___.",
+      slots: [
+        { accepted: ["that calm energy at the start", "the way you said 'whatever'", "the laugh at the end", "the tone shift mid-sentence"] },
+        { accepted: ["is rare", "killed me", "made me re-listen", "felt earned"] },
+      ],
+      tr_hint:
+        "Voice prompt'a spesifik tepki kalıbı — detay + duygu. Türk öğrenci 'nice voice' der; bu jenerik; SPESIFIK an + neden değdi.",
+      example_filled:
+        "Your voice prompt got me — that calm energy at the start is rare.",
+    },
+    {
+      id: "ex.fv3.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Surprise me — what stood out from my voice prompt?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay you actually listened — that's rare." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(honestly|definitely|easily) (.+) (got me|killed me)",
+        "(the way you said|that calm energy|the laugh at the end)",
+        "(your voice|the tone) (is|felt) (warmer|earned|rare)",
+        "(felt real|wasn'?t performed)",
+        "(re-listened|listened twice)",
+      ],
+      tr_hint:
+        "Spesifik bir an söyle. 'The calm energy at the start got me — most prompts feel performed' tipi. SPESIFIK ol.",
+      ideal_answer:
+        "The calm energy at the start got me — most voice prompts feel performed. Yours felt earned.",
+    },
+    {
+      id: "ex.fv3.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Honestly nervous I sound weird in voice — was it okay?",
+      accepted_patterns: [
+        "(opposite|not at all)[,—-]? (.+)",
+        "(actually|honestly) (warm|grounded|calm)",
+        "(loved|loved how) (you sounded|natural it was)",
+        "(could re-listen|re-listened it)",
+        "(no need to be nervous|you sound great)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Rahatlat + spesifik iltifat. 'Opposite — sounded warm and grounded. Re-listened twice' tipi. Generic 'good' YETMEZ.",
+      ideal_response:
+        "Opposite — sounded warm and grounded. Actually re-listened twice.",
+    },
+    {
+      id: "ex.fv3.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Sesli prompt'ında güzel ses var",
+      wrong_en: "Your voice prompt have nice voice.",
+      right_en: "Your voice prompt got me — that calm energy at the start is rare.",
+      why_tr:
+        "Türk öğrenci 'güzel ses var' kalıbını birebir çevirir = 'have' yapısal yanlış (3rd person 'has') + jenerik. Modern dating: SPESIFIK an + neden değdi = ilgi göstergesi. 'Got me' = etkiledi (deyim).",
+    },
+    {
+      id: "ex.fv3.7.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Voice prompt'a en güçlü cevap?",
+          options: [
+            "'Nice voice'",
+            "Spesifik an + neden değdi",
+            "Sus",
+            "Hep emoji",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Spesifik = dinlediğini kanıtla. 'Calm energy at the start' = 10 saniye gerçekten dinledim sinyali.",
+        },
+        {
+          q: "'Got me' idiom anlamı?",
+          options: [
+            "Beni yakaladı (fiziksel)",
+            "Beni etkiledi / aklımda kaldı",
+            "Beni anladı",
+            "Mağlup etti",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Got me' = etkiledi (idiomatic). 'Your voice got me' = sesin aklımda kaldı.",
+        },
+        {
+          q: "Voice prompt nedir?",
+          options: [
+            "Sesli komut",
+            "Dating app'in profil sesli kayıt özelliği (audio bio)",
+            "Sesli mail",
+            "Şarkı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Modern dating'in popüler özelliği — kısa sesli kayıt + profil sorusu.",
+        },
+        {
+          q: "'Felt earned' kalıbı:",
+          options: [
+            "Hak edildi (samimi, performans değil)",
+            "Yapısal yanlış",
+            "Çok formal",
+            "Yanlış kelime",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Felt earned' = samimi hisli, zorlama değil. Voice'ta önemli ayrım.",
+        },
+        {
+          q: "Spesifik iltifat niye etkili?",
+          options: [
+            "Daha uzun",
+            "Dinlediğini kanıtlar = '%5'in içindesin' sinyali",
+            "Çok formal",
+            "Yapısal",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Çoğu voice prompt'ı atlanır. Spesifik detay = takdir edilen mesafe.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1801,6 +2618,143 @@ export const flirtVoiceLesson_3_8: BundledLesson = {
       ipa: "/ˈwɒnə ˈfeɪstaɪm fɜːst — kwɪk vaɪb tʃɛk — nəʊ ˈprɛʃə ɪf nɒt jɔː θɪŋ/",
       tr_hint:
         "Casual teklif tonu — kararlı, çıkış kapısı sıcak. 'Wanna' bağlı, 'vibe check' iki kelime net. 'No pressure' yumuşak iniş — baskı yok mesajı bedensel olarak duyulmalı.",
+    },
+    {
+      id: "ex.fv3.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Wanna ___ first? Quick ___, no pressure if ___.",
+      slots: [
+        { accepted: ["FaceTime", "voice call", "video chat", "video"] },
+        { accepted: ["vibe check", "hi", "10 minutes", "say hi"] },
+        { accepted: ["not your thing", "you'd rather meet IRL", "too soon", "you prefer"] },
+      ],
+      tr_hint:
+        "Buluşma öncesi FaceTime teklif kalıbı — kararlı + çıkış kapısı. Türk öğrenci 'video call' der; bu yetersiz; SAYGILI 'no pressure' kapısı şart.",
+      example_filled:
+        "Wanna FaceTime first? Quick vibe check, no pressure if not your thing.",
+    },
+    {
+      id: "ex.fv3.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Date Saturday is locked in — anything else before then?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — Wednesday 8pm? Brief is fine." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(wanna|would you wanna|down for) facetime (first|before)",
+        "(quick |brief )?(vibe check|hi|chat)",
+        "(no pressure|all good if not)",
+        "(15 minutes|10-15 minutes|short one)",
+        "(could be fun|easier to chat)",
+      ],
+      tr_hint:
+        "Pre-date FaceTime teklifi. 'Wanna FaceTime first? Quick vibe check, no pressure if you'd rather just meet IRL' tipi. KARARLI + saygılı.",
+      ideal_answer:
+        "Wanna FaceTime first? Quick vibe check, no pressure if you'd rather just meet IRL.",
+    },
+    {
+      id: "ex.fv3.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "I'm a little nervous for Saturday — would it help to FaceTime first?",
+      accepted_patterns: [
+        "(honestly|truthfully) (yes|i'?d love that)",
+        "(15 minutes|10-15)",
+        "(takes the edge off|less first-meet pressure)",
+        "(tonight|tomorrow night) (at \\d+|after work)",
+        "(quick vibe check|brief one)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Karşı taraf önerdi — kabul + spesifik zaman. 'Honestly yes — 15 min tonight? Takes edge off Saturday' tipi.",
+      ideal_response:
+        "Honestly yes — 15 minutes tonight? Takes the edge off Saturday.",
+    },
+    {
+      id: "ex.fv3.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Buluşmadan önce video konuşma yapalım",
+      wrong_en: "Before meeting we make video call.",
+      right_en: "Wanna FaceTime first? Quick vibe check, no pressure if not your thing.",
+      why_tr:
+        "Türk öğrenci 'video konuşma yapalım' kalıbını birebir çevirir = 'we make video call' yapısal yanlış + emir tonu. Modern: 'wanna FaceTime' (casual) + 'quick vibe check' (niyet) + 'no pressure' (saygılı çıkış kapısı). Standart pre-date adım.",
+    },
+    {
+      id: "ex.fv3.8.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Pre-date FaceTime'ın faydası?",
+          options: [
+            "Sadece güvenlik",
+            "Vibe check + chemistry önizleme + ilk buluşma gerginliği azaltma",
+            "Faydası yok",
+            "Eğlence",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Modern dating'de standart: pre-meet 15dk FaceTime = chemistry önizleme + buluşma anksiyetesi düşür.",
+        },
+        {
+          q: "'Vibe check' anlamı?",
+          options: [
+            "Atmosfer kontrolü (kişiyle uyum testi)",
+            "Yapısal yanlış",
+            "Şarkı",
+            "Yapısal",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Vibe check' = kişilik/enerji uyum testi. Casual + Gen-Z.",
+        },
+        {
+          q: "Pre-date FaceTime süresi ideal?",
+          options: [
+            "1 saat",
+            "10-15 dakika",
+            "5 dakika",
+            "2 saat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "10-15dk = vibe check + ana buluşma için yer bırak. Çok uzun = gerçek buluşma boşalır.",
+        },
+        {
+          q: "'No pressure if not your thing' niye kritik?",
+          options: [
+            "Karşı tarafa hayır deme alanı = saygı + olgunluk",
+            "Yapısal",
+            "Resmi",
+            "Çok kibirli",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Bazı insanlar pre-date'i sevmez. 'No pressure' = saygı.",
+        },
+        {
+          q: "Pre-date FaceTime ne zaman uygun?",
+          options: [
+            "Her zaman zorunlu",
+            "Buluşmadan birkaç gün önce, karşı taraf rahatsa",
+            "Hiç",
+            "Buluşmadan 1 ay önce",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Buluşmadan 1-3 gün önce ideal. Heyecan + tanıdık his + son detaylar.",
+        },
+      ],
     },
   ],
 };

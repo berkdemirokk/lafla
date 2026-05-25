@@ -545,6 +545,142 @@ export const flirtCancelLesson_5_2: BundledLesson = {
       tr_explanation:
         "'When you want' = sorumluluk karşı tarafa yıkma, momentum öldürür. Doğru: spesifik gün öner + 'what works' (esneklik).",
     },
+    {
+      id: "ex.fc5.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Let's ___ a new time — ___?",
+      slots: [
+        { accepted: ["lock down", "pin in", "lock in", "nail down", "settle on"] },
+        { accepted: ["Thursday or Friday work", "what day works for you", "free this week", "weekday or weekend"] },
+      ],
+      tr_hint:
+        "Yeniden planlama kalıbı — kararlı + esnek. Türk öğrenci 'When do you want to meet?' der; bu pasif. 'Let's lock down a new time' aktif + kararlı.",
+      example_filled:
+        "Let's lock down a new time — Thursday or Friday work?",
+    },
+    {
+      id: "ex.fc5.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hey! Glad you're following up — I was about to text too." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thursday works, 7pm? Same spot?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(round|take) (2|two|three)[,—-]? (.+)",
+        "(let'?s|let us) (lock down|pin in|nail down) (.+)",
+        "(thursday|friday|tuesday|wednesday|saturday)( works| good for me| free)?",
+        "(any|all) weekday (works|is good)",
+        "(owe you|i owe you) (the first round|coffee)",
+      ],
+      tr_hint:
+        "Yeniden plan — spesifik gün öner + casual ton. 'Round 2 — Thursday or Friday works for me' tipi. Türk öğrenci 'When you want' der; bu sorumluluk yükler.",
+      ideal_answer:
+        "Round 2 — Thursday or Friday works for me. Owe you the first round.",
+    },
+    {
+      id: "ex.fc5.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Okay so when do you actually want to do this?",
+      accepted_patterns: [
+        "(thursday|friday|saturday|tuesday|wednesday) (works|sounds good|is open)",
+        "(this week|next week)[,—-]? (.+)",
+        "(any|all) weekday (after \\d|after work)",
+        "(picking |let me pick )(thursday|friday|tuesday)",
+        "(.+) at (\\d+ ?pm|six|seven|eight)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik gün/saat ver. 'Thursday at 7pm — same spot?' tipi. 'Anytime' deme; bu pasif + plan yapmaz. KARARLI ol.",
+      ideal_response:
+        "Thursday at 7 works — same spot, or somewhere new?",
+    },
+    {
+      id: "ex.fc5.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "İptal ettim. Müsait olduğunda haber ver",
+      wrong_en: "I cancel. Tell me when you are available.",
+      right_en: "Round 2? I'm thinking Thursday or Friday — what works for you?",
+      why_tr:
+        "Türk öğrenci 'müsait olduğunda haber ver' kalıbını birebir çevirir = sorumluluğu karşı tarafa yıkmak + momentum öldürür. 'I cancel' present tense yanlış (should be 'I had to cancel'). Doğru: SEN aktif olarak yeniden plan öner.",
+    },
+    {
+      id: "ex.fc5.2.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "İptal sonrası tekrar plan için ideal süre?",
+          options: [
+            "1 ay sonra",
+            "1-3 gün içinde — momentum",
+            "Hiç yapma",
+            "1 yıl sonra",
+          ],
+          correct: 1,
+          tr_explanation:
+            "1-3 gün = momentum + saygı dengesinde. 1 hafta+ = çok geç, soğur.",
+        },
+        {
+          q: "'Round 2 / Take 2' niye etkili?",
+          options: [
+            "Standart kurallar",
+            "İptal'i hafifletir + tekrar deneme pozitif çağrışımı",
+            "Resmi terim",
+            "Anlamı yok",
+          ],
+          correct: 1,
+          tr_explanation:
+            "İlk denemenin başarısız olduğunu eğlenceli kabul = tekrar deneme niyetini güçlendirir.",
+        },
+        {
+          q: "'Lock down a time' anlamı?",
+          options: [
+            "Saati kilitle",
+            "Zamanı kesinleştir / sabitle (casual)",
+            "Saati öldür",
+            "Saati zorla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Lock down' = sabitle, ertelenmesin. 'Set a time'in casual versiyonu.",
+        },
+        {
+          q: "'Owe you the first round' ne demek?",
+          options: [
+            "Sana ilk yıl borçluyum",
+            "İlk içkiyi sana ısmarlamayı borçluyum (telafi jesti)",
+            "Sıra sende",
+            "Round'u sen kazandın",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I owe you the first round' = ilk içki/kahve benden, telafi için. Casual jest.",
+        },
+        {
+          q: "'When you want' niye yeniden planlamada kötü?",
+          options: [
+            "Yapısal yanlış",
+            "Sorumluluğu karşıya yıkar + momentum öldürür",
+            "Çok formal",
+            "Çok kısa",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Spesifik gün öner = aksiyon. 'When you want' = pasif = plan kaybolur.",
+        },
+      ],
+    },
   ],
 };
 
@@ -758,6 +894,142 @@ export const flirtCancelLesson_5_3: BundledLesson = {
       tr_explanation:
         "'Big problem at home. Bye bye date.' = drama + soğuk hoşçakal. Doğru: 'family thing' (samimi, detaysız) + telafi sözü = saygılı kapanış.",
     },
+    {
+      id: "ex.fc5.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "___ just came up — ___ for the short notice.",
+      slots: [
+        { accepted: ["A family thing", "An emergency", "Something at work", "A health thing"] },
+        { accepted: ["so sorry", "a thousand apologies", "I feel terrible", "I owe you big"] },
+      ],
+      tr_hint:
+        "Acil iptal kalıbı — kısaca + sebep + özür. Türk öğrenci 'big problem at home' der; bu drama; 'family thing' = saygılı + detaysız.",
+      example_filled:
+        "A family thing just came up — so sorry for the short notice.",
+    },
+    {
+      id: "ex.fc5.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Wait, you're not coming?? Everything okay??" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay no worries — go handle that. Let's plan again." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yeah|yes),? (.+) (just |all )?(came up|happened)",
+        "(family|health|work) (thing|emergency|situation)",
+        "(everything'?s okay|all good|nothing serious),? (just )?(.+)",
+        "(i'?m so sorry|a thousand apologies),? (.+)",
+        "(i owe you|let me make this right|i'?ll make it up)",
+      ],
+      tr_hint:
+        "Acil cevap — sakinleştir + sebep ver + telafi sözü. 'Family thing — everything's okay, just need to head over. Owe you big' tipi. 'Drama' deme; sakin + olgun.",
+      ideal_answer:
+        "Family thing — everything's okay, just need to head over. I owe you big.",
+    },
+    {
+      id: "ex.fc5.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "You're seriously canceling 30 minutes before? Why?",
+      accepted_patterns: [
+        "(i know|i'?m sorry),? (.+) (just )?(came up|happened)",
+        "(family|emergency|health) (.+)",
+        "(no excuse|wouldn'?t cancel),? (but|except)",
+        "(let me make|i'?ll make) (it )?(up|right)",
+        "(coffee on me|first round is on me)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Defansif olma — sebep + sorumluluk + telafi. 'I know — would never bail unless real, family thing. Make it up this weekend?' tipi. Türk öğrenci defans yapar; bunun yerine SAHIPLEN.",
+      ideal_response:
+        "I know — wouldn't bail unless real. Family emergency. Coffee on me this weekend, promise.",
+    },
+    {
+      id: "ex.fc5.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Evde büyük sorun var. Randevuya gelmeyeceğim",
+      wrong_en: "Big problem at home. I don't come to date.",
+      right_en: "Family thing just came up — I'm so sorry, I'll make this right.",
+      why_tr:
+        "Türk öğrenci 'büyük sorun + gelmeyeceğim' kalıbını birebir çevirir = drama + 'I don't come' yapısal yanlış. 'Family thing' detaysız + saygılı. 'I'll make this right' telafi sözü = olgun kapanış.",
+    },
+    {
+      id: "ex.fc5.3.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Son dakika iptalde ne YAPILMAZ?",
+          options: [
+            "Detaysız sebep ver",
+            "Telafi öner",
+            "'Big problem' diye drama yap",
+            "Erken haber ver",
+          ],
+          correct: 2,
+          tr_explanation:
+            "Drama + detay = TMI. 'Family thing' (genel + saygılı) yeterli.",
+        },
+        {
+          q: "'I have to bail' kalıbı:",
+          options: [
+            "Banyoya gitmeliyim",
+            "İptal etmek zorundayım (casual)",
+            "Yardım etmem lazım",
+            "Çıkmam lazım",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Bail' = (planı) son anda iptal etmek. 'I have to bail tonight' = iptal etmek zorundayım.",
+        },
+        {
+          q: "'Make it up to you' anlamı?",
+          options: [
+            "Sana doğru yapmak",
+            "Telafi etmek (jest)",
+            "Hatırlatmak",
+            "Yukarı çıkmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Make it up' = telafi etmek. 'I'll make it up to you' = sana telafi edeceğim.",
+        },
+        {
+          q: "'A thousand apologies' niye uygun?",
+          options: [
+            "Çok formal",
+            "Şakacı + samimi abartı = ağırlık vermeden özür",
+            "Yapısal yanlış",
+            "Çok zayıf",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'A thousand apologies' = abartı = aslında özür içtenliğini koruyor + drama'ya kaçmaz.",
+        },
+        {
+          q: "Acil iptal sonrası NE zaman tekrar plan teklif edilir?",
+          options: [
+            "Hemen aynı mesajda",
+            "Hiç teklif etme",
+            "1 hafta sonra",
+            "İptal mesajında VE 1-2 gün sonra",
+          ],
+          correct: 3,
+          tr_explanation:
+            "İptalde 'make it up' sözü ver, 1-2 gün sonra spesifik gün öner = ciddi olduğunu kanıtla.",
+        },
+      ],
+    },
   ],
 };
 
@@ -943,6 +1215,140 @@ export const flirtCancelLesson_5_4: BundledLesson = {
       tr_hint:
         "'Came up at' bağlanır → 'keɪm-ʌp-æt'. 'Push to' kararlı, 'Friday' yukarı tonlama (soru).",
     },
+    {
+      id: "ex.fc5.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Work ___ — any chance we push to ___?",
+      slots: [
+        { accepted: ["just blew up", "ran way over", "got slammed", "took a turn", "had a fire drill"] },
+        { accepted: ["Friday", "Saturday", "Sunday", "next week", "tomorrow"] },
+      ],
+      tr_hint:
+        "İş iptal kalıbı: somut sebep + spesifik alternatif. Türk öğrenci 'Sorry I can't, work' bırakır — bunun yerine 'Push to [spesifik gün]' önerisi şart.",
+      example_filled:
+        "Work just blew up — any chance we push to Friday?",
+    },
+    {
+      id: "ex.fc5.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "You good? It's like an hour before we said." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Ugh I hate when work does that. Friday could work — what time?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(so sorry|i'?m so sorry)[,—-]? (work|something) (came up|ran over|blew up)",
+        "(stuck|slammed|buried) (at|in) (work|meetings)",
+        "(any chance|could we|can we) (push|move|bump) (it )?to (friday|saturday|sunday)",
+        "(make it up to you)[,—-]? (friday|saturday|over the weekend)",
+      ],
+      tr_hint:
+        "Saygılı + somut alternatif. 'So sorry — meeting ran over. Any chance we push to Friday?' tarzı. 'I can't' bırakma; YENİ GÜN ÖNER.",
+      ideal_answer:
+        "So sorry — meeting ran over. Any chance we push to Friday? I'll owe you.",
+    },
+    {
+      id: "ex.fc5.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Okay, so when can you actually make it?",
+      accepted_patterns: [
+        "(friday|saturday|sunday|tomorrow) (works|good|open)",
+        "(rest of |all of )(friday|saturday) (is|i'?m) (open|free)",
+        "(7|seven|7pm|8|8pm|eight) (sound okay|work for you)",
+        "(any time|whenever|all weekend) (after work|after \\d)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik öner. 'Friday 7pm — promise I'll be there' tipi. 'Anytime' deme; 'whenever' deme; spesifik gün + saat = ciddi olduğunu kanıtla.",
+      ideal_response:
+        "Friday 7pm — promise I'll be there. Same spot?",
+    },
+    {
+      id: "ex.fc5.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Üzgünüm, gelemem. İş",
+      wrong_en: "Sorry I can't. Work.",
+      right_en: "So sorry — something came up at work. Can we push to Friday?",
+      why_tr:
+        "Türk öğrenci 'Üzgünüm gelemem, iş' kalıbını birebir çevirir — kuru + alternatifsiz = momentum öldürür. Doğru: özür + sebep + spesifik yeni gün önerisi. 'Push to [day]' kalıbı casual standart.",
+    },
+    {
+      id: "ex.fc5.4.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "'Push to Friday' niye güçlü?",
+          options: [
+            "Belirsizlik bırakır",
+            "Somut alternatif gün = iptal + plan tek mesajda",
+            "Kibarca ret",
+            "Sadece UK'de",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Push to [day]' = iptal + yeniden plan tek atışta. Momentum kaybolmaz.",
+        },
+        {
+          q: "İş mazereti güvenilir olması için?",
+          options: [
+            "Çok detay",
+            "Kısa + somut + abartısız",
+            "Sosyal medyada kanıt",
+            "Hiçbir şey",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Work ran over' yeter. 20 satır açıklama = yalan şüphesi.",
+        },
+        {
+          q: "Türk kullanıcı en sık hatası?",
+          options: [
+            "'Sorry I can't' alternatifsiz",
+            "Çok özür",
+            "Çok kelime",
+            "İngilizce konuşmak",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Türk direkt çeviri 'Üzgünüm gelemem' bırakır. ABD/UK = alternatif zorunlu.",
+        },
+        {
+          q: "'Any chance we...' kalıbı:",
+          options: [
+            "Şart koşma",
+            "Kibar + esnek soru — baskısız",
+            "Emir",
+            "Şikayet",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Any chance' = hayır deme alanı açar, baskı yapmaz. Çok kibar.",
+        },
+        {
+          q: "'Work blew up' anlamı?",
+          options: [
+            "İş patladı (literal)",
+            "İş aniden çok yoğunlaştı (slang)",
+            "İş bitti",
+            "Şirket kapandı",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Work blew up' = iş birden çok arttı, beklenmedik yoğunluk. Casual mazeret.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1127,6 +1533,142 @@ export const flirtCancelLesson_5_5: BundledLesson = {
       ipa: "nɒt ˈfiːlɪŋ ɡreɪt təˈdeɪ wʊd ˈsætərdeɪ wɜːrk",
       tr_hint:
         "'Not feeling great' yorgun ton, 'great' uzun değil. 'Would Saturday work' soru tonu yukarı.",
+    },
+    {
+      id: "ex.fc5.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'm ___ today — would ___ work instead?",
+      slots: [
+        { accepted: ["under the weather", "not feeling great", "coming down with something", "pretty rough", "fighting a cold"] },
+        { accepted: ["Saturday", "Sunday", "next week", "tomorrow", "this weekend"] },
+      ],
+      tr_hint:
+        "Hasta iptal kalıbı — hafif + somut alternatif. Türk öğrenci 'I am very very sick' der; bu drama; 'under the weather' kibarcası native.",
+      example_filled:
+        "I'm under the weather today — would Saturday work instead?",
+    },
+    {
+      id: "ex.fc5.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hey! See you tonight?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh no, feel better! Saturday sounds good." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hey|hi),? (so |really )?sorry",
+        "(not feeling great|under the weather|coming down with something) (today|tonight)",
+        "(would|could) (saturday|sunday|tomorrow) (work|be okay)",
+        "(can we|could we) (do|push|move it to) (saturday|sunday)",
+        "(promise|swear) (i'?ll|will) be (back to normal|recovered) by (saturday|then)",
+      ],
+      tr_hint:
+        "Hasta cevap kalıbı — kısa + alternatif. 'So sorry — under the weather today. Would Saturday work?' tipi. Drama'dan KAÇ; semptom listesi sayma.",
+      ideal_answer:
+        "So sorry — under the weather today. Would Saturday work instead? I'll be back to normal by then.",
+    },
+    {
+      id: "ex.fc5.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Oh no — what's wrong? Anything I can do?",
+      accepted_patterns: [
+        "(just|probably just|need) (rest|sleep|some tea|soup)",
+        "(thank you|thanks)( for asking)?[,—-]? (.+) (nothing|no need)",
+        "(i'?ll|i will) be (fine|good) (by saturday|in a day)",
+        "(no worries|all good)[,—-]? (just )?(gotta sleep|need to sleep)",
+        "(you'?re sweet|that'?s sweet)[,—-]? (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Empatiyi kabul + sınır koy. 'Thanks for asking — just need rest, I'll be good by Saturday' tipi. UZUN semptom listesi yapma; abartı = yalan şüphesi.",
+      ideal_response:
+        "Thanks for asking — just need rest. I'll be good as new by Saturday.",
+    },
+    {
+      id: "ex.fc5.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Çok çok hastayım, belki öleceğim",
+      wrong_en: "I am very very sick. Maybe I die.",
+      right_en: "I'm a bit under the weather today — would Saturday work instead?",
+      why_tr:
+        "Türk öğrenci 'çok çok hasta + ölebilirim' kalıbını birebir çevirir — abartı + drama = yalan şüphesi yaratır. 'Under the weather' = hafif rahatsızlık deyimi (klasik İngilizce). Drama'sız + somut alternatif = güvenilir.",
+    },
+    {
+      id: "ex.fc5.5.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Hasta iptalde ton ne olmalı?",
+          options: [
+            "Aşırı drama ('ölüyorum')",
+            "Hafif + somut + alternatifli",
+            "Hiç açıklama",
+            "Semptom listesi",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Drama = yalan şüphesi. Hafif kalıp + alternatif = güvenilir + saygılı.",
+        },
+        {
+          q: "'Under the weather' anlamı?",
+          options: [
+            "Yağmurda kaldım",
+            "Pek iyi değilim / hafif hasta",
+            "Hava soğuk",
+            "Üşüdüm",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Klasik İngilizce deyim. Hafif rahatsızlığı kibarca anlatır.",
+        },
+        {
+          q: "'Would Saturday work?' niye etkili?",
+          options: [
+            "Daha uzun",
+            "Soru kalıbı + karşı tarafa söz hakkı",
+            "Daha resmi",
+            "Fark yok",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Would X work?' = karşı tarafa onay/red alanı. Saygılı + esnek.",
+        },
+        {
+          q: "Karşı taraf 'anything you need?' derse?",
+          options: [
+            "Görmezden gel",
+            "Kısa teşekkür + 'just need rest' kibarca",
+            "Uzun ilaç listesi",
+            "Sipariş ver",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Just need rest' = abartısız + kapanış. Empati kabul + sınır.",
+        },
+        {
+          q: "'Coming down with something' anlamı?",
+          options: [
+            "Bir şeylerle aşağı iniyorum",
+            "Bir şeyler kapıyorum / hastalanıyorum",
+            "Bir şey alıyorum",
+            "Hastane'ye gidiyorum",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Coming down with X' = X (hastalık) kapıyorum, hastalanıyorum. Erken aşama hasta için ideal.",
+        },
+      ],
     },
   ],
 };
@@ -1315,6 +1857,142 @@ export const flirtCancelLesson_5_6: BundledLesson = {
       ipa: "aɪ doʊnt θɪŋk aɪm ɪn ðə raɪt ˈhedˌspeɪs təˈnaɪt",
       tr_hint:
         "'I don't think' yumuşak başla. 'Headspace' tek kelime, vurgu 'head'te. 'Tonight' düşüş — dürüst bitiriş.",
+    },
+    {
+      id: "ex.fc5.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "Honestly not in the right ___ tonight — can I take a ___?",
+      slots: [
+        { accepted: ["headspace", "mood", "place", "energy"] },
+        { accepted: ["rain check", "rain check on this", "raincheck on tonight", "raincheck"] },
+      ],
+      tr_hint:
+        "Mental gerekçe + sonraya bırakma sözü. Türk öğrenci 'I don't want to come' der; bu sert; 'headspace' kalıbı = self-awareness sinyali. Native ortamlarda saygıyla kabul edilir.",
+      example_filled:
+        "Honestly not in the right headspace tonight — can I take a rain check?",
+    },
+    {
+      id: "ex.fc5.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "Hey! On my way home from work. See you at 8?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Totally fair — thanks for being upfront. Sat instead?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(honestly|to be honest|tbh)[,—-]? (.+) (not (really )?in|kind of off in) (the )?(right )?(headspace|mood)",
+        "(can i|could i) take a rain check",
+        "(not (gonna|going to) be|won'?t be) (great|good) company",
+        "(brain is|head is) (a bit )?(fried|all over)",
+        "(thanks for getting it|appreciate the patience)",
+      ],
+      tr_hint:
+        "Dürüst + saygılı çıkış. 'Honestly head's a bit fried — can I take a rain check? Saturday?' tipi. Yalan bahane (sahte iş) UYDURMAKTANSA dürüst ol.",
+      ideal_answer:
+        "Honestly head's a bit fried — can I take a rain check? Saturday could work for me.",
+    },
+    {
+      id: "ex.fc5.6.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "It's totally okay — what do you need right now?",
+      accepted_patterns: [
+        "(thanks for|thank you for) (asking|getting it)",
+        "(just |honestly )?(a quiet night|some sleep|to decompress|to recharge)",
+        "(nothing big|nothing specific)[,—-]? (just )?(.+)",
+        "(you'?re sweet|that means a lot)[,—-]? (.+)",
+        "(i'?ll be|i'?ll bounce back) (good|fine) (by saturday|in a day)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Empati kabul + sınır. 'Just a quiet night — bounce back by Saturday' tipi. Karşı tarafın empatik sorusuna uzun cevap verme; KISA + dürüst.",
+      ideal_response:
+        "Thanks for getting it — just a quiet one tonight. I'll bounce back by Saturday.",
+    },
+    {
+      id: "ex.fc5.6.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Bugün gelmek istemiyorum",
+      wrong_en: "I don't want to come today.",
+      right_en: "Honestly not in the right headspace tonight — can I take a rain check?",
+      why_tr:
+        "Türk öğrenci 'gelmek istemiyorum' kalıbını birebir çevirir — direkt + sert + ilişki bitirici hiss. Modern dating yumuşatıcı kalıplar gerektirir: 'not in the right headspace' = self-awareness. 'Rain check' = sonra yapacağız sözü; kapı açık.",
+    },
+    {
+      id: "ex.fc5.6.rq1",
+      type: "recall_quiz",
+      difficulty: 4,
+      cefr_band: "B2",
+      items: [
+        {
+          q: "'Headspace' gerekçesinin gücü?",
+          options: [
+            "Sahte sebep uydurmaktan iyi — dürüstlük + olgunluk",
+            "Resmi olduğu için",
+            "Komik",
+            "Kısa olduğu için",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Sahte 'work emergency' UYDURMAKTANSA 'kafa uygun değil' = self-awareness + samimiyet. Modern dating kültüründe çok kabul.",
+        },
+        {
+          q: "'Rain check' anlamı?",
+          options: [
+            "Yağmurdan korunmak",
+            "İleri tarih için kabul + 'sonra yapacağız' sözü",
+            "Şikayet",
+            "Red",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Rain check' = bugün hayır ama yarın evet. Casual + sıcak çıkış.",
+        },
+        {
+          q: "Türk en sık hatası bu derste?",
+          options: [
+            "Çok özür",
+            "'I don't want to come' = sert + ilişki bitirici",
+            "Çok kelime",
+            "İngilizce konuşmak",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Türkçe 'gelmek istemiyorum' İngilizce direkt = brutal. Yumuşatıcı kalıp şart.",
+        },
+        {
+          q: "Saygı sinyali üçlüsü?",
+          options: [
+            "Sadece iptal",
+            "Dürüst sebep + somut alternatif + teşekkür",
+            "Ghosting",
+            "Sürekli özür",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Dürüstlük + alternatif + teşekkür = olgun iptal paketi.",
+        },
+        {
+          q: "'Not gonna be great company' niye etkili?",
+          options: [
+            "Sırrını saklar",
+            "Saygı sinyali: 'sana iyi vakit veremem' = düşünceli",
+            "Yapısal yanlış",
+            "Çok kibirli",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Not gonna be great company tonight' = sana mevcudiyet veremem. Saygılı + düşünceli.",
+        },
+      ],
     },
   ],
 };
@@ -1507,6 +2185,142 @@ export const flirtCancelLesson_5_7: BundledLesson = {
       ipa: "ɔːl ɡʊd teɪk keər wiːl ˈfɪɡər ˈsʌmθɪŋ aʊt",
       tr_hint:
         "'All good' kısa + sıcak. 'Take care' yumuşak. 'Figure something out' bağlı, son ünlem ile pozitif kapanış.",
+    },
+    {
+      id: "ex.fc5.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "___ — take care. We'll ___.",
+      slots: [
+        { accepted: ["No worries", "All good", "Honestly fine", "No stress", "Don't sweat it"] },
+        { accepted: ["figure something out", "find another time", "sort it out", "lock something in next week"] },
+      ],
+      tr_hint:
+        "İptali kabul kalıbı — kabul + empati + ileri teklif (üçlü). Türk öğrenci 'okay' veya 'you always cancel' der; ikisi de kötü. Sıcak + kapı açık kapanış kullan.",
+      example_filled:
+        "No worries — take care. We'll figure something out.",
+    },
+    {
+      id: "ex.fc5.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hey so sorry — gotta cancel tonight, family thing." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Seriously, thank you. Will text in a couple days." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(no worries|no stress|all good|totally fine|honestly fine)",
+        "(stuff happens|things happen|life happens)",
+        "(take care|hope everything is okay|hope you'?re okay)",
+        "(we'?ll|let'?s) (figure (something|it) out|sort it out|find another time)",
+        "(no rush|no pressure|take your time)",
+      ],
+      tr_hint:
+        "Karşı taraf iptal etti — sıcak + olgun cevap. 'No worries at all — hope everything's okay. We'll figure it out' tipi. Suçlama YAPMA; 'you always do this' = ilişki bitirici.",
+      ideal_answer:
+        "No worries at all — hope everything's okay. We'll figure something out, no rush.",
+    },
+    {
+      id: "ex.fc5.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Thanks for being so chill — most people make me feel bad about canceling.",
+      accepted_patterns: [
+        "(of course|anytime|always)",
+        "(stuff happens|life is busy|been there)",
+        "(hope|hoping) (everything|things) (work out|are okay)",
+        "(catch up|talk|chat) (soon|when you'?re free)",
+        "(no rush|no pressure|take your time)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Empati pekiştir + ileri görüş ver. 'Of course — been there. Hit me up when you're free' tarzı. Türk öğrenci 'You are welcome' der; bu robotik; daha sıcak ol.",
+      ideal_response:
+        "Of course — been there myself. Hit me up when things settle down.",
+    },
+    {
+      id: "ex.fc5.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Hep iptal ediyorsun, böyle olmaz",
+      wrong_en: "You always cancel. This is not okay.",
+      right_en: "No worries — take care! We'll figure something out when you're free.",
+      why_tr:
+        "Türk öğrenci kızgınlığı direkt 'always + not okay' diye çevirir = passive-aggressive suçlama = ilişki biter. Modern dating: bir kez iptalde sıcak kabul ZORUNLU. Pattern olursa sessiz kal (ghost değil, sadece çabayı düşür); açık suçlama yapma.",
+    },
+    {
+      id: "ex.fc5.7.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Karşı taraf iptal ettiğinde EN KÖTÜ cevap?",
+          options: [
+            "'No worries, take care'",
+            "Passive-aggressive ('you always do this') veya ghosting",
+            "'We'll figure it out'",
+            "Empatik soru",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Suçlayıcı dil = ilişki biter. Ghost = soğuk. Sıcak kabul = olgunluk + güven.",
+        },
+        {
+          q: "'We'll figure something out' niye etkili?",
+          options: [
+            "Sorumluluk yıkma",
+            "Plan kapısını açık tutar + birlikte çözme",
+            "Belirsiz",
+            "Önemsiz",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Plan kesilmedi, sadece ertelendi. 'Biz' = ortaklık tonu.",
+        },
+        {
+          q: "ABD/UK dating'te ghosting nasıl algılanır?",
+          options: [
+            "Normal",
+            "Çok saygısız — bir kelime cevap bile daha iyi",
+            "Komik",
+            "Beklenen",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Modern dating'te ghosting = en kötü davranışlardan biri. Açık ret bile sessizlikten saygılı.",
+        },
+        {
+          q: "Sıcak kapanış 3 ayağı?",
+          options: [
+            "Şikayet / suçlama / sessizlik",
+            "Kabul / empati / ileri teklif",
+            "Para / hediye / mesaj",
+            "Sessizlik / kelime / emoji",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Üç ayak: 'no worries' (kabul) + 'take care' (empati) + 'we'll figure it out' (ileri teklif).",
+        },
+        {
+          q: "'Don't sweat it' anlamı?",
+          options: [
+            "Terleme",
+            "Dert etme (casual)",
+            "Çalışma",
+            "Endişelen",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Don't sweat it' = dert etme deyimi. 'No worries'in casual versiyonu.",
+        },
+      ],
     },
   ],
 };

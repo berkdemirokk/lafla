@@ -828,6 +828,127 @@ export const personalB1Lesson_2: BundledLesson = {
       tr_explanation:
         "İlk randevuda eski partnere 'crazy' demek = kırmızı bayrak. 'You look more normal' karşılaştırma rahatsız. Sağlıklı yaklaşım: sorumluluk al ('difficult relationship'), sınır koy ('save that for when we know each other better').",
     },
+    {
+      id: "ex.pb1.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'd rather ___ for ___.",
+      slots: [
+        { accepted: ["save that", "wait", "talk about that", "leave that"], distractors: ["tell", "say"] },
+        { accepted: ["when we know each other better", "another time", "later", "the next date"], distractors: ["when know", "for know"] },
+      ],
+      tr_hint:
+        "Sınır koyma kalıbı: 'I'd rather save that for when we know each other better.' Türk öğrenci 'I don't want to say' der — abrupt. 'I'd rather' = nazik sınır.",
+      example_filled: "I'd rather save that for when we know each other better.",
+    },
+    {
+      id: "ex.pb1.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "So what's your story? Why are you in this city?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I love that — what made you take the leap?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i moved here )(for|because of) (work|a job|family|love|study)",
+        "(i ('ve| have)) been here for [a-z0-9]+ (year|month)",
+        "(originally from )(turkey|istanbul)(,)? (and i)",
+        "(long story (short)?)(,)? (i)",
+      ],
+      tr_hint:
+        "Hikaye paylaşma: 'I moved here for work two years ago.' Türk öğrenci özet verir — bağlam ekle.",
+      ideal_answer: "I moved here for work two years ago — originally from Istanbul.",
+    },
+    {
+      id: "ex.pb1.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What about exes — anything serious recently?",
+      accepted_patterns: [
+        "(i('d| would) rather (save|leave|wait)) (that|it)",
+        "(yeah(,)? )?(there was )?(something serious)(,)? (but )",
+        "(nothing (recent|too recent))",
+        "(maybe for (the next|another) (date|conversation))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hassas soru: 'I'd rather save that for later in the conversation.' Türk öğrenci ya tüm acıyı döker ya sus kalır. Olgun: sınır + olumlu ton.",
+      ideal_response: "I'd rather save that for when we know each other a bit better.",
+    },
+    {
+      id: "ex.pb1.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Eski sevgilim deliydi.",
+      wrong_en: "My ex was crazy.",
+      right_en: "I came out of a difficult relationship — I'd rather save the details.",
+      why_tr:
+        "İlk randevuda eski partneri 'crazy' demek = klasik kırmızı bayrak. Olgun: ilişkiyi tanımla ('difficult'), kendinden konuş, detay erteleme.",
+    },
+    {
+      id: "ex.pb1.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "İlk randevuda eski partner anlatımı?",
+          options: [
+            "My ex was crazy.",
+            "I came out of a difficult relationship — I'd rather save the details.",
+            "Don't ask about that.",
+            "I hate them.",
+          ],
+          correct: 1,
+          tr_explanation: "'Difficult' = etiketsiz tanım. 'I'd rather save' = nazik sınır. 'Crazy' = kırmızı bayrak.",
+        },
+        {
+          q: "'I'd rather + base verb' = ?",
+          options: [
+            "Tercih ederim ki yap.",
+            "Tercih ederim (yapmam yerine).",
+            "Yapmalıyım.",
+            "Bilmiyorum.",
+          ],
+          correct: 1,
+          tr_explanation: "'I'd rather + base' = tercih ederim. 'I'd rather not' = tercih etmem. Kibar sınır.",
+        },
+        {
+          q: "'What's your story?' = ?",
+          options: [
+            "Hikayen ne (genel sor).",
+            "Hangi kitap?",
+            "Hangi şarkı?",
+            "Yalan söyleme.",
+          ],
+          correct: 0,
+          tr_explanation: "'What's your story?' = idiom: kendinden bahset. İlk randevu klasik sorusu.",
+        },
+        {
+          q: "'Oversharing' = ?",
+          options: [
+            "Çok az paylaşmak.",
+            "Çok hızlı/derin paylaşım (rahatsızlık verici).",
+            "Paylaşmamak.",
+            "Yalan paylaşmak.",
+          ],
+          correct: 1,
+          tr_explanation: "'Oversharing' = idiom: ilk randevuda terapi seansı seviyesi paylaşım. Kaçınılmalı.",
+        },
+        {
+          q: "'Take the leap' = ?",
+          options: [
+            "Adım atma cesareti.",
+            "Atla.",
+            "Yüksek atla.",
+            "Atla geç.",
+          ],
+          correct: 0,
+          tr_explanation: "'Take the leap' = idiom: büyük adım atma cesareti. Taşınma, iş değiştirme vb.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1174,6 +1295,126 @@ export const personalB1Lesson_3: BundledLesson = {
         "I think our cultures just frame family closeness differently — neither one cares less, we just show it in different ways.",
       tr_explanation:
         "'Your culture is cold' + 'we love more than westerners' = yargılayıcı, üstünlük kurma. Sağlıklı kültürel diyalog: 'frame X differently' (eşit), 'neither cares less' (hiyerarşi reddi). Karşı tarafı korumak ilişkiyi korur.",
+    },
+    {
+      id: "ex.pb1.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "In Turkey, we ___ — but ___.",
+      slots: [
+        { accepted: ["live close to family", "visit a lot", "share meals daily", "stay connected"], distractors: ["love more", "are better"] },
+        { accepted: ["that doesn't mean better or worse", "I know every culture is different", "I'd love to hear yours too", "we frame closeness differently"], distractors: ["yours is wrong", "you're cold"] },
+      ],
+      tr_hint:
+        "Kültür anlatımı: 'In Turkey, we live close to family — but I know every culture is different.' Türk öğrenci 'biz daha çok seviyoruz' der — yargılı. Eşitlikçi ol.",
+      example_filled: "In Turkey, we live close to family — but I know every culture is different.",
+    },
+    {
+      id: "ex.pb1.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "So why do you call your mom every day? Isn't that a bit much?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh, that's actually really sweet. I see it differently now." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(in turkey|in (turkish|my) culture)(,)? (we|family)",
+        "(it ('s| is) just) (how (we|i) (grew up|do family))",
+        "(that ('s| is) (just )?(close family)|how (we|families) (stay )?connected)",
+      ],
+      tr_hint:
+        "Kültür açıklama: 'In Turkey, daily calls are how we stay close — it's not control, it's warmth.' Türk öğrenci 'because we love' der — yetersiz. Bağlam ver.",
+      ideal_answer: "In Turkey, daily calls are how families stay close — it's warmth, not control.",
+    },
+    {
+      id: "ex.pb1.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "What's the biggest culture shock for you here?",
+      accepted_patterns: [
+        "(probably|honestly|i think) the (way|how) (people|families)",
+        "(how (independent|distant|self-reliant)) (everyone|people)",
+        "(small talk|the food|the silence)",
+        "(it ('s| is)) different at first(,)? (but )?(i ('ve| have))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kültür şoku: 'How independent everyone is, honestly. It was different at first, but I've come to appreciate it.' Türk öğrenci yargılı söyler — denge tut.",
+      ideal_response: "Honestly, how independent everyone is — but I've come to appreciate it.",
+    },
+    {
+      id: "ex.pb1.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sizin kültürünüz soğuk.",
+      wrong_en: "Your culture is so cold.",
+      right_en: "Our cultures just frame family closeness differently.",
+      why_tr:
+        "Türk öğrenci 'sizin/bizim' karşıtlığı kurar — yargılı. Olgun çapraz kültür: 'frame differently' = eşit, hiyerarşi yok. Korumak ilişkiyi korur.",
+    },
+    {
+      id: "ex.pb1.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Kültür anlatımı?",
+          options: [
+            "We love more than westerners.",
+            "Our cultures just frame closeness differently.",
+            "Your culture is cold.",
+            "We're better.",
+          ],
+          correct: 1,
+          tr_explanation: "'Frame differently' = eşit çerçeve. 'Better/worse' = hiyerarşi (riskli).",
+        },
+        {
+          q: "'Culture shock' = ?",
+          options: [
+            "Kültür şoku (yeni kültüre uyum güçlüğü).",
+            "Kültür elektriği.",
+            "Kültür sürprizi.",
+            "Kültür kaybı.",
+          ],
+          correct: 0,
+          tr_explanation: "'Culture shock' = yeni kültüre uyum sürecinde yaşanan zorluk. Yaygın terim.",
+        },
+        {
+          q: "'Come to appreciate' = ?",
+          options: [
+            "Takdir etmeye geldim.",
+            "Zamanla değer vermeyi öğrendim.",
+            "Takdir et şimdi.",
+            "Asla takdir etmem.",
+          ],
+          correct: 1,
+          tr_explanation: "'Come to + verb' = idiom: zamanla bir hisse/anlayışa varmak. Olgun ifade.",
+        },
+        {
+          q: "Karşılıklı saygı kalıbı?",
+          options: [
+            "We love more.",
+            "Neither one cares less.",
+            "You are wrong.",
+            "I'm right.",
+          ],
+          correct: 1,
+          tr_explanation: "'Neither X nor Y cares less' = hiyerarşiyi reddetme. Eşitlikçi.",
+        },
+        {
+          q: "Kültür açıklamasında neyden kaçınmalı?",
+          options: [
+            "Yargılayıcı dil ('cold', 'bad').",
+            "Spesifik örnek.",
+            "Mizah.",
+            "Kişisel deneyim.",
+          ],
+          correct: 0,
+          tr_explanation: "Yargı/etiket sağlıklı diyaloğu öldürür. Spesifik örnek, mizah, kişisel deneyim faydalı.",
+        },
+      ],
     },
   ],
 };
@@ -1540,6 +1781,126 @@ export const personalB1Lesson_4: BundledLesson = {
       tr_explanation:
         "'Always/never' + 'you are selfish' = klasik 'Four Horsemen' (Gottman) — savunma tetikler. Sağlıklı: spesifik an ('last night'), I-statement ('I felt unheard'), ileriye dönük rica ('check in earlier next time'). Karakterleme değil, örüntü.",
     },
+    {
+      id: "ex.pb1.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "When ___ , I felt ___.",
+      slots: [
+        { accepted: ["dinner ran long", "you didn't text back", "the call cut off", "I didn't hear from you"], distractors: ["you always", "you never"] },
+        { accepted: ["unheard", "a bit alone", "overlooked", "shut out"], distractors: ["bad", "mad"] },
+      ],
+      tr_hint:
+        "I-statement zor konuşma: 'When dinner ran long, I felt unheard.' Türk öğrenci 'You always...' der — saldırı. Spesifik durum + duygu.",
+      example_filled: "When dinner ran long last night, I felt unheard.",
+    },
+    {
+      id: "ex.pb1.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What's going on? You've been quiet all day." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks for telling me. Can we sit and talk?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(can we (talk|sit down))(,)? (i('ve| have) been)",
+        "(there('s| is) something) (i want to|on my mind)",
+        "(i('ve| have) been (sitting with)) something",
+      ],
+      tr_hint:
+        "Zor konuşma açılışı: 'Can we sit down? There's something I want to talk through.' Türk öğrenci patlar — yumuşat.",
+      ideal_answer: "Can we sit down? There's something I want to talk through.",
+    },
+    {
+      id: "ex.pb1.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I didn't mean to hurt you.",
+      accepted_patterns: [
+        "(i (hear|know|believe) that)",
+        "(i don'?t think you (did|meant) (it )?on purpose)",
+        "(it (still |just )?hurt)",
+        "(i (need|wanted) (you )?to know)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Niyetsizlik kabul + duygu paylaşma: 'I hear you didn't mean to — and it still hurt.' Türk öğrenci 'okay' der — duyguyu bastır. Olgun: duygu kalır.",
+      ideal_response: "I hear that — and it still hurt.",
+    },
+    {
+      id: "ex.pb1.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sen hep beni umursamıyorsun.",
+      wrong_en: "You never care about me.",
+      right_en: "When dinner ran long last night, I felt unheard.",
+      why_tr:
+        "Türk öğrenci 'always/never' + karakterleme yapar — Gottman'ın 'Four Horsemen'i. Doğru: spesifik olay + I-statement. Saldırı yerine paylaşım.",
+    },
+    {
+      id: "ex.pb1.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Four Horsemen' (Gottman)?",
+          options: [
+            "İlişkide yıkıcı 4 örüntü: eleştiri, küçümseme, savunma, duvar örme.",
+            "Bir film.",
+            "Atlar.",
+            "Dövüş tekniği.",
+          ],
+          correct: 0,
+          tr_explanation: "Gottman çift terapisi: Criticism, Contempt, Defensiveness, Stonewalling. Ayrılığı yüksek olasılıkla öngörür.",
+        },
+        {
+          q: "I-statement vs You-statement?",
+          options: [
+            "I felt X (sahiplen) vs You did X (saldırı).",
+            "I vs You — fark yok.",
+            "I konuşma, You yazı.",
+            "İkisi de eşit.",
+          ],
+          correct: 0,
+          tr_explanation: "'I felt' = duyguyu sahiplenir. 'You always' = karakter saldırısı.",
+        },
+        {
+          q: "'Always/never' tehlikesi?",
+          options: [
+            "Yok, doğru kullanım.",
+            "Genelleme/abartı → savunma tetikler.",
+            "Yalnız resmi.",
+            "Konuşmada yaygın.",
+          ],
+          correct: 1,
+          tr_explanation: "'Always/never' abartı — karşı taraf 'son sefer X yaptım' der, konu bozulur.",
+        },
+        {
+          q: "'Sit with it' = ?",
+          options: [
+            "Onunla otur.",
+            "Duyguyu hisset, acele etme.",
+            "Yanına otur.",
+            "Bekle git.",
+          ],
+          correct: 1,
+          tr_explanation: "'Sit with X' = idiom: duyguyu/konuyu acele etmeden işle. Olgun ifade.",
+        },
+        {
+          q: "Onarım girişimi (repair attempt)?",
+          options: [
+            "Şaka, dokunma, kısa özür — bağı yenileme.",
+            "Sadece sözel.",
+            "Sessizlik.",
+            "Tartışmaya devam.",
+          ],
+          correct: 0,
+          tr_explanation: "Gottman: 'repair attempt' = bağlantı kurma denemesi. Birçok form alır.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1889,6 +2250,126 @@ export const personalB1Lesson_5: BundledLesson = {
         "Maria's family means a lot to her, and meeting you means a lot to me too.",
       tr_explanation:
         "'He's lucky to have me' + 'good family' = övünme. Yabancı kayınvalide bağlamında alçakgönüllülük + saygı esastır. Sağlıklı dil: karşı tarafa değer ver, kendini sıralama.",
+    },
+    {
+      id: "ex.pb1.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "It means a lot to ___ ___.",
+      slots: [
+        { accepted: ["meet you", "be here", "be invited", "be part of this"], distractors: ["see", "knowing"] },
+        { accepted: ["finally", "tonight", "in person", "after hearing so much"], distractors: ["very", "much"] },
+      ],
+      tr_hint:
+        "Kayınvalide selam: 'It means a lot to finally meet you.' Türk öğrenci 'Nice to meet you' der — yetersiz. 'Means a lot' = duygusal ağırlık.",
+      example_filled: "It means a lot to finally meet you.",
+    },
+    {
+      id: "ex.pb1.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Welcome! Maria has told us so much about you." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Please, come in. Make yourself at home." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thank you)(,)? (it ('s| means a lot)) (to (finally )?(meet|be here))",
+        "(i('ve| have) been (looking forward|excited)) to (meeting|this)",
+        "(maria ('s| has) (told|spoken)) (a lot )?about you",
+      ],
+      tr_hint:
+        "İlk tanışma: 'Thank you — it means a lot to finally meet you. Maria has told me so much about you too.' Türk öğrenci 'Hello' der — yetersiz.",
+      ideal_answer: "Thank you — it means a lot to finally meet you. Maria has told me so much about you too.",
+    },
+    {
+      id: "ex.pb1.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "So, tell us about your family.",
+      accepted_patterns: [
+        "(my family) (is from|lives in)",
+        "(i('m| am)) (from|the (eldest|youngest))",
+        "(we are (a |very )?(close|small|big) family)",
+        "(my (parents|mom|dad)) (still )?(live in|work as)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Aile anlatma: ölçülü, sıcak, kibirsiz. 'My family is from Istanbul — we're a close family.' Türk öğrenci ya çok az anlatır ya övünür.",
+      ideal_response: "My family is from Istanbul — we're a close family.",
+    },
+    {
+      id: "ex.pb1.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Oğlunuz benimle çok şanslı (iyi aileden geliyorum).",
+      wrong_en: "Your son is lucky to have me — good family.",
+      right_en: "Maria's family means a lot to her, and meeting you means a lot to me.",
+      why_tr:
+        "Türk kültüründe 'iyi aileden' övünmek yaygın. Yabancı kayınvalide bağlamında: alçakgönüllülük + saygı. Kendini sıralama; karşı tarafa değer ver.",
+    },
+    {
+      id: "ex.pb1.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Kayınvalide ile ilk söz?",
+          options: [
+            "Hello.",
+            "It means a lot to finally meet you.",
+            "Lucky to meet me.",
+            "Hi there.",
+          ],
+          correct: 1,
+          tr_explanation: "'It means a lot to + base verb' = duygusal ağırlık. Karşı tarafa değer ver.",
+        },
+        {
+          q: "'I've heard so much about you' = ?",
+          options: [
+            "Senin hakkında çok şey duydum.",
+            "Sen çok şey duydun.",
+            "Kim duydu.",
+            "Çok dedim.",
+          ],
+          correct: 0,
+          tr_explanation: "Present perfect: 'I've heard' = duydum (etki süre devam ediyor). Sıcak/karşılıklı.",
+        },
+        {
+          q: "'Make yourself at home' = ?",
+          options: [
+            "Evindeymişsin gibi rahat ol.",
+            "Ev yap.",
+            "Kendi evine git.",
+            "Eve var.",
+          ],
+          correct: 0,
+          tr_explanation: "'Make yourself at home' = idiom: rahat ol, ev sahibi gibi. Klasik ev sahibi kalıbı.",
+        },
+        {
+          q: "Övünmemek için ne yapmalı?",
+          options: [
+            "Aile tanıtırken ölçülü ol, karşı tarafı sor.",
+            "Hiç söyleme.",
+            "İçten konuş.",
+            "A ve C.",
+          ],
+          correct: 3,
+          tr_explanation: "Olgun tanışma: aile için kısa + ölçülü, karşı tarafı sor. Karşılıklılık önemli.",
+        },
+        {
+          q: "'A close family' = ?",
+          options: [
+            "Yakın aile (duygusal).",
+            "Aileden yakın.",
+            "Kapalı aile.",
+            "Bitişik aile.",
+          ],
+          correct: 0,
+          tr_explanation: "'Close family' = duygusal yakınlık. Coğrafi 'nearby' değil.",
+        },
+      ],
     },
   ],
 };
@@ -2250,6 +2731,126 @@ export const personalB1Lesson_6: BundledLesson = {
       tr_explanation:
         "'Why you didn't' yanlış soru yapısı + 'you don't love me anymore' yıkıcı genelleme. Yetişkin uzun mesafe: spesifik gözlem ('didn't hear from you yesterday'), I-statement ('I felt lonely'), açılım talebi ('I'd love to know'). Sevgiyi sorgulama, bağlantı iste.",
     },
+    {
+      id: "ex.pb1.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "When I didn't ___ yesterday, I ___.",
+      slots: [
+        { accepted: ["hear from you", "get a message", "see you online", "get your call"], distractors: ["see", "talk"] },
+        { accepted: ["felt a bit lonely", "got a little worried", "missed you more", "wondered how you were"], distractors: ["was angry", "got mad"] },
+      ],
+      tr_hint:
+        "I-statement: 'When I didn't hear from you yesterday, I felt a bit lonely.' Türk öğrenci 'Why you didn't call?' der — saldırı. Doğru: spesifik + duygu.",
+      example_filled: "When I didn't hear from you yesterday, I felt a bit lonely.",
+    },
+    {
+      id: "ex.pb1.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "How are you really doing? It's been a tough week." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thank you for being honest. I'm here." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(honestly|to be honest)(,)? (i('ve| have)) been (struggling|missing you|feeling)",
+        "(it('s| has) been) (hard|tough|lonely)( without you)?",
+        "(i (miss|need) you)",
+      ],
+      tr_hint:
+        "Duygu paylaşma: 'Honestly, I've been missing you more this week.' Türk öğrenci 'I'm fine' der — kapanma. Açıl.",
+      ideal_answer: "Honestly, I've been missing you more this week.",
+    },
+    {
+      id: "ex.pb1.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I miss you so much.",
+      accepted_patterns: [
+        "(i miss you (more|too)( much)?)",
+        "(it ('s| has) been (hard|tough)) (without you)?",
+        "(can'?t wait)(,)? (for (your visit|next month))",
+        "(i('m| am) (counting (down|the days)))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Özlem cevabı: 'I miss you too — I'm counting down the days.' Türk öğrenci 'me too' der — yetersiz. Açılla cevap.",
+      ideal_response: "I miss you too — I'm counting down the days.",
+    },
+    {
+      id: "ex.pb1.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Niye aramadın?",
+      wrong_en: "Why you didn't call me?",
+      right_en: "When I didn't hear from you yesterday, I felt a bit lonely.",
+      why_tr:
+        "Türk öğrenci hem soru yapısını ('Why didn't you call') hem duygu çerçevesini (saldırı yerine I-statement) bozar. Doğru: spesifik gözlem + 'I felt'. Saldırı değil paylaşım.",
+    },
+    {
+      id: "ex.pb1.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Uzun mesafe yetişkin sorusu?",
+          options: [
+            "Why you didn't call?",
+            "Why didn't you call me?",
+            "When I didn't hear from you, I felt...",
+            "B ve C ikisi de doğru.",
+          ],
+          correct: 3,
+          tr_explanation: "'Why didn't you' grammatik doğru ama 'When I didn't hear... I felt' daha yetişkin ve bağlantı kurucu.",
+        },
+        {
+          q: "'I-statement' = ?",
+          options: [
+            "Kendi duygunu söyle (saldırma).",
+            "Kendinden bahset (egoist).",
+            "Sadece 'I' kullan.",
+            "Etkin cümle.",
+          ],
+          correct: 0,
+          tr_explanation: "'I felt...' = duyguyu sahiplenir. 'You did...' = saldırı/suçlama.",
+        },
+        {
+          q: "'Counting down the days' = ?",
+          options: [
+            "Gün sayıyorum (sabırsızlıkla).",
+            "Geri sayım.",
+            "Günleri sayıyorum.",
+            "Hepsi doğru.",
+          ],
+          correct: 3,
+          tr_explanation: "'Counting down' = idiom: heyecanla bekle, geri say. Uzun mesafede klasik.",
+        },
+        {
+          q: "'How was your day?' yerine?",
+          options: [
+            "What did your day look like?",
+            "Tell me one good thing from today.",
+            "Was there anything tough today?",
+            "Hepsi (deeper soru).",
+          ],
+          correct: 3,
+          tr_explanation: "Yetişkin uzun mesafe: jenerik 'how' yerine spesifik soru. Bağlantı arttırır.",
+        },
+        {
+          q: "'Voice note' = ?",
+          options: [
+            "Sesli mesaj (whatsapp).",
+            "Yazılı not.",
+            "Şarkı.",
+            "Telefon araması.",
+          ],
+          correct: 0,
+          tr_explanation: "'Voice note' = sesli mesaj. Uzun mesafede yazıya kıyasla daha sıcak (ton duyulur).",
+        },
+      ],
+    },
   ],
 };
 
@@ -2606,6 +3207,126 @@ export const personalB1Lesson_7: BundledLesson = {
       tr_explanation:
         "'I'm sorry but you also' = yarı özür, sorumluluğu paylaştırma. 'Let's forget about it' = bastır, gerilimi çözmez. Sağlıklı onarım: kendi payını önce kabul et ('own my part first'), karşı tarafı dinlemeye davet et ('hear what felt off for you'). 'Don't speak this again' = 'don't talk about it again' olmalı.",
     },
+    {
+      id: "ex.pb1.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to own my part — ___ ___.",
+      slots: [
+        { accepted: ["I raised my voice", "I shut down", "I got defensive", "I checked out"], distractors: ["I'm wrong", "you started"] },
+        { accepted: ["and that wasn't fair", "and I'm sorry for that", "and I want to do better", "and I see that"], distractors: ["because", "but"] },
+      ],
+      tr_hint:
+        "Sahiplenme: 'I want to own my part — I raised my voice and that wasn't fair.' Türk öğrenci 'I'm sorry but...' der — yarım özür. Önce kendi payını söyle.",
+      example_filled: "I want to own my part — I raised my voice and that wasn't fair.",
+    },
+    {
+      id: "ex.pb1.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Can we talk about last night?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I appreciate that. Let me tell you how it landed for me." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes(,)? )?i('ve| have) been (thinking|sitting with)",
+        "(i want to (own|start with|begin with)) (my part)",
+        "(i (raised|shut down|got defensive))(,)? and (that|i)",
+      ],
+      tr_hint:
+        "Onarım açılışı: 'I've been thinking about it. I want to own my part — I shut down too quickly.' Türk öğrenci ya savunur ya bastırır.",
+      ideal_answer: "I've been thinking about it — I want to own my part. I shut down too quickly.",
+    },
+    {
+      id: "ex.pb1.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "I felt really hurt yesterday.",
+      accepted_patterns: [
+        "(i ((can|do) )?(hear|understand) (that|you))",
+        "(that makes sense)(,)? (given how)",
+        "(i('m| am)) sorry (you )?(felt|got|were)",
+        "(thank you for telling me)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Acı duyma: validate önce, savun sonra. 'I hear you — that makes sense given how I came across.' Türk öğrenci 'no, but...' der — savunma.",
+      ideal_response: "I hear you — that makes sense given how I came across.",
+    },
+    {
+      id: "ex.pb1.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Üzgünüm ama sen de yanlış yaptın.",
+      wrong_en: "I'm sorry but you also did wrong.",
+      right_en: "I want to own my part first, and I'd love to hear your side too.",
+      why_tr:
+        "Türk (ve insan) refleksi suçluluk dağıtma. Olgun onarım: önce kendi kısmını sahiplen, sonra karşı tarafı dinle. Sıralama önemli.",
+    },
+    {
+      id: "ex.pb1.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Own my part' = ?",
+          options: [
+            "Payımı satın al.",
+            "Sorumluluğumu üstlen.",
+            "Payımı isterim.",
+            "Pay verme.",
+          ],
+          correct: 1,
+          tr_explanation: "'Own + sorumluluk' = idiom: sahiplen. Onarım klasik kelimesi.",
+        },
+        {
+          q: "'How it landed for me' = ?",
+          options: [
+            "Nasıl indi (bana hisettiği).",
+            "Nereye düştü.",
+            "Geç kaldı.",
+            "Bana iniş.",
+          ],
+          correct: 0,
+          tr_explanation: "'Landed for me' = idiom: bende nasıl bir etki bıraktı. Duygu paylaşma.",
+        },
+        {
+          q: "Validate (geçerlilik tanımak)?",
+          options: [
+            "I hear you / That makes sense.",
+            "No, you're wrong.",
+            "Forget it.",
+            "Don't worry.",
+          ],
+          correct: 0,
+          tr_explanation: "'I hear you' = duygunu duyuyorum/anlıyorum. Onaylamak değil, tanımak.",
+        },
+        {
+          q: "'Came across' = ?",
+          options: [
+            "Karşılaştım.",
+            "Görünüyorum (etkim).",
+            "Geçtim.",
+            "Buldum.",
+          ],
+          correct: 1,
+          tr_explanation: "'How I came across' = nasıl göründüm/etki bıraktım. Kendi etkimi sorgulama.",
+        },
+        {
+          q: "Onarım girişimi (repair attempt)?",
+          options: [
+            "Sadece özür.",
+            "Sözel + sözsüz: özür, mizah, kahve, dokunma.",
+            "Sadece zaman.",
+            "Sadece sessizlik.",
+          ],
+          correct: 1,
+          tr_explanation: "Gottman: repair attempts = bağı yenileme girişimleri. Birçok form alır.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2957,6 +3678,126 @@ export const personalB1Lesson_8: BundledLesson = {
         "I'll miss you this weekend, but I'm glad you've got plans with your friends — those matter too.",
       tr_explanation:
         "'If you really love me you will not' = sevgiyi sınırlama aracı yapma. Sağlıklı: kendi duyguyu söyle ('I'll miss you'), partnerin başka ilişkilerini destekle ('I'm glad'). Sevgi sahip olmak değil, alan vermek.",
+    },
+    {
+      id: "ex.pb1.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I love you, and I also need ___ ___.",
+      slots: [
+        { accepted: ["some space", "time with my friends", "a quiet evening", "to recharge"], distractors: ["space the", "time"] },
+        { accepted: ["tonight", "this weekend", "sometimes", "now and then"], distractors: ["the tonight", "in tonight"] },
+      ],
+      tr_hint:
+        "Sevgi + sınır birleştirme: 'I love you, and I also need some space tonight.' Türk öğrenci 'I love you but...' der — yanlış. 'And' birleştirir; 'but' siler.",
+      example_filled: "I love you, and I also need some space tonight.",
+    },
+    {
+      id: "ex.pb1.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I love you so much." },
+        { speaker: "user" },
+        { speaker: "npc", text: "That means everything to hear." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i love you too)(,)? (so much|truly|deeply)",
+        "(i love you)(,)? (and )?(i('m| am) so )?(glad|grateful|happy)",
+        "(saying that back)(,)? (i love you|me too)",
+      ],
+      tr_hint:
+        "'I love you' duyma + olgun yanıt: 'I love you too — and I'm so grateful for you.' Türk öğrenci sadece 'me too' der — duygusal eksik.",
+      ideal_answer: "I love you too — and I'm so grateful for you.",
+    },
+    {
+      id: "ex.pb1.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can we spend the whole weekend together?",
+      accepted_patterns: [
+        "(i('d| would) love (most|some) of it)(,)? (and )?(i also need)",
+        "(i love (time|us) together)(,)? (and )?(i also need)",
+        "(let'?s plan (saturday|the day))(,)? (and )?(i need)",
+        "(part of it (yes|sounds nice))(,)? (but )?(i ('d| would) like)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sınır + sevgi: 'I'd love most of it — and I also need some alone time on Sunday morning.' Türk öğrenci ya 'yes!' (sınır yok) ya 'no' (sınır ham) der.",
+      ideal_response: "I'd love most of it — and I also need some alone time on Sunday.",
+    },
+    {
+      id: "ex.pb1.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Beni seviyorsan arkadaşlarınla gitme.",
+      wrong_en: "If you love me, don't go with your friends.",
+      right_en: "I'll miss you — and I'm glad you've got plans.",
+      why_tr:
+        "Türkçede sevgiyi 'shart koşma' aracı yapma yaygın — sağlıksız. Olgun ifade: kendi duyguyu söyle + partnerinin ayrı hayatını destekle.",
+    },
+    {
+      id: "ex.pb1.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Sevgi + sınır birleştirme?",
+          options: [
+            "I love you but I need space.",
+            "I love you, and I also need some space tonight.",
+            "If you love me, give me space.",
+            "Don't bother me.",
+          ],
+          correct: 1,
+          tr_explanation: "'And' iki gerçeği bağlar (sevgi + ihtiyaç). 'But' birini siler.",
+        },
+        {
+          q: "'Healthy boundaries' = ?",
+          options: [
+            "Sağlıklı sınırlar.",
+            "Sağlıklı duvarlar.",
+            "Sağlıklı kurallar.",
+            "Sağlıklı seçimler.",
+          ],
+          correct: 0,
+          tr_explanation: "'Boundary' = sınır (psikolojik). Duvar değil, ne kabul edip etmediğini gösterir.",
+        },
+        {
+          q: "Sevgi nasıl ifade edilir?",
+          options: [
+            "I love you (yeterli).",
+            "I love you + spesifik (örn. 'I love how you care').",
+            "Sadece eylem.",
+            "Hiç söyleme.",
+          ],
+          correct: 1,
+          tr_explanation: "Spesifik sevgi: 'I love how you...' güçlüdür. Genel 'I love you' düzenli + samimi.",
+        },
+        {
+          q: "'I'll miss you' demek?",
+          options: [
+            "Seni özleyeceğim.",
+            "Seni kaçıracağım.",
+            "Sensiz olacak.",
+            "Sen yoksun.",
+          ],
+          correct: 0,
+          tr_explanation: "'Miss + kişi' = idiom: ... özlemek. Sevgi ifadesinin ham hali.",
+        },
+        {
+          q: "'I need to recharge' = ?",
+          options: [
+            "Şarj olmam gerek (enerji topla).",
+            "Para gerek.",
+            "Yemek gerek.",
+            "Tekrar et.",
+          ],
+          correct: 0,
+          tr_explanation: "'Recharge' = idiom: enerji topla (insan için). Yalnız vakit veya uyku için.",
+        },
+      ],
     },
   ],
 };
@@ -3317,6 +4158,126 @@ export const personalB1Lesson_9: BundledLesson = {
         "I don't think we work together, and staying isn't fair to either of us — I'm not blaming you, I just need to be honest.",
       tr_explanation:
         "'You ruined everything' + 'you are toxic' = etiketleme, suçlama. Olgun ayrılık: 'we don't work together' (denklik), 'not fair to either of us' (ortak iyilik), 'not blaming you' (sorumluluk paylaşımı reddi değil, suçlama reddi).",
+    },
+    {
+      id: "ex.pb1.9.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I don't think we ___ — and ___.",
+      slots: [
+        { accepted: ["work together", "want the same things", "are right for each other", "can keep doing this"], distractors: ["loved", "are good"] },
+        { accepted: ["I think we should end this", "this isn't fair to either of us", "I need to be honest with you", "I'm not blaming you"], distractors: ["I hate you", "you're bad"] },
+      ],
+      tr_hint:
+        "Olgun ayrılık: 'I don't think we work together — and this isn't fair to either of us.' Türk öğrenci 'You ruined' der — suçlama. Eşit, etiketsiz.",
+      example_filled: "I don't think we work together — and this isn't fair to either of us.",
+    },
+    {
+      id: "ex.pb1.9.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "We need to talk — where is this going?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I appreciate the honesty, even though it hurts." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i('ve| have) been (thinking|sitting with))(,)? and (i )?(don'?t think|think)",
+        "(i (need|want) to be honest)(,)? (i )?(don'?t think|can'?t (keep|do))",
+        "(this isn'?t (working|fair))",
+      ],
+      tr_hint:
+        "Ayrılık açılış: 'I've been sitting with this, and I don't think we work together.' Türk öğrenci agresif başlar — soğukkanlı + dürüst.",
+      ideal_answer: "I've been sitting with this, and I don't think we work together anymore.",
+    },
+    {
+      id: "ex.pb1.9.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Is there anything I can do to change your mind?",
+      accepted_patterns: [
+        "(i ('ve| have)) (thought about this) (a lot)",
+        "(it('s| is) not about (something to fix|something you did))",
+        "(i (don'?t think|can'?t see)) (this changing|us continuing)",
+        "(this isn'?t (impulsive|sudden))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Geri dönme yok — net ve nazik: 'It's not about something to fix. I've thought about this a lot.' Türk öğrenci kararsız olur — net dur.",
+      ideal_response: "It's not about something to fix — I've thought about this a lot.",
+    },
+    {
+      id: "ex.pb1.9.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Sen toksiksin, ayrılıyorum.",
+      wrong_en: "You're toxic, we're done.",
+      right_en: "I don't think we work together anymore. I'm not blaming you.",
+      why_tr:
+        "Türk öğrenci etiket kullanır: 'toxic', 'bad'. Olgun ayrılık: 'we' (denklik), 'don't work' (durum), 'not blaming' (suçsuzluk). Etiket ilişkiyi tek taraflı yapar.",
+    },
+    {
+      id: "ex.pb1.9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Olgun ayrılık açılışı?",
+          options: [
+            "You ruined everything.",
+            "I don't think we work together anymore.",
+            "We're done.",
+            "I hate you.",
+          ],
+          correct: 1,
+          tr_explanation: "'We don't work' = etiketsiz durum tespiti. 'You ruined' = suçlama (kapanış).",
+        },
+        {
+          q: "'Sitting with this' = ?",
+          options: [
+            "Bunu düşünüyor/içselleştiriyorum.",
+            "Bununla oturuyorum.",
+            "Önemsiz.",
+            "Hızlıca.",
+          ],
+          correct: 0,
+          tr_explanation: "'Sitting with X' = idiom: bir konuyu/duyguyu acele etmeden düşünmek. Olgun ifade.",
+        },
+        {
+          q: "'Not fair to either of us' = ?",
+          options: [
+            "İkimize de adil değil.",
+            "Birimize adil değil.",
+            "Adil değil bana.",
+            "Adil değil sana.",
+          ],
+          correct: 0,
+          tr_explanation: "'Either of us' = ikimizden hiçbiri. Ortak iyilik ifadesi.",
+        },
+        {
+          q: "'It's not about something to fix' = ?",
+          options: [
+            "Düzeltilecek bir şey değil.",
+            "Düzeltebiliriz.",
+            "Tamir gerek.",
+            "Bozuk değil.",
+          ],
+          correct: 0,
+          tr_explanation: "Ayrılık olgunluğu: konu davranış değişimi değil, fundamental uyumsuzluk.",
+        },
+        {
+          q: "'I appreciate the honesty' = ?",
+          options: [
+            "Dürüstlüğü takdir ediyorum.",
+            "Dürüst değilsin.",
+            "Söz veriyorum.",
+            "Söz verdi.",
+          ],
+          correct: 0,
+          tr_explanation: "'Appreciate + isim' = takdir et. Acı veren ama dürüst habere olgun cevap.",
+        },
+      ],
     },
   ],
 };
@@ -3707,6 +4668,126 @@ export const personalB1Lesson_10: BundledLesson = {
       tr_explanation:
         "'Sorry IF you felt' = koşullu özür (gerçek özür değil). 'You started it first' = sorumluluk pas verme. Sağlıklı: koşulsuz özür ('I raised my voice'), kendi davranışını adlandır ('wasn't fair'), sahiplen ('own that').",
     },
+    {
+      id: "ex.pb1.10.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'm sorry — I ___, and that ___.",
+      slots: [
+        { accepted: ["raised my voice", "shut down", "got defensive", "interrupted you", "lost my temper"], distractors: ["did wrong", "yelled"] },
+        { accepted: ["wasn't fair", "wasn't okay", "must have hurt", "shouldn't happen"], distractors: ["was bad", "is wrong"] },
+      ],
+      tr_hint:
+        "Olgun özür: 'I'm sorry — I raised my voice, and that wasn't fair.' Türk öğrenci 'I'm sorry if you...' der — koşullu, kaçınma. Sahiplen.",
+      example_filled: "I'm sorry — I raised my voice, and that wasn't fair.",
+    },
+    {
+      id: "ex.pb1.10.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "I'm still upset about last night." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thank you for saying that. It means a lot." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i('m| am) (really |truly )?sorry)(,? )?(i )?(should(n'?t)? have|raised|shut)",
+        "(you (deserve|deserved) )?(better)(,)? i (was|got)",
+        "(i (own (that|it)|take responsibility))",
+      ],
+      tr_hint:
+        "Gerçek özür: 'I'm really sorry — I shouldn't have raised my voice. That wasn't fair to you.' Türk öğrenci 'sorry but...' der — özür değil.",
+      ideal_answer: "I'm really sorry — I shouldn't have raised my voice. That wasn't fair to you.",
+    },
+    {
+      id: "ex.pb1.10.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Will you actually change, or are we just going to repeat this?",
+      accepted_patterns: [
+        "(i (hear|understand) (you|the doubt))",
+        "(i can('t| not) promise)(,)? (but )?(i (will|'m going to))",
+        "(i('m| am)) (going to|trying to) (work on|do better)",
+        "(i('d| would) like to (start (small|by)))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Şüpheye karşı olgun cevap: 'I hear the doubt — I can't promise overnight, but I'm going to work on this.' Türk öğrenci 'I promise!' der — boş söz. Dürüst ol.",
+      ideal_response: "I hear the doubt — I'm going to work on this, starting now.",
+    },
+    {
+      id: "ex.pb1.10.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Üzgünüm, ama sen başlattın.",
+      wrong_en: "I'm sorry, but you started it.",
+      right_en: "I'm sorry — I raised my voice. That wasn't okay.",
+      why_tr:
+        "Türk (ve genelde insan) refleksi 'sorry but...' — 'but'tan sonra suç paslama. Gerçek özür koşulsuz. 'But' sözcüğü özrü siler.",
+    },
+    {
+      id: "ex.pb1.10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Gerçek özür?",
+          options: [
+            "I'm sorry if you felt bad.",
+            "I'm sorry — I raised my voice and that wasn't fair.",
+            "I'm sorry but you started it.",
+            "Sorry, whatever.",
+          ],
+          correct: 1,
+          tr_explanation: "Gerçek özür: koşulsuz, davranışı adla, sahiplen. 'But/if' ile koşul yoktur.",
+        },
+        {
+          q: "'Own that' = ?",
+          options: [
+            "Onu satın al.",
+            "Sorumluluğu üstlen.",
+            "Reddet.",
+            "İnkar et.",
+          ],
+          correct: 1,
+          tr_explanation: "'Own + sorumluluk/davranış' = idiom: sahiplen. Olgun ilişki kelimesi.",
+        },
+        {
+          q: "'I shouldn't have + past participle' = ?",
+          options: [
+            "Yapmamalıydım (pişmanlık).",
+            "Yapmam.",
+            "Yapacağım.",
+            "Yapamadım.",
+          ],
+          correct: 0,
+          tr_explanation: "'Shouldn't have + V3' = geçmiş pişmanlığı. Özür kalıbı.",
+        },
+        {
+          q: "'Repair attempt' = ?",
+          options: [
+            "Onarım girişimi.",
+            "Tamirat.",
+            "Saldırı.",
+            "Geri çekilme.",
+          ],
+          correct: 0,
+          tr_explanation: "Gottman çift terapisi terimi. Çatışma sonrası bağ kurma girişimi. 'A coffee, a joke, an apology' — hepsi repair attempt.",
+        },
+        {
+          q: "Boş söz vs gerçek niyet?",
+          options: [
+            "I promise! (boş).",
+            "I can't promise overnight, but I'm going to work on this. (gerçek).",
+            "İkisi de boş.",
+            "İkisi de gerçek.",
+          ],
+          correct: 1,
+          tr_explanation: "Olgun olan: söz vermek yerine gerçekçi taahhüt. 'Promise' sık tutulamaz.",
+        },
+      ],
+    },
   ],
 };
 
@@ -4064,6 +5145,126 @@ export const personalB1Lesson_11: BundledLesson = {
       ipa: "maɪ ɡoʊl ɪz tə bi ˈkaɪndər tə maɪˈsɛlf ðɪs jɪər",
       tr_hint:
         "Sakin, kararlı. 'Kinder to myself' bağlanır. Cümle baskısız — bir söz verir gibi değil, tanıtır gibi.",
+    },
+    {
+      id: "ex.pb1.11.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "My goal this year is to ___ ___.",
+      slots: [
+        { accepted: ["read", "exercise", "save", "travel", "learn"], distractors: ["reading", "exercising"] },
+        { accepted: ["more books", "three times a week", "more money", "to a new country", "a new language"], distractors: ["book", "money"] },
+      ],
+      tr_hint:
+        "Hedef anlatımı: 'My goal this year is to read more books.' Türk öğrenci 'My goal reading' der — yanlış. 'Goal is to + base verb'.",
+      example_filled: "My goal this year is to read more books.",
+    },
+    {
+      id: "ex.pb1.11.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Any resolutions for the new year?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Love that — what made you pick that one?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(my (goal|resolution)) (is|this year is) to",
+        "(this year(,)? )?i('m| am) going to (focus on|work on|try to)",
+        "(i('m| am)) (trying|hoping) to (be|become|get)",
+      ],
+      tr_hint:
+        "Yeni yıl kararı: 'My goal this year is to be kinder to myself.' Türk öğrenci 'I want to' der — kabul ama abartısız 'goal' daha olgun.",
+      ideal_answer: "My goal this year is to be kinder to myself.",
+    },
+    {
+      id: "ex.pb1.11.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How are you planning to actually do that?",
+      accepted_patterns: [
+        "(i ('m| am)) (going to|trying to) (start (small|by))",
+        "(maybe (twice|three times) a week)",
+        "(small steps)(,)? (then)",
+        "(i ('m| am)) (going to|gonna) (track|keep track)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Plan: 'I'm going to start small — twice a week.' Türk öğrenci 'every day!' der — gerçekçi değil. Küçük adım + sürdürülebilir.",
+      ideal_response: "I'm going to start small — maybe twice a week.",
+    },
+    {
+      id: "ex.pb1.11.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Bu yıl daha çok okumalıyım.",
+      wrong_en: "I must read more this year.",
+      right_en: "My goal this year is to read more.",
+      why_tr:
+        "Türk öğrenci 'should/must' kullanır — suçlulukla yüklü. İngilizcede 'goal/plan/want' daha olgun: 'My goal is to + base verb.' Pozitif çerçeve.",
+    },
+    {
+      id: "ex.pb1.11.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Yeni yıl kararı paylaşımı?",
+          options: [
+            "I must read more.",
+            "My goal this year is to read more.",
+            "I should read.",
+            "Read more I.",
+          ],
+          correct: 1,
+          tr_explanation: "'My goal + is to + base' = pozitif çerçeve. 'Must/should' suçlu bağlam.",
+        },
+        {
+          q: "'Be going to + base' = ?",
+          options: [
+            "Önceden kararlı plan.",
+            "Şu an olan eylem.",
+            "Tamamlanmış eylem.",
+            "Sürekli alışkanlık.",
+          ],
+          correct: 0,
+          tr_explanation: "'Be going to + base' = niyet/karar. 'Will' kararsız, anlık.",
+        },
+        {
+          q: "'Start small' = ?",
+          options: [
+            "Küçük başla (kademeli).",
+            "Az başla.",
+            "Geç başla.",
+            "Yavaş başla.",
+          ],
+          correct: 0,
+          tr_explanation: "'Start small' = idiom: küçük adımlarla başla. Sürdürülebilir hedef için klasik.",
+        },
+        {
+          q: "'What made you pick that one?' = ?",
+          options: [
+            "Bunu neden seçtin?",
+            "Onu nasıl yaptın?",
+            "Hangisini aldın?",
+            "Ne yaptın?",
+          ],
+          correct: 0,
+          tr_explanation: "'What made you + verb' = idiom: neden bunu yaptın/seçtin? Empatik soru.",
+        },
+        {
+          q: "'Be kinder to myself' = ?",
+          options: [
+            "Kendime daha iyi davranmak.",
+            "Daha iyi olmak.",
+            "Daha çok arkadaş yapmak.",
+            "Kendi başına.",
+          ],
+          correct: 0,
+          tr_explanation: "'Kind to + kişi' = nazik/iyi davranmak. 'Kinder to myself' = öz-şefkat ifadesi.",
+        },
+      ],
     },
   ],
 };
@@ -4440,6 +5641,126 @@ export const personalB1Lesson_12: BundledLesson = {
       ipa: "aɪm ˈteɪkɪŋ ə breɪk frəm ˈsoʊʃəl ˈmiːdiə ðɪs wiːk",
       tr_hint:
         "'Taking a break' bağlı — 'tey-kın-ı-breyk'. 'Social media' = 'soʊ-şıl-miː-di-ə'. Sakin, savunmasız.",
+    },
+    {
+      id: "ex.pb1.12.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'm taking ___ from ___.",
+      slots: [
+        { accepted: ["a break", "some time off", "a step back"], distractors: ["break", "time"] },
+        { accepted: ["social media", "work", "everything", "the news"], distractors: ["social media all", "the workings"] },
+      ],
+      tr_hint:
+        "Mola alma kalıbı: 'I'm taking a break from social media.' Türk öğrenci 'I stop social media' der — yanlış. 'Take a break from + isim' = idiom.",
+      example_filled: "I'm taking a break from social media this week.",
+    },
+    {
+      id: "ex.pb1.12.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "You seem really busy lately — everything okay?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Good for you. Take care of yourself." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yeah|honestly)(,)? (i('m| am)) (taking|trying to take) (a break|time)",
+        "(i('ve| have)) been (running on fumes|burned out)",
+        "(i need to (set|put) some (limits|boundaries))",
+      ],
+      tr_hint:
+        "Tükenmişlik kabul: 'Honestly, I've been running on fumes — I'm taking some time off this weekend.' Türk öğrenci 'I'm fine' der — açıl.",
+      ideal_answer: "Honestly, I've been burned out — I'm taking some time off.",
+    },
+    {
+      id: "ex.pb1.12.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Can you cover for me this weekend?",
+      accepted_patterns: [
+        "(i('d| would) love to)(,)? (but |unfortunately )",
+        "(this weekend (i('m| am)) (busy|out of town))",
+        "(i('m| am) already (committed|booked|stretched))",
+        "(no(,)? i can'?t this time)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Nazik ret: 'I'd love to, but I'm already stretched thin this weekend.' Türk öğrenci direkt 'no' der — agresif. Yumuşat + açıkla.",
+      ideal_response: "I'd love to, but I'm already stretched thin this weekend.",
+    },
+    {
+      id: "ex.pb1.12.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Hayır diyemem (suçluluk duyarım).",
+      wrong_en: "Okay, I will do it (resentful).",
+      right_en: "I'd love to help, but I can't this time.",
+      why_tr:
+        "Türk öğrenci suçluluk hisseder, 'evet' der ama içten içe öfkelidir — sağlıksız. Doğru sınır: nazik + net 'no'. Açıklama gerekmiyor.",
+    },
+    {
+      id: "ex.pb1.12.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Burnout' = ?",
+          options: [
+            "Yorgunluk (fiziksel).",
+            "Tükenmişlik (zihinsel + duygusal).",
+            "Hayal kırıklığı.",
+            "Sıkılma.",
+          ],
+          correct: 1,
+          tr_explanation: "'Burnout' = derin yıpranma. 'Tired' fiziksel; 'burnout' klinik/uzun süreli.",
+        },
+        {
+          q: "'Running on fumes' = ?",
+          options: [
+            "Dumanla koşmak.",
+            "Son enerjiyle gitmek (tükenmiş).",
+            "Hızlı koşmak.",
+            "Sigara içmek.",
+          ],
+          correct: 1,
+          tr_explanation: "'Running on fumes' = idiom: deponun son damlasıyla koşmak. Tamamen tükenmiş.",
+        },
+        {
+          q: "Nazik 'hayır' demek?",
+          options: [
+            "Never!",
+            "I'd love to, but I can't this time.",
+            "Don't ask me!",
+            "No way.",
+          ],
+          correct: 1,
+          tr_explanation: "'I'd love to, but...' = nazik ret. Olumlu açılış + sınır.",
+        },
+        {
+          q: "'Stretched thin' = ?",
+          options: [
+            "Çok ince.",
+            "Çok meşgul/üzerine fazla yük.",
+            "Çok geniş.",
+            "Çok hafif.",
+          ],
+          correct: 1,
+          tr_explanation: "'Stretched thin' = idiom: gergin/aşırı yüklü. Çok şey istenmiş.",
+        },
+        {
+          q: "'Take care of yourself' = ?",
+          options: [
+            "Kendine iyi bak.",
+            "Kendini al.",
+            "Kendini koru.",
+            "Kendine git.",
+          ],
+          correct: 0,
+          tr_explanation: "'Take care of yourself' = idiom: kendine iyi bak. Empatik kapanış.",
+        },
+      ],
     },
   ],
 };
@@ -4820,6 +6141,126 @@ export const personalB1Lesson_13: BundledLesson = {
       ipa: "aɪv ˈɡɒtən ˈɪntə ˈpɒtəri ɪts bɪn ə riːl kriˈeɪtɪv ˈaʊtlɛt",
       tr_hint:
         "'I've gotten into' bağlanır — 'ayv-gat-nin-tu'. 'Creative outlet' = 'kri-ey-tiv-aut-let'. Heyecanlı ama abartısız.",
+    },
+    {
+      id: "ex.pb1.13.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I've recently gotten into ___ — it's been ___.",
+      slots: [
+        { accepted: ["pottery", "rock climbing", "running", "photography", "cooking classes"], distractors: ["pot", "running marathon"] },
+        { accepted: ["really fun", "a great outlet", "surprisingly relaxing", "challenging but rewarding"], distractors: ["fun", "ok"] },
+      ],
+      tr_hint:
+        "Yeni hobi anlatma: 'I've recently gotten into pottery — it's been really fun.' Türk öğrenci 'I started pottery' der — kabul ama 'gotten into' daha doğal/heyecanlı.",
+      example_filled: "I've recently gotten into pottery — it's been really fun.",
+    },
+    {
+      id: "ex.pb1.13.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "What have you been up to lately?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh nice! How did you get into that?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i('ve| have)) (recently )?(gotten into|started|picked up)",
+        "(i('m| am)) (really )?into [a-z]+ (lately|these days)",
+        "(my new (thing|hobby) is)",
+      ],
+      tr_hint:
+        "Yeni hobi paylaşma: 'I've recently gotten into pottery!' Türk öğrenci 'My new hobby pottery' der — kırık. 'Gotten into' = doğal.",
+      ideal_answer: "I've recently gotten into pottery — it's surprisingly addictive.",
+    },
+    {
+      id: "ex.pb1.13.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "How did you get started?",
+      accepted_patterns: [
+        "(a (friend|colleague)) (got me into|told me about) it",
+        "(i (saw|read) (something)) (on (instagram|youtube|tiktok))",
+        "(i('ve| have) always wanted to)",
+        "(it was )?(a class|workshop) (i took|signed up for)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Nasıl başladın: 'A friend got me into it.' veya 'I saw something on Instagram and thought I'd try.' Türk öğrenci 'I want try' der — eksik.",
+      ideal_response: "A friend got me into it last spring.",
+    },
+    {
+      id: "ex.pb1.13.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Yeni hobimi sevdim.",
+      wrong_en: "I love my new hobby.",
+      right_en: "I'm really into my new hobby.",
+      why_tr:
+        "Türk öğrenci 'love' kullanır — abartılı. 'I'm into + isim' = idiom: ilgileniyorum, hoşlanıyorum. Konuşma dilinde çok daha doğal.",
+    },
+    {
+      id: "ex.pb1.13.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'I've gotten into X' = ?",
+          options: [
+            "X'e başladım/ilgilendim.",
+            "X'in içine girdim.",
+            "X'ten çıktım.",
+            "X'i aldım.",
+          ],
+          correct: 0,
+          tr_explanation: "'Get into X' = idiom: ile ilgilenmeye başla. Yeni hobi/aktivite klasiği.",
+        },
+        {
+          q: "'A friend got me into it' = ?",
+          options: [
+            "Bir arkadaş benimle ilgilendi.",
+            "Bir arkadaş beni bu işe soktu (tanıştırdı).",
+            "Bir arkadaş içeri girdi.",
+            "Bir arkadaş istedi.",
+          ],
+          correct: 1,
+          tr_explanation: "'Get me into X' = beni X'e dahil et/tanıştır. Causative kullanımı.",
+        },
+        {
+          q: "'Creative outlet' = ?",
+          options: [
+            "Yaratıcı çıkış (kanal).",
+            "Yaratıcı çıkış kapısı.",
+            "Yaratıcı çözüm.",
+            "Yaratıcı sınav.",
+          ],
+          correct: 0,
+          tr_explanation: "'Outlet' = idiom: duygu/enerji çıkışı. 'Creative outlet' = sanat/hobi kanalı (terapötik).",
+        },
+        {
+          q: "'Challenging but rewarding' = ?",
+          options: [
+            "Zorlu ama tatmin edici.",
+            "Zor değil tatmin edici.",
+            "Tatmin etmez ama zor.",
+            "İkisi de zor.",
+          ],
+          correct: 0,
+          tr_explanation: "Yeni hobi klasik tanımı: zor + ödüllendirici. 'Reward' = ödül/tatmin.",
+        },
+        {
+          q: "'Surprisingly addictive' = ?",
+          options: [
+            "Şaşırtıcı biçimde bağımlılık yapıyor.",
+            "Asla bırakamam.",
+            "Beklenmedik.",
+            "Hızlı oluyor.",
+          ],
+          correct: 0,
+          tr_explanation: "'Surprisingly + sıfat' = idiom: beklemediğim kadar... Yeni hobi tanımlamada yaygın.",
+        },
+      ],
     },
   ],
 };
@@ -5203,6 +6644,126 @@ export const personalB1Lesson_14: BundledLesson = {
       ipa: "aɪ ˈstɑːrtɪd ˈsiːɪŋ ə ˈθɛrəpɪst ɪts bɪn ˈriːli ˈhɛlpfəl",
       tr_hint:
         "Sakin, savunmasız. 'Therapist' = 'θɛr-ə-pɪst' (th sesi — dil dişlerin arasında). 'Really helpful' bağlı. Utançsız, doğal.",
+    },
+    {
+      id: "ex.pb1.14.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I've been ___ ___ for a while now.",
+      slots: [
+        { accepted: ["seeing", "working with", "going to", "talking to"], distractors: ["saw", "see"] },
+        { accepted: ["a therapist", "someone for help", "a counselor", "a coach"], distractors: ["therapist", "help"] },
+      ],
+      tr_hint:
+        "Terapi açıklama: 'I've been seeing a therapist for a while now.' Türk öğrenci 'I go therapy' der — yanlış. Present perfect continuous + doğal.",
+      example_filled: "I've been seeing a therapist for a while now.",
+    },
+    {
+      id: "ex.pb1.14.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      turns: [
+        { speaker: "npc", text: "Are you doing okay lately? You seem a bit distant." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks for opening up — that takes courage." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i('ve| have) been (going through|dealing with))",
+        "(i started (seeing|going to)) (a )?(therapist|counselor)",
+        "(it'?s been )?(a hard|a rough|a tough) (few weeks|year|time)",
+      ],
+      tr_hint:
+        "Duygusal açılma: 'Honestly, I've been dealing with a lot — I started seeing a therapist.' Türk öğrenci 'I'm fine' der — savun. Açılmak güç ister.",
+      ideal_answer: "Honestly, I've been dealing with a lot — I started seeing a therapist.",
+    },
+    {
+      id: "ex.pb1.14.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      npc_line: "Is therapy actually helping?",
+      accepted_patterns: [
+        "(yeah|yes|it (really )?has)(,)? (it('s| has) been)? helpful",
+        "(it('s| has)) given me (tools|perspective|space)",
+        "(it'?s not a quick fix)(,)? but",
+        "(i('m| am)) more (aware|grounded|honest)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Terapi soru: dürüst + olgun. 'It's been really helpful — I'm more aware of my patterns.' Türk öğrenci 'yes' der — açıkla.",
+      ideal_response: "It really has — I'm more aware of my patterns now.",
+    },
+    {
+      id: "ex.pb1.14.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      tr_thought: "Terapiye gidiyorum.",
+      wrong_en: "I go therapy.",
+      right_en: "I'm seeing a therapist.",
+      why_tr:
+        "Türkçede 'terapiye gitmek'i 'go therapy' yapar — kırık. Doğru: 'I'm seeing a therapist' (idiomatic) veya 'I'm going to therapy' (more literal). Native 'seeing' tercih eder.",
+    },
+    {
+      id: "ex.pb1.14.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Terapiye gitmek?",
+          options: [
+            "I go therapy.",
+            "I'm seeing a therapist.",
+            "Therapy go me.",
+            "Have therapy.",
+          ],
+          correct: 1,
+          tr_explanation: "'I'm seeing a therapist' = doğal kalıp. 'Seeing' = düzenli ziyaret etmek (idiom).",
+        },
+        {
+          q: "'I'd rather not talk about it' = ?",
+          options: [
+            "Bu konuda konuşmak istemem.",
+            "Bu konuda konuşmamam gerek.",
+            "Bu konuda konuşurum.",
+            "Bu konuda konuşmak.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd rather not + base' = nazik sınır. Konuşmak istemediğini belirtmek.",
+        },
+        {
+          q: "'It's not a quick fix' = ?",
+          options: [
+            "Hızlı çözüm değil.",
+            "Hemen yapılır.",
+            "Çabuk hallet.",
+            "Çözüm yok.",
+          ],
+          correct: 0,
+          tr_explanation: "'Quick fix' = idiom: anında çözüm. 'Not a quick fix' = yavaş süreç.",
+        },
+        {
+          q: "'I'm more aware of my patterns' = ?",
+          options: [
+            "Kalıplarımın farkındayım daha çok.",
+            "Daha çok kalıp gördüm.",
+            "Yeni kalıplarım var.",
+            "Kalıplarım değişti.",
+          ],
+          correct: 0,
+          tr_explanation: "'Aware of + isim' = farkında. 'Pattern' = davranış kalıbı.",
+        },
+        {
+          q: "'Thanks for opening up' = ?",
+          options: [
+            "Açıldığın için teşekkürler.",
+            "Açtığın için teşekkürler.",
+            "Konuşma için teşekkür.",
+            "Hep konuşurum.",
+          ],
+          correct: 0,
+          tr_explanation: "'Open up' = idiom: duygusal açılmak. 'Thanks for opening up' = duygusal güveni takdir.",
+        },
+      ],
     },
   ],
 };

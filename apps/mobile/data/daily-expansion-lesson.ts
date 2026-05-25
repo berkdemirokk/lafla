@@ -627,6 +627,132 @@ export const dailyExpansionLesson_erChestPain: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.erChestPain.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.erChestPain.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.erChestPain.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.erChestPain.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.erChestPain.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -872,6 +998,132 @@ export const dailyExpansionLesson_pharmacyScript: BundledLesson = {
             "(perfect|appreciate it)",
           ],
           hint_tr: "'Will do. Any side effects to watch for?'",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.pharmacyScript.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.pharmacyScript.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.pharmacyScript.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.pharmacyScript.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.pharmacyScript.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -1127,6 +1379,132 @@ export const dailyExpansionLesson_dentistTooth: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.dentistTooth.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.dentistTooth.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.dentistTooth.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.dentistTooth.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.dentistTooth.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1376,6 +1754,132 @@ export const dailyExpansionLesson_allergyTest: BundledLesson = {
         {
           speaker: "npc",
           message: "Minimal pain. Results in the same visit. Roll up your sleeve, please.",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.allergyTest.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.allergyTest.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.allergyTest.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.allergyTest.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.allergyTest.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -1631,6 +2135,132 @@ export const dailyExpansionLesson_vaccineAppt: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.vaccineAppt.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.vaccineAppt.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.vaccineAppt.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.vaccineAppt.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.vaccineAppt.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1880,6 +2510,132 @@ export const dailyExpansionLesson_eyeExam: BundledLesson = {
         {
           speaker: "npc",
           message: "Yes, frames are in the front. Insurance usually covers an exam plus one pair.",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.eyeExam.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.eyeExam.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.eyeExam.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.eyeExam.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.eyeExam.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -2135,6 +2891,132 @@ export const dailyExpansionLesson_therapyIntake: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.therapyIntake.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.therapyIntake.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.therapyIntake.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.therapyIntake.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.therapyIntake.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2384,6 +3266,132 @@ export const dailyExpansionLesson_walkInCold: BundledLesson = {
         {
           speaker: "npc",
           message: "Sure, I'll write one for two days. Front desk will print it.",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.walkInCold.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.walkInCold.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.walkInCold.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.walkInCold.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.walkInCold.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -2654,6 +3662,132 @@ export const dailyExpansionLesson_pediatricSick: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.pediatricSick.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.pediatricSick.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.pediatricSick.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.pediatricSick.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.pediatricSick.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2910,6 +4044,132 @@ export const dailyExpansionLesson_apartmentViewing: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.apartmentViewing.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.apartmentViewing.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.apartmentViewing.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.apartmentViewing.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.apartmentViewing.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3159,6 +4419,132 @@ export const dailyExpansionLesson_rentNegotiate: BundledLesson = {
         {
           speaker: "npc",
           message: "Perfect. I'll send the new lease this week.",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.rentNegotiate.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.rentNegotiate.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.rentNegotiate.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.rentNegotiate.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.rentNegotiate.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -3414,6 +4800,132 @@ export const dailyExpansionLesson_roommateInterview: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.roommateInterview.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.roommateInterview.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.roommateInterview.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.roommateInterview.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.roommateInterview.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3663,6 +5175,132 @@ export const dailyExpansionLesson_internetSetup: BundledLesson = {
         {
           speaker: "npc",
           message: "Self-install kit can ship tomorrow. You'll plug it in and activate online.",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.internetSetup.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.internetSetup.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.internetSetup.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.internetSetup.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.internetSetup.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -3918,6 +5556,132 @@ export const dailyExpansionLesson_plumberEmergency: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.plumberEmergency.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.plumberEmergency.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.plumberEmergency.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.plumberEmergency.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.plumberEmergency.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -4167,6 +5931,132 @@ export const dailyExpansionLesson_leaseRenewal: BundledLesson = {
         {
           speaker: "npc",
           message: "Same here. You've been a great tenant.",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.leaseRenewal.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.leaseRenewal.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.leaseRenewal.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.leaseRenewal.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.leaseRenewal.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -4422,6 +6312,132 @@ export const dailyExpansionLesson_moveOutDeposit: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.moveOutDeposit.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.moveOutDeposit.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.moveOutDeposit.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.moveOutDeposit.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.moveOutDeposit.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -4671,6 +6687,132 @@ export const dailyExpansionLesson_noisyNeighbor: BundledLesson = {
         {
           speaker: "npc",
           message: "Night!",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.noisyNeighbor.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.noisyNeighbor.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.noisyNeighbor.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.noisyNeighbor.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.noisyNeighbor.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -4926,6 +7068,132 @@ export const dailyExpansionLesson_buildingMaintenance: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.buildingMaintenance.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.buildingMaintenance.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.buildingMaintenance.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.buildingMaintenance.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.buildingMaintenance.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -5175,6 +7443,132 @@ export const dailyExpansionLesson_sublettingPermission: BundledLesson = {
         {
           speaker: "npc",
           message: "Small admin fee, $100. I'll include it in the paperwork.",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.sublettingPermission.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.sublettingPermission.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.sublettingPermission.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.sublettingPermission.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.sublettingPermission.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -5434,6 +7828,132 @@ export const dailyExpansionLesson_packageCustoms: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.packageCustoms.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.packageCustoms.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.packageCustoms.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.packageCustoms.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.packageCustoms.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -5686,6 +8206,132 @@ export const dailyExpansionLesson_lostWallet: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.lostWallet.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.lostWallet.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.lostWallet.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.lostWallet.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.lostWallet.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -5935,6 +8581,132 @@ export const dailyExpansionLesson_phoneActivation: BundledLesson = {
         {
           speaker: "npc",
           message: "Great. Let me get the SIM and we'll be done in 10 minutes.",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.phoneActivation.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.phoneActivation.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.phoneActivation.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.phoneActivation.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.phoneActivation.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -6205,6 +8977,132 @@ export const dailyExpansionLesson_dmvRenew: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.dmvRenew.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.dmvRenew.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.dmvRenew.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.dmvRenew.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.dmvRenew.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -6454,6 +9352,132 @@ export const dailyExpansionLesson_openBank: BundledLesson = {
         {
           speaker: "npc",
           message: "No monthly fee for students. Debit card in 7-10 days, temporary today.",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.openBank.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.openBank.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.openBank.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.openBank.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.openBank.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -6709,6 +9733,132 @@ export const dailyExpansionLesson_wireTransfer: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.wireTransfer.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.wireTransfer.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.wireTransfer.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.wireTransfer.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.wireTransfer.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -6958,6 +10108,132 @@ export const dailyExpansionLesson_insuranceClaim: BundledLesson = {
         {
           speaker: "npc",
           message: "Once we have the documents, 7-14 business days. Anything else?",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.insuranceClaim.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.insuranceClaim.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.insuranceClaim.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.insuranceClaim.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.insuranceClaim.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -7213,6 +10489,132 @@ export const dailyExpansionLesson_libraryCard: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.libraryCard.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.libraryCard.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.libraryCard.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.libraryCard.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.libraryCard.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -7465,6 +10867,132 @@ export const dailyExpansionLesson_voterRegistration: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.voterRegistration.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.voterRegistration.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.voterRegistration.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.voterRegistration.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.voterRegistration.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -7714,6 +11242,132 @@ export const dailyExpansionLesson_lokumShipping: BundledLesson = {
         {
           speaker: "npc",
           message: "Roughly what you paid. Be honest — keeps it from getting held in customs.",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.lokumShipping.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.lokumShipping.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.lokumShipping.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.lokumShipping.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.lokumShipping.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -7973,6 +11627,132 @@ export const dailyExpansionLesson_gymCancellation: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.gymCancellation.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.gymCancellation.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.gymCancellation.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.gymCancellation.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.gymCancellation.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -8222,6 +12002,132 @@ export const dailyExpansionLesson_netflixCancel: BundledLesson = {
         {
           speaker: "npc",
           message: "Yes, full access until June 12. Email sent. Thanks for being a member!",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.netflixCancel.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.netflixCancel.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.netflixCancel.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.netflixCancel.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.netflixCancel.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -8477,6 +12383,132 @@ export const dailyExpansionLesson_returnOrder: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.returnOrder.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.returnOrder.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.returnOrder.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.returnOrder.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.returnOrder.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -8726,6 +12758,132 @@ export const dailyExpansionLesson_specialReservation: BundledLesson = {
         {
           speaker: "npc",
           message: "You're welcome. See you Saturday at 8.",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.specialReservation.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.specialReservation.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.specialReservation.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.specialReservation.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.specialReservation.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -8981,6 +13139,132 @@ export const dailyExpansionLesson_hairSalonWalkIn: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.hairSalonWalkIn.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.hairSalonWalkIn.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.hairSalonWalkIn.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.hairSalonWalkIn.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.hairSalonWalkIn.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -9230,6 +13514,132 @@ export const dailyExpansionLesson_dryCleanerStain: BundledLesson = {
         {
           speaker: "npc",
           message: "9 AM sharp. Pay now or on pickup, your choice.",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.dryCleanerStain.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.dryCleanerStain.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.dryCleanerStain.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.dryCleanerStain.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.dryCleanerStain.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -9485,6 +13895,132 @@ export const dailyExpansionLesson_lockedOut: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.lockedOut.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.lockedOut.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.lockedOut.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.lockedOut.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.lockedOut.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -9734,6 +14270,132 @@ export const dailyExpansionLesson_moversConsult: BundledLesson = {
         {
           speaker: "npc",
           message: "Next Saturday morning open. Want me to send a written quote?",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.moversConsult.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.moversConsult.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.moversConsult.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.moversConsult.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.moversConsult.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -9989,6 +14651,132 @@ export const dailyExpansionLesson_storageUnit: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.storageUnit.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.storageUnit.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.storageUnit.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.storageUnit.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.storageUnit.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -10238,6 +15026,132 @@ export const dailyExpansionLesson_vetCheckup: BundledLesson = {
         {
           speaker: "npc",
           message: "Mild fatigue for a day. Quick injection — she won't even notice.",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.vetCheckup.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.vetCheckup.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.vetCheckup.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.vetCheckup.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.vetCheckup.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -10497,6 +15411,132 @@ export const dailyExpansionLesson_directionsRain: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.directionsRain.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.directionsRain.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.directionsRain.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.directionsRain.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.directionsRain.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -10746,6 +15786,132 @@ export const dailyExpansionLesson_helpTourist: BundledLesson = {
         {
           speaker: "npc",
           message: "Thanks again. Have a great day!",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.helpTourist.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.helpTourist.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.helpTourist.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.helpTourist.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.helpTourist.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -11009,6 +16175,132 @@ export const dailyExpansionLesson_lostChild: BundledLesson = {
             "(you'?re in good hands now)",
           ],
           hint_tr: "'No problem. Bye Lily — you're in good hands.'",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.lostChild.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.lostChild.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.lostChild.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.lostChild.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.lostChild.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -11279,6 +16571,132 @@ export const dailyExpansionLesson_witnessStatement: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.witnessStatement.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.witnessStatement.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.witnessStatement.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.witnessStatement.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.witnessStatement.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -11531,6 +16949,132 @@ export const dailyExpansionLesson_cafeWifiCall: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.cafeWifiCall.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.cafeWifiCall.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.cafeWifiCall.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.cafeWifiCall.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.cafeWifiCall.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -11780,6 +17324,132 @@ export const dailyExpansionLesson_libraryQuietZone: BundledLesson = {
         {
           speaker: "npc",
           message: "(quietly gathering things and leaving)",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.libraryQuietZone.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.libraryQuietZone.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.libraryQuietZone.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.libraryQuietZone.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.libraryQuietZone.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -12046,6 +17716,132 @@ export const dailyExpansionLesson_transitTouristHelp: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.transitTouristHelp.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.transitTouristHelp.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.transitTouristHelp.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.transitTouristHelp.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.transitTouristHelp.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -12295,6 +18091,132 @@ export const dailyExpansionLesson_atmStuck: BundledLesson = {
         {
           speaker: "npc",
           message: "First replacement is free. I'll cancel and order it now.",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.atmStuck.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.atmStuck.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.atmStuck.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.atmStuck.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.atmStuck.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },
@@ -12550,6 +18472,132 @@ export const dailyExpansionLesson_trainTicketSupport: BundledLesson = {
         },
       ],
     },
+
+    {
+      id: "ex.dexp.trainTicketSupport.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.trainTicketSupport.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.trainTicketSupport.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.trainTicketSupport.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.trainTicketSupport.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -12799,6 +18847,132 @@ export const dailyExpansionLesson_concertEntryIssue: BundledLesson = {
         {
           speaker: "npc",
           message: "No worries — happens all the time. See you tomorrow.",
+        },
+      ],
+    },
+
+    {
+      id: "ex.dexp.concertEntryIssue.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___?",
+      slots: [
+        { accepted: ["help", "tell", "show"], distractors: ["fast", "do", "make"] },
+        { accepted: ["with this", "about it", "more"], distractors: ["thing", "yes", "now"] },
+        { accepted: ["please", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Kibar yardım rica. 'Could you help me with this?' Türk öğrenci 'help me' der — kabaca.",
+      example_filled: "Could you help me with this, please?",
+    },
+    {
+      id: "ex.dexp.concertEntryIssue.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course — let me check on that for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i was hoping) to",
+        "(could you|can you) help me with",
+        "(i'?m looking for|i need)",
+        "(do you have|is there)",
+      ],
+      tr_hint:
+        "Profesyonel ortamda yardım iste. Türk öğrenci 'help me' der — eksik. Tam cümle + spesifik.",
+      ideal_answer: "Hi, could you help me with this?",
+    },
+    {
+      id: "ex.dexp.concertEntryIssue.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sure, let me check — do you have any questions?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (could you )?(tell me|explain)",
+        "(actually)(,)? (i was wondering about)",
+        "(thanks)(,)? (that'?d be great)",
+        "(no )?(thanks)(,)? (i'?m all set)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Açık uçlu soru — net cevap + ek bilgi sor. Türk öğrenci 'no' der pes.",
+      ideal_response: "Actually, could you tell me more about it?",
+    },
+    {
+      id: "ex.dexp.concertEntryIssue.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana yardım edin lütfen.",
+      wrong_en: "Help me please.",
+      right_en: "Could you help me with this, please?",
+      why_tr:
+        "'Help me!' emir + ünlem. Doğru: 'Could you help me' = modal soru kalıbı + kibar.",
+    },
+    {
+      id: "ex.dexp.concertEntryIssue.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Could you help me?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı soru kalıbı.",
+            "Kısa.",
+            "Hızlı.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı yumuşatır. 'Help me!' emir, 'Could you' rica.",
+        },
+        {
+          q: "'I'd like to' niye 'I want' yerine?",
+          options: [
+            "Daha kibar/resmî tonlama.",
+            "Past tense.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' (would like) = resmî rica. 'I want' direkt.",
+        },
+        {
+          q: "Sorunla karşılaştığında EN profesyonel?",
+          options: [
+            "Help fast!",
+            "Could you help me with this, please?",
+            "Problem!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + please = profesyonel.",
+        },
+        {
+          q: "Açık uçlu soruya nasıl cevap?",
+          options: [
+            "Sus.",
+            "Spesifik soru sor / detay iste.",
+            "Hayır.",
+            "Sadece evet.",
+          ],
+          correct: 1,
+          tr_explanation: "Profesyonel sohbette engage olmak şart.",
+        },
+        {
+          q: "'Actually' söz başında niye?",
+          options: [
+            "Yumuşatma — direkt karşıt çıkmadan.",
+            "Hızlı.",
+            "Yanlış.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Beklenmedik bilgi/değişiklik öncesi yumuşatma.",
         },
       ],
     },

@@ -861,6 +861,129 @@ export const dailyTransportLesson_17_2: BundledLesson = {
       tr_explanation:
         "Belirsiz + grammatik degil. Doğru: 'Excuse me' + tam soru + alternatif (transfer kontrolu).",
     },
+    {
+      id: "ex.dt17.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Does this train ___ ___ ___?",
+      slots: [
+        { accepted: ["go to", "stop at"], distractors: ["take", "send", "make"] },
+        { accepted: ["Brooklyn", "Times Square", "JFK"], distractors: ["good", "fast", "now"] },
+        { accepted: ["", "or do I need to transfer", "directly"], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Metro yön sorma. 'Does this train go to X?' Türk öğrenci 'train Brooklyn?' der — kabaca + eksik.",
+      example_filled: "Does this train go to Brooklyn, or do I need to transfer?",
+    },
+    {
+      id: "ex.dt17.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Yeah, are you lost?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Take the A train to Jay Street, then transfer to the F." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (does this train )?(go to|stop at) (\\w+)",
+        "(which (line|train) )?(should i take to|goes to) (\\w+)\\??",
+        "(how do i )?(get to) (\\w+) (from here)\\??",
+      ],
+      tr_hint:
+        "Metro/tren yön sor. Tam cümle. Türk öğrenci 'where train?' der — yetersiz.",
+      ideal_answer: "Yes, which train should I take to Brooklyn?",
+    },
+    {
+      id: "ex.dt17.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Take the A to Jay, then transfer to the F.",
+      accepted_patterns: [
+        "(so) (the )?a to jay then (the )?f\\? (got it|thanks)",
+        "(thanks|appreciate it)(,)? (got it)",
+        "(how often )?(does the )?(f run|train come)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Karmaşık yön — TEKRARLA + ek soru. Türk öğrenci 'OK' der — kaybolur.",
+      ideal_response: "A to Jay then transfer to F — got it. How often does the F run?",
+    },
+    {
+      id: "ex.dt17.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bu tren Brooklyn'e gidiyor mu?",
+      wrong_en: "This train Brooklyn go?",
+      right_en: "Does this train go to Brooklyn?",
+      why_tr:
+        "'This train Brooklyn go' eksik 'does' + yanlış sıra. Doğru: 'Does this train go to Brooklyn?' = soru yardımcısı + tam yapı.",
+    },
+    {
+      id: "ex.dt17.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Transfer at X' = ?",
+          options: [
+            "X'te aktarma yap.",
+            "X'te dur.",
+            "X'i geç.",
+            "X'i ödeme.",
+          ],
+          correct: 0,
+          tr_explanation: "Metro: trenden trene geçiş. Yaygın çok-line şehirlerde.",
+        },
+        {
+          q: "'Does this train go to X?' niye 'does'?",
+          options: [
+            "Yardımcı fiil (soru kalıbı).",
+            "Past tense.",
+            "Future.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Present simple soru yapısı: 'do/does + subject + V'.",
+        },
+        {
+          q: "'A train' (NYC) = ?",
+          options: [
+            "A hattı (Manhattan + Brooklyn + Queens).",
+            "Bir tren.",
+            "İlk tren.",
+            "A sınıfı.",
+          ],
+          correct: 0,
+          tr_explanation: "NYC metro hatlar harf veya sayı: A, F, L, 4, 6 vb.",
+        },
+        {
+          q: "Karmaşık yön anlama tekniği?",
+          options: [
+            "Sus.",
+            "Adım adım tekrarla + ek soru (sıklık/süre).",
+            "Yaz.",
+            "Çiz.",
+          ],
+          correct: 1,
+          tr_explanation: "Tekrar = onay. Sıklık sor = bekleyeceğin zaman.",
+        },
+        {
+          q: "Metro yön EN net?",
+          options: [
+            "Brooklyn?",
+            "Does this train go to Brooklyn, or do I need to transfer?",
+            "Brooklyn train!",
+            "Where Brooklyn?",
+          ],
+          correct: 1,
+          tr_explanation: "Tam soru + alternatif kontrol = net cevap.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1203,6 +1326,133 @@ export const dailyTransportLesson_17_3: BundledLesson = {
         "Excuse me — what's the cheapest way to get to downtown Manhattan from here?",
       tr_explanation:
         "Belirsiz + grammatik degil. Doğru: 'Excuse me' + spesifik soru (cheapest way) + hedef (downtown Manhattan).",
+    },
+    {
+      id: "ex.dt17.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "What's the ___ ___ to get to ___ ___ ___?",
+      slots: [
+        { accepted: ["cheapest", "fastest", "easiest"], distractors: ["fast", "cheap", "good"] },
+        { accepted: ["way", "option"], distractors: ["thing", "place", "money"] },
+        { accepted: ["downtown Manhattan", "the city", "Times Square"], distractors: ["city center", "downtown city", "fast"] },
+        { accepted: ["from", ""], distractors: ["with", "by", "on"] },
+        { accepted: ["here", "the airport", ""], distractors: ["now", "fast", "yes"] },
+      ],
+      tr_hint:
+        "Havalimanı transferi sorma. 'What's the cheapest way to get to downtown?' Türk öğrenci 'taxi cheap?' der — yetersiz.",
+      example_filled: "What's the cheapest way to get to downtown Manhattan from here?",
+    },
+    {
+      id: "ex.dt17.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "First time in NYC? Welcome!" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Best deal is the AirTrain — it's $8 to the metro." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks|appreciate it)(,)? (what'?s|which is) (the )?(cheapest|fastest) way",
+        "(could you )?(recommend )?(transport|getting to)",
+        "(how do i )?(get to) (downtown|manhattan|city)\\??",
+        "(uber )?(or |vs )?(public transit)\\??",
+      ],
+      tr_hint:
+        "Havalimanından şehir merkezine en ucuz yol sor. Türk öğrenci 'taxi cheap?' der — opsiyon kaçırır.",
+      ideal_answer: "Thanks! What's the cheapest way to get to downtown Manhattan?",
+    },
+    {
+      id: "ex.dt17.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Take the AirTrain to Jamaica, then the E to Manhattan. About 45 minutes.",
+      accepted_patterns: [
+        "(so) (airtrain to jamaica then )?(e to manhattan)\\??",
+        "(45 minutes )?(got it|sounds good)",
+        "(thanks)(,)? (i'?ll try that)",
+        "(how often )?(does the airtrain run)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Karmaşık rota — TEKRARLA + sıklık sor. Türk öğrenci 'OK' der — yolda kaybolur.",
+      ideal_response: "AirTrain to Jamaica, then E to Manhattan — got it. How often does it run?",
+    },
+    {
+      id: "ex.dt17.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "En ucuz taksi nasıl?",
+      wrong_en: "How most cheap taxi?",
+      right_en: "What's the cheapest way to get to the city?",
+      why_tr:
+        "'How most cheap' yanlış üstünlük. Doğru: 'cheapest' (en ucuz). + 'taxi' yerine 'way to get to' = açık opsiyon.",
+    },
+    {
+      id: "ex.dt17.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Cheapest way' = ?",
+          options: [
+            "En ucuz yol.",
+            "Daha ucuz.",
+            "Ucuz değil.",
+            "Pahalı.",
+          ],
+          correct: 0,
+          tr_explanation: "Üstünlük: 'cheap → cheaper → cheapest'.",
+        },
+        {
+          q: "Havalimanı transferinde opsiyonlar?",
+          options: [
+            "Sadece taksi.",
+            "AirTrain + metro / Uber / shuttle / taksi (fiyat-zaman trade-off).",
+            "Sadece otobüs.",
+            "Yürüyüş.",
+          ],
+          correct: 1,
+          tr_explanation: "Her havalimanında 3-4 opsiyon. Fiyat farkı 5x olabilir.",
+        },
+        {
+          q: "'AirTrain' nedir?",
+          options: [
+            "Havalimanı içi/dış metro bağlantısı.",
+            "Uçak.",
+            "Eski tren.",
+            "Hızlı taksi.",
+          ],
+          correct: 0,
+          tr_explanation: "JFK/Newark/SFO gibi büyük havalimanlarında havalimanı-metro arası ulaşım.",
+        },
+        {
+          q: "'Downtown Manhattan' nereyi tanımlar?",
+          options: [
+            "Manhattan'ın güney/merkez kısmı (finansal merkez).",
+            "Manhattan dışı.",
+            "Aşağı bölge.",
+            "Yeni bölge.",
+          ],
+          correct: 0,
+          tr_explanation: "NYC'de 'downtown' = güney. 'Uptown' = kuzey. 'Midtown' = orta.",
+        },
+        {
+          q: "Havalimanı transferi EN profesyonel?",
+          options: [
+            "Cheap how?",
+            "What's the cheapest way to get to downtown?",
+            "Taxi where?",
+            "Money fast.",
+          ],
+          correct: 1,
+          tr_explanation: "Soru kalıbı + spesifik = net cevap.",
+        },
+      ],
     },
   ],
 };
@@ -1547,6 +1797,131 @@ export const dailyTransportLesson_17_4: BundledLesson = {
       tr_explanation:
         "Panik + emir. Doğru: spesifik (checked bag didn't come out) + saygili prosedur sorma.",
     },
+    {
+      id: "ex.dt17.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "My ___ ___ didn't ___ — could I ___?",
+      slots: [
+        { accepted: ["checked bag", "luggage", "suitcase"], distractors: ["bag thing", "stuff", "item"] },
+        { accepted: ["", "still", ""], distractors: ["fast", "yes", "OK"] },
+        { accepted: ["come out", "show up", "arrive"], distractors: ["come", "go", "make"] },
+        { accepted: ["file a claim", "report it", "speak to someone"], distractors: ["fast", "fix it", "find it"] },
+      ],
+      tr_hint:
+        "Kayıp bagaj raporu. 'My bag didn't come out — could I file a claim?' Türk öğrenci 'bag lost!' der — panic mode.",
+      example_filled: "My checked bag didn't come out — could I file a missing luggage claim?",
+    },
+    {
+      id: "ex.dt17.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "How can I help you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sorry to hear that. Do you have your baggage claim ticket?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (my )?(checked bag|luggage|suitcase) (didn'?t|hasn'?t) (come out|arrive)",
+        "(my bag )?(was )?(damaged|lost|delayed)",
+        "(could i|can i) (file|open) a (claim|report)\\??",
+      ],
+      tr_hint:
+        "Havalimanı bagaj sayacında. Net rapor + saygılı talep. Türk öğrenci 'bag lost!' der — verimsiz.",
+      ideal_answer: "Hi, my checked bag didn't come out — could I file a missing luggage claim?",
+    },
+    {
+      id: "ex.dt17.4.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "We'll deliver it to your address once it arrives. Is that okay?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (that'?s fine|works)",
+        "(how long )?(does it usually take)\\??",
+        "(could you )?(text|call) me when (it arrives|delivered)\\??",
+        "(any )?(compensation|reimbursement)( for delay)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bagaj eve teslim — kompenzasyon sor. Türk öğrenci 'OK' der; gecikme tazminatı istemek hakkın.",
+      ideal_response: "Could you text me when it arrives? And is there any compensation for the delay?",
+    },
+    {
+      id: "ex.dt17.4.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Çantam kayıp, çabuk yardım edin!",
+      wrong_en: "Bag lost! Help fast!",
+      right_en: "My checked bag didn't come out — could I file a missing luggage claim?",
+      why_tr:
+        "'Bag lost!' panic. Doğru: sakin + spesifik (checked bag, didn't come out) + prosedür talebi (file claim).",
+    },
+    {
+      id: "ex.dt17.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'File a claim' anlamı?",
+          options: [
+            "Resmi rapor doldur.",
+            "Dosya at.",
+            "Kart yaz.",
+            "Bilet kes.",
+          ],
+          correct: 0,
+          tr_explanation: "Sigortalı bagaj kayıp/hasar için zorunlu süreç.",
+        },
+        {
+          q: "'Checked bag' = ?",
+          options: [
+            "Bagaj olarak verdiğin (cabin değil).",
+            "Kontrolden geçen.",
+            "Eski bagaj.",
+            "Yeni bagaj.",
+          ],
+          correct: 0,
+          tr_explanation: "Uçakta: 'checked' (kargoda) vs 'carry-on' (kabin).",
+        },
+        {
+          q: "'Compensation for delay' = ?",
+          options: [
+            "Gecikme tazminatı.",
+            "Bekleme parası.",
+            "Yeni bilet.",
+            "İptal.",
+          ],
+          correct: 0,
+          tr_explanation: "Bagaj gecikirse: temel ihtiyaçlar için ($50-100) genelde verilir. Sormak şart.",
+        },
+        {
+          q: "'Claim number' niye önemli?",
+          options: [
+            "Takip için referans — kayıp olursa zor.",
+            "Yararsız.",
+            "Şart.",
+            "Yedek.",
+          ],
+          correct: 0,
+          tr_explanation: "Hava yolu sistem kaydı. Geri arama, durum sorma için temel.",
+        },
+        {
+          q: "Bagaj kayıp EN profesyonel?",
+          options: [
+            "Bag lost!",
+            "My checked bag didn't come out — could I file a claim?",
+            "Bag gone!",
+            "Help!",
+          ],
+          correct: 1,
+          tr_explanation: "Sakin + spesifik = personel hızlı çözüm.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1851,6 +2226,130 @@ export const dailyTransportLesson_17_5: BundledLesson = {
       tr_hint:
         "Sokakta klasik soru. 'Where's the' bağlanır → 'wɛərz-ðə'. 'Nearest' = NIR-ist. 'Subway' = SUB-wey.",
     },
+    {
+      id: "ex.dt17.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Where's the ___ ___ ___?",
+      slots: [
+        { accepted: ["nearest"], distractors: ["close", "fast", "good"] },
+        { accepted: ["subway", "bus", "train"], distractors: ["metro thing", "fast", "good"] },
+        { accepted: ["station", "stop"], distractors: ["place", "spot", "thing"] },
+      ],
+      tr_hint:
+        "Yer sorma kalıbı. 'Where's the nearest subway?' Türk öğrenci 'Where subway?' der — eksik.",
+      example_filled: "Where's the nearest subway station?",
+    },
+    {
+      id: "ex.dt17.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Need directions?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Go straight two blocks, you'll see it." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yeah|yes)(,)? (where'?s )?(the )?(nearest)? (subway|bus|station)",
+        "(could you )?(point me to|tell me where)",
+        "(does )?(omny|metrocard) work here\\??",
+      ],
+      tr_hint:
+        "Yabancı yardım önerdi — net soru sor. Türk öğrenci 'where bus?' der.",
+      ideal_answer: "Yes — where's the nearest subway station?",
+    },
+    {
+      id: "ex.dt17.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Just tap your phone on the OMNY reader to get in.",
+      accepted_patterns: [
+        "(do i need to )?(buy a ticket first)\\??",
+        "(does it work with )?(google pay|apple pay)\\??",
+        "(thanks)(,)? (got it)",
+        "(how much )?(per ride)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "OMNY açıklandı — sor (ücret/seçenek). Türk öğrenci 'OK' der; ödeme hakkını öğren.",
+      ideal_response: "Does it work with Apple Pay?",
+    },
+    {
+      id: "ex.dt17.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "En yakın metro nerede?",
+      wrong_en: "Most near subway where?",
+      right_en: "Where's the nearest subway station?",
+      why_tr:
+        "'Most near' yanlış üstünlük (en yakın = 'nearest'). 'Subway where' yanlış sıra. Doğru: 'Where's the nearest X?'",
+    },
+    {
+      id: "ex.dt17.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'OMNY' nedir?",
+          options: [
+            "NYC metro sistemi: telefon/kart tap ile ödeme.",
+            "Metro adı.",
+            "Otobüs adı.",
+            "Bilet.",
+          ],
+          correct: 0,
+          tr_explanation: "MetroCard yerini alıyor. Apple/Google Pay + contactless kart.",
+        },
+        {
+          q: "'Tap to pay' = ?",
+          options: [
+            "Dokun ile öde (telefon/kart).",
+            "Para say.",
+            "Kuyruk gir.",
+            "Bilet al.",
+          ],
+          correct: 0,
+          tr_explanation: "Contactless ödeme. Hızlı + bilet almak gerek yok.",
+        },
+        {
+          q: "'Nearest' = ?",
+          options: [
+            "En yakın.",
+            "Bir sonraki.",
+            "Yeni.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'Near → nearer → nearest' üstünlük. 'Closest' eşanlamlı.",
+        },
+        {
+          q: "'Per ride' = ?",
+          options: [
+            "Yolculuk başına.",
+            "Toplam.",
+            "Aylık.",
+            "Yıllık.",
+          ],
+          correct: 0,
+          tr_explanation: "OMNY: $2.90 per ride (NYC). 12 ride/week = otomatik kapak.",
+        },
+        {
+          q: "Metro istasyon sorma EN profesyonel?",
+          options: [
+            "Subway where?",
+            "Where's the nearest subway station?",
+            "Metro!",
+            "Train.",
+          ],
+          correct: 1,
+          tr_explanation: "Tam soru kalıbı = saygılı + net.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2154,6 +2653,130 @@ export const dailyTransportLesson_17_6: BundledLesson = {
       ipa: "dʌz ðɪs bʌs ɡoʊ tə taɪmz skwɛər",
       tr_hint:
         "Klasik soru. 'Does this' bağlanır → 'dʌs-ðis'. 'Times Square' iki kelime: 'taymz-skwer'. Soru tonu yükselir.",
+    },
+    {
+      id: "ex.dt17.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Does this bus ___ ___ ___?",
+      slots: [
+        { accepted: ["go to", "stop at"], distractors: ["take", "send", "make"] },
+        { accepted: ["Times Square", "downtown", "the museum"], distractors: ["good", "fast", "now"] },
+        { accepted: ["", "directly", ""], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Otobüs yön sorma. 'Does this bus go to X?' Türk öğrenci 'Bus Times Square?' der — kabaca.",
+      example_filled: "Does this bus go to Times Square?",
+    },
+    {
+      id: "ex.dt17.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Right on. Hop in!" },
+        { speaker: "user" },
+        { speaker: "npc", text: "It's about 15 minutes." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(does this bus )?(go to|stop at) (\\w+)",
+        "(when'?s )?(the next bus)\\??",
+        "(how long )?(to|until) (\\w+)\\??",
+        "(thanks)(,)? (how often does it run)\\??",
+      ],
+      tr_hint:
+        "Otobüse binmeden yön sor. Türk öğrenci 'bus go?' der — eksik.",
+      ideal_answer: "How long does it take to get to Times Square?",
+    },
+    {
+      id: "ex.dt17.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "About 15 minutes — five stops away.",
+      accepted_patterns: [
+        "(thanks)(,)? (got it)",
+        "(could you )?(tell me when to get off)\\??",
+        "(perfect)(,)? (i'?ll wait)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Süre ve durak öğrendin. Şoföre 'tell me when' iste — Türk öğrenci 'OK' der sonra kaçırır.",
+      ideal_response: "Could you tell me when to get off?",
+    },
+    {
+      id: "ex.dt17.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bu otobüs Times Square'a gidiyor mu?",
+      wrong_en: "This bus Times Square go?",
+      right_en: "Does this bus go to Times Square?",
+      why_tr:
+        "'This bus Times Square go' eksik 'does' + yanlış sıra. Doğru: 'Does this bus go to X?'",
+    },
+    {
+      id: "ex.dt17.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Otobüs yön sorma kalıbı?",
+          options: [
+            "Bus X go?",
+            "Does this bus go to X?",
+            "X bus?",
+            "Where bus?",
+          ],
+          correct: 1,
+          tr_explanation: "'Does' yardımcı + tam soru kalıbı.",
+        },
+        {
+          q: "'Get off' = ?",
+          options: [
+            "İnmek (otobüsten/trenden).",
+            "Çıkmak.",
+            "Yürümek.",
+            "Geçmek.",
+          ],
+          correct: 0,
+          tr_explanation: "Toplu taşıma: 'get on' (bin) vs 'get off' (in).",
+        },
+        {
+          q: "'Five stops away' = ?",
+          options: [
+            "Beş durak uzakta.",
+            "Beş kere.",
+            "Beş dakika.",
+            "Beş kişi.",
+          ],
+          correct: 0,
+          tr_explanation: "Otobüs/metro durak sayısı. Pratik mesafe birimi.",
+        },
+        {
+          q: "'How often does it run?' = ?",
+          options: [
+            "Ne sıklıkta sefer yapar?",
+            "Ne kadar hızlı?",
+            "Ne kadar para?",
+            "Nereye?",
+          ],
+          correct: 0,
+          tr_explanation: "Bekleme süresi için soru. Önemli planlama bilgisi.",
+        },
+        {
+          q: "Şoföre EN profesyonel yön sorma?",
+          options: [
+            "Bus Times Square?",
+            "Does this bus go to Times Square?",
+            "Square bus?",
+            "Where Times?",
+          ],
+          correct: 1,
+          tr_explanation: "Tam soru = saygılı + net.",
+        },
+      ],
     },
   ],
 };
@@ -2460,6 +3083,131 @@ export const dailyTransportLesson_17_7: BundledLesson = {
       tr_hint:
         "Iki bilgi tek cumle. 'Train's' kısaltma. 'Running late' birleşik akış. 'Different platform now' net + son 'now' vurgu.",
     },
+    {
+      id: "ex.dt17.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Excuse me — is the ___ ___ ___ ___?",
+      slots: [
+        { accepted: ["train", "M3", "express"], distractors: ["thing", "fast", "good"] },
+        { accepted: ["to NYC", "to Boston", "running"], distractors: ["fast", "yes", "now"] },
+        { accepted: ["on time", "delayed", "late"], distractors: ["fast", "good", "OK"] },
+        { accepted: ["", "today", ""], distractors: ["now", "yes", "fast"] },
+      ],
+      tr_hint:
+        "Tren gecikme sorma. 'Is the train on time?' Türk öğrenci 'train late?' der — kabaca.",
+      example_filled: "Excuse me — is the train to NYC on time today?",
+    },
+    {
+      id: "ex.dt17.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Right now? Yeah, the 3:45 is delayed about 20 minutes." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Yes, it's moved to platform 8 — check the board." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(thanks for letting me know)",
+        "(any |is there a )?(platform change)\\??",
+        "(any |is there a )?(specific reason|cause)\\??",
+        "(when'?s )?(the new ETA)\\??",
+      ],
+      tr_hint:
+        "Gecikme onaylandı — platform sor. Türk öğrenci 'OK' der; eski platformda bekler — kaçırır.",
+      ideal_answer: "Thanks. Any platform change?",
+    },
+    {
+      id: "ex.dt17.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Track 8 — board shows it's leaving in 5 minutes.",
+      accepted_patterns: [
+        "(thanks)(,)? (i'?ll head there|moving now)",
+        "(perfect)(,)? (got it)",
+        "(could you )?(remind me which direction)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yeni platform öğrendin — net + acele. Türk öğrenci 'OK' der yavaş; 5 dk = hemen.",
+      ideal_response: "Thanks — heading there now!",
+    },
+    {
+      id: "ex.dt17.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Tren geç mi? Hangi platform?",
+      wrong_en: "Train late? Which platform?",
+      right_en: "Is the train delayed? And has the platform changed?",
+      why_tr:
+        "Tek kelimeli sorular = kabul ama net değil. Doğru: 'Is the train delayed?' + 'has the platform changed?' yapısı tam.",
+    },
+    {
+      id: "ex.dt17.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Running late' = ?",
+          options: [
+            "Gecikiyor.",
+            "Hızlı koşuyor.",
+            "Geç ödeme.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Idiom: 'running late' = programdan geri. Yaygın.",
+        },
+        {
+          q: "'Platform' tren anlamı?",
+          options: [
+            "Tren peronu.",
+            "Tek kişilik.",
+            "Site.",
+            "Yazılım.",
+          ],
+          correct: 0,
+          tr_explanation: "Tren istasyonu peronu. UK 'platform 5', US 'track 8'.",
+        },
+        {
+          q: "'Board' tren istasyonu anlamı?",
+          options: [
+            "Pano (canlı tren bilgileri).",
+            "Tahta.",
+            "Yönetim.",
+            "Otobüs.",
+          ],
+          correct: 0,
+          tr_explanation: "'Departure board' = kalkış panosu. Gerçek zamanlı bilgi.",
+        },
+        {
+          q: "'ETA' = ?",
+          options: [
+            "Tahmini varış saati.",
+            "Geç kalma.",
+            "Eski tren.",
+            "Yeni rota.",
+          ],
+          correct: 0,
+          tr_explanation: "'Estimated Time of Arrival'. Gecikme durumunda kritik.",
+        },
+        {
+          q: "Tren gecikme + platform değişimi EN net?",
+          options: [
+            "Train late?",
+            "Is the train delayed? Has the platform changed?",
+            "Platform!",
+            "Wait.",
+          ],
+          correct: 1,
+          tr_explanation: "İki bilgi = iki soru = net.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2763,6 +3511,131 @@ export const dailyTransportLesson_17_8: BundledLesson = {
       ipa: "wʊd jə laɪk maɪ siːt",
       tr_hint:
         "Saygılı teklif. 'Would you' bağlanır → 'wʊd-jə'. 'Like my seat' net. Yumuşak ton + soru yükselen.",
+    },
+    {
+      id: "ex.dt17.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Would you like ___ ___? I'm ___ ___.",
+      slots: [
+        { accepted: ["my", "this"], distractors: ["yours", "the", "a"] },
+        { accepted: ["seat", "spot"], distractors: ["place", "thing", "spot here"] },
+        { accepted: ["getting off", "happy to stand", "good standing"], distractors: ["fast", "yes", "go"] },
+        { accepted: ["soon", "anyway", "next stop"], distractors: ["fast", "now", "OK"] },
+      ],
+      tr_hint:
+        "Otobüste yer verme teklif. 'Would you like my seat?' Türk öğrenci aniden kalkar — söylemeden + kabaca.",
+      example_filled: "Would you like my seat? I'm getting off soon.",
+    },
+    {
+      id: "ex.dt17.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Oh thank you! That's so kind." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thank you, but I'm getting off soon too. Save it for someone else." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(of course|no problem|happy to)",
+        "(please )?(have a seat)",
+        "(you'?re welcome)",
+        "(sure )?(it'?s yours)",
+      ],
+      tr_hint:
+        "Yaşlı/hamile/yaralı yolcuya yer ver. Bu durumda 'no problem' veya 'have a seat'.",
+      ideal_answer: "Of course — please, have a seat.",
+    },
+    {
+      id: "ex.dt17.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Oh thanks, but I'm fine standing — really!",
+      accepted_patterns: [
+        "(are you sure)\\??",
+        "(no problem|no worries)(,)? (let me know if you change your mind)",
+        "(of course)(,)? (no problem)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yer reddedildi — 'Are you sure?' bir kez kontrol + kabul. Türk öğrenci ısrar eder; baskıcı.",
+      ideal_response: "Are you sure? No problem either way.",
+    },
+    {
+      id: "ex.dt17.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Buyrun, oturun.",
+      wrong_en: "Sit here please.",
+      right_en: "Would you like my seat? I'm getting off soon.",
+      why_tr:
+        "'Sit here please' emir + kabaca. Doğru: 'Would you like' soru + nedeni paylaş. Daha kibar.",
+    },
+    {
+      id: "ex.dt17.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Yer vermek için EN profesyonel?",
+          options: [
+            "Sit!",
+            "Would you like my seat?",
+            "Stand here.",
+            "Move.",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + soft soru. Reddetme seçeneği var.",
+        },
+        {
+          q: "Yer red edilince doğru tepki?",
+          options: [
+            "Israr.",
+            "Are you sure? No problem either way.",
+            "Mecbur.",
+            "Sus.",
+          ],
+          correct: 1,
+          tr_explanation: "Bir kere kontrol + saygıyla kabul = sosyal zeka.",
+        },
+        {
+          q: "'Getting off soon' niye söylenir?",
+          options: [
+            "Karşı taraf yere çok bağlanmaz.",
+            "Boş söz.",
+            "Hızlı.",
+            "Şart.",
+          ],
+          correct: 0,
+          tr_explanation: "'Zaten ineceğim' = teklif daha kolay kabul.",
+        },
+        {
+          q: "Otobüste 'priority seats' kim için?",
+          options: [
+            "Yaşlı, hamile, engelli, küçük çocuk.",
+            "VIP.",
+            "Çocuk.",
+            "Herkes.",
+          ],
+          correct: 0,
+          tr_explanation: "Standart kural: bu gruplara yer ver.",
+        },
+        {
+          q: "'Save it for someone else' = ?",
+          options: [
+            "Başkasına sakla / başkasına ver.",
+            "Sakla.",
+            "Kullan.",
+            "Sat.",
+          ],
+          correct: 0,
+          tr_explanation: "Nazik red. Sen kalkma, başkası ihtiyaç duyabilir.",
+        },
+      ],
     },
   ],
 };

@@ -218,6 +218,162 @@ export const customLesson_3_1: BundledLesson = {
         "'Have allergy' yanlis — sayilabilir isim, 'a' gerekli. Ya 'I have a milk allergy' ya da 'I'm allergic to milk' kullan.",
     },
     // ============================================================
+    // PHASE 6D — sentence_pattern + dialogue_gap + listen_respond + thinking_trap + recall_quiz
+    // ============================================================
+    {
+      id: "ex.3.1.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "A2",
+      template: "I'm allergic to ___, so I can't ___ anything with ___.",
+      slots: [
+        {
+          accepted: ["peanuts", "shellfish", "dairy", "gluten", "eggs", "soy"],
+          distractors: ["peanut allergy", "the peanuts", "milk allergic"],
+        },
+        {
+          accepted: ["eat", "have", "order", "try"],
+          distractors: ["take", "drink eat", "do"],
+        },
+        {
+          accepted: [
+            "nuts",
+            "milk",
+            "wheat",
+            "egg",
+            "shellfish",
+            "soy",
+            "traces",
+          ],
+          distractors: ["nut things", "the nuts inside", "milk inside"],
+        },
+      ],
+      tr_hint:
+        "'Allergic to [X]' sabit yapı. 'Can't eat anything with [Y]' = içinde Y olan hiçbir şey yiyemem. Türk öğrenci 'I am allergic peanut' der — 'to' zorunlu, 'a/the' gereksiz isim öncesi.",
+      example_filled:
+        "I'm allergic to peanuts, so I can't eat anything with nuts.",
+    },
+    {
+      id: "ex.3.1.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "A2",
+      turns: [
+        {
+          speaker: "npc",
+          text: "Any allergies or dietary restrictions I should know about?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Got it — I'll flag that with the kitchen right away.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m|i am) allergic to (peanuts?|nuts?|shellfish|dairy|gluten|eggs?|soy)",
+        "(i have|i'?ve got) a (peanut|nut|shellfish|dairy|gluten|egg|soy) allergy",
+        "i can'?t (eat|have) (peanuts?|nuts?|shellfish|dairy|gluten)",
+        "(no|without) (peanuts?|nuts?|gluten|dairy|shellfish|eggs?)",
+      ],
+      tr_hint:
+        "Garson alerji soruyor. Net cevap: 'I'm allergic to [X]' veya 'I have a [X] allergy'. Türk öğrenci 'I no eat fish' der — 'I'm allergic to fish' ya da 'I can't eat fish' kullan.",
+      ideal_answer: "I'm allergic to peanuts.",
+    },
+    {
+      id: "ex.3.1.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "A2",
+      npc_line: "Is cross-contact a problem, or just direct ingredients?",
+      accepted_patterns: [
+        "(just|only) (the )?(direct |main )?ingredients( is fine| is okay)?",
+        "(cross[- ]?contact )?(is a problem|matters|is serious)",
+        "trace amounts (are )?(a problem|okay|fine)",
+        "(i'?m|it'?s) (severe|sensitive|really careful)",
+        "please be (super |extra )?careful",
+        "(no|yes) cross[- ]?contact",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson 'çapraz temas mı sorun, yoksa sadece direkt malzeme mi?' diye soruyor. Türk öğrenci 'no problem' der — net cevap: 'Just direct ingredients is fine' veya 'Cross-contact is a problem'.",
+      ideal_response: "Cross-contact is a problem — please be careful.",
+    },
+    {
+      id: "ex.3.1.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "A2",
+      tr_thought: "Süte alerjim var.",
+      wrong_en: "I am allergy to milk.",
+      right_en: "I'm allergic to milk.",
+      why_tr:
+        "Türk 'alerji' isim olarak doğrudan çevirir — 'I am allergy' yanlış. 'Allergy' isim, 'allergic' sıfat. 'I am allergic to [X]' veya 'I have a [X] allergy' iki doğru yapı. Türkçe 'alerji + var' İngilizce sıfat + edat ile kurulur.",
+    },
+    {
+      id: "ex.3.1.rq1",
+      type: "recall_quiz",
+      difficulty: 2,
+      cefr_band: "A2",
+      items: [
+        {
+          q: "'Allergic' kelimesi hangi sınıftır?",
+          options: ["İsim", "Sıfat", "Fiil", "Zarf"],
+          correct: 1,
+          tr_explanation:
+            "'Allergic' = sıfat. 'Allergy' = isim. Türk 'I am allergy' der — yanlış, çünkü 'allergy' isim. 'I am allergic to [X]' doğru: am + sıfat + edat.",
+        },
+        {
+          q: "'Cross-contact' ne demek?",
+          options: [
+            "İki masa karşılaştırma",
+            "Çapraz temas (alerjen başka yemekle karışma)",
+            "Garson + chef iletişimi",
+            "Yan yana servis",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Cross-contact: glutensiz makarna buğdaylı suyla pişerse alerjen geçer. Şiddetli alerjisi olanlar restoranı bu yüzden sorar — 'trace amounts' bile yetebilir.",
+        },
+        {
+          q: "'Bunda fıstık var mı?' — en doğal soru?",
+          options: [
+            "Got nuts in this?",
+            "Does this contain any nuts?",
+            "Have nuts inside?",
+            "Is nuts in here?",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Does this contain [X]?' restoran standardı. 'Contain' = içermek. Türk 'have' der — 'have' iyelik, 'contain' bileşen.",
+        },
+        {
+          q: "'Lactose intolerant' = ?",
+          options: [
+            "Laktoz alerjisi (anafilaktik)",
+            "Laktoz intoleransı (sindirim sorunu)",
+            "Süt sevmem",
+            "Laktozsuz diyet",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Intolerant ≠ allergic. Intolerance = sindirim sorunu (rahatsızlık). Allergy = bağışıklık tepkisi (anafilaksi riski). 'I'm lactose intolerant' = laktozu sindiremiyorum.",
+        },
+        {
+          q: "'I'll flag it with the kitchen' = ?",
+          options: [
+            "Mutfağa bayrak çekeceğim",
+            "Mutfağa bildireceğim",
+            "Mutfağı işaretliyorum",
+            "Mutfaktan çıkıyorum",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Flag [X] with [Y]' idiom — 'X'i Y'ye dikkat çekmek/bildirmek'. Restoran personeli alerji notunu mutfağa iletir. Türk 'bayrak' literal çevirir — burada metafor.",
+        },
+      ],
+    },
+    // ============================================================
     // VOCAB PACK — order.custom.3.1 (CEFR: A1:3 A2:4 B1:2 B2:2 C1:1 C2:1)
     // ============================================================
     {
@@ -579,6 +735,159 @@ export const customLesson_3_2: BundledLesson = {
         "'Put extra to cheese' Turkce mantik — Ingilizce yapisi degil. 'Extra cheese' sifat + isim. 'Could I get [X], please?' = kibar sipariş kalibi.",
     },
     // ============================================================
+    // PHASE 6D — sentence_pattern + dialogue_gap + listen_respond + thinking_trap + recall_quiz
+    // ============================================================
+    {
+      id: "ex.3.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "A2",
+      template: "Could I get it ___ ___, and ___ on the side?",
+      slots: [
+        {
+          accepted: ["without", "with no", "minus", "hold"],
+          distractors: ["with not", "without of", "no with"],
+        },
+        {
+          accepted: [
+            "onions",
+            "pickles",
+            "mayo",
+            "mustard",
+            "cheese",
+            "tomatoes",
+          ],
+          distractors: ["onion big", "the pickle one", "mayonez"],
+        },
+        {
+          accepted: ["the sauce", "the dressing", "the mayo", "the cheese"],
+          distractors: ["sauce together", "extra side sauce", "side dressing"],
+        },
+      ],
+      tr_hint:
+        "Sandviç customize standart kalıp: 'without [X], [Y] on the side'. Türk öğrenci 'I don't want X, give Y separate' der — restoran kalıbı 'without/hold' + 'on the side'. Daha kısa, daha sıcak.",
+      example_filled:
+        "Could I get it without onions, and the sauce on the side?",
+    },
+    {
+      id: "ex.3.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "A2",
+      turns: [
+        { speaker: "npc", text: "And what can I make you today?" },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "No problem — extra cheese and no onions. Coming right up.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could|can) i (get|have) (the |a )?(turkey|chicken|veggie|club) .{0,40}(extra|no|without|hold) (cheese|onions?|mayo)",
+        "(the )?(turkey|chicken|veggie|club|burger).{0,30}(extra|no|without|hold) (cheese|onions?)",
+        "i'?ll (have|take) .{0,30}(extra|no|without|hold) (cheese|onions?)",
+        "(extra|more) (cheese|sauce|mayo).{0,20}(no|without|hold) (onions?|pickles?|mayo)",
+      ],
+      tr_hint:
+        "Garson sipariş istiyor. Hem ana yemeği seç hem değişiklik söyle: 'I'll have the turkey, extra cheese, no onions, please'. Türk öğrenci ayrı ayrı söyler — tek cümlede topla.",
+      ideal_answer:
+        "Could I get the turkey with extra cheese and no onions, please?",
+    },
+    {
+      id: "ex.3.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "A2",
+      npc_line: "Anything you want me to change about it?",
+      accepted_patterns: [
+        "(no|without|hold|skip) (the )?(onions?|tomatoes?|pickles?|mayo|mustard|cheese)",
+        "(extra|more|double) (cheese|mayo|sauce|pickles?|mustard)",
+        "(easy|light) on the (sauce|mayo|cheese|salt)",
+        "(could|can) (you|i) (swap|substitute|sub) .{0,20} for",
+        "(dressing|sauce|mayo) on the side",
+        "no thanks( it'?s fine)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson 'değişiklik ister misin?' diye soruyor. Türk öğrenci 'normal' der — yerleşik kalıp: 'No onions please', 'Extra cheese', 'Easy on the mayo', 'Dressing on the side'.",
+      ideal_response: "No onions and easy on the mayo, please.",
+    },
+    {
+      id: "ex.3.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "A2",
+      tr_thought: "Soğan istemiyorum.",
+      wrong_en: "I don't want onion.",
+      right_en: "No onions, please.",
+      why_tr:
+        "Türk 'istemiyorum' kelime kelime çevirir — 'I don't want' gramerce doğru ama restoran tonunda ağır, kötü görünür. ABD'de standart: 'No [X], please' veya 'Hold the [X]'. Daha kısa, daha profesyonel. Çoğul 'onions' (soğan parçaları) standart.",
+    },
+    {
+      id: "ex.3.2.rq1",
+      type: "recall_quiz",
+      difficulty: 2,
+      cefr_band: "A2",
+      items: [
+        {
+          q: "'Hold the mayo' = ?",
+          options: [
+            "Mayonezi tut",
+            "Mayonez koyma",
+            "Mayonez sıcak tut",
+            "Mayonezi bekle",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Hold [X]' = sipariş slang'inde 'X koyma'. Literal 'tut' anlamı yok burada — restoran idiomu. 'Skip [X]' ve 'No [X]' eş anlamlı.",
+        },
+        {
+          q: "'Easy on the sauce' = ?",
+          options: ["Sostan bol", "Sostan az", "Sos yok", "Sos ayrı"],
+          correct: 1,
+          tr_explanation:
+            "'Easy/light on [X]' = az koy. 'Heavy on [X]' = bol koy. 'No [X]' = hiç yok. 'On the side' = ayrı kasede.",
+        },
+        {
+          q: "'Sub avocado for bacon' = ?",
+          options: [
+            "Avokado + pastırma birlikte",
+            "Pastırma yerine avokado",
+            "Avokado yerine pastırma",
+            "İkisi de yok",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sub [X] for [Y]' = Y'yi kaldır, X koy. Yön önemli: ilk gelen kelime yeni gelen ürün, 'for' sonrası çıkan. Türk ters okuyabilir.",
+        },
+        {
+          q: "Patates yerine salata isteyen kalıp?",
+          options: [
+            "Change salad for fries",
+            "Could you swap the fries for a salad?",
+            "Substitute fries on salad",
+            "Salad instead fries",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Swap [X] for [Y]' = X'i Y ile değiştir. 'Substitute' (sub) eş anlamlı. 'Change' yanlış kullanım, 'instead' edatla kullanılır.",
+        },
+        {
+          q: "'On the side' = ?",
+          options: [
+            "Yan tarafa",
+            "Ayrı kasede (sos/garnitür)",
+            "Masanın yanı",
+            "Yan menü",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On the side' restoran idiomu = ayrı kasede ver. Sos, dressing, garnitür için yaygın. Diyet/tat kontrolü için istenir.",
+        },
+      ],
+    },
+    // ============================================================
     // VOCAB PACK — order.custom.3.2 (CEFR: A1:3 A2:4 B1:2 B2:2 C1:1 C2:1)
     // ============================================================
     {
@@ -928,6 +1237,166 @@ export const customLesson_3_3: BundledLesson = {
         "'Vegan' tek basina sifat — 'person' gereksiz. Turkce 'Vegan biriyim' kelime kelime cevirisi. 'I'm vegan' tek basina yeterli.",
     },
     // ============================================================
+    // PHASE 6D — sentence_pattern + dialogue_gap + listen_respond + thinking_trap + recall_quiz
+    // ============================================================
+    {
+      id: "ex.3.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "A2",
+      template: "I'm ___, so I don't eat ___ or ___.",
+      slots: [
+        {
+          accepted: [
+            "vegan",
+            "vegetarian",
+            "pescatarian",
+            "plant-based",
+            "gluten-free",
+          ],
+          distractors: ["vegans", "a vegan person", "vegetable"],
+        },
+        {
+          accepted: ["meat", "dairy", "fish", "gluten", "eggs"],
+          distractors: ["meat things", "the meat", "meatly"],
+        },
+        {
+          accepted: [
+            "dairy",
+            "eggs",
+            "fish",
+            "honey",
+            "any animal products",
+            "anything with milk",
+          ],
+          distractors: ["dairys", "the eggs all", "anything animal"],
+        },
+      ],
+      tr_hint:
+        "Diyet tanımlama kalıbı: 'I'm [diet], so I don't eat [X] or [Y]'. Türk 'Ben vegan biriyim' der — 'I'm vegan' tek başına yeterli, 'person' gerekmez. 'Eat' + isim (sayılamayan, çoğulsuz).",
+      example_filled: "I'm vegan, so I don't eat dairy or eggs.",
+    },
+    {
+      id: "ex.3.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "A2",
+      turns: [
+        {
+          speaker: "npc",
+          text: "Welcome! Have you been here before, or should I walk you through the menu?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Of course — our falafel plate is fully vegan, and the risotto is gluten-free.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m|i am) (vegan|vegetarian|pescatarian|gluten[- ]free|plant[- ]based)",
+        "(do you have|got any|any) (vegan|vegetarian|veggie|gluten[- ]free|plant[- ]based) (options|dishes|meals)",
+        "what'?s (vegan|vegetarian|gluten[- ]free)( on the menu)?",
+        "i don'?t eat (meat|dairy|fish|gluten|animal products)",
+      ],
+      tr_hint:
+        "Garson menü tanıtmak istiyor. Diyetini söyle veya direkt sor: 'I'm vegan — do you have any options?' Türk 'I am vegetarian person' der — 'person' gereksiz, sadece 'I'm vegetarian'.",
+      ideal_answer: "I'm vegan — do you have any options?",
+    },
+    {
+      id: "ex.3.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "A2",
+      npc_line: "Is the risotto okay? It has parmesan, so it's not vegan.",
+      accepted_patterns: [
+        "(no|that won'?t work|then no|i'?ll skip)",
+        "(do|does) (you have|the menu have) (something|anything) (vegan|without dairy)",
+        "(what about|how about) (the |the )?(falafel|salad|pasta)",
+        "(could|can) you (make|do) it without (cheese|parmesan|dairy)",
+        "(sorry )?no dairy for me",
+        "(could|can) i (get|have) (something|the falafel) (instead|else)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson 'risotto'da parmesan var, vegan değil' dedi. Türk 'oh okay' der — alternatif iste: 'Could you make it without the parmesan?' veya 'What about the falafel?'.",
+      ideal_response: "Could you make it without the parmesan?",
+    },
+    {
+      id: "ex.3.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "A2",
+      tr_thought: "Ben vejetaryen biriyim.",
+      wrong_en: "I am a vegetarian person.",
+      right_en: "I'm vegetarian.",
+      why_tr:
+        "Türk 'birisi/insan' kelimesini kelime kelime çevirir — 'person' İngilizce'de gereksiz. 'Vegetarian' tek başına sıfat olarak kullanılır: 'I'm vegetarian'. İsim olarak da kullanılabilir: 'I'm a vegetarian' (a ile, person'sız). En kısa ve doğal: sıfat formu.",
+    },
+    {
+      id: "ex.3.3.rq1",
+      type: "recall_quiz",
+      difficulty: 2,
+      cefr_band: "A2",
+      items: [
+        {
+          q: "Vegetarian ve vegan farkı?",
+          options: [
+            "İkisi aynı şey",
+            "Vegetarian et yemez ama süt/yumurta yiyebilir; vegan hiç hayvansal ürün yemez",
+            "Vegan balık yer, vegetarian yemez",
+            "Vegetarian sadece yeşil yer",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Vegetarian: et + balık yok ama süt + yumurta + bal olabilir. Vegan: hiçbir hayvansal ürün yok. ABD'de 'pescatarian' = vegetarian + balık.",
+        },
+        {
+          q: "'Plant-based' = ?",
+          options: [
+            "Bitkisel temelli (genelde vegan)",
+            "Sebzeci",
+            "Bitki yetiştiren",
+            "Tabakta bitki",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Plant-based' = bitki temelli diyet, çoğunlukla vegan ile aynı anlamda kullanılır. Bazıları 'plant-based' diyet için 'mostly' (çoğunlukla) kullanır, vegan kesin.",
+        },
+        {
+          q: "'Gluten-free' = ?",
+          options: ["Glutenli", "Glutensiz", "Az glutenli", "Tahılsız"],
+          correct: 1,
+          tr_explanation:
+            "'[X]-free' = X'siz. 'Gluten-free' = glutensiz (buğday, arpa, çavdar yok). Çölyak hastaları + duyarlılığı olanlar için.",
+        },
+        {
+          q: "'Do you have any vegan options?' — 'options' neden çoğul?",
+          options: [
+            "Birden fazla seçenek var diye",
+            "Tek seçeneği soramazsın",
+            "Vegan çoğul",
+            "Yanlış, 'option' olmalı",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Any [X]?' yapısında çoğul kullanılır — 'birden fazla olabilir' anlamı. 'Any vegan option?' tekil de söylenir ama çoğul daha doğal.",
+        },
+        {
+          q: "'I don't eat meat' yapısı?",
+          options: [
+            "Özne + don't + fiil + nesne",
+            "Özne + no + nesne + fiil",
+            "Özne + fiil + no",
+            "Özne + nesne + don't",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Olumsuz Present Simple: özne + don't (do not) + temel fiil + nesne. Türk 'I no meat eat' der — kelime sırası tamamen yanlış. 'I don't eat meat' standart.",
+        },
+      ],
+    },
+    // ============================================================
     // VOCAB PACK — order.custom.3.3 (CEFR: A1:3 A2:4 B1:2 B2:2 C1:1 C2:1)
     // ============================================================
     {
@@ -1255,6 +1724,159 @@ export const customLesson_3_4: BundledLesson = {
         "'Extra' = eks-tra, vurgu basta. 'Cheese' = ciiz, uzun i. 'Hold' kisa, l hafif. 'Mayo' = mey-o, ilk hece vurgulu. Iki istek arasinda kisa duraksama.",
     },
     // ============================================================
+    // PHASE 6D — sentence_pattern + dialogue_gap + listen_respond + thinking_trap + recall_quiz
+    // ============================================================
+    {
+      id: "ex.3.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "A2",
+      template: "I'll have the ___ on ___ with ___, please.",
+      slots: [
+        {
+          accepted: ["turkey", "chicken", "club", "veggie", "tuna", "Italian"],
+          distractors: ["the turkey one", "turkey thing", "for turkey"],
+        },
+        {
+          accepted: [
+            "wheat",
+            "white",
+            "Italian herb",
+            "multigrain",
+            "sourdough",
+          ],
+          distractors: ["the wheat one", "wheat type", "wheat bread bread"],
+        },
+        {
+          accepted: [
+            "extra cheese",
+            "no mayo",
+            "everything",
+            "lettuce and tomato",
+            "no onions",
+          ],
+          distractors: ["extras", "extra to cheese", "everything for"],
+        },
+      ],
+      tr_hint:
+        "Sandviç sipariş kalıbı: 'I'll have the [ekmek-üzeri sandviç] on [ekmek] with [modifikasyon]'. Türk 'I want one turkey sandwich on bread' der — 'on [bread type]' ekmek seçimini belirtir, sadece 'bread' çok genel.",
+      example_filled:
+        "I'll have the turkey on wheat with no mayo, please.",
+    },
+    {
+      id: "ex.3.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "A2",
+      turns: [
+        { speaker: "npc", text: "Alright, what bread are we doing today?" },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Wheat it is. Cheese? American, swiss, or pepper jack?",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(the )?(wheat|white|italian|herb|multigrain|sourdough)( bread)?( please)?",
+        "(i'?ll have|i'?d like|can i get|let'?s do) (the )?(wheat|white|italian|multigrain)",
+        "wheat( please)?",
+        "(let'?s go with|make it) (the )?(wheat|white|italian)",
+      ],
+      tr_hint:
+        "Sub shop'ta ekmek seçimi. Tek kelime yeter: 'Wheat, please' veya 'Let's do the Italian'. Türk öğrenci 'bread' der — ekmek tipi söylenmeli (wheat, white, multigrain).",
+      ideal_answer: "Wheat, please.",
+    },
+    {
+      id: "ex.3.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "A2",
+      npc_line: "Veggies and sauces?",
+      accepted_patterns: [
+        "(lettuce|tomatoes?|onions?|pickles?|peppers?|olives?)( and| with)? (lettuce|tomatoes?|onions?|pickles?|peppers?)",
+        "(no|without|hold|skip) (the )?(onions?|tomatoes?|pickles?|mayo|mustard)",
+        "(everything|the works)( except| but)?",
+        "(extra|more) (mayo|mustard|ranch|lettuce)",
+        "(light|easy) on the (mayo|sauce|mustard)",
+        "(dressing|sauce|mayo) on the side",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sandwich artist sebze+sos soruyor. Türk 'normal' der — net liste söyle: 'Lettuce, tomato, no onions, extra mayo' veya 'Everything except onions'.",
+      ideal_response:
+        "Lettuce, tomato, no onions, and extra mayo, please.",
+    },
+    {
+      id: "ex.3.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "A2",
+      tr_thought: "Ekstra peynir koyabilir misin?",
+      wrong_en: "Can you put extra to cheese?",
+      right_en: "Could I get extra cheese?",
+      why_tr:
+        "Türk '-i, -e, -a' eklerini İngilizce'de 'to' ile karşılar — 'extra to cheese' yanlış yapı. 'Extra cheese' sıfat + isim, edat gerekmez. Kibar kalıp: 'Could I get [X]?' = 'Alabilir miyim?'. Türk 'Can you put' kullanır ama 'put' = koy, garsona buyrukla benzer ton. 'Get/have' nötr.",
+    },
+    {
+      id: "ex.3.4.rq1",
+      type: "recall_quiz",
+      difficulty: 2,
+      cefr_band: "A2",
+      items: [
+        {
+          q: "'On wheat bread' yapısında 'on' ne anlama gelir?",
+          options: [
+            "Ekmeğin üstünde (literal)",
+            "Ekmek seçimi (sandviç yapım)",
+            "Ekmek hakkında",
+            "Ekmek var",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Sub shop'larda 'on [bread]' = '[ekmek] üzerine yapılmış sandviç'. 'I'll have the turkey on wheat' = 'wheat ekmekli turkey sandviçini alacağım'. 'On rye', 'on white' eş kullanım.",
+        },
+        {
+          q: "'Everything except onions' = ?",
+          options: [
+            "Soğan dahil her şey",
+            "Soğan hariç her şey",
+            "Sadece soğan",
+            "Soğan ve diğerleri",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Everything except [X]' = X hariç her şey. 'Everything but [X]' eş anlamlı. 'The works' = bütün toppingler dahil — onunla 'except X' kullanılır.",
+        },
+        {
+          q: "'Sub avocado for bacon' yön?",
+          options: [
+            "Pastırma çıkar, avokado koy",
+            "Avokado çıkar, pastırma koy",
+            "İkisi birden",
+            "Hiçbiri",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Sub [X] for [Y]' = Y'yi al, yerine X koy. İlk gelen yeni (avokado), 'for' sonrası çıkan (bacon). Türk ters çevirebilir — yön kritik.",
+        },
+        {
+          q: "'Light on the mayo' = ?",
+          options: ["Mayo bol", "Mayo az", "Mayo ayrı", "Mayo yok"],
+          correct: 1,
+          tr_explanation:
+            "'Light/easy on [X]' = az koy. 'Heavy on [X]' = bol koy. 'No [X]' = hiç koyma. 'On the side' = ayrı ver. 4 farklı miktar/yer komutu.",
+        },
+        {
+          q: "'I don't want mayonnaise' kalıbı restoran tonunda?",
+          options: ["Sıcak ve kibar", "Ağır ve kötü ton", "Standart", "Slang"],
+          correct: 1,
+          tr_explanation:
+            "Gramerce doğru ama restoran kasasında 'I don't want' agresif/şikayetçi ton verir. Profesyonel kalıp: 'Hold the [X], please' veya 'No [X], please' — daha sıcak ve kısa.",
+        },
+      ],
+    },
+    // ============================================================
     // VOCAB PACK — order.custom.3.4 (CEFR: A1:3 A2:4 B1:2 B2:2 C1:1 C2:1)
     // ============================================================
     {
@@ -1579,6 +2201,167 @@ export const customLesson_3_5: BundledLesson = {
       ipa: "/hæf ˌpɛp.əˈroʊ.ni hæf ˈvɛdʒ.i pliːz/",
       tr_articulation_hint:
         "'Half' = hæf, agzi yana ac. 'Pepperoni' = pep-ı-rou-ni, vurgu 'rou' hecesinde. 'Veggie' = ve-cii, kisa. Iki yari arasinda hafif duraksama.",
+    },
+    // ============================================================
+    // PHASE 6D — sentence_pattern + dialogue_gap + listen_respond + thinking_trap + recall_quiz
+    // ============================================================
+    {
+      id: "ex.3.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "A2",
+      template: "Can we do a ___ pizza, ___ ___, ___ ___?",
+      slots: [
+        {
+          accepted: ["large", "medium", "small", "14-inch", "16-inch"],
+          distractors: ["big size", "very big", "pizza size large"],
+        },
+        {
+          accepted: ["half", "extra", "light on the", "no", "with"],
+          distractors: ["a half", "very", "more of"],
+        },
+        {
+          accepted: [
+            "pepperoni",
+            "cheese",
+            "mushrooms",
+            "olives",
+            "veggie",
+            "sausage",
+          ],
+          distractors: ["mushroom one", "olive type", "olives more"],
+        },
+        {
+          accepted: ["half", "extra", "light on the", "no", "with"],
+          distractors: ["a half", "another half", "double of"],
+        },
+        {
+          accepted: [
+            "mushrooms",
+            "olives",
+            "veggie",
+            "sausage",
+            "onions",
+            "peppers",
+          ],
+          distractors: ["mushroom thing", "veggies more", "onion the"],
+        },
+      ],
+      tr_hint:
+        "Pizza customize standart kalıp: boyut + half/extra/no + topping ikileme. Türk 'Big pizza with mushroom and meat' der — 'half X, half Y' net ABD pizzeria standardı. 'Half-and-half' grup siparişinde çok yaygın.",
+      example_filled:
+        "Can we do a large pizza, half pepperoni, half mushrooms?",
+    },
+    {
+      id: "ex.3.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "A2",
+      turns: [
+        { speaker: "npc", text: "What kind of pizza can I get started?" },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Sure thing — large half-and-half, thin crust. Ready in about 15 minutes.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(can|could) we (get|have|do) a (large|medium|small) .{0,40}half (pepperoni|cheese|veggie|mushroom).{0,15}half",
+        "(a |one )?(large|medium) .{0,30}(half|extra|light|no)",
+        "we'?ll (have|take|do) (a |one )?(large|medium) .{0,30}(half|with|extra)",
+        "(let'?s do|how about) a (large|medium) .{0,30}half[- ]and[- ]half",
+      ],
+      tr_hint:
+        "Pizza siparişi standart kalıp: boyut + topping + crust. Türk 'I want big pizza' der — 'Can we do a large' kibar grup tonu. Half-and-half + crust tek cümlede topla.",
+      ideal_answer:
+        "Can we do a large, half pepperoni, half veggie, thin crust?",
+    },
+    {
+      id: "ex.3.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "A2",
+      npc_line: "Thin crust, regular, or deep dish?",
+      accepted_patterns: [
+        "(thin|regular|deep dish|thick|hand[- ]tossed|new york style)( crust)?( please)?",
+        "(let'?s do|we'?ll do|i'?d like|make it) (thin|regular|deep dish|thick)",
+        "(thin|regular) please",
+        "(how about|maybe) (thin|deep dish|hand[- ]tossed)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Pizzeria garsonu hamur seçimi soruyor. Tek kelime yeter: 'Thin crust, please' veya 'Let's do deep dish'. Türk 'normal' der — 'regular' kullan veya 'thin/thick/deep dish' net seç.",
+      ideal_response: "Thin crust, please.",
+    },
+    {
+      id: "ex.3.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "A2",
+      tr_thought: "Daha çok peynir koy.",
+      wrong_en: "Put more cheese on it.",
+      right_en: "Could we get extra cheese?",
+      why_tr:
+        "Türk 'daha çok koy' emir kipi olarak çevirir — 'Put more X' kasaba ağır, agresif görünür. 'More' kıyaslama edatı, sipariş kalıbında 'extra' daha doğal. Kibar yapı: 'Could we get extra [X]?' = 'Ekstra [X] alabilir miyiz?'. 'Put' yerine 'get/have' nötr.",
+    },
+    {
+      id: "ex.3.5.rq1",
+      type: "recall_quiz",
+      difficulty: 2,
+      cefr_band: "A2",
+      items: [
+        {
+          q: "'Half pepperoni, half veggie' = ?",
+          options: [
+            "İki ayrı pizza",
+            "Yarım porsiyon pizza",
+            "Tek pizzanın yarısı pepperoni, yarısı sebzeli",
+            "Pepperoni veya sebzeli (seç birini)",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'Half [X], half [Y]' = bir pizzanın bir yarısı [X], öteki [Y]. ABD pizzeria standardı — grup siparişinde herkes farklı topping ister.",
+        },
+        {
+          q: "'Heavy on the cheese' = ?",
+          options: ["Peynir yok", "Az peynir", "Bol peynir", "Peynir ayrı"],
+          correct: 2,
+          tr_explanation:
+            "'Heavy on [X]' = bol [X]. Karşıtı 'light/easy on [X]' = az. 'Extra [X]' eş anlamlı bol için. 'No [X]' yok.",
+        },
+        {
+          q: "Pizza crust tiplerinden DEĞİL?",
+          options: ["Thin", "Deep dish", "Hand-tossed", "Smooth"],
+          correct: 3,
+          tr_explanation:
+            "Crust tipleri: thin (ince), regular (normal), thick (kalın), deep dish (Chicago), hand-tossed (elle açılmış), New York style. 'Smooth' crust değil — yüzey sıfatı.",
+        },
+        {
+          q: "Topping eklerken çoğul mu tekil mi?",
+          options: [
+            "Hep tekil: 'mushroom', 'olive'",
+            "Hep çoğul: 'mushrooms', 'olives'",
+            "Fark etmez",
+            "İlki tekil, sonrakiler çoğul",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Pizza topping = parçalar halinde dağılır, hep çoğul: 'mushrooms', 'olives', 'peppers', 'onions'. Türk 'mushroom on top' der — 'mushrooms on top' standart.",
+        },
+        {
+          q: "'Light on the sauce' = ?",
+          options: [
+            "Sos hafif (light versiyon)",
+            "Az sos",
+            "Sos yok",
+            "Açık renkli sos",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Light on [X]' = az koy. Sos miktarı az olsun anlamı. 'Light sauce' (sos tipi) ≠ 'light on the sauce' (miktar). Edatlı yapı = miktar komutu.",
+        },
+      ],
     },
     // ============================================================
     // VOCAB PACK — order.custom.3.5 (CEFR: A1:3 A2:4 B1:2 B2:2 C1:1 C2:1)
@@ -1908,6 +2691,162 @@ export const customLesson_3_6: BundledLesson = {
         "'Medium' = mi-di-ım, vurgu basta. 'Rare' = rer (R sert, agzi yuvarlak, sondaki r belirgin ABD'de). Iki kelime arasinda tire — bagli soyle. 'Please' yumusatici.",
     },
     // ============================================================
+    // PHASE 6D — sentence_pattern + dialogue_gap + listen_respond + thinking_trap + recall_quiz
+    // ============================================================
+    {
+      id: "ex.3.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "A2",
+      template: "I'd like ___ ___, ___ in the middle.",
+      slots: [
+        {
+          accepted: ["it", "the burger", "the steak", "mine"],
+          distractors: ["the cook", "for it", "to be"],
+        },
+        {
+          accepted: [
+            "medium-rare",
+            "medium",
+            "medium-well",
+            "well-done",
+            "rare",
+          ],
+          distractors: ["very cooked", "much pink", "rare medium"],
+        },
+        {
+          accepted: [
+            "a little pink",
+            "slightly pink",
+            "no pink",
+            "warm and red",
+            "just a bit pink",
+          ],
+          distractors: ["very red sweet", "no red colors", "white inside"],
+        },
+      ],
+      tr_hint:
+        "Burger doneness tarif kalıbı: 'I'd like it [derece], [renk tarifi] in the middle'. Türk 'Make it very cooked' der — yerleşik 5 derece var: rare, medium-rare, medium, medium-well, well-done. 'Pink in the middle' renk tarifi.",
+      example_filled: "I'd like it medium, a little pink in the middle.",
+    },
+    {
+      id: "ex.3.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "A2",
+      turns: [
+        { speaker: "npc", text: "How would you like that cooked?" },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Got it — medium-rare it is. Just a heads up, it'll be pink in the center.",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(medium[- ]?rare|medium|medium[- ]?well|well[- ]?done|rare)( please)?",
+        "(i'?ll have it|i'?d like it|could i get it|make it) (medium[- ]?rare|medium|medium[- ]?well|well[- ]?done|rare)",
+        "(medium[- ]?rare|medium|well[- ]?done) for me",
+        "(a bit |slightly )?pink in the (middle|center)",
+      ],
+      tr_hint:
+        "Garson pisme derecesi soruyor — cevap mutlaka bir derece terimi olmalı. Türk 'good cooked' der — 'medium-rare', 'medium', 'medium-well', 'well-done', 'rare' arasından seç.",
+      ideal_answer: "Medium-rare, please.",
+    },
+    {
+      id: "ex.3.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "A2",
+      npc_line:
+        "Just a heads up — for medium-rare, it'll be pink in the center. Sound good?",
+      accepted_patterns: [
+        "(yes|yeah|yep|sure|perfect|great|fine|good|works|sounds good)",
+        "(that'?s )?(what i want|how i like it|exactly)",
+        "(actually )?(can|could) (you|i) (make|do|cook) it (more|less|medium|well[- ]?done)",
+        "(let'?s do|how about) (medium|medium[- ]?well|well[- ]?done) (instead|then)",
+        "no.{0,10}(medium|well[- ]?done|more cooked)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Garson 'medium-rare pembe olur, tamam mı?' diye onaylıyor. Türk 'okay' der — 'Sounds good' onay, veya değiştir: 'Actually, let's do medium-well instead'. Türk 'pink' duyunca yanlış anlayıp panik yapabilir — renk normal.",
+      ideal_response: "Sounds good, thanks.",
+    },
+    {
+      id: "ex.3.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "A2",
+      tr_thought: "Çok iyi pişmiş istiyorum.",
+      wrong_en: "I want very cooked.",
+      right_en: "I'd like it well-done, please.",
+      why_tr:
+        "Türk 'çok iyi pişmiş' kelime kelime çevirir — 'very cooked' Yok İngilizce'de derece sıfatı. ABD'de 5 sabit terim var: rare → medium-rare → medium → medium-well → well-done. 'Well-done' = çok iyi pişmiş, terim sabit. 'I want' kasaba ağır, 'I'd like' kibar.",
+    },
+    {
+      id: "ex.3.6.rq1",
+      type: "recall_quiz",
+      difficulty: 2,
+      cefr_band: "A2",
+      items: [
+        {
+          q: "Az pişmiş (içi pembe-kırmızı) burger?",
+          options: ["Well-done", "Medium-rare", "Raw", "Medium-well"],
+          correct: 1,
+          tr_explanation:
+            "Sıra: rare (çiğ'a yakın) → medium-rare (az pişmiş, pembe-kırmızı) → medium (orta, pembe) → medium-well (çoğu pişmiş) → well-done (iyi pişmiş). 'Raw' = çiğ (yenmez).",
+        },
+        {
+          q: "Garson 'How would you like that cooked?' diye sordu. UYGUNSUZ cevap?",
+          options: [
+            "Medium-rare, please",
+            "Well-done",
+            "Very good please",
+            "Medium, pink in the middle",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'Very good' = tat değerlendirmesi, soru = pişme derecesi. Mutlaka derece terimi söyle: rare/medium-rare/medium/medium-well/well-done. Türk 'very good' der — soru tipini karıştırır.",
+        },
+        {
+          q: "'Pink in the middle' = ?",
+          options: [
+            "Et bozulmuş",
+            "Ortası pembe (az pişmiş işareti)",
+            "Pembe sos ekle",
+            "İçi çiğ",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Pink in the middle/center' = ortası pembe — medium veya medium-rare burger/biftek normal görünümü. Tehlike değil, derece tarifi. Türk 'pink' deyince çiğ sanır — yanlış.",
+        },
+        {
+          q: "'I'd like' yapısı 'I want'tan farkı?",
+          options: [
+            "Aynı şey",
+            "'I'd like' daha kibar (would like)",
+            "'I want' kibar",
+            "'I'd like' geçmiş zaman",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I'd like' = 'I would like' kısaltması. Restoran/garson tonu için kibar standart. 'I want' kasaba çocuksu/agresif. 'Could I get [X]?' = en kibar.",
+        },
+        {
+          q: "Steak/burger doneness terimleri sırası?",
+          options: [
+            "Raw → Medium → Cooked → Done",
+            "Rare → Medium-rare → Medium → Medium-well → Well-done",
+            "Pink → Red → Brown → Black",
+            "Light → Normal → Heavy",
+          ],
+          correct: 1,
+          tr_explanation:
+            "ABD'de standart 5 derece: rare (çok az pişmiş) → medium-rare (az pişmiş) → medium (orta) → medium-well (orta-iyi) → well-done (iyi pişmiş). 'Raw' = çiğ, restoranda servis edilmez.",
+        },
+      ],
+    },
+    // ============================================================
     // VOCAB PACK — order.custom.3.6 (CEFR: A1:3 A2:4 B1:2 B2:2 C1:1 C2:1)
     // ============================================================
     {
@@ -2232,6 +3171,165 @@ export const customLesson_3_7: BundledLesson = {
       ipa: "/ˈdrɛs.ɪŋ ɑn ðə saɪd pliːz/",
       tr_articulation_hint:
         "'Dressing' = dre-sing, vurgu basta, -ing yumusak. 'On the side' bagli soyle: an-dı-sayd. 'Side' = sayd, agzi ac. Tonlama 'side'da yumusak inis.",
+    },
+    // ============================================================
+    // PHASE 6D — sentence_pattern + dialogue_gap + listen_respond + thinking_trap + recall_quiz
+    // ============================================================
+    {
+      id: "ex.3.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "A2",
+      template: "I'll have ___ with ___, ___ on the side, ___.",
+      slots: [
+        {
+          accepted: ["spinach", "kale", "mixed greens", "romaine", "arugula"],
+          distractors: ["the spinach one", "spinach base type", "spinach with"],
+        },
+        {
+          accepted: [
+            "tomatoes and cucumbers",
+            "feta and olives",
+            "chickpeas and avocado",
+            "everything except croutons",
+            "no croutons",
+          ],
+          distractors: ["tomato and cucumber one", "feta type", "every thing"],
+        },
+        {
+          accepted: [
+            "the balsamic",
+            "the ranch",
+            "the honey mustard",
+            "the dressing",
+            "the caesar",
+          ],
+          distractors: ["sauce", "the balsamic together", "salad sauce"],
+        },
+        {
+          accepted: ["please", "thanks", "if that's okay", "thank you"],
+          distractors: ["i want", "more please", "very thanks"],
+        },
+      ],
+      tr_hint:
+        "Salad bar build kalıbı: base + toppings + dressing on the side + nezaket. Türk 'I want spinach salad with sauce' der — salata sosu için 'sauce' DEĞİL 'dressing'. 'On the side' = ayrı kasede.",
+      example_filled:
+        "I'll have spinach with tomatoes and cucumbers, the balsamic on the side, please.",
+    },
+    {
+      id: "ex.3.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "A2",
+      turns: [
+        {
+          speaker: "npc",
+          text: "What base would you like — kale, spinach, or mixed greens?",
+        },
+        { speaker: "user" },
+        {
+          speaker: "npc",
+          text: "Spinach it is. Now toppings?",
+        },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(kale|spinach|mixed greens|romaine|arugula)( please)?",
+        "(i'?ll (have|do|take)|let'?s do|could i get|can i get) (kale|spinach|mixed greens|romaine)",
+        "half (kale|spinach|mixed greens).{0,15}half",
+        "(could|can) (you|i) (mix|combine|do half)",
+      ],
+      tr_hint:
+        "Salad bar başlangıcı: yeşillik seçimi. Tek kelime yeter: 'Spinach, please' veya 'Half kale, half spinach'. Türk 'green' der — spesifik isim söyle.",
+      ideal_answer: "Spinach, please.",
+    },
+    {
+      id: "ex.3.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "A2",
+      npc_line: "And what dressing — balsamic, ranch, or honey mustard?",
+      accepted_patterns: [
+        "(balsamic|ranch|honey mustard|caesar|olive oil)( please)?",
+        "(could|can) i (have|get) (the )?(balsamic|ranch|honey mustard).{0,30}(on the side)",
+        "(balsamic|ranch|honey mustard|caesar) on the side",
+        "(light|easy) (on |dressing|with) (the )?(balsamic|ranch|dressing)",
+        "(just )?(a little|a bit of) (balsamic|ranch|dressing)",
+        "no dressing( please)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Salata sosu seçimi. Tek kelime + ekle: 'Balsamic on the side, please'. Türk 'sauce' der — salata için MUTLAKA 'dressing'. 'On the side' = ayrı vermek için en sık istek.",
+      ideal_response: "Balsamic on the side, please.",
+    },
+    {
+      id: "ex.3.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "A2",
+      tr_thought: "Salata sosu yanında olsun.",
+      wrong_en: "Give the salad sauce separate.",
+      right_en: "Dressing on the side, please.",
+      why_tr:
+        "Türk salata sosu = 'salad sauce' diye çevirir. Yanlış! Salata için sabit terim: 'dressing'. 'Sauce' = makarna, et, pizza üzerine. 'Separate' yerine yerleşik idiom: 'on the side' (ayrı kasede). 'Give' emir → 'I'd like' kibar.",
+    },
+    {
+      id: "ex.3.7.rq1",
+      type: "recall_quiz",
+      difficulty: 2,
+      cefr_band: "A2",
+      items: [
+        {
+          q: "Salata sosu için doğru kelime?",
+          options: ["Sauce", "Dressing", "Liquid", "Topping"],
+          correct: 1,
+          tr_explanation:
+            "Salata sosu = 'dressing'. 'Sauce' makarna, et, pizza için. Salataya 'sauce' demek Türk klasiği — düzelt: 'salad dressing'. Yaygın: balsamic, ranch, honey mustard, caesar.",
+        },
+        {
+          q: "'Dressing on the side' = ?",
+          options: [
+            "Sos pizza yanında",
+            "Sos ayrı kasede",
+            "Sos masada",
+            "Sos garson getirsin",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'On the side' = ayrı (küçük kasede). Salata sosunu salataya katmadan, ayrı ver. Diyet/tat kontrolü için yaygın istek — kullanıcı kendi miktarını ekler.",
+        },
+        {
+          q: "'Swap spinach for kale' yön?",
+          options: [
+            "Karalahana yerine ispanak (kale çık, spinach gel)",
+            "Ispanak yerine karalahana (spinach çık, kale gel)",
+            "İkisini de koy",
+            "İkisini de çıkar",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Swap [X] for [Y]' = Y'yi al/çıkar, yerine X koy. Bu örnekte karalahana (kale) çıkıyor, ispanak (spinach) yeni geliyor. İlk kelime yeni gelen.",
+        },
+        {
+          q: "'Everything except croutons' = ?",
+          options: [
+            "Kruton dahil her şey",
+            "Sadece kruton",
+            "Kruton hariç her şey",
+            "Kruton + 1 şey",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'Everything except [X]' = X hariç her şey. 'Everything but [X]' eş anlamlı. Salad bar'da yaygın — tek istemediğin malzemeyi söyle.",
+        },
+        {
+          q: "Glütensiz olmak isteyen biri için kritik topping?",
+          options: ["Tomatoes", "Croutons", "Cheese", "Cucumber"],
+          correct: 1,
+          tr_explanation:
+            "'Croutons' = kuru ekmek küpleri (genelde buğdaylı). Glutensiz diyet için 'no croutons' istemek şart. 'Hold the croutons' veya 'No croutons, please' yaygın.",
+        },
+      ],
     },
     // ============================================================
     // VOCAB PACK — order.custom.3.7 (CEFR: A1:3 A2:4 B1:2 B2:2 C1:1 C2:1)

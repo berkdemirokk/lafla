@@ -804,6 +804,133 @@ export const dailyPhoneLesson_21_2: BundledLesson = {
       tr_explanation:
         "Emir kipi + 'now'. Doğru: 'I'd like to' + tip (cleaning) + esnek zaman aralığı.",
     },
+    {
+      id: "ex.dph21.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'd like to ___ ___ ___ for ___ ___.",
+      slots: [
+        { accepted: ["schedule", "book", "make"], distractors: ["have", "do", "set"] },
+        { accepted: ["an appointment", "a checkup", "a cleaning"], distractors: ["appointment", "checkup", "the appointment"] },
+        { accepted: ["", "if possible", "this week"], distractors: ["fast", "now please", "soon now"] },
+        { accepted: ["next Tuesday", "tomorrow afternoon", "Friday morning"], distractors: ["tomorrow", "Tuesday only", "any day"] },
+        { accepted: ["", "at 2 PM", "around noon"], distractors: ["fast", "now", "best time"] },
+      ],
+      tr_hint:
+        "Telefonla randevu kalıbı. 'I'd like to schedule an appointment for X' = standart. Türk öğrenci 'I want appointment' der — eksik 'to schedule'.",
+      example_filled: "I'd like to schedule an appointment for next Tuesday at 2 PM.",
+    },
+    {
+      id: "ex.dph21.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Thank you for calling. How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure. What's your preferred date and time?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i want) to (schedule|book|make) (an? )?(appointment|checkup)",
+        "(could you|can you) (set up|schedule) (an? )?appointment",
+        "(i'?m calling )?to (schedule|book) (an? )?(visit|appointment)",
+        "(what do you have )?(available|open) (this week|next week)\\??",
+      ],
+      tr_hint:
+        "Telefonla randevu. Net giriş: 'I'd like to schedule an appointment'. Türk öğrenci 'appointment please' der — eksik.",
+      ideal_answer: "Hi, I'd like to schedule an appointment for next Tuesday.",
+    },
+    {
+      id: "ex.dph21.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "We have a 2 PM or 4 PM slot tomorrow. Which works for you?",
+      accepted_patterns: [
+        "(2 PM|2:00|the 2)( works for me)?",
+        "(could you )?(do |make it) 3\\??",
+        "(4 PM|4:00|the later one)( please)?",
+        "(actually )?(could you )?(check )?(this week instead)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "İki saat teklif edildi — birini seç. Türk öğrenci 'OK' der — belirsiz. SAAT söyle.",
+      ideal_response: "2 PM works for me — thanks!",
+    },
+    {
+      id: "ex.dph21.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Yarın için randevu istiyorum.",
+      wrong_en: "I want appointment for tomorrow.",
+      right_en: "I'd like to schedule an appointment for tomorrow.",
+      why_tr:
+        "'I want appointment' eksik artikel + eksik 'to schedule'. Doğru: 'I'd like to schedule an appointment' = resmi randevu talebi.",
+    },
+    {
+      id: "ex.dph21.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Schedule an appointment' = ?",
+          options: [
+            "Randevu planla / al.",
+            "Randevu iptal et.",
+            "Randevu sat.",
+            "Randevu yaz.",
+          ],
+          correct: 0,
+          tr_explanation: "'Schedule' = planla. 'Book' eşanlamlı. Resmi randevu için yaygın.",
+        },
+        {
+          q: "'Available slot' nedir?",
+          options: [
+            "Müsait saat (boş slot).",
+            "Dolu saat.",
+            "Yeni randevu.",
+            "Acil saat.",
+          ],
+          correct: 0,
+          tr_explanation: "'Slot' = randevu zaman dilimi. 'Available slot' = boş.",
+        },
+        {
+          q: "'Preferred date' anlamı?",
+          options: [
+            "Tercih edilen tarih.",
+            "Önceki tarih.",
+            "Gelecek tarih.",
+            "Geçmiş tarih.",
+          ],
+          correct: 0,
+          tr_explanation: "'Prefer' = tercih et. Personel sana tercih sorar.",
+        },
+        {
+          q: "'Which works for you?' = ?",
+          options: [
+            "Hangisi sana uyar?",
+            "Hangisi çalışır?",
+            "Hangi iş?",
+            "Hangini istiyorsun?",
+          ],
+          correct: 0,
+          tr_explanation: "İdiyom 'work' = uygun olmak. Plan/zaman teklifinde sabit kalıp.",
+        },
+        {
+          q: "Telefon randevu EN net?",
+          options: [
+            "Appointment tomorrow!",
+            "Hi, I'd like to schedule an appointment for tomorrow afternoon.",
+            "Tomorrow!",
+            "Give me time.",
+          ],
+          correct: 1,
+          tr_explanation: "Selam + 'schedule' + tarih + zaman aralığı = profesyonel.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1148,6 +1275,133 @@ export const dailyPhoneLesson_21_3: BundledLesson = {
       tr_explanation:
         "Tek kelime parcalari = belirsiz. Doğru: isim + konu + spesifik (Friday's reservation) + numara.",
     },
+    {
+      id: "ex.dph21.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Hi, this is ___ calling about ___. Please ___ ___ at ___.",
+      slots: [
+        { accepted: ["Berk", "John", "Yilmaz"], distractors: ["I", "me", "this person"] },
+        { accepted: ["my reservation", "tomorrow's appointment", "the invoice"], distractors: ["something", "this thing", "issue"] },
+        { accepted: ["call me back", "give me a call", "return my call"], distractors: ["phone me", "ring me", "call please"] },
+        { accepted: ["", "when you can", "as soon as possible"], distractors: ["now", "fast", "soon now"] },
+        { accepted: ["555-1234", "this number", "212-555-0199"], distractors: ["the number", "my phone", "phone"] },
+      ],
+      tr_hint:
+        "Voicemail standardı: isim + konu + geri arama + numara. Türk öğrenci kısa bırakır — sonra anlaşılmaz.",
+      example_filled: "Hi, this is Berk calling about my reservation. Please call me back at 555-1234.",
+    },
+    {
+      id: "ex.dph21.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "You've reached Lupa. We're closed — please leave a message after the beep." },
+        { speaker: "user" },
+        { speaker: "npc", text: "[BEEP]" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)(,)? (this is|my name is) \\w+",
+        "(calling|calling about|i'?m calling) (a |my )?(reservation|inquiry)",
+        "(please )?(call me back|give me a call) at",
+        "(thanks|thank you)(,)? (talk soon|appreciate it)",
+      ],
+      tr_hint:
+        "Voicemail bırakma kalıbı. Türk öğrenci sıkışır — ezberle: 'Hi, this is X calling about Y. Please call back at Z.'",
+      ideal_answer: "Hi, this is Berk calling about my reservation for Friday — please call me back at 555-1234.",
+    },
+    {
+      id: "ex.dph21.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Please leave your name, number, and a brief message after the tone.",
+      accepted_patterns: [
+        "(hi|hello)(,)? this is \\w+",
+        "(my )?(number is|phone is) \\d",
+        "(i'?m calling about|i'?d like to)",
+        "(thanks|talk soon)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sistem voicemail talimat verdi. NET cevap. Türk öğrenci sustur — beep sonrası ne diyeceğini bilmez.",
+      ideal_response: "Hi, this is Berk — 555-1234 — calling about my reservation. Thanks!",
+    },
+    {
+      id: "ex.dph21.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Mesaj bırakacağım Berk arıyor.",
+      wrong_en: "Message leaving Berk calling.",
+      right_en: "Hi, this is Berk — leaving a message.",
+      why_tr:
+        "Türkçe sıralama gibi sıralamış. Doğru: isim (this is X) + ne yapıyor (leaving a message). Konuşma sırası kritik.",
+    },
+    {
+      id: "ex.dph21.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Voicemail bırakma sırası?",
+          options: [
+            "Konu + isim + numara.",
+            "Selam + isim + konu + geri arama numarası.",
+            "Sadece konu.",
+            "Sadece numara.",
+          ],
+          correct: 1,
+          tr_explanation: "Standart: 1) Selam, 2) Kim arıyor, 3) Neden, 4) Geri arama bilgisi.",
+        },
+        {
+          q: "'After the tone' = ?",
+          options: [
+            "Tondan sonra (beep'ten sonra).",
+            "Ton içinde.",
+            "Ton önce.",
+            "Tonla birlikte.",
+          ],
+          correct: 0,
+          tr_explanation: "'Tone' = beep sesi. Voicemail standart talimatı.",
+        },
+        {
+          q: "'Call me back at X' = ?",
+          options: [
+            "X'ten beni geri ara.",
+            "X'i ara.",
+            "X'ten gelirsem ara.",
+            "X'i geri ver.",
+          ],
+          correct: 0,
+          tr_explanation: "'At [number]' = numara üzerinden. 'Call back' = geri arama.",
+        },
+        {
+          q: "Voicemail KISA tutman niye?",
+          options: [
+            "Beep limitli — 30-60 sn.",
+            "Çünkü hızlı.",
+            "Çünkü pratik.",
+            "Çünkü kibar.",
+          ],
+          correct: 0,
+          tr_explanation: "Voicemail süresi sınırlı. 20-30 sn ideal: isim + konu + numara.",
+        },
+        {
+          q: "EN profesyonel voicemail?",
+          options: [
+            "Hello call back!",
+            "Hi, this is Berk calling about Friday — please call me at 555-1234.",
+            "Berk. Friday. Call.",
+            "Mesaj.",
+          ],
+          correct: 1,
+          tr_explanation: "Tam yapı + spesifik konu + numara = anlaşılır mesaj.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1454,6 +1708,133 @@ export const dailyPhoneLesson_21_5: BundledLesson = {
       ipa: "kʊd juː hoʊld ə ˈmoʊmənt lɛt miː ˈtrænsfɜːr juː",
       tr_hint:
         "'Could you' baglanir → 'kud-ju'. 'Hold a moment' = akici. 'Transfer you' vurgu ilk hece: TRANS-fer.",
+    },
+    {
+      id: "ex.dph21.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could you ___ me ___ ___ ___ ___?",
+      slots: [
+        { accepted: ["transfer", "connect", "put"], distractors: ["send", "give", "move"] },
+        { accepted: ["to", "through to"], distractors: ["with", "for", "at"] },
+        { accepted: ["the manager", "billing", "tech support"], distractors: ["manager directly", "good person", "expert"] },
+        { accepted: ["", "please", "if possible"], distractors: ["now", "fast", "soon"] },
+        { accepted: ["", "directly", "right away"], distractors: ["yes", "OK", "thanks"] },
+      ],
+      tr_hint:
+        "Telefon transfer talebi. 'Could you transfer me to the manager?' Türk öğrenci 'I want manager' der — kabaca.",
+      example_filled: "Could you transfer me to the manager, please?",
+    },
+    {
+      id: "ex.dph21.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "I'm afraid I can't help with that directly." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — please hold while I connect you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could you|can you) (transfer|connect) me to (the )?(manager|billing|tech)",
+        "(is there )?(someone )?(else )?(i could speak to|who can help)\\??",
+        "(could you )?(put me through to|connect me with)",
+        "(may i )?(speak to|be transferred to) (a |the )?(supervisor|manager)\\??",
+      ],
+      tr_hint:
+        "Müşteri hizmetlerinde yön değiştirme. Türk öğrenci 'give manager' der — kabaca. 'Transfer me to' standart.",
+      ideal_answer: "Could you transfer me to the billing department, please?",
+    },
+    {
+      id: "ex.dph21.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Please hold while I transfer you — it might take a minute.",
+      accepted_patterns: [
+        "(thank you|thanks)(,)? (i'?ll wait|i can hold)",
+        "(no problem|of course)(,)? (take your time)",
+        "(could you )?(give me a callback )?if (we get )?disconnected\\??",
+        "(sure|okay)(,)? (i'?m happy to wait)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bekle dedi — sabırlı + ek soru. Türk öğrenci 'OK' der — disconnect olursa kayıp. 'Could you call back if disconnected?'",
+      ideal_response: "Of course — could you give me a callback if we get disconnected?",
+    },
+    {
+      id: "ex.dph21.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Yöneticiyle konuşmak istiyorum.",
+      wrong_en: "I want speak manager.",
+      right_en: "Could you transfer me to the manager?",
+      why_tr:
+        "'Want speak' eksik 'to' (want to + verb). 'Speak manager' eksik 'to the'. Daha pratik: 'Could you transfer me to the manager?' = direkt transfer rica.",
+    },
+    {
+      id: "ex.dph21.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Transfer me to X' = ?",
+          options: [
+            "Beni X'e bağla / aktar.",
+            "X'e git.",
+            "X transfer et.",
+            "Beni X'le al.",
+          ],
+          correct: 0,
+          tr_explanation: "'Transfer' telefonda = başka departman/kişiye bağlamak.",
+        },
+        {
+          q: "'Please hold' = ?",
+          options: [
+            "Lütfen bekle (telefonda).",
+            "Lütfen tut.",
+            "Lütfen kapat.",
+            "Lütfen ara.",
+          ],
+          correct: 0,
+          tr_explanation: "'Hold' telefonda = beklemede kal. Müşteri hizmetlerinde sabit.",
+        },
+        {
+          q: "'Put me through to' = ?",
+          options: [
+            "Bana bağla (transfer).",
+            "İçeri al.",
+            "Geçir bana.",
+            "Çıkar.",
+          ],
+          correct: 0,
+          tr_explanation: "'Put me through' = transfer'in eşanlamlısı. UK İngilizce'sinde yaygın.",
+        },
+        {
+          q: "'Get disconnected' anlamı?",
+          options: [
+            "Hat kesilmek (kazara).",
+            "Bağlanmak.",
+            "Konuşmak.",
+            "Aramak.",
+          ],
+          correct: 0,
+          tr_explanation: "Telefon görüşmesi kazara biterse 'we got disconnected'.",
+        },
+        {
+          q: "Telefon transfer EN kibar?",
+          options: [
+            "Give manager!",
+            "Could you transfer me to the manager, please?",
+            "Manager now.",
+            "Hand to manager.",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + transfer kelimesi + please = profesyonel.",
+        },
+      ],
     },
   ],
 };
@@ -1762,6 +2143,133 @@ export const dailyPhoneLesson_21_6: BundledLesson = {
       tr_hint:
         "'This is' baglanir → 'di-siz'. 'Call me back' = vurgu CALL + BACK. Aradaki 'me' zayif.",
     },
+    {
+      id: "ex.dph21.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Hi ___, ___ ___ ___ — calling about ___.",
+      slots: [
+        { accepted: ["Dr. Smith", "Sarah", "the team"], distractors: ["doctor", "name", "people"] },
+        { accepted: ["this is", "it's"], distractors: ["I'm", "me is", "I am"] },
+        { accepted: ["Berk", "Yilmaz", "your patient"], distractors: ["someone", "me", "I"] },
+        { accepted: ["from yesterday's call", "for the second time", "with an update"], distractors: ["calling", "phone", "good"] },
+        { accepted: ["my appointment", "the test results", "tomorrow's meeting"], distractors: ["something", "issue", "fast"] },
+      ],
+      tr_hint:
+        "Kısa voicemail yapısı. Selam + isim + bağlam + konu. Türk öğrenci ad bırakır — sonra kim anlaşılmaz.",
+      example_filled: "Hi Dr. Smith, this is Berk — calling about my appointment.",
+    },
+    {
+      id: "ex.dph21.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "You've reached Dr. Smith's office. Please leave a message after the tone." },
+        { speaker: "user" },
+        { speaker: "npc", text: "[End of voicemail]" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)(,)? this is \\w+",
+        "(calling about|i'?m calling about|i'?m calling) (my )?(appointment|results|prescription)",
+        "(please )?(call me back|return my call) at \\d{3}",
+        "(thanks|thank you)",
+      ],
+      tr_hint:
+        "Doktor ofisi voicemail — kısa + net. İsim, neden, numara. Türk öğrenci uzun anlatım yapar — pil bitsin.",
+      ideal_answer: "Hi Dr. Smith, this is Berk calling about my appointment — please call me back at 555-1234.",
+    },
+    {
+      id: "ex.dph21.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Sorry to miss your call. Please leave a brief message after the beep.",
+      accepted_patterns: [
+        "(hi|hello)(,)? this is \\w+",
+        "(calling about|i'?d like to)",
+        "(please call me back|number is \\d{3})",
+        "(thanks|talk soon)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Voicemail kuralı: selam + isim + konu + numara. 30 sn limit. Türk öğrenci panik beep duyunca konuşamaz — ezberle.",
+      ideal_response: "Hi, this is Berk — calling about Friday's reservation. 555-1234. Thanks!",
+    },
+    {
+      id: "ex.dph21.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Berk arıyor, geri arar mısınız?",
+      wrong_en: "Berk speaking, call again me?",
+      right_en: "Hi, this is Berk — please call me back when you can.",
+      why_tr:
+        "'Berk speaking' yüz yüze değil; telefonda 'This is Berk'. 'Call again me' yanlış sıra — doğru: 'call me back'. + 'when you can' nazikleştirir.",
+    },
+    {
+      id: "ex.dph21.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Telefonda kendini tanıt: ?",
+          options: [
+            "I am Berk.",
+            "This is Berk.",
+            "Berk speaking.",
+            "It is Berk.",
+          ],
+          correct: 1,
+          tr_explanation: "Telefonda 'This is X' standart. 'Berk speaking' kabul ama 'This is' daha resmî.",
+        },
+        {
+          q: "Voicemail ideal süresi?",
+          options: [
+            "5 saniye.",
+            "20-30 saniye.",
+            "2 dakika.",
+            "Sınırsız.",
+          ],
+          correct: 1,
+          tr_explanation: "Çoğu voicemail sistemi 30-60 sn limitli. Kısa + net = profesyonel.",
+        },
+        {
+          q: "'Please leave a brief message' = ?",
+          options: [
+            "Lütfen kısa mesaj bırak.",
+            "Lütfen mesaj sil.",
+            "Lütfen bekle.",
+            "Lütfen ara.",
+          ],
+          correct: 0,
+          tr_explanation: "'Brief' = kısa. Sistem talimatı.",
+        },
+        {
+          q: "'After the beep' = ?",
+          options: [
+            "Beep'ten sonra.",
+            "Beep önce.",
+            "Beep ile.",
+            "Beep yerine.",
+          ],
+          correct: 0,
+          tr_explanation: "Voicemail standart talimat. Beep = kayıt başladı.",
+        },
+        {
+          q: "Kısa voicemail EN net?",
+          options: [
+            "Berk. Bye.",
+            "Hi, this is Berk — calling about Friday. 555-1234.",
+            "Long story...",
+            "I forgot.",
+          ],
+          correct: 1,
+          tr_explanation: "İsim + konu + numara. 15 sn. Pro standardı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2069,6 +2577,134 @@ export const dailyPhoneLesson_21_7: BundledLesson = {
       tr_hint:
         "'Sorry' kisa + ust ton. 'I think I' baglanir → 'ay-thingk-ay'. 'Wrong number' vurgu WRONG + NUM.",
     },
+    {
+      id: "ex.dph21.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Sorry, ___ ___ ___ ___ ___ ___.",
+      slots: [
+        { accepted: ["I think", "I'm afraid", "looks like"], distractors: ["maybe", "perhaps maybe", "guess"] },
+        { accepted: ["I have", "I'?ve got", "I dialed"], distractors: ["have me", "got me", "dial"] },
+        { accepted: ["the wrong", "a wrong"], distractors: ["bad", "incorrect", "false"] },
+        { accepted: ["number", "extension", "person"], distractors: ["telephone", "call", "phone"] },
+        { accepted: ["", "— have a good day", "— sorry to bother"], distractors: ["bye", "thanks", "OK"] },
+        { accepted: ["", "again", ""], distractors: ["fast", "now", "yes"] },
+      ],
+      tr_hint:
+        "Yanlış numara kibar bitirme. 'Sorry, I think I have the wrong number'. Türk öğrenci kapatır kabaca; bu özür profesyonel.",
+      example_filled: "Sorry, I think I have the wrong number — have a good day.",
+    },
+    {
+      id: "ex.dph21.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      cefr_band: "A2",
+      turns: [
+        { speaker: "npc", text: "Hello?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "No problem! Have a good day." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sorry|excuse me)(,)? (i think|i'?m afraid) (i have|i'?ve got) the wrong number",
+        "(sorry|oops)(,)? (looks like|i think) i (dialed|called) (the wrong|wrong)",
+        "(my mistake|my bad)(,)? wrong number",
+        "(sorry to bother you|sorry about that)",
+      ],
+      tr_hint:
+        "Yanlış numara kibar bitirme. 'Sorry, I have the wrong number' kibar. Türk öğrenci kapatır — kaba.",
+      ideal_answer: "Sorry, I think I have the wrong number — have a good day.",
+    },
+    {
+      id: "ex.dph21.7.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      cefr_band: "A2",
+      npc_line: "I think you might have the wrong number — who were you trying to reach?",
+      accepted_patterns: [
+        "(oh|sorry)(,)? (i was trying to reach|i thought i was calling) \\w+",
+        "(my mistake|sorry about that)",
+        "(thanks for letting me know)(,)? (sorry|have a good day)",
+        "(let me )?(double-check) (the )?number",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Karşı taraf 'yanlış numara' dedi — kibar kapanış. Türk öğrenci 'bye' der kabaca. 'Sorry about that — have a good day' profesyonel.",
+      ideal_response: "Oh sorry — I was trying to reach Dr. Smith. Thanks for letting me know!",
+    },
+    {
+      id: "ex.dph21.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Yanlış numara, kusura bakmayın.",
+      wrong_en: "Wrong number, sorry.",
+      right_en: "Sorry, I think I have the wrong number — apologies for the interruption.",
+      why_tr:
+        "'Wrong number sorry' tek kelimeci yapı = kaba. Doğru tam cümle: 'I think I have the wrong number — apologies'. Saygılı bitirme.",
+    },
+    {
+      id: "ex.dph21.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Yanlış numara aradığında ne dersin?",
+          options: [
+            "Bye.",
+            "Sorry, I think I have the wrong number.",
+            "Wrong number!",
+            "Hata.",
+          ],
+          correct: 1,
+          tr_explanation: "Özür + 'I think' (kibar belirsizlik) + 'wrong number' = profesyonel.",
+        },
+        {
+          q: "'No worries' = ?",
+          options: [
+            "Sorun değil / dert etme.",
+            "Endişe yok.",
+            "Stresli.",
+            "Acele.",
+          ],
+          correct: 0,
+          tr_explanation: "Casual 'no problem'. Yaygın kabul + sabit kalıp.",
+        },
+        {
+          q: "'Reach' telefonda anlamı?",
+          options: [
+            "Birine ulaşmak (arayarak).",
+            "Eline almak.",
+            "Mesafeyi geçmek.",
+            "Yetişmek.",
+          ],
+          correct: 0,
+          tr_explanation: "'Reach someone' = telefonla bağlanmak. 'I'm trying to reach Dr. Smith'.",
+        },
+        {
+          q: "'Apologies for the interruption' = ?",
+          options: [
+            "Rahatsızlık verdiğim için özür.",
+            "Cevap için özür.",
+            "Geç kaldığım için özür.",
+            "Ses için özür.",
+          ],
+          correct: 0,
+          tr_explanation: "Resmî özür. 'Interruption' = beklenmedik rahatsızlık.",
+        },
+        {
+          q: "Yanlış numara kapanış EN kibar?",
+          options: [
+            "Bye!",
+            "Sorry, wrong number — have a good day!",
+            "Wrong number.",
+            "Sorry sorry.",
+          ],
+          correct: 1,
+          tr_explanation: "Özür + gerekçe + nazik kapanış = profesyonel.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2375,6 +3011,133 @@ export const dailyPhoneLesson_21_8: BundledLesson = {
       ipa: "jʊr ˈbreɪkɪŋ ʌp kʊd juː seɪ ðæt əˈɡɛn",
       tr_hint:
         "'You're breaking up' vurgu BREAK. 'Could you' baglanir → 'kud-ju'. 'Say that again' akici, 'that' zayif.",
+    },
+    {
+      id: "ex.dph21.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Sorry, ___ ___ ___ — could you ___ ___?",
+      slots: [
+        { accepted: ["you're", "we're"], distractors: ["you", "we", "is"] },
+        { accepted: ["breaking up", "cutting out", "fading"], distractors: ["bad", "noisy", "weak"] },
+        { accepted: ["", "a bit", "really"], distractors: ["very", "fast", "much"] },
+        { accepted: ["repeat", "say"], distractors: ["tell", "speak", "talk"] },
+        { accepted: ["that", "the last part", "what you said"], distractors: ["it once more", "the again", "more"] },
+      ],
+      tr_hint:
+        "Sinyal kötü kalıbı. 'You're breaking up — could you repeat that?' Türk öğrenci 'I can't hear' der — yetersiz. 'Breaking up' = telefon kesiliyor (idiom).",
+      example_filled: "Sorry, you're breaking up a bit — could you repeat that?",
+    },
+    {
+      id: "ex.dph21.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "...so the meeting is at... [static]" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure! I said the meeting is at 3 PM tomorrow." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sorry|hold on)(,)? (you'?re|we'?re) (breaking up|cutting out|fading)",
+        "(could you|can you) (repeat|say) (that|the last part)( again)?",
+        "(i didn'?t catch )?(what you said|the last bit)",
+        "(the )?(reception is poor|signal is bad) — (could you )?repeat\\??",
+      ],
+      tr_hint:
+        "Sinyal koparken NET söyle: 'You're breaking up'. Türk öğrenci sustur — yanlış. Karşı taraf yenisi açar.",
+      ideal_answer: "Sorry, you're breaking up — could you repeat the last part?",
+    },
+    {
+      id: "ex.dph21.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Can you hear me now? The reception was bad.",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (much better|loud and clear)",
+        "(still )?(a bit choppy|breaking up)",
+        "(let me move|let me go) (outside|to a better spot)",
+        "(could i )?(call you back)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sinyal kontrolü. Net cevap: 'Yes, much better' veya 'Still choppy'. Türk öğrenci sustur — sinyal hala kötü kalır.",
+      ideal_response: "Yes, loud and clear now — thanks!",
+    },
+    {
+      id: "ex.dph21.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Seni duyamıyorum, tekrar söyle.",
+      wrong_en: "I no hear you, say again.",
+      right_en: "Sorry, you're breaking up — could you say that again?",
+      why_tr:
+        "'I no hear' yanlış yapı. Doğru: 'I can't hear you' veya 'You're breaking up'. 'Say again' emir; 'Could you say that again?' kibar.",
+    },
+    {
+      id: "ex.dph21.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'You're breaking up' = ?",
+          options: [
+            "Sinyalin / sesin kesiliyor (telefon).",
+            "Ayrılıyorsun.",
+            "Kırıyorsun.",
+            "Geceleyin.",
+          ],
+          correct: 0,
+          tr_explanation: "Telefonda sinyal kötü olduğunda standart ifade.",
+        },
+        {
+          q: "'Could you repeat that?' = ?",
+          options: [
+            "Tekrar eder misin?",
+            "Tekrar yap.",
+            "Tekrar ödeme.",
+            "Tekrar görüş.",
+          ],
+          correct: 0,
+          tr_explanation: "Kibar tekrar isteme. 'Say it again' eşanlamlı.",
+        },
+        {
+          q: "'Reception is bad' anlamı?",
+          options: [
+            "Resepsiyon kötü.",
+            "Sinyal/kapsama zayıf.",
+            "Karşılama kötü.",
+            "Otelde kötü.",
+          ],
+          correct: 1,
+          tr_explanation: "'Reception' telefonda = sinyal kalitesi. 'Bad reception' = zayıf sinyal.",
+        },
+        {
+          q: "'Loud and clear' = ?",
+          options: [
+            "Sesin net + yüksek (mükemmel sinyal).",
+            "Yüksek sesli.",
+            "Açık şişe.",
+            "Daha sessiz.",
+          ],
+          correct: 0,
+          tr_explanation: "İdiyom: mükemmel duyabiliyor. Genelde telsiz/telefon onayı.",
+        },
+        {
+          q: "Sinyal koparken EN net?",
+          options: [
+            "Bad call!",
+            "Sorry, you're breaking up — could you repeat that?",
+            "Hear no.",
+            "What?",
+          ],
+          correct: 1,
+          tr_explanation: "Özür + idiyom + kibar tekrar rica = profesyonel.",
+        },
+      ],
     },
   ],
 };

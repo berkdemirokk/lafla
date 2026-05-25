@@ -638,6 +638,142 @@ export const flirtSecondDateLesson_42_2: BundledLesson = {
       tr_explanation:
         "'We must see museum. You will like it.' = emir + varsayım, kontrolcü gelir. Doğru: 'Have you been?' (saygılı soru) + 'could be fun together' (ortak deneyim daveti).",
     },
+    {
+      id: "ex.fsd42.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Have you been to ___? Could be fun to ___.",
+      slots: [
+        { accepted: ["the new wing at the Met", "that pottery class", "the rooftop bar", "Yıldız Park", "the dog park downtown"] },
+        { accepted: ["check it out together", "make a day of it", "explore together", "go this weekend"] },
+      ],
+      tr_hint:
+        "İkinci buluşma activity teklif kalıbı — saygılı soru + ortak deneyim. Türk öğrenci 'We must go' der; bu emir + varsayım; 'Have you been?' = saygılı soru.",
+      example_filled:
+        "Have you been to the new wing at the Met? Could be fun to check it out together.",
+    },
+    {
+      id: "ex.fsd42.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What should we do for the next one — surprise me." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Yes please — Sunday morning?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(have you been|been) to (.+)",
+        "(could|might) be fun to (check it out|explore) together",
+        "(thinking|leaning toward) (a hike|pottery class|.+) (this weekend|saturday)",
+        "(saw|spotted) (this thing|an event)",
+        "(make a (morning|day|night) of it)",
+      ],
+      tr_hint:
+        "İkinci randevuda yaratıcı + ortak deneyim öner. 'Been to the farmers market downtown? Could make a Sunday morning of it' tipi.",
+      ideal_answer:
+        "Have you been to the farmers market downtown? Could make a Sunday morning of it.",
+    },
+    {
+      id: "ex.fsd42.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Yeah let's mix it up — not another coffee. What you got?",
+      accepted_patterns: [
+        "(thinking|leaning toward) (the )?(museum|pottery class|hike|botanical garden)",
+        "(saw|heard about) (.+)",
+        "(could be fun|would love) to (.+)",
+        "(saturday|sunday) (morning|afternoon)",
+        "(make a (morning|day) of it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik + yaratıcı öneri. 'Thinking pottery class Saturday — could make an afternoon of it' tipi. 'Whatever you want' deme; KENDİ FİKRİN olsun.",
+      ideal_response:
+        "Thinking that pottery class Saturday — could make an afternoon of it. Down?",
+    },
+    {
+      id: "ex.fsd42.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Müzeye gitmemiz lazım, hoşuna gidecek",
+      wrong_en: "We must see museum. You will like it.",
+      right_en: "Have you been to the new wing at the Met? Could be fun to check it out together.",
+      why_tr:
+        "Türk öğrenci 'gitmemiz lazım + hoşuna gidecek' kalıbını birebir çevirir = emir + varsayım = kontrolcü hisse yol açar. 'You will like it' presumptuous. Doğru: 'Have you been?' (saygılı) + 'could be fun TOGETHER' (ortak deneyim, ortak karar).",
+    },
+    {
+      id: "ex.fsd42.2.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "İkinci randevu için activity öneri formülü?",
+          options: [
+            "'We must do X'",
+            "'Have you been to X? Could be fun together'",
+            "Sus, beklesin",
+            "Tekrar coffee",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Have you been?' = saygılı + dahil edici. Coffee tekrar = sıkıcı.",
+        },
+        {
+          q: "'Third place' kavramı?",
+          options: [
+            "Üçüncü sıralama",
+            "Ev/iş dışı sosyal mekan (kafe, kütüphane)",
+            "Üçüncü dünya",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Third place' = sosyal teorinin terimi. Ev + iş + 'üçüncü mekan' (bir kahveci) = sağlıklı.",
+        },
+        {
+          q: "Türk hatası: 'we must'",
+          options: [
+            "Emir + kontrol = creep",
+            "Çok formal",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'We must' = emir tonu = baskı. Modern dating: davet + onay.",
+        },
+        {
+          q: "Activity önerisinde detay ekle: ___",
+          options: [
+            "Spesifik gün + neden ('forecast looks great')",
+            "Sadece etkinlik adı",
+            "Çok genel",
+            "Hiçbir şey",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Spesifik = ciddi öneri. Genel = momentum kaybı.",
+        },
+        {
+          q: "'Could be fun to check it out together' kalıbı:",
+          options: [
+            "Çok zayıf",
+            "Davetkar + ortak karar daveti + baskısız",
+            "Yapısal yanlış",
+            "Çok formal",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Could be' = öneri (zorunluluk değil). 'Together' = ortak deneyim. İkinci randevu altın standart.",
+        },
+      ],
+    },
   ],
 };
 
@@ -870,6 +1006,142 @@ export const flirtSecondDateLesson_42_3: BundledLesson = {
         "What's something you don't usually tell people on a second date?",
       tr_explanation:
         "'Tell me your traumas now' = sınır ihlali + zorlama. Doğru: 'something you don't usually tell' (davet, mecbur değil) = saygılı derinlik açma.",
+    },
+    {
+      id: "ex.fsd42.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "What's something you ___ ___?",
+      slots: [
+        { accepted: ["don't usually tell people", "haven't told anyone in a while", "rarely talk about", "wish someone would ask"] },
+        { accepted: ["on a second date", "outside your close people", "until you trust them", "in casual settings"] },
+      ],
+      tr_hint:
+        "Derin konular daveti kalıbı — saygılı + 'don't have to' içerir. Türk öğrenci 'Tell me your traumas' der; bu sınır ihlali; soft davet ile aç.",
+      example_filled:
+        "What's something you don't usually tell people on a second date?",
+    },
+    {
+      id: "ex.fsd42.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "Let's go deeper — what's something real you don't share much?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Damn — that's a lot to hold." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(honestly|truthfully) (i'?ve been|been) (.+)",
+        "(been doing|been working on) (some|.+) (inner work|therapy|growth)",
+        "(if i'?m being open|to be real)",
+        "(losing my mom|grief|my parents'? divorce|burnout)",
+        "(thanks for asking|appreciate that you asked)",
+      ],
+      tr_hint:
+        "Derin paylaşım — saygılı, kendi adına. 'Honestly been processing my dad's illness — heavy year' tipi. Çok detay vermesen olur; en önemli vurgu.",
+      ideal_answer:
+        "Honestly been processing some grief lately — heavier year than expected.",
+    },
+    {
+      id: "ex.fsd42.3.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "I want to know the real you — what's a part of your story most people miss?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+)",
+        "(grew up|raised) (.+)",
+        "(losing|the loss of|grief over)",
+        "(taught me|made me) (.+)",
+        "(been doing|done) (.+) (work|growth|therapy)",
+      ],
+      think_seconds: 4,
+      tr_hint:
+        "Bir önemli detay paylaş — etiketleme + duygu + büyüme. 'Growing up between two cultures shaped me — still figuring it out' tipi.",
+      ideal_response:
+        "Growing up between two cultures shaped a lot — still figuring out what that means for me.",
+    },
+    {
+      id: "ex.fsd42.3.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Travmalarını anlat şimdi, samimi olalım",
+      wrong_en: "Tell me your traumas now. We be intimate.",
+      right_en: "What's something you don't usually tell people on a second date?",
+      why_tr:
+        "Türk öğrenci 'travmalarını anlat + samimi' kalıbını birebir çevirir = sınır ihlali + 'we be intimate' yapısal yanlış + creepy. Modern dating: derin konular DAVET ile, ZORLAMA ile değil. 'Something you don't usually tell' = mecbur olmadığını gösterir.",
+    },
+    {
+      id: "ex.fsd42.3.rq1",
+      type: "recall_quiz",
+      difficulty: 4,
+      cefr_band: "B2",
+      items: [
+        {
+          q: "Derin konular nasıl açılır?",
+          options: [
+            "'Tell me your traumas' (zorla)",
+            "'What's something you don't usually share?' (davet)",
+            "Sus + bekle",
+            "Direkt sor",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet = saygılı. Zorla = sınır ihlali. 'Don't usually' = mecbur değilsin sinyali.",
+        },
+        {
+          q: "'Inner child work' anlamı?",
+          options: [
+            "Çocuk işi",
+            "İç çocuk terapisi (psikoloji)",
+            "Çocuksu davranış",
+            "Yapısal",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Inner child work' = terapi referansı. Modern dating'te self-aware kişilik sinyali.",
+        },
+        {
+          q: "'Lean toward' anlamı?",
+          options: [
+            "Yaslan",
+            "Ona doğru meyletmek (karar)",
+            "Eğilmek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Lean toward X' = X'e meyletmek (karar yönü). 'What's making you lean toward it?' = derin soru.",
+        },
+        {
+          q: "İkinci randevuda derinlik için zaman:",
+          options: [
+            "İlk 5 dakika",
+            "Konfor kurulduktan sonra (saat 1-2)",
+            "Hiç",
+            "Tüm randevu",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Konfor + güven kurulur, sonra derinlik. Çok erken = zorlama; çok geç = yüzeysel.",
+        },
+        {
+          q: "Derin paylaşımda en önemli prensip?",
+          options: [
+            "Çok detay ver",
+            "Karşı tarafa yer aç + 'doesn't have to be matched' tonu",
+            "Sus",
+            "Suçla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Karşı tarafın kendi tempolarına yer aç. Eşit derinlik beklentisi = baskı.",
+        },
+      ],
     },
   ],
 };
@@ -1116,6 +1388,142 @@ export const flirtSecondDateLesson_42_4: BundledLesson = {
       tr_explanation:
         "'I kiss you now. You wanted this.' = komut + varsayım = ihlal. Doğru: 'Can I kiss you?' (rıza sorusu) + 'been wanting to' (kendi duygunu paylaş) = saygılı + arzulu.",
     },
+    {
+      id: "ex.fsd42.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "Can I ___? Been wanting to ___.",
+      slots: [
+        { accepted: ["kiss you", "hold your hand", "give you a hug", "lean in"] },
+        { accepted: ["all night", "since coffee", "for a while", "all day honestly"] },
+      ],
+      tr_hint:
+        "Fiziksel yakınlık + rıza kalıbı — soru + kendi duygunu paylaş. Türk öğrenci 'You want?' der; bu varsayım; 'Can I?' = saygılı rıza sorusu.",
+      example_filled:
+        "Can I kiss you? Been wanting to all night.",
+    },
+    {
+      id: "ex.fsd42.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "This feels nice. Tonight feels different." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Yes please — been thinking the same." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(can i|would it be okay if) (kiss you|hold your hand|come closer)",
+        "(been wanting|i'?ve wanted) to (.+)",
+        "(feels right|same on my end)",
+        "(let me know|if you'?d rather not)[,—-]? (.+)",
+        "(only if you|if you'?re into that)",
+      ],
+      tr_hint:
+        "Saygılı rıza sorusu + kendi duygu paylaşımı. 'Can I kiss you? Been wanting to all night' tipi. KOMUT yok; davet.",
+      ideal_answer:
+        "Can I kiss you? Been wanting to all night.",
+    },
+    {
+      id: "ex.fsd42.4.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "Want to come up for a bit? No pressure if not.",
+      accepted_patterns: [
+        "(yes|i'?d love to)[,—-]? (.+)",
+        "(can we|let'?s) (take it slow|keep it chill)",
+        "(if you'?re comfortable|if you'?re open)",
+        "(prefer to|rather) (take it slow|keep it tonight)",
+        "(thanks for|appreciate the) (no pressure)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Coşkulu rıza VEYA saygılı geri çekilme. 'Yes — but let's take it slow' veya 'Tonight prefer to take it slow — rain check?' tipi. Yumuşatma yok; net.",
+      ideal_response:
+        "Yes — but let's take it slow tonight. Drink and chill?",
+    },
+    {
+      id: "ex.fsd42.4.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Seni öpeceğim. Bunu istiyorsun zaten",
+      wrong_en: "I kiss you now. You wanted this.",
+      right_en: "Can I kiss you? Been wanting to all night.",
+      why_tr:
+        "Türk öğrenci 'öpeceğim + istiyorsun' kalıbını birebir çevirir = komut + varsayım = rıza ihlali = ciddi red flag. 'You wanted this' varsayım tehlikeli. Modern dating: ENTHUSIASTIC CONSENT şart. 'Can I?' = rıza sorusu; kabul edilince devam.",
+    },
+    {
+      id: "ex.fsd42.4.rq1",
+      type: "recall_quiz",
+      difficulty: 4,
+      cefr_band: "B2",
+      items: [
+        {
+          q: "Fiziksel yakınlık öncesi rıza?",
+          options: [
+            "Varsay",
+            "'Can I?' soru ile + saygılı",
+            "Sus + dene",
+            "Israr et",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Rıza = soru. Varsayım = ihlal. 'Can I kiss you?' = saygılı + arzulu.",
+        },
+        {
+          q: "'Enthusiastic consent' anlamı?",
+          options: [
+            "Coşkulu rıza — net evet (modern standart)",
+            "Mecbur kabul",
+            "Sessiz onay",
+            "Yapısal yanlış",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Enthusiastic consent' = tam + coşkulu evet. 'Maybe' veya sessizlik = HAYIR.",
+        },
+        {
+          q: "Karşı taraf 'take it slow' derse?",
+          options: [
+            "Bastır",
+            "Saygı + 'of course' + hızını ayarla",
+            "Kız",
+            "Ayrıl",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Tempo kararı karşı tarafın. Saygı = onun konforuna saygı + kendin de rahat.",
+        },
+        {
+          q: "Türk hatası: 'You wanted this'",
+          options: [
+            "Varsayım = rıza ihlali",
+            "Yapısal yanlış",
+            "Resmi",
+            "Yanlış zaman",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Varsayım = ihlal. Rıza = anlık; soru sor.",
+        },
+        {
+          q: "'No pressure if not' kalıbının fonksiyonu?",
+          options: [
+            "Çok kibar",
+            "Karşı tarafa hayır deme alanı = saygılı + olgun",
+            "Şart",
+            "Önemsiz",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'No pressure if not' = hayır deme alanı = saygılı + güvenli. Modern dating standardı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1308,6 +1716,142 @@ export const flirtSecondDateLesson_42_5: BundledLesson = {
       tr_hint:
         "'Or are you' bağlı, hızlı: 'ɔːr-ɑːr-juː'. 'Too good' vurgu — playful challenge. Soru tonu sonda yukarı, hafif gülümseme.",
     },
+    {
+      id: "ex.fsd42.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "How about ___ — or are you ___?",
+      slots: [
+        { accepted: ["mini golf", "an escape room", "the trampoline park", "pottery", "ax throwing"] },
+        { accepted: ["too good for that", "too cool for this", "scared", "above it"] },
+      ],
+      tr_hint:
+        "Düşük cidiyetli aktivite teklif + playful challenge. Türk öğrenci 'we go to museum' der; bu durağan; mini golf gibi aktif şeyler = ortak hatıra üretir.",
+      example_filled:
+        "How about mini golf — or are you too good for that?",
+    },
+    {
+      id: "ex.fsd42.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What should we do this time — something fun?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Lol challenge accepted — Saturday?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(how about|down for) (mini golf|escape room|ax throwing|.+)",
+        "(or are you|or are you too)( good for that| scared)?",
+        "(challenge|game) — loser (buys|gets) (.+)",
+        "(thinking|leaning toward) (a hike|trampoline park)",
+        "(competitive|playful) (mood|activity)",
+      ],
+      tr_hint:
+        "Düşük cidiyetli + playful challenge. 'How about mini golf — or are you too good for that?' tipi. Aktif + komik aktivite = ortak hatıra.",
+      ideal_answer:
+        "How about mini golf — or are you too good for that? Loser buys ice cream.",
+    },
+    {
+      id: "ex.fsd42.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Got any fun ideas? I'm bored of standard dates.",
+      accepted_patterns: [
+        "(mini golf|trampoline park|escape room|pottery|ax throwing)",
+        "(challenge|competitive) (something|activity)",
+        "(loser (buys|gets)|winner picks)",
+        "(saw|heard about) (this )?(thing|event)",
+        "(want to go|down to try) (a |something) (new|different)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yaratıcı + aktif öner. 'Trampoline park — loser buys dinner?' tipi. 'Whatever' deme; KENDİ FİKRİN.",
+      ideal_response:
+        "Trampoline park — loser buys dinner? Competitive way to see who's actually fit.",
+    },
+    {
+      id: "ex.fsd42.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Müzeye gidelim, sessiz ve sakin",
+      wrong_en: "Let us go museum, silent and calm.",
+      right_en: "How about mini golf — or are you too good for that?",
+      why_tr:
+        "Türk öğrenci 'müze + sessiz' kalıbını birebir çevirir = durağan + 'let us' yapısal eksik ('let's go to a museum'). İkinci randevuda aktif aktivite = ortak hatıra + komik anlar. Mini golf, escape room, pottery = düşük cidiyet + yüksek bağ.",
+    },
+    {
+      id: "ex.fsd42.5.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "İkinci randevuda düşük cidiyetli aktivite avantajı?",
+          options: [
+            "Ucuz",
+            "Garip sessizlik önler + ortak hatıra + komik anlar",
+            "Hızlı bitiş",
+            "Yer ayırtmama",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktivite = doğal mola + komik anlar. Stres düşer, bağ artar.",
+        },
+        {
+          q: "'Or are you too good for that?' kalıbı:",
+          options: [
+            "Hakaret",
+            "Playful challenge — flirty + casual rekabet",
+            "Yapısal yanlış",
+            "Çok formal",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Too good for X' = playful tease. Flirty + casual + samimi.",
+        },
+        {
+          q: "'Loser buys' kalıbının fonksiyonu?",
+          options: [
+            "Para kazanma",
+            "Casual rekabet + kazanan zaten ödüllü = devamlılık jest'i",
+            "Şaka",
+            "Yapısal",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Loser buys dinner' = casual stakes. Üçüncü randevu zemini hazırlar (kim olursa olsun bir kahve ısmarlayacak).",
+        },
+        {
+          q: "Aktivite seçiminde dikkat?",
+          options: [
+            "Çok pahalı seç",
+            "Düşük cidiyet + aktif + gülüşme yaratabilen",
+            "Sıkıcı + güvenli",
+            "Önemsiz",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Aktiviteler = bağ kurma araçları. Doğal komik anlar + birlikte hatıra = ilişki büyür.",
+        },
+        {
+          q: "Türk hatası: 'Let us go museum' yerine?",
+          options: [
+            "Let's go to a museum / how about a museum",
+            "Let me to museum",
+            "We go museum",
+            "Hiçbiri",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Let's go to a museum' = doğal yapı. Article ('a/the') + preposition ('to') şart.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1494,6 +2038,141 @@ export const flirtSecondDateLesson_42_6: BundledLesson = {
       ipa: "stɪl ˈθɪŋkɪŋ əˈbaʊt ðæt ˈtɑːkoʊ pleɪs",
       tr_hint:
         "'Still thinking' yumuşak nostalji. 'About that' bağlanır → 'ə-baʊt-ðæt'. 'Taco place' sıcak vurgu — paylaşılan anı.",
+    },
+    {
+      id: "ex.fsd42.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Still thinking about ___.",
+      slots: [
+        { accepted: ["that taco place", "the way you laughed", "that conversation about books", "the joke you made", "the music in that bar"] },
+      ],
+      tr_hint:
+        "Callback kalıbı — spesifik anı + 'still' = nostalji. Türk öğrenci 'I remember' der; bu generic; 'still thinking' = bende yer etti sinyali.",
+      example_filled:
+        "Still thinking about that taco place.",
+    },
+    {
+      id: "ex.fsd42.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "So good to see you again — how have you been?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Ah I knew you'd remember that — fave call out." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(still |i'?ve been )(thinking|laughing) about (that|the)",
+        "(glad we did this|happy to be doing this) again",
+        "(been replaying|keep replaying) (the )?(joke|moment|conversation)",
+        "(can'?t stop|haven'?t stopped) thinking about",
+        "(took me back|brought me back) to (.+)",
+      ],
+      tr_hint:
+        "Callback — spesifik bir anı paylaş. 'Glad we're doing this again — still thinking about that taco place' tipi. Spesifik anı = bende yer etti sinyali.",
+      ideal_answer:
+        "Glad we're doing this again — still thinking about that taco place. You ruined every other taco for me.",
+    },
+    {
+      id: "ex.fsd42.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Did the first one ruin all your other dates for you?",
+      accepted_patterns: [
+        "(honestly|truthfully) (yes|kind of)",
+        "(set the bar|raised the bar) (.+)",
+        "(been spoiled|ruined for)",
+        "(every other date|other dates) (felt|seem)",
+        "(your fault|on you)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Flirty + callback. 'Honestly yes — set the bar way too high' tipi. Türk öğrenci 'You are so good' der; bu yüzeysel; SPESIFIK callback.",
+      ideal_response:
+        "Honestly yes — set the bar way too high. The taco place ruined all my regular spots.",
+    },
+    {
+      id: "ex.fsd42.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Geçen sefer çok güzeldi, hatırlıyorum",
+      wrong_en: "Last time was very nice, I remember.",
+      right_en: "Still thinking about that taco place — you ruined regular tacos for me.",
+      why_tr:
+        "Türk öğrenci 'çok güzel + hatırlıyorum' kalıbını birebir çevirir = generic + duygusuz. 'Nice' = zayıf. Callback = SPESIFIK detay + duygu. 'Still thinking about that taco place' = bende yer etti + 'you ruined regular tacos' = flirty + samimi.",
+    },
+    {
+      id: "ex.fsd42.6.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "İkinci randevuda callback'in gücü?",
+          options: [
+            "Vakit doldurur",
+            "Spesifik anı + 'seninle gittiğim o an' = bağ + devamlılık",
+            "Çok formal",
+            "Önemsiz",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Detay = inandırıcı. 'O mekan' = 'seninle gittiğim'. Detay = hatıra = bağ.",
+        },
+        {
+          q: "'Still thinking about X' kalıbının duygusu?",
+          options: [
+            "Nostalji + 'bende yer etti' sinyali",
+            "Açlık",
+            "Şikayet",
+            "Yapısal yanlış",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Still' = hala (zaman geçti). 'Thinking about' = zihinde yer etti. Soft + mikro romantik.",
+        },
+        {
+          q: "Callback yerine 'I remember' niye zayıf?",
+          options: [
+            "Yapısal yanlış",
+            "Generic + duygusuz = bağ kurmaz",
+            "Çok formal",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'I remember' = düz beyan. 'Still thinking about' = duygu yüklü + spesifik.",
+        },
+        {
+          q: "'You ruined X for me' deyimi:",
+          options: [
+            "Şikayet",
+            "Flirty teasing — 'seninle yaşadığım X'ten sonra başkası karşılamıyor'",
+            "Suçlama",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'You ruined regular tacos for me' = pozitif teasing. Karşı taraf gülümser.",
+        },
+        {
+          q: "İkinci randevu açılışı için ideal anahtar?",
+          options: [
+            "Tanışma soruları (tekrar)",
+            "Callback + 'glad we're doing this again' (devamlılık)",
+            "Sus, bekle",
+            "Sıkıcı çıkış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Açıkça mutluluğunu söyle. Callback = ilk randevu bende yer etti sinyali.",
+        },
+      ],
     },
   ],
 };
@@ -1688,6 +2367,142 @@ export const flirtSecondDateLesson_42_7: BundledLesson = {
       ipa: "ðɪs maɪt saʊnd ˈrændəm bʌt aɪm ˈæktʃuəli ˈkjʊəriəs əˈbaʊt juː",
       tr_hint:
         "'This might sound random' temkinli açılış — yavaş. 'But' kısa duraklama. 'Actually curious about you' yumuşak + dürüst — göz teması ile.",
+    },
+    {
+      id: "ex.fsd42.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "This might sound ___, but — I'm actually ___.",
+      slots: [
+        { accepted: ["random", "weird", "too early", "intense"] },
+        { accepted: ["curious about you", "into how this is going", "feeling really comfortable with you", "ready to know you better"] },
+      ],
+      tr_hint:
+        "Vulnerable açılış kalıbı — 'might sound X' = self-aware yumuşatma + dürüst paylaşım. Türk öğrenci 'I tell you something' der; bu robotik; soft framing.",
+      example_filled:
+        "This might sound random, but — I'm actually curious about you.",
+    },
+    {
+      id: "ex.fsd42.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "What are you thinking right now? Honest." },
+        { speaker: "user" },
+        { speaker: "npc", text: "That actually means a lot — thanks." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(this might|might) sound (random|weird|too early)",
+        "(i'?m actually|honestly) (.+) (about you|with you)",
+        "(curious about|into) (how this is going|where this could go)",
+        "(thinking|considering) (this is going somewhere)",
+        "(thanks for|appreciate) (the trust|the directness)",
+      ],
+      tr_hint:
+        "Vulnerable + dürüst paylaşım. 'This might sound random, but I'm actually really into where this is going' tipi. Soft framing + DÜRÜST içerik.",
+      ideal_answer:
+        "This might sound random, but — I'm actually really into where this is going.",
+    },
+    {
+      id: "ex.fsd42.7.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "Where do you see this going? I want to be on the same page.",
+      accepted_patterns: [
+        "(honestly|truthfully) (i can see|i feel) (us|this) (continuing|going somewhere)",
+        "(same page|aligned)",
+        "(no rush|day by day),? (but )?(.+)",
+        "(genuinely curious|into this)",
+        "(want to keep|happy to keep) (building|going)",
+      ],
+      think_seconds: 4,
+      tr_hint:
+        "Vulnerable + dürüst gelecek vizyonu. 'Honestly — see this continuing. Same page on day by day, no rush' tipi. 'Marriage' (TOO EARLY) deme; ÖLÇÜLÜ.",
+      ideal_response:
+        "Honestly — I see this continuing. Day by day, no rush, but I'm in.",
+    },
+    {
+      id: "ex.fsd42.7.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Sana bir şey söyleyeceğim, biliyorum erken ama",
+      wrong_en: "I tell you something, I know early but.",
+      right_en: "This might sound random, but — I'm actually curious about you.",
+      why_tr:
+        "Türk öğrenci 'sana söyleyeceğim + erken biliyorum' kalıbını birebir çevirir = 'I tell you' yapısal yanlış (future: 'I'm going to tell you' veya soft 'this might sound'). Doğru: 'This might sound X, but I'm actually Y' = self-aware yumuşatma + dürüst paylaşım. Vulnerability'yi yumuşat.",
+    },
+    {
+      id: "ex.fsd42.7.rq1",
+      type: "recall_quiz",
+      difficulty: 4,
+      cefr_band: "B2",
+      items: [
+        {
+          q: "Vulnerable paylaşım için ideal başlangıç?",
+          options: [
+            "Direkt yap",
+            "'This might sound X, but...' (self-aware yumuşatma)",
+            "Hiç paylaşma",
+            "Sürekli özür",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Might sound X' = self-aware. Karşı tarafı hazırlar + dürüstçe devam.",
+        },
+        {
+          q: "Vulnerability dozajı?",
+          options: [
+            "Her şeyi anlat",
+            "Adım adım — her ay bir tık daha derin",
+            "Hiç açılma",
+            "İlk gün hepsi",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Therapy, burnout' = ok. 'Tüm travma anlatısı' = aşırı. Karşı tarafa eşleme zamanı tanı.",
+        },
+        {
+          q: "Karşı taraf açıldıktan sonra YANLIŞ tepki?",
+          options: [
+            "Sessizce dinle",
+            "'Same energy' + 'thanks for trusting me'",
+            "Konuyu değiştir / karşı deneyim anlat",
+            "Onayla",
+          ],
+          correct: 2,
+          tr_explanation:
+            "'Karşılaştırma' veya konuyu kapatma = açılan kişiyi yalnız bırakır.",
+        },
+        {
+          q: "'Actually curious about you' niye etkili?",
+          options: [
+            "Çok formal",
+            "Spesifik + samimi + 'kişiliğine ilgi duyuyorum' sinyali",
+            "Yapısal yanlış",
+            "Çok zayıf",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Actually' = vurgu (genel curiosity'den farklı). 'About YOU' = kişisel.",
+        },
+        {
+          q: "İkinci randevuda derinleşmek için zaman?",
+          options: [
+            "İlk 30 dakika",
+            "Konfor + 1 saat sonrası",
+            "Hiç",
+            "Sadece son saat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Konfor kuruldu, alkol (varsa) doza geldi, sohbet temeli atıldı — şimdi derinleşme.",
+        },
+      ],
     },
   ],
 };
@@ -1896,6 +2711,142 @@ export const flirtSecondDateLesson_42_8: BundledLesson = {
       ipa: "maɪ pleɪs nɛkst wiːk loʊ kiː aɪl kʊk noʊ ˈprɛʃər",
       tr_hint:
         "'My place' sıcak vurgu. 'Low-key' düz, casual. 'I'll cook' kararlı, hizmet eden ton. 'No pressure' yumuşak ve net — sınır saygısı.",
+    },
+    {
+      id: "ex.fsd42.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "My place next week — ___. ___.",
+      slots: [
+        { accepted: ["low-key, I'll cook", "just cooking and a movie", "low-key with my dog", "wine and pasta"] },
+        { accepted: ["No pressure", "Totally fine if too soon", "Just an option", "Up to you"] },
+      ],
+      tr_hint:
+        "Eve davet kalıbı: 'low-key' (cinsel imadan uzak) + spesifik (yemek/film) + 'no pressure' (saygı). Türk öğrenci 'You come my home' der; bu yapısal yanlış + creep. 'My place — I'll cook' = saygılı + spesifik.",
+      example_filled:
+        "My place next week — low-key, I'll cook, no pressure.",
+    },
+    {
+      id: "ex.fsd42.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "What about next time — same kind of place or something different?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh that sounds nice — I'd love that." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(my place|the apartment|where i live) (next week|this weekend)",
+        "(low-key|chill|cozy)[,—-]? (.+)",
+        "(i'?ll cook|cooking|pasta night|movie night)",
+        "(no pressure|totally fine if|just an option)",
+        "(if you'?d rather|let me know)",
+      ],
+      tr_hint:
+        "Eve davet kalıbı. 'My place this weekend — low-key, I'll cook, no pressure if too soon' tipi. 'No pressure' KRİTİK — eksik olursa creep.",
+      ideal_answer:
+        "My place this weekend — low-key, I'll cook pasta, no pressure if it's too soon.",
+    },
+    {
+      id: "ex.fsd42.8.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "Hmm interesting — what'd you have in mind for that?",
+      accepted_patterns: [
+        "(low-key|chill) (cooking|movie|wine) (night|evening)",
+        "(i'?ll cook|cooking)[,—-]? (.+)",
+        "(pasta|dinner|tapas|simple meal)",
+        "(no pressure|totally fine|just an option)",
+        "(early|leave early) if you (want|need)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Spesifik + 'no pressure'. 'Low-key cooking night — pasta and a movie. Leave whenever you want' tipi. NET + saygılı.",
+      ideal_response:
+        "Low-key cooking night — pasta and a movie. Leave whenever you want, no pressure.",
+    },
+    {
+      id: "ex.fsd42.8.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Bana gel, yemek yapayım",
+      wrong_en: "You come my home, I make food.",
+      right_en: "My place next week — low-key, I'll cook, no pressure.",
+      why_tr:
+        "Türk öğrenci 'bana gel' kalıbını birebir çevirir = 'come my home' yapısal yanlış (article + preposition: 'to my place'). 'I make food' = 'I'll cook' daha doğal. Eve davet HASSAS — 'low-key' (cinsel ima azalt) + 'no pressure' (sınır saygısı) şart.",
+    },
+    {
+      id: "ex.fsd42.8.rq1",
+      type: "recall_quiz",
+      difficulty: 4,
+      cefr_band: "B2",
+      items: [
+        {
+          q: "Eve davetin ZORUNLU 3 unsuru?",
+          options: [
+            "Yer + zaman + para",
+            "Spesifik aktivite + 'low-key' + 'no pressure'",
+            "Sadece davet",
+            "Israr",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Spesifik = cinsel ima azaltır. 'Low-key' = chill ton. 'No pressure' = saygı.",
+        },
+        {
+          q: "'Low-key' kelimesinin fonksiyonu?",
+          options: [
+            "Cinsel imadan uzaklaştırır + casual ton",
+            "Az ses",
+            "Yapısal yanlış",
+            "Çok formal",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Low-key cooking night' = abartısız, chill. Eve davette KRİTİK ima azaltıcı.",
+        },
+        {
+          q: "'No pressure' niye eve davette KRİTİK?",
+          options: [
+            "Kibarlık",
+            "Karşı tarafa hayır deme alanı = güvenli alan = daha kabul edilebilir",
+            "Resmi",
+            "Filmden",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Eve davet yüklü bir adım. 'No pressure' = açık sınır saygısı = güven artar = 'evet' daha mümkün.",
+        },
+        {
+          q: "Eve davet ZAMANI ne kadar randevu sonrası?",
+          options: [
+            "İlk randevu",
+            "İkinci-üçüncü randevu (konfor kuruldu)",
+            "İlk hafta",
+            "Hiç",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Konfor + güven gerek. İlk randevuda = creep; 5. randevuda = ok.",
+        },
+        {
+          q: "Türk hatası: 'You come my home'",
+          options: [
+            "Yapısal yanlış + ima yoğun",
+            "Çok kibar",
+            "Çok formal",
+            "Doğru",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'You come' = komut. 'My home' yerine 'my place' (casual). Doğru: davet + saygı + sınır.",
+        },
+      ],
     },
   ],
 };

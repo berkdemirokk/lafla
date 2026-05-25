@@ -914,6 +914,131 @@ export const dailySmalltalkLesson_23_2: BundledLesson = {
       tr_explanation:
         "'What sick you' = saygisiz + grammatik degil. Doğru: ortak deneyim (long wait) + kendinden basla.",
     },
+    {
+      id: "ex.dst23.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "___ ___ today, ___?",
+      slots: [
+        { accepted: ["Long wait", "Busy", "Crowded"], distractors: ["Wait long", "Many people", "Slow people"] },
+        { accepted: ["here", "in there", "in the office"], distractors: ["place", "in", "with"] },
+        { accepted: ["huh", "right", "isn't it"], distractors: ["yes", "no", "always"] },
+      ],
+      tr_hint:
+        "Bekleme salonu sohbet açılışı. Ortak deneyim paylaş. Türk öğrenci sustur — kaçırılan fırsat.",
+      example_filled: "Long wait today, huh?",
+    },
+    {
+      id: "ex.dst23.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      cefr_band: "A2",
+      turns: [
+        { speaker: "npc", text: "Yeah, they're running way behind today." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh, regular checkup? Same here, fingers crossed." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?m here )?for (a )?(checkup|cleaning|consultation)",
+        "(just )?(getting|having) (a |my )?(checkup|appointment)",
+        "(yeah|i know)(,)? (it'?s )?(crazy|wild)",
+        "(how about you|same here|me too)",
+      ],
+      tr_hint:
+        "Yabancı bekleme salonunda sohbet ediyor. Türk öğrenci sustur — yanıt + kendinden bahset.",
+      ideal_answer: "Yeah, crazy — I'm here for a regular checkup. You?",
+    },
+    {
+      id: "ex.dst23.2.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      cefr_band: "A2",
+      npc_line: "Have you been to this clinic before?",
+      accepted_patterns: [
+        "(yeah|yes)(,)? (a few times|i'?m a regular)",
+        "(no|nope)(,)? (first time|new patient)",
+        "(actually )?(this is my )?(first time|second visit)",
+        "(yes|yeah)(,)? (\\w+ )?(times|months)( ago)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Klinik hakkında soru — kısa cevap + soru iade et. Türk öğrenci 'yes' der — sohbet kapanır.",
+      ideal_response: "First time actually. How about you?",
+    },
+    {
+      id: "ex.dst23.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Sen niye geldin?",
+      wrong_en: "Why you come?",
+      right_en: "What are you here for, if you don't mind me asking?",
+      why_tr:
+        "'Why you come' eksik yardımcı + kabaca. Doğru: 'What are you here for?' + 'if you don't mind me asking' = saygılı.",
+    },
+    {
+      id: "ex.dst23.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Bekleme salonunda EN doğal açılış?",
+          options: [
+            "Why you here?",
+            "Long wait today, huh?",
+            "Move quickly!",
+            "Are you sick?",
+          ],
+          correct: 1,
+          tr_explanation: "Ortak deneyim paylaşımı = doğal sohbet açılışı.",
+        },
+        {
+          q: "'Running behind' ne demek?",
+          options: [
+            "Arkadan koşmak.",
+            "Programdan geri / gecikmiş.",
+            "Arkadan gelmek.",
+            "Geri sayım.",
+          ],
+          correct: 1,
+          tr_explanation: "Idiom: 'running behind schedule' = programdan geride.",
+        },
+        {
+          q: "'Fingers crossed' = ?",
+          options: [
+            "Parmaklarımı kavuşturdum (umarım iyi olur).",
+            "Parmak kavuşur.",
+            "Parmak kapalı.",
+            "Düşünüyorum.",
+          ],
+          correct: 0,
+          tr_explanation: "Umarım iyi olur deyimi. Sınav/sonuç beklerken yaygın.",
+        },
+        {
+          q: "'How about you?' niye iyi sohbet?",
+          options: [
+            "Sorular tek taraflı olmaz.",
+            "Hızlı.",
+            "Pratik.",
+            "Şart.",
+          ],
+          correct: 0,
+          tr_explanation: "Sohbet karşılıklı olmalı. 'How about you?' = senin için ne kadar?",
+        },
+        {
+          q: "'If you don't mind me asking' niye?",
+          options: [
+            "Hassas sorulara saygılı giriş.",
+            "Yalnız soru.",
+            "Hızlı.",
+            "Kısa.",
+          ],
+          correct: 0,
+          tr_explanation: "Özel/hassas sorular için (sağlık, gelir, vb.) yumuşatma.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1253,6 +1378,134 @@ export const dailySmalltalkLesson_23_3: BundledLesson = {
       tr_explanation:
         "'Finish' = soguk + grammatik degil. Doğru: 'Anyway' + sebep (get going) + warmth (great catching up) + ileriye yatirim.",
     },
+    {
+      id: "ex.dst23.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Anyway, ___ ___ ___ — ___ ___ ___!",
+      slots: [
+        { accepted: ["I should", "I'd better"], distractors: ["I will", "must I", "I"] },
+        { accepted: ["get going", "head out", "run"], distractors: ["go", "leave fast", "end"] },
+        { accepted: ["", "soon", "in a bit"], distractors: ["fast", "very", "long"] },
+        { accepted: ["it was great", "really nice", "loved"], distractors: ["good", "OK", "fine"] },
+        { accepted: ["catching up", "seeing you", "chatting"], distractors: ["catch", "see", "chat"] },
+        { accepted: ["take care", "let's do this again", "see you soon"], distractors: ["bye", "the end", "finish"] },
+      ],
+      tr_hint:
+        "Small talk zarif bitirme. 'Anyway, I should get going' = nazik geçiş. Türk öğrenci 'OK bye' der — soğuk.",
+      example_filled: "Anyway, I should get going — it was great catching up. Take care!",
+    },
+    {
+      id: "ex.dst23.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Anyway, I won't keep you any longer..." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Same! Take care, see you around." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yeah)?(,)? (it'?s )?(been )?(great|really nice)( catching up| seeing you)",
+        "(let'?s )?(do this again|grab coffee|catch up) (soon|sometime)",
+        "(take care|have a good one)",
+        "(you )?(too|same)",
+      ],
+      tr_hint:
+        "Sohbet bitiyor — sıcak veda. Türk öğrenci sadece 'OK bye' der; bu profesyonel ilişkileri zayıflatır.",
+      ideal_answer: "Yeah, it was great catching up — let's grab coffee soon!",
+    },
+    {
+      id: "ex.dst23.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Let's grab coffee sometime — drop me a text?",
+      accepted_patterns: [
+        "(yeah|definitely)(,)? (i'?ll text you|sounds good)",
+        "(absolutely|for sure)(,)? (will do)",
+        "(love that idea|count me in)",
+        "(let me )?(get your number)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "İleriye yatırım önerisi — kabul + commitment. 'Yeah, will do!' Türk öğrenci 'OK' der — soğuk.",
+      ideal_response: "Definitely — I'll drop you a text this week!",
+    },
+    {
+      id: "ex.dst23.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Tamam, gitmeliyim.",
+      wrong_en: "OK, I must go.",
+      right_en: "Anyway, I should get going — but it was great seeing you!",
+      why_tr:
+        "'I must go' resmî + soğuk. Doğru: 'Anyway' + 'I should get going' + warm ek (great seeing you). Small talk = warmth.",
+    },
+    {
+      id: "ex.dst23.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Get going' = ?",
+          options: [
+            "Gitmek / ayrılmak (casual).",
+            "Yürümeye başla.",
+            "Devam et.",
+            "Çabala.",
+          ],
+          correct: 0,
+          tr_explanation: "Casual 'leave' deyimi. 'I should get going' = artık gitmem lazım.",
+        },
+        {
+          q: "'Catching up' = ?",
+          options: [
+            "Yakalamak.",
+            "Sohbet etme / haberleşme.",
+            "Geri kalmak.",
+            "Almak.",
+          ],
+          correct: 1,
+          tr_explanation: "Idiom: arkadaşla sohbet et. 'Great catching up' = sohbet harikaydı.",
+        },
+        {
+          q: "'Drop me a text' = ?",
+          options: [
+            "Bana SMS at.",
+            "Mesajı düşür.",
+            "Yazı bırak.",
+            "İndir.",
+          ],
+          correct: 0,
+          tr_explanation: "Casual 'send a text'. 'Drop' = yolla (informal).",
+        },
+        {
+          q: "'Let's do this again soon' = ?",
+          options: [
+            "Hadi tekrar yapalım yakında.",
+            "Bunu yine yap.",
+            "Bunu hızlı yap.",
+            "Bunu unutma.",
+          ],
+          correct: 0,
+          tr_explanation: "İleriye yatırım. Yine görüşme isteği. Sıcak veda.",
+        },
+        {
+          q: "Small talk EN sıcak bitirme?",
+          options: [
+            "Bye.",
+            "Anyway, I should get going — was great catching up. Let's do this again!",
+            "Finish.",
+            "End.",
+          ],
+          correct: 1,
+          tr_explanation: "Nazik geçiş + warmth + ileriye yatırım = profesyonel veda.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1554,6 +1807,131 @@ export const dailySmalltalkLesson_23_5: BundledLesson = {
       ipa: "ˈbjuːtɪfəl deɪ ˈɪzənt ɪt",
       tr_hint:
         "Komsu klasigi. 'Beautiful' 3 hece (byu-ti-ful). 'Isn't it' bağlanır → 'iz-nit'. Hafif yukseliş tonu sona, soru sinyali.",
+    },
+    {
+      id: "ex.dst23.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "___ ___ ___ , ___?",
+      slots: [
+        { accepted: ["Beautiful", "Crazy", "Nice"], distractors: ["Very", "Much", "Big"] },
+        { accepted: ["day", "weather", "morning"], distractors: ["sun", "outside", "place"] },
+        { accepted: ["", "today", "out there"], distractors: ["fast", "yes", "OK"] },
+        { accepted: ["isn't it", "right", "huh"], distractors: ["yes", "no", "good"] },
+      ],
+      tr_hint:
+        "Asansör small talk klasik. Hava + tag question. Türk öğrenci sustur — asansörde 30 saniye dolar.",
+      example_filled: "Beautiful day, isn't it?",
+    },
+    {
+      id: "ex.dst23.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      cefr_band: "A2",
+      turns: [
+        { speaker: "npc", text: "Crazy weather we're having!" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Right? Stay dry out there!" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yeah|i know|right)(,)? (it'?s|been) (insane|wild|crazy)",
+        "(supposed to|might) (rain|snow|clear up)",
+        "(stay )?(safe|dry|warm)",
+        "(at least|hopefully) (we'?re |it'?s )?(inside|indoors)",
+      ],
+      tr_hint:
+        "Hava acılış — kabul + ek yorum. Türk öğrenci 'yes' der biter. 'I know, it's been wild' canlı tutar.",
+      ideal_answer: "I know, it's been insane — supposed to rain again tomorrow!",
+    },
+    {
+      id: "ex.dst23.5.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      cefr_band: "A2",
+      npc_line: "Which floor?",
+      accepted_patterns: [
+        "(twelve|7|3)(,)? (thanks|please)",
+        "(can you press )?(\\d+)(,)? (please|thanks)",
+        "(same as you|same floor)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Asansörde kat sordu. KISA cevap + teşekkür. Türk öğrenci sadece sayı der — eksik kibarlık.",
+      ideal_response: "Twelve, thanks!",
+    },
+    {
+      id: "ex.dst23.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Sen hangi katta oturuyorsun?",
+      wrong_en: "You live which floor?",
+      right_en: "Which floor are you on?",
+      why_tr:
+        "'You live which floor' Türkçe sıralama. Doğru: 'Which floor are you on?' = hangi katta? Yardımcı 'are' önemli.",
+    },
+    {
+      id: "ex.dst23.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Asansör small talk en güvenli konu?",
+          options: [
+            "Politika.",
+            "Hava + komşu yorumu.",
+            "Maaş.",
+            "Aile sorunları.",
+          ],
+          correct: 1,
+          tr_explanation: "Hava = evrensel + politik değil. Asansör için ideal 30 sn doldurma.",
+        },
+        {
+          q: "'Stay dry' = ?",
+          options: [
+            "Kuru kal (yağmurdan).",
+            "Sus.",
+            "Su içme.",
+            "Susuz kal.",
+          ],
+          correct: 0,
+          tr_explanation: "Yağmurlu havada nazik veda. 'Stay safe / stay warm' eşanlamlı.",
+        },
+        {
+          q: "Asansörde sessizlik kabul mü?",
+          options: [
+            "Asla — hep konuş.",
+            "Evet, 'good morning' yeter; sonra sessizlik OK.",
+            "Hayır, ayıp.",
+            "Konuşmak yasak.",
+          ],
+          correct: 1,
+          tr_explanation: "Selam = sosyal görev. ABD'de kısa sessizlik normal. Türkiye'de farklı.",
+        },
+        {
+          q: "Komşuya 'Which floor?' soruluyor — niye soru kalıbı?",
+          options: [
+            "Bilgi soruyor — pratik.",
+            "Kabaca.",
+            "Yardım.",
+            "İsteğe bağlı.",
+          ],
+          correct: 0,
+          tr_explanation: "Asansör butonu basacak. Pratik soru.",
+        },
+        {
+          q: "Hava small talk EN doğal?",
+          options: [
+            "Beautiful weather today.",
+            "Beautiful day, isn't it?",
+            "Day good.",
+            "Sun.",
+          ],
+          correct: 1,
+          tr_explanation: "Tag question ('isn't it') = sohbet açıcı. Karşı taraf yanıt verir.",
+        },
+      ],
     },
   ],
 };
@@ -1857,6 +2235,130 @@ export const dailySmalltalkLesson_23_6: BundledLesson = {
       tr_hint:
         "Sofor klasigi. 'Have you' bağlanır → 'həv-yə'. 'Been driving' net. Soru tonu sona hafif yukselis.",
     },
+    {
+      id: "ex.dst23.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "How long have you been ___ ___?",
+      slots: [
+        { accepted: ["driving", "doing this", "with Uber"], distractors: ["drive", "do", "go"] },
+        { accepted: ["", "in this city", "for them"], distractors: ["taxi", "Uber", "good"] },
+      ],
+      tr_hint:
+        "Şoföre standart soru. 'How long have you been driving?' Türk öğrenci 'how many time?' der — yanlış.",
+      example_filled: "How long have you been driving in this city?",
+    },
+    {
+      id: "ex.dst23.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Where're you headed today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Brooklyn, nice — got plans there?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(brooklyn|downtown|the airport|times square)",
+        "(headed to|going to) (brooklyn|home|the airport)",
+        "(just )?(meeting a friend|grabbing dinner)",
+        "(yep|yeah)(,)? (\\w+)",
+      ],
+      tr_hint:
+        "Şoför nereye gideceğini biliyor ama small talk için sordu. Yer adı + ek bilgi.",
+      ideal_answer: "Brooklyn — meeting a friend for dinner.",
+    },
+    {
+      id: "ex.dst23.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Where are you from originally? Your accent sounds interesting.",
+      accepted_patterns: [
+        "(turkey|istanbul|i'?m from turkey)",
+        "(originally )?(from )?turkey",
+        "(thanks|appreciate it)(,)? (i'?m from)",
+        "(how about you)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Aksan sordu — kabul + soru iade et. 'I'm from Turkey. You?' Türk öğrenci utangaç susuyor.",
+      ideal_response: "I'm from Turkey — Istanbul actually. How about you?",
+    },
+    {
+      id: "ex.dst23.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Ne kadar zamandır şoförlük yapıyorsun?",
+      wrong_en: "How much time you driver?",
+      right_en: "How long have you been a driver?",
+      why_tr:
+        "'How much time' yanlış (süre için 'how long'). 'You driver' eksik fiil. Doğru: 'have you been' present perfect.",
+    },
+    {
+      id: "ex.dst23.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'How long have you been Ving?' tense?",
+          options: [
+            "Present perfect continuous — devam eden süre.",
+            "Past simple.",
+            "Future.",
+            "Present simple.",
+          ],
+          correct: 0,
+          tr_explanation: "Geçmişten şu ana devam eden eylem süresi. 'How long' ile kullanılır.",
+        },
+        {
+          q: "'Originally' anlamı?",
+          options: [
+            "Aslen / orijinal olarak (köken).",
+            "Sonradan.",
+            "Hemen.",
+            "Yakında.",
+          ],
+          correct: 0,
+          tr_explanation: "Köken sormakta yumuşatıcı. 'Where are you from originally?' = aslen nerelisin?",
+        },
+        {
+          q: "Şoför sohbeti tipik konular?",
+          options: [
+            "Politika + din.",
+            "Hava + işin nasıl gidiyor + memleket.",
+            "Maaş + aile sorunları.",
+            "Sessizlik şart.",
+          ],
+          correct: 1,
+          tr_explanation: "Nötr + samimi konular. Politika/din riskli.",
+        },
+        {
+          q: "Aksan iltifatına nasıl cevap?",
+          options: [
+            "Şikayet.",
+            "Kabul + soru iade et.",
+            "Reddet.",
+            "Sus.",
+          ],
+          correct: 1,
+          tr_explanation: "'I'm from X. You?' karşılıklı sohbet açar.",
+        },
+        {
+          q: "Uber'de small talk EN sıcak başlangıç?",
+          options: [
+            "Drive me.",
+            "Hey, how's your day going?",
+            "Hi.",
+            "Stop.",
+          ],
+          correct: 1,
+          tr_explanation: "Casual selam + soru = doğal sohbet açıcı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2159,6 +2661,131 @@ export const dailySmalltalkLesson_23_7: BundledLesson = {
       tr_hint:
         "Networking klasigi. 'So' uzun + dusunceli. 'Brings you' bağlanır → 'brin-zyə'. 'Here' net. Cumle sicakkanli ton.",
     },
+    {
+      id: "ex.dst23.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "So, what ___ ___ here ___?",
+      slots: [
+        { accepted: ["brings", "got"], distractors: ["take", "come", "make"] },
+        { accepted: ["you", "you both"], distractors: ["yours", "him", "us"] },
+        { accepted: ["today", "this morning", ""], distractors: ["now", "fast", "good"] },
+      ],
+      tr_hint:
+        "Konferans/etkinlik networking. 'So, what brings you here?' = niye geldin? Türk öğrenci 'why you come?' der — kabaca.",
+      example_filled: "So, what brings you here today?",
+    },
+    {
+      id: "ex.dst23.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hey — first time at this conference?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh nice! Which talk are you most looking forward to?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yeah|yes)(,)? (first time|been wanting to come)",
+        "(no|not really)(,)? (second time|i was here last year)",
+        "(actually )?(yeah|yes)(,)? (it'?s )?my first",
+        "(it'?s )?(actually|yeah) my second",
+      ],
+      tr_hint:
+        "Konferansta networking. Türk öğrenci sustur — sosyalleşmek = iş fırsatı. Kabul + ek bilgi.",
+      ideal_answer: "Yeah, actually — first time. You?",
+    },
+    {
+      id: "ex.dst23.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "What do you do, if you don't mind me asking?",
+      accepted_patterns: [
+        "(i'?m a |i work as a |i work in) (\\w+|developer|designer|product manager)",
+        "(i work for|i'?m at) \\w+",
+        "(at the moment )?(i'?m doing|i'?m on) (\\w+)",
+        "(how about you)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "İş soruldu — net + soru iade et. 'I'm a designer at X. You?' Türk öğrenci utangaç susmaz.",
+      ideal_response: "I'm a software engineer at a startup — you?",
+    },
+    {
+      id: "ex.dst23.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Sen ne iş yapıyorsun?",
+      wrong_en: "What you work?",
+      right_en: "What do you do, if you don't mind me asking?",
+      why_tr:
+        "'What you work' eksik 'do' (soru yardımcısı) + yanlış fiil. Doğru: 'What do you do?' = iş soruşunun standart. Ek 'if you don't mind' saygılı.",
+    },
+    {
+      id: "ex.dst23.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'What brings you here?' = ?",
+          options: [
+            "Niye geldin / seni buraya getiren?",
+            "Ne taşıyorsun?",
+            "Ne istiyorsun?",
+            "Nereden geldin?",
+          ],
+          correct: 0,
+          tr_explanation: "Networking klasik açılışı. Konferansta her zaman uygun.",
+        },
+        {
+          q: "'What do you do?' iş anlamında niye?",
+          options: [
+            "'Do' = profesyon kalıbı.",
+            "Genel ne yapıyorsun.",
+            "Hobi.",
+            "Yanlış.",
+          ],
+          correct: 0,
+          tr_explanation: "Idiom: 'What do you do?' = mesleğin? 'For a living' bazen eklenir.",
+        },
+        {
+          q: "'Looking forward to' = ?",
+          options: [
+            "Sabırsızlıkla bekliyorum.",
+            "İleri bakıyorum.",
+            "İlerletmek.",
+            "İlerleme.",
+          ],
+          correct: 0,
+          tr_explanation: "Heyecan + beklenti. 'Looking forward to the meeting' = toplantıyı sabırsızlıkla.",
+        },
+        {
+          q: "Mini reaksiyonlar (Right? No way!) niye?",
+          options: [
+            "Aktif dinleme sinyali.",
+            "Boş sözler.",
+            "Hızlı.",
+            "Gerek yok.",
+          ],
+          correct: 0,
+          tr_explanation: "Konuşana ilgi gösteriyor — engaged dinleyici. Native standartı.",
+        },
+        {
+          q: "Networking EN doğal soru?",
+          options: [
+            "What you do?",
+            "So, what brings you here today?",
+            "Who are you?",
+            "Why?",
+          ],
+          correct: 1,
+          tr_explanation: "Doğal + saygılı açılış. Cevap rahat akar.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2460,6 +3087,133 @@ export const dailySmalltalkLesson_23_8: BundledLesson = {
       ipa: "ɔː wʌt ə ˈswiːti maɪnd ɪf aɪ pɛt hər",
       tr_hint:
         "Sıcakkanlı baslangic. 'Aw' uzun, hayran ses. 'Sweetie' iki hece (swee-tee). 'Mind if I' bağlanır → 'maɪn-dɪ-faɪ'.",
+    },
+    {
+      id: "ex.dst23.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Aw, ___ ___ ___! Mind if I ___ ___?",
+      slots: [
+        { accepted: ["what a", "such a"], distractors: ["very", "much", "good"] },
+        { accepted: ["cutie", "sweetie", "good boy"], distractors: ["dog", "animal", "pet"] },
+        { accepted: ["", "you have", ""], distractors: ["fast", "good", "nice"] },
+        { accepted: ["pet", "say hi to"], distractors: ["touch", "see", "play"] },
+        { accepted: ["her", "him", "your dog"], distractors: ["it", "dog", "this"] },
+      ],
+      tr_hint:
+        "Köpek parkı klasik açılış. 'What a sweetie! Mind if I pet her?' Türk öğrenci direkt köpeğe dokunur — kabaca.",
+      example_filled: "Aw, what a cutie! Mind if I pet her?",
+    },
+    {
+      id: "ex.dst23.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      cefr_band: "A2",
+      turns: [
+        { speaker: "npc", text: "Sure! She loves attention." },
+        { speaker: "user" },
+        { speaker: "npc", text: "She's three. She's a rescue from the shelter." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(how old )?(is she|is he)\\??",
+        "(what breed )?(is she)\\??",
+        "(she'?s )?(so cute|adorable)",
+        "(did you )?(adopt her|get her)\\??",
+      ],
+      tr_hint:
+        "Köpek sahibi izin verdi — soruyla sohbet et. Türk öğrenci sadece petler + susar. Soru aç.",
+      ideal_answer: "She's adorable! How old is she?",
+    },
+    {
+      id: "ex.dst23.8.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      cefr_band: "A2",
+      npc_line: "Do you have a dog?",
+      accepted_patterns: [
+        "(yeah|yes)(,)? (i have|a )(\\w+|golden|husky|mix)",
+        "(no|not yet)(,)? (but i'?d like to|maybe soon)",
+        "(i used to|i had one back home)",
+        "(my family )?(has|had) (one|a dog)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Karşı soruyu cevapla. Türk öğrenci sustur — sohbet biter. Cins veya 'no but I'd like' aktif tut.",
+      ideal_response: "Not yet — but I'd love to get one soon!",
+    },
+    {
+      id: "ex.dst23.8.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      cefr_band: "A2",
+      tr_thought: "Köpeğine dokunabilir miyim?",
+      wrong_en: "Can I touch your dog?",
+      right_en: "Mind if I pet your dog?",
+      why_tr:
+        "'Touch' = klinik/garip; köpek için 'pet' (= okşa) doğal. 'Mind if I' = nazik izin. ABD köpek kültüründe pet sahibi izin önemli.",
+    },
+    {
+      id: "ex.dst23.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Pet' (verb) anlamı?",
+          options: [
+            "Okşamak (hayvanı).",
+            "Evcil hayvan.",
+            "Petrol.",
+            "Pet şişe.",
+          ],
+          correct: 0,
+          tr_explanation: "Hem isim (evcil hayvan) hem fiil (okşamak). Köpekleri okşamak için 'pet' = doğal.",
+        },
+        {
+          q: "'Cutie' = ?",
+          options: [
+            "Tatlı şey / sevimli.",
+            "Tatlılık.",
+            "Tatlıcı.",
+            "Acı.",
+          ],
+          correct: 0,
+          tr_explanation: "'Cute' (sıfat) → 'cutie' (sevgili isim). Bebek/köpek için yaygın.",
+        },
+        {
+          q: "'Rescue' köpek anlamı?",
+          options: [
+            "Barınaktan alınmış (kurtarılmış).",
+            "Kurtarıcı köpek.",
+            "İtfaiye köpeği.",
+            "Sahipsiz.",
+          ],
+          correct: 0,
+          tr_explanation: "Shelter'dan alınan köpek. ABD'de yaygın + olumlu kavram.",
+        },
+        {
+          q: "'Mind if I pet her?' niye 'her'?",
+          options: [
+            "Köpekler 'he/she' olarak ifade edilir (sevgi).",
+            "Yanlış.",
+            "Şart.",
+            "Geçici.",
+          ],
+          correct: 0,
+          tr_explanation: "Evcil hayvanlara 'it' soğuk. Sahip 'he/she' tercih eder.",
+        },
+        {
+          q: "Köpek parkında EN doğal açılış?",
+          options: [
+            "Touch dog?",
+            "Aw, what a cutie! Mind if I pet her?",
+            "Move!",
+            "Big dog.",
+          ],
+          correct: 1,
+          tr_explanation: "İltifat + nazik izin = standart yaklaşım.",
+        },
+      ],
     },
   ],
 };

@@ -819,6 +819,133 @@ export const dailyTechSupportLesson_36_2: BundledLesson = {
       tr_explanation:
         "Belirsiz + grammatik degil. Doğru: present perfect + spesifik adim (unplugged 30s) + sonuc (still no connection).",
     },
+    {
+      id: "ex.dts36.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "I've already ___ ___ — ___ ___ ___.",
+      slots: [
+        { accepted: ["restarted", "rebooted", "power cycled"], distractors: ["restart", "did", "made"] },
+        { accepted: ["twice", "three times", "the modem"], distractors: ["very", "fast", "good"] },
+        { accepted: ["unplugged", "waited"], distractors: ["did", "go", "do"] },
+        { accepted: ["for 30 seconds", "for a minute"], distractors: ["fast", "good", "long"] },
+        { accepted: ["each time", "still no connection"], distractors: ["yes", "OK", "now"] },
+      ],
+      tr_hint:
+        "Tech support: önceki adımları paylaş. Türk öğrenci 'restart' der — eksik. Present perfect + detay.",
+      example_filled: "I've already restarted twice — unplugged for 30 seconds each time. Still no connection.",
+    },
+    {
+      id: "ex.dts36.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "Let's start with the basics — have you restarted the modem?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay, that's good. Let me run a remote diagnostic." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (i'?ve|i have) (already )?(restarted|rebooted) (it|the modem) (twice|once)",
+        "(i tried that )?(twice|already)",
+        "(unplugged it for|waited) (30 seconds|a minute)",
+        "(still )?(no connection|same issue)",
+      ],
+      tr_hint:
+        "Tech support: 'have you tried...?' tipik soru. Türk öğrenci sadece 'yes' der — adımları DETAY ver.",
+      ideal_answer: "Yes, I've restarted twice — unplugged it for 30 seconds each time. Still no connection.",
+    },
+    {
+      id: "ex.dts36.2.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "Could you read me the serial number on the back of the device?",
+      accepted_patterns: [
+        "(sure|let me check)",
+        "(it'?s )?(\\w{3,})",
+        "(hold on )?(i'?ll grab my reading glasses|let me get a flashlight)",
+        "(could you )?(repeat what i'?m looking for)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Seri numara isteniyor — net cevap + ihtiyacın varsa sor. Türk öğrenci anlamadan rastgele okur.",
+      ideal_response: "Let me check — could you confirm what format I'm looking for?",
+    },
+    {
+      id: "ex.dts36.2.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Modemi yeniden başlattım, aynı sorun.",
+      wrong_en: "I restart modem, same problem.",
+      right_en: "I've already restarted the modem — same issue persists.",
+      why_tr:
+        "'I restart' eksik zaman. Present perfect: 'I've restarted' = denedim + sonuç hala devam. 'Same problem' yerine 'same issue persists' profesyonel.",
+    },
+    {
+      id: "ex.dts36.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Power cycle' = ?",
+          options: [
+            "Elektriği kes-aç (cihaz reset).",
+            "Güç kablosu.",
+            "Bisiklet.",
+            "Şarj.",
+          ],
+          correct: 0,
+          tr_explanation: "Tech support standart adım: 30-60 sn fişten çıkar + tekrar tak.",
+        },
+        {
+          q: "Önceki adımları paylaşmak niye?",
+          options: [
+            "Tekrarlamayı önler, hızlı çözüm.",
+            "Hava.",
+            "Resmî.",
+            "Şart.",
+          ],
+          correct: 0,
+          tr_explanation: "Temsilci aynı adımları tekrar istemez. Zaman kazandırır.",
+        },
+        {
+          q: "'Remote diagnostic' = ?",
+          options: [
+            "Uzaktan tanılama (sistem incelemesi).",
+            "Uzaktan kontrol.",
+            "Uzak doktor.",
+            "Yeni cihaz.",
+          ],
+          correct: 0,
+          tr_explanation: "ISP/cihaz hattı üzerinden uzak test. Yaygın tech support adımı.",
+        },
+        {
+          q: "'Serial number' nerede?",
+          options: [
+            "Cihazın arkasında / altında etiket.",
+            "Ekranda.",
+            "Yazılımda.",
+            "Belgede.",
+          ],
+          correct: 0,
+          tr_explanation: "Fiziksel etiket. Modem/router'ın arkasında yapışkanlı.",
+        },
+        {
+          q: "Tech support EN profesyonel adım?",
+          options: [
+            "It broken!",
+            "I've already restarted twice — same issue.",
+            "Help!",
+            "Fix it!",
+          ],
+          correct: 1,
+          tr_explanation: "Denenen + sonuç = temsilci ileri adım yapar.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1167,6 +1294,131 @@ export const dailyTechSupportLesson_36_3: BundledLesson = {
         "I appreciate your time, but this needs higher-level access — could you transfer me to a supervisor?",
       tr_explanation:
         "Saldırgan + 'boss'. Doğru: tesekkur + sebep (higher-level access) + saygili transfer istegi.",
+    },
+    {
+      id: "ex.dts36.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "Could you ___ me ___ a ___?",
+      slots: [
+        { accepted: ["transfer", "escalate", "connect"], distractors: ["give", "send", "make"] },
+        { accepted: ["to", "with"], distractors: ["for", "at", "in"] },
+        { accepted: ["supervisor", "manager", "senior agent"], distractors: ["boss", "expert", "fast"] },
+      ],
+      tr_hint:
+        "Tech support eskalasyon. 'Transfer me to a supervisor' = kibar yön değiştirme. Türk öğrenci 'boss!' der kabaca.",
+      example_filled: "Could you transfer me to a supervisor?",
+    },
+    {
+      id: "ex.dts36.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "I'm sorry, that's beyond what I can do at this level." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure, let me transfer you to my supervisor." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i understand|i appreciate)(,)? (could you)?( transfer me)?",
+        "(this needs )?(higher-level access|escalation)",
+        "(could you )?(escalate this|connect me with a supervisor)\\??",
+        "(thanks for your time)(,)? (but )?",
+      ],
+      tr_hint:
+        "Eskalasyon talep. Saygılı + spesifik sebep. Türk öğrenci 'boss!' der; 'higher-level access' profesyonel.",
+      ideal_answer: "I understand — could you escalate this to a supervisor with refund authority?",
+    },
+    {
+      id: "ex.dts36.3.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "The wait for a supervisor is about 15 minutes. Would you like to hold?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (i'?ll wait|i can hold)",
+        "(could they )?(call me back|reach out)\\??",
+        "(any way )?(to expedite)\\??",
+        "(yes)(,)? (thanks for letting me know)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "15 dk bekle veya callback iste. Türk öğrenci sustur — pratik çözüm sor.",
+      ideal_response: "Could they call me back instead?",
+    },
+    {
+      id: "ex.dts36.3.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Patronla konuşmak istiyorum.",
+      wrong_en: "I want talk boss.",
+      right_en: "Could I speak with your supervisor or manager?",
+      why_tr:
+        "'I want talk' eksik 'to'. 'Boss' agresif (ABD'de saygısız). Doğru: 'supervisor/manager' + 'could I' = kibar.",
+    },
+    {
+      id: "ex.dts36.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Escalate' anlamı?",
+          options: [
+            "Üst kademeye taşı.",
+            "Sertleştir.",
+            "Kavga.",
+            "Yüksel.",
+          ],
+          correct: 0,
+          tr_explanation: "Müşteri hizmetlerinde standart: daha yetkili birine devret.",
+        },
+        {
+          q: "'Supervisor' vs 'manager'?",
+          options: [
+            "Aynı seviye, ikisi de yetkili.",
+            "Çok farklı.",
+            "Düşman.",
+            "Aile.",
+          ],
+          correct: 0,
+          tr_explanation: "Müşteri hizmetlerinde supervisor = manager. Eşit yetki.",
+        },
+        {
+          q: "'Higher-level access' = ?",
+          options: [
+            "Daha yüksek yetkili erişim (refund vb.).",
+            "Yüksek seviye giriş.",
+            "Yüksek kalite.",
+            "Yeni hesap.",
+          ],
+          correct: 0,
+          tr_explanation: "Belirli işlemler (refund, dispute) düşük seviye temsilciyle yapılmaz.",
+        },
+        {
+          q: "Eskalasyon EN profesyonel?",
+          options: [
+            "Boss now!",
+            "Could you escalate this to a supervisor?",
+            "Give boss!",
+            "Higher!",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik (supervisor) = profesyonel.",
+        },
+        {
+          q: "Callback istemek niye akıllı?",
+          options: [
+            "Beklemeden işine devam.",
+            "Hızlı.",
+            "Ucuz.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "15 dk bekleme yerine telefon geri arama daha verimli.",
+        },
+      ],
     },
   ],
 };
@@ -1519,6 +1771,133 @@ export const dailyTechSupportLesson_36_4: BundledLesson = {
       tr_explanation:
         "Test etmeden + kanit istemeden kapanis. Doğru: test (yes back) + ticket number + 'in case' guvenligi.",
     },
+    {
+      id: "ex.dts36.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "Let me ___ — ___, it's ___. Could I get a ___ ___?",
+      slots: [
+        { accepted: ["test", "verify", "check"], distractors: ["do", "try", "see"] },
+        { accepted: ["yes", "great", "perfect"], distractors: ["fast", "OK", "now"] },
+        { accepted: ["working", "back", "fixed"], distractors: ["fast", "good", "new"] },
+        { accepted: ["ticket number", "case number", "reference"], distractors: ["paper", "report", "fast"] },
+        { accepted: ["in case it breaks again", "for my records", "just in case"], distractors: ["fast", "now", "yes"] },
+      ],
+      tr_hint:
+        "Çözüm onayı + güvence. 'Let me test... yes it's working. Could I get a ticket number?'",
+      example_filled: "Let me test — yes, it's working. Could I get a ticket number in case it breaks again?",
+    },
+    {
+      id: "ex.dts36.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "Okay, your connection should be active now. Let me know if it's working." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great! Your ticket number is 47832." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(let me )?(test|check|try)",
+        "(yes|it'?s back|working now)",
+        "(could i )?(get a )?(ticket|reference) number\\??",
+        "(for my records)",
+      ],
+      tr_hint:
+        "Çözümü test et + ticket sor. Türk öğrenci 'OK bye' der — sonra problem olursa kayıt yok.",
+      ideal_answer: "Let me test — yes, working now. Could I get a ticket number for my records?",
+    },
+    {
+      id: "ex.dts36.4.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "Is there anything else I can help you with today?",
+      accepted_patterns: [
+        "(no|not really)(,)? (that'?s it|all set)",
+        "(thank you|thanks)(,)? (for your help)",
+        "(actually )?(could you )?(walk me through|tell me about)",
+        "(no|nope)(,)? (you'?ve been great)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sohbet kapanışı — teşekkür + spesifik. Türk öğrenci 'no bye' der; warmth eksik.",
+      ideal_response: "No, that's it — thanks so much for your help!",
+    },
+    {
+      id: "ex.dts36.4.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Tamam çalışıyor, bitti.",
+      wrong_en: "OK working, finish.",
+      right_en: "Confirmed it's working — could I get a ticket number just in case?",
+      why_tr:
+        "'OK working finish' yetersiz. Profesyonel: 'confirmed' + kanıt iste (ticket). 'Just in case' = ihtiyatlı.",
+    },
+    {
+      id: "ex.dts36.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Ticket number' niye önemli?",
+          options: [
+            "Sorunla ilgili kayıt — geri ararsan referans.",
+            "İlk gelene verilir.",
+            "Ücretli.",
+            "Yararsız.",
+          ],
+          correct: 0,
+          tr_explanation: "Tüm tech support kayıtları ticket ile. Tekrar problemde hızlı erişim.",
+        },
+        {
+          q: "'Just in case' = ?",
+          options: [
+            "Ne olur ne olmaz / ihtiyaten.",
+            "Yalnız durum.",
+            "Tek seferlik.",
+            "Hızlı.",
+          ],
+          correct: 0,
+          tr_explanation: "İhtiyat ifadesi. 'Save the password just in case' = ne olur ne olmaz şifreyi sakla.",
+        },
+        {
+          q: "Çözüm onayı niye önemli?",
+          options: [
+            "Test etmeden kapatma = sorun devam edebilir.",
+            "Eğlence.",
+            "Zorunlu değil.",
+            "Şart.",
+          ],
+          correct: 0,
+          tr_explanation: "Temsilci 'fixed' diyebilir ama bağlantını test etmeden onaylama.",
+        },
+        {
+          q: "Tech support kapanış EN profesyonel?",
+          options: [
+            "OK bye!",
+            "Confirmed working — could I get a ticket number? Thanks for your help!",
+            "Done.",
+            "Finish.",
+          ],
+          correct: 1,
+          tr_explanation: "Onay + güvence + teşekkür = pro kapanış.",
+        },
+        {
+          q: "'Anything else I can help you with?' uygun?",
+          options: [
+            "No, all set — thanks!",
+            "Yes go.",
+            "Bye!",
+            "Stop.",
+          ],
+          correct: 0,
+          tr_explanation: "Kapanış soru. Yes/no + minnet.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1844,6 +2223,130 @@ export const dailyTechSupportLesson_36_5: BundledLesson = {
       tr_hint:
         "ISP cagrisi acilis. 'Internet's been' bağlanır → 'in-tər-nets-bın'. 'Since this morning' net vurgu.",
     },
+    {
+      id: "ex.dts36.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "My ___ has been ___ since ___.",
+      slots: [
+        { accepted: ["internet", "Wi-Fi", "connection"], distractors: ["computer", "phone", "device"] },
+        { accepted: ["down", "out", "spotty"], distractors: ["bad", "broken", "slow"] },
+        { accepted: ["this morning", "last night", "yesterday"], distractors: ["now", "fast", "good"] },
+      ],
+      tr_hint:
+        "ISP arama açılış. 'My internet has been down since X' = present perfect (devam eden problem). Türk öğrenci 'internet broken' der — eksik.",
+      example_filled: "My internet has been down since this morning.",
+    },
+    {
+      id: "ex.dts36.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "ISP support — how can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I see, let me run a line test." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)(,)? (my )?(internet|wi-fi|connection) (has been|is) (down|out)",
+        "(since |for )(this morning|two hours|all day)",
+        "(i'?ve tried|i'?ve already) (restarting|rebooting)",
+      ],
+      tr_hint:
+        "ISP support net rapor. Türk öğrenci 'no internet help' der — eksik. Süre + denenen ekle.",
+      ideal_answer: "Hi, my internet has been down since this morning — I've already restarted the modem.",
+    },
+    {
+      id: "ex.dts36.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "There's an outage in your area. Estimated fix time is 2 hours.",
+      accepted_patterns: [
+        "(thanks for letting me know)",
+        "(could you )?(text me|notify me) when (it'?s back|fixed)\\??",
+        "(any way )?(to expedite)\\??",
+        "(will i be )?(credited|compensated) for the downtime\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bölgesel kesinti — bilgi al + kompenzasyon iste. Türk öğrenci 'OK' der — para iadesi unutulur.",
+      ideal_response: "Could you credit me for the downtime?",
+    },
+    {
+      id: "ex.dts36.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "İnternet sabah'tan beri yok.",
+      wrong_en: "Internet no since morning.",
+      right_en: "My internet has been down since this morning.",
+      why_tr:
+        "'Internet no' yanlış. Present perfect: 'has been down' = sürekli. 'Since this morning' belirli zaman.",
+    },
+    {
+      id: "ex.dts36.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Outage' = ?",
+          options: [
+            "Servis kesintisi.",
+            "Çıkış.",
+            "Yaş.",
+            "Çağrı.",
+          ],
+          correct: 0,
+          tr_explanation: "Bölgesel internet/elektrik kesintisi. ISP terminolojisi.",
+        },
+        {
+          q: "'Line test' = ?",
+          options: [
+            "Hat testi (bağlantı tanılama).",
+            "Çizgi test.",
+            "Yeni test.",
+            "Eski test.",
+          ],
+          correct: 0,
+          tr_explanation: "ISP uzaktan hat testi. Modem sinyali kontrolü.",
+        },
+        {
+          q: "Internet kesintisinde EN profesyonel?",
+          options: [
+            "Internet broken!",
+            "My internet has been down since this morning.",
+            "No internet!",
+            "Help!",
+          ],
+          correct: 1,
+          tr_explanation: "Present perfect + süre = profesyonel rapor.",
+        },
+        {
+          q: "'Credit for downtime' = ?",
+          options: [
+            "Kesinti için para iadesi (faturadan düş).",
+            "Yeni kredi.",
+            "Borç.",
+            "Hizmet.",
+          ],
+          correct: 0,
+          tr_explanation: "ABD ISP'leri uzun kesintide credit verir. İstemek pratik.",
+        },
+        {
+          q: "ISP'yi aradın — soracağın 3 şey?",
+          options: [
+            "Süre + bildirim + credit.",
+            "Hava + politika + din.",
+            "Sadece bekle.",
+            "Sadece şikayet.",
+          ],
+          correct: 0,
+          tr_explanation: "Fix time + when fixed bildirim + downtime credit.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2167,6 +2670,132 @@ export const dailyTechSupportLesson_36_6: BundledLesson = {
       ipa: "ðə ˈtuː ˈfæktər koʊd ˈɪzənt ˈriːtʃɪŋ maɪ foʊn",
       tr_hint:
         "2FA sikayet kalibi. 'Two-factor' birleşik vurgu. 'Isn't reaching' = gelmiyor — bağlanır.",
+    },
+    {
+      id: "ex.dts36.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "I'm ___ ___ of my account — ___ ___ ___?",
+      slots: [
+        { accepted: ["locked out", "blocked out"], distractors: ["far", "out", "outside"] },
+        { accepted: ["", "completely"], distractors: ["fast", "now", "good"] },
+        { accepted: ["could you", "is there a way to"], distractors: ["I will", "must I", "you give"] },
+        { accepted: ["help me", "reset my password"], distractors: ["do it", "fix it", "give"] },
+        { accepted: ["", "remotely", "manually"], distractors: ["fast", "now", "yes"] },
+      ],
+      tr_hint:
+        "Hesap kilitli durum. 'I'm locked out of my account — could you help me reset?' Türk öğrenci 'account broken' der.",
+      example_filled: "I'm locked out of my account — could you help me reset my password?",
+    },
+    {
+      id: "ex.dts36.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "Account support — how can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I'll need to verify your identity. Could you answer your security questions?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?m )?locked out of (my )?account",
+        "(could you|can you) help (me )?(reset|recover) (my )?(password|account)",
+        "(the )?(two-factor|2fa) code (isn'?t|is not) (working|reaching me)",
+      ],
+      tr_hint:
+        "Hesap erişim sorunu. Net + spesifik. Türk öğrenci 'account problem' der — yetersiz.",
+      ideal_answer: "Hi, I'm locked out of my account — the 2FA code isn't reaching my phone.",
+    },
+    {
+      id: "ex.dts36.6.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "Can you answer your security question? What's your mother's maiden name?",
+      accepted_patterns: [
+        "(it'?s )?(\\w+)",
+        "(let me think)",
+        "(could you )?(give me a hint)\\??",
+        "(i don'?t remember)(,)? (any other )?(option)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Güvenlik sorusu — cevap ver. Unutmuşsan alternatif iste.",
+      ideal_response: "It's Yilmaz.",
+    },
+    {
+      id: "ex.dts36.6.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Hesabıma giremiyorum, şifre lazım.",
+      wrong_en: "I cannot enter my account, need password.",
+      right_en: "I'm locked out of my account — could you help me reset the password?",
+      why_tr:
+        "'Cannot enter' Türkçe etkili ('giriş' = enter). Doğru: 'I'm locked out' deyimi. + 'reset the password' = standart prosedür.",
+    },
+    {
+      id: "ex.dts36.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Locked out' = ?",
+          options: [
+            "Hesabıma erişim engellendi.",
+            "Hesap kapalı.",
+            "Hesap eski.",
+            "Hesap yeni.",
+          ],
+          correct: 0,
+          tr_explanation: "Idiom: erişim engelli. Anahtar kaybolmuş gibi.",
+        },
+        {
+          q: "'2FA' = ?",
+          options: [
+            "Two-factor authentication (iki adımlı doğrulama).",
+            "Two facts.",
+            "Two attempts.",
+            "Two answers.",
+          ],
+          correct: 0,
+          tr_explanation: "Şifre + SMS kodu = iki katmanlı güvenlik. Banka/email için yaygın.",
+        },
+        {
+          q: "'Security question' = ?",
+          options: [
+            "Güvenlik sorusu (hesap doğrulama).",
+            "Tehlike sorusu.",
+            "Sigorta sorusu.",
+            "Soru.",
+          ],
+          correct: 0,
+          tr_explanation: "Hesap açarken sen seçersin. 'Annenin kızlık soyadı' klasik.",
+        },
+        {
+          q: "'Mother's maiden name' = ?",
+          options: [
+            "Annenin kızlık soyadı.",
+            "Anne ismi.",
+            "Aile adı.",
+            "Eski soyad.",
+          ],
+          correct: 0,
+          tr_explanation: "Maiden name = evlenmeden önceki soyad. Klasik güvenlik sorusu.",
+        },
+        {
+          q: "Hesap kilitli EN profesyonel?",
+          options: [
+            "Account broken!",
+            "I'm locked out — could you help me reset the password?",
+            "Password lost!",
+            "Help!",
+          ],
+          correct: 1,
+          tr_explanation: "Idiom + spesifik istek = pro.",
+        },
+      ],
     },
   ],
 };
@@ -2493,6 +3122,132 @@ export const dailyTechSupportLesson_36_7: BundledLesson = {
       tr_hint:
         "Billing sorgu kalibi. 'Could you' birleşir → 'kud-yə'. 'Walk me through' bağlanır. 'Charge' sonu sert.",
     },
+    {
+      id: "ex.dts36.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "Could you ___ ___ ___ this ___ on my bill?",
+      slots: [
+        { accepted: ["walk me through", "explain", "break down"], distractors: ["fast", "tell", "give"] },
+        { accepted: ["", "and clarify", ""], distractors: ["fast", "yes", "OK"] },
+        { accepted: ["", "in detail", ""], distractors: ["now", "fast", "good"] },
+        { accepted: ["charge", "fee", "amount"], distractors: ["money", "thing", "stuff"] },
+      ],
+      tr_hint:
+        "Faturalama itirazı yumuşak. 'Walk me through this charge' = saygılı + net. 'Wrong bill!' kabaca.",
+      example_filled: "Could you walk me through this charge on my bill?",
+    },
+    {
+      id: "ex.dts36.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "Billing — how can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Let me pull up your account and check." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i (see|noticed) a |there'?s an) (extra|unexpected) charge",
+        "(could you )?(walk me through|explain) (this )?(charge|fee)",
+        "(my bill is )?(higher than usual|larger than expected)",
+        "(i don'?t recognize )?this (charge|line item)",
+      ],
+      tr_hint:
+        "Billing departmanına saygılı sorgu. Türk öğrenci 'wrong bill!' der — kavga başlatır.",
+      ideal_answer: "Hi, I noticed an extra charge on my bill — could you walk me through it?",
+    },
+    {
+      id: "ex.dts36.7.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "That's a late payment fee from last month. Were you aware?",
+      accepted_patterns: [
+        "(no|wasn'?t aware)(,)? (could you|can you) (waive|remove)\\??",
+        "(any way )?(this could be )?(removed|reversed)\\??",
+        "(it'?s )?(my first )?(late payment)(,)? (any chance )?(of a waiver)\\??",
+        "(i'?d like to dispute it)(,)? (please)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Late fee açıklandı — kabul + waive iste. Türk öğrenci 'OK' der — fee ödenir.",
+      ideal_response: "I wasn't aware — any chance the fee could be waived since it's my first?",
+    },
+    {
+      id: "ex.dts36.7.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Bu fatura yanlış, niye fazla ücret?",
+      wrong_en: "This bill wrong, why extra money?",
+      right_en: "Could you walk me through this charge? I'd like to understand it.",
+      why_tr:
+        "'Bill wrong, why money' kavga başlatır. Doğru: 'walk me through' (saygılı) + 'understand' = sakin.",
+    },
+    {
+      id: "ex.dts36.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Walk me through' niye yumuşatıcı?",
+          options: [
+            "İtiraz değil, anlama isteği — temsilci savunmaya geçmez.",
+            "Hızlı.",
+            "Resmî.",
+            "Kısa.",
+          ],
+          correct: 0,
+          tr_explanation: "Müşteri sakin görünür → temsilci esnek olur.",
+        },
+        {
+          q: "'Late payment fee' = ?",
+          options: [
+            "Geç ödeme cezası.",
+            "Hızlı ödeme.",
+            "Yeni ücret.",
+            "Eski ücret.",
+          ],
+          correct: 0,
+          tr_explanation: "Vade geçince mağaza/şirket ekler. Genelde $25-35.",
+        },
+        {
+          q: "'Waive a fee' = ?",
+          options: [
+            "Ücretten vazgeç / iptal et.",
+            "Ücret ekle.",
+            "Ücret yenile.",
+            "Ücret ödeme.",
+          ],
+          correct: 0,
+          tr_explanation: "İlk hata için yaygın talep. 'First-time waiver' iyi.",
+        },
+        {
+          q: "'Dispute a charge' = ?",
+          options: [
+            "Ücrete resmi itiraz.",
+            "Ödeme yap.",
+            "İptal et.",
+            "Onayla.",
+          ],
+          correct: 0,
+          tr_explanation: "Resmi süreç. Banka/şirket inceleme yapar, iade verir.",
+        },
+        {
+          q: "Billing itiraz EN profesyonel?",
+          options: [
+            "Wrong bill!",
+            "Could you walk me through this charge? I'd like to understand it.",
+            "Money back!",
+            "Bad!",
+          ],
+          correct: 1,
+          tr_explanation: "Sakin + anlama isteği = işbirliği başlar.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2817,6 +3572,133 @@ export const dailyTechSupportLesson_36_8: BundledLesson = {
       ipa: "wʌts ðə ˈdɪfərəns bɪˈtwiːn ðiːz tuː plænz",
       tr_hint:
         "Plan karsilastirma kalibi. 'What's the' bağlanır → 'wʌts-ðə'. 'Difference between' net vurgu. 'Two plans' sonu net.",
+    },
+    {
+      id: "ex.dts36.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "I'd like to ___ my plan to ___ — ___ ___ ___?",
+      slots: [
+        { accepted: ["change", "upgrade", "downgrade", "switch"], distractors: ["fast", "fix", "make"] },
+        { accepted: ["the Pro plan", "a cheaper plan", "the family plan"], distractors: ["big", "good", "best"] },
+        { accepted: ["what's", "any"], distractors: ["how", "why", "where"] },
+        { accepted: ["the difference", "loyalty discount", "promo"], distractors: ["fast", "good", "thing"] },
+        { accepted: ["available", "running", "for new plans"], distractors: ["fast", "yes", "now"] },
+      ],
+      tr_hint:
+        "Plan değişimi + indirim sor. 'I'd like to upgrade — any loyalty discount?' Türk öğrenci 'change plan' der — pazarlık kaçar.",
+      example_filled: "I'd like to upgrade my plan to the Pro plan — any loyalty discount available?",
+    },
+    {
+      id: "ex.dts36.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "How can I help with your service today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — let me check what's available for you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d like to|i'?m thinking of) (change|upgrade|downgrade|switch) (my )?plan",
+        "(could you )?walk me through (the )?options",
+        "(any )?(loyalty|retention) (discount|offer)\\??",
+        "(what'?s )?(the difference between) (these )?plans\\??",
+      ],
+      tr_hint:
+        "Plan değişimi — spesifik + indirim sor. Türk öğrenci 'cheaper plan' der.",
+      ideal_answer: "I'd like to upgrade my plan — could you walk me through the options and any loyalty discounts?",
+    },
+    {
+      id: "ex.dts36.8.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "The Pro plan is $20 more but includes streaming. Would you like to switch?",
+      accepted_patterns: [
+        "(could i )?(try it for|cancel anytime)\\??",
+        "(yes|sure)(,)? (let'?s switch)",
+        "(any )?(promo|discount )(for new plans)\\??",
+        "(actually )?(could i )?(downgrade instead)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Plan teklif edildi — promo/iptal sor. Türk öğrenci direkt 'yes' der — pazarlık kaçar.",
+      ideal_response: "Any promo running for new plans? Can I cancel anytime?",
+    },
+    {
+      id: "ex.dts36.8.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Planımı değiştirmek istiyorum, indirim var mı?",
+      wrong_en: "I want change plan, discount have?",
+      right_en: "I'd like to change my plan — any loyalty discount available?",
+      why_tr:
+        "'I want change plan' eksik 'to' (want to + verb). 'Discount have?' Türkçe sıra. Doğru: modal + 'any loyalty discount' = pro müşteri sorusu.",
+    },
+    {
+      id: "ex.dts36.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Loyalty discount' niye?",
+          options: [
+            "Sadık müşteriye özel indirim — istemen şart.",
+            "Hızlı.",
+            "Yeni müşteri.",
+            "Resmî.",
+          ],
+          correct: 0,
+          tr_explanation: "Şirketler proaktif söylemez. Müşteri sorarsa açılır.",
+        },
+        {
+          q: "'Upgrade' vs 'downgrade'?",
+          options: [
+            "Üst plana çık vs alt plana in.",
+            "Aynı.",
+            "Aile.",
+            "Yeni.",
+          ],
+          correct: 0,
+          tr_explanation: "Upgrade = daha pahalı/iyi. Downgrade = daha ucuz/temel.",
+        },
+        {
+          q: "'Cancel anytime' = ?",
+          options: [
+            "Her zaman iptal edebilir.",
+            "Bir kez iptal.",
+            "Zaman iptal.",
+            "Yeni iptal.",
+          ],
+          correct: 0,
+          tr_explanation: "Sözleşme yok = ne zaman istersen iptal. Önemli soru.",
+        },
+        {
+          q: "'Retention discount' = ?",
+          options: [
+            "Tutma indirimi (ayrılma engelleme).",
+            "Eski indirim.",
+            "Hediye.",
+            "Yeni paket.",
+          ],
+          correct: 0,
+          tr_explanation: "Müşteri 'cancel' deyince temsilci özel indirim açar. Pazarlık tekniği.",
+        },
+        {
+          q: "Plan değişimi EN profesyonel?",
+          options: [
+            "Cheaper!",
+            "I'd like to change my plan — any loyalty discount available?",
+            "Plan change.",
+            "Less money.",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik + indirim sorgu = pro müşteri.",
+        },
+      ],
     },
   ],
 };

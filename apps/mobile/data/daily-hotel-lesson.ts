@@ -814,6 +814,132 @@ export const dailyHotelLesson_20_2: BundledLesson = {
       tr_explanation:
         "'Too much noise' yanlış — 'noise' sayılamayan + 'too much' yapı bozuk; doğru: 'too noisy' (sıfat). 'I can't sleep please' awkward; çözüm istemek daha güçlü: 'move me to a quieter one'.",
     },
+    {
+      id: "ex.dh20.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "There's a problem with ___ — ___ ___ ___?",
+      slots: [
+        { accepted: ["the AC", "the heater", "the shower", "the TV"], distractors: ["air condition", "shower thing", "TV broken"] },
+        { accepted: ["could you", "would you"], distractors: ["can you do", "do you", "you must"] },
+        { accepted: ["send someone up", "fix it today", "have a look"], distractors: ["come fix", "do something", "look"] },
+        { accepted: ["please", ""], distractors: ["now!", "fast!", "today!"] },
+      ],
+      tr_hint:
+        "Oda sorunu raporu. 'There's a problem with X' = X'te sorun var. Türk öğrenci 'X broken' der — yetersiz. Tam cümle + kibar çözüm rica.",
+      example_filled: "There's a problem with the AC — could you send someone up please?",
+    },
+    {
+      id: "ex.dh20.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Front desk — how can I help you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I'm sorry. I'll send maintenance up right away." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (there'?s )?(a problem|an issue) with (the )?(ac|shower|tv|heating)",
+        "(the )?(ac|heater|shower) (isn'?t|is not) working",
+        "(could you|can you) (send someone|have someone) (up|to my room)",
+        "(my room is )?(too noisy|too cold|too hot) — (could you )?(help)",
+      ],
+      tr_hint:
+        "Resepsiyona oda problemi. Net + kibar. Türk öğrenci panic mode uzun anlatır — gereksiz. 'There's a problem with X' = standart açılış.",
+      ideal_answer: "Hi, there's a problem with the AC in room 305 — could you send someone up?",
+    },
+    {
+      id: "ex.dh20.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Maintenance can come in about 30 minutes. Is that okay?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (that'?s fine|works for me)",
+        "(could they come )?(sooner|faster|right away)\\??",
+        "(any chance|is there any way) (they could come )?sooner\\??",
+        "(thanks|appreciate it)(,)? (i'?ll wait)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Bakım 30 dk dedi — kabul + acele rica. Türk öğrenci sadece 'yes' der; bazen 'any chance sooner?' acil çözüm getirir.",
+      ideal_response: "Any chance they could come sooner? Thanks!",
+    },
+    {
+      id: "ex.dh20.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Klima çalışmıyor, oda soğuk.",
+      wrong_en: "AC not work, room cold.",
+      right_en: "The AC isn't working — the room is freezing.",
+      why_tr:
+        "'AC not work' eksik yardımcı fiil. Doğru: 'isn't working'. 'Room cold' eksik 'is'. 'Freezing' = abartı + dramatik (oteli motive eder).",
+    },
+    {
+      id: "ex.dh20.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Send maintenance up' anlamı?",
+          options: [
+            "Bakımcıyı yukarı yolla (odaya).",
+            "Bakım yap.",
+            "Bakım ödeme.",
+            "Bakımı bilgilendir.",
+          ],
+          correct: 0,
+          tr_explanation: "'Up' = yukarı (otel odanız genelde üst kat). 'Send maintenance up' = bakımcıyı odaya yolla.",
+        },
+        {
+          q: "'Too noisy' niye 'noisy'?",
+          options: [
+            "'Noise' yanlış burada.",
+            "'Noisy' sıfat, 'too + sıfat' yapısı.",
+            "İkisi de doğru.",
+            "Yanlış kelime.",
+          ],
+          correct: 1,
+          tr_explanation: "'Too' + sıfat: too noisy, too cold, too hot. 'Too much noise' farklı yapı (uncountable).",
+        },
+        {
+          q: "'Could you send someone up?' niye kibar?",
+          options: [
+            "Modal 'could' + dolaylı talep.",
+            "Çünkü 'please' var.",
+            "Çünkü emir.",
+            "Çünkü kısa.",
+          ],
+          correct: 0,
+          tr_explanation: "Modal yardımcı 'could' resmî/kibar. 'Send someone' = emir; 'could you' = soft talep.",
+        },
+        {
+          q: "'There's a problem with X' yapısı niye iyi?",
+          options: [
+            "Sorun + nesneyi net belirtir, suçlama yok.",
+            "Kısa.",
+            "Komik.",
+            "Eski moda.",
+          ],
+          correct: 0,
+          tr_explanation: "Otel personeli için: spesifik problem + nötr ton. 'Your AC is bad' suçlayıcı; 'there's a problem' nötr.",
+        },
+        {
+          q: "Otel sorunu en pratik kalıp?",
+          options: [
+            "Help broken!",
+            "Hi, there's a problem with [item] — could you send someone up?",
+            "Fix it now!",
+            "Bad room.",
+          ],
+          correct: 1,
+          tr_explanation: "Selam + spesifik sorun + kibar çözüm. Otel SOP'una uygun.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1161,6 +1287,132 @@ export const dailyHotelLesson_20_3: BundledLesson = {
       tr_explanation:
         "'Prices are wrong' kaba doğrudan suçlama. Saygılı yaklaşım: 'don't look right' (= bana doğru görünmüyor) + 'take another look' (= tekrar bak). Personel savunmaya geçmez, problem hızlı çözülür.",
     },
+    {
+      id: "ex.dh20.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could I ___ ___ ___ until ___?",
+      slots: [
+        { accepted: ["have", "request", "get"], distractors: ["make", "take", "do"] },
+        { accepted: ["a late checkout", "an extension", "extra time"], distractors: ["late check", "more time only", "late"] },
+        { accepted: ["", "by an hour", "this afternoon"], distractors: ["please now", "fast", "yes"] },
+        { accepted: ["2 PM", "3 PM", "noon"], distractors: ["after", "later", "soon"] },
+      ],
+      tr_hint:
+        "Late checkout kalıbı. 'Could I have a late checkout until 2 PM?' = 2'ye kadar geç çıkış? Türk öğrenci 'late please' der — yetersiz. Saat belirt + kibar.",
+      example_filled: "Could I have a late checkout until 2 PM?",
+    },
+    {
+      id: "ex.dh20.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Front desk — how can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Let me check availability. What time were you thinking?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i want) to (check out|do my checkout|extend)",
+        "(could i|can i) (have|get|request) (a )?late checkout",
+        "(any chance )?(i could)? (stay (a bit longer)|push checkout back)\\??",
+        "(i'?m checking out)(,)? (but )?could i (have|stay until)",
+      ],
+      tr_hint:
+        "Resepsiyona late checkout. 'Could I have a late checkout until 2 PM?' net. Türk öğrenci 'I want stay more' der — yetersiz.",
+      ideal_answer: "Hi, I'm checking out today — could I have a late checkout until 2 PM?",
+    },
+    {
+      id: "ex.dh20.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "We can extend until 1 PM at no charge. Would that work?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (that'?d be great|perfect)",
+        "(actually )?(could you )?make it 2 PM\\??",
+        "(is there a fee )?(for|to) 2 PM\\??",
+        "(works for me)(,)? (thanks|appreciate it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "1 PM teklif edildi — kabul veya daha geç sor. Türk öğrenci 'OK' der — pazarlık fırsatı kayıp. 'Could you make it 2?' iyi soru.",
+      ideal_response: "That works — thanks so much!",
+    },
+    {
+      id: "ex.dh20.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Geç çıkış istiyorum, 2'ye kadar.",
+      wrong_en: "I want late go out until 2.",
+      right_en: "Could I have a late checkout until 2 PM?",
+      why_tr:
+        "'Late go out' yanlış kalıp — 'go out' = dışarı çık (eğlence). Otel terimi 'checkout'. 'I want' kaba; 'Could I have' kibar. 'Until 2 PM' tam.",
+    },
+    {
+      id: "ex.dh20.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Late checkout' nedir?",
+          options: [
+            "Geç saatte çıkış (standart saatin sonrası).",
+            "Geç giriş.",
+            "Geç çay.",
+            "Geç ödeme.",
+          ],
+          correct: 0,
+          tr_explanation: "Otel standart çıkış: 11 AM-12 PM. 'Late checkout' = 1-3 PM (genelde).",
+        },
+        {
+          q: "'At no charge' = ?",
+          options: [
+            "Ücretsiz.",
+            "Ücretli.",
+            "Şarjı yok.",
+            "Ek ücret.",
+          ],
+          correct: 0,
+          tr_explanation: "'No charge' = ücretsiz. 'Free of charge' eşanlamlı.",
+        },
+        {
+          q: "'Would that work?' anlamı?",
+          options: [
+            "Bu sana uyar mı?",
+            "Bu çalışır mı?",
+            "Sen iş yapar mısın?",
+            "İş bul.",
+          ],
+          correct: 0,
+          tr_explanation: "Idiomatic 'work' = uygun mu? Plan/zaman teklifinde yaygın.",
+        },
+        {
+          q: "Late checkout kibar rica?",
+          options: [
+            "Late checkout!",
+            "Could I have a late checkout until 2 PM, please?",
+            "I stay late.",
+            "Give late checkout.",
+          ],
+          correct: 1,
+          tr_explanation: "Modal 'could' + saat + please = profesyonel.",
+        },
+        {
+          q: "'Push checkout back' anlamı?",
+          options: [
+            "Çıkışı geri at (= geç saate al).",
+            "Çıkışı geri ver.",
+            "Çıkışı yapma.",
+            "Çıkışı iptal et.",
+          ],
+          correct: 0,
+          tr_explanation: "'Push back' = ileriye/geç saate kaydır. Late checkout için casual ifade.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1475,6 +1727,131 @@ export const dailyHotelLesson_20_4: BundledLesson = {
       ipa: "/ˈɛni tʃɑːns əv ən ˈɜːrli ˈtʃɛk ɪn/",
       tr_hint:
         "'Any chance of' bağlanır = 'eni-çans-ıv'. 'An early' = 'ın-IR-li'. Yumuşak, soran ton — son hece yukarı.",
+    },
+    {
+      id: "ex.dh20.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Any chance of ___ ___ ___?",
+      slots: [
+        { accepted: ["an early", "a quick"], distractors: ["early", "the early", "one early"] },
+        { accepted: ["check-in", "check in"], distractors: ["check", "checking", "checked"] },
+        { accepted: ["before noon", "around 11", ""], distractors: ["fast", "very early", "now please"] },
+      ],
+      tr_hint:
+        "Early check-in soft talep. 'Any chance of...?' = bir ihtimal var mı? Türk öğrenci 'I want early' der — kabaca. 'Any chance' yumuşak + kibar.",
+      example_filled: "Any chance of an early check-in before noon?",
+    },
+    {
+      id: "ex.dh20.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Welcome — checking in?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Let me see. We might have a room ready by 11. Want to wait?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?m )?early — (any chance|is there any way) (of |for )?(an )?early check.in",
+        "(i'?m a bit early)(,)? (could i|can i) (check in (now|early))",
+        "(i got here|i arrived) (early)?(,)? (any chance )?(i could|i can) (check in)\\??",
+        "(could you|can you) check (if|whether) (my )?(room is ready)\\??",
+      ],
+      tr_hint:
+        "Early check-in talebi. Türk öğrenci 'I arrived early, give room' der — kabaca. 'Any chance of early check-in?' yumuşak + kibar.",
+      ideal_answer: "Hi, I'm a bit early — any chance of an early check-in?",
+    },
+    {
+      id: "ex.dh20.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Your room won't be ready until 1 PM. Would you like to leave your luggage?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (that'?d be great|thanks)",
+        "(could i )?(leave|store) my luggage\\??",
+        "(yes|okay)(,)? (and )?(could you )?text me when (it'?s|the room is) ready\\??",
+        "(works for me)(,)? (i'?ll )?(come back|grab a coffee)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "1 PM ready. Kabul + bagaj sor. Türk öğrenci sadece 'OK' der — bagaj çözümü kaçar. 'Could I leave my luggage?' pratik.",
+      ideal_response: "Sure — could I leave my luggage here meanwhile?",
+    },
+    {
+      id: "ex.dh20.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Erken geldim, odamı verir misin?",
+      wrong_en: "I came early, give my room?",
+      right_en: "I arrived a bit early — any chance of an early check-in?",
+      why_tr:
+        "'Came early' Türkçe doğrudan. Doğru: 'arrived' resmî. 'Give my room' kabaca emir; 'any chance of' kibar dolaylı soru.",
+    },
+    {
+      id: "ex.dh20.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Early check-in' nedir?",
+          options: [
+            "Standart saatten önce giriş.",
+            "Geç giriş.",
+            "Hızlı giriş.",
+            "İptal giriş.",
+          ],
+          correct: 0,
+          tr_explanation: "Otel standart check-in: 3 PM. 'Early' = 1-2 PM (boş oda varsa).",
+        },
+        {
+          q: "'Any chance of...?' yumuşatma niye?",
+          options: [
+            "Mümkün mü gibi soru — kabul/red ikisi de doğal.",
+            "Çünkü kısa.",
+            "Çünkü resmî.",
+            "Çünkü eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Soft ricalar için ideal. Personel 'no' diyebileceği için müşteri kayıtsız kalır.",
+        },
+        {
+          q: "'Leave luggage' anlamı?",
+          options: [
+            "Bagajı bırak (geçici sakla).",
+            "Bagajı al.",
+            "Bagajı taşı.",
+            "Bagajı sat.",
+          ],
+          correct: 0,
+          tr_explanation: "'Leave luggage' = otel'de geçici sakla. 'Luggage storage' yaygın hizmet.",
+        },
+        {
+          q: "'Text me when ready' = ?",
+          options: [
+            "Hazır olunca mesaj at.",
+            "Mesaj yaz.",
+            "Telefonu kapat.",
+            "Mesajı sil.",
+          ],
+          correct: 0,
+          tr_explanation: "'Text' = SMS at. Erken gelen müşteriler için pratik istek.",
+        },
+        {
+          q: "Early check-in EN kibar?",
+          options: [
+            "Give room now!",
+            "Any chance of an early check-in?",
+            "I want early.",
+            "Early!",
+          ],
+          correct: 1,
+          tr_explanation: "Yumuşak soft talep. Personel rahat 'yes/no' der.",
+        },
+      ],
     },
   ],
 };
@@ -1795,6 +2172,131 @@ export const dailyHotelLesson_20_5: BundledLesson = {
       tr_hint:
         "'Would it be' bağlanır = 'wud-it-bi'. 'Possible to' = 'PA-sı-bıl-tı'. 'Switch rooms' = 'svıç-rumz'. Yumuşak ton, son hece soran yukarı.",
     },
+    {
+      id: "ex.dh20.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Would it be possible to ___ to a ___ ___ room?",
+      slots: [
+        { accepted: ["switch", "move", "change"], distractors: ["go", "do", "make"] },
+        { accepted: ["quieter", "higher-floor", "different"], distractors: ["quiet", "high floor", "another"] },
+        { accepted: ["", "non-smoking", "king"], distractors: ["bigger fast", "more good", "very nice"] },
+      ],
+      tr_hint:
+        "Oda değiştirme talebi. 'Would it be possible to switch?' = kibar talep. Türk öğrenci 'change room' der — yetersiz. Spesifik (quieter, higher) ekle.",
+      example_filled: "Would it be possible to switch to a quieter room?",
+    },
+    {
+      id: "ex.dh20.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi there, how can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I understand. Let me see what we have available." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (would it be possible|could i) (switch|move|change) (rooms|to a different room)",
+        "(my room is )?(a bit )?(too noisy|too small|next to elevator)",
+        "(any chance )?(of |i could )?(get|move to) (a quieter|a higher-floor) room\\??",
+        "(i'?d like|i'?m hoping) to (switch|change) (rooms|my room)",
+      ],
+      tr_hint:
+        "Oda değişikliği talebi. 'My room is too noisy — would it be possible to switch?' Türk öğrenci 'I hate room' der — kabaca. Spesifik sorun + kibar çözüm.",
+      ideal_answer: "Hi, my room is a bit too noisy — would it be possible to switch?",
+    },
+    {
+      id: "ex.dh20.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "We have a room on the 12th floor available. Would that work?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (sounds great|that'?d be perfect)",
+        "(is it )?(quieter|away from the elevator)\\??",
+        "(perfect|wonderful)(,)? (thank you|i appreciate it)",
+        "(any extra fee )?(involved|for that)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yeni oda teklif edildi — kabul + sor (sessiz mi?). Türk öğrenci 'yes' der — riski almama. Detay sor.",
+      ideal_response: "Sounds great — is it quieter than my current room?",
+    },
+    {
+      id: "ex.dh20.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Odamı değiştirmek istiyorum, çok gürültülü.",
+      wrong_en: "I want change my room, too much noise.",
+      right_en: "Could I switch rooms? Mine is too noisy.",
+      why_tr:
+        "'I want change' eksik 'to' (want to + verb). 'Too much noise' kabaca; 'too noisy' (sıfat) daha doğal. 'Could I' kibar.",
+    },
+    {
+      id: "ex.dh20.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Switch rooms' = ?",
+          options: [
+            "Odaları değiştir.",
+            "Oda kapat.",
+            "Oda aç.",
+            "Oda taşı.",
+          ],
+          correct: 0,
+          tr_explanation: "'Switch' = değiştir (eşanlamlı: change/move). Otel terminolojisinde yaygın.",
+        },
+        {
+          q: "'Would it be possible to ___?' yumuşak nasıl?",
+          options: [
+            "Soyut soru kalıbı — kabul/red rahat.",
+            "Çünkü uzun.",
+            "Çünkü resmî.",
+            "Çünkü eski.",
+          ],
+          correct: 0,
+          tr_explanation: "Müşteri talebi için ideal: personel 'sorry, no availability' demek kolay.",
+        },
+        {
+          q: "'A bit too noisy' niye 'a bit'?",
+          options: [
+            "Yumuşatıcı — abartı yapmaz.",
+            "Yanlış.",
+            "Sıfat.",
+            "Belirsiz.",
+          ],
+          correct: 0,
+          tr_explanation: "Personel empati gösterir + makul talep olarak görür. Abartı = standart yanıt.",
+        },
+        {
+          q: "'Higher floor' anlamı?",
+          options: [
+            "Daha yüksek kat (gürültü daha az).",
+            "Daha yüksek tavan.",
+            "Daha yüksek fiyat.",
+            "Daha büyük oda.",
+          ],
+          correct: 0,
+          tr_explanation: "Otel'de üst kat = daha sessiz + manzara. 'Higher-floor room' tercih ifadesi.",
+        },
+        {
+          q: "Oda değiştirme EN profesyonel?",
+          options: [
+            "Bad room change!",
+            "Could I switch to a quieter room?",
+            "I move room.",
+            "Different room.",
+          ],
+          correct: 1,
+          tr_explanation: "'Could I' modal + spesifik özellik. Personel net çözüm sunar.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2112,6 +2614,132 @@ export const dailyHotelLesson_20_6: BundledLesson = {
       ipa: "/ˈɛniθɪŋ ɡʊd fər lʌntʃ ˈnɪərbaɪ/",
       tr_hint:
         "'Anything good' bağlanır = 'eniθing-gud'. 'For lunch' = 'fır-lanç'. 'Nearby' = 'NIR-bay' (vurgu ilk hece). Soran ton, son hece yukarı.",
+    },
+    {
+      id: "ex.dh20.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Any ___ for a good ___ ___ ___?",
+      slots: [
+        { accepted: ["recommendations", "suggestions", "tips"], distractors: ["recs", "recommend", "good"] },
+        { accepted: ["restaurant", "cafe", "place"], distractors: ["food", "yemek", "eat"] },
+        { accepted: ["nearby", "in the area", "close by"], distractors: ["near to", "around me", "this area"] },
+        { accepted: ["for dinner", "for lunch", "tonight"], distractors: ["food yemek", "tonight please", "now"] },
+      ],
+      tr_hint:
+        "Konsiyerj tavsiye sorma. 'Any recommendations for a good restaurant nearby for dinner?' Türk öğrenci 'where eat?' der — yetersiz.",
+      example_filled: "Any recommendations for a good restaurant nearby for dinner?",
+    },
+    {
+      id: "ex.dh20.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Concierge — how can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure! What kind of cuisine are you in the mood for?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (any |do you have any )?(recommendations|suggestions) for (a |an )?(good )?(restaurant|place)",
+        "(could you|can you) recommend (a |an )?(restaurant|cafe|place to eat)",
+        "(any )?(good )?(spots|places) (nearby|in the area)\\??",
+        "(where do )?(locals|you) (eat|go for dinner)\\??",
+      ],
+      tr_hint:
+        "Konsiyerje yemek tavsiye. 'Recommend a good restaurant nearby?' Türk öğrenci 'good food where?' der — yetersiz.",
+      ideal_answer: "Hi, do you have any recommendations for a good restaurant nearby?",
+    },
+    {
+      id: "ex.dh20.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "I'd suggest Lupa — Italian, about 5 minutes away. Do you need a reservation?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (please|that'?d be great)",
+        "(could you )?book (it|a table) for (\\d+|two|four)\\??",
+        "(thank you|thanks)(,)? (i'?ll check it out)",
+        "(do they take |what'?s the )?(walk-ins|wait time)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Konsiyerj öneri yaptı + reservasyon sordu. Kabul + sayı ver. Türk öğrenci 'OK' der — rezervasyon detayı kaybeder.",
+      ideal_response: "Yes please — could you book a table for two at 8?",
+    },
+    {
+      id: "ex.dh20.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Yakında iyi yemek nerede yiyebilirim?",
+      wrong_en: "Where I eat good food near?",
+      right_en: "Could you recommend somewhere good to eat nearby?",
+      why_tr:
+        "'Where I eat' eksik yardımcı ('can I'). 'Good food near' eksik yapı. Doğru: 'recommend somewhere good to eat nearby' = profesyonel müşteri sorusu.",
+    },
+    {
+      id: "ex.dh20.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Concierge' ne demek?",
+          options: [
+            "Otel rehberi / yardım masası (rezervasyon, tavsiye).",
+            "Resepsiyon.",
+            "Bekçi.",
+            "Garson.",
+          ],
+          correct: 0,
+          tr_explanation: "'Concierge' = otel'de tavsiye + rezervasyon hizmeti veren. Genelde lobi'de.",
+        },
+        {
+          q: "'Recommendation' anlamı?",
+          options: [
+            "Tavsiye / öneri.",
+            "Rezervasyon.",
+            "Reklam.",
+            "Resepsiyon.",
+          ],
+          correct: 0,
+          tr_explanation: "'Recommendation' = öneri. Konsiyerj için doğal kelime.",
+        },
+        {
+          q: "'Walk-ins' nedir?",
+          options: [
+            "Rezervasyonsuz gelen müşteri.",
+            "Yürüyüş yolu.",
+            "İçeri girmek.",
+            "Yürüyerek gelen.",
+          ],
+          correct: 0,
+          tr_explanation: "Restoran'da 'walk-ins' = rezervasyonsuz gelenler. 'Do they take walk-ins?' iyi soru.",
+        },
+        {
+          q: "'In the mood for X' tam anlamı?",
+          options: [
+            "X canım çekiyor / X istiyorum.",
+            "X yapmak için ruh.",
+            "X kötü ruh.",
+            "X iyi ruh.",
+          ],
+          correct: 0,
+          tr_explanation: "'In the mood for' = istek/canım çekiyor. Yemek/içecek tercih için yaygın.",
+        },
+        {
+          q: "Konsiyerje EN profesyonel yemek talebi?",
+          options: [
+            "Where good food?",
+            "Could you recommend a good restaurant nearby?",
+            "Food please.",
+            "Eat where?",
+          ],
+          correct: 1,
+          tr_explanation: "Tam soru + modal + spesifik. Konsiyerj net liste verir.",
+        },
+      ],
     },
   ],
 };
@@ -2431,6 +3059,132 @@ export const dailyHotelLesson_20_7: BundledLesson = {
       ipa: "/kʊd juː bʊk əs ə ˈteɪbəl ət ˈmaɪə fər eɪt/",
       tr_hint:
         "'Could you' bağlanır = 'kud-yu'. 'Book us a' = 'buk-ıs-ı'. 'Table at' = 'TEY-bıl-ıt'. 'For eight' = 'fır-EYT'. Yumuşak, soran ton.",
+    },
+    {
+      id: "ex.dh20.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "Could you book ___ a ___ at ___ for ___?",
+      slots: [
+        { accepted: ["us", "me", "a party of two"], distractors: ["we", "self", "two persons"] },
+        { accepted: ["table", "reservation", "seat"], distractors: ["chair", "place", "spot"] },
+        { accepted: ["Maya", "Le Bernardin", "the steakhouse"], distractors: ["good place", "this place", "somewhere"] },
+        { accepted: ["8", "tonight", "Saturday at 7"], distractors: ["fast", "soon", "good time"] },
+      ],
+      tr_hint:
+        "Konsiyerj rezervasyon talebi. 'Book us a table at X for Y' = profesyonel kalıp. Türk öğrenci 'make reservation for me' der — yetersiz.",
+      example_filled: "Could you book us a table at Maya for 8 tonight?",
+    },
+    {
+      id: "ex.dh20.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "Concierge — how can I assist?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Certainly. What time and how many in your party?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (could you|can you) (book|make) (us|me) (a |an )?(table|reservation)",
+        "(i'?d like|i was hoping) to (book|reserve) (a )?(table|spot)",
+        "(any way you )?(could )?(set up|arrange) (a |an )?(reservation|table)",
+        "(could you )?call (the restaurant|maya) to (book|reserve)",
+      ],
+      tr_hint:
+        "Konsiyerje rezervasyon talebi: 'Could you book us a table?' Türk öğrenci 'make me reservation' der — yetersiz. 'Book a table' otel terimi.",
+      ideal_answer: "Hi, could you book us a table at Maya for 8 tonight?",
+    },
+    {
+      id: "ex.dh20.7.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "Unfortunately Maya is fully booked. Would you like me to suggest something similar?",
+      accepted_patterns: [
+        "(yes|sure|please)(,)? (what would|do) you suggest\\??",
+        "(could you|can you) try (another )?(italian|nearby place)\\??",
+        "(any |something )?(similar|comparable) (in price|in style)\\??",
+        "(thank you|thanks)(,)? (i'?d appreciate that)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Rezervasyon doldu — alternatif sor. Türk öğrenci 'OK no problem' der pes eder — konsiyerj uzman, kullan.",
+      ideal_response: "Yes please — somewhere similar in style?",
+    },
+    {
+      id: "ex.dh20.7.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Bana akşam yemeği rezervasyonu yapar mısın?",
+      wrong_en: "You make me dinner reservation?",
+      right_en: "Could you book us a table for dinner tonight?",
+      why_tr:
+        "'You make' eksik yardımcı + emir tonu. Doğru: 'Could you' kibar. 'Dinner reservation' verbose; 'a table for dinner' daha doğal.",
+    },
+    {
+      id: "ex.dh20.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Book a table' = ?",
+          options: [
+            "Masa rezerve et.",
+            "Masa al.",
+            "Masa kitap.",
+            "Masa sat.",
+          ],
+          correct: 0,
+          tr_explanation: "'Book' burada fiil = rezerve et. 'Book a table/flight/hotel' yaygın.",
+        },
+        {
+          q: "'Fully booked' anlamı?",
+          options: [
+            "Tamamen dolu (rezervasyon yok).",
+            "Çok kitap.",
+            "Kitap dolu.",
+            "Boş.",
+          ],
+          correct: 0,
+          tr_explanation: "'Fully booked' = boş yer yok. Popüler restoranlarda yaygın.",
+        },
+        {
+          q: "'Party of four' nedir?",
+          options: [
+            "4 kişilik grup.",
+            "4 partisi.",
+            "Parti 4.",
+            "4 misafir.",
+          ],
+          correct: 0,
+          tr_explanation: "Restoran terimi: 'party' = grup. 'Party of 4' = 4 kişilik rezervasyon.",
+        },
+        {
+          q: "'I'd appreciate that' anlamı?",
+          options: [
+            "Bunu çok takdir ederim / minnettar olurum.",
+            "Bunu beğeniyorum.",
+            "Bunu yapmıyorum.",
+            "Bunu söyle.",
+          ],
+          correct: 0,
+          tr_explanation: "Resmî minnettarlık. Konsiyerj/personele profesyonel ton.",
+        },
+        {
+          q: "Konsiyerj rezervasyon talebi EN net?",
+          options: [
+            "Maya 8.",
+            "Could you book us a table at Maya for 8?",
+            "Make Maya.",
+            "Reserve Maya.",
+          ],
+          correct: 1,
+          tr_explanation: "Modal + spesifik (yer + saat + kişi). Konsiyerj net işlem yapar.",
+        },
+      ],
     },
   ],
 };

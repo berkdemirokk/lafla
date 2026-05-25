@@ -541,6 +541,143 @@ export const flirtRejectionLesson_7_2: BundledLesson = {
       tr_explanation:
         "'Okay. I knew it. Bye.' = pasif-agresif + soğuk. Doğru: minnet + 'rather know than wonder' (olgun çerçeve) + sıcak kapanış.",
     },
+    {
+      id: "ex.fr7.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "Honestly thanks for ___ — rather ___ than ___.",
+      slots: [
+        { accepted: ["telling me", "being upfront", "letting me know", "being honest"] },
+        { accepted: ["know now", "hear it directly", "have closure", "process it"] },
+        { accepted: ["wonder", "be left guessing", "be ghosted", "spiral"] },
+      ],
+      tr_hint:
+        "Olgun ret kabul kalıbı — minnet + 'rather know than wonder' çerçevesi. Türk öğrenci 'Okay. I knew it. Bye.' der; bu pasif-agresif; olgun: minnet + sıcak kapanış.",
+      example_filled:
+        "Honestly thanks for telling me — rather know now than wonder.",
+    },
+    {
+      id: "ex.fr7.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "I'm gonna be honest — I don't think we're the right match." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Thanks for handling that so well — you're a class act." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(honestly|truthfully) thanks for (telling me|being upfront)",
+        "(rather know|prefer to know) (now|than wonder)",
+        "(appreciate the |the )(honesty|directness)",
+        "(no hard feelings|all good)[,—-]? (.+)",
+        "(take care|wish you well|best of luck)",
+      ],
+      tr_hint:
+        "Reddi olgunca kabul — minnet + sıcak kapanış. 'Honestly thanks — rather know than wonder. Take care' tipi. Türk öğrenci 'Okay bye' der; bu soğuk + drama.",
+      ideal_answer:
+        "Honestly thanks for telling me — rather know than wonder. Take care, best of luck.",
+    },
+    {
+      id: "ex.fr7.2.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "I hope this isn't crushing, I really do think you're great.",
+      accepted_patterns: [
+        "(no |not at all|not crushing)[,—-]? (.+)",
+        "(appreciate|thanks for) (the kindness|the thought)",
+        "(better to know|rather know)",
+        "(no hard feelings|all good|we'?re good)",
+        "(wish you well|best of luck)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Olgun ret kabul + karşı tarafa rahatlatıcı söz. 'No worries — appreciate the kindness. We're good. Best of luck' tipi. Drama YOK.",
+      ideal_response:
+        "No worries — appreciate the kindness. We're good. Wish you well.",
+    },
+    {
+      id: "ex.fr7.2.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Tamam biliyordum, hoşçakal",
+      wrong_en: "Okay. I knew it. Bye.",
+      right_en: "Honestly thanks for telling me — rather know now than wonder. Take care.",
+      why_tr:
+        "Türk öğrenci 'biliyordum + hoşçakal' kalıbını birebir çevirir = pasif-agresif + drama gösterisi + soğuk kapanış = utanç verici izlenim. Modern dating'te ret kabul = OLGUN ifade. 'Rather know than wonder' = sağlıklı çerçeve.",
+    },
+    {
+      id: "ex.fr7.2.rq1",
+      type: "recall_quiz",
+      difficulty: 4,
+      cefr_band: "B2",
+      items: [
+        {
+          q: "Ret kabulünde en olgun yaklaşım?",
+          options: [
+            "'I knew it' (pasif-agresif)",
+            "Minnet + 'rather know than wonder' çerçevesi",
+            "Sus + kaybol",
+            "Tartış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Minnet = olgun. 'Rather know than wonder' = sağlıklı framework.",
+        },
+        {
+          q: "'Class act' anlamı?",
+          options: [
+            "Sınıf etkinliği",
+            "Sınıflı/olgun insan (övgü)",
+            "Tiyatro oyuncusu",
+            "Sınıf temsilcisi",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Class act' = klas insan, olgun. Övgü kalıbı.",
+        },
+        {
+          q: "'Secure attachment' anlamı?",
+          options: [
+            "Güvenli ek",
+            "Güvenli bağlanma (psikoloji terimi)",
+            "Sağlam tutturma",
+            "Korumalı bağ",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Secure attachment' = güvenli bağlanma. Reddi sakince karşılamak = güvenli bağlanmanın bir göstergesi.",
+        },
+        {
+          q: "Reddi kabul ederken YAPILMAMASI gereken?",
+          options: [
+            "Minnet ifade",
+            "Pasif-agresif veya 'I knew it' tonu",
+            "'Take care' demek",
+            "Sıcak kapanış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Pasif-agresif = olgunluk eksik. 'I knew it' = drama; modern dating'te red flag.",
+        },
+        {
+          q: "'Rather know than wonder' kalıbı niye sağlıklı?",
+          options: [
+            "Bilinmezlikten kurtulma = olgun çerçeve",
+            "Çok formal",
+            "Yapısal yanlış",
+            "Anlamsız",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Bilinmezlik = en zor durum. 'Rather know' = netlik isteme + kabul = sağlıklı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -753,6 +890,142 @@ export const flirtRejectionLesson_7_3: BundledLesson = {
       tr_explanation:
         "'You are playing with me. I am angry.' = suçlama + duygu patlaması. Doğru: 'sensing mixed signals' (gözlem) + 'no pressure' (saygı) + soru = olgun netlik araması.",
     },
+    {
+      id: "ex.fr7.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "Sensing some ___ — no pressure, but ___?",
+      slots: [
+        { accepted: ["mixed signals", "hesitation", "distance", "different energy"] },
+        { accepted: ["where's your head at", "what's going on", "how are you feeling about this", "do you want to talk about it"] },
+      ],
+      tr_hint:
+        "Belirsizlik çözme kalıbı — gözlem + saygı + açık uçlu soru. Türk öğrenci 'You play with me' diye suçlar; bu duygu patlaması; 'sensing mixed signals' = nesnel gözlem.",
+      example_filled:
+        "Sensing some mixed signals — no pressure, but where's your head at?",
+    },
+    {
+      id: "ex.fr7.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "Sorry I keep being slow to reply — life is hectic." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Yeah, fair — honestly I shouldn't be dating right now." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sensing|getting) (some |a little )?(mixed signals|hesitation|distance)",
+        "(no pressure|no judgment),? (.+)",
+        "(where'?s your head|what'?s going on|how are you feeling)",
+        "(want to|do you want to) (talk about|figure out)",
+        "(breadcrumbing|breadcrumbs)",
+      ],
+      tr_hint:
+        "Belirsizlik çözme. 'Sensing mixed signals — no pressure but where's your head at?' tipi. Türk öğrenci 'why are you playing?' suçlar; bunun yerine gözlem + saygı.",
+      ideal_answer:
+        "Sensing some mixed signals — no pressure but where's your head at?",
+    },
+    {
+      id: "ex.fr7.3.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "I'm sorry — I think I've been giving mixed signals.",
+      accepted_patterns: [
+        "(appreciate|thanks for) (the honesty|naming it)",
+        "(better to know|rather have clarity)",
+        "(no pressure|no judgment),? (.+)",
+        "(what do you|what would you) (want|need|prefer)",
+        "(thanks for being upfront|appreciate it)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Olgun netlik kabul. 'Appreciate the honesty — better to know. What do you want?' tipi. Drama YOK; tartışma yok.",
+      ideal_response:
+        "Appreciate the honesty — better to know. What do you want here?",
+    },
+    {
+      id: "ex.fr7.3.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Benimle oynuyorsun. Kızgınım",
+      wrong_en: "You are playing with me. I am angry.",
+      right_en: "Sensing some mixed signals — no pressure, but where's your head at?",
+      why_tr:
+        "Türk öğrenci 'oynuyorsun + kızgınım' kalıbını birebir çevirir = suçlama + duygu patlaması = ilişki biter. Modern dating: gözlem + soru. 'Sensing mixed signals' = nesnel + 'no pressure' = saygı + soru ile açıkla.",
+    },
+    {
+      id: "ex.fr7.3.rq1",
+      type: "recall_quiz",
+      difficulty: 4,
+      cefr_band: "B2",
+      items: [
+        {
+          q: "'Mixed signals' nasıl ele alınır?",
+          options: [
+            "Suçla",
+            "Gözlem + saygı + açık uçlu soru ('where's your head at')",
+            "Sus",
+            "Drama",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Gözlem = nesnel. Saygı + soru = davetkar netlik araması.",
+        },
+        {
+          q: "'Breadcrumbing' anlamı?",
+          options: [
+            "Ekmek yapma",
+            "Kırıntı bırakma — ilgi gibi davranıp gerçekte mesafeli",
+            "Yemek yapma",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Breadcrumbing' = haftada 1 'hey' atıp gerçek alaka göstermemek. Toxic pattern.",
+        },
+        {
+          q: "'No pressure but...' kalıbı:",
+          options: [
+            "Şart koşma",
+            "Saygılı netlik araması — baskı yok ama bilmek istiyorum",
+            "Önemsiz",
+            "Çok kibirli",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'No pressure' = karşı tarafa cevap özgürlüğü. Saygılı + olgun yaklaşım.",
+        },
+        {
+          q: "'Where's your head at?' anlamı?",
+          options: [
+            "Kafan nerede (literal)",
+            "Aklında ne var, ne düşünüyorsun (samimi soru)",
+            "Yön sor",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Where's your head at?' = ne düşünüyorsun, neredesin (zihinsel). Açık uçlu net soru.",
+        },
+        {
+          q: "Belirsizlikte 'hard no' kabul edildiğinde?",
+          options: [
+            "Tartış",
+            "'Better to know — take care' olgun kapanış",
+            "Sus",
+            "Suçla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Net cevap = netlik. 'Better to know' = olgun kabul.",
+        },
+      ],
+    },
   ],
 };
 
@@ -926,6 +1199,142 @@ export const flirtRejectionLesson_7_5: BundledLesson = {
       tr_hint:
         "'Just started' bagli, hizli. 'Seeing someone' = SEE-ing SUM-wun, yumusak. 'Thank you' sonda sicak iniş — saygiyla kapanis.",
     },
+    {
+      id: "ex.fr7.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I just ___ seeing someone — ___.",
+      slots: [
+        { accepted: ["started", "got serious", "moved in with", "made it official with"] },
+        { accepted: ["but thank you", "but I appreciate the message", "wishing you the best", "good luck out there"] },
+      ],
+      tr_hint:
+        "Başka biriyle olan kibar ret kalıbı — net + saygılı + suçlulukşuz. Türk öğrenci özür diler; bunu yapma; net ret + sıcak kapanış.",
+      example_filled:
+        "I just started seeing someone, but thank you.",
+    },
+    {
+      id: "ex.fr7.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Coffee this week? I've been thinking about our chat." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — happy for you. Take care!" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i just|recently) (started|got into) seeing someone",
+        "(thank you|thanks for) (the message|the kindness)",
+        "(but )?(appreciate|that means a lot)",
+        "(good luck|wishing you well|take care) (out there)?",
+        "(.+ )?(no hard feelings|all good)",
+      ],
+      tr_hint:
+        "Net + saygılı. 'I just started seeing someone — thank you for thinking of me. Wishing you the best' tipi. Özür DİLEME; net ret yeterli.",
+      ideal_answer:
+        "I just started seeing someone — thank you for thinking of me. Wishing you well.",
+    },
+    {
+      id: "ex.fr7.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Are you serious with them or is it casual?",
+      accepted_patterns: [
+        "(it'?s |getting )(pretty )?serious",
+        "(not really|don'?t want to) (discuss|get into)",
+        "(want to give it|focusing on) a real shot",
+        "(thanks for |appreciate the) (asking|interest)",
+        "(but yeah|either way),? (.+)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Net + saygılı sınır. 'It's getting pretty serious — want to give it a real shot. Thanks for asking' tipi. Detay vermeye mecbur değilsin.",
+      ideal_response:
+        "It's getting pretty serious — want to give it a real shot. Thanks for asking though.",
+    },
+    {
+      id: "ex.fr7.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Pardon başka birisi var hayatımda",
+      wrong_en: "Sorry I have other person in my life.",
+      right_en: "I just started seeing someone, but thank you.",
+      why_tr:
+        "Türk öğrenci 'pardon + başka biri' kalıbını birebir çevirir = özür gereksiz + 'other person' garip ifade. Doğru: 'I'm seeing someone' = standart casual kalıp + 'but thank you' = saygılı kapanış. Birisiyle olmak SUÇ değil — özür dilemen gerekmez.",
+    },
+    {
+      id: "ex.fr7.5.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Başka biriyle olduğunda kibar ret?",
+          options: [
+            "Sürekli özür",
+            "'Seeing someone — thank you' (net + saygılı)",
+            "Sus",
+            "Yalan söyle",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Net ret + sıcak kapanış. Özür dileme gereksiz (suç değil).",
+        },
+        {
+          q: "'I'm seeing someone' anlamı?",
+          options: [
+            "Birini görüyorum",
+            "Birisiyle çıkıyorum (dating)",
+            "Birini izliyorum",
+            "Birini ziyaret ediyorum",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Seeing someone' = çıkıyorum. Casual + standart dating ifadesi.",
+        },
+        {
+          q: "Niye özür dilemen gerekmez?",
+          options: [
+            "Özür dilemek zorundasın",
+            "Birisiyle olmak suç değil — saygılı ret yeterli",
+            "Karşı taraf üzülür",
+            "Sosyal kural",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Suçluluk + ret = sağlıklı değil. 'Thank you but...' = saygılı + suçlu hissetmeden.",
+        },
+        {
+          q: "Detay vermek zorunda mısın?",
+          options: [
+            "Evet, kim olduğunu söyle",
+            "Hayır — 'seeing someone' yeterli",
+            "Yarısını söyle",
+            "Şart",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Seeing someone' yeterli. Detay özel hayatın; paylaşmaya mecbur değilsin.",
+        },
+        {
+          q: "Karşı taraf ısrar ederse?",
+          options: [
+            "Tartış",
+            "Net tekrar et + 'wishing you well' kapanış",
+            "Sus",
+            "Bağır",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Net + nazikçe tekrar = sağlıklı sınır. Drama YOK.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1097,6 +1506,141 @@ export const flirtRejectionLesson_7_6: BundledLesson = {
       ipa: "aɪ əˈpriːʃieɪt ðə ˈmesɪdʒ bʌt aɪ dəʊnt θɪŋk wɪər ə mætʃ",
       tr_hint:
         "'Appreciate' = ə-PREE-shee-ate, vurgu 'PREE'de. 'Match' kisa + net son. Sicak ama net ton.",
+    },
+    {
+      id: "ex.fr7.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I appreciate ___ but ___.",
+      slots: [
+        { accepted: ["the message", "you reaching out", "the interest", "the kind words"] },
+        { accepted: ["I don't think we're a match", "I don't feel a connection", "I don't see it for me", "I'm not feeling it"] },
+      ],
+      tr_hint:
+        "İlgilenmiyorum kalıbı — minnet + net ret. Türk öğrenci uzun açıklama yapar; bunun yerine KISA + NET. 'I don't think we're a match' = saygılı ret.",
+      example_filled:
+        "I appreciate the message, but I don't think we're a match.",
+    },
+    {
+      id: "ex.fr7.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Would love to take you to dinner this week!" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Totally fair. Best of luck out there!" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(appreciate|thanks for) (the message|the offer|asking)",
+        "(but )?(i don'?t|i'?m not)( really)? (feeling it|seeing a match)",
+        "(don'?t think we'?re|just don'?t feel a)( real )?(match|connection)",
+        "(wishing you|best of luck|take care)( well)?",
+      ],
+      tr_hint:
+        "Saygılı net ret. 'Appreciate the offer — don't see us as a match. Best of luck' tipi. UZUN açıklama YAPMA.",
+      ideal_answer:
+        "Appreciate the offer — don't think we're a match for me. Best of luck though!",
+    },
+    {
+      id: "ex.fr7.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Can I at least know why? Just so I understand.",
+      accepted_patterns: [
+        "(no specific reason|just not feeling it)",
+        "(just don'?t feel|just not seeing) (the match|the connection)",
+        "(nothing to do with you|not personal)",
+        "(prefer not to|i'?d rather not) (get into|explain)",
+        "(wish you well|best of luck)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Detay vermeye mecbur değilsin. 'Honestly no specific reason — just not feeling the match. Wishing you well' tipi. Tartışmaya GİRME.",
+      ideal_response:
+        "Honestly no specific reason — just not feeling the match. Wishing you well.",
+    },
+    {
+      id: "ex.fr7.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "İlgilenmiyorum, gitme git",
+      wrong_en: "I am not interested, go away.",
+      right_en: "I appreciate the message, but I don't think we're a match.",
+      why_tr:
+        "Türk öğrenci 'gitme git' kalıbını birebir 'go away' diye çevirir = saldırgan + kaba. Modern dating: ret = net + saygılı. 'I appreciate the message' (yumuşatma) + 'don't think we're a match' (net ret) = saygılı ret standardı.",
+    },
+    {
+      id: "ex.fr7.6.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Saygılı ret formülü?",
+          options: [
+            "Sadece 'no'",
+            "Minnet + net ret + sıcak kapanış",
+            "Uzun açıklama",
+            "Suçlama",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Appreciate but not a match' = 3 ayaklı: minnet + net + saygılı kapanış.",
+        },
+        {
+          q: "Uzun açıklama niye gereksiz?",
+          options: [
+            "Daha iyi",
+            "Kısa + net = saygılı; uzun = suçluluk/savunma sinyali",
+            "Zorunlu",
+            "Adetlere uygun",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kısa + net = güvenli sınır. Uzun savunma = belirsizlik + açıklık.",
+        },
+        {
+          q: "'Not a match' nasıl çevrilir?",
+          options: [
+            "Eşleşme yok",
+            "Uyumlu değiliz / bana göre değilsin",
+            "Maç yok",
+            "Düzgün değil",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Match' dating bağlamında uyum. 'Not a match' = bana göre değil, saygılı.",
+        },
+        {
+          q: "Karşı taraf 'why?' sorarsa?",
+          options: [
+            "Uzun açıklama",
+            "'No specific reason' + nazikçe kapat",
+            "Tartış",
+            "Sus",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Detay vermek zorunda değilsin. 'No specific reason' yeterli.",
+        },
+        {
+          q: "Ret sonrası ısrar gelirse?",
+          options: [
+            "Tartış",
+            "Tekrar nazik + sınır net + 'wishing you well' kapat",
+            "Sus",
+            "Bağır",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Tekrar nazik + net = saygılı sınır. Tartışmaya girme.",
+        },
+      ],
     },
   ],
 };
@@ -1271,6 +1815,142 @@ export const flirtRejectionLesson_7_7: BundledLesson = {
       tr_hint:
         "'All good' = AWL-good, akici. 'Take care' = vurgu 'CARE'de, sicak. Hizli + dostca + drama'siz ton.",
     },
+    {
+      id: "ex.fr7.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "All good — ___. ___.",
+      slots: [
+        { accepted: ["take care", "wishing you well", "best of luck", "hope you find someone great"] },
+        { accepted: ["No hard feelings", "No drama on my end", "We're cool", "Genuinely"] },
+      ],
+      tr_hint:
+        "Reddedilince olgun kabul kalıbı — sıcak + drama'sız + saygılı kapanış. Türk öğrenci 'why?' diye sorar; bu olgunluk eksik; sıcak kapat.",
+      example_filled:
+        "All good — take care. No hard feelings.",
+    },
+    {
+      id: "ex.fr7.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "I really don't think this is going to work — sorry." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Means a lot — wishing you the best too." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(all good|no worries|totally fine)",
+        "(take care|best of luck|wishing you well)",
+        "(no hard feelings|no drama)",
+        "(appreciate (the |you )honesty|thanks for telling me)",
+        "(hope you find|may you find) (someone great|happiness)",
+      ],
+      tr_hint:
+        "Reddedildiğinde olgun kabul. 'All good — appreciate the honesty. Take care, no hard feelings' tipi. SUÇLAMA, ÇIKIŞMA, ISRAR YOK.",
+      ideal_answer:
+        "All good — appreciate the honesty. Take care, no hard feelings on my end.",
+    },
+    {
+      id: "ex.fr7.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "I hope this isn't too much of a let down.",
+      accepted_patterns: [
+        "(no |not at all)[,—-]? (.+)",
+        "(rather know|prefer to know)",
+        "(no hard feelings|no drama)",
+        "(thanks for being upfront|appreciate the directness)",
+        "(wishing you well|best of luck)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Karşı tarafı rahatlatma + olgun çıkış. 'No worries at all — rather know than wonder. Best of luck' tipi. Drama YOK.",
+      ideal_response:
+        "Not at all — rather know than wonder. No hard feelings, wishing you well.",
+    },
+    {
+      id: "ex.fr7.7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Niye? Bana ne olduğunu açıkla",
+      wrong_en: "Why? Explain me what's wrong.",
+      right_en: "All good — take care. No hard feelings.",
+      why_tr:
+        "Türk öğrenci 'niye + açıkla' kalıbını birebir çevirir = ısrarcı + 'explain me' yapısal yanlış ('explain to me' olmalı). Modern dating: red kararı sorgulama = saygısızlık + creepy. Olgun kabul = drama'sız çıkış.",
+    },
+    {
+      id: "ex.fr7.7.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Reddedildiğinde olgun kabul?",
+          options: [
+            "'Why?' diye sorgula",
+            "Sıcak + drama'sız + 'all good, take care'",
+            "Sus + ghost",
+            "Suçla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Olgun kabul = arkasından kalabalık konuşulur. Drama yok = sağlıklı + çekici.",
+        },
+        {
+          q: "Israrla ikna etmeye çalışmak?",
+          options: [
+            "Romantik gösterilen",
+            "Saygısızlık + creepy algı + karşı tarafın kararını geçersizleştirir",
+            "Norm",
+            "Cesaret",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Hayır' bir cümledir — pazarlık değil. Israr = karşı tarafın sınırını ezme.",
+        },
+        {
+          q: "'No hard feelings' anlamı?",
+          options: [
+            "Sert duygu yok (literal)",
+            "Kırgınlık/intikam duygusu yok (kibar kapanış)",
+            "Zor hisler",
+            "Soğukluk",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'No hard feelings' = kırgınlık yok, dostça ayrılalım. Sıcak kapanış.",
+        },
+        {
+          q: "Reddedildikten sonra ne kadar süre konuşma?",
+          options: [
+            "Sürekli yaz",
+            "Kısa sıcak kapanış mesajı yeter — sonra sus",
+            "Hiç konuşma",
+            "Soruları cevapla",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Kısa kapanış + saygı = drama yok. Devam mesajı = saygısızlık.",
+        },
+        {
+          q: "'Take care' kapanışta niye uygun?",
+          options: [
+            "Resmi",
+            "Sıcak + samimi + drama'sız + saygılı",
+            "Yapısal yanlış",
+            "Soğuk",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Take care' = sıcak ama gevşek bağlanmamış. Dating ret kapanışı için ideal.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1443,6 +2123,142 @@ export const flirtRejectionLesson_7_8: BundledLesson = {
       ipa: "aɪv sed nəʊ pliːz rɪˈspekt ðæt",
       tr_hint:
         "'Said no' net + yavas — agirlik ver. 'Please' yumusak ama kararli. 'Respect that' vurgu 'SPECT'te. Sakin, kararli — bagirma yok, geri adim yok.",
+    },
+    {
+      id: "ex.fr7.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "I've said ___ — please ___.",
+      slots: [
+        { accepted: ["no", "no clearly", "this isn't happening", "I'm not interested"] },
+        { accepted: ["respect that", "stop reaching out", "don't message again", "leave it there"] },
+      ],
+      tr_hint:
+        "Israr karşısı sınır koruma kalıbı. Net + kararlı + saygılı ama tekrarlanmayacak. Türk öğrenci 'Maybe later' der; bu belirsizlik = ısrarı durdurmaz.",
+      example_filled:
+        "I've said no — please respect that.",
+    },
+    {
+      id: "ex.fr7.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "Come on, just one coffee — what's the harm?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay, fine. Got it." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?ve said no|i said no) (.+)",
+        "(please|i need you to) (respect that|stop)",
+        "(not changing my mind|not interested)",
+        "(don'?t|stop) (messaging|reaching out)",
+        "(this is the last message|leaving it here)",
+      ],
+      tr_hint:
+        "Israra karşı sınır. 'I've said no — please respect that. Not changing my mind' tipi. Yumuşatma DEĞİL; net + kararlı.",
+      ideal_answer:
+        "I've said no — please respect that. Not changing my mind, please stop reaching out.",
+    },
+    {
+      id: "ex.fr7.8.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "But why not? Give me a chance to explain.",
+      accepted_patterns: [
+        "(not |i don'?t )owe (you )?an explanation",
+        "(no is a |that'?s a )complete (sentence|answer)",
+        "(please respect|need you to respect)",
+        "(stop|don'?t) (reaching out|messaging)",
+        "(blocking |this conversation is) (over|done)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Israra karşı kararlı sınır. 'No is a complete sentence — please respect that' tipi. Açıklama YAPMA; net tekrarla.",
+      ideal_response:
+        "No is a complete sentence — please respect that. Not engaging further.",
+    },
+    {
+      id: "ex.fr7.8.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Belki sonra, şimdi olmaz",
+      wrong_en: "Maybe later, not now.",
+      right_en: "I've said no — please respect that.",
+      why_tr:
+        "Türk öğrenci 'belki sonra' kalıbını birebir 'maybe later' diye çevirir = umut verir = ısrar durmaz. Israr karşısı sınır: NET + kesin. 'Maybe' = belirsizlik = sınır eziliyor. 'I've said no' = net ifade + 'respect that' = saygı talep.",
+    },
+    {
+      id: "ex.fr7.8.rq1",
+      type: "recall_quiz",
+      difficulty: 4,
+      cefr_band: "B2",
+      items: [
+        {
+          q: "Agresif ısrar karşısı?",
+          options: [
+            "'Maybe later' (yumuşat)",
+            "Net tekrar + 'please respect that' + sınır",
+            "Sus",
+            "Müzakere et",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Maybe' = umut veriyor = ısrar durmaz. Net + sınır = saygılı + güvenli.",
+        },
+        {
+          q: "'No is a complete sentence' anlamı?",
+          options: [
+            "Yapısal yanlış",
+            "Reddim bir cümledir, açıklama gerekmez (sınır felsefesi)",
+            "Çok kısa",
+            "Eski deyim",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Modern sınır kültürü kalıbı. Ret açıklama gerektirmez — net + nokta.",
+        },
+        {
+          q: "Sınır korumak niye saygılı?",
+          options: [
+            "Değildir",
+            "Iki tarafa netlik + zaman/duygu israfı önler = saygılı olgunluk",
+            "Saygısızlık",
+            "Ayıp",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Net sınır = kendine + karşıya saygı. 'Belki' = sınır ezme.",
+        },
+        {
+          q: "Israr devam ederse?",
+          options: [
+            "Bağır",
+            "Block + sessizlik (ifade etmediğinde işlem)",
+            "Tartış",
+            "Yumuşat",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Net ret + ısrar = block + sessizlik. Modern dating'te kabul edilebilir + güvenli.",
+        },
+        {
+          q: "Türk hatası: 'maybe' kullanmak?",
+          options: [
+            "İyi yumuşatma",
+            "Belirsizlik = ısrar sürdürür + sınır eziliyor",
+            "Yapısal yanlış",
+            "Çok formal",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Maybe' = umut verir. Net 'no' = ısrar durdurma. Yumuşatma = belirsizlik = sınırsızlık.",
+        },
+      ],
     },
   ],
 };

@@ -922,6 +922,131 @@ export const dailyBankLesson_30_2: BundledLesson = {
       tr_explanation:
         "'Do an account' yanlış — Türkçe 'hesap yapmak' kalıbından. Doğru: 'open an account'. 'In your bank' yerine 'with your bank' doğal. 'I want' yerine 'I'd like'.",
     },
+    {
+      id: "ex.db30.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'd like to open ___ ___ ___, please.",
+      slots: [
+        { accepted: ["a", "an"], distractors: ["the", "this", "one"] },
+        { accepted: ["savings", "checking", "joint", "student"], distractors: ["savee", "check", "share"] },
+        { accepted: ["account", "account with you"], distractors: ["bank", "money place", "card"] },
+      ],
+      tr_hint:
+        "Hesap açma kibar standart kalıbı. Slot 2: hesap tipi (savings = birikim, checking = vadesiz). Türk öğrenci 'I want one savings' diyor — yanlış kalıp.",
+      example_filled: "I'd like to open a savings account, please.",
+    },
+    {
+      id: "ex.db30.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Welcome! How may I help you today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure. May I see your ID and proof of address?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)(,)? (i'?d like|i want) to open (a |an )?(savings|checking|joint)? account",
+        "(i'?m here|i came in) to open an account",
+        "(i need|i'?d like) to (set up|start) (a )?new account",
+        "(could you|can you) help me open (a |an )?account",
+      ],
+      tr_hint:
+        "Müşteri temsilcisine resmî giriş: 'I'd like to open a savings account'. Türk öğrenci 'I want bank account' diyor — eksik kibarlık + tip belirtmeli.",
+      ideal_answer: "Hi, I'd like to open a savings account with your bank.",
+    },
+    {
+      id: "ex.db30.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Would you like a debit card with that account?",
+      accepted_patterns: [
+        "(yes|yeah|sure)(,)? (please|i would)",
+        "(yes|yeah)(,)? (with )?(contactless|tap-to-pay)?",
+        "(no|nope)(,)? (thanks|i'?ll pass)",
+        "(do |what )?(does )?it (cost|have a fee)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Memur ek hizmet teklif ediyor — kısa cevap. 'Yes, please' veya 'No, thanks'. Türk öğrenci uzun açıklama yapar — gereksiz. Sade evet/hayır + kibar.",
+      ideal_response: "Yes, please — with contactless if possible.",
+    },
+    {
+      id: "ex.db30.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bana hesap açmak istiyorum.",
+      wrong_en: "I want to make me account.",
+      right_en: "I'd like to open an account, please.",
+      why_tr:
+        "'Make me account' Türkçe gramer — 'me' yanlış. 'Make account' = yap; doğru fiil 'open'. Resmî kurumda 'I'd like' > 'I want'. Türk öğrenci direkt çeviriyor — duyulduğunda göç hissi verir.",
+    },
+    {
+      id: "ex.db30.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Savings account' ne demek?",
+          options: [
+            "Vadesiz hesap (günlük kullanım).",
+            "Birikim/tasarruf hesabı.",
+            "Kredi hesabı.",
+            "Yatırım hesabı.",
+          ],
+          correct: 1,
+          tr_explanation: "'Savings' = tasarruf. Faiz işler, sık para çekmen ayrı.",
+        },
+        {
+          q: "'Checking account' farkı?",
+          options: [
+            "Tasarruf hesabı.",
+            "Günlük işlem hesabı (debit card, ödemeler).",
+            "Sadece kontrol için.",
+            "Çek hesabı.",
+          ],
+          correct: 1,
+          tr_explanation: "'Checking' = vadesiz, günlük kullanım. Türkiye'de 'vadesiz mevduat' karşılığı.",
+        },
+        {
+          q: "'Proof of address' ne demek?",
+          options: [
+            "Adres kanıtı (fatura, kira sözleşmesi).",
+            "Adres ezbere.",
+            "Eski adres.",
+            "Adres formu.",
+          ],
+          correct: 0,
+          tr_explanation: "Hesap açmak için: kimlik + adres kanıtı. Genelde elektrik/internet faturası.",
+        },
+        {
+          q: "'Open an account' yapısı?",
+          options: [
+            "Make an account — Türkçe'den.",
+            "Open an account — İngilizce standart.",
+            "Do an account.",
+            "Create the account.",
+          ],
+          correct: 1,
+          tr_explanation: "Bankacılıkta sabit kalıp: 'open' (aç). 'Make/do' yanlış. 'Create' digital servislerde kullanılır.",
+        },
+        {
+          q: "'Debit card' kredi kartından farkı?",
+          options: [
+            "Aynı şey.",
+            "Doğrudan hesaptan para çeker; kredi yok.",
+            "Sadece online.",
+            "Sadece nakit.",
+          ],
+          correct: 1,
+          tr_explanation: "'Debit' = hesabından düş. 'Credit' = bankadan borçlan. Türkçe karşılık: bankamatik kartı vs kredi kartı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1310,6 +1435,132 @@ export const dailyBankLesson_30_3: BundledLesson = {
         "I'd like to wire money to my friend in Turkey.",
       tr_explanation:
         "Uzun + 'by wire' yanlış edat — 'wire' fiil olarak kullanılır: 'to wire money'. 'Who lives in' fazla; 'in Turkey' yeterli. 'I'd like' kibar standart.",
+    },
+    {
+      id: "ex.db30.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'd like to ___ ___ to ___ in ___.",
+      slots: [
+        { accepted: ["wire", "transfer", "send"], distractors: ["give", "make", "do"] },
+        { accepted: ["$500", "five hundred dollars", "some money"], distractors: ["money money", "the money", "amount"] },
+        { accepted: ["my brother", "an account", "a beneficiary"], distractors: ["my brother's", "brother of mine", "him"] },
+        { accepted: ["Turkey", "Istanbul", "London", "Berlin"], distractors: ["the Turkey", "Turkey country", "Türkiye"] },
+      ],
+      tr_hint:
+        "Havale standart kalıp. 'Wire/transfer' = fiil olarak kullan. Türk öğrenci 'I send money for' diyor — yanlış edat ('to' lazım). Ülke adı önünde 'the' yok.",
+      example_filled: "I'd like to wire $500 to my brother in Turkey.",
+    },
+    {
+      id: "ex.db30.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Wire transfer desk. How can I help you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Do you have the recipient's IBAN and SWIFT code?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i want) to (wire|send|transfer) (some )?money",
+        "(i need|i'?d like) to (make|do) (a |an )?(wire|international) transfer",
+        "(could you|can you) help me (wire|send) (money|funds)? (abroad|overseas|to turkey)",
+        "(i'?d like to|i need to) (transfer|send) (\\$)?\\d+ to",
+      ],
+      tr_hint:
+        "Havale memurunan net giriş: 'I'd like to wire money to Turkey'. Türk öğrenci uzun açıklama yapar — gereksiz. Önce ne yapacağını söyle (wire), sonra detay (kim, ne kadar).",
+      ideal_answer: "Hi, I'd like to wire $500 to my brother in Turkey.",
+    },
+    {
+      id: "ex.db30.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "There's a 25-dollar fee for this transfer. Is that okay?",
+      accepted_patterns: [
+        "(yes|yeah|sure)(,)? (that'?s )?fine",
+        "(yes|okay)(,)? (let'?s )?(go ahead|proceed)",
+        "(is there )?(any )?(cheaper|lower fee|alternative)\\??",
+        "(could you|can you) (waive|reduce|lower) (the |that )?fee\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Ücret onayı — kısa cevap. 'Yes, that's fine' veya 'Is there a cheaper option?'. Türk öğrenci uzun pazarlık yapar — bankada kabul edilmez. Net + kibar.",
+      ideal_response: "Yes, that's fine — let's go ahead.",
+    },
+    {
+      id: "ex.db30.3.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Kardeşime para yollamam lazım.",
+      wrong_en: "I need send money for my brother.",
+      right_en: "I need to wire some money to my brother.",
+      why_tr:
+        "'Need send' eksik infinitive — 'need to send'. 'For my brother' Türkçe ('için' = onun yararına). Doğru: 'to my brother' (alıcı). Bankacılıkta 'wire' fiili 'send' kadar yaygın.",
+    },
+    {
+      id: "ex.db30.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Wire money' ne demek?",
+          options: [
+            "Telle bağlamak.",
+            "Banka havalesi yap (elektronik).",
+            "Para sayma.",
+            "Kablo çekme.",
+          ],
+          correct: 1,
+          tr_explanation: "'Wire' burada fiil = havale/transfer. 'Wire money to Turkey' = Türkiye'ye havale yap.",
+        },
+        {
+          q: "'IBAN' nedir?",
+          options: [
+            "Banka adresi.",
+            "International Bank Account Number — hesap kodu.",
+            "Banka şifresi.",
+            "Müşteri numarası.",
+          ],
+          correct: 1,
+          tr_explanation: "IBAN = uluslararası hesap numarası standardı. Havale için zorunlu.",
+        },
+        {
+          q: "'Transfer fee' anlamı?",
+          options: [
+            "Havale ücreti (bankanın aldığı komisyon).",
+            "Para transferi miktarı.",
+            "Hesap ücreti.",
+            "Kart yıllık ücreti.",
+          ],
+          correct: 0,
+          tr_explanation: "'Fee' = ücret/komisyon. Bankalar havale için fee alır.",
+        },
+        {
+          q: "'Waive the fee' ne demek?",
+          options: [
+            "Ücreti ödemek.",
+            "Ücretten vazgeçmek (almamak).",
+            "Ücreti azaltmak.",
+            "Ücreti artırmak.",
+          ],
+          correct: 1,
+          tr_explanation: "'Waive' = vazgeçmek (haktan). 'Could you waive the fee?' = ücretten vazgeçer misiniz?",
+        },
+        {
+          q: "'SWIFT code' niye gerekir?",
+          options: [
+            "Hızlı internet kodu.",
+            "Bankanın uluslararası kimliği (havale için).",
+            "PIN.",
+            "Hesap özeti.",
+          ],
+          correct: 1,
+          tr_explanation: "SWIFT = bankanın global kimlik kodu. Uluslararası havalede zorunlu.",
+        },
+      ],
     },
   ],
 };
@@ -1713,6 +1964,131 @@ export const dailyBankLesson_30_4: BundledLesson = {
       tr_explanation:
         "'Make payment without me' direkt Türkçe çeviri + 'make' yanlış fiil. Doğru bankacılık dili: 'unauthorized charge' (= izinsiz işlem) + 'dispute it' (= itiraz et). Sakin ton banka için kritik.",
     },
+    {
+      id: "ex.db30.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "My card ___ ___ — could you ___?",
+      slots: [
+        { accepted: ["isn't", "is not", "stopped"], distractors: ["don't", "not", "doesn't"] },
+        { accepted: ["working", "going through", "being accepted"], distractors: ["work", "go", "use"] },
+        { accepted: ["help me", "look into it", "check it"], distractors: ["fix", "do", "make"] },
+      ],
+      tr_hint:
+        "Kart problemi standart cümle. 'Isn't working' = çalışmıyor. Türk öğrenci 'My card don't work' diyor — yanlış subject-verb. 'Could you help me' = kibar yardım rica.",
+      example_filled: "My card isn't working — could you help me?",
+    },
+    {
+      id: "ex.db30.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Customer service — how can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I'm sorry. Let me check your account. Can I have your card number?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (my )?card (isn'?t|is not|stopped) working",
+        "(my )?card (was )?(declined|blocked|rejected)",
+        "(there'?s|i see) (an )?(unauthorized|suspicious) charge (on my card)?",
+        "(i'?d like to|i need to) (report|dispute) (a |an )?(charge|transaction)",
+      ],
+      tr_hint:
+        "Kart problemi raporu — net + kısa. 'My card isn't working' veya 'There's an unauthorized charge'. Türk öğrenci panikler ve uzun anlatır — gereksiz.",
+      ideal_answer: "Hi, my card isn't working — it keeps getting declined.",
+    },
+    {
+      id: "ex.db30.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "I can cancel your card and send a new one. Is that okay?",
+      accepted_patterns: [
+        "(yes|yeah|sure)(,)? (please|that'?d be great)",
+        "(how long )?(does )?it (take|takes)\\??",
+        "(could you|can you) (expedite|rush|speed up) (the |a )?(new card|delivery)\\??",
+        "(yes|okay)(,)? (let'?s )?(do that|proceed|go ahead)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Memur kart iptali öneriyor — kabul + ek soru. Türk öğrenci 'yes' der ama soru sormaz. 'How long does it take?' veya 'Could you expedite it?' iyi sorular.",
+      ideal_response: "Yes, please — how long does it take to arrive?",
+    },
+    {
+      id: "ex.db30.4.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Kartım çalışmıyor, beni yardım edin.",
+      wrong_en: "My card don't work, help me!",
+      right_en: "My card isn't working — could you help me with it?",
+      why_tr:
+        "'Don't' yanlış (3. tekil 'doesn't' veya 'isn't'). 'Help me!' emir kipi — kabaca. Doğru kibar: 'Could you help me with it?' Subject-verb agreement çok önemli (card = it).",
+    },
+    {
+      id: "ex.db30.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'My card was declined' ne demek?",
+          options: [
+            "Kartım reddedildi (işlem geçmedi).",
+            "Kartım kabul edildi.",
+            "Kartım eskidi.",
+            "Kartım yandı.",
+          ],
+          correct: 0,
+          tr_explanation: "'Decline' = reddetmek (banka kartı reddediyor). Limit, blok, network problemi olabilir.",
+        },
+        {
+          q: "'Unauthorized charge' tam anlamı?",
+          options: [
+            "İzinli ödeme.",
+            "İzinsiz / yetkisiz işlem (dolandırıcılık).",
+            "Yüksek tutar.",
+            "Yabancı para.",
+          ],
+          correct: 1,
+          tr_explanation: "'Unauthorized' = yetkisiz. Banka için kritik sinyal — fraud şüphesi.",
+        },
+        {
+          q: "'Dispute a charge' nasıl çevirilir?",
+          options: [
+            "İşleme onay ver.",
+            "İşleme itiraz et (yanlış/dolandırıcılık).",
+            "İşlem yap.",
+            "İşlem iptal et.",
+          ],
+          correct: 1,
+          tr_explanation: "'Dispute' = itiraz et. 'I'd like to dispute this charge' = banka size para iade etmeli.",
+        },
+        {
+          q: "'Card isn't working' niye 'isn't' kullanılır?",
+          options: [
+            "Çünkü 'my card' = it (3. tekil).",
+            "Çünkü past tense.",
+            "Çünkü plural.",
+            "Çünkü soru.",
+          ],
+          correct: 0,
+          tr_explanation: "'Card' = it. Doğru: 'isn't working'. 'Don't work' yanlış (he/she/it için 'doesn't').",
+        },
+        {
+          q: "'Expedite the new card' anlamı?",
+          options: [
+            "Yeni kartı iptal et.",
+            "Yeni kartın gönderimini hızlandır.",
+            "Yeni kart aktive et.",
+            "Yeni kart için ödeme.",
+          ],
+          correct: 1,
+          tr_explanation: "'Expedite' = hızlandırmak. Standart kargo yerine 'rush delivery' isteyebilirsin.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2055,6 +2431,131 @@ export const dailyBankLesson_30_5: BundledLesson = {
       ipa: "/aɪd laɪk tu ˈəʊpən ə ˈtʃɛkɪŋ əˈkaʊnt pliːz/",
       tr_hint:
         "'I'd' = 'ayd' tek hece. 'Open a' bağlanır = 'oupı-nı'. 'Checking' = 'çe-king'. 'Please' sonda nazikçe.",
+    },
+    {
+      id: "ex.db30.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'm ___ ___ ___ — could I open a student account?",
+      slots: [
+        { accepted: ["a", "currently a"], distractors: ["the", "one", "any"] },
+        { accepted: ["student", "graduate student", "undergraduate"], distractors: ["studying", "studentish", "study"] },
+        { accepted: ["at NYU", "at this university", "here in town"], distractors: ["in NYU", "from NYU", "on NYU"] },
+      ],
+      tr_hint:
+        "Öğrenci hesabı talep kalıbı. 'I'm a student at [university]' = öğrenciyim, [okul]da. Türk öğrenci 'I am study' diyor — yanlış. 'Studying' = present continuous; 'I'm a student' = isim cümlesi.",
+      example_filled: "I'm a student at NYU — could I open a student account?",
+    },
+    {
+      id: "ex.db30.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Welcome! How can I help you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure. Do you have a student ID with you?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?m|i am) (a |an )?(undergraduate|graduate )?student",
+        "(i'?d like|i want) to open (a |an )?student account",
+        "(could you|can you) help me set up (a |an )?student account",
+        "(do you|i heard you) (have|offer) student (accounts|banking)",
+      ],
+      tr_hint:
+        "Öğrenci hesabı için: kim olduğunu (student) söyle + ne istediğini (open account). Türk öğrenci 'Give me account' diyor — kabaca. 'I'd like to open' kibar.",
+      ideal_answer: "Hi, I'm a student at NYU — I'd like to open a student account.",
+    },
+    {
+      id: "ex.db30.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Our student account has no monthly fee. Would you like to apply?",
+      accepted_patterns: [
+        "(yes|yeah|sure)(,)? (i'?d love to|please|let'?s do it)",
+        "(yes|yeah)(,)? (what )?(do )?i need\\??",
+        "(absolutely|definitely|of course)",
+        "(could you|can you) tell me (more about (it|the benefits)|what'?s included)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Hoş teklif — kabul + soru. 'Yes please, what do I need?' Türk öğrenci sadece 'yes' der — eksik. Süreç sor: 'what's the process / what do I need'.",
+      ideal_response: "Yes, definitely — what do I need to apply?",
+    },
+    {
+      id: "ex.db30.5.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Üniversitede öğrenciyim, indirimli hesap var mı?",
+      wrong_en: "I am student in university, is there discount account?",
+      right_en: "I'm a university student — do you offer student accounts with lower fees?",
+      why_tr:
+        "'I am student' eksik artikel — 'a student' lazım. 'In university' Türkçe; doğru: 'at + university name' veya 'at university'. 'Discount account' direkt çeviri; bankacılıkta 'student account' (= zaten indirimli) veya 'with lower fees'.",
+    },
+    {
+      id: "ex.db30.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Monthly fee' nedir?",
+          options: [
+            "Aylık ücret (hesap için banka komisyonu).",
+            "Aylık maaş.",
+            "Bir aylık para.",
+            "Aylık ödeme planı.",
+          ],
+          correct: 0,
+          tr_explanation: "'Monthly fee' = aylık hesap ücreti. Öğrenci hesaplarında genelde 0$.",
+        },
+        {
+          q: "'I'm a student at NYU' niye 'at'?",
+          options: [
+            "'In' lazım.",
+            "Üniversite/okul önünde 'at' kullanılır.",
+            "Yanlış edat.",
+            "Mecaz.",
+          ],
+          correct: 1,
+          tr_explanation: "Okul/üniversite öncesi: 'at' (at Harvard, at NYU). 'In Harvard' yanlış.",
+        },
+        {
+          q: "'Student ID' ne demek?",
+          options: [
+            "Öğrenci kimlik kartı.",
+            "Öğrenci ID numarası.",
+            "Öğrenci sicil.",
+            "Hepsi doğru.",
+          ],
+          correct: 3,
+          tr_explanation: "'Student ID' hem kart hem numara için kullanılır. Banka kanıt olarak ister.",
+        },
+        {
+          q: "'Would you like to apply?' uygun cevap?",
+          options: [
+            "Maybe.",
+            "Yes, definitely — what do I need?",
+            "Nope.",
+            "Apply for what?",
+          ],
+          correct: 1,
+          tr_explanation: "Hoş kabul + ek soru. Süreç netleşir.",
+        },
+        {
+          q: "'Set up an account' = ?",
+          options: [
+            "Hesap kapat.",
+            "Hesap aç / kur (open ile aynı).",
+            "Hesap blokla.",
+            "Hesap incele.",
+          ],
+          correct: 1,
+          tr_explanation: "'Set up' = kurmak (genel). Hesap için 'open' kadar yaygın. 'Set up an account' = aç.",
+        },
+      ],
     },
   ],
 };
@@ -2403,6 +2904,132 @@ export const dailyBankLesson_30_6: BundledLesson = {
       tr_hint:
         "'Could you' = 'kud-yu' bağlanır. 'There's a' = 'derz-ı'. 'Hold' uzun o: 'hould'. Kibar tonla.",
     },
+    {
+      id: "ex.db30.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "My card ___ ___ at ___ — could you ___?",
+      slots: [
+        { accepted: ["was", "got"], distractors: ["is", "did", "had"] },
+        { accepted: ["declined", "rejected", "blocked"], distractors: ["denying", "decline", "rejection"] },
+        { accepted: ["the store", "checkout", "a restaurant", "the gas station"], distractors: ["store", "this place", "now"] },
+        { accepted: ["look into it", "check my account", "see what happened"], distractors: ["fix it", "do it", "see"] },
+      ],
+      tr_hint:
+        "Kart reddedildi yapısı. Passive 'was declined' + nerede + kibar rica. Türk öğrenci 'card did not work' diyor — 'didn't' lazım veya 'was declined'.",
+      example_filled: "My card was declined at the store — could you look into it?",
+    },
+    {
+      id: "ex.db30.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Customer service — how can I help you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I see a fraud flag on your account. Did you make a purchase abroad?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (my )?card (was|got) (declined|rejected|blocked)",
+        "(my )?card (isn'?t|is not) (working|going through)",
+        "(could you|can you) check (why )?(my card was|the card)",
+        "(i tried to|i was trying to) (pay|use my card) (but )?(it|it was) (declined|rejected)",
+      ],
+      tr_hint:
+        "Müşteri hizmetlerine net giriş: 'My card was declined'. + Nereye/ne zaman bilgi. Türk öğrenci 'panic mode' uzun anlatır — banka kısa rapor bekler.",
+      ideal_answer: "Hi, my card was declined at the grocery store — could you check why?",
+    },
+    {
+      id: "ex.db30.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "I'll lift the hold. Can you try again in a few minutes?",
+      accepted_patterns: [
+        "(sure|yes|okay)(,)? (i'?ll )?(try again|give it another try)",
+        "(thank you|thanks)(,)? (much appreciated|i appreciate it)",
+        "(how long )?(should i )?(wait|give it)\\??",
+        "(will it )?(work )?(right away|now)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Memur hold kaldırdı — teşekkür + tekrar dene. 'Thanks, I'll try again' net. Türk öğrenci 'OK' der — yetersiz. Teşekkür + niyet (try again).",
+      ideal_response: "Thanks — I'll give it another try in a few minutes.",
+    },
+    {
+      id: "ex.db30.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Kartım kabul edilmedi, niye?",
+      wrong_en: "My card not accepted, why?",
+      right_en: "My card was declined — could you tell me why?",
+      why_tr:
+        "'Card not accepted' eksik yardımcı fiil (was lazım). 'Why?' tek başına direkt ve kabaca. Doğru: 'could you tell me why?' = kibar açıklama rica. Bankacılıkta 'declined' standart.",
+    },
+    {
+      id: "ex.db30.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Fraud flag' ne demek?",
+          options: [
+            "Sahtekarlık uyarısı (sistem kartı korumak için bloklar).",
+            "Bayrak indir.",
+            "Hesap kapatma.",
+            "Yıllık ücret.",
+          ],
+          correct: 0,
+          tr_explanation: "Olağandışı işlem (yurtdışı, büyük tutar) görünce banka koruma için 'flag' atar.",
+        },
+        {
+          q: "'Hold on my card' anlamı?",
+          options: [
+            "Kartı tut (fiziksel).",
+            "Karta bloke (geçici).",
+            "Kart kaybı.",
+            "Kart yenileme.",
+          ],
+          correct: 1,
+          tr_explanation: "'Hold' burada = geçici blok. Banka 'lift the hold' (kaldır) yapınca kart çalışır.",
+        },
+        {
+          q: "'Lift the hold' ne demek?",
+          options: [
+            "Bloku kaldır.",
+            "Bloku artır.",
+            "Bloku yenile.",
+            "Bloku raporla.",
+          ],
+          correct: 0,
+          tr_explanation: "'Lift' = kaldır. 'Lift the hold' = bloku kaldır, kart yine çalışır.",
+        },
+        {
+          q: "'Did you make a purchase abroad?' ne demek?",
+          options: [
+            "Yurtdışından bir şey aldın mı?",
+            "Yurtdışına gittin mi?",
+            "Yurtdışına havale yaptın mı?",
+            "Yurtdışında kaldın mı?",
+          ],
+          correct: 0,
+          tr_explanation: "'Make a purchase abroad' = yurtdışında ödeme yap. Banka konum farkını fraud şüphesi olarak görür.",
+        },
+        {
+          q: "Kart reddedildi durumda EN iyi cevap kalıbı?",
+          options: [
+            "Why? Why? Help me!",
+            "My card was declined — could you tell me why?",
+            "Card no work fix it.",
+            "Bad bank!",
+          ],
+          correct: 1,
+          tr_explanation: "Net rapor + kibar açıklama rica. Müşteri hizmetleri profesyonel ton bekler.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2748,6 +3375,132 @@ export const dailyBankLesson_30_7: BundledLesson = {
       tr_hint:
         "'Stuck' kısa u: 'stak'. 'Retrieve' vurgu son hecede: 'ri-TRIV'. 'Help me' bağlanır = 'help-mi'.",
     },
+    {
+      id: "ex.db30.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "The ATM ___ my card — could you ___ ___ ___?",
+      slots: [
+        { accepted: ["ate", "swallowed", "kept"], distractors: ["eat", "eated", "is eating"] },
+        { accepted: ["help", "assist"], distractors: ["do", "make", "give"] },
+        { accepted: ["me retrieve", "me get", "me recover"], distractors: ["myself", "with", "me back"] },
+        { accepted: ["it", "my card", "the card"], distractors: ["mine", "them", "card"] },
+      ],
+      tr_hint:
+        "ATM yuttu kalıbı. 'Ate/swallowed' = düzensiz past. Türk öğrenci 'eated' diyor — yanlış. 'Help me retrieve' = kibar yardım rica.",
+      example_filled: "The ATM ate my card — could you help me retrieve it?",
+    },
+    {
+      id: "ex.db30.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Welcome! Is everything okay?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh no, I'll get someone to open the ATM. Do you have your ID?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (the )?atm (just )?(ate|swallowed|kept) my card",
+        "(my )?card (is|got) stuck in the atm",
+        "(the )?machine (took|kept) my card",
+        "(could you|can you) help me (get|retrieve) (it|my card)",
+      ],
+      tr_hint:
+        "Şube memurana net + kibar. ATM 'ate' veya 'kept'. Türk öğrenci uzun anlatım yapar — gereksiz. ATM + ate + yardım rica.",
+      ideal_answer: "Hi, the ATM just ate my card — could you help me get it back?",
+    },
+    {
+      id: "ex.db30.7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "It usually takes one or two business days. Is that okay?",
+      accepted_patterns: [
+        "(yes|sure|okay)(,)? (that'?s )?fine",
+        "(could you|can you) (expedite|speed it up|rush it)\\??",
+        "(in the meantime|while i wait)(,)? (could i|can i) get a temporary card\\??",
+        "(actually|hmm) — (is there)? (any way|something faster)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "1-2 iş günü duydun — kabul + ek soru. 'Temporary card' (geçici kart) iste. Türk öğrenci 'OK' der — yetersiz. 'Could I get a temporary card meanwhile?' iyi soru.",
+      ideal_response: "Sure — could I get a temporary card in the meantime?",
+    },
+    {
+      id: "ex.db30.7.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "ATM kartımı yedi, hemen verin geri!",
+      wrong_en: "ATM ate my card, give back now!",
+      right_en: "The ATM swallowed my card — could you help me retrieve it?",
+      why_tr:
+        "'Give back now!' emir + kabaca. Banka memuruna saygısız. Doğru: 'could you help me retrieve' (kibar + resmî). 'Swallowed' tıbbi/teknik ton — 'ate' kadar kabul; 'retrieve' = profesyonel.",
+    },
+    {
+      id: "ex.db30.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Retrieve' ne demek?",
+          options: [
+            "Geri al / kurtar.",
+            "Vermek.",
+            "Saklamak.",
+            "Kaybetmek.",
+          ],
+          correct: 0,
+          tr_explanation: "'Retrieve' = geri almak. 'Help me retrieve it' = kibar + profesyonel.",
+        },
+        {
+          q: "'Business days' tam anlamı?",
+          options: [
+            "İş günleri (Pzt-Cuma).",
+            "Tüm günler.",
+            "Hafta sonları.",
+            "Tatil günleri.",
+          ],
+          correct: 0,
+          tr_explanation: "'Business days' = iş günü. Bankada işlem süresi standart bu birim.",
+        },
+        {
+          q: "'Temporary card' nedir?",
+          options: [
+            "Yeni daimi kart.",
+            "Geçici (asıl kart gelene kadar) kart.",
+            "İptal edilmiş kart.",
+            "Sanal kart.",
+          ],
+          correct: 1,
+          tr_explanation: "'Temporary' = geçici. Yeni kart gelene kadar günlük kullanım.",
+        },
+        {
+          q: "'Could you expedite it?' anlamı?",
+          options: [
+            "İptal et.",
+            "Hızlandır / önceliklendir.",
+            "Sil.",
+            "Daha sonra yap.",
+          ],
+          correct: 1,
+          tr_explanation: "'Expedite' = hızlandır. Standart süreyi kısaltma talebi.",
+        },
+        {
+          q: "'In the meantime' nasıl çevirilir?",
+          options: [
+            "Bu arada / o sırada.",
+            "Sonra.",
+            "Önce.",
+            "Hemen.",
+          ],
+          correct: 0,
+          tr_explanation: "'In the meantime' = bu arada. 'Yeni kart gelene kadar geçici çözüm' isterken.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3092,6 +3845,132 @@ export const dailyBankLesson_30_8: BundledLesson = {
       ipa: "/kʊd ju wɔːk mi θruː ðə fiːz pliːz/",
       tr_hint:
         "'Walk me through' = 'wokmı-tru' bağlanır. 'Fees' = 'fiiz' uzun i. Kibar ton + soru tonlaması.",
+    },
+    {
+      id: "ex.db30.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 4,
+      cefr_band: "B2",
+      template: "Could you walk me through ___ ___ for ___ ___?",
+      slots: [
+        { accepted: ["the fees", "all the costs", "the total charges"], distractors: ["fee", "money", "expensive"] },
+        { accepted: ["and exchange rates", "and FX rates", "and the spread"], distractors: ["with rate", "for rate", "of rate"] },
+        { accepted: ["a wire transfer", "an international transfer", "a $5,000 transfer"], distractors: ["transfer", "money sending", "wire"] },
+        { accepted: ["to Turkey", "to Istanbul", "abroad"], distractors: ["for Turkey", "in Turkey", "of Turkey"] },
+      ],
+      tr_hint:
+        "Uluslararası havale aydınlatma talebi. 'Walk me through' = adım adım anlat. Türk öğrenci 'tell me' diyor — 'walk me through' bankacılıkta daha profesyonel.",
+      example_filled: "Could you walk me through the fees and exchange rates for a wire transfer to Turkey?",
+    },
+    {
+      id: "ex.db30.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 4,
+      cefr_band: "B2",
+      turns: [
+        { speaker: "npc", text: "International transfers desk — how can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Of course. For a wire to Turkey, we charge $40 plus a 1% FX margin." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)?(,)? (i'?d like|i want) to (wire|transfer|send) (some )?money (to|abroad)",
+        "(could you|can you) (walk me through|explain) (the )?(fees|costs|charges)",
+        "(what'?s the )?(total cost|all-in cost|exchange rate) for",
+        "(i'?m comparing|i'?d like to compare) (wire vs ach|options)",
+      ],
+      tr_hint:
+        "International transfer için ücret + kur sor. 'Walk me through' = adım adım. Türk öğrenci 'how much?' der — yetersiz. 'Total cost' detay ister.",
+      ideal_answer: "Hi, I'd like to wire money to Turkey — could you walk me through the fees and exchange rate?",
+    },
+    {
+      id: "ex.db30.8.lr1",
+      type: "listen_respond",
+      difficulty: 4,
+      cefr_band: "B2",
+      npc_line: "The exchange rate today is 32.5 TRY per dollar. Would you like to proceed?",
+      accepted_patterns: [
+        "(could you|can you) (lock in|guarantee) (the )?(rate|exchange rate)\\??",
+        "(what'?s|is that) (the mid-market|the best) rate\\??",
+        "(let me )?(think about it|compare with) (another option|wise|remitly)",
+        "(yes|sure)(,)? (let'?s )?(go ahead|proceed)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kur teklif edildi — onaylama veya daha iyi sor. 'Mid-market rate' (gerçek piyasa kuru) sor. Türk öğrenci hemen 'yes' der — kayıp. Alternatif/locking düşün.",
+      ideal_response: "Could you lock in that rate? I want to compare with mid-market first.",
+    },
+    {
+      id: "ex.db30.8.tt1",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "Ne kadar ücret alıyorsunuz havale için?",
+      wrong_en: "How much fee you take for transfer?",
+      right_en: "What's the total cost — including FX margin — for this transfer?",
+      why_tr:
+        "'How much fee you take' Türkçe gramer + eksik 'do'. Doğru: 'how much do you charge'. Daha akıllı: 'total cost including FX margin' (kur farkı dahil = bankaların gizlediği ek ücret). Profesyonel müşteri sorusu.",
+    },
+    {
+      id: "ex.db30.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'FX margin' nedir?",
+          options: [
+            "Kurdaki bankaya gizli kâr (mid-market'ten farkı).",
+            "Faiz oranı.",
+            "Hesap ücreti.",
+            "Kart limitleri.",
+          ],
+          correct: 0,
+          tr_explanation: "Bankalar 'free transfer' der ama kurdaki margin'den kazanır. Genelde %1-3 gizli.",
+        },
+        {
+          q: "'Mid-market rate' anlamı?",
+          options: [
+            "Gerçek piyasa ortalaması (Google'da görünen).",
+            "Banka iç kuru.",
+            "Tatil kuru.",
+            "Tarihi kur.",
+          ],
+          correct: 0,
+          tr_explanation: "'Mid-market' = piyasa ortalaması. Wise/Revolut buradan yakın çalışır.",
+        },
+        {
+          q: "'Walk me through' anlamı?",
+          options: [
+            "Hızlı söyle.",
+            "Adım adım anlat / yürüyerek geç.",
+            "Listele.",
+            "Bağırarak söyle.",
+          ],
+          correct: 1,
+          tr_explanation: "'Walk me through' = adım adım rehber et. Profesyonel müşteri kalıbı.",
+        },
+        {
+          q: "'Lock in the rate' nasıl çevirilir?",
+          options: [
+            "Kuru kilitle (şu anki kuru sabitle).",
+            "Kuru aç.",
+            "Kuru sil.",
+            "Kuru ödeme.",
+          ],
+          correct: 0,
+          tr_explanation: "'Lock in' = kilitle/sabitle. Kur dalgalanmasından koru.",
+        },
+        {
+          q: "'ACH vs Wire' farkı nedir?",
+          options: [
+            "Aynı şey.",
+            "ACH = ucuz/yavaş, Wire = pahalı/hızlı.",
+            "ACH yurtdışı, Wire içeri.",
+            "Wire ücretsiz.",
+          ],
+          correct: 1,
+          tr_explanation: "ACH iç transfer (1-3 gün, $0-5); Wire uluslararası (saatler, $25-50).",
+        },
+      ],
     },
   ],
 };

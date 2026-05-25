@@ -366,6 +366,143 @@ export const flirtDeep_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Hey — ___, ___. Can we ___?",
+      slots: [
+        { accepted: ["this is awful", "I feel terrible", "worst timing", "the worst — I have to ask"] },
+        { accepted: ["something came up at work", "a family thing came up", "I'm stuck at the office", "a deadline blew up"] },
+        { accepted: ["reschedule for Wednesday", "push it to the weekend", "move it to Friday", "take a raincheck"] },
+      ],
+      tr_hint:
+        "Son dakika iptal kalıbı: özür + somut sebep + somut alternatif. Türk öğrenci 'Sorry I can't' der; alternatif vermez = momentum öldürür.",
+      example_filled:
+        "Hey — this is awful, something came up at work. Can we reschedule for Wednesday?",
+    },
+    {
+      id: "ex.fd2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Everything okay though?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — Wednesday it is then." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yeah |yes |everything'?s )?(okay|fine|all good)",
+        "(nothing serious|nothing major)",
+        "(work emergency|deadline|family thing)",
+        "(annoying but )(nothing dramatic|no drama)",
+        "(genuinely want to|actually want to) (reschedule|do this)",
+      ],
+      tr_hint:
+        "Endişe gider + niyet onayla. 'Yeah everything's fine — work emergency, nothing dramatic. Genuinely want to reschedule' tipi.",
+      ideal_answer:
+        "Yeah everything's fine — just a work emergency, nothing dramatic. Genuinely want to reschedule for Wednesday.",
+    },
+    {
+      id: "ex.fd2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Wait, you're canceling? Why?",
+      accepted_patterns: [
+        "(i know|i'?m so sorry)[,—-]? (.+) (just came up|happened)",
+        "(work|family) (emergency|thing)",
+        "(wouldn'?t cancel|wouldn'?t do this) (unless|except)",
+        "(let me make|i'?ll make) (it )?(up|right)",
+        "(first round on me|coffee on me)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Defansif olma — sebep + sahiplenme + telafi. 'I'm so sorry — work emergency, wouldn't cancel unless real. Coffee on me Wednesday?' tipi.",
+      ideal_response:
+        "I'm so sorry — work emergency just hit, wouldn't cancel unless real. Coffee on me Wednesday?",
+    },
+    {
+      id: "ex.fd2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Üzgünüm gelemem, işim var",
+      wrong_en: "Sorry I can't come. I have work.",
+      right_en: "Hey — this is awful, but a work emergency just hit. Can we push to Wednesday?",
+      why_tr:
+        "Türk öğrenci 'işim var' kalıbını birebir çevirir = generic + alternatifsiz. 'I can't come' kuru. Doğru: 'awful' (üzgünüm sahiplen) + spesifik sebep + somut yeni gün = saygılı iptal.",
+    },
+    {
+      id: "ex.fd2.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "'Raincheck' anlamı?",
+          options: [
+            "Yağmur kontrolü",
+            "Ertelemek, başka zamana bırakma sözü",
+            "Kuponu kontrol",
+            "Şikayet",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Take a raincheck' = bugün hayır, başka zaman evet sözü. Klasik dating idiom.",
+        },
+        {
+          q: "İptal mesajının zorunlu 3 öğesi?",
+          options: [
+            "Sadece özür",
+            "Özür + somut sebep + somut alternatif",
+            "Bahane",
+            "Yalan",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Üçü birden = saygılı + momentum koruyor. Eksik biri = ilişki riski.",
+        },
+        {
+          q: "'Wouldn't cancel unless real' kalıbı:",
+          options: [
+            "Sahiplenme + dürüstlük sinyali",
+            "Yapısal yanlış",
+            "Çok formal",
+            "Şüpheli",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Wouldn't cancel unless real' = bu gerçekten önemli, bahane değil sinyali.",
+        },
+        {
+          q: "'First round on me' kalıbı:",
+          options: [
+            "İlk içkiyi ben ısmarlarım (telafi jest'i)",
+            "İlk raunt benden (kavga)",
+            "Önce ben içerim",
+            "Yapısal yanlış",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'First round on me' = ilk içki/kahve benden. Telafi jest'i.",
+        },
+        {
+          q: "İptal sonrası en sık Türk hatası?",
+          options: [
+            "'Sorry I can't, work' (alternatifsiz)",
+            "Çok özür",
+            "Çok kelime",
+            "İngilizce",
+          ],
+          correct: 0,
+          tr_explanation:
+            "Türk direkt çeviri 'Üzgünüm, işim var' = alternatif yok = momentum kaybı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -457,6 +594,143 @@ export const flirtDeep_3: BundledLesson = {
         {
           speaker: "npc",
           message: "Likewise. Try not to have another emergency before then.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Iptal Edileni Tekrar Ayarla' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Iptal Edileni Tekrar Ayarla' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Iptal Edileni Tekrar Ayarla' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Iptal Edileni Tekrar Ayarla' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd3.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -555,6 +829,143 @@ export const flirtDeep_4: BundledLesson = {
         {
           speaker: "npc",
           message: "Anytime. First time at Lumen?",
+        },
+      ],
+    },
+    {
+      id: "ex.fd4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Erken Geldim — Mekana Vardim' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Erken Geldim — Mekana Vardim' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Erken Geldim — Mekana Vardim' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Erken Geldim — Mekana Vardim' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd4.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -665,6 +1076,143 @@ export const flirtDeep_5: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Hesap Bolusmesi — Turk Erkek/Kadin Dinamigi' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Hesap Bolusmesi — Turk Erkek/Kadin Dinamigi' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Hesap Bolusmesi — Turk Erkek/Kadin Dinamigi' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Hesap Bolusmesi — Turk Erkek/Kadin Dinamigi' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd5.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -763,6 +1311,143 @@ export const flirtDeep_6: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Ilk Randevu Bitisi — Opucuk Kararsizligi' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Ilk Randevu Bitisi — Opucuk Kararsizligi' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Ilk Randevu Bitisi — Opucuk Kararsizligi' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Ilk Randevu Bitisi — Opucuk Kararsizligi' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd6.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -854,6 +1539,143 @@ export const flirtDeep_7: BundledLesson = {
         {
           speaker: "npc",
           message: "Nope, total omnivore. Don't pick a fancy place though — I'm in jeans-mode all week.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd7.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Ertesi Gun Mesaji — Takip Etiketi' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd7.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Ertesi Gun Mesaji — Takip Etiketi' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd7.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Ertesi Gun Mesaji — Takip Etiketi' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd7.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Ertesi Gun Mesaji — Takip Etiketi' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd7.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -964,6 +1786,143 @@ export const flirtDeep_8: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Cross-Cultural Randevu — Bayrami Anlat' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Cross-Cultural Randevu — Bayrami Anlat' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Cross-Cultural Randevu — Bayrami Anlat' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Cross-Cultural Randevu — Bayrami Anlat' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd8.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1062,6 +2021,143 @@ export const flirtDeep_9: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd9.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Arkadas Wingman — Grup Randevusu' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd9.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Arkadas Wingman — Grup Randevusu' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd9.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Arkadas Wingman — Grup Randevusu' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd9.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Arkadas Wingman — Grup Randevusu' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd9.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1157,6 +2253,143 @@ export const flirtDeep_10: BundledLesson = {
         {
           speaker: "npc",
           message: "Okay that's the right answer. Let's go before I get more nervous.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd10.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Online'dan IRL — Ilk 5 Dakika' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd10.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Online'dan IRL — Ilk 5 Dakika' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd10.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Online'dan IRL — Ilk 5 Dakika' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd10.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Online'dan IRL — Ilk 5 Dakika' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd10.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -1262,6 +2495,143 @@ export const flirtDeep_11: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd11.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Sesli Mesaj Degisimi — Kirilgan Paylasim' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd11.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Sesli Mesaj Degisimi — Kirilgan Paylasim' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd11.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Sesli Mesaj Degisimi — Kirilgan Paylasim' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd11.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Sesli Mesaj Degisimi — Kirilgan Paylasim' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd11.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1357,6 +2727,143 @@ export const flirtDeep_12: BundledLesson = {
         {
           speaker: "npc",
           message: "Thank you for not bullshitting me. Your turn — ask me whatever.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd12.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Eski Iliskileri Paylasma' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd12.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Eski Iliskileri Paylasma' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd12.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Eski Iliskileri Paylasma' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd12.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Eski Iliskileri Paylasma' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd12.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -1467,6 +2974,143 @@ export const flirtDeep_13: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd13.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Aile Konusu — Turk Aile Baglami' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd13.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Aile Konusu — Turk Aile Baglami' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd13.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Aile Konusu — Turk Aile Baglami' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd13.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Aile Konusu — Turk Aile Baglami' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd13.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1574,6 +3218,143 @@ export const flirtDeep_14: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd14.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Din Konusu — Hassas Sohbet' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd14.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Din Konusu — Hassas Sohbet' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd14.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Din Konusu — Hassas Sohbet' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd14.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Din Konusu — Hassas Sohbet' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd14.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1669,6 +3450,143 @@ export const flirtDeep_15: BundledLesson = {
         {
           speaker: "npc",
           message: "Same. Okay — change subject. Tell me something stupid.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd15.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Politik Anlasmazlik — Saygiyla Yonet' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd15.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Politik Anlasmazlik — Saygiyla Yonet' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd15.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Politik Anlasmazlik — Saygiyla Yonet' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd15.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Politik Anlasmazlik — Saygiyla Yonet' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd15.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -1770,6 +3688,143 @@ export const flirtDeep_16: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd16.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Ilk Geceleme — Sabah Tuhafligi' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd16.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Ilk Geceleme — Sabah Tuhafligi' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd16.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Ilk Geceleme — Sabah Tuhafligi' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd16.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Ilk Geceleme — Sabah Tuhafligi' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd16.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1868,6 +3923,143 @@ export const flirtDeep_17: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd17.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Arkadaslarim Ile Tanis — Grup Entegrasyonu' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd17.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Arkadaslarim Ile Tanis — Grup Entegrasyonu' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd17.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Arkadaslarim Ile Tanis — Grup Entegrasyonu' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd17.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Arkadaslarim Ile Tanis — Grup Entegrasyonu' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd17.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1959,6 +4151,143 @@ export const flirtDeep_18: BundledLesson = {
         {
           speaker: "npc",
           message: "Okay. Let's get coffee and pretend the morning didn't happen.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd18.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Kucuk Tartismadan Sonra Onarim' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd18.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Kucuk Tartismadan Sonra Onarim' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd18.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Kucuk Tartismadan Sonra Onarim' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd18.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Kucuk Tartismadan Sonra Onarim' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd18.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -2060,6 +4389,143 @@ export const flirtDeep_19: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd19.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Tatil Plani — Ilk Yolculuk Birlikte' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd19.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Tatil Plani — Ilk Yolculuk Birlikte' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd19.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Tatil Plani — Ilk Yolculuk Birlikte' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd19.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Tatil Plani — Ilk Yolculuk Birlikte' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd19.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2151,6 +4617,143 @@ export const flirtDeep_20: BundledLesson = {
         {
           speaker: "npc",
           message: "Don't stress. I genuinely just want a good night with you.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd20.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Dogum Gunu Plani — Surpriz Ipucu' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd20.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Dogum Gunu Plani — Surpriz Ipucu' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd20.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Dogum Gunu Plani — Surpriz Ipucu' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd20.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Dogum Gunu Plani — Surpriz Ipucu' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd20.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -2261,6 +4864,143 @@ export const flirtDeep_21: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd21.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'DTR — Resmilesme Konusmasi' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd21.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'DTR — Resmilesme Konusmasi' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd21.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'DTR — Resmilesme Konusmasi' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd21.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'DTR — Resmilesme Konusmasi' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd21.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2352,6 +5092,143 @@ export const flirtDeep_22: BundledLesson = {
         {
           speaker: "npc",
           message: "Tell her I eat too much, thanks to you. Was that okay to say?",
+        },
+      ],
+    },
+    {
+      id: "ex.fd22.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Annemle Video Tanistirma' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd22.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Annemle Video Tanistirma' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd22.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Annemle Video Tanistirma' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd22.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Annemle Video Tanistirma' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd22.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -2453,6 +5330,143 @@ export const flirtDeep_23: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd23.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Ilk 'I Love You' — Soyleyis Ani' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd23.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Ilk 'I Love You' — Soyleyis Ani' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd23.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Ilk 'I Love You' — Soyleyis Ani' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd23.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Ilk 'I Love You' — Soyleyis Ani' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd23.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2547,6 +5561,143 @@ export const flirtDeep_24: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd24.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Gelecek Konusmasi — Uzun Vade' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd24.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Gelecek Konusmasi — Uzun Vade' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd24.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Gelecek Konusmasi — Uzun Vade' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd24.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Gelecek Konusmasi — Uzun Vade' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd24.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2638,6 +5789,143 @@ export const flirtDeep_25: BundledLesson = {
         {
           speaker: "npc",
           message: "Perfect. I feel weirdly more in love with you after this conversation.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd25.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Para Konusmasi — Masraflari Bolusturme' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd25.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Para Konusmasi — Masraflari Bolusturme' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd25.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Para Konusmasi — Masraflari Bolusturme' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd25.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Para Konusmasi — Masraflari Bolusturme' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd25.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -2744,6 +6032,143 @@ export const flirtDeep_26: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd26.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Birlikte Yasama — Karar Konusmasi' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd26.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Birlikte Yasama — Karar Konusmasi' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd26.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Birlikte Yasama — Karar Konusmasi' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd26.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Birlikte Yasama — Karar Konusmasi' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd26.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2838,6 +6263,143 @@ export const flirtDeep_27: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd27.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Tartisma Sonrasi — Ozur Etiketi' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd27.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Tartisma Sonrasi — Ozur Etiketi' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd27.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Tartisma Sonrasi — Ozur Etiketi' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd27.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Tartisma Sonrasi — Ozur Etiketi' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd27.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2929,6 +6491,143 @@ export const flirtDeep_28: BundledLesson = {
         {
           speaker: "npc",
           message: "Deal. And just so you know — I love that you can bring this up calmly.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd28.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Kiskanclik Konusmasi — Eski Sevgilisi Yazdi' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd28.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Kiskanclik Konusmasi — Eski Sevgilisi Yazdi' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd28.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Kiskanclik Konusmasi — Eski Sevgilisi Yazdi' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd28.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Kiskanclik Konusmasi — Eski Sevgilisi Yazdi' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd28.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -3030,6 +6729,143 @@ export const flirtDeep_29: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd29.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Cocuk Konusmasi — Aile Planlama' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd29.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Cocuk Konusmasi — Aile Planlama' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd29.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Cocuk Konusmasi — Aile Planlama' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd29.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Cocuk Konusmasi — Aile Planlama' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd29.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3121,6 +6957,143 @@ export const flirtDeep_30: BundledLesson = {
         {
           speaker: "npc",
           message: "Okay. We can do this. Don't make me regret saying that.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd30.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Is Tasinma Catismasi — Uzun Mesafe Olasi' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd30.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Is Tasinma Catismasi — Uzun Mesafe Olasi' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd30.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Is Tasinma Catismasi — Uzun Mesafe Olasi' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd30.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Is Tasinma Catismasi — Uzun Mesafe Olasi' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd30.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -3222,6 +7195,143 @@ export const flirtDeep_31: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd31.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Kirilan Guven — Yuzlesme' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd31.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Kirilan Guven — Yuzlesme' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd31.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Kirilan Guven — Yuzlesme' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd31.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Kirilan Guven — Yuzlesme' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd31.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3320,6 +7430,143 @@ export const flirtDeep_32: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd32.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Uzun Mesafe Baslangici — Vedasi' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd32.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Uzun Mesafe Baslangici — Vedasi' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd32.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Uzun Mesafe Baslangici — Vedasi' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd32.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Uzun Mesafe Baslangici — Vedasi' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd32.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3411,6 +7658,143 @@ export const flirtDeep_33: BundledLesson = {
         {
           speaker: "npc",
           message: "Okay. I'll find a therapist this week. And I love you, even now.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd33.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Ayrilik Dusunuyorum — On Yuzlesme' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd33.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Ayrilik Dusunuyorum — On Yuzlesme' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd33.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Ayrilik Dusunuyorum — On Yuzlesme' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd33.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Ayrilik Dusunuyorum — On Yuzlesme' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd33.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -3524,6 +7908,143 @@ export const flirtDeep_34: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd34.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Ayrilik — Konusmanin Kendisi' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd34.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Ayrilik — Konusmanin Kendisi' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd34.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Ayrilik — Konusmanin Kendisi' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd34.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Ayrilik — Konusmanin Kendisi' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd34.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3619,6 +8140,143 @@ export const flirtDeep_35: BundledLesson = {
         {
           speaker: "npc",
           message: "I'm five minutes away. Open the door and don't tidy up. I love you.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd35.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Ayriliktan Sonra — Arkadas Destegi' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd35.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Ayriliktan Sonra — Arkadas Destegi' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd35.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Ayriliktan Sonra — Arkadas Destegi' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd35.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Ayriliktan Sonra — Arkadas Destegi' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd35.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -3720,6 +8378,143 @@ export const flirtDeep_36: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd36.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Eski Sevgili Kapanis Konusmasi' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd36.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Eski Sevgili Kapanis Konusmasi' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd36.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Eski Sevgili Kapanis Konusmasi' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd36.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Eski Sevgili Kapanis Konusmasi' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd36.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3818,6 +8613,143 @@ export const flirtDeep_37: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd37.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Ghost Edildim — Isleme' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd37.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Ghost Edildim — Isleme' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd37.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Ghost Edildim — Isleme' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd37.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Ghost Edildim — Isleme' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd37.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3913,6 +8845,143 @@ export const flirtDeep_38: BundledLesson = {
         {
           speaker: "npc",
           message: "You too. And — be braver next time, okay?",
+        },
+      ],
+    },
+    {
+      id: "ex.fd38.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Sen Ghost Etmistin — O Yazinca' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd38.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Sen Ghost Etmistin — O Yazinca' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd38.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Sen Ghost Etmistin — O Yazinca' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd38.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Sen Ghost Etmistin — O Yazinca' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd38.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -4026,6 +9095,143 @@ export const flirtDeep_39: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd39.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Aldatma Aciga Cikti — Yuzlesme' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd39.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Aldatma Aciga Cikti — Yuzlesme' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd39.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Aldatma Aciga Cikti — Yuzlesme' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd39.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Aldatma Aciga Cikti — Yuzlesme' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd39.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -4121,6 +9327,143 @@ export const flirtDeep_40: BundledLesson = {
         {
           speaker: "npc",
           message: "That's wise. Okay. I love you in the way that's left to love you.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd40.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Karsilikli Ayrilik — Olgun Anlasma' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd40.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Karsilikli Ayrilik — Olgun Anlasma' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd40.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Karsilikli Ayrilik — Olgun Anlasma' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd40.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Karsilikli Ayrilik — Olgun Anlasma' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd40.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -4226,6 +9569,143 @@ export const flirtDeep_41: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd41.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Yeniden Dating'e Donus — Hazirim mi?' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd41.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Yeniden Dating'e Donus — Hazirim mi?' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd41.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Yeniden Dating'e Donus — Hazirim mi?' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd41.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Yeniden Dating'e Donus — Hazirim mi?' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd41.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -4317,6 +9797,143 @@ export const flirtDeep_42: BundledLesson = {
         {
           speaker: "npc",
           message: "Send me the first weird bio you find. We need entertainment value.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd42.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'dating app'i Yeniden Indirdim — Tereddut' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd42.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'dating app'i Yeniden Indirdim — Tereddut' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd42.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'dating app'i Yeniden Indirdim — Tereddut' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd42.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'dating app'i Yeniden Indirdim — Tereddut' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd42.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -4418,6 +10035,143 @@ export const flirtDeep_43: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd43.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Ayriliktan Sonraki Ilk Randevu' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd43.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Ayriliktan Sonraki Ilk Randevu' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd43.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Ayriliktan Sonraki Ilk Randevu' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd43.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Ayriliktan Sonraki Ilk Randevu' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd43.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -4513,6 +10267,143 @@ export const flirtDeep_44: BundledLesson = {
         {
           speaker: "npc",
           message: "Okay. We're way more functional than most couples. Hilarious.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd44.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'FWB Anlasmasi — Net Sinirlar' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd44.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'FWB Anlasmasi — Net Sinirlar' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd44.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'FWB Anlasmasi — Net Sinirlar' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd44.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'FWB Anlasmasi — Net Sinirlar' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd44.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -4614,6 +10505,143 @@ export const flirtDeep_45: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd45.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Eskiyle Arkadaslik Surdurme' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd45.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Eskiyle Arkadaslik Surdurme' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd45.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Eskiyle Arkadaslik Surdurme' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd45.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Eskiyle Arkadaslik Surdurme' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd45.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -4709,6 +10737,143 @@ export const flirtDeep_46: BundledLesson = {
         {
           speaker: "npc",
           message: "Cafe Lumen, Wednesday, 4pm. And — thanks for being clear with me.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd46.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Eski Ask Tekrar Acildi — Eski Duygular' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd46.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Eski Ask Tekrar Acildi — Eski Duygular' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd46.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Eski Ask Tekrar Acildi — Eski Duygular' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd46.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Eski Ask Tekrar Acildi — Eski Duygular' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd46.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -4810,6 +10975,143 @@ export const flirtDeep_47: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.fd47.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Ortak Arkadas Grubunda Eski Tuhafligi' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd47.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Ortak Arkadas Grubunda Eski Tuhafligi' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd47.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Ortak Arkadas Grubunda Eski Tuhafligi' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd47.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Ortak Arkadas Grubunda Eski Tuhafligi' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd47.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
+        },
+      ],
+    },
   ],
 };
 
@@ -4901,6 +11203,143 @@ export const flirtDeep_48: BundledLesson = {
         {
           speaker: "npc",
           message: "Just go. Don't say anything else.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd48.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Rebound Iliskisi Farkindaligi' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd48.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Rebound Iliskisi Farkindaligi' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd48.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Rebound Iliskisi Farkindaligi' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd48.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Rebound Iliskisi Farkindaligi' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd48.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -4999,6 +11438,143 @@ export const flirtDeep_49: BundledLesson = {
         {
           speaker: "npc",
           message: "Cheers to that. To therapy and not being weird about it.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd49.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Terapi Bahsetme — Acilim' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd49.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Terapi Bahsetme — Acilim' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd49.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Terapi Bahsetme — Acilim' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd49.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Terapi Bahsetme — Acilim' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd49.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },
@@ -5106,6 +11682,143 @@ export const flirtDeep_50: BundledLesson = {
         {
           speaker: "npc",
           message: "Yeah. Tonight we just sit with this. We have time.",
+        },
+      ],
+    },
+    {
+      id: "ex.fd50.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I want to ___ with you about ___ — ___?",
+      slots: [
+        { accepted: ["talk honestly", "be open", "share something", "have a real conversation"] },
+        { accepted: ["this", "where we're at", "how I'm feeling", "what's going on"] },
+        { accepted: ["is now a good time", "can we sit down for a bit", "are you up for it", "would that be okay"] },
+      ],
+      tr_hint:
+        "Önemli konu açma kalıbı: niyet + konu + saygılı zaman sorusu. 'Tekrar Asik Olma — Taninma Ani' bağlamında — Türk öğrenci direkt konuya girer; bu sağlam ilk cümle değil. Yumuşatma + zaman kontrolü = saygılı + güvenli alan.",
+      example_filled:
+        "I want to talk honestly with you about where we're at — is now a good time?",
+    },
+    {
+      id: "ex.fd50.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What's on your mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Okay — I'm listening." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(been (thinking|sitting) with|wanted to talk about)",
+        "(might sound|this might sound) (.+)",
+        "(want to (open up|be honest|share))",
+        "(no pressure|just|honestly) (.+)",
+        "(can we|could we) (.+)",
+      ],
+      tr_hint:
+        "Konuyu açma — yumuşatma + dürüst niyet. 'Tekrar Asik Olma — Taninma Ani' senaryosunda 'Been thinking about us — wanted to be honest. Can we talk?' tarzı.",
+      ideal_answer:
+        "Been thinking about something — want to be honest with you. Can we talk through it?",
+    },
+    {
+      id: "ex.fd50.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How are you actually feeling about this?",
+      accepted_patterns: [
+        "(honestly|truthfully) (.+) (good|complicated|mixed)",
+        "(part of me|some of me) (.+)",
+        "(been (processing|sitting with|figuring out))",
+        "(still working through|day by day)",
+        "(grateful (you asked|for the space))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Dürüst + olgun duygu paylaşımı. 'Tekrar Asik Olma — Taninma Ani' bağlamında. Türk öğrenci 'fine' der; bunu yapma; SPESİFİK + dürüst.",
+      ideal_response:
+        "Honestly? Mixed — still processing parts of it. Day by day.",
+    },
+    {
+      id: "ex.fd50.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Konuşmamız lazım, çok önemli",
+      wrong_en: "We must talk, very important.",
+      right_en: "I'd love to talk something through with you — is now a good time?",
+      why_tr:
+        "Türk öğrenci 'konuşmamız lazım + önemli' kalıbını birebir çevirir = emir tonu + 'must' baskı yaratır + 'very important' dramatik. 'Tekrar Asik Olma — Taninma Ani' gibi hassas konuda yumuşatma şart: 'I'd love to talk' (davet) + 'is now a good time' (saygılı zaman kontrolü).",
+    },
+    {
+      id: "ex.fd50.rq1",
+      type: "recall_quiz",
+      difficulty: 3,
+      cefr_band: "B1",
+      items: [
+        {
+          q: "Önemli konuyu açarken en olgun yaklaşım?",
+          options: [
+            "'We must talk' (emir)",
+            "'I'd love to talk — good time?' (davet + saygı)",
+            "Sus, bekle",
+            "Direkt konuya gir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "Davet + zaman kontrolü = saygılı + güvenli alan. Emir = baskı = savunmaya iter.",
+        },
+        {
+          q: "Karşı taraf 'how are you feeling?' sorduğunda?",
+          options: [
+            "Tek kelime 'fine'",
+            "Spesifik + dürüst + 'still processing'",
+            "Yalan",
+            "Konu değiştir",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Fine' = kapalı kapı. Modern dating: spesifik duygu paylaşımı = bağ kurma.",
+        },
+        {
+          q: "'Day by day' kalıbı:",
+          options: [
+            "Günden güne (zaman içinde)",
+            "Her gün ayrı",
+            "Yapısal yanlış",
+            "Hızla",
+          ],
+          correct: 0,
+          tr_explanation:
+            "'Day by day' = adım adım, zamanla. Zor süreçleri işlerken sağlıklı.",
+        },
+        {
+          q: "'Been sitting with something' anlamı?",
+          options: [
+            "Bir şeyle oturmak",
+            "Bir konuyu içselleştirmek/üzerinde düşünmek",
+            "Beklemek",
+            "Yapısal yanlış",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Sitting with' = düşünmek, sindirmek (mecaz). Olgun + öz farkındalık.",
+        },
+        {
+          q: "Türk hatası: 'We must talk, very important'",
+          options: [
+            "Çok formal",
+            "Emir + drama tonu = savunmaya iter",
+            "Yapısal yanlış",
+            "Çok kibar",
+          ],
+          correct: 1,
+          tr_explanation:
+            "'Must talk' = emir. 'Very important' = drama. Modern: davet + bağlam.",
         },
       ],
     },

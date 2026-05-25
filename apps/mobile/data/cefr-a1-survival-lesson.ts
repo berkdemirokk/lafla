@@ -675,6 +675,126 @@ export const cefrA1SurvivalLesson_2: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a1s.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 1,
+      cefr_band: "A1",
+      template: "I'm ___ — ___.",
+      slots: [
+        { accepted: ["Berk", "Mert", "Ayşe", "your name"], distractors: ["my Berk", "is Berk"] },
+        { accepted: ["I'm from Turkey", "nice to meet you", "what's your name"], distractors: ["from", "Turkey"] },
+      ],
+      tr_hint:
+        "Tanışma: 'I'm Berk — nice to meet you.' Türk öğrenci 'My name Berk' der — yanlış. 'I'm + isim' kısa kibar form.",
+      example_filled: "I'm Berk — nice to meet you.",
+    },
+    {
+      id: "ex.a1s.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 1,
+      turns: [
+        { speaker: "npc", text: "Hi! What's your name?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Nice to meet you, Berk." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i('m| am)|my name is) [a-z]+",
+        "(hi)(,)? i('m| am) [a-z]+",
+        "(my name'?s) [a-z]+",
+      ],
+      tr_hint:
+        "İsim ver: 'I'm Berk.' veya 'My name is Berk.' Türk öğrenci 'Berk' der — eksik. 'I'm + isim' yeterli.",
+      ideal_answer: "I'm Berk.",
+    },
+    {
+      id: "ex.a1s.2.lr1",
+      type: "listen_respond",
+      difficulty: 1,
+      npc_line: "Where are you from?",
+      accepted_patterns: [
+        "(i('m| am)) from (turkey|istanbul|ankara|izmir)",
+        "(from )?turkey",
+        "(i('m| am)) turkish",
+        "(i live in|i('m| am) from) [a-z]+",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "'I'm from Turkey.' Türk öğrenci 'Turkey' tek der — eksik. Tam: 'I'm from + ülke'.",
+      ideal_response: "I'm from Turkey.",
+    },
+    {
+      id: "ex.a1s.2.tt1",
+      type: "thinking_trap",
+      difficulty: 1,
+      tr_thought: "Benim adım Berk.",
+      wrong_en: "My name Berk.",
+      right_en: "My name is Berk.",
+      why_tr:
+        "Türkçede 'Benim adım Berk' yardımcı fiil yok. İngilizcede 'is' atlanmaz: 'My name IS Berk.' Veya kısa: 'I'm Berk.'",
+    },
+    {
+      id: "ex.a1s.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "İsim verme?",
+          options: [
+            "My name Berk.",
+            "I'm Berk.",
+            "Berk me.",
+            "Name Berk.",
+          ],
+          correct: 1,
+          tr_explanation: "'I'm + isim' = en kısa kibar form. 'My name is + isim' de doğru.",
+        },
+        {
+          q: "'Where are you from?' cevabı?",
+          options: [
+            "Turkey.",
+            "I'm from Turkey.",
+            "From Turkey is.",
+            "Turkey from I.",
+          ],
+          correct: 1,
+          tr_explanation: "'I'm from + ülke' = standart cevap. Tek 'Turkey' eksik.",
+        },
+        {
+          q: "'Nice to meet you' = ?",
+          options: [
+            "Tanıştığımıza memnun oldum.",
+            "Görüşmek güzel.",
+            "Yardım et.",
+            "Buyur.",
+          ],
+          correct: 0,
+          tr_explanation: "'Nice to meet you' = ilk tanışma kalıbı. Sabit.",
+        },
+        {
+          q: "'Nice to meet you' cevabı?",
+          options: [
+            "Me too.",
+            "You too / Nice to meet you too.",
+            "Same here.",
+            "İkisi de (B, C).",
+          ],
+          correct: 3,
+          tr_explanation: "'You too' / 'Nice to meet you too' / 'Same here' hepsi doğal.",
+        },
+        {
+          q: "'I'm Turkish' ve 'I'm from Turkey' farkı?",
+          options: [
+            "Aynı şey.",
+            "Hangisini seçersen, ikisi de doğru.",
+            "Sadece resmi 'I'm Turkish'.",
+            "Sadece 'from' doğru.",
+          ],
+          correct: 1,
+          tr_explanation: "'I'm Turkish' = milliyet. 'I'm from Turkey' = ülke. İkisi de geçerli.",
+        },
+      ],
+    },
   ],
 };
 
@@ -954,6 +1074,125 @@ export const cefrA1SurvivalLesson_3: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a1s.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 1,
+      cefr_band: "A1",
+      template: "___ ___, please.",
+      slots: [
+        { accepted: ["Excuse", "Pardon", "Sorry"], distractors: ["Excuses", "Sorries"] },
+        { accepted: ["me", "us", "myself"], distractors: ["my", "I"] },
+      ],
+      tr_hint:
+        "Birinden geçmek için: 'Excuse me, please.' Türk öğrenci direkt iter — kaba. 'Excuse me' yumuşatır.",
+      example_filled: "Excuse me, please.",
+    },
+    {
+      id: "ex.a1s.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 1,
+      turns: [
+        { speaker: "npc", text: "Here you go." },
+        { speaker: "user" },
+        { speaker: "npc", text: "You're welcome." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "thank you( so much| very much)?",
+        "thanks( a lot| so much)?",
+        "(thank you|thanks)(,)? appreciate it",
+      ],
+      tr_hint:
+        "Bir şey veren: 'Thank you' veya 'Thanks so much.' Türk öğrenci 'ok' der — soğuk. Teşekkür et.",
+      ideal_answer: "Thank you so much.",
+    },
+    {
+      id: "ex.a1s.3.lr1",
+      type: "listen_respond",
+      difficulty: 1,
+      npc_line: "Sorry, I bumped into you.",
+      accepted_patterns: [
+        "(no )?(problem|worries)(,)? (it'?s )?(okay|fine)",
+        "(don'?t worry|that('s| is) okay)",
+        "(no big deal)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Özür dileyene: 'No problem!' veya 'It's okay.' Türk öğrenci sus kalır — söyle, jest yap.",
+      ideal_response: "No problem — don't worry.",
+    },
+    {
+      id: "ex.a1s.3.tt1",
+      type: "thinking_trap",
+      difficulty: 1,
+      tr_thought: "Teşekkür ederim.",
+      wrong_en: "Thanks god.",
+      right_en: "Thank you.",
+      why_tr:
+        "Türk öğrenci 'Thank God' deyimini ('Allah'a şükür') 'Thanks' yerine kullanır — yanlış. Doğru: 'Thank you' veya 'Thanks'.",
+    },
+    {
+      id: "ex.a1s.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Thank you' cevabı?",
+          options: [
+            "Thank you.",
+            "You're welcome.",
+            "I'm welcome.",
+            "Please.",
+          ],
+          correct: 1,
+          tr_explanation: "'You're welcome' = 'rica ederim'. Sabit cevap.",
+        },
+        {
+          q: "Geçerken: ne dersin?",
+          options: [
+            "Move!",
+            "Excuse me.",
+            "Pass!",
+            "Hey!",
+          ],
+          correct: 1,
+          tr_explanation: "'Excuse me' = en kibar. Kalabalıkta yol açmak için.",
+        },
+        {
+          q: "'Sorry' ne zaman?",
+          options: [
+            "Bir şey istediğinde.",
+            "Özür dilerken (hata yaptım).",
+            "Teşekkür ederken.",
+            "Selamlaşırken.",
+          ],
+          correct: 1,
+          tr_explanation: "'Sorry' = özür. 'Excuse me' = pardon/affedersin (genel). Bazen karıştırılır.",
+        },
+        {
+          q: "Birine çarptın — ne dersin?",
+          options: [
+            "Hi.",
+            "Oh, sorry!",
+            "Thanks.",
+            "Welcome.",
+          ],
+          correct: 1,
+          tr_explanation: "'Sorry' kaza/hata için. Birine çarpınca refleks 'Oh, sorry!'.",
+        },
+        {
+          q: "'No problem' = ?",
+          options: [
+            "Sorun yok.",
+            "Problem var.",
+            "Problem büyük.",
+            "Problem yeni.",
+          ],
+          correct: 0,
+          tr_explanation: "'No problem' = sorun değil. Özür/teşekkür cevabı.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1226,6 +1465,125 @@ export const cefrA1SurvivalLesson_4: BundledLesson = {
         {
           speaker: "npc",
           message: "Should be here in a few minutes.",
+        },
+      ],
+    },
+    {
+      id: "ex.a1s.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 1,
+      cefr_band: "A1",
+      template: "It's ___ ___.",
+      slots: [
+        { accepted: ["five", "ten", "three", "eight", "twelve"], distractors: ["fifth", "tenth"] },
+        { accepted: ["o'clock", "dollars", "minutes", "people"], distractors: ["of clock", "clocks"] },
+      ],
+      tr_hint:
+        "Saat söyleme: 'It's five o'clock.' Türk öğrenci 'Saat 5' der — yanlış. 'It's + sayı + o'clock' tam saat için.",
+      example_filled: "It's five o'clock.",
+    },
+    {
+      id: "ex.a1s.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 1,
+      turns: [
+        { speaker: "npc", text: "What time is it?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh, we should hurry!" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(it('s| is)) [a-z]+( o'?clock)?",
+        "(it('s| is)) (around |about )?(five|six|seven|eight|nine|ten)",
+        "(it('s| is)) [0-9]+(:[0-9]+)?",
+      ],
+      tr_hint:
+        "Saat: 'It's five o'clock.' Türk öğrenci 'Saat...' der — yanlış. 'It's + saat' sabit.",
+      ideal_answer: "It's five o'clock.",
+    },
+    {
+      id: "ex.a1s.4.lr1",
+      type: "listen_respond",
+      difficulty: 1,
+      npc_line: "How many people?",
+      accepted_patterns: [
+        "(two|three|four|five|six|seven|eight)",
+        "(just )?(two|three|four|five) (people|of us|persons)",
+        "(a )?(table )?for (two|three|four|five)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kişi sayısı: 'Two, please.' veya 'Table for three.' Türk öğrenci 'three person' der — yanlış. 'Three people' (çoğul).",
+      ideal_response: "Table for two, please.",
+    },
+    {
+      id: "ex.a1s.4.tt1",
+      type: "thinking_trap",
+      difficulty: 1,
+      tr_thought: "Saat kaç?",
+      wrong_en: "Time how much?",
+      right_en: "What time is it?",
+      why_tr:
+        "Türk öğrenci 'Saat kaç'ı 'time how much' yapar — kırık. Standart: 'What time is it?' Sabit kalıp, asla değişmez.",
+    },
+    {
+      id: "ex.a1s.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'What time is it?' = ?",
+          options: [
+            "Saat kaç?",
+            "Saat nerede?",
+            "Saatın var mı?",
+            "Saat ne kadar?",
+          ],
+          correct: 0,
+          tr_explanation: "'What time is it?' = saat kaç? Sabit kalıp.",
+        },
+        {
+          q: "Saat 5 nasıl söylenir?",
+          options: [
+            "Time is five.",
+            "It's five o'clock.",
+            "Five clock.",
+            "Hour five.",
+          ],
+          correct: 1,
+          tr_explanation: "'It's + sayı + o'clock' = tam saat. 'O'clock' = of the clock kısaltması.",
+        },
+        {
+          q: "'How many?' ve 'How much?' farkı?",
+          options: [
+            "Aynı şey.",
+            "Many = sayılabilen; much = sayılamayan.",
+            "Many = az; much = çok.",
+            "Many = resmi; much = günlük.",
+          ],
+          correct: 1,
+          tr_explanation: "Sayılabilen → many ('how many people?'). Sayılamayan → much ('how much water?').",
+        },
+        {
+          q: "'Three people' = ?",
+          options: [
+            "Üç insan.",
+            "Üç kişi.",
+            "Üç ev.",
+            "Üç gün.",
+          ],
+          correct: 1,
+          tr_explanation: "'People' = çoğul: kişiler/insanlar. 'Person' tek; 'people' çoğul (irregular).",
+        },
+        {
+          q: "'Table for two' = ?",
+          options: [
+            "İki masa.",
+            "İki kişilik masa.",
+            "İki kahve.",
+            "İkide masa.",
+          ],
+          correct: 1,
+          tr_explanation: "'Table for + sayı' = restoran giriş klasiği. Kişi sayısı söyleme.",
         },
       ],
     },
@@ -1505,6 +1863,126 @@ export const cefrA1SurvivalLesson_5: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a1s.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 1,
+      cefr_band: "A1",
+      template: "Sorry, ___ ___.",
+      slots: [
+        { accepted: ["I don't", "I can't", "could you"], distractors: ["no", "not"] },
+        { accepted: ["understand", "speak slowly", "repeat that"], distractors: ["understanding", "understands"] },
+      ],
+      tr_hint:
+        "Anlamadığını söyle: 'Sorry, I don't understand.' Türk öğrenci sus kalır — söyle. Native yumuşatır.",
+      example_filled: "Sorry, I don't understand.",
+    },
+    {
+      id: "ex.a1s.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 1,
+      turns: [
+        { speaker: "npc", text: "The fitting room is over there." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Oh, sure — the changing room. It's by the back wall." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sorry|i('m| am) sorry)(,)? i don'?t understand",
+        "(sorry)(,)? (could you )?(say it again|speak slowly)",
+        "(what does )?(fitting room|that word) mean",
+      ],
+      tr_hint:
+        "Bilmediğin kelime: 'Sorry, I don't understand.' veya 'What does X mean?' Türk öğrenci sus kalır.",
+      ideal_answer: "Sorry, I don't understand.",
+    },
+    {
+      id: "ex.a1s.5.lr1",
+      type: "listen_respond",
+      difficulty: 1,
+      npc_line: "It's just over the way, mate.",
+      accepted_patterns: [
+        "(sorry|i('m| am) sorry)(,)? (could you )?(say it again|repeat that)",
+        "(sorry)(,)? i don'?t (understand|know)",
+        "(speak (more )?slowly)",
+        "(what does (that|over the way) mean)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Anlamadın: 'Sorry, could you say it again?' veya 'I don't understand — speak slowly please.' Türk öğrenci 'yes' der — kafa karışır.",
+      ideal_response: "Sorry, could you say it again more slowly?",
+    },
+    {
+      id: "ex.a1s.5.tt1",
+      type: "thinking_trap",
+      difficulty: 1,
+      tr_thought: "Anlamıyorum.",
+      wrong_en: "I no understand.",
+      right_en: "Sorry, I don't understand.",
+      why_tr:
+        "Türk öğrenci 'no'yu yardımcı fiil yerine koyar: 'I no understand' — yanlış. Doğru: 'I don't' (do not). + 'Sorry' yumuşatır.",
+    },
+    {
+      id: "ex.a1s.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Anlamadığında en kibar?",
+          options: [
+            "I no understand.",
+            "Sorry, I don't understand.",
+            "What you?",
+            "Repeat!",
+          ],
+          correct: 1,
+          tr_explanation: "'Sorry, I don't understand' = standart kibar. 'No' yerine 'don't'.",
+        },
+        {
+          q: "'Speak slowly' = ?",
+          options: [
+            "Yavaş konuş.",
+            "Hızlı konuş.",
+            "Sus.",
+            "Bağırma.",
+          ],
+          correct: 0,
+          tr_explanation: "'Slowly' = yavaşça. Acemiler için en yararlı kelime.",
+        },
+        {
+          q: "'What does X mean?' = ?",
+          options: [
+            "X ne demek?",
+            "X anlamı.",
+            "X neden?",
+            "X olmak.",
+          ],
+          correct: 0,
+          tr_explanation: "'What does X mean?' = X ne anlama gelir? Kelime sormak için sabit kalıp.",
+        },
+        {
+          q: "'I don't' ve 'I no' farkı?",
+          options: [
+            "Aynı şey.",
+            "'Don't' doğru, 'no' yanlış (yardımcı fiil olarak).",
+            "'No' resmi.",
+            "İkisi de doğal.",
+          ],
+          correct: 1,
+          tr_explanation: "'Don't' = do not. Yardımcı fiil. 'No' isim önünde ('no problem'). Karıştırılır.",
+        },
+        {
+          q: "Anlamadığını söylemek normal mi?",
+          options: [
+            "Hayır, utanç verici.",
+            "Evet, sıkça gerekir — kibarca sor.",
+            "Sadece çocuklar.",
+            "Sadece okulda.",
+          ],
+          correct: 1,
+          tr_explanation: "Anlamadığını söylemek normal. Native'ler bekler ve yumuşatır. Tahmin etme.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1774,6 +2252,125 @@ export const cefrA1SurvivalLesson_6: BundledLesson = {
         {
           speaker: "npc",
           message: "Thanks. Have a good day!",
+        },
+      ],
+    },
+    {
+      id: "ex.a1s.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 1,
+      cefr_band: "A1",
+      template: "I'd like ___ ___, please.",
+      slots: [
+        { accepted: ["a", "two", "one"], distractors: ["the", "some"] },
+        { accepted: ["coffee", "tea", "water", "sandwich", "croissant"], distractors: ["coffees", "drink"] },
+      ],
+      tr_hint:
+        "Kafe siparişi: 'I'd like a coffee, please.' Türk öğrenci 'Coffee!' der — kaba. 'I'd like + a + isim + please' = kibar.",
+      example_filled: "I'd like a coffee, please.",
+    },
+    {
+      id: "ex.a1s.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 1,
+      turns: [
+        { speaker: "npc", text: "Hi! What can I get you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — anything else?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(hi|hello)(,)? (i('d| would) like|can i (get|have))",
+        "(a|one) (coffee|tea|water|sandwich)(,)? please",
+        "(could i have) (a |one )?(coffee|tea|water)",
+      ],
+      tr_hint:
+        "Sipariş: 'Hi — I'd like a coffee, please.' Türk öğrenci direkt 'coffee' der — kaba. Kibar açılış.",
+      ideal_answer: "Hi — I'd like a coffee, please.",
+    },
+    {
+      id: "ex.a1s.6.lr1",
+      type: "listen_respond",
+      difficulty: 1,
+      npc_line: "Anything else?",
+      accepted_patterns: [
+        "(no )?thanks(,)? (that('s| is) it|that('s| is) all)",
+        "(yes)(,)? (a|one) (cookie|water|sandwich)",
+        "(that('s| is) it|i('m| am) good)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Ek sipariş sorusu: 'No, thanks — that's it' veya 'Yes, a cookie too.' Türk öğrenci 'no' der — eksik.",
+      ideal_response: "No thanks — that's it.",
+    },
+    {
+      id: "ex.a1s.6.tt1",
+      type: "thinking_trap",
+      difficulty: 1,
+      tr_thought: "Bir kahve.",
+      wrong_en: "One coffee.",
+      right_en: "I'd like a coffee, please.",
+      why_tr:
+        "Türk öğrenci 'bir kahve'yi 'one coffee' yapar — eksik. Kafede 'I'd like + a + isim + please' = sabit kibar kalıp.",
+    },
+    {
+      id: "ex.a1s.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Kafede kibar sipariş?",
+          options: [
+            "Coffee!",
+            "I'd like a coffee, please.",
+            "Give coffee.",
+            "Coffee me.",
+          ],
+          correct: 1,
+          tr_explanation: "'I'd like + a + isim + please' = standart kafe sipariş.",
+        },
+        {
+          q: "'I'd like' = ?",
+          options: [
+            "İsterim.",
+            "Beğenirim.",
+            "Severim.",
+            "Sevdim.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'd like' = 'I would like' = isterim (kibar). 'I want'tan daha kibar.",
+        },
+        {
+          q: "'For here or to go?' = ?",
+          options: [
+            "Burada mı, paket mi?",
+            "Burada mı, yemekte mi?",
+            "İçer misin?",
+            "Şimdi mi sonra mı?",
+          ],
+          correct: 0,
+          tr_explanation: "'For here' = burada içeceğim/yiyeceğim. 'To go' = paket.",
+        },
+        {
+          q: "'Anything else?' = ?",
+          options: [
+            "Başka bir şey?",
+            "Daha sonra?",
+            "Hep mi?",
+            "Ne kadar?",
+          ],
+          correct: 0,
+          tr_explanation: "'Anything else?' = başka bir şey ister misin? Garson/satıcı klasiği.",
+        },
+        {
+          q: "'That's it' = ?",
+          options: [
+            "Bu o.",
+            "Bu kadar.",
+            "Bu kim.",
+            "Onun.",
+          ],
+          correct: 1,
+          tr_explanation: "'That's it' = idiom: bu kadar/yeter. Sipariş kapanışı.",
         },
       ],
     },
@@ -2049,6 +2646,126 @@ export const cefrA1SurvivalLesson_7: BundledLesson = {
         {
           speaker: "npc",
           message: "You're welcome. Have a good day!",
+        },
+      ],
+    },
+    {
+      id: "ex.a1s.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 1,
+      cefr_band: "A1",
+      template: "Excuse me, ___ the ___?",
+      slots: [
+        { accepted: ["where is", "how do I get to"], distractors: ["where", "how to"] },
+        { accepted: ["bus stop", "metro station", "supermarket", "hotel"], distractors: ["bus", "metro"] },
+      ],
+      tr_hint:
+        "Yön sorma: 'Excuse me, where is the bus stop?' Türk öğrenci direkt 'Bus stop?' der — kaba. Tam soru cümlesi.",
+      example_filled: "Excuse me, where is the bus stop?",
+    },
+    {
+      id: "ex.a1s.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 1,
+      turns: [
+        { speaker: "npc", text: "Yes? How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Go straight, then turn right at the lights." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(excuse me|sorry)(,)? where (is|are) (the )?(bus stop|metro|station)",
+        "(how do i (get|go)) to (the )?(bus stop|metro|station)",
+        "(can|could) you tell me (where|how)",
+      ],
+      tr_hint:
+        "Yön sorma kibarca: 'Excuse me, where is the metro station?' Türk öğrenci 'metro?' der — eksik.",
+      ideal_answer: "Excuse me, where is the metro station?",
+    },
+    {
+      id: "ex.a1s.7.lr1",
+      type: "listen_respond",
+      difficulty: 1,
+      npc_line: "Go straight, then turn left.",
+      accepted_patterns: [
+        "(straight)(,)? (then )?left",
+        "(okay|alright)(,)? (got it|thanks)",
+        "(left )?at (the )?(lights|corner)",
+        "(thank you|thanks)( so much)?",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yön tarifini onayla: 'Straight, then left — got it. Thanks!' Türk öğrenci 'ok' der — yetersiz onay.",
+      ideal_response: "Straight, then left — got it, thank you!",
+    },
+    {
+      id: "ex.a1s.7.tt1",
+      type: "thinking_trap",
+      difficulty: 1,
+      tr_thought: "Otobüs durağı nerede?",
+      wrong_en: "Where bus stop?",
+      right_en: "Where is the bus stop?",
+      why_tr:
+        "Türk öğrenci 'is' ve 'the'yi atlar. İngilizcede: 'Where IS THE + isim?' her zaman tam.",
+    },
+    {
+      id: "ex.a1s.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Go straight' = ?",
+          options: [
+            "Düz git.",
+            "Sağa git.",
+            "Sola git.",
+            "Geri git.",
+          ],
+          correct: 0,
+          tr_explanation: "'Straight' = düz. 'Go straight' = düz devam et.",
+        },
+        {
+          q: "'Turn right' = ?",
+          options: [
+            "Sağa dön.",
+            "Sola dön.",
+            "Geri dön.",
+            "Şuraya dön.",
+          ],
+          correct: 0,
+          tr_explanation: "'Turn + yön' = ...e dön. 'Right' = sağ, 'Left' = sol.",
+        },
+        {
+          q: "'At the lights' = ?",
+          options: [
+            "Trafik ışıklarında.",
+            "Lambada.",
+            "Aydınlıkta.",
+            "Renkli yerde.",
+          ],
+          correct: 0,
+          tr_explanation: "'Lights' = trafik ışıkları (çoğul). 'At the lights' = ışıklarda (kavşak).",
+        },
+        {
+          q: "'It's around the corner' = ?",
+          options: [
+            "Köşede.",
+            "Köşeyi dönünce.",
+            "Köşeye yakın.",
+            "Köşede değil.",
+          ],
+          correct: 1,
+          tr_explanation: "'Around the corner' = idiom: köşeyi dönünce. Çok yaygın.",
+        },
+        {
+          q: "Yön sorma açılışı?",
+          options: [
+            "Hey, you.",
+            "Excuse me.",
+            "Listen.",
+            "Stop.",
+          ],
+          correct: 1,
+          tr_explanation: "'Excuse me' = en kibar açılış. Yabancıyı durdurmak için.",
         },
       ],
     },
@@ -2337,6 +3054,126 @@ export const cefrA1SurvivalLesson_8: BundledLesson = {
         },
       ],
     },
+    {
+      id: "ex.a1s.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 1,
+      cefr_band: "A1",
+      template: "Help! I need ___!",
+      slots: [
+        { accepted: ["a doctor", "an ambulance", "the police", "water", "help"], distractors: ["helps", "doctor"] },
+      ],
+      tr_hint:
+        "Acil yardım: 'Help! I need a doctor!' Türk öğrenci 'Help help help!' der — eksik. Tek 'Help' yeterli, sonra detay.",
+      example_filled: "Help! I need a doctor!",
+    },
+    {
+      id: "ex.a1s.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 1,
+      turns: [
+        { speaker: "npc", text: "What's wrong? Can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "I'll call 911 right away." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes)(,)? (please|i need)",
+        "(please )?call (911|an? ambulance|a doctor|the police)",
+        "(i (feel|am)) (very )?(sick|dizzy|hurt)",
+        "(my (head|stomach|chest)) (hurts|is bleeding)",
+      ],
+      tr_hint:
+        "Acil cevap: kısa + net. 'Yes — please call 911!' Türk öğrenci uzun anlatır — kısa kes.",
+      ideal_answer: "Yes — please call 911!",
+    },
+    {
+      id: "ex.a1s.8.lr1",
+      type: "listen_respond",
+      difficulty: 1,
+      npc_line: "Are you okay?",
+      accepted_patterns: [
+        "(no)(,)? (i (need|am))",
+        "(i (feel|am)) (very )?(sick|dizzy|weak|in pain)",
+        "(my (head|stomach|chest)) (hurts)",
+        "(i can'?t) (breathe|walk|move)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Sorunu söyle: 'No, I feel sick.' veya 'My head hurts.' Türk öğrenci 'yes' der utangaçlıkla — yardım gerekiyorsa söyle.",
+      ideal_response: "No — my head hurts.",
+    },
+    {
+      id: "ex.a1s.8.tt1",
+      type: "thinking_trap",
+      difficulty: 1,
+      tr_thought: "Yardım edin!",
+      wrong_en: "Please help me come!",
+      right_en: "Help! Call 911!",
+      why_tr:
+        "Acil durumda Türk öğrenci uzun kurar. İngilizcede kısa: 'Help!' tek kelime + acil numara. Panik anında en etkili.",
+    },
+    {
+      id: "ex.a1s.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Acil tek kelime?",
+          options: [
+            "Yes!",
+            "Help!",
+            "Come!",
+            "Now!",
+          ],
+          correct: 1,
+          tr_explanation: "'Help!' = evrensel acil. Kalabalıkta herkes anlar.",
+        },
+        {
+          q: "'I need a doctor' = ?",
+          options: [
+            "Doktora ihtiyacım var.",
+            "Doktor istemem.",
+            "Doktor var.",
+            "Doktorum ben.",
+          ],
+          correct: 0,
+          tr_explanation: "'I need + a/an + isim' = ihtiyacım var. 'A doctor' tek herhangi bir doktor.",
+        },
+        {
+          q: "'Call 911' = ?",
+          options: [
+            "911'i ara.",
+            "911'i çağır.",
+            "911'i söyle.",
+            "911'i kaydet.",
+          ],
+          correct: 0,
+          tr_explanation: "'Call + numara' = ara. ABD'de acil 911. UK 999. EU 112.",
+        },
+        {
+          q: "'My head hurts' = ?",
+          options: [
+            "Başım acıyor.",
+            "Başım çalışıyor.",
+            "Başım kırıldı.",
+            "Başım gitti.",
+          ],
+          correct: 0,
+          tr_explanation: "'Hurt' = ağrımak. 'My + organ + hurts' = ağrı belirtme kalıbı.",
+        },
+        {
+          q: "'I can't breathe' = ?",
+          options: [
+            "Nefes alamıyorum.",
+            "Çok nefesliyim.",
+            "Nefes vermem.",
+            "Nefesim yok.",
+          ],
+          correct: 0,
+          tr_explanation: "'Can't + base verb' = yapamıyorum. 'Breathe' = nefes al.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2613,6 +3450,125 @@ export const cefrA1SurvivalLesson_9: BundledLesson = {
             "thank you (so |very )?much",
           ],
           hint_tr: "Teşekkür et: 'Thank you.'",
+        },
+      ],
+    },
+    {
+      id: "ex.a1s.9.sp1",
+      type: "sentence_pattern",
+      difficulty: 1,
+      cefr_band: "A1",
+      template: "My ___ is ___.",
+      slots: [
+        { accepted: ["phone number", "address", "email", "name"], distractors: ["phone", "number"] },
+        { accepted: ["zero five three two", "ten Main Street", "berk at email dot com", "Berk"], distractors: ["phone", "name"] },
+      ],
+      tr_hint:
+        "Kimlik bilgisi: 'My phone number is 0-5-3-2...' Türk öğrenci 'Number my' der — yanlış. 'My + bilgi + is + içerik'.",
+      example_filled: "My phone number is zero five three two.",
+    },
+    {
+      id: "ex.a1s.9.dg1",
+      type: "dialogue_gap",
+      difficulty: 1,
+      turns: [
+        { speaker: "npc", text: "What's your phone number?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it, thank you." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(it('s| is)|my number is) [0-9]",
+        "(my phone number is) [a-z0-9]",
+        "(zero|one|two|three|four|five|six|seven|eight|nine)( [a-z]+){3,}",
+      ],
+      tr_hint:
+        "Numara verme: tek tek rakam. 'It's 0-5-3-2-1-2-3-4-5-6.' Türk öğrenci tüm sayıyı söyler — anlaşılmaz.",
+      ideal_answer: "It's zero five three two, one two three four five six.",
+    },
+    {
+      id: "ex.a1s.9.lr1",
+      type: "listen_respond",
+      difficulty: 1,
+      npc_line: "What's your address?",
+      accepted_patterns: [
+        "(it('s| is)|my address is) [0-9a-z ]+",
+        "[0-9]+ [a-z ]+(street|road|avenue|drive)",
+        "(i live (at|on|in)) [a-z0-9]+",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Adres verme: 'It's 10 Main Street.' Türk öğrenci 'Main Street 10' der — sıralama yanlış. Sayı önce.",
+      ideal_response: "It's ten Main Street.",
+    },
+    {
+      id: "ex.a1s.9.tt1",
+      type: "thinking_trap",
+      difficulty: 1,
+      tr_thought: "Telefon numaram 0532.",
+      wrong_en: "Phone my number 0532.",
+      right_en: "My phone number is 0-5-3-2.",
+      why_tr:
+        "Türk öğrenci sahiplik sırasını ters yapar: 'phone my number' — yanlış. 'My + isim' sırası. + Numara TEK TEK rakam.",
+    },
+    {
+      id: "ex.a1s.9.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Telefon numarası nasıl söylenir?",
+          options: [
+            "Tek tek rakam: zero, five, three...",
+            "Bütün sayıyı: five hundred...",
+            "Türkçeyle: sıfır, beş...",
+            "Yazılı verilir.",
+          ],
+          correct: 0,
+          tr_explanation: "Telefon rakam rakam. 'Zero' veya 'oh' (informal).",
+        },
+        {
+          q: "'My phone number is...' = ?",
+          options: [
+            "Telefon numaram...",
+            "Telefon ararım...",
+            "Telefonum...",
+            "Numaram telefon...",
+          ],
+          correct: 0,
+          tr_explanation: "'My + isim + is + içerik' = standart bilgi verme. Sahiplik sıralaması: my önce.",
+        },
+        {
+          q: "Adres sıralaması?",
+          options: [
+            "Sokak önce, sonra numara.",
+            "Numara önce, sonra sokak.",
+            "Sadece sokak adı.",
+            "Sadece numara.",
+          ],
+          correct: 1,
+          tr_explanation: "İngilizce adres: '10 Main Street' (numara önce, sokak sonra). Türkçenin tersi.",
+        },
+        {
+          q: "'I live on...' / 'I live at...' / 'I live in...' farkı?",
+          options: [
+            "Aynı şey.",
+            "On = sokak; at = tam adres; in = şehir.",
+            "On = ev; at = sokak; in = ülke.",
+            "Önemli değil.",
+          ],
+          correct: 1,
+          tr_explanation: "Adres edatları: in (şehir/ülke), on (sokak), at (tam adres/bina).",
+        },
+        {
+          q: "'Got it' ne demek?",
+          options: [
+            "Aldım, anladım.",
+            "Yaptım.",
+            "Getirdim.",
+            "Bittim.",
+          ],
+          correct: 0,
+          tr_explanation: "'Got it' = idiom: anladım/not aldım. Kısa onay.",
         },
       ],
     },
@@ -2945,6 +3901,126 @@ export const cefrA1SurvivalLesson_10: BundledLesson = {
       correct_sentence: "Where is the toilet?",
       tr_explanation:
         "Soru cümlesi 'is' ve 'the' ister. 'Where IS THE toilet?' — atlama.",
+    },
+    {
+      id: "ex.a1s.10.sp1",
+      type: "sentence_pattern",
+      difficulty: 1,
+      cefr_band: "A1",
+      template: "Where is the ___, ___?",
+      slots: [
+        { accepted: ["pharmacy", "restaurant", "toilet", "supermarket", "ATM"], distractors: ["where pharmacy", "pharmacy where"] },
+        { accepted: ["please", "sorry"], distractors: ["where", "yes"] },
+      ],
+      tr_hint:
+        "Yer sorma: 'Where is the pharmacy, please?' Türk öğrenci 'pharmacy?' der — kaba. Tam cümle + 'please'.",
+      example_filled: "Where is the pharmacy, please?",
+    },
+    {
+      id: "ex.a1s.10.dg1",
+      type: "dialogue_gap",
+      difficulty: 1,
+      turns: [
+        { speaker: "npc", text: "Yes? How can I help?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Just two blocks down." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(excuse me|sorry)(,)? where (is|are) (the )?(pharmacy|restaurant|toilet|supermarket)",
+        "(i('m| am)) looking for (the )?(pharmacy|restaurant|toilet|supermarket)",
+        "(could you (tell|show) me)",
+      ],
+      tr_hint:
+        "Yer sorma kibarca: 'Excuse me — where is the pharmacy?' Türk öğrenci direkt 'pharmacy?' der — kaba.",
+      ideal_answer: "Excuse me — where is the pharmacy?",
+    },
+    {
+      id: "ex.a1s.10.lr1",
+      type: "listen_respond",
+      difficulty: 1,
+      npc_line: "Anything else you need?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (the )?(toilet|water|menu)",
+        "(could i (get|have)) (some )?(water|the menu)",
+        "(no )?thanks(,)? (that('s| is) (it|all))",
+        "(yes)(,)? where (is|are)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Ek ihtiyaç sorusu: 'Yes, could I get some water?' veya 'No, thanks — that's all.' Türk öğrenci 'no' der — eksik.",
+      ideal_response: "Yes — could I get some water, please?",
+    },
+    {
+      id: "ex.a1s.10.tt1",
+      type: "thinking_trap",
+      difficulty: 1,
+      tr_thought: "Tuvalet nerede?",
+      wrong_en: "Where toilet?",
+      right_en: "Where is the toilet?",
+      why_tr:
+        "Türk öğrenci 'is'i ve 'the'yi atlar. İngilizcede soru: 'Where IS THE + isim?' Sabit. 'Where toilet' kırık.",
+    },
+    {
+      id: "ex.a1s.10.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Eczane nerede?",
+          options: [
+            "Where pharmacy?",
+            "Where is the pharmacy?",
+            "Pharmacy where?",
+            "Pharmacy?",
+          ],
+          correct: 1,
+          tr_explanation: "Tam soru: 'Where IS THE pharmacy?'. 'Is' ve 'the' atlanmaz.",
+        },
+        {
+          q: "'Pharmacy' = ?",
+          options: [
+            "Park.",
+            "Eczane.",
+            "Pastane.",
+            "Postane.",
+          ],
+          correct: 1,
+          tr_explanation: "'Pharmacy' = eczane. ABD'de 'drugstore' de denir.",
+        },
+        {
+          q: "'Two blocks down' = ?",
+          options: [
+            "İki bina aşağı.",
+            "İki sokak ilerde.",
+            "İki blok yukarı.",
+            "İki şehir uzakta.",
+          ],
+          correct: 1,
+          tr_explanation: "'Block' = ABD'de sokak/blok. 'Down' = ileri/aşağı.",
+        },
+        {
+          q: "'Water, please' = ?",
+          options: [
+            "Su, lütfen.",
+            "Su nerede?",
+            "Su sevdim.",
+            "Su yok.",
+          ],
+          correct: 0,
+          tr_explanation: "'Water, please' = en basit + kibar su isteme. 'Please' her zaman ekle.",
+        },
+        {
+          q: "Restorana giriş: ne dersin?",
+          options: [
+            "Food!",
+            "Table for two, please.",
+            "Eat now.",
+            "Restaurant?",
+          ],
+          correct: 1,
+          tr_explanation: "'Table for + sayı + please' = kişi sayısı söyleme. Standart restoran giriş.",
+        },
+      ],
     },
   ],
 };
@@ -3284,6 +4360,126 @@ export const cefrA1SurvivalLesson_11: BundledLesson = {
       ipa: "wɛər ɪz ðə ˈbæθ.ruːm",
       tr_hint: "'Where is' bağlanır → 'weriz'. 'bathroom' = 'bath-room', ilk hece vurgulu. 'th' dilini dişe koy.",
     },
+    {
+      id: "ex.a1s.11.sp1",
+      type: "sentence_pattern",
+      difficulty: 1,
+      cefr_band: "A1",
+      template: "Where is the ___, ___?",
+      slots: [
+        { accepted: ["bathroom", "toilet", "restroom", "Wi-Fi", "exit"], distractors: ["where", "there"] },
+        { accepted: ["please", "sorry to ask", "if you know"], distractors: ["yes", "no"] },
+      ],
+      tr_hint:
+        "İhtiyaç sorma: 'Where is the bathroom, please?' Türk öğrenci 'Toilet?' der — kaba. 'Where is the' = tam cümle.",
+      example_filled: "Where is the bathroom, please?",
+    },
+    {
+      id: "ex.a1s.11.dg1",
+      type: "dialogue_gap",
+      difficulty: 1,
+      turns: [
+        { speaker: "npc", text: "Yes? Can I help you?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Through that door, on the right." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(excuse me|sorry)(,)? where (is|are) (the )?(bathroom|toilet|restroom)",
+        "(could|can) you (tell me|show me)",
+        "(i('m| am)) looking for (the )?(bathroom|toilet|restroom)",
+      ],
+      tr_hint:
+        "Tuvalet sorma kibarca: 'Excuse me — where is the bathroom?' Türk öğrenci 'toilet?' der — kaba.",
+      ideal_answer: "Excuse me — where is the bathroom?",
+    },
+    {
+      id: "ex.a1s.11.lr1",
+      type: "listen_respond",
+      difficulty: 1,
+      npc_line: "Do you need anything else?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (the )?(wi-?fi|password)",
+        "(could i (get|have)) (the )?(wi-?fi|password|water)",
+        "(no )?thanks(,)? i('m| am) (good|okay|fine)",
+        "(yes(,)? )?can you help me",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Başka ihtiyaç: 'Yes, could I get the Wi-Fi?' veya 'No, thanks.' Türk öğrenci direkt 'wifi' der — eksik.",
+      ideal_response: "Could I get the Wi-Fi password, please?",
+    },
+    {
+      id: "ex.a1s.11.tt1",
+      type: "thinking_trap",
+      difficulty: 1,
+      tr_thought: "Tuvalet nerede?",
+      wrong_en: "Toilet?",
+      right_en: "Where is the bathroom?",
+      why_tr:
+        "Türk öğrenci 'toilet'i tek başına soru olarak söyler — kaba/kırık. Tam soru: 'Where is the bathroom?' ABD'de 'bathroom' daha kibar, 'toilet' direkt.",
+    },
+    {
+      id: "ex.a1s.11.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Tuvalet için en kibar isim?",
+          options: [
+            "Toilet (kaba).",
+            "Bathroom (ABD), Restroom (resmi).",
+            "WC (sadece UK eski).",
+            "Loo (informal UK).",
+          ],
+          correct: 1,
+          tr_explanation: "ABD'de 'bathroom' (genel), 'restroom' (resmi). 'Toilet' İngiltere'de yaygın ama Amerika'da direkt.",
+        },
+        {
+          q: "Wi-Fi şifresi isteme?",
+          options: [
+            "Wifi password!",
+            "Could I get the Wi-Fi password, please?",
+            "Give wifi.",
+            "Wi-Fi?",
+          ],
+          correct: 1,
+          tr_explanation: "'Could I get + isim + please' = kibarca isteme. Tek 'wifi' kaba.",
+        },
+        {
+          q: "'Can you help me?' = ?",
+          options: [
+            "Bana yardım eder misin?",
+            "Yardım ister misin?",
+            "Sen yardım?",
+            "Yapar mısın yardım?",
+          ],
+          correct: 0,
+          tr_explanation: "'Can you help me?' = standart yardım isteme. Sabit kalıp.",
+        },
+        {
+          q: "Bilmediğin yerde soracağın ilk söz?",
+          options: [
+            "Hey.",
+            "Excuse me.",
+            "Help.",
+            "What.",
+          ],
+          correct: 1,
+          tr_explanation: "'Excuse me' = en kibar açılış. Yabancıyı durdurmak için.",
+        },
+        {
+          q: "'Through that door, on the right' = ?",
+          options: [
+            "Şu kapıdan, sağda.",
+            "Sağdaki kapıda.",
+            "Kapının dışında.",
+            "Solda, kapıdan.",
+          ],
+          correct: 0,
+          tr_explanation: "'Through + door' = kapıdan geç. 'On the right' = sağda.",
+        },
+      ],
+    },
   ],
 };
 
@@ -3615,6 +4811,126 @@ export const cefrA1SurvivalLesson_12: BundledLesson = {
       phrase: "Sorry, could you repeat that?",
       ipa: "ˈsɒri kʊd juː rɪˈpiːt ðæt",
       tr_hint: "'Sorry' yumuşak. 'could you' birleşir → 'kudja'. 'repeat' ikinci hece vurgulu.",
+    },
+    {
+      id: "ex.a1s.12.sp1",
+      type: "sentence_pattern",
+      difficulty: 1,
+      cefr_band: "A1",
+      template: "Sorry, ___ ___?",
+      slots: [
+        { accepted: ["could you", "can you", "would you"], distractors: ["you could", "you do"] },
+        { accepted: ["repeat that", "say it again", "speak slowly", "say that again"], distractors: ["repeat", "again"] },
+      ],
+      tr_hint:
+        "Anlamadığında: 'Sorry, could you repeat that?' Türk öğrenci 'What?' der — kaba. 'Sorry + could you + repeat' = kibar.",
+      example_filled: "Sorry, could you repeat that?",
+    },
+    {
+      id: "ex.a1s.12.dg1",
+      type: "dialogue_gap",
+      difficulty: 1,
+      turns: [
+        { speaker: "npc", text: "The total is twenty-three fifty." },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure — twenty-three dollars and fifty cents." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(sorry|excuse me)(,)? (could|can) you (repeat|say) (that|it)",
+        "(i('m| am) sorry)(,)? (i didn'?t (catch|understand))",
+        "(could you )?(say it again)",
+      ],
+      tr_hint:
+        "Anlamadın: 'Sorry, could you repeat that?' Tahmin etme — sor.",
+      ideal_answer: "Sorry, could you say that again?",
+    },
+    {
+      id: "ex.a1s.12.lr1",
+      type: "listen_respond",
+      difficulty: 1,
+      npc_line: "Take the second left, then the third right.",
+      accepted_patterns: [
+        "(sorry|excuse me)(,)? (could you )?(repeat|say it again)",
+        "(could you )?(speak (more )?slowly)",
+        "(i didn'?t (catch|understand))",
+        "(sorry)(,)? (one more time)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yön tarifi anlaşılmadı — yine sor. 'Sorry, could you speak more slowly?' Türk öğrenci 'huh?' der — kaba.",
+      ideal_response: "Sorry, could you speak more slowly?",
+    },
+    {
+      id: "ex.a1s.12.tt1",
+      type: "thinking_trap",
+      difficulty: 1,
+      tr_thought: "Tekrar söyler misin?",
+      wrong_en: "Again, please?",
+      right_en: "Sorry, could you repeat that?",
+      why_tr:
+        "Türk öğrenci 'Again?' veya 'What?' der — kısa ama kaba. Standart kibar: 'Sorry, could you repeat that?' Sabit kalıp.",
+    },
+    {
+      id: "ex.a1s.12.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Anlamadığında en kibar?",
+          options: [
+            "What?",
+            "Sorry, could you repeat that?",
+            "Again!",
+            "I no.",
+          ],
+          correct: 1,
+          tr_explanation: "'Sorry, could you repeat that?' = standart kibar. 'What?' kaba.",
+        },
+        {
+          q: "'Speak more slowly' = ?",
+          options: [
+            "Daha yavaş konuş.",
+            "Daha hızlı konuş.",
+            "Sus.",
+            "Bağırma.",
+          ],
+          correct: 0,
+          tr_explanation: "'More slowly' = daha yavaş. Native hızlı konuşunca bu kalıp çok yararlı.",
+        },
+        {
+          q: "'I didn't catch that' = ?",
+          options: [
+            "Onu yakalamadım.",
+            "Onu duymadım/anlamadım.",
+            "Yakalayamadım.",
+            "Kapı kapalı.",
+          ],
+          correct: 1,
+          tr_explanation: "'Catch that' = idiom: anla/duy. 'Didn't catch' = anlamadım. Çok yaygın.",
+        },
+        {
+          q: "'One more time' = ?",
+          options: [
+            "Bir daha.",
+            "Bir kere.",
+            "Bir an.",
+            "Bir zaman.",
+          ],
+          correct: 0,
+          tr_explanation: "'One more time' = bir kez daha. 'Could you say it one more time?' kibar.",
+        },
+        {
+          q: "Anlamadığını gizlemek?",
+          options: [
+            "Doğru tutum.",
+            "Yanlış — sor, kibarca.",
+            "Sadece arkadaşa söyle.",
+            "Native gibi davran.",
+          ],
+          correct: 1,
+          tr_explanation: "Anlamadığını söylemek normal/kibar. Tahmin etme — sor.",
+        },
+      ],
     },
   ],
 };
@@ -3948,6 +5264,127 @@ export const cefrA1SurvivalLesson_13: BundledLesson = {
       phrase: "No, thank you.",
       ipa: "noʊ θæŋk juː",
       tr_hint: "'No' uzun, sonra kısa duraklama. 'thank you' = 'θæŋk-juː', 'th' dilini dişe koy.",
+    },
+    {
+      id: "ex.a1s.13.sp1",
+      type: "sentence_pattern",
+      difficulty: 1,
+      cefr_band: "A1",
+      template: "___, ___.",
+      slots: [
+        { accepted: ["Yes", "No", "Maybe", "Sure"], distractors: ["Yeah no", "Maybe no"] },
+        { accepted: ["please", "thank you", "thanks", "I'm okay"], distractors: ["yes please", "no thanks"] },
+      ],
+      tr_hint:
+        "Temel kibar cevap: 'Yes, please' veya 'No, thank you.' Türk öğrenci sadece 'yes' / 'no' der — eksik. Kibar ek lazım.",
+      example_filled: "Yes, please.",
+    },
+    {
+      id: "ex.a1s.13.dg1",
+      type: "dialogue_gap",
+      difficulty: 1,
+      turns: [
+        { speaker: "npc", text: "Would you like some coffee?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Coming right up!" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "yes(,)? please",
+        "(no )?thanks(,)? (i('m| am) (okay|fine))",
+        "(sure|yeah)(,)? (please|thanks)",
+        "(maybe later)",
+      ],
+      tr_hint:
+        "Teklif: 'Yes, please' kabul; 'No, thank you' ret. Türk öğrenci 'no' der — kaba. 'No, thank you' = kibar.",
+      ideal_answer: "Yes, please.",
+    },
+    {
+      id: "ex.a1s.13.lr1",
+      type: "listen_respond",
+      difficulty: 1,
+      npc_line: "Do you want some help?",
+      accepted_patterns: [
+        "yes(,)? please",
+        "(no )?thanks(,)? i('m| am) (okay|fine|good)",
+        "(if you )?(don'?t mind)",
+        "(thanks)(,)? (i can|i('ll| will))",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Yardım teklifi: kabul veya ret + tonu kibar. 'No, thanks — I'm fine.' Türk öğrenci sadece 'no' der — soğuk.",
+      ideal_response: "No, thanks — I'm okay.",
+    },
+    {
+      id: "ex.a1s.13.tt1",
+      type: "thinking_trap",
+      difficulty: 1,
+      tr_thought: "Hayır, sağol.",
+      wrong_en: "No.",
+      right_en: "No, thank you.",
+      why_tr:
+        "Türkçede 'hayır' kısa olabilir. İngilizcede 'No.' tek başına çok soğuk/kaba. Daima 'No, thank you' veya 'No, thanks' ekle.",
+    },
+    {
+      id: "ex.a1s.13.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Kibar kabul?",
+          options: [
+            "Yes.",
+            "Yes, please.",
+            "Yes much.",
+            "Yes you.",
+          ],
+          correct: 1,
+          tr_explanation: "'Yes, please' = kibar kabul. 'Yes' tek başına soğuk.",
+        },
+        {
+          q: "Kibar ret?",
+          options: [
+            "No.",
+            "No, thank you.",
+            "No much.",
+            "Not yes.",
+          ],
+          correct: 1,
+          tr_explanation: "'No, thank you' = kibar ret. 'No' tek başına kaba.",
+        },
+        {
+          q: "'Maybe later' = ?",
+          options: [
+            "Şu an evet.",
+            "Belki sonra.",
+            "Belki hayır.",
+            "Sonra hayır.",
+          ],
+          correct: 1,
+          tr_explanation: "'Maybe later' = belki sonra. Reddetme + kapıyı açık bırakma.",
+        },
+        {
+          q: "'I'm okay' ne demek (cevap olarak)?",
+          options: [
+            "İyiyim (yardıma ihtiyacım yok).",
+            "Tamam.",
+            "Sorun yok.",
+            "Yokum.",
+          ],
+          correct: 0,
+          tr_explanation: "'I'm okay' = teklife kibarca ret. 'İyiyim, yardıma gerek yok.'",
+        },
+        {
+          q: "'Sure' = ?",
+          options: [
+            "Hayır.",
+            "Emin değilim.",
+            "Tabi (kabul).",
+            "Belki.",
+          ],
+          correct: 2,
+          tr_explanation: "'Sure' = tabi/elbette. Kibar kabul, 'yes'in alternatifi.",
+        },
+      ],
     },
   ],
 };
@@ -4292,6 +5729,126 @@ export const cefrA1SurvivalLesson_14: BundledLesson = {
       phrase: "Help! Call 911!",
       ipa: "hɛlp kɔːl naɪn wʌn wʌn",
       tr_hint: "'Help' kısa ve yüksek. '911' = 'nine-one-one' (TEK TEK rakam). 'dokuz yüz on bir' DENMEZ.",
+    },
+    {
+      id: "ex.a1s.14.sp1",
+      type: "sentence_pattern",
+      difficulty: 1,
+      cefr_band: "A1",
+      template: "Help! I need ___ ___!",
+      slots: [
+        { accepted: ["a", "an"], distractors: ["the", "some"] },
+        { accepted: ["doctor", "ambulance", "police officer", "policeman"], distractors: ["help", "person"] },
+      ],
+      tr_hint:
+        "Acil yardım kalıbı: 'Help! I need a doctor!' Türk öğrenci 'I want doctor!' der — eksik. 'I need + a/an + meslek'.",
+      example_filled: "Help! I need a doctor!",
+    },
+    {
+      id: "ex.a1s.14.dg1",
+      type: "dialogue_gap",
+      difficulty: 1,
+      turns: [
+        { speaker: "npc", text: "911 — what's your emergency?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Stay calm. Help is on the way." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(help)(,)?( please)? (send|i need)",
+        "(i need|please send) (an? )?(ambulance|doctor|police)",
+        "(there'?s|there has been) (an )?(accident|emergency)",
+      ],
+      tr_hint:
+        "911 cevabı: kısa + net. 'Help — I need an ambulance!' Uzun cümle değil, acil bilgi.",
+      ideal_answer: "Help! I need an ambulance, please!",
+    },
+    {
+      id: "ex.a1s.14.lr1",
+      type: "listen_respond",
+      difficulty: 1,
+      npc_line: "What's wrong?",
+      accepted_patterns: [
+        "(my (head|stomach|chest|leg)) (hurts|is bleeding)",
+        "(i (feel|am)) (very )?(sick|dizzy|weak)",
+        "(i can'?t) (breathe|move|walk)",
+        "(there'?s )(an )?(accident)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Acil durum: tek cümle sorun belirt. 'My chest hurts.' veya 'I can't breathe.' Türk öğrenci uzun anlatır — kısa kes.",
+      ideal_response: "My chest hurts.",
+    },
+    {
+      id: "ex.a1s.14.tt1",
+      type: "thinking_trap",
+      difficulty: 1,
+      tr_thought: "Yardım edin!",
+      wrong_en: "Help me, please come!",
+      right_en: "Help! Call 911!",
+      why_tr:
+        "Acil durumda Türk öğrenci uzun cümle kurar. İngilizcede kısa + net: 'Help!' + 'Call 911!' Tek kelime tek anlam, panik anında en etkili.",
+    },
+    {
+      id: "ex.a1s.14.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "ABD'de acil numara?",
+          options: [
+            "112.",
+            "911.",
+            "999.",
+            "100.",
+          ],
+          correct: 1,
+          tr_explanation: "ABD = 911. UK = 999. Avrupa = 112. Ülkeye göre değişir.",
+        },
+        {
+          q: "'Help!' tek başına yeterli mi?",
+          options: [
+            "Hayır, uzun cümle kur.",
+            "Evet — herkes anlar, dikkat çeker.",
+            "Sadece doktora.",
+            "Sadece polise.",
+          ],
+          correct: 1,
+          tr_explanation: "Acil durumda 'Help!' = en etkili kelime. Kalabalıkta dikkat çeker.",
+        },
+        {
+          q: "'I need a doctor' = ?",
+          options: [
+            "Doktorum var.",
+            "Doktora ihtiyacım var.",
+            "Doktor ister misin?",
+            "Doktor mu?",
+          ],
+          correct: 1,
+          tr_explanation: "'I need + a/an + isim' = ihtiyacım var. 'A' tek doktor demek.",
+        },
+        {
+          q: "'911' nasıl söylenir?",
+          options: [
+            "Nine hundred eleven.",
+            "Nine-one-one.",
+            "Ninety eleven.",
+            "Nine eleven.",
+          ],
+          correct: 1,
+          tr_explanation: "Acil numaralar tek tek rakam: 'nine-one-one'. Tam sayı değil.",
+        },
+        {
+          q: "'Ambulance' = ?",
+          options: [
+            "Polis.",
+            "Ambulans.",
+            "Doktor.",
+            "Hastane.",
+          ],
+          correct: 1,
+          tr_explanation: "'Ambulance' = ambulans (Türkçeyle benzer). 'Police' = polis. 'Doctor' = doktor.",
+        },
+      ],
     },
   ],
 };

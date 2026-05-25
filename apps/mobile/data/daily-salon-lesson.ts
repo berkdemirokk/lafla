@@ -907,6 +907,133 @@ export const dailySalonLesson_31_2: BundledLesson = {
       tr_explanation:
         "'Yellow' = saç değil meyve rengi. Doğru: 'shades lighter' (kaç ton açık) + spesifik isim (honey blonde).",
     },
+    {
+      id: "ex.dsl31.2.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'd like to ___ ___ ___ — maybe a ___ ___?",
+      slots: [
+        { accepted: ["go", "try"], distractors: ["take", "do", "make"] },
+        { accepted: ["a few shades", "a couple of tones", "a bit"], distractors: ["very", "much", "many"] },
+        { accepted: ["lighter", "darker", "warmer"], distractors: ["bigger", "good", "strong"] },
+        { accepted: ["warm", "cool", "ash", "honey"], distractors: ["hot", "cold", "yellow"] },
+        { accepted: ["blonde", "brown", "balayage"], distractors: ["yellow", "color", "good"] },
+      ],
+      tr_hint:
+        "Renk değişim kalıbı. 'Go a few shades lighter — honey blonde'. Türk öğrenci 'make me blonde' der — kabaca.",
+      example_filled: "I'd like to go a few shades lighter — maybe a warm honey blonde?",
+    },
+    {
+      id: "ex.dsl31.2.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What look are we going for today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Ooh, lovely choice. Let me show you some options." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d like|i was thinking) (a |to go )?(few shades|tones) (lighter|darker)",
+        "(could we |what about )?(balayage|highlights|babylights)",
+        "(maybe )?(a )?(warm|cool|ash) (blonde|brown|honey)",
+        "(what would you )?(recommend|suggest)\\??",
+      ],
+      tr_hint:
+        "Kuaföre renk talebi. Spesifik (warm honey blonde) + soru ('what would you recommend?'). Türk öğrenci 'change color' der — yetersiz.",
+      ideal_answer: "I'd like to go a few shades lighter — maybe a warm honey blonde?",
+    },
+    {
+      id: "ex.dsl31.2.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Have you colored your hair before?",
+      accepted_patterns: [
+        "(yes|yeah)(,)? (a few times|last year)",
+        "(no|never|first time)(,)? (this would be|i'?m a virgin)",
+        "(actually )?(yes|i tried)",
+        "(my hair is )?(virgin|natural|untouched)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kuaför saç geçmişi sordu — net cevap. 'Yes/no + detay'. Türk öğrenci uzun anlatım yapar.",
+      ideal_response: "Yes, I dyed it last year — it's grown out now.",
+    },
+    {
+      id: "ex.dsl31.2.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Saçımı sarı yap.",
+      wrong_en: "Make hair yellow.",
+      right_en: "Could we try a honey blonde — a few shades lighter?",
+      why_tr:
+        "'Yellow' = meyve rengi, saç için yanlış. 'Honey/golden blonde' = saç. 'Make hair' emir; doğru: 'Could we try' kibar öneri.",
+    },
+    {
+      id: "ex.dsl31.2.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Shades lighter' = ?",
+          options: [
+            "Tonlar açık.",
+            "Ton ağır.",
+            "Gölge.",
+            "Hafif gölge.",
+          ],
+          correct: 0,
+          tr_explanation: "'Shade' = ton. 'A few shades lighter' = birkaç ton açık (kuaför standartı).",
+        },
+        {
+          q: "'Balayage' nedir?",
+          options: [
+            "El ile süpürme tekniği — açma yöntemi.",
+            "Boya markası.",
+            "Renk türü.",
+            "Saç kesim.",
+          ],
+          correct: 0,
+          tr_explanation: "Fransız tekniği. ABD/UK salonlarında yaygın.",
+        },
+        {
+          q: "'Warm tones' = ?",
+          options: [
+            "Sıcak tonlar (altın, bal, bakır).",
+            "Sıcak su.",
+            "Sıcak ışık.",
+            "Sıcak.",
+          ],
+          correct: 0,
+          tr_explanation: "Cool (küllü) vs warm (sıcak) = saç rengi temel ayrım.",
+        },
+        {
+          q: "'My hair is virgin' = ?",
+          options: [
+            "Hiç boyanmamış / doğal.",
+            "Yeni.",
+            "Genç.",
+            "Temiz.",
+          ],
+          correct: 0,
+          tr_explanation: "Kuaför terminolojisi: önce boyanmamış saç. Boya tepkisi farklı olur.",
+        },
+        {
+          q: "Renk değişim EN net?",
+          options: [
+            "Make yellow!",
+            "I'd like a few shades lighter — maybe honey blonde?",
+            "Color hair.",
+            "Blonde.",
+          ],
+          correct: 1,
+          tr_explanation: "Kibar + spesifik tom + öneri sorusu = profesyonel.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1288,6 +1415,132 @@ export const dailySalonLesson_31_3: BundledLesson = {
       tr_explanation:
         "'Make nails' = emir. Doğru: 'I'd like' + şekil + spesifik (classic red gel polish).",
     },
+    {
+      id: "ex.dsl31.3.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'd like a ___ ___ with ___ ___ polish, please.",
+      slots: [
+        { accepted: ["square", "round", "almond", "oval"], distractors: ["box", "circle", "fast"] },
+        { accepted: ["shape", "look"], distractors: ["thing", "style", "way"] },
+        { accepted: ["classic", "nude", "bright"], distractors: ["good", "best", "pretty"] },
+        { accepted: ["red", "pink", "gel", "matte"], distractors: ["color", "yellow", "blue"] },
+      ],
+      tr_hint:
+        "Manikür kalıbı. 'Square shape with classic red gel polish'. Türk öğrenci 'red square nails' der — kabaca + eksik.",
+      example_filled: "I'd like a square shape with classic red gel polish, please.",
+    },
+    {
+      id: "ex.dsl31.3.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! What look are we doing today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Great choice — would you like gel or regular polish?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d like|i'?d love) (a |an )?(square|round|almond) (shape|look)",
+        "(could we do|i was thinking) (a )?(classic|nude|bright) (red|pink|color)",
+        "(just )?(a )?(simple|classic) (manicure|color)",
+        "(what would you )?(recommend|suggest)\\??",
+      ],
+      tr_hint:
+        "Manikür talep — şekil + renk. Türk öğrenci 'red nails' der — yetersiz. Şekil ekle.",
+      ideal_answer: "I'd like a square shape with classic red polish, please.",
+    },
+    {
+      id: "ex.dsl31.3.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Would you like cuticles cut or just pushed back?",
+      accepted_patterns: [
+        "(just )?(pushed back|push back)( please)?",
+        "(cut|trim) please",
+        "(whatever you )?(recommend|suggest)",
+        "(could you )?(push them back|leave them)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Kuaför seçim sundu — net cevap ver. Türk öğrenci 'whatever' der — kalitesini etkileyebilir.",
+      ideal_response: "Just pushed back, please — I don't like them cut.",
+    },
+    {
+      id: "ex.dsl31.3.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Tırnaklarımı kare yap, kırmızı.",
+      wrong_en: "Make nails square red.",
+      right_en: "I'd like a square shape with red polish, please.",
+      why_tr:
+        "'Make nails' emir + eksik virgül. Doğru: 'I'd like a [shape] shape with [color] polish' = standart manikür kalıp.",
+    },
+    {
+      id: "ex.dsl31.3.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Tırnak şekilleri?",
+          options: [
+            "Square / round / almond / oval (kare/yuvarlak/badem/oval).",
+            "Sadece kare.",
+            "Sadece yuvarlak.",
+            "Yok.",
+          ],
+          correct: 0,
+          tr_explanation: "Manikür terminolojisi temel. 'Square' (kare) ve 'almond' (badem) popüler.",
+        },
+        {
+          q: "'Cuticles' = ?",
+          options: [
+            "Tırnak etleri.",
+            "Tırnak rengi.",
+            "Tırnak şekli.",
+            "Tırnak ucu.",
+          ],
+          correct: 0,
+          tr_explanation: "Tırnak çevresindeki yumuşak deri. Geri itme (push back) veya kesme (cut) seçeneği var.",
+        },
+        {
+          q: "'Gel polish' farkı?",
+          options: [
+            "Daha dayanıklı + UV ışıkla kurutulur.",
+            "Daha ucuz.",
+            "Daha hızlı.",
+            "Sıvı.",
+          ],
+          correct: 0,
+          tr_explanation: "Gel = 2-3 hafta dayanır, parlaktır. Regular = 1 hafta.",
+        },
+        {
+          q: "'Classic red' anlamı?",
+          options: [
+            "Klasik kırmızı (tipik salon rengi).",
+            "Eski kırmızı.",
+            "Çok kırmızı.",
+            "Açık kırmızı.",
+          ],
+          correct: 0,
+          tr_explanation: "Salonlarda 'classic red' = doygun kırmızı, evrensel. Düğün/cocktail için ideal.",
+        },
+        {
+          q: "Manikür EN net rica?",
+          options: [
+            "Red square!",
+            "I'd like a square shape with classic red gel polish, please.",
+            "Make nails!",
+            "Red.",
+          ],
+          correct: 1,
+          tr_explanation: "Şekil + ton + tip + kibarlık = profesyonel.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1660,6 +1913,133 @@ export const dailySalonLesson_31_4: BundledLesson = {
       tr_explanation:
         "'My face problem' = grammatik degil. Doğru: cilt tipi (sensitive skin) + spesifik istek (avoid harsh).",
     },
+    {
+      id: "ex.dsl31.4.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I have ___ ___ — please ___ ___ ___.",
+      slots: [
+        { accepted: ["sensitive", "oily", "dry", "combination"], distractors: ["bad", "weak", "good"] },
+        { accepted: ["skin"], distractors: ["face", "head", "body"] },
+        { accepted: ["avoid", "skip", "stay away from"], distractors: ["no", "stop", "remove"] },
+        { accepted: ["any harsh", "strong", "fragranced"], distractors: ["fast", "very", "much"] },
+        { accepted: ["products", "ingredients", "scrubs"], distractors: ["things", "stuff", "items"] },
+      ],
+      tr_hint:
+        "Cilt tipi rapor. 'I have sensitive skin — please avoid harsh products'. Türk öğrenci 'no strong' der — yetersiz.",
+      example_filled: "I have sensitive skin — please avoid any harsh products.",
+    },
+    {
+      id: "ex.dsl31.4.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Welcome! Any concerns I should know about?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it — I'll use the gentle line today." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|yeah)(,)? (i have|my skin is) (sensitive|oily|dry)",
+        "(i tend to|i'?m prone to) (breakouts|redness)",
+        "(please )?(avoid|skip) (harsh|fragranced) (products|ingredients)",
+        "(my skin is )?(reacting to|sensitive to) \\w+",
+      ],
+      tr_hint:
+        "Cilt bakımı öncesi: cilt tipi paylaş. Türk öğrenci 'no problem' der — sonra kötü reaksiyon.",
+      ideal_answer: "Yes, I have sensitive skin — please avoid fragranced products.",
+    },
+    {
+      id: "ex.dsl31.4.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Would you like to add a chemical peel today?",
+      accepted_patterns: [
+        "(no|nope)(,)? (maybe next time|not today)",
+        "(what does )?(it involve|the peel do)\\??",
+        "(actually )?(could you )?(tell me more|explain)",
+        "(if it'?s safe )?(for sensitive skin)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Ek hizmet teklif edildi — bilgi al, basitçe red yapma. Türk öğrenci 'no' der bitti.",
+      ideal_response: "Could you tell me more — is it safe for sensitive skin?",
+    },
+    {
+      id: "ex.dsl31.4.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Cildim hassas, güçlü ürün kullanma.",
+      wrong_en: "My skin sensitive, no strong cream.",
+      right_en: "I have sensitive skin — please avoid harsh products today.",
+      why_tr:
+        "'My skin sensitive' eksik 'is'. 'No strong cream' kabaca. Doğru: tam cümle + 'avoid harsh' = profesyonel uyarı.",
+    },
+    {
+      id: "ex.dsl31.4.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "Cilt tipleri?",
+          options: [
+            "Sensitive / oily / dry / combination.",
+            "İyi / kötü.",
+            "Genç / yaşlı.",
+            "Açık / koyu.",
+          ],
+          correct: 0,
+          tr_explanation: "Bakım için temel: hassas, yağlı, kuru, karışık. Estetisyen ürün seçer.",
+        },
+        {
+          q: "'Harsh products' = ?",
+          options: [
+            "Sert / agresif ürünler.",
+            "Pahalı ürünler.",
+            "Yumuşak ürünler.",
+            "Doğal ürünler.",
+          ],
+          correct: 0,
+          tr_explanation: "'Harsh' = sert/agresif. Hassas cilt için kaçınılır.",
+        },
+        {
+          q: "'Hydrating mask' = ?",
+          options: [
+            "Nemlendirici maske.",
+            "Susuz maske.",
+            "Sıcak maske.",
+            "Pahalı maske.",
+          ],
+          correct: 0,
+          tr_explanation: "'Hydrate' = nemlendir. Bakım sonu yaygın.",
+        },
+        {
+          q: "'Chemical peel' nedir?",
+          options: [
+            "Kimyasal soyma (cilt yenileme).",
+            "Sebze soyma.",
+            "Boya çıkarma.",
+            "Manikür.",
+          ],
+          correct: 0,
+          tr_explanation: "Estetik prosedür: asitlerle cilt tabakası soyma. Hassas cilde dikkat.",
+        },
+        {
+          q: "Hassas cilt rapor EN profesyonel?",
+          options: [
+            "No strong!",
+            "I have sensitive skin — please avoid harsh products.",
+            "Skin bad.",
+            "Cream stop.",
+          ],
+          correct: 1,
+          tr_explanation: "Tip + spesifik istek = uzmana net bilgi.",
+        },
+      ],
+    },
   ],
 };
 
@@ -1987,6 +2367,131 @@ export const dailySalonLesson_31_5: BundledLesson = {
       ipa: "feɪd ɒn ðə saɪdz ˈsɪzər ɒn tɒp",
       tr_hint:
         "Berber klasik komutu. 'Fade' uzun 'eɪ' — 'feyd'. 'Scissor' = SİZ-ır. 'On top' kısa, vurgulu.",
+    },
+    {
+      id: "ex.dsl31.5.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'd like ___ on the ___ and ___ on top.",
+      slots: [
+        { accepted: ["a low fade", "a high fade", "scissor cut"], distractors: ["short", "long", "good"] },
+        { accepted: ["sides", "back", "back and sides"], distractors: ["bottom", "down", "around"] },
+        { accepted: ["scissor", "longer", "textured"], distractors: ["short", "fast", "good"] },
+      ],
+      tr_hint:
+        "Erkek kuaför net talimat. 'Low fade on sides, scissor on top'. Türk öğrenci 'short' der — belirsiz.",
+      example_filled: "I'd like a low fade on the sides and scissor on top.",
+    },
+    {
+      id: "ex.dsl31.5.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "What are we doing today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Got it. How low do you want the fade?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d like|just )?(a )?(low|mid|high) fade (on the sides)?",
+        "(scissor|natural)( on top)?",
+        "(just )?(a )?(trim|clean.up)",
+        "(could you )?(keep it )?(longer on top|shorter on sides)",
+      ],
+      tr_hint:
+        "Berber teknik talep. Spesifik (fade tipi + üst). Türk öğrenci 'short' der — gözünüz açık.",
+      ideal_answer: "Low fade on the sides, scissor on top — keep some length.",
+    },
+    {
+      id: "ex.dsl31.5.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Skin fade or you want some hair at the bottom?",
+      accepted_patterns: [
+        "(skin fade)( please)?",
+        "(some hair|number 1|leave a little)",
+        "(whatever looks good)",
+        "(skin )?(but not too high)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Skin fade (dipte sıfır) veya numara (number 1, 2). Net teknik kararla. Türk öğrenci 'OK' der — sonuçtan memnun olmaz.",
+      ideal_response: "Skin fade, but not too high — around the ear.",
+    },
+    {
+      id: "ex.dsl31.5.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Yanları kısa, üst uzun.",
+      wrong_en: "Side short, top long.",
+      right_en: "Low fade on the sides and longer on top, please.",
+      why_tr:
+        "'Side short' eksik 'the' + grammar. Doğru: berber terimi 'fade' kullan + 'on the sides'. Profesyonel teknik.",
+    },
+    {
+      id: "ex.dsl31.5.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Fade' nedir?",
+          options: [
+            "Aşamalı kısalmalı kesim (yanlardan dipte sıfıra).",
+            "Renk değiştirme.",
+            "Düz kesim.",
+            "Saçı kapatma.",
+          ],
+          correct: 0,
+          tr_explanation: "Modern erkek kesim temel teknik. 'Low/mid/high' fade çeşitleri.",
+        },
+        {
+          q: "'Skin fade' = ?",
+          options: [
+            "Dipte cilt görünene kadar (sıfır).",
+            "Cilt rengi.",
+            "Cilt bakımı.",
+            "Saç boyama.",
+          ],
+          correct: 0,
+          tr_explanation: "En kısa fade tipi. Cilt görünür.",
+        },
+        {
+          q: "'Scissor on top' = ?",
+          options: [
+            "Üstte makasla kesim.",
+            "Üstte makina.",
+            "Üstte boya.",
+            "Üstte uzun.",
+          ],
+          correct: 0,
+          tr_explanation: "Makina (clipper) vs makas (scissor) farkı: scissor = doğal görünüm.",
+        },
+        {
+          q: "'Number 1' guard nedir?",
+          options: [
+            "Makina aparatı (en kısa: 3mm).",
+            "İlk müşteri.",
+            "Birinci sınıf.",
+            "Eski model.",
+          ],
+          correct: 0,
+          tr_explanation: "Numbered guards: 1 = 3mm, 2 = 6mm, 3 = 9mm vb.",
+        },
+        {
+          q: "Berber EN net?",
+          options: [
+            "Short hair!",
+            "Low fade on the sides and scissor on top, please.",
+            "Cut!",
+            "Short.",
+          ],
+          correct: 1,
+          tr_explanation: "Teknik terim + spesifik + kibarlık.",
+        },
+      ],
     },
   ],
 };
@@ -2320,6 +2825,131 @@ export const dailySalonLesson_31_6: BundledLesson = {
       tr_hint:
         "'Highlights' = HAY-layts (uzun 'ay'). 'Dramatic' = drı-MA-tik (vurgu ortada). 'Nothing' arası bağlanır.",
     },
+    {
+      id: "ex.dsl31.6.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "I'd like some ___ ___ — nothing too ___.",
+      slots: [
+        { accepted: ["face-framing", "subtle", "natural"], distractors: ["very", "much", "good"] },
+        { accepted: ["highlights", "balayage", "babylights"], distractors: ["color", "lights", "fast"] },
+        { accepted: ["dramatic", "bright", "stripey"], distractors: ["good", "best", "pretty"] },
+      ],
+      tr_hint:
+        "Highlights talep. 'Some face-framing highlights, nothing too dramatic'. Türk öğrenci 'highlights' der yetersiz — 'nothing too dramatic' ton kontrolü.",
+      example_filled: "I'd like some face-framing highlights — nothing too dramatic.",
+    },
+    {
+      id: "ex.dsl31.6.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Hi! What's the vision today?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Beautiful — I'll add some face-framing pieces." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(i'?d like|i was thinking) (some )?(highlights|balayage)",
+        "(could i show you )?(a |an )?(picture|inspiration)\\??",
+        "(face.framing|subtle|natural) (highlights|pieces)",
+        "(nothing too )?(dramatic|bright|stripey)",
+      ],
+      tr_hint:
+        "Kadın kuaför teknik talep. Türk öğrenci 'change my hair' der — yetersiz. Spesifik teknik + ton.",
+      ideal_answer: "I'd like some face-framing highlights — nothing too dramatic.",
+    },
+    {
+      id: "ex.dsl31.6.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "Would you like a fresh trim while you're here?",
+      accepted_patterns: [
+        "(yes|sure)(,)? (please|that'?d be great)",
+        "(just )?(a )?(tiny trim|inch off)",
+        "(no|nope)(,)? (just )?(the color|highlights)",
+        "(actually )?(could you )?(layer|texturize)",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Ek hizmet teklif edildi — net cevap (yes + nasıl, ya da no). Türk öğrenci 'OK whatever' der.",
+      ideal_response: "Just a tiny trim — about an inch off the ends.",
+    },
+    {
+      id: "ex.dsl31.6.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Doğal görünmeli, çok belli olmasın.",
+      wrong_en: "Looks natural, not seen much.",
+      right_en: "I'd like a natural look — nothing too dramatic.",
+      why_tr:
+        "'Looks natural' eksik özne. Doğru: 'I'd like a natural look'. 'Not seen much' yanlış kalıp; 'nothing too dramatic' = standart sınırlama.",
+    },
+    {
+      id: "ex.dsl31.6.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Face-framing' = ?",
+          options: [
+            "Yüz çerçeveleyen (ön bukleler).",
+            "Yüz boyama.",
+            "Yüz şekli.",
+            "Yüz makyajı.",
+          ],
+          correct: 0,
+          tr_explanation: "Saç teknik terimi: yüzü çevreleyen vurgu/highlight parçalar.",
+        },
+        {
+          q: "'Babylights' nedir?",
+          options: [
+            "Çok ince highlights (bebek saçı gibi doğal).",
+            "Bebek ışıkları.",
+            "Açık renk.",
+            "Çocuk modeli.",
+          ],
+          correct: 0,
+          tr_explanation: "İnce highlight tekniği. Çocukluktan kalan doğal saçı taklit eder.",
+        },
+        {
+          q: "'Layers' saç anlamı?",
+          options: [
+            "Katlı kesim (farklı uzunluklar).",
+            "Tek kat.",
+            "Boya katmanları.",
+            "Saç tabakası.",
+          ],
+          correct: 0,
+          tr_explanation: "Tek uzunluk yerine kat kat kesim. Hacim ve hareket için.",
+        },
+        {
+          q: "'An inch off' = ?",
+          options: [
+            "Bir parmak kısalt (~2.5cm).",
+            "Bir gün kısalt.",
+            "Bir cm kısalt.",
+            "Bir saat kısalt.",
+          ],
+          correct: 0,
+          tr_explanation: "ABD'de 'inch' (2.54cm). 'Half inch / one inch' yaygın kısaltma birimi.",
+        },
+        {
+          q: "Kadın kuaför EN profesyonel?",
+          options: [
+            "Highlights now!",
+            "I'd like some face-framing highlights — nothing too dramatic.",
+            "Hair change!",
+            "Color hair.",
+          ],
+          correct: 1,
+          tr_explanation: "Teknik + ton kontrolü = profesyonel.",
+        },
+      ],
+    },
   ],
 };
 
@@ -2643,6 +3273,131 @@ export const dailySalonLesson_31_7: BundledLesson = {
       ipa: "kʊd aɪ siː ðə ˈkʌlərz ˈsʌmθɪŋ ˈnuːtrəl",
       tr_hint:
         "'Could I' bağlanır → 'kud-ay'. 'Colors' = KA-lırz (Türkçe 'ko' değil 'ka'). 'Neutral' = NUU-trıl.",
+    },
+    {
+      id: "ex.dsl31.7.sp1",
+      type: "sentence_pattern",
+      difficulty: 2,
+      cefr_band: "A2",
+      template: "Could I see the ___? Something ___ ___.",
+      slots: [
+        { accepted: ["colors", "options", "selection"], distractors: ["paint", "things", "list"] },
+        { accepted: ["neutral", "nude", "soft", "bold"], distractors: ["no color", "good", "best"] },
+        { accepted: ["", "but classy", "and pretty"], distractors: ["fast", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Renk seçimi. 'Could I see the colors? Something neutral'. Türk öğrenci 'show colors' der — kabaca.",
+      example_filled: "Could I see the colors? Something neutral, please.",
+    },
+    {
+      id: "ex.dsl31.7.dg1",
+      type: "dialogue_gap",
+      difficulty: 2,
+      cefr_band: "A2",
+      turns: [
+        { speaker: "npc", text: "Any color in mind?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Sure, let me bring the color swatches." },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(could i|can i) see (the )?(colors|options|chart)",
+        "(something )?(neutral|nude|classic red|bright)",
+        "(could you )?(recommend|suggest)\\??",
+        "(what )?(would look good|do you suggest)\\??",
+      ],
+      tr_hint:
+        "Renk seçim — örnekleri iste. Türk öğrenci 'color' der — yetersiz. Spesifik ton + öneri sor.",
+      ideal_answer: "Could I see the colors? Something neutral, but classy.",
+    },
+    {
+      id: "ex.dsl31.7.lr1",
+      type: "listen_respond",
+      difficulty: 2,
+      cefr_band: "A2",
+      npc_line: "How about this nude shade? It's our most popular this season.",
+      accepted_patterns: [
+        "(i love it|perfect)(,)? let'?s go (with that|with it)",
+        "(it'?s )?(too light|too pale|not quite)",
+        "(could you )?show me (a )?(darker|warmer) (option|shade)\\??",
+        "(can i )?(see it on me|try it on a nail)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Manikürist öneri yaptı — kabul veya alternatif iste. Türk öğrenci 'OK' der — sonra memnun olmaz.",
+      ideal_response: "Could you show me a slightly darker option?",
+    },
+    {
+      id: "ex.dsl31.7.tt1",
+      type: "thinking_trap",
+      difficulty: 2,
+      cefr_band: "A2",
+      tr_thought: "Bana renkleri göster, nötr olsun.",
+      wrong_en: "Show me colors, must neutral.",
+      right_en: "Could I see the colors? Something neutral would be great.",
+      why_tr:
+        "'Show me' emir + 'must neutral' garip. Doğru: 'Could I see' kibar + 'something neutral' yumuşak tercih. Salon = uzun ziyaret, kibarlık önemli.",
+    },
+    {
+      id: "ex.dsl31.7.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "'Nude shade' = ?",
+          options: [
+            "Çıplak / ten rengi.",
+            "Çok açık.",
+            "Pembe.",
+            "Kahverengi.",
+          ],
+          correct: 0,
+          tr_explanation: "Ten rengine yakın doğal ton. 'Nude lips/nails' = doğal görünüm.",
+        },
+        {
+          q: "'Color swatches' nedir?",
+          options: [
+            "Renk örnekleri (tahta üzerinde örnek).",
+            "Renk seti.",
+            "Renk satışı.",
+            "Renk kataloğu.",
+          ],
+          correct: 0,
+          tr_explanation: "Manikür/boya salonlarında: fiziksel renk örnekleri. Müşteri seçer.",
+        },
+        {
+          q: "'Most popular this season' = ?",
+          options: [
+            "Bu sezonun en popüleri.",
+            "En eskisi.",
+            "En pahalısı.",
+            "En yenisi.",
+          ],
+          correct: 0,
+          tr_explanation: "Trend ifadesi. Personel önerirken kullanır.",
+        },
+        {
+          q: "'Classy' anlamı?",
+          options: [
+            "Şık / klas.",
+            "Sınıflı.",
+            "Pahalı.",
+            "Eski.",
+          ],
+          correct: 0,
+          tr_explanation: "'Class' (sınıf) + 'y' = klas görünüşlü. Salon ortamında kullanılır.",
+        },
+        {
+          q: "Renk seçim EN net?",
+          options: [
+            "Color!",
+            "Could I see the colors? Something neutral would be great.",
+            "Show colors.",
+            "Nude.",
+          ],
+          correct: 1,
+          tr_explanation: "Kibar görsel rica + spesifik tercih = etkili.",
+        },
+      ],
     },
   ],
 };
@@ -2977,6 +3732,132 @@ export const dailySalonLesson_31_8: BundledLesson = {
       ipa: "seɪm taɪm nɛkst mʌnθ pliːz",
       tr_hint:
         "'Month' içindeki 'th' Türkçede yok — dil ucu dişlere değer, sessiz hışırtı. 'Next' içindeki '-xt' net bitir.",
+    },
+    {
+      id: "ex.dsl31.8.sp1",
+      type: "sentence_pattern",
+      difficulty: 3,
+      cefr_band: "B1",
+      template: "Could I ___ for ___ ___ ___?",
+      slots: [
+        { accepted: ["book", "schedule", "rebook"], distractors: ["take", "do", "make"] },
+        { accepted: ["the same time", "next month", "in 6 weeks"], distractors: ["fast", "future", "good"] },
+        { accepted: ["", "with the same stylist", "if available"], distractors: ["fast", "now", "yes"] },
+        { accepted: ["", "please", ""], distractors: ["thanks", "yes", "OK"] },
+      ],
+      tr_hint:
+        "Tekrar randevu kalıbı. 'Could I book for the same time next month?' Türk öğrenci 'next month appointment' der — yetersiz.",
+      example_filled: "Could I book for the same time next month, please?",
+    },
+    {
+      id: "ex.dsl31.8.dg1",
+      type: "dialogue_gap",
+      difficulty: 3,
+      cefr_band: "B1",
+      turns: [
+        { speaker: "npc", text: "Your total is $85. Would you like to leave a tip?" },
+        { speaker: "user" },
+        { speaker: "npc", text: "Perfect, thank you! Want to book your next appointment?" },
+      ],
+      missing_at: 1,
+      accepted_patterns: [
+        "(yes|sure)(,)? (20%|18%|standard)",
+        "(could you )?(add )?(\\d+|twenty|fifteen)( percent)?",
+        "(yes|please)(,)? (and )?(could i )?rebook",
+        "(let'?s do )?(20 percent|the standard)",
+      ],
+      tr_hint:
+        "Salon checkout: bahşiş + tekrar randevu. Türk öğrenci bahşişi unutur veya az verir — ABD'de %18-20 standart.",
+      ideal_answer: "Sure — let's do 20 percent. And could I book for next month?",
+    },
+    {
+      id: "ex.dsl31.8.lr1",
+      type: "listen_respond",
+      difficulty: 3,
+      cefr_band: "B1",
+      npc_line: "How about June 15th at the same time?",
+      accepted_patterns: [
+        "(yes|that works)(,)? (perfect|sounds good)",
+        "(could we )?(do (the )?day before|the next day)\\??",
+        "(actually )?(could i )?check my (calendar|schedule)\\??",
+        "(would (saturday|friday) work)\\??",
+      ],
+      think_seconds: 3,
+      tr_hint:
+        "Randevu önerildi — kabul + sor (alternatif). Türk öğrenci direkt 'yes' der — sonra çakışma.",
+      ideal_response: "Could we do the 14th instead? The 15th might be tight.",
+    },
+    {
+      id: "ex.dsl31.8.tt1",
+      type: "thinking_trap",
+      difficulty: 3,
+      cefr_band: "B1",
+      tr_thought: "Bahşiş ne kadar bırakayım?",
+      wrong_en: "Tip how much?",
+      right_en: "How much should I tip — is 20 percent standard?",
+      why_tr:
+        "'Tip how much?' eksik yardımcı + sıralama hatası. Doğru: 'How much should I tip?' = öneri sor. + 'standard?' = norm kontrol.",
+    },
+    {
+      id: "ex.dsl31.8.rq1",
+      type: "recall_quiz",
+      items: [
+        {
+          q: "ABD salonunda standart bahşiş?",
+          options: [
+            "0%.",
+            "18-20%.",
+            "5%.",
+            "50%.",
+          ],
+          correct: 1,
+          tr_explanation: "Salon, restoran, taksi standart bahşiş. %15 minimum, %20 yaygın.",
+        },
+        {
+          q: "'Same time next month' = ?",
+          options: [
+            "Önümüzdeki ay aynı saatte.",
+            "Aynı zamanda gelecek ay.",
+            "Aynı saat zamanı.",
+            "Tek zaman.",
+          ],
+          correct: 0,
+          tr_explanation: "Düzenli randevu kalıbı. 'Same X next Y' yaygın.",
+        },
+        {
+          q: "'Tight' takvim anlamı?",
+          options: [
+            "Sıkı / yoğun (zaman dar).",
+            "Sıkı bağlı.",
+            "Pahalı.",
+            "İyi.",
+          ],
+          correct: 0,
+          tr_explanation: "'Schedule is tight' = yoğun takvim. Esneklik az.",
+        },
+        {
+          q: "'Could I rebook?' = ?",
+          options: [
+            "Yeniden rezerve edebilir miyim?",
+            "Kitabı geri al.",
+            "Yeni kitap.",
+            "İptal et.",
+          ],
+          correct: 0,
+          tr_explanation: "'Re-' = tekrar. 'Rebook' = randevu yenile.",
+        },
+        {
+          q: "Checkout EN net bitirme?",
+          options: [
+            "Bye!",
+            "Could I book for next month with 20% tip? Thanks!",
+            "Money next.",
+            "Same time.",
+          ],
+          correct: 1,
+          tr_explanation: "Bahşiş + tekrar randevu + minnet = mükemmel salon kapanışı.",
+        },
+      ],
     },
   ],
 };
