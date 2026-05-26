@@ -36,6 +36,7 @@ import {
   deleteAccountInstant,
   type DeletePreview,
 } from "../lib/delete-account";
+import { supabase } from "../lib/supabase";
 import { hapticImpact, hapticSelection, hapticSuccess } from "../lib/feedback";
 import { restorePurchases } from "../lib/iap";
 import {
@@ -106,6 +107,12 @@ export default function SettingsScreen() {
   const [deletePreview, setDeletePreview] = useState<DeletePreview | null>(null);
   const [deleteConfirmText, setDeleteConfirmText] = useState("");
   const [deleteError, setDeleteError] = useState<string | null>(null);
+  // 2026-05-26 — Hesap silme onay modalında "Hangi hesap siliniyor?" net
+  // olsun diye giriş yapılmış email'i göster. Çok hesabı olan kullanıcı
+  // yanlış hesabı silmesin.
+  const [deleteAccountEmail, setDeleteAccountEmail] = useState<string | null>(
+    null,
+  );
 
   useEffect(() => {
     (async () => {
@@ -200,6 +207,13 @@ export default function SettingsScreen() {
     setDeleteError(null);
     setDeleteConfirmText("");
     setDeleteStep("preview");
+    // Email lookup defansif — anonim kullanıcı veya offline durumda null kalır.
+    try {
+      const { data } = await supabase.auth.getUser();
+      setDeleteAccountEmail(data.user?.email ?? null);
+    } catch {
+      setDeleteAccountEmail(null);
+    }
     try {
       const p = await previewWhatWillBeDeleted();
       setDeletePreview(p);
@@ -575,6 +589,14 @@ export default function SettingsScreen() {
             {deleteStep === "preview" && (
               <>
                 <Text style={styles.modalTitle}>Hesabını silmek üzeresin</Text>
+                {deleteAccountEmail ? (
+                  <Text style={styles.modalAccount}>
+                    Silinecek hesap:{" "}
+                    <Text style={styles.modalAccountEmail}>
+                      {deleteAccountEmail}
+                    </Text>
+                  </Text>
+                ) : null}
                 <Text style={styles.modalBody}>
                   Bu işlem GERİ ALINAMAZ. Aşağıdakiler kalıcı olarak silinecek:
                 </Text>
@@ -956,6 +978,16 @@ const styles = StyleSheet.create({
     fontWeight: tokens.weight.extrabold,
     color: tokens.text.primary,
     marginBottom: 10,
+  },
+  // 2026-05-26 — Hesap silme onay modalında email gösterimi.
+  modalAccount: {
+    fontSize: 13,
+    color: tokens.text.secondary,
+    marginBottom: 8,
+  },
+  modalAccountEmail: {
+    color: tokens.text.primary,
+    fontWeight: tokens.weight.bold,
   },
   modalBody: {
     fontSize: 14,

@@ -1,6 +1,6 @@
-# App Store Privacy Nutrition Label — Lafla v0.9.0
+# App Store Privacy Nutrition Label — Lafla v1.0.0
 
-> **Last updated:** 2026-05-23 (Faz 3 / v0.9.0). Critical change vs. prior versions: **AdMob is shipping** (free-tier banner + interstitial). "Advertising Data" section MUST be declared. ATT prompt gates personalized ads + PostHog tracking — without consent, both fall to non-personalized / non-tracked paths.
+> **Last updated:** 2026-05-26 (v1.0.0 submission). Critical change vs. prior versions: **AdMob is shipping** (free-tier banner + interstitial + rewarded). "Advertising Data" section MUST be declared. ATT prompt gates personalized ads + PostHog tracking — without consent, both fall to non-personalized / non-tracked paths.
 >
 > Voice Journal (local audio recordings), Daily Diary (local text), NPC Relationships (local tracker), Pronunciation history (local FIFO buffer): all **local-only** (AsyncStorage + documentDirectory). These never leave the device — no nutrition label disclosure required for those flows.
 
@@ -34,7 +34,7 @@
 - **Linked to user:** Yes
 - **Used for tracking:** No
 - **Purposes:**
-  - App Functionality (display name in profile screen, "Hi, [name]" greetings in Maya conversations)
+  - App Functionality (display name in profile screen, scenario NPC greetings, daily plan greeting line)
 
 > Optional field — submission must reflect this. Stored in `profiles.display_name`.
 
@@ -181,10 +181,10 @@
 - **Used for tracking:** No
 - **Purposes:**
   - App Functionality (SRS scheduling needs to know which exercises you've done; streak counter needs to know which days you opened the app)
-  - Analytics (PostHog funnels: onboarding completion, scenario completion, Maya session length)
+  - Analytics (PostHog funnels: onboarding completion, scenario completion, paywall conversion)
   - Product Personalization (mastery model — what scenarios to surface next)
 
-> Events: `lesson_started`, `lesson_completed`, `maya_session_started`, `pronunciation_recorded`, `paywall_viewed`, `subscription_started`, etc.
+> Events: `lesson_started`, `lesson_completed`, `pronunciation_recorded`, `paywall_viewed`, `purchase_initiated`, `purchase_success`, etc.
 
 ### Advertising Data
 
@@ -227,7 +227,7 @@
 - **Used for tracking:** No
 - **Purposes:**
   - App Functionality (performance regression detection)
-  - Analytics (e.g. p95 Maya response latency in PostHog)
+  - Analytics (e.g. p95 pattern-matcher / TTS latency in PostHog)
 
 ### Other Diagnostic Data
 
@@ -293,4 +293,4 @@
 | Apple adds new data type categories | Re-read Apple's docs, re-classify Lafla data |
 | Annual review | Walk through every section every 12 months |
 
-Last reviewed: 2026-05-23 (Lafla v0.9.0 / Faz 3 — AdMob disclosure added, Voice Journal local-only confirmed, "Maya" references removed).
+Last reviewed: 2026-05-26 (Lafla v1.0.0 submission — AdMob disclosure verified, all stale "Maya" runtime-LLM references removed, privacy policy at <https://berkdemirokk.github.io/lafla/privacy.html> updated to match).

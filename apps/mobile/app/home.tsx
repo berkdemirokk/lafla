@@ -377,14 +377,16 @@ export default function Home() {
   );
 }
 
+// 2026-05-26 — Apple Guideline 2.1: "yakında" / "coming soon" tetik kelimeleri
+// reviewer'a app eksik gibi görünüyor. Mesaj filter sonucuna nötr çevrildi.
 function EmptyState({ onTo }: { onTo: () => void }) {
   return (
     <View style={styles.emptyWrap}>
       <Text style={styles.emptyEmoji}>🌙</Text>
-      <Text style={styles.emptyTitle}>Daha çok sahne yakında</Text>
+      <Text style={styles.emptyTitle}>Bu filtrede sahne yok</Text>
       <Text style={styles.emptySub}>
-        İçerik üretildikçe ilk burada görünecek. Bu arada Bugün sekmesindeki
-        planına göz at.
+        Filtreyi temizleyip tüm sahnelere bak ya da Bugün sekmesindeki planına
+        dön.
       </Text>
       <Pressable
         onPress={onTo}

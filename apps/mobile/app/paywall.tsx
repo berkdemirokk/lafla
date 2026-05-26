@@ -77,6 +77,7 @@ import {
   MODE_COUNT_DISPLAY,
   SCENE_COUNT_DISPLAY,
 } from "../lib/scene-counts";
+import { useSession } from "../lib/useSession";
 
 // Live price shape — both tiers carry priceAmountMicros so we can compute
 // the discount on the fly without trusting a hardcoded percentage.
@@ -139,6 +140,11 @@ const FEATURES: FeatureRow[] = [
 
 export default function PaywallScreen() {
   const router = useRouter();
+  // 2026-05-26 — Anonymous user (auth.tsx → "Atla") restore'u cross-device
+  // çalışamaz çünkü RC user ID yok. Banner ile uyar, satın almadan önce
+  // hesap açmaya yönlendir. Apple 3.1.1 risk azaltıcı.
+  const { session } = useSession();
+  const isAnonymous = !session;
   // 2026-05-20 — switch-trigger #1 context.
   // ?from=intro: intro Match sahnesi → paywall → kapat butonu /home'a
   // router.replace ile gider (back stack boş çünkü onboarding hep replace).
@@ -553,6 +559,39 @@ export default function PaywallScreen() {
             </>
           )}
         </Animated.View>
+
+        {/* 2026-05-26 — Anonymous (hesapsız) user uyarısı.
+            Satın almadan önce hesap açmaya yönlendir; aksi halde yeni
+            cihazda Restore Purchases çalışmaz (Apple 3.1.1 expectation). */}
+        {isAnonymous && (
+          <Animated.View style={[styles.anonNotice, cardStyle]}>
+            <Icon
+              name="warning"
+              size={16}
+              color={tokens.brand.tertiary}
+            />
+            <View style={styles.anonNoticeBody}>
+              <Text style={styles.anonNoticeTitle}>
+                Önce hesap aç — sonra abone ol
+              </Text>
+              <Text style={styles.anonNoticeText}>
+                Hesap açmadan satın alırsan abonelik bu cihaza bağlı kalır;
+                yeni cihazda geri yükleyemezsin.
+              </Text>
+              <Pressable
+                onPress={() => {
+                  hapticImpact("light");
+                  router.replace("/auth" as never);
+                }}
+                hitSlop={8}
+                accessibilityRole="button"
+                accessibilityLabel="Hesap aç ya da giriş yap"
+              >
+                <Text style={styles.anonNoticeLink}>Hesap aç / giriş yap →</Text>
+              </Pressable>
+            </View>
+          </Animated.View>
+        )}
 
         {/* PLAN TOGGLE — Aylık / Yıllık. Yearly default so the better-LTV
             tier is visually anchored first. Tapping a segment changes which
@@ -1176,5 +1215,43 @@ const styles = StyleSheet.create({
   termsDot: {
     color: tokens.text.tertiary,
     fontSize: 12,
+  },
+
+  // 2026-05-26 — Anonymous user notice (above tier toggle).
+  // Sade, alarmist olmayan; cyan/tertiary palet ile bilgilendirici tone.
+  anonNotice: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    gap: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
+    borderRadius: tokens.radius.base,
+    backgroundColor: tokens.brand.tertiarySoft,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
+    marginBottom: tokens.spacing.sm,
+  },
+  anonNoticeBody: {
+    flex: 1,
+    gap: 4,
+  },
+  anonNoticeTitle: {
+    color: tokens.text.primary,
+    fontSize: 13,
+    fontWeight: tokens.weight.extrabold,
+    letterSpacing: 0.1,
+  },
+  anonNoticeText: {
+    color: tokens.text.secondary,
+    fontSize: 12,
+    lineHeight: 17,
+  },
+  anonNoticeLink: {
+    marginTop: 2,
+    color: tokens.brand.tertiary,
+    fontSize: 12,
+    fontWeight: tokens.weight.extrabold,
+    letterSpacing: 0.2,
+    textDecorationLine: "underline",
   },
 });

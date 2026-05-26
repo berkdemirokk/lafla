@@ -50,11 +50,50 @@ git tag lafla-v0.1.0
 git push origin lafla-v0.1.0
 ```
 
+## EAS Secrets (Runtime — Binary'e Gömülen Env'ler)
+
+GitHub Actions secret'larına ek olarak, app.config.ts içinden `process.env.EXPO_PUBLIC_*` ile okunan değerler **EAS Secret** olarak da tanımlanmalı. Bunlar build sırasında binary'e bake edilir.
+
+| EAS Secret | Zorunlu mu? | Açıklama |
+|---|---|---|
+| `EXPO_PUBLIC_SUPABASE_URL` | **Evet** | Auth + hesap silme edge function |
+| `EXPO_PUBLIC_SUPABASE_ANON_KEY` | **Evet** | Aynı |
+| `EXPO_PUBLIC_SENTRY_DSN` | **Evet (submission'dan önce)** | Privacy Nutrition Label "Crash Data" deklare ediyor; DSN olmadan Sentry no-op, label'a yalan söylemiş oluruz. **App Store submission'dan önce mutlaka set edin.** |
+| `EXPO_PUBLIC_POSTHOG_KEY` | Opsiyonel | ATT metni artık PostHog'a referans vermediği için zorunlu değil. Product analytics istiyorsan set et. |
+| `EXPO_PUBLIC_POSTHOG_HOST` | Opsiyonel | Default `https://eu.i.posthog.com` |
+| `EXPO_PUBLIC_TTS_ENDPOINT` | Opsiyonel | ElevenLabs proxy; boşsa expo-speech fallback |
+
+### EAS CLI ile Tanımlama
+
+```bash
+cd apps/mobile
+eas secret:create --scope project --name EXPO_PUBLIC_SUPABASE_URL --value 'https://...'
+eas secret:create --scope project --name EXPO_PUBLIC_SUPABASE_ANON_KEY --value 'sb_publishable_...'
+eas secret:create --scope project --name EXPO_PUBLIC_SENTRY_DSN --value 'https://...@oXXX.ingest.sentry.io/YYY'
+
+# Var olanları görmek için:
+eas secret:list
+
+# Production build:
+eas build --platform ios --profile production
+```
+
+### Doğrulama
+
+EAS build başladıktan sonra `app.config.ts` log'una bak — env değerleri görünüyorsa OK. Production'a girmeden önce TestFlight binary ile:
+
+1. **Sentry**: cihazda intentionally crash et (örn. `__DEV__` ifadesini false yap, `throw new Error("test")` koy), Sentry dashboard'da event'i gör.
+2. **Supabase**: yeni kullanıcıyla signup ol, `auth.users`'ta satır oluştu mu kontrol et.
+3. **AdMob**: TestFlight'ta test cihazını AdMob test device ID'sine eklenmemiş normal cihazla aç; gerçek reklam görmelisin (Apple Review reviewer gerçek ad görür).
+
 ## Lansman Öncesi Checklist
 
 - [ ] Apple Developer hesabı aktif (Lafla app oluşturulmuş, Bundle ID register)
 - [ ] App Store Connect'te Lafla app metadata hazır
 - [ ] App Store Connect API Key oluşturulmuş (Admin yetkisi)
 - [ ] Expo Token alınmış
-- [ ] 5 secret repo'ya eklenmiş
+- [ ] 5 GitHub Actions secret'ı repo'ya eklenmiş
+- [ ] EAS Secret olarak `EXPO_PUBLIC_SUPABASE_URL`, `EXPO_PUBLIC_SUPABASE_ANON_KEY`, **`EXPO_PUBLIC_SENTRY_DSN`** tanımlı (`eas secret:list` ile doğrula)
+- [ ] Privacy policy ve App Privacy Nutrition Label canlı SDK'larla uyumlu (AdMob, Sentry, PostHog dahil)
+- [ ] ATT promptu sadece reklam framing'i içeriyor (PostHog kelimesi yok)
 - [ ] Workflow manuel olarak 1 kez test edilmiş (preview profile)

@@ -1,7 +1,17 @@
 # App Store Submission — Final Checklist
 
-> **Last updated:** 2026-05-23 (v0.9.0 Faz 3 sonrası)
-> **Status:** Kod tarafı production-ready. v0.9.0 TestFlight'a yüklendi. Aşağıdaki manuel adımlar tamamlanınca "Submit for Review" basabilirsin.
+> **Last updated:** 2026-05-26 (v1.0.0 submission audit sonrası)
+> **Status:** Kod tarafı production-ready. v1.0.0 build 19 EAS'a yüklenmek üzere. Aşağıdaki manuel adımlar tamamlanınca "Submit for Review" basabilirsin.
+>
+> **2026-05-26 audit sonrası değişen kritik alanlar:**
+> - Privacy policy (`docs/privacy.html`) AdMob disclosure ile güncellendi — eski "no third-party ad SDKs" iddiası kaldırıldı. ATT bölümü gerçek SDK davranışına hizalandı.
+> - ATT prompt metni (`app.json` NSUserTrackingUsageDescription + expo-tracking-transparency.userTrackingPermission) sadece reklam framing'ine indirgendi; "pratik önerileri" PostHog ima'sı çıkarıldı.
+> - Version 0.9.15 → **1.0.0**, buildNumber 18 → **19**.
+> - Home empty state "Daha çok sahne yakında" → "Bu filtrede sahne yok" (2.1 "coming soon" tetiği kaldırıldı).
+> - Auth signup ekranına ToS + Privacy ack satırı eklendi (Welcome ekranındakine paralel).
+> - Paywall anonymous user uyarısı eklendi (hesapsız satın almada cross-device restore çalışmaz).
+> - Hesap silme modali artık silinecek email adresini açıkça gösteriyor.
+> - `apps/web/privacy.html` stale Maya/Groq/Cerebras/Gemini referansları temizlendi, AdMob eklendi.
 >
 > **v0.9.0 sonrası değişen alanlar (öncelikle güncelle):**
 > - Mod sayısı 6 → **7** (IELTS Speaking geri eklendi)
@@ -158,8 +168,10 @@ ASC'de https://appstoreconnect.apple.com → My Apps → Lafla.
 
 ## D. Submission Sonrası — İlk 48 saat
 
-- [ ] **Sentry DSN doldur** (`app.json` extra.sentryDsn boş; ücretsiz Sentry plan, 5 dk setup) — v0.9.0'da `addBreadcrumb` ve `captureException` kullanan kritik kod path'leri zaten yazılmış (onboarding, paywall, voice-journal, iap), DSN olduğu an prod observability LIVE.
-- [ ] **PostHog key doldur** (`app.json` extra.posthogKey boş; ücretsiz plan) — 60+ trackEvent çağrısı yazılmış, key olduğu an analytics akar.
+> ⚠️ **`EXPO_PUBLIC_SENTRY_DSN` Submission ÖNCESİ EAS Secret olarak set edilmiş olmalı** — Privacy Nutrition Label "Crash Data" deklare ediyor, DSN olmadan Sentry no-op olur ve Apple'a yalan söylemiş olursun. Setup için: `.github/SECRETS.md` → EAS Secrets bölümü.
+
+- [ ] **Sentry crash event'i doğrula** — TestFlight'ta intentionally throw çıkar, Sentry dashboard'da event geldi mi kontrol et.
+- [ ] **PostHog key doldur** (opsiyonel — ATT promptu artık analytics referansı içermiyor, Apple Review için zorunlu değil; ürün analitiği istiyorsan EAS Secret'a ekle.)
 - [ ] **TestFlight beta tester davet et** (50+ kişi hedef)
 - [ ] **App Store rank'i izle** (Sensor Tower / AppFollow trial)
 - [ ] **Crash dashboard kur** (Sentry alert kuralı: 5+ crash/hour → Slack/email)

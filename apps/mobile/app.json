@@ -2,7 +2,7 @@
   "expo": {
     "name": "Lafla",
     "slug": "lafla",
-    "version": "0.9.15",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "lafla",
@@ -19,7 +19,7 @@
     "ios": {
       "bundleIdentifier": "com.lafla.app",
       "supportsTablet": false,
-      "buildNumber": "18",
+      "buildNumber": "19",
       "usesAppleSignIn": true,
       "infoPlist": {
         "CFBundleLocalizations": [
@@ -28,7 +28,7 @@
         ],
         "CFBundleDevelopmentRegion": "tr",
         "ITSAppUsesNonExemptEncryption": false,
-        "NSUserTrackingUsageDescription": "Anonim kimlik ile pratik önerilerini iyileştirmek ve daha alakalı reklamlar göstermek için izin istiyoruz.",
+        "NSUserTrackingUsageDescription": "Anonim reklam kimliğin (IDFA) yalnızca ücretsiz sürümde daha alakalı reklamlar göstermek için kullanılır. Reddedersen kişiselleştirilmemiş reklam görürsün.",
         "NSPhotoLibraryUsageDescription": "İlerleme kartını galerine kaydedebilmen için izin gerekli."
       },
       "privacyManifests": {
@@ -95,7 +95,7 @@
       [
         "expo-tracking-transparency",
         {
-          "userTrackingPermission": "Sana daha iyi pratik önerileri sunmak için anonim kullanım verileri toplanır."
+          "userTrackingPermission": "Anonim reklam kimliğin (IDFA) yalnızca ücretsiz sürümde daha alakalı reklamlar göstermek için kullanılır. Reddedersen kişiselleştirilmemiş reklam görürsün."
         }
       ],
       [
@@ -103,7 +103,7 @@
         {
           "iosAppId": "ca-app-pub-9898903071826160~1977700763",
           "androidAppId": "ca-app-pub-3940256099942544~3347511713",
-          "userTrackingUsageDescription": "Daha alakalı reklamlar göstermek için anonim kimlik kullanılır.",
+          "userTrackingUsageDescription": "Anonim reklam kimliğin (IDFA) yalnızca ücretsiz sürümde daha alakalı reklamlar göstermek için kullanılır. Reddedersen kişiselleştirilmemiş reklam görürsün.",
           "skAdNetworkItems": [
             "cstr6suwn9.skadnetwork",
             "4fzdc2evr5.skadnetwork",

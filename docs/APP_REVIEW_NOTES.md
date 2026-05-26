@@ -71,11 +71,12 @@ Deletion is immediate (no soft-delete / 30-day grace).
 
 ## Privacy
 
-- **Tracking (ATT):** The app integrates PostHog for usage analytics AND AdMob for free-tier ads. The ATT permission prompt is presented at the end of onboarding, BEFORE AdMob initialization. PostHog is **not initialized** until ATT is resolved AND granted. AdMob initializes after ATT resolves and applies `requestNonPersonalizedAdsOnly: true` if ATT was denied. If the user declines ATT, no tracking activates.
-- **Sentry crash reporting** is on (DSN may be empty in the submission build — to be filled post-submission). It receives anonymous device/build metadata and crash stacks. No user email or profile fields are attached to events. Sentry breadcrumbs cover onboarding finalize, IAP purchase, voice journal recording, JSON parsing failures, scene-runtime crashes.
-- **No runtime LLM.** All NPC dialogue, scene content, and feedback strings are pre-authored TypeScript in `apps/mobile/data/*.ts`. The "smart conversation" feel in v0.9.0 uses a deterministic mini-Markov for NPC bridge phrases (`lib/npc-bridge.ts`) seeded by `hash(scenarioId + turnIdx)` — no network call. Pattern matching and scoring (`lib/engine.ts`) is on-device. The user's text or voice never leaves the device for scoring.
+- **Tracking (ATT):** The app integrates AdMob for free-tier ads and PostHog for product analytics. The ATT permission prompt is presented at the end of onboarding, BEFORE AdMob initialization. PostHog is **not initialized** until ATT is resolved AND granted. AdMob initializes after ATT resolves and applies `requestNonPersonalizedAdsOnly: true` regardless of ATT outcome (defense-in-depth); when ATT is denied the SDK additionally cannot read the IDFA. SKAdNetwork identifiers are declared in `app.json` for iOS install attribution.
+- **AdMob ad placement:** Free tier sees a bottom-anchored adaptive banner on the home/today screens (not on auth/onboarding/paywall/scenario screens) and an interstitial after every 3rd completed scenario. Opt-in rewarded video grants 30 minutes of Pro. Lafla Pro subscribers see **zero ads** — `AdBanner` returns `null` and `onScenarioComplete` early-returns for entitled users. Children-directed flags are explicitly **false** (`tagForChildDirectedTreatment: false`, `tagForUnderAgeOfConsent: false`) because flirt + bar modes drive a 17+ age rating. `maxAdContentRating: T` keeps ad creatives Teen-or-tamer to match the rating.
+- **Sentry crash reporting** receives anonymous device/build metadata and crash stacks. No user email or profile fields are attached to events. Sentry breadcrumbs cover onboarding finalize, IAP purchase, voice journal recording, JSON parsing failures, scene-runtime crashes. The DSN is provisioned via EAS Secret `EXPO_PUBLIC_SENTRY_DSN`.
+- **No runtime LLM.** All NPC dialogue, scene content, and feedback strings are pre-authored TypeScript in `apps/mobile/data/*.ts`. The "smart conversation" feel uses a deterministic mini-Markov for NPC bridge phrases (`lib/npc-bridge.ts`) seeded by `hash(scenarioId + turnIdx)` — no network call. Pattern matching and scoring (`lib/engine.ts`) is on-device. The user's text or voice never leaves the device for scoring.
 - **Voice Journal** audio is stored in `documentDirectory/voice-journal/` only. Never transmitted. Deleted on account deletion.
-- **Data collected:** Email + password (Supabase auth), purchase status (RevenueCat), anonymized usage events (PostHog, post-ATT consent only), ad serving data (AdMob, conditional on ATT). Full disclosure in `APP_STORE_PRIVACY_NUTRITION.md`.
+- **Data collected:** Email + password (Supabase auth), purchase status (RevenueCat), anonymized usage events (PostHog, post-ATT consent only), ad serving data (AdMob, conditional on ATT for personalization; SKAdNetwork install attribution unconditional). The live privacy policy at <https://berkdemirokk.github.io/lafla/privacy.html> discloses AdMob explicitly. Full disclosure in `APP_STORE_PRIVACY_NUTRITION.md`.
 
 ---
 
@@ -97,7 +98,7 @@ Deletion is immediate (no soft-delete / 30-day grace).
 | Scene Count | 935 (CEFR-mapped A1–C1) |
 | Side-rail Modes | Phoneme Drill, Listen & Transcribe, Voice Journal |
 
-Version + build number are set by EAS Build at submission time; check the binary attached to this submission for the canonical values. Current shipping version: **v0.9.0**.
+Version + build number are set by EAS Build at submission time; check the binary attached to this submission for the canonical values. Current shipping version: **v1.0.0** (build 19).
 
 ---
 
@@ -111,8 +112,8 @@ Version + build number are set by EAS Build at submission time; check the binary
 | 4.2 — Minimum functionality | 935 structured scenarios across 7 modes + 10 exercise types + on-device pattern matching + dedicated side-rail modes (Phoneme Drill, Listen & Transcribe, Voice Journal) = a structured language-learning product |
 | 4.5.4 — Push spam | Push scaffold in `lib/notifications.ts`; daily reminder is opt-in via Settings; no push without explicit user toggle |
 | 5.1.1(v) — Account deletion | In-app deletion via Settings → Hesabımı Sil → typed confirmation → immediate Supabase user delete (no soft-delete grace) |
-| 5.1.1 — Privacy | Privacy Nutrition Label declares AdMob, PostHog, Sentry honestly; matches actual data flows |
-| 5.1.2 — Data sharing | PostHog gated behind ATT grant; Sentry receives no PII; AdMob non-personalized when ATT denied |
+| 5.1.1 — Privacy | Privacy policy (<https://berkdemirokk.github.io/lafla/privacy.html>) and the App Privacy Nutrition Label both declare AdMob, PostHog, Sentry, RevenueCat, Supabase. Last reviewed 2026-05-26 to match the actual shipped SDKs. |
+| 5.1.2 — Data sharing | PostHog gated behind ATT grant; Sentry receives no PII (only opaque user id, set via `setUser({id})`); AdMob defaults to non-personalized via `requestNonPersonalizedAdsOnly: true` and additionally cannot read IDFA when ATT denied |
 | 5.6 — Developer code of conduct | All NPC dialogue is pre-authored; no runtime LLM; "Maya" AI coach was removed in the 2026-05-20 product cut and is not referenced anywhere in the shipping build |
 
 ---

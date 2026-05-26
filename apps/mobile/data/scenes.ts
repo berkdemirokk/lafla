@@ -5,11 +5,18 @@
 // Theme: Neon Noir. Earlier comments referenced the retired "Cyber-Electric
 // Modern" palette — ignore if you find them.
 //
-// 2026-05-20 — 6 mod cut. Removed scene packs: academic, testprep (IELTS/
-// TOEFL/YDS), sport, health, travel (non-airport), banter (non-bar), C1
+// 2026-05-20 — Radical content cut. Removed scene packs: academic, testprep
+// (TOEFL/YDS), sport, health, travel (non-airport), banter (non-bar), C1
 // advanced/specialized/social, conversation-scripts, grammar-capsules,
-// flirt-advanced. Surviving packs are remapped to the 6 user-facing modes
+// flirt-advanced. Surviving packs are remapped to the user-facing modes
 // inside their own files (personal→daily, career/professional→work).
+//
+// 2026-05-21 — IELTS Speaking simulator added back as its own mode for the
+// IELTS Pro positioning, taking the user-facing mode count to **7**
+// (Flört · İş · Bar · Havaalanı · Günlük · Sipariş · IELTS). The single
+// source of truth for the displayed count lives in `lib/scene-counts.ts`
+// (`MODE_COUNT = 7`). Marketing copy on the paywall, App Store metadata,
+// and the onboarding chip grid all read from there.
 
 import { cefrA1SurvivalScenes } from "./cefr-a1-survival-scenes";
 import { cefrA2DailyScenes } from "./cefr-a2-daily-scenes";

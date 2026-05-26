@@ -32,6 +32,7 @@ import {
   TextInput,
   Pressable,
   KeyboardAvoidingView,
+  Linking,
   Platform,
   ScrollView,
   type LayoutChangeEvent,
@@ -667,6 +668,44 @@ export default function Auth() {
               <Text style={styles.ctaLabel}>{loading ? "..." : ctaLabel}</Text>
             </PressScale>
 
+            {/* 2026-05-26 — Apple 5.1.1: hesap açma akışında ToS + Privacy
+                rıza satırı görünür olmalı. Welcome ekranındaki block aynısı
+                buraya da getirildi; signup mode'da görünür, signin'de değil. */}
+            {mode === "signup" && (
+              <View style={styles.signupTermsBlock}>
+                <Text style={styles.signupTermsPrefix}>
+                  Hesap açarak şunları kabul edersin:
+                </Text>
+                <View style={styles.signupTermsRow}>
+                  <Pressable
+                    onPress={() =>
+                      Linking.openURL(
+                        "https://berkdemirokk.github.io/lafla/terms.html",
+                      )
+                    }
+                    hitSlop={6}
+                    accessibilityRole="link"
+                    accessibilityLabel="Kullanım koşulları"
+                  >
+                    <Text style={styles.signupTermsLink}>Kullanım Koşulları</Text>
+                  </Pressable>
+                  <Text style={styles.signupTermsDot}> · </Text>
+                  <Pressable
+                    onPress={() =>
+                      Linking.openURL(
+                        "https://berkdemirokk.github.io/lafla/privacy.html",
+                      )
+                    }
+                    hitSlop={6}
+                    accessibilityRole="link"
+                    accessibilityLabel="Gizlilik politikası"
+                  >
+                    <Text style={styles.signupTermsLink}>Gizlilik Politikası</Text>
+                  </Pressable>
+                </View>
+              </View>
+            )}
+
             {/* Forgot password — only in signin */}
             {mode === "signin" && (
               <Pressable
@@ -975,6 +1014,36 @@ const styles = StyleSheet.create({
     textAlign: "center",
     letterSpacing: 0.3,
     marginTop: 2,
+  },
+
+  // 2026-05-26 — Signup ToS + Privacy ack (Apple 5.1.1).
+  signupTermsBlock: {
+    alignItems: "center",
+    marginTop: 14,
+    gap: 4,
+  },
+  signupTermsPrefix: {
+    fontSize: 11,
+    color: tokens.text.tertiary,
+    textAlign: "center",
+    letterSpacing: 0.2,
+  },
+  signupTermsRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    flexWrap: "wrap",
+    justifyContent: "center",
+  },
+  signupTermsLink: {
+    fontSize: 12,
+    color: tokens.brand.tertiary,
+    textDecorationLine: "underline",
+    fontWeight: tokens.weight.semibold,
+    letterSpacing: 0.2,
+  },
+  signupTermsDot: {
+    fontSize: 12,
+    color: tokens.text.tertiary,
   },
 });
 

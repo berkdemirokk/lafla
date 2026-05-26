@@ -132,7 +132,7 @@
   <article id="tr" lang="tr">
     <span class="lang-tag">TÜRKÇE</span>
     <h1>Gizlilik Politikası</h1>
-    <p class="updated">Son güncelleme: 19 Mayıs 2026</p>
+    <p class="updated">Son güncelleme: 26 Mayıs 2026</p>
 
     <p>Lafla (“uygulama”, “biz”) olarak gizliliğinize değer veriyoruz. Bu politika; Lafla iOS uygulamasını kullandığınızda kişisel verilerinizi nasıl topladığımızı, işlediğimizi ve koruduğumuzu açıklar. 6698 sayılı KVKK ve Avrupa Birliği GDPR mevzuatı ile uyumludur. Veri sorumlusu: Lafla, <a href="mailto:berkkdemirok@gmail.com">berkkdemirok@gmail.com</a>.</p>
 
@@ -153,7 +153,16 @@
     <ul>
       <li>Cihaz tipi, iOS sürümü, uygulama sürümü.</li>
       <li>Çökme raporları ve anonim hata günlükleri (Sentry).</li>
-      <li>Ürün analitikleri (PostHog; etkinleştirildiğinde sizden onay isteriz).</li>
+      <li>Ürün analitikleri (PostHog; ATT izni vermediğiniz sürece etkinleşmez).</li>
+    </ul>
+    <h3>Reklam verileri (yalnızca ücretsiz kullanıcılar)</h3>
+    <ul>
+      <li>Lafla Pro abonesi değilseniz uygulama içinde Google AdMob banner ve interstitial reklamlar gösterilir.</li>
+      <li>AdMob, reklam yayını için anonim reklam kimliği (IDFA — yalnızca ATT izni verirseniz), reklam etkileşim verisi (gösterim, tıklama) ve cihaz/işletim sistemi gibi standart teknik veriyi işler.</li>
+      <li>ATT izni vermezseniz yalnızca <strong>kişiselleştirilmemiş reklamlar</strong> sunulur (<code>requestNonPersonalizedAdsOnly</code>).</li>
+      <li>iOS atıf çerçevesi olarak <strong>SKAdNetwork</strong> kullanılır; bu çerçevede paylaşılan veri cihazınızla ilişkili değildir.</li>
+      <li>Detay için Google'ın <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">reklam ortakları gizlilik bildirimi</a>'ne bakın.</li>
+      <li>Lafla Pro abonesiyseniz <strong>hiçbir reklam SDK isteği yapılmaz</strong>.</li>
     </ul>
     <h3>Ödeme verileri</h3>
     <ul>
@@ -178,14 +187,20 @@
         <tr><td>Supabase</td><td>Veritabanı ve kimlik doğrulama</td><td>AB (Frankfurt)</td></tr>
         <tr><td>Apple App Store / IAP</td><td>Ödeme işlemleri</td><td>Global</td></tr>
         <tr><td>RevenueCat</td><td>Abonelik yönetimi</td><td>ABD</td></tr>
+        <tr><td>Google AdMob</td><td>Ücretsiz kullanıcıya banner / interstitial / ödüllü reklam</td><td>ABD/Global</td></tr>
         <tr><td>Sentry</td><td>Çökme raporlama</td><td>ABD/AB</td></tr>
-        <tr><td>PostHog</td><td>Ürün analitiği (opt-in)</td><td>AB</td></tr>
+        <tr><td>PostHog</td><td>Ürün analitiği (ATT izniyle)</td><td>AB</td></tr>
       </tbody>
     </table>
-    <p>Bu sağlayıcılar yalnızca hizmet sağlamak için gerekli olan verilere erişir ve veri işleyici sıfatıyla bizim talimatlarımızla çalışır.</p>
+    <p>Bu sağlayıcılar yalnızca hizmet sağlamak için gerekli olan verilere erişir ve veri işleyici sıfatıyla bizim talimatlarımızla çalışır. AdMob, Google tarafından bağımsız bir veri kontrolörü olarak da hareket edebilir; ayrıntılar için <a href="https://policies.google.com/privacy" rel="noopener">Google Gizlilik Politikası</a>'na bakın.</p>
 
     <h2>4. Apple ATT (App Tracking Transparency)</h2>
-    <p>Lafla <strong>cihazlar arası takip yapmaz, IDFA toplamaz, üçüncü taraf reklam SDK’sı içermez</strong>. Bu nedenle ATT izin penceresi şu an için gösterilmez. Bu değişirse iOS sistem dialog’u üzerinden açık rızanız sorulur.</p>
+    <p>Lafla, ücretsiz kullanıcılara reklam gösterdiği için Apple'ın App Tracking Transparency (ATT) izin penceresini onboarding sonunda gösterir. ATT izni:</p>
+    <ul>
+      <li><strong>Verirseniz:</strong> AdMob anonim reklam kimliğinizi (IDFA) kullanarak daha alakalı reklamlar sunabilir; PostHog ürün analitiği başlatılabilir.</li>
+      <li><strong>Reddederseniz:</strong> Hiçbir cihazlar-arası takip yapılmaz, IDFA paylaşılmaz; reklamlar yalnızca SKAdNetwork ve kişiselleştirilmemiş (<code>requestNonPersonalizedAdsOnly</code>) modda sunulur; PostHog hiç başlatılmaz.</li>
+    </ul>
+    <p>İzni daha sonra iOS Ayarlar → Gizlilik & Güvenlik → İzleme yolundan istediğiniz zaman değiştirebilirsiniz.</p>
 
     <h2>5. Verilerinizi Silme ve Dışa Aktarma</h2>
     <p>KVKK Madde 11 ve GDPR Madde 15–22 kapsamında verilerinize erişme, düzeltme, silme ve dışa aktarma haklarına sahipsiniz. <strong>Hesabınızı doğrudan uygulama içinden, anında ve kalıcı olarak silebilirsiniz</strong>: Ayarlar → “Hesabımı sil” → onay. Detaylar için <a href="delete-account.html">hesap silme sayfasına</a> bakın. Dışa aktarma için <a href="mailto:berkkdemirok@gmail.com">berkkdemirok@gmail.com</a> adresine yazın; 7 iş günü içinde JSON formatında veri özeti gönderilir.</p>
@@ -227,7 +242,7 @@
   <article id="en" lang="en">
     <span class="lang-tag">ENGLISH</span>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 19 May 2026</p>
+    <p class="updated">Last updated: 26 May 2026</p>
 
     <p>Lafla (“the app”, “we”) respects your privacy. This policy describes how we collect, process, and protect personal data when you use the Lafla iOS app. It complies with Turkey’s KVKK Law No. 6698 and the EU GDPR. Data controller: Lafla, <a href="mailto:berkkdemirok@gmail.com">berkkdemirok@gmail.com</a>.</p>
 
@@ -248,7 +263,16 @@
     <ul>
       <li>Device type, iOS version, app version.</li>
       <li>Crash reports and anonymous error logs (Sentry).</li>
-      <li>Product analytics (PostHog; opt-in when enabled).</li>
+      <li>Product analytics (PostHog; never activated unless you grant ATT permission).</li>
+    </ul>
+    <h3>Advertising data (free users only)</h3>
+    <ul>
+      <li>If you are not a Lafla Pro subscriber, the app displays Google AdMob banner and interstitial ads.</li>
+      <li>AdMob processes the anonymous Advertising Identifier (IDFA — only if you grant ATT), ad-interaction data (impressions, clicks), and standard device/OS metadata to serve ads.</li>
+      <li>If you decline ATT, only <strong>non-personalized ads</strong> are served (<code>requestNonPersonalizedAdsOnly</code>).</li>
+      <li>iOS attribution uses <strong>SKAdNetwork</strong>; the data shared via that framework is not tied to your device identity.</li>
+      <li>See Google's <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">ad partner privacy notice</a> for details.</li>
+      <li>Lafla Pro subscribers see <strong>no ads</strong> and trigger no ad SDK requests.</li>
     </ul>
     <h3>Payment data</h3>
     <ul>
@@ -273,14 +297,20 @@
         <tr><td>Supabase</td><td>Database & auth</td><td>EU (Frankfurt)</td></tr>
         <tr><td>Apple App Store / IAP</td><td>Payments</td><td>Global</td></tr>
         <tr><td>RevenueCat</td><td>Subscription mgmt</td><td>USA</td></tr>
+        <tr><td>Google AdMob</td><td>Banner / interstitial / rewarded ads (free tier)</td><td>USA/Global</td></tr>
         <tr><td>Sentry</td><td>Crash reporting</td><td>USA/EU</td></tr>
-        <tr><td>PostHog</td><td>Product analytics (opt-in)</td><td>EU</td></tr>
+        <tr><td>PostHog</td><td>Product analytics (post-ATT consent)</td><td>EU</td></tr>
       </tbody>
     </table>
-    <p>These providers only access data needed to deliver their service and act as data processors under our instructions.</p>
+    <p>These providers only access data needed to deliver their service and act as data processors under our instructions. AdMob may also act as an independent data controller in some cases; see <a href="https://policies.google.com/privacy" rel="noopener">Google's Privacy Policy</a> for details.</p>
 
     <h2>4. Apple ATT (App Tracking Transparency)</h2>
-    <p>Lafla performs <strong>no cross-app tracking, collects no IDFA, embeds no third-party ad SDKs</strong>. The ATT prompt is therefore not shown today. If that ever changes, we will request explicit consent via the iOS system dialog.</p>
+    <p>Because Lafla shows ads to free users, we present Apple's App Tracking Transparency prompt at the end of onboarding. If you:</p>
+    <ul>
+      <li><strong>Allow tracking:</strong> AdMob may use your anonymous Advertising Identifier (IDFA) to serve more relevant ads; PostHog product analytics may be initialised.</li>
+      <li><strong>Decline tracking:</strong> No cross-app tracking takes place, IDFA is not shared, ads run in SKAdNetwork-only / non-personalized mode (<code>requestNonPersonalizedAdsOnly</code>), and PostHog is never initialised.</li>
+    </ul>
+    <p>You can change your choice at any time in iOS Settings → Privacy & Security → Tracking.</p>
 
     <h2>5. Deleting and Exporting Your Data</h2>
     <p>Under KVKK Art. 11 and GDPR Art. 15–22 you have the right to access, correct, delete, and export your data. <strong>You can delete your account directly inside the app, instantly and permanently</strong>: Settings → “Delete my account” → confirm. See the <a href="delete-account.html">account deletion page</a> for full instructions. For data export, email <a href="mailto:berkkdemirok@gmail.com">berkkdemirok@gmail.com</a>; we reply with a JSON summary within 7 business days.</p>
