@@ -23,10 +23,9 @@
 - **Linked to user:** Yes
 - **Used for tracking:** No
 - **Purposes:**
-  - App Functionality (sign-in, password reset, account recovery)
-  - Customer Support (responding to `berkkdemirok@gmail.com` requests)
+  - App Functionality (sign-in, password reset, account recovery, responding to `berkkdemirok@gmail.com` support requests)
 
-> Required for Sign in with Apple / email auth via Supabase. Stored in `auth.users` table.
+> Required for Sign in with Apple / email auth via Supabase. Stored in `auth.users` table. NOTE: 2026 itibarıyla Apple App Privacy formunda "Customer Support" ayrı bir Purpose seçeneği değil — App Functionality içinde sayılıyor.
 
 ### Name
 
@@ -102,7 +101,7 @@
 - **Collected:** Yes
 - **Linked to user:** Yes
 - **Used for tracking:** No
-- **Purposes:** Customer Support
+- **Purposes:** App Functionality (Apple'ın 2026 form'unda "Customer Support" data type'ı için tek geçerli purpose App Functionality; "Customer Support" ayrı bir Purpose seçeneği olarak listede yok.)
 
 > Email tickets sent to `berkkdemirok@gmail.com`. Stored on email server with standard retention.
 
