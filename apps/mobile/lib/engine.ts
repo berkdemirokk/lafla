@@ -370,13 +370,15 @@ const FILLERS = [
 ];
 
 function stripFillers(input: string): string {
+  // 2026-05-26 (P2 audit fix) — `while (re.test(text))` global regex + .test
+  // anti-pattern. `g` flag'lı regex `lastIndex` state taşır; ikinci `.test`
+  // çağrısı önceki position'dan başlar → mantık hatası. `.replace(re, " ")`
+  // tek seferde tüm match'leri değiştirir + state-free + ardışık filler
+  // örtüşme durumu için aşağıda boşluk normalize zaten var.
   let text = ` ${input.toLowerCase()} `;
   for (const f of FILLERS) {
-    // Word-boundary replace. Multiple passes (filler followed by filler).
     const re = new RegExp(`\\s${f.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s`, "gi");
-    while (re.test(text)) {
-      text = text.replace(re, " ");
-    }
+    text = text.replace(re, " ");
   }
   return text.trim().replace(/\s+/g, " ");
 }
