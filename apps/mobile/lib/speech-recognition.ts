@@ -6,8 +6,21 @@
 // not yet installed — callers get a graceful "not available" path
 // instead of a hard crash.
 //
+// 2026-05-26 (P0 audio session fix) — lib/tts.ts ilk speak() çağrısında
+// AVAudioSessionCategoryPlayback ayarlıyor (allowsRecordingIOS: false)
+// ve idempotent flag ile bir daha değiştirmiyor. Sonuç: TTS çalan bir
+// sahnede kullanıcı "Konuş" basınca STT mikrofonu açmaya çalışıyor ama
+// session record'a izin vermiyor → transcript boş, "Dinliyor..." donuk.
+// Tüm 4 voice egzersizinde (PronouncePhrase, RoleplayChat STT,
+// SpeechShadowing, ListenAndTranscribe) ortak semptom buydu.
+// Fix: startListening'in başında session'ı playAndRecord'a (allowsRecording:
+// true) çevir; stopListening'de geri playback-only'ye al — TTS yeniden
+// çalabilsin. iOS bu iki state arası hızlı geçişi tolere eder.
+//
 // All public methods are async to keep the API uniform across the
 // available / unavailable branches.
+
+import { Audio } from "expo-av";
 
 type SpeechResultEvent = {
   results?: Array<{ transcript?: string }>;
@@ -59,6 +72,44 @@ type Listener = { remove: () => void };
 let activeListeners: Listener[] = [];
 let activeTimeout: ReturnType<typeof setTimeout> | null = null;
 let isListening = false;
+
+// 2026-05-26 (P0 audio session fix) — iOS audio session category geçişleri.
+// TTS playback-only, STT playAndRecord. İki sabit config'i tek yerde tutuyoruz
+// ki driver tarafında drift olmasın. interruption + Android flag'ları tts.ts'in
+// ensureAudioModeForTts() bloğuyla birebir aynı — yalnız allowsRecordingIOS
+// farklı, çünkü tek değişen oydu.
+async function setAudioSessionForRecording(): Promise<void> {
+  try {
+    await Audio.setAudioModeAsync({
+      playsInSilentModeIOS: true,
+      allowsRecordingIOS: true,
+      staysActiveInBackground: false,
+      interruptionModeIOS: 1, // DoNotMix
+      interruptionModeAndroid: 1,
+      shouldDuckAndroid: true,
+      playThroughEarpieceAndroid: false,
+    });
+  } catch {
+    // Best effort — başarısız olursa STT yine deneyecek, native modül
+    // kendi error event'i ile sinyalleyecek.
+  }
+}
+
+async function setAudioSessionForPlayback(): Promise<void> {
+  try {
+    await Audio.setAudioModeAsync({
+      playsInSilentModeIOS: true,
+      allowsRecordingIOS: false,
+      staysActiveInBackground: false,
+      interruptionModeIOS: 1,
+      interruptionModeAndroid: 1,
+      shouldDuckAndroid: true,
+      playThroughEarpieceAndroid: false,
+    });
+  } catch {
+    // ignore — TTS path zaten kendi setAudioModeAsync'ini deneyecek
+  }
+}
 
 function clearActive() {
   for (const l of activeListeners) {
@@ -188,6 +239,17 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
       return;
     }
 
+    // 2026-05-26 (P0 audio session fix) — Permission alındıktan SONRA, native
+    // start()'tan ÖNCE audio session'ı record-capable mode'a al. TTS önce çaldıysa
+    // session playback-only kalmıştı; bu çağrı olmadan iOS Speech Recognition
+    // mikrofona erişip transcript üretemiyor (silent fail, "Dinliyor..." donuk).
+    await setAudioSessionForRecording();
+
+    if (opts.signal?.aborted) {
+      opts.onError(new Error("speech recognition aborted"));
+      return;
+    }
+
     // 2026-05-26 — Son interim'i takip et. iOS 17- "silence 3s" auto-stop
     // tetiklenirse `isFinal:true` event'i HİÇ gelmiyor; sadece interim'ler
     // gelir. `end` event'inde son interim'i final olarak emit ediyoruz ki
@@ -295,4 +357,8 @@ export async function stopListening(): Promise<void> {
     // ignore — listeners will still be torn down below
   }
   clearActive();
+  // 2026-05-26 (P0 audio session fix) — STT bitince session'ı TTS için
+  // playback-only'ye al. NPC'nin bir sonraki replikasını okuyabilmesi için.
+  // Fire-and-forget — TTS yine kendi ensureAudioModeForTts ile fallback yapar.
+  void setAudioSessionForPlayback();
 }
