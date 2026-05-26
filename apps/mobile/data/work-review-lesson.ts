@@ -120,12 +120,7 @@ export const workReviewLesson_12_1: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Excellent. I'll reflect this in your rating.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "One more — where do you see your biggest growth area for next year?",
+            "Excellent. I'll reflect this in your rating. One more — where do you see your biggest growth area for next year?",
         },
         {
           speaker: "user",
@@ -619,12 +614,7 @@ export const workReviewLesson_12_2: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Appreciate that. You're growing into this.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Want to check in on this again in a month — does that work?",
+            "Appreciate that. You're growing into this. Want to check in on this again in a month — does that work?",
         },
         {
           speaker: "user",
@@ -988,12 +978,7 @@ export const workReviewLesson_12_3: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Compelling case. Let me discuss with HR — back to you Friday.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Anything you'd want me to highlight specifically when I make the case?",
+            "Compelling case. Let me discuss with HR — back to you Friday. Anything you'd want me to highlight specifically when I make the case?",
         },
         {
           speaker: "user",
@@ -1356,12 +1341,7 @@ export const workReviewLesson_12_4: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Will pass it along constructively. Thanks.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Would you be open to mentioning that strength to her directly too?",
+            "Will pass it along constructively. Thanks. Would you be open to mentioning that strength to her directly too?",
         },
         {
           speaker: "user",
@@ -1727,12 +1707,7 @@ export const workReviewLesson_12_5: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "That's the level I want to see. Going to land well in calibration.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Can you tighten this into two or three bullets for me to bring into the room?",
+            "That's the level I want to see. Going to land well in calibration. Can you tighten this into two or three bullets for me to bring into the room?",
         },
         {
           speaker: "user",
@@ -2059,12 +2034,7 @@ export const workReviewLesson_12_6: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "That's a mature response. Glad we talked through it.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Want me to share this kind of feedback in real-time going forward, or save it for 1:1s?",
+            "That's a mature response. Glad we talked through it. Want me to share this kind of feedback in real-time going forward, or save it for 1:1s?",
         },
         {
           speaker: "user",
@@ -2391,12 +2361,7 @@ export const workReviewLesson_12_7: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "A short doc before each launch — even three bullets — would help a lot.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Want me to flag it again if I stop seeing the doc on the next launch?",
+            "A short doc before each launch — even three bullets — would help a lot. Want me to flag it again if I stop seeing the doc on the next launch?",
         },
         {
           speaker: "user",
@@ -2724,12 +2689,7 @@ export const workReviewLesson_12_8: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "That's exactly the move. Send the plan by next Friday — I'll back you.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "What support do you need from me to make this work?",
+            "That's exactly the move. Send the plan by next Friday — I'll back you. What support do you need from me to make this work?",
         },
         {
           speaker: "user",

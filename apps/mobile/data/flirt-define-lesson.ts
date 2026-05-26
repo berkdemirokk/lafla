@@ -514,12 +514,7 @@ export const flirtDefineLesson_6_2: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Got it. I'm into that. Glad we talked.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Can we check in on this in a couple weeks, see how it's working?",
+            "Got it. I'm into that. Glad we talked. Can we check in on this in a couple weeks, see how it's working?",
         },
         {
           speaker: "user",
@@ -929,12 +924,7 @@ export const flirtDefineLesson_6_3: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Same. Let's just keep building this, no rush.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Where do you see us in six months — same city, traveling, what?",
+            "Same. Let's just keep building this, no rush. Where do you see us in six months — same city, traveling, what?",
         },
         {
           speaker: "user",
@@ -1759,12 +1749,7 @@ export const flirtDefineLesson_6_5: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Same — I'm enjoying this and I see something real here. Want to talk more about it?",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Like — are you seeing anyone else, or is this just us right now?",
+            "Same — I'm enjoying this and I see something real here. Want to talk more about it? Like — are you seeing anyone else, or is this just us right now?",
         },
         {
           speaker: "user",
@@ -2136,12 +2121,7 @@ export const flirtDefineLesson_6_6: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Yeah — I'm in. Let's do it together right now.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Okay — so what are we, exactly? Like, what should I tell my sister when she asks?",
+            "Yeah — I'm in. Let's do it together right now. Okay — so what are we, exactly? Like, what should I tell my sister when she asks?",
         },
         {
           speaker: "user",
@@ -2512,12 +2492,7 @@ export const flirtDefineLesson_6_7: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Same. Best week ever. Should we tell our friends or keep it just us for now?",
-        },
-        {
-          speaker: "npc",
-          message:
-            "And just so we're clear — exclusive means exclusive, right? No apps, no other people?",
+            "Same. Best week ever. Should we tell our friends or keep it just us for now? And just so we're clear — exclusive means exclusive, right? No apps, no other people?",
         },
         {
           speaker: "user",
@@ -2888,12 +2863,7 @@ export const flirtDefineLesson_6_8: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Thanks for being honest. I can give it more time — we're good.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "How about we check in again in a month? See where we both are then.",
+            "Thanks for being honest. I can give it more time — we're good. How about we check in again in a month? See where we both are then.",
         },
         {
           speaker: "user",

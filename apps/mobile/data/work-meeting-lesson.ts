@@ -1056,12 +1056,7 @@ export const workMeetingLesson_10_3: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Good question. On retry, the event goes back to the front of the queue.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Want me to drop the architecture doc in the channel for everyone?",
+            "Good question. On retry, the event goes back to the front of the queue. Want me to drop the architecture doc in the channel for everyone?",
         },
         {
           speaker: "user",
@@ -1419,12 +1414,7 @@ export const workMeetingLesson_10_4: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Perfect. Thanks for keeping us on track.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Any objections to the deadlines, or are we all good?",
+            "Perfect. Thanks for keeping us on track. Any objections to the deadlines, or are we all good?",
         },
         {
           speaker: "user",
@@ -1783,12 +1773,7 @@ export const workMeetingLesson_10_5: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Sounds good. Sarah, want to continue from where you were?",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Berk — heads up, we'll need your input on the staging rollout when we get to that part.",
+            "Sounds good. Sarah, want to continue from where you were? Berk — heads up, we'll need your input on the staging rollout when we get to that part.",
         },
         {
           speaker: "user",
@@ -2110,12 +2095,7 @@ export const workMeetingLesson_10_6: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Great add. Let's capture that as a follow-up.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Who wants to own writing up the performance findings — Sarah, you, or someone else?",
+            "Great add. Let's capture that as a follow-up. Who wants to own writing up the performance findings — Sarah, you, or someone else?",
         },
         {
           speaker: "user",
@@ -2438,12 +2418,7 @@ export const workMeetingLesson_10_7: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Exactly. After five retries it goes to a dead-letter queue. Great question.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Anything else you want me to clarify before we move on?",
+            "Exactly. After five retries it goes to a dead-letter queue. Great question. Anything else you want me to clarify before we move on?",
         },
         {
           speaker: "user",
@@ -2765,12 +2740,7 @@ export const workMeetingLesson_10_8: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Perfect. Thanks for keeping us tight. Talk Monday.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Oh — one more thing. Are there any dependencies on the API docs that could slip the timeline?",
+            "Perfect. Thanks for keeping us tight. Talk Monday. Oh — one more thing. Are there any dependencies on the API docs that could slip the timeline?",
         },
         {
           speaker: "user",

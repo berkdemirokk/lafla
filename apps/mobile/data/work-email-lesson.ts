@@ -1053,12 +1053,7 @@ export const workEmailLesson_11_3: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Sounds good. Daily updates would help.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "When can I expect the first one?",
+            "Sounds good. Daily updates would help. When can I expect the first one?",
         },
         {
           speaker: "user",
@@ -1419,12 +1414,7 @@ export const workEmailLesson_11_4: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "You too!",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Thanks for the heads-up on the timeline shift, by the way.",
+            "You too! Thanks for the heads-up on the timeline shift, by the way.",
         },
         {
           speaker: "user",

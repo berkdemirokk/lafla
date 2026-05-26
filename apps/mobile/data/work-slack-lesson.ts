@@ -117,12 +117,7 @@ export const workSlackLesson_9_1: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Cool — I'm in NYC. Let's set up a virtual coffee this week!",
-        },
-        {
-          speaker: "npc",
-          message:
-            "What kinds of projects are you most excited to dig into here?",
+            "Cool — I'm in NYC. Let's set up a virtual coffee this week! What kinds of projects are you most excited to dig into here?",
         },
         {
           speaker: "user",
@@ -610,12 +605,7 @@ export const workSlackLesson_9_2: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Ah, let's huddle. I'll ping you in 2.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Cool — can you share the error log in the huddle so I can see what you're hitting?",
+            "Ah, let's huddle. I'll ping you in 2. Can you share the error log in the huddle so I can see what you're hitting?",
         },
         {
           speaker: "user",
@@ -974,12 +964,7 @@ export const workSlackLesson_9_3: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Sounds good. Ping me if anything changes.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "One more thing — can you tag the design folks in the review thread today?",
+            "Sounds good. Ping me if anything changes. One more thing — can you tag the design folks in the review thread today?",
         },
         {
           speaker: "user",
@@ -1338,12 +1323,7 @@ export const workSlackLesson_9_4: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Got it. Reading now.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Quick follow-up in the thread — should we loop in QA on this one?",
+            "Got it. Reading now. Quick follow-up in the thread — should we loop in QA on this one?",
         },
         {
           speaker: "user",
@@ -1702,12 +1682,7 @@ export const workSlackLesson_9_5: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Appreciate it. Tag me when ready.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Also — any risks on the Friday demo I should flag to the PM?",
+            "Appreciate it. Tag me when ready. Also — any risks on the Friday demo I should flag to the PM?",
         },
         {
           speaker: "user",
@@ -2029,12 +2004,7 @@ export const workSlackLesson_9_6: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Perfect. Enjoy the time off!",
-        },
-        {
-          speaker: "npc",
-          message:
-            "One last thing — will you update your Slack status so the team knows?",
+            "Perfect. Enjoy the time off! One last thing — will you update your Slack status so the team knows?",
         },
         {
           speaker: "user",
@@ -2355,12 +2325,7 @@ export const workSlackLesson_9_7: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Will read first, ping you if I have Qs.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Quick check — how urgent is this? Need a hotfix or can it wait for the next deploy?",
+            "Will read first, ping you if I have Qs. Quick check — how urgent is this? Need a hotfix or can it wait for the next deploy?",
         },
         {
           speaker: "user",
@@ -2682,12 +2647,7 @@ export const workSlackLesson_9_8: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Fair point. Let's huddle this afternoon.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Can you drop a quick write-up of the risks in the thread before we hop on?",
+            "Fair point. Let's huddle this afternoon. Can you drop a quick write-up of the risks in the thread before we hop on?",
         },
         {
           speaker: "user",

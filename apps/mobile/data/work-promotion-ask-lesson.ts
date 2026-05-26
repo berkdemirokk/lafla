@@ -124,12 +124,7 @@ export const workPromotionAskLesson_38_1: BundledLesson = {
         },
         {
           speaker: "npc",
-          message: "Got it — Thursday at 2 works. Send the agenda when ready.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Anything I should look at on my end before we meet?",
+          message: "Got it — Thursday at 2 works. Send the agenda when ready. Anything I should look at on my end before we meet?",
         },
         {
           speaker: "user",
@@ -591,12 +586,7 @@ export const workPromotionAskLesson_38_2: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Compelling. Let me think about how to move this through HR.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "What's your timing on this — are you hoping for next cycle or sooner?",
+            "Compelling. Let me think about how to move this through HR. What's your timing on this — are you hoping for next cycle or sooner?",
         },
         {
           speaker: "user",
@@ -969,12 +959,7 @@ export const workPromotionAskLesson_38_3: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Fair ask. Let me see what I can do on the base — I'll get back to you Friday.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "If base is tight, would you consider equity or a sign-on to bridge the gap?",
+            "Fair ask. Let me see what I can do on the base — I'll get back to you Friday. If base is tight, would you consider equity or a sign-on to bridge the gap?",
         },
         {
           speaker: "user",
@@ -1349,12 +1334,7 @@ export const workPromotionAskLesson_38_4: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Great. Send it over, we'll align, and check in monthly.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "How will we know we're on track at the monthly check-ins — what does progress look like?",
+            "Great. Send it over, we'll align, and check in monthly. How will we know we're on track at the monthly check-ins — what does progress look like?",
         },
         {
           speaker: "user",
@@ -1727,12 +1707,7 @@ export const workPromotionAskLesson_38_5: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Totally fair. Block 45 minutes on Thursday — send the doc beforehand.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Anything you'd want me to bring or prep on my side?",
+            "Totally fair. Block 45 minutes on Thursday — send the doc beforehand. Anything you'd want me to bring or prep on my side?",
         },
         {
           speaker: "user",
@@ -2058,12 +2033,7 @@ export const workPromotionAskLesson_38_6: BundledLesson = {
         },
         {
           speaker: "npc",
-          message: "Got it. That's the kind of scope I want to write up.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Can you back this up with a brag doc I can paste from?",
+          message: "Got it. That's the kind of scope I want to write up. Can you back this up with a brag doc I can paste from?",
         },
         {
           speaker: "user",
@@ -2395,12 +2365,7 @@ export const workPromotionAskLesson_38_7: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Fair. I can't promise 185 today, but I'll push for it. Let me come back Friday.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "If the number doesn't move, what else would make this work for you?",
+            "Fair. I can't promise 185 today, but I'll push for it. Let me come back Friday. If the number doesn't move, what else would make this work for you?",
         },
         {
           speaker: "user",
@@ -2731,12 +2696,7 @@ export const workPromotionAskLesson_38_8: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "180 base plus a 10K sign-on. That's my final number. Take it home.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "When can you give me an answer? I'd like to wrap this up this week.",
+            "180 base plus a 10K sign-on. That's my final number. Take it home. When can you give me an answer? I'd like to wrap this up this week.",
         },
         {
           speaker: "user",

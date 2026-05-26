@@ -1528,6 +1528,167 @@ export const barApproachLesson_24_3: BundledLesson = {
 };
 
 // ============================================================
+// Lesson 24.4 — Buying a Round / Drink Offer
+// 2026-05-26 — Numbering gap (24.4 önceden eksikti) doldurduk.
+// Bar settingde "Bir içki ısmarlayım mı?" konuşması — Türk klasiği reddetme vs
+// Western "yes accept" diyalog farkı.
+// ============================================================
+export const barApproachLesson_24_4: BundledLesson = {
+  id: "bar.approach.24.4",
+  skill_id: "bar.approach",
+  index: 4,
+  title: "İçki Ismarlama Teklifi",
+  description:
+    "Birisi sana içki ısmarlamak istedi — Türk reflexi 'yok ya gerek yok'. Doğal kabul / nazik ret.",
+  estimated_minutes: 5,
+  exercises: [
+    {
+      id: "ex.bb24.4.1",
+      type: "vocab_tile",
+      difficulty: 2,
+      cefr_band: "A2",
+      word_or_phrase: "Can I get you a drink?",
+      tr_translation: "Sana bir içki ısmarlayabilir miyim?",
+      example: "Can I get you a drink? — Sure, I'd love an old fashioned.",
+      example_tr: "Bir içki ısmarlayayım mı? — Tabii, old fashioned alırım.",
+    },
+    {
+      id: "ex.bb24.4.2",
+      type: "vocab_tile",
+      difficulty: 2,
+      cefr_band: "A2",
+      word_or_phrase: "Next round's on me",
+      tr_translation: "Sıradaki tur benden",
+      example: "Thanks for this one — next round's on me.",
+      example_tr: "Bunun için teşekkürler — sıradaki tur benden.",
+    },
+    {
+      id: "ex.bb24.4.3",
+      type: "vocab_tile",
+      difficulty: 2,
+      cefr_band: "B1",
+      word_or_phrase: "I'm good, thanks",
+      tr_translation: "Yok, sağ ol (nazik ret)",
+      example: "I'm good, thanks — already on my second.",
+      example_tr: "Yok sağ ol — ikincim oldu zaten.",
+    },
+    {
+      id: "ex.bb24.4.4",
+      type: "vocab_tile",
+      difficulty: 2,
+      cefr_band: "B1",
+      word_or_phrase: "I appreciate it",
+      tr_translation: "Düşündüğün için sağ ol",
+      example: "I appreciate it, but I'm driving tonight.",
+      example_tr: "Düşündüğün için sağ ol ama bu gece direksiyondayım.",
+    },
+    {
+      id: "ex.bb24.4.5",
+      type: "translate",
+      difficulty: 2,
+      direction: "tr_to_en",
+      source: "Olur, ben de sana bir tane alayım sonra.",
+      target: "Sure, I'll get you one back later.",
+      accepted_variants: [
+        "Sure, I'll grab you one in a bit.",
+        "Yeah, next round's on me then.",
+        "Yes — I'll buy the next one.",
+        "Alright, I owe you one.",
+      ],
+      tr_hint: "Kabul + karşılık verme niyetiyle eşit basta tutmak.",
+    },
+    {
+      id: "ex.bb24.4.6",
+      type: "roleplay_chat",
+      difficulty: 3,
+      scenario_description:
+        "Bardaki yabancı yanına yaklaşıp 'Can I get you a drink?' diyor. Türk reflexi 'yok ya'. Doğal kabul + karşılık.",
+      npc_role: "Stranger at the bar",
+      setting: "Bar — drink offer exchange",
+      turns: [
+        {
+          speaker: "npc",
+          message: "Hey, that drink looks empty. Can I get you another?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(sure|yeah|i'?d|that'?d be) (love|great|nice)",
+            "(thanks|thank you)( so much)?",
+            "(i'?ll have|i'?ll take|let me get) (an? )?",
+            "(only if|just) (next round'?s on me|i get the next)",
+          ],
+          hint_tr:
+            "Kabul + karşılık niyeti: 'Sure, I'd love one — but the next round's on me.'",
+        },
+        {
+          speaker: "npc",
+          message: "Deal. What are you having?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(an? )?(old fashioned|gin (and|&) tonic|negroni|whiskey sour|ipa|pilsner|red wine|white wine)",
+            "(whatever|same as) (you'?re|you are) (having|drinking)",
+            "(surprise me|barista'?s choice|bartender'?s pick)",
+            "(just )?(a beer|something light|nothing too strong)",
+          ],
+          hint_tr:
+            "Spesifik içki söyle veya 'whatever you're having'.",
+        },
+        {
+          speaker: "npc",
+          message: "Good choice. So — first time here?",
+        },
+        {
+          speaker: "user",
+          acceptable_patterns: [
+            "(actually )?(yeah|yes)( it is)?",
+            "(my )?(first|second|third) time",
+            "(been here|come here) (a few times|once or twice)",
+            "(buddy|friend|coworker) (brought me|recommended)",
+            "(stumbled in|just walked by|saw the sign)",
+          ],
+          hint_tr:
+            "Kısa cevap + sohbet açıklama hint: 'Yeah, first time — a friend recommended it.'",
+        },
+      ],
+    },
+    {
+      id: "ex.bb24.4.7",
+      type: "recap_quiz",
+      difficulty: 2,
+      questions: [
+        {
+          question: "Birisi içki ısmarlamak isterse Türk klasiği NEDİR?",
+          options: [
+            "Hemen kabul et",
+            "'Yok ya gerek yok' refleksi",
+            "Şikayet et",
+            "Para teklif et",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Türk kültüründe nazik ret ilk refleks. Bati'da bu 'don't want to talk' sinyali. Doğal kabul + karşılık daha doğru.",
+        },
+        {
+          question: "'Next round's on me' ne anlama gelir?",
+          options: [
+            "Bu tur benden",
+            "Sıradaki tur benden",
+            "Hiç istemem",
+            "Beraber alalım",
+          ],
+          correct_index: 1,
+          tr_explanation:
+            "Karşılık verme niyeti — kabul + 'ben de sana alacağım'.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
 // Lesson 24.5 — Starting a Convo with a Stranger (Bardaki Yabanciyla)
 // ============================================================
 export const barApproachLesson_24_5: BundledLesson = {
@@ -3259,6 +3420,7 @@ export const barApproachLessons: ReadonlyArray<BundledLesson> = [
   barApproachLesson_24_1,
   barApproachLesson_24_2,
   barApproachLesson_24_3,
+  barApproachLesson_24_4,
   barApproachLesson_24_5,
   barApproachLesson_24_6,
   barApproachLesson_24_7,

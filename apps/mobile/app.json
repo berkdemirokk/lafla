@@ -2,7 +2,7 @@
   "expo": {
     "name": "Lafla",
     "slug": "lafla",
-    "version": "0.9.13",
+    "version": "0.9.14",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "lafla",
@@ -134,11 +134,12 @@
       "posthogHost": "https://eu.i.posthog.com",
       "ttsEndpoint": "",
       "ttsVoiceId": "21m00Tcm4TlvDq8ikWAM",
+      "admobAppIdIos": "ca-app-pub-9898903071826160~1977700763",
       "admobBannerIos": "ca-app-pub-9898903071826160/7653910722",
       "admobBannerAndroid": "",
       "admobInterstitialIos": "ca-app-pub-9898903071826160/8715710953",
       "admobInterstitialAndroid": "",
-      "admobRewardedIos": "",
+      "admobRewardedIos": "ca-app-pub-9898903071826160/7560505404",
       "admobRewardedAndroid": "",
       "eas": {
         "projectId": "a7b18723-d431-481b-92cd-18a4c1104171"

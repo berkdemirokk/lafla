@@ -1460,12 +1460,7 @@ export const workStandupLesson_33_4: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Cool. Thanks for keeping us on track.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Hey — quick one before you go. I'm blocked on the same migration question. Could you help unblock me later?",
+            "Cool. Thanks for keeping us on track. Hey — quick one before you go. I'm blocked on the same migration question. Could you help unblock me later?",
         },
         {
           speaker: "user",
@@ -1837,12 +1832,7 @@ export const workStandupLesson_33_5: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Got it. Next up, Ayse.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Wait — Berk, anything blocking you I should know about before we move on?",
+            "Got it. Next up, Ayse. Wait — Berk, anything blocking you I should know about before we move on?",
         },
         {
           speaker: "user",
@@ -2172,12 +2162,7 @@ export const workStandupLesson_33_6: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Cool, I'll DM you around 1.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "I'll help unblock you on the OAuth piece — that work?",
+            "Cool, I'll DM you around 1. I'll help unblock you on the OAuth piece — that work?",
         },
         {
           speaker: "user",
@@ -2507,12 +2492,7 @@ export const workStandupLesson_33_7: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Perfect, looking forward to it.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Quick — anything blocking you on the next piece, or you good?",
+            "Perfect, looking forward to it. Quick — anything blocking you on the next piece, or you good?",
         },
         {
           speaker: "user",
@@ -2834,12 +2814,7 @@ export const workStandupLesson_33_8: BundledLesson = {
         {
           speaker: "npc",
           message:
-            "Cool, talk later.",
-        },
-        {
-          speaker: "npc",
-          message:
-            "Oh wait — heads up, I might be able to help unblock you on the migration if you want, after lunch?",
+            "Cool, talk later. Oh wait — heads up, I might be able to help unblock you on the migration if you want, after lunch?",
         },
         {
           speaker: "user",
