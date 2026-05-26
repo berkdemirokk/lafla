@@ -232,14 +232,15 @@ export async function signInWithApple(): Promise<AppleAuthResult> {
     return { ok: false, error: sbError.message };
   }
 
-  // 2026-05-25 — Stale user-data temizliği. Önceki kullanıcı (veya aynı
-  // kullanıcının önceki test run'ı) `lafla.onboarded="true"` flag'i
-  // bırakmış olabilir → yeni signed-in user yanlışlıkla /today'e gidip
-  // onboarding'i atlatıyordu. signIn sonrası flag'i temizle ki splash
-  // routing'i server profile'ından okusun.
+  // 2026-05-26 — Cross-user data leak fix. Tüm user-bound key'leri temizle:
+  // önceki kullanıcının displayName, interests, onboarded, onboarding.step
+  // hepsi sil. Server profile authoritative — today/profile mount'ta yeniden
+  // okur.
   await AsyncStorage.multiRemove([
     "lafla.onboarded",
     "lafla.onboarding.step",
+    "lafla.displayName",
+    "lafla.interests",
   ]).catch(() => {});
 
   // Cache PII for repeat sign-ins (Apple won't resend it).

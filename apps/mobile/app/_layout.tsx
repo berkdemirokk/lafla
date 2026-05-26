@@ -12,9 +12,10 @@
 // eklerken bu listeyi güncel tut.
 
 import { useEffect } from "react";
-import { Stack } from "expo-router";
+import { Stack, router } from "expo-router";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import * as SplashScreen from "expo-splash-screen";
+import * as Notifications from "expo-notifications";
 import { Text as RNText, TextInput as RNTextInput } from "react-native";
 import {
   useFonts,
@@ -121,6 +122,30 @@ export default function RootLayout() {
       }
       void initAds().catch(() => {});
     })();
+
+    // 2026-05-26 — Push notification deep link handler.
+    // Önceki versiyon: 13 template `lafla://freechat`, `lafla://today` gibi
+    // deep link tanımlıyordu ama hiçbir kod bunları işlemiyordu. Kullanıcı
+    // bildirime basıyor → app açılıyor → splash → /today (her zaman aynı).
+    // Şimdi: notification.data.deepLink → uygun route'a yönlendir.
+    const sub = Notifications.addNotificationResponseReceivedListener((r) => {
+      try {
+        const link = r.notification.request.content.data?.deepLink;
+        if (typeof link !== "string" || !link.startsWith("lafla://")) return;
+        const path = link.replace(/^lafla:\/\//, "/");
+        // Splash henüz mount olmuş olabilir; küçük gecikme ile router hazır olsun.
+        setTimeout(() => {
+          try {
+            router.push(path as never);
+          } catch {
+            // route bulunamadıysa sessizce yut
+          }
+        }, 600);
+      } catch {
+        // bozuk payload — yut
+      }
+    });
+    return () => sub.remove();
   }, []);
 
   // Splash kapanana kadar (ya font hazır ya da yüklenemedi) UI gösterme —

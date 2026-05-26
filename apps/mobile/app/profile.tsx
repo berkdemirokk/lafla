@@ -549,6 +549,15 @@ export default function ProfileScreen() {
 
         <Text style={styles.sectionLabel}>LAFLA PRO</Text>
         <View style={styles.accountCard}>
+          {/* 2026-05-26 — Freechat erişimi profilden açıldı. Önceki versiyon
+              sadece push notification deep link'inden ulaşılabiliyordu,
+              bildirim handler yoksa ölü feature kalıyordu. */}
+          <AccountRow
+            icon="message"
+            label="Serbest sohbet"
+            onPress={() => router.push("/freechat" as never)}
+          />
+          <View style={styles.rowDivider} />
           <AccountRow
             icon="band"
             label="IELTS Band Tahminim"

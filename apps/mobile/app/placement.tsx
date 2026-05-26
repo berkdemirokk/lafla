@@ -534,9 +534,44 @@ export default function PlacementScreen() {
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
       <StatusBar style="light" />
 
-      {/* Header — progress */}
+      {/* Header — progress + escape hatch */}
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Seviye testi</Text>
+        <View style={styles.headerRow}>
+          {/* 2026-05-26 — Çıkış/iptal butonu. Önceki versiyon: placement
+              ortasında geri çıkış yolu yoktu, kullanıcı 8 dakikalık teste
+              giriyor "self-report yapacaktım" diyemiyordu. Şimdi: cancel
+              persist state'i sil + /onboarding'e dön. */}
+          <Pressable
+            onPress={() => {
+              hapticSelection();
+              Alert.alert(
+                "Testten çık",
+                "İlerleme silinecek. Seviyeni kendin de seçebilirsin.",
+                [
+                  { text: "Devam et", style: "cancel" },
+                  {
+                    text: "Çık",
+                    style: "destructive",
+                    onPress: async () => {
+                      await AsyncStorage.removeItem(K_PLACEMENT_STATE).catch(
+                        () => {},
+                      );
+                      router.replace("/onboarding" as never);
+                    },
+                  },
+                ],
+              );
+            }}
+            hitSlop={12}
+            style={styles.headerCancel}
+            accessibilityRole="button"
+            accessibilityLabel="Testten çık"
+          >
+            <Text style={styles.headerCancelText}>← Çık</Text>
+          </Pressable>
+          <Text style={styles.headerTitle}>Seviye testi</Text>
+          <View style={styles.headerCancel} />
+        </View>
         <View style={styles.dotsRow}>
           {Array.from({ length: total }).map((_, i) => (
             <View
@@ -685,6 +720,22 @@ const styles = StyleSheet.create({
     gap: 10,
     borderBottomWidth: 1,
     borderBottomColor: tokens.border.light,
+  },
+  headerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+  },
+  headerCancel: {
+    width: 64,
+    minHeight: 32,
+    justifyContent: "center",
+  },
+  headerCancelText: {
+    color: tokens.text.secondary,
+    fontSize: 14,
+    fontWeight: tokens.weight.semibold,
   },
   headerTitle: {
     fontSize: 18,

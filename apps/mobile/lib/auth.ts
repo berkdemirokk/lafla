@@ -49,13 +49,11 @@ export async function signUpWithEmail(email: string, password: string) {
 export async function signInWithEmail(email: string, password: string) {
   const { data, error } = await supabase.auth.signInWithPassword({ email, password });
   if (error) throw error;
-  // 2026-05-25 — Sadece "onboarded" + "onboarding.step" temizle: önceki
-  // kullanıcıdan kalma stale onboarded flag yeni signed-in user'ı onboarding'i
-  // atlatmasın. displayName/interests TUTULUR — returning user için cache.
-  await AsyncStorage.multiRemove([
-    "lafla.onboarded",
-    "lafla.onboarding.step",
-  ]).catch(() => {});
+  // 2026-05-26 — Cross-user data leak fix: önceki kullanıcının displayName +
+  // interests'i de temizle. Server profile authoritative; today/profile ilk
+  // mount'ta server'dan okur. Returning user için "ilk frame boş ad" tradeoff
+  // — kabul edilebilir, leak'ten iyi.
+  await AsyncStorage.multiRemove(USER_BOUND_KEYS).catch(() => {});
   return data;
 }
 
@@ -66,11 +64,8 @@ export async function signInWithApple(identityToken: string, nonce?: string) {
     nonce,
   });
   if (error) throw error;
-  // 2026-05-25 — signInWithEmail ile aynı: sadece onboarding flag'leri.
-  await AsyncStorage.multiRemove([
-    "lafla.onboarded",
-    "lafla.onboarding.step",
-  ]).catch(() => {});
+  // 2026-05-26 — Cross-user data leak fix: tüm USER_BOUND_KEYS temizle.
+  await AsyncStorage.multiRemove(USER_BOUND_KEYS).catch(() => {});
   return data;
 }
 

@@ -378,7 +378,7 @@ export const professionalC1Lesson_1: BundledLesson = {
       ],
     },
     {
-      id: "ex.pc1.1.13",
+      id: "ex.pc1.1.13b",
       type: "vocab_tile",
       difficulty: 1,
       cefr_band: "A1",

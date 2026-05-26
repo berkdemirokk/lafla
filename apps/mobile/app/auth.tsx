@@ -550,21 +550,12 @@ export default function Auth() {
 
   const skipAuth = async () => {
     // 2026-05-25 — "Atla" anonymous mode'a geçiş. Stale flag bypass'ini
-    // önlemek için onboarded flag + GERÇEK içerik (interests) ikisini de
-    // ara. Sadece flag'e güvenmek başka hesaptan kalan state ile yeni
-    // anonymous user'ı boş /today'e atıyordu.
-    const [onboarded, interestsRaw] = await Promise.all([
-      AsyncStorage.getItem("lafla.onboarded").catch(() => null),
-      AsyncStorage.getItem("lafla.interests").catch(() => null),
-    ]);
-    let hasRealProgress = false;
-    if (onboarded === "true" && interestsRaw) {
-      try {
-        const parsed = JSON.parse(interestsRaw);
-        hasRealProgress = Array.isArray(parsed) && parsed.length > 0;
-      } catch {}
-    }
-    router.replace((hasRealProgress ? "/today" : "/onboarding") as never);
+    // önlemek için onboarded flag + interests check'i ikisini de yap.
+    // 2026-05-26 — interests boş array ile onboarding atlandıysa kullanıcı
+    // ASLA /today'e ulaşamıyordu (sonsuz onboarding loop). Şimdi: onboarded
+    // flag yeterli; interests boş array kabul edilebilir (skip path).
+    const onboarded = await AsyncStorage.getItem("lafla.onboarded").catch(() => null);
+    router.replace((onboarded === "true" ? "/today" : "/onboarding") as never);
   };
 
   const switchMode = (next: Mode) => {

@@ -132,33 +132,28 @@ export default function Splash() {
     // Atla path'inde okunur (auth.tsx skipAuth).
     const decide = async () => {
       if (routedRef.current) return; // skip() öne geçtiyse no-op
+      // 2026-05-26 — Race fix: bayrağı await'tan ÖNCE set et ki yavaş
+      // network'te kullanıcı skip()'i basarsa double-navigation olmasın.
+      // Eğer profile fetch yavaşsa skip() önce çalışır (routedRef.current
+      // true olur) ve decide() rest of body no-op olur.
+      routedRef.current = true;
       if (session) {
         // 2026-05-25 — Signed-in user için SERVER profili authoritative.
-        // Önceki versiyon profile.onboarding_completed_at null ise local
-        // `lafla.onboarded="true"` fallback'ine düşüyordu. Bu yüzden başka
-        // hesaptan kalan stale local flag onboarding'i atlatıyordu.
-        // Yeni davranış: profile yoksa veya onboarding_completed_at null
-        // ise → /onboarding (kullanıcı tekrar setup'ı tamamlamalı).
-        // Local flag artık SADECE anonim mode için (signed-out path).
         let profileOnboarded = false;
         try {
           const profile = await getCurrentProfile();
           profileOnboarded = !!profile?.onboarding_completed_at;
         } catch {
-          // Network fail — profile fetch yapamadık. Bu durumda local'e bak
-          // ki offline launch'ta kullanıcı sıkışmasın.
+          // Network fail — offline fallback to local.
           try {
             const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
             profileOnboarded = localOnboarded === "true";
           } catch {}
         }
-        routedRef.current = true;
         router.replace((profileOnboarded ? "/today" : "/onboarding") as never);
         return;
       }
-      // Signed-out → always /auth. User can press "Atla" in auth screen if
-      // they want anonymous local-only mode.
-      routedRef.current = true;
+      // Signed-out → always /auth.
       router.replace("/auth" as never);
     };
 

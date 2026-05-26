@@ -440,7 +440,13 @@ export default function Today() {
   // Şimdi 4 tile hep görünür: Kelime tekrarı / Sürpriz / Günün özeli / Günlük.
   // Her tile rozet (sayı veya ✓) gösterir; yokken sade ikon + label.
   // Tile boş veri ile de tıklanır — kullanıcı tıklayıp ilgili ekranı gezer.
-  const vocabBadge = state.vocabDue > 0 ? String(state.vocabDue) : null;
+  // 2026-05-26 — Badge cap "99+". Tile.minWidth: 22 → 3+ haneli sayı overflow.
+  const vocabBadge =
+    state.vocabDue > 0
+      ? state.vocabDue > 99
+        ? "99+"
+        : String(state.vocabDue)
+      : null;
   const surpriseBadge = state.surprise ? "•" : null;
   const dailyBadge = state.dailyCompleted ? "✓" : state.daily ? "•" : null;
   const diaryBadge = state.diaryWrittenToday ? "✓" : null;

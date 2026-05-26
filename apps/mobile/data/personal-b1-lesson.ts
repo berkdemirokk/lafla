@@ -152,7 +152,7 @@ export const personalB1Lesson_1: BundledLesson = {
   example_tr: "Belki işine yarar, yeni mahalleyi çok seveceksin.",
 },
     {
-      id: "ex.pb1.1.1",
+      id: "ex.persb1.1.1",
       type: "vocab_tile",
       cefr_band: "A2",
       difficulty: 2,
@@ -162,7 +162,7 @@ export const personalB1Lesson_1: BundledLesson = {
       example_tr: "Yoga eğittiğini gördüm — bu alana nasıl yöneldin?",
     },
     {
-      id: "ex.pb1.1.2",
+      id: "ex.persb1.1.2",
       type: "vocab_tile",
       cefr_band: "A2",
       difficulty: 2,
@@ -172,7 +172,7 @@ export const personalB1Lesson_1: BundledLesson = {
       example_tr: "Aslında bu konuda ortak noktamız var — bir yıl Lizbon'da yaşadım.",
     },
     {
-      id: "ex.pb1.1.3",
+      id: "ex.persb1.1.3",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -189,7 +189,7 @@ export const personalB1Lesson_1: BundledLesson = {
         "Referans + soru. 'Noticed / Saw' + spesifik detay + present perfect (have you been -ing).",
     },
     {
-      id: "ex.pb1.1.4",
+      id: "ex.persb1.1.4",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -205,7 +205,7 @@ export const personalB1Lesson_1: BundledLesson = {
         "Hafif espri + samimi soru. 'Honest answer / No judgment' = oyuncu ama saygılı.",
     },
     {
-      id: "ex.pb1.1.5",
+      id: "ex.persb1.1.5",
       type: "fill_blank",
       difficulty: 2,
       sentence_template: "What's been ___ your mind lately — anything good?",
@@ -215,7 +215,7 @@ export const personalB1Lesson_1: BundledLesson = {
         "'On your mind' = aklında. 'In your mind' yanlış edat — sabit kalıp.",
     },
     {
-      id: "ex.pb1.1.6",
+      id: "ex.persb1.1.6",
       type: "spot_mistake",
       difficulty: 3,
       incorrect_sentence: "Hello. You are very beautiful. Tell me about you.",
@@ -225,7 +225,7 @@ export const personalB1Lesson_1: BundledLesson = {
         "Direkt 'beautiful' + komut ('tell me about you') = düz hat, kuru. Yetişkin tanışma: spesifik referans + açık uçlu soru. Görünüşten önce ilgi alanı.",
     },
     {
-      id: "ex.pb1.1.7",
+      id: "ex.persb1.1.7",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
@@ -302,7 +302,7 @@ export const personalB1Lesson_1: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.1.8",
+      id: "ex.persb1.1.8",
       type: "pronounce_phrase",
       difficulty: 3,
       phrase: "I'd love to hear more about that.",
@@ -311,7 +311,7 @@ export const personalB1Lesson_1: BundledLesson = {
         "Yetişkin ilgi gösterme. 'I'd love' = 'ayd-lov' bağlı. 'Hear more about that' akıcı. İçten, baskısız.",
     },
     {
-      id: "ex.pb1.1.9",
+      id: "ex.persb1.1.9",
       type: "speech_shadowing",
       difficulty: 3,
       native_text:
@@ -321,7 +321,7 @@ export const personalB1Lesson_1: BundledLesson = {
         "Dating uygulamasında dürüst tonu. 'Skip the small talk' = küçük sohbeti atla. Direkt ama nazik.",
     },
     {
-      id: "ex.pb1.1.10",
+      id: "ex.persb1.1.10",
       type: "listen_and_transcribe",
       difficulty: 3,
       audio_text:
@@ -332,7 +332,7 @@ export const personalB1Lesson_1: BundledLesson = {
         "Tanışma sınır kalıbı. 'Not really into' = pek hoşlanmıyorum. 'Grab a coffee' = bir kahve içelim.",
     },
     {
-      id: "ex.pb1.1.11",
+      id: "ex.persb1.1.11",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -344,7 +344,7 @@ export const personalB1Lesson_1: BundledLesson = {
         "Kişisel şeyleri erken paylaşma konusunda bazı sınırlarım var — umarım sorun değildir.",
     },
     {
-      id: "ex.pb1.1.12",
+      id: "ex.persb1.1.12",
       type: "spot_mistake",
       difficulty: 3,
       incorrect_sentence:
@@ -355,7 +355,7 @@ export const personalB1Lesson_1: BundledLesson = {
         "'Send me your number' baskı; 'we can speak phone' Türkçe çeviri (doğru: 'talk on the phone'). 'Beautiful' fiziksel iltifat çok erken. Yetişkin yaklaşım: sohbete değer ver + ortak adım öner ('moving this off the app').",
     },
     {
-      id: "ex.pb1.1.sp1",
+      id: "ex.persb1.1.sp1",
       type: "sentence_pattern",
       difficulty: 3,
       template: "Saw you ___ in your bio — what ___ you ___?",
@@ -369,7 +369,7 @@ export const personalB1Lesson_1: BundledLesson = {
       example_filled: "Saw you mentioned hiking in your bio — what got you into that?",
     },
     {
-      id: "ex.pb1.1.dg1",
+      id: "ex.persb1.1.dg1",
       type: "dialogue_gap",
       difficulty: 3,
       turns: [
@@ -389,7 +389,7 @@ export const personalB1Lesson_1: BundledLesson = {
       ideal_answer: "Same here — I got into it last year. We actually have that in common!",
     },
     {
-      id: "ex.pb1.1.lr1",
+      id: "ex.persb1.1.lr1",
       type: "listen_respond",
       difficulty: 3,
       npc_line: "I usually keep things light early on — what are you looking for on here?",
@@ -405,7 +405,7 @@ export const personalB1Lesson_1: BundledLesson = {
       ideal_response: "Honestly, something real — open to seeing where it goes. How about you?",
     },
     {
-      id: "ex.pb1.1.tt1",
+      id: "ex.persb1.1.tt1",
       type: "thinking_trap",
       difficulty: 3,
       tr_thought: "Çok güzelsin, numaranı verir misin?",
@@ -415,7 +415,7 @@ export const personalB1Lesson_1: BundledLesson = {
         "Türk öğrenci ilk mesajda 'beautiful' + number direkt ister — yoğun + creepy. Modern yaklaşım: sohbete değer ver + ortak adım öner. 'Grabbing a coffee' = hafif, baskısız.",
     },
     {
-      id: "ex.pb1.1.rq1",
+      id: "ex.persb1.1.rq1",
       type: "recall_quiz",
       items: [
         {
@@ -621,7 +621,7 @@ export const personalB1Lesson_2: BundledLesson = {
   example_tr: "Belki işine yarar, yeni mahalleyi çok seveceksin.",
 },
     {
-      id: "ex.pb1.2.1",
+      id: "ex.persb1.2.1",
       type: "vocab_tile",
       cefr_band: "A2",
       difficulty: 2,
@@ -631,7 +631,7 @@ export const personalB1Lesson_2: BundledLesson = {
       example_tr: "Peki senin normal bir haftan nasıl geçer?",
     },
     {
-      id: "ex.pb1.2.2",
+      id: "ex.persb1.2.2",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -641,7 +641,7 @@ export const personalB1Lesson_2: BundledLesson = {
       example_tr: "Aile meselesi — uygunsa onu başka bir zamana saklamayı tercih ederim.",
     },
     {
-      id: "ex.pb1.2.3",
+      id: "ex.persb1.2.3",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -657,7 +657,7 @@ export const personalB1Lesson_2: BundledLesson = {
         "Yüzeyel değil — 'feel most like yourself' = 'kendini en kendin gibi hissetmek'. Yetişkin random soru.",
     },
     {
-      id: "ex.pb1.2.4",
+      id: "ex.persb1.2.4",
       type: "fill_blank",
       difficulty: 3,
       sentence_template: "That's a bit much for a ___ date — happy to come back to it later.",
@@ -667,7 +667,7 @@ export const personalB1Lesson_2: BundledLesson = {
         "İlk randevuda fazla derinleşmeyi reddetmek için kibar geri çekilme.",
     },
     {
-      id: "ex.pb1.2.5",
+      id: "ex.persb1.2.5",
       type: "spot_mistake",
       difficulty: 3,
       incorrect_sentence:
@@ -678,7 +678,7 @@ export const personalB1Lesson_2: BundledLesson = {
         "İlk randevuda 'ex / aile sorunu / iş yakıyor' = trauma dump. Yetişkin pivot: kısa otantik kabul + topu karşıya at + olumlu çerçeve.",
     },
     {
-      id: "ex.pb1.2.6",
+      id: "ex.persb1.2.6",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -694,7 +694,7 @@ export const personalB1Lesson_2: BundledLesson = {
         "Saygılı sınır — agresif değil, açık. 'Get into / dive into / unpack' = derinleşmek.",
     },
     {
-      id: "ex.pb1.2.7",
+      id: "ex.persb1.2.7",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
@@ -776,7 +776,7 @@ export const personalB1Lesson_2: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.2.8",
+      id: "ex.persb1.2.8",
       type: "pronounce_phrase",
       difficulty: 3,
       phrase: "I don't really want to get into that on a first date.",
@@ -785,7 +785,7 @@ export const personalB1Lesson_2: BundledLesson = {
         "Sınır koyma kalıbı — kibar ama net. 'Get into' = girmek (konu olarak). 'On a first date' net.",
     },
     {
-      id: "ex.pb1.2.9",
+      id: "ex.persb1.2.9",
       type: "speech_shadowing",
       difficulty: 3,
       native_text:
@@ -795,7 +795,7 @@ export const personalB1Lesson_2: BundledLesson = {
         "İlk randevu yumuşatma. 'I'd rather' = tercih ederim. 'Go deep on' = derinine inmek. Rahat, sınırlı paylaşım.",
     },
     {
-      id: "ex.pb1.2.10",
+      id: "ex.persb1.2.10",
       type: "listen_and_transcribe",
       difficulty: 3,
       audio_text:
@@ -806,7 +806,7 @@ export const personalB1Lesson_2: BundledLesson = {
         "İlk randevuda dürüst paylaşım. 'Came out of' = (ilişki) bitirdim. 'Figuring out' = anlamaya çalışıyorum.",
     },
     {
-      id: "ex.pb1.2.11",
+      id: "ex.persb1.2.11",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -818,7 +818,7 @@ export const personalB1Lesson_2: BundledLesson = {
         "Şeylerin ne kadar hızlı ilerlediği konusunda bazı sınırlarım var — baştan söylemekte sakınca yoktur umarım.",
     },
     {
-      id: "ex.pb1.2.12",
+      id: "ex.persb1.2.12",
       type: "spot_mistake",
       difficulty: 3,
       incorrect_sentence:
@@ -829,7 +829,7 @@ export const personalB1Lesson_2: BundledLesson = {
         "İlk randevuda eski partnere 'crazy' demek = kırmızı bayrak. 'You look more normal' karşılaştırma rahatsız. Sağlıklı yaklaşım: sorumluluk al ('difficult relationship'), sınır koy ('save that for when we know each other better').",
     },
     {
-      id: "ex.pb1.2.sp1",
+      id: "ex.persb1.2.sp1",
       type: "sentence_pattern",
       difficulty: 3,
       cefr_band: "B1",
@@ -843,7 +843,7 @@ export const personalB1Lesson_2: BundledLesson = {
       example_filled: "I'd rather save that for when we know each other better.",
     },
     {
-      id: "ex.pb1.2.dg1",
+      id: "ex.persb1.2.dg1",
       type: "dialogue_gap",
       difficulty: 3,
       turns: [
@@ -863,7 +863,7 @@ export const personalB1Lesson_2: BundledLesson = {
       ideal_answer: "I moved here for work two years ago — originally from Istanbul.",
     },
     {
-      id: "ex.pb1.2.lr1",
+      id: "ex.persb1.2.lr1",
       type: "listen_respond",
       difficulty: 3,
       npc_line: "What about exes — anything serious recently?",
@@ -879,7 +879,7 @@ export const personalB1Lesson_2: BundledLesson = {
       ideal_response: "I'd rather save that for when we know each other a bit better.",
     },
     {
-      id: "ex.pb1.2.tt1",
+      id: "ex.persb1.2.tt1",
       type: "thinking_trap",
       difficulty: 3,
       tr_thought: "Eski sevgilim deliydi.",
@@ -889,7 +889,7 @@ export const personalB1Lesson_2: BundledLesson = {
         "İlk randevuda eski partneri 'crazy' demek = klasik kırmızı bayrak. Olgun: ilişkiyi tanımla ('difficult'), kendinden konuş, detay erteleme.",
     },
     {
-      id: "ex.pb1.2.rq1",
+      id: "ex.persb1.2.rq1",
       type: "recall_quiz",
       items: [
         {
@@ -1095,7 +1095,7 @@ export const personalB1Lesson_3: BundledLesson = {
   example_tr: "Belki işine yarar, yeni mahalleyi çok seveceksin.",
 },
     {
-      id: "ex.pb1.3.1",
+      id: "ex.persb1.3.1",
       type: "vocab_tile",
       cefr_band: "A2",
       difficulty: 2,
@@ -1105,7 +1105,7 @@ export const personalB1Lesson_3: BundledLesson = {
       example_tr: "Türkiye tek bir şey değil — aslında bundan daha karmaşık.",
     },
     {
-      id: "ex.pb1.3.2",
+      id: "ex.persb1.3.2",
       type: "vocab_tile",
       cefr_band: "A2",
       difficulty: 2,
@@ -1115,7 +1115,7 @@ export const personalB1Lesson_3: BundledLesson = {
       example_tr: "Aile yemekleri bizim için önemli — peki senin ülkende bu nasıl yürüyor?",
     },
     {
-      id: "ex.pb1.3.3",
+      id: "ex.persb1.3.3",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -1131,7 +1131,7 @@ export const personalB1Lesson_3: BundledLesson = {
         "Reddet ama agresif değil. 'Not really accurate / not in my circle' = ölçülü düzeltme.",
     },
     {
-      id: "ex.pb1.3.4",
+      id: "ex.persb1.3.4",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -1147,7 +1147,7 @@ export const personalB1Lesson_3: BundledLesson = {
         "'Bring up / raise' = bir konuyu açmak. Saygılı + spesifik soru.",
     },
     {
-      id: "ex.pb1.3.5",
+      id: "ex.persb1.3.5",
       type: "fill_blank",
       difficulty: 3,
       sentence_template: "I don't want to ___ in generalisations, but tea is genuinely a big part of how we hang out.",
@@ -1157,7 +1157,7 @@ export const personalB1Lesson_3: BundledLesson = {
         "'Deal in generalisations' = genellemeler yapmak. Sabit kalıp.",
     },
     {
-      id: "ex.pb1.3.6",
+      id: "ex.persb1.3.6",
       type: "spot_mistake",
       difficulty: 4,
       incorrect_sentence: "All Turkish people love to drink tea and have big family.",
@@ -1167,7 +1167,7 @@ export const personalB1Lesson_3: BundledLesson = {
         "'All Turkish people' = stereotipi pekiştirir. Yetişkin alternatif: 'A lot of us / many of us' + 'depends on' = nüanslı.",
     },
     {
-      id: "ex.pb1.3.7",
+      id: "ex.persb1.3.7",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
@@ -1244,7 +1244,7 @@ export const personalB1Lesson_3: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.3.8",
+      id: "ex.persb1.3.8",
       type: "pronounce_phrase",
       difficulty: 3,
       phrase: "Help me understand what that looks like in your family.",
@@ -1253,7 +1253,7 @@ export const personalB1Lesson_3: BundledLesson = {
         "Kültürel merak kalıbı. 'Help me understand' = nazikçe açıklama isteme. Yargısız, açık ton.",
     },
     {
-      id: "ex.pb1.3.9",
+      id: "ex.persb1.3.9",
       type: "speech_shadowing",
       difficulty: 3,
       native_text:
@@ -1263,7 +1263,7 @@ export const personalB1Lesson_3: BundledLesson = {
         "Türkiye'yi anlatma. 'Stay close into adulthood' = yetişkinlikte yakın kal. 'Doesn't feel like a burden' = yük gibi gelmiyor.",
     },
     {
-      id: "ex.pb1.3.10",
+      id: "ex.persb1.3.10",
       type: "listen_and_transcribe",
       difficulty: 3,
       audio_text:
@@ -1274,7 +1274,7 @@ export const personalB1Lesson_3: BundledLesson = {
         "Kültürel fark cümlesi. 'Grew up with different ideas' = farklı fikirlerle büyüdük. 'Closeness' = yakınlık.",
     },
     {
-      id: "ex.pb1.3.11",
+      id: "ex.persb1.3.11",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -1286,7 +1286,7 @@ export const personalB1Lesson_3: BundledLesson = {
         "Bence tatiller etrafında bir tartışma örüntümüz var — aynı kavga, farklı yıl.",
     },
     {
-      id: "ex.pb1.3.12",
+      id: "ex.persb1.3.12",
       type: "spot_mistake",
       difficulty: 3,
       incorrect_sentence:
@@ -1297,7 +1297,7 @@ export const personalB1Lesson_3: BundledLesson = {
         "'Your culture is cold' + 'we love more than westerners' = yargılayıcı, üstünlük kurma. Sağlıklı kültürel diyalog: 'frame X differently' (eşit), 'neither cares less' (hiyerarşi reddi). Karşı tarafı korumak ilişkiyi korur.",
     },
     {
-      id: "ex.pb1.3.sp1",
+      id: "ex.persb1.3.sp1",
       type: "sentence_pattern",
       difficulty: 3,
       cefr_band: "B1",
@@ -1311,7 +1311,7 @@ export const personalB1Lesson_3: BundledLesson = {
       example_filled: "In Turkey, we live close to family — but I know every culture is different.",
     },
     {
-      id: "ex.pb1.3.dg1",
+      id: "ex.persb1.3.dg1",
       type: "dialogue_gap",
       difficulty: 3,
       turns: [
@@ -1330,7 +1330,7 @@ export const personalB1Lesson_3: BundledLesson = {
       ideal_answer: "In Turkey, daily calls are how families stay close — it's warmth, not control.",
     },
     {
-      id: "ex.pb1.3.lr1",
+      id: "ex.persb1.3.lr1",
       type: "listen_respond",
       difficulty: 3,
       npc_line: "What's the biggest culture shock for you here?",
@@ -1346,7 +1346,7 @@ export const personalB1Lesson_3: BundledLesson = {
       ideal_response: "Honestly, how independent everyone is — but I've come to appreciate it.",
     },
     {
-      id: "ex.pb1.3.tt1",
+      id: "ex.persb1.3.tt1",
       type: "thinking_trap",
       difficulty: 3,
       tr_thought: "Sizin kültürünüz soğuk.",
@@ -1356,7 +1356,7 @@ export const personalB1Lesson_3: BundledLesson = {
         "Türk öğrenci 'sizin/bizim' karşıtlığı kurar — yargılı. Olgun çapraz kültür: 'frame differently' = eşit, hiyerarşi yok. Korumak ilişkiyi korur.",
     },
     {
-      id: "ex.pb1.3.rq1",
+      id: "ex.persb1.3.rq1",
       type: "recall_quiz",
       items: [
         {
@@ -1562,7 +1562,7 @@ export const personalB1Lesson_4: BundledLesson = {
   example_tr: "Belki işine yarar, yeni mahalleyi çok seveceksin.",
 },
     {
-      id: "ex.pb1.4.1",
+      id: "ex.persb1.4.1",
       type: "vocab_tile",
       cefr_band: "A1",
       difficulty: 2,
@@ -1572,7 +1572,7 @@ export const personalB1Lesson_4: BundledLesson = {
       example_tr: "Bak — aklımda bir şey var, bir dakikan var mı?",
     },
     {
-      id: "ex.pb1.4.2",
+      id: "ex.persb1.4.2",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -1584,7 +1584,7 @@ export const personalB1Lesson_4: BundledLesson = {
         "Yemek boyunca telefondaysan kendimi kopuk hissediyorum.",
     },
     {
-      id: "ex.pb1.4.3",
+      id: "ex.persb1.4.3",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -1600,7 +1600,7 @@ export const personalB1Lesson_4: BundledLesson = {
         "Yetişkin giriş: suçlama değil + niyet açıklama. 'Not blaming, just sharing.'",
     },
     {
-      id: "ex.pb1.4.4",
+      id: "ex.persb1.4.4",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -1616,7 +1616,7 @@ export const personalB1Lesson_4: BundledLesson = {
         "İhtiyacını net söyle. 'What matters / what I need is...' = yetişkin talep.",
     },
     {
-      id: "ex.pb1.4.5",
+      id: "ex.persb1.4.5",
       type: "fill_blank",
       difficulty: 3,
       sentence_template: "Can we ___ a moment to talk — nothing urgent, just something I want to share?",
@@ -1626,7 +1626,7 @@ export const personalB1Lesson_4: BundledLesson = {
         "'Find a moment' = uygun bir an bulalım. Düşük baskı giriş.",
     },
     {
-      id: "ex.pb1.4.6",
+      id: "ex.persb1.4.6",
       type: "spot_mistake",
       difficulty: 4,
       incorrect_sentence: "You always ignore me. You never listen.",
@@ -1636,7 +1636,7 @@ export const personalB1Lesson_4: BundledLesson = {
         "'Always / never' = savunmaya iter. Yetişkin formül: spesifik an + 'I felt X' + niye konuşuyorsun. Saldırı değil, paylaşım.",
     },
     {
-      id: "ex.pb1.4.7",
+      id: "ex.persb1.4.7",
       type: "pronounce_phrase",
       difficulty: 3,
       phrase: "There's something on my mind I want to share with you.",
@@ -1644,7 +1644,7 @@ export const personalB1Lesson_4: BundledLesson = {
         "Sakin, yavaş giriş. Vurgu: 'mind' ve 'share'. Suçlama değil — davet.",
     },
     {
-      id: "ex.pb1.4.8",
+      id: "ex.persb1.4.8",
       type: "roleplay_chat",
       difficulty: 5,
       scenario_description:
@@ -1729,7 +1729,7 @@ export const personalB1Lesson_4: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.4.9",
+      id: "ex.persb1.4.9",
       type: "pronounce_phrase",
       difficulty: 4,
       phrase: "I want to make a repair attempt before this gets bigger.",
@@ -1738,7 +1738,7 @@ export const personalB1Lesson_4: BundledLesson = {
         "Çift terapisi dili. 'Repair attempt' = onarım girişimi (Gottman). 'Before this gets bigger' = büyümeden.",
     },
     {
-      id: "ex.pb1.4.10",
+      id: "ex.persb1.4.10",
       type: "speech_shadowing",
       difficulty: 4,
       native_text:
@@ -1748,7 +1748,7 @@ export const personalB1Lesson_4: BundledLesson = {
         "Yetişkin ihtiyaç ifadesi. 'I'm not asking you to fix' = düzeltmeni istemiyorum. 'Hear me' = duy beni. Yumuşak.",
     },
     {
-      id: "ex.pb1.4.11",
+      id: "ex.persb1.4.11",
       type: "listen_and_transcribe",
       difficulty: 4,
       audio_text:
@@ -1759,7 +1759,7 @@ export const personalB1Lesson_4: BundledLesson = {
         "Örüntüyü adlandırma cümlesi. 'Conflict pattern' = tartışma örüntüsü. 'Slow down' = yavaşla.",
     },
     {
-      id: "ex.pb1.4.12",
+      id: "ex.persb1.4.12",
       type: "vocab_tile",
       cefr_band: "B2",
       difficulty: 4,
@@ -1771,7 +1771,7 @@ export const personalB1Lesson_4: BundledLesson = {
         "Tartışmanın ortasında elimi tuttuğunda, bu bir onarım girişimiydi ve işe yaradı.",
     },
     {
-      id: "ex.pb1.4.13",
+      id: "ex.persb1.4.13",
       type: "spot_mistake",
       difficulty: 4,
       incorrect_sentence:
@@ -1782,7 +1782,7 @@ export const personalB1Lesson_4: BundledLesson = {
         "'Always/never' + 'you are selfish' = klasik 'Four Horsemen' (Gottman) — savunma tetikler. Sağlıklı: spesifik an ('last night'), I-statement ('I felt unheard'), ileriye dönük rica ('check in earlier next time'). Karakterleme değil, örüntü.",
     },
     {
-      id: "ex.pb1.4.sp1",
+      id: "ex.persb1.4.sp1",
       type: "sentence_pattern",
       difficulty: 3,
       cefr_band: "B1",
@@ -1796,7 +1796,7 @@ export const personalB1Lesson_4: BundledLesson = {
       example_filled: "When dinner ran long last night, I felt unheard.",
     },
     {
-      id: "ex.pb1.4.dg1",
+      id: "ex.persb1.4.dg1",
       type: "dialogue_gap",
       difficulty: 3,
       turns: [
@@ -1815,7 +1815,7 @@ export const personalB1Lesson_4: BundledLesson = {
       ideal_answer: "Can we sit down? There's something I want to talk through.",
     },
     {
-      id: "ex.pb1.4.lr1",
+      id: "ex.persb1.4.lr1",
       type: "listen_respond",
       difficulty: 3,
       npc_line: "I didn't mean to hurt you.",
@@ -1831,7 +1831,7 @@ export const personalB1Lesson_4: BundledLesson = {
       ideal_response: "I hear that — and it still hurt.",
     },
     {
-      id: "ex.pb1.4.tt1",
+      id: "ex.persb1.4.tt1",
       type: "thinking_trap",
       difficulty: 3,
       tr_thought: "Sen hep beni umursamıyorsun.",
@@ -1841,7 +1841,7 @@ export const personalB1Lesson_4: BundledLesson = {
         "Türk öğrenci 'always/never' + karakterleme yapar — Gottman'ın 'Four Horsemen'i. Doğru: spesifik olay + I-statement. Saldırı yerine paylaşım.",
     },
     {
-      id: "ex.pb1.4.rq1",
+      id: "ex.persb1.4.rq1",
       type: "recall_quiz",
       items: [
         {
@@ -2047,7 +2047,7 @@ export const personalB1Lesson_5: BundledLesson = {
   example_tr: "Belki işine yarar, yeni mahalleyi çok seveceksin.",
 },
     {
-      id: "ex.pb1.5.1",
+      id: "ex.persb1.5.1",
       type: "vocab_tile",
       cefr_band: "A2",
       difficulty: 2,
@@ -2057,7 +2057,7 @@ export const personalB1Lesson_5: BundledLesson = {
       example_tr: "Beni misafir ettiğiniz için teşekkürler — Maria sizden çok bahsetti.",
     },
     {
-      id: "ex.pb1.5.2",
+      id: "ex.persb1.5.2",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -2067,7 +2067,7 @@ export const personalB1Lesson_5: BundledLesson = {
       example_tr: "Bana yardım et — kapıda ayakkabıyı çıkarmak doğru mu?",
     },
     {
-      id: "ex.pb1.5.3",
+      id: "ex.persb1.5.3",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -2083,7 +2083,7 @@ export const personalB1Lesson_5: BundledLesson = {
         "Hediyeyi alçakgönüllü ver. 'Small something / little something' = İngilizce yumuşatma.",
     },
     {
-      id: "ex.pb1.5.4",
+      id: "ex.persb1.5.4",
       type: "fill_blank",
       difficulty: 3,
       sentence_template: "I don't want to ___ assumptions about how things work here, so please tell me if I'm doing anything off.",
@@ -2093,7 +2093,7 @@ export const personalB1Lesson_5: BundledLesson = {
         "'Make assumptions' = varsayımda bulunmak. Sabit kalıp.",
     },
     {
-      id: "ex.pb1.5.5",
+      id: "ex.persb1.5.5",
       type: "spot_mistake",
       difficulty: 4,
       incorrect_sentence: "In Turkey we do it different. Your way is strange to me.",
@@ -2103,7 +2103,7 @@ export const personalB1Lesson_5: BundledLesson = {
         "'Strange' = yargı. Yetişkin yaklaşım: farkı tarafsız tanı + olumlu bir gözlem ekle. Karşılaştırma değil, gözlem.",
     },
     {
-      id: "ex.pb1.5.6",
+      id: "ex.persb1.5.6",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -2119,7 +2119,7 @@ export const personalB1Lesson_5: BundledLesson = {
         "İltifat + öğrenmeye istek. 'Would you mind sharing / could I get the recipe' kibar.",
     },
     {
-      id: "ex.pb1.5.7",
+      id: "ex.persb1.5.7",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
@@ -2199,7 +2199,7 @@ export const personalB1Lesson_5: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.5.8",
+      id: "ex.persb1.5.8",
       type: "pronounce_phrase",
       difficulty: 3,
       phrase: "It's really good to finally meet you in person.",
@@ -2208,7 +2208,7 @@ export const personalB1Lesson_5: BundledLesson = {
         "Tanışma açılışı. 'Really' = 'RIL-li' kısa. 'In person' = 'in-PÖR-sın'. Sıcak, içten.",
     },
     {
-      id: "ex.pb1.5.9",
+      id: "ex.persb1.5.9",
       type: "speech_shadowing",
       difficulty: 3,
       native_text:
@@ -2218,7 +2218,7 @@ export const personalB1Lesson_5: BundledLesson = {
         "Kayınvalide ile sohbet. 'Told me so much about' = bana çok şey anlattı. 'I'd love to hear' = duymak isterim.",
     },
     {
-      id: "ex.pb1.5.10",
+      id: "ex.persb1.5.10",
       type: "listen_and_transcribe",
       difficulty: 3,
       audio_text:
@@ -2229,7 +2229,7 @@ export const personalB1Lesson_5: BundledLesson = {
         "Hediye verme kalıbı. 'Small something' = küçük bir şey. 'Nothing fancy' = abartılı değil.",
     },
     {
-      id: "ex.pb1.5.11",
+      id: "ex.persb1.5.11",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -2241,7 +2241,7 @@ export const personalB1Lesson_5: BundledLesson = {
         "Tatil ziyaretleri konusunda sınırları konuştuk ve iki aile için adil olanı bulmaya çalışıyoruz.",
     },
     {
-      id: "ex.pb1.5.12",
+      id: "ex.persb1.5.12",
       type: "spot_mistake",
       difficulty: 3,
       incorrect_sentence:
@@ -2252,7 +2252,7 @@ export const personalB1Lesson_5: BundledLesson = {
         "'He's lucky to have me' + 'good family' = övünme. Yabancı kayınvalide bağlamında alçakgönüllülük + saygı esastır. Sağlıklı dil: karşı tarafa değer ver, kendini sıralama.",
     },
     {
-      id: "ex.pb1.5.sp1",
+      id: "ex.persb1.5.sp1",
       type: "sentence_pattern",
       difficulty: 3,
       cefr_band: "B1",
@@ -2266,7 +2266,7 @@ export const personalB1Lesson_5: BundledLesson = {
       example_filled: "It means a lot to finally meet you.",
     },
     {
-      id: "ex.pb1.5.dg1",
+      id: "ex.persb1.5.dg1",
       type: "dialogue_gap",
       difficulty: 3,
       turns: [
@@ -2285,7 +2285,7 @@ export const personalB1Lesson_5: BundledLesson = {
       ideal_answer: "Thank you — it means a lot to finally meet you. Maria has told me so much about you too.",
     },
     {
-      id: "ex.pb1.5.lr1",
+      id: "ex.persb1.5.lr1",
       type: "listen_respond",
       difficulty: 3,
       npc_line: "So, tell us about your family.",
@@ -2301,7 +2301,7 @@ export const personalB1Lesson_5: BundledLesson = {
       ideal_response: "My family is from Istanbul — we're a close family.",
     },
     {
-      id: "ex.pb1.5.tt1",
+      id: "ex.persb1.5.tt1",
       type: "thinking_trap",
       difficulty: 3,
       tr_thought: "Oğlunuz benimle çok şanslı (iyi aileden geliyorum).",
@@ -2311,7 +2311,7 @@ export const personalB1Lesson_5: BundledLesson = {
         "Türk kültüründe 'iyi aileden' övünmek yaygın. Yabancı kayınvalide bağlamında: alçakgönüllülük + saygı. Kendini sıralama; karşı tarafa değer ver.",
     },
     {
-      id: "ex.pb1.5.rq1",
+      id: "ex.persb1.5.rq1",
       type: "recall_quiz",
       items: [
         {
@@ -2517,7 +2517,7 @@ export const personalB1Lesson_6: BundledLesson = {
   example_tr: "Belki işine yarar, yeni mahalleyi çok seveceksin.",
 },
     {
-      id: "ex.pb1.6.1",
+      id: "ex.persb1.6.1",
       type: "vocab_tile",
       cefr_band: "A2",
       difficulty: 2,
@@ -2527,7 +2527,7 @@ export const personalB1Lesson_6: BundledLesson = {
       example_tr: "Gününü baştan anlat — sıkıcı kısımları bile.",
     },
     {
-      id: "ex.pb1.6.2",
+      id: "ex.persb1.6.2",
       type: "vocab_tile",
       cefr_band: "A2",
       difficulty: 2,
@@ -2537,7 +2537,7 @@ export const personalB1Lesson_6: BundledLesson = {
       example_tr: "Yanında olmayı özlüyorum — yazışmak değil, gerçekten orada olmak.",
     },
     {
-      id: "ex.pb1.6.3",
+      id: "ex.persb1.6.3",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -2553,7 +2553,7 @@ export const personalB1Lesson_6: BundledLesson = {
         "Küçük an paylaşma = yakınlık. 'Something small but nice / a little moment.'",
     },
     {
-      id: "ex.pb1.6.4",
+      id: "ex.persb1.6.4",
       type: "fill_blank",
       difficulty: 2,
       sentence_template: "I keep ___ moments where I want to turn to you, and you're not there.",
@@ -2563,7 +2563,7 @@ export const personalB1Lesson_6: BundledLesson = {
         "'Keep having moments' = sürekli o anlar oluyor. Present continuous.",
     },
     {
-      id: "ex.pb1.6.5",
+      id: "ex.persb1.6.5",
       type: "spot_mistake",
       difficulty: 3,
       incorrect_sentence: "How are you. I am fine. What did you do.",
@@ -2573,7 +2573,7 @@ export const personalB1Lesson_6: BundledLesson = {
         "Düz, kuru, soru-soru-soru = uzak mesafe ölür. Davet et + kendi gününü canlandır. Diyalog kur.",
     },
     {
-      id: "ex.pb1.6.6",
+      id: "ex.persb1.6.6",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -2588,7 +2588,7 @@ export const personalB1Lesson_6: BundledLesson = {
         "'Counting down' = geri sayım. Hafif kavuşma özlemi.",
     },
     {
-      id: "ex.pb1.6.7",
+      id: "ex.persb1.6.7",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
@@ -2679,7 +2679,7 @@ export const personalB1Lesson_6: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.6.8",
+      id: "ex.persb1.6.8",
       type: "pronounce_phrase",
       difficulty: 3,
       phrase: "Walk me through your day — even the boring bits.",
@@ -2688,7 +2688,7 @@ export const personalB1Lesson_6: BundledLesson = {
         "Long-distance kalbi. 'Walk me through' birleşik, akıcı. 'Boring bits' = sıkıcı kısımlar, sevecen.",
     },
     {
-      id: "ex.pb1.6.9",
+      id: "ex.persb1.6.9",
       type: "speech_shadowing",
       difficulty: 3,
       native_text:
@@ -2698,7 +2698,7 @@ export const personalB1Lesson_6: BundledLesson = {
         "Uzaktan örüntü adlandırma. 'Fallen into' = düşmüşüz. 'Conflict pattern' = tartışma örüntüsü.",
     },
     {
-      id: "ex.pb1.6.10",
+      id: "ex.persb1.6.10",
       type: "listen_and_transcribe",
       difficulty: 3,
       audio_text:
@@ -2709,7 +2709,7 @@ export const personalB1Lesson_6: BundledLesson = {
         "Long-distance dürüst dokunma. 'No big agenda' = büyük bir gündem yok. 'Just you' = sadece sen.",
     },
     {
-      id: "ex.pb1.6.11",
+      id: "ex.persb1.6.11",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -2721,7 +2721,7 @@ export const personalB1Lesson_6: BundledLesson = {
         "Tartışmamızdan sonra o sesli mesajı gönderdiğinde, bu bir onarım girişimiydi ve gerçekten yardımcı oldu.",
     },
     {
-      id: "ex.pb1.6.12",
+      id: "ex.persb1.6.12",
       type: "spot_mistake",
       difficulty: 3,
       incorrect_sentence:
@@ -2732,7 +2732,7 @@ export const personalB1Lesson_6: BundledLesson = {
         "'Why you didn't' yanlış soru yapısı + 'you don't love me anymore' yıkıcı genelleme. Yetişkin uzun mesafe: spesifik gözlem ('didn't hear from you yesterday'), I-statement ('I felt lonely'), açılım talebi ('I'd love to know'). Sevgiyi sorgulama, bağlantı iste.",
     },
     {
-      id: "ex.pb1.6.sp1",
+      id: "ex.persb1.6.sp1",
       type: "sentence_pattern",
       difficulty: 3,
       cefr_band: "B1",
@@ -2746,7 +2746,7 @@ export const personalB1Lesson_6: BundledLesson = {
       example_filled: "When I didn't hear from you yesterday, I felt a bit lonely.",
     },
     {
-      id: "ex.pb1.6.dg1",
+      id: "ex.persb1.6.dg1",
       type: "dialogue_gap",
       difficulty: 3,
       turns: [
@@ -2765,7 +2765,7 @@ export const personalB1Lesson_6: BundledLesson = {
       ideal_answer: "Honestly, I've been missing you more this week.",
     },
     {
-      id: "ex.pb1.6.lr1",
+      id: "ex.persb1.6.lr1",
       type: "listen_respond",
       difficulty: 3,
       npc_line: "I miss you so much.",
@@ -2781,7 +2781,7 @@ export const personalB1Lesson_6: BundledLesson = {
       ideal_response: "I miss you too — I'm counting down the days.",
     },
     {
-      id: "ex.pb1.6.tt1",
+      id: "ex.persb1.6.tt1",
       type: "thinking_trap",
       difficulty: 3,
       tr_thought: "Niye aramadın?",
@@ -2791,7 +2791,7 @@ export const personalB1Lesson_6: BundledLesson = {
         "Türk öğrenci hem soru yapısını ('Why didn't you call') hem duygu çerçevesini (saldırı yerine I-statement) bozar. Doğru: spesifik gözlem + 'I felt'. Saldırı değil paylaşım.",
     },
     {
-      id: "ex.pb1.6.rq1",
+      id: "ex.persb1.6.rq1",
       type: "recall_quiz",
       items: [
         {
@@ -2997,7 +2997,7 @@ export const personalB1Lesson_7: BundledLesson = {
   example_tr: "Belki işine yarar, yeni mahalleyi çok seveceksin.",
 },
     {
-      id: "ex.pb1.7.1",
+      id: "ex.persb1.7.1",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -3007,7 +3007,7 @@ export const personalB1Lesson_7: BundledLesson = {
       example_tr: "Söylediğini düşünüyorum — büyük kısmında haklıydın.",
     },
     {
-      id: "ex.pb1.7.2",
+      id: "ex.persb1.7.2",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -3017,7 +3017,7 @@ export const personalB1Lesson_7: BundledLesson = {
       example_tr: "Sözünü ortasında kesmem — bu bende. Daha iyisini yapacağım.",
     },
     {
-      id: "ex.pb1.7.3",
+      id: "ex.persb1.7.3",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -3033,7 +3033,7 @@ export const personalB1Lesson_7: BundledLesson = {
         "Defensive = savunmaya geçmek. Yetişkin: 'I shouldn't have gotten defensive' = kendi tepkini sahiplen.",
     },
     {
-      id: "ex.pb1.7.4",
+      id: "ex.persb1.7.4",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -3048,7 +3048,7 @@ export const personalB1Lesson_7: BundledLesson = {
         "'Excuse vs explain' = mazur göstermek vs açıklamak. Sınırı net çiz.",
     },
     {
-      id: "ex.pb1.7.5",
+      id: "ex.persb1.7.5",
       type: "fill_blank",
       difficulty: 3,
       sentence_template: "Can we ___ back to last night? I want to do that conversation properly.",
@@ -3058,7 +3058,7 @@ export const personalB1Lesson_7: BundledLesson = {
         "'Circle back' = geri dönmek (bir konuya). Yetişkin profesyonel-flörtöz kalıp.",
     },
     {
-      id: "ex.pb1.7.6",
+      id: "ex.persb1.7.6",
       type: "spot_mistake",
       difficulty: 4,
       incorrect_sentence: "I'm sorry but you also did wrong things.",
@@ -3068,7 +3068,7 @@ export const personalB1Lesson_7: BundledLesson = {
         "'Sorry but X' = özür değil, mazeret. Yetişkin: kendi payınla başla, geri kalanı sonra. Sahiplenme sırası önemli.",
     },
     {
-      id: "ex.pb1.7.7",
+      id: "ex.persb1.7.7",
       type: "roleplay_chat",
       difficulty: 5,
       scenario_description:
@@ -3155,7 +3155,7 @@ export const personalB1Lesson_7: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.7.8",
+      id: "ex.persb1.7.8",
       type: "pronounce_phrase",
       difficulty: 4,
       phrase: "I want to own my part in this — I shouldn't have raised my voice.",
@@ -3164,7 +3164,7 @@ export const personalB1Lesson_7: BundledLesson = {
         "Onarım dili. 'Own my part' = payımı kabul et. 'Shouldn't have raised my voice' = ses yükseltmemeliydim.",
     },
     {
-      id: "ex.pb1.7.9",
+      id: "ex.persb1.7.9",
       type: "speech_shadowing",
       difficulty: 4,
       native_text:
@@ -3174,7 +3174,7 @@ export const personalB1Lesson_7: BundledLesson = {
         "Olgun onarım. 'Wasn't fair' = adil değildi. 'Doubling down' = inatlaşmak. 'Repair attempt' anahtar terim.",
     },
     {
-      id: "ex.pb1.7.10",
+      id: "ex.persb1.7.10",
       type: "listen_and_transcribe",
       difficulty: 4,
       audio_text:
@@ -3185,7 +3185,7 @@ export const personalB1Lesson_7: BundledLesson = {
         "Örüntü adlandırma. 'Conflict pattern around money' = para etrafında tartışma örüntüsü.",
     },
     {
-      id: "ex.pb1.7.11",
+      id: "ex.persb1.7.11",
       type: "vocab_tile",
       cefr_band: "B2",
       difficulty: 4,
@@ -3197,7 +3197,7 @@ export const personalB1Lesson_7: BundledLesson = {
         "Bütün gece bekletmek yerine daha erken bir onarım girişimi yapmalıydım.",
     },
     {
-      id: "ex.pb1.7.12",
+      id: "ex.persb1.7.12",
       type: "spot_mistake",
       difficulty: 4,
       incorrect_sentence:
@@ -3208,7 +3208,7 @@ export const personalB1Lesson_7: BundledLesson = {
         "'I'm sorry but you also' = yarı özür, sorumluluğu paylaştırma. 'Let's forget about it' = bastır, gerilimi çözmez. Sağlıklı onarım: kendi payını önce kabul et ('own my part first'), karşı tarafı dinlemeye davet et ('hear what felt off for you'). 'Don't speak this again' = 'don't talk about it again' olmalı.",
     },
     {
-      id: "ex.pb1.7.sp1",
+      id: "ex.persb1.7.sp1",
       type: "sentence_pattern",
       difficulty: 3,
       cefr_band: "B1",
@@ -3222,7 +3222,7 @@ export const personalB1Lesson_7: BundledLesson = {
       example_filled: "I want to own my part — I raised my voice and that wasn't fair.",
     },
     {
-      id: "ex.pb1.7.dg1",
+      id: "ex.persb1.7.dg1",
       type: "dialogue_gap",
       difficulty: 3,
       turns: [
@@ -3241,7 +3241,7 @@ export const personalB1Lesson_7: BundledLesson = {
       ideal_answer: "I've been thinking about it — I want to own my part. I shut down too quickly.",
     },
     {
-      id: "ex.pb1.7.lr1",
+      id: "ex.persb1.7.lr1",
       type: "listen_respond",
       difficulty: 3,
       npc_line: "I felt really hurt yesterday.",
@@ -3257,7 +3257,7 @@ export const personalB1Lesson_7: BundledLesson = {
       ideal_response: "I hear you — that makes sense given how I came across.",
     },
     {
-      id: "ex.pb1.7.tt1",
+      id: "ex.persb1.7.tt1",
       type: "thinking_trap",
       difficulty: 3,
       tr_thought: "Üzgünüm ama sen de yanlış yaptın.",
@@ -3267,7 +3267,7 @@ export const personalB1Lesson_7: BundledLesson = {
         "Türk (ve insan) refleksi suçluluk dağıtma. Olgun onarım: önce kendi kısmını sahiplen, sonra karşı tarafı dinle. Sıralama önemli.",
     },
     {
-      id: "ex.pb1.7.rq1",
+      id: "ex.persb1.7.rq1",
       type: "recall_quiz",
       items: [
         {
@@ -3473,7 +3473,7 @@ export const personalB1Lesson_8: BundledLesson = {
   example_tr: "Belki işine yarar, yeni mahalleyi çok seveceksin.",
 },
     {
-      id: "ex.pb1.8.1",
+      id: "ex.persb1.8.1",
       type: "vocab_tile",
       cefr_band: "A2",
       difficulty: 2,
@@ -3483,7 +3483,7 @@ export const personalB1Lesson_8: BundledLesson = {
       example_tr: "Seni seviyorum — ve sen önce söyledin diye demiyorum.",
     },
     {
-      id: "ex.pb1.8.2",
+      id: "ex.persb1.8.2",
       type: "vocab_tile",
       cefr_band: "A2",
       difficulty: 3,
@@ -3495,7 +3495,7 @@ export const personalB1Lesson_8: BundledLesson = {
         "Bu akşam alana ihtiyacım var — seninle ilgisi yok, sadece kendime gelmem lazım.",
     },
     {
-      id: "ex.pb1.8.3",
+      id: "ex.persb1.8.3",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -3511,7 +3511,7 @@ export const personalB1Lesson_8: BundledLesson = {
         "Net + sahiplenilmiş. Şu an söylüyorum ama yeni değil.",
     },
     {
-      id: "ex.pb1.8.4",
+      id: "ex.persb1.8.4",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -3526,7 +3526,7 @@ export const personalB1Lesson_8: BundledLesson = {
         "Bağlılık + sınır = çelişki değil, dürüstlük. Sevgi azalmadan ihtiyaç söyle.",
     },
     {
-      id: "ex.pb1.8.5",
+      id: "ex.persb1.8.5",
       type: "fill_blank",
       difficulty: 3,
       sentence_template: "Loving you doesn't mean I ___ myself in the process.",
@@ -3536,7 +3536,7 @@ export const personalB1Lesson_8: BundledLesson = {
         "'Lose yourself in someone' = kendini kaybetmek. Sağlıklı sınır cümlesi.",
     },
     {
-      id: "ex.pb1.8.6",
+      id: "ex.persb1.8.6",
       type: "spot_mistake",
       difficulty: 4,
       incorrect_sentence: "If you love me you will always say yes to me.",
@@ -3546,7 +3546,7 @@ export const personalB1Lesson_8: BundledLesson = {
         "Aşk = otomatik 'evet' değildir. Sağlıklı yetişkin: hayır deme hakkı = ilişkinin sağlamlığının göstergesi.",
     },
     {
-      id: "ex.pb1.8.7",
+      id: "ex.persb1.8.7",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
@@ -3627,7 +3627,7 @@ export const personalB1Lesson_8: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.8.8",
+      id: "ex.persb1.8.8",
       type: "pronounce_phrase",
       difficulty: 3,
       phrase: "I love you, and I still need my own time.",
@@ -3636,7 +3636,7 @@ export const personalB1Lesson_8: BundledLesson = {
         "Sevgi + sınır. 'And' yumuşak bağlaç ('but' yerine). 'My own time' = kendi zamanım. Sıcak, kararlı.",
     },
     {
-      id: "ex.pb1.8.9",
+      id: "ex.persb1.8.9",
       type: "speech_shadowing",
       difficulty: 3,
       native_text:
@@ -3646,7 +3646,7 @@ export const personalB1Lesson_8: BundledLesson = {
         "Aşk tanımı. 'Keep choosing this' = bunu seçmeye devam etmek. 'Losing myself' = kendimi kaybetmek. Olgun.",
     },
     {
-      id: "ex.pb1.8.10",
+      id: "ex.persb1.8.10",
       type: "listen_and_transcribe",
       difficulty: 3,
       audio_text:
@@ -3657,7 +3657,7 @@ export const personalB1Lesson_8: BundledLesson = {
         "Sınır iletişim cümlesi. 'Boundaries around X' = X etrafında sınırlar. 'Hope that's okay' yumuşak.",
     },
     {
-      id: "ex.pb1.8.11",
+      id: "ex.persb1.8.11",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -3669,7 +3669,7 @@ export const personalB1Lesson_8: BundledLesson = {
         "Sağlıklı sınırlar bir duvar değildir — birlikteyken daha iyi var olmamın yoludur.",
     },
     {
-      id: "ex.pb1.8.12",
+      id: "ex.persb1.8.12",
       type: "spot_mistake",
       difficulty: 3,
       incorrect_sentence:
@@ -3680,7 +3680,7 @@ export const personalB1Lesson_8: BundledLesson = {
         "'If you really love me you will not' = sevgiyi sınırlama aracı yapma. Sağlıklı: kendi duyguyu söyle ('I'll miss you'), partnerin başka ilişkilerini destekle ('I'm glad'). Sevgi sahip olmak değil, alan vermek.",
     },
     {
-      id: "ex.pb1.8.sp1",
+      id: "ex.persb1.8.sp1",
       type: "sentence_pattern",
       difficulty: 3,
       cefr_band: "B1",
@@ -3694,7 +3694,7 @@ export const personalB1Lesson_8: BundledLesson = {
       example_filled: "I love you, and I also need some space tonight.",
     },
     {
-      id: "ex.pb1.8.dg1",
+      id: "ex.persb1.8.dg1",
       type: "dialogue_gap",
       difficulty: 3,
       turns: [
@@ -3713,7 +3713,7 @@ export const personalB1Lesson_8: BundledLesson = {
       ideal_answer: "I love you too — and I'm so grateful for you.",
     },
     {
-      id: "ex.pb1.8.lr1",
+      id: "ex.persb1.8.lr1",
       type: "listen_respond",
       difficulty: 3,
       npc_line: "Can we spend the whole weekend together?",
@@ -3729,7 +3729,7 @@ export const personalB1Lesson_8: BundledLesson = {
       ideal_response: "I'd love most of it — and I also need some alone time on Sunday.",
     },
     {
-      id: "ex.pb1.8.tt1",
+      id: "ex.persb1.8.tt1",
       type: "thinking_trap",
       difficulty: 3,
       tr_thought: "Beni seviyorsan arkadaşlarınla gitme.",
@@ -3739,7 +3739,7 @@ export const personalB1Lesson_8: BundledLesson = {
         "Türkçede sevgiyi 'shart koşma' aracı yapma yaygın — sağlıksız. Olgun ifade: kendi duyguyu söyle + partnerinin ayrı hayatını destekle.",
     },
     {
-      id: "ex.pb1.8.rq1",
+      id: "ex.persb1.8.rq1",
       type: "recall_quiz",
       items: [
         {
@@ -3945,7 +3945,7 @@ export const personalB1Lesson_9: BundledLesson = {
   example_tr: "Belki işine yarar, yeni mahalleyi çok seveceksin.",
 },
     {
-      id: "ex.pb1.9.1",
+      id: "ex.persb1.9.1",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -3955,7 +3955,7 @@ export const personalB1Lesson_9: BundledLesson = {
       example_tr: "Bu konuyu çok düşündüm — ve bence ilişkiyi bitirmeliyiz.",
     },
     {
-      id: "ex.pb1.9.2",
+      id: "ex.persb1.9.2",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -3967,7 +3967,7 @@ export const personalB1Lesson_9: BundledLesson = {
         "Şunu netleştireyim — bu, ileride yeniden bir araya gelmekle ilgili bir konuşma değil.",
     },
     {
-      id: "ex.pb1.9.3",
+      id: "ex.persb1.9.3",
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
@@ -3983,7 +3983,7 @@ export const personalB1Lesson_9: BundledLesson = {
         "Saygı + neden yüz yüze. Yetişkin ayrılığın temel taşı.",
     },
     {
-      id: "ex.pb1.9.4",
+      id: "ex.persb1.9.4",
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
@@ -3998,7 +3998,7 @@ export const personalB1Lesson_9: BundledLesson = {
         "Kişiyi değil ilişkiyi sonlandır. 'Not a good fit / not aligned' = yargısız sebep.",
     },
     {
-      id: "ex.pb1.9.5",
+      id: "ex.persb1.9.5",
       type: "fill_blank",
       difficulty: 3,
       sentence_template: "I'd rather we both walk away with our ___ intact.",
@@ -4008,7 +4008,7 @@ export const personalB1Lesson_9: BundledLesson = {
         "'Walk away with dignity intact' = onurla ayrılmak. Saygılı ayrılığın simgesi.",
     },
     {
-      id: "ex.pb1.9.6",
+      id: "ex.persb1.9.6",
       type: "spot_mistake",
       difficulty: 4,
       incorrect_sentence:
@@ -4019,7 +4019,7 @@ export const personalB1Lesson_9: BundledLesson = {
         "Belirsizlik = en zararlı ayrılık türü. 'Maybe friends, maybe try again' = ikinizi de kapana sıkıştırır. Yetişkin: net mesafe.",
     },
     {
-      id: "ex.pb1.9.7",
+      id: "ex.persb1.9.7",
       type: "roleplay_chat",
       difficulty: 5,
       scenario_description:
@@ -4107,7 +4107,7 @@ export const personalB1Lesson_9: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.9.8",
+      id: "ex.persb1.9.8",
       type: "pronounce_phrase",
       difficulty: 4,
       phrase: "I've thought about this a lot, and I want to be honest with you.",
@@ -4116,7 +4116,7 @@ export const personalB1Lesson_9: BundledLesson = {
         "Ayrılık girişi. 'Thought about this a lot' = bunu çok düşündüm. Sakin, ölçülü, içten.",
     },
     {
-      id: "ex.pb1.9.9",
+      id: "ex.persb1.9.9",
       type: "speech_shadowing",
       difficulty: 4,
       native_text:
@@ -4126,7 +4126,7 @@ export const personalB1Lesson_9: BundledLesson = {
         "Ayrılık dili. 'Conflict pattern around the future' = gelecek etrafında tartışma örüntüsü. 'Want different things' = farklı şeyler istemek.",
     },
     {
-      id: "ex.pb1.9.10",
+      id: "ex.persb1.9.10",
       type: "listen_and_transcribe",
       difficulty: 4,
       audio_text:
@@ -4137,7 +4137,7 @@ export const personalB1Lesson_9: BundledLesson = {
         "Olgun ayrılık cümlesi. 'Care about you' = sana değer veriyorum. 'Not lightly' = hafife almıyorum.",
     },
     {
-      id: "ex.pb1.9.11",
+      id: "ex.persb1.9.11",
       type: "vocab_tile",
       cefr_band: "B2",
       difficulty: 4,
@@ -4149,7 +4149,7 @@ export const personalB1Lesson_9: BundledLesson = {
         "Bağlanma etrafında bir tartışma örüntümüz var ve bunu onaramayız bence — bu ikimizin de suçu değil.",
     },
     {
-      id: "ex.pb1.9.12",
+      id: "ex.persb1.9.12",
       type: "spot_mistake",
       difficulty: 4,
       incorrect_sentence:
@@ -4160,7 +4160,7 @@ export const personalB1Lesson_9: BundledLesson = {
         "'You ruined everything' + 'you are toxic' = etiketleme, suçlama. Olgun ayrılık: 'we don't work together' (denklik), 'not fair to either of us' (ortak iyilik), 'not blaming you' (sorumluluk paylaşımı reddi değil, suçlama reddi).",
     },
     {
-      id: "ex.pb1.9.sp1",
+      id: "ex.persb1.9.sp1",
       type: "sentence_pattern",
       difficulty: 3,
       cefr_band: "B1",
@@ -4174,7 +4174,7 @@ export const personalB1Lesson_9: BundledLesson = {
       example_filled: "I don't think we work together — and this isn't fair to either of us.",
     },
     {
-      id: "ex.pb1.9.dg1",
+      id: "ex.persb1.9.dg1",
       type: "dialogue_gap",
       difficulty: 3,
       turns: [
@@ -4193,7 +4193,7 @@ export const personalB1Lesson_9: BundledLesson = {
       ideal_answer: "I've been sitting with this, and I don't think we work together anymore.",
     },
     {
-      id: "ex.pb1.9.lr1",
+      id: "ex.persb1.9.lr1",
       type: "listen_respond",
       difficulty: 3,
       npc_line: "Is there anything I can do to change your mind?",
@@ -4209,7 +4209,7 @@ export const personalB1Lesson_9: BundledLesson = {
       ideal_response: "It's not about something to fix — I've thought about this a lot.",
     },
     {
-      id: "ex.pb1.9.tt1",
+      id: "ex.persb1.9.tt1",
       type: "thinking_trap",
       difficulty: 3,
       tr_thought: "Sen toksiksin, ayrılıyorum.",
@@ -4219,7 +4219,7 @@ export const personalB1Lesson_9: BundledLesson = {
         "Türk öğrenci etiket kullanır: 'toxic', 'bad'. Olgun ayrılık: 'we' (denklik), 'don't work' (durum), 'not blaming' (suçsuzluk). Etiket ilişkiyi tek taraflı yapar.",
     },
     {
-      id: "ex.pb1.9.rq1",
+      id: "ex.persb1.9.rq1",
       type: "recall_quiz",
       items: [
         {
@@ -4425,7 +4425,7 @@ export const personalB1Lesson_10: BundledLesson = {
   example_tr: "Belki işine yarar, yeni mahalleyi çok seveceksin.",
 },
     {
-      id: "ex.pb1.10.1",
+      id: "ex.persb1.10.1",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -4436,7 +4436,7 @@ export const personalB1Lesson_10: BundledLesson = {
         "Şimdi nasıl etkilediğini görüyorum — senin günün hakkında hiç düşünmemişim.",
     },
     {
-      id: "ex.pb1.10.2",
+      id: "ex.persb1.10.2",
       type: "vocab_tile",
       cefr_band: "A1",
       difficulty: 3,
@@ -4447,7 +4447,7 @@ export const personalB1Lesson_10: BundledLesson = {
         "İşte farklı yapacağım şey — karar vermeden önce yazacağım, sonra değil.",
     },
     {
-      id: "ex.pb1.10.3",
+      id: "ex.persb1.10.3",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -4463,7 +4463,7 @@ export const personalB1Lesson_10: BundledLesson = {
         "Tek kelimelik özürün yetmediğini kabul. 'Owe' = borçlu olmak (manen).",
     },
     {
-      id: "ex.pb1.10.4",
+      id: "ex.persb1.10.4",
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
@@ -4479,7 +4479,7 @@ export const personalB1Lesson_10: BundledLesson = {
         "'Take ownership / own this' = sahiplenmek. Bahane reddi netliği = yetişkin.",
     },
     {
-      id: "ex.pb1.10.5",
+      id: "ex.persb1.10.5",
       type: "fill_blank",
       difficulty: 3,
       sentence_template: "I want to ___ this right, not just smooth it over.",
@@ -4489,7 +4489,7 @@ export const personalB1Lesson_10: BundledLesson = {
         "'Make it right' = telafi etmek. Sabit kalıp. 'Smooth over' = göstermelik kapatmak.",
     },
     {
-      id: "ex.pb1.10.6",
+      id: "ex.persb1.10.6",
       type: "spot_mistake",
       difficulty: 4,
       incorrect_sentence:
@@ -4500,7 +4500,7 @@ export const personalB1Lesson_10: BundledLesson = {
         "'Sorry IF you felt' = pasif özür, suçu mağdura yıkar. Yetişkin: 'Sorry I [spesifik eylem] — I see how that hurt' = sahiplen + duygunun gerçekliğini kabul.",
     },
     {
-      id: "ex.pb1.10.7",
+      id: "ex.persb1.10.7",
       type: "pronounce_phrase",
       difficulty: 3,
       phrase: "I see now how that landed — and I'm sorry.",
@@ -4508,7 +4508,7 @@ export const personalB1Lesson_10: BundledLesson = {
         "Yavaş, gerçekten. 'Landed' = etki etmek (bir sözün/eylemin). Vurgu: 'see' ve 'landed'.",
     },
     {
-      id: "ex.pb1.10.8",
+      id: "ex.persb1.10.8",
       type: "roleplay_chat",
       difficulty: 5,
       scenario_description:
@@ -4616,7 +4616,7 @@ export const personalB1Lesson_10: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.10.9",
+      id: "ex.persb1.10.9",
       type: "pronounce_phrase",
       difficulty: 4,
       phrase: "I'm sorry — I want to own my part before anything else.",
@@ -4625,7 +4625,7 @@ export const personalB1Lesson_10: BundledLesson = {
         "Onarım açılışı. 'Own my part' = payımı kabul et. 'Before anything else' = her şeyden önce. Olgun, savunmasız.",
     },
     {
-      id: "ex.pb1.10.10",
+      id: "ex.persb1.10.10",
       type: "speech_shadowing",
       difficulty: 4,
       native_text:
@@ -4635,7 +4635,7 @@ export const personalB1Lesson_10: BundledLesson = {
         "Onarım niyeti. 'Real repair attempt' = gerçek onarım girişimi. 'Just say sorry and move on' = sadece özür dileyip geçmek. Niyet farkı.",
     },
     {
-      id: "ex.pb1.10.11",
+      id: "ex.persb1.10.11",
       type: "listen_and_transcribe",
       difficulty: 4,
       audio_text:
@@ -4646,7 +4646,7 @@ export const personalB1Lesson_10: BundledLesson = {
         "Olgun değişim sözü. 'Do my work on it' = üzerinde gerçek emek vermek. 'Not just promise' = sadece söz değil.",
     },
     {
-      id: "ex.pb1.10.12",
+      id: "ex.persb1.10.12",
       type: "vocab_tile",
       cefr_band: "B2",
       difficulty: 4,
@@ -4658,7 +4658,7 @@ export const personalB1Lesson_10: BundledLesson = {
         "Yatakta kahve getirmem konuşmayı atlamak için değildi — ne diyeceğimi düşünürken bir onarım girişimiydi.",
     },
     {
-      id: "ex.pb1.10.13",
+      id: "ex.persb1.10.13",
       type: "spot_mistake",
       difficulty: 4,
       incorrect_sentence:
@@ -4669,7 +4669,7 @@ export const personalB1Lesson_10: BundledLesson = {
         "'Sorry IF you felt' = koşullu özür (gerçek özür değil). 'You started it first' = sorumluluk pas verme. Sağlıklı: koşulsuz özür ('I raised my voice'), kendi davranışını adlandır ('wasn't fair'), sahiplen ('own that').",
     },
     {
-      id: "ex.pb1.10.sp1",
+      id: "ex.persb1.10.sp1",
       type: "sentence_pattern",
       difficulty: 3,
       cefr_band: "B1",
@@ -4683,7 +4683,7 @@ export const personalB1Lesson_10: BundledLesson = {
       example_filled: "I'm sorry — I raised my voice, and that wasn't fair.",
     },
     {
-      id: "ex.pb1.10.dg1",
+      id: "ex.persb1.10.dg1",
       type: "dialogue_gap",
       difficulty: 3,
       turns: [
@@ -4702,7 +4702,7 @@ export const personalB1Lesson_10: BundledLesson = {
       ideal_answer: "I'm really sorry — I shouldn't have raised my voice. That wasn't fair to you.",
     },
     {
-      id: "ex.pb1.10.lr1",
+      id: "ex.persb1.10.lr1",
       type: "listen_respond",
       difficulty: 3,
       npc_line: "Will you actually change, or are we just going to repeat this?",
@@ -4718,7 +4718,7 @@ export const personalB1Lesson_10: BundledLesson = {
       ideal_response: "I hear the doubt — I'm going to work on this, starting now.",
     },
     {
-      id: "ex.pb1.10.tt1",
+      id: "ex.persb1.10.tt1",
       type: "thinking_trap",
       difficulty: 3,
       tr_thought: "Üzgünüm, ama sen başlattın.",
@@ -4728,7 +4728,7 @@ export const personalB1Lesson_10: BundledLesson = {
         "Türk (ve genelde insan) refleksi 'sorry but...' — 'but'tan sonra suç paslama. Gerçek özür koşulsuz. 'But' sözcüğü özrü siler.",
     },
     {
-      id: "ex.pb1.10.rq1",
+      id: "ex.persb1.10.rq1",
       type: "recall_quiz",
       items: [
         {
@@ -4934,7 +4934,7 @@ export const personalB1Lesson_11: BundledLesson = {
   example_tr: "Belki işine yarar, yeni mahalleyi çok seveceksin.",
 },
     {
-      id: "ex.pb1.11.1",
+      id: "ex.persb1.11.1",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -4944,7 +4944,7 @@ export const personalB1Lesson_11: BundledLesson = {
       example_tr: "Hedefim ayda bir kitap okumak — abartısız, sadece istikrarlı.",
     },
     {
-      id: "ex.pb1.11.2",
+      id: "ex.persb1.11.2",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -4961,7 +4961,7 @@ export const personalB1Lesson_11: BundledLesson = {
         "'This year I want to + base' = klasik kalıp. 'Make time for' = vakit ayırmak. Self-care imalı.",
     },
     {
-      id: "ex.pb1.11.3",
+      id: "ex.persb1.11.3",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -4977,7 +4977,7 @@ export const personalB1Lesson_11: BundledLesson = {
         "'Going to + base' = niyet planı. 'I make sport' YANLIŞ — 'work out / exercise / start working out' doğru.",
     },
     {
-      id: "ex.pb1.11.4",
+      id: "ex.persb1.11.4",
       type: "fill_blank",
       difficulty: 3,
       sentence_template: "I've ___ smoking for three weeks now — slow but real.",
@@ -4987,7 +4987,7 @@ export const personalB1Lesson_11: BundledLesson = {
         "Present perfect + 'quit smoking' = sigarayı bıraktım. 'Stopped to smoke' = sigara içmek için durdum (yanlış anlam). 'Left smoking' = anlamsız.",
     },
     {
-      id: "ex.pb1.11.5",
+      id: "ex.persb1.11.5",
       type: "word_order",
       difficulty: 3,
       scrambled_tokens: [
@@ -5005,7 +5005,7 @@ export const personalB1Lesson_11: BundledLesson = {
       tr_translation: "Bu yıl kendime daha nazik olacağım.",
     },
     {
-      id: "ex.pb1.11.6",
+      id: "ex.persb1.11.6",
       type: "spot_mistake",
       difficulty: 3,
       incorrect_sentence: "I will lose 10 kilos and read 50 books and learn guitar this year.",
@@ -5015,7 +5015,7 @@ export const personalB1Lesson_11: BundledLesson = {
         "Üç hedefi aynı anda 'I will' ile söz vermek = gerçekçi değil, klişe. Yetişkin yaklaşım: 'I want to focus on one thing' = tek hedef, somut sıklık ('three times a week'). 'I will + kocaman söz' yerine 'I want to / going to + ufak adım'.",
     },
     {
-      id: "ex.pb1.11.7",
+      id: "ex.persb1.11.7",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
@@ -5095,7 +5095,7 @@ export const personalB1Lesson_11: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.11.8",
+      id: "ex.persb1.11.8",
       type: "recap_quiz",
       difficulty: 3,
       questions: [
@@ -5138,7 +5138,7 @@ export const personalB1Lesson_11: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.11.9",
+      id: "ex.persb1.11.9",
       type: "pronounce_phrase",
       difficulty: 3,
       phrase: "My goal is to be kinder to myself this year.",
@@ -5147,7 +5147,7 @@ export const personalB1Lesson_11: BundledLesson = {
         "Sakin, kararlı. 'Kinder to myself' bağlanır. Cümle baskısız — bir söz verir gibi değil, tanıtır gibi.",
     },
     {
-      id: "ex.pb1.11.sp1",
+      id: "ex.persb1.11.sp1",
       type: "sentence_pattern",
       difficulty: 3,
       cefr_band: "B1",
@@ -5161,7 +5161,7 @@ export const personalB1Lesson_11: BundledLesson = {
       example_filled: "My goal this year is to read more books.",
     },
     {
-      id: "ex.pb1.11.dg1",
+      id: "ex.persb1.11.dg1",
       type: "dialogue_gap",
       difficulty: 3,
       turns: [
@@ -5180,7 +5180,7 @@ export const personalB1Lesson_11: BundledLesson = {
       ideal_answer: "My goal this year is to be kinder to myself.",
     },
     {
-      id: "ex.pb1.11.lr1",
+      id: "ex.persb1.11.lr1",
       type: "listen_respond",
       difficulty: 3,
       npc_line: "How are you planning to actually do that?",
@@ -5196,7 +5196,7 @@ export const personalB1Lesson_11: BundledLesson = {
       ideal_response: "I'm going to start small — maybe twice a week.",
     },
     {
-      id: "ex.pb1.11.tt1",
+      id: "ex.persb1.11.tt1",
       type: "thinking_trap",
       difficulty: 3,
       tr_thought: "Bu yıl daha çok okumalıyım.",
@@ -5206,7 +5206,7 @@ export const personalB1Lesson_11: BundledLesson = {
         "Türk öğrenci 'should/must' kullanır — suçlulukla yüklü. İngilizcede 'goal/plan/want' daha olgun: 'My goal is to + base verb.' Pozitif çerçeve.",
     },
     {
-      id: "ex.pb1.11.rq1",
+      id: "ex.persb1.11.rq1",
       type: "recall_quiz",
       items: [
         {
@@ -5412,7 +5412,7 @@ export const personalB1Lesson_12: BundledLesson = {
   example_tr: "Belki işine yarar, yeni mahalleyi çok seveceksin.",
 },
     {
-      id: "ex.pb1.12.1",
+      id: "ex.persb1.12.1",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -5423,7 +5423,7 @@ export const personalB1Lesson_12: BundledLesson = {
         "Bu hafta sonu biraz kendime vakte ihtiyacım var — kişisel değil, sadece tankım boşaldı.",
     },
     {
-      id: "ex.pb1.12.2",
+      id: "ex.persb1.12.2",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -5434,7 +5434,7 @@ export const personalB1Lesson_12: BundledLesson = {
         "Tükenmişliğe yaklaşmıştım — bu sefer gerçekten dinlenmem gerek.",
     },
     {
-      id: "ex.pb1.12.3",
+      id: "ex.persb1.12.3",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -5451,7 +5451,7 @@ export const personalB1Lesson_12: BundledLesson = {
         "'Take a break from + noun' = -den mola almak. Present continuous = bu hafta süren plan.",
     },
     {
-      id: "ex.pb1.12.4",
+      id: "ex.persb1.12.4",
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
@@ -5467,7 +5467,7 @@ export const personalB1Lesson_12: BundledLesson = {
         "Sınır + güvence. 'Make it' = gelmek (informel). 'Need some space / need to breathe' = nefes alanı.",
     },
     {
-      id: "ex.pb1.12.5",
+      id: "ex.persb1.12.5",
       type: "fill_blank",
       difficulty: 3,
       sentence_template: "I'm trying to set better ___ around work hours after seven.",
@@ -5477,7 +5477,7 @@ export const personalB1Lesson_12: BundledLesson = {
         "İlişkisel/iş sınırları için 'boundaries' standart. 'Limits' fiziksel sınır; 'borders/frontiers' ülke sınırı.",
     },
     {
-      id: "ex.pb1.12.6",
+      id: "ex.persb1.12.6",
       type: "word_order",
       difficulty: 3,
       scrambled_tokens: [
@@ -5494,7 +5494,7 @@ export const personalB1Lesson_12: BundledLesson = {
       tr_translation: "Bu gece gerçekten dinlenmek için erken bağlantıyı kesiyorum.",
     },
     {
-      id: "ex.pb1.12.7",
+      id: "ex.persb1.12.7",
       type: "spot_mistake",
       difficulty: 4,
       incorrect_sentence:
@@ -5505,7 +5505,7 @@ export const personalB1Lesson_12: BundledLesson = {
         "Yığın özür ('sorry...busy...tired') = suçluluk + belirsiz. Yetişkin sınır: net 'I can't', kısa gerçek sebep ('running on empty'), somut alternatif ('next week?'). 'Maybe' boş — somut gün öner.",
     },
     {
-      id: "ex.pb1.12.8",
+      id: "ex.persb1.12.8",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
@@ -5596,7 +5596,7 @@ export const personalB1Lesson_12: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.12.9",
+      id: "ex.persb1.12.9",
       type: "recap_quiz",
       difficulty: 3,
       questions: [
@@ -5634,7 +5634,7 @@ export const personalB1Lesson_12: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.12.10",
+      id: "ex.persb1.12.10",
       type: "pronounce_phrase",
       difficulty: 3,
       phrase: "I'm taking a break from social media this week.",
@@ -5643,7 +5643,7 @@ export const personalB1Lesson_12: BundledLesson = {
         "'Taking a break' bağlı — 'tey-kın-ı-breyk'. 'Social media' = 'soʊ-şıl-miː-di-ə'. Sakin, savunmasız.",
     },
     {
-      id: "ex.pb1.12.sp1",
+      id: "ex.persb1.12.sp1",
       type: "sentence_pattern",
       difficulty: 3,
       cefr_band: "B1",
@@ -5657,7 +5657,7 @@ export const personalB1Lesson_12: BundledLesson = {
       example_filled: "I'm taking a break from social media this week.",
     },
     {
-      id: "ex.pb1.12.dg1",
+      id: "ex.persb1.12.dg1",
       type: "dialogue_gap",
       difficulty: 3,
       turns: [
@@ -5676,7 +5676,7 @@ export const personalB1Lesson_12: BundledLesson = {
       ideal_answer: "Honestly, I've been burned out — I'm taking some time off.",
     },
     {
-      id: "ex.pb1.12.lr1",
+      id: "ex.persb1.12.lr1",
       type: "listen_respond",
       difficulty: 3,
       npc_line: "Can you cover for me this weekend?",
@@ -5692,7 +5692,7 @@ export const personalB1Lesson_12: BundledLesson = {
       ideal_response: "I'd love to, but I'm already stretched thin this weekend.",
     },
     {
-      id: "ex.pb1.12.tt1",
+      id: "ex.persb1.12.tt1",
       type: "thinking_trap",
       difficulty: 3,
       tr_thought: "Hayır diyemem (suçluluk duyarım).",
@@ -5702,7 +5702,7 @@ export const personalB1Lesson_12: BundledLesson = {
         "Türk öğrenci suçluluk hisseder, 'evet' der ama içten içe öfkelidir — sağlıksız. Doğru sınır: nazik + net 'no'. Açıklama gerekmiyor.",
     },
     {
-      id: "ex.pb1.12.rq1",
+      id: "ex.persb1.12.rq1",
       type: "recall_quiz",
       items: [
         {
@@ -5908,7 +5908,7 @@ export const personalB1Lesson_13: BundledLesson = {
   example_tr: "Belki işine yarar, yeni mahalleyi çok seveceksin.",
 },
     {
-      id: "ex.pb1.13.1",
+      id: "ex.persb1.13.1",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -5919,7 +5919,7 @@ export const personalB1Lesson_13: BundledLesson = {
         "Çömlekçilikle ilgilenmeye başladım — tamamen acemiyim ama bayılıyorum.",
     },
     {
-      id: "ex.pb1.13.2",
+      id: "ex.persb1.13.2",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -5930,7 +5930,7 @@ export const personalB1Lesson_13: BundledLesson = {
         "Yaratıcı bir çıkış oldu — ekran dışı bir şeye ihtiyacım vardı.",
     },
     {
-      id: "ex.pb1.13.3",
+      id: "ex.persb1.13.3",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -5946,7 +5946,7 @@ export const personalB1Lesson_13: BundledLesson = {
         "Present perfect continuous ('I've been doing') = devam eden hobi. 'Way more X than expected' = beklediğimden çok daha X.",
     },
     {
-      id: "ex.pb1.13.4",
+      id: "ex.persb1.13.4",
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
@@ -5962,7 +5962,7 @@ export const personalB1Lesson_13: BundledLesson = {
         "Yetişkin hobi felsefesi — başarı baskısı yok. 'To be good at + noun' kalıbı.",
     },
     {
-      id: "ex.pb1.13.5",
+      id: "ex.persb1.13.5",
       type: "fill_blank",
       difficulty: 3,
       sentence_template: "I picked ___ guitar again after maybe ten years off.",
@@ -5972,7 +5972,7 @@ export const personalB1Lesson_13: BundledLesson = {
         "'Pick up + noun' = bir hobiye/aktiviteye (yeniden) başlamak. 'Pick on' = sataşmak (farklı anlam).",
     },
     {
-      id: "ex.pb1.13.6",
+      id: "ex.persb1.13.6",
       type: "word_order",
       difficulty: 3,
       scrambled_tokens: [
@@ -5990,7 +5990,7 @@ export const personalB1Lesson_13: BundledLesson = {
       tr_translation: "Benim için gerçekten iyi bir yaratıcı çıkış oldu.",
     },
     {
-      id: "ex.pb1.13.7",
+      id: "ex.persb1.13.7",
       type: "spot_mistake",
       difficulty: 3,
       incorrect_sentence: "I started to make new hobby. I do pottery class one time every week.",
@@ -6000,7 +6000,7 @@ export const personalB1Lesson_13: BundledLesson = {
         "'Make new hobby' Türkçeden direkt çeviri (yanlış). 'Hobi yapmak' İngilizcede yok — 'pick up / get into + spesifik hobi'. 'One time every week' yerine 'once a week' (standart). Present perfect ('I've been going') = devam eden alışkanlık.",
     },
     {
-      id: "ex.pb1.13.8",
+      id: "ex.persb1.13.8",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
@@ -6091,7 +6091,7 @@ export const personalB1Lesson_13: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.13.9",
+      id: "ex.persb1.13.9",
       type: "recap_quiz",
       difficulty: 3,
       questions: [
@@ -6134,7 +6134,7 @@ export const personalB1Lesson_13: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.13.10",
+      id: "ex.persb1.13.10",
       type: "pronounce_phrase",
       difficulty: 3,
       phrase: "I've gotten into pottery — it's been a real creative outlet.",
@@ -6143,7 +6143,7 @@ export const personalB1Lesson_13: BundledLesson = {
         "'I've gotten into' bağlanır — 'ayv-gat-nin-tu'. 'Creative outlet' = 'kri-ey-tiv-aut-let'. Heyecanlı ama abartısız.",
     },
     {
-      id: "ex.pb1.13.sp1",
+      id: "ex.persb1.13.sp1",
       type: "sentence_pattern",
       difficulty: 3,
       cefr_band: "B1",
@@ -6157,7 +6157,7 @@ export const personalB1Lesson_13: BundledLesson = {
       example_filled: "I've recently gotten into pottery — it's been really fun.",
     },
     {
-      id: "ex.pb1.13.dg1",
+      id: "ex.persb1.13.dg1",
       type: "dialogue_gap",
       difficulty: 3,
       turns: [
@@ -6176,7 +6176,7 @@ export const personalB1Lesson_13: BundledLesson = {
       ideal_answer: "I've recently gotten into pottery — it's surprisingly addictive.",
     },
     {
-      id: "ex.pb1.13.lr1",
+      id: "ex.persb1.13.lr1",
       type: "listen_respond",
       difficulty: 3,
       npc_line: "How did you get started?",
@@ -6192,7 +6192,7 @@ export const personalB1Lesson_13: BundledLesson = {
       ideal_response: "A friend got me into it last spring.",
     },
     {
-      id: "ex.pb1.13.tt1",
+      id: "ex.persb1.13.tt1",
       type: "thinking_trap",
       difficulty: 3,
       tr_thought: "Yeni hobimi sevdim.",
@@ -6202,7 +6202,7 @@ export const personalB1Lesson_13: BundledLesson = {
         "Türk öğrenci 'love' kullanır — abartılı. 'I'm into + isim' = idiom: ilgileniyorum, hoşlanıyorum. Konuşma dilinde çok daha doğal.",
     },
     {
-      id: "ex.pb1.13.rq1",
+      id: "ex.persb1.13.rq1",
       type: "recall_quiz",
       items: [
         {
@@ -6408,7 +6408,7 @@ export const personalB1Lesson_14: BundledLesson = {
   example_tr: "Belki işine yarar, yeni mahalleyi çok seveceksin.",
 },
     {
-      id: "ex.pb1.14.1",
+      id: "ex.persb1.14.1",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -6419,7 +6419,7 @@ export const personalB1Lesson_14: BundledLesson = {
         "Birkaç ay önce bir terapiste gitmeye başladım — gerçekten faydalı oldu.",
     },
     {
-      id: "ex.pb1.14.2",
+      id: "ex.persb1.14.2",
       type: "vocab_tile",
       cefr_band: "B1",
       difficulty: 3,
@@ -6430,7 +6430,7 @@ export const personalB1Lesson_14: BundledLesson = {
         "Gerçekten faydalı oldu — küçük değişimler ama gerçek olanlar.",
     },
     {
-      id: "ex.pb1.14.3",
+      id: "ex.persb1.14.3",
       type: "translate",
       difficulty: 3,
       direction: "tr_to_en",
@@ -6447,7 +6447,7 @@ export const personalB1Lesson_14: BundledLesson = {
         "'I've been in therapy / seeing a therapist / doing therapy' — üçü de doğal. 'Work through' = (duygu/sorunu) çalışıp çözmek.",
     },
     {
-      id: "ex.pb1.14.4",
+      id: "ex.persb1.14.4",
       type: "translate",
       difficulty: 4,
       direction: "tr_to_en",
@@ -6463,7 +6463,7 @@ export const personalB1Lesson_14: BundledLesson = {
         "Sınır + sıcaklık. 'I'd rather not + base' = -mek istemem. 'In a good place' = duygusal olarak iyi.",
     },
     {
-      id: "ex.pb1.14.5",
+      id: "ex.persb1.14.5",
       type: "fill_blank",
       difficulty: 3,
       sentence_template: "It's just nice to have someone outside my life who I can ___ openly with.",
@@ -6473,7 +6473,7 @@ export const personalB1Lesson_14: BundledLesson = {
         "'Talk openly with someone' = biriyle açık konuşmak. 'Speak to' edat farkı; 'tell/say' yanlış kalıp (nesne ister).",
     },
     {
-      id: "ex.pb1.14.6",
+      id: "ex.persb1.14.6",
       type: "word_order",
       difficulty: 3,
       scrambled_tokens: [
@@ -6492,7 +6492,7 @@ export const personalB1Lesson_14: BundledLesson = {
       tr_translation: "Bir terapiste gidiyorum ve gerçekten faydalı oldu.",
     },
     {
-      id: "ex.pb1.14.7",
+      id: "ex.persb1.14.7",
       type: "spot_mistake",
       difficulty: 4,
       incorrect_sentence:
@@ -6503,7 +6503,7 @@ export const personalB1Lesson_14: BundledLesson = {
         "ABD/UK kültüründe terapi normal — 'crazy / secret' damgalama Türkçe refleksi. Yetişkin: utanma yok, sadece açık + sınırlı paylaşım. 'Working through some stuff' = belirsiz ama dürüst (detaya girmeden kabul). 'Psychologist' yerine 'therapist' günlük dilde daha yaygın.",
     },
     {
-      id: "ex.pb1.14.8",
+      id: "ex.persb1.14.8",
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
@@ -6594,7 +6594,7 @@ export const personalB1Lesson_14: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.14.9",
+      id: "ex.persb1.14.9",
       type: "recap_quiz",
       difficulty: 3,
       questions: [
@@ -6637,7 +6637,7 @@ export const personalB1Lesson_14: BundledLesson = {
       ],
     },
     {
-      id: "ex.pb1.14.10",
+      id: "ex.persb1.14.10",
       type: "pronounce_phrase",
       difficulty: 3,
       phrase: "I started seeing a therapist — it's been really helpful.",
@@ -6646,7 +6646,7 @@ export const personalB1Lesson_14: BundledLesson = {
         "Sakin, savunmasız. 'Therapist' = 'θɛr-ə-pɪst' (th sesi — dil dişlerin arasında). 'Really helpful' bağlı. Utançsız, doğal.",
     },
     {
-      id: "ex.pb1.14.sp1",
+      id: "ex.persb1.14.sp1",
       type: "sentence_pattern",
       difficulty: 3,
       cefr_band: "B1",
@@ -6660,7 +6660,7 @@ export const personalB1Lesson_14: BundledLesson = {
       example_filled: "I've been seeing a therapist for a while now.",
     },
     {
-      id: "ex.pb1.14.dg1",
+      id: "ex.persb1.14.dg1",
       type: "dialogue_gap",
       difficulty: 3,
       turns: [
@@ -6679,7 +6679,7 @@ export const personalB1Lesson_14: BundledLesson = {
       ideal_answer: "Honestly, I've been dealing with a lot — I started seeing a therapist.",
     },
     {
-      id: "ex.pb1.14.lr1",
+      id: "ex.persb1.14.lr1",
       type: "listen_respond",
       difficulty: 3,
       npc_line: "Is therapy actually helping?",
@@ -6695,7 +6695,7 @@ export const personalB1Lesson_14: BundledLesson = {
       ideal_response: "It really has — I'm more aware of my patterns now.",
     },
     {
-      id: "ex.pb1.14.tt1",
+      id: "ex.persb1.14.tt1",
       type: "thinking_trap",
       difficulty: 3,
       tr_thought: "Terapiye gidiyorum.",
@@ -6705,7 +6705,7 @@ export const personalB1Lesson_14: BundledLesson = {
         "Türkçede 'terapiye gitmek'i 'go therapy' yapar — kırık. Doğru: 'I'm seeing a therapist' (idiomatic) veya 'I'm going to therapy' (more literal). Native 'seeing' tercih eder.",
     },
     {
-      id: "ex.pb1.14.rq1",
+      id: "ex.persb1.14.rq1",
       type: "recall_quiz",
       items: [
         {
