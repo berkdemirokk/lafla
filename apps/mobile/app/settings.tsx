@@ -186,7 +186,12 @@ export default function SettingsScreen() {
     hapticSelection();
     setReminderHour(hour);
     if (reminderOn) {
-      // Schedule yeniden hour ile kur.
+      // 2026-05-26 (P1 audit fix) — enableDailyReminder helper'ın idempotent
+      // olup olmadığı belirsiz; eski schedule iptal edilmeden yeni eklenirse
+      // user her saat değişiminde çoklu bildirim alır. Önce explicit cancel,
+      // sonra reschedule. disableReminders cancelAll API'sini garantili
+      // tetikler.
+      await disableReminders().catch(() => {});
       await enableDailyReminder(hour);
     }
   };

@@ -212,11 +212,19 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
       return;
     }
 
-    setStage("listening");
-
+    // 2026-05-26 (P0 audit fix) — setStage("listening") buradan kaldırıldı.
+    // sr.startListening'in içinde onError SYNC tetiklenirse (permission
+    // denied, modül yok) React 18 batching sırasında "listening" set'i
+    // onError'ın "idle" set'inden sonra commit olabiliyordu → stage
+    // sonsuza dek "listening" pulse'ında kilitleniyordu. Çözüm: ilk gerçek
+    // interim event'inde set et — native modül gerçekten "dinliyor"
+    // sinyalini verdiğinde UI da o duruma geçer.
     await sr.startListening({
       lang: "en-US",
       onResult: (text, isFinal) => {
+        // İlk interim sinyalinde stage'i "listening"e taşı. Final'a kadar
+        // tekrar set edilmesi React no-op.
+        if (!gradedThisSession.current) setStage("listening");
         if (!isFinal) return;
         if (gradedThisSession.current) return;
         gradedThisSession.current = true;

@@ -175,9 +175,14 @@ export async function trackEvent(
   props?: EventProps,
 ): Promise<void> {
   devLog("track", event, props);
-  if (optedOut) return;
+  // 2026-05-26 (P1 audit fix) — Race: initAnalytics async, optedOut başlangıçta
+  // false. trackEvent init bitmeden çağrılırsa client null ama optedOut da
+  // false → no-op (intended). Asıl risk: client kuruluyken (initInProgress)
+  // capture'a hazır olmayabilir. Defansif client check yeterli — client null
+  // ise hiçbir şey yapma.
+  if (optedOut || !client) return;
   try {
-    client?.capture(event, props);
+    client.capture(event, props);
   } catch {
     // swallow
   }

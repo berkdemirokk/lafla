@@ -27,6 +27,7 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Animated, {
   Easing,
+  cancelAnimation,
   useAnimatedStyle,
   useSharedValue,
   withDelay,
@@ -100,6 +101,11 @@ export function StreakMilestoneModal({ visible, streakDays, onClose }: Props) {
   const copy = copyFor(streakDays);
   const shareCardRef = useRef<View | null>(null);
   const [sharing, setSharing] = useState(false);
+  // 2026-05-26 (P1 audit fix) — Parent re-render'da visible=true ve aynı
+  // streakDays ile effect tekrar fire ederse hapticSuccess + analytics
+  // event de re-emit oluyordu. firedRef streak+visible combo'su için
+  // idempotency garantiler; visible=false olunca reset.
+  const firedRef = useRef<number | null>(null);
 
   // Halo nabız — slow breath
   const haloPulse = useSharedValue(0);
@@ -115,6 +121,9 @@ export function StreakMilestoneModal({ visible, streakDays, onClose }: Props) {
 
   useEffect(() => {
     if (!visible) {
+      // 2026-05-26 (P1 audit fix) — withRepeat infinite loop scheduler'ı
+      // value reset etmek yetmiyor; cancelAnimation ile worklet de iptal.
+      cancelAnimation(haloPulse);
       haloPulse.value = 0;
       numberScale.value = 0.6;
       numberOpacity.value = 0;
@@ -122,6 +131,9 @@ export function StreakMilestoneModal({ visible, streakDays, onClose }: Props) {
       titleTranslate.value = 12;
       subtitleOpacity.value = 0;
       ctaOpacity.value = 0;
+      // 2026-05-26 — Modal kapanınca firedRef'i sıfırla; aynı streakDays
+      // ile tekrar açılırsa haptic+event yeniden fire etsin.
+      firedRef.current = null;
       return;
     }
     // Halo loop
@@ -159,15 +171,20 @@ export function StreakMilestoneModal({ visible, streakDays, onClose }: Props) {
       withTiming(1, { duration: 380, easing: Easing.out(Easing.cubic) }),
     );
 
-    // Success haptic at mount — hapticSuccess() void döner, await/catch yok.
-    try {
-      hapticSuccess();
-    } catch {
-      // ignore
+    // 2026-05-26 (P1 audit fix) — haptic + analytics idempotency. Parent
+    // re-render'da visible=true sabit kalsa bile aynı streak için tek bir
+    // hapticSuccess ve tek event emitted olur.
+    if (firedRef.current !== streakDays) {
+      firedRef.current = streakDays;
+      try {
+        hapticSuccess();
+      } catch {
+        // ignore
+      }
+      void trackEvent("streak_milestone_modal_shown", {
+        streak_days: streakDays,
+      }).catch(() => {});
     }
-    void trackEvent("streak_milestone_modal_shown", {
-      streak_days: streakDays,
-    }).catch(() => {});
   }, [
     visible,
     streakDays,

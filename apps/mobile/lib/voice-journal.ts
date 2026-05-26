@@ -109,10 +109,14 @@ async function writeIndex(list: VoiceEntry[]): Promise<void> {
 /**
  * Yeni bir kayıt için kullanılacak dosya URI'sini hazırlar. Recording
  * başlamadan ÖNCE çağrılır (expo-av Recording API'sının istediği şekil).
+ *
+ * 2026-05-26 (P0 audit fix) — Date.now() tek başına aynı ms'de iki kayıt
+ * başlatıldığında çakışıyordu (yeni dosya eskisini eziyor → data loss).
+ * Random suffix ile collision olasılığı pratik olarak 0'a iner.
  */
 export async function preparePath(): Promise<string> {
   await ensureDir();
-  const id = `${Date.now()}`;
+  const id = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
   return `${getDirUri()}entry-${id}.m4a`;
 }
 
@@ -127,8 +131,11 @@ export async function saveEntry(args: {
   note?: string;
 }): Promise<VoiceEntry> {
   const list = await readIndex();
+  // 2026-05-26 (P0 audit fix) — id de aynı collision riskini taşıyordu;
+  // preparePath'le aynı pattern kullan, AsyncStorage indeksinde tekil
+  // anahtar garanti et.
   const entry: VoiceEntry = {
-    id: `${Date.now()}`,
+    id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     uri: args.uri,
     recordedAt: new Date().toISOString(),
     durationMs: args.durationMs,

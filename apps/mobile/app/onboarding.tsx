@@ -336,11 +336,18 @@ export default function Onboarding() {
 
   const handleInterestsSkip = async () => {
     hapticSelection();
-    // Atlayan kullanıcının tercihi boş listedir — sahneler genel havuzdan gelir.
-    await setInterests([]).catch(() => {});
-    void trackEvent("onboarding_step_skipped", { step: "interests" }).catch(
-      () => {},
-    );
+    // 2026-05-26 (P1 audit fix) — Eski versiyon boş array yazıyordu, ama
+    // today.tsx `interests.length > 0` kontrolü ile filter atlıyor →
+    // daily-exclusive ve surprise scene null dönüyor → kullanıcı atlayan
+    // boş tile + empty home görüyordu. Yeni: skip path 6 lifestyle modu
+    // tamamını seçili kabul eder; kullanıcı plan + sürpriz görür ve
+    // settings'ten daraltabilir.
+    const allLifestyle = LIFESTYLE_CHOICES.map((c) => c.id);
+    await setInterests(allLifestyle).catch(() => {});
+    void trackEvent("onboarding_step_skipped", {
+      step: "interests",
+      fallback_count: allLifestyle.length,
+    }).catch(() => {});
     dispatch({ type: "NEXT" });
   };
 

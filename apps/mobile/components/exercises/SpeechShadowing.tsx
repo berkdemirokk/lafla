@@ -64,6 +64,10 @@ export function SpeechShadowing({
   const resultsRef = useRef<PhraseResult[]>([]);
   // Latest interim/final transcript for the current phrase.
   const heardRef = useRef<string>("");
+  // 2026-05-26 (P0 audit fix) — AbortController phase advance'te native STT
+  // session'ı kesin olarak iptal eder; cancelled flag tek başına interim
+  // event leak'ini önlemiyordu.
+  const abortControllerRef = useRef<AbortController | null>(null);
   // Guard so an out-of-order callback (e.g. late onResult after timeout)
   // can't double-grade a phrase.
   const gradedRef = useRef<boolean>(false);
@@ -213,16 +217,25 @@ export function SpeechShadowing({
         return;
       }
 
+      // 2026-05-26 (P0 audit fix) — AbortSignal eklendi. cancelled flag tek
+      // başına yetmiyordu çünkü phase advance edip yeni effect başlasa bile
+      // eski native STT session interim event'leri yollamaya devam edebilir.
+      // Eski session'ın `signal` ile native-level kesilmesi cross-phrase
+      // transcript leak'i tamamen önler.
+      const controller = new AbortController();
+      abortControllerRef.current = controller;
+
       await startListening({
         lang: "en-US",
         timeoutMs: LISTEN_WINDOW_MS,
+        signal: controller.signal,
         onResult: (text, _isFinal) => {
-          if (cancelled) return;
+          if (cancelled || controller.signal.aborted) return;
           // Keep the latest transcript — we grade once when the window ends.
           heardRef.current = text;
         },
         onError: () => {
-          if (cancelled) return;
+          if (cancelled || controller.signal.aborted) return;
           // Permission denied / mic busy / etc. — treat as skipped.
           gradeAndAdvance(true);
         },
@@ -231,7 +244,7 @@ export function SpeechShadowing({
       // Hard cap on the listening window. The SR module also self-stops at
       // timeoutMs, but we grade on a separate timer so the UI never stalls.
       scheduleTimer(() => {
-        if (cancelled) return;
+        if (cancelled || controller.signal.aborted) return;
         void stopListening();
         gradeAndAdvance(false);
       }, LISTEN_WINDOW_MS);
@@ -239,6 +252,8 @@ export function SpeechShadowing({
 
     return () => {
       cancelled = true;
+      abortControllerRef.current?.abort();
+      abortControllerRef.current = null;
       void stopListening();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -1,6 +1,6 @@
 // Spot Mistake — light bg, error-tinted incorrect sentence.
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import { Button } from "../Button";
 import { SpeakerButton } from "../SpeakerButton";
@@ -23,9 +23,18 @@ export function SpotMistake({
 }: Props) {
   const [input, setInput] = useState("");
   const [result, setResult] = useState<ExerciseResult | null>(null);
+  // 2026-05-26 (P1 audit fix) — double-tap guard (haptic + evaluate çift fire).
+  const submittedRef = useRef(false);
 
   const submit = () => {
-    if (!input.trim()) return;
+    if (!input.trim() || submittedRef.current) return;
+    // 2026-05-26 (P1 audit fix) — Eski versiyon kullanıcı "ok" gibi 2
+    // karakterlik input ile yine partial score alıyordu. Pedagoji bypass'i.
+    // Minimum length kontrolü: doğru cümlenin yarısı (yaklaşık) kadar
+    // karakter yoksa kullanıcı henüz cümleyi düzeltmemiş — reject.
+    const minLen = Math.max(8, Math.floor(correctSentence.length * 0.5));
+    if (input.trim().length < minLen) return;
+    submittedRef.current = true;
     const r = evaluateSpotMistake(correctSentence, input, trExplanation);
     setResult(r);
     hapticForScore(r.score);

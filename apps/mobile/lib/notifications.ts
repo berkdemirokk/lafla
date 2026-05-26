@@ -475,9 +475,15 @@ export async function isNotificationsEnabled(): Promise<boolean> {
 }
 
 export async function getReminderHour(): Promise<number> {
+  // 2026-05-26 (P1 audit fix) — Number.parseInt corrupted veri için NaN
+  // dönerse `schedule({hour:NaN})` expo-notifications API'sini silent
+  // fail'e veya crash'e götürebiliyordu. Sınırla + DEFAULT'a düş.
   try {
     const v = await AsyncStorage.getItem(K_NOTIFY_HOUR);
-    return v ? Number.parseInt(v, 10) : DEFAULT_HOUR;
+    if (!v) return DEFAULT_HOUR;
+    const n = Number.parseInt(v, 10);
+    if (!Number.isFinite(n) || n < 0 || n > 23) return DEFAULT_HOUR;
+    return n;
   } catch {
     return DEFAULT_HOUR;
   }

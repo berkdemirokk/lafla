@@ -676,9 +676,14 @@ export function RoleplayChat({
       // 2026-05-26 (P0-4 fix) — ref kullan, stale closure'dan kurtul.
       const text = finalText || interimTextRef.current;
       if (text.trim()) {
-        setInput(text.trim());
-        // Submit on next tick so React commits the input update first.
-        setTimeout(() => submitUserTurn(), 50);
+        // 2026-05-26 (P0 audit fix) — setInput + setTimeout(submit,50)
+        // pattern'i `input` state'inin commit'ini bekliyordu, ama
+        // submitUserTurn closure'dan eski `input=""` okuyordu → voice
+        // submit'ler sessizce drop oluyordu. Çözüm: text'i parametre
+        // olarak ver, state commit zamanına bağımlı olma.
+        const trimmed = text.trim();
+        setInput(trimmed);
+        submitUserTurnWith(trimmed);
       }
       setInterimText("");
       interimTextRef.current = "";
@@ -702,12 +707,32 @@ export function RoleplayChat({
     setInterimText("");
     interimTextRef.current = "";
     if (captured.trim()) {
-      setInput(captured.trim());
-      setTimeout(() => submitUserTurn(), 50);
+      const trimmed = captured.trim();
+      setInput(trimmed);
+      // 2026-05-26 (P0 audit fix) — text-as-arg pattern (closure'dan kurtul).
+      submitUserTurnWith(trimmed);
     }
   };
 
+  // 2026-05-26 (P0 audit fix) — submitUserTurn'ın text-as-arg wrapper'ı.
+  // Voice path'lerde `input` state commit'ini beklemeden direkt submit
+  // edebilmek için text parametresi alır; manuel klavye submit'ler
+  // submitUserTurn() yine input state'inden okur.
+  const submitUserTurnWith = (text: string) => {
+    if (!awaitingUserInput || !text.trim() || !currentTurn) return;
+    submitUserTurnInternal(text);
+  };
+
   const submitUserTurn = () => {
+    if (!awaitingUserInput || !input.trim() || !currentTurn) return;
+    submitUserTurnInternal(input);
+  };
+
+  const submitUserTurnInternal = (input: string) => {
+    // NOT: parameter adı bilinçli olarak `input` — outer state'i shadow eder
+    // ki eski body'deki tüm `input` referansları parameter'a bağlansın.
+    // Voice path text-as-arg geçer; klavye path submitUserTurn `input`
+    // state'inden okur ve bu fonksiyona iletir. Sonuç: closure-stale yok.
     if (!awaitingUserInput || !input.trim() || !currentTurn) return;
 
     // 2026-05-21 — Hard mode: min response length 8 char. Kısa cevap

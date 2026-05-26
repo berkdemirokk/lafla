@@ -93,14 +93,18 @@ export function SentencePattern({
   const handleChipTap = (chip: string) => {
     if (result) return;
     hapticSelection();
+    // 2026-05-26 (P0 audit fix) — findIndex stale `filled`'ı okuyordu;
+    // setFilled callback'inden ÖNCE çalıştığı için yeni doldurulan slot
+    // hâlâ null olarak görünüyor ve auto-advance yanlış slota geçiyordu.
+    // Çözüm: nextEmpty'i setFilled functional updater'ı içinde, en güncel
+    // `next` array'inden hesapla.
     setFilled((prev) => {
       const next = [...prev];
       next[activeSlot] = chip;
+      const nextEmpty = next.findIndex((v, i) => i !== activeSlot && v === null);
+      if (nextEmpty !== -1) setActiveSlot(nextEmpty);
       return next;
     });
-    // Auto-advance: bir sonraki boş slota geç.
-    const nextEmpty = filled.findIndex((v, i) => i !== activeSlot && v === null);
-    if (nextEmpty !== -1) setActiveSlot(nextEmpty);
   };
 
   const handleSlotTap = (idx: number) => {

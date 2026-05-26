@@ -154,8 +154,20 @@ export async function bumpStreak() {
   } else if (lastStr === todayStr) {
     // already counted today; no change
   } else {
-    const dayMs = 24 * 60 * 60 * 1000;
-    const daysAgo = Math.floor((today.getTime() - (lastDate?.getTime() ?? 0)) / dayMs);
+    // 2026-05-26 (P0 audit fix) — Eski versiyon `Math.floor((now.ms -
+    // last.ms) / 86400000)` ms-saat farkı hesaplıyordu; calendar günü
+    // değil. Pazartesi 23:00 → Salı 01:00 farkı 2 saat = floor(0.08) = 0
+    // dönüyor, `lastStr !== todayStr` ama daysAgo!==1/2 → final else =
+    // streak RESET. Retention için ölümcül.
+    //
+    // Yeni: günler arası farkı tarihten (yıl/ay/gün) hesaplıyoruz —
+    // saat bağımsız. midnight rollover ile tetiklenmeyi garantiler.
+    const calendarDaysBetween = (a: Date, b: Date): number => {
+      const aStart = new Date(a.getFullYear(), a.getMonth(), a.getDate());
+      const bStart = new Date(b.getFullYear(), b.getMonth(), b.getDate());
+      return Math.round((bStart.getTime() - aStart.getTime()) / 86_400_000);
+    };
+    const daysAgo = lastDate ? calendarDaysBetween(lastDate, today) : 999;
     if (daysAgo === 1) {
       // Normal extension — yesterday → today, streak++.
       streak = streak + 1;
@@ -170,7 +182,8 @@ export async function bumpStreak() {
       const saved = await ss.consumeShieldIfAvailable().catch(() => false);
       streak = saved ? streak + 1 : 1;
     } else {
-      // 3+ days missed → hard reset.
+      // 3+ days missed (veya 0 — clock drift / future last_lesson_at)
+      // → hard reset.
       streak = 1;
     }
   }

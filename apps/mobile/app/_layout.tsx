@@ -128,19 +128,30 @@ export default function RootLayout() {
     // deep link tanımlıyordu ama hiçbir kod bunları işlemiyordu. Kullanıcı
     // bildirime basıyor → app açılıyor → splash → /today (her zaman aynı).
     // Şimdi: notification.data.deepLink → uygun route'a yönlendir.
+    //
+    // 2026-05-26 (P1 audit fix) — Eski 600ms setTimeout cold launch'ta
+    // Stack henüz mount olmadıysa router.push throw'lar ve try/catch sessizce
+    // yutuyordu → kullanıcı bildirime bassa hiçbir yere gitmiyordu. Yeni:
+    // exponential retry (200ms → 500ms → 1200ms → 2500ms) ile router hazır
+    // olana kadar dene. Hâlâ fail ederse silent fail (worst case /today).
     const sub = Notifications.addNotificationResponseReceivedListener((r) => {
       try {
         const link = r.notification.request.content.data?.deepLink;
         if (typeof link !== "string" || !link.startsWith("lafla://")) return;
         const path = link.replace(/^lafla:\/\//, "/");
-        // Splash henüz mount olmuş olabilir; küçük gecikme ile router hazır olsun.
-        setTimeout(() => {
+        const retries = [200, 500, 1200, 2500];
+        let attempted = 0;
+        const tryPush = () => {
           try {
             router.push(path as never);
           } catch {
-            // route bulunamadıysa sessizce yut
+            if (attempted < retries.length) {
+              setTimeout(tryPush, retries[attempted++]);
+            }
+            // sessizce yut — son retry'da bile fail ederse user splash/today'de kalır
           }
-        }, 600);
+        };
+        setTimeout(tryPush, retries[attempted++]);
       } catch {
         // bozuk payload — yut
       }

@@ -34,6 +34,10 @@ export function ListenAndTranscribe({
   const [result, setResult] = useState<ExerciseResult | null>(null);
   const [playCount, setPlayCount] = useState(0);
   const didAutoPlay = useRef(false);
+  // 2026-05-26 (P1 audit fix) — double-tap guard. setResult commit'ten
+  // önce ikinci tap evaluate'i tekrar çalıştırıp hapticForScore'u iki
+  // kez tetikliyordu.
+  const submittedRef = useRef(false);
 
   // Auto-play on mount after 400ms delay. The initial play doesn't count
   // against the user's 3 replays — only manual taps do.
@@ -56,11 +60,12 @@ export function ListenAndTranscribe({
   };
 
   const submit = () => {
-    if (!input.trim()) return;
+    if (!input.trim() || submittedRef.current) return;
     // 2026-05-25 (B-SCN-22) — Lesson author audio_text/sentence boş bıraktıysa
     // ve acceptedVariants da boş geliyorsa matchPhrase candidates.length === 0
     // branch'ine düşüp 0 puan veriyordu. Kullanıcıya anlamlı geri dön.
     if (!sentence.trim() && (!acceptedVariants || acceptedVariants.every((v) => !v.trim()))) {
+      submittedRef.current = true;
       setResult({
         exercise_id: "listen_transcribe",
         exercise_type: "listen_transcribe",
@@ -70,6 +75,7 @@ export function ListenAndTranscribe({
       });
       return;
     }
+    submittedRef.current = true;
     const match = matchPhrase({
       user_text: input,
       canonical: sentence,

@@ -150,6 +150,11 @@ export async function estimateSpeakingBand(): Promise<BandEstimate> {
 }
 
 function scoreToBand(score: number): number {
+  // 2026-05-26 (P1 audit fix) — NaN / undefined guard. Eski versiyon
+  // `score < N` karşılaştırmalarında NaN tüm karşılaştırmaları false
+  // döndürüyordu → fall-through → `return 8.5`. Bir component score'u
+  // undefined/NaN gönderirse user "phantom 8.5 IELTS band" görüyordu.
+  if (!Number.isFinite(score)) return 4.0;
   // 0-100 → 4.0-9.0 piecewise
   // <40 = 4.0, 40-50 = 4.5, 50-60 = 5.0, 60-70 = 6.0, 70-80 = 7.0, 80-90 = 7.5, 90+ = 8.5
   if (score < 40) return 4.0;

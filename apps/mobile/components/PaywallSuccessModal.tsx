@@ -13,6 +13,7 @@ import { Modal, Pressable, StyleSheet, Text, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Animated, {
   Easing,
+  cancelAnimation,
   useAnimatedStyle,
   useSharedValue,
   withDelay,
@@ -49,6 +50,11 @@ export function PaywallSuccessModal({ visible, onClose }: Props) {
 
   useEffect(() => {
     if (!visible) {
+      // 2026-05-26 (P1 audit fix) — withRepeat(-1) infinite loop scheduler'ı
+      // sadece value reset etmek durdurmuyor. cancelAnimation ile UI thread
+      // worklet'i de iptal et — open/close hızlı tekrarında scheduler leak
+      // birikmesin.
+      cancelAnimation(haloPulse);
       // Reset to initial state so next open animates again.
       haloPulse.value = 0;
       heroScale.value = 0.85;

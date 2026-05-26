@@ -52,13 +52,19 @@ export function DialogueGap({
   const [input, setInput] = useState("");
   const [result, setResult] = useState<ExerciseResult | null>(null);
   const scrollRef = useRef<ScrollView>(null);
+  // 2026-05-26 (P1 audit fix) — double-tap guard.
+  const submittedRef = useRef(false);
 
   const missingTurn = turns[missing_at];
   const missingSpeaker: "npc" | "user" = missingTurn?.speaker ?? "user";
 
   const submit = () => {
+    // 2026-05-26 (P1 audit fix) — double-tap guard. setResult queue'da
+    // beklerken ikinci tap evaluate'i tekrar çalıştırıyordu.
+    if (result || submittedRef.current) return;
     const trimmed = input.trim();
     if (!trimmed) return;
+    submittedRef.current = true;
     const matched = matchAgainstPatterns(trimmed, accepted_patterns);
     // 3 band: match=100, attempted (3+ words)=60, else 30.
     let score: number;

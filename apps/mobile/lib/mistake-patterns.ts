@@ -1376,17 +1376,28 @@ export function detectMistakes(
   if (!text) return [];
 
   const hits: { patternId: string; matchedSubstring: string }[] = [];
+  // 2026-05-26 (P0 audit fix) — MISTAKE_PATTERNS listesinde 7 duplicate id
+  // tespit edildi (make-photo, open-light, listen-music, explain-me,
+  // people-is, actual-current, make-decision*). Aynı patternId'nin iki
+  // farklı detector ile aynı text'i match etmesi `hits[]`'i şişiriyor →
+  // mistake-tracker recordUserText tek hatayı 2 kez sayıyor → IELTS
+  // grammar score ve drill priorities bozulur. Runtime dedupe: bir
+  // patternId için ilk match yeterli.
+  const seenIds = new Set<string>();
 
   for (const pattern of MISTAKE_PATTERNS) {
+    if (seenIds.has(pattern.id)) continue;
     try {
       if (pattern.detector instanceof RegExp) {
         const m = text.match(pattern.detector);
         if (m && m[0]) {
+          seenIds.add(pattern.id);
           hits.push({ patternId: pattern.id, matchedSubstring: m[0] });
         }
       } else {
         // Functional detector — receives the raw text, returns boolean.
         if (pattern.detector(text)) {
+          seenIds.add(pattern.id);
           hits.push({ patternId: pattern.id, matchedSubstring: text.slice(0, 80) });
         }
       }
@@ -1402,6 +1413,10 @@ export function detectMistakes(
 /**
  * Lookup helper — UI components use this to print description / example
  * pairs once they have a patternId from the tracker.
+ *
+ * 2026-05-26 — `.find` ilk match'i döner; duplicate id'lerden ilki kullanılır
+ * (genelde daha eski tanımlanan, ya da daha yüksek weight'li olanı). Bu UI
+ * için tutarlı sonuç verir — drift olursa pattern listesi cleanup edilmeli.
  */
 export function getPattern(patternId: string): MistakePattern | undefined {
   return MISTAKE_PATTERNS.find((p) => p.id === patternId);

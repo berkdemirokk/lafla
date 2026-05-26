@@ -1,6 +1,6 @@
 // Translate — light bg, yellow accent feedback.
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import { Button } from "../Button";
 import { SpeakerButton } from "../SpeakerButton";
@@ -27,9 +27,14 @@ export function Translate({
 }: Props) {
   const [input, setInput] = useState("");
   const [result, setResult] = useState<ExerciseResult | null>(null);
+  // 2026-05-26 (P1 audit fix) — double-tap guard. setResult queue'da
+  // beklerken ikinci tap submit'i tekrar çalıştırıp hapticForScore'u
+  // iki kez tetikliyordu. Ref ile tek submit garantisi.
+  const submittedRef = useRef(false);
 
   const submit = () => {
-    if (!input.trim()) return;
+    if (!input.trim() || submittedRef.current) return;
+    submittedRef.current = true;
     const r = evaluateTranslate(target, acceptedVariants, input);
     setResult(r);
     hapticForScore(r.score);

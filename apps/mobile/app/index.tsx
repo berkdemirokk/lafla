@@ -132,11 +132,13 @@ export default function Splash() {
     // Atla path'inde okunur (auth.tsx skipAuth).
     const decide = async () => {
       if (routedRef.current) return; // skip() öne geçtiyse no-op
-      // 2026-05-26 — Race fix: bayrağı await'tan ÖNCE set et ki yavaş
-      // network'te kullanıcı skip()'i basarsa double-navigation olmasın.
-      // Eğer profile fetch yavaşsa skip() önce çalışır (routedRef.current
-      // true olur) ve decide() rest of body no-op olur.
-      routedRef.current = true;
+      // 2026-05-26 (P1 audit fix) — routedRef'i await ÖNCE set etmek çift
+      // navigation'ı önlüyordu, AMA getCurrentProfile + AsyncStorage ikisi
+      // de throw atarsa router.replace çağrılmadan flag true kalıyordu →
+      // splash sonsuza dek "Dokun, devam et" gösteriyordu (skip de no-op).
+      // Yeni: navigation hedefini hesapla, sonra flag set + router.replace
+      // ATOMIC çağır. Hata path'i de defensive olarak /auth'a düşer.
+      let target: "/today" | "/onboarding" | "/auth" = "/auth";
       if (session) {
         // 2026-05-25 — Signed-in user için SERVER profili authoritative.
         let profileOnboarded = false;
@@ -148,13 +150,16 @@ export default function Splash() {
           try {
             const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
             profileOnboarded = localOnboarded === "true";
-          } catch {}
+          } catch {
+            // ignore — onboarded false kalır, en kötü onboarding'e gider
+          }
         }
-        router.replace((profileOnboarded ? "/today" : "/onboarding") as never);
-        return;
+        target = profileOnboarded ? "/today" : "/onboarding";
       }
-      // Signed-out → always /auth.
-      router.replace("/auth" as never);
+      // Skip() yarışı: hedef hesaplandı, set + replace ATOMIC.
+      if (routedRef.current) return; // skip() bu sırada öne geçtiyse no-op
+      routedRef.current = true;
+      router.replace(target as never);
     };
 
     // Short brand reveal — keeps the splash perceivable without delaying
