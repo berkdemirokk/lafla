@@ -146,11 +146,22 @@ export default function VoiceJournalScreen() {
       return;
     }
     try {
-      // iOS'ta playsInSilentMode + allowsRecording'i ayarlamak gerek —
-      // tts.ts allowsRecording:false default'unu burada toggle ediyoruz.
+      // 2026-05-26 (P0-A fix) — Audio session config'i TAM olmalı.
+      // Önceki versiyon sadece allowsRecordingIOS + playsInSilentModeIOS
+      // veriyordu; expo-av interruptionMode + staysActiveInBackground'ı
+      // default'a düşürüyor → tts.ts ensureAudioModeForTts'in koyduğu
+      // (interruptionModeIOS:1, staysActiveInBackground:false) config
+      // bozuluyordu → voice-journal sonrası TTS sessizleşiyordu.
+      // Tam config = STT path'iyle aynı şablon (speech-recognition.ts:
+      // setAudioSessionForRecording).
       await Audio.setAudioModeAsync({
-        allowsRecordingIOS: true,
         playsInSilentModeIOS: true,
+        allowsRecordingIOS: true,
+        staysActiveInBackground: false,
+        interruptionModeIOS: 1, // DoNotMix
+        interruptionModeAndroid: 1,
+        shouldDuckAndroid: true,
+        playThroughEarpieceAndroid: false,
       });
       const uri = await preparePath();
       targetPathRef.current = uri;
@@ -237,10 +248,18 @@ export default function VoiceJournalScreen() {
       targetPathRef.current = null;
       // Active URI tracking'i de temizle — sweep tekrar normal çalışsın.
       markRecordingInactive();
-      // Restore audio mode for playback.
+      // 2026-05-26 (P0-A fix) — Restore TAM playback config. Önceden
+      // short-form çağrı interruption + background flag'larını default'a
+      // düşürüyor, sonraki TTS speak() iOS mute switch ile susuyordu
+      // (2026-05-20 fix'in regresyonu).
       void Audio.setAudioModeAsync({
-        allowsRecordingIOS: false,
         playsInSilentModeIOS: true,
+        allowsRecordingIOS: false,
+        staysActiveInBackground: false,
+        interruptionModeIOS: 1,
+        interruptionModeAndroid: 1,
+        shouldDuckAndroid: true,
+        playThroughEarpieceAndroid: false,
       }).catch(() => {});
     }
   };

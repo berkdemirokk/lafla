@@ -81,6 +81,21 @@ export default function PhonemeDrillScreen() {
     }
   };
 
+  // 2026-05-26 (P3-I fix) — Mic izni reddedilirse PronouncePhrase iç
+  // error path'inde "Bu egzersizi atla" butonu görünür; bu prop'u
+  // bağlamamış olmak drill rotasyonunda kullanıcıyı stuck bırakıyordu.
+  // Skip = bu drill'i 0 puanla geç, session devam etsin.
+  const handleDrillSkip = () => {
+    const cur = drills[idx];
+    handleDrillComplete({
+      exercise_id: `drill.${cur?.target ?? "unknown"}.${idx}`,
+      exercise_type: "pronounce_phrase",
+      correct: false,
+      score: 0,
+      feedback: "skipped",
+    });
+  };
+
   const handleRestart = () => {
     hapticImpact("light");
     void load();
@@ -186,11 +201,14 @@ export default function PhonemeDrillScreen() {
         </View>
 
         {/* Use existing PronouncePhrase for the actual recording UX —
-            it already handles phoneme grading, retry, score reveal. */}
+            it already handles phoneme grading, retry, score reveal.
+            onSkip 2026-05-26 eklendi: mic izni reddedilirse kullanıcı
+            drill rotasyonunda stuck kalmasın. */}
         <PronouncePhrase
           phrase={currentDrill.phrase}
           trHint={currentDrill.tr_hint}
           onComplete={handleDrillComplete}
+          onSkip={handleDrillSkip}
         />
       </ScrollView>
     </SafeAreaView>

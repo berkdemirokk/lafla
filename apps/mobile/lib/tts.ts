@@ -299,6 +299,17 @@ async function unloadCurrentSound(): Promise<void> {
   const s = currentSound;
   currentSound = null;
   if (!s) return;
+  // 2026-05-26 (P1-D fix) — Status update callback'i unload öncesi sök.
+  // Eski sound dispose edilirken iOS expo-av didJustFinish event'ini hâlâ
+  // tetikleyebiliyor; o sırada stale closure içindeki `currentSound === sound`
+  // identity check'i artık yeni sound objesine bakıyor olabilir → callback
+  // yeni sound'un currentSound referansını null'lar → sonraki stop()/replay
+  // no-op olur. Callback'i null'a set ederek bu race'i tamamen kesiyoruz.
+  try {
+    s.setOnPlaybackStatusUpdate(null);
+  } catch {
+    /* ignore */
+  }
   try {
     await s.stopAsync();
   } catch {
