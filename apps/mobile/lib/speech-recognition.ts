@@ -88,21 +88,46 @@ export async function isAvailable(): Promise<boolean> {
   return loadModule() !== null;
 }
 
+// 2026-05-26 — Permission status detail (canAskAgain) için extended interface.
+// "Don't Allow" basan kullanıcı bir daha dialog göremez — UI'da Settings'e
+// CTA göstermek için ayrım gerekli.
+type PermissionStatus = {
+  granted: boolean;
+  canAskAgain: boolean;
+};
+
 export async function requestPermission(): Promise<boolean> {
+  const status = await requestPermissionStatus();
+  return status.granted;
+}
+
+export async function requestPermissionStatus(): Promise<PermissionStatus> {
   const mod = loadModule();
-  if (!mod) return false;
+  if (!mod) return { granted: false, canAskAgain: false };
   try {
     if (typeof mod.requestPermissionsAsync === "function") {
-      const res = await mod.requestPermissionsAsync();
-      return Boolean(res?.granted);
+      const res = (await mod.requestPermissionsAsync()) as {
+        granted?: boolean;
+        canAskAgain?: boolean;
+      };
+      return {
+        granted: Boolean(res?.granted),
+        canAskAgain: res?.canAskAgain !== false, // undefined → true (safe default)
+      };
     }
     if (typeof mod.getPermissionsAsync === "function") {
-      const res = await mod.getPermissionsAsync();
-      return Boolean(res?.granted);
+      const res = (await mod.getPermissionsAsync()) as {
+        granted?: boolean;
+        canAskAgain?: boolean;
+      };
+      return {
+        granted: Boolean(res?.granted),
+        canAskAgain: res?.canAskAgain !== false,
+      };
     }
-    return false;
+    return { granted: false, canAskAgain: false };
   } catch {
-    return false;
+    return { granted: false, canAskAgain: false };
   }
 }
 
@@ -163,12 +188,24 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
       return;
     }
 
+    // 2026-05-26 — Son interim'i takip et. iOS 17- "silence 3s" auto-stop
+    // tetiklenirse `isFinal:true` event'i HİÇ gelmiyor; sadece interim'ler
+    // gelir. `end` event'inde son interim'i final olarak emit ediyoruz ki
+    // PronouncePhrase + SpeechShadowing'in `gradedThisSession` flag'i
+    // sırasında grade hesaplanabilsin.
+    let lastInterim = "";
+    let finalEmitted = false;
+
     const resultListener = mod.addListener("result", (raw) => {
       if (opts.signal?.aborted) return;
       const e = raw as SpeechResultEvent;
       const transcript = e.results?.[0]?.transcript ?? "";
       const isFinal = Boolean(e.isFinal);
-      if (transcript) opts.onResult(transcript, isFinal);
+      if (transcript) {
+        if (!isFinal) lastInterim = transcript;
+        if (isFinal) finalEmitted = true;
+        opts.onResult(transcript, isFinal);
+      }
     });
 
     const errorListener = mod.addListener("error", (raw) => {
@@ -183,12 +220,26 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
     });
 
     const endListener = mod.addListener("end", () => {
+      // 2026-05-26 (P0-3 fix) — iOS silence detection finals'ı yutuyor.
+      // Son interim varsa onu final olarak emit et. Bu olmadan kullanıcı
+      // konuşuyor ama grade hiç hesaplanmıyor, UI "Dinliyor..." sonsuza
+      // kadar kalıyor.
+      if (!finalEmitted && lastInterim && !opts.signal?.aborted) {
+        try {
+          opts.onResult(lastInterim, true);
+        } catch {
+          // listener throw ederse temizliği engelleme
+        }
+      }
       clearActive();
     });
 
     activeListeners = [resultListener, errorListener, endListener];
 
-    const timeoutMs = opts.timeoutMs ?? 8000;
+    // 2026-05-26 (P0-2 fix) — 8s → 12s. Türk kullanıcı düşünmek için 2-3sn
+    // duraksayabilir; iOS native 3s silence kapatıyor zaten, biz timeout'u
+    // safety net olarak büyük tutuyoruz.
+    const timeoutMs = opts.timeoutMs ?? 12000;
     activeTimeout = setTimeout(() => {
       void stopListening();
     }, timeoutMs);

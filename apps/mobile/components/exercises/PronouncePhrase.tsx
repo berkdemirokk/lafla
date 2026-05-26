@@ -19,6 +19,7 @@ import {
   Animated,
   Easing,
   AppState,
+  Linking,
   type AppStateStatus,
 } from "react-native";
 import { Button } from "../Button";
@@ -78,6 +79,14 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
   const [stage, setStage] = useState<Stage>("idle");
   const [graded, setGraded] = useState<GradedState | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  // 2026-05-26 (P0-5 fix) — Permission denied state: Settings'e CTA göstermek
+  // için. iOS "Don't Allow" → ikinci dialog asla açılmıyor; kullanıcının
+  // Ayarlar'a manuel gitmesi şart.
+  const [permissionDenied, setPermissionDenied] = useState(false);
+  // 2026-05-26 (P0-7 fix) — Race condition koruması: phoneme analiz async
+  // başlar, kullanıcı handleRetry'a basarsa yeni denemede ESKİ phoneme
+  // result'u patch'leyebilir. Snapshot ile bağ.
+  const phraseSnapshotRef = useRef<string>("");
 
   // Pulse animation for mic during listening
   const pulse = useRef(new Animated.Value(1)).current;
@@ -224,8 +233,14 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
         });
         setStage("graded");
         if (g.score < 85) {
+          // 2026-05-26 (P0-7 fix) — Snapshot phrase'i ve callback'te eşle.
+          // handleRetry phrase'i değiştirmez ama component remount ederse
+          // (key değişir) eski promise yeni instance'a patch yapmasın.
+          const snap = phrase;
+          phraseSnapshotRef.current = snap;
           gradePronunciationWithPhonemes(phrase, text)
             .then((pa) => {
+              if (phraseSnapshotRef.current !== snap) return;
               setGraded((prev) =>
                 prev ? { ...prev, phonemes: pa } : prev,
               );
@@ -245,6 +260,7 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
         let tr: string;
         if (raw.includes("permission")) {
           tr = "Mikrofon izni gerekli — Ayarlar'dan izin ver.";
+          setPermissionDenied(true); // Settings CTA görünür olsun
         } else if (raw.includes("network") || raw.includes("fetch")) {
           tr = "Bağlantı problemi. İnternetini kontrol et.";
         } else if (raw.includes("not available") || raw.includes("module")) {
@@ -253,9 +269,11 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
           tr = "Mikrofon hatası — bir daha dene.";
         }
         setErrorMsg(tr);
-        // Only return to idle if we haven't already graded successfully.
+        // 2026-05-26 (P0-8 fix) — Functional setter ile race koruması.
+        // setStage("listening") henüz commit olmadan onError SYNC çağrılırsa
+        // önceki "idle → listening" intent kaybolup pulse loop kilitleniyordu.
         if (!gradedThisSession.current) {
-          setStage("idle");
+          setStage((s) => (s === "graded" ? s : "idle"));
         }
       },
     });
@@ -350,6 +368,24 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
       {errorMsg && (
         <View style={styles.errorToast}>
           <Text style={styles.errorToastText}>⚠️  {errorMsg}</Text>
+          {/* 2026-05-26 (P0-5 fix) — Permission denied'de Settings'e CTA.
+              iOS "Don't Allow" sonrası dialog tekrar açılmıyor; user manuel
+              Ayarlar'a gitmek zorunda. Linking.openSettings tek-tap çözer. */}
+          {permissionDenied && (
+            <Pressable
+              onPress={() => {
+                hapticImpact("light");
+                void Linking.openSettings().catch(() => {});
+              }}
+              style={({ pressed }) => [
+                styles.settingsBtn,
+                pressed && styles.settingsBtnPressed,
+              ]}
+              hitSlop={8}
+            >
+              <Text style={styles.settingsBtnText}>Ayarları aç →</Text>
+            </Pressable>
+          )}
         </View>
       )}
 
@@ -525,6 +561,21 @@ const styles = StyleSheet.create({
     color: tokens.semantic.onErrorContainer,
     fontSize: 14,
     fontWeight: tokens.weight.semibold,
+  },
+  settingsBtn: {
+    marginTop: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.primarySoft,
+    alignSelf: "flex-start",
+  },
+  settingsBtnPressed: { opacity: 0.6 },
+  settingsBtnText: {
+    color: tokens.brand.primary,
+    fontSize: 13,
+    fontWeight: tokens.weight.extrabold,
+    letterSpacing: 0.2,
   },
 
   // Skip button — küçük, tertiary. Yalnızca onSkip prop'u + errorMsg

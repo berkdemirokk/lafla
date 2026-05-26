@@ -368,6 +368,10 @@ export function RoleplayChat({
   const [inputMode, setInputMode] = useState<InputMode>("voice");
   const [recording, setRecording] = useState(false);
   const [interimText, setInterimText] = useState("");
+  // 2026-05-26 (P0-4 fix) — interimText ref pattern. closeTimer 8500ms sonra
+  // tetiklenirken `interimText` stale closure değeri okuyordu (boş string),
+  // submit hiç çalışmıyordu. Ref state ile sync; closeTimer ref'i okur.
+  const interimTextRef = useRef("");
 
   // ─── Faz 3: Smart hint timing (5sn idle → glow) ──────────────────
   // User cevap girmeden 5 saniye geçtiyse hint box subtle pulse yapar.
@@ -457,6 +461,10 @@ export function RoleplayChat({
       setSttAvailable(avail);
       if (!avail) {
         setInputMode("text");
+        // 2026-05-26 (P1-10 fix) — STT yokken stale "voice" preference'i
+        // sonraki açılışlarda toggle butonunu tıklatamaz halde gösteriyordu.
+        // Probe fail → preference text'e güncelle.
+        void AsyncStorage.setItem(K_INPUT_MODE, "text").catch(() => {});
         return;
       }
       try {
@@ -618,6 +626,7 @@ export function RoleplayChat({
   const startVoiceCapture = () => {
     if (!awaitingUserInput || recording) return;
     setInterimText("");
+    interimTextRef.current = "";
     setRecording(true);
     const controller = new AbortController();
     sttAbortRef.current = controller;
@@ -625,13 +634,15 @@ export function RoleplayChat({
     let finalText = "";
     void startStt({
       lang: "en-US",
-      timeoutMs: 8000,
+      // 2026-05-26 — Türk kullanıcı düşünmek için duraksayabilir; 8s → 12s.
+      timeoutMs: 12000,
       signal: controller.signal,
       onResult: (text, isFinal) => {
         // Interim and final updates use the same path. We display interim
         // text live; on isFinal we commit and auto-submit so the user
         // doesn't have to tap an extra button.
         setInterimText(text);
+        interimTextRef.current = text;
         if (isFinal && text.trim()) {
           finalText = text.trim();
         }
@@ -657,19 +668,22 @@ export function RoleplayChat({
     // 2026-05-25 (B-SCN-15) — `if (!recording) return` stale closure idi
     // (kapatma sırasında `recording` initial false okunuyordu). Doğru
     // kontrol: sttAbortRef hala bizim controller mı?
+    // 2026-05-26 — 12000ms STT timeout + 500ms grace = 12500ms close timer.
     const closeTimer = setTimeout(() => {
       if (sttAbortRef.current !== controller) return;
       void stopStt().catch(() => {});
       setRecording(false);
-      const text = finalText || interimText;
+      // 2026-05-26 (P0-4 fix) — ref kullan, stale closure'dan kurtul.
+      const text = finalText || interimTextRef.current;
       if (text.trim()) {
         setInput(text.trim());
         // Submit on next tick so React commits the input update first.
         setTimeout(() => submitUserTurn(), 50);
       }
       setInterimText("");
+      interimTextRef.current = "";
       sttAbortRef.current = null;
-    }, 8500);
+    }, 12500);
 
     // Clean up the close timer if the user aborts manually.
     controller.signal.addEventListener("abort", () => clearTimeout(closeTimer), {
@@ -679,12 +693,14 @@ export function RoleplayChat({
 
   const stopVoiceCapture = () => {
     if (!recording) return;
-    const captured = interimText;
+    // 2026-05-26 (P0-4 fix) — ref'ten oku.
+    const captured = interimTextRef.current || interimText;
     sttAbortRef.current?.abort();
     sttAbortRef.current = null;
     void stopStt().catch(() => {});
     setRecording(false);
     setInterimText("");
+    interimTextRef.current = "";
     if (captured.trim()) {
       setInput(captured.trim());
       setTimeout(() => submitUserTurn(), 50);

@@ -184,18 +184,11 @@ export async function setSfxEnabled(enabled: boolean): Promise<void> {
 export function preloadSfx(): Promise<void> {
   if (preloadPromise) return preloadPromise;
   preloadPromise = (async () => {
-    // Configure audio mode once so sfx don't get ducked into silence on iOS
-    // when a silent switch is on, and don't interrupt background music.
-    try {
-      await Audio.setAudioModeAsync({
-        playsInSilentModeIOS: false, // respect the mute switch for UI sfx
-        staysActiveInBackground: false,
-        shouldDuckAndroid: true,
-        playThroughEarpieceAndroid: false,
-      });
-    } catch {
-      /* non-fatal */
-    }
+    // 2026-05-26 (P0-1 fix) — setAudioModeAsync ÇAĞRILMIYOR artık.
+    // Önceki versiyon `playsInSilentModeIOS: false` yazıyordu → tts.ts'in
+    // ayarladığı `true`'yu eziyor → sahne içinde sfx çalınca TTS sustu.
+    // Global audio mode SADECE tts.ts'te set ediliyor; sfx ses default
+    // davranışı (sessizde sus) per-sound iOS native ile kontrol edilir.
 
     await Promise.all(
       ALL_IDS.map(async (id) => {
