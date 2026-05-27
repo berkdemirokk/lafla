@@ -1,25 +1,20 @@
 // Lafla — "Apple ile devam et" button.
 //
-// Follows Apple HIG for Sign in with Apple:
-//   - Solid black background, white text & logo
-//   - Min 44pt tall (we use 50pt to match the email pill height)
-//   - Rounded corners (we use 12 to fit our token system)
-//   - Uses the SF Symbol "applelogo" for the mark (no copyrighted asset shipped)
-//   - Localised label in Turkish per ADR-003 (Turkish-first)
+// Uses Apple's OFFICIAL `AppleAuthenticationButton` from
+// expo-apple-authentication so the mark, font, spacing and localisation are
+// guaranteed to match Apple's Human Interface Guidelines for Sign in with
+// Apple (App Store Guideline 4 — Design).
 //
-// Renders a no-op when not on iOS or when expo-apple-authentication is missing,
+// Style choice: WHITE button (white background, black logo + label). Our app
+// background is pure black (#000000); a black button would visually merge into
+// it and "not look like a button" — which is exactly what App Review flagged.
+// The white variant reads as an unmistakable, tappable control on dark UI.
+//
+// Renders nothing when not on iOS or when expo-apple-authentication is missing,
 // so it's safe to drop into any layout without a Platform.OS guard.
 
 import { useEffect, useState } from "react";
-import {
-  ActivityIndicator,
-  Platform,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
-import { tokens } from "../theme";
+import { ActivityIndicator, Platform, StyleSheet, View } from "react-native";
 import { getLocale } from "../lib/i18n";
 import {
   isAppleSignInAvailable,
@@ -27,13 +22,22 @@ import {
   type AppleAuthResult,
 } from "../lib/auth-apple";
 
+// Defensive require — native module is optional until installed. Mirrors the
+// pattern in lib/auth-apple.ts so a missing module can never crash JS.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let AppleAuthentication: any = null;
+try {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  AppleAuthentication = require("expo-apple-authentication");
+} catch {
+  AppleAuthentication = null;
+}
+
 interface Props {
   /** Called after Supabase successfully signs in. Caller usually routes away. */
   onSuccess?: (result: AppleAuthResult) => void;
   /** User-facing Turkish error message. Cancellations do NOT trigger this. */
   onError?: (message: string) => void;
-  /** Override the default label. */
-  label?: string;
 }
 
 function errorMessage(code: string | undefined, locale: "tr" | "en"): string {
@@ -65,16 +69,10 @@ function errorMessage(code: string | undefined, locale: "tr" | "en"): string {
   }
 }
 
-function buttonLabel(locale: "tr" | "en"): string {
-  return locale === "en" ? "Continue with Apple" : "Apple ile devam et";
-}
-
-export function AppleSignInButton({ onSuccess, onError, label }: Props) {
+export function AppleSignInButton({ onSuccess, onError }: Props) {
   const [available, setAvailable] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [pressed, setPressed] = useState(false);
   const locale = getLocale();
-  const resolvedLabel = label ?? buttonLabel(locale);
 
   useEffect(() => {
     let cancelled = false;
@@ -86,8 +84,13 @@ export function AppleSignInButton({ onSuccess, onError, label }: Props) {
     };
   }, []);
 
-  // Hide entirely when Apple Sign-In isn't usable — no point showing a dead button.
-  if (Platform.OS !== "ios" || !available) {
+  // Hide entirely when Apple Sign-In isn't usable — no point showing a dead
+  // button. Also guards against the native button component being absent.
+  if (
+    Platform.OS !== "ios" ||
+    !available ||
+    !AppleAuthentication?.AppleAuthenticationButton
+  ) {
     return null;
   }
 
@@ -111,62 +114,41 @@ export function AppleSignInButton({ onSuccess, onError, label }: Props) {
   };
 
   return (
-    <Pressable
-      style={[styles.btn, pressed && styles.btnPressed, loading && styles.btnDisabled]}
-      onPress={handlePress}
-      onPressIn={() => setPressed(true)}
-      onPressOut={() => setPressed(false)}
-      disabled={loading}
-      accessibilityRole="button"
-      accessibilityLabel={resolvedLabel}
-    >
+    <View style={styles.wrap}>
+      <AppleAuthentication.AppleAuthenticationButton
+        buttonType={
+          AppleAuthentication.AppleAuthenticationButtonType.CONTINUE
+        }
+        buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.WHITE}
+        cornerRadius={12}
+        style={styles.btn}
+        onPress={handlePress}
+      />
       {loading ? (
-        <ActivityIndicator color="#ffffff" />
-      ) : (
-        <View style={styles.row}>
-          {/* SF Symbol "applelogo" — rendered as a Unicode glyph (U+F8FF, Apple
-              private-use Apple logo). On iOS this resolves to the bitten apple
-              mark in the system font; on other platforms the button is hidden
-              before render, so the glyph never appears. */}
-          <Text style={styles.logo}></Text>
-          <Text style={styles.label}>{resolvedLabel}</Text>
+        <View style={styles.loadingOverlay}>
+          <ActivityIndicator color="#000000" />
         </View>
-      )}
-    </Pressable>
+      ) : null}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  wrap: {
+    position: "relative",
+    width: "100%",
+  },
   btn: {
     height: 50,
-    backgroundColor: "#000000",
+    width: "100%",
+  },
+  // Covers the button while the Supabase exchange is in flight so the user
+  // can't double-tap. Matches the WHITE button surface.
+  loadingOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: "#ffffff",
     borderRadius: 12,
     alignItems: "center",
     justifyContent: "center",
-    paddingHorizontal: 24,
-  },
-  btnPressed: {
-    opacity: 0.85,
-  },
-  btnDisabled: {
-    opacity: 0.6,
-  },
-  row: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  logo: {
-    color: "#ffffff",
-    fontSize: 19,
-    marginRight: 8,
-    // Nudge the glyph onto the text baseline.
-    marginTop: -2,
-  },
-  label: {
-    color: "#ffffff",
-    fontSize: 16,
-    fontWeight: tokens.weight.semibold,
-    letterSpacing: 0.2,
   },
 });

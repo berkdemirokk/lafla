@@ -9,10 +9,34 @@
 // AFTER the user has seen the value of the app (better consent rate). The
 // result is cached locally so we don't pester users on subsequent launches.
 
-import { Platform } from "react-native";
+import { AppState, Platform } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const K_ATT_REQUESTED = "lafla.att.requested.v1";
+
+/**
+ * The ATT system prompt only presents while the app is foreground-active.
+ * On a cold launch our first request fires while the splash screen is up, so
+ * we wait for AppState to settle on "active" before asking — otherwise iOS
+ * silently no-ops the prompt and we'd cache a bogus "not-determined".
+ */
+async function waitForActive(timeoutMs = 4000): Promise<void> {
+  if (AppState.currentState === "active") return;
+  await new Promise<void>((resolve) => {
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      sub.remove();
+      clearTimeout(timer);
+      resolve();
+    };
+    const sub = AppState.addEventListener("change", (s) => {
+      if (s === "active") finish();
+    });
+    const timer = setTimeout(finish, timeoutMs);
+  });
+}
 
 export type AttStatus = "granted" | "denied" | "restricted" | "not-determined";
 
@@ -65,9 +89,17 @@ export async function requestAtt(): Promise<AttStatus> {
   if (!ATT?.requestTrackingPermissionsAsync) return "not-determined";
 
   try {
+    await waitForActive();
     const { status } = await ATT.requestTrackingPermissionsAsync();
-    await AsyncStorage.setItem(K_ATT_REQUESTED, "true").catch(() => {});
-    return (status as AttStatus) ?? "not-determined";
+    const resolved = (status as AttStatus) ?? "not-determined";
+    // Only remember that we asked once iOS actually returned a real answer.
+    // If the prompt couldn't present (still "not-determined"), leave the flag
+    // unset so a later call retries — otherwise the prompt is lost forever and
+    // App Review never sees it (Guideline 5.1.2(i) rejection).
+    if (resolved !== "not-determined") {
+      await AsyncStorage.setItem(K_ATT_REQUESTED, "true").catch(() => {});
+    }
+    return resolved;
   } catch {
     return "not-determined";
   }
