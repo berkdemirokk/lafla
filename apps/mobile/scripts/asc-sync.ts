@@ -451,7 +451,7 @@ const REVIEW_NOTES = [
   "",
   "Two In-App Purchases ship: lafla.premium.monthly (₺99/mo) and lafla.premium.yearly (₺999/yr) — both via RevenueCat. Restore Purchases is reachable from both the paywall and Settings.",
   "",
-  "App Tracking Transparency (ATT) prompt is shown after onboarding completes (Apple HIG: prompt at first meaningful value moment, not on launch). AdMob initialization is sequenced after ATT response. PostHog analytics are gated by ATT — denied users get zero tracking.",
+  "App Tracking Transparency (ATT) prompt is shown on first launch, as soon as the app becomes foreground-active. AdMob initialization is sequenced AFTER the ATT response, and PostHog analytics are gated by ATT — users who deny tracking get zero tracking and the IDFA is never read before the user responds to the prompt.",
   "",
   "Side-rail practice modes for silent environments:",
   "- Phoneme Drill (/phoneme-drill): targeted pronunciation practice for sounds Turkish ears confuse (th, æ, v/w)",

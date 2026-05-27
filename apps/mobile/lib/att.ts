@@ -5,9 +5,11 @@
 // request permission via ATT before doing so. Calling this before tracking is
 // the only way to keep the app on the Store.
 //
-// We trigger this once, after onboarding completes, so the prompt arrives
-// AFTER the user has seen the value of the app (better consent rate). The
-// result is cached locally so we don't pester users on subsequent launches.
+// We trigger this once on first launch (from app/_layout.tsx), gated to fire
+// only when the app is foreground-active and sequenced BEFORE AdMob init so no
+// IDFA is read pre-consent. The result is cached locally — but ONLY once iOS
+// returns a determinate answer — so we ask exactly once and never lose the
+// prompt to a failed presentation (e.g. a request fired during the splash).
 
 import { AppState, Platform } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
