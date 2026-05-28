@@ -3,8 +3,6 @@ name: Lafla iOS TestFlight
 on:
   workflow_dispatch:
   push:
-    branches:
-      - master
     tags:
       - "lafla-v*"
 
