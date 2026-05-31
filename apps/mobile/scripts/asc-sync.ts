@@ -377,8 +377,16 @@ async function findPrepareVersion(
   ]);
   const list = (await ascFetch(
     token,
-    `/apps/${appId}/appStoreVersions?limit=10&sort=-createdDate`,
+    `/apps/${appId}/appStoreVersions?limit=10`,
   )) as JsonApiList;
+  const states = list.data
+    ?.map((version) => {
+      const state = String(version.attributes?.appStoreState ?? "unknown");
+      const versionString = String(version.attributes?.versionString ?? "unknown");
+      return `${versionString}:${state}`;
+    })
+    .join(", ");
+  if (states) console.log(`  appStoreVersions: ${states}`);
   const editable = list.data?.find((version) =>
     editableStates.has(String(version.attributes?.appStoreState ?? "")),
   );
