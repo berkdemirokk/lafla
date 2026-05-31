@@ -369,12 +369,25 @@ async function findPrepareVersion(
   token: string,
   appId: string,
 ): Promise<string | null> {
-  // PREPARE_FOR_SUBMISSION → version'ı editliyoruz, henüz submitted değil
+  const editableStates = new Set([
+    "PREPARE_FOR_SUBMISSION",
+    "DEVELOPER_REJECTED",
+    "REJECTED",
+    "METADATA_REJECTED",
+  ]);
   const list = (await ascFetch(
     token,
-    `/apps/${appId}/appStoreVersions?filter[appStoreState]=PREPARE_FOR_SUBMISSION&limit=1`,
+    `/apps/${appId}/appStoreVersions?limit=10&sort=-createdDate`,
   )) as JsonApiList;
-  return list.data?.[0]?.id ?? null;
+  const editable = list.data?.find((version) =>
+    editableStates.has(String(version.attributes?.appStoreState ?? "")),
+  );
+  if (editable) {
+    const state = String(editable.attributes?.appStoreState ?? "unknown");
+    const version = String(editable.attributes?.versionString ?? "unknown");
+    console.log(`  editable version: ${version} (${state})`);
+  }
+  return editable?.id ?? null;
 }
 
 async function findVersionLocalizations(
@@ -725,11 +738,11 @@ async function main(): Promise<void> {
   const versionId = await findPrepareVersion(token, appId);
   if (!versionId) {
     console.error(
-      "\n❌ Editable version yok. App Store Connect'te '1.0 — Prepare for Submission' yarat, sonra tekrar çalıştır.",
+      "\n❌ Editable version yok. App Store Connect'te düzenlenebilir bir sürüm yarat veya mevcut rejected sürümü aç, sonra tekrar çalıştır.",
     );
     process.exit(1);
   }
-  console.log(`  version id (PREPARE_FOR_SUBMISSION): ${versionId}`);
+  console.log(`  version id: ${versionId}`);
 
   const locs = await findVersionLocalizations(token, versionId);
   console.log(`  ${locs.length} localization(s) found`);
