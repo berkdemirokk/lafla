@@ -141,7 +141,7 @@ function New-PaywallMockup {
     # Legal disclaimer
     $fontLegal = New-Object System.Drawing.Font "Segoe UI", 16, ([System.Drawing.FontStyle]::Regular)
     $g.DrawString("Subscription auto-renews. Cancel anytime in iOS Settings -> Apple ID ->", $fontLegal, $brushDim, 110, 1930)
-    $g.DrawString("Subscriptions. Terms: lafla.app/terms . Privacy: lafla.app/privacy", $fontLegal, $brushDim, 110, 1960)
+    $g.DrawString("Subscriptions. Terms: berkdemirokk.github.io/lafla/terms.html . Privacy: berkdemirokk.github.io/lafla/privacy.html", $fontLegal, $brushDim, 110, 1960)
 
     # Save
     $bmp.Save($OutPath, [System.Drawing.Imaging.ImageFormat]::Png)

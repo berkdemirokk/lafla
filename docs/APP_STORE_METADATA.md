@@ -129,7 +129,7 @@ Tüm 935 sahneye erişim, sınırsız tekrar, derin telaffuz analizi, IELTS Band
 📋 Fiyat: ₺99/ay veya ₺999/yıl (yıllık planda %16 tasarruf)
 🔄 Otomatik yenilenir; iPhone Ayarlar → Apple Kimliği → Abonelikler menüsünden istediğin zaman iptal edebilirsin
 ⏰ İptal etmediğin sürece dönem sonunda otomatik yenilenir
-📜 Şartlar: lafla.app/terms · Gizlilik: lafla.app/privacy
+📜 Şartlar: https://berkdemirokk.github.io/lafla/terms.html · Gizlilik: https://berkdemirokk.github.io/lafla/privacy.html
 
 Destek: berkkdemirok@gmail.com
 ```
@@ -182,7 +182,7 @@ All 935 scenes unlocked, unlimited replays, deep pronunciation analysis, IELTS B
 📋 Pricing: ₺99/month or ₺999/year (16% savings on annual)
 🔄 Auto-renews; cancel anytime in iPhone Settings → Apple ID → Subscriptions
 ⏰ Renewal continues at the end of each period unless cancelled
-📜 Terms: lafla.app/terms · Privacy: lafla.app/privacy
+📜 Terms: https://berkdemirokk.github.io/lafla/terms.html · Privacy: https://berkdemirokk.github.io/lafla/privacy.html
 
 Support: berkkdemirok@gmail.com
 ```
