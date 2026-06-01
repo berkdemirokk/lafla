@@ -122,7 +122,7 @@ async function readCurrentPriceSchedule(
 ): Promise<void> {
   const schedule = (await ascFetch(
     token,
-    `/apps/${appId}/appPriceSchedule?include=baseTerritory,manualPrices&limit[manualPrices]=10&fields[appPrices]=manual,startDate,endDate,appPricePoint,territory&fields[appPricePoints]=customerPrice,proceeds,territory`,
+    `/apps/${appId}/appPriceSchedule?include=baseTerritory,manualPrices&limit[manualPrices]=10&fields[appPrices]=manual,startDate,endDate,appPricePoint,territory`,
   )) as JsonApiSingle;
   console.log(`Current price schedule id: ${schedule.data.id}`);
   for (const item of schedule.included ?? []) {
