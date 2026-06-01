@@ -39,6 +39,8 @@ const ID_7D_GONE = "lafla.7d.gone";
 const ID_DAILY_REMINDER = "lafla.daily.reminder";
 // 2026-05-24 — Weekly progress report (Pazartesi 10:00, repeating).
 const ID_WEEKLY_SUMMARY = "lafla.weekly.summary";
+// BUG-12 FIX: CEFR erosion aggressive push
+const ID_CEFR_EROSION = "lafla.cefr.erosion";
 
 // ============================================================
 // MESAJ KOPYALARI — Türkçe, kişiselleştirilmiş
@@ -260,6 +262,25 @@ export async function rescheduleDropoffs(): Promise<void> {
   const { title: t7, body: b7 } = msg7DGone(ctx);
   await scheduleAt(ID_7D_GONE, t7, b7, 7 * 24 * 3600);
 
+  // BUG-12 FIX: CEFR erosion warning — 48h sonra eğer practice yapmazsa
+  // "Seviyen düşmek üzere!" uyarısı
+  try {
+    const cefrMod = require("./cefr-level") as {
+      getRecentDecay: () => Promise<number>;
+    };
+    const decay = await cefrMod.getRecentDecay().catch(() => 0);
+    if (decay > 0) {
+      const name = formatName(ctx.name);
+      const erosionTitle = "⚠️ Seviyen düşüyor!";
+      const erosionBody = name
+        ? `${name}, ${decay > 0.05 ? "ciddi" : "hafif"} bir kayıp var. Bugün 1 sahne yap, geri kazan.`
+        : `${decay > 0.05 ? "Ciddi" : "Hafif"} bir kayıp var. Bugün 1 sahne yap, geri kazan.`;
+      await scheduleAt(ID_CEFR_EROSION, erosionTitle, erosionBody, 48 * 3600);
+    }
+  } catch {
+    // best effort — CEFR modül yüklenemezse bildirim atlanır
+  }
+
   void trackEvent("notifications_dropoff_scheduled", {
     has_incomplete: !!ctx.lastSceneTitle,
     streak_days: ctx.streakDays ?? 0,
@@ -272,6 +293,7 @@ async function cancelDropoffs(): Promise<void> {
     ID_24H_STREAK,
     ID_3D_CHALLENGE,
     ID_7D_GONE,
+    ID_CEFR_EROSION,
   ]) {
     try {
       await Notifications.cancelScheduledNotificationAsync(id);

@@ -2,6 +2,7 @@
 // Local-first: writes to AsyncStorage immediately, syncs to Supabase if signed in.
 
 import { supabase } from "./supabase";
+import { captureException } from "./sentry";
 import {
   bumpDailyActivity,
   bumpSkillMastery,
@@ -119,7 +120,10 @@ export async function completeLesson(args: {
       total_correct: newLocal.total_correct,
       last_attempt_at: newLocal.last_attempt_at,
     };
-    supabase.from("lesson_state").upsert(cloudState).then(() => {}, () => {});
+    // BUG-15 FIX: log cloud sync errors to Sentry (still fire-and-forget)
+    supabase.from("lesson_state").upsert(cloudState).then(() => {}, (err: unknown) => {
+      captureException(err, { source: "srs.completeLesson.lesson_state" });
+    });
 
     supabase
       .from("skill_mastery")
@@ -130,7 +134,9 @@ export async function completeLesson(args: {
         lessons_completed: 1,
         last_practiced_at: new Date().toISOString(),
       })
-      .then(() => {}, () => {});
+      .then(() => {}, (err: unknown) => {
+        captureException(err, { source: "srs.completeLesson.skill_mastery" });
+      });
   }
 
   return { xp_earned: xpEarned, next_review_at: nextReview.toISOString() };
