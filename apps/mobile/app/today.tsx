@@ -20,6 +20,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useFocusEffect, useRouter } from "expo-router";
+import { pushRoute } from "../lib/routes";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -579,9 +580,9 @@ export default function Today() {
                   // BUG-5 FIX: guard null planFirstScene
                   const scene = state.planFirstScene;
                   if (scene) {
-                    router.push(`/scenario/${scene.lessonId}` as never);
+                    pushRoute(router, `/scenario/${scene.lessonId}`);
                   } else {
-                    router.push("/home" as never);
+                    pushRoute(router, "/home");
                   }
                 }}
                 onPressIn={onHeroPressIn}
@@ -628,7 +629,7 @@ export default function Today() {
               kendiliğinden gelir.
             </Text>
             <Pressable
-              onPress={() => router.push("/home" as never)}
+              onPress={() => pushRoute(router, "/home")}
               style={({ pressed }) => [
                 styles.emptyCta,
                 pressed && styles.pressed,
@@ -682,7 +683,7 @@ export default function Today() {
           style={styles.tileGrid}
         >
           <Pressable
-            onPress={() => router.push("/review" as never)}
+            onPress={() => pushRoute(router, "/review")}
             style={({ pressed }) => [styles.tile, pressed && styles.pressed]}
             accessibilityRole="button"
             accessibilityLabel={
@@ -725,10 +726,10 @@ export default function Today() {
               if (state.surprise) {
                 const id = state.surprise.lessonId;
                 await consumeSurprise().catch(() => {});
-                router.push(`/scenario/${id}` as never);
+                pushRoute(router, `/scenario/${id}`);
               } else {
                 // Sürpriz hazır değil — kullanıcıyı Akış'a yönlendir.
-                router.push("/home" as never);
+                pushRoute(router, "/home");
               }
             }}
             style={({ pressed }) => [styles.tile, pressed && styles.pressed]}
@@ -771,9 +772,9 @@ export default function Today() {
           <Pressable
             onPress={() => {
               if (state.daily) {
-                router.push(`/scenario/${state.daily.lessonId}` as never);
+                pushRoute(router, `/scenario/${state.daily.lessonId}`);
               } else {
-                router.push("/home" as never);
+                pushRoute(router, "/home");
               }
             }}
             style={({ pressed }) => [styles.tile, pressed && styles.pressed]}
@@ -818,7 +819,7 @@ export default function Today() {
           </Pressable>
 
           <Pressable
-            onPress={() => router.push("/diary" as never)}
+            onPress={() => pushRoute(router, "/diary")}
             style={({ pressed }) => [styles.tile, pressed && styles.pressed]}
             accessibilityRole="button"
             accessibilityLabel={
@@ -902,7 +903,7 @@ export default function Today() {
         {/* "Akış'ta keşfet" CTA — kullanıcı plan dışı bir şey istiyorsa */}
         <Animated.View entering={FadeInDown.delay(380).duration(360)}>
           <Pressable
-            onPress={() => router.push("/home" as never)}
+            onPress={() => pushRoute(router, "/home")}
             style={({ pressed }) => [
               styles.exploreCard,
               pressed && styles.pressed,

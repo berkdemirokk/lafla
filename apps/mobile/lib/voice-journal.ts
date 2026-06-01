@@ -54,6 +54,14 @@ export interface VoiceEntry {
   durationMs: number;
   /** Optional 1-line note (kullanıcı isterse "ne hakkında" yazar). */
   note?: string;
+  /** AI-generated transcription of the recording. */
+  transcript?: string;
+  /** AI analysis stats. */
+  analysis?: {
+    fillerWords: number;
+    wordCount: number;
+    avgWordsPerMinute: number;
+  };
 }
 
 function isVoiceEntry(x: unknown): x is VoiceEntry {
@@ -62,7 +70,14 @@ function isVoiceEntry(x: unknown): x is VoiceEntry {
     typeof (x as { id?: unknown }).id === "string" &&
     typeof (x as { uri?: unknown }).uri === "string" &&
     typeof (x as { recordedAt?: unknown }).recordedAt === "string" &&
-    typeof (x as { durationMs?: unknown }).durationMs === "number"
+    typeof (x as { durationMs?: unknown }).durationMs === "number" &&
+    (typeof (x as { transcript?: unknown }).transcript === "undefined" ||
+      typeof (x as { transcript?: unknown }).transcript === "string") &&
+    (typeof (x as { analysis?: unknown }).analysis === "undefined" ||
+      (isObject((x as { analysis?: unknown }).analysis) &&
+        typeof (x as any).analysis.fillerWords === "number" &&
+        typeof (x as any).analysis.wordCount === "number" &&
+        typeof (x as any).analysis.avgWordsPerMinute === "number"))
   );
 }
 
@@ -271,4 +286,191 @@ export async function clearAll(): Promise<void> {
   } catch {
     // ignore
   }
+}
+
+// -------------------------------------------------------------
+// BUG-8: AI Speech Recognition & Weekly Stats Entegrasyonu
+// -------------------------------------------------------------
+
+function loadSpeechModule() {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const mod = require("expo-speech-recognition");
+    return (
+      mod?.ExpoSpeechRecognitionModule ??
+      mod?.default ??
+      mod ??
+      null
+    );
+  } catch {
+    return null;
+  }
+}
+
+async function transcribeFile(uri: string): Promise<string> {
+  const mod = loadSpeechModule();
+  if (!mod) {
+    throw new Error("Speech recognition module not available");
+  }
+
+  return new Promise<string>((resolve, reject) => {
+    let transcript = "";
+    let completed = false;
+
+    const resultListener = mod.addListener("result", (e: any) => {
+      const text = e.results?.[0]?.transcript ?? "";
+      if (text) {
+        transcript = text;
+      }
+    });
+
+    const errorListener = mod.addListener("error", (e: any) => {
+      if (completed) return;
+      completed = true;
+      cleanup();
+      reject(new Error(e.message ?? e.error ?? "Speech recognition error"));
+    });
+
+    const endListener = mod.addListener("end", () => {
+      if (completed) return;
+      completed = true;
+      cleanup();
+      resolve(transcript);
+    });
+
+    const cleanup = () => {
+      try {
+        resultListener.remove();
+      } catch { /* ignore */ }
+      try {
+        errorListener.remove();
+      } catch { /* ignore */ }
+      try {
+        endListener.remove();
+      } catch { /* ignore */ }
+    };
+
+    try {
+      mod.start({
+        lang: "en-US",
+        audioSource: { uri },
+        requiresOnDeviceRecognition: true,
+      });
+    } catch (err) {
+      if (!completed) {
+        completed = true;
+        cleanup();
+        reject(err);
+      }
+    }
+  });
+}
+
+function countFillerWords(text: string): number {
+  if (!text) return 0;
+  const pattern = /\b(um|uh|like|you\s+know|i\s+mean|basically|actually|so|well)\b/gi;
+  const matches = text.match(pattern);
+  return matches ? matches.length : 0;
+}
+
+export async function analyzeEntry(entryId: string): Promise<void> {
+  const list = await readIndex();
+  const idx = list.findIndex((e) => e.id === entryId);
+  if (idx < 0) {
+    throw new Error("Entry not found");
+  }
+
+  const entry = list[idx]!;
+  const transcript = await transcribeFile(entry.uri);
+  
+  const words = transcript.trim().split(/\s+/).filter(Boolean);
+  const wordCount = words.length;
+  const fillerWords = countFillerWords(transcript);
+  
+  const durationSec = entry.durationMs / 1000;
+  const durationMin = durationSec / 60;
+  
+  const avgWordsPerMinute = durationMin > 0 ? Math.round(wordCount / durationMin) : 0;
+
+  list[idx] = {
+    ...entry,
+    transcript,
+    analysis: {
+      fillerWords,
+      wordCount,
+      avgWordsPerMinute,
+    },
+  };
+  
+  await writeIndex(list);
+}
+
+export interface WeeklyStats {
+  totalRecordings: number;
+  totalDurationMs: number;
+  avgFillerWordsPerMinute: number;
+  topFillerWord?: string;
+  avgWordsPerMinute: number;
+}
+
+export async function getWeeklyStats(): Promise<WeeklyStats> {
+  const list = await readIndex();
+  const sevenDaysAgo = new Date();
+  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+  
+  const weeklyEntries = list.filter((e) => {
+    try {
+      const date = new Date(e.recordedAt);
+      return date >= sevenDaysAgo;
+    } catch {
+      return false;
+    }
+  });
+
+  const totalRecordings = weeklyEntries.length;
+  let totalDurationMs = 0;
+  let totalFillerWords = 0;
+  let totalWords = 0;
+  
+  const fillerWordCounts: Record<string, number> = {};
+  
+  for (const entry of weeklyEntries) {
+    totalDurationMs += entry.durationMs;
+    if (entry.analysis) {
+      totalFillerWords += entry.analysis.fillerWords;
+      totalWords += entry.analysis.wordCount;
+      
+      if (entry.transcript) {
+        const pattern = /\b(um|uh|like|you\s+know|i\s+mean|basically|actually|so|well)\b/gi;
+        const matches = entry.transcript.match(pattern);
+        if (matches) {
+          for (const match of matches) {
+            const normalized = match.toLowerCase().trim().replace(/\s+/g, " ");
+            fillerWordCounts[normalized] = (fillerWordCounts[normalized] || 0) + 1;
+          }
+        }
+      }
+    }
+  }
+
+  const durationMin = (totalDurationMs / 1000) / 60;
+  const avgFillerWordsPerMinute = durationMin > 0 ? Math.round((totalFillerWords / durationMin) * 10) / 10 : 0;
+  const avgWordsPerMinute = durationMin > 0 ? Math.round(totalWords / durationMin) : 0;
+
+  let topFillerWord: string | undefined = undefined;
+  let maxCount = 0;
+  for (const [word, count] of Object.entries(fillerWordCounts)) {
+    if (count > maxCount) {
+      maxCount = count;
+      topFillerWord = word;
+    }
+  }
+
+  return {
+    totalRecordings,
+    totalDurationMs,
+    avgFillerWordsPerMinute,
+    topFillerWord,
+    avgWordsPerMinute,
+  };
 }

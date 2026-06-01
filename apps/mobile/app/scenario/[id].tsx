@@ -43,6 +43,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { StatusBar } from "expo-status-bar";
 import { useLocalSearchParams, useRouter } from "expo-router";
+import { pushRoute, replaceRoute } from "../../lib/routes";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -389,7 +390,7 @@ export default function ScenarioScreen() {
         void trackEvent("paywall_triggered_by_free_quota", {
           scenario_id: scenario.id,
         }).catch(() => {});
-        router.replace("/paywall?from=quota" as never);
+        replaceRoute(router, "/paywall?from=quota");
       }
     })();
     return () => {
@@ -834,7 +835,7 @@ export default function ScenarioScreen() {
                     if (isPremiumState !== true) {
                       if (paywallNavRef.current) return;
                       paywallNavRef.current = true;
-                      router.push("/paywall?from=hard-mode" as never);
+                      pushRoute(router, "/paywall?from=hard-mode");
                     } else {
                       setHardMode((p) => !p);
                     }
@@ -1020,7 +1021,7 @@ export default function ScenarioScreen() {
                     "lafla.intro.match.completed",
                     "true",
                   ).catch(() => {});
-                  router.replace("/paywall?from=intro" as never);
+                  replaceRoute(router, "/paywall?from=intro");
                   return;
                 }
                 // 2026-05-21 — Daily Plan auto-advance.
@@ -1029,8 +1030,9 @@ export default function ScenarioScreen() {
                 // Plan bitti veya kullanıcı plan dışı bir sahnedeyse legacy
                 // davranış: aynı skill'de sıradaki veya home.
                 if (nextInPlanScene) {
-                  router.replace(
-                    `/scenario/${nextInPlanScene.lessonId}` as never,
+                  replaceRoute(
+                    router,
+                    `/scenario/${nextInPlanScene.lessonId}`,
                   );
                   return;
                 }
@@ -1109,6 +1111,10 @@ function PhaseShell({
       withTiming(8, { duration: 180, easing: Easing.in(Easing.cubic) }),
       withTiming(0, { duration: 220, easing: Easing.out(Easing.cubic) }),
     );
+    return () => {
+      cancelAnimation(opacity);
+      cancelAnimation(translateY);
+    };
   }, [phaseKey, opacity, translateY]);
 
   const animStyle = useAnimatedStyle(() => ({
@@ -1296,6 +1302,10 @@ function PhaseDot({ active, done }: { active: boolean; done: boolean }) {
       duration: 320,
       easing: Easing.out(Easing.cubic),
     });
+    return () => {
+      cancelAnimation(activeProgress);
+      cancelAnimation(doneProgress);
+    };
   }, [active, done, activeProgress, doneProgress]);
 
   const activeStyle = useAnimatedStyle(() => ({
@@ -1361,6 +1371,12 @@ function SetupView({
       120,
       withSpring(0, { damping: 16, stiffness: 150 }),
     );
+    return () => {
+      cancelAnimation(heroOpacity);
+      cancelAnimation(heroTranslateY);
+      cancelAnimation(exampleOpacity);
+      cancelAnimation(exampleTranslateY);
+    };
   }, [
     heroOpacity,
     heroTranslateY,
@@ -1493,6 +1509,10 @@ function SceneIntroOverlay({ onDismiss }: { onDismiss: () => void }) {
       easing: Easing.out(Easing.cubic),
     });
     translateY.value = withSpring(0, { damping: 14, stiffness: 140 });
+    return () => {
+      cancelAnimation(opacity);
+      cancelAnimation(translateY);
+    };
   }, [opacity, translateY]);
 
   const overlayStyle = useAnimatedStyle(() => ({
@@ -1704,6 +1724,9 @@ function VerdictView({
         withSpring(1, { damping: 8, stiffness: 180 }),
       ),
     );
+    return () => {
+      cancelAnimation(pulse);
+    };
   }, [sceneResult.score, pulse]);
 
   const pulseStyle = useAnimatedStyle(() => ({
@@ -1821,7 +1844,7 @@ function VerdictView({
       {premium === false && (
         <Pressable
           onPress={() =>
-            router.push("/paywall?from=verdict-feedback" as never)
+            pushRoute(router, "/paywall?from=verdict-feedback")
           }
           style={({ pressed }) => [
             verdictStyles.feedbackLocked,
@@ -2089,6 +2112,12 @@ function ConfettiPiece({
         easing: Easing.inOut(Easing.quad),
       }),
     );
+    return () => {
+      cancelAnimation(opacity);
+      cancelAnimation(translateY);
+      cancelAnimation(translateX);
+      cancelAnimation(rotate);
+    };
   }, [delay, duration, drift, opacity, translateY, translateX, rotate]);
 
   const animStyle = useAnimatedStyle(() => ({
