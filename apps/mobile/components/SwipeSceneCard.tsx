@@ -86,12 +86,87 @@ const MODE_LABEL: Record<SceneMode, string> = {
   ielts:   "IELTS",
 };
 
-const MODE_IMAGES: Record<SceneMode, string[]> = {
+const THEME_IMAGES: Record<string, string[]> = {
+  taxi: [
+    "https://images.unsplash.com/photo-1511527844068-006b95d162c2?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1492664738948-2ec93a5c0942?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80"
+  ],
+  gym: [
+    "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=600&q=80"
+  ],
+  cafe: [
+    "https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80"
+  ],
+  restaurant: [
+    "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
+  ],
+  bar: [
+    "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80"
+  ],
+  airport: [
+    "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1542296332-2b4473fac5a3?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1490430657723-4d607c1503fc?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=600&q=80"
+  ],
+  salon: [
+    "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1562322140-8baeececf3d1?auto=format&fit=crop&w=600&q=80"
+  ],
+  hotel: [
+    "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80"
+  ],
+  pharmacy: [
+    "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1631541976229-21072a14671a?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1607613009820-a29f7bb81dd0?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1586015555751-63bb77f4322a?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80"
+  ],
+  shopping: [
+    "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1573855563977-37d48875c409?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=600&q=80"
+  ],
+  ielts: [
+    "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1448932252197-d39721b1a996?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&q=80"
+  ],
   flirt: [
     "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80",
     "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1475688621402-4257c812d6db?auto=format&fit=crop&w=600&q=80",
     "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80",
     "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=600&q=80",
     "https://images.unsplash.com/photo-1543807535-eceef0bc6599?auto=format&fit=crop&w=600&q=80"
@@ -101,59 +176,50 @@ const MODE_IMAGES: Record<SceneMode, string[]> = {
     "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80",
     "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
     "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1531535934027-667f6787da4a?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80"
-  ],
-  bar: [
-    "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1527061011665-3652c757a4d4?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1485686531765-ba63b07845a7?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?auto=format&fit=crop&w=600&q=80"
-  ],
-  airport: [
-    "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1542296332-2b4473fac5a3?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1490430657723-4d607c1503fc?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1473872170063-eb91518455ce?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=600&q=80"
+    "https://images.unsplash.com/photo-1531535934027-667f6787da4a?auto=format&fit=crop&w=600&q=80"
   ],
   daily: [
-    "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=600&q=80",
     "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80",
     "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80",
     "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=600&q=80"
-  ],
-  order: [
-    "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=600&q=80"
-  ],
-  ielts: [
-    "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=600&q=80"
+    "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1526256262111-361788c1c38e?auto=format&fit=crop&w=600&q=80"
   ]
 };
 
-function getDeterministicImage(sceneId: string, mode: SceneMode): string {
-  const list = MODE_IMAGES[mode];
+function getVisualTheme(skillId: string | undefined, mode: SceneMode): string {
+  const s = (skillId || "").toLowerCase();
+  
+  if (s.includes("taxi") || s.includes("transport")) return "taxi";
+  if (s.includes("gym") || s.includes("workout")) return "gym";
+  if (s.includes("cafe")) return "cafe";
+  if (s.includes("restaurant") || s.includes("fastfood")) return "restaurant";
+  if (s.includes("bar") || s.includes("pub") || s.includes("drink")) return "bar";
+  if (s.includes("airport") || s.includes("flight") || s.includes("travel")) return "airport";
+  if (s.includes("salon") || s.includes("barber") || s.includes("hair")) return "salon";
+  if (s.includes("hotel") || s.includes("housing") || s.includes("hostel")) return "hotel";
+  if (s.includes("pharmacy") || s.includes("health") || s.includes("medicine")) return "pharmacy";
+  if (s.includes("shopping") || s.includes("grocery") || s.includes("delivery") || s.includes("store")) return "shopping";
+  if (s.includes("ielts")) return "ielts";
+  if (s.includes("flirt") || s.includes("date") || s.includes("banter")) return "flirt";
+  if (s.includes("work") || s.includes("meeting") || s.includes("career") || s.includes("professional") || s.includes("slack") || s.includes("email") || s.includes("interview") || s.includes("coder")) return "work";
+  if (s.includes("daily") || s.includes("social") || s.includes("story") || s.includes("directions") || s.includes("phone") || s.includes("bank")) return "daily";
+
+  // Fallback to mode
+  if (mode === "flirt") return "flirt";
+  if (mode === "work") return "work";
+  if (mode === "bar") return "bar";
+  if (mode === "airport") return "airport";
+  if (mode === "daily") return "daily";
+  if (mode === "order") return "restaurant";
+  if (mode === "ielts") return "ielts";
+
+  return "daily";
+}
+
+function getDeterministicImage(sceneId: string, skillId: string | undefined, mode: SceneMode): string {
+  const theme = getVisualTheme(skillId, mode);
+  const list = THEME_IMAGES[theme] || THEME_IMAGES.daily;
   let hash = 0;
   for (let i = 0; i < sceneId.length; i++) {
     hash = (hash << 5) - hash + sceneId.charCodeAt(i);
@@ -416,7 +482,7 @@ function SwipeSceneCardImpl({
       >
         {/* Full background live image with overlay & top inner glow highlight */}
         <Animated.Image
-          source={{ uri: getDeterministicImage(scene.id, scene.mode) }}
+          source={{ uri: getDeterministicImage(scene.id, scene.skillId, scene.mode) }}
           style={[
             StyleSheet.absoluteFillObject,
             {
