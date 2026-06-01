@@ -525,6 +525,17 @@ export default function ScenarioScreen() {
         }) => Promise<void>;
       };
       // Lesson exercises'i tarar — vocab_tile + translate enqueue eder.
+      for (const phrase of filteredSetup) {
+        await srsVocab
+          .enqueueVocab({
+            word: phrase.en,
+            translation: phrase.tr,
+            source_lesson_id: scenario.id,
+            source_lesson_title: scenario.title,
+            was_correct: true,
+          })
+          .catch(() => {});
+      }
       const lessonExercises = scenario.warmups ?? [];
       // scenario.warmups type BundledLesson["exercises"] = ReadonlyArray<Record<string, unknown>>
       for (const ex of lessonExercises) {
@@ -562,7 +573,7 @@ export default function ScenarioScreen() {
         }
       }
     })();
-  }, [phase, sceneResult, scenario, isIntro]);
+  }, [phase, sceneResult, scenario, isIntro, filteredSetup]);
 
   // Drain achievement queue — when the active toast clears, slide the next
   // queued unlock in. We also auto-advance after 2s when there are multiple
@@ -1339,7 +1350,13 @@ function SetupView({
   total,
   onNext,
 }: {
-  phrase: { en: string; tr: string; example?: string; example_tr?: string };
+  phrase: {
+    en: string;
+    tr: string;
+    example?: string;
+    example_tr?: string;
+    cefr_band?: CefrLevel;
+  };
   stepIndex: number;
   total: number;
   onNext: () => void;
@@ -1403,9 +1420,16 @@ function SetupView({
 
   return (
     <ScrollView contentContainerStyle={setupStyles.content}>
-      <Text style={setupStyles.label}>
-        KURULUM · {stepIndex + 1}/{total}
-      </Text>
+      <View style={setupStyles.labelRow}>
+        <Text style={setupStyles.label}>
+          KURULUM · {stepIndex + 1}/{total}
+        </Text>
+        {phrase.cefr_band ? (
+          <View style={setupStyles.levelBadge}>
+            <Text style={setupStyles.levelBadgeText}>{phrase.cefr_band}</Text>
+          </View>
+        ) : null}
+      </View>
 
       <Pressable onPress={replayAudio} accessibilityRole="button">
         <Animated.View style={[setupStyles.hero, heroStyle]}>
@@ -2314,13 +2338,33 @@ const setupStyles = StyleSheet.create({
     padding: tokens.spacing.md,
     justifyContent: "center",
   },
+  labelRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+    marginBottom: tokens.spacing.md,
+  },
   label: {
     fontSize: 12,
     color: tokens.text.tertiary,
     fontWeight: tokens.weight.bold,
     letterSpacing: 1.4,
     textAlign: "center",
-    marginBottom: tokens.spacing.md,
+  },
+  levelBadge: {
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.brand.tertiaryContainer,
+    borderWidth: 1,
+    borderColor: tokens.brand.tertiary,
+  },
+  levelBadgeText: {
+    fontSize: 10,
+    color: tokens.brand.tertiary,
+    fontWeight: tokens.weight.extrabold,
+    letterSpacing: 0.7,
   },
   hero: {
     backgroundColor: tokens.brand.primarySoft,

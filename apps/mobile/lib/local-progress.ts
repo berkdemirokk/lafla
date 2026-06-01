@@ -168,15 +168,13 @@ export async function bumpDailyActivity(xp: number) {
 
 export async function bumpStreak() {
   // Streak rule: if last_lesson_at was yesterday or today, ++ (today only counts once).
-  // If gap ≥ 2 days, reset to 1. Local timezone.
+  // If gap >= 2 days, reset to 1. Use UTC dates to match daily/free-tier keys.
   const profile = await getLocalProfile();
   const today = new Date();
   const todayStr = localDateStr();
   const last = profile.last_lesson_at;
   const lastDate = last ? new Date(last) : null;
-  const lastStr = lastDate
-    ? `${lastDate.getFullYear()}-${String(lastDate.getMonth() + 1).padStart(2, "0")}-${String(lastDate.getDate()).padStart(2, "0")}`
-    : undefined;
+  const lastStr = lastDate ? lastDate.toISOString().slice(0, 10) : undefined;
 
   let streak = profile.current_streak;
   if (!lastStr) {
@@ -193,9 +191,17 @@ export async function bumpStreak() {
     // Yeni: günler arası farkı tarihten (yıl/ay/gün) hesaplıyoruz —
     // saat bağımsız. midnight rollover ile tetiklenmeyi garantiler.
     const calendarDaysBetween = (a: Date, b: Date): number => {
-      const aStart = new Date(a.getFullYear(), a.getMonth(), a.getDate());
-      const bStart = new Date(b.getFullYear(), b.getMonth(), b.getDate());
-      return Math.round((bStart.getTime() - aStart.getTime()) / 86_400_000);
+      const aStart = Date.UTC(
+        a.getUTCFullYear(),
+        a.getUTCMonth(),
+        a.getUTCDate(),
+      );
+      const bStart = Date.UTC(
+        b.getUTCFullYear(),
+        b.getUTCMonth(),
+        b.getUTCDate(),
+      );
+      return Math.round((bStart - aStart) / 86_400_000);
     };
     const daysAgo = lastDate ? calendarDaysBetween(lastDate, today) : 999;
     if (daysAgo === 1) {

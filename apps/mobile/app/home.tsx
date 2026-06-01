@@ -205,15 +205,19 @@ export default function Home() {
       return list.filter((s) => !s.cefrLevel || allowed.has(s.cefrLevel));
     };
 
-    let filtered = filterByCefr(filterByInterests(playable));
-    // modeOverride aktifse interest fallback yapılmamalı — kullanıcı net bir
-    // mod istedi, az sahne varsa CEFR'a düşülür ama interest'e geri dönmez.
-    if (filtered.length < MIN_FEED && !modeOverride) {
-      filtered = filterByCefr(playable);
+    const interestPool = filterByInterests(playable);
+    let filtered = filterByCefr(interestPool);
+
+    // Keep the user's selected/interested mode first. A short but level-correct
+    // feed is better than filling the screen with unrelated low-level scenes.
+    if (filtered.length === 0 && interestPool.length >= MIN_FEED) {
+      filtered = interestPool;
     }
-    // Bu safety net hem normal akışta hem modeOverride aktifken devrede:
-    // o mod hiç sahnesi yoksa yine tüm playable'a düş (boş feed'den iyi).
-    if (filtered.length < MIN_FEED) filtered = playable;
+    if (filtered.length === 0 && !modeOverride) {
+      const levelOnly = filterByCefr(playable);
+      filtered = levelOnly.length >= MIN_FEED ? levelOnly : playable;
+    }
+    if (filtered.length === 0) filtered = playable;
 
     return filtered
       .map((s) => ({

@@ -128,34 +128,63 @@ export async function getOrCreateDailyPlan(): Promise<Scene[]> {
   const relevantLevels = cefr ? new Set(getRelevantLevels(cefr)) : null;
 
   // Playable + uncompleted
-  let pool = SAMPLE_SCENES.filter((s) => {
+  const basePool = SAMPLE_SCENES.filter((s) => {
     if (completed.has(s.lessonId)) return false;
     if (!getScenario(s.lessonId)) return false;
     return true;
   });
 
-  // CEFR filter (untagged passes through — eskiden öyleydi, tagging bitti
-  // ama defensive)
-  if (relevantLevels) {
-    const filtered = pool.filter(
-      (s) => !s.cefrLevel || relevantLevels.has(s.cefrLevel),
-    );
-    if (filtered.length >= PLAN_SIZE) pool = filtered;
-  }
+  let pool = basePool;
 
-  // Interest filter — varsa
+  // Preserve the selected/interested area first. If that area has only a few
+  // matching CEFR scenes, keep them as priority and fill the rest from the
+  // same area instead of discarding the level signal entirely.
+  let priorityPool: Scene[] | null = null;
+  let interestPool = basePool;
   if (interestModes && interestModes.length > 0) {
     const set = new Set(interestModes);
-    const filtered = pool.filter((s) => set.has(s.mode));
-    if (filtered.length >= PLAN_SIZE) pool = filtered;
+    const filtered = basePool.filter((s) => set.has(s.mode));
+    if (filtered.length >= PLAN_SIZE) interestPool = filtered;
+  }
+
+  if (relevantLevels) {
+    const levelWithinInterest = interestPool.filter(
+      (s) => !s.cefrLevel || relevantLevels.has(s.cefrLevel),
+    );
+    if (levelWithinInterest.length >= PLAN_SIZE) {
+      pool = levelWithinInterest;
+    } else if (levelWithinInterest.length > 0) {
+      priorityPool = levelWithinInterest;
+      pool = interestPool.length >= PLAN_SIZE ? interestPool : basePool;
+    } else if (interestPool.length >= PLAN_SIZE) {
+      pool = interestPool;
+    } else {
+      const levelOnly = basePool.filter(
+        (s) => !s.cefrLevel || relevantLevels.has(s.cefrLevel),
+      );
+      pool = levelOnly.length >= PLAN_SIZE ? levelOnly : basePool;
+    }
+  } else {
+    pool = interestPool;
   }
 
   // Deterministic shuffle by today's seed
   const seed = hashString(today);
-  pool = pool
-    .map((s) => ({ s, k: hashString(s.id + ":" + seed.toString(16)) }))
-    .sort((a, b) => a.k - b.k)
-    .map((x) => x.s);
+  const shuffle = (list: readonly Scene[]): Scene[] =>
+    list
+      .map((s) => ({ s, k: hashString(s.id + ":" + seed.toString(16)) }))
+      .sort((a, b) => a.k - b.k)
+      .map((x) => x.s);
+
+  if (priorityPool) {
+    const priorityLessonIds = new Set(priorityPool.map((s) => s.lessonId));
+    pool = [
+      ...shuffle(priorityPool),
+      ...shuffle(pool.filter((s) => !priorityLessonIds.has(s.lessonId))),
+    ];
+  } else {
+    pool = shuffle(pool);
+  }
 
   // Skill diversity — same skill_id max 2
   const skillCount: Record<string, number> = {};
@@ -225,7 +254,12 @@ export async function getPlanProgress(): Promise<{
 export async function incrementPlanProgress(lessonId?: string): Promise<void> {
   const today = todayKey();
   const planScenes = await getOrCreateDailyPlan();
-  const sig = planSigFrom(planScenes.map((s) => s.lessonId));
+  if (planScenes.length === 0) return;
+  const planLessonIds = planScenes.map((s) => s.lessonId);
+  if (lessonId && !planLessonIds.includes(lessonId)) {
+    return;
+  }
+  const sig = planSigFrom(planLessonIds);
   let progress: PlanProgress = {
     date: today,
     completedCount: 0,
@@ -263,7 +297,10 @@ export async function incrementPlanProgress(lessonId?: string): Promise<void> {
       lessonId,
     ];
   }
-  progress.completedCount = (progress.completedCount ?? 0) + 1;
+  progress.completedCount = Math.min(
+    planScenes.length,
+    (progress.completedCount ?? 0) + 1,
+  );
   progress.lastCompletedAt = new Date().toISOString();
   try {
     await AsyncStorage.setItem(K_PLAN_PROGRESS, JSON.stringify(progress));

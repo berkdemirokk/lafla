@@ -29,6 +29,7 @@
 import { useEffect, useReducer, useRef, useState } from "react";
 import {
   KeyboardAvoidingView,
+  Alert,
   Linking,
   Platform,
   Pressable,
@@ -55,9 +56,9 @@ import { Button } from "../components/Button";
 import { initAnalytics, trackEvent } from "../lib/analytics";
 import { requestAttOnce } from "../lib/att";
 import { FLAG_KEYS, getFeatureFlag } from "../lib/feature-flags";
-import { completeOnboarding } from "../lib/auth";
 import { setCefrLevel, type CefrLevel } from "../lib/cefr-level";
 import { finalizeOnboarding } from "../lib/onboarding-finalize";
+import { parseSafe, isStringArray } from "../lib/json-safe";
 import {
   hapticImpact,
   hapticSelection,
@@ -106,14 +107,28 @@ interface OnboardingState {
 }
 
 type Action =
+  | {
+      type: "HYDRATE";
+      step: OnboardingStep;
+      interests: string[];
+      displayName: string;
+    }
   | { type: "GOTO"; step: OnboardingStep }
   | { type: "NEXT" }
   | { type: "BACK" }
+  | { type: "SET_INTERESTS"; interests: string[] }
   | { type: "TOGGLE_INTEREST"; id: string }
   | { type: "SET_NAME"; name: string };
 
 function reducer(state: OnboardingState, action: Action): OnboardingState {
   switch (action.type) {
+    case "HYDRATE":
+      return {
+        ...state,
+        step: action.step,
+        interests: action.interests,
+        displayName: action.displayName,
+      };
     case "GOTO":
       return { ...state, step: action.step };
     case "NEXT": {
@@ -133,6 +148,8 @@ function reducer(state: OnboardingState, action: Action): OnboardingState {
         : [...state.interests, action.id];
       return { ...state, interests: next };
     }
+    case "SET_INTERESTS":
+      return { ...state, interests: action.interests };
     case "SET_NAME":
       return { ...state, displayName: action.name };
     default:
@@ -259,13 +276,30 @@ export default function Onboarding() {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const savedStep = await getOnboardingStep();
+      const [savedStep, rawInterests, rawDisplayName, rawLegacyName] =
+        await Promise.all([
+          getOnboardingStep(),
+          AsyncStorage.getItem("lafla.interests").catch(() => null),
+          AsyncStorage.getItem(K_DISPLAY_NAME).catch(() => null),
+          AsyncStorage.getItem(K_LEGACY_NAME).catch(() => null),
+        ]);
       if (cancelled) return;
       const validStep =
         savedStep && (STEP_ORDER as string[]).includes(savedStep)
           ? (savedStep as OnboardingStep)
           : "welcome";
-      dispatch({ type: "GOTO", step: validStep });
+      const savedInterests = parseSafe<string[]>(
+        rawInterests,
+        [],
+        isStringArray,
+        { source: "onboarding.restore.interests" },
+      );
+      dispatch({
+        type: "HYDRATE",
+        step: validStep,
+        interests: savedInterests,
+        displayName: rawDisplayName ?? rawLegacyName ?? "",
+      });
       setRestored(true);
     })();
     return () => {
@@ -344,6 +378,7 @@ export default function Onboarding() {
     // settings'ten daraltabilir.
     const allLifestyle = LIFESTYLE_CHOICES.map((c) => c.id);
     await setInterests(allLifestyle).catch(() => {});
+    dispatch({ type: "SET_INTERESTS", interests: allLifestyle });
     void trackEvent("onboarding_step_skipped", {
       step: "interests",
       fallback_count: allLifestyle.length,
@@ -408,12 +443,22 @@ export default function Onboarding() {
 
     // 2026-05-21 — finalize logic helper'a taşındı (lib/onboarding-finalize)
     // Aynı işi /placement ekranı da çağırır (adaptive test sonu).
-    await finalizeOnboarding({
-      level: lvl,
-      interests: state.interests,
-      displayName: state.displayName,
-      source: "self_report",
-    });
+    try {
+      await finalizeOnboarding({
+        level: lvl,
+        interests: state.interests,
+        displayName: state.displayName,
+        source: "self_report",
+      });
+    } catch {
+      setSaving(false);
+      Alert.alert(
+        "Bir şey ters gitti",
+        "Seviyen kaydedilemedi. İnternetini kontrol edip tekrar dene.",
+        [{ text: "Tamam" }],
+      );
+      return;
+    }
 
     hapticSuccess();
     setSaving(false);

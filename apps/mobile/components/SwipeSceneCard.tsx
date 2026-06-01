@@ -38,6 +38,7 @@ import * as Haptics from "expo-haptics";
 
 import type { Scene, SceneMode } from "../data/scenes";
 import { hasNativeAudio } from "../data/native-audio-manifest";
+import { getVisualThemeForScene } from "../lib/scene-visual-theme";
 import { tokens } from "../theme";
 
 // ---------------------------------------------------------------------------
@@ -92,7 +93,7 @@ const MODE_LABEL: Record<SceneMode, string> = {
 // ---------------------------------------------------------------------------
 const THEME_IMAGES: Record<string, string[]> = {
   taxi: [
-    "https://images.unsplash.com/photo-1549317661-bd32c8ce0afa?auto=format&fit=crop&w=900&q=85",
+    "https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1494783367193-149034c05e8f?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1532635241-17e820acc59f?auto=format&fit=crop&w=900&q=85",
@@ -100,7 +101,7 @@ const THEME_IMAGES: Record<string, string[]> = {
     "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1485291571150-772bcfc10da5?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1476262322942-fce831d2b09a?auto=format&fit=crop&w=900&q=85",
+    "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=900&q=85"
   ],
   gym: [
@@ -119,11 +120,11 @@ const THEME_IMAGES: Record<string, string[]> = {
     "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1447933601403-56dc2df6e296?auto=format&fit=crop&w=900&q=85",
+    "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1514432324607-a09d9b4aefda?auto=format&fit=crop&w=900&q=85",
+    "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1453614512568-c4024d13c247?auto=format&fit=crop&w=900&q=85"
   ],
@@ -158,8 +159,8 @@ const THEME_IMAGES: Record<string, string[]> = {
     "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1517400508447-f8dd518b86db?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1542296332-2b4473fac5a3?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1473872170063-eb91518455ce?auto=format&fit=crop&w=900&q=85",
+    "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&w=900&q=85",
+    "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1490430657723-4d607c1503fc?auto=format&fit=crop&w=900&q=85"
   ],
@@ -169,7 +170,7 @@ const THEME_IMAGES: Record<string, string[]> = {
     "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1562322140-8baeececf3d1?auto=format&fit=crop&w=900&q=85",
+    "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=900&q=85",
@@ -191,11 +192,11 @@ const THEME_IMAGES: Record<string, string[]> = {
     "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1519494026894-2b28dcc15c77?auto=format&fit=crop&w=900&q=85",
+    "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1583912267550-d6c2f89d1999?auto=format&fit=crop&w=900&q=85",
+    "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=900&q=85"
   ],
@@ -208,7 +209,7 @@ const THEME_IMAGES: Record<string, string[]> = {
     "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1573855619003-97b4799dcd8b?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?auto=format&fit=crop&w=900&q=85",
+    "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=900&q=85"
   ],
   ielts: [
@@ -216,7 +217,7 @@ const THEME_IMAGES: Record<string, string[]> = {
     "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1523050854058-8df90110c476?auto=format&fit=crop&w=900&q=85",
+    "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=85",
@@ -226,7 +227,7 @@ const THEME_IMAGES: Record<string, string[]> = {
   flirt: [
     "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?auto=format&fit=crop&w=900&q=85",
+    "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1543807535-eceef0bc6599?auto=format&fit=crop&w=900&q=85",
@@ -242,7 +243,7 @@ const THEME_IMAGES: Record<string, string[]> = {
     "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1531535934027-667f6787da4a?auto=format&fit=crop&w=900&q=85",
+    "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=85"
@@ -257,24 +258,24 @@ const THEME_IMAGES: Record<string, string[]> = {
     "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1526256262111-361788c1c38e?auto=format&fit=crop&w=900&q=85"
+    "https://images.unsplash.com/photo-1515005318787-cc68052b38f3?auto=format&fit=crop&w=900&q=85"
   ],
   // --- NEW THEMES for uncovered skillIds ---
   emergency: [
     "https://images.unsplash.com/photo-1587745416684-47953f16f02f?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1504439468489-c8920d796a29?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1551190822-a9ce113d0d15?auto=format&fit=crop&w=900&q=85",
+    "https://images.unsplash.com/photo-1504439468489-c8920d796a29?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1519494080410-f9aa76cb4283?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1580281658223-9b93f18ae9ae?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1612531822021-bab64e14fd49?auto=format&fit=crop&w=900&q=85",
+    "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=900&q=85"
   ],
   phone: [
     "https://images.unsplash.com/photo-1512446816042-444d641267d4?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1556741533-f6acd647d9ae?auto=format&fit=crop&w=900&q=85",
+    "https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1523206489230-c012c64b2b48?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1553775282-20af80779df7?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=900&q=85",
@@ -299,52 +300,15 @@ const THEME_IMAGES: Record<string, string[]> = {
 };
 
 // ---------------------------------------------------------------------------
-// Skill → Visual theme mapping. Most-specific first, mode fallback last.
+// Deterministic visual asset selection. Theme matching lives in lib so it can
+// be tested without importing React Native.
 // ---------------------------------------------------------------------------
-function getVisualTheme(skillId: string | undefined, mode: SceneMode): string {
-  const s = (skillId || "").toLowerCase();
-
-  // Exact sub-skill matches (most specific first)
-  if (s.includes("emergency")) return "emergency";
-  if (s.includes("taxi")) return "taxi";
-  if (s.includes("transport") || s.includes("logistics")) return "taxi";
-  if (s.includes("directions")) return "directions";
-  if (s.includes("gym") || s.includes("workout")) return "gym";
-  if (s.includes("cafe") || s.includes("coffee")) return "cafe";
-  if (s.includes("fastfood") || s.includes("restaurant") || s.includes("bill") || s.includes("tipping") || s.includes("complaint") || s.includes("custom")) return "restaurant";
-  if (s.includes("delivery") || s.includes("grocery")) return "shopping";
-  if (s.includes("bar") || s.includes("pub") || s.includes("approach")) return "bar";
-  if (s.includes("airport") || s.includes("flight") || s.includes("travel")) return "airport";
-  if (s.includes("salon") || s.includes("barber") || s.includes("hair")) return "salon";
-  if (s.includes("hotel") || s.includes("housing") || s.includes("hostel")) return "hotel";
-  if (s.includes("pharmacy") || s.includes("health") || s.includes("medicine")) return "pharmacy";
-  if (s.includes("shopping") || s.includes("store")) return "shopping";
-  if (s.includes("phone") || s.includes("tech_support") || s.includes("service")) return "phone";
-  if (s.includes("ielts")) return "ielts";
-  if (s.includes("flirt") || s.includes("date") || s.includes("banter") || s.includes("intimacy") || s.includes("rejection") || s.includes("recovery")) return "flirt";
-  if (s.includes("work") || s.includes("meeting") || s.includes("career") || s.includes("professional") || s.includes("slack") || s.includes("email") || s.includes("interview") || s.includes("standup") || s.includes("disagree") || s.includes("feedback") || s.includes("promotion") || s.includes("networking") || s.includes("codereview") || s.includes("1on1") || s.includes("remote") || s.includes("hire")) return "work";
-  if (s.includes("bank")) return "daily";
-  if (s.includes("smalltalk") || s.includes("social")) return "daily";
-  if (s.includes("story")) return "daily";
-
-  // Fallback: mode → theme
-  if (mode === "flirt") return "flirt";
-  if (mode === "work") return "work";
-  if (mode === "bar") return "bar";
-  if (mode === "airport") return "airport";
-  if (mode === "order") return "restaurant";
-  if (mode === "ielts") return "ielts";
-  if (mode === "daily") return "daily";
-
-  return "daily";
-}
-
-function getDeterministicImage(sceneId: string, skillId: string | undefined, mode: SceneMode): string {
-  const theme = getVisualTheme(skillId, mode);
+function getDeterministicImage(scene: Scene): string {
+  const theme = getVisualThemeForScene(scene);
   const list = THEME_IMAGES[theme] || THEME_IMAGES.daily;
   let hash = 0;
-  for (let i = 0; i < sceneId.length; i++) {
-    hash = (hash << 5) - hash + sceneId.charCodeAt(i);
+  for (let i = 0; i < scene.id.length; i++) {
+    hash = (hash << 5) - hash + scene.id.charCodeAt(i);
     hash |= 0;
   }
   const idx = Math.abs(hash) % list.length;
@@ -609,7 +573,7 @@ function SwipeSceneCardImpl({
         {/* Full background live image with overlay & top inner glow highlight */}
         {!imgFailed ? (
           <Animated.Image
-            source={{ uri: getDeterministicImage(scene.id, scene.skillId, scene.mode) }}
+            source={{ uri: getDeterministicImage(scene) }}
             style={[
               StyleSheet.absoluteFillObject,
               {

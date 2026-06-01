@@ -634,7 +634,13 @@ export default function Auth() {
                 keyboardType="email-address"
                 autoComplete="email"
                 accessibilityLabel="Email adresi"
-                onSubmitEditing={() => passwordRef.current?.focus()}
+                onSubmitEditing={() => {
+                  if (mode === "forgot") {
+                    void submit();
+                  } else {
+                    passwordRef.current?.focus();
+                  }
+                }}
                 returnKeyType={mode === "forgot" ? "go" : "next"}
               />
 

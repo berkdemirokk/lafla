@@ -67,7 +67,70 @@ export interface Scene {
   progressLabel?: string;
 }
 
-export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
+const C2_SCENE_LESSON_IDS = new Set<string>([
+  "order.complaint.5.3",
+  "order.complaint.5.8",
+  "order.bar.7.41",
+  "order.bar.7.42",
+  "order.bar.7.43",
+  "bar.approach.24.42",
+  "bar.approach.24.43",
+  "bar.approach.24.44",
+  "story.erasmus.10",
+  "flirt.deep.39",
+  "arc.online_dating.8",
+  "arc.online_dating.9",
+  "arc.online_dating.10",
+  "professional.c1.board.1",
+  "professional.c1.board.2",
+  "professional.c1.ma_diligence.1",
+  "professional.c1.layoff.1",
+  "professional.c1.crisis.2",
+  "work.tech.8",
+  "work.tech.13",
+  "daily.expand.17",
+  "arc.doctor_visit.7",
+  "arc.doctor_visit.8",
+  "arc.apartment_hunt.7",
+  "arc.apartment_hunt.8",
+  "arc.tech_support.7",
+  "arc.tech_support.8",
+  "arc.erasmus_amsterdam.8",
+  "arc.erasmus_amsterdam.9",
+  "airport.44.19",
+  "airport.44.20",
+  "arc.us_immigration.7",
+  "arc.us_immigration.8",
+  "arc.long_haul.8",
+  "arc.long_haul.9",
+  "arc.long_haul.10",
+  "arc.solo_japan.10",
+  "ielts.p3.3",
+  "ielts.p3.4",
+  "ielts.p3.5",
+  "ielts.p3.6",
+  "ielts.p3.7",
+  "ielts.p3.8",
+  "ielts.w1.7",
+  "ielts.w2.6",
+  "ielts.w2.7",
+  "ielts.w2.8",
+]);
+
+function normalizeScene(scene: Scene): Scene {
+  let normalized = scene;
+  if (normalized.skillId === "arc.freelance") {
+    normalized = { ...normalized, mode: "work" };
+  } else if (normalized.skillId === "arc.uni_admission") {
+    normalized = { ...normalized, mode: "ielts" };
+  }
+  if (C2_SCENE_LESSON_IDS.has(normalized.lessonId)) {
+    normalized = { ...normalized, cefrLevel: "C2" };
+  }
+  return normalized;
+}
+
+const RAW_SAMPLE_SCENES: ReadonlyArray<Scene> = [
   {
     id: "scene-order-cafe-1-1",
     emoji: "☕",
@@ -2315,3 +2378,6 @@ export const SAMPLE_SCENES: ReadonlyArray<Scene> = [
   ...dailyExpandedScenes,
   ...storyArcV2Scenes, // 132 sahne, auto-generated (Story Arc V2)
 ];
+
+export const SAMPLE_SCENES: ReadonlyArray<Scene> =
+  RAW_SAMPLE_SCENES.map(normalizeScene);

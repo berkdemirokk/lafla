@@ -221,6 +221,7 @@ export function ListenRespond({
     await sr.startListening({
       lang: "en-US",
       timeoutMs: 6000,
+      contextualStrings: [ideal_response],
       onResult: (text, isFinal) => {
         if (!isFinal) return;
         gradeWith(text);

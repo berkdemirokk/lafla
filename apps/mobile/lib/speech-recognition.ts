@@ -21,6 +21,7 @@
 // available / unavailable branches.
 
 import { Audio } from "expo-av";
+import { stop as stopTts } from "./tts";
 
 type SpeechResultEvent = {
   results?: Array<{ transcript?: string }>;
@@ -40,6 +41,15 @@ type ExpoSpeechRecognitionModule = {
     lang: string;
     interimResults?: boolean;
     continuous?: boolean;
+    maxAlternatives?: number;
+    requiresOnDeviceRecognition?: boolean;
+    addsPunctuation?: boolean;
+    contextualStrings?: string[];
+    iosCategory?: {
+      category: string;
+      categoryOptions: string[];
+      mode?: string;
+    };
   }) => void;
   stop: () => void;
   abort?: () => void;
@@ -72,6 +82,7 @@ type Listener = { remove: () => void };
 let activeListeners: Listener[] = [];
 let activeTimeout: ReturnType<typeof setTimeout> | null = null;
 let isListening = false;
+let restorePlaybackAfterEnd = false;
 
 // 2026-05-26 (P0 audio session fix) — iOS audio session category geçişleri.
 // TTS playback-only, STT playAndRecord. İki sabit config'i tek yerde tutuyoruz
@@ -125,6 +136,15 @@ function clearActive() {
     activeTimeout = null;
   }
   isListening = false;
+}
+
+function finishListening(): void {
+  const shouldRestore = restorePlaybackAfterEnd;
+  restorePlaybackAfterEnd = false;
+  clearActive();
+  if (shouldRestore) {
+    void setAudioSessionForPlayback();
+  }
 }
 
 export async function isAvailable(): Promise<boolean> {
@@ -188,6 +208,8 @@ export interface StartListeningOpts {
   onError: (e: Error) => void;
   /** Auto-stop after this many ms. Defaults to 8000. */
   timeoutMs?: number;
+  /** Optional phrase hints to bias recognition toward the expected answer. */
+  contextualStrings?: string[];
   /**
    * Optional AbortSignal. When fired we tear down listeners and stop the
    * native recogniser. Callers from useEffect cleanup paths should pass one
@@ -211,7 +233,7 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
     } catch {
       // ignore
     }
-    clearActive();
+    finishListening();
   }
 
   // If the caller already aborted before we got going, bail before touching
@@ -243,7 +265,14 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
     // start()'tan ÖNCE audio session'ı record-capable mode'a al. TTS önce çaldıysa
     // session playback-only kalmıştı; bu çağrı olmadan iOS Speech Recognition
     // mikrofona erişip transcript üretemiyor (silent fail, "Dinliyor..." donuk).
+    try {
+      stopTts();
+    } catch {
+      // ignore
+    }
+
     await setAudioSessionForRecording();
+    restorePlaybackAfterEnd = true;
 
     if (opts.signal?.aborted) {
       opts.onError(new Error("speech recognition aborted"));
@@ -272,13 +301,26 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
 
     const errorListener = mod.addListener("error", (raw) => {
       if (opts.signal?.aborted) {
-        clearActive();
+        finishListening();
         return;
       }
       const e = raw as SpeechErrorEvent;
       const message = e.message ?? e.error ?? "speech recognition error";
+      const recoveredFinal =
+        (e.error === "no-speech" || message.toLowerCase().includes("no speech")) &&
+        lastInterim &&
+        !finalEmitted;
+      if (recoveredFinal) {
+        try {
+          opts.onResult(lastInterim, true);
+        } catch {
+          // listener throw ederse temizliği engelleme
+        }
+        finishListening();
+        return;
+      }
       opts.onError(new Error(message));
-      clearActive();
+      finishListening();
     });
 
     const endListener = mod.addListener("end", () => {
@@ -293,7 +335,7 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
           // listener throw ederse temizliği engelleme
         }
       }
-      clearActive();
+      finishListening();
     });
 
     activeListeners = [resultListener, errorListener, endListener];
@@ -315,7 +357,7 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
         } catch {
           // ignore
         }
-        clearActive();
+        finishListening();
       };
       opts.signal.addEventListener("abort", abortHandler, { once: true });
     }
@@ -324,6 +366,15 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
       lang: opts.lang,
       interimResults: true,
       continuous: false,
+      maxAlternatives: 1,
+      requiresOnDeviceRecognition: false,
+      addsPunctuation: false,
+      contextualStrings: opts.contextualStrings,
+      iosCategory: {
+        category: "playAndRecord",
+        categoryOptions: ["defaultToSpeaker", "allowBluetooth"],
+        mode: "measurement",
+      },
     });
     isListening = true;
     succeeded = true;
@@ -343,7 +394,7 @@ export async function startListening(opts: StartListeningOpts): Promise<void> {
           // ignore
         }
       }
-      clearActive();
+      finishListening();
     }
   }
 }
@@ -356,9 +407,5 @@ export async function stopListening(): Promise<void> {
   } catch {
     // ignore — listeners will still be torn down below
   }
-  clearActive();
-  // 2026-05-26 (P0 audio session fix) — STT bitince session'ı TTS için
-  // playback-only'ye al. NPC'nin bir sonraki replikasını okuyabilmesi için.
-  // Fire-and-forget — TTS yine kendi ensureAudioModeForTts ile fallback yapar.
-  void setAudioSessionForPlayback();
+  finishListening();
 }

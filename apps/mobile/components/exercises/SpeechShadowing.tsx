@@ -229,6 +229,7 @@ export function SpeechShadowing({
         lang: "en-US",
         timeoutMs: LISTEN_WINDOW_MS,
         signal: controller.signal,
+        contextualStrings: current ? [current] : undefined,
         onResult: (text, _isFinal) => {
           if (cancelled || controller.signal.aborted) return;
           // Keep the latest transcript — we grade once when the window ends.

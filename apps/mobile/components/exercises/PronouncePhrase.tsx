@@ -221,6 +221,7 @@ export function PronouncePhrase({ phrase, trHint, onComplete, onSkip }: Props) {
     // sinyalini verdiğinde UI da o duruma geçer.
     await sr.startListening({
       lang: "en-US",
+      contextualStrings: [phrase],
       onResult: (text, isFinal) => {
         // İlk interim sinyalinde stage'i "listening"e taşı. Final'a kadar
         // tekrar set edilmesi React no-op.

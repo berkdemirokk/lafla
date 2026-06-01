@@ -405,9 +405,11 @@ function isCefrLevel(v: string): v is CefrLevel {
 /**
  * Levels relevant for filtering scenes/lessons for a given user.
  * Rule: user level ± 1 (so B1 user sees A2, B1, B2).
- * Edge: A1 sees A1, A2 only. C2 sees C1, C2 only.
+ * Edge: A1 sees A1, A2 only. C2 also sees B2/C1 as support because C2 is a
+ * narrow mastery lane and should not make low-volume modes feel empty.
  */
 export function getRelevantLevels(userLevel: CefrLevel): CefrLevel[] {
+  if (userLevel === "C2") return ["B2", "C1", "C2"];
   const idx = CEFR_LEVELS.indexOf(userLevel);
   if (idx < 0) return [...CEFR_LEVELS];
   const lo = Math.max(0, idx - 1);
@@ -526,20 +528,18 @@ export function bandFor(userLevel: CefrLevel): CefrLevel[] {
     case "C1":
       return ["B2", "C1", "C2"];
     case "C2":
-      return ["C1", "C2"];
+      return ["B2", "C1", "C2"];
   }
 }
 
 /**
- * Setup vocab'ı user level'a göre filtreleyip cap 12 uygular.
+ * Setup vocab'ı user level'a göre sıralayıp cap 12 uygular.
  *
  * Kurallar:
  *   - userLevel null (henüz seçilmemiş) → ilk 12 vocab (untouched)
- *   - userLevel var → bandFor() içindeki band'lara uyan vocab + cefr_band
- *     undefined olan vocab dahil
- *   - Filtered pool < 8 ise: fallback — tüm pool'un ilk 12'si (band'a uygun
- *     vocab yoksa kullanıcıyı boş ekranla bırakma)
- *   - Filtered pool ≥ 8 ise: ilk 12'sini döner
+ *   - userLevel var → önce tam seviye, sonra yakın band, sonra etiketsiz,
+ *     en son kalan kelimeler gelir
+ *   - Havuz dar olsa bile kullanıcı boş kurulum ekranına düşmez
  *
  * Untagged vocab her zaman dahil — partial retag durumunda lesson
  * gracefully çalışır (geniş pool'lu yeni lesson + dar pool'lu eski lesson
@@ -555,11 +555,17 @@ export function filterSetupByLevel<T extends CefrBandedPhrase>(
   if (!userLevel) return setup.slice(0, 12);
 
   const acceptableBands = bandFor(userLevel);
-  const filtered = setup.filter(
-    (s) => !s.cefr_band || acceptableBands.includes(s.cefr_band),
+  const exact = setup.filter((s) => s.cefr_band === userLevel);
+  const nearby = setup.filter(
+    (s) =>
+      s.cefr_band &&
+      s.cefr_band !== userLevel &&
+      acceptableBands.includes(s.cefr_band),
+  );
+  const untagged = setup.filter((s) => !s.cefr_band);
+  const remaining = setup.filter(
+    (s) => s.cefr_band && !acceptableBands.includes(s.cefr_band),
   );
 
-  if (filtered.length >= 1) return filtered.slice(0, 12);
-  // Fallback: band-uygun pool yetersizse tüm setup'ın ilk 12'sini al.
-  return setup.slice(0, 12);
+  return [...exact, ...nearby, ...untagged, ...remaining].slice(0, 12);
 }

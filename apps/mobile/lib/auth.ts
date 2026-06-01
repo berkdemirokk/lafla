@@ -17,11 +17,16 @@ import { supabase } from "./supabase";
 // Aşağıdaki key'ler hesap-bağlı (cihaz-bağlı değil); signOut'ta clear.
 // Not: lafla.intro.match.completed, lafla.cefr.* gibi progress key'leri
 // burada CLEAR EDİLMEZ — kullanıcı tekrar girince devam etsin diye.
+const K_ONBOARDED = "lafla.onboarded";
+const K_ONBOARDING_STEP = "lafla.onboarding.step";
+const K_DISPLAY_NAME = "lafla.displayName";
+const K_INTERESTS = "lafla.interests";
+
 const USER_BOUND_KEYS = [
-  "lafla.onboarded",
-  "lafla.onboarding.step",
-  "lafla.displayName",
-  "lafla.interests",
+  K_ONBOARDED,
+  K_ONBOARDING_STEP,
+  K_DISPLAY_NAME,
+  K_INTERESTS,
 ];
 const SECURE_STORE_USER_KEYS = [
   "lafla.apple.credentials.v1",
@@ -39,6 +44,34 @@ export type Profile = {
   longest_streak: number;
   last_lesson_at: string | null;
 };
+
+async function cacheProfileLocally(profile: Profile | null): Promise<void> {
+  if (!profile) return;
+
+  const writes: Array<Promise<void>> = [];
+  if (profile.onboarding_completed_at) {
+    writes.push(AsyncStorage.setItem(K_ONBOARDED, "true"));
+  } else {
+    writes.push(AsyncStorage.removeItem(K_ONBOARDED));
+  }
+
+  if (Array.isArray(profile.interests) && profile.interests.length > 0) {
+    writes.push(
+      AsyncStorage.setItem(K_INTERESTS, JSON.stringify(profile.interests)),
+    );
+  } else {
+    writes.push(AsyncStorage.removeItem(K_INTERESTS));
+  }
+
+  const displayName = profile.display_name?.trim();
+  if (displayName) {
+    writes.push(AsyncStorage.setItem(K_DISPLAY_NAME, displayName));
+  } else {
+    writes.push(AsyncStorage.removeItem(K_DISPLAY_NAME));
+  }
+
+  await Promise.all(writes.map((p) => p.catch(() => {})));
+}
 
 export async function signUpWithEmail(email: string, password: string) {
   const { data, error } = await supabase.auth.signUp({ email, password });
@@ -101,7 +134,9 @@ export async function getCurrentProfile(): Promise<Profile | null> {
     console.warn("[Lafla] getCurrentProfile error:", error.message);
     return null;
   }
-  return data as Profile;
+  const profile = data as Profile;
+  await cacheProfileLocally(profile).catch(() => {});
+  return profile;
 }
 
 export async function updateProfile(updates: Partial<Profile>) {
@@ -117,11 +152,16 @@ export async function updateProfile(updates: Partial<Profile>) {
   return data as Profile;
 }
 
-export async function completeOnboarding(interests: string[]) {
+export async function completeOnboarding(
+  interests: string[],
+  displayName?: string,
+) {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return null; // anonymous mode — local-only
+  const trimmedName = displayName?.trim();
   return updateProfile({
     interests,
+    ...(trimmedName ? { display_name: trimmedName } : {}),
     onboarding_completed_at: new Date().toISOString(),
   });
 }
