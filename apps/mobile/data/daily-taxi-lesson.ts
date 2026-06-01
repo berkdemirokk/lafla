@@ -1190,46 +1190,43 @@ export const dailyTaxiLesson_32_3: BundledLesson = {
       type: "roleplay_chat",
       difficulty: 4,
       scenario_description:
-        "Yolun yarısındasın. Trafiğe takıldınız — rota değiştirme + klima + su molası.",
-      npc_role: "Uber Driver",
-      setting: "Mid-ride traffic jam",
+        "Taksi şoförü yolu uzatıyor gibi görünüyor. Rota dışına çıktığını fark ettin; GPS'i takip etmesini kibarca söyle.",
+      npc_role: "Taxi Driver",
+      setting: "Mid-ride route deviation",
       turns: [
         {
           speaker: "npc",
-          message: "Looks like there's a backup ahead — maybe 15 extra minutes.",
+          message: "I'm going to take a shortcut through these back alleys. It avoids the main avenue traffic.",
         },
         {
           speaker: "user",
           acceptable_patterns: [
-            "(any (other|alternate) (route|way))",
-            "(could we (take|try) (the )?(next exit|side streets|the bridge))",
-            "(avoid the (highway|tunnel|bridge))",
-            "(side streets|local roads) (might|could) be (faster|quicker)",
-            "(your call|whatever('s| is) (fastest|quickest))",
+            "(i'?d (prefer|rather) (if )?we (stayed|stick) to the gps|could we stick to the gps)",
+            "(could you (please )?follow the gps|please follow the gps)",
+            "(i think we'?re going (a bit )?out of the way|going out of the way)",
+            "(i'?d rather you followed the gps|mind following the gps)",
           ],
           hint_tr:
-            "Alternatif sor: 'Any other route? Side streets might be faster.'",
+            "GPS'te kalmayı tercih ettiğini kibarca belirt: 'Excuse me, I'd prefer if we stuck to the GPS route, please.'",
         },
         {
           speaker: "npc",
-          message: "Yeah, I can hop off and take side streets. Music or AC okay back there?",
+          message: "Trust me, I know this city like the back of my hand. The GPS doesn't know the local traffic.",
         },
         {
           speaker: "user",
           acceptable_patterns: [
-            "(sounds good|works for me|appreciate it)",
-            "(would you mind (turning|cranking|bumping)) (down|up) (the )?(music|ac|heat|volume)",
-            "(little (warm|chilly|hot|cold) back here)",
-            "(mind (rolling|cracking) (the )?window)",
-            "(could we (make )?a quick (stop|water stop))",
-            "(grab (water|a drink))",
+            "(i understand|i see|fair enough|i know)",
+            "(but )?(i'?m in a (rush|hurry)|running late|short on time)",
+            "(i'?d still (prefer|rather) (if )?we (followed|stick to) the gps)",
+            "(please (just )?follow the gps|could you please follow the gps anyway)",
           ],
           hint_tr:
-            "Kibar düzeltme: 'Side streets sounds great. Mind cranking the AC up a bit?'",
+            "Şoförü anladığını belirt ama GPS'e sadık kalmasını iste: 'I understand, but I'm in a rush — could you please just follow the GPS anyway?'",
         },
         {
           speaker: "npc",
-          message: "Sure thing. Let me know if anything else.",
+          message: "Alright, alright. Turning back to the GPS route now.",
         },
       ],
     },
@@ -1381,11 +1378,11 @@ export const dailyTaxiLesson_32_3: BundledLesson = {
       type: "thinking_trap",
       difficulty: 3,
       cefr_band: "B1",
-      tr_thought: "Klimayı kapat, soğuk.",
-      wrong_en: "Close AC, cold.",
-      right_en: "Would you mind turning the AC down? Getting a bit chilly.",
+      tr_thought: "Neden yolu uzatıyorsun? GPS'i takip et.",
+      wrong_en: "Why are you extending the road? Follow the GPS.",
+      right_en: "Excuse me, I think we're going a bit out of the way. Could you please follow the GPS?",
       why_tr:
-        "'Close AC' emir + yanlış fiil ('turn off' veya 'turn down'). Doğru: 'Would you mind' + 'a bit chilly' (yumuşatma).",
+        "İki büyük Türkçe düşünce tuzağı: (1) Türkçedeki 'yolu uzatmak' ifadesini birebir 'extending the road' olarak çevirmek yanlıştır. İngilizcede yol fiziksel olarak uzatılamayacağı için bu ifade anlamsız gelir; doğrusu 'going out of the way' (yoldan sapmak/uzatmak) veya 'taking a longer route'dur. (2) 'Follow the GPS' doğrudan emir kipiyle söylendiğinde Batı kültüründe şoförle kavga çıkarır; 'Could you please follow the GPS?' ile yumuşatılmalıdır.",
     },
     {
       id: "ex.dx32.3.rq1",

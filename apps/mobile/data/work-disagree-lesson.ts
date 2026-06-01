@@ -286,7 +286,18 @@ export const workDisagreeLesson_34_1: BundledLesson = {
       wrong_en: "I think you are wrong.",
       right_en: "I see it a bit differently — could we talk through it?",
       why_tr:
-        "'You are wrong' = direkt saldırı. İş İngilizcesinde 'I see it differently' = pozisyonu belirtir, kişiyi suçlamaz. 'Could we talk through it' = işbirliği daveti. Türk doğrudanlığı US/UK iş kültüründe agresif algılanır.",
+        "Türkçe düşüncedeki 'bence yanılıyorsun' ifadesini doğrudan 'I think you are wrong' olarak çevirmek Batı iş kültüründe çok sert, savunmacı ve ilişkiyi yıpratan bir 'saldırı' olarak algılanır. Profesyonel iş İngilizcesinde (özellikle yöneticiye karşı çıkarken) ego koruma ve işbirliği ön plandadır. Bu yüzden 'I see it a bit differently' (Biraz farklı görüyorum) ifadesiyle fikre odaklanılır, kişi hedef alınmaz. Ardından 'Could we talk through it?' ile karara saygılı bir tartışma daveti yapılır.",
+    },
+    {
+      id: "ex.wd34.1.tt2",
+      type: "thinking_trap",
+      difficulty: 4,
+      cefr_band: "B2",
+      tr_thought: "A2 seviyesinde 'I disagree' (Katılmıyorum) demek normalken, B2/C1 iş ortamında bu neden kabadır?",
+      wrong_en: "I disagree with you. Let's do X.",
+      right_en: "I see your point, but I'd push back on X because of Y. What if we do Z instead?",
+      why_tr:
+        "Seviyeye göre 'Register' (ton/seviye) farkı çok önemlidir. A2 seviyesinde 'I disagree' (Katılmıyorum) veya 'I don't think so' gibi doğrudan cümleler dilbilgisi olarak doğru kabul edilse de, B2/C1 düzeyinde profesyonel iş ortamlarında fazla kaba/yargılayıcı kaçabilir. B2 seviyesinde sosyal zeka ve diplomasi devreye girer: (1) Önce 'I see your point' ile karşı tarafın fikrine değer verilir (empati ön eki), (2) 'I'd push back...' ile fikir yumuşatılarak tartışmaya açılır, (3) Son olarak 'What if we...' ile karşı teklif sunulur.",
     },
     {
       id: "ex.wd34.1.rq1",
