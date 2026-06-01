@@ -61,7 +61,7 @@ export async function finalizeOnboarding(opts: FinalizeOpts): Promise<void> {
 
     await setOnboarded(true);
     await setOnboardingStep(null);
-    await completeOnboarding(opts.interests).catch(() => {});
+    await completeOnboarding(opts.interests, trimmed).catch(() => {});
 
     // ATT — value seen (Apple HIG önerisi). Granted ise analytics re-init.
     const attStatus = await requestAttOnce().catch(() => null);

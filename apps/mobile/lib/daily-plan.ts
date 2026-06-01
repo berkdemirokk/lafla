@@ -225,7 +225,12 @@ export async function getPlanProgress(): Promise<{
 export async function incrementPlanProgress(lessonId?: string): Promise<void> {
   const today = todayKey();
   const planScenes = await getOrCreateDailyPlan();
-  const sig = planSigFrom(planScenes.map((s) => s.lessonId));
+  if (planScenes.length === 0) return;
+  const planLessonIds = planScenes.map((s) => s.lessonId);
+  if (lessonId && !planLessonIds.includes(lessonId)) {
+    return;
+  }
+  const sig = planSigFrom(planLessonIds);
   let progress: PlanProgress = {
     date: today,
     completedCount: 0,
@@ -263,7 +268,10 @@ export async function incrementPlanProgress(lessonId?: string): Promise<void> {
       lessonId,
     ];
   }
-  progress.completedCount = (progress.completedCount ?? 0) + 1;
+  progress.completedCount = Math.min(
+    planScenes.length,
+    (progress.completedCount ?? 0) + 1,
+  );
   progress.lastCompletedAt = new Date().toISOString();
   try {
     await AsyncStorage.setItem(K_PLAN_PROGRESS, JSON.stringify(progress));

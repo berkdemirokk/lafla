@@ -226,6 +226,16 @@ function SwipeSceneCardImpl({
     outputRange: ["-6deg", "0deg", "6deg"],
     extrapolate: "clamp",
   });
+  const rotateY = translateX.interpolate({
+    inputRange: [-SCREEN.width, 0, SCREEN.width],
+    outputRange: ["-8deg", "0deg", "8deg"],
+    extrapolate: "clamp",
+  });
+  const cardScale = translateX.interpolate({
+    inputRange: [-SCREEN.width, 0, SCREEN.width],
+    outputRange: [0.96, 1, 0.96],
+    extrapolate: "clamp",
+  });
   const rightGlowOpacity = translateX.interpolate({
     inputRange: [0, SCREEN.width * 0.4],
     outputRange: [0, 1],
@@ -311,14 +321,19 @@ function SwipeSceneCardImpl({
           {
             opacity: enterOpacity,
             transform: [
+              { perspective: 900 },
               { translateY: enterTranslateY },
               { translateX: translateX },
+              { rotateY },
               { rotate },
+              { scale: cardScale },
             ],
           },
         ]}
         {...panResponder.panHandlers}
       >
+        <View style={styles.depthSheen} pointerEvents="none" />
+        <View style={styles.depthRim} pointerEvents="none" />
         {/* 2026-05-25 — Body Pressable'ın onPress'i kaldırıldı. Eski versiyon
             tap-to-enter idi (3. yol, swipe + CTA yanında) ama kullanıcı sahne
             içeriğini incelemek için dokununca yanlışlıkla scenario açıyordu.
@@ -475,6 +490,24 @@ const styles = StyleSheet.create({
     shadowRadius: 28,
     elevation: 14,
     overflow: "hidden",
+  },
+  depthSheen: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    height: "42%",
+    backgroundColor: "rgba(255, 255, 255, 0.055)",
+  },
+  depthRim: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: 26,
+    backgroundColor: "rgba(0, 0, 0, 0.24)",
+    borderTopWidth: 1,
+    borderTopColor: "rgba(255, 255, 255, 0.08)",
   },
   body: {
     flex: 1,

@@ -171,13 +171,26 @@ export default function Splash() {
   const skip = async () => {
     if (loading) return;
     if (routedRef.current) return; // decide() öne geçtiyse no-op
-    routedRef.current = true;
     if (session) {
-      const profile = await getCurrentProfile();
-      router.replace((profile?.onboarding_completed_at ? "/today" : "/onboarding") as never);
+      let target: "/today" | "/onboarding" = "/onboarding";
+      try {
+        const profile = await getCurrentProfile();
+        target = profile?.onboarding_completed_at ? "/today" : "/onboarding";
+      } catch {
+        try {
+          const localOnboarded = await AsyncStorage.getItem("lafla.onboarded");
+          target = localOnboarded === "true" ? "/today" : "/onboarding";
+        } catch {
+          target = "/onboarding";
+        }
+      }
+      if (routedRef.current) return;
+      routedRef.current = true;
+      router.replace(target as never);
       return;
     }
     // Signed-out tap — same destination as decide(): /auth.
+    routedRef.current = true;
     router.replace("/auth" as never);
   };
 

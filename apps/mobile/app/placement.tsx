@@ -144,11 +144,25 @@ interface HistoryEntry {
   question_id: string;
 }
 
+function nextAdaptiveLevel(
+  currentLevel: CefrLevel,
+  history: readonly HistoryEntry[],
+): CefrLevel {
+  const recent = history.slice(-2);
+  if (recent.length < 2) return currentLevel;
+  if (recent.every((entry) => entry.correct)) return nextLevelUp(currentLevel);
+  if (recent.every((entry) => !entry.correct)) {
+    return nextLevelDown(currentLevel);
+  }
+  return currentLevel;
+}
+
 export default function PlacementScreen() {
   const router = useRouter();
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [currentLevel, setCurrentLevel] = useState<CefrLevel>("B1");
   const [usedIds, setUsedIds] = useState<Set<string>>(new Set());
+  const [questionNonce, setQuestionNonce] = useState(0);
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
   // 2026-05-23 — replaced single `finished` flag with a Phase machine so
@@ -171,13 +185,7 @@ export default function PlacementScreen() {
     if (phase !== "mcq") return null;
     return pickQuestionFromLevel(currentLevel, usedIds);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentLevel, phase]);
-
-  useEffect(() => {
-    if (current) {
-      setUsedIds((prev) => new Set(prev).add(current.id));
-    }
-  }, [current?.id]);
+  }, [currentLevel, phase, questionNonce]);
 
   // ─── Persistence (audit fix #2) ─────────────────────────────
   //
@@ -212,6 +220,7 @@ export default function PlacementScreen() {
         setHistory(saved.history ?? []);
         setCurrentLevel(saved.currentLevel ?? "B1");
         setUsedIds(new Set(saved.usedIds ?? []));
+        setQuestionNonce((n) => n + 1);
         setMcqDerivedLevel(saved.mcqDerivedLevel);
         setSpeakingScore(saved.speakingScore);
         setListeningScore(saved.listeningScore);
@@ -279,6 +288,11 @@ export default function PlacementScreen() {
         ...history,
         { level: current.level, correct: isCorrect, question_id: current.id },
       ];
+      setUsedIds((prev) => {
+        const next = new Set(prev);
+        next.add(current.id);
+        return next;
+      });
       setHistory(newHistory);
 
       // MCQ tamamlandı — speaking + listening phase'lerine geç.
@@ -298,13 +312,10 @@ export default function PlacementScreen() {
         return;
       }
 
-      // Adaptive geçiş + mikro açıklama (2026-05-21 fix).
-      // Önceden tek doğru → tam +1 seviye, tek yanlış → tam -1.
-      // Şimdi: hâlâ ±1 seviye ama UI'da "bu zor geldi, basitleştirdik"
-      // veya "kolay yaptın, zorlaştırdık" feedback'i toast olarak göster.
-      const nextLevel = isCorrect
-        ? nextLevelUp(current.level)
-        : nextLevelDown(current.level);
+      // Adaptive geçiş + mikro açıklama.
+      // Tek soru seviyeyi zıplatmasın: yalnızca arka arkaya iki doğru/yanlış
+      // aynı yönde sinyal verirse band değiştir.
+      const nextLevel = nextAdaptiveLevel(current.level, newHistory);
       setAdaptiveHint(
         nextLevel !== current.level
           ? isCorrect
@@ -313,6 +324,7 @@ export default function PlacementScreen() {
           : null,
       );
       setCurrentLevel(nextLevel);
+      setQuestionNonce((n) => n + 1);
       setRevealed(false);
       setSelectedIdx(null);
     }, 1500); // 1.5s explanation süresi
