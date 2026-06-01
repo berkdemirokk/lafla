@@ -38,7 +38,7 @@ import * as Haptics from "expo-haptics";
 
 import type { Scene, SceneMode } from "../data/scenes";
 import { hasNativeAudio } from "../data/native-audio-manifest";
-import { getVisualThemeForScene } from "../lib/scene-visual-theme";
+import { getSceneVisualImage } from "../lib/scene-visual-theme";
 import { tokens } from "../theme";
 
 // ---------------------------------------------------------------------------
@@ -304,15 +304,7 @@ const THEME_IMAGES: Record<string, string[]> = {
 // be tested without importing React Native.
 // ---------------------------------------------------------------------------
 function getDeterministicImage(scene: Scene): string {
-  const theme = getVisualThemeForScene(scene);
-  const list = THEME_IMAGES[theme] || THEME_IMAGES.daily;
-  let hash = 0;
-  for (let i = 0; i < scene.id.length; i++) {
-    hash = (hash << 5) - hash + scene.id.charCodeAt(i);
-    hash |= 0;
-  }
-  const idx = Math.abs(hash) % list.length;
-  return list[idx];
+  return getSceneVisualImage(scene);
 }
 
 // ---------------------------------------------------------------------------
