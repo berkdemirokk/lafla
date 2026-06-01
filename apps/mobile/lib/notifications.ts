@@ -50,9 +50,16 @@ interface NotifContext {
   streakDays?: number;
 }
 
+// BUG-10 FIX: sanitize name before injecting into push notification text.
+// Strips control characters, collapse whitespace, truncate to safe length.
 function formatName(name?: string): string {
   if (!name || !name.trim()) return "";
-  return name.trim();
+  // eslint-disable-next-line no-control-regex
+  let cleaned = name.replace(/[\x00-\x1F\x7F]/g, "");
+  cleaned = cleaned.replace(/["`<>{}]/g, "");
+  cleaned = cleaned.replace(/\s+/g, " ").trim();
+  if (cleaned.length > 30) cleaned = cleaned.slice(0, 28) + "…";
+  return cleaned;
 }
 
 // 6 saat sessizlik — kullanıcı bir sahneyi yarım bıraktıysa.

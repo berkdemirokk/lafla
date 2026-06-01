@@ -61,7 +61,10 @@ export async function completeLesson(args: {
   accuracy: number;
   exercises_completed: number;
 }) {
-  const xpEarned = Math.round(10 + args.accuracy * 20);
+  // BUG-6 FIX: unified XP formula across srs + scenario/daily-quests.
+  // Previously 10+acc*20 here but 20+acc*30 in scenario — quest progress
+  // reported different XP than actually earned. Now consistent everywhere.
+  const xpEarned = Math.round(20 + args.accuracy * 30);
 
   // ===== LOCAL (always) =====
   const prev = (await getLocalLessonState(args.lesson_id)) ?? {

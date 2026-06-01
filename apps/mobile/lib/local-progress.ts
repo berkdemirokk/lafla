@@ -4,6 +4,30 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { isObject, isStringArray, parseSafe } from "./json-safe";
 
+// ---------------------------------------------------------------------------
+// BUG-2 FIX: Simple promise-based mutex per key to prevent concurrent
+// read-modify-write on the same AsyncStorage key. Without this, two parallel
+// async calls (e.g. bumpXp + bumpStreak) can read the same snapshot and the
+// last writer wins, silently discarding the other's changes.
+// ---------------------------------------------------------------------------
+const _locks = new Map<string, Promise<void>>();
+
+async function withLock<T>(key: string, fn: () => Promise<T>): Promise<T> {
+  // Wait for any existing operation on this key to finish
+  const prev = _locks.get(key) ?? Promise.resolve();
+  let resolve: () => void;
+  const next = new Promise<void>((r) => { resolve = r; });
+  _locks.set(key, next);
+  try {
+    await prev;
+    return await fn();
+  } finally {
+    resolve!();
+    // Clean up if we're the last in line
+    if (_locks.get(key) === next) _locks.delete(key);
+  }
+}
+
 const K_LESSON_STATE = "lafla.lessons";       // map: lesson_id -> LessonStateLocal
 const K_SKILL_MASTERY = "lafla.skills";       // map: skill_id -> { score, lessons_completed }
 const K_DAILY = "lafla.daily";                // map: YYYY-MM-DD -> { xp, lessons }
@@ -41,9 +65,6 @@ const DEFAULT_PROFILE: LocalProfile = {
 async function readMap<T>(key: string): Promise<Record<string, T>> {
   try {
     const raw = await AsyncStorage.getItem(key);
-    // Validator only checks "is plain object" — per-value typing is the
-    // caller's responsibility. Storing the raw key as the breadcrumb source
-    // lets us tell at a glance WHICH map died if we see corruption events.
     return parseSafe<Record<string, T>>(raw, {}, isObject, {
       source: `local-progress.${key}`,
     });
@@ -76,10 +97,13 @@ export async function getLocalProfile(): Promise<LocalProfile> {
 }
 
 export async function setLocalProfile(patch: Partial<LocalProfile>) {
-  const current = await getLocalProfile();
-  const next = { ...current, ...patch };
-  await AsyncStorage.setItem(K_PROFILE, JSON.stringify(next));
-  return next;
+  // BUG-2 FIX: mutex prevents concurrent profile writes from losing data
+  return withLock(K_PROFILE, async () => {
+    const current = await getLocalProfile();
+    const next = { ...current, ...patch };
+    await AsyncStorage.setItem(K_PROFILE, JSON.stringify(next));
+    return next;
+  });
 }
 
 export async function getAllLessonState(): Promise<Record<string, LessonStateLocal>> {
@@ -92,9 +116,12 @@ export async function getLessonState(lessonId: string): Promise<LessonStateLocal
 }
 
 export async function saveLessonState(state: LessonStateLocal) {
-  const all = await getAllLessonState();
-  all[state.lesson_id] = state;
-  await writeMap(K_LESSON_STATE, all);
+  // BUG-2 FIX: mutex prevents concurrent lesson state writes
+  await withLock(K_LESSON_STATE, async () => {
+    const all = await getAllLessonState();
+    all[state.lesson_id] = state;
+    await writeMap(K_LESSON_STATE, all);
+  });
 }
 
 export async function getAllSkillMastery(): Promise<
@@ -104,36 +131,39 @@ export async function getAllSkillMastery(): Promise<
 }
 
 export async function bumpSkillMastery(skillId: string, accuracy: number) {
-  const all = await getAllSkillMastery();
-  const prev = all[skillId] ?? { score: 0, lessons_completed: 0 };
-  const newScore =
-    prev.lessons_completed > 0
-      ? Math.min(1, prev.score * 0.85 + accuracy * 0.15)
-      : accuracy * 0.5;
-  all[skillId] = {
-    score: newScore,
-    lessons_completed: prev.lessons_completed + 1,
-  };
-  await writeMap(K_SKILL_MASTERY, all);
-  return all[skillId];
+  // BUG-2 FIX: mutex on skill mastery map
+  return withLock(K_SKILL_MASTERY, async () => {
+    const all = await getAllSkillMastery();
+    const prev = all[skillId] ?? { score: 0, lessons_completed: 0 };
+    const newScore =
+      prev.lessons_completed > 0
+        ? Math.min(1, prev.score * 0.85 + accuracy * 0.15)
+        : accuracy * 0.5;
+    all[skillId] = {
+      score: newScore,
+      lessons_completed: prev.lessons_completed + 1,
+    };
+    await writeMap(K_SKILL_MASTERY, all);
+    return all[skillId]!;
+  });
 }
 
+// BUG-4 FIX: Use UTC for date keys everywhere (matches free-tier.ts).
+// Prevents timezone-change exploits and cross-module inconsistency.
 function localDateStr(): string {
-  // YYYY-MM-DD in user's LOCAL timezone (not UTC)
-  const d = new Date();
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${y}-${m}-${day}`;
+  return new Date().toISOString().slice(0, 10);
 }
 
 export async function bumpDailyActivity(xp: number) {
-  const today = localDateStr();
-  const all = await readMap<{ xp: number; lessons: number }>(K_DAILY);
-  const prev = all[today] ?? { xp: 0, lessons: 0 };
-  all[today] = { xp: prev.xp + xp, lessons: prev.lessons + 1 };
-  await writeMap(K_DAILY, all);
-  return all[today];
+  // BUG-2 FIX: mutex on daily activity map
+  return withLock(K_DAILY, async () => {
+    const today = localDateStr();
+    const all = await readMap<{ xp: number; lessons: number }>(K_DAILY);
+    const prev = all[today] ?? { xp: 0, lessons: 0 };
+    all[today] = { xp: prev.xp + xp, lessons: prev.lessons + 1 };
+    await writeMap(K_DAILY, all);
+    return all[today]!;
+  });
 }
 
 export async function bumpStreak() {
@@ -201,12 +231,14 @@ export async function bumpXp(delta: number) {
   return setLocalProfile({ total_xp: profile.total_xp + delta });
 }
 
+// BUG-11 FIX: K_MODE_FLUENCY was missing — mode mastery lingered after reset
 export async function clearAllProgress() {
   await AsyncStorage.multiRemove([
     K_LESSON_STATE,
     K_SKILL_MASTERY,
     K_DAILY,
     K_PROFILE,
+    K_MODE_FLUENCY,
   ]);
 }
 
@@ -260,18 +292,21 @@ export async function getModeFluency(mode: string): Promise<ModeFluency> {
 }
 
 export async function bumpModeFluency(mode: string, sceneScore01: number) {
-  const all = await getAllModeFluency();
-  const prev = all[mode] ?? { score: 0, scenes_done: 0 };
-  const newScore =
-    prev.scenes_done === 0
-      ? sceneScore01 * 0.6 // first scene weighted gently
-      : Math.min(1, prev.score * 0.8 + sceneScore01 * 0.2);
-  all[mode] = {
-    score: newScore,
-    scenes_done: prev.scenes_done + 1,
-  };
-  await writeMap(K_MODE_FLUENCY, all);
-  return all[mode];
+  // BUG-2 FIX: mutex on mode fluency map
+  return withLock(K_MODE_FLUENCY, async () => {
+    const all = await getAllModeFluency();
+    const prev = all[mode] ?? { score: 0, scenes_done: 0 };
+    const newScore =
+      prev.scenes_done === 0
+        ? sceneScore01 * 0.6
+        : Math.min(1, prev.score * 0.8 + sceneScore01 * 0.2);
+    all[mode] = {
+      score: newScore,
+      scenes_done: prev.scenes_done + 1,
+    };
+    await writeMap(K_MODE_FLUENCY, all);
+    return all[mode]!;
+  });
 }
 
 export async function getInterests(): Promise<string[]> {

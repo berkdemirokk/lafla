@@ -575,11 +575,15 @@ export default function Today() {
                 </Animated.View>
               </View>
               <Pressable
-                onPress={() =>
-                  router.push(
-                    `/scenario/${state.planFirstScene!.lessonId}` as never,
-                  )
-                }
+                onPress={() => {
+                  // BUG-5 FIX: guard null planFirstScene
+                  const scene = state.planFirstScene;
+                  if (scene) {
+                    router.push(`/scenario/${scene.lessonId}` as never);
+                  } else {
+                    router.push("/home" as never);
+                  }
+                }}
                 onPressIn={onHeroPressIn}
                 onPressOut={onHeroPressOut}
                 style={styles.heroPressable}

@@ -73,12 +73,9 @@ export interface DailyQuestState {
   }>;
 }
 
+// BUG-4 FIX: Use UTC date (aligned with free-tier.ts + local-progress.ts)
 function todayStr() {
-  const d = new Date();
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${y}-${m}-${day}`;
+  return new Date().toISOString().slice(0, 10);
 }
 
 function pickDailyQuests(seed: string): QuestId[] {

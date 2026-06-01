@@ -21,7 +21,7 @@
 //   bg.app (#000), surfaceContainer for the inner card surface, pink-cyan
 //   border glow for delight, brand.primary CTA.
 
-import { memo, useCallback, useEffect, useMemo, useRef } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Animated,
   Dimensions,
@@ -378,6 +378,10 @@ function SwipeSceneCardImpl({
   onEnter,
   onSkip,
 }: SwipeSceneCardProps) {
+  // BUG-7 FIX: fallback when Unsplash images fail to load (offline/network)
+  const [imgFailed, setImgFailed] = useState(false);
+  // Reset on scene change so recycled cards retry
+  useEffect(() => { setImgFailed(false); }, [scene.id]);
   // Horizontal pan offset — drives card translate, opacity, and edge glow.
   const translateX = useRef(new Animated.Value(0)).current;
   // Entrance animation (fade + slight upward translate). Replays whenever
@@ -603,19 +607,25 @@ function SwipeSceneCardImpl({
         {...panResponder.panHandlers}
       >
         {/* Full background live image with overlay & top inner glow highlight */}
-        <Animated.Image
-          source={{ uri: getDeterministicImage(scene.id, scene.skillId, scene.mode) }}
-          style={[
-            StyleSheet.absoluteFillObject,
-            {
-              transform: [
-                { scale: imageScale },
-                { translateX: imageTranslateX },
-              ],
-            },
-          ]}
-          resizeMode="cover"
-        />
+        {!imgFailed ? (
+          <Animated.Image
+            source={{ uri: getDeterministicImage(scene.id, scene.skillId, scene.mode) }}
+            style={[
+              StyleSheet.absoluteFillObject,
+              {
+                transform: [
+                  { scale: imageScale },
+                  { translateX: imageTranslateX },
+                ],
+              },
+            ]}
+            resizeMode="cover"
+            onError={() => setImgFailed(true)}
+          />
+        ) : (
+          /* BUG-7 FIX: gradient fallback when image fails to load (offline) */
+          <View style={[StyleSheet.absoluteFillObject, { backgroundColor: accent.fill, opacity: 0.8 }]} />
+        )}
         <View
           style={[StyleSheet.absoluteFillObject, { backgroundColor: "rgba(0, 0, 0, 0.55)" }]}
         />

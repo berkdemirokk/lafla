@@ -635,12 +635,17 @@ export default function ScenarioScreen() {
 
   const advanceSetup = () => {
     hapticImpact("light");
-    // 2026-05-25 — Phase 5D: filteredSetup.length kullan (cap 12, adaptive).
-    if (setupIdx + 1 < filteredSetup.length) {
-      setSetupIdx(setupIdx + 1);
-    } else {
-      goToNextPhase("setup");
-    }
+    // BUG-14 FIX: functional update prevents stale closure on rapid taps
+    setSetupIdx((i) => {
+      if (i + 1 < filteredSetup.length) {
+        return i + 1;
+      }
+      // Side-effect: advance phase when we've exhausted setup items.
+      // We schedule this in a microtask so it doesn't conflict with the
+      // state update currently being processed by React.
+      queueMicrotask(() => goToNextPhase("setup"));
+      return i;
+    });
   };
 
   const advanceSetupExtra = () => {
@@ -651,22 +656,23 @@ export default function ScenarioScreen() {
     }
   };
 
-  // 2026-05-25 (B-SCN-9) — Functional update; React 18 strict mode double-render
-  // ve hızlı tap'lemede stale state ile out-of-bounds risk azaltılır.
+  // BUG-3 FIX: optional chaining prevents crash when warmups is undefined
   const advanceDrill = () => {
-    if (drillIdx + 1 < scenario.warmups.length) {
+    if (drillIdx + 1 < (scenario.warmups?.length ?? 0)) {
       setDrillIdx((i) => i + 1);
     } else {
       goToNextPhase("drill");
     }
   };
 
+  // BUG-13 FIX: functional update prevents stale closure on rapid taps
   const advancePreScene = () => {
-    if (preSceneIdx + 1 < (scenario.preScene?.length ?? 0)) {
-      setPreSceneIdx(preSceneIdx + 1);
-    } else {
-      goToNextPhase("pre-scene");
-    }
+    const maxIdx = (scenario.preScene?.length ?? 0) - 1;
+    setPreSceneIdx((i) => {
+      if (i < maxIdx) return i + 1;
+      queueMicrotask(() => goToNextPhase("pre-scene"));
+      return i;
+    });
   };
 
   // Recall faz tek bir quiz objesi içerir. RecallQuiz onComplete döndüğünde
