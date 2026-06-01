@@ -166,19 +166,22 @@ async function setAppFree(
   appId: string,
   pricePointId: string,
 ): Promise<void> {
+  const localManualPriceId = "${manualPrice-0}";
   const body = {
     data: {
       type: "appPriceSchedules",
       relationships: {
         app: { data: { type: "apps", id: appId } },
         baseTerritory: { data: { type: "territories", id: BASE_TERRITORY } },
-        manualPrices: { data: [{ type: "appPrices", id: "manualPrice-0" }] },
+        manualPrices: {
+          data: [{ type: "appPrices", id: localManualPriceId }],
+        },
       },
     },
     included: [
       {
         type: "appPrices",
-        id: "manualPrice-0",
+        id: localManualPriceId,
         attributes: { startDate: null },
         relationships: {
           appPricePoint: {
