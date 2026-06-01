@@ -682,13 +682,33 @@ function applyOralAdjustment(
   speakingScore: number | null,
   listeningScore: number | null,
 ): CefrLevel {
-  if (speakingScore === null || listeningScore === null) return mcqLevel;
-  const bothFailed =
-    speakingScore < FAIL_THRESHOLD && listeningScore < FAIL_THRESHOLD;
-  if (!bothFailed) return mcqLevel;
-  const lower = nextLevelDown(mcqLevel);
-  // nextLevelDown returns the same level if already at A1 — guards the floor.
-  return lower;
+  if (speakingScore === null && listeningScore === null) return mcqLevel;
+
+  let drops = 0;
+
+  if (speakingScore !== null) {
+    if (speakingScore < 30) {
+      drops += 2;
+    } else if (speakingScore < 50) {
+      drops += 1;
+    }
+  }
+
+  if (listeningScore !== null) {
+    if (listeningScore < 30) {
+      drops += 1;
+    }
+  }
+
+  // Clamp drops to maximum of 2 levels to not overly demote the user
+  const finalDrops = Math.min(drops, 2);
+
+  let adjustedLevel = mcqLevel;
+  for (let i = 0; i < finalDrops; i++) {
+    adjustedLevel = nextLevelDown(adjustedLevel);
+  }
+
+  return adjustedLevel;
 }
 
 function levelDescription(l: CefrLevel): string {

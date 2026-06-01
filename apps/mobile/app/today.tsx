@@ -244,9 +244,13 @@ export default function Today() {
     heroPress.value = withSpring(0, { damping: 16, stiffness: 240 });
   };
 
-  // Sade press scale — Apple Music kart press feel. Hiç rotateX/Y yok.
+  // 3D press effect: scale + 3D tilt (rotateX) with perspective
   const heroPressStyle = useAnimatedStyle(() => ({
-    transform: [{ scale: 1 - heroPress.value * 0.02 }],
+    transform: [
+      { perspective: 1000 },
+      { scale: 1 - heroPress.value * 0.02 },
+      { rotateX: `${-2 * heroPress.value}deg` },
+    ],
   }));
 
   // Background waveform parallax — moves at ~30% scroll speed for depth.

@@ -25,6 +25,7 @@ import { memo, useCallback, useEffect, useMemo, useRef } from "react";
 import {
   Animated,
   Dimensions,
+  Image,
   PanResponder,
   Pressable,
   StyleSheet,
@@ -83,6 +84,16 @@ const MODE_LABEL: Record<SceneMode, string> = {
   daily:   "Günlük",
   order:   "Sipariş",
   ielts:   "IELTS",
+};
+
+const MODE_IMAGES: Record<SceneMode, string> = {
+  flirt:   "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80",
+  work:    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80",
+  bar:     "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+  airport: "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&w=600&q=80",
+  daily:   "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=600&q=80",
+  order:   "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80",
+  ielts:   "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80",
 };
 
 // ---------------------------------------------------------------------------
@@ -226,6 +237,11 @@ function SwipeSceneCardImpl({
     outputRange: ["-6deg", "0deg", "6deg"],
     extrapolate: "clamp",
   });
+  const rotateY = translateX.interpolate({
+    inputRange: [-SCREEN.width, 0, SCREEN.width],
+    outputRange: ["15deg", "0deg", "-15deg"],
+    extrapolate: "clamp",
+  });
   const rightGlowOpacity = translateX.interpolate({
     inputRange: [0, SCREEN.width * 0.4],
     outputRange: [0, 1],
@@ -311,14 +327,26 @@ function SwipeSceneCardImpl({
           {
             opacity: enterOpacity,
             transform: [
+              { perspective: 1000 },
               { translateY: enterTranslateY },
               { translateX: translateX },
               { rotate },
+              { rotateY },
             ],
           },
         ]}
         {...panResponder.panHandlers}
       >
+        {/* Full background live image with overlay & top inner glow highlight */}
+        <Image
+          source={{ uri: MODE_IMAGES[scene.mode] }}
+          style={StyleSheet.absoluteFillObject}
+          resizeMode="cover"
+        />
+        <View
+          style={[StyleSheet.absoluteFillObject, { backgroundColor: "rgba(0, 0, 0, 0.55)" }]}
+        />
+        <View style={styles.cardInnerHighlight} pointerEvents="none" />
         {/* 2026-05-25 — Body Pressable'ın onPress'i kaldırıldı. Eski versiyon
             tap-to-enter idi (3. yol, swipe + CTA yanında) ama kullanıcı sahne
             içeriğini incelemek için dokununca yanlışlıkla scenario açıyordu.
@@ -364,12 +392,8 @@ function SwipeSceneCardImpl({
             </View>
           </View>
 
-          {/* Upper third — emoji focal point */}
-          <View style={styles.focalArea}>
-            <Text style={styles.focalEmoji} accessibilityElementsHidden>
-              {scene.emoji}
-            </Text>
-          </View>
+          {/* Upper third spacer */}
+          <View style={styles.focalArea} />
 
           {/* Middle — big title */}
           <View style={styles.titleArea}>
@@ -476,6 +500,16 @@ const styles = StyleSheet.create({
     elevation: 14,
     overflow: "hidden",
   },
+  cardInnerHighlight: {
+    position: "absolute",
+    top: 0,
+    left: 1,
+    right: 1,
+    height: 1,
+    backgroundColor: "rgba(255, 255, 255, 0.18)",
+    borderTopLeftRadius: tokens.radius.lg,
+    borderTopRightRadius: tokens.radius.lg,
+  },
   body: {
     flex: 1,
     paddingHorizontal: 24,
@@ -560,15 +594,10 @@ const styles = StyleSheet.create({
     color: tokens.brand.tertiary,
   },
 
-  // ---- focal area (emoji) ----
+  // ---- focal area (spacer) ----
   focalArea: {
-    alignItems: "center",
-    justifyContent: "center",
+    height: 112,
     marginTop: 12,
-  },
-  focalEmoji: {
-    fontSize: 112,
-    textAlign: "center",
   },
 
   // ---- title block ----

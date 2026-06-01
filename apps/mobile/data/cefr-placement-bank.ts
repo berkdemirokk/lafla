@@ -132,7 +132,7 @@ const A1: PlacementQuestion[] = [
   {
     id: "a1.8",
     level: "A1",
-    prompt: "Türkçe 'okula gitmiyorum' karşılığı? (bugün, alışkanlık değil)",
+    prompt: "Türkçe 'okula gitmem' karşılığı?",
     options: [
       "I don't go to school.",
       "I no go to school.",
@@ -141,7 +141,7 @@ const A1: PlacementQuestion[] = [
     ],
     correct_index: 0,
     explanation_tr:
-      "Present simple olumsuz: don't + base verb. 'No' Türkçe etkisi ('hayır/değil' karışıklığı); 'I no go' yanlış. 'Don't going' da yanlış — don't sonrası -ing gelmez.",
+      "Geniş zaman (alışkanlık) olumsuz: don't + fiilin yalın hali. 'I no go' Türkçe düşünme hatasıdır; doğrusu 'I don't go'.",
   },
 ];
 
@@ -366,11 +366,11 @@ const B2: PlacementQuestion[] = [
   {
     id: "b2.3",
     level: "B2",
-    prompt: "I'd rather you ___ that.",
-    options: ["didn't do", "don't do", "won't do", "not do"],
+    prompt: "A: Can I use your laptop for a minute?\nB: Actually, I'd rather you ___.",
+    options: ["didn't", "don't", "won't", "not"],
     correct_index: 0,
     explanation_tr:
-      "'I'd rather (someone)' + past subjunctive (geçmiş gibi görünen ama gelecek anlamlı kalıp).",
+      "Diyalogda kibar reddetme: 'I'd rather you didn't' (Yapmasan daha iyi olur). 'I'd rather' kalıbından sonra başka bir özne geliyorsa Past Simple yardımcı fiili (didn't) kullanılır.",
   },
   {
     id: "b2.4",
@@ -465,11 +465,11 @@ const C1: PlacementQuestion[] = [
   {
     id: "c1.2",
     level: "C1",
-    prompt: "He insisted that she ___ present.",
+    prompt: "A: Why is John so persistent?\nB: He insisted that she ___ present at the meeting.",
     options: ["be", "is", "was", "would be"],
     correct_index: 0,
     explanation_tr:
-      "'Insist that' + subjunctive (base form, that-clause'un fiili çekimsiz). Formal C1 kullanım.",
+      "Talep/ısrar bildiren fiillerden (insist, demand, recommend) sonra gelen 'that' cümleciğinde subjunctive (fiilin yalın hali - bare infinitive) kullanılır: 'insisted that she be'.",
   },
   {
     id: "c1.3",
@@ -622,11 +622,11 @@ const C2: PlacementQuestion[] = [
   {
     id: "c2.6",
     level: "C2",
-    prompt: "She kept the document hidden ___ it fall into the wrong hands.",
+    prompt: "A: Why did she keep the contract locked in the safe?\nB: She was terrified ___ it fall into the wrong hands.",
     options: ["lest", "unless", "in case", "so that"],
     correct_index: 0,
     explanation_tr:
-      "'Lest' = -mesin diye (negative purpose, formal). Subjunctive alır → 'lest it FALL' (fall'a -s gelmez). 'Unless' = -medikçe (şart, anlam ters). 'In case' modern alternatif ama register düşer. 'So that' positive purpose. C2 formal/edebi register.",
+      "'Lest' = '-mesin diye' veya 'korkusuyla' anlamına gelen edebi bir bağlaçtır ve peşinden subjunctive fiil (yalın hali, 'fall' takısız) alır. 'Lest it fall' = 'yanlış ellere geçmesi korkusuyla'.",
   },
   {
     id: "c2.7",

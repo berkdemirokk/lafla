@@ -559,7 +559,7 @@ export function filterSetupByLevel<T extends CefrBandedPhrase>(
     (s) => !s.cefr_band || acceptableBands.includes(s.cefr_band),
   );
 
-  if (filtered.length >= 8) return filtered.slice(0, 12);
+  if (filtered.length >= 1) return filtered.slice(0, 12);
   // Fallback: band-uygun pool yetersizse tüm setup'ın ilk 12'sini al.
   return setup.slice(0, 12);
 }
