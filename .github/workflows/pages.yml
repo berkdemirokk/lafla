@@ -38,3 +38,18 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Verify app-ads.txt
+        run: |
+          set -euo pipefail
+          expected="google.com, pub-9898903071826160, DIRECT, f08c47fec0942fa0"
+          page_url="${{ steps.deployment.outputs.page_url }}"
+          url="${page_url%/}/app-ads.txt"
+          body="$(curl --fail --silent --show-error --location "$url" | tr -d '\r')"
+          if [ "$body" != "$expected" ]; then
+            echo "app-ads.txt mismatch at $url"
+            echo "Expected: $expected"
+            echo "Actual:   $body"
+            exit 1
+          fi
+          echo "Verified app-ads.txt at $url"

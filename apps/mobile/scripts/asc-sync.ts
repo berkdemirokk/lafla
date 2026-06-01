@@ -50,6 +50,8 @@ import {
   SCENE_COUNT_DISPLAY,
 } from "../lib/scene-counts";
 
+const APP_STORE_PUBLIC_URL = "https://berkdemirokk.github.io/lafla/";
+
 // ─────────────────────────────────────────────────────────────────
 // Metadata source — TEK KAYNAK docs/APP_STORE_METADATA.md ama
 // markdown parse etmek kırılgan. Bu dosyada inline tutuyoruz;
@@ -765,9 +767,9 @@ async function main(): Promise<void> {
         {
           description: stripEmojis(METADATA.tr.description),
           keywords: METADATA.tr.keywords,
-          marketingUrl: "https://berkdemirokk.github.io/",
+          marketingUrl: APP_STORE_PUBLIC_URL,
           promotionalText: stripEmojis(METADATA.tr.promotionalText),
-          supportUrl: "https://berkdemirokk.github.io/",
+          supportUrl: APP_STORE_PUBLIC_URL,
         },
         dryRun,
       );
@@ -786,9 +788,9 @@ async function main(): Promise<void> {
         {
           description: stripEmojis(METADATA.en.description),
           keywords: METADATA.en.keywords,
-          marketingUrl: "https://berkdemirokk.github.io/",
+          marketingUrl: APP_STORE_PUBLIC_URL,
           promotionalText: stripEmojis(METADATA.en.promotionalText),
-          supportUrl: "https://berkdemirokk.github.io/",
+          supportUrl: APP_STORE_PUBLIC_URL,
         },
         dryRun,
       );

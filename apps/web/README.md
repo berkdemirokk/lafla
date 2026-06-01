@@ -21,6 +21,7 @@ Open `http://localhost:8080`.
 ## What's inside
 
 - TR/EN language toggle (persists in `localStorage`)
+- `app-ads.txt` for AdMob seller verification
 - FAQ accordion (vanilla JS, `aria-expanded` accessible)
 - Smooth-scroll anchor links
 - Mobile-responsive (single column < md)
@@ -29,6 +30,8 @@ Open `http://localhost:8080`.
 ## Deployment
 
 The site is **one HTML file**. Anywhere that serves static files will do.
+
+AdMob requires `app-ads.txt` to be reachable from the App Store seller URL root. The current App Store `sellerUrl` is `https://berkdemirokk.github.io/lafla/`, so the expected verification URL is `https://berkdemirokk.github.io/lafla/app-ads.txt`.
 
 ### Option A — Vercel (recommended)
 
