@@ -1,0 +1,55 @@
+name: ASC Set App Free
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "Apply change? false=dry-run, true=set app price to Free"
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  set-free:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Install workspace deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Write App Store Connect API key
+        run: |
+          API_KEY_PATH="$RUNNER_TEMP/AuthKey_${{ secrets.APP_STORE_CONNECT_KEY_ID }}.p8"
+          cat > "$API_KEY_PATH" <<'EOF'
+          ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+          EOF
+          echo "ASC_PRIVATE_KEY_PATH=$API_KEY_PATH" >> "$GITHUB_ENV"
+
+      - name: Dry run
+        if: ${{ inputs.apply == false }}
+        working-directory: apps/mobile
+        env:
+          ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        run: pnpm exec tsx scripts/asc-set-app-free.ts
+
+      - name: Set app free
+        if: ${{ inputs.apply == true }}
+        working-directory: apps/mobile
+        env:
+          ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        run: pnpm exec tsx scripts/asc-set-app-free.ts -- --apply
