@@ -81,7 +81,7 @@ ASC'de https://appstoreconnect.apple.com → My Apps → Lafla.
 - [ ] **Subtitle (TR):** `Donma. Konuş. Türkçe ipuçlu.`
 - [ ] **Subtitle (EN):** `Stop freezing. Speak. Turkish hints.` (placeholder — Section 1.2 kararına göre)
 - [ ] **App Name:** `Lafla: İngilizce Konuşma`
-- [ ] **Support URL:** `https://berkdemirokk.github.io/lafla/` (root)
+- [ ] **Support URL:** `https://berkdemirokk.github.io/` (root; app-ads.txt lives here)
 - [ ] **Marketing URL:** (boş bırak veya aynı)
 - [ ] **Privacy Policy URL:** `https://berkdemirokk.github.io/lafla/privacy.html`
 
@@ -204,7 +204,7 @@ ASC'de https://appstoreconnect.apple.com → My Apps → Lafla.
 | TestFlight pipeline | Auto on `lafla-v*` tag push; manual: `gh workflow run expo-testflight.yml` |
 | Privacy URL | `https://berkdemirokk.github.io/lafla/privacy.html` |
 | Terms URL | `https://berkdemirokk.github.io/lafla/terms.html` |
-| Support URL | `https://berkdemirokk.github.io/lafla/` |
+| Support URL | `https://berkdemirokk.github.io/` |
 | Support email | `berkkdemirok@gmail.com` |
 | Demo account location | ASC → App Review Information → Demo Account |
 | Apple Team ID | `44B88YK392` |

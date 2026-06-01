@@ -765,9 +765,9 @@ async function main(): Promise<void> {
         {
           description: stripEmojis(METADATA.tr.description),
           keywords: METADATA.tr.keywords,
-          marketingUrl: "https://berkdemirokk.github.io/lafla/",
+          marketingUrl: "https://berkdemirokk.github.io/",
           promotionalText: stripEmojis(METADATA.tr.promotionalText),
-          supportUrl: "https://berkdemirokk.github.io/lafla/",
+          supportUrl: "https://berkdemirokk.github.io/",
         },
         dryRun,
       );
@@ -786,9 +786,9 @@ async function main(): Promise<void> {
         {
           description: stripEmojis(METADATA.en.description),
           keywords: METADATA.en.keywords,
-          marketingUrl: "https://berkdemirokk.github.io/lafla/",
+          marketingUrl: "https://berkdemirokk.github.io/",
           promotionalText: stripEmojis(METADATA.en.promotionalText),
-          supportUrl: "https://berkdemirokk.github.io/lafla/",
+          supportUrl: "https://berkdemirokk.github.io/",
         },
         dryRun,
       );

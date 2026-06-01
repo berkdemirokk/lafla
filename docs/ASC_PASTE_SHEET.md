@@ -347,8 +347,8 @@ Feedback: berkkdemirok@gmail.com
 
 | Field | Value |
 |---|---|
-| Support URL | `https://berkdemirokk.github.io/lafla/` |
-| Marketing URL | `https://berkdemirokk.github.io/lafla/` |
+| Support URL | `https://berkdemirokk.github.io/` |
+| Marketing URL | `https://berkdemirokk.github.io/` |
 | Privacy Policy URL | `https://berkdemirokk.github.io/lafla/privacy.html` |
 
 ---
