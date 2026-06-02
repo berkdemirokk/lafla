@@ -55,7 +55,7 @@ type VisualScene = Pick<Scene, "mode" | "skillId"> &
   Partial<Pick<Scene, "id" | "lessonId" | "title" | "description">>;
 
 const IMG = (photoId: string) =>
-  `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=900&q=85`;
+  `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=1440&q=95`;
 
 const FALLBACK_BY_MODE: Record<SceneMode, VisualTheme> = {
   flirt: "date_cafe",

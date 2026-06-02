@@ -25,6 +25,7 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Animated,
   Dimensions,
+  Easing,
   Image,
   PanResponder,
   Pressable,
@@ -151,11 +152,12 @@ function SwipeSceneCardImpl({
       return;
     }
 
-    // 12-second timing loop for slow cinematic breathing
+    // 14-second timing loop for smooth linear cinematic breathing
     const loop = Animated.loop(
       Animated.timing(kenBurnsAnim, {
         toValue: 1,
-        duration: 12000,
+        duration: 14000,
+        easing: Easing.linear,
         useNativeDriver: true,
       })
     );
@@ -277,7 +279,7 @@ function SwipeSceneCardImpl({
   });
   const imageScale = translateX.interpolate({
     inputRange: [-SCREEN.width, 0, SCREEN.width],
-    outputRange: [1.25, 1.15, 1.25],
+    outputRange: [1.35, 1.25, 1.35],
     extrapolate: "clamp",
   });
   const imageTranslateX = translateX.interpolate({
@@ -286,18 +288,18 @@ function SwipeSceneCardImpl({
     extrapolate: "clamp",
   });
 
-  // Ken Burns interpolations
+  // Ken Burns interpolations - zoom, pan and tilt made clearly visible
   const kbScale = kenBurnsAnim.interpolate({
     inputRange: [0, 0.5, 1],
-    outputRange: [1, 1.08, 1],
+    outputRange: [1, 1.15, 1],
   });
   const kbTranslateX = kenBurnsAnim.interpolate({
     inputRange: [0, 0.25, 0.5, 0.75, 1],
-    outputRange: [0, -8, 8, -8, 0],
+    outputRange: [0, -35, 35, -35, 0],
   });
   const kbTranslateY = kenBurnsAnim.interpolate({
     inputRange: [0, 0.33, 0.66, 1],
-    outputRange: [0, -6, 6, 0],
+    outputRange: [0, -25, 25, 0],
   });
 
   // Combine swipe and ambient transforms
