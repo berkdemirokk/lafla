@@ -1,13 +1,13 @@
 # CEFR Scene Tag Audit — Auto-Generated
 
-**Generated:** 2026-05-23T15:57:26.955Z
+**Generated:** 2026-06-02T11:00:48.334Z
 **Source:** `apps/mobile/scripts/audit-cefr-tags.ts` — re-run with `npx tsx scripts/audit-cefr-tags.ts`
 
 ## Summary
 
-- **966** lessons with NPC turns scanned
-- **801** scene→level mappings found
-- **802** lessons mapped to a Scene level
+- **971** lessons with NPC turns scanned
+- **970** scene→level mappings found
+- **970** lessons mapped to a Scene level
 - **0** POTENTIAL MISMATCHES (tagged level lower than detected markers)
 
 Heuristic: a scene tagged below a marker's minimum level is

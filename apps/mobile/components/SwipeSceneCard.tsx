@@ -40,6 +40,8 @@ import type { Scene, SceneMode } from "../data/scenes";
 import { hasNativeAudio } from "../data/native-audio-manifest";
 import { getSceneVisualImage } from "../lib/scene-visual-theme";
 import { tokens } from "../theme";
+import AnimatedGradientOverlay from "./AnimatedGradientOverlay";
+import FloatingParticles from "./FloatingParticles";
 
 // ---------------------------------------------------------------------------
 // Layout constants
@@ -88,11 +90,19 @@ const MODE_LABEL: Record<SceneMode, string> = {
 };
 
 // ---------------------------------------------------------------------------
-// Cinematic / Dramatic-lit / Bokeh / Neon Unsplash images — premium 3D feel.
-// w=900&q=85 Retina-grade. 10 imgs per theme, 17 themes, 170 total.
+// Cinematic / Dramatic-lit / Bokeh / Neon Unsplash images — premium feel.
+// w=1200&q=90 Retina+-grade. 8-12 imgs per theme, 45+ themes, ~450 total.
+// 2026-06-02 — Massive expansion: 17 → 45+ sub-themes for scene-specific
+// visuals. Each theme is curated for the Neon Noir aesthetic (moody lighting,
+// bokeh, dramatic contrasts, cinematic framing).
 // ---------------------------------------------------------------------------
+const IMG = (id: string) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=1200&q=90`;
+
 const THEME_IMAGES: Record<string, string[]> = {
+  // ── TRANSPORT ──────────────────────────────────────────────────────────
   taxi: [
+<<<<<<< HEAD
     "https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1494783367193-149034c05e8f?auto=format&fit=crop&w=900&q=85",
@@ -284,19 +294,560 @@ const THEME_IMAGES: Record<string, string[]> = {
     "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1580894894513-541e068a3e2b?auto=format&fit=crop&w=900&q=85",
     "https://images.unsplash.com/photo-1616348436168-de43ad0db179?auto=format&fit=crop&w=900&q=85"
+=======
+    IMG("1619767886558-efdc259cde1a"),
+    IMG("1503376780353-7e6692767b70"),
+    IMG("1552519507-da3b142c6e3d"),
+    IMG("1549317661-bd32c8ce0afe"),
+    IMG("1504215680853-026ed2a45def"),
+    IMG("1558618666-fcd25c85f1aa"),
+    IMG("1544620347-c4fd4a3d5957"),
+    IMG("1517524008697-84bbe3c3fd98"),
+>>>>>>> 98dd99d (feat(mobile): add animated cinematic background visual effects to SwipeSceneCard)
   ],
   directions: [
-    "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1476900966873-ab290e38e3f7?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1444723121867-7a241cacace9?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1517732306149-e8f829eb588a?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=85",
-    "https://images.unsplash.com/photo-1444210971048-6130cf0c46cf?auto=format&fit=crop&w=900&q=85"
-  ]
+    IMG("1524661135-423995f22d0b"),
+    IMG("1476900966873-ab290e38e3f7"),
+    IMG("1519501025264-65ba15a82390"),
+    IMG("1480714378408-67cf0d13bc1b"),
+    IMG("1444723121867-7a241cacace9"),
+    IMG("1451187580459-43490279c0fa"),
+    IMG("1513635269975-59663e0ac1ad"),
+    IMG("1506905925346-21bda4d32df4"),
+  ],
+
+  // ── GYM / FITNESS ─────────────────────────────────────────────────────
+  gym: [
+    IMG("1616279969096-54b228f5f103"),
+    IMG("1549719386-74dfcbf7dbed"),
+    IMG("1605296867304-46d5465a13f1"),
+    IMG("1534438327276-14e5300c3a48"),
+    IMG("1526506118085-60ce8714f8c5"),
+    IMG("1583454110551-21f2fa2afe61"),
+    IMG("1571902943202-507ec2618e8f"),
+    IMG("1540497077202-7c8a3999166f"),
+  ],
+
+  // ── CAFE / COFFEE ─────────────────────────────────────────────────────
+  cafe: [
+    IMG("1618220179428-22790b461013"),
+    IMG("1509042239860-f550ce710b93"),
+    IMG("1559056199-641a0ac8b55e"),
+    IMG("1541167760496-1628856ab772"),
+    IMG("1495474472287-4d71bcdd2085"),
+    IMG("1559925393-8be0ec4767c8"),
+    IMG("1501339847302-ac426a4a7cbb"),
+    IMG("1442512595331-e89e73853f31"),
+    IMG("1514432324607-a09d9b4aefda"),
+  ],
+
+  // ── RESTAURANT / DINING ───────────────────────────────────────────────
+  restaurant: [
+    IMG("1615485290382-441e4d049cb5"),
+    IMG("1606787366850-de6330128bfc"),
+    IMG("1550966871-3ed3cdb5ed0c"),
+    IMG("1517248135467-4c7edcad34c4"),
+    IMG("1414235077428-338989a2e8c0"),
+    IMG("1559339352-11d035aa65de"),
+    IMG("1466978913421-dad2ebd01d17"),
+    IMG("1424847651672-bf20a4b0982b"),
+  ],
+  // Fine dining — candlelit, close-up plated food, elegant ambience
+  "fine-dining": [
+    IMG("1559339352-11d035aa65de"),
+    IMG("1414235077428-338989a2e8c0"),
+    IMG("1550966871-3ed3cdb5ed0c"),
+    IMG("1533777857889-4be7c70b33f7"),
+    IMG("1544025162-d76694265947"),
+    IMG("1551218808-94e220e084d2"),
+    IMG("1560053608-13721e0d69da"),
+    IMG("1470337458703-46ad1756a187"),
+  ],
+  // Fast food / Drive-thru — neon-lit fast food, burgers, fries
+  "fast-food": [
+    IMG("1561758033-d89a9ad46330"),
+    IMG("1568901346-d500f8ea82a3"),
+    IMG("1565299507177-b0ac66763828"),
+    IMG("1571091718767-18b5b1457add"),
+    IMG("1550547660-d9862179b72e"),
+    IMG("1606755962773-d324e0a13086"),
+    IMG("1513104890138-7c749659a591"),
+    IMG("1594212699903-ec8a3eca50f5"),
+  ],
+  // Sushi / Asian cuisine
+  sushi: [
+    IMG("1579584425555-c3ce17fd4351"),
+    IMG("1553621042-f6e147245754"),
+    IMG("1580822184713-fc5400e7fe10"),
+    IMG("1611143669185-af224c5e3252"),
+    IMG("1617196034796-73dfa7b1fd56"),
+    IMG("1540648639573-8c848de23f0a"),
+    IMG("1559410545-0bdcd187e0a6"),
+    IMG("1504674900247-0877df9cc836"),
+  ],
+  // Brunch / Breakfast
+  brunch: [
+    IMG("1504754524776-8f4f37790ca0"),
+    IMG("1525351484163-7529414344d8"),
+    IMG("1533089860892-a7c6f0a88666"),
+    IMG("1495214783159-3503fd1b572d"),
+    IMG("1484723091739-30a097e8f929"),
+    IMG("1506084868230-bb9d95c24759"),
+    IMG("1476718406336-bb5a9690ee2a"),
+    IMG("1528207776546-365bb710ee93"),
+  ],
+
+  // ── BAR / PUB ─────────────────────────────────────────────────────────
+  bar: [
+    IMG("1574096079513-d8259312b785"),
+    IMG("1514362545857-3bc16c4c7d1b"),
+    IMG("1551024709-8f23befc6f87"),
+    IMG("1572116469696-31de0f17cc34"),
+    IMG("1536935338788-846bb9981813"),
+    IMG("1551024601-bec78aea704b"),
+    IMG("1470337458703-46ad1756a187"),
+    IMG("1566417713940-fe7c737a9ef2"),
+  ],
+  // Cocktail close-ups — drinks, bartender action, ice, neon reflections
+  cocktail: [
+    IMG("1514362545857-3bc16c4c7d1b"),
+    IMG("1551024709-8f23befc6f87"),
+    IMG("1536935338788-846bb9981813"),
+    IMG("1551024601-bec78aea704b"),
+    IMG("1560512823-829485b8bf24"),
+    IMG("1587223962217-f4c4c9603f26"),
+    IMG("1609951651556-5334e2706168"),
+    IMG("1582106245687-cbb466a9f07f"),
+  ],
+  // Nightclub — neon, crowd, dance floor, DJ, lasers
+  nightclub: [
+    IMG("1574391884720-bbc3740c59d1"),
+    IMG("1566737236500-c8ac43014a67"),
+    IMG("1571204829887-3b8d69e4094d"),
+    IMG("1545128485-c400e7702712"),
+    IMG("1504196606672-aef5c9cefc92"),
+    IMG("1516450360452-9258136e97a1"),
+    IMG("1598387993281-d5629af2a7c8"),
+    IMG("1567942712661-82b9b407abbf"),
+  ],
+  // Rooftop bar — city skyline, sunset, lounge, panoramic
+  "rooftop-bar": [
+    IMG("1470337458703-46ad1756a187"),
+    IMG("1517457373958-b7bdd4587205"),
+    IMG("1514933651103-005eec06c04b"),
+    IMG("1551882547-ff40c63fe5fa"),
+    IMG("1507003211169-0a1dd7228f2d"),
+    IMG("1566073771259-6a8506099945"),
+    IMG("1519046904884-53103b34b206"),
+    IMG("1444210971048-6130cf0c46cf"),
+  ],
+
+  // ── AIRPORT / TRAVEL ──────────────────────────────────────────────────
+  airport: [
+    IMG("1569154941061-e231b4725ef1"),
+    IMG("1530521954074-e64f6810b32d"),
+    IMG("1621451537084-482c73073a0f"),
+    IMG("1526778548025-fa2f459cd5c1"),
+    IMG("1542296332-2e4473faf563"),
+    IMG("1530789253388-582c481c54b0"),
+    IMG("1436491865332-7a61a109cc05"),
+    IMG("1464037866556-6812c9d1c72e"),
+  ],
+  // Boarding gate — gate signs, runway views, waiting area
+  "boarding-gate": [
+    IMG("1436491865332-7a61a109cc05"),
+    IMG("1569154941061-e231b4725ef1"),
+    IMG("1542296332-2e4473faf563"),
+    IMG("1556388158-158ea5ccacbd"),
+    IMG("1530521954074-e64f6810b32d"),
+    IMG("1488085061387-422e29b40080"),
+    IMG("1517400508447-f8dd518b86db"),
+    IMG("1540339832862-474599807836"),
+  ],
+  // Passport control / Customs — immigration, passport close-up
+  "passport-control": [
+    IMG("1452421822248-d4c2b47f0c81"),
+    IMG("1469854523086-cc02fe5d8800"),
+    IMG("1528164344705-47542687000d"),
+    IMG("1501426026826-31c667bdf23d"),
+    IMG("1526778548025-fa2f459cd5c1"),
+    IMG("1540339832862-474599807836"),
+    IMG("1500530855697-b586d89ba3ee"),
+    IMG("1488646953014-85cb44e25828"),
+  ],
+  // Duty free / Airport shopping
+  "duty-free": [
+    IMG("1607082348824-0a96f2a4b9da"),
+    IMG("1481437156560-3205f6a55735"),
+    IMG("1556742049-0cfed4f6a45d"),
+    IMG("1580915411954-282cb1b0d780"),
+    IMG("1555529669-e69e7aa0ba9a"),
+    IMG("1441986300917-64674bd600d8"),
+    IMG("1557821552-17105176677c"),
+    IMG("1567401893414-76b7b1e5a7a5"),
+  ],
+
+  // ── SALON / BARBER ────────────────────────────────────────────────────
+  salon: [
+    IMG("1600948836101-f9ffda59d250"),
+    IMG("1582095133179-bfd08e2fc6b3"),
+    IMG("1503951914875-452162b0f3f1"),
+    IMG("1585747860715-2ba37e788b70"),
+    IMG("1622288432450-277d0fef5ed6"),
+    IMG("1521590832167-7228fcaaad8e"),
+    IMG("1560066984-138dadb4c035"),
+    IMG("1599351431613-18ef1fdd27e1"),
+  ],
+
+  // ── HOTEL / LODGING ───────────────────────────────────────────────────
+  hotel: [
+    IMG("1618773928121-c32242e63f39"),
+    IMG("1590490360182-c33d57733427"),
+    IMG("1566073771259-6a8506099945"),
+    IMG("1542314831-068cd1dbfeeb"),
+    IMG("1520250497591-112f2f40a3f4"),
+    IMG("1551882547-ff40c63fe5fa"),
+    IMG("1564501049412-61c2a3083791"),
+    IMG("1582719508461-905c673771f1"),
+  ],
+
+  // ── PHARMACY / HEALTH ─────────────────────────────────────────────────
+  pharmacy: [
+    IMG("1584308666744-24d5c474f2ae"),
+    IMG("1576091160550-2173dba999ef"),
+    IMG("1585435557343-3b092031a831"),
+    IMG("1532187863486-abf9dbad1b69"),
+    IMG("1471864190281-a93a3070b6de"),
+    IMG("1530026405186-ed1f139313f8"),
+    IMG("1579684385127-1ef15d508118"),
+    IMG("1559757148-5c350d0d3c56"),
+  ],
+  // Doctor / Hospital visit
+  doctor: [
+    IMG("1579684385127-1ef15d508118"),
+    IMG("1504439468489-c8920d796a29"),
+    IMG("1538108149393-fbbd81895907"),
+    IMG("1551076805-e1869033e561"),
+    IMG("1559757148-5c350d0d3c56"),
+    IMG("1519494026892-80bbd2d6fd0d"),
+    IMG("1584308666744-24d5c474f2ae"),
+    IMG("1576091160550-2173dba999ef"),
+  ],
+
+  // ── SHOPPING ──────────────────────────────────────────────────────────
+  shopping: [
+    IMG("1607082348824-0a96f2a4b9da"),
+    IMG("1481437156560-3205f6a55735"),
+    IMG("1555529669-e69e7aa0ba9a"),
+    IMG("1556742049-0cfed4f6a45d"),
+    IMG("1441986300917-64674bd600d8"),
+    IMG("1557821552-17105176677c"),
+    IMG("1580915411954-282cb1b0d780"),
+    IMG("1567401893414-76b7b1e5a7a5"),
+  ],
+  // Supermarket / Grocery
+  supermarket: [
+    IMG("1604719312566-8912e9227c6a"),
+    IMG("1542838132-92c53300491e"),
+    IMG("1578916171728-46686eac8d58"),
+    IMG("1534723452862-4c874018d66d"),
+    IMG("1543168256-418811576931"),
+    IMG("1488459716781-31db52582fe9"),
+    IMG("1579113800032-c38bd7635818"),
+    IMG("1550989460-0adf9ea622e2"),
+  ],
+  // Food delivery / Food truck
+  "food-delivery": [
+    IMG("1526367790999-0150786686a2"),
+    IMG("1565123409695-7b5ef63a2efb"),
+    IMG("1567521464027-f127ff144326"),
+    IMG("1504674900247-0877df9cc836"),
+    IMG("1555939594-58d7cb561ad1"),
+    IMG("1504754524776-8f4f37790ca0"),
+    IMG("1561758033-d89a9ad46330"),
+    IMG("1565299624946-b28f40a0ae38"),
+  ],
+
+  // ── IELTS / STUDY ─────────────────────────────────────────────────────
+  ielts: [
+    IMG("1544716278-ca5e3f4abd8c"),
+    IMG("1512820790803-83ca734da794"),
+    IMG("1495446815901-a7297e633e8d"),
+    IMG("1456324504439-367cee3b3c32"),
+    IMG("1434030216411-0b793f4b4173"),
+    IMG("1501504905252-473c47e087f8"),
+    IMG("1481627834876-b7833e8f5570"),
+    IMG("1497633762265-9d179a990aa6"),
+  ],
+  // Study desk / Library
+  "study-desk": [
+    IMG("1481627834876-b7833e8f5570"),
+    IMG("1497633762265-9d179a990aa6"),
+    IMG("1507003211169-0a1dd7228f2d"),
+    IMG("1456324504439-367cee3b3c32"),
+    IMG("1434030216411-0b793f4b4173"),
+    IMG("1512820790803-83ca734da794"),
+    IMG("1544716278-ca5e3f4abd8c"),
+    IMG("1501504905252-473c47e087f8"),
+  ],
+  // Exam hall — test, auditorium
+  "exam-hall": [
+    IMG("1434030216411-0b793f4b4173"),
+    IMG("1497633762265-9d179a990aa6"),
+    IMG("1523050854058-8df90110c8f1"),
+    IMG("1524178232363-1fb2b075b655"),
+    IMG("1509062522246-3755977927d7"),
+    IMG("1580582932707-520aed937571"),
+    IMG("1544716278-ca5e3f4abd8c"),
+    IMG("1501504905252-473c47e087f8"),
+  ],
+
+  // ── FLIRT / DATING ────────────────────────────────────────────────────
+  flirt: [
+    IMG("1620641788421-7a1c342ea42e"),
+    IMG("1518199266791-5375a83190b7"),
+    IMG("1516589178581-6cd7833ae3b2"),
+    IMG("1529626455594-4ff0802cfb7e"),
+    IMG("1618005198919-d3d4b5a92ead"),
+    IMG("1579546929662-711aa81148cf"),
+    IMG("1557683316-973673baf926"),
+    IMG("1523585255-36e5b2eb5987"),
+  ],
+  // Date night — candlelit dinner, romantic setting
+  "date-night": [
+    IMG("1529543544282-ea7407407c4c"),
+    IMG("1470337458703-46ad1756a187"),
+    IMG("1551882547-ff40c63fe5fa"),
+    IMG("1517457373958-b7bdd4587205"),
+    IMG("1507003211169-0a1dd7228f2d"),
+    IMG("1559339352-11d035aa65de"),
+    IMG("1533777857889-4be7c70b33f7"),
+    IMG("1544025162-d76694265947"),
+  ],
+  // Texting / Digital flirting — phone, screen glow, night
+  texting: [
+    IMG("1512446816042-444d641267d4"),
+    IMG("1523206489230-c012c64b2b48"),
+    IMG("1511707171634-5f897ff02aa9"),
+    IMG("1586953208448-b95a79798f07"),
+    IMG("1534536281715-e28d76689b4d"),
+    IMG("1556656793-08538906a9f8"),
+    IMG("1558618666-fcd25c85f1aa"),
+    IMG("1544620347-c4fd4a3d5957"),
+  ],
+  // Park / Outdoor date — sunset, greenery, bench
+  park: [
+    IMG("1506905925346-21bda4d32df4"),
+    IMG("1519046904884-53103b34b206"),
+    IMG("1441974231531-c6227db76b6e"),
+    IMG("1518495973542-4542c06a5843"),
+    IMG("1504198453319-5ce911bafcde"),
+    IMG("1551279880-03041531e184"),
+    IMG("1516589178581-6cd7833ae3b2"),
+    IMG("1444723121867-7a241cacace9"),
+  ],
+
+  // ── WORK / PROFESSIONAL ───────────────────────────────────────────────
+  work: [
+    IMG("1618005182384-a83a8bd57fbe"),
+    IMG("1634017839464-5c339ebe3cb4"),
+    IMG("1497215842964-222b430dc094"),
+    IMG("1504384308090-c894fdcc538d"),
+    IMG("1633356122544-f134324a6cee"),
+    IMG("1612287230202-1ff1d85d1bdf"),
+    IMG("1521737711867-e3b97375f902"),
+    IMG("1560179707-f14e90ef3623"),
+  ],
+  // Job interview — meeting room, professional setting
+  interview: [
+    IMG("1560179707-f14e90ef3623"),
+    IMG("1521737711867-e3b97375f902"),
+    IMG("1573497019418-b400bb3ab074"),
+    IMG("1553877522-43269d4ea984"),
+    IMG("1568992687947-868a62a9f521"),
+    IMG("1504384308090-c894fdcc538d"),
+    IMG("1573164713988-8665fc963095"),
+    IMG("1497215842964-222b430dc094"),
+  ],
+  // Presentation / Stage — spotlight, audience, podium
+  presentation: [
+    IMG("1540575467063-178a50e2fd60"),
+    IMG("1475721027785-f74eccf877e2"),
+    IMG("1505373877841-8d25f7d46678"),
+    IMG("1524178232363-1fb2b075b655"),
+    IMG("1560439513-4e36d2b75967"),
+    IMG("1523050854058-8df90110c8f1"),
+    IMG("1558618666-fcd25c85f1aa"),
+    IMG("1573497019418-b400bb3ab074"),
+  ],
+  // Networking / Conference — crowd, lanyard, handshake
+  networking: [
+    IMG("1540575467063-178a50e2fd60"),
+    IMG("1475721027785-f74eccf877e2"),
+    IMG("1505373877841-8d25f7d46678"),
+    IMG("1560439513-4e36d2b75967"),
+    IMG("1573164713988-8665fc963095"),
+    IMG("1511578314322-379afb476865"),
+    IMG("1528605248644-14dd04022da1"),
+    IMG("1515187029135-18ee286d815b"),
+  ],
+  // Coworking / Startup office — open plan, laptops, whiteboard
+  coworking: [
+    IMG("1497366216548-37526070297c"),
+    IMG("1497366811353-6870744d04b2"),
+    IMG("1504384308090-c894fdcc538d"),
+    IMG("1521737711867-e3b97375f902"),
+    IMG("1553877522-43269d4ea984"),
+    IMG("1568992687947-868a62a9f521"),
+    IMG("1497215842964-222b430dc094"),
+    IMG("1573164713988-8665fc963095"),
+  ],
+  // Meeting room — conference table, video call, whiteboard
+  "meeting-room": [
+    IMG("1573497019418-b400bb3ab074"),
+    IMG("1553877522-43269d4ea984"),
+    IMG("1560179707-f14e90ef3623"),
+    IMG("1521737711867-e3b97375f902"),
+    IMG("1568992687947-868a62a9f521"),
+    IMG("1497215842964-222b430dc094"),
+    IMG("1497366216548-37526070297c"),
+    IMG("1504384308090-c894fdcc538d"),
+  ],
+  // Email / Slack / Digital comms — screen, keyboard, notifications
+  "digital-comms": [
+    IMG("1512446816042-444d641267d4"),
+    IMG("1523206489230-c012c64b2b48"),
+    IMG("1511707171634-5f897ff02aa9"),
+    IMG("1534536281715-e28d76689b4d"),
+    IMG("1556656793-08538906a9f8"),
+    IMG("1558618666-fcd25c85f1aa"),
+    IMG("1544620347-c4fd4a3d5957"),
+    IMG("1586953208448-b95a79798f07"),
+  ],
+
+  // ── DAILY LIFE ────────────────────────────────────────────────────────
+  daily: [
+    IMG("1518780664697-55e3ad937233"),
+    IMG("1512917774080-9991f1c4c750"),
+    IMG("1477959858617-67f85cf4f1df"),
+    IMG("1515005318787-cc68052b38f3"),
+    IMG("1449824913935-59a10b8d2000"),
+    IMG("1448375240586-882707db888b"),
+    IMG("1614850523459-c2f4c699c52e"),
+    IMG("1513635269975-59663e0ac1ad"),
+  ],
+  // Morning routine — sunrise, coffee, bathroom, alarm
+  "morning-routine": [
+    IMG("1504754524776-8f4f37790ca0"),
+    IMG("1495214783159-3503fd1b572d"),
+    IMG("1484723091739-30a097e8f929"),
+    IMG("1506084868230-bb9d95c24759"),
+    IMG("1533089860892-a7c6f0a88666"),
+    IMG("1525351484163-7529414344d8"),
+    IMG("1476718406336-bb5a9690ee2a"),
+    IMG("1528207776546-365bb710ee93"),
+  ],
+  // Neighborhood / Walking — streets, storefronts, urban life
+  neighborhood: [
+    IMG("1449824913935-59a10b8d2000"),
+    IMG("1477959858617-67f85cf4f1df"),
+    IMG("1519501025264-65ba15a82390"),
+    IMG("1480714378408-67cf0d13bc1b"),
+    IMG("1513635269975-59663e0ac1ad"),
+    IMG("1506905925346-21bda4d32df4"),
+    IMG("1444723121867-7a241cacace9"),
+    IMG("1515005318787-cc68052b38f3"),
+  ],
+  // Movie night / Entertainment — cinema, popcorn, screen
+  "movie-night": [
+    IMG("1489599849927-2ee91cede3ba"),
+    IMG("1517604931442-7e0c8ed2963c"),
+    IMG("1536440136628-849c177e76a1"),
+    IMG("1478720568477-152d9b164e26"),
+    IMG("1585647347483-22b66260dfff"),
+    IMG("1513106580091-1d82408b8cd6"),
+    IMG("1440404653325-ab127d49abc1"),
+    IMG("1542204165-65bf26472b9b"),
+  ],
+  // Beach / Ocean — sunset, waves, palm trees
+  beach: [
+    IMG("1507525428034-b723cf961d3e"),
+    IMG("1519046904884-53103b34b206"),
+    IMG("1506929562872-bb421503ef21"),
+    IMG("1520454974749-611b7248ffdb"),
+    IMG("1473116763249-2faaef81ccda"),
+    IMG("1500530855697-b586d89ba3ee"),
+    IMG("1519999482648-25049ddd37b1"),
+    IMG("1468413253725-0d5181091126"),
+  ],
+  // Concert / Music — stage, crowd, lights
+  concert: [
+    IMG("1574391884720-bbc3740c59d1"),
+    IMG("1504196606672-aef5c9cefc92"),
+    IMG("1516450360452-9258136e97a1"),
+    IMG("1459749411175-04bf5292ceea"),
+    IMG("1506157786151-b8491531f063"),
+    IMG("1429962714451-bb934ecdc4ec"),
+    IMG("1540039155733-5bb30b53aa14"),
+    IMG("1598387993281-d5629af2a7c8"),
+  ],
+  // Road trip / Driving — open road, car interior, scenic drive
+  "road-trip": [
+    IMG("1469854523086-cc02fe5d8800"),
+    IMG("1549317661-bd32c8ce0afe"),
+    IMG("1504215680853-026ed2a45def"),
+    IMG("1519046904884-53103b34b206"),
+    IMG("1500530855697-b586d89ba3ee"),
+    IMG("1544620347-c4fd4a3d5957"),
+    IMG("1517524008697-84bbe3c3fd98"),
+    IMG("1452421822248-d4c2b47f0c81"),
+  ],
+  // Library / Bookstore — bookshelves, reading nook, ambient lighting
+  library: [
+    IMG("1481627834876-b7833e8f5570"),
+    IMG("1512820790803-83ca734da794"),
+    IMG("1495446815901-a7297e633e8d"),
+    IMG("1507003211169-0a1dd7228f2d"),
+    IMG("1544716278-ca5e3f4abd8c"),
+    IMG("1501504905252-473c47e087f8"),
+    IMG("1456324504439-367cee3b3c32"),
+    IMG("1497633762265-9d179a990aa6"),
+  ],
+  // Tech support / Computer — screen, keyboard, cables
+  "tech-support": [
+    IMG("1518770660439-4636190af475"),
+    IMG("1512446816042-444d641267d4"),
+    IMG("1523206489230-c012c64b2b48"),
+    IMG("1511707171634-5f897ff02aa9"),
+    IMG("1534536281715-e28d76689b4d"),
+    IMG("1556656793-08538906a9f8"),
+    IMG("1633356122544-f134324a6cee"),
+    IMG("1612287230202-1ff1d85d1bdf"),
+  ],
+
+  // ── EMERGENCY ─────────────────────────────────────────────────────────
+  emergency: [
+    IMG("1587745416684-47953f16f02f"),
+    IMG("1516826957135-700dedea698c"),
+    IMG("1504439468489-c8920d796a29"),
+    IMG("1582719471384-894fbb16e074"),
+    IMG("1538108149393-fbbd81895907"),
+    IMG("1551076805-e1869033e561"),
+    IMG("1559757148-5c350d0d3c56"),
+    IMG("1519494026892-80bbd2d6fd0d"),
+  ],
+
+  // ── PHONE / DIGITAL ───────────────────────────────────────────────────
+  phone: [
+    IMG("1512446816042-444d641267d4"),
+    IMG("1523206489230-c012c64b2b48"),
+    IMG("1511707171634-5f897ff02aa9"),
+    IMG("1586953208448-b95a79798f07"),
+    IMG("1534536281715-e28d76689b4d"),
+    IMG("1556656793-08538906a9f8"),
+    IMG("1558618666-fcd25c85f1aa"),
+    IMG("1544620347-c4fd4a3d5957"),
+  ],
 };
 
 // ---------------------------------------------------------------------------
@@ -305,6 +856,7 @@ const THEME_IMAGES: Record<string, string[]> = {
 // ---------------------------------------------------------------------------
 function getDeterministicImage(scene: Scene): string {
   return getSceneVisualImage(scene);
+}
 }
 
 // ---------------------------------------------------------------------------
@@ -321,6 +873,8 @@ export interface SwipeSceneCardProps {
   onEnter: (lessonId: string) => void;
   /** Called when the user skips this scene (✕ button or swipe-left). */
   onSkip: (lessonId: string) => void;
+  /** Whether this card is currently visible / active in the viewport */
+  isActive?: boolean;
 }
 
 // ---------------------------------------------------------------------------
@@ -333,6 +887,7 @@ function SwipeSceneCardImpl({
   cardHeight,
   onEnter,
   onSkip,
+  isActive = true,
 }: SwipeSceneCardProps) {
   // BUG-7 FIX: fallback when Unsplash images fail to load (offline/network)
   const [imgFailed, setImgFailed] = useState(false);
@@ -347,6 +902,31 @@ function SwipeSceneCardImpl({
   // CTA press scale. Two refs because skip + Konuş can press independently.
   const enterCtaScale = useRef(new Animated.Value(1)).current;
   const skipCtaScale = useRef(new Animated.Value(1)).current;
+
+  // Ken Burns ambient animation value (0 to 1 loop)
+  const kenBurnsAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    if (!isActive) {
+      // Reset to start and stop
+      kenBurnsAnim.setValue(0);
+      return;
+    }
+
+    // 12-second timing loop for slow cinematic breathing
+    const loop = Animated.loop(
+      Animated.timing(kenBurnsAnim, {
+        toValue: 1,
+        duration: 12000,
+        useNativeDriver: true,
+      })
+    );
+    loop.start();
+
+    return () => {
+      loop.stop();
+    };
+  }, [isActive, scene.id, kenBurnsAnim]);
 
   useEffect(() => {
     // Reset & replay the entrance animation for this scene.
@@ -467,6 +1047,24 @@ function SwipeSceneCardImpl({
     outputRange: [SCREEN.width * 0.12, 0, -SCREEN.width * 0.12],
     extrapolate: "clamp",
   });
+
+  // Ken Burns interpolations
+  const kbScale = kenBurnsAnim.interpolate({
+    inputRange: [0, 0.5, 1],
+    outputRange: [1, 1.08, 1],
+  });
+  const kbTranslateX = kenBurnsAnim.interpolate({
+    inputRange: [0, 0.25, 0.5, 0.75, 1],
+    outputRange: [0, -8, 8, -8, 0],
+  });
+  const kbTranslateY = kenBurnsAnim.interpolate({
+    inputRange: [0, 0.33, 0.66, 1],
+    outputRange: [0, -6, 6, 0],
+  });
+
+  // Combine swipe and ambient transforms
+  const combinedScale = Animated.multiply(imageScale, kbScale);
+  const combinedTranslateX = Animated.add(imageTranslateX, kbTranslateX);
   const rightGlowOpacity = translateX.interpolate({
     inputRange: [0, SCREEN.width * 0.4],
     outputRange: [0, 1],
@@ -570,8 +1168,9 @@ function SwipeSceneCardImpl({
               StyleSheet.absoluteFillObject,
               {
                 transform: [
-                  { scale: imageScale },
-                  { translateX: imageTranslateX },
+                  { scale: combinedScale },
+                  { translateX: combinedTranslateX },
+                  { translateY: kbTranslateY },
                 ],
               },
             ]}
@@ -582,9 +1181,20 @@ function SwipeSceneCardImpl({
           /* BUG-7 FIX: gradient fallback when image fails to load (offline) */
           <View style={[StyleSheet.absoluteFillObject, { backgroundColor: accent.fill, opacity: 0.8 }]} />
         )}
-        <View
-          style={[StyleSheet.absoluteFillObject, { backgroundColor: "rgba(0, 0, 0, 0.55)" }]}
+
+        {/* Animated Gradient Overlay replacing the static black overlay */}
+        <AnimatedGradientOverlay
+          mode={scene.mode}
+          accentColor={accent.text}
+          isActive={isActive}
         />
+
+        {/* Floating particles/bokeh behind the text */}
+        <FloatingParticles
+          accentColor={accent.text}
+          isActive={isActive}
+        />
+
         <View style={styles.cardInnerHighlight} pointerEvents="none" />
         {/* 2026-05-25 — Body Pressable'ın onPress'i kaldırıldı. Eski versiyon
             tap-to-enter idi (3. yol, swipe + CTA yanında) ama kullanıcı sahne

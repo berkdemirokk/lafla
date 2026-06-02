@@ -134,6 +134,7 @@ export default function Home() {
   const [state, setState] = useState<FeedState>(EMPTY);
   const listRef = useRef<FlatList<Scene>>(null);
   const lastIndexRef = useRef(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   // 2026-05-23 — Mode filter override.
   // Profile ekranındaki mod chip'leri "/home?mode=<key>" ile push eder.
@@ -259,9 +260,13 @@ export default function Home() {
       if (nextRaw >= total) {
         // Son sahnedeyiz — başa sar, ileride EmptyState eklenebilir.
         listRef.current?.scrollToIndex({ index: 0, animated: true });
+        lastIndexRef.current = 0;
+        setActiveIndex(0);
         return;
       }
       listRef.current?.scrollToIndex({ index: nextRaw, animated: true });
+      lastIndexRef.current = nextRaw;
+      setActiveIndex(nextRaw);
     },
     [scenes.length],
   );
@@ -274,16 +279,17 @@ export default function Home() {
   const cardHeight = measuredHeight ?? computedHeight;
 
   const renderItem = useCallback(
-    ({ item }: ListRenderItemInfo<Scene>) => (
+    ({ item, index }: ListRenderItemInfo<Scene>) => (
       <SwipeSceneCard
         scene={item}
         completed={state.completed.has(item.lessonId)}
         cardHeight={cardHeight}
         onEnter={goScene}
         onSkip={goSkip}
+        isActive={state.hydrated && activeIndex === index}
       />
     ),
-    [cardHeight, goScene, goSkip, state.completed],
+    [cardHeight, goScene, goSkip, state.completed, state.hydrated, activeIndex],
   );
 
   const keyExtractor = useCallback((s: Scene) => s.id, []);
@@ -302,6 +308,7 @@ export default function Home() {
       const idx = Math.round(y / Math.max(cardHeight, 1));
       if (idx !== lastIndexRef.current) {
         lastIndexRef.current = idx;
+        setActiveIndex(idx);
         try {
           void Haptics.selectionAsync();
         } catch {}
